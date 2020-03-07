@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's tray disappeared after a few minutes.
+## Uygulamamın simgesi birkaç dakika sonra kayboluyor.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+Simge/tray depolamak için kullanılan değişken, anlamsız verileri toplamaya başladığında bu gerçekleşir.
 
 Eğer bu problemle karşılaşılırsa, aşağıdaki makaleler yardımcı olabilir:
 
@@ -59,8 +59,8 @@ Eğer hızlı çözüm istiyorsanız, değişkenlerinizi evrensel olarak değiş
 ```javascript
 const { app, Tray } = require('electron')
 app.whenReady().then(() => {
-  const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+  const tray = new Tray('/dosya/yolu/ikon.png')
+  tray.setTitle('Merhaba Dünya')
 })
 ```
 
@@ -70,8 +70,8 @@ buna:
 const { app, Tray } = require('electron')
 let tray = null
 app.whenReady().then(() => {
-  tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+  tray = new Tray('/dosya/yolu/ikon.png')
+  tray.setTitle('Merhaba Dünya')
 })
 ```
 
@@ -146,7 +146,7 @@ Eğer [ alt piksel kenar yumuşatmayı ](http://alienryderflex.com/sub_pixel/) d
 
 Alt piksel kenar yumuşatma için font gliflerini içeren katmanın saydam olmayan bir arka planına ihtiyacı vardır. (Daha fazla bilgi için [ bu konu'yu ](https://github.com/electron/electron/issues/6344#issuecomment-420371918) gör).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+Bu başarabilmek için [BrowserWindow](api/browser-window.md) oluşturucusun arka planı ayarlayın:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -157,4 +157,4 @@ let win = new BrowserWindow({
 
 Efekt sadece (bazı?) LCD ekranlarda görülür. Bir fark görmese bile, kullanıcılarınızın bazıları görebilir. Yapmamak için nedenleriniz yoksa, arka planı daima bu şekilde ayarlamak en iyisidir.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Sadece CSS arka plan ayarının, istenen etkiye sahip olmadığını unutmayın.
