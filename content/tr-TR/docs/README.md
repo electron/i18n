@@ -104,7 +104,7 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * [İşlem Nesnesi](api/process.md)
 * [Desteklenen Komut Satırı Anahtarları](api/command-line-switches.md)
 * [Ortam Değişkenleri](api/environment-variables.md)
-* [Chrome Extensions Support](api/extensions.md)
+* [Chrome Uzantıları Desteği](api/extensions.md)
 * [API değişiklikleri](breaking-changes.md)
 
 ### Özel DOM Elementleri:
