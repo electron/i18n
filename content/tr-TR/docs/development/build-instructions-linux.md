@@ -7,13 +7,13 @@ Electron'u linux üzerinde inşaa etmek için aşağıdaki yönlendirmeleri taki
 * En az 25GB disk alanı ve 8GB hafıza.
 * Python 2.7.x. CentOS gibi bazı dağıtımlar hala Python 2.6.x kullanmakta, dolayısıyla Python versiyonunuzu `python -V` komutu ile ile kontrol edin.
     
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    Lütfen sisteminizin ve Python sürümünün en az TLS 1.2'yi desteklediğinden emin olun. Hızlı bir test için aşağıdaki komut dosyasını çalıştırın:
     
     ```sh
     $ npx @electron/check-python-tls
     ```
     
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+    Komut dosyası yapılandırmanızın eski bir güvenlik protokolu kullandığını döndürürse, Python'u 2.7.x sürümünün en son versiyonuna güncelleştirmek için sisteminizin paket yöneticisini kullanın. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
 
 * Node.js. Node'u kurmanın birden fazla yolu var. [nodejs.org](https://nodejs.org)'tan indirip derleyebilirsiniz. Bu şekilde Node'u kullanıcı dizinine standart bir şekilde kurabilirsiniz. Ya da [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) gibi depoları deneyebilirsiniz.
 
