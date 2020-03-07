@@ -1427,6 +1427,16 @@ there is only one tab in the current window.</p>
                               
                               Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
                               
+                              #### `win.setTrafficLightPosition(position)` * macos*
+                              
+                              * `position` [Point](structures/point.md)
+                              
+                              Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+                              
+                              #### ` win.getTrafficLightPosition () </ 0>  <em> macos </ 1></h4>
+
+<p>Returns <code>Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.</p> 
+                              
                               #### `win.setTouchBar(touchBar)` *macOS* *Linux*
                               
                               * `touchBar` TouchBar | null
@@ -1438,6 +1448,7 @@ there is only one tab in the current window.</p>
                               #### `win.setBrowserView (browserView)` *Eksperimental*
                               
                               * `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
+                              
                               #### `win.getBrowserView()` *Experimental*
                               
                               Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
@@ -1451,6 +1462,7 @@ there is only one tab in the current window.</p>
                               #### `win.removeBrowserView(browserView)` *Experimental*
                               
                               * `browserView` [BrowserView](browser-view.md)
+                              
                               #### `win.getBrowserViews()` *Experimental*
                               
                               Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.

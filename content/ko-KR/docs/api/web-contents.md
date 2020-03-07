@@ -679,7 +679,7 @@ Returns:
 * `event` IpcMainEvent
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+Emitted when `remote.getGlobal()` is called in the renderer process. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 #### 이벤트 'remote-get-builtin'
 
@@ -696,7 +696,7 @@ Returns:
 
 * `event` IpcMainEvent
 
-Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 #### 이벤트: 'remote-get-current-web-contents'
 
@@ -704,7 +704,7 @@ Returns:
 
 * `event` IpcMainEvent
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 #### 이벤트: 'remote-get-guest-web-contents'
 
@@ -713,7 +713,7 @@ Returns:
 * `event` IpcMainEvent
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+Emitted when `<webview>.getWebContents()` is called in the renderer process. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 ### 인스턴스 메서드
 
@@ -1173,7 +1173,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `footer` String (optional) - String to be printed as page footer.
 * `callback` Function (optional) 
   * `success` Boolean - Indicates success of the print call.
-  * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
+  * `failureReason` String - Error description called back if the print fails.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 

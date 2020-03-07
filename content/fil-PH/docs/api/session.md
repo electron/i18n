@@ -92,6 +92,42 @@ Ibinabalik ang:
 
 Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
 
+#### Event: 'spellcheck-dictionary-initialized'
+
+Ibinabalik ang:
+
+* `kaganapan` kaganapan
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
+
+#### Event: 'spellcheck-dictionary-download-begin'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file starts downloading
+
+#### Event: 'spellcheck-dictionary-download-success'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully downloaded
+
+#### Event: 'spellcheck-dictionary-download-failure'
+
+Ibinabalik ang:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file download fails. For details on the failure you should collect a netlog and inspect the download request.
+
 ### Mga Pamamaraan ng Instance
 
 Ang sumusunod na pamamaraan ay magagamit para sa mga instance ng `session`:
@@ -233,7 +269,7 @@ Hindi pinapagana ang anumang network na pag-emulate na aktibo na para sa `sesyon
 * `proc` Function | null 
   * `kahilingan` Bagay 
     * `hostname` na String
-    * `certificate` na [Sertipiko](structures/certificate.md)
+    * `certificate` [Certificate](structures/certificate.md)
     * `verificationResult` na String - Resulta ng pagpapatunay mula sa chromium.
     * `errorCode` na Integer - code ng kamalian.
   * `callback` Function 
@@ -410,7 +446,7 @@ Returns `String[]` - An array of language codes the spellchecker is enabled for.
 
 * `url` String - A base URL for Electron to download hunspell dictionaries from.
 
-By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
+By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
 
 If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Please note the trailing slash. The URL to the dictionaries is formed as `${url}${filename}`.
 

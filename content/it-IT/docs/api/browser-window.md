@@ -1400,6 +1400,16 @@ Adds a vibrancy effect to the browser window. Passing `null` or an empty string 
 
 Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
 
+#### `win.setTrafficLightPosition(position)` *macOS*
+
+* `posizione` [Punto](structures/point.md)
+
+Configura una posizione personalizzata per i pulsanti del semaforo. Può essere usato solo con `titleBarStyle` impostato a `nascosto`.
+
+#### `win.getTrafficLightPosition()` *macOS*
+
+Restituisce `Punto` - La posizione corrente per i pulsanti del semaforo. Può essere usato solo con `titleBarStyle` impostato a `nascosto`.
+
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
 * `touchBar` TouchBar | null

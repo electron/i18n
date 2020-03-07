@@ -1400,6 +1400,16 @@ On macOS it does not remove the focus from the window.
 
 Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
 
+#### `win.setTrafficLightPosition(position)` *macOS*
+
+* `position` [Point](structures/point.md)
+
+Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+
+#### `win.getTrafficLightPosition()` *macOS*
+
+Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+
 #### `win.setTouchBar(touchBar)` *macOS* *Експериментальний*
 
 * `touchBar` TouchBar | null

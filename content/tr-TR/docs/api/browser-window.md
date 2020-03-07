@@ -1400,6 +1400,16 @@ Tarayıcı penceresine titreşim efekti ekler. `null` ve boş bir string gönder
 
 Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
 
+#### `win.setTrafficLightPosition(position)` *macOS*
+
+* `position` [Point](structures/point.md)
+
+Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+
+#### `win.getTrafficLightPosition()` *macOS*
+
+Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental</1</h4> 
 
 * `touchBar` TouchBar | null
