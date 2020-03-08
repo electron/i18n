@@ -104,35 +104,35 @@ Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Methods` 
 Örnek olarak `Session` ve `Cookies` sınıflarını kullanmak:
 
 ```markdown
-# session
+# oturum
 
-## Methods
+## Yöntemler
 
 ### session.fromPartition(partition)
 
-## Static Properties
+## Statik Özellikler
 
 ### session.defaultSession
 
-## Class: Session
+## Sınıf: Oturum
 
-### Instance Events
+### Örnek Olaylar
 
-#### Event: 'will-download'
+#### Olay: 'will-download'
 
-### Instance Methods
+### Örnek Yöntemleri
 
-#### `ses.getCacheSize()`
+#### 'ses.getCacheSize()'
 
-### Instance Properties
+### Örnek Özellikleri
 
-#### `ses.cookies`
+#### 'ses.çerezleri'
 
-## Class: Cookies
+## Sınıf: Çerezler
 
-### Instance Methods
+### Örnek Yöntemleri
 
-#### `cookies.get(filter, callback)`
+#### 'cookies.get(filtre, geri arama)'
 ```
 
 ### Metodlar
@@ -169,7 +169,7 @@ Yöntemin altında her değişken hakkında daha ayrıntılı bilgi var. Bağım
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Ya da Electron'un [`WebContent`](api/web-contents.md) gibi özel bir tür
 
-Bir bağımsız değişken veya yöntem belirli platformlara özgü ise, bu platformalar veri türünün ardında boşlukla sınırlanmış italikleşmiş bir liste kullanılarak ifade edilir. Values can be `macOS`, `Windows` or `Linux`.
+Bir bağımsız değişken veya yöntem belirli platformlara özgü ise, bu platformalar veri türünün ardında boşlukla sınırlanmış italikleşmiş bir liste kullanılarak ifade edilir. Değer `macOS`, `Windows` veya `Linux` olabilir.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animasyon ekle.
@@ -211,4 +211,4 @@ Başlığın bir modülün veya bir sınıfın özelliği olup olmadığına ba�
 
 ## Belge Çevirileri
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Bakınız [electron/electron-i18n](https://github.com/electron/i18n#readme)

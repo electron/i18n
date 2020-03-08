@@ -1,4 +1,4 @@
-# Chinese Travelers 
+# 官方指南
 
 請確認所使用的說明文件版本，與您所使用的 Electron 版本一致。 版本編號應該屬於網頁聯結 URL 中的一部份。 如果版本不對，可能代表你正在讀的是一個開發中的分支文件，當中可能有跟你 Electron 版本不相容的 API。 若要查看舊版本的文檔，你可以在 GitHub 網頁中，打開「Switch branches/tags」下拉清單，選擇與您的版本相合的Tag。
 
