@@ -1,6 +1,6 @@
 # 原生文件拖放
 
-作为桌面程序，当然希望能够实现操作系统的 drag & drop 功能。 很多网站已经支持拖拽文件 Electron 当然也支持
+作为桌面程序，当然希望能够实现操作系统的 drag & drop 功能。 很多网站已经支持拖拽文件， Electron 当然也支持
 
 要在 app 中实现此功能 ，你需要在 Render 进程中调用`webContents.startDrag(item)` API， 此API会给 Main 进程发送一个`ondragstart`事件。
 
