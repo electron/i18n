@@ -1,9 +1,15 @@
-on: [push, pull_request]
-
 name: CI / GitHub Actions
 
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
 jobs:
-  installDependencies:
+  build:
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
