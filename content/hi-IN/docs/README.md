@@ -45,7 +45,7 @@
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [ऑफस्क्रीन रेंडरिंग](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [इलेक्ट्रॉन में वेब एम्बेड](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [स्पेकट्रॉन](tutorial/accessibility.md#spectron)
   * [डेवट्रॉन](tutorial/accessibility.md#devtron)
@@ -82,10 +82,10 @@ These individual tutorials expand on topics discussed in the guide above.
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [समस्या निवारण](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
+* इलेक्ट्रॉन विज्ञप्ति & डेवलपर फीडबैक 
+  * [वर्जन नीति](tutorial/electron-versioning.md)
+  * [टाइमलाइन जारी करें](tutorial/electron-timelines.md)
+  * [ऐप फीडबैक प्रोग्राम](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
