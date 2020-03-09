@@ -5,7 +5,9 @@ require('require-yaml')
 
 import * as walk from 'walk-sync'
 import * as path from 'path'
+import { sync as mkdir } from 'make-dir'
 import * as fs from 'fs'
+import { writeHelper } from '../lib/write-helper'
 import { parseBlogFile, parseFile } from '../lib/parsers'
 import { IParseFile } from '../lib/interfaces'
 import locales, { IResult as ILocalesResult } from '../lib/locales'
@@ -98,21 +100,15 @@ async function main() {
     glossary[locale] = await parseElectronGlossary(locale)
   }
 
-  // Writes locales.json
-  fs.writeFileSync(
-    path.join(__dirname, '../dist/locales.json'),
-    JSON.stringify(
-      {
-        locales,
-        date: new Date(),
-      },
-      null,
-      2
-    )
-  )
+  mkdir(path.dirname('dist'))
 
+  // Writes locales.json
+  writeHelper('locales', 'locales', locales)
+
+  // Writes meta.json
+  // TODO: use writeHelper()
   fs.writeFileSync(
-    path.join(__dirname, '../index.json'),
+    path.join(__dirname, '../dist/meta.json'),
     JSON.stringify(
       {
         electronLatestStableVersion: packageJSON.electronLatestStableTag.replace(
@@ -121,16 +117,22 @@ async function main() {
         ),
         electronLatestStableTag: packageJSON.electronLatestStableTag,
         electronMasterBranchCommit: packageJSON.electronMasterBranchCommit,
-        docs: docsByLocale,
-        website: websiteStringsByLocale,
-        blogs: websiteBlogsByLocale,
-        glossary: glossary,
         date: new Date(),
-      },
-      null,
-      2
+      }
     )
   )
+
+  // Writes docs.json
+  writeHelper('docs', 'docs', docsByLocale)
+
+  // Writes website.json
+  writeHelper('website', 'website', websiteStringsByLocale)
+
+  // Writes blogs.json
+  writeHelper('blogs', 'blogs', websiteBlogsByLocale)
+
+  // Writes glossary.json
+  writeHelper('glossary', 'glossary', glossary)
 }
 
 main()
