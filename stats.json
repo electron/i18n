@@ -49,7 +49,7 @@
     "words_approved": "3758",
     "translated_progress": 14,
     "approved_progress": 2,
-    "qa_issues": 59
+    "qa_issues": 58
   },
   {
     "name": "Czech",
@@ -133,14 +133,14 @@
     "name": "Hindi",
     "code": "hi",
     "phrases": "15226",
-    "translated": "1839",
+    "translated": "1850",
     "approved": "279",
     "words": "154799",
-    "words_translated": "15546",
+    "words_translated": "15583",
     "words_approved": "865",
     "translated_progress": 10,
     "approved_progress": 0,
-    "qa_issues": 1331
+    "qa_issues": 1337
   },
   {
     "name": "Indonesian",
@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "15226",
-    "translated": "7595",
+    "translated": "7611",
     "approved": "2365",
     "words": "154799",
-    "words_translated": "59009",
+    "words_translated": "59261",
     "words_approved": "17268",
     "translated_progress": 38,
     "approved_progress": 11,
-    "qa_issues": 2334
+    "qa_issues": 2341
   },
   {
     "name": "Ukrainian",
