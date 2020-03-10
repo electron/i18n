@@ -25,7 +25,7 @@ If you'd like to contribute to Electron, see the [contributing document](https:/
 
 ## 支持版
 
-The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
+The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.1.x, then the 5.0.x as well as the 4.2.x series are supported. We only support the latest minor release for each stable release series. This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
 
 The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
 
@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 
 ### 当前支持的版本
 
-* 8.x.y
-* 7.x.y
-* 6.x.y
+* 8.1.x
+* 7.1.x
+* 6.1.x
 
 ### End-of-life
 
