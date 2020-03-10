@@ -25,7 +25,7 @@
 
 ## 지원되는 버전
 
-마지막 세번의 *안정화* 주요 버전은 Electron 팀이 지원합니다. 예를 들어 마지막 릴리스가 6.x.y 라면 5.x.y와 4.x.y 시리즈까기 지원됩니다.
+마지막 세번의 *안정화* 주요 버전은 Electron 팀이 지원합니다. For example, if the latest release is 6.1.x, then the 5.0.x as well as the 4.2.x series are supported. We only support the latest minor release for each stable release series. This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
 
 마지막 안정화 릴리스는 `master`에서 모든 수정사항을 일방적으로 받고 있으며, 그 이전 버전은 대부분의 수정 사항을 시간 및 대역폭 보증으로 받습니다. 가장 오래된 지원 릴리스 라인은 보안 수정사항만 직접 받습니다.
 
@@ -33,9 +33,9 @@
 
 ### 현재 지원되는 버전
 
-* 8.x.y
-* 7.x.y
-* 6.x.y
+* 8.1.x
+* 7.1.x
+* 6.1.x
 
 ### 생애 종료
 
