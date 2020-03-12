@@ -1404,11 +1404,11 @@ macOS ではウィンドウからフォーカスは除去されません。
 
 * `position` [Point](structures/point.md)
 
-Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+信号機ボタンのカスタム位置を設定します。`titleBarStyle` を `hidden` にした場合にのみ使用できます。
 
 #### `win.getTrafficLightPosition()` *macOS*
 
-Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+戻り値 `Point` - 信号機ボタンの現在位置。`titleBarStyle` を `hidden` にした場合のみ使用できます。
 
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
