@@ -14,13 +14,13 @@ Electron はカスタム Goma バックエンドのデプロイがあり、こ�
 
 Goma を使用している場合、マシンで通常サポートされている値よりも大幅に大きい値の `j` で `ninja` を実行できます。
 
-Windows や Linux では **200**、macOS では **50** より大きい値を設定しないでください。 We monitor Goma system usage, and users found to be abusing it with unreasonable concurrency will be de-activated.
+Windows や Linux では **200**、macOS では **50** より大きい値を設定しないでください。 Goma システムの使用状況は監視されており、不合理な並列実行で Goma システムを悪用していることが判明したユーザーは無効になります。
 
 ```bash
 ninja -C out/Testing electron -j 200
 ```
 
-If you're using `build-tools`, appropriate `-j` values will automatically be used for you.
+`build-tools` を使用している場合、適切な `-j` の値が自動的に使用されます。
 
 ## Goma の監視
 
