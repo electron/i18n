@@ -29,10 +29,6 @@ By default, this module will check for updates at app startup, then every ten mi
 
 If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
 
-## Using `electron-builder`
-
-Kapag ang iyong app ay nakapakete kasama ang [`electron-builder`](https://github.com/electron-userland/electron-builder), magagamit mo ang [electron-updater](https://www.electron.build/auto-update) na modyul, na hindi nangangailangan ng isang server at pinapayagan ang mga update mula sa S3, Github o kahit anong istatikong host ng file. Pinapalikwas nito ang ang built-in na mekanismong pang-update ng Electron, ang ibig sabihin na ang natitira sa dokumentasyong ito ay hindi maaaplay sa updater ng `electron-builder`.
-
 ## Pagde-deploy ng isang Update na Server
 
 If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
