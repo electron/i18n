@@ -42,7 +42,7 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
+`NODE_OPTIONS` は、以下のようにしない限りパッケージされたアプリ内では明示的に許可されません。
 
 ```sh
 --max-http-header-size
