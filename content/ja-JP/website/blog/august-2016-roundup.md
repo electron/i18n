@@ -1,5 +1,5 @@
 ---
-title: 'August 2016&#58; New Apps'
+title: '2016 年 8 月号 &#58; 新しいアプリ'
 author: jlord
 date: '2016-09-06'
 ---
