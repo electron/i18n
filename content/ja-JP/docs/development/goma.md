@@ -8,13 +8,13 @@ Electron はカスタム Goma バックエンドのデプロイがあり、こ�
 
 現在、Goma の使用をサポートしている方法は、[ビルドツール](https://github.com/electron/build-tools) の使用のみです。 `build-tools` をセットアップすると、Goma の設定が自動的にインクルードされます。
 
-あなたがメンテナーかつクラスターにアクセスできる場合は、Goma クラスターを使用する `build-tools` を構成するために `e init` を `--goma=cluster` 付きで実行するようにしてください。  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
+あなたがメンテナーかつクラスターにアクセスできる場合は、Goma クラスターを使用する `build-tools` を構成するために `e init` を `--goma=cluster` 付きで実行するようにしてください。  既存のコンフィグがある場合は、`"goma": "cluster"` をコンフィグファイルにセットするだけです。
 
 ## Goma でのビルド
 
 Goma を使用している場合、マシンで通常サポートされている値よりも大幅に大きい値の `j` で `ninja` を実行できます。
 
-Please do not set a value higher than **200** on Windows or Linux and **50** on macOS. We monitor Goma system usage, and users found to be abusing it with unreasonable concurrency will be de-activated.
+Windows や Linux では **200**、macOS では **50** より大きい値を設定しないでください。 We monitor Goma system usage, and users found to be abusing it with unreasonable concurrency will be de-activated.
 
 ```bash
 ninja -C out/Testing electron -j 200
