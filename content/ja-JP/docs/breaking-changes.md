@@ -62,7 +62,7 @@ Electron 9.0 では、旧シリアライズアルゴリズムが削除されま�
 
 ### `shell.openItem` --> `shell.openPath`
 
-The `shell.openItem` API has been replaced with an asynchronous `shell.openPath` API. You can see the original API proposal and reasoning [here](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
+`shell.openItem` API は非同期の `shell.openPath` API に置き換えられました。 元の API の提案と理由は [こちら](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md) で確認できます。
 
 ## 予定されている破壊的なAPIの変更 (8.0)
 
