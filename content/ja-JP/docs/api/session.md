@@ -92,41 +92,41 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 一般的に [リソースヒント](https://w3c.github.io/resource-hints/) が原因で、レンダリングプロセスが URL への事前接続を要求したときに生成されます。
 
-#### Event: 'spellcheck-dictionary-initialized'
+#### イベント: 'spellcheck-dictionary-initialized'
 
 戻り値:
 
 * `event` Event
-* `languageCode` String - The language code of the dictionary file
+* `languageCode` String - 辞書ファイルの言語コード
 
-Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
+hunspell 辞書ファイルの初期化に成功したときに発生します。これはファイルのダウンロード直後にも発生します。
 
-#### Event: 'spellcheck-dictionary-download-begin'
-
-戻り値:
-
-* `event` Event
-* `languageCode` String - The language code of the dictionary file
-
-Emitted when a hunspell dictionary file starts downloading
-
-#### Event: 'spellcheck-dictionary-download-success'
+#### イベント: 'spellcheck-dictionary-download-begin'
 
 戻り値:
 
 * `event` Event
-* `languageCode` String - The language code of the dictionary file
+* `languageCode` String - 辞書ファイルの言語コード
 
-Emitted when a hunspell dictionary file has been successfully downloaded
+hunspell 辞書ファイルのダウンロードが始まったときに発生します
 
-#### Event: 'spellcheck-dictionary-download-failure'
+#### イベント: 'spellcheck-dictionary-download-success'
 
 戻り値:
 
 * `event` Event
-* `languageCode` String - The language code of the dictionary file
+* `languageCode` String - 辞書ファイルの言語コード
 
-Emitted when a hunspell dictionary file download fails. For details on the failure you should collect a netlog and inspect the download request.
+hunspell 辞書ファイルのダウンロードに成功したときに発生します
+
+#### イベント: 'spellcheck-dictionary-download-failure'
+
+戻り値:
+
+* `event` Event
+* `languageCode` String - 辞書ファイルの言語コード
+
+hunspell 辞書ファイルのダウンロードに失敗したときに発生します。失敗の詳細は、netlog を収集してダウンロードリクエストを調べる必要があります。
 
 ### インスタンスメソッド
 
@@ -446,9 +446,9 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 * `url` String - Electron が hunspell 辞書をダウンロードする基底 URL。
 
-デフォルトでは、Electron は Chromium CDN から hunspell 辞書をダウンロードします。 この動作をオーバーライドする場合は、この API を使用して、独自ホスト版の hunspell 辞書を辞書ダウンローダーが指すようにすることができます。 We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
+デフォルトでは、Electron は Chromium CDN から hunspell 辞書をダウンロードします。 この動作をオーバーライドする場合は、この API を使用して、独自ホスト版の hunspell 辞書を辞書ダウンローダーが指すようにすることができます。 ホストする必要があるファイルのリリースごとに `hunspell_dictionaries.zip` ファイルをファイルサーバーで公開します。ファイルサーバーは **大文字と小文字を区別しない** ようにして、元通りの大文字小文字のファイルが入った ZIP ファイルと、全て小文字のファイル名にしたものの二通りを用意する必要があります。
 
-If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Please note the trailing slash. The URL to the dictionaries is formed as `${url}${filename}`.
+`hunspell_dictionaries.zip` が `https://example.com/dictionaries/language-code.bdic` に存在して利用できる場合、`ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')` を呼び出すことになります。 末尾のスラッシュに注意してください。 辞書への URL は、`${url}${filename}` の形式になります。
 
 **注意:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。 この API は、macOS では何もしません。
 

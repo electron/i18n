@@ -29,10 +29,6 @@ De manera predeterminada, este módulo verificará si existen actualizaciones en
 
 Si necesita personalizar su configuración, puede [usar la opción de `update-electron-app`](https://github.com/electron/update-electron-app) o [usar el servicio de actualización directo](https://github.com/electron/update.electronjs.org).
 
-## Usando `electron-builder`
-
-Si su aplicación fue empaquetada con [`electron-builder`](https://github.com/electron-userland/electron-builder) usted puede usar el modulo [electron-updater](https://www.electron.build/auto-update) que no requiere de un servidor y permite actualizaciones desde Amazon S3, GitHub o cualquier otro host de archivos estáticos. Esto hace a un lado el mecanismo de actualización incorporado por Electrón, lo que significa que el resto de esta documentación no se aplicará al actualizador de `electron-builder`.
-
 ## Implementar un servidor de actualización
 
 Si está desarrollando una aplicación privada de Electrón, o si no está publicando lanzamientos en GitHub, tal vez pueda considerar poseer su propio servidor de actualizaciones.

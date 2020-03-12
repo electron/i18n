@@ -29,10 +29,6 @@ require('update-electron-app')()
 
 구성을 사용자 정의해야 하는 경우 [옵션을 `update-electron-app`](https://github.com/electron/update-electron-app)으로 전달하거나 [업데이트 서비스를 직접 사용](https://github.com/electron/update.electronjs.org)할 수 있습니다.
 
-## `electron-builder` 사용
-
-앱이 [`electron-builder`](https://github.com/electron-userland/electron-builder) 와 함께 패키지되어있는 경우, 서버가 필요없고, S3, GitHub 또는 기타 정적 파일 호스트로 업데이트 할 수있는 [electron-updater](https://www.electron.build/auto-update) 모듈을 사용할 수 있습니다 이것은 일렉트론의 빌트인 업데이트 메커니즘을 피해 동작하며, 이 문서의 나머지 부분은 `electron-builder`의 업데이터에는 적용되지 않는다.
-
 ## 서버에 업데이트 배포
 
 비공개 Electron 응용 프로그램을 개발 중이거나 GitHub 릴리스에 릴리스를 게시하지 않는 경우 자체 업데이트 서버를 실행해야 할 수도 있습니다.

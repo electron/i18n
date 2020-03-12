@@ -1173,7 +1173,7 @@ console.log(requestId)
   * `footer` String (任意) - ページフッターとして印刷される文字列。
 * `callback` Function (任意) 
   * `success` Boolean - 印刷呼び出しの成功を示す。
-  * `failureReason` String - Error description called back if the print fails.
+  * `failureReason` String - 印刷に失敗した場合に呼び戻されるエラーの説明。
 
 ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 

@@ -2,25 +2,25 @@
 
 > Goma は Chromium や Android などのオープンソースプロジェクト向けに公開されたコンパイラサービスです。
 
-Electron はカスタム Goma バックエンドのデプロイがあり、これはすべての Electron メンテナーが利用できます。  認証詳細情報については以下にある [アクセス](#access) の章を参照してください。  There is also a `cache-only` Goma endpoint that will be used by default if you do not have credentials.  Requests to the cache-only Goma will not hit our cluster, but will read from our cache and should result in significantly faster build times.
+Electron はカスタム Goma バックエンドのデプロイがあり、これはすべての Electron メンテナーが利用できます。  認証詳細情報については以下にある [アクセス](#access) の章を参照してください。  資格情報がない場合にデフォルトで使用される `cache-only` Goma エンドポイントもあります。  cache-only Goma へのリクエストはクラスターにヒットしませんが、キャッシュから読み取るためビルド時間が大幅に短縮されます。
 
 ## Goma を有効にする
 
-Currently the only supported way to use Goma is to use our [Build Tools](https://github.com/electron/build-tools). Goma configuration is automatically included when you set up `build-tools`.
+現在、Goma の使用をサポートしている方法は、[ビルドツール](https://github.com/electron/build-tools) の使用のみです。 `build-tools` をセットアップすると、Goma の設定が自動的にインクルードされます。
 
-If you are a maintainer and have access to our cluster, please ensure that you run `e init` with `--goma=cluster` in order to configure `build-tools` to use the Goma cluster.  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
+あなたがメンテナーかつクラスターにアクセスできる場合は、Goma クラスターを使用する `build-tools` を構成するために `e init` を `--goma=cluster` 付きで実行するようにしてください。  既存のコンフィグがある場合は、`"goma": "cluster"` をコンフィグファイルにセットするだけです。
 
 ## Goma でのビルド
 
 Goma を使用している場合、マシンで通常サポートされている値よりも大幅に大きい値の `j` で `ninja` を実行できます。
 
-Please do not set a value higher than **200** on Windows or Linux and **50** on macOS. We monitor Goma system usage, and users found to be abusing it with unreasonable concurrency will be de-activated.
+Windows や Linux では **200**、macOS では **50** より大きい値を設定しないでください。 Goma システムの使用状況は監視されており、不合理な並列実行で Goma システムを悪用していることが判明したユーザーは無効になります。
 
 ```bash
 ninja -C out/Testing electron -j 200
 ```
 
-If you're using `build-tools`, appropriate `-j` values will automatically be used for you.
+`build-tools` を使用している場合、適切な `-j` の値が自動的に使用されます。
 
 ## Goma の監視
 

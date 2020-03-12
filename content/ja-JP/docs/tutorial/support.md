@@ -25,7 +25,7 @@ Electron の [サポートしているバージョン](#supported-versions) に�
 
 ## サポートされているバージョン
 
-最新の 3 つの *安定した* メジャーバージョンは Electron チームによってサポートされます。 For example, if the latest release is 6.1.x, then the 5.0.x as well as the 4.2.x series are supported. We only support the latest minor release for each stable release series. This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
+最新の 3 つの *安定した* メジャーバージョンは Electron チームによってサポートされます。 たとえば、最新のリリースが 6.1.x の場合、5.0.x と 4.2.x 系列がサポートされます。 安定リリース系列ごとに最新のマイナーリリースのみをサポートしています。 つまり、セキュリティ修正の場合 6.1.x は修正を受けますが、6.0.x の新しいバージョンはリリースしません。
 
 最新の安定版リリースは一方的に `master` からすべての修正を受け取り、それ以前のバージョンは時間と容量が許すようなこれら修正の大部分を受けています。 サポートされている最も古いリリースラインには、セキュリティ修正のみが直接送られます。
 
