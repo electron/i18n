@@ -29,11 +29,7 @@ require('update-electron-app')()
 
 設定をカスタマイズしたい場合、[`update-electron-app`にオプションを渡す](https://github.com/electron/update-electron-app)か、または[アップデートサービスを直接使用](https://github.com/electron/update.electronjs.org)ができます。
 
-## `electron-builder`の使用
-
-アプリが [`electron-builder`](https://github.com/electron-userland/electron-builder) でパッケージされている場合は、[electron-updater](https://www.electron.build/auto-update) モジュールを使用できます。これはサーバを必要とせず、S3、GitHub、その他の静的ファイルホストからの更新も可能です。 これは、Electron に組み込まれているアップデートメカニズムを回避するものです。つまり、このドキュメントの残りの部分は、`electron-builder` のアップデートには適用されません。
-
-## アップデートサーバーを配備
+## アップロードサーバーを配備
 
 プライベートの Electron アプリケーションを開発している場合、または GitHub リリースにリリースを公開していない場合は、独自のアップデートサーバーを実行する必要があるかもしれません。
 
