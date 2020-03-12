@@ -4,37 +4,37 @@ Pastikan Anda menggunakan dokumen yang sesuai dengan versi Electron Anda. Nomor 
 
 ## Pertanyaan Umum
 
-Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
+Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat "issue":
 
-* [Elektron FAQ](faq.md)
+* [Electron FAQ](faq.md)
 
 ## Panduan dan Tutorial
 
 * [Tentang Electron](tutorial/about.md)
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Menyiapkan macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Menyiapkan Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Menyiapkan Linux](tutorial/development-environment.md#setting-up-linux)
+* [Mempersiapkan "Development Environment"](tutorial/development-environment.md) 
+  * [Setting untuk macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Setting untuk Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Setting untuk Linux](tutorial/development-environment.md#setting-up-linux)
   * [Memilih Editor](tutorial/development-environment.md#a-good-editor)
 * [Membuat Aplikasi Pertama Anda](tutorial/first-app.md) 
-  * [Memasang Elektron](tutorial/first-app.md#installing-electron)
-  * [Pengembangan Elektron dalam Singkatnya](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [Menginstall Electron](tutorial/first-app.md#installing-electron)
+  * [Pengembangan Electron secara singkat](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Menjalankan Aplikasi Anda](tutorial/first-app.md#running-your-app)
 * [Boilerplates dan CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [elektron-penempa](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [elektron-bereaksi-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Alat dan Boilerplate lainnya](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [Tools dan Boilerplate lainnya](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Arsitektur Aplikasi](tutorial/application-architecture.md) 
-  * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Menggunakan API Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Menggunakan API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
-  * [Menggunakan Modul Node.js Asli](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+  * [Main dan Renderer proses](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Menggunakan Electron APIs](tutorial/application-architecture.md#using-electron-apis)
+  * [Menggunakan Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
+  * [Menggunakan Modul Asli Node.js](tutorial/using-native-node-modules.md)
+  * [Strategi dan Kinerja](tutorial/performance.md)
 * Menambahkan Fitur ke Aplikasi Anda 
-  * [pemberitahuan](tutorial/notifications.md)
-  * [Dokumen Terkini](tutorial/recent-documents.md)
+  * [Notifikasi](tutorial/notifications.md)
+  * [Dokumen Terbaru](tutorial/recent-documents.md)
   * [Progres Aplikasi](tutorial/progress-bar.md)
   * [Menu Dock Kustom](tutorial/macos-dock.md)
   * [Windows Taskbar Kustom](tutorial/windows-taskbar.md)
