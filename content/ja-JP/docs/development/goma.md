@@ -2,13 +2,13 @@
 
 > Goma は Chromium や Android などのオープンソースプロジェクト向けに公開されたコンパイラサービスです。
 
-Electron はカスタム Goma バックエンドのデプロイがあり、これはすべての Electron メンテナーが利用できます。  認証詳細情報については以下にある [アクセス](#access) の章を参照してください。  There is also a `cache-only` Goma endpoint that will be used by default if you do not have credentials.  Requests to the cache-only Goma will not hit our cluster, but will read from our cache and should result in significantly faster build times.
+Electron はカスタム Goma バックエンドのデプロイがあり、これはすべての Electron メンテナーが利用できます。  認証詳細情報については以下にある [アクセス](#access) の章を参照してください。  資格情報がない場合にデフォルトで使用される `cache-only` Goma エンドポイントもあります。  cache-only Goma へのリクエストはクラスターにヒットしませんが、キャッシュから読み取るためビルド時間が大幅に短縮されます。
 
 ## Goma を有効にする
 
-Currently the only supported way to use Goma is to use our [Build Tools](https://github.com/electron/build-tools). Goma configuration is automatically included when you set up `build-tools`.
+現在、Goma の使用をサポートしている方法は、[ビルドツール](https://github.com/electron/build-tools) の使用のみです。 `build-tools` をセットアップすると、Goma の設定が自動的にインクルードされます。
 
-If you are a maintainer and have access to our cluster, please ensure that you run `e init` with `--goma=cluster` in order to configure `build-tools` to use the Goma cluster.  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
+あなたがメンテナーかつクラスターにアクセスできる場合は、Goma クラスターを使用する `build-tools` を構成するために `e init` を `--goma=cluster` 付きで実行するようにしてください。  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
 
 ## Goma でのビルド
 
