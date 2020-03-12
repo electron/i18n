@@ -2,15 +2,15 @@
 
 ## Mengapa saya menemui kesulitan menginstal Electron?
 
-Saat menjalankan `npm install electron`, beberapa pengguna sesekali menemuinya kesalahan instalasi.
+Saat menjalankan `npm install electron`, beberapa pengguna sesekali menemui kesalahan pada instalasi.
 
-Di hampir semua kasus, kesalahan ini adalah hasil dari masalah jaringan dan tidak masalah dengan paket npm `electron`. Kesalahan seperti `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, dan `ETIMEDOUT` adalah semua indikasi dari masalah jaringan. Solusi terbaik adalah untuk mencoba beralih jaringan, atau menunggu sebentar dan mencoba memasang lagi.
+Di hampir semua kasus, kesalahan ini adalah hasil dari masalah jaringan dan tidak masalah dengan paket npm `electron`. Kesalahan seperti `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, dan `ETIMEDOUT` adalah semua indikasi dari masalah jaringan. Solusi terbaik adalah untuk mencoba mengganti jaringan, atau menunggu sebentar dan mencoba menginstall lagi.
 
-Anda juga dapat mencoba mendownload Electron langsung dari [electron/electron/release](https://github.com/electron/electron/releases) Jika memasang melalui `npm`gagal.
+Anda juga dapat mencoba mendownload Electron langsung dari [electron/electron/release](https://github.com/electron/electron/releases) Jika gagal menginstall melalui `npm`.
 
-## Ketika Electron akan meng-upgrade ke Chrome terbaru?
+## Ketika Electron akan ditingkatkan ke versi Chrome terbaru?
 
-Versi Chrome Electron biasanya terbentur dalam satu atau dua minggu setelahnya versi Chrome stabil baru akan dirilis. Perkiraan ini tidak dijamin dan tergantung pada jumlah pekerjaan yang terlibat dengan peningkatan.
+Versi Chrome Electron biasanya terbentur dalam satu atau dua minggu setelahnya versi Chrome stabil baru akan dirilis. Perkiraan ini tidak menjamiin dan tergantung pada jumlah pekerjaan yang terlibat dalam proses upgrade.
 
 Hanya saluran stabil Chrome yang digunakan. Jika perbaikan penting ada dalam versi beta atau dev Saluran, kita akan back-port itu.
 
