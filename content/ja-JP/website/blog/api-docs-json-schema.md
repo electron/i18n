@@ -71,11 +71,11 @@ Electron の API ドキュメントは [Electron Coding Style](https://github.co
 
 [electron-docs-linter](https://github.com/electron/electron-docs-linter) は `electron/electron` レポジトリの新しい開発用依存関係となります。 これは、すべての Markdown ファイルを lint し、スタイルガイドのルールを適用するコマンドラインツールです。 エラーが見つかった場合、それらが列挙され、リリースプロセスが停止します。 API ドキュメントが有効な場合、`electron-json.api` ファイルが作成され、Electron リリースの一部として [GitHub にアップロード](https://github.com/electron/electron/releases/tag/v1.4.1) されます。
 
-## Standard Javascript and Standard Markdown
+## Standard Javascript と Standard Markdown
 
 今年の始め頃に Electron のコードベースが更新され、全 JavaScript で [`standard`](http://standardjs.com/) リンターが使用されました。 Standard の README は、この決定の後ろ盾である理由の要約です。
 
-> Adopting standard style means ranking the importance of code clarity and community conventions higher than personal style. This might not make sense for 100% of projects and development cultures, however open source can be a hostile place for newbies. Setting up clear, automated contributor expectations makes a project healthier.
+> Standard スタイルを採用するということは、個人のスタイルよりもコードの明快さとコミュニティの慣習の重要性を高く位置付けるということです。 これはプロジェクトと開発の文化にとって 100% の意義を持たないかもしれませんが、オープンソースは初心者が嫌う場所になることがあるものです。 Setting up clear, automated contributor expectations makes a project healthier.
 
 また、ドキュメント内のすべての JavaScript コードスニペットが有効であり、コードベース自体のスタイルと一貫性があることを確認するために、少し前に [standard-markdown](https://github.com/zeke/standard-markdown) を作成しました。
 
