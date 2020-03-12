@@ -28,10 +28,10 @@ ninja -C out/Testing electron -j 200
 
 ## アクセス
 
-For security and cost reasons, access to Electron's Goma cluster is currently restricted to Electron Maintainers.  アクセスしたい場合は、Slack の `#access-requests` にアクセスし、`@goma-squad` に連絡してアクセスを要求してください。  メンテナーであることはアクセスを *自動的に* 許可するものではなく、アクセスはその場に応じて許可されることに留意してください。
+現在、セキュリティとコストの理由により Electron Goma へのアクセスは Electron メンテナーに制限されています。  アクセスしたい場合は、Slack の `#access-requests` にアクセスし、`@goma-squad` に連絡してアクセスを要求してください。  メンテナーであることはアクセスを *自動的に* 許可するものではなく、アクセスはその場に応じて許可されることに留意してください。
 
-## Uptime / Support
+## 可用時間 / サポート
 
-We have automated monitoring of our Goma cluster and cache at https://status.notgoma.com
+https://status.notgoma.com で Goma クラスターとキャッシュの監視を自動化しています
 
-We do not provide support for usage of Goma and any issues raised asking for help / having issues will _probably_ be closed without much reason, we do not have the capacity to handle that kind of support.
+Goma の使用に対するサポートは提供していません。ヘルプを求める Issue は _ほぼ全て_ 理由なくクローズします。そういったサポートは取り扱いません。
