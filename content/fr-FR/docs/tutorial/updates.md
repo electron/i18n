@@ -29,10 +29,6 @@ Par défaut, ce module vérifiera les mises à jour au démarrage de l'applicati
 
 Si vous avez besoin personnaliser votre configuration, vous pouvez [passer des paramètres à `update-electron-app`](https://github.com/electron/update-electron-app) ou [utiliser le service de mise à jour directement](https://github.com/electron/update.electronjs.org).
 
-## Utilisation de `electron-builder`
-
-Si votre application est empaquetée avec [`electron-builder`](https://github.com/electron-userland/electron-builder), vous pouvez utiliser le module [electron-updater](https://www.electron.build/auto-update) qui ne nécessite pas de serveur et permet les mises à jour depuis S3, GitHub ou tout autre hôte de fichiers statiques. Ceci évite le mécanisme de mise à jour intégré d'Electron, ce qui signifie que le reste de cette documentation ne s'appliquera pas à la mise à jour de `electron-builder`.
-
 ## Déploiement d’un serveur de mise à jour
 
 Si vous développez une application Electron privée, ou si vous ne publiez pas votre application sous GitHub, il peut être nécessaire de mettre en place votre propre serveur de mise à jour.
