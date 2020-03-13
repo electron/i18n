@@ -1,10 +1,10 @@
 ---
-title: Use V8 and Chromium Features in Electron
+title: Electron で V8 や Chromium の機能を使用する
 author: jlord
 date: '2016-01-07'
 ---
 
-Building an Electron application means you only need to create one codebase and design for one browser, which is pretty handy. But because Electron stays up to date with [Node.js](http://nodejs.org) and [Chromium](https://www.chromium.org) as they release, you also get to make use of the great features they ship with. In some cases this eliminates dependencies you might have previously needed to include in a web app.
+Electron アプリケーションの構築は、1 つのブラウザ向けに 1 つのコードベースとデザインを作成するだけでいいので、非常に手軽です。 しかも Electron は最新リリースの [Node.js](http://nodejs.org) と [Chromium](https://www.chromium.org) を保持しており、同梱の優れた機能を利用できます。 これにより以前はウェブアプリに含める必要があった依存関係が解消される場合があります。
 
 ---
 

@@ -18,7 +18,7 @@ Penggunaan ` teks </ 0></th>
 
 ### Dukungan tombol pada macos
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+Agar tombol notifikasi tambahan dapat berfungsi di macOS, aplikasi Anda harus memenuhi kriteria berikut.
 
 * Aplikasi telah ditandatangani
 * Aplikasi mempunyai `NSUserNotificationAlertStyle` set ke `alert` di bagian `info.plist`.

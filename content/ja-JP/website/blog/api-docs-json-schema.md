@@ -71,23 +71,23 @@ Electron の API ドキュメントは [Electron Coding Style](https://github.co
 
 [electron-docs-linter](https://github.com/electron/electron-docs-linter) は `electron/electron` レポジトリの新しい開発用依存関係となります。 これは、すべての Markdown ファイルを lint し、スタイルガイドのルールを適用するコマンドラインツールです。 エラーが見つかった場合、それらが列挙され、リリースプロセスが停止します。 API ドキュメントが有効な場合、`electron-json.api` ファイルが作成され、Electron リリースの一部として [GitHub にアップロード](https://github.com/electron/electron/releases/tag/v1.4.1) されます。
 
-## Standard Javascript and Standard Markdown
+## Standard Javascript と Standard Markdown
 
 今年の始め頃に Electron のコードベースが更新され、全 JavaScript で [`standard`](http://standardjs.com/) リンターが使用されました。 Standard の README は、この決定の後ろ盾である理由の要約です。
 
-> Adopting standard style means ranking the importance of code clarity and community conventions higher than personal style. This might not make sense for 100% of projects and development cultures, however open source can be a hostile place for newbies. Setting up clear, automated contributor expectations makes a project healthier.
+> Standard スタイルを採用するということは、個人のスタイルよりもコードの明快さとコミュニティの慣習の重要性を高く位置付けるということです。 これはプロジェクトと開発の文化にとって 100% の意義を持たないかもしれませんが、オープンソースは初心者が嫌う場所になることがあるものです。 コントリビューターにしてほしいことを自動化して明確にすれば、プロジェクトがより健全になります。
 
 また、ドキュメント内のすべての JavaScript コードスニペットが有効であり、コードベース自体のスタイルと一貫性があることを確認するために、少し前に [standard-markdown](https://github.com/zeke/standard-markdown) を作成しました。
 
-Together these tools help us use continuous integration (CI) to automatically find errors in pull requests. This reduces the burden placed on humans doing code review, and gives us more confidence about the accuracy of our documentation.
+これらのツールを組み合わせて、継続的インテグレーション (CI) がプルリクエストのエラーを自動的に見つけることができます。 これにより、コードをレビューする人間の負担が軽減され、ドキュメントの正確性に関する信頼性が高まります。
 
-### A community effort
+### コミュニティ活動
 
-Electron's documentation is constantly improving, and we have our awesome open-source community to thank for it. As of this writing, nearly 300 people have contributed to the docs.
+Electron のドキュメントは絶えず改善されており、素晴らしいオープンソースコミュニティがあることに感謝します。 このドキュメントの執筆時点で、約 300 人がドキュメントに貢献しています。
 
-We're excited to see what people do with this new structured data. Possible uses include:
+この新しい構造化データで皆さんが何をするのか楽しみです。 考えられる用途は以下の通りです。
 
-- Improvements to [https://electronjs.org/docs/](https://electronjs.org/docs/)
-- A [TypeScript definition file](https://github.com/electron/electron-docs-linter/blob/master/README.md#typescript-definitions) for more streamlined Electron development in projects using TypeScript.
-- Searchable offline documentation for tools like [Dash.app](https://kapeli.com/dash) and [devdocs.io](http://devdocs.io/)
+- [https://electronjs.org/docs/](https://electronjs.org/docs/) の改善
+- TypeScript を使用したプロジェクトで Electron の開発を効率的にする [TypeScript 定義ファイル](https://github.com/electron/electron-docs-linter/blob/master/README.md#typescript-definitions)。
+- [Dash.app](https://kapeli.com/dash) や [devdocs.io](http://devdocs.io/) などの検索可能オフラインドキュメントツール用
 
