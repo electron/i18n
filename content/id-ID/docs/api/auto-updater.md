@@ -1,4 +1,4 @@
-# autoUpdater
+# pembaruan otomatis
 
 > Aktifkan aplikasi untuk memperbarui dirinya secara otomatis.
 
