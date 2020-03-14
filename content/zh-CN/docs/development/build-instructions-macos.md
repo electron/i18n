@@ -14,7 +14,7 @@
 请确保你的运行系统和Python均支持TLS 1.2 及其以上版本。可以运行以下命令来快速检测python版本：
 
 ```sh
-$npx @electron/chect-python-tls
+$ npx @electron/check-python-tls
 ```
 
 如果以上命令的回调显示你正在使用过期的安全协议，你可以把macOS系统更新至High Sierra版，或者安装2.7.x版的Python。你可以使用[Homebrew](https://brew.sh/)来更新Python版本：
