@@ -36,7 +36,7 @@
     "words_approved": "21025",
     "translated_progress": 50,
     "approved_progress": 13,
-    "qa_issues": 191
+    "qa_issues": 192
   },
   {
     "name": "Chinese Traditional",
@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "15225",
-    "translated": "5279",
+    "translated": "5280",
     "approved": "1506",
     "words": "154783",
-    "words_translated": "30794",
+    "words_translated": "30802",
     "words_approved": "5808",
     "translated_progress": 19,
     "approved_progress": 3,
-    "qa_issues": 1528
+    "qa_issues": 1529
   },
   {
     "name": "Hebrew",
@@ -153,7 +153,7 @@
     "words_approved": "17043",
     "translated_progress": 37,
     "approved_progress": 11,
-    "qa_issues": 2620
+    "qa_issues": 2619
   },
   {
     "name": "Italian",
