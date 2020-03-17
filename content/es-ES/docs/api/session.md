@@ -92,41 +92,41 @@ Devuelve:
 
 Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
 
-#### Event: 'spellcheck-dictionary-initialized'
+#### Evento: 'spellcheck-dictionary-initialized'
 
 Devuelve:
 
 * `event` Evento
-* `languageCode` String - The language code of the dictionary file
+* `languageCode` String - El código de idioma del archivo de diccionario
 
-Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
+Emitido cuando un archivo de diccionario de hunspell se ha inicializado con éxito. Este se produce después de que el archivo se haya descargado.
 
-#### Event: 'spellcheck-dictionary-download-begin'
+#### Evento: 'spellcheck-dictionary-download-begin'
 
 Devuelve:
 
 * `evento` Evento
-* `languageCode` String - The language code of the dictionary file
+* `languageCode` String - El código de idioma del archivo de diccionario
 
-Emitted when a hunspell dictionary file starts downloading
+Emitido cuando un archivo de diccionario hunspell se comienza a descargar
 
-#### Event: 'spellcheck-dictionary-download-success'
-
-Devuelve:
-
-* `event` Event
-* `languageCode` String - The language code of the dictionary file
-
-Emitted when a hunspell dictionary file has been successfully downloaded
-
-#### Event: 'spellcheck-dictionary-download-failure'
+#### Evento: 'spellcheck-dictionary-download-success'
 
 Devuelve:
 
 * `event` Event
-* `languageCode` String - The language code of the dictionary file
+* `languageCode` String - El código de idioma del archivo de diccionario
 
-Emitted when a hunspell dictionary file download fails. For details on the failure you should collect a netlog and inspect the download request.
+Emitido cuando un archivo de diccionario hunspell se ha descargado correctamente
+
+#### Evento: 'spellcheck-dictionary-download-failure'
+
+Devuelve:
+
+* `event` Event
+* `languageCode` String - El código de idioma del archivo de diccionario
+
+Emitido cuando falla la descarga de un diccionario hunspell. Para detalles del fallo usted debería recoger un netlog e inspeccionar la solicitud de descarga.
 
 ### Métodos de Instancia
 
@@ -158,8 +158,8 @@ Escribe cualquier dato DOMStorage que no lo haya sido en disco.
 #### `ses.setProxy(config)`
 
 * `configuración` Object 
-  * `pacScript` String (optional) - The URL associated with the PAC file.
-  * `proxyRules` String (optional) - Rules indicating which proxies to use.
+  * `pacScript` String (opcional) - La URL asociada con el archivo PAC.
+  * `proxyRules` String (opcional) - Reglas indicando cuales proxies usar.
   * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
 
 Devuelve `Promise<void>` - Se resuelve cuando el proceso de configuración del proxy está completo.
