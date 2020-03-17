@@ -1402,13 +1402,13 @@ Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` 
 
 #### `win.setTrafficLightPosition(position)` *macOS*
 
-* `position` [Point](structures/point.md)
+* `position` [Punto](structures/point.md)
 
-Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+Establecer una posición personalizada para los botones de semáforo. Solo puede ser usado con `titleBarStyle` establecido a `hidden`.
 
 #### `win.getTrafficLightPosition()` *macOS*
 
-Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+Devuelve `Point` - La posición actual de los botones del semáforo. Solo puede ser usado con `titleBarStyle` establecido a `hidden`.
 
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
@@ -1420,11 +1420,11 @@ Configura el plano de la touchBar para la ventana actual. Espeficando `null` o `
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Adjunta `browserView` a `win`. Si hay otros `BrowserView`s adjuntos, se eliminarán de esta ventana.
 
 #### `win.getBrowserView()` *Experimental*
 
-Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
+Devuelve `BrowserView | null` - El `BrowserView` adjunto a `win`. Devuelve `null` si uno no esta adjunto. Lanza un error si múltiples `BrowserView` son adjuntos.
 
 #### `win.addBrowserView(browserView)` *Experimental*
 
@@ -1438,6 +1438,6 @@ API de reemplazo para setBrowserView soporta el trabajo con múltiples vistas de
 
 #### `win.getBrowserViews()` *Experimental*
 
-Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
+Devuelve `BrowserView[]` - Un array de todos los BrowserViews que han sido adjuntados con `addBrowserView` or `setBrowserView`.
 
 **Nota:** actualmente la API BrowserView es experimental y puede cambiar o ser eliminada en versiones futuras de Electron.
