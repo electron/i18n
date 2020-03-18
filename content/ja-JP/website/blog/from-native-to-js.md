@@ -1,70 +1,70 @@
 ---
-title: From native to JavaScript in Electron
+title: Electron でネイティブから JavaScript へ
 author: codebytere
 date: '2019-03-19'
 ---
 
-How do Electron's features written in C++ or Objective-C get to JavaScript so they're available to an end-user?
+C++ や Objective-C で記述された Electron の機能は、どのように JavaScript となってエンドユーザーが利用できるのでしょうか。
 
 ---
 
-## Background
+## 背景
 
-[Electron](https://electronjs.org) is a JavaScript platform whose primary purpose is to lower the barrier to entry for developers to build robust desktop apps without worrying about platform-specific implementations. However, at its core, Electron itself still needs platform-specific functionality to be written in a given system language.
+[Electron](https://electronjs.org) は、開発者の参入障壁を取り下げることを主目的とした JavaScript プラットフォームで、プラットフォーム固有の実装を気にせずに堅牢なデスクトップアプリを構築できます。 ただし、Electron 自身の中核には、特定システムの言語で記述するようなプラットフォーム固有の機能も必要です。
 
-In reality, Electron handles the native code for you so that you can focus on a single JavaScript API.
+実際には Electron がネイティブコードを扱うので、単一の JavaScript API に集中できます。
 
-How does that work, though? How do Electron's features written in C++ or Objective-C get to JavaScript so they're available to an end-user?
+一体、どのように動作しているのでしょうか。 C++ や Objective-C で記述された Electron の機能は、どのように JavaScript となってエンドユーザーが利用できるのでしょうか。
 
-To trace this pathway, let's start with the [`app` module](https://electronjs.org/docs/api/app).
+この道筋を追いかけるために、[`app` モジュール](https://electronjs.org/docs/api/app) から始めましょう。
 
-By opening the [`app.ts`](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/lib/browser/api/app.ts) file inside our `lib/` directory, you'll find the following line of code towards the top:
+`lib/` ディレクトリ内の [`app.ts`](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/lib/browser/api/app.ts) ファイルを開くと、その上部に以下のようなコードの行があります。
 
 ```js
 const binding = process.electronBinding('app')
 ```
 
-This line points directly to Electron's mechanism for binding its C++/Objective-C modules to JavaScript for use by developers. This function is created by the header and [implementation file](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/atom/common/api/electron_bindings.cc) for the `ElectronBindings` class.
+この行は、開発者が使用している C++/Objective-C モジュールを JavaScript にバインドする Electron の仕組みをまさに表しています。 この関数は `ElectronBindings` クラスの、ヘッダーと [実装ファイル](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/atom/common/api/electron_bindings.cc) によって作成されます。
 
 ## `process.electronBinding`
 
-These files add the `process.electronBinding` function, which behaves like Node.js’ `process.binding`. `process.binding` is a lower-level implementation of Node.js' [`require()`](https://nodejs.org/api/modules.html#modules_require_id) method, except it allows users to `require` native code instead of other code written in JS. This custom `process.electronBinding` function confers the ability to load native code from Electron.
+これらのファイルは Node.js の `process.binding` のように動作する `process.electronBinding` 関数を追加します。 `process.binding` は Node.js の [`require()`](https://nodejs.org/api/modules.html#modules_require_id) メソッドよりローレベルの実装です。ただし、他の JS で書かれたコードではなくネイティブコードを `require` することができます。 このカスタム `process.electronBinding` 関数は Electron からネイティブコードをロードする機能を与えます。
 
-When a top-level JavaScript module (like `app`) requires this native code, how is the state of that native code determined and set? Where are the methods exposed up to JavaScript? What about the properties?
+トップレベルの JavaScript モジュール (`app` など) がこのネイティブコードを require する場合、そのネイティブコードの状態はどのように決定および設定されるのでしょうか。 そのメソッドはどこまで JavaScript に公開されるのでしょうか。 プロパティではどうなのでしょうか。
 
 ## `native_mate`
 
-At present, answers to this question can be found in `native_mate`:  a fork of Chromium's [`gin` library](https://chromium.googlesource.com/chromium/src.git/+/lkgr/gin/) that makes it easier to marshal types between C++ and JavaScript.
+現時点では、この疑問には `native_mate` が答えてくれます。これは、C++ と JavaScript の間で型をマーシャリングしやすくする Chromium の [`gin` ライブラリ](https://chromium.googlesource.com/chromium/src.git/+/lkgr/gin/) のフォークです。
 
-Inside `native_mate/native_mate` there's a header and implementation file for `object_template_builder`. This is what allow us to form modules in native code whose shape conforms to what JavaScript developers would expect.
+`native_mate/native_mate` の中には、`object_template_builder` のヘッダーと実装ファイルがあります。 これにより、JavaScript 開発者が望むように適合する形式のネイティブコードでモジュールを形成します。
 
 ### `mate::ObjectTemplateBuilder`
 
-If we look at every Electron module as an `object`, it becomes easier to see why we would want to use `object_template_builder` to construct them. This class is built on top of a class exposed by V8, which is Google’s open source high-performance JavaScript and WebAssembly engine, written in C++. V8 implements the JavaScript (ECMAScript) specification, so its native functionality implementations can be directly correlated to implementations in JavaScript. For example, [`v8::ObjectTemplate`](https://v8docs.nodesource.com/node-0.8/db/d5f/classv8_1_1_object_template.html) gives us JavaScript objects without a dedicated constructor function and prototype. It uses `Object[.prototype]`, and in JavaScript would be equivalent to [`Object.create()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create).
+すべての Electron モジュールを `object` として見ると、`object_template_builder` で構築する理由がわかりやすくなります。 このクラスは、C++ で記述された Google によるオープンソースで高性能の JavaScript および WebAssembly エンジン、V8 が公開するクラスの上に構築されます。 V8 は JavaScript (ECMAScript) の仕様を実装しているため、ネイティブ機能の実装を JavaScript の実装に直接関連付けることができます。 たとえば、[`v8::ObjectTemplate`](https://v8docs.nodesource.com/node-0.8/db/d5f/classv8_1_1_object_template.html) は専用のコンストラクタ関数とプロトタイプなしで JavaScript オブジェクトを提供します。 `Object[.prototype]` を使用するため、JavaScript での [`Object.create()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create) と等価です。
 
-To see this in action, look to the implementation file for the app module, [`atom_api_app.cc`](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/atom/browser/api/atom_api_app.cc). At the bottom is the following:
+この動作確認は、アプリモジュールの実装ファイル [`atom_api_app.cc`](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/atom/browser/api/atom_api_app.cc) を参照してください。 下部には以下のようなものがあります。
 
 ```cpp
 mate::ObjectTemplateBuilder(isolate, prototype->PrototypeTemplate())
     .SetMethod("getGPUInfo", &App::GetGPUInfo)
 ```
 
-In the above line, `.SetMethod` is called on `mate::ObjectTemplateBuilder`. `.SetMethod` can be called on any instance of the `ObjectTemplateBuilder` class to set methods on the [Object prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype) in JavaScript, with the following syntax:
+上記の行では、`.SetMethod` が `mate::ObjectTemplateBuilder` で呼び出されます。 `.SetMethod` を `ObjectTemplateBuilder` クラスの任意のインスタンスで呼び出し、以下の構文で JavaScript の [Object プロトタイプ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype) にメソッドを設定できます。
 
 ```cpp
 .SetMethod("method_name", &function_to_bind)
 ```
 
-This is the JavaScript equivalent of:
+これは以下の JavaScript と等価です。
 
 ```js
 function App{}
 App.prototype.getGPUInfo = function () {
-  // implementation here
+  // ここに実装
 }
 ```
 
-This class also contains functions to set properties on a module:
+このクラスには以下のようなモジュールにプロパティをセットする関数も含まれます。
 
 ```cpp
 .SetProperty("property_name", &getter_function_to_bind)
@@ -76,7 +76,7 @@ This class also contains functions to set properties on a module:
 .SetProperty("property_name", &getter_function_to_bind, &setter_function_to_bind)
 ```
 
-These would in turn be the JavaScript implementations of [Object.defineProperty](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty):
+これらは、以下のような [Object.defineProperty](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) による JavaScript 実装になります。
 
 ```js
 function App {}
@@ -101,6 +101,6 @@ Object.defineProperty(App.prototype, 'myProperty', {
 })
 ```
 
-It’s possible to create JavaScript objects formed with prototypes and properties as developers expect them, and more clearly reason about functions and properties implemented at this lower system level!
+これによって開発者が予期するようなプロトタイプとプロパティで形成された JavaScript オブジェクトを作成することができ、よりローレベルのシステムで実装された関数とプロパティでもよりはっきりと推論します!
 
-The decision around where to implement any given module method is itself a complex and oft-nondeterministic one, which we'll cover in a future post.
+特定のモジュールメソッドの実装場所に関する決定は、それ自体が複雑かつ多くの場合に置いて非決定的です。これについては今後の記事で補います。
