@@ -1,12 +1,12 @@
 ---
-title: 'Project of the Week: Ghost'
+title: '今週のプロジェクト: Ghost'
 author:
   - felixrieseberg
   - zeke
 date: '2017-02-14'
 ---
 
-This week we chatted with [Felix Rieseberg](https://felixrieseberg.com/), desktop engineer at [Slack](https://slack.com/) and maintainer of [Ghost Desktop](https://ghost.org/downloads/), an Electron client for the [Ghost](https://ghost.org/) publishing platform.
+今週、[Slack](https://slack.com/) のデスクトップエンジニアであり、[Ghost](https://ghost.org/) 出版プラットフォームの Electron クライアントである [Ghost Desktop](https://ghost.org/downloads/) のメンテナー [Felix Rieseberg](https://felixrieseberg.com/) と談話しました。
 
 ---
 
@@ -14,7 +14,7 @@ This week we chatted with [Felix Rieseberg](https://felixrieseberg.com/), deskto
   <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Ghost Desktop Screenshot"> 
 </div>
 
-## What is Ghost?
+## Ghost とは何ですか?
 
 Ghost is a fully open source, hackable platform for building and running a modern online publication. We power blogs, magazines and journalists from Zappos to Sky News.
 
