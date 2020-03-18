@@ -1,5 +1,9 @@
 import * as cheerio from 'cheerio'
-import { docs as i18nDocs, locales as i18nLocales } from '../dist'
+// UNSAFE IMPORT BLOCK
+// DONT CHANGE IMPORT TO `import { docs, locales } from '../dist'`
+import * as i18nDocs from '../dist/docs.json'
+import * as i18nLocales from '../dist/locales.json'
+//
 import { writeHelper } from '../lib/write-helper'
 const locales = Object.keys(i18nLocales)
 
