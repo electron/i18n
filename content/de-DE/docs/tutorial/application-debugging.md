@@ -20,3 +20,13 @@ Google bietet [ausgezeichnete Dokumentation für ihre Entwickler-Tools](https://
 Debugging des Main-Prozess ist etwas schwieriger, denn du kannst die Developer Tools hier nicht öffnen. Die Chromium Developer Tools können verwendet werden um [Electrons Main-Prozess zu Debuggen](https://nodejs.org/en/docs/inspector/) dank einer engen Zusammenarbeit zwischen Google / Chrome und Node.js. Du wirst aber vielleicht auch auf Eigenartiges stoßen, so ist `require` zum Beispiel nicht verfügbar in der Console.
 
 Für weitere Informationen, ließ einfach die [Debugging des Main-Prozess](./debugging-main-process.md) Dokumentation.
+
+## V8 Crashes
+
+If the V8 context crashes, the DevTools will display this message.
+
+`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+
+Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+
+Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
