@@ -1,23 +1,23 @@
 ---
-title: Easier AutoUpdating for Open-Source Apps
+title: オープンソースアプリの自動更新が簡単に
 author: zeke
 date: '2018-05-01'
 ---
 
-Today we're releasing a free, open-source, hosted [updates webservice](https://github.com/electron/update.electronjs.org) and companion [npm package](https://github.com/electron/update-electron-app) to enable easy automatic updates for open-source Electron apps. This is a step toward empowering app developers to think less about deployment and more about developing high-quality experiences for their users.
+本日、無料でオープンソースのホスト型 [更新ウェブサービス](https://github.com/electron/update.electronjs.org) と連携 [npm パッケージ](https://github.com/electron/update-electron-app) をリリースし、オープンソース Electron アプリの自動更新を簡単にできるようにします。 これにより、アプリ開発者がデプロイについて頭を悩ませずに済み、ユーザーへの高品質なエクスペリエンス開発について集中できます。
 
 ---
 
 <figure>
   <a href="https://github.com/electron/update-electron-app" style="display: block; text-align: center;">
     <img class="screenshot" src="https://user-images.githubusercontent.com/2289/39480716-e9990910-4d1d-11e8-8901-9549c6ff6050.png" alt="Updater Screenshot">
-    <figcaption>The new updater module in action</figcaption>
+    <figcaption>動作中の新しい更新モジュール</figcaption>
   </a>
 </figure>
 
 ## Making life easier
 
-Electron has an [autoUpdater](https://electronjs.org/docs/tutorial/updates) API that gives apps the ability to consume metadata from a remote endpoint to check for updates, download them in the background, and install them automatically.
+Electron には [autoUpdater](https://electronjs.org/docs/tutorial/updates) API があります。これはバックグラウンドで外部エンドポイントからメタデータを取得して、アプリのアップデートを確認し、自動的にインストールします。
 
 Enabling these updates has been a cumbersome step in the deployment process for many Electron app developers because it requires a web server to be deployed and maintained just to serve app version history metadata.
 
