@@ -15,37 +15,37 @@ date: '2018-05-01'
   </a>
 </figure>
 
-## Making life easier
+## 簡単に新しく
 
 Electron には [autoUpdater](https://electronjs.org/docs/tutorial/updates) API があります。これはバックグラウンドで外部エンドポイントからメタデータを取得して、アプリのアップデートを確認し、自動的にインストールします。
 
-Enabling these updates has been a cumbersome step in the deployment process for many Electron app developers because it requires a web server to be deployed and maintained just to serve app version history metadata.
+こういった更新の有効化は、多くの Electron アプリ開発者にとってデプロイプロセスでの面倒な手順でした。アプリのバージョン履歴メタデータを提供するためだけに、ウェブサーバーを展開して維持する必要があるからです。
 
-Today we are announcing a new drop-in solution for automatic app updates. If your Electron app is in a public GitHub repository and you're using GitHub Releases to publish builds, you can use this service to deliver continuous app updates to your users.
+本日、アプリ自動更新の新しいドロップインソリューションを発表します。 Electron アプリが公開 GitHub リポジトリにあり、GitHub Releases を使用してビルドを公開している場合、このサービスでアプリの継続更新をユーザーに配布できます。
 
-## Using the new module
+## 新モジュールの使い方
 
-To minimize configuration on your part, we've created [update-electron-app](https://github.com/electron/update-electron-app), an npm module which integrates with the new [update.electronjs.org](https://github.com/electron/update.electronjs.org) webservice.
+最小限の構成にするため、新しい [update.electronjs.org](https://github.com/electron/update.electronjs.org) ウェブサービスと統合する npm モジュール [update-electron-app](https://github.com/electron/update-electron-app) を作成しました。
 
-モジュールのインストール
+モジュールは以下のようにインストールします。
 
 ```sh
 npm install update-electron-app
 ```
 
-Call it from anywhere in your app's [main process](https://electronjs.org/docs/glossary#main-process):
+アプリの [メインプロセス](https://electronjs.org/docs/glossary#main-process) 内のどこかで、以下を呼び出します。
 
 ```js
 require('update-electron-app')()
 ```
 
-That's it! The module will check for updates at app startup, then every ten minutes. When an update is found it will download automically in the background, and a dialog will be displayed when the update is ready.
+これだけです! このモジュールはアプリの起動時に更新を確認し、その後 10 分ごとにも確認します。 更新があれば、バックグラウンドで自動的にダウンロードされ、更新準備が整うとダイアログが表示されます。
 
-## Migrating existing apps
+## 既存アプリの移行
 
-Apps already using Electron's autoUpdater API can use this service too. To do so, you can [customize the `update-electron-app`](https://github.com/electron/update-electron-app) module or [integrate directly with update.electronjs.org](https://github.com/electron/update.electronjs.org).
+既に Electron の autoUpdater API を使用しているアプリもこのサービスを使用できます。 移行するには、[`update-electron-app`](https://github.com/electron/update-electron-app)モジュールか、[update.electronjs.org と直接統合](https://github.com/electron/update.electronjs.org) します。
 
-## Alternatives
+## 代替手段
 
 If you're using [electron-builder](https://github.com/electron-userland/electron-builder) to package your app, you can use its built-in updater. For details, see [electron.build/auto-update](https://www.electron.build/auto-update).
 
