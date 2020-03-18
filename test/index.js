@@ -6,7 +6,6 @@ chai.use(require('chai-date-string'))
 const { expect } = chai
 const { describe, it, xit } = require('mocha')
 const i18n = require('..')
-const { locales } = require('../dist/locales.json')
 const cheerio = require('cheerio')
 
 describe('i18n.docs', () => {
@@ -156,9 +155,9 @@ describe('i18n.website', () => {
 
 describe('API Docs', () => {
   it('has a title for every doc', () => {
-    const keys = Object.keys(locales)
-    keys.length.should.be.above(1)
-    keys.forEach(locale => {
+    const locales = Object.keys(i18n.locales)
+    locales.length.should.be.above(1)
+    locales.forEach(locale => {
       const docs = Object.keys(i18n.docs[locale]).map(
         key => i18n.docs[locale][key]
       )
@@ -193,9 +192,9 @@ describe('API Docs', () => {
   })
 
   it('sorts docs by slug per locale', () => {
-    const keys = Object.keys(locales)
-    keys.length.should.be.above(10)
-    keys.forEach(locale => {
+    const locales = Object.keys(i18n.locales)
+    locales.length.should.be.above(10)
+    locales.forEach(locale => {
       const docs = Object.keys(i18n.docs[locale]).map(
         key => i18n.docs[locale][key]
       )
@@ -265,10 +264,10 @@ describe('API Structures', () => {
   })
 })
 
-describe('locales.json', () => {
+describe('i18n.locales', () => {
   it('is an object with locales as keys', () => {
-    locales.should.be.an('object')
-    const keys = Object.keys(locales)
+    i18n.locales.should.be.an('object')
+    const keys = Object.keys(i18n.locales)
     keys.should.include('en-US')
     keys.should.include('fr-FR')
     keys.should.include('zh-TW')
@@ -276,80 +275,80 @@ describe('locales.json', () => {
   })
 
   it('includes countryCode for every locale', () => {
-    const keys = Object.keys(locales)
+    const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
     keys.forEach(locale => {
-      locales[locale].countryCode.should.be.a('string')
+      i18n.locales[locale].countryCode.should.be.a('string')
     })
-    locales['en-US'].countryCode.should.equal('US')
-    locales['pt-BR'].countryCode.should.equal('BR')
+    i18n.locales['en-US'].countryCode.should.equal('US')
+    i18n.locales['pt-BR'].countryCode.should.equal('BR')
   })
 
   it('includes countryName for every locale', () => {
-    const keys = Object.keys(locales)
+    const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
     keys.forEach(locale => {
       expect(
-        locales[locale].countryName,
+        i18n.locales[locale].countryName,
         `${locale} does not nave a country name`
       ).to.be.a('string')
     })
-    locales['en-US'].countryName.should.equal('United States')
-    locales['pt-BR'].countryName.should.equal('Brazil')
+    i18n.locales['en-US'].countryName.should.equal('United States')
+    i18n.locales['pt-BR'].countryName.should.equal('Brazil')
   })
 
   it('includes languageCode for every locale', () => {
-    const keys = Object.keys(locales)
+    const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
     keys.forEach(locale => {
-      locales[locale].languageCode.should.be.a('string')
+      i18n.locales[locale].languageCode.should.be.a('string')
     })
-    locales['en-US'].languageCode.should.equal('en')
-    locales['pt-BR'].languageCode.should.equal('pt-BR')
-    locales['zh-CN'].languageCode.should.equal('zh-CN')
-    locales['zh-TW'].languageCode.should.equal('zh-TW')
+    i18n.locales['en-US'].languageCode.should.equal('en')
+    i18n.locales['pt-BR'].languageCode.should.equal('pt-BR')
+    i18n.locales['zh-CN'].languageCode.should.equal('zh-CN')
+    i18n.locales['zh-TW'].languageCode.should.equal('zh-TW')
   })
 
   it('includes languageName for every locale', () => {
-    const keys = Object.keys(locales)
+    const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
     keys.forEach(locale => {
-      locales[locale].languageName.should.be.a('string')
+      i18n.locales[locale].languageName.should.be.a('string')
     })
-    locales['en-US'].languageName.should.equal('English')
-    locales['pt-BR'].languageName.should.equal('Portuguese')
+    i18n.locales['en-US'].languageName.should.equal('English')
+    i18n.locales['pt-BR'].languageName.should.equal('Portuguese')
   })
 
   it('sets some custom language names', () => {
-    locales['zh-TW'].languageName.should.equal('Chinese Traditional')
-    locales['zh-CN'].languageName.should.equal('Chinese Simplified')
+    i18n.locales['zh-TW'].languageName.should.equal('Chinese Traditional')
+    i18n.locales['zh-CN'].languageName.should.equal('Chinese Simplified')
   })
 
   it('includes languageNativeName for every locale', () => {
-    const keys = Object.keys(locales)
+    const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
     keys.forEach(locale => {
-      locales[locale].languageNativeName.should.be.a('string')
+      i18n.locales[locale].languageNativeName.should.be.a('string')
     })
-    locales['en-US'].languageNativeName.should.equal('English')
-    locales['pt-BR'].languageNativeName.should.equal('Português')
+    i18n.locales['en-US'].languageNativeName.should.equal('English')
+    i18n.locales['pt-BR'].languageNativeName.should.equal('Português')
   })
 
   it('includes stats for every locale', () => {
-    const keys = Object.keys(locales)
+    const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
     keys.forEach(locale => {
-      locales[locale].stats.should.be.an('object')
-      locales[locale].stats.translated_progress.should.be.a('number')
-      locales[locale].stats.approved_progress.should.be.a('number')
+      i18n.locales[locale].stats.should.be.an('object')
+      i18n.locales[locale].stats.translated_progress.should.be.a('number')
+      i18n.locales[locale].stats.approved_progress.should.be.a('number')
     })
-    locales['en-US'].stats.translated_progress.should.equal(101)
-    locales['en-US'].stats.approved_progress.should.equal(101)
+    i18n.locales['en-US'].stats.translated_progress.should.equal(101)
+    i18n.locales['en-US'].stats.approved_progress.should.equal(101)
   })
 
   it('sorts locales by translation progress', () => {
-    const progress = Object.keys(locales).map(
-      locale => locales[locale].stats.translated_progress
+    const progress = Object.keys(i18n.locales).map(
+      locale => i18n.locales[locale].stats.translated_progress
     )
     progress[0].should.be.above(progress[4])
     progress[4].should.be.above(progress[8])
