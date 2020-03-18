@@ -31,7 +31,7 @@ async function parseDocs(): Promise<Partial<IParseFile>[]> {
     .filter(file => file.relativePath.includes('/docs'))
     .filter(file => file.relativePath.endsWith('.md'))
   console.log(
-    `processing ${markdownFiles.length} files in ${
+    `processing ${markdownFiles.length} docs files in ${
       Object.keys(locales).length
     } locales`
   )
@@ -51,7 +51,7 @@ async function parseBlogs() {
     .filter(file => file.relativePath.includes('website/blog'))
     .filter(file => file.fullPath.endsWith('.md'))
   console.log(
-    `processing ${markdownFiles.length} files in ${
+    `processing ${markdownFiles.length} blog files in ${
       Object.keys(locales).length
     } locales`
   )
@@ -100,7 +100,7 @@ async function main() {
     glossary[locale] = await parseElectronGlossary(locale)
   }
 
-  mkdir(path.dirname('dist'))
+  mkdir(path.resolve(__dirname, '../dist'))
 
   // Writes locales.json
   writeHelper('locales', 'locales', locales)
