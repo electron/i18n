@@ -20,3 +20,13 @@ win.webContents.openDevTools()
 调试主进程有点棘手, 因为您不能简单地打开开发者工具来调试它们。 多亏了谷歌和Node.js的紧密合作，Chromium开发者工具可以[被用来调试Electron的主进程](https://nodejs.org/en/docs/inspector/)，否则你也许会遇到许多怪事就像`require`不能再控制台中显示。
 
 如果想获取更多信息，可以看[调试主进程的文档](./debugging-main-process.md)
+
+## V8 Crashes
+
+If the V8 context crashes, the DevTools will display this message.
+
+`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+
+Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+
+Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
