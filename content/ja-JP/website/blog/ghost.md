@@ -16,11 +16,11 @@ date: '2017-02-14'
 
 ## Ghost とは何ですか?
 
-Ghost is a fully open source, hackable platform for building and running a modern online publication. We power blogs, magazines and journalists from Zappos to Sky News.
+Ghost は、モダンなオンライン出版物を作成し稼働するための、完全にオープンソースの改造可能なプラットフォームです。 Zappos から Sky News まで、ブログ、雑誌、ジャーナリストを支えています。
 
-## What makes it different from other publishing platforms?
+## 他の出版プラットフォームとの違いは何ですか?
 
-Ghost was founded in April 2013, after a very successful Kickstarter campaign to create a new platform focused solely on professional publishing. Our mission is to create the best open source tools for independent journalists and writers across the world, and have a real impact on the future of online media. It offers a simpler, more focussed experience: Our editor is designed solely around providing the best possible writing experience.
+Ghost は、プロ向け出版物作成だけに特化した新しいプラットフォームを作成する Kickstarter キャンペーンが非常に成功した後の、2013 年 4 月に設立されました。 私たちの使命は、世界中の独立したジャーナリストや作家のために最高のオープンソースツールを作成し、オンラインメディアの未来に真の衝撃を与えることです。 シンプルで、より焦点を絞ったエクスペリエンスを提供します。このエディタは、可能な限り最高の執筆体験を提供することだけを目的に設計しました。
 
 Compared to the all-time classic WordPress, it offers a simpler, more streamlined experience - it is easier to setup and maintain, comes with all important features out-of-the-box, and is dramatically faster. Compared to other online platforms, Ghost gives writers full ownership and control over their content, allows full customization, and enables authors to build a business around their publication.
 
