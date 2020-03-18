@@ -47,12 +47,12 @@ require('update-electron-app')()
 
 ## 代替手段
 
-If you're using [electron-builder](https://github.com/electron-userland/electron-builder) to package your app, you can use its built-in updater. For details, see [electron.build/auto-update](https://www.electron.build/auto-update).
+[electron-builder](https://github.com/electron-userland/electron-builder) でアプリをパッケージ化している場合、その組み込みアップデーターを使用できます。 詳細は、[electron.build/auto-update](https://www.electron.build/auto-update) を参照してください。
 
-If your app is private, you may need to run your own update server. There are a number of open-source tools for this, including Zeit's [Hazel](https://github.com/zeit/hazel) and Atlassian's [Nucleus](https://github.com/atlassian/nucleus). See the [Deploying an Update Server](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server) tutorial for more info.
+アプリが非公開の場合、独自の更新サーバーを実行する必要があります。 これには、Zeit の [Hazel](https://github.com/zeit/hazel) や Atlassian の [Nucleus](https://github.com/atlassian/nucleus) など、多くのオープンソースツールがあります。 さらなる情報は [更新サーバーのデプロイ](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server) チュートリアルを参照してください。
 
-## Thanks
+## 謝辞
 
-Thanks to [Julian Gruber](http://juliangruber.com/) for helping design and build this simple and scalable web service. Thanks to the folks at [Zeit](https://zeit.co) for their open-source [Hazel](https://github.com/zeit/hazel) service, from which we drew design inspiration. Thanks to [Samuel Attard](https://www.samuelattard.com/) for the code reviews. Thanks to the Electron community for helping test this service.
+このシンプルでスケーラブルなウェブサービスの設計と構築を支援して頂いた [Julian Gruber](http://juliangruber.com/) に感謝します。 オープンソースの [Hazel](https://github.com/zeit/hazel) サービスを作った [Zeit](https://zeit.co) の方々に感謝します。このサービスからデザインのインスピレーションを得ました。 コードレビューをして下さった [Samuel Attard](https://www.samuelattard.com/) に感謝します。 このサービスのテストを支援してくれた Electron コミュニティに感謝します。
 
 🌲 Here's to an evergreen future for Electron apps!
