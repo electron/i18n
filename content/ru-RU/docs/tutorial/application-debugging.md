@@ -20,3 +20,13 @@ Google предлагает [отличную документацию для с
 Отладка основного процесса немного сложнее, поскольку вы не можете открыть для них инструменты для разработчиков. Инструменты Chromium Developer Tools [могут использоваться для отладки основного процесса Electron](https://nodejs.org/en/docs/inspector/) благодаря более тесному сотрудничеству между Google / Chrome и Node.js, но вы можете столкнуться с такими странностями, которые вам не `нужны` в консоли.
 
 Для получения дополнительной информации см. Документацию [Отладка основной процедуры](./debugging-main-process.md).
+
+## V8 Crashes
+
+If the V8 context crashes, the DevTools will display this message.
+
+`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+
+Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+
+Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
