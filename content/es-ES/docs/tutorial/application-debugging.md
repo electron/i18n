@@ -20,3 +20,13 @@ Google ofrece [documentación excelente para sus herramientas de desarrollo](htt
 La depuración del proceso principal es un poco más complicada, porque no se pueden abrir las developer tools en este caso. Las Herramientas de Desarrollo Chromium pueden [ser usadas para depurar el proceso principal de Electron](https://nodejs.org/en/docs/inspector/) gracias a una colaboración cercana entre Google / Chrome y Node.js, pero puede encontrar obstáculos como un `require` no presente en la consola.
 
 Para mas información, ve el [Depurando la documentación de proceso principal](./debugging-main-process.md).
+
+## V8 Crashes
+
+If the V8 context crashes, the DevTools will display this message.
+
+`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+
+Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+
+Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
