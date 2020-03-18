@@ -10,7 +10,7 @@ date: '2018-05-01'
 
 <figure>
   <a href="https://github.com/electron/update-electron-app" style="display: block; text-align: center;">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/39480716-e9990910-4d1d-11e8-8901-9549c6ff6050.png" alt="Updater Screenshot">
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/39480716-e9990910-4d1d-11e8-8901-9549c6ff6050.png" alt="アップデータースクリーンショット">
     <figcaption>動作中の新しい更新モジュール</figcaption>
   </a>
 </figure>
@@ -55,4 +55,4 @@ require('update-electron-app')()
 
 このシンプルでスケーラブルなウェブサービスの設計と構築を支援して頂いた [Julian Gruber](http://juliangruber.com/) に感謝します。 オープンソースの [Hazel](https://github.com/zeit/hazel) サービスを作った [Zeit](https://zeit.co) の方々に感謝します。このサービスからデザインのインスピレーションを得ました。 コードレビューをして下さった [Samuel Attard](https://www.samuelattard.com/) に感謝します。 このサービスのテストを支援してくれた Electron コミュニティに感謝します。
 
-🌲 Here's to an evergreen future for Electron apps!
+🌲 Electron アプリの未来はここに永遠の緑となった!
