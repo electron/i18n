@@ -20,3 +20,13 @@ Google offre [une excellente documentation pour leurs outils de développement](
 Déboguer le processus principal est un peu plus compliqué, car vous ne pouvez pas ouvrir les outils de développement. Le Chromium Developer Tool peut [être utilisé pour déboguer le processus principal d'Electron](https://nodejs.org/en/docs/inspector/) grâce à une collaboration plus étroite entre Google / Chrome et Node.js, mais vous risquez de rencontrer des étrangetés comme `require` n’étant pas présent dans la console.
 
 Pour plus d'informations, voir la [documentation sur le Débogage du processus principal](./debugging-main-process.md).
+
+## V8 Crashes
+
+If the V8 context crashes, the DevTools will display this message.
+
+`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+
+Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+
+Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).

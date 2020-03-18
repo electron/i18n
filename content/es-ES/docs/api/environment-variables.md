@@ -42,7 +42,7 @@ Las opciones no respaldadas son:
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
+`NODE_OPTIONS` están explícitamente deshabilitadas en las aplicaciones empaquetadas, excepto para lo siguiente:
 
 ```sh
 --max-http-header-size

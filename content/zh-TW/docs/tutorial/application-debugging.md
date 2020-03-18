@@ -20,3 +20,13 @@ Google 為他們的開發者工具提供了[傑出的文件](https://developer.c
 調試主進程有點棘手, 因為你無法簡單地打開開發者工具來調試它們。 多虧了 Google 和 Node.js 的緊密合作，Chromium 開發者工具可以[被用來調試 Electron 的主進程](https://nodejs.org/en/docs/inspector/)，否則你也許會遇到許多怪事，就像`require`不能在控制台中顯示。
 
 如果想獲取更多訊息，可以看[調試主進程的文件](./debugging-main-process.md)
+
+## V8 Crashes
+
+If the V8 context crashes, the DevTools will display this message.
+
+`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+
+Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+
+Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
