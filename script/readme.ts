@@ -3,7 +3,7 @@
 import * as path from 'path'
 import * as fs from 'fs'
 
-import { locales } from '../dist/locales.json'
+import { locales } from '../dist'
 const readmePath = path.join(__dirname, '../readme.md')
 const readmeOriginal = fs.readFileSync(readmePath, 'utf8')
 

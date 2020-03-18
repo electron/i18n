@@ -11,6 +11,7 @@ import { writeHelper } from '../lib/write-helper'
 import { parseBlogFile, parseFile } from '../lib/parsers'
 import { IParseFile } from '../lib/interfaces'
 import locales, { IResult as ILocalesResult } from '../lib/locales'
+import { writeIndexFiles } from '../lib/generate-js'
 import * as packageJSON from '../package.json'
 import {
   parseElectronGlossary,
@@ -103,7 +104,7 @@ async function main() {
   mkdir(path.resolve(__dirname, '../dist'))
 
   // Writes locales.json
-  writeHelper('locales', 'locales', locales)
+  writeHelper('locales', locales)
 
   // Writes meta.json
   // TODO: use writeHelper()
@@ -118,21 +119,26 @@ async function main() {
         electronLatestStableTag: packageJSON.electronLatestStableTag,
         electronMasterBranchCommit: packageJSON.electronMasterBranchCommit,
         date: new Date(),
-      }
+      },
+      null,
+      2
     )
   )
 
   // Writes docs.json
-  writeHelper('docs', 'docs', docsByLocale)
+  writeHelper('docs', docsByLocale)
 
   // Writes website.json
-  writeHelper('website', 'website', websiteStringsByLocale)
+  writeHelper('website', websiteStringsByLocale)
 
   // Writes blogs.json
-  writeHelper('blogs', 'blogs', websiteBlogsByLocale)
+  writeHelper('blogs', websiteBlogsByLocale)
 
   // Writes glossary.json
-  writeHelper('glossary', 'glossary', glossary)
+  writeHelper('glossary', glossary)
+
+  // Writes index.js and index.d.ts
+  writeIndexFiles()
 }
 
 main()
