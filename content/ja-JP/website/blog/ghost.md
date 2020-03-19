@@ -46,11 +46,11 @@ Ghost はバックエンドとフロントエンドの両方で JavaScript とNo
 
 ## Ghost デスクトップ構築の際に直面した課題はありますか?
 
-Spellchecking is likely still one of the most difficult services offered - we could easily utilize one of the many online services, but correctly spellchecking text in multiple languages while guarding the privacy and autonomy of our users is not an easy task.
+最も難しいサービスを一つ挙げるとすれば、スペルチェックです。数あるオンラインサービスは簡単に利用できますが、ユーザーのプライバシーと自主性を守りながら複数言語のテキストを正しくスペルチェックするのは、簡単な課題ではありません。
 
-## In what areas should Electron be improved?
+## Electron はどういった領域で改善されるべきでしょうか?
 
-We would love to see Electron bring the operating system's native spellchecking capabilities to their apps. We're dreaming about a world in which an `<input>` field receives the same services as a `NSTextView`, but we are also intimately aware how difficult that is.
+Electron がオペレーティングシステムのネイティブのスペルチェック機能をアプリから使えるようにすることを望みます。 We're dreaming about a world in which an `<input>` field receives the same services as a `NSTextView`, but we are also intimately aware how difficult that is.
 
 ## What are your favorite things about Electron?
 
