@@ -1,17 +1,17 @@
 # Обновление приложений
 
-There are several ways to update an Electron application. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+Существует несколько способов по обновлению Electron приложений. Самый простой и официально поддерживаемый - воспользоваться встроенным [Squirrel](https://github.com/Squirrel) фреймворком и модулем Electron [autoUpdater](../api/auto-updater.md).
 
 ## Используя `update.electronjs.org`
 
-Команда GitHub's Electron поддерживает [update.electronjs.org](https://github.com/electron/update.electronjs.org), бесплатный веб-сервис с открытым исходным кодом, который Electron приложения могут использовать для самообновления. The service is designed for Electron apps that meet the following criteria:
+Команда GitHub's Electron поддерживает [update.electronjs.org](https://github.com/electron/update.electronjs.org), бесплатный веб-сервис с открытым исходным кодом, который Electron приложения могут использовать для самообновления. Сервис разработан для приложений Electron, отвечающих следующим критериям:
 
 - Приложение работает на macOS или Windows
 - Приложение имеет публичный GitHub репозиторий
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- Сборки публикуются в GitHub Releases
+- Сборки с кодовой подписью
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+Самый простой способ использовать этот сервис - установить [update-electron-app](https://github.com/electron/update-electron-app), модуль Node.js, сконфигурированный для использования с update.electronjs.org.
 
 Установить модуль:
 
@@ -19,15 +19,15 @@ The easiest way to use this service is by installing [update-electron-app](https
 npm install update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+Вызвать обновление из основного файла процесса вашего приложения:
 
 ```js
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+По умолчанию этот модуль будет проверять наличие обновлений при запуске приложения, а затем каждые десять минут. При обнаружении обновления оно будет автоматически загружено в фоновом режиме. Когда загрузка завершится, будет отображено диалоговое окно, позволяющее пользователю перезапустить приложение.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+Если вам нужно настроить конфигурацию, вы можете [передать параметры в `update-electron-app`](https://github.com/electron/update-electron-app) или [использовать службу обновления напрямую](https://github.com/electron/update.electronjs.org).
 
 ## Развертывание сервера обновлений
 
