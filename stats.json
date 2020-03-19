@@ -68,14 +68,14 @@
     "name": "Dutch",
     "code": "nl",
     "phrases": "15233",
-    "translated": "2953",
+    "translated": "2954",
     "approved": "840",
     "words": "154847",
-    "words_translated": "11097",
+    "words_translated": "11105",
     "words_approved": "1689",
     "translated_progress": 7,
     "approved_progress": 1,
-    "qa_issues": 608
+    "qa_issues": 609
   },
   {
     "name": "Filipino",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "15233",
-    "translated": "10585",
+    "translated": "10600",
     "approved": "3642",
     "words": "154847",
-    "words_translated": "94969",
+    "words_translated": "95118",
     "words_approved": "30076",
     "translated_progress": 61,
     "approved_progress": 19,
-    "qa_issues": 2872
+    "qa_issues": 2883
   },
   {
     "name": "Tagalog",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "15233",
-    "translated": "2326",
+    "translated": "2330",
     "approved": "625",
     "words": "154847",
-    "words_translated": "10421",
+    "words_translated": "10446",
     "words_approved": "1379",
     "translated_progress": 6,
     "approved_progress": 0,
-    "qa_issues": 532
+    "qa_issues": 536
   }
 ]
