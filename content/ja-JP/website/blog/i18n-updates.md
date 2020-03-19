@@ -42,11 +42,11 @@ Electron ドキュメント国際化 (i18n) の取り組みを公表して以来
 
 このままの (執筆時点での過去 14 日間のプロジェクトアクティビティに基づく) ペースが保たれた場合、各言語への翻訳プロジェクトに必要なおおよその時間を示してくれる、楽しいグラフです。
 
-## 📃 Translator Survey
+## 📃 翻訳者アンケート
 
-We would like to give a huge ❤️ thank you ❤️ to everyone who has contributed their time to help improving Electron! In order to properly acknowledge the hard work of our translator community, we have created a survey to collect some information (namely the mapping between their Crowdin and Github usernames) about our translators.
+Electron の改善に時間を費やしてくださった皆さんに ❤️ありがとう❤️を! 翻訳者コミュニティのいかに勤勉かを正しく認識するため、翻訳者に関する情報 (すなわち Crowdin と Github のユーザー名の繋がり) を収集するアンケートを作成しました。
 
-If you are one of our incredible translators, please take a few minutes to fill this out: https://goo.gl/forms/b46sjdcHmlpV0GKT2.
+素晴らしい翻訳者の一員の方は、数分で済みますのでこちらからご記入ください。https://goo.gl/forms/b46sjdcHmlpV0GKT2
 
 ## 🙌 Node's Internationalization Effort
 
