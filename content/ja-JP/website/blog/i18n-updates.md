@@ -27,20 +27,20 @@ date: '2018-06-20'
   <figcaption>Electron ドキュメントのフッターが日本語になっている</figcaption>
 </figure>
 
-ドキュメントを読んでいて、誤植や誤訳に気がつきましたか? もう Crowdin にログインしたり、ロケールを選択したり、修正したいファイルを見つけたりする必要はありません。 代わりに、ドキュメントの一番下までスクロールし、上記の [このドキュメントを改善する] をクリックするだけです。 Voila! You are brought straight to the Crowdin translation page. Now apply your translation magic!
+ドキュメントを読んでいて、誤植や誤訳に気がつきましたか? もう Crowdin にログインしたり、ロケールを選択したり、修正したいファイルを見つけたりする必要はありません。 代わりに、ドキュメントの一番下までスクロールし、上記の [このドキュメントを改善する] をクリックするだけです。 一丁あがり! Crowdin の翻訳ページに直接移動します。 さあ、あなたの翻訳魔法を見せてごらん!
 
-## 📈 Some Statistics
+## 📈 統計
 
-Ever since we have publicized the Electron documentation i18n effort, we have seen _huge_ growth in translation contributions from Electron community members from all around the world. To date, we have **1,719,029 strings translated, from 1,066 community translators, and in 25 languages**.
+Electron ドキュメント国際化 (i18n) の取り組みを公表して以来、世界中の Electron コミュニティメンバーからの翻訳の貢献が _爆発的に_ 増加してきています。 現在まで、**1,719,029 の文字列が、1,066 人のコミュニティ翻訳者から 25 の言語で翻訳されています**。
 
 <figure>
   <a href="https://crowdin.com/project/electron/">
     <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/41649826-ca26037c-747c-11e8-9594-5ce12d2978e2.png" alt="Translation Forecast provided by Crowdin">
-    <figcaption>Translation Forecast provided by Crowdin</figcaption>
+    <figcaption>Crowdin が提供する翻訳予報</figcaption>
   </a>
 </figure>
 
-Here is a fun graph showing the approximate amount of time needed to translate the project into each language if the existing tempo (based on the project activity during the last 14 days at the time of writing) is preserved.
+このままの (執筆時点での過去 14 日間のプロジェクトアクティビティに基づく) ペースが保たれた場合、各言語への翻訳プロジェクトに必要なおおよその時間を示してくれる、楽しいグラフです。
 
 ## 📃 Translator Survey
 
