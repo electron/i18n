@@ -1,5 +1,5 @@
 ---
-title: "Internationalization Updates"
+title: "国際化アップデート"
 author: vanessayuenn
 date: '2018-06-20'
 ---
