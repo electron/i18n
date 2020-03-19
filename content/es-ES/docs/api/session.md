@@ -160,7 +160,7 @@ Escribe cualquier dato DOMStorage que no lo haya sido en disco.
 * `configuración` Object 
   * `pacScript` String (opcional) - La URL asociada con el archivo PAC.
   * `proxyRules` String (opcional) - Reglas indicando cuales proxies usar.
-  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
+  * `proxyBypassRules` String (opcional) - Reglas indicando que URLs deberían ser omitidas por la configuración del proxy.
 
 Devuelve `Promise<void>` - Se resuelve cuando el proceso de configuración del proxy está completo.
 
@@ -255,10 +255,10 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 #### `ses.preconnect(options)`
 
 * `opciones` Object 
-  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
-  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
+  * `url` String - URL para preconexión. Solo el origen es relevante para abrir el socket.
+  * `numSockets` Number (opcional) - número de sockets para preconectar. Debe ser entre 1 y 6. Por defecto es 1.
 
-Preconnects the given number of sockets to an origin.
+Preconecta el número dado de sockets a un origen.
 
 #### `ses.disableNetworkEmulation()`
 
@@ -304,8 +304,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Function 
     * `permiso concedido` Booleano - Permiso o denegado de permiso.
   * `details` Object - Algunas propiedades solamente están disponibles en ciertos tipos de permisos. 
-    * `externalURL` String (optional) - The url of the `openExternal` request.
-    * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `externalURL` String (opcional) - La url de la petición `openExternal`.
+    * `mediaTypes` String[] (opcional) - Los tipos de medios que son solicitados para acceso, los elementos pueden ser `video` o `audio`
     * `requestingUrl` String - La ultima URL que el frame solicitante cargo
     * `isMainFrame` Boolean - Si el marco que realiza la solicitud es el marco principal
 
@@ -394,7 +394,7 @@ Devuelve `Promise<Buffer>` - Se resuelve con datos blob.
 
 * `url` String
 
-Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+Inicia una descargar del recurso en `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
 
 **Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
 
