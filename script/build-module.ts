@@ -106,25 +106,6 @@ async function main() {
   // Writes locales.json
   writeHelper('locales', locales)
 
-  // Writes meta.json
-  // TODO: use writeHelper()
-  fs.writeFileSync(
-    path.join(__dirname, '../dist/meta.json'),
-    JSON.stringify(
-      {
-        electronLatestStableVersion: packageJSON.electronLatestStableTag.replace(
-          /^v/,
-          ''
-        ),
-        electronLatestStableTag: packageJSON.electronLatestStableTag,
-        electronMasterBranchCommit: packageJSON.electronMasterBranchCommit,
-        date: new Date(),
-      },
-      null,
-      2
-    )
-  )
-
   // Writes docs.json
   writeHelper('docs', docsByLocale)
 
