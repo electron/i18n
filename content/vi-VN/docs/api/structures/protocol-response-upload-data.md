@@ -1,4 +1,4 @@
 # ProtocolResponseUploadData Object
 
-* `contentType` String - MIME type of the content.
-* `data` String | Buffer - Content to be sent.
+* `ContentType` Loại chuỗi-MIME của nội dung.
+* `dữ liệu` công cụ tìm kiếm và bí mật thương mại
