@@ -6,13 +6,11 @@ require('require-yaml')
 import * as walk from 'walk-sync'
 import * as path from 'path'
 import { sync as mkdir } from 'make-dir'
-import * as fs from 'fs'
 import { writeHelper } from '../lib/write-helper'
 import { parseBlogFile, parseFile } from '../lib/parsers'
 import { IParseFile } from '../lib/interfaces'
 import locales, { IResult as ILocalesResult } from '../lib/locales'
 import { writeIndexFiles } from '../lib/generate-js'
-import * as packageJSON from '../package.json'
 import {
   parseElectronGlossary,
   IParseElectronGlossaryReturn,
