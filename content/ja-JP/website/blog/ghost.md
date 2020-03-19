@@ -22,17 +22,17 @@ Ghost は、モダンなオンライン出版物を作成し稼働するため�
 
 Ghost は、プロ向け出版物作成だけに特化した新しいプラットフォームを作成する Kickstarter キャンペーンが非常に成功した後の、2013 年 4 月に設立されました。 私たちの使命は、世界中の独立したジャーナリストや作家のために最高のオープンソースツールを作成し、オンラインメディアの未来に真の衝撃を与えることです。 シンプルで、より焦点を絞ったエクスペリエンスを提供します。このエディタは、可能な限り最高の執筆体験を提供することだけを目的に設計しました。
 
-Compared to the all-time classic WordPress, it offers a simpler, more streamlined experience - it is easier to setup and maintain, comes with all important features out-of-the-box, and is dramatically faster. Compared to other online platforms, Ghost gives writers full ownership and control over their content, allows full customization, and enables authors to build a business around their publication.
+従来の WordPress と比較すると、シンプルで合理化されたエクスペリエンスを提供しています。セットアップとメンテナンスが簡単で、すべての大事な機能が付属しており、劇的に高速です。 他のオンラインプラットフォームと比べても、Ghost はライターがコンテンツの完全な所有権と制御を得ることで完全なカスタマイズができ、執筆者は出版物を中心としたビジネス構築ができます。
 
-## Is Ghost a for-profit company?
+## Ghost は営利団体ですか?
 
-This one is important to us: Ghost is an independent non-profit organisation. We build publishing tools for modern journalism & blogging because we believe freedom of speech is important. Our software is released under a [free open source license](https://github.com/TryGhost/Ghost), our business model is [completely transparent](https://blog.ghost.org/year-3/), and our legal structure means that 100% of the money we make is reinvested into making Ghost better.
+これは私たちにおいて大事なところです。Ghost は独立した非営利組織です。 言論の自由は重要であるという信念の下、モダンなジャーナリズムとブログのための出版ツールを構築します。 当ソフトウェアは [自由なオープンソースライセンス](https://github.com/TryGhost/Ghost) でリリースされており、当社のビジネスモデルは [完全に透明](https://blog.ghost.org/year-3/)です。当社の法的構造では、収益の 100% が Ghost の改善に再投資されます。
 
-## What is Ghost Desktop?
+## Ghost デスクトップとは何ですか?
 
-Ghost Desktop allows writers to manage multiple blogs at once - and to focus on their writing. Simple things like common writing shortcuts can't be realized in a browser, but are available in our desktop app. It allows other applications to communicate directly [with the blog via deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
+Ghost デスクトップなら、ライターは複数のブログを一度に管理でき、執筆に集中できます。 一般的な執筆ショートカットのような単純なものでも、ブラウザでは実現できませんがデスクトップアプリならできます。他のアプリケーションが [ディープリンク経由のブログ](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md) と直接通信できるようにします。
 
-## What is Ghost for Journalism?
+## ジャーナリズム版 Ghost とは何ですか?
 
 This year we're very excited to be dedicating our entire 10 person full-time Ghost team to helping grow three independent publications, along with $45,000 in resources toward their efforts. We're calling it [Ghost for Journalism](https://ghost.org/journalism/).
 
