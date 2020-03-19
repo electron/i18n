@@ -11,7 +11,7 @@ date: '2017-02-14'
 ---
 
 <div class="pt-5">
-  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Ghost Desktop Screenshot"> 
+  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Ghost デスクトップのスクリーンショット"> 
 </div>
 
 ## Ghost とは何ですか?
@@ -50,19 +50,19 @@ Ghost はバックエンドとフロントエンドの両方で JavaScript とNo
 
 ## Electron はどういった領域で改善されるべきでしょうか?
 
-Electron がオペレーティングシステムのネイティブのスペルチェック機能をアプリから使えるようにすることを望みます。 We're dreaming about a world in which an `<input>` field receives the same services as a `NSTextView`, but we are also intimately aware how difficult that is.
+Electron がオペレーティングシステムのネイティブのスペルチェック機能をアプリから使えるようにすることを望みます。 `<input>` フィールドが `NSTextView` と同じサービスを受けられる世界を夢見ていますが、それがいかに難しいかはよく知っています。
 
-## What are your favorite things about Electron?
+## Electron の好きなところは何ですか?
 
-JavaScript is famous for being a vast ecosystem, involving countless tools and frameworks - but the convenience it affords us is hard to overstate. Building an app with Electron is only _slightly_ harder than building a web app, which is an amazing  feat.
+JavaScript は、数え切れないほどのツールとフレームワークを含む広大なエコシステムだと有名で、その利便性は誇張しかねます。 Electron でのアプリ構築は、ウェブアプリ構築より _ほんの少し_ 難しいだけです。これは驚くべき偉業でしょう。
 
-## Is Ghost done? If not, what's coming next?
+## Ghost はこれで終わりですか? それとも、今後何かありますか?
 
-Ghost Desktop is also an ongoing project - we're pretty far from being done. We have been talking for a while about bringing a full offline mode to our users, and we're getting fairly close. Other notable work areas are the extension and integration with other text editing apps (like Word or Atom), ultimately allowing people to write posts using their favorite tools. In general, once we've shipped the offline mode feature, we're looking for deeper integration with the operating system. If that sounds interesting to you, [join us](https://github.com/tryghost/ghost-desktop)!
+Ghost デスクトップも進行中のプロジェクトであり、まだまだ完成には程遠い状態です。 ここのところ、完全なオフラインモードをユーザーに提供することについて議論しており、かなり実現に近づいています。 他に手を加える注目すべき箇所は、他のテキスト編集アプリ (Word や Atom など) 向けの拡張と統合です。最終的には、ユーザーが好みのツールで記事を書けるようにします。 一般に、オフラインモード機能を搭載するにあたって、オペレーティングシステムとのより密接な統合方法を探します。 面白そうだと思っていただけたのであれば、[ぜひご参加ください](https://github.com/tryghost/ghost-desktop)!
 
-## What are some of your favorite Electron apps?
+## お気に入りの Electron アプリはありますか?
 
-I'm a big fan of [Kap](https://getkap.co/), [Felony](https://github.com/henryboldi/felony), and [Visual Studio Code](https://code.visualstudio.com).
+私は [Kap](https://getkap.co/)、[Felony](https://github.com/henryboldi/felony)、[Visual Studio Code](https://code.visualstudio.com) の大ファンです。
 
 👻
 
