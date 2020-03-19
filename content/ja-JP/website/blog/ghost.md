@@ -36,15 +36,15 @@ Ghost デスクトップなら、ライターは複数のブログを一度に�
 
 今年、10 人のフルタイムのゴーストチーム全体が 3 つまでの独立した出版物の成長を支援し、その活動に 45,000 ドルのリソースを費やすという心躍る計画をしています。 これを [Ghost ジャーナリズム版](https://ghost.org/journalism/) と呼びます。
 
-約 3 年半にわたって、独立系出版社向けにウェブの次世代優良プラットフォームとして Ghost を構築してきましたが、今になって非常に興味深い変曲点に到達しました。 この旅は、誰でも使えるようなシンプルで上手く設計されたブログプラットフォームを作成するところから始まりました。 That was always going to be step one.
+約 3 年半にわたって、独立系出版社向けにウェブの次世代優良プラットフォームとして Ghost を構築してきましたが、今になって非常に興味深い変曲点に到達しました。 この旅は、誰でも使えるようなシンプルで上手く設計されたブログプラットフォームを作成するところから始まりました。 旅はいつも一歩ずつ進みました。
 
-Long term, we want Ghost to be an incredible platform for the world's best journalism, and that means we need to build features to attract exactly those people. This year we're making a very conscious decision to focus on just that.
+長期的には、Ghost を世界最高のジャーナリズム向けのとてつもないプラットフォームにしたいと考えています。人々を引き付ける機能を構築する必要があるのです。 今年はそれだけに集中する、と非常に意識的に決定しています。
 
-## Why did you choose to build Ghost Desktop on Electron?
+## Electron で Ghost デスクトップを構築することにしたのはなぜですか?
 
-Ghost uses JavaScript and Node.js on both the backend and frontend, so being able to utilize the same technology and skillset enables our team to move faster, build more, and ultimately deliver a better experience. In addition, being able to share more than 95% of code between the macOS, Windows, and Linux version of the app allows us to focus on building a great core user experience, without having to maintain one code base for each platform.
+Ghost はバックエンドとフロントエンドの両方で JavaScript とNode.js を使用するため、同じ技術と経験が利用できます。これにより、チームはより迅速な行動とより多くの構築ができ、やがてより良いエクスペリエンスを提供できます。 さらに、macOS、Windows、Linux バージョン間でアプリのコードの 95% 以上を共有できるため、プラットフォームごとに 1 つずつコードベースを維持する必要がなく、優れたコアユーザーエクスペリエンスの構築に集中できます。
 
-## What are some challenges you've faced while building Ghost Desktop?
+## Ghost デスクトップ構築の際に直面した課題はありますか?
 
 Spellchecking is likely still one of the most difficult services offered - we could easily utilize one of the many online services, but correctly spellchecking text in multiple languages while guarding the privacy and autonomy of our users is not an easy task.
 
