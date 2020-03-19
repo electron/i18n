@@ -48,7 +48,7 @@ Electron の改善に時間を費やしてくださった皆さんに ❤️あ�
 
 素晴らしい翻訳者の一員の方は、数分で済みますのでこちらからご記入ください。https://goo.gl/forms/b46sjdcHmlpV0GKT2
 
-## 🙌 Node's Internationalization Effort
+## 🙌 Node の国際化活動
 
 Because of the success of Electron's i18n initiative, Node.js decided to model [their revamped i18n effort](https://github.com/nodejs/i18n) after the pattern we use as well! 🎉 The [Node.js i18n initiative](https://github.com/nodejs/i18n) has now been launched and gained great momentum, but you can stil read about the early proposal and reasoning behind it [here](https://medium.com/the-node-js-collection/internationalizing-node-js-fe7761798b0a).
 
