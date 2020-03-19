@@ -32,11 +32,11 @@ Ghost は、プロ向け出版物作成だけに特化した新しいプラッ�
 
 Ghost デスクトップなら、ライターは複数のブログを一度に管理でき、執筆に集中できます。 一般的な執筆ショートカットのような単純なものでも、ブラウザでは実現できませんがデスクトップアプリならできます。他のアプリケーションが [ディープリンク経由のブログ](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md) と直接通信できるようにします。
 
-## ジャーナリズム版 Ghost とは何ですか?
+## Ghost ジャーナリズム版とは何ですか?
 
-This year we're very excited to be dedicating our entire 10 person full-time Ghost team to helping grow three independent publications, along with $45,000 in resources toward their efforts. We're calling it [Ghost for Journalism](https://ghost.org/journalism/).
+今年、10 人のフルタイムのゴーストチーム全体が 3 つまでの独立した出版物の成長を支援し、その活動に 45,000 ドルのリソースを費やすという心躍る計画をしています。 これを [Ghost ジャーナリズム版](https://ghost.org/journalism/) と呼びます。
 
-We've been building Ghost as the web's next great platform for independent publishers for about three and half years now, and we've now reached a really interesting inflection point. We started this journey to create a simple, well designed blogging platform which could be used by just about anyone. That was always going to be step one.
+約 3 年半にわたって、独立系出版社向けにウェブの次世代優良プラットフォームとして Ghost を構築してきましたが、今になって非常に興味深い変曲点に到達しました。 この旅は、誰でも使えるようなシンプルで上手く設計されたブログプラットフォームを作成するところから始まりました。 That was always going to be step one.
 
 Long term, we want Ghost to be an incredible platform for the world's best journalism, and that means we need to build features to attract exactly those people. This year we're making a very conscious decision to focus on just that.
 
