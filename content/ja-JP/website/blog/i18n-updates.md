@@ -50,8 +50,8 @@ Electron の改善に時間を費やしてくださった皆さんに ❤️あ�
 
 ## 🙌 Node の国際化活動
 
-Because of the success of Electron's i18n initiative, Node.js decided to model [their revamped i18n effort](https://github.com/nodejs/i18n) after the pattern we use as well! 🎉 The [Node.js i18n initiative](https://github.com/nodejs/i18n) has now been launched and gained great momentum, but you can stil read about the early proposal and reasoning behind it [here](https://medium.com/the-node-js-collection/internationalizing-node-js-fe7761798b0a).
+Electron の国際化イニシアチブが成功したことから、Node.js は私たちのパターンに沿った [改訂版の国際化活動](https://github.com/nodejs/i18n) をモデル化することにしました! 🎉 [Node.js 国際化イニシアチブ](https://github.com/nodejs/i18n) が開始され、大きな勢いを得ています。草案とその背景事由は [こちら](https://medium.com/the-node-js-collection/internationalizing-node-js-fe7761798b0a) で読むことができます。
 
-## 🔦 Contributing Guide
+## 🔦 コントリビューションガイド
 
 If you're interested in joining our effort to make Electron more international friendly, we have a handy-dandy [contributing guide](https://github.com/electron/i18n/blob/master/contributing.md) to help you get started. Happy internationalizing! 📚
