@@ -4,30 +4,30 @@ author: vanessayuenn
 date: '2018-06-20'
 ---
 
-Ever since the [launch](https://electronjs.org/blog/new-website) of the new internationalized Electron website, we have been working hard to make the Electron development experience even more accessible to developers outside of the English speaking world.
+新しく国際化された Electron ウェブサイトの [立ち上げ](https://electronjs.org/blog/new-website) 以来、英語圏以外の開発者が Electron の開発知識をさらに利用しやすいように取り組んでいます。
 
-So here we are with some exciting i18n updates!
+そこで、エキサイティングな国際化 (i18n) アップデートを紹介しましょう!
 
 ---
 
-## 🌐 Language Toggle
+## 🌐 言語切替
 
-Did you know that many people who read translated documentation often cross reference that with the original English documentation? They do this to familiarize themselves with English docs, and to avoid outdated or inaccurate translations, which is one caveat of internationalized documentations.
+翻訳ドキュメントの読者の多くは、原文の英語ドキュメントも相互参照することが多いというのはご存知ですか? 古かったり不正確だったりする訳文を避けるために、英語ドキュメントを習熟しているのです。これは国際化されたドキュメントに鳴らされる警笛の一つです。
 
 <figure>
   <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/35578586-cae629e2-05e4-11e8-9431-0278f8c2b39f.gif" alt="Language toggle on Electron documentation">
 </figure>
 
-To make cross-referencing to English docs easier, we recently shipped a feature that allows you to seamlessly toggle a section of the Electron documentation between English and whatever language you're viewing the website in. The language toggle will show up as long as you have a non-English locale selected on the website.
+英語ドキュメントへの相互参照を容易にするため、Electron ドキュメントの文章を英語とウェブサイトの表示言語との間でシームレスに切り替えられる機能を追加しました。 ウェブサイトで英語以外のロケールを選択すれば、言語切替が表示されます。
 
-## ⚡️ Quick Access to Translation Page
+## ⚡️ 訳文ページへのクイックアクセス
 
 <figure>
   <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/36511386-c32e31fc-1766-11e8-8484-7466be6a5eb0.png" alt="New Electron documentation footer in Japanese">
-  <figcaption>Electron documentation footer in Japanese</figcaption>
+  <figcaption>Electron ドキュメントのフッターが日本語になっている</figcaption>
 </figure>
 
-Notice a typo or an incorrect translation while you're reading the documentation? You no longer have to log in to Crowdin, pick your locale, find the file you'd like the fix, etc etc. Instead, you can just scroll down to the bottom of the said doc, and click "Translate this doc" (or the equivalent in your language). Voila! You are brought straight to the Crowdin translation page. Now apply your translation magic!
+ドキュメントを読んでいて、誤植や誤訳に気がつきましたか? もう Crowdin にログインしたり、ロケールを選択したり、修正したいファイルを見つけたりする必要はありません。 代わりに、ドキュメントの一番下までスクロールし、上記の [このドキュメントを改善する] をクリックするだけです。 Voila! You are brought straight to the Crowdin translation page. Now apply your translation magic!
 
 ## 📈 Some Statistics
 
