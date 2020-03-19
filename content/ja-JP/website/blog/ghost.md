@@ -1,68 +1,68 @@
 ---
-title: 'Project of the Week: Ghost'
+title: '今週のプロジェクト: Ghost'
 author:
   - felixrieseberg
   - zeke
 date: '2017-02-14'
 ---
 
-This week we chatted with [Felix Rieseberg](https://felixrieseberg.com/), desktop engineer at [Slack](https://slack.com/) and maintainer of [Ghost Desktop](https://ghost.org/downloads/), an Electron client for the [Ghost](https://ghost.org/) publishing platform.
+今週、[Slack](https://slack.com/) のデスクトップエンジニアであり、[Ghost](https://ghost.org/) 出版プラットフォームの Electron クライアントである [Ghost Desktop](https://ghost.org/downloads/) のメンテナー [Felix Rieseberg](https://felixrieseberg.com/) と談話しました。
 
 ---
 
 <div class="pt-5">
-  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Ghost Desktop Screenshot"> 
+  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Ghost デスクトップのスクリーンショット"> 
 </div>
 
-## What is Ghost?
+## Ghost とは何ですか?
 
-Ghost is a fully open source, hackable platform for building and running a modern online publication. We power blogs, magazines and journalists from Zappos to Sky News.
+Ghost は、モダンなオンライン出版物を作成し稼働するための、完全にオープンソースの改造可能なプラットフォームです。 Zappos から Sky News まで、ブログ、雑誌、ジャーナリストを支えています。
 
-## What makes it different from other publishing platforms?
+## 他の出版プラットフォームとの違いは何ですか?
 
-Ghost was founded in April 2013, after a very successful Kickstarter campaign to create a new platform focused solely on professional publishing. Our mission is to create the best open source tools for independent journalists and writers across the world, and have a real impact on the future of online media. It offers a simpler, more focussed experience: Our editor is designed solely around providing the best possible writing experience.
+Ghost は、プロ向け出版物作成だけに特化した新しいプラットフォームを作成する Kickstarter キャンペーンが非常に成功した後の、2013 年 4 月に設立されました。 私たちの使命は、世界中の独立したジャーナリストや作家のために最高のオープンソースツールを作成し、オンラインメディアの未来に真の衝撃を与えることです。 シンプルで、より焦点を絞ったエクスペリエンスを提供します。このエディタは、可能な限り最高の執筆体験を提供することだけを目的に設計しました。
 
-Compared to the all-time classic WordPress, it offers a simpler, more streamlined experience - it is easier to setup and maintain, comes with all important features out-of-the-box, and is dramatically faster. Compared to other online platforms, Ghost gives writers full ownership and control over their content, allows full customization, and enables authors to build a business around their publication.
+従来の WordPress と比較すると、シンプルで合理化されたエクスペリエンスを提供しています。セットアップとメンテナンスが簡単で、すべての大事な機能が付属しており、劇的に高速です。 他のオンラインプラットフォームと比べても、Ghost はライターがコンテンツの完全な所有権と制御を得ることで完全なカスタマイズができ、執筆者は出版物を中心としたビジネス構築ができます。
 
-## Is Ghost a for-profit company?
+## Ghost は営利団体ですか?
 
-This one is important to us: Ghost is an independent non-profit organisation. We build publishing tools for modern journalism & blogging because we believe freedom of speech is important. Our software is released under a [free open source license](https://github.com/TryGhost/Ghost), our business model is [completely transparent](https://blog.ghost.org/year-3/), and our legal structure means that 100% of the money we make is reinvested into making Ghost better.
+これは私たちにおいて大事なところです。Ghost は独立した非営利組織です。 言論の自由は重要であるという信念の下、モダンなジャーナリズムとブログのための出版ツールを構築します。 当ソフトウェアは [自由なオープンソースライセンス](https://github.com/TryGhost/Ghost) でリリースされており、当社のビジネスモデルは [完全に透明](https://blog.ghost.org/year-3/)です。当社の法的構造では、収益の 100% が Ghost の改善に再投資されます。
 
-## What is Ghost Desktop?
+## Ghost デスクトップとは何ですか?
 
-Ghost Desktop allows writers to manage multiple blogs at once - and to focus on their writing. Simple things like common writing shortcuts can't be realized in a browser, but are available in our desktop app. It allows other applications to communicate directly [with the blog via deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
+Ghost デスクトップなら、ライターは複数のブログを一度に管理でき、執筆に集中できます。 一般的な執筆ショートカットのような単純なものでも、ブラウザでは実現できませんがデスクトップアプリならできます。他のアプリケーションが [ディープリンク経由のブログ](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md) と直接通信できるようにします。
 
-## What is Ghost for Journalism?
+## Ghost ジャーナリズム版とは何ですか?
 
-This year we're very excited to be dedicating our entire 10 person full-time Ghost team to helping grow three independent publications, along with $45,000 in resources toward their efforts. We're calling it [Ghost for Journalism](https://ghost.org/journalism/).
+今年、10 人のフルタイムのゴーストチーム全体が 3 つまでの独立した出版物の成長を支援し、その活動に 45,000 ドルのリソースを費やすという心躍る計画をしています。 これを [Ghost ジャーナリズム版](https://ghost.org/journalism/) と呼びます。
 
-We've been building Ghost as the web's next great platform for independent publishers for about three and half years now, and we've now reached a really interesting inflection point. We started this journey to create a simple, well designed blogging platform which could be used by just about anyone. That was always going to be step one.
+約 3 年半にわたって、独立系出版社向けにウェブの次世代優良プラットフォームとして Ghost を構築してきましたが、今になって非常に興味深い変曲点に到達しました。 この旅は、誰でも使えるようなシンプルで上手く設計されたブログプラットフォームを作成するところから始まりました。 旅はいつも一歩ずつ進みました。
 
-Long term, we want Ghost to be an incredible platform for the world's best journalism, and that means we need to build features to attract exactly those people. This year we're making a very conscious decision to focus on just that.
+長期的には、Ghost を世界最高のジャーナリズム向けのとてつもないプラットフォームにしたいと考えています。人々を引き付ける機能を構築する必要があるのです。 今年はそれだけに集中する、と非常に意識的に決定しています。
 
-## Why did you choose to build Ghost Desktop on Electron?
+## Electron で Ghost デスクトップを構築することにしたのはなぜですか?
 
-Ghost uses JavaScript and Node.js on both the backend and frontend, so being able to utilize the same technology and skillset enables our team to move faster, build more, and ultimately deliver a better experience. In addition, being able to share more than 95% of code between the macOS, Windows, and Linux version of the app allows us to focus on building a great core user experience, without having to maintain one code base for each platform.
+Ghost はバックエンドとフロントエンドの両方で JavaScript とNode.js を使用するため、同じ技術と経験が利用できます。これにより、チームはより迅速な行動とより多くの構築ができ、やがてより良いエクスペリエンスを提供できます。 さらに、macOS、Windows、Linux バージョン間でアプリのコードの 95% 以上を共有できるため、プラットフォームごとに 1 つずつコードベースを維持する必要がなく、優れたコアユーザーエクスペリエンスの構築に集中できます。
 
-## What are some challenges you've faced while building Ghost Desktop?
+## Ghost デスクトップ構築の際に直面した課題はありますか?
 
-Spellchecking is likely still one of the most difficult services offered - we could easily utilize one of the many online services, but correctly spellchecking text in multiple languages while guarding the privacy and autonomy of our users is not an easy task.
+最も難しいサービスを一つ挙げるとすれば、スペルチェックです。数あるオンラインサービスは簡単に利用できますが、ユーザーのプライバシーと自主性を守りながら複数言語のテキストを正しくスペルチェックするのは、簡単な課題ではありません。
 
-## In what areas should Electron be improved?
+## Electron はどういった領域で改善されるべきでしょうか?
 
-We would love to see Electron bring the operating system's native spellchecking capabilities to their apps. We're dreaming about a world in which an `<input>` field receives the same services as a `NSTextView`, but we are also intimately aware how difficult that is.
+Electron がオペレーティングシステムのネイティブのスペルチェック機能をアプリから使えるようにすることを望みます。 `<input>` フィールドが `NSTextView` と同じサービスを受けられる世界を夢見ていますが、それがいかに難しいかはよく知っています。
 
-## What are your favorite things about Electron?
+## Electron の好きなところは何ですか?
 
-JavaScript is famous for being a vast ecosystem, involving countless tools and frameworks - but the convenience it affords us is hard to overstate. Building an app with Electron is only _slightly_ harder than building a web app, which is an amazing  feat.
+JavaScript は、数え切れないほどのツールとフレームワークを含む広大なエコシステムだと有名で、その利便性は誇張しかねます。 Electron でのアプリ構築は、ウェブアプリ構築より _ほんの少し_ 難しいだけです。これは驚くべき偉業でしょう。
 
-## Is Ghost done? If not, what's coming next?
+## Ghost はこれで終わりですか? それとも、今後何かありますか?
 
-Ghost Desktop is also an ongoing project - we're pretty far from being done. We have been talking for a while about bringing a full offline mode to our users, and we're getting fairly close. Other notable work areas are the extension and integration with other text editing apps (like Word or Atom), ultimately allowing people to write posts using their favorite tools. In general, once we've shipped the offline mode feature, we're looking for deeper integration with the operating system. If that sounds interesting to you, [join us](https://github.com/tryghost/ghost-desktop)!
+Ghost デスクトップも進行中のプロジェクトであり、まだまだ完成には程遠い状態です。 ここのところ、完全なオフラインモードをユーザーに提供することについて議論しており、かなり実現に近づいています。 他に手を加える注目すべき箇所は、他のテキスト編集アプリ (Word や Atom など) 向けの拡張と統合です。最終的には、ユーザーが好みのツールで記事を書けるようにします。 一般に、オフラインモード機能を搭載するにあたって、オペレーティングシステムとのより密接な統合方法を探します。 面白そうだと思っていただけたのであれば、[ぜひご参加ください](https://github.com/tryghost/ghost-desktop)!
 
-## What are some of your favorite Electron apps?
+## お気に入りの Electron アプリはありますか?
 
-I'm a big fan of [Kap](https://getkap.co/), [Felony](https://github.com/henryboldi/felony), and [Visual Studio Code](https://code.visualstudio.com).
+私は [Kap](https://getkap.co/)、[Felony](https://github.com/henryboldi/felony)、[Visual Studio Code](https://code.visualstudio.com) の大ファンです。
 
 👻
 

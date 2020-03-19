@@ -13,7 +13,7 @@ let win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google offers [excellent documentation for their developer tools](https://developer.chrome.com/devtools). We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
+công cụ tìm kiếm , bí mật thương mại We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
 
 ## Main Process
 
