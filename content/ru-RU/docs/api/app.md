@@ -566,7 +566,7 @@ app.exit(0)
 
 Переопределяет имя текущего приложения.
 
-**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+**Примечание:** Эта функция перекрывает имя, используемое внутри Electron; это не влияет на имя, которое использует ОС.
 
 **[Устарело](modernization/property-updates.md)**
 
