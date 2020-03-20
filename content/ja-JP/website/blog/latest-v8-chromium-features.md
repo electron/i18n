@@ -8,29 +8,29 @@ Electron アプリケーションの構築は、1 つのブラウザ向けに 1 
 
 ---
 
-There are many features and we'll cover some here as examples, but if you're interested in learning about all features you can keep an eye on the [Google Chromium blog](http://blog.chromium.org) and [Node.js changelogs](https://nodejs.org/en/download/releases). You can see what versions of Node.js, Chromium and V8 Electron is using at [electronjs.org/#electron-versions](https://electronjs.org/#electron-versions).
+多くの機能があるため、ここでは例をいくつか取り上げます。すべての機能について知りたい場合は、[Google Chromium ブログ](http://blog.chromium.org) 及び [Node.js 変更ログ](https://nodejs.org/en/download/releases) に目を通してください。 Node.js、Chromium、V8 の Electron での使用バージョンは [electronjs.org/#electron-versions](https://electronjs.org/#electron-versions) で確認できます。
 
-## ES6 Support through V8
+## V8 による ES6 サポート
 
-Electron combines Chromium's rendering library with Node.js. The two share the same JavaScript engine, [V8](https://developers.google.com/v8). Many ECMAScript 2015 (ES6) features are already built into V8 which means you can use them in your Electron application without any compilers.
+Electron は Chromium のレンダリングライブラリに Node.js を組み合わせています。 二者は同じ JavaScript エンジン [V8](https://developers.google.com/v8) を共有します。 多くの ECMAScript 2015 (ES6) の機能はすでに V8 に組み込まれており、コンパイラーがなくても Electron アプリケーションで使用できます。
 
-Below are a few examples but you can also get classes (in strict mode), block scoping, promises, typed arrays and more. Check out [this list](https://nodejs.org/en/docs/es6/) for more information on ES6 features in V8.
+以下にいくつかの例を示しますが、class (strict モード)、ブロックスコープ、Promise、TypedArray などを書くこともできます。 V8 の ES6 機能の詳細については [このリスト](https://nodejs.org/en/docs/es6/) を参照してください。
 
-**Arrow Functions**
+**アロー関数**
 
 ```js
 findTime () => {
   console.log(new Date())
 }
 ```
-**String Interpolation**
+**文字列内挿**
 
 ```js
 var octocat = "Mona Lisa";
 console.log(`The octocat's name is ${octocat}`);
 ```
 
-**New Target**
+**new.target**
 
 ```js
 Octocat() => {
@@ -44,23 +44,23 @@ Octocat();
 new Octocat();
 ```
 
-**Array Includes**
+**Array.includes**
 
 ```js
- // Returns true
+ // true を返します
 [1, 2].includes(2);
 ```
 
-**Rest Parameters**
+**残余引数**
 
 ```js
-// Represent indefinite number of arguments as an array
+// 可変長引数を配列として表現します
 (o, c, ...args) => {
   console.log(args.length)
 }
 ```
 
-## Chromium Features
+## Chromium の機能
 
 Thanks to all the hard work Google and contributors put into Chromium, when you build Electron apps you can also use cool things like (but not limited to):
 
