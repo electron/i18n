@@ -19,7 +19,7 @@ Electron は Chromium のレンダリングライブラリに Node.js を組み�
 **アロー関数**
 
 ```js
-findTime () => {
+const findTime = () => {
   console.log(new Date())
 }
 ```
@@ -33,14 +33,14 @@ console.log(`The octocat's name is ${octocat}`);
 **new.target**
 
 ```js
-Octocat() => {
+function Octocat() {
   if (!new.target) throw "Not new";
   console.log("New Octocat");
 }
 
-// Throws
+// 例外が投げられる
 Octocat();
-// Logs
+// ログが出る
 new Octocat();
 ```
 
@@ -70,7 +70,7 @@ Google と Chromium に貢献してくれた皆の協力のおかげで、Electr
 
 [Google Chromium ブログ](http://blog.chromium.org) をフォローすれば、新しいバージョンが出るたびにその機能について知ることができます。また、Electronが使用する Chromium のバージョンは [こちら](https://electronjs.org/#electron-versions) で確認できます。
 
-## What are you excited about?
+## 何か好きなものはありましたか?
 
-Tweet to us [@ElectronJS](https://twitter.com/electronjs) with your favorite features built into V8 or Chromium.
+V8 や Chromium のお気に入りの組み込み機能を [@ElectronJS](https://twitter.com/electronjs) 宛にツイートしましょう。
 
