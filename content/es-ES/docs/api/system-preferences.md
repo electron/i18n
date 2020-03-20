@@ -390,7 +390,7 @@ Devuelve `Boolean` - `true` si el proceso actual es un cliente de accesibilidad 
 
 Devuelve `String` - Puede ser `not-determined`, `granted`, `denied`, `restricted` o `unknown`.
 
-This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return `granted`. macOS 10.14 Mojave or higher requires consent for `microphone` and `camera` access. macOS 10.15 Catalina or higher requires consent for `screen` access.
+Este consentimiento de usuario no fue requerido en macOS 10.13 High Sierra o anteriores por lo tanto este método siempre devolverá `granted`. macOS 10.14 Mojave or higher requires consent for `microphone` and `camera` access. macOS 10.15 Catalina or higher requires consent for `screen` access.
 
 ### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
 
@@ -416,7 +416,7 @@ Devuelve un objeto con las configuraciones del sistema de animación.
 
 ### `systemPreferences.appLevelAppearance` *macOS*
 
-A `String` property that can be `dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
+Una propiedad `String` que puede ser `dark`, `light` o `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
 
 Possible values that can be set are `dark` and `light`, and possible return values are `dark`, `light`, and `unknown`.
 
@@ -424,6 +424,6 @@ This property is only available on macOS 10.14 Mojave or newer.
 
 ### `systemPreferences.effectiveAppearance` *macOS* *Readonly*
 
-A `String` property that can be `dark`, `light` or `unknown`.
+Una propiedad `String` que puede ser `dark`, `light` o `unknown`.
 
 Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)

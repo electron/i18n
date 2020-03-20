@@ -4,54 +4,54 @@ author: vanessayuenn
 date: '2018-06-20'
 ---
 
-Ever since the [launch](https://electronjs.org/blog/new-website) of the new internationalized Electron website, we have been working hard to make the Electron development experience even more accessible to developers outside of the English speaking world.
+新しく国際化された Electron ウェブサイトの [立ち上げ](https://electronjs.org/blog/new-website) 以来、英語圏以外の開発者が Electron の開発知識をさらに利用しやすいように取り組んでいます。
 
-So here we are with some exciting i18n updates!
+そこで、エキサイティングな国際化 (i18n) アップデートを紹介しましょう!
 
 ---
 
-## 🌐 Language Toggle
+## 🌐 言語切替
 
-Did you know that many people who read translated documentation often cross reference that with the original English documentation? They do this to familiarize themselves with English docs, and to avoid outdated or inaccurate translations, which is one caveat of internationalized documentations.
-
-<figure>
-  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/35578586-cae629e2-05e4-11e8-9431-0278f8c2b39f.gif" alt="Language toggle on Electron documentation">
-</figure>
-
-To make cross-referencing to English docs easier, we recently shipped a feature that allows you to seamlessly toggle a section of the Electron documentation between English and whatever language you're viewing the website in. The language toggle will show up as long as you have a non-English locale selected on the website.
-
-## ⚡️ Quick Access to Translation Page
+翻訳ドキュメントの読者の多くは、原文の英語ドキュメントも相互参照することが多いというのはご存知ですか? 古かったり不正確だったりする訳文を避けるために、英語ドキュメントを習熟しているのです。これは国際化されたドキュメントに鳴らされる警笛の一つです。
 
 <figure>
-  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/36511386-c32e31fc-1766-11e8-8484-7466be6a5eb0.png" alt="New Electron documentation footer in Japanese">
-  <figcaption>Electron documentation footer in Japanese</figcaption>
+  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/35578586-cae629e2-05e4-11e8-9431-0278f8c2b39f.gif" alt="Electron ドキュメントの言語切替">
 </figure>
 
-Notice a typo or an incorrect translation while you're reading the documentation? You no longer have to log in to Crowdin, pick your locale, find the file you'd like the fix, etc etc. Instead, you can just scroll down to the bottom of the said doc, and click "Translate this doc" (or the equivalent in your language). Voila! You are brought straight to the Crowdin translation page. Now apply your translation magic!
+英語ドキュメントへの相互参照を容易にするため、Electron ドキュメントの文章を英語とウェブサイトの表示言語との間でシームレスに切り替えられる機能を追加しました。 ウェブサイトで英語以外のロケールを選択すれば、言語切替が表示されます。
 
-## 📈 Some Statistics
+## ⚡️ 訳文ページへのクイックアクセス
 
-Ever since we have publicized the Electron documentation i18n effort, we have seen _huge_ growth in translation contributions from Electron community members from all around the world. To date, we have **1,719,029 strings translated, from 1,066 community translators, and in 25 languages**.
+<figure>
+  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/36511386-c32e31fc-1766-11e8-8484-7466be6a5eb0.png" alt="新しい Electron ドキュメントのフッターが日本語になっている">
+  <figcaption>Electron ドキュメントのフッターが日本語になっている</figcaption>
+</figure>
+
+ドキュメントを読んでいて、誤植や誤訳に気がつきましたか? もう Crowdin にログインしたり、ロケールを選択したり、修正したいファイルを見つけたりする必要はありません。 代わりに、ドキュメントの一番下までスクロールし、上記の [このドキュメントを改善する] をクリックするだけです。 一丁あがり! Crowdin の翻訳ページに直接移動します。 さあ、あなたの翻訳魔法を見せてごらん!
+
+## 📈 統計
+
+Electron ドキュメント国際化 (i18n) の取り組みを公表して以来、世界中の Electron コミュニティメンバーからの翻訳の貢献が _爆発的に_ 増加してきています。 現在まで、**1,719,029 の文字列が、1,066 人のコミュニティ翻訳者から 25 の言語で翻訳されています**。
 
 <figure>
   <a href="https://crowdin.com/project/electron/">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/41649826-ca26037c-747c-11e8-9594-5ce12d2978e2.png" alt="Translation Forecast provided by Crowdin">
-    <figcaption>Translation Forecast provided by Crowdin</figcaption>
+    <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/41649826-ca26037c-747c-11e8-9594-5ce12d2978e2.png" alt="Crowdin が提供する翻訳予報">
+    <figcaption>Crowdin が提供する翻訳予報</figcaption>
   </a>
 </figure>
 
-Here is a fun graph showing the approximate amount of time needed to translate the project into each language if the existing tempo (based on the project activity during the last 14 days at the time of writing) is preserved.
+このままの (執筆時点での過去 14 日間のプロジェクトアクティビティに基づく) ペースが保たれた場合、各言語への翻訳プロジェクトに必要なおおよその時間を示してくれる、楽しいグラフです。
 
-## 📃 Translator Survey
+## 📃 翻訳者アンケート
 
-We would like to give a huge ❤️ thank you ❤️ to everyone who has contributed their time to help improving Electron! In order to properly acknowledge the hard work of our translator community, we have created a survey to collect some information (namely the mapping between their Crowdin and Github usernames) about our translators.
+Electron の改善に時間を費やしてくださった皆さんに ❤️ありがとう❤️を! 翻訳者コミュニティのいかに勤勉かを正しく認識するため、翻訳者に関する情報 (すなわち Crowdin と Github のユーザー名の繋がり) を収集するアンケートを作成しました。
 
-If you are one of our incredible translators, please take a few minutes to fill this out: https://goo.gl/forms/b46sjdcHmlpV0GKT2.
+素晴らしい翻訳者の一員の方は、数分で済みますのでこちらからご記入ください。https://goo.gl/forms/b46sjdcHmlpV0GKT2
 
-## 🙌 Node's Internationalization Effort
+## 🙌 Node の国際化活動
 
-Because of the success of Electron's i18n initiative, Node.js decided to model [their revamped i18n effort](https://github.com/nodejs/i18n) after the pattern we use as well! 🎉 The [Node.js i18n initiative](https://github.com/nodejs/i18n) has now been launched and gained great momentum, but you can stil read about the early proposal and reasoning behind it [here](https://medium.com/the-node-js-collection/internationalizing-node-js-fe7761798b0a).
+Electron の国際化イニシアチブが成功したことから、Node.js は私たちのパターンに沿った [改訂版の国際化活動](https://github.com/nodejs/i18n) をモデル化することにしました! 🎉 [Node.js 国際化イニシアチブ](https://github.com/nodejs/i18n) が開始され、大きな勢いを得ています。草案とその背景事由は [こちら](https://medium.com/the-node-js-collection/internationalizing-node-js-fe7761798b0a) で読むことができます。
 
-## 🔦 Contributing Guide
+## 🔦 コントリビューションガイド
 
-If you're interested in joining our effort to make Electron more international friendly, we have a handy-dandy [contributing guide](https://github.com/electron/i18n/blob/master/contributing.md) to help you get started. Happy internationalizing! 📚
+Electron をより国際的で使いやすくする活動に興味がある方向けに、着手しやすいように手取り足取り解説している [コントリビューションガイド](https://github.com/electron/i18n/blob/master/contributing.md) があります。 国際化万歳! 📚
