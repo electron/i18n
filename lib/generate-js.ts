@@ -23,7 +23,7 @@ const JSTemplate = `module.exports = {
 }
 `
 
-const TSTempalte = `export declare const blogs: typeof import('./blogs.json')
+const TSTemplate = `export declare const blogs: typeof import('./blogs.json')
 export declare const docs: typeof import('./docs.json')
 export declare const glossary: typeof import('./glossary.json')
 export declare const locales: typeof import('./locales.json')
@@ -41,7 +41,7 @@ export async function writeIndexFiles() {
   for (const file of ['index.js', 'index.d.ts']) {
     fs.writeFileSync(
       path.join(__dirname, `../dist/${file}`),
-      file === 'index.js' ? JSTemplate : TSTempalte
+      file === 'index.js' ? JSTemplate : TSTemplate
     )
   }
 }
