@@ -2,7 +2,7 @@ import * as assert from 'assert'
 import * as fs from 'fs'
 import * as path from 'path'
 import * as cheerio from 'cheerio'
-const hubdown = require('hubdown')
+import hubdown = require('hubdown')
 
 export interface IParseElectronGlossaryReturn {
   term: string

@@ -1,7 +1,7 @@
 import * as path from 'path'
 import * as fs from 'fs'
 
-export async function writeHelper<T = unknown>(
+export function writeHelper<T = unknown>(
   file: string,
   data: Record<string, T>
 ) {

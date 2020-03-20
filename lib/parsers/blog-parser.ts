@@ -10,9 +10,8 @@ export async function parseBlogFile(file: IParseFile) {
 
   file.href = `/blog/${file.slug}`.replace('//', '/')
 
-  // parse markdown to HTML
-  const markdown = fs.readFileSync(file.fullPath, 'utf8')
-  file.content = markdown
+  // file content
+  file.content = await fs.promises.readFile(file.fullPath, 'utf8')
 
   // remove leftover file props from walk-sync
   delete file.mode
