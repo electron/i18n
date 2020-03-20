@@ -15,7 +15,7 @@ date: '2018-06-20'
 翻訳ドキュメントの読者の多くは、原文の英語ドキュメントも相互参照することが多いというのはご存知ですか? 古かったり不正確だったりする訳文を避けるために、英語ドキュメントを習熟しているのです。これは国際化されたドキュメントに鳴らされる警笛の一つです。
 
 <figure>
-  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/35578586-cae629e2-05e4-11e8-9431-0278f8c2b39f.gif" alt="Language toggle on Electron documentation">
+  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/35578586-cae629e2-05e4-11e8-9431-0278f8c2b39f.gif" alt="Electron ドキュメントの言語切替">
 </figure>
 
 英語ドキュメントへの相互参照を容易にするため、Electron ドキュメントの文章を英語とウェブサイトの表示言語との間でシームレスに切り替えられる機能を追加しました。 ウェブサイトで英語以外のロケールを選択すれば、言語切替が表示されます。
@@ -23,7 +23,7 @@ date: '2018-06-20'
 ## ⚡️ 訳文ページへのクイックアクセス
 
 <figure>
-  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/36511386-c32e31fc-1766-11e8-8484-7466be6a5eb0.png" alt="New Electron documentation footer in Japanese">
+  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/36511386-c32e31fc-1766-11e8-8484-7466be6a5eb0.png" alt="新しい Electron ドキュメントのフッターが日本語になっている">
   <figcaption>Electron ドキュメントのフッターが日本語になっている</figcaption>
 </figure>
 
@@ -35,7 +35,7 @@ Electron ドキュメント国際化 (i18n) の取り組みを公表して以来
 
 <figure>
   <a href="https://crowdin.com/project/electron/">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/41649826-ca26037c-747c-11e8-9594-5ce12d2978e2.png" alt="Translation Forecast provided by Crowdin">
+    <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/41649826-ca26037c-747c-11e8-9594-5ce12d2978e2.png" alt="Crowdin が提供する翻訳予報">
     <figcaption>Crowdin が提供する翻訳予報</figcaption>
   </a>
 </figure>
@@ -54,4 +54,4 @@ Electron の国際化イニシアチブが成功したことから、Node.js は
 
 ## 🔦 コントリビューションガイド
 
-If you're interested in joining our effort to make Electron more international friendly, we have a handy-dandy [contributing guide](https://github.com/electron/i18n/blob/master/contributing.md) to help you get started. Happy internationalizing! 📚
+Electron をより国際的で使いやすくする活動に興味がある方向けに、着手しやすいように手取り足取り解説している [コントリビューションガイド](https://github.com/electron/i18n/blob/master/contributing.md) があります。 国際化万歳! 📚
