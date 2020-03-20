@@ -62,13 +62,13 @@ new Octocat();
 
 ## Chromium の機能
 
-Thanks to all the hard work Google and contributors put into Chromium, when you build Electron apps you can also use cool things like (but not limited to):
+Google と Chromium に貢献してくれた皆の協力のおかげで、Electron アプリを構築するときに、以下のすごいものも使用できます (これだけではありません)。
 
 - [MouseEvent.getModifierState()](https://googlechrome.github.io/samples/mouseevent-get-modifier-state/index.html)
 - [CSS.escape()](https://googlechrome.github.io/samples/css-escape/index.html)
-- [Fetch API Streaming](https://googlechrome.github.io/samples/fetch-api/fetch-response-stream.html)
+- [Fetch API ストリーム](https://googlechrome.github.io/samples/fetch-api/fetch-response-stream.html)
 
-Follow along with the [Google Chromium blog](http://blog.chromium.org) to learn about features as new versions ship and again, you can check the version of Chromium that Electron uses [here](https://electronjs.org/#electron-versions).
+[Google Chromium ブログ](http://blog.chromium.org) をフォローすれば、新しいバージョンが出るたびにその機能について知ることができます。また、Electronが使用する Chromium のバージョンは [こちら](https://electronjs.org/#electron-versions) で確認できます。
 
 ## What are you excited about?
 
