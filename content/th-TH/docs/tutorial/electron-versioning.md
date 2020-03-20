@@ -1,4 +1,4 @@
-# การกำหนดเวอร์ชั่นของ Electron
+# Electron Versioning
 
 > A detailed look at our versioning policy and implementation.
 
