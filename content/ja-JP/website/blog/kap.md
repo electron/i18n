@@ -53,7 +53,7 @@ We spent a lot of time trying to work around the poor performance of the `getUse
 
 Being forced to look for alternatives to `getUserMedia`, we started experimenting with `ffmpeg`. Besides being one of the best tools for audio and video conversion it has the functionality of recording the screen in almost any OS, and we were able to record crispy video meeting our minimum requirement of 30 FPS on a Retina screen. 問題? The performance was ":weary:", the CPU usage was going haywire. So we went back to the drawing board, discussed our options and realised that we had to make a compromise. That resulted in [Aperture](https://github.com/wulkano/aperture), our own screen recording library for macOS written in Swift.
 
-## In what areas should Electron be improved?
+## Electron はどういった領域で改善されるべきでしょうか?
 
 We all know that Electron apps can have a thing for using RAM, but again, that's really a Chromium thing. It's part of how it works and it really depends on what you're running, for example Kap and Hyper typically use less than 100MB of memory.
 
