@@ -73,8 +73,8 @@ async function parseDocs(): Promise<Partial<IParseFile>[]> {
   console.time('parsed docs in')
   const markdownFiles = walk
     .entries(contentDir)
-    .filter(file => file.relativePath.includes('/docs'))
-    .filter(file => file.relativePath.endsWith('.md'))
+    .filter((file) => file.relativePath.includes('/docs'))
+    .filter((file) => file.relativePath.endsWith('.md'))
   console.log(
     `processing ${markdownFiles.length} files in ${
       Object.keys(locales).length
@@ -83,7 +83,7 @@ async function parseDocs(): Promise<Partial<IParseFile>[]> {
   let docs = await Promise.all(markdownFiles.map(parseFile))
 
   // ignore some docs
-  docs = docs.filter(doc => !doc.ignore)
+  docs = docs.filter((doc) => !doc.ignore)
 
   console.timeEnd('parsed docs in')
   return docs
@@ -95,8 +95,8 @@ async function parseBlogs() {
   console.time('parsed blogs in')
   const markdownFiles = walk
     .entries(contentDir)
-    .filter(file => file.relativePath.includes('website/blog'))
-    .filter(file => file.fullPath.endsWith('.md'))
+    .filter((file) => file.relativePath.includes('website/blog'))
+    .filter((file) => file.fullPath.endsWith('.md'))
   console.log(
     `processing ${markdownFiles.length} files in ${
       Object.keys(locales).length
@@ -176,20 +176,10 @@ async function parseFile(file: IParseFile) {
       const $ = cheerio.load(parsed.content || '')
       file.title =
         file.title ||
-        $('h1')
-          .first()
-          .text()
-          .trim() ||
-        $('h2')
-          .first()
-          .text()
-          .replace('Class: ', '')
+        $('h1').first().text().trim() ||
+        $('h2').first().text().replace('Class: ', '')
       file.description =
-        file.description ||
-        $('blockquote')
-          .first()
-          .text()
-          .trim()
+        file.description || $('blockquote').first().text().trim()
 
       // fix HREF for relative links
       $('a').each((i, el) => {
@@ -300,7 +290,7 @@ async function main() {
   const docs = await parseDocs()
   const docsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = docs
-      .filter(doc => doc.locale === locale)
+      .filter((doc) => doc.locale === locale)
       .sort((a, b) => a.slug!.localeCompare(b.slug!))
       .reduce((allDocs, doc) => {
         // @ts-ignore
@@ -314,7 +304,7 @@ async function main() {
   const blogs = await parseBlogs()
   const websiteBlogsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = blogs
-      .filter(doc => doc.locale === locale)
+      .filter((doc) => doc.locale === locale)
       .sort((a, b) => a.slug.localeCompare(b.slug))
       .reduce((allBlogs, blog) => {
         allBlogs[blog.href] = blog

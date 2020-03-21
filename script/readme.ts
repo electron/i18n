@@ -14,8 +14,8 @@ const readmePath = path.join(__dirname, '../readme.md')
 const readmeOriginal = fs.readFileSync(readmePath, 'utf8')
 
 const languageList = Object.values(locales as Array<ILanguage>)
-  .filter(locale => locale.languageCode !== 'en')
-  .map(locale => {
+  .filter((locale) => locale.languageCode !== 'en')
+  .map((locale) => {
     const { languageNativeName, languageName, languageCode } = locale
     let label = languageNativeName.replace('українська мова', 'українська') // https://github.com/electron/i18n/pull/183
     if (languageNativeName !== languageName) label += ` (${languageName})`
