@@ -1,36 +1,36 @@
 ---
-title: 'Project of the Week: Beaker Browser'
+title: '今週のプロジェクト: Beaker ブラウザ'
 author:
   - pfrazee
   - zeke
 date: '2017-02-07'
 ---
 
-This week we caught up with [Paul Frazee](http://pfrazee.github.io/), creator of [Beaker Browser](https://beakerbrowser.com/). Beaker is an experimental peer-to-peer web browser that uses the Dat protocol to host sites from users’ devices.
+今週は、[Beaker ブラウザ](https://beakerbrowser.com/) の作者 <a href = "http://pfrazee.github.io/">Paul Frazee</a> に突撃しました。 Beaker は実験的な P2P ウェブブラウザで、Dat プロトコルでユーザーのデバイスからサイトをホストします。
 
 ---<iframe width="100%" height="420" src="https://www.youtube.com/embed/Bem9nRpyPEs" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-## What is Beaker and why did you create it?
+## Beaker とは何ですか? なぜ作ったのですか?
 
-Beaker is a participatory browser. It's a browser for indie hackers.
+Beaker は参加型ブラウザです。 個人ハッカー向けのブラウザなのです。
 
-The Web is closed source. If you want to influence how social media works, you have to work at Facebook or Twitter. For search, Google. Control is in the hands of companies, rather than the users themselves.
+ウェブはオープンソースではありません。 ソーシャルメディアの機能に影響を与えたい場合、Facebook や Twitter に働きかける必要があります。 検索なら、Google です。 この制御は、ユーザー自身ではなく企業が握ってます。
 
-With Beaker, we have a new Web protocol: the [Decentralized Archive Transport](https://datprotocol.com). "Dat." It creates sites on demand, for free, and then shares them from the device. No servers required. That's our innovation.
+Beaker には、新しいウェブプロトコル [Decentralized Archive Transport](https://datprotocol.com) があります。 "Dat"。それはオンデマンドかつ無料でサイトを作成し、デバイスから共有します。 サーバーは要りません。 これは革命です。
 
 ![Beakers Protocols](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
-When you visit a Dat site in Beaker, you download the files. The site is yours, forever. You can save it, fork it, modify it, and share your new version for free. It's all open-source.
+Beaker で Dat サイトを訪れると、そのファイルをダウンロードします。 これで、このサイトは永遠にあなたのものです。 保存したり、フォークしたり、変更したり、新しいバージョンを無料で共有したりできます。 全てがオープンソースです。
 
-So that's what it's about: We're making a browser for open-source Websites. We want it to be a toolkit for social hacking.
+これこそが、私たちがオープンソースウェブサイト向けブラウザを作っているということです。 これをソーシャルハッキングのツールキットにしたいのです。
 
-## Who should be using Beaker?
+## どんな人が Beaker を使うべきですか?
 
-Hackers. Modders. Creative types. People who like to tinker.
+ハッカー。 モッダー。 創り手。 弄り回すのが好きな人。
 
-## How do I create a new project that uses Dat?
+## Dat を使った新規プロジェクトの作り方は?
 
-We've got [a command-line tool called bkr](https://github.com/beakerbrowser/bkr) that's kind of like git + npm. Here's creating a site:
+git + npm のような [bkr というコマンドラインツール](https://github.com/beakerbrowser/bkr) があります。 これで以下のようにしてサイトを作ります。
 
 ```bash
 $ cd ~/my-site
@@ -39,7 +39,7 @@ $ echo "Hello, world!" > index.html
 $ bkr publish
 ```
 
-And here's forking a site:
+そして、サイトのフォークはこのようにします。
 
 ```bash
 $ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
@@ -48,7 +48,7 @@ $ echo "My fork has no regard for the previous index.html!" > index.html
 $ bkr publish
 ```
 
-Those sites then get hosted out of your browser. It's a little like BitTorrent; you share the sites in a P2P mesh.
+これらのサイトは、ブラウザからホストされます。 BitTorrent に少し似た、P2P メッシュでのサイト共有です。
 
 If you want a GUI, we have some basic tools built into the browser, but we're pushing those tools into userland. It's all going to be moddable user apps.
 
