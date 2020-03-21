@@ -54,27 +54,27 @@ GUI が必要な場合でも、ブラウザにはユーザーランドに押し�
 
 ## Electron で Beaker を構築することにしたのはなぜですか?
 
-このプロジェクトにとっては言うまでもありませんでした。 If I forked Chrome myself, I'd be writing C++ right now! Nobody wants to do that. I know the Web stack, and I can work quickly with it. It's a no-brainer.
+このプロジェクトにとっては言うまでもありませんでした。 もし私自身の手で Chrome をフォークしていれば、今頃 C++ を書いていたことでしょう! 誰しもそうはしたくありません。 私はウェブで積み重ねた経験があるので、Electron なら手早く作業できます。 悩むことはありません。
 
-The truth is, I'm not sure I could do any of this without Electron. It's a great piece of software.
+事実、Electron なくして成し遂げられるかどうか分かりませんでした。 これは素晴らしいソフトウェアです。
 
-## What are some challenges you've faced while building Beaker?
+## Beaker 構築の際に直面した課題はありますか?
 
-Half of it is poking at the tools and figuring out how much I can get away with.
+半分は、ツールを試してどのくらいまでで打ち切るかを予測しました。
 
-Making the browser itself was pretty easy. Electron is practically a toolkit for making browsers. ...Except for the browser tabs; that took me forever to get right. I finally broke down and learned how to do SVGs. It's much better looking, but it took 3 or 4 iterations before I got that right.
+ブラウザ自体の作成は非常に簡単でした。 Electron はブラウザを作るツールキットとも言えます。 ...ブラウザタブを除けば。これが正常に動くまで、かつてないほど時間がかかりました。 ついには挫折して、SVG の動かし方を学びました。 見た目は格段に良くなりましたが、正常になるまで 3、4 回やり直しました。
 
-## In what areas should Electron be improved?
+## Electron はどういった領域で改善されるべきでしょうか?
 
-It'd be really great if I could dock the devtools inside a webview.
+WebView 内にデベロッパー ツールをドッキングできたら、どんなに素晴らしいでしょうか。
 
-## What's coming next in Beaker?
+## Beaker の今後の予定は何ですか?
 
-Secure DNS names for Dat sites. A socially configurable URL scheme, called the ["app scheme."](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) More Dat APIs.
+Dat サイトの DNS 名保護。 ["アプリスキーム"](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) というソーシャルで構成可能な URL スキーム。その他 Dat API。
 
 ## For folks who may be interested in contributing to the project, in what areas does Beaker need help?
 
-We have lots of open issues. Don't be afraid to ping me. #beakerbrowser on freenode. We keep a [page for contributors](https://beakerbrowser.com/docs/team.html) and we'll add you to it. And if you visit Austin, I'll buy you a beer.
+未解決の Issue がたくさんあります。 Don't be afraid to ping me. #beakerbrowser on freenode. We keep a [page for contributors](https://beakerbrowser.com/docs/team.html) and we'll add you to it. And if you visit Austin, I'll buy you a beer.
 
 ## Any Electron tips that might be useful to other developers?
 
