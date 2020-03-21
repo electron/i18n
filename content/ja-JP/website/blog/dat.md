@@ -75,7 +75,7 @@ We also use Browserify and some cool Browserify Transforms on the 'front end' co
 
 We've always been a big fan of standards and minimal abstractions. Our whole interface is built using regular DOM nodes with just a few helper libraries. We've started to move some of these components into [base-elements](https://base.choo.io), a library of low-level reusable components. As with most of our technology we keep iterating on it until we get it right, but as a team we have a feeling we're heading in the right direction here.
 
-## In what areas should Electron be improved?
+## Electron はどういった領域で改善されるべきでしょうか?
 
 We think the biggest pain point is native modules. Having to rebuild your modules for Electron with npm adds complexity to the workflow. Our team developed a module called [`prebuild`](http://npmjs.org/prebuild) which handles pre-built binaries, which worked well for Node, but Electron workflows still required a custom step after installing, usually `npm run rebuild`. It was annoying. To address this we recently switched to a strategy where we bundle all compiled binary versions of all platforms inside the npm tarball. This means tarballs get larger (though this can be optimized with `.so` files - shared libraries), this approach avoids having to run post-install scripts and also avoids the `npm run rebuild` pattern completely. It means `npm install` does the right thing for Electron the first time.
 
