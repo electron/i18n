@@ -50,11 +50,11 @@ $ bkr publish
 
 これらのサイトは、ブラウザからホストされます。 BitTorrent に少し似た、P2P メッシュでのサイト共有です。
 
-If you want a GUI, we have some basic tools built into the browser, but we're pushing those tools into userland. It's all going to be moddable user apps.
+GUI が必要な場合でも、ブラウザにはユーザーランドに押し込んでいる基本的なツールがいくつか組み込まれています。 これによって全て変更可能なユーザーアプリになります。
 
-## Why did you choose to build Beaker on Electron?
+## Electron で Beaker を構築することにしたのはなぜですか?
 
-It was obvious for this project. If I forked Chrome myself, I'd be writing C++ right now! Nobody wants to do that. I know the Web stack, and I can work quickly with it. It's a no-brainer.
+このプロジェクトにとっては言うまでもありませんでした。 If I forked Chrome myself, I'd be writing C++ right now! Nobody wants to do that. I know the Web stack, and I can work quickly with it. It's a no-brainer.
 
 The truth is, I'm not sure I could do any of this without Electron. It's a great piece of software.
 
