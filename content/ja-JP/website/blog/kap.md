@@ -79,7 +79,7 @@ The next step for us is to review the app in preparation for our 2.0.0 milestone
 
 [Wulkano](https://wulkano.com) is a design studio and digital collective, a team of remote technologists who love working together on both client gigs and our own projects. We're a distributed but tight knit group of people from different places and backgrounds, sharing knowledge, ideas, experiences, but most importantly silly GIFs and memes, in our virtual office (which happens to be the Electron based Slack!).
 
-## Any Electron tips that might be useful to other developers?
+## 他の開発者に役立つ Electron のノウハウはありますか?
 
 Take advantage of and get involved in the fantastic [community](https://discuss.atom.io/c/electron), check out [Awesome Electron](https://github.com/sindresorhus/awesome-electron), look at [examples](https://github.com/electron/electron-api-demos) and make use of the great [docs](https://electronjs.org/docs/)!
 
