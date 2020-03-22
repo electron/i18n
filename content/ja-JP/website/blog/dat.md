@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: Dat'
+title: '今週のプロジェクト: Dat'
 author:
   - karissa
   - yoshuawuyts
@@ -8,18 +8,18 @@ author:
 date: '2017-02-21'
 ---
 
-This week's featured project is [Dat](https://datproject.org/), a [grant-funded](https://changelog.com/rfc/6), open source, decentralized tool for distributing data sets. Dat is built and maintained by a [geodistributed team](https://datproject.org/team), many of whom helped write this post.
+今週の特集プロジェクトは、[助成金](https://changelog.com/rfc/6)、オープンソース、データセットを配布するための分散ツール [Dat](https://datproject.org/) です。 Dat は [地理分散されたチーム](https://datproject.org/team) によって構築と保守がされており、その多くがこの記事の執筆を支援しました。
 
 ---
 
 [![A screenshot of the main view of dat-desktop, showing a few rows of shared
 dats](https://cloud.githubusercontent.com/assets/2289/23175925/dbaee7ec-f815-11e6-80cc-3041203c7842.png)](https://github.com/datproject/dat-desktop)
 
-## First off what is Dat?
+## まず、Dat とは何ですか?
 
-We wanted to bring the best parts of peer to peer and distributed systems to data sharing. We started with scientific data sharing and then began branching out into research institutions, government, public service, and open source teams as well.
+私たちは P2P と分散システムの良い部分をデータ共有に昇華したいと考えました。 科学データの共有から始め、研究機関、政府、公共サービス、オープンソースチームにも分かれ始めました。
 
-Another way to think about it is a sync and upload app like Dropbox or BitTorrent Sync, except Dat is [open source](https://github.com/datproject). Our goal is to be a a powerful, open source, non-profit data sharing software for big, small, medium, small-batch and big-batch data.
+別の見方で考えると、Dat が [オープンソース](https://github.com/datproject) であることを除けば、これは Dropbox や BitTorrent Sync などのような同期アップロードアプリです。 Our goal is to be a a powerful, open source, non-profit data sharing software for big, small, medium, small-batch and big-batch data.
 
 To use the `dat` CLI tool, all you have to type is:
 
@@ -83,7 +83,7 @@ We think the biggest pain point is native modules. Having to rebuild your module
 
 The APIs seem fairly well thought out, it's relatively stable, and it does a pretty good job at keeping up to date with upstream Node releases, not much else we can ask for!
 
-## Any Electron tips that might be useful to other developers?
+## 他の開発者に役立つ Electron のノウハウはありますか?
 
 If you use native modules, give [prebuild](https://www.npmjs.com/package/prebuild) a shot!
 
