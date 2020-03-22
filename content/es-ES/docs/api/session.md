@@ -450,7 +450,7 @@ Por defecto Electron descargará diccionarios hunspell desde la CDN de Chromium.
 
 If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Por favor, tenga en cuenta la barra final. La URL a los diccionarios esta formada como `${url}${filename}`.
 
-**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+**Note:** En macOS the corrector ortográfico del sistema operativo es usado y por lo tanto no descargamos ningún archivo de diccionario. Esta API es una no-op en macOS.
 
 #### `ses.addWordToSpellCheckerDictionary(palabra)`
 
@@ -458,7 +458,7 @@ If the files present in `hunspell_dictionaries.zip` are available at `https://ex
 
 Devuelve `Boolean` - Si la palabra fue correctamente escrita al diccionario personalizado.
 
-**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+**Note:** En macOS y Windows 10 esta palabra será escrita al diccionario personalizado del sistema operativo también
 
 ### Propiedades de Instancia
 
@@ -466,7 +466,7 @@ Las siguientes propiedades están disponibles en instancias de `Sesión`:
 
 #### `ses.availableSpellCheckerLanguages` *Readonly*
 
-Un array `String[]` que consiste en todos los idiomas conocidos disponibles para el corrector ortográfico. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
+Un array `String[]` que consiste en todos los idiomas conocidos disponibles para el corrector ortográfico. Proporcionar un código de lenguaje a la API `setSpellCheckerLanaguages` que no este en este array resultará en un error.
 
 #### `ses.cookies` *Readonly*
 
