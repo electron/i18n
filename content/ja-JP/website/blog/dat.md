@@ -19,12 +19,12 @@ dats](https://cloud.githubusercontent.com/assets/2289/23175925/dbaee7ec-f815-11e
 
 私たちは P2P と分散システムの良い部分をデータ共有に昇華したいと考えました。 科学データの共有から始め、研究機関、政府、公共サービス、オープンソースチームにも分かれ始めました。
 
-別の見方で考えると、Dat が [オープンソース](https://github.com/datproject) であることを除けば、これは Dropbox や BitTorrent Sync などのような同期アップロードアプリです。 Our goal is to be a a powerful, open source, non-profit data sharing software for big, small, medium, small-batch and big-batch data.
+別の見方で考えると、Dat が [オープンソース](https://github.com/datproject) であることを除けば、これは Dropbox や BitTorrent Sync などのような同期アップロードアプリです。 大規模、小規模、中規模、小規模バッチ、大規模バッチデータ向けの強力でオープンソースな非営利データ共有ソフトウェアになることが目標です。
 
-To use the `dat` CLI tool, all you have to type is:
+`dat` CLI ツールを使用方法は、以下のように入力するだけです。
 
 ```sh
-dat share path/to/my/folder
+dat share フォルダ/へ/の/パス
 ```
 
 And dat will create a link that you can use to send that folder to someone else -- no central servers or third parties get access to your data. Unlike BitTorrent, it's also impossible to sniff who is sharing what ([see the Dat Paper draft for more details](https://github.com/datproject/docs/blob/master/papers/dat-paper.md)).
