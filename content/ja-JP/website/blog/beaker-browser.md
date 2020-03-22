@@ -18,7 +18,7 @@ Beaker は参加型ブラウザです。 個人ハッカー向けのブラウザ
 
 Beaker には、新しいウェブプロトコル [Decentralized Archive Transport](https://datprotocol.com) があります。 "Dat"。それはオンデマンドかつ無料でサイトを作成し、デバイスから共有します。 サーバーは要りません。 これは革命です。
 
-![Beakers Protocols](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
+![Beaker のプロトコル](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
 Beaker で Dat サイトを訪れると、そのファイルをダウンロードします。 これで、このサイトは永遠にあなたのものです。 保存したり、フォークしたり、変更したり、新しいバージョンを無料で共有したりできます。 全てがオープンソースです。
 
@@ -72,14 +72,14 @@ WebView 内にデベロッパー ツールをドッキングできたら、ど�
 
 Dat サイトの DNS 名保護。 ["アプリスキーム"](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) というソーシャルで構成可能な URL スキーム。その他 Dat API。
 
-## For folks who may be interested in contributing to the project, in what areas does Beaker need help?
+## プロジェクトへの貢献に興味がありそうな人向けに、Beaker はどの領域で助けが必要なのか教えて頂けますか?
 
 未解決の Issue がたくさんあります。 私への連絡を恐れることはありません。 フリーノード上に #beakerbrowser があります。 [コントリビューター向けのページ](https://beakerbrowser.com/docs/team.html) を管理しており、そこに加えます。 オースティンを訪れてくれたら、私がビールを奢りましょう。
 
-## Any Electron tips that might be useful to other developers?
+## 他の開発者に役立つ Electron のノウハウはありますか?
 
-1. Use the build tooling that's out there. You don't want to wrestle with your own solutions, trust me. Use electron-builder. Use a boilerplate repo.
-2. If you need to open an issue in the Electron repo, go the extra mile to make it easy to reproduce. You'll get a response much more quickly, and the team will appreciate it. Even better, try fixing it yourself. It's actually pretty interesting to see the innards.
-3. Read through all the guides and advanced docs at least once.
-4. Don't build a browser, it's a saturated market.
+1. 既製のビルドツールを使用しましょう。 独自の解決方法のせいで苦戦してほしくありません。私を信じてください。 electron-builder を使いましょう。 雛型レポジトリを使いましょう。
+2. Electron リポジトリで Issue を開く必要がある場合は、より簡単に再現できるように努めましょう。 より迅速に回答が得られ、そのチームも高く評価します。 さらに言えば、自分で修正してみましょう。 中身を覗くのは本当にとっても面白いです。
+3. すべてのガイドと上級者向けドキュメントを 1 回は読みましょう。
+4. ただのブラウザを構築しないようにしましょう。それは飽和した市場です。
 
