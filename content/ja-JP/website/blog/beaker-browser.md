@@ -74,7 +74,7 @@ Dat サイトの DNS 名保護。 ["アプリスキーム"](https://github.com/b
 
 ## For folks who may be interested in contributing to the project, in what areas does Beaker need help?
 
-未解決の Issue がたくさんあります。 Don't be afraid to ping me. フリーノード上に #beakerbrowser があります。 [コントリビューター向けのページ](https://beakerbrowser.com/docs/team.html) を管理しており、そこに加えます。 オースティンを訪れてくれたら、私がビールを奢りましょう。
+未解決の Issue がたくさんあります。 私への連絡を恐れることはありません。 フリーノード上に #beakerbrowser があります。 [コントリビューター向けのページ](https://beakerbrowser.com/docs/team.html) を管理しており、そこに加えます。 オースティンを訪れてくれたら、私がビールを奢りましょう。
 
 ## Any Electron tips that might be useful to other developers?
 
