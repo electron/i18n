@@ -1173,7 +1173,7 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
   * `footer` String (optional) - String to be printed as page footer.
 * `callback` Función (opcional) 
   * `success` Boolean - Indica el éxito de la llamada impresa.
-  * `failureReason` String - Error description called back if the print fails.
+  * `failureReason` String - Descripción del error llamada de nuevo si la impresión falla.
 
 Imprime la página web de la ventana. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
