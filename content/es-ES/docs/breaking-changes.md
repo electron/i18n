@@ -198,9 +198,9 @@ webFrame.setIsolatedWorldInfo(
 
 This property was removed in Chromium 77, and as such is no longer available.
 
-### `webkitdirectory` attribute for `<input type="file"/>`
+### Atributo `webkitdirectory` para `<input type="file"/>`
 
-The `webkitdirectory` property on HTML file inputs allows them to select folders. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
+La propiedad `webkitdirectory` en las entradas de archivos HTML les permite seleccionar carpetas. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
 
 As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
