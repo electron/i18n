@@ -1,11 +1,15 @@
 import * as cheerio from 'cheerio'
-import * as path from 'path'
-import * as fs from 'fs'
-const i18n = require('../')
-const locales = Object.keys(i18n.locales)
+// UNSAFE IMPORT BLOCK
+// DONT CHANGE IMPORT TO `import { docs, locales } from '../dist'`
+import * as i18nDocs from '../dist/docs.json'
+import * as i18nLocales from '../dist/locales.json'
+//
+import { writeHelper } from '../lib/write-helper'
+const locales = Object.keys(i18nLocales)
 
 function getNav(locale: string) {
-  const docs = i18n.docs[locale]
+  // @ts-ignore | For undefined reasons TYPES for blogs and docs just a empty Object 😢
+  const docs = i18nDocs[locale]
   const readme = docs['/docs/README']
   const html = readme.sections
     .map((section: { html: string }) => section.html)
@@ -22,9 +26,4 @@ const navsByLocale = locales.reduce((acc, locale) => {
   return acc
 }, {} as Record<string, string>)
 
-i18n.navs = navsByLocale
-
-fs.writeFileSync(
-  path.join(__dirname, '../index.json'),
-  JSON.stringify(i18n, null, 2)
-)
+writeHelper('navs', navsByLocale)

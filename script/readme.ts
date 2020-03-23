@@ -3,17 +3,11 @@
 import * as path from 'path'
 import * as fs from 'fs'
 
-interface ILanguage {
-  languageCode: string
-  languageName: string
-  languageNativeName: string
-}
-
-const { locales } = require('..')
+import { locales } from '../dist'
 const readmePath = path.join(__dirname, '../readme.md')
 const readmeOriginal = fs.readFileSync(readmePath, 'utf8')
 
-const languageList = Object.values(locales as Array<ILanguage>)
+const languageList = Object.values(locales)
   .filter((locale) => locale.languageCode !== 'en')
   .map((locale) => {
     const { languageNativeName, languageName, languageCode } = locale

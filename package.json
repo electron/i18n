@@ -2,9 +2,10 @@
   "name": "electron-i18n",
   "version": "0.0.0-development",
   "description": "A home for Electron's translated documentation.",
-  "main": "index.json",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "index.json"
+    "dist"
   ],
   "repository": "https://github.com/electron/i18n",
   "author": "zeke",

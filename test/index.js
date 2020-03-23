@@ -5,7 +5,7 @@ chai.should()
 chai.use(require('chai-date-string'))
 const { expect } = chai
 const { describe, it, xit } = require('mocha')
-const i18n = require('..')
+const i18n = require('../dist')
 const cheerio = require('cheerio')
 
 describe('i18n.docs', () => {
