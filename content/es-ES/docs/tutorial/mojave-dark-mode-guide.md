@@ -1,16 +1,16 @@
 # Soporte para Modo Oscuro macOS
 
-En macOS 10.14 Mojave, Apple introdujo un nuevo modo oscuro [para todo el sistema](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) en sus ordenadores macOS. If your Electron app has a dark mode, you can make it follow the system-wide dark mode setting using [the `nativeTheme` api](../api/native-theme.md).
+En macOS 10.14 Mojave, Apple introdujo un nuevo modo oscuro [para todo el sistema](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) en sus ordenadores macOS. Si tu aplicación Electron tiene un modo oscuro, puedes hacer que siga el modo oscuro del sistema usando [the `nativeTheme` api](../api/native-theme.md).
 
-En macOS 10.15 Catalina, Apple introdujo una nueva opción de modo oscuro "automático" para todas las computadoras macOS. In order for the `nativeTheme.shouldUseDarkColors` and `Tray` APIs to work correctly in this mode on Catalina, you need to either have `NSRequiresAquaSystemAppearance` set to `false` in your `Info.plist` file, or be on Electron `>=7.0.0`. Both [Electron Packager](https://github.com/electron/electron-packager) and [Electron Forge](https://www.electronforge.io/) have a [`darwinDarkModeSupport` option](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html#darwindarkmodesupport) to automate the `Info.plist` changes during app build time.
+En macOS 10.15 Catalina, Apple introdujo una nueva opción de modo oscuro "automático" para todas las computadoras macOS. Para que las APIs `nativeTheme.shouldUseDarkColors` y `Tray` trabajen correctamente en este modo en Catalina, necesitas o bien tener `NSRequiresAquaSystemAppearance` establecido a `false` en tu archivo `Info.plist`, o estar en Electron `>=7.0.0`. Tanto [Electron Packager](https://github.com/electron/electron-packager) y [Electron Forge](https://www.electronforge.io/) tienen un [`darwinDarkModeSupport` option](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html#darwindarkmodesupport) para automatizar los cambios de `Info.plist` durante el tiempo de construcción de la app.
 
 ## Actualizando automáticamente las interfaces nativas
 
-"Native Interfaces" include the file picker, window border, dialogs, context menus and more; basically, anything where the UI comes from macOS and not your app. As of Electron 7.0.0, the default behavior is to opt in to this automatic theming from the OS. If you wish to opt out and are using Electron &gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let your opt out of this theming, due to the use of the macOS 10.14 SDK.
+Las "Native Interfaces" incluyen el selector de archivo, borde de ventana, diálogos, menú contextual y mas; básicamente todo donde la UI viene desde macOS y no de tu aplicación. A partir de Electron 7.0.0, el comportamiento por defecto es optar por esta temática automática del sistema operativo. Si deseas optar no participar y estás usando Electron &gt; 8.0.0, debes establecer la llave `NSRequiresAquaSystemAppearance` en el archivo `Info.plist` a `true`. Por favor tenga en cuenta que Electron 8.0.0 y superiores no permitirán que salgas de esta temática, debido al uso del SDK de macOS 10.14.
 
 ## Actualizando automáticamente tus propias interfaces
 
-If your app has its own dark mode, you should toggle it on and off in sync with the system's dark mode setting. You can do this by listening for the theme updated event on Electron's `nativeTheme` module.
+Si tu aplicación tiene su propio modo oscuro deberías activarlo y deshabilitar la sincronización con la configuración de modo oscuro del sistema. Puede hacer esto escuchando por el evento theme updated en el `systemPreferences` del modulo de Electron.
 
 Por ejemplo:
 
