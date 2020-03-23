@@ -55,11 +55,11 @@ P2P ネットワークを介してデータを共有、更新したい人。 デ
 
 ユーザーアカウントとメタデータの公開です。 私たちは [datproject.org](https://datproject.org/) にデプロイする Dat レジストリのウェブアプリ開発に取り組んでいます。これはメタデータディレクトリになり、データをオンライン上のどこにでも置くことができます (全データが集中ホストされる NPM や GitHubとは対照的に、ソースコードが十分小さいため 1 つのシステムにすべてを収めることができます)。 多くのデータセットは巨大なので、(BitTorrent トラッカーの仕組みと同様に) フェデレーションレジストリが必要です 。 データ共有プロセスを円滑にするため、Dat デスクトップのレジストリを使用してデータセットを簡単に検索または公開できるようにしたいと考えています。
 
-もう 1 つの機能はマルチライター/共同フォルダーです。 We have big plans to do collaborative workflows, maybe with branches, similar to git, except designed around dataset collaboration. But we're still working on overall stability and standardizing our protocols right now!
+もう 1 つの機能はマルチライター/共同フォルダーです。 ブランチを用いて共同作業を行うという大きな計画があります。これは、データセットの共用を中心に設計されている場合を除けば git と同じです。 しかし、現在の私たちは全体的な安定性とプロトコルの標準化に取り組んでいます!
 
-## Why did you choose to build Dat Desktop on Electron?
+## Electron で Dat デスクトップを構築することにしたのはなぜですか?
 
-Dat is built using Node.js, so it was a natural fit for our integration. Beyond this, our users use a variety of machines since scientists, researchers and government officials may be forced to use certain setups for their institutions -- this means we need to be able to target Windows and Linux as well as Mac. Dat Desktop gives us that quite easily.
+Dat は Node.js を使用して構築されているため、自然な統合に適していました。 Beyond this, our users use a variety of machines since scientists, researchers and government officials may be forced to use certain setups for their institutions -- this means we need to be able to target Windows and Linux as well as Mac. Dat Desktop gives us that quite easily.
 
 ## What are some challenges you've faced while building Dat and Dat Desktop?
 
