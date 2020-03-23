@@ -2,11 +2,11 @@
 
 > Goma es un servicio de compilador distribuido para proyectos open-source tales como Chromium and Android.
 
-Electron tiene un despliegue de un Goma Backend personalizado que hacemos disponible para todos los Maintainers de Electron.  Ve la sección de [Acceso](#access) abajo para los detalles de autenticación.  There is also a `cache-only` Goma endpoint that will be used by default if you do not have credentials.  Requests to the cache-only Goma will not hit our cluster, but will read from our cache and should result in significantly faster build times.
+Electron tiene un despliegue de un Goma Backend personalizado que hacemos disponible para todos los Maintainers de Electron.  Ve la sección de [Acceso](#access) abajo para los detalles de autenticación.  También hay un `cache-only` Goma endpoint que se usará por defecto si tu no tienes credenciales.  Las solicitudes al cache-only Goma no afectarán a nuestro clúster, pero leerá de nuestra caché y debería resultar en tiempos de compilación significativamente más rápidos.
 
 ## Enabling Goma
 
-Currently the only supported way to use Goma is to use our [Build Tools](https://github.com/electron/build-tools). Goma configuration is automatically included when you set up `build-tools`.
+Actualmente la única forma de usar Goma es usar nuestro [Build Tools](https://github.com/electron/build-tools). Goma configuración es automáticamente incluida cuando instalas `build-tools`.
 
 If you are a maintainer and have access to our cluster, please ensure that you run `e init` with `--goma=cluster` in order to configure `build-tools` to use the Goma cluster.  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
 
@@ -30,7 +30,7 @@ Si accedes a [http://localhost:8088](http://localhost:8088) en tu máquina local
 
 For security and cost reasons, access to Electron's Goma cluster is currently restricted to Electron Maintainers.  Si quieres acceder, por favor dirigase a `#access-requests` en Slack y pregunte a `@goma-squad` por el acceso.  Por favor ten en cuenta que siendo un mantenedor no se concede *automáticamente* el acceso, y éste es determinado en caso por caso.
 
-## Uptime / Support
+## Tiempo de actividad / Soporte
 
 We have automated monitoring of our Goma cluster and cache at https://status.notgoma.com
 
