@@ -14,7 +14,7 @@
     "@types/cheerio": "^0.22.11",
     "@types/lodash": "^4.14.134",
     "@types/node": "^13.1.6",
-    "@types/rimraf": "^2.0.2",
+    "@types/rimraf": "^3.0.0",
     "chai": "^4.1.2",
     "chai-date-string": "^0.1.0",
     "check-for-leaks": "^1.2.0",
@@ -72,7 +72,7 @@
     "automerge": "ts-node ./script/automerge.ts"
   },
   "electronLatestStableTag": "v8.1.1",
-  "electronMasterBranchCommit": "af46c1ed8d587cb13878b219f65138da32050117",
+  "electronMasterBranchCommit": "341f643b81abfb2925171e448ee99c3ca53c4de5",
   "engines": {
     "node": ">=10"
   },
