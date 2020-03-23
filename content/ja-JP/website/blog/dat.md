@@ -41,21 +41,21 @@ dat share フォルダ/へ/の/パス
 
 ### California Civic Data Coalition
 
-[CACivicData](http://www.californiacivicdata.org/) は、政治資金を追跡するカリフォルニア州のデータベース CAL-ACCESS からのダウンロードを毎日提供するオープンソースアーカイブです。 [毎日リリース](http://calaccess.californiacivicdata.org/downloads/0) していますが、これは各 zip ファイルのいたる所で大量の重複データをホストしているということです。 We're working on hosting their data as a Dat repository which will reduce the amount of hassle and bandwidth needed to refer to specific version or update to a newer version.
+[CACivicData](http://www.californiacivicdata.org/) は、政治資金を追跡するカリフォルニア州のデータベース CAL-ACCESS からのダウンロードを毎日提供するオープンソースアーカイブです。 [毎日リリース](http://calaccess.californiacivicdata.org/downloads/0) していますが、これは各 zip ファイルのいたる所で大量の重複データをホストしているということです。 Dat リポジトリが、特定のバージョンを参照したり新しいバージョンへ更新したりするときに必要な手間と帯域幅の量を減らした形でデータホストできるように取り組んでいます。
 
-## Electron Updates
+## Electron の更新
 
-This one isn't concrete yet, but we think a fun use case would be putting a compiled Electron app in a Dat repository, then using a Dat client in Electron to pull the latest deltas of the built app binary, to save on download time but also to reduce bandwidth costs for the server.
+これはまだ具体案ではありませんが、コンパイル済み Electron アプリを Dat リポジトリに配置し、Electron の Dat クライアントを使用してビルドされたアプリバイナリの最新の差分を落としすことでダウンロード時間を節約するという面白そうなユースケースがあります。これにより、サーバーの帯域幅コストも削減できます。
 
-## Who should be using Dat Desktop?
+## どんな人が Dat デスクトップを使うべきですか?
 
-Anyone who wants to share and update data over a p2p network. Data scientists, open data hackers, researchers, developers. We're super receptive to feedback if anyone has a cool use case we haven't thought of yet. You can drop by our [Gitter Chat](https://gitter.im/datproject/discussions) and ask us anything!
+P2P ネットワークを介してデータを共有、更新したい人。 データサイエンティスト、オープンデータのハッカー、研究者、開発者。 私たちの思いも寄らない素晴らしいユースケースをお持ちであれば、私たちはそのフィードバックを真摯に受け入れます。 [Gitter Chat](https://gitter.im/datproject/discussions) まで、何でもお問い合わせください!
 
-## What's coming next in Dat and Dat Desktop?
+## Dat と Dat デスクトップの今後の予定は何ですか?
 
-User accounts and metadata publishing. We are working on a Dat registry web app to be deployed at [datproject.org](https://datproject.org/) which will basically be an 'NPM for datasets', except the caveat being we are just going to be a metadata directory and the data can live anywhere online (as opposed to NPM or GitHub where all the data is centrally hosted, because source code is small enough you can fit it all in one system). Since many datasets are huge, we need a federated registry (similar to how BitTorrent trackers work). We want to make it easy for people to find or publish datasets with the registry from Dat Desktop, to make the data sharing process frictionless.
+ユーザーアカウントとメタデータの公開です。 私たちは [datproject.org](https://datproject.org/) にデプロイする Dat レジストリのウェブアプリ開発に取り組んでいます。これはメタデータディレクトリになり、データをオンライン上のどこにでも置くことができます (全データが集中ホストされる NPM や GitHubとは対照的に、ソースコードが十分小さいため 1 つのシステムにすべてを収めることができます)。 多くのデータセットは巨大なので、(BitTorrent トラッカーの仕組みと同様に) フェデレーションレジストリが必要です 。 データ共有プロセスを円滑にするため、Dat デスクトップのレジストリを使用してデータセットを簡単に検索または公開できるようにしたいと考えています。
 
-Another feature is multi-writer/collaborative folders. We have big plans to do collaborative workflows, maybe with branches, similar to git, except designed around dataset collaboration. But we're still working on overall stability and standardizing our protocols right now!
+もう 1 つの機能はマルチライター/共同フォルダーです。 We have big plans to do collaborative workflows, maybe with branches, similar to git, except designed around dataset collaboration. But we're still working on overall stability and standardizing our protocols right now!
 
 ## Why did you choose to build Dat Desktop on Electron?
 
