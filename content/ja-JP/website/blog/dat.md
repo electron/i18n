@@ -27,17 +27,17 @@ dats](https://cloud.githubusercontent.com/assets/2289/23175925/dbaee7ec-f815-11e
 dat share フォルダ/へ/の/パス
 ```
 
-And dat will create a link that you can use to send that folder to someone else -- no central servers or third parties get access to your data. Unlike BitTorrent, it's also impossible to sniff who is sharing what ([see the Dat Paper draft for more details](https://github.com/datproject/docs/blob/master/papers/dat-paper.md)).
+すると、dat はそのフォルダのリンクを作成します。これはそのフォルダを他人へ送信する際に使用できますが、中央サーバーやサードパーティがあなたのデータにアクセスすることはありません。 BitTorrent と異なり、誰が何を共有しているかを盗聴することも不可能です ([詳細は Dat Paper のドラフトを参照してください](https://github.com/datproject/docs/blob/master/papers/dat-paper.md))。
 
-## Now we know what Dat is. How does Dat Desktop fit in?
+## Dat についてはわかりました。 Dat デスクトップは便利なのですか?
 
-[Dat Desktop](https://github.com/datproject/dat-desktop) is a way to make Dat accessible to people who can't or don't want to use the command line. You can host multiple dats on your machine and serve the data over your network.
+[Dat デスクトップ](https://github.com/datproject/dat-desktop) は、コマンドラインを使用できない、または使用したくない人が Dat に触れられる手段です。 マシン上で複数の Dat をホストし、ネットワーク経由でデータを提供できます。
 
-## Can you share some cool use cases?
+## 成熟したユースケースをいくつか教えて頂けますか?
 
 ### DataRefuge + Project Svalbard
 
-We're working on a thing codenamed [Project Svalbard](https://github.com/datproject/svalbard) that is related to [DataRefuge](http://www.ppehlab.org/datarefuge), a group working to back up government climate data at risk of disappearing. Svalbard is named after the Svalbard Global Seed Vault in the Arctic which has a big underground backup library of plant DNA. Our version of it is a big version controlled collection of public scientific datasets. Once we know and can trust the metadata, we can build other cool projects like a [distributed volunteer data storage network](https://github.com/datproject/datasilo/).
+私たちは [Project Svalbard](https://github.com/datproject/svalbard) というコードネームの物に取り組んでおり、これは紛失のリスクに晒される政府の気候データをバックアップするために活動している [DataRefuge](http://www.ppehlab.org/datarefuge) というグループに関連しています。 Svalbard は、植物 DNA の巨大な地下バックアップ保管庫を持つ北極圏のスヴァールバル世界種子貯蔵庫にちなんで名付けられました。 私たちの場合は、公開科学データセットの巨大なバージョン管理コレクションといったところです。 メタデータを熟知して信頼できれば、[分散ボランティアデータストレージネットワーク](https://github.com/datproject/datasilo/) のような素晴らしいプロジェクトをも構築できます。
 
 ### California Civic Data Coalition
 
