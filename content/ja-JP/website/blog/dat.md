@@ -41,7 +41,7 @@ dat share フォルダ/へ/の/パス
 
 ### California Civic Data Coalition
 
-[CACivicData](http://www.californiacivicdata.org/) is an open-source archive serving up daily downloads from CAL-ACCESS, California's database tracking money in politics. They do [daily releases](http://calaccess.californiacivicdata.org/downloads/0), which means hosting a lot of duplicate data across their zip files. We're working on hosting their data as a Dat repository which will reduce the amount of hassle and bandwidth needed to refer to specific version or update to a newer version.
+[CACivicData](http://www.californiacivicdata.org/) は、政治資金を追跡するカリフォルニア州のデータベース CAL-ACCESS からのダウンロードを毎日提供するオープンソースアーカイブです。 [毎日リリース](http://calaccess.californiacivicdata.org/downloads/0) していますが、これは各 zip ファイルのいたる所で大量の重複データをホストしているということです。 We're working on hosting their data as a Dat repository which will reduce the amount of hassle and bandwidth needed to refer to specific version or update to a newer version.
 
 ## Electron Updates
 
