@@ -42,7 +42,7 @@ export async function parseFile(file: IParseFile, ids: Record<string, string>) {
   file.isApiStructureDoc = file.category === 'api/structures'
 
   // parse markdown to HTML
-  const markdown = fs.readFileSync(file.fullyPath, 'utf8')
+  const markdown = await fs.promises.readFile(file.fullyPath, 'utf8')
 
   // ignore some docs & skip the rest of the parsing logic
   if (markdown.includes(IGNORE_PATTERN)) {

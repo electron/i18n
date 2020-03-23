@@ -37,11 +37,9 @@ export declare const electronMasterBranchCommit: string
 export declare const date: string
 `
 
-export function writeIndexFiles() {
-  for (const file of ['index.js', 'index.d.ts']) {
-    fs.writeFileSync(
-      path.join(__dirname, `../dist/${file}`),
-      file === 'index.js' ? JSTemplate : TSTemplate
-    )
-  }
+export async function writeIndexFiles() {
+  await Promise.all(['js', 'd.ts'].map(extension => fs.promises.writeFile(
+    path.resolve(__dirname, `../dist/index.${extension}`),
+    extension === 'js' ? JSTemplate : TSTemplate
+  )))
 }
