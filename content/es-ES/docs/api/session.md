@@ -448,7 +448,7 @@ Devuelve `String[]` - Un array de códigos de idiomas para los que el corrector 
 
 Por defecto Electron descargará diccionarios hunspell desde la CDN de Chromium. Si usted quiere sobrescribir este comportamiento puede usar esta API para apuntar el descargador de diccionarios a su propia versión alojada de diccionarios hunspell. Nosotros publicamos un archivo `hunspell_dictionaries.zip` con cada versión el cual contiene los archivos que necesitas para alojar aquí, el servidor de archivos debe ser **case insensitive**, debe cargar cada archivo dos veces, una como tiene este archivo ZIP y otra con el nombre del archivo todo con minúsculas.
 
-If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Por favor, tenga en cuenta la barra final. La URL a los diccionarios esta formada como `${url}${filename}`.
+Si los archivos presentes en `hunspell_dictionaries.zip` están disponible en `https://example.com/dictionaries/language-code.bdic` entonces entonces debería llamar esta api con `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Por favor, tenga en cuenta la barra final. La URL a los diccionarios esta formada como `${url}${filename}`.
 
 **Note:** En macOS the corrector ortográfico del sistema operativo es usado y por lo tanto no descargamos ningún archivo de diccionario. Esta API es una no-op en macOS.
 
