@@ -12,9 +12,7 @@ function getNav(locale: string) {
     .join('\n')
   const $ = cheerio.load(html)
   const startHeading = $('h2')[1]
-  const listItems = $(startHeading)
-    .next('ul')
-    .html()
+  const listItems = $(startHeading).next('ul').html()
   const nav = `<ul>${listItems}</ul>`
   return nav
 }

@@ -7,7 +7,7 @@ const url = 'https://electronjs.org/crowdin/status'
 
 got(url)
   .json()
-  .then(body => {
+  .then((body) => {
     fs.writeFileSync(
       path.join(__dirname, '../stats.json'),
       JSON.stringify(body, null, 2)

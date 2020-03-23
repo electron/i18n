@@ -27,13 +27,13 @@ export interface IResult {
 
 export default fs
   .readdirSync(contentDir)
-  .filter(filename =>
+  .filter((filename) =>
     fs.statSync(path.join(contentDir, filename)).isDirectory()
   )
-  .map(locale => {
+  .map((locale) => {
     const lang = locale.split('-')[0]
     const stats = allStats.find(
-      stat => lang === stat.code || locale === stat.code
+      (stat) => lang === stat.code || locale === stat.code
     )
 
     if (locale !== 'en-US' && !stats) {

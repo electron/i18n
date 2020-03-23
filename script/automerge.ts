@@ -13,7 +13,7 @@ enum Mergeability {
 }
 
 const timer = (time: number): Promise<void> => {
-  return new Promise(resolve => setTimeout(resolve, time))
+  return new Promise((resolve) => setTimeout(resolve, time))
 }
 
 const github = new Octokit({
@@ -37,7 +37,7 @@ const findPRNumber = async (): Promise<{ found: boolean; number: number }> => {
     repo: REPO,
     per_page: 100,
   })
-  const glotbot = await prs.data.filter(pr => pr.user.login === BOTNAME)
+  const glotbot = await prs.data.filter((pr) => pr.user.login === BOTNAME)
   if (glotbot.length > 0) {
     const prNumber = glotbot[0].number
     return { found: true, number: prNumber }
