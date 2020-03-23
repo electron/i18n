@@ -38,8 +38,12 @@ export declare const date: string
 `
 
 export async function writeIndexFiles() {
-  await Promise.all(['js', 'd.ts'].map(extension => fs.promises.writeFile(
-    path.resolve(__dirname, `../dist/index.${extension}`),
-    extension === 'js' ? JSTemplate : TSTemplate
-  )))
+  await Promise.all(
+    ['js', 'd.ts'].map((extension) =>
+      fs.promises.writeFile(
+        path.resolve(__dirname, `../dist/index.${extension}`),
+        extension === 'js' ? JSTemplate : TSTemplate
+      )
+    )
+  )
 }

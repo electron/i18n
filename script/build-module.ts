@@ -27,17 +27,19 @@ async function parseDocs(): Promise<Partial<IParseFile>[]> {
   console.time('parsed docs in')
   const markdownFiles = walk
     .entries(contentDir)
-    .filter(file => file.relativePath.includes('/docs'))
-    .filter(file => file.relativePath.endsWith('.md'))
+    .filter((file) => file.relativePath.includes('/docs'))
+    .filter((file) => file.relativePath.endsWith('.md'))
   console.log(
     `processing ${markdownFiles.length} docs files in ${
       Object.keys(locales).length
     } locales`
   )
-  let docs = await Promise.all(markdownFiles.map(file => parseFile(file, ids)))
+  let docs = await Promise.all(
+    markdownFiles.map((file) => parseFile(file, ids))
+  )
 
   // ignore some docs
-  docs = docs.filter(doc => !doc.ignore)
+  docs = docs.filter((doc) => !doc.ignore)
 
   console.timeEnd('parsed docs in')
   return docs
@@ -47,8 +49,8 @@ async function parseBlogs() {
   console.time('parsed blogs in')
   const markdownFiles = walk
     .entries(contentDir)
-    .filter(file => file.relativePath.includes('website/blog'))
-    .filter(file => file.fullPath.endsWith('.md'))
+    .filter((file) => file.relativePath.includes('website/blog'))
+    .filter((file) => file.fullPath.endsWith('.md'))
   console.log(
     `processing ${markdownFiles.length} blog files in ${
       Object.keys(locales).length
@@ -66,7 +68,7 @@ async function main() {
 
   const docsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = docs
-      .filter(doc => doc.locale === locale)
+      .filter((doc) => doc.locale === locale)
       .sort((a, b) => a.slug!.localeCompare(b.slug!))
       .reduce((allDocs, doc) => {
         // @ts-ignore
@@ -79,7 +81,7 @@ async function main() {
 
   const websiteBlogsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = blogs
-      .filter(doc => doc.locale === locale)
+      .filter((doc) => doc.locale === locale)
       .sort((a, b) => a.slug.localeCompare(b.slug))
       .reduce((allBlogs, blog) => {
         allBlogs[blog.href] = blog

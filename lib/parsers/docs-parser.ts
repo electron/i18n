@@ -58,20 +58,10 @@ export async function parseFile(file: IParseFile, ids: Record<string, string>) {
       const $ = cheerio.load(parsed.content || '')
       file.title =
         file.title ||
-        $('h1')
-          .first()
-          .text()
-          .trim() ||
-        $('h2')
-          .first()
-          .text()
-          .replace('Class: ', '')
+        $('h1').first().text().trim() ||
+        $('h2').first().text().replace('Class: ', '')
       file.description =
-        file.description ||
-        $('blockquote')
-          .first()
-          .text()
-          .trim()
+        file.description || $('blockquote').first().text().trim()
 
       // fix HREF for relative links
       $('a').each((i, el) => {

@@ -160,7 +160,7 @@ Escribe cualquier dato DOMStorage que no lo haya sido en disco.
 * `configuración` Object 
   * `pacScript` String (opcional) - La URL asociada con el archivo PAC.
   * `proxyRules` String (opcional) - Reglas indicando cuales proxies usar.
-  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
+  * `proxyBypassRules` String (opcional) - Reglas indicando que URLs deberían ser omitidas por la configuración del proxy.
 
 Devuelve `Promise<void>` - Se resuelve cuando el proceso de configuración del proxy está completo.
 
@@ -255,10 +255,10 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 #### `ses.preconnect(options)`
 
 * `opciones` Object 
-  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
-  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
+  * `url` String - URL para preconexión. Solo el origen es relevante para abrir el socket.
+  * `numSockets` Number (opcional) - número de sockets para preconectar. Debe ser entre 1 y 6. Por defecto es 1.
 
-Preconnects the given number of sockets to an origin.
+Preconecta el número dado de sockets a un origen.
 
 #### `ses.disableNetworkEmulation()`
 
@@ -304,8 +304,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Function 
     * `permiso concedido` Booleano - Permiso o denegado de permiso.
   * `details` Object - Algunas propiedades solamente están disponibles en ciertos tipos de permisos. 
-    * `externalURL` String (optional) - The url of the `openExternal` request.
-    * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `externalURL` String (opcional) - La url de la petición `openExternal`.
+    * `mediaTypes` String[] (opcional) - Los tipos de medios que son solicitados para acceso, los elementos pueden ser `video` o `audio`
     * `requestingUrl` String - La ultima URL que el frame solicitante cargo
     * `isMainFrame` Boolean - Si el marco que realiza la solicitud es el marco principal
 
@@ -394,9 +394,9 @@ Devuelve `Promise<Buffer>` - Se resuelve con datos blob.
 
 * `url` String
 
-Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+Inicia una descargar del recurso en `url`. La API generará un [DownloadItem](download-item.md) que puede ser accedido con el evento [will-download](#event-will-download).
 
-**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+**Note:** Esto no realiza ninguna comprobación de seguridad relacionada con la pagina de origen a diferencia de [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
 
 #### `ses.createInterruptedDownload(options)`
 
@@ -406,8 +406,8 @@ Initiates a download of the resource at `url`. The API will generate a [Download
   * `mimeType` Cadena (opcional)
   * `offset` Entero - rango de inicio para la descarga.
   * `longitud` Entero - longitud total de la descarga.
-  * `lastModified` String (optional) - Last-Modified header value.
-  * `eTag` String (optional) - ETag header value.
+  * `lastModified` String (opcional) - Último valor del encabezado modificado.
+  * `eTag` String (opcional) - Valor ETag del encabezado.
   * `Tiempo de inicio` Doble (opcional) - Tiempo en que se inició la descarga en números de segundo desde epoch de UNIX.
 
 Permite `cancelar` o `interrumpir` descargas de una `Sesión` previa. La API generará un [elemento de descarga](download-item.md) que puede ser accesado con el evento [se descargará](#event-will-download). El [Elemento de descarga](download-item.md) no tendrá ningún `contenido web` asociado con el y el estado inicial será `interrumpido`. La descarga empezará solo cuando la `reanudación` de la API sea llamada en el [elemento descargado](download-item.md).
@@ -428,35 +428,35 @@ Agrega scripts que se ejecutarán en TODOS los contenidos web que están asociad
 
 Devuelve un array de rutas `String[]` para precargar guiones que han sido registrado.
 
-#### `ses.setSpellCheckerLanguages(languages)`
+#### `ses.setSpellCheckerLanguages(idiomas)`
 
-* `languages` String[] - An array of language codes to enable the spellchecker for.
+* `languages` String[] - Un array de códigos de idiomas para habilitar corrector ortográfico.
 
-The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+El corrector ortográfico integrado no detecta automáticamente en que idioma un usuario esta escribiendo. Para que el corrector ortográfico compruebe correctamente sus palabras, usted debe llamar a esta API con un array de códigos de idiomas. Usted puede obtener la lista de los códigos de idiomas soportados con la propiedad `ses.availableSpellCheckerLanguages`.
 
-**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+**Note:** En macOS el corrector ortográfico del sistema operativo es usado y detectara automáticamente tu idioma. Esta API is un no-op en macOS.
 
 #### `ses.getSpellCheckerLanguages()`
 
-Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+Devuelve `String[]` - Un array de códigos de idiomas para los que el corrector ortográfico esta habilitado. Si esta lista está vacía, el corrector ortográfico volverá a usar `en-US`. Por defecto al iniciar si esta lista de opción es una lista vacía Electron tratará de llenar esta opción con el locale actual del sistema operativo. Este configuración es persistente entre reinicios.
 
-**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+**Note:** En macOS el corrector ortográfico del sistema operativo es usado y tiene su propia lista de idiomas. Esta API es una no-op en macOS.
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
-* `url` String - A base URL for Electron to download hunspell dictionaries from.
+* `url` String - Una URL base para Electron desde donde descargar los diccionarios hunspell.
 
-By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
+Por defecto Electron descargará diccionarios hunspell desde la CDN de Chromium. Si usted quiere sobrescribir este comportamiento puede usar esta API para apuntar el descargador de diccionarios a su propia versión alojada de diccionarios hunspell. Nosotros publicamos un archivo `hunspell_dictionaries.zip` con cada versión el cual contiene los archivos que necesitas para alojar aquí, el servidor de archivos debe ser **case insensitive**, debe cargar cada archivo dos veces, una como tiene este archivo ZIP y otra con el nombre del archivo todo con minúsculas.
 
-If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Please note the trailing slash. The URL to the dictionaries is formed as `${url}${filename}`.
+If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Por favor, tenga en cuenta la barra final. La URL a los diccionarios esta formada como `${url}${filename}`.
 
 **Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
 
-#### `ses.addWordToSpellCheckerDictionary(word)`
+#### `ses.addWordToSpellCheckerDictionary(palabra)`
 
-* `word` String - The word you want to add to the dictionary
+* `word` String - La palabra que desea agregar al diccionario
 
-Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+Devuelve `Boolean` - Si la palabra fue correctamente escrita al diccionario personalizado.
 
 **Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
 
@@ -466,19 +466,19 @@ Las siguientes propiedades están disponibles en instancias de `Sesión`:
 
 #### `ses.availableSpellCheckerLanguages` *Readonly*
 
-A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
+Un array `String[]` que consiste en todos los idiomas conocidos disponibles para el corrector ortográfico. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
 #### `ses.cookies` *Readonly*
 
-A [`Cookies`](cookies.md) object for this session.
+Un objeto [`Cookies`](cookies.md) para esta sesión.
 
 #### `ses.webRequest` *Readonly*
 
-A [`WebRequest`](web-request.md) object for this session.
+Un objeto [`WebRequest`](web-request.md) para esta sesión.
 
 #### `ses.protocol` *Readonly*
 
-A [`Protocol`](protocol.md) object for this session.
+Un objeto [`Protocol`](protocol.md) para esta sesión.
 
 ```javascript
 const { app, session } = require('electron')
@@ -497,7 +497,7 @@ app.on('ready', function () {
 
 #### `ses.netLog` *Readonly*
 
-A [`NetLog`](net-log.md) object for this session.
+Un objeto [`NetLog`](net-log.md) para esta sesión.
 
 ```javascript
 const { app, session } = require('electron')

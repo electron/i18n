@@ -14,7 +14,7 @@ async function main() {
   const glossary = require('crowdin-glossary')({ project: 'electron' })
 
   // JavaScript builtins like Array, Map, String, etc
-  Object.keys(globals.builtin).forEach(term => {
+  Object.keys(globals.builtin).forEach((term) => {
     if (Object.keys(glossary.entries).includes(term)) return
     glossary.add(
       term,
@@ -23,7 +23,7 @@ async function main() {
   })
 
   // Electron API names
-  electronApis.forEach(api => {
+  electronApis.forEach((api) => {
     glossary.add(
       api.name,
       `This is an Electron ${api.type} and should usually not be translated`
@@ -32,8 +32,8 @@ async function main() {
 
   // Electron instance methods and properties
   electronApis
-    .filter(api => api.type === 'Class')
-    .forEach(api => {
+    .filter((api) => api.type === 'Class')
+    .forEach((api) => {
       const methods = api.instanceMethods || []
       methods.forEach((method: any) => {
         const term = `${api.instanceName}.${method.name}`
@@ -56,7 +56,7 @@ async function main() {
     })
 
   // Electron Jargon like `IPC`, `Main Process`, etc
-  Object.values(await parseElectronGlossary('en-US')).forEach(entry => {
+  Object.values(await parseElectronGlossary('en-US')).forEach((entry) => {
     if (Object.keys(glossary.entries).includes(entry.term)) return
     glossary.add(entry.term, entry.description)
   })

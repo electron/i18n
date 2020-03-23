@@ -21,12 +21,12 @@ Google は [開発者向けツールの優れたドキュメント](https://deve
 
 より詳しい情報は、[メインプロセスのデバッグのドキュメント](./debugging-main-process.md) を参照してください。
 
-## V8 Crashes
+## V8 クラッシュ
 
-If the V8 context crashes, the DevTools will display this message.
+V8 コンテキストがクラッシュした場合、デベロッパー ツールにこのメッセージが表示されます。
 
-`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+`デベロッパー ツールはページから切断されました。 ページをリロードすれば、デベロッパー ツールは自動で再接続します。`
 
-Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+Chromium のログは `ELECTRON_ENABLE_LOGGING` 環境変数を介して有効にできます。 詳しい情報は [環境変数ドキュメント](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging) を参照してください。
 
-Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+代替として、`--enable-logging` コマンドライン引数を渡すことでもできます。 詳しい情報は [コマンドラインスイッチドキュメント](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging) を参照してください。

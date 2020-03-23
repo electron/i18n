@@ -4,33 +4,33 @@ author: sofianguy
 date: '2018-10-02'
 ---
 
-Electron is working on making its release cycles faster and more stable. To make that possible, we've started the App Feedback Program for large-scale Electron apps to test our beta releases and report app-specific issues to us. This helps us to prioritize work that will get applications upgraded to our next stable release sooner.
+Electron はリリースサイクルが高速かつより安定するように取り組んでいます。 実現のため、大規模 Electron アプリのためのアプリフィードバックプログラムを始めました。ベータリリースをテストしてアプリ固有の問題を報告できます。 これは、できるだけ早くアプリケーションを次の安定リリースへアップグレードする、その作業の優先順位付けに役立ちます。
 
 ---
 
-## Who can join?
-Our criteria and expectations for apps joining this program include the following items:
-- Test your app during the beta period for 10,000+ user-hours
-- Have a single point-person who will check in weekly to discuss your app's Electron bugs and app blockers
-- You agree to abide by Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
-- You are willing to share the following information listed in the next question
+## どんなアプリが参加できますか?
+このプログラムに参加するアプリの基準と要件は、以下の項目の通りです。
+- ベータ期間中に 10,000 ユーザー時間以上アプリをテストすること
+- アプリにおける Electron のバグと障害について議論する手続きを毎週行う担当者を 1 人配置すること
+- Electron の [行動規範](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md) の遵守に同意すること
+- 以下の質問に列挙されている下記情報を共有すること
 
-## What info does my Electron app have to share?
-- Total user-hours your app has been running with any beta release
-- Version of Electron that your app is testing with (e.g., 4.0.0-beta.3)
-- Any bugs preventing your application from upgrading to the release line being beta tested
+## Electron アプリが共有しなければならない情報は何ですか?
+- ベータリリースで実行されたアプリの総ユーザー時間
+- アプリがテストしている Electron のバージョン (4.0.0-beta.3 など)
+- ベータテストされているリリースラインでアプリケーションのアップグレードを妨げるようなバグ
 
-## User-hours
-We understand not everyone can share exact user numbers, however better data helps us decide how stable a particular release is. We ask that apps commit to testing a minimum number of user-hours, currently 10,000 across the beta cycle.
-- 10 user-hours could be 10 people testing for one hour, or one person testing for 10 hours
-- You can split the testing between beta releases, for example test for 5,000 user-hours on 3.0.0-beta.2 and then test for 5,000 user-hours on 3.0.0-beta.5. More is better, but we understand that some applications cannot test every beta release
-- CI or QA hours do not count towards the total; however, internal releases do count
+## ユーザー時間
+すべてが正確なユーザー数を共有できるわけではないことは理解していますが、より良いデータは特定リリースの安定性の判断に役立ちます。 現在、アプリのテストはベータサイクルを通じて 10,000 ユーザー時間まで到達するようにお願いしています。
+- 10 ユーザー時間は、10 人が 1 時間テストする、もしくは 1 人が 10 時間テストするということです。
+- 3.0.0-beta.2 で 5,000 ユーザー時間をテストしてから、3.0.0-beta.5 で 5,000 ユーザー時間をテストする、というようにベータリリース間でテストを分割できます。多ければ多いほど良いのですが、アプリケーションによっては全ベータリリースをテストできません。
+- CI や QA 時間は合計にカウントされませんが、内部リリースはカウントされます。
 
-## Why should my Electron app join?
-Your app's bugs will be tracked and be on the core Electron team's radar. Your feedback helps the Electron team to see how the new betas are doing and what work needs to be done.
+## 私の Electron アプリも参加するべきですか?
+あなたのアプリのバグは追跡され、コア Electron チームのレーダーに記録されます。 あなたのフィードバックが、新しいベータ版の動作確認、必要な作業の確認などで Electron チームの役に立ちます。
 
-## Will my application's info be shared publicly? Who gets to see this info?
-No, your application's information will not be shared with the general public. Information is kept in a private GitHub repo that is only viewable to members of the App Feedback Program and [Electron Governance](https://github.com/electron/governance). All members have agreed to follow Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
+## 私のアプリケーションの情報は公開されますか? この情報を見られるのは誰ですか?
+いいえ、アプリケーションの情報は一般公開されません。 情報は、アプリフィードバックプログラムと [Electron ガバナンス](https://github.com/electron/governance) のメンバーのみが閲覧できるプライベート GitHub リポジトリに保管されます。 メンバーは全員 Electron の [行動規範](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md) の遵守に同意しています。
 
-## Sign up
-We are currently accepting a *limited number* of signups. If you are interested and are able to fulfill the above requirements, please fill out this [form](https://goo.gl/forms/OpMEKV75ScN6we7g1).
+## 新規申込
+現在、新規申込の <em x-id = "3">数を限定</em> しています。 もし興味があり、上記の要件を満しているならば、この [フォーム](https://goo.gl/forms/OpMEKV75ScN6we7g1) に記入してください。

@@ -50,9 +50,7 @@ async function main() {
 
 async function fetchRelease() {
   console.log(`Determining 'latest' version dist-tag on npm`)
-  const version = execSync('npm show electron version')
-    .toString()
-    .trim()
+  const version = execSync('npm show electron version').toString().trim()
 
   console.log(`Fetching release data from GitHub`)
 
@@ -84,7 +82,9 @@ async function fetchApiData() {
     `Fetching API definitions from electron/electron#${release.tag_name}`
   )
 
-  const asset = release.assets.find(asset => asset.name === 'electron-api.json')
+  const asset = release.assets.find(
+    (asset) => asset.name === 'electron-api.json'
+  )
 
   if (!asset) {
     return Promise.reject(

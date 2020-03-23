@@ -35,7 +35,7 @@ describe('i18n.docs', () => {
 
   it('does not contain <html>, <head>, or <body> tag in compiled html', () => {
     const html = i18n.docs['en-US']['/docs/api/accelerator'].sections
-      .map(section => section.html)
+      .map((section) => section.html)
       .join('')
     html.should.be.a('string')
     html.should.contain('<p>')
@@ -63,20 +63,20 @@ describe('i18n.docs', () => {
       const { sections } = i18n.docs['en-US']['/docs/api/accelerator']
       sections.should.be.an('array')
       sections.length.should.be.above(0)
-      sections.every(section => section.name && section.html).should.eq(true)
+      sections.every((section) => section.name && section.html).should.eq(true)
     })
 
-    xit('does not contain empty sections', function() {
+    xit('does not contain empty sections', function () {
       this.timeout(15 * 1000)
       const locales = Object.keys(i18n.docs)
       locales.length.should.be.above(0)
-      locales.forEach(locale => {
+      locales.forEach((locale) => {
         const docHrefs = Object.keys(i18n.docs[locale])
         docHrefs.length.should.be.above(0)
-        docHrefs.forEach(href => {
+        docHrefs.forEach((href) => {
           const doc = i18n.docs[locale][href]
           doc.sections.length.should.be.above(0)
-          doc.sections.forEach(section => {
+          doc.sections.forEach((section) => {
             // expect(section.name, )
             expect(
               section.name,
@@ -130,7 +130,7 @@ describe('i18n.glossary', () => {
     const glossary = Object.values(i18n.glossary['en-US'])
     glossary.length.should.be.at.least(10)
     glossary
-      .every(entry => {
+      .every((entry) => {
         return entry.term.length && entry.description.length
       })
       .should.eq(true)
@@ -157,12 +157,12 @@ describe('API Docs', () => {
   it('has a title for every doc', () => {
     const locales = Object.keys(i18n.locales)
     locales.length.should.be.above(1)
-    locales.forEach(locale => {
+    locales.forEach((locale) => {
       const docs = Object.keys(i18n.docs[locale]).map(
-        key => i18n.docs[locale][key]
+        (key) => i18n.docs[locale][key]
       )
-      const titles = docs.map(doc => doc.title)
-      const hasTitle = title => title !== ''
+      const titles = docs.map((doc) => doc.title)
+      const hasTitle = (title) => title !== ''
       titles.length.should.be.above(1)
       titles.every(hasTitle).should.equal(true)
     })
@@ -194,13 +194,13 @@ describe('API Docs', () => {
   it('sorts docs by slug per locale', () => {
     const locales = Object.keys(i18n.locales)
     locales.length.should.be.above(10)
-    locales.forEach(locale => {
+    locales.forEach((locale) => {
       const docs = Object.keys(i18n.docs[locale]).map(
-        key => i18n.docs[locale][key]
+        (key) => i18n.docs[locale][key]
       )
       docs.length.should.be.above(10)
 
-      const slugs = docs.map(doc => doc.slug)
+      const slugs = docs.map((doc) => doc.slug)
       slugs.length.should.be.above(10)
 
       const sortedSlugs = slugs.slice(0).sort((a, b) => a.localeCompare(b))
@@ -216,21 +216,23 @@ describe('API Docs', () => {
 
   it('fixes relative links in docs', () => {
     const api = i18n.docs['en-US']['/docs/api/app']
-    const $ = cheerio.load(api.sections.map(section => section.html).join(''))
+    const $ = cheerio.load(api.sections.map((section) => section.html).join(''))
     const link = $('a[href*="glossary"]').first()
     link.attr('href').should.equal('/docs/glossary#main-process')
   })
 
   it('fixes relative images in docs', () => {
     const doc = i18n.docs['en-US']['/docs/tutorial/electron-versioning']
-    const $ = cheerio.load(doc.sections.map(section => section.html).join(''))
+    const $ = cheerio.load(doc.sections.map((section) => section.html).join(''))
     const sources = $('img')
       .map((i, el) => $(el).attr('src'))
       .get()
 
     sources.length.should.be.above(3)
     sources
-      .every(src => src.startsWith('https://cdn.rawgit.com/electron/electron/'))
+      .every((src) =>
+        src.startsWith('https://cdn.rawgit.com/electron/electron/')
+      )
       .should.eq(true)
   })
 
@@ -239,9 +241,9 @@ describe('API Docs', () => {
    ** see: https://github.com/electron/i18n/pull/274#issuecomment-373003188         **
    ***********************************************************************************/
   it.skip('contains no empty links', () => {
-    Object.keys(i18n.docs['en-US']).forEach(href => {
+    Object.keys(i18n.docs['en-US']).forEach((href) => {
       const doc = i18n.docs['en-US'][href]
-      doc.sections.forEach(section => {
+      doc.sections.forEach((section) => {
         const $ = cheerio.load(section.html)
         $('a[href=""]').length.should.equal(0, `${doc.href} has an empty link`)
       })
@@ -277,7 +279,7 @@ describe('i18n.locales', () => {
   it('includes countryCode for every locale', () => {
     const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
-    keys.forEach(locale => {
+    keys.forEach((locale) => {
       i18n.locales[locale].countryCode.should.be.a('string')
     })
     i18n.locales['en-US'].countryCode.should.equal('US')
@@ -287,7 +289,7 @@ describe('i18n.locales', () => {
   it('includes countryName for every locale', () => {
     const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
-    keys.forEach(locale => {
+    keys.forEach((locale) => {
       expect(
         i18n.locales[locale].countryName,
         `${locale} does not nave a country name`
@@ -300,7 +302,7 @@ describe('i18n.locales', () => {
   it('includes languageCode for every locale', () => {
     const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
-    keys.forEach(locale => {
+    keys.forEach((locale) => {
       i18n.locales[locale].languageCode.should.be.a('string')
     })
     i18n.locales['en-US'].languageCode.should.equal('en')
@@ -312,7 +314,7 @@ describe('i18n.locales', () => {
   it('includes languageName for every locale', () => {
     const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
-    keys.forEach(locale => {
+    keys.forEach((locale) => {
       i18n.locales[locale].languageName.should.be.a('string')
     })
     i18n.locales['en-US'].languageName.should.equal('English')
@@ -327,7 +329,7 @@ describe('i18n.locales', () => {
   it('includes languageNativeName for every locale', () => {
     const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
-    keys.forEach(locale => {
+    keys.forEach((locale) => {
       i18n.locales[locale].languageNativeName.should.be.a('string')
     })
     i18n.locales['en-US'].languageNativeName.should.equal('English')
@@ -337,7 +339,7 @@ describe('i18n.locales', () => {
   it('includes stats for every locale', () => {
     const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
-    keys.forEach(locale => {
+    keys.forEach((locale) => {
       i18n.locales[locale].stats.should.be.an('object')
       i18n.locales[locale].stats.translated_progress.should.be.a('number')
       i18n.locales[locale].stats.approved_progress.should.be.a('number')
@@ -348,7 +350,7 @@ describe('i18n.locales', () => {
 
   it('sorts locales by translation progress', () => {
     const progress = Object.keys(i18n.locales).map(
-      locale => i18n.locales[locale].stats.translated_progress
+      (locale) => i18n.locales[locale].stats.translated_progress
     )
     progress[0].should.be.above(progress[4])
     progress[4].should.be.above(progress[8])
@@ -366,9 +368,9 @@ describe('i18n.navs', () => {
 
   it('has a value and has valid html content as values', () => {
     const values = Object.values(i18n.navs)
-    values.every(value => value.should.be.a('string'))
-    values.every(value => value.should.contain('<ul>'))
-    values.every(value => value.should.contain('<li>'))
+    values.every((value) => value.should.be.a('string'))
+    values.every((value) => value.should.contain('<ul>'))
+    values.every((value) => value.should.contain('<li>'))
     values.should.not.contain('<html>')
     values.should.not.contain('</html>')
     values.should.not.contain('<head>')
