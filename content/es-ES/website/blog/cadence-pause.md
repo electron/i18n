@@ -1,19 +1,19 @@
 ---
-title: Upcoming Electron Releases
+title: Próximas versiones de Electron
 author: codebytere
 date: '2020-03-19'
 ---
 
-Electron is temporarily pausing major releases
+Electron está actualmente en pausa con los lanzamientos principales
 
 ---
 
-## What's Happening?
+## ¿Qué está pasando?
 
-Our [major release cadence schedule](https://www.electronjs.org/blog/12-week-cadence) moves in lockstep with that of Chromium, and the Chromium project has made the recent decision to [pause its releases](https://blog.chromium.org/2020/03/upcoming-chrome-releases.html) due to adjusted work schedules. This means that for the duration of Chromium's altered cadence, Electron will also temporarily pause new major releases.
+Nuestro [Calendario de lanzamiento principal](https://www.electronjs.org/blog/12-week-cadence) se mueve a la par de Chromium y el proyecto Chromium ha tomado la reciente decisión [pausar sus lanzamientos](https://blog.chromium.org/2020/03/upcoming-chrome-releases.html) debido a los horarios de trabajo ajustados. Esto significa que durante la duración de la cadencia alterada de Chromium, Electron también pausará temporalmente nuevas versiones importantes.
 
-We feel that our best choice is to follow in Chromium's footsteps, and so in the interim the Electron team will shift to full-time work on bugfixes, security, performance, and stability.
+Creemos que nuestra mejor opción es seguir los pasos de Chromium, y por eso mientras tanto el equipo de Electron cambiará a trabajo de tiempo completo en resolver errores, seguridad, performance y estabilidad.
 
-We want to ensure that both our maintainers and our consumers' wellbeing is prioritized during this time, so we welcome your feedback and look forward to returning to our regular release schedule.
+Queremos asegurarnos de que tanto el bienestar de nuestros mantenedores como el de nuestros consumidores sea prioritario durante este tiempo, por lo que agradecemos sus comentarios y esperamos volver a nuestro programa de lanzamiento regular.
 
-For more updates, please follow our [Twitter account](https://twitter.com/electronjs).
+Para más actualizaciones, por favor sigue nuestra [Cuentea de Twitter](https://twitter.com/electronjs).
