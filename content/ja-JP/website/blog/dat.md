@@ -59,17 +59,17 @@ P2P ネットワークを介してデータを共有、更新したい人。 デ
 
 ## Electron で Dat デスクトップを構築することにしたのはなぜですか?
 
-Dat は Node.js を使用して構築されているため、自然な統合に適していました。 Beyond this, our users use a variety of machines since scientists, researchers and government officials may be forced to use certain setups for their institutions -- this means we need to be able to target Windows and Linux as well as Mac. Dat Desktop gives us that quite easily.
+Dat は Node.js を使用して構築されているため、自然な統合に適していました。 これ以外にも、科学者、研究者、政府関係者は施設特有の構成を使用することを余儀なくされ、ユーザーはさまざまなマシンを使用する可能性があります。 つまり、Mac と同様に Windows と Linux をターゲットにできる必要があります。 Dat デスクトップは、それを簡単に実現してくれます。
 
-## What are some challenges you've faced while building Dat and Dat Desktop?
+## Dat と Dat デスクトップ構築の際に直面した課題はありますか?
 
-Figuring out what people want. We started with tabular datasets, but we realized that it was a bit of a complicated problem to solve and that most people don't use databases. So half way through the project, we redesigned everything from scratch to use a filesystem and haven't looked back.
+人々が何を求めているのかを把握することです。 最初は表形式のデータセットから始めたのですが、解決するには少し複雑な問題だったため、ほとんどの人がデータベースを使っていないことに気づきました。 プロジェクトの途中で、ファイルシステムを使用するためにすべてスクラッチから設計し直して以来、後退していません。
 
-We also ran into some general Electron infrastructure problems, including:
+以下のような一般的な Electron のインフラ問題にも遭遇しました。
 
-- Telemetry - how to capture anonymous usage statistics
-- Updates - It's kind of piecemeal and magic to set up automatic updates
-- Releases - XCode signing, building releases on Travis, doing beta builds, all were challenges.
+- テレメトリ - 匿名利用統計の収集方法
+- 更新 - 自動更新の設定は、断片的で魔法のような類のものです。
+- リリース - Xcode 署名、Travis 上でのリリースビルド、ベータビルド、すべてが問題でした。
 
 We also use Browserify and some cool Browserify Transforms on the 'front end' code in Dat Desktop (which is kind of weird because we still bundle even though we have native `require` -- but it's because we want the Transforms). To better help manage our CSS we switched from Sass to using [sheetify](https://github.com/stackcss/sheetify). It's greatly helped us modularize our CSS and made it easier to move our UI to a component oriented architecture with shared dependencies. For example [dat-colors](https://github.com/Kriesse/dat-colors) contains all of our colors and is shared between all our projects.
 
