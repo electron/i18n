@@ -73,7 +73,7 @@ We actually started by building a native app with Swift. The main problem we fou
 
 Also, and most importantly, with Electron you develop once and it should Just Work™ on all the major platforms. It’s not guaranteed, but the cost of coding natively for each platform definitely outweighs any other costs that electron introduces.
 
-## What are your favorite things about Electron?
+## Electron の好きなところは何ですか?
 
 **GTD!**: Having Node.js’ networking stack and Chromium’s presentation layer packaged together is a recipe for getting things done.
 
