@@ -73,7 +73,7 @@ Dat は Node.js を使用して構築されているため、自然な統合に�
 
 Dat デスクトップの 'フロントエンド' コードでは Browserify と素晴らしい Browserify Transform をいくつか使用しています (ネイティブの `require` があるのにバンドルしているので、ちょっと変な感じですが、Transform が欲しいのです)。 CSS をより管理しやすくするために、Sass から [sheetify](https://github.com/stackcss/sheetify) へ切り替えました。 このおかげで、CSS をモジュール化でき、依存関係を共有したコンポーネント指向アーキテクチャの UI に移行するのが容易になりました。 例えば、[dat-colors](https://github.com/Kriesse/dat-colors) にはすべての色が収まっており、すべてのプロジェクトで共有されています。
 
-We've always been a big fan of standards and minimal abstractions. Our whole interface is built using regular DOM nodes with just a few helper libraries. We've started to move some of these components into [base-elements](https://base.choo.io), a library of low-level reusable components. As with most of our technology we keep iterating on it until we get it right, but as a team we have a feeling we're heading in the right direction here.
+私たちはいつも標準と最小限の抽象化の大ファンです。 インターフェイス全体は、いくつかのヘルパーライブラリを使用した上で、通常の DOM ノードで構築されています。 これらのコンポーネントの一部を、ローレベルで再利用可能なコンポーネントのライブラリ [base-elements](https://base.choo.io) に移行し始めました。 私たちの技術のほとんどもそうなのですが、正常になるまで移行を反復し続けています。チームとしては正しい方向に向かっていると思います。
 
 ## Electron はどういった領域で改善されるべきでしょうか?
 
