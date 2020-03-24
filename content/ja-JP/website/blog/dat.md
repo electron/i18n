@@ -12,8 +12,7 @@ date: '2017-02-21'
 
 ---
 
-[![A screenshot of the main view of dat-desktop, showing a few rows of shared
-dats](https://cloud.githubusercontent.com/assets/2289/23175925/dbaee7ec-f815-11e6-80cc-3041203c7842.png)](https://github.com/datproject/dat-desktop)
+[![共有 Dat の数行を表示した、dat-desktop のメイン画面のスクリーンショット](https://cloud.githubusercontent.com/assets/2289/23175925/dbaee7ec-f815-11e6-80cc-3041203c7842.png)](https://github.com/datproject/dat-desktop)
 
 ## まず、Dat とは何ですか?
 
@@ -77,17 +76,17 @@ Dat デスクトップの 'フロントエンド' コードでは Browserify と
 
 ## Electron はどういった領域で改善されるべきでしょうか?
 
-We think the biggest pain point is native modules. Having to rebuild your modules for Electron with npm adds complexity to the workflow. Our team developed a module called [`prebuild`](http://npmjs.org/prebuild) which handles pre-built binaries, which worked well for Node, but Electron workflows still required a custom step after installing, usually `npm run rebuild`. It was annoying. To address this we recently switched to a strategy where we bundle all compiled binary versions of all platforms inside the npm tarball. This means tarballs get larger (though this can be optimized with `.so` files - shared libraries), this approach avoids having to run post-install scripts and also avoids the `npm run rebuild` pattern completely. It means `npm install` does the right thing for Electron the first time.
+最大の痛手はネイティブモジュールだと考えています。 Electron 向けにモジュールを npm でリビルドする必要があるため、ワークフローが複雑になります。 私たちのチームは [`prebuild`](http://npmjs.org/prebuild) というモジュールを開発しました。これはビルド済みのバイナリを扱うもので、Node ではうまく機能していましたが、Electron のワークフローではインストール後にカスタムステップとして大抵 `npm run rebuild` が必要でした。 これは煩わしかったです。 これに対処するため、すべてのプラットフォームのコンパイル済みバイナリ版を npm tarball の中にバンドルするという戦略に最近切り替えました。 これは tarball が大きくなるということです (ただこれは `.so` ファイル - 共有ライブラリで最適化できます)。このアプローチなら install の後にスクリプトを実行する必要がなくなり、`npm run rebuild` のパターンを完全に回避できます。 `npm install` だけで Electron 向けに正しく動作するということです。
 
-## What are your favorite things about Electron?
+## Electron の好きなところは何ですか?
 
-The APIs seem fairly well thought out, it's relatively stable, and it does a pretty good job at keeping up to date with upstream Node releases, not much else we can ask for!
+API はかなりよく考えられていて、比較的安定しているようです。上流の Node リリースの最新状態の維持にこれ以上ない良い仕事をしてくれています!
 
 ## 他の開発者に役立つ Electron のノウハウはありますか?
 
-If you use native modules, give [prebuild](https://www.npmjs.com/package/prebuild) a shot!
+ネイティブモジュールを使うなら、[prebuild](https://www.npmjs.com/package/prebuild) を試してみてくれ!
 
-## What's the best way to follow Dat developments?
+## Dat の開発をフォローするにはどうすればよいですか?
 
-Follow [@dat_project](https://twitter.com/dat_project) on Twitter, or subscribe to our [email newsletter](https://tinyletter.com/datdata).
+ツイッターで [@dat_project](https://twitter.com/dat_project) をフォローするか、[メールマガジン](https://tinyletter.com/datdata) に登録してください。
 
