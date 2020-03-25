@@ -14,11 +14,11 @@
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `сесия` Обект (по избор) - екземплярът на [`сесията`](session.md), с който е свързана заявката. По подразбиране е празен низ. Опцията `сесия` преобладава на `дял`. Следователно ако изрично е указано `сесия`, `дял` се игнорира.
   * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Default is `false`.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
+  * `протокол` Низ (по избор) - схемата на протокол във формата "схема:'. Поддържани в момента стойности са ' http:' или ' https:'. По подразбиране е "http:".
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
+  * `име на хост` Низ (по избор) - името на хоста на сървъра.
+  * `порт` Цяло число (по избор) - слушане номера на порта на сървъра.
+  * `path` String (по избор) - Пътя на бисквитката.
   * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.
 
 свойства на `Опции` като `протокол`, `хост`, `име на хост`, `пристанището` и `пътя` следват стриктно Node.js модела, както е описано в модула [URL](https://nodejs.org/api/url.html).
