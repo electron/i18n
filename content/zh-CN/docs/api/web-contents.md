@@ -965,9 +965,11 @@ Returns `Boolean` - Whether audio is currently playing.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - 缩放比例
+* `factor` Double - Zoom factor; default is 1.0.
 
 更改缩放比例。缩放比例是缩放百分比除以 100，如 300% = 3.0。
+
+The factor must be greater than 0.0.
 
 **[过时的](modernization/property-updates.md)**
 
@@ -1019,19 +1021,19 @@ Returns `Promise<void>`
 
 #### `contents.undo()`
 
-在页面中执行`undo`编辑命令。
+Executes the editing command `undo` in web page.
 
 #### `contents.redo()`
 
-在页面中执行` redo `编辑命令。
+Executes the editing command `redo` in web page.
 
 #### `contents.cut()`
 
-在页面中执行` cut `编辑命令。
+Executes the editing command `cut` in web page.
 
 #### `contents.copy()`
 
-在页面中执行` copy `编辑命令。
+Executes the editing command `copy` in web page.
 
 #### `contents.copyImageAt(x, y)`
 
@@ -1042,35 +1044,35 @@ Copy the image at the given position to the clipboard.
 
 #### `contents.paste()`
 
-在页面中执行` paste `编辑命令。
+Executes the editing command `paste` in web page.
 
 #### `contents.pasteAndMatchStyle()`
 
-在页面中执行` pasteAndMatchStyle `编辑命令。
+Executes the editing command `pasteAndMatchStyle` in web page.
 
 #### `contents.delete()`
 
-在页面中执行` delete `编辑命令。
+Executes the editing command `delete` in web page.
 
 #### `contents.selectAll()`
 
-在页面中执行` selectAll `编辑命令。
+Executes the editing command `selectAll` in web page.
 
 #### `contents.unselect()`
 
-在页面中执行` unselect `编辑命令。
+Executes the editing command `unselect` in web page.
 
 #### `contents.replace(text)`
 
 * `text` String
 
-在页面中执行` replace `编辑命令。
+Executes the editing command `replace` in web page.
 
 #### `contents.replaceMisspelling(text)`
 
 * `text` String
 
-在页面中执行` replaceMisspelling `编辑命令。
+Executes the editing command `replaceMisspelling` in web page.
 
 #### `contents.insertText(text)`
 
@@ -1142,9 +1144,9 @@ Decrease the capturer count by one. The page will be set to hidden or occluded s
 
 #### `contents.getPrinters()`
 
-获取系统打印机列表
+Get the system printer list.
 
-返回 [`PrinterInfo[]`](structures/printer-info.md)
+Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
@@ -1327,26 +1329,26 @@ When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, e
 
 #### `contents.closeDevTools()`
 
-关闭开发者工具。
+Closes the devtools.
 
 #### `contents.isDevToolsOpened()`
 
-返回`Boolean` - 开发者工具是否处于开启状态。
+Returns `Boolean` - Whether the devtools is opened.
 
 #### `contents.isDevToolsFocused()`
 
-返回`Boolean` - 开发者工具是否处于当前执行状态。
+Returns `Boolean` - Whether the devtools view is focused .
 
 #### `contents.toggleDevTools()`
 
-切换开发工具
+Toggles the developer tools.
 
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-开始检查位于(`x`, `y`) 的元素。
+Starts inspecting element at position (`x`, `y`).
 
 #### `contents.inspectSharedWorker()`
 
@@ -1446,11 +1448,11 @@ ipcMain.on('ping', (event) => {
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-允许设备模拟给定参数。
+Enable device emulation with the given parameters.
 
 #### `contents.disableDeviceEmulation()`
 
-禁止`webContents.enableDeviceEmulation`允许的模拟设备
+Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(inputEvent)`
 
@@ -1618,7 +1620,7 @@ Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` *Readonly*
 
-`Integer`类型，代表WebContents的唯一标识（unique ID）。
+A `Integer` representing the unique ID of this WebContents.
 
 #### `contents.session` *Readonly*
 
