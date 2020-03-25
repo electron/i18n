@@ -13,6 +13,7 @@ Process: [Main](../glossary.md#main-process)
   * `url` Cadena (opcional) - La URL solicitada. Debe proporcionarse en la forma absoluta con el esquema de protocolo especificado como http o https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. La opción `sesión` prevalece sobre `partición`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Por defecto es `false`.
   * `protocolo` Cadena (opcional) -El esquema de protocolo en la forma "esquema": Valores soportados actualmente son 'http:' o 'https:'. Por defecto es 'http:'.
   * `host` Cadena (opcional) - El servidor central proporcionado como una concatenación de nombres de anfitrión y el número de puerto "nombre del host:puerto".
   * `nombre de anfitrión` Cadena (opcional) - el nombre del servidor central.
