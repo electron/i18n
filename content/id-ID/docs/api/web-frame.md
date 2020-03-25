@@ -20,9 +20,11 @@ The `WebFrame` class has the following instance methods:
 
 ### `webBingkai.tetapkanFaktorZoom(faktor)`
 
-* `faktor` Angka - Faktor zoom.
+* `factor` Double - Zoom factor; default is 1.0.
 
 Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom persen dibagi dengan 100, sehingga 300% = 3,0.
+
+The factor must be greater than 0.0.
 
 ### `webBingkai.tetapkanFaktorZoom()`
 
