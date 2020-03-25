@@ -20,9 +20,11 @@ The `WebFrame` class has the following instance methods:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `kadahilanan`Numero - Zoom factor.
+* `factor` Double - Zoom factor; default is 1.0.
 
 Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay porsiyento ng zoom na hinati sa 100, so 300% = 3.0.
+
+The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 
@@ -152,7 +154,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
