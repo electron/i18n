@@ -212,6 +212,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `additionalArguments` String[] (facultatif) - Une liste de chaînes qui seront ajoutées au processus `. rgv` dans le processus renderer de cette application. Utile pour passer de petites bits de données vers le bas pour le processus de rendu des scripts de préchargement.
     * `safeDialogs` Booléen (facultatif) - Activer ou non la protection consécutive des dialogues du style du navigateur . La valeur par défaut est `false`.
     * `safeDialogsMessage` String (facultatif) - Le message à afficher lorsque la protection consécutive des dialogues est déclenchée. Si non défini, le message par défaut serait utilisé, notez que le message par défaut est actuellement en anglais et non localisé.
+    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. Default is `false`.
     * `navigateOnDragDrop` Booléen (facultatif) - Si glisser-déposer un fichier ou un lien sur la page provoque une navigation. La valeur par défaut est `false`.
     * `autoplayPolicy` String (facultatif) - La politique de lecture automatique à appliquer au contenu dans la fenêtre, peut être `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Par défaut, `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (facultatif) - S'il faut empêcher la fenêtre de redimensionner lorsque vous entrez dans le Fullscreen HTML. Par défaut est `false`.
