@@ -20,9 +20,11 @@ webFrame.setZoomFactor(2)
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - 拡大率。
+* `factor` Double - Zoom factor; default is 1.0.
 
 指定の倍率に拡大率を変更します。拡大率は百分率なので、300% = 3.0 です。
+
+The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 
