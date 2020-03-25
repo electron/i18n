@@ -965,9 +965,11 @@ Returns `Boolean` - Whether audio is currently playing.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - фактор увилечения.
+* `factor` Double - Zoom factor; default is 1.0.
 
 Изменяет указанный масштаб. Коэффициент масштабирования является процент масштабирования, делится на 100, поэтому 300% = 3.0.
+
+The factor must be greater than 0.0.
 
 **[Устарело](modernization/property-updates.md)**
 
