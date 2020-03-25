@@ -969,9 +969,11 @@ Rückgabewert:
     
     #### `contents.setZoomFactor(factor)`
     
-    * `factor` Number - Zoom faktor.
+    * `factor` Double - Zoom factor; default is 1.0.
     
     Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+    
+    The factor must be greater than 0.0.
     
     **[Deprecated](modernization/property-updates.md)**
     

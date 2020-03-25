@@ -8,11 +8,11 @@ The Electron team is excited to announce that the first stable release of Electr
 
 ---
 
-## Release Process
+## リリースプロセス
 
 As we undertook development of `v3.0.0`, we sought to more empirically define criteria for a stable release by formalizing the feedback progress for progressive beta releases. `v3.0.0` would not have been possible without our [App Feedback Program](https://github.com/electron/electron/blob/3-0-x/docs/tutorial/app-feedback-program.md) partners, who provided early testing and feedback during the beta cycle. Thanks to Atlassian, Atom, Microsoft Teams, Oculus, OpenFin, Slack, Symphony, VS Code, and other program members for their work. If you'd like to participate in future betas, please mail us at [info@electronjs.org](mailto:info@electronjs.org).
 
-## Changes / New Features
+## 変更 / 新機能
 
 Major bumps to several important parts of Electron's toolchain, including Chrome `v66.0.3359.181`, Node `v10.2.0`, and V8 `v6.6.346.23.`
 

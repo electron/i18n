@@ -212,6 +212,7 @@ child.once('ready-to-show', () => {
     * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。少量のデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
     * `safeDialogs` Boolean (任意) - ブラウザ方式の連続したダイアログからの保護を有効にするかどうか。省略値は `false`。
     * `safeDialogsMessage` String (任意) - 連続したダイアログからの保護が機能したときに表示されるメッセージ。 定義されていなければデフォルトメッセージが使われますが、現在のデフォルトメッセージは英語であり、ローカライズされていないことに注意してください。
+    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. Default is `false`.
     * `navigateOnDragDrop` Boolean (任意) - ファイルやリンクをページにドラッグ&ドロップした際にナビゲーションするかどうか。省略値は `false`。
     * `autoplayPolicy` String (任意) - ウインドウ内のコンテンツに適用される自動再生ポリシーで、`no-user-gesture-required`、`user-gesture-required`、`document-user-activation-required` にできます。 省略値は `no-user-gesture-required` です。
     * `disableHtmlFullscreenWindowResize` Boolean (任意) - HTML フルスクリーン入力時にウィンドウのサイズ変更を禁止するかどうか。既定値は `false` です。

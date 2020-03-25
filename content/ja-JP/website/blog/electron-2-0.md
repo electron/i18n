@@ -4,17 +4,17 @@ author: ckerr
 date: '2018-05-02'
 ---
 
-After more than four months of development, eight beta releases, and worldwide testing from many apps' staged rollouts, the release of Electron 2.0.0 is now available from [electronjs.org](https://electronjs.org/).
+4 ヶ月以上の開発期間、8 回のベータリリース、数多くのアプリを段階的にロールアウトし、世界的なテストを経て、今日では [electronjs.org](https://electronjs.org/) にて Electron 2.0.0 のリリースが公開されます。
 
 ---
 
-## Release Process
+## リリースプロセス
 
-Starting with 2.0.0, Electron's releases will follow [semantic versioning](https://electronjs.org/blog/electron-2-semantic-boogaloo). This means the major version will bump more often and will usually be a major update to Chromium. Patch releases should be more stable because they will contain only high-priority bug fixes.
+2.0.0 以降、Electron のリリースは [セマンティックバージョニング](https://electronjs.org/blog/electron-2-semantic-boogaloo) に従います。 これによりメジャーバージョンが頻繁に上がるようになり、通常は Chromium に対応する形でメジャーアップデートとなります。 パッチリリースには優先度の高いバグ修正のみが含まれ、より安定したものになります。
 
-Electron 2.0.0 also represents an improvement to how Electron is stabilized before a major release. Several large scale Electron apps have included 2.0.0 betas in staged rollouts, providing the best feedback loop Electron's ever had for a beta series.
+Electron 2.0.0 は、メジャーリリース前の Electron での安定化方法の改善でもあります。 いくつかの大規模なElectronアプリでは、2.0.0 ベータ版が段階的にロールアウトされており、これまでのベータ版で最高のフィードバックループを提供しています。
 
-## Changes / New Features
+## 変更 / 新機能
 
  * Major bumps to several important parts of Electron's toolchain, including Chrome 61, Node 8.9.3, V8 6.1.534.41, GTK+ 3 on Linux, updated spellchecker, and Squirrel.
  * [In-app purchases](https://electronjs.org/blog/in-app-purchases) are now supported on MacOS. [#11292](https://github.com/electron/electron/pull/11292)

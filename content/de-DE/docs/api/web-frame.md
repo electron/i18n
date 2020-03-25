@@ -20,9 +20,11 @@ Die `WebFrame` class hat die folgenden Methoden:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom Faktor.
+* `factor` Double - Zoom factor; default is 1.0.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+
+The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 

@@ -965,9 +965,11 @@ Returns `Boolean` - Whether audio is currently playing.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - Facteur de zoom.
+* `factor` Double - Zoom factor; default is 1.0.
 
 Change le facteur de zoom par le facteur spécifié. Le facteur de zoom est le pourcentage divisé par 100, donc 300% = 3.0.
+
+The factor must be greater than 0.0.
 
 **[Déprécié ](modernization/property-updates.md)**
 

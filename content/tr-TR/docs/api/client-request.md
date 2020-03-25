@@ -13,6 +13,7 @@
   * `url` String (isteğe bağlı) - İstek URL'si. Belirtilen http veya https protokol şeması ile mutlak formunda kesinlikle sağlanmalıdır.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (isteğe bağlı) - İlişkili olduğu istek ile [`partition`](session.md)'nın ismi. Varsayılan boş string. `session` seçeneği `partition`'da hakimdir. Böylelikle `session` açıkça belirtilmedikçe, `partition` yoksayılır.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Varsayılan `false`'dur.
   * `protocol` String (isteğe bağlı) - 'scheme:' formunda protokol şeması. Şu anda desteklenen değerler 'http:' veya 'https:'dir. Varsayılan 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `hostname` String (isteğe bağlı) - Sunucu ana bilgisayar adı.

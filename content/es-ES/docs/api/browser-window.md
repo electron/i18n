@@ -212,6 +212,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `additionalArguments` String[] (opcional) - Una lista de string que se agregarán a `process.argv` en el proceso de renderización de esta aplicación. Útil para pasar pequeños bits de datos hasta los scripts de precarga del proceso del renderizador.
     * `safeDialogs` Boolean (opcional) - Si se debe habilitar la protección de diálogo consecutiva al estilo del navegador. El valor predeterminado es `false`.
     * `safeDialogsMessage` String (opcional) - El mensaje a mostrar cuando la protección de diálogo consecutivo es lanzada. So no se define el mensaje por defecto sería utilizado, note que actualmente el mensaje por defecto esta en Inglés y no localizado.
+    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. Default is `false`.
     * `navigateOnDragDrop` Boolean (opcional) - Ya sea arrastrando y soltando un archivo o un link sobre la pagina causa una navegación. Por defecto es `false`.
     * `autoplayPolicy` String (opcional) - Política de autoplay para aplicar al contenido en la ventana, puede ser `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Por defecto a `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (opcional) - Si se debe evitar que la ventana cambie de tamaño cuando se esta entrando en HTML Fullscreen. Por defecto es is `false`.

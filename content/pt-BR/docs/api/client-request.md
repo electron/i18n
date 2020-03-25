@@ -13,6 +13,7 @@ Processo: [Main](../glossary.md#main-process)
   * `url` String (opcional) - A URL da requisição. Precisa ser informada na forma absoluta com protocolo http ou https especificado.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (opcional) - O nome da [`partição`](session.md) com a qual a requisição está associada. O padrão é uma string vazia. A opção `sessão` prevalece sobre a `partição`. Assim, se a `sessão` é explicitamente especificada, a `partição` é ignorada.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Por padrão é `false`.
   * `protocol` String (opcional) - O esquema do protocolo, na forma 'scheme:'. O valores atualmente suportados são 'http:' ou 'https:', sendo 'http:' o padrão.
   * `host` String (opcional) - O servidor, definido como a concatenação do nome com a porta: 'nome:porta'.
   * `hostname` String (opcional) - O nome do servidor.

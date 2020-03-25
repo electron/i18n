@@ -946,9 +946,11 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
       
       #### `contents.setZoomFactor(faktor)`
       
-      * `faktor` Angka - Faktor zoom.
+      * `factor` Double - Zoom factor; default is 1.0.
       
       Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom persen dibagi dengan 100, sehingga 300% = 3,0.
+      
+      The factor must be greater than 0.0.
       
       **[Tidak berlaku lagi](modernization/property-updates.md)**
       

@@ -13,6 +13,7 @@
   * `url` String (可选) - 请求的URL. 必须在指定了http或https的协议方案的独立表单中提供.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (可选) - 与请求相关联的[`partition`](session.md)名称. 默认为空字符串. `session`选项优先于`partition`选项. 因此, 如果`session`是显式指定的, 则`partition`将被忽略.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. 默认值为 `false`.
   * `protocol` String (可选) - 在"scheme:"表单中的协议方案. 目前支持的值为'http:' 或者'https:'. 默认为'http:'.
   * `host` String (可选) - 作为连接提供的服务器主机,主机名和端口号'hostname:port'.
   * `hostname` String (可选) - 服务器主机名.

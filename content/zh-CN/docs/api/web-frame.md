@@ -19,9 +19,11 @@ The `WebFrame` class has the following instance methods:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - 缩放比例
+* `factor` Double - Zoom factor; default is 1.0.
 
 更改缩放比例。缩放比例是缩放百分比除以 100，如 300% = 3.0。
+
+The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 

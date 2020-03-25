@@ -63,7 +63,7 @@ Creating cross-platform Electron apps could be a better experience. Right now th
 
 It should also be easier to call native system APIs. Electron comes with a very good set of APIs, but sometimes you need functionality it doesn't provide. Creating a native Node.js addon is an option, but it's painful to work with. Ideally Electron would ship with a good [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) API, like [`fastcall`](https://github.com/cmake-js/fastcall). This would have enabled us to write the Swift part in JavaScript instead.
 
-## What are your favorite things about Electron?
+## Electron の好きなところは何ですか?
 
 Our favorite thing is easily the fact that anyone with knowledge of creating for the web can build and contribute to multi-platform native experiences. Not to mention the ease and joy of developing on it, the excellent documentation and the thriving ecosystem.
 

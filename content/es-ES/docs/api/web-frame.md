@@ -18,9 +18,11 @@ La clase `WebFrame` tiene los siguientes métodos de instancia:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Factor Zoom.
+* `factor` Double - Zoom factor; default is 1.0.
 
 Cambia el factor de zoom al factor especificado. El factor de zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
+
+The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 

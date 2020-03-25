@@ -16,6 +16,7 @@ Context | Request Context
   * `url` String (opsyonal) - Ang request ng URL. Dapat maibigay ang ganap na anyo ng pamamaraan ng protocol na tinutukoy bilang http or https. 
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (opsyonal) - Ang pangalan ng [`partition`](session.md) kung saan nauunay ang request. Defaults ng mga walang laman na string. Ang `session` opsyon na mananaig sa `partition`. Kaya kung ang isang `session` ay maliwanag na tinutukoy, ang `partition` ay binabalewala.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Ang default ay `false`.
   * `protocol` String (opsyonal) - Ang pamamaraan ng protocol sa 'scheme:' form. Kasalukuyang suportadong values ay 'http:' o 'https:'. Defaults sa 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `hostname` String (opsyonal) - Ang host name ng server.

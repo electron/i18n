@@ -212,6 +212,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `additionalArguments` String[] (optional) - O listă de șiruri care vor fi adăugate la `process.argv` în procesul de redare a acestei aplicații. Utilizat pentru a transmite mici bitsi de date în jos către preîncărcarea script-urilor în procesul de redare.
     * `safeDialogs` Boolean (opțional) - Dacă activați stilul browserului protecție dialogică consecutivă. Modul implicit este `false-fals`.
     * `safeDialogsMessage` String (opțional) - Mesajul afișat caâd consecutive protecții dialog sunt expuse. Dacă nu este definit modul implicit va fi folosit, atenție că actualul mesaj implicit este în Engleză și nu este localizat.
+    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. Default is `false`.
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
