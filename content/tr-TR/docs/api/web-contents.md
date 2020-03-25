@@ -965,9 +965,11 @@ Returns `Boolean` - Whether audio is currently playing.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - Yakınlaştırma faktörü.
+* `factor` Double - Zoom factor; default is 1.0.
 
 Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
+
+The factor must be greater than 0.0.
 
 **[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
