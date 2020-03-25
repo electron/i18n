@@ -20,9 +20,11 @@ The `WebFrame` class has the following instance methods:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Sayı - Yakınlaştırma değeri.
+* `factor` Double - Zoom factor; default is 1.0.
 
 Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
+
+The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 
