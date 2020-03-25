@@ -12,9 +12,9 @@ date: '2018-05-02'
 
 2.0.0 以降、Electron のリリースは [セマンティックバージョニング](https://electronjs.org/blog/electron-2-semantic-boogaloo) に従います。 これによりメジャーバージョンが頻繁に上がるようになり、通常は Chromium に対応する形でメジャーアップデートとなります。 パッチリリースには優先度の高いバグ修正のみが含まれ、より安定したものになります。
 
-Electron 2.0.0 は、メジャーリリース前の Electron での安定化方法の改善でもあります。 Several large scale Electron apps have included 2.0.0 betas in staged rollouts, providing the best feedback loop Electron's ever had for a beta series.
+Electron 2.0.0 は、メジャーリリース前の Electron での安定化方法の改善でもあります。 いくつかの大規模なElectronアプリでは、2.0.0 ベータ版が段階的にロールアウトされており、これまでのベータ版で最高のフィードバックループを提供しています。
 
-## Changes / New Features
+## 変更 / 新機能
 
  * Major bumps to several important parts of Electron's toolchain, including Chrome 61, Node 8.9.3, V8 6.1.534.41, GTK+ 3 on Linux, updated spellchecker, and Squirrel.
  * [In-app purchases](https://electronjs.org/blog/in-app-purchases) are now supported on MacOS. [#11292](https://github.com/electron/electron/pull/11292)
