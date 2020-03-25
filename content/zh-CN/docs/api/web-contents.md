@@ -1021,19 +1021,19 @@ Returns `Promise<void>`
 
 #### `contents.undo()`
 
-Executes the editing command `undo` in web page.
+在页面中执行`undo`编辑命令。
 
 #### `contents.redo()`
 
-Executes the editing command `redo` in web page.
+在页面中执行` redo `编辑命令。
 
 #### `contents.cut()`
 
-Executes the editing command `cut` in web page.
+在页面中执行` cut `编辑命令。
 
 #### `contents.copy()`
 
-Executes the editing command `copy` in web page.
+在页面中执行` copy `编辑命令。
 
 #### `contents.copyImageAt(x, y)`
 
@@ -1044,35 +1044,35 @@ Copy the image at the given position to the clipboard.
 
 #### `contents.paste()`
 
-Executes the editing command `paste` in web page.
+在页面中执行` paste `编辑命令。
 
 #### `contents.pasteAndMatchStyle()`
 
-Executes the editing command `pasteAndMatchStyle` in web page.
+在页面中执行` pasteAndMatchStyle `编辑命令。
 
 #### `contents.delete()`
 
-Executes the editing command `delete` in web page.
+在页面中执行` delete `编辑命令。
 
 #### `contents.selectAll()`
 
-Executes the editing command `selectAll` in web page.
+在页面中执行` selectAll `编辑命令。
 
 #### `contents.unselect()`
 
-Executes the editing command `unselect` in web page.
+在页面中执行` unselect `编辑命令。
 
 #### `contents.replace(text)`
 
 * `text` String
 
-Executes the editing command `replace` in web page.
+在页面中执行` replace `编辑命令。
 
 #### `contents.replaceMisspelling(text)`
 
 * `text` String
 
-Executes the editing command `replaceMisspelling` in web page.
+在页面中执行` replaceMisspelling `编辑命令。
 
 #### `contents.insertText(text)`
 
@@ -1144,9 +1144,9 @@ Decrease the capturer count by one. The page will be set to hidden or occluded s
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+获取系统打印机列表
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+返回 [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
@@ -1329,26 +1329,26 @@ When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, e
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+关闭开发者工具。
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+返回`Boolean` - 开发者工具是否处于开启状态。
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+返回`Boolean` - 开发者工具是否处于当前执行状态。
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+切换开发工具
 
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`).
+开始检查位于(`x`, `y`) 的元素。
 
 #### `contents.inspectSharedWorker()`
 
@@ -1448,11 +1448,11 @@ ipcMain.on('ping', (event) => {
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-Enable device emulation with the given parameters.
+允许设备模拟给定参数。
 
 #### `contents.disableDeviceEmulation()`
 
-Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+禁止`webContents.enableDeviceEmulation`允许的模拟设备
 
 #### `contents.sendInputEvent(inputEvent)`
 
@@ -1620,7 +1620,7 @@ Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` *Readonly*
 
-A `Integer` representing the unique ID of this WebContents.
+`Integer`类型，代表WebContents的唯一标识（unique ID）。
 
 #### `contents.session` *Readonly*
 
