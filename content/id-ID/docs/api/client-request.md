@@ -13,7 +13,8 @@ Proses: [Main](../glossary.md#main-process)
   * `URL` String (opsional) - URL permintaan. Harus diberikan dalam bentuk mutlak dengan skema protokol ditetapkan sebagai http atau https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partisi` String (opsional) - nama [`partisi`](session.md) yang permintaan tersebut terkait. Default untuk string kosong. Opsi `sesi` berlaku pada `partisi`. Dengan demikian jika `sesi` secara eksplisit ditetapkan, `partisi` diabaikan.
-  * `protokol` String (opsional) - skema protokol dalam bentuk ' skema:'. Nilai-nilai yang didukung saat ini ' http:' atau ' https:'. Default ' http:'.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Defaultnya adalah ` false </ 0> .</li>
+<li><code>protokol` String (opsional) - skema protokol dalam bentuk ' skema:'. Nilai-nilai yang didukung saat ini ' http:' atau ' https:'. Default ' http:'.
   * `tuan rumah` String (opsional) - server host disediakan sebagai sebuah gabungan dari nama host dan port nomor 'hostname:port'.
   * `nama host` String (opsional) - nama host server.
   * `Port` Bulat (opsional) - nomor port server mendengarkan.
