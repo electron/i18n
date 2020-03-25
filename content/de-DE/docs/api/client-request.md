@@ -13,6 +13,7 @@ Prozess: [Haupt](../glossary.md#main-process)
   * `url` String (optional) - Die angefragte URL. Muss in der absoluten Form angegeben werden, welche dem Protokoll Schema von HTTP oder HTTPS entspricht.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (optional) - Der Name der zur Anfrage gehörenden [`partition`](session.md). Standard ist ein leerer String. Die `session` Option überwiegt `partition`. Somit, falls eine `session` explizit angegeben wird, wird `partition` ignoriert.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Standard ist `false`.
   * `protocol` String (optional) - Das Protokoll Schema im 'scheme:' Format. Die momentan unterstützten Werte sind 'http:' oder 'https:'. Standardwert ist 'http:'.
   * `host` String (optional) - Der Server Host angegeben als eine Zusammensetzung aus Hostnamen und der Port Nummer 'hostname:port'.
   * `hostname` String (optional) - Der Server Host Name.
