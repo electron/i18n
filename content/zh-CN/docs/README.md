@@ -1,6 +1,6 @@
 # 官方指南
 
-请确认你所使用的文档与你的 Electron 版本匹配。 你可以在页面的 URL 中找到对应的版本号。 If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. 如果想要访问旧版本的文档，你可以[浏览标签](https://github.com/electron/electron/tree/v1.4.0)： 通过在 GitHub 中打开下拉菜单“Switch branches/tags”中选择与你的版本匹配的分支。
+请确认你所使用的文档与你的 Electron 版本匹配。 版本号应该是页面URL的一部分。 If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. 如果想要访问旧版本的文档，你可以[浏览标签](https://github.com/electron/electron/tree/v1.4.0)： 通过在 GitHub 中打开下拉菜单“Switch branches/tags”中选择与你的版本匹配的分支。
 
 ## 常见问题 (FAQ)
 
@@ -45,7 +45,7 @@
   * [原生文件拖放](tutorial/native-file-drag-drop.md)
   * [离屏渲染](tutorial/offscreen-rendering.md)
   * [支持 macOS 深色模式](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [语言](tutorial/web-embeds.md)
 * [辅助功能](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)

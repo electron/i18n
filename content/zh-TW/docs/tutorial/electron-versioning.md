@@ -2,7 +2,7 @@
 
 > 我們的版號訂定策略和實作細節。
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+截至2.0.0版，電子跟隨[semver。](#semver)以下命令將安裝最新的電子穩定構建：
 
 ```sh
 npm install --save-dev electron
