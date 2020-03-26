@@ -24,6 +24,7 @@ jobs:
         NODE_OPTIONS: --max_old_space_size=4096
       run: 'npm test'
     - uses: actions/upload-artifact@v1
+      with:
         name: 'Dist folder'
         path: dist/
     - name: Publish via semantic-release
