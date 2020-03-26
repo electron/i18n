@@ -12,7 +12,7 @@ import { execSync } from 'child_process'
 import { Octokit } from '@octokit/rest'
 import { roggy } from 'roggy'
 import { englishBasepath } from '../lib/constants'
-import { writeBlog, writeDoc, writeToPackageJSON } from '../lib/write-helper'
+import { writeDocFile, writeToPackageJSON } from '../lib/write-helper'
 
 const github = new Octokit({
   auth: process.env.GH_TOKEN ?? '',
@@ -68,7 +68,7 @@ async function fetchAPIDocsFromLatestStableRelease() {
 
   docs
     .filter(doc => doc.filename.startsWith('api/'))
-    .forEach(writeDoc)
+    .forEach((doc) => writeDocFile(doc, 'docs'))
 
   return Promise.resolve()
 }
@@ -121,7 +121,7 @@ async function fetchTutorialsFromMasterBranch() {
     .filter(doc => !doc.filename.startsWith('api/'))
     .filter(doc => !doc.filename.includes('images/'))
     .filter(doc => !doc.filename.includes('fiddles/'))
-    .forEach(writeDoc)
+    .forEach((doc) => writeDocFile(doc, 'docs'))
 
   return Promise.resolve()
 }
@@ -149,5 +149,5 @@ async function fetchWebsiteBlogPosts() {
     downloadMatch: 'data/blog',
   })
 
-  blogs.forEach(writeBlog)
+  blogs.forEach((blog) => writeDocFile(blog, 'website/blog'))
 }

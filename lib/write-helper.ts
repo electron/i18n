@@ -23,15 +23,8 @@ export async function writeToPackageJSON(key: string, value: string) {
   )
 }
 
-export function writeDoc(doc: IRoggyResponse) {
-  const filename = path.join(englishBasepath, 'docs', doc.filename)
-  fs.mkdirSync(path.dirname(filename))
-  fs.writeFileSync(filename, doc.markdown_content)
-  // console.log('   ' + path.relative(englishBasepath, filename))
-}
-
-export function writeBlog(doc: IRoggyResponse) {
-  const filename = path.join(englishBasepath, 'website/blog', doc.filename)
+export async function writeDocFile(doc: IRoggyResponse, folder: string) {
+  const filename = path.join(englishBasepath, folder, doc.filename)
   fs.mkdirSync(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
 }
