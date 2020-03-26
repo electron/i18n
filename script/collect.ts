@@ -13,9 +13,6 @@ import { Octokit } from '@octokit/rest'
 import { roggy } from 'roggy'
 import { englishBasepath } from '../lib/constants'
 import { writeBlog, writeDoc, writeToPackageJSON } from '../lib/write-helper'
-import { IElectronDocsResponse } from '../lib/interfaces'
-// TODO: Replace by `roggy`
-const electronDocs = require('electron-docs')
 
 const github = new Octokit({
   auth: process.env.GH_TOKEN ?? '',
@@ -64,10 +61,13 @@ async function fetchAPIDocsFromLatestStableRelease() {
   console.log(`Fetching API docs from electron/electron#${release.tag_name}`)
 
   await writeToPackageJSON('electronLatestStableTag', release.tag_name)
-  const docs = await electronDocs(release.tag_name)
+  const docs = await roggy(release.tag_name, {
+    owner: 'electron',
+    repository: 'electron',
+  })
 
   docs
-    .filter((doc: IElectronDocsResponse) => doc.filename.startsWith('api/'))
+    .filter(doc => doc.filename.startsWith('api/'))
     .forEach(writeDoc)
 
   return Promise.resolve()
@@ -112,12 +112,15 @@ async function getMasterBranchCommit() {
 async function fetchTutorialsFromMasterBranch() {
   console.log(`Fetching tutorial docs from electron/electron#master`)
 
-  const docs = await electronDocs('master')
+  const docs = await roggy('master', {
+    owner: 'electron',
+    repository: 'electron',
+  })
 
   docs
-    .filter((doc: IElectronDocsResponse) => !doc.filename.startsWith('api/'))
-    .filter((doc: IElectronDocsResponse) => !doc.filename.includes('images/'))
-    .filter((doc: IElectronDocsResponse) => !doc.filename.includes('fiddles/'))
+    .filter(doc => !doc.filename.startsWith('api/'))
+    .filter(doc => !doc.filename.includes('images/'))
+    .filter(doc => !doc.filename.includes('fiddles/'))
     .forEach(writeDoc)
 
   return Promise.resolve()

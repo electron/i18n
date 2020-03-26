@@ -25,9 +25,3 @@ export interface IParseFile extends WalkEntry {
   title?: string
   description?: string
 }
-
-export interface IElectronDocsResponse {
-  slug: string
-  filename: string
-  markdown_content: string
-}

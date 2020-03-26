@@ -1,7 +1,6 @@
 import * as path from 'path'
 import * as fs from 'fs-extra'
 import { IResponse as IRoggyResponse } from 'roggy'
-import { IElectronDocsResponse } from './interfaces'
 import { englishBasepath } from './constants'
 
 export function writeHelper<T = unknown>(
@@ -24,14 +23,7 @@ export async function writeToPackageJSON(key: string, value: string) {
   )
 }
 
-/**
- * `roggy` and `electron-docs` don't should contain any breaking
- * changes between them but until we fully not move to Roggy,
- * these functions are separated. When the migration be finished
- * these should be merged into one single function.
- */
-
-export function writeDoc(doc: IElectronDocsResponse) {
+export function writeDoc(doc: IRoggyResponse) {
   const filename = path.join(englishBasepath, 'docs', doc.filename)
   fs.mkdirSync(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
