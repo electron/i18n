@@ -11,9 +11,12 @@ import { sync as mkdir } from 'make-dir'
 import * as path from 'path'
 import { execSync } from 'child_process'
 import { Octokit } from '@octokit/rest'
-import { roggy, IResponse as IRoggyResponse } from 'roggy'
+import { roggy } from 'roggy'
+import { englishBasepath } from '../lib/constants'
+import { writeBlog, writeDoc, writeToPackageJSON } from '../lib/write-helper'
+import { IElectronDocsResponse } from '../lib/interfaces'
+// TODO: Replace by `roggy`
 const electronDocs = require('electron-docs')
-const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 
 const github = new Octokit({
   auth: process.env.GH_TOKEN ?? '',
@@ -22,12 +25,6 @@ const github = new Octokit({
 interface IResponse {
   tag_name: string
   assets: Octokit.ReposGetReleaseByTagResponseAssetsItem[]
-}
-
-interface IElectronDocsResponse {
-  slug: string
-  filename: string
-  markdown_content: string
 }
 
 let release: IResponse
@@ -67,7 +64,7 @@ async function fetchRelease() {
 async function fetchAPIDocsFromLatestStableRelease() {
   console.log(`Fetching API docs from electron/electron#${release.tag_name}`)
 
-  writeToPackageJSON('electronLatestStableTag', release.tag_name)
+  await writeToPackageJSON('electronLatestStableTag', release.tag_name)
   const docs = await electronDocs(release.tag_name)
 
   docs
@@ -110,7 +107,7 @@ async function getMasterBranchCommit() {
     branch: 'master',
   })
 
-  writeToPackageJSON('electronMasterBranchCommit', master.data.commit.sha)
+  await writeToPackageJSON('electronMasterBranchCommit', master.data.commit.sha)
 }
 
 async function fetchTutorialsFromMasterBranch() {
@@ -151,28 +148,4 @@ async function fetchWebsiteBlogPosts() {
   })
 
   blogs.forEach(writeBlog)
-}
-
-// Utility functions
-
-function writeDoc(doc: IElectronDocsResponse) {
-  const filename = path.join(englishBasepath, 'docs', doc.filename)
-  mkdir(path.dirname(filename))
-  fs.writeFileSync(filename, doc.markdown_content)
-  // console.log('   ' + path.relative(englishBasepath, filename))
-}
-
-function writeBlog(doc: IRoggyResponse) {
-  const filename = path.join(englishBasepath, 'website/blog', doc.filename)
-  mkdir(path.dirname(filename))
-  fs.writeFileSync(filename, doc.markdown_content)
-}
-
-function writeToPackageJSON(key: string, value: string) {
-  const pkg = require('../package.json')
-  pkg[key] = value
-  fs.writeFileSync(
-    require.resolve('../package.json'),
-    JSON.stringify(pkg, null, 2)
-  )
 }
