@@ -4,8 +4,8 @@ require('make-promises-safe')
 require('require-yaml')
 
 import * as walk from 'walk-sync'
+import * as fs from 'fs-extra'
 import * as path from 'path'
-import { sync as mkdir } from 'make-dir'
 import { writeHelper } from '../lib/write-helper'
 import { parseBlogFile, parseFile } from '../lib/parsers'
 import { IParseFile } from '../lib/interfaces'
@@ -101,7 +101,7 @@ async function main() {
     glossary[locale] = await parseElectronGlossary(locale)
   }
 
-  mkdir(path.resolve(__dirname, '../dist'))
+  fs.mkdirSync(path.resolve(__dirname, '../dist'))
 
   // Writes locales.json
   writeHelper('locales', locales)

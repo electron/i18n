@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node
 
 import * as path from 'path'
-import * as fs from 'fs'
+import * as fs from 'fs-extra'
 
 import { locales } from '../dist'
 const readmePath = path.join(__dirname, '../readme.md')

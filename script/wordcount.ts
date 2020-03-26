@@ -1,6 +1,6 @@
 #!/usr/bin/env ts-node
 
-import * as fs from 'fs'
+import * as fs from 'fs-extra'
 import * as path from 'path'
 import { chain } from 'lodash'
 import * as walk from 'walk-sync'

@@ -5,9 +5,8 @@ if (!process.env.GH_TOKEN || !process.env.CROWDIN_KEY) {
 }
 
 import * as del from 'del'
-import * as fs from 'fs'
+import * as fs from 'fs-extra'
 import got from 'got'
-import { sync as mkdir } from 'make-dir'
 import * as path from 'path'
 import { execSync } from 'child_process'
 import { Octokit } from '@octokit/rest'
@@ -91,11 +90,11 @@ async function fetchApiData() {
 
   const apis = await got(asset.browser_download_url).json()
   const filename = path.join(englishBasepath, 'electron-api.json')
-  mkdir(path.dirname(filename))
+  await fs.promises.mkdir(path.dirname(filename))
   console.log(
     `Writing ${path.relative(englishBasepath, filename)} (without changes)`
   )
-  fs.writeFileSync(filename, JSON.stringify(apis, null, 2))
+  await fs.promises.writeFile(filename, JSON.stringify(apis, null, 2))
   return Promise.resolve(apis)
 }
 
@@ -132,9 +131,9 @@ async function fetchWebsiteContent() {
   const response = await got(url)
   const content = response.body
   const websiteFile = path.join(englishBasepath, 'website', `locale.yml`)
-  mkdir(path.dirname(websiteFile))
+  await fs.promises.mkdir(path.dirname(websiteFile))
   console.log(`Writing ${path.relative(englishBasepath, websiteFile)}`)
-  fs.writeFileSync(websiteFile, content)
+  await fs.promises.writeFile(websiteFile, content)
   return Promise.resolve()
 }
 

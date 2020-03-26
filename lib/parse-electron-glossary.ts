@@ -1,5 +1,5 @@
 import * as assert from 'assert'
-import * as fs from 'fs'
+import { promises as fs } from 'fs-extra'
 import * as path from 'path'
 import * as cheerio from 'cheerio'
 import hubdown = require('hubdown')
@@ -18,7 +18,7 @@ export async function parseElectronGlossary(
     __dirname,
     `../content/${locale}/docs/glossary.md`
   )
-  const md = fs.readFileSync(sourceFile, 'utf8')
+  const md = await fs.readFile(sourceFile, 'utf8')
   const { content: html } = await hubdown(md)
   const $ = cheerio.load(html)
 

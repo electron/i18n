@@ -1,8 +1,7 @@
 import * as path from 'path'
-import * as fs from 'fs'
+import * as fs from 'fs-extra'
 import { IResponse as IRoggyResponse } from 'roggy'
 import { IElectronDocsResponse } from './interfaces'
-import { sync as mkdir } from 'make-dir'
 import { englishBasepath } from './constants'
 
 export function writeHelper<T = unknown>(
@@ -34,13 +33,13 @@ export async function writeToPackageJSON(key: string, value: string) {
 
 export function writeDoc(doc: IElectronDocsResponse) {
   const filename = path.join(englishBasepath, 'docs', doc.filename)
-  mkdir(path.dirname(filename))
+  fs.mkdirSync(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
   // console.log('   ' + path.relative(englishBasepath, filename))
 }
 
 export function writeBlog(doc: IRoggyResponse) {
   const filename = path.join(englishBasepath, 'website/blog', doc.filename)
-  mkdir(path.dirname(filename))
+  fs.mkdirSync(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
 }

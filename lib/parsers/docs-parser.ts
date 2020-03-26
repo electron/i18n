@@ -1,5 +1,5 @@
 import * as path from 'path'
-import * as fs from 'fs'
+import { promises as fs } from 'fs-extra'
 import * as URL from 'url'
 import * as packageJSON from '../../package.json'
 import { bashFix, fiddleUrls, plaintextFix } from '../transfomers'
@@ -42,7 +42,7 @@ export async function parseFile(file: IParseFile, ids: Record<string, string>) {
   file.isApiStructureDoc = file.category === 'api/structures'
 
   // parse markdown to HTML
-  const markdown = await fs.promises.readFile(file.fullyPath, 'utf8')
+  const markdown = await fs.readFile(file.fullyPath, 'utf8')
 
   // ignore some docs & skip the rest of the parsing logic
   if (markdown.includes(IGNORE_PATTERN)) {

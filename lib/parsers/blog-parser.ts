@@ -1,5 +1,5 @@
 import * as path from 'path'
-import * as fs from 'fs'
+import { promises as fs } from 'fs-extra'
 import { IParseFile } from '../interfaces'
 const cleanDeep = require('clean-deep')
 
@@ -11,7 +11,7 @@ export async function parseBlogFile(file: IParseFile) {
   file.href = `/blog/${file.slug}`.replace('//', '/')
 
   // file content
-  file.content = await fs.promises.readFile(file.fullPath, 'utf8')
+  file.content = await fs.readFile(file.fullPath, 'utf8')
 
   // remove leftover file props from walk-sync
   delete file.mode
