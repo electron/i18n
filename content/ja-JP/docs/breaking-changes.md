@@ -2,19 +2,25 @@
 
 破壊的な変更は変更の [一つ前のメジャーバージョン](tutorial/electron-versioning.md#semver) についてここに文書化され、可能であれば非推奨の警告を JS コードに加えます。
 
-## `FIXME` コメント
+### Types of Breaking Changes
 
-`FIXME` 文字列は将来のリリースで修正されるべきであることを意味するコードのコメントに用いられます。 （参照： https://github.com/electron/electron/search?q=fixme ）
+This document uses the following convention to categorize breaking changes:
+
+- **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
+- **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.
+- **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. The old behavior can be restored by explicitly specifying the value.
+- **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
+- **Removed:** An API or feature was removed, and is no longer supported by Electron.
 
 ## 予定されている破壊的なAPIの変更 (10.0)
 
-### Browser Window の Affinity
+### Removed: Browser Window Affinity
 
 `BrowserWindow` を新規構築する際の `affinity` オプションは、セキュリティ、パフォーマンス、保守性のために Chromium プロセスモデルとの共同連携計画の一環として削除されます。
 
 詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
 
-### `enableRemoteModule` の省略値は `false` です
+### Default Changed: `enableRemoteModule` defaults to `false`
 
 Electron 9 では、`enableRemoteModule` WebPreferences オプションによって明示的に有効にせずに remote モジュールを使用すると、警告を出すようになりました。 Electron 10 では、remote モジュールはデフォルトで利用できなくなります。 remote モジュールを使用するには、以下のように WebPreferences で `enableRemoteModule: true` を指定する必要があります。
 
@@ -30,7 +36,7 @@ const w = new BrowserWindow({
 
 ## 予定されている破壊的なAPIの変更 (9.0)
 
-### レンダラープロセス内でコンテキスト未対応のネイティブモジュールのロード
+### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
 
 Electron 9 では、レンダラープロセスでコンテキスト未対応のネイティブモジュールをロードすることはできなくなります。  これは Electron のプロジェクトとしてのセキュリティ、パフォーマンス、保守性を向上させるためです。
 
@@ -38,7 +44,7 @@ Electron 9 では、レンダラープロセスでコンテキスト未対応の
 
 詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
 
-### `<webview>.getWebContents()`
+### Removed: `<webview>.getWebContents()`
 
 Electron 8.0 で非推奨となっていた、この API は削除されました。
 
@@ -50,23 +56,23 @@ const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-### `webFrame.setLayoutZoomLevelLimits()`
+### Removed: `webFrame.setLayoutZoomLevelLimits()`
 
 Chromium は、レイアウトのズームレベル制限を変更するサポートを削除しました。そのうえ、これは Elcetron でメンテナンスできるものではありません。 この関数は、Electron 8.x で非推奨になり、Electron 9.x で削除されました。レイアウトのズームレベル制限は、[こちら](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11) で定義されているように最小 0.25 から最大 5.0 に固定されました。
 
-### IPC で非 JS オブジェクトを送信すると、例外が送出されるように
+### Behavior Changed: Sending non-JS objects over IPC now throws an exception
 
 Electron 8.0 では、構造化複製アルゴリズムを使用するように IPC が変更され、パフォーマンスが大幅に改善されました。 移行を容易にするため、旧 IPC シリアライズアルゴリズムは、構造化複製でシリアライズできない一部のオブジェクトにそのまま使用されます。 特に、DOM オブジェクト (`Element`、`Location`、`DOMMatrix` など)、内部に C++ のクラスがある Node.js オブジェクト (`process.env`、`Stream` のいくつかのメンバーなど)、内部に C++ のクラスがある Electron オブジェクト (`WebContents`、`BrowserWindow`、`WebFrame` など) は、構造化複製ではシリアライズできません。 旧アルゴリズムが呼び出されるたびに、非推奨の警告が出力されます。
 
 Electron 9.0 では、旧シリアライズアルゴリズムが削除されました。先ほどのシリアライズ不可能なオブジェクトを送信すると、"object could not be cloned" (オブジェクトを複製できませんでした) というエラーが送出されます。
 
-### `shell.openItem` --> `shell.openPath`
+### API Changed: `shell.openItem` is now `shell.openPath`
 
 `shell.openItem` API は非同期の `shell.openPath` API に置き換えられました。 元の API の提案と理由は [こちら](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md) で確認できます。
 
 ## 予定されている破壊的なAPIの変更 (8.0)
 
-### IPC を介して送信される値が構造化複製アルゴリズムでシリアライズされるように
+### Behavior Changed: Values sent over IPC are now serialized with Structured Clone Algorithm
 
 IPC を介して (`ipcRenderer.send`、`ipcRenderer.sendSync`、`WebContents.send` 及び関連メソッドから) オブジェクトを送信できます。このオブジェクトのシリアライズに使用されるアルゴリズムが、カスタムアルゴリズムから V8 組み込みの [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) に切り替わります。これは `postMessage` のメッセージのシリアライズに使用されるものと同じアルゴリズムです。 これにより、大きなメッセージに対するパフォーマンスが 2 倍向上しますが、動作に重大な変更が加えられます。
 
@@ -94,7 +100,7 @@ Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 
 ネイティブな JS 型ではないオブジェクト、すなわち DOM オブジェクト (`Element`、`Location`、`DOMMatrix` など)、Node.js オブジェクト (`process.env`、`Stream` のいくつかのメンバーなど)、Electron オブジェクト (`WebContents`、`BrowserWindow`、`WebFrame` など) のようなものは非推奨です。 Electron 8 では、これらのオブジェクトは DeprecationWarning メッセージで以前と同様にシリアライズされます。しかし、Electron 9 以降でこういった類のオブジェクトを送信すると "could not be cloned" エラーが送出されます。
 
-### `<webview>.getWebContents()`
+### Deprecated: `<webview>.getWebContents()`
 
 この API は、パフォーマンスとセキュリティの両方に影響する `remote` モジュールを使用して実装されます。 したがって、その用途がはっきりとしている必要があります。
 
@@ -134,13 +140,13 @@ const { ipcRenderer } = require('electron')
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 ```
 
-### `webFrame.setLayoutZoomLevelLimits()`
+### Deprecated: `webFrame.setLayoutZoomLevelLimits()`
 
 Chromium は、レイアウトのズームレベル制限を変更するサポートを削除しました。そのうえ、これは Elcetron でメンテナンスできるものではありません。 この関数は、Electron 8.x では警告を発し、Electron 9.x では存在しなくなります。レイアウトのズームレベル制限は、[こちら](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11) で定義されているように、最小 0.25 から最大 5.0 に固定されました。
 
 ## 予定されている破壊的なAPIの変更 (7.0)
 
-### Node Headers URL
+### Deprecated: Atom.io Node Headers URL
 
 これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。  両方とも近い将来サポートされますが、切り替えることを推奨します。
 
@@ -148,7 +154,7 @@ Chromium は、レイアウトのズームレベル制限を変更するサポ�
 
 こちらに置換: https://electronjs.org/headers
 
-### `session.clearAuthCache(options)`
+### API Changed: `session.clearAuthCache()` no longer accepts options
 
 `session.clearAuthCache` API は、消去対象のオプションを受け入れなくなり、代わりにキャッシュ全体を無条件に消去します。
 
@@ -159,25 +165,25 @@ session.clearAuthCache({ type: 'password' })
 session.clearAuthCache()
 ```
 
-### `powerMonitor.querySystemIdleState`
+### API Changed: `powerMonitor.querySystemIdleState` is now `powerMonitor.getSystemIdleState`
 
 ```js
-// Electron 7.0 で削除
+// Removed in Electron 7.0
 powerMonitor.querySystemIdleState(threshold, callback)
-// こちらの非同期 API に置換
-const idleState = getSystemIdleState(threshold)
+// Replace with synchronous API
+const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### `powerMonitor.querySystemIdleTime`
+### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleState`
 
 ```js
-// Electron 7.0 で削除
+// Removed in Electron 7.0
 powerMonitor.querySystemIdleTime(callback)
-// こちらの非同期 API に置換
-const idleTime = getSystemIdleTime()
+// Replace with synchronous API
+const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
-### webFrame Isolated World APIs
+### API Changed: `webFrame.setIsolatedWorldInfo` replaces separate methods
 
 ```js
 // Electron 7.0 で削除
@@ -194,11 +200,11 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### 非推奨だった getBlinkMemoryInfo の `marked` プロパティの削除
+### Removed: `marked` property on `getBlinkMemoryInfo`
 
 このプロパティは Chromium 77 で削除されたため、利用できなくなりました。
 
-### `<input type="file"/>` の `webkitdirectory` 属性
+### Behavior Changed: `webkitdirectory` attribute for `<input type="file"/>` now lists directory contents
 
 `webkitdirectory` プロパティは、HTML ファイル上の input でフォルダーを選択できるようにします。 以前の Electron のバージョンでは、input の `event.target.files` において、選択したフォルダーに対応する 1 つの `File` が入った `FileList` を返すという誤った実装がありました。
 
@@ -225,9 +231,10 @@ Electron 7 では、以下のような `File` オブジェクトが入った `Fi
 ```
 
 `webkitdirectory` は、選択したフォルダーへのパスを公開しないことに注意してください。 フォルダーの内容ではなく選択したフォルダーへのパスが必要な場合は、`dialog.showOpenDialog` API ([リンク](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)) を参照してください。
+
 ## 予定されている破壊的なAPIの変更 (6.0)
 
-### `win.setMenu(null)`
+### API Changed: `win.setMenu(null)` is now `win.removeMenu()`
 
 ```js
 // 非推奨
@@ -236,7 +243,7 @@ win.setMenu(null)
 win.removeMenu()
 ```
 
-### `contentTracing.getTraceBufferUsage()`
+### API Changed: `contentTracing.getTraceBufferUsage()` is now a promise
 
 ```js
 // 非推奨
@@ -249,7 +256,7 @@ contentTracing.getTraceBufferUsage().then(infoObject => {
 })
 ```
 
-### レンダラープロセスの `electron.screen`
+### API Changed: `electron.screen` in the renderer process should be accessed via `remote`
 
 ```js
 // 非推奨
@@ -258,7 +265,7 @@ require('electron').screen
 require('electron').remote.screen
 ```
 
-### サンドボックス化したレンダラーの `require`
+### API Changed: `require()`ing node builtins in sandboxed renderers no longer implicitly loads the `remote` version
 
 ```js
 // 非推奨
@@ -282,25 +289,25 @@ require('path')
 require('electron').remote.require('path')
 ```
 
-### `powerMonitor.querySystemIdleState`
+### Deprecated: `powerMonitor.querySystemIdleState` replaced with `powerMonitor.getSystemIdleState`
 
 ```js
-// 非推奨
+// Deprecated
 powerMonitor.querySystemIdleState(threshold, callback)
-// こちらの非同期 API に置換
-const idleState = getSystemIdleState(threshold)
+// Replace with synchronous API
+const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### `powerMonitor.querySystemIdleTime`
+### Deprecated: `powerMonitor.querySystemIdleTime` replaced with `powerMonitor.getSystemIdleTime`
 
 ```js
-// 非推奨
+// Deprecated
 powerMonitor.querySystemIdleTime(callback)
-// こちらの非同期 API に置換
-const idleTime = getSystemIdleTime()
+// Replace with synchronous API
+const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
-### `app.enableMixedSandbox`
+### Deprecated: `app.enableMixedSandbox()` is no longer needed
 
 ```js
 // 非推奨
@@ -309,7 +316,7 @@ app.enableMixedSandbox()
 
 混合サンドボックスモードはデフォルトで有効になりました。
 
-### `Tray`
+### Deprecated: `Tray.setHighlightMode`
 
 macOS Catalina 下では、以前の Tray 実装は破壊されています。 Apple のネイティブの代替実装は、強調表示動作の変更をサポートしていません。
 
@@ -321,7 +328,7 @@ tray.setHighlightMode(mode)
 
 ## 予定されている破壊的なAPIの変更 (5.0)
 
-### `new BrowserWindow({ webPreferences })`
+### Default Changed: `nodeIntegration` and `webviewTag` default to false, `contextIsolation` defaults to true
 
 以下の `webPreferences` オプションの初期値は、以下の記載された新しい初期値のために非推奨になっています。
 
@@ -341,15 +348,15 @@ const w = new BrowserWindow({
 })
 ```
 
-### `nativeWindowOpen`
+### Behavior Changed: `nodeIntegration` in child windows opened via `nativeWindowOpen`
 
-`nativeWindowOpen` オプションで開かれる子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ Node.js integration が無効化されます。
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true`.
 
-### 特権スキームレジストレーション
+### API Changed: Registering privileged schemes must now be done before app ready
 
-レンダラプロセス API `webFrame.setRegisterURLSchemeAsPrivileged` および `webFrame.registerURLSchemeAsBypassingCSP`、ならびにブラウザプロセス API `protocol.registerStandardSchemes` は削除されました 新しい API `protocol.registerSchemesAsPrivileged` が追加されました。これらは、必要な権限でカスタムスキームを登録するために使用する必要があります。 カスタムスキームは、アプリの準備が整う前に登録する必要があります。
+Renderer process APIs `webFrame.registerURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. 新しい API `protocol.registerSchemesAsPrivileged` が追加されました。これらは、必要な権限でカスタムスキームを登録するために使用する必要があります。 カスタムスキームは、アプリの準備が整う前に登録する必要があります。
 
-### webFrame Isolated World APIs
+### Deprecated: `webFrame.setIsolatedWorld*` replaced with `webFrame.setIsolatedWorldInfo`
 
 ```js
 // 非推奨
@@ -366,7 +373,7 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-## `webFrame.setSpellCheckProvider`
+### API Changed: `webFrame.setSpellCheckProvider` now takes an asynchronous callback
 `spellCheck` コールバックは非同期になり、`autoCorrectWord` パラメーターは削除されました。
 ```js
 // 非推奨
