@@ -10,7 +10,6 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 
 ## Příručky a Návody
 
-* [O Electron](tutorial/about.md)
 * [Nastavení vývojového prostředí](tutorial/development-environment.md) 
   * [Nastavení pro macOS](tutorial/development-environment.md#setting-up-macos)
   * [Nastavení pro Windows](tutorial/development-environment.md#setting-up-windows)
