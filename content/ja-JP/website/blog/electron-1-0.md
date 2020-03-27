@@ -16,7 +16,7 @@ Electron 1.0 は、API の安定性と成熟度における大きな節目です
 
 Electron で次に何を作るのか、楽しみにしています。
 
-## Electron's Path
+## Electron の道のり
 
 私たちは 2 年と少し前に [Atom](https://atom.io) を立ち上げた時に Electron をリリースしました。 当初 Atom Shell という名前だった Electron は、Atom のために構築したフレームワークでした。 当時の Atom は Electron が提供する特色と機能性のきっかけを生み、Atom の初期リリースを後押ししていました。
 
@@ -24,9 +24,9 @@ Electron で次に何を作るのか、楽しみにしています。
 
 この 2 年間、企業とオープンソースプロジェクトの両方で、アプリケーション基盤として Electron が採用されています。 この 1 年間で、Electron は 120 万回以上ダウンロードされています。 素晴らしい Electron アプリを [こちらでご紹介](https://electronjs.org/apps) します。あなたのアプリがまだない場合は追加しましょう。
 
-![Electron downloads](https://cloud.githubusercontent.com/assets/378023/15037731/af7e87e0-12d8-11e6-94e2-117c360d0ac9.png)
+![Electron のダウンロード数](https://cloud.githubusercontent.com/assets/378023/15037731/af7e87e0-12d8-11e6-94e2-117c360d0ac9.png)
 
-## Electron API Demos
+## Electron API デモ
 
 1.0 のリリースに合わせて、Electron API を調べたり、Electron アプリをネイティブ風にする方法の詳細を学べる新アプリをリリースします。 [Electron API デモ](https://github.com/electron/electron-api-demos) アプリには、アプリの立ち上げに役立つコードスニペットと、Electron API を効果的に使うヒントが入っています。
 
@@ -38,7 +38,7 @@ Electron アプリのデバッグに役立つ新しい拡張機能も追加し�
 
 [![Devtron](https://cloud.githubusercontent.com/assets/378023/15138217/590c8b06-16c9-11e6-8af6-ef96299e85bc.png)](https://electronjs.org/devtron)
 
-### Features
+### 特徴
 
   * **Require グラフ** は、メインプロセスとレンダラープロセス両方の、アプリの内部と外部ライブラリとの依存関係の視覚化に役立ちます。
   * **IPC モニタ** は、アプリ内のプロセス間で送受信されたメッセージを追跡して表示します。
@@ -47,19 +47,19 @@ Electron アプリのデバッグに役立つ新しい拡張機能も追加し�
 
 ## Spectron
 
-Finally, we're releasing a new version of [Spectron](https://electronjs.org/spectron), the integration testing framework for Electron apps.
+最後に、Electron アプリの統合テストフレームワーク [Spectron](https://electronjs.org/spectron) の新バージョンをリリースします。
 
 [![Spectron](https://cloud.githubusercontent.com/assets/378023/15138218/590d50c2-16c9-11e6-9b54-2d73729fe189.png)](https://electronjs.org/spectron)
 
-Spectron 3.0 has comprehensive support for the entire Electron API allowing you to more quickly write tests that verify your application's behavior in various scenarios and environments. Spectron is based on [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver) and [WebDriverIO](http://webdriver.io) so it also has full APIs for page navigation, user input, and JavaScript execution.
+Spectron 3.0 は Electron API 全体を包括的にサポートするため、さまざまなシナリオや環境でアプリケーションを動作検証するテストを、より迅速に記述できます。 Spectron は [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver)と[WebDriverIO](http://webdriver.io) をベースにしているため、ページナビゲーション、ユーザー入力、JavaScript 実行といった API も備えています。
 
 ## コミュニティ
 
-Electron 1.0 is the result of a community effort by hundreds of developers. Outside of the core framework, there have been hundreds of libraries and tools released to make building, packaging, and deploying Electron apps easier.
+Electron 1.0 は、何百人もの開発者によるコミュニティの努力の成果です。 コアフレームワーク以外では、Electron アプリの構築、パッケージ、デプロイを容易にするライブラリやツールが何百とリリースされています。
 
-There is now a new [community](https://electronjs.org/community) page that lists many of the awesome Electron tools, apps, libraries, and frameworks being developed. You can also check out the [Electron](https://github.com/electron) and [Electron Userland](https://github.com/electron-userland) organizations to see some of these fantastic projects.
+新しい [コミュニティ](https://electronjs.org/community) ページでは、開発中の素晴らしい Electron のツール、アプリ、ライブラリ、フレームワークを多数掲載しています。 [Electron](https://github.com/electron) や [Electron Userland](https://github.com/electron-userland) といった Organization を覗けば、こういった素晴らしいプロジェクトをいくつか見られます。
 
-New to Electron? Watch the Electron 1.0 intro video:
+Electron は初めてですか? Electron 1.0 の紹介ビデオはこちらです。
 
 <div class="video"><iframe src="https://www.youtube.com/embed/8YP_nOCO-4Q?rel=0" frameborder="0" allowfullscreen></iframe></div>
 
