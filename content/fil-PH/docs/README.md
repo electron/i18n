@@ -10,11 +10,10 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 
 ## Gabay at Tutorial
 
-* [Tungkol sa Electron](tutorial/about.md)
 * [Setup para sa Development Environment](tutorial/development-environment.md) 
-  * [Pagsetup ng macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Pagsetuo ng Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Pagsetup ng Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Setting ng macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Setting ng Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Setting ng Linux](tutorial/development-environment.md#setting-up-linux)
   * [Pagpili ng Editor](tutorial/development-environment.md#a-good-editor)
 * [Pag gawa ng una mong aplikasyon](tutorial/first-app.md) 
   * [Paginstall ng Electron](tutorial/first-app.md#installing-electron)
@@ -48,7 +47,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
   * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Aksesibilidad](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
-  * [Devtron](tutorial/accessibility.md#devtron)
+  * [DevtronDevtron](tutorial/accessibility.md#devtron)
   * [Paganahin ang aksesibilidad](tutorial/accessibility.md#enabling-accessibility)
 * [Testing and Debugging](tutorial/application-debugging.md) 
   * ["Debugging" ang Pangunahing Proseso](tutorial/debugging-main-process.md)
@@ -69,9 +68,9 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
   * [Babala sa seguridad ng Electron](tutorial/security.md#electron-security-warnings)
   * [Listahan ng Seguridad](tutorial/security.md#checklist-security-recommendations)
 * [Updates](tutorial/updates.md) 
-  * [Pagde-deploy ng isang Update na Server](tutorial/updates.md#deploying-an-update-server)
+  * [Pagbigay ng Update Server](tutorial/updates.md#deploying-an-update-server)
   * [Pagimplementa ng update sa iyong applikasyon](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Pag-aaplay sa mga Update](tutorial/updates.md#applying-updates)
+  * [Pagapply ng mga updates](tutorial/updates.md#applying-updates)
 * [Getting Support](tutorial/support.md)
 
 ## Detalyadong Tutorials
