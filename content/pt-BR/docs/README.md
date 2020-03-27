@@ -10,7 +10,6 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 
 ## Guias e Tutoriais
 
-* [Sobre o Electron](tutorial/about.md)
 * [Configurar Ambiente de Desenvolvimento](tutorial/development-environment.md) 
   * [Configurando o macOS](tutorial/development-environment.md#setting-up-macos)
   * [Configurando o Windows](tutorial/development-environment.md#setting-up-windows)
@@ -27,7 +26,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Outras Ferramentas e Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Arquitetura do Aplicativo](tutorial/application-architecture.md) 
-  * [Processos Principal e de Renderização](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Processos Principais e Renderizados](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Usando Electro APIs](tutorial/application-architecture.md#using-electron-apis)
   * [Usando Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Usando Módulos Nativos do Node.js](tutorial/using-native-node-modules.md)
@@ -41,8 +40,8 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
   * [Ações Desktop Linux Personalizado](tutorial/linux-desktop-actions.md)
   * [Atalhos do Teclado](tutorial/keyboard-shortcuts.md)
   * [Detecção de Offline/Online](tutorial/online-offline-events.md)
-  * [Representação de Arquivo para o macOS BrowserWindows](tutorial/represented-file.md)
-  * [Nativo Arquivo Drag & Drop (Arrastar e Soltar)](tutorial/native-file-drag-drop.md)
+  * [Arquivo Representado para o macOS BrowserWindows](tutorial/represented-file.md)
+  * [Nativo Arquivo Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Renderização fora da tela](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
   * [Incorporações da Web no Electron](tutorial/web-embeds.md)
@@ -56,7 +55,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
   * [Usando Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testando em sistemas de CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensão de DevTools](tutorial/devtools-extension.md)
-  * [Automatizando Teste com Driver Personalizado](tutorial/automated-testing-with-a-custom-driver.md)
+  * [Testando Automatizado com um Driver Personalizado](tutorial/automated-testing-with-a-custom-driver.md)
 * [Distribuição](tutorial/application-distribution.md) 
   * [Plataformas Suportadas](tutorial/support.md#supported-platforms)
   * [Assinando Código](tutorial/code-signing.md)
@@ -71,7 +70,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Atualizações](tutorial/updates.md) 
   * [Implementando um Servidor de Atualizações](tutorial/updates.md#deploying-an-update-server)
   * [Implementando Atualizações em Seu App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Aplicando Atualizações](tutorial/updates.md#applying-updates)
+  * [Aplicando Upgrades](tutorial/updates.md#applying-updates)
 * [Recebendo suporte](tutorial/support.md)
 
 ## Tutoriais Detalhados
