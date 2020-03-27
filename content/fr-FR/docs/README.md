@@ -10,7 +10,6 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 
 ## Guides et tutoriels
 
-* [À propos d'Electron](tutorial/about.md)
 * [Mise en place de l'environnement de développement](tutorial/development-environment.md) 
   * [Mise en place sur macOS](tutorial/development-environment.md#setting-up-macos)
   * [Mise en place sur Windows](tutorial/development-environment.md#setting-up-windows)
@@ -19,7 +18,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Créer votre première App](tutorial/first-app.md) 
   * [Installer Electron](tutorial/first-app.md#installing-electron)
   * [Le développement avec Electron en résumé](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Lancer votre Application](tutorial/first-app.md#running-your-app)
+  * [Lancer votre App](tutorial/first-app.md#running-your-app)
 * [Les Boilerplates et CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -56,7 +55,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
   * [Utilisation de Selenium et WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extension DevTools](tutorial/devtools-extension.md)
-  * [Test automatisé avec un driver personalisé](tutorial/automated-testing-with-a-custom-driver.md)
+  * [Test automatisé avec un driver personnalisé](tutorial/automated-testing-with-a-custom-driver.md)
 * [Distribution](tutorial/application-distribution.md) 
   * [Plateformes supportées](tutorial/support.md#supported-platforms)
   * [Signature de code](tutorial/code-signing.md)
@@ -71,7 +70,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Mises à jour](tutorial/updates.md) 
   * [Déploiement d’un serveur de mise à jour](tutorial/updates.md#deploying-an-update-server)
   * [Implémentation des mises à jour dans votre application](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Application des mises à jour](tutorial/updates.md#applying-updates)
+  * [Appliquer les mises à jour](tutorial/updates.md#applying-updates)
 * [Obtenir de l'aide](tutorial/support.md)
 
 ## Tutoriels détaillés
