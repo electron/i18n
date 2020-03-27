@@ -10,7 +10,6 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 
 ## 가이드와 튜토리얼
 
-* [Electron 에 대하여](tutorial/about.md)
 * [개발 환경 설정하기](tutorial/development-environment.md) 
   * [macOS 설정](tutorial/development-environment.md#setting-up-macos)
   * [Windows 설정](tutorial/development-environment.md#setting-up-windows)
@@ -27,7 +26,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [기타 도구와 Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [애플리케이션 아키텍처](tutorial/application-architecture.md) 
-  * [메인 프로세스와 렌더러 프로세스](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [메인과 렌더러 프로세스](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron API 사용하기](tutorial/application-architecture.md#using-electron-apis)
   * [Node.js API 사용하기](tutorial/application-architecture.md#using-nodejs-apis)
   * [기본 Node.js 모듈 사용하기](tutorial/using-native-node-modules.md)
@@ -59,7 +58,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [커스텀 드라이버를 이용한 자동화된 테스팅](tutorial/automated-testing-with-a-custom-driver.md)
 * [배포](tutorial/application-distribution.md) 
   * [지원되는 플랫폼](tutorial/support.md#supported-platforms)
-  * [코드 사이닝](tutorial/code-signing.md)
+  * [코드 서명(Code Signing)](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows 스토어](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)

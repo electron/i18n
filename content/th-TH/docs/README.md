@@ -10,7 +10,6 @@ Please make sure that you use the documents that match your Electron version. �
 
 ## แนะนำและบทความสอน
 
-* [เกี่ยวกับ Electron](tutorial/about.md)
 * [วิธีการติดตั้งสำหรับการพัฒนา](tutorial/development-environment.md) 
   * [การติดตั้งบน macOS](tutorial/development-environment.md#setting-up-macos)
   * [การติดตั้งบน Windows](tutorial/development-environment.md#setting-up-windows)
