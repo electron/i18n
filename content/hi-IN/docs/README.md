@@ -10,7 +10,6 @@
 
 ## Guides and Tutorials
 
-* [About Electron](tutorial/about.md)
 * [Setting up the Development Environment](tutorial/development-environment.md) 
   * [मैकओएस का सेटअप करना](tutorial/development-environment.md#setting-up-macos)
   * [विंडोज का सेटअप करना](tutorial/development-environment.md#setting-up-windows)
