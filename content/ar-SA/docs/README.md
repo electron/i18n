@@ -10,12 +10,11 @@
 
 ## الدليل الإرشادي والدروس
 
-* [حول Electron قناة شليلة shlylt35@gmail.com ](tutorial/about.md)
 * [اعداد وتجهيز بيئة التطوير](tutorial/development-environment.md) 
   * [اعداد نظام تشغيل الماك (macOS)](tutorial/development-environment.md#setting-up-macos)
   * [اعداد نظام الويندوز (Windows)](tutorial/development-environment.md#setting-up-windows)
   * [اعداد نظام لينكس (Linux)](tutorial/development-environment.md#setting-up-linux)
-  * [اختيار محرر](tutorial/development-environment.md#a-good-editor)
+  * [اختيار محرر الكود](tutorial/development-environment.md#a-good-editor)
 * [انشاء تطبيقك الأول](tutorial/first-app.md) 
   * [تثبيت إكترون](tutorial/first-app.md#installing-electron)
   * [تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
@@ -39,7 +38,7 @@
   * [خصص شريط المهام](tutorial/macos-dock.md)
   * [خصص شريط مهام الويندوز](tutorial/windows-taskbar.md)
   * [خصص إجراءات سطح المكتب المخصص لـ Linux](tutorial/linux-desktop-actions.md)
-  * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+  * [میانبرهای صفحه کلید](tutorial/keyboard-shortcuts.md)
   * [إكتشاف المتصل/ غير المتصل](tutorial/online-offline-events.md)
   * [الملف الممثّل في نافذة المستعرض في نظام ماك أو إس](tutorial/represented-file.md)
   * [سحب الملفات الأصلية & Drop&](tutorial/native-file-drag-drop.md)
@@ -47,7 +46,7 @@
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
 * [إمكانية الوصول](tutorial/accessibility.md) 
-  * [Spectron](tutorial/accessibility.md#spectron)
+  * [سبيكترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [تمكين امكانيات الوصول](tutorial/accessibility.md#enabling-accessibility)
 * [اختبار وتصحيح](tutorial/application-debugging.md) 
