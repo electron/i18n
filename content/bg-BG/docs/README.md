@@ -10,7 +10,6 @@
 
 ## Ръководства и уроци
 
-* [5256783105227699](tutorial/about.md)
 * [Създаване на среда за разработка](tutorial/development-environment.md) 
   * [Настройване при macOS](tutorial/development-environment.md#setting-up-macos)
   * [Настройване при Windows](tutorial/development-environment.md#setting-up-windows)
@@ -66,10 +65,10 @@
 * [Сигурност](tutorial/security.md) 
   * [Докладване на проблеми със сигурността](tutorial/security.md#reporting-security-issues)
   * [Проблеми със сигурността и обновяване на Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
+  * [Предупреждения за сигурността при Електрон](tutorial/security.md#electron-security-warnings)
   * [Списък за сигурност](tutorial/security.md#checklist-security-recommendations)
 * [5256783105227699](tutorial/updates.md) 
-  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
+  * [Дистрибуция на обновен сървър](tutorial/updates.md#deploying-an-update-server)
   * [Добавяне на новости във вашето приложение](tutorial/updates.md#implementing-updates-in-your-app)
   * [Прилагане на новости](tutorial/updates.md#applying-updates)
 * [Getting Support](tutorial/support.md)
