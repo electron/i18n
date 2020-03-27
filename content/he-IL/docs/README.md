@@ -10,7 +10,6 @@
 
 ## מדריכים וערכות לימוד
 
-* [אודות Electron](tutorial/about.md)
 * [הגדרת סביבת הפיתוח](tutorial/development-environment.md) 
   * [הגדרת macOS](tutorial/development-environment.md#setting-up-macos)
   * [הגדרת Windows](tutorial/development-environment.md#setting-up-windows)
