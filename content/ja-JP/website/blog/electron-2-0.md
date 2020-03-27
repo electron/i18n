@@ -74,15 +74,15 @@ Electron 2.0.0 は、メジャーリリース前の Electron での安定化方�
  * 振動サポートを改善しました。 [#12157](https://github.com/electron/electron/pull/12157) [#12171](https://github.com/electron/electron/pull/12171) [#11886](https://github.com/electron/electron/pull/11886)
  * シングルトンフィクスチャのタイミングの問題を修正しました。
  * NotifierSupportsActions() の破損したプロダクションキャッシュを修正しました
- * Made MenuItem roles camelCase-compatible. [#11532](https://github.com/electron/electron/pull/11532)
- * Improved touch bar updates. [#11812](https://github.com/electron/electron/pull/11812), [#11761](https://github.com/electron/electron/pull/11761).
- * Removed extra menu separators. [#11827](https://github.com/electron/electron/pull/11827)
- * Fixed Bluetooth chooser bug. Closes [#11399](https://github.com/electron/electron/pull/11399).
+ * MenuItem の role を camelCase 互換にしました。 [#11532](https://github.com/electron/electron/pull/11532)
+ * タッチバーの状態更新を改善しました。 [#11812](https://github.com/electron/electron/pull/11812)、[#11761](https://github.com/electron/electron/pull/11761)。
+ * 不要なメニューのセパレータを削除しました。 [#11827](https://github.com/electron/electron/pull/11827)
+ * Bluetooth チューナーのバグを修正しました。 [#11399](https://github.com/electron/electron/pull/11399) でクローズしています。
  * Fixed macos Full Screen Toggle menu item label. [#11633](https://github.com/electron/electron/pull/11633)
  * Improved tooltip hiding when a window is deactivated. [#11644](https://github.com/electron/electron/pull/11644)
  * Migrated deprecated web-view method. [#11798](https://github.com/electron/electron/pull/11798)
  * Fixed closing a window opened from a browserview. [#11799](https://github.com/electron/electron/pull/11799)
- * Fixed Bluetooth chooser bug. [#11492](https://github.com/electron/electron/pull/11492)
+ * Bluetooth チューナーのバグを修正しました。 [#11492](https://github.com/electron/electron/pull/11492)
  * Updated to use task scheduler for app.getFileIcon API. [#11595](https://github.com/electron/electron/pull/11595)
  * Changed to fire `console-message` event even when rendering offscreen. [#11921](https://github.com/electron/electron/pull/11921)
  * Fixed downloading from custom protocols using `WebContents.downloadURL`. [#11804](https://github.com/electron/electron/pull/11804)
@@ -109,6 +109,6 @@ Electron 2.0.0 は、メジャーリリース前の Electron での安定化方�
  * Fixed `desktopCapturer` to capture the correct screen. [#11664](https://github.com/electron/electron/pull/11664)
  * Fixed `disableHardwareAcceleration` with transparency. [#11704](https://github.com/electron/electron/pull/11704)
 
-# What's Next
+# 次回予告
 
 The Electron team is hard at work to support newer versions of Chromium, Node, and v8. Expect 3.0.0-beta.1 soon!
