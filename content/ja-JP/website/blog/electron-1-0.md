@@ -20,9 +20,9 @@ Electron で次に何を作るのか、楽しみにしています。
 
 私たちは 2 年と少し前に [Atom](https://atom.io) を立ち上げた時に Electron をリリースしました。 当初 Atom Shell という名前だった Electron は、Atom のために構築したフレームワークでした。 当時の Atom は Electron が提供する特色と機能性のきっかけを生み、Atom の初期リリースを後押ししていました。
 
-Now driving Electron is a growing community of developers and companies building everything from [email](https://nylas.com), [chat](https://slack.com), and [Git apps](https://www.gitkraken.com) to [SQL analytics tools](https://www.wagonhq.com), [torrent clients](https://webtorrent.io/desktop), and [robots](https://www.jibo.com).
+いま Electron を突き動かしているのは、[メール](https://nylas.com)、[チャット](https://slack.com)、[Git アプリ](https://www.gitkraken.com) から、[SQL 分析ツール](https://www.wagonhq.com)、[torrent クライアント](https://webtorrent.io/desktop)、[ロボット](https://www.jibo.com) まで、あらゆる開発者や企業のコミュニティの成長です。
 
-In these last two years we've seen both companies and open source projects choose Electron as the foundation for their apps. Just in the past year, Electron has been downloaded over 1.2 million times. [Take a tour](https://electronjs.org/apps) of some of the amazing Electron apps and add your own if it isn't already there.
+この 2 年間、企業とオープンソースプロジェクトの両方で、アプリケーション基盤として Electron が採用されています。 この 1 年間で、Electron は 120 万回以上ダウンロードされています。 素晴らしい Electron アプリを [こちらでご紹介](https://electronjs.org/apps) します。あなたのアプリがまだない場合は追加しましょう。
 
 ![Electron downloads](https://cloud.githubusercontent.com/assets/378023/15037731/af7e87e0-12d8-11e6-94e2-117c360d0ac9.png)
 
