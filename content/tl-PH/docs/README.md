@@ -10,7 +10,6 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## Guides and Tutorials
 
-* [About Electron](tutorial/about.md)
 * [Setting up the Development Environment](tutorial/development-environment.md) 
   * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
   * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
