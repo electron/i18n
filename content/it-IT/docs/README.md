@@ -10,7 +10,6 @@ Alcune domande vengono poste molto spesso. Cercate con attenzione questa lista p
 
 ## Guide e tutorial
 
-* [Riguardo Electron](tutorial/about.md)
 * [Impostazione dell'ambiente di sviluppo](tutorial/development-environment.md) 
   * [Configurazione su macOS](tutorial/development-environment.md#setting-up-macos)
   * [Configurazione su Windows](tutorial/development-environment.md#setting-up-windows)
@@ -27,7 +26,7 @@ Alcune domande vengono poste molto spesso. Cercate con attenzione questa lista p
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Altri strumenti e Boilerplate](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Architettura Applicazione](tutorial/application-architecture.md) 
-  * [Principali Processi e di Rendering](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Processi di Rendering e Principali](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Usare API di Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Usare API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Usare Moduli Nativi Node.js](tutorial/using-native-node-modules.md)
@@ -69,7 +68,7 @@ Alcune domande vengono poste molto spesso. Cercate con attenzione questa lista p
   * [Avvisi Sicurezza Electron](tutorial/security.md#electron-security-warnings)
   * [Lista di Controllo Sicurezza](tutorial/security.md#checklist-security-recommendations)
 * [Aggiornamenti](tutorial/updates.md) 
-  * [Implementare un Server di Aggiornamento](tutorial/updates.md#deploying-an-update-server)
+  * [Implementare un Server Aggiornamento](tutorial/updates.md#deploying-an-update-server)
   * [Implementando gli Aggiornamenti nella Tua App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applicando Aggiornamenti](tutorial/updates.md#applying-updates)
 * [Ottenere Supporto](tutorial/support.md)
