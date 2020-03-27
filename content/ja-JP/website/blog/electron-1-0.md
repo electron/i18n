@@ -4,13 +4,13 @@ author: jlord
 date: '2016-05-11'
 ---
 
-For the last two years, Electron has helped developers build cross platform desktop apps using HTML, CSS, and JavaScript. Now we're excited to share a major milestone for our framework and for the community that created it. The release of Electron 1.0 is now available from [electronjs.org](https://electronjs.org).
+過去2年間、Electron は HTML、CSS、JavaScript を使用したクロスプラットフォームのデスクトップアプリケーション開発を支援してきました。 私たちのフレームワークと、それを作成したコミュニティで大きな節目を共にできるということで興奮しています。 Electron 1.0 のリリースは [electronjs.org](https://electronjs.org) からご覧いただけます。
 
 ---
 
 ![Electron 1.0](https://cloud.githubusercontent.com/assets/378023/15007352/315f5eea-1213-11e6-984e-21f5dab31267.png)
 
-Electron 1.0 represents a major milestone in API stability and maturity. This release allows you to build apps that act and feel truly native on Windows, Mac, and Linux. Building Electron apps is easier than ever with new docs, new tools, and a new app to walk you through the Electron APIs.
+Electron 1.0 は、API の安定性と成熟度における大きな節目です。 このリリースでは Windows、Mac、Linux 上で真にネイティブに近い動作のアプリを構築できます。 Building Electron apps is easier than ever with new docs, new tools, and a new app to walk you through the Electron APIs.
 
 If you're ready to build your very first Electron app, here's a [quick start guide](https://electronjs.org/docs/tutorial/quick-start) to help you get started.
 
