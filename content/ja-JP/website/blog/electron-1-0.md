@@ -28,22 +28,22 @@ Electron で次に何を作るのか、楽しみにしています。
 
 ## Electron API Demos
 
-Along with the 1.0 release, we're releasing a new app to help you explore the Electron APIs and learn more about how to make your Electron app feel native. The [Electron API Demos](https://github.com/electron/electron-api-demos) app contains code snippets to help you get your app started and tips on effectively using the Electron APIs.
+1.0 のリリースに合わせて、Electron API を調べたり、Electron アプリをネイティブ風にする方法の詳細を学べる新アプリをリリースします。 [Electron API デモ](https://github.com/electron/electron-api-demos) アプリには、アプリの立ち上げに役立つコードスニペットと、Electron API を効果的に使うヒントが入っています。
 
-[![Electron API Demos](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)](https://github.com/electron/electron-api-demos)
+[![Electron API デモ](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)](https://github.com/electron/electron-api-demos)
 
 ## Devtron
 
-We've also added a new extension to help you debug your Electron apps. [Devtron](https://electronjs.org/devtron) is an open-source extension to the [Chrome Developer Tools](https://developer.chrome.com/devtools) designed to help you inspect, debug, and troubleshoot your Electron app.
+Electron アプリのデバッグに役立つ新しい拡張機能も追加しました。 [Devtron](https://electronjs.org/devtron) はオープンソース拡張機能です。[Chrome デベロッパー ツール](https://developer.chrome.com/devtools) の拡張で、Electron アプリのインスペクト、デバッグ、トラブルシューティングを支援する設計です。
 
 [![Devtron](https://cloud.githubusercontent.com/assets/378023/15138217/590c8b06-16c9-11e6-8af6-ef96299e85bc.png)](https://electronjs.org/devtron)
 
 ### Features
 
-  * **Require graph** that helps you visualize your app's internal and external library dependencies in both the main and renderer processes
-  * **IPC monitor** that tracks and displays the messages sent and received between the processes in your app
-  * **Event inspector** that shows you the events and listeners that are registered in your app on the core Electron APIs such as the window, app, and processes
-  * **App Linter** that checks your apps for common mistakes and missing functionality
+  * **Require グラフ** は、メインプロセスとレンダラープロセス両方の、アプリの内部と外部ライブラリとの依存関係の視覚化に役立ちます。
+  * **IPC モニタ** は、アプリ内のプロセス間で送受信されたメッセージを追跡して表示します。
+  * **イベントインスペクタ** は window、app、process などのコア Electron API にアプリが登録しているイベントやリスナーを表示します。
+  * **アプリリンター** はあなたのアプリのよくある間違いや機能の欠損をチェックします。
 
 ## Spectron
 
