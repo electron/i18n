@@ -10,7 +10,6 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 
 ## Hướng dẫn
 
-* [Về Electron](tutorial/about.md)
 * [Khởi động môi trường của nhà phát triển](tutorial/development-environment.md) 
   * [Khởi động cho macOS](tutorial/development-environment.md#setting-up-macos)
   * [Khởi động cho Windows](tutorial/development-environment.md#setting-up-windows)

@@ -10,7 +10,6 @@ Please make sure that you use the documents that match your Electron version. ش
 
 ## راهنماها و آموزشها
 
-* [درباره الکترون](tutorial/about.md)
 * [راه اندازی محیط توسعه](tutorial/development-environment.md) 
   * [راه اندازی macOS](tutorial/development-environment.md#setting-up-macos)
   * [راه اندازی ویندوز](tutorial/development-environment.md#setting-up-windows)

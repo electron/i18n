@@ -10,7 +10,6 @@
 
 ## Руководство
 
-* [О Electron](tutorial/about.md)
 * [Настройка среды разработки](tutorial/development-environment.md) 
   * [Настройка macOS](tutorial/development-environment.md#setting-up-macos)
   * [Настройка Windows](tutorial/development-environment.md#setting-up-windows)
@@ -42,7 +41,7 @@
   * [Горячие клавиши](tutorial/keyboard-shortcuts.md)
   * [Оффлайн/Онлайн обнаружение](tutorial/online-offline-events.md)
   * [Представленный файл для macOS BrowserWindows](tutorial/represented-file.md)
-  * [Нативное перетаскивание файла](tutorial/native-file-drag-drop.md)
+  * [Нативное перемещение файла](tutorial/native-file-drag-drop.md)
   * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
   * [Поддержка Темного режима macOS](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
@@ -51,12 +50,12 @@
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Включение доступности](tutorial/accessibility.md#enabling-accessibility)
 * [Тестирование и отладка](tutorial/application-debugging.md) 
-  * [Отладка главного процесса](tutorial/debugging-main-process.md)
+  * [Отладка основного( main ) процесса](tutorial/debugging-main-process.md)
   * [Отладка главного процесса с кодом Visual Studio](tutorial/debugging-main-process-vscode.md)
   * [Использование Selenium и WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Расширение DevTools](tutorial/devtools-extension.md)
-  * [Автоматическое тестирование с помощью специального драйвера](tutorial/automated-testing-with-a-custom-driver.md)
+  * [Автоматическое тестирование с помощью собственного драйвера](tutorial/automated-testing-with-a-custom-driver.md)
 * [Распространение](tutorial/application-distribution.md) 
   * [Поддерживаемые платформы](tutorial/support.md#supported-platforms)
   * [Цифровая подпись](tutorial/code-signing.md)

@@ -26,7 +26,7 @@ Major bumps to several important parts of Electron's toolchain, including Chrome
 * [[#14118](https://github.com/electron/electron/pull/14118)] feat: `fs.readSync` now works with massive files
 * [[#14031](https://github.com/electron/electron/pull/14031)] feat: node `fs` wrappers to make `fs.realpathSync.native` and `fs.realpath.native` available
 
-## Breaking API changes
+## API の破壊的変更
 
 * [[#12362](https://github.com/electron/electron/pull/12362)] feat: updates to menu item order control
 * [[#13050](https://github.com/electron/electron/pull/13050)] refactor: removed documented deprecated APIs
@@ -55,7 +55,7 @@ Major bumps to several important parts of Electron's toolchain, including Chrome
 
 **Nota Bene:** Switching to an older version of Electron after running this version will require you to clear out your user data directory to avoid older versions crashing. You can get the user data directory by running `console.log(app.getPath("userData"))` or see [docs](https://electronjs.org/docs/api/app#appgetpathname) for more details.
 
-## Bug Fixes
+## バグ修正
 
 * [[#13397](https://github.com/electron/electron/pull/13397)] fix: issue with `fs.statSyncNoException` throwing exceptions
 * [[#13476](https://github.com/electron/electron/pull/13476), [#13452](https://github.com/electron/electron/pull/13452)] fix: crash when loading site with jquery

@@ -10,7 +10,6 @@
 
 ## Посібники та Підручники
 
-* [Про Electron](tutorial/about.md)
 * [Налаштовування Середовища Розробки](tutorial/development-environment.md) 
   * [Налаштовування macOS](tutorial/development-environment.md#setting-up-macos)
   * [Налаштовування Windows](tutorial/development-environment.md#setting-up-windows)
@@ -27,7 +26,7 @@
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Інші Інструменти та Шаблони Коду](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Архітектура Застосунків](tutorial/application-architecture.md) 
-  * [Main та Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Головний та Процес Рендерингу](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Використання API Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Використання API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Використання Нативних Модулів Node.js](tutorial/using-native-node-modules.md)
@@ -70,7 +69,7 @@
   * [Контрольний Список Безпеки](tutorial/security.md#checklist-security-recommendations)
 * [Оновлення](tutorial/updates.md) 
   * [Розгортання на Сервері для Оновлень](tutorial/updates.md#deploying-an-update-server)
-  * [Реалізація Оновлення у Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Реалізація Оновлення в Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
   * [Застосування Оновлень](tutorial/updates.md#applying-updates)
 * [Підтримка](tutorial/support.md)
 

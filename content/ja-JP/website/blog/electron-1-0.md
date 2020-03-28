@@ -4,21 +4,21 @@ author: jlord
 date: '2016-05-11'
 ---
 
-For the last two years, Electron has helped developers build cross platform desktop apps using HTML, CSS, and JavaScript. Now we're excited to share a major milestone for our framework and for the community that created it. The release of Electron 1.0 is now available from [electronjs.org](https://electronjs.org).
+過去2年間、Electron は HTML、CSS、JavaScript を使用したクロスプラットフォームのデスクトップアプリケーション開発を支援してきました。 私たちのフレームワークと、それを作成したコミュニティで大きな節目を共にできるということで興奮しています。 Electron 1.0 のリリースは [electronjs.org](https://electronjs.org) からご覧いただけます。
 
 ---
 
 ![Electron 1.0](https://cloud.githubusercontent.com/assets/378023/15007352/315f5eea-1213-11e6-984e-21f5dab31267.png)
 
-Electron 1.0 represents a major milestone in API stability and maturity. This release allows you to build apps that act and feel truly native on Windows, Mac, and Linux. Building Electron apps is easier than ever with new docs, new tools, and a new app to walk you through the Electron APIs.
+Electron 1.0 は、API の安定性と成熟度における大きな節目です。 このリリースでは Windows、Mac、Linux 上で真にネイティブに近い動作のアプリを構築できます。 新しいドキュメント、新しいツール、新しい Electron API 概略アプリにより、Electron アプリの構築がこれまで以上に簡単になりました。
 
-If you're ready to build your very first Electron app, here's a [quick start guide](https://electronjs.org/docs/tutorial/quick-start) to help you get started.
+初めての Electron アプリを素早く構築するには [クイックスタートガイド](https://electronjs.org/docs/tutorial/quick-start) を参照してください。
 
-We are excited to see what you build next with Electron.
+Electron で次に何を作るのか、楽しみにしています。
 
 ## Electron's Path
 
-We released Electron when we launched [Atom](https://atom.io) a little over two years ago. Electron, then known as Atom Shell, was the framework we'd built Atom on top of. In those days, Atom was the driving force behind the features and functionalities that Electron provided as we pushed to get the initial Atom release out.
+私たちは 2 年と少し前に [Atom](https://atom.io) を立ち上げた時に Electron をリリースしました。 当初 Atom Shell という名前だった Electron は、Atom のために構築したフレームワークでした。 当時の Atom は Electron が提供する特色と機能性のきっかけを生み、Atom の初期リリースを後押ししていました。
 
 Now driving Electron is a growing community of developers and companies building everything from [email](https://nylas.com), [chat](https://slack.com), and [Git apps](https://www.gitkraken.com) to [SQL analytics tools](https://www.wagonhq.com), [torrent clients](https://webtorrent.io/desktop), and [robots](https://www.jibo.com).
 

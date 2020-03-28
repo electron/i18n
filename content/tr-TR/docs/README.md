@@ -10,7 +10,6 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 ## 1 whan to business in online application
 
-* [Electron Hakkında](tutorial/about.md)
 * [Geliştirme Ortamını Kurmak](tutorial/development-environment.md) 
   * [MacOS İçin Kurulum](tutorial/development-environment.md#setting-up-macos)
   * [Windows İçin Kurulum](tutorial/development-environment.md#setting-up-windows)
@@ -18,7 +17,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Bir Editör Seçme](tutorial/development-environment.md#a-good-editor)
 * [İlk Uygulamanızı Oluşturma](tutorial/first-app.md) 
   * [Electron'u Yükleme](tutorial/first-app.md#installing-electron)
-  * [Özetçe Elektron için Geliştirme](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [Kabukta Electron Geliştirme](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Uygulamanızı Çalıştırma](tutorial/first-app.md#running-your-app)
 * [Demirbaşlar ve KSA'lar](tutorial/boilerplates-and-clis.md) 
   * [Demirbaş KSA'a Karşı](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)

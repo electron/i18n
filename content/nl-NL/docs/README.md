@@ -10,7 +10,6 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 
 ## Handleidingen en Tutorials
 
-* [Over Electron](tutorial/about.md)
 * [Een Ontwikkelingsomgeving opzetten](tutorial/development-environment.md) 
   * [MacOS instellen](tutorial/development-environment.md#setting-up-macos)
   * [Windows instellen](tutorial/development-environment.md#setting-up-windows)
