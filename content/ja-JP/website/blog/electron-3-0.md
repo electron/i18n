@@ -90,6 +90,6 @@ Major bumps to several important parts of Electron's toolchain, including Chrome
 * `TextField` and `Button` APIs are experimental and are therefore off by default
   * They can be enabled with the `enable_view_api` build flag
 
-# What's Next
+# 次回予告
 
 The Electron team continues to work on defining our processes for more rapid and smooth upgrades as we seek to ultimately maintain parity with the development cadences of Chromium, Node, and V8.
