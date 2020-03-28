@@ -23,6 +23,11 @@ jobs:
       env:
         NODE_OPTIONS: --max_old_space_size=4096
       run: 'npm test'
+    - uses: actions/upload-artifact@v1
+      if: github['ref'] == 'refs/heads/master'
+      with:
+        name: 'Dist folder'
+        path: dist/
     - name: Publish via semantic-release
       if: github['ref'] == 'refs/heads/master'
       env:
