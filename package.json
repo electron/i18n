@@ -64,6 +64,7 @@
     "build:wordcount": "ts-node script/wordcount.ts > wordcount.md",
     "update-source-content": "script/update-source-content.sh",
     "content-cleanup": "ts-node script/i18n-content-cleanup.ts",
+    "get-cache": "ts-node ./script/get-cache.ts",
     "test": "npm run test-only",
     "prettier": "prettier --check \"./**/*.{ts,js}\"",
     "test-only": "tsc && mocha && prettier --check \"./**/*.{ts,js}\" --write",

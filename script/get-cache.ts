@@ -47,7 +47,7 @@ async function main() {
   if (!token) {
     console.log('Using cache without GitHub Token is not available.')
     console.log(
-      'Provider one of these variable with PATH for use cache: GITHUB_TOKEN, GH_TOKEN, GQL_GH_TOKEN'
+      'Provider one of these variable with Access Token for using cache: GITHUB_TOKEN, GH_TOKEN, GQL_GH_TOKEN'
     )
     return
   }
