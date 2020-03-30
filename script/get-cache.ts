@@ -1,10 +1,14 @@
-import { Octokit } from '@octokit/rest'
-import * as fs from 'fs'
-import * as path from 'path'
-import { tmpdir } from 'os'
 import * as extractZip from 'extract-zip'
+import * as fs from 'fs'
 import got from 'got'
+import { Octokit } from '@octokit/rest'
+import * as path from 'path'
+import { promisify } from 'util'
 import { ProxyStream } from 'got/dist/source/as-stream'
+import * as stream from 'stream'
+import { tmpdir } from 'os'
+
+const pipeline = promisify(stream.pipeline)
 
 const { GITHUB_TOKEN, GH_TOKEN, GQL_GH_TOKEN } = process.env
 const token = GQL_GH_TOKEN || GH_TOKEN || GITHUB_TOKEN
@@ -14,33 +18,20 @@ const github = new Octokit({
 })
 
 const downloadArchive = async (url: string, writeStream: fs.WriteStream) => {
-  return new Promise((resolve, reject) => {
-    const downloadStream: ProxyStream<any> = got.stream(url, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    })
-
-    downloadStream.on('response', (_) => {
-      // Artifacts doesn't have in the response `content-length` so we unable
-      // to give back the progress bar to give more perfect response.
-      // It's just simple way to say we just started downloading.
-      console.log(`Downloading started.`)
-    })
-
-    downloadStream.on('error', (error) => {
-      if (writeStream.destroy) {
-        writeStream.destroy(error)
-      }
-
-      reject(error)
-    })
-    writeStream.on('error', (error) => reject(error))
-    writeStream.on('close', () => resolve())
-
-    downloadStream.pipe(writeStream)
+  const downloadStream: ProxyStream<any> = got.stream(url, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
   })
+
+  downloadStream.on('response', () => {
+    // Artifacts doesn't have in the response `content-length` so we unable
+    // to give back the progress bar to give more perfect response.
+    // It's just simple way to say we just started downloading.
+    console.log(`Downloading started.`)
+  })
+  await pipeline(downloadStream, writeStream)
 }
 
 async function main() {
