@@ -78,37 +78,37 @@ Electron 2.0.0 は、メジャーリリース前の Electron での安定化方�
  * タッチバーの状態更新を改善しました。 [#11812](https://github.com/electron/electron/pull/11812)、[#11761](https://github.com/electron/electron/pull/11761)。
  * 不要なメニューのセパレータを削除しました。 [#11827](https://github.com/electron/electron/pull/11827)
  * Bluetooth チューナーのバグを修正しました。 [#11399](https://github.com/electron/electron/pull/11399) でクローズしています。
- * Fixed macos Full Screen Toggle menu item label. [#11633](https://github.com/electron/electron/pull/11633)
- * Improved tooltip hiding when a window is deactivated. [#11644](https://github.com/electron/electron/pull/11644)
- * Migrated deprecated web-view method. [#11798](https://github.com/electron/electron/pull/11798)
- * Fixed closing a window opened from a browserview. [#11799](https://github.com/electron/electron/pull/11799)
+ * macOS フルスクリーン切り替えのメニューアイテムのラベルを修正しました。 [#11633](https://github.com/electron/electron/pull/11633)
+ * ウィンドウが無効のときにツールチップが隠れる問題を改善しました。 [#11644](https://github.com/electron/electron/pull/11644)
+ * 非推奨だった web-view のメソッドを移行しました。 [#11798](https://github.com/electron/electron/pull/11798)
+ * BrowserView から開いたウインドウを閉じるときの問題を修正しました。 [#11799](https://github.com/electron/electron/pull/11799)
  * Bluetooth チューナーのバグを修正しました。 [#11492](https://github.com/electron/electron/pull/11492)
- * Updated to use task scheduler for app.getFileIcon API. [#11595](https://github.com/electron/electron/pull/11595)
- * Changed to fire `console-message` event even when rendering offscreen. [#11921](https://github.com/electron/electron/pull/11921)
- * Fixed downloading from custom protocols using `WebContents.downloadURL`. [#11804](https://github.com/electron/electron/pull/11804)
- * Fixed transparent windows losing transparency when devtools detaches. [#11956](https://github.com/electron/electron/pull/11956)
- * Fixed Electron apps canceling restart or shutdown. [#11625](https://github.com/electron/electron/pull/11625)
+ * app.getFileIcon API でタスクスケジューラを使用するように更新しました。 [#11595](https://github.com/electron/electron/pull/11595)
+ * オフスクリーンレンダリング時にも `console-message` イベントが発生するようにしました。 [#11921](https://github.com/electron/electron/pull/11921)
+ * `WebContents.downloadURL` でのカスタムプロトコルからのダウンロードを修正しました。 [#11804](https://github.com/electron/electron/pull/11804)
+ * デベロッパー ツールがデタッチされたときに透過ウィンドウが透明でなくなる問題を修正しました。 [#11956](https://github.com/electron/electron/pull/11956)
+ * Electron アプリが再起動やシャットダウンを中止する問題を修正しました。 [#11625](https://github.com/electron/electron/pull/11625)
 
 ### macOS
- * Fixed event leak on reuse of touchbar item. [#12624](https://github.com/electron/electron/pull/12624)
- * Fixed tray highlight in darkmode. [#12398](https://github.com/electron/electron/pull/12398)
- * Fixed blocking main process for async dialog. [#12407](https://github.com/electron/electron/pull/12407)
- * Fixed `setTitle` tray crash. [#12356](https://github.com/electron/electron/pull/12356)
- * Fixed crash when setting dock menu. [#12087](https://github.com/electron/electron/pull/12087)
+ * タッチバーアイテムを再利用した時のイベントリークを修正しました。 [#12624](https://github.com/electron/electron/pull/12624)
+ * ダークモードでの tray のハイライトを修正しました。 [#12398](https://github.com/electron/electron/pull/12398)
+ * 非同期の dialog がメインプロセスをブロックする問題を修正しました。 [#12407](https://github.com/electron/electron/pull/12407)
+ * `setTitle` したときの tray のクラッシュを修正しました。 [#12356](https://github.com/electron/electron/pull/12356)
+ * Dock メニュー設定時のクラッシュを修正しました。 [#12087](https://github.com/electron/electron/pull/12087)
 
 ### Linux
- * Better Linux desktop notifications. [#12229](https://github.com/electron/electron/pull/12229) [#12216](https://github.com/electron/electron/pull/12216) [#11965](https://github.com/electron/electron/pull/11965) [#11980](https://github.com/electron/electron/pull/11980)
- * Better GTK+ theme support for menus. [#12331](https://github.com/electron/electron/pull/12331)
- * Exit gracefully on linux. [#12139](https://github.com/electron/electron/pull/12139)
- * Use the app’s name as the tray icon's default tooltip. [#12393](https://github.com/electron/electron/pull/12393)
+ * Linux のデスクトップ通知を改善しました。 [#12229](https://github.com/electron/electron/pull/12229) [#12216](https://github.com/electron/electron/pull/12216) [#11965](https://github.com/electron/electron/pull/11965) [#11980](https://github.com/electron/electron/pull/11980)
+ * menu の GTK+ テーマサポートを改善しました。 [#12331](https://github.com/electron/electron/pull/12331)
+ * Linux 上できれいに終了するようにしました。 [#12139](https://github.com/electron/electron/pull/12139)
+ * tray アイコンのデフォルトツールチップにアプリ名を使うようにしました。 [#12393](https://github.com/electron/electron/pull/12393)
 
 ### Windows
- * Added Visual Studio 2017 support. [#11656](https://github.com/electron/electron/pull/11656)
- * Fixed passing of exception to the system crash handler. [#12259](https://github.com/electron/electron/pull/12259)
- * Fixed hiding tooltip from minimized window. [#11644](https://github.com/electron/electron/pull/11644)
- * Fixed `desktopCapturer` to capture the correct screen. [#11664](https://github.com/electron/electron/pull/11664)
- * Fixed `disableHardwareAcceleration` with transparency. [#11704](https://github.com/electron/electron/pull/11704)
+ * Visual Studio 2017 サポートを追加しました。 [#11656](https://github.com/electron/electron/pull/11656)
+ * システムクラッシュハンドラへの例外渡しを修正しました。 [#12259](https://github.com/electron/electron/pull/12259)
+ * 最小化したウィンドウでツールチップが非表示になる問題を修正しました。 [#11644](https://github.com/electron/electron/pull/11644)
+ * `desktopCapturer` が正しい screen をキャプチャするように修正しました。 [#11664](https://github.com/electron/electron/pull/11664)
+ * 透過状態における `disableHardwareAcceleration` を修正しました。 [#11704](https://github.com/electron/electron/pull/11704)
 
 # 次回予告
 
-The Electron team is hard at work to support newer versions of Chromium, Node, and v8. Expect 3.0.0-beta.1 soon!
+Electron チームは、Chromium、Node、v8 の新バージョンのサポートに対して懸命に取り組んでいます。 3.0.0-beta.1 に乞うご期待!

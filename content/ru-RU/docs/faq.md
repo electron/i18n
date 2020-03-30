@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's tray disappeared after a few minutes.
+## Трей моего приложения исчезает через несколько минут.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+Это происходит, когда переменная, используемая для хранения трея уничтожается сборщиком мусора.
 
 Если Вы столкнулись с этой проблемой, могут оказаться полезными следующие статьи:
 
@@ -59,8 +59,8 @@ This happens when the variable which is used to store the tray gets garbage coll
 ```javascript
 const { app, Tray } = require('electron')
 app.whenReady().then(() => {
-  const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+  const tray = new Tray('/путь/до/иконки.png')
+  tray.setTitle('привет мир')
 })
 ```
 

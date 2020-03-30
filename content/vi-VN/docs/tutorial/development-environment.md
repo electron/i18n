@@ -1,12 +1,12 @@
 # Developer Environment
 
-Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Phát triển electron về cơ bản là phát triển Node.js. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
 
-## Setting up macOS
+## Thiết lập trên macOS
 
-> Electron supports macOS 10.10 (Yosemite) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Electron hỗ trợ macOS 10,10 (Yosemite) và các phiên bản mới hơn. Apple không cho phép chạy macOS trong máy ảo trừ khi máy chủ là máy tính Apple, vì vậy nếu bạn thấy mình cần Mac, hãy thử dùng dịch vụ đám mây cho thuê quyền truy cập vào máy Mac (như [MacInCloud](https://www.macincloud.com/) hoặc [xcloud](https://xcloud.me)).
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+Trước tiên, cài đặt phiên bản Node.js gần đây. Chúng tôi khuyên bạn nên cài đặt Phiên bản mới nhất của `LTS` hoặc `hiện tại`. Truy cập [trang tải xuống Node.js](https://nodejs.org/en/download/) và chọn `macOS installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
 Once downloaded, execute the installer and let the installation wizard guide you through the installation.
 
@@ -26,7 +26,7 @@ If both commands printed a version number, you are all set! Before you get start
 
 > Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Trước tiên, cài đặt phiên bản Node.js gần đây. Chúng tôi khuyên bạn nên cài đặt Phiên bản mới nhất của `LTS` hoặc `hiện tại`. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
@@ -46,7 +46,7 @@ If both commands printed a version number, you are all set! Before you get start
 
 > Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+Trước tiên, cài đặt phiên bản Node.js gần đây. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
 
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
