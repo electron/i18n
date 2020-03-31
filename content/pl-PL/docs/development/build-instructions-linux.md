@@ -18,7 +18,7 @@ Postępuj zgodnie z wytycznymi poniżej do zbudowania Electrona dla Linuxa.
 * Node.js. Istnieją różne sposoby instalacji Node. Możesz pobrać kod źródłowy z [nodejs.org](https://nodejs.org) i go skompilować. Ten sposób pozwala na instalowanie Node na swój własny katalog domowy jako użytkownik standardowy. Lub spróbuj repozytoriów takich jak [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 lub nowszy.
-* Nagłówki rozwoju GTK+ i libnotify.
+* Development headers of GTK 3 and libnotify.
 
 Na Ubuntu zainstalować należy następujące biblioteki:
 

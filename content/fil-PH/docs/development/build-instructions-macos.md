@@ -38,7 +38,7 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     
     If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
     
-    Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the MacOS 10.13 SDK. Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
+    Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK. Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
     
     ## Building Electron
     

@@ -18,7 +18,7 @@ Electron'u linux üzerinde inşaa etmek için aşağıdaki yönlendirmeleri taki
 * Node.js. Node'u kurmanın birden fazla yolu var. [nodejs.org](https://nodejs.org)'tan indirip derleyebilirsiniz. Bu şekilde Node'u kullanıcı dizinine standart bir şekilde kurabilirsiniz. Ya da [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) gibi depoları deneyebilirsiniz.
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 veya sonrası.
-* GTK+ ve libnotify için geliştirme başlıkları.
+* Development headers of GTK 3 and libnotify.
 
 Ubuntu üzerinde, aşağıdaki kütüphaneleri kurun:
 

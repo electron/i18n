@@ -18,7 +18,7 @@ Làm theo hướng dẫn dưới đây để xây dựng Electron trên Linux.
 * Node.js. Có rất nhiều cách khác nhau để cài đặt Node.js. Bạn có thể tải mã nguồn từ [nodejs.org](https://nodejs.org), sau đó compile. Làm như vậy cho phép cài đặt Node.js của riêng của bạn trên thư mục như một người dùng tiêu chuẩn. Hoặc thử các repository chẳng hạn như [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 hoặc mới hơn.
-* Header của GTK+ và libnotify.
+* Development headers of GTK 3 and libnotify.
 
 Trên Ubuntu, cài đặt các thư viện sau đây:
 

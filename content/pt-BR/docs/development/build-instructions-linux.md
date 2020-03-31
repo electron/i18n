@@ -18,7 +18,7 @@ Siga as instruções abaixo para configurar o Electron no Linux.
 * Node.js. Existem várias maneiras para instalar o Node. Você pode baixar o código fonte do [nodejs.org](https://nodejs.org) e compilar. Isto permite somente instalar o Node em seu próprio diretório como o usuário padrão. Ou pode tentar no repositório [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 ou mais antigo.
-* Cabeçalho do GTK+ e libnotify.
+* Development headers of GTK 3 and libnotify.
 
 No Ubuntu, é necessário instalar as seguintes bibliotecas:
 

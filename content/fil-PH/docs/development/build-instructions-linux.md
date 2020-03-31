@@ -18,7 +18,7 @@ Sundin ang mga patnubay sa ibaba para sa pagbuo ng Electron sa Linux.
 * Node.js. May iba't-ibang paraan upang i-install ang Node. Maaaring "i-download" ang "source code" galing sa [nodejs.org](https://nodejs.org) at ikompayl ito. Ang paggawa nito ay hahayaang "i-install" ang Node sa iyong "home directory" bilang "standard user". Maaari din namang subukan ang mga "repository" tulad ng [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 o mamaya.
-* Ang pagpapaunlad ng mga "header" ng GTK+ at libnotify.
+* Development headers of GTK 3 and libnotify.
 
 Sa Ubuntu, "i-install" ang mga susunod na mga "library":
 

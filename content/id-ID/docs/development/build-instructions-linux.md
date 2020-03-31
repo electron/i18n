@@ -18,7 +18,7 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 * Node.js. Ada berbagai cara untuk menginstal Node. Anda dapat mendownload kode sumber dari [nodejs.org](https://nodejs.org) dan mengkompilasinya. Melakukan hal tersebut memungkinkan pemasangan Node di direktori home Anda sendiri sebagai pengguna standar. Atau coba repositori seperti [ NodeSource ](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
 * [berdentang](https://clang.llvm.org/get_started.html) 3.4 atau yang lebih baru.
-* Header pengembangan GTK + dan libnotify.
+* Development headers of GTK 3 and libnotify.
 
 Di Ubuntu, instal pustaka berikut ini:
 

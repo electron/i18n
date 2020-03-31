@@ -18,7 +18,7 @@ Di seguito sono riportate le linee guida per compilare Electron in ambiente Linu
 * Node.js. Ci sono diversi modi per installare Node. Puoi scaricare i sorgenti da [nodejs.org](https://nodejs.org) e compilarli. Ciò consente di installare Node nella propria home directory come utente standard. O puoi scaricarlo da un repository come ad esempio [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 o successiva.
-* Headers di sviluppo per GTK+ e libnotify.
+* Development headers of GTK 3 and libnotify.
 
 Su Ubuntu, installa le seguenti librerie:
 

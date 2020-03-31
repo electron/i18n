@@ -18,7 +18,7 @@ Siga las indicaciones a continuación para construir Electron en Linux. vm
 * Node.js. Existen muchas maneras de instalar Node. Puedes descargar el código de fuente de [nodejs.org](https://nodejs.org) y compilarlo. Hacerlo permite instalar Node en el directorio de tu propia casa como un usuario estándar. O intenta repositorios como [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 o luego.
-* Jefes de desarrollo de GTK+ y libnotify.
+* Development headers of GTK 3 and libnotify.
 
 En Ubuntu, instala las siguientes librerías: 
 

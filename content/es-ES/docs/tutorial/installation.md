@@ -45,24 +45,33 @@ Si no puede acceder a GitHub o necesita proporcionar una compilación personaliz
 
 #### Espejo
 
-Puede utilizar variables de entorno para sobrescribir la URL base, la ruta en la que buscar binarios de Electron y el nombre del archivo binario. La url utilizada por `@electron/get` se compone de la siguiente manera:
+You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The URL used by `@electron/get` is composed as follows:
 
-```plaintext
+```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-Por ejemplo, para usar el espejo de China:
+For instance, to use the China CDN mirror:
 
-```plaintext
+```shell
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
+
+By default, `ELECTRON_CUSTOM_DIR` is set to `v$VERSION`. To change the format, use the `{{ version }}` placeholder. For example, `version-{{ version }}` resolves to `version-5.0.0`, `{{ version }}` resolves to `5.0.0`, and `v{{ version }}` is equivalent to the default. As a more concrete example, to use the China non-CDN mirror:
+
+```shell
+ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+ELECTRON_CUSTOM_DIR="{{ version }}"
+```
+
+The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Caché
 
 Alternativamente, puede anular la memoria caché local. `@electron-get` almacenará en caché los archivos binarios descargados en un directorio local para no sobrecargar tu red. Puede usar esa carpeta de caché para proporcionar compilaciones personalizadas de Electron o para evitar hacer contacto con la red en absoluto.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
+* macOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
 
 En entornos que han estado usando versiones anteriores de Electron, también podrás encontrar la caché en `~/.electron`.

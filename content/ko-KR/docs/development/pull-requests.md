@@ -34,7 +34,7 @@ $ git fetch upstream
 
 운영 체제에 따라 빌드 단계나 의존성이 약간씩 차이가 있습니다. Electron을 로컬에서 빌드하는 방법을 다룬 아래 가이드 문서를 참고하세요:
 
-* [MacOS에서 빌드하기](https://electronjs.org/docs/development/build-instructions-macos)
+* [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [리눅스에서 빌드하기](https://electronjs.org/docs/development/build-instructions-linux)
 * [Windows에서 빌드하기](https://electronjs.org/docs/development/build-instructions-windows)
 

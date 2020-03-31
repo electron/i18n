@@ -25,15 +25,15 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## 无边框窗口
 
-如果想创建一个无边框或者任意形状的视图，可以使用[Frameless Window](frameless-window.md) 的API
+如果想创建一个无边框或者任意形状的透明窗口，你可以使用[Frameless Window](frameless-window.md) 的API
 
 ## 优雅地显示窗口
 
-当页面在窗口中直接加载时，用户会看到未完成的页面，这不是一个好的原生应用的体验。为了让画面准备好了再显示，这有两种不同的解决方案。
+当页面在窗口中直接加载时，用户会看到未完成的页面，这不是一个好的原生应用的体验。为了让画面显示时没有视觉闪烁，有两种不同的解决方案。
 
 ## 使用`ready-to-show`事件
 
-在加载页面时，渲染进程第一次完成绘制时，会发出 `ready-to-show` 事件 。 在此事件后显示窗口将没有视觉闪烁：
+在加载页面时，渲染进程第一次完成绘制时，如果窗口还没有被显示，渲染进程会发出 `ready-to-show` 事件 。 在此事件后显示窗口将没有视觉闪烁：
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -45,7 +45,7 @@ win.once('ready-to-show', () => {
 
 这个事件通常在 `did-finish-load` 事件之后发出，但是页面有许多远程资源时，它可能会在 `did-finish-load`之前发出事件。
 
-Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. 如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
 
 ## 设置 `backgroundColor`
 
@@ -93,10 +93,10 @@ child.once('ready-to-show', () => {
 
 [ 页面可见性 API ](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) 的工作方式如下:
 
-* 在所有平台上, 可见性状态与窗口是否隐藏/最小化与否相关。
-* 此外, 在 macOS 上, 可见性状态还跟踪窗口的遮挡状态相关。 如果窗口被另一个窗口完全遮挡了，可见性状态为`hidden`. 在其他平台上，可见性状态只有在使用 `win.hide()`使窗口最小化或者隐藏时才为 `hidden`
+* 在所有平台上, 可见性状态与窗口是否隐藏/最小化相关。
+* 此外, 在 macOS 上, 可见性状态还会跟踪窗口的遮挡状态。 如果窗口被另一个窗口完全遮挡了，可见性状态为`hidden`. 在其他平台上，可见性状态只有在使用 `win.hide()`使窗口最小化或者隐藏时才为 `hidden`
 * 如果创建`BrowserWindow` 时带有 `show: false`的参数, 最初的可见性状态将为`visible` 尽管窗口实际上是隐藏的。
-* 如果`backgroundThrottling`被禁用，可见性状态将保持为`visible` 即使窗户被最小化、遮挡或隐藏。
+* 如果`backgroundThrottling`被禁用，可见性状态将保持为`visible` 即使窗口被最小化、遮挡或隐藏。
 
 推荐您在可见性状态为 `hidden` 时暂停消耗资源的操作以便减少电力消耗。
 
@@ -113,7 +113,7 @@ child.once('ready-to-show', () => {
 
 进程：[主进程](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`BrowserWindow` 是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 通过 `options` 可以创建一个具有原生属性的 `BrowserWindow` 。
 
@@ -145,16 +145,16 @@ child.once('ready-to-show', () => {
   * `title`String(可选) - 默认窗口标题 默认为`"Electron"`。 如果由`loadURL()`加载的HTML文件中含有标签`<title>`，此属性将被忽略。
   * `icon` ([NativeImage](native-image.md) | String) (可选) - 窗口的图标. 在 Windows 上推荐使用 `ICO` 图标来获得最佳的视觉效果, 默认使用可执行文件的图标.
   * `show` Boolean (可选) - 窗口创建的时候是否显示. 默认值为`true`.
-  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created. In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`. Setting this to `false` will cause the `ready-to-show` event to not fire. 默认值为 `true`。
+  * `paintWhenInitiallyHidden`Boolean(可选) - 当`show`为`false`并且渲染器刚刚被创建时，它是否应激活。 为了让`document.visibilityState` 在`show: false`的情况下第一次加载时正确地工作，你应该把这个设置成`false`. 设置为 `false` 将会导致`ready-to-show` 事件不触发。 默认值为 `true`。
   * `frame` Boolean (可选) - 设置为 `false` 时可以创建一个[Frameless Window](frameless-window.md). 默认值为 `true`.
   * `parent` BrowserWindow (可选) - 指定父窗口. 默认值为 `null`.
   * `modal` Boolean (可选) -是否为模态窗. 仅供子窗口使用. 默认值为`false`.
   * `acceptFirstMouse` Boolean (可选) - 是否允许单击页面来激活窗口. 默认值为 `false`.
   * `disableAutoHideCursor` Boolean (可选) - 是否在输入时隐藏鼠标. 默认值为`false`.
   * `autoHideMenuBar` Boolean (可选) - 自动隐藏菜单栏, 除非按了`Alt`键. 默认值为`false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. 默认值为 `false`.
+  * `enableLargerThanScreen` Boolean (可选) - 是否允许改变窗口的大小使之大于屏幕的尺寸. 仅适用于 macOS，因为其它操作系统默认允许 大于屏幕的窗口。 默认值为 `false`.
   * `backgroundColor` String(可选) - 窗口的背景颜色为十六进制值，例如`#66CD00`, `#FFF`, `#80FFFFFF` (设置`transparent`为`true`方可支持alpha属性，格式为#AARRGGBB)。 默认值为 `#FFF`（白色）。
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
+  * `hasShadow` Boolean (可选) - 窗口是否有阴影. 默认值为 `true`.
   * `opacity` Number (可选)-设置窗口初始的不透明度, 介于 0.0 (完全透明) 和 1.0 (完全不透明) 之间。仅支持 Windows 和 macOS 。
   * `darkTheme` Boolean (可选) - 强制窗口使用 dark 主题, 只在一些拥有 GTK+3 桌面环境上有效. 默认值为 `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 默认值为 `false`. On Windows, does not work unless the window is frameless.
@@ -304,7 +304,7 @@ window.onbeforeunload = (e) => {
 
 当页面已经渲染完成(但是还没有显示) 并且窗口可以被显示时触发
 
-Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. 如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
 
 #### 事件: 'maximize'
 

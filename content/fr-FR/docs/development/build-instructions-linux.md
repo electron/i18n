@@ -18,7 +18,7 @@ Suivez les indications ci-dessous pour compiler Electron sur Linux.
 * Node.js. Il y a différentes façons d’installer Node. Vous pouvez télécharger le code source depuis [nodejs.org](https://nodejs.org) et le compiler vous-même. Cela permet l’installation de Node sur votre propre répertoire comme un utilisateur standard. Ou essayez les dépôts tels que [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 ou plus.
-* En-têtes de développement de GTK+ et libnotify.
+* Development headers of GTK 3 and libnotify.
 
 Sur Ubuntu, installez les bibliothèques suivantes :
 

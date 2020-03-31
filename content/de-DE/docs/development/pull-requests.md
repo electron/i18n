@@ -34,7 +34,7 @@ $ git fetch upstream
 
 Build Schritte und Abhängigkeiten unterscheiden sich leicht, abhängig von Deinem Betriebssystem. Lies hier für eine detaillierte Anleitung zum lokalen bauen von Electron Apps:
 
-* [Bauen auf MacOS](https://electronjs.org/docs/development/build-instructions-macos)
+* [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Bauen auf Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Bauen auf Windows](https://electronjs.org/docs/development/build-instructions-windows)
 

@@ -18,7 +18,7 @@
 * Node.js. Существует несколько способов установить Node. Вы можете скачать исходный код с [nodejs.org](https://nodejs.org) и скомпилировать его. Это позволяет установить Node в вашу домашнюю директорию со стандартными правами пользователя. Или используйте такие репозитории как [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 или выше.
-* Заголовочные файлы от GTK+ и libnotify.
+* Development headers of GTK 3 and libnotify.
 
 Под Ubuntu, установите следующие библиотеки:
 
