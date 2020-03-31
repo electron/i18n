@@ -68,7 +68,7 @@ The above configuration will download from URLs such as `https://npm.taobao.org/
 
 #### الكاش
 
-Alternatively, you can override the local cache. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Alternatively, you can override the local cache. ستخبأ `@electron/get` ثنائيات التي تم تنزيلها في مجلدنا لكي لا تضغط على شبكتك. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * macOS: `~/Library/Caches/electron/`
@@ -76,7 +76,7 @@ Alternatively, you can override the local cache. `@electron/get` will cache down
 
 On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
 
-You can also override the local cache location by providing a `electron_config_cache` environment variable.
+يمكنك تجاهل موقع ذاكرة تخزين المحلية بتوفير `electron_config_cache` متغير البيئة.
 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
