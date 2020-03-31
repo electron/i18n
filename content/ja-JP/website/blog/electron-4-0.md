@@ -4,15 +4,15 @@ author: BinaryMuse
 date: '2018-12-20'
 ---
 
-The Electron team is excited to announce that the stable release of Electron 4 is now available! You can install it from [electronjs.org](https://electronjs.org/) or from npm via `npm install electron@latest`. The release is packed with upgrades, fixes, and new features, and we can't wait to see what you build with them. Read more for details about this release, and please share any feedback you have as you explore!
+Electron チームは、Electron 4 安定版が利用可能になった発表でワクワクしています! [electronjs.org](https://electronjs.org/) からか、npm で `npm install electron@latest` からインストールできます。 このリリースにはアップグレード、修正、新機能が詰め込んであります。皆さんが何を作るのか待ち遠しいです。 以下にこのリリースの詳細が続きます。是非使用したご意見を共有してください!
 
 ---
 
 ## What's New?
 
-A large part of Electron's functionality is provided by Chromium, Node.js, and V8, the core components that make up Electron. As such, a key goal for the Electron team is to keep up with changes to these projects as much as possible, providing developers who build Electron apps access to new web and JavaScript features. To this end, Electron 4 features major version bumps to each of these components; Electron v4.0.0 includes Chromium `69.0.3497.106`, Node `10.11.0`, and V8 `6.9.427.24`.
+Electron の機能の大部分は、Electron を構成するコアコンポーネントの Chromium、Node.js、V8 によって提供されています。 そのため Electron チームの主な目標は、これらのプロジェクトの変更に可能な限り対応し、Electron アプリを開発する開発者に新しいウェブや JavaScript の機能へのアクセスを提供することです。 このため Electron 4 ではこれらの各コンポーネントのバージョンが大きく変更されています。Electron v4.0.0 には Chromium `69.0.3497.106`、Node `10.11.0`、V8 `6.9.427.24` が入っています。
 
-In addition, Electron 4 includes changes to Electron-specific APIs. You can find a summary of the major changes in Electron 4 below; for the full list of changes, check out the [Electron v4.0.0 release notes](https://github.com/electron/electron/releases/tag/v4.0.0).
+さらに、Electron 4 には Electron 固有の API への変更が含まれます。 You can find a summary of the major changes in Electron 4 below; for the full list of changes, check out the [Electron v4.0.0 release notes](https://github.com/electron/electron/releases/tag/v4.0.0).
 
 ### Disabling the `remote` Module
 
