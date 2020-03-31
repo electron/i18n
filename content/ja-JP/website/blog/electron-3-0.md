@@ -4,7 +4,7 @@ author: codebytere
 date: '2018-09-18'
 ---
 
-The Electron team is excited to announce that the first stable release of Electron 3 is now available from [electronjs.org](https://electronjs.org/) and via `npm install electron@latest`! It's jam-packed with upgrades, fixes, and new features, and we can't wait to see what you build with them. Below are details about this release, and we welcome your feedback as you explore.
+Electron チームは [electronjs.org](https://electronjs.org/) 及び `npm install electron@latest` から初の Electron 3 安定版が利用できるという発表でワクワクしています! アップグレード、修正、新機能が盛り沢山で、皆さんが何を作るのか待ち遠しいです。 Below are details about this release, and we welcome your feedback as you explore.
 
 ---
 
