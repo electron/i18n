@@ -43,10 +43,13 @@ async function main() {
     return
   }
 
-  const { data: artifactsForRepo } = await github.request("GET /repos/:owner/:repo/actions/artifacts", {
-    owner: 'electron',
-    repo: 'i18n',
-  })
+  const { data: artifactsForRepo } = await github.request(
+    'GET /repos/:owner/:repo/actions/artifacts',
+    {
+      owner: 'electron',
+      repo: 'i18n',
+    }
+  )
   const lastArtifact = artifactsForRepo.artifacts[0]
 
   const downloadFile = path.join(
