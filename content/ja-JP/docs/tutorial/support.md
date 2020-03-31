@@ -31,7 +31,7 @@ Electron の [サポートしているバージョン](#supported-versions) に�
 
 サポートされているすべてのリリースラインは、以前 `master` にマージされた修正をバックポートする外部のプルリクエストを受け付けます。これは、一部の古いサポートラインではケースバイケースとなります。 すべてのリリースラインのバックポートに関する紛糾は、バックポートプルリクエストが発行された週に、週1回の会議での議題項目として [リリースワーキンググループ](https://github.com/electron/governance/tree/master/wg-releases) によって解決されます。
 
-When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
+既存の機能を破壊するような API の変更や削除がされた場合、可能であれば、その機能は削除されるまでに最低 2 つのメジャーバージョンでサポートされます。 例えば、3 引数を取る関数が、メジャーバージョン 10 で 2 引数になった場合、3 引数版は少なくともメジャーバージョン 12 まで動作し続けます。 最低 2 つのバージョンという基準を過ぎた後は、メンテナンスの負担が大きすぎるとメンテナが感じるまで、2 つのバージョンより長く下位互換性をサポートします。
 
 ### 現在のサポート対象バージョン
 
