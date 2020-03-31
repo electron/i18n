@@ -47,22 +47,31 @@ HTTP プロキシを使用する必要がある場合は、`ELECTRON_GET_USE_PRO
 
 基底 URL、Electron のバイナリを見つけるためのパス、バイナリのファイル名は、環境変数を用いて上書きできます。URL は `@electron/get` で使用されている以下のように構成されたものです。
 
-```plaintext
+```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-例として、中国のミラーを使うにはこうします。
+例として、中国の CDN ミラーを使うにはこうします。
 
-```plaintext
+```shell
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
+
+既定の `ELECTRON_CUSTOM_DIR` は `v$VERSION` です。 この形式を変更するには、`{{ version }}` プレースホルダーを使用します。 例えば、`version-{{ version }}` は `version-5.0.0` に解決され、`{{ version }}` は `5.0.0` に解決されます。`v{{ version }}` は既定と等価です。 より具体的な例として、中国の非 CDN ミラーを使用してみます。
+
+```shell
+ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+ELECTRON_CUSTOM_DIR="{{ version }}"
+```
+
+上記の構成では、`https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip` の URL からダウンロードされます。
 
 #### キャッシュ
 
 代わりに、ローカルキャッシュを上書きできます。 `@electron/get` はあなたのネットワークに負荷がかからないように、ダウンロードしたバイナリをローカルディレクトリにキャッシュします。 そのキャッシュフォルダは、Electron のカスタムビルドの提供やネットワークとの接続を回避するために使用できます。
 
 * Linux: `$XDG_CACHE_HOME` または `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
+* macOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` または `~/AppData/Local/electron/Cache/`
 
 古いバージョンの Electron を使用していた環境の場合は、`~/.electron` 内にもキャッシュがあるかもしれません。
@@ -110,9 +119,9 @@ ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 
 `npm install electron` を実行するとき、インストール時エラーが発生する場合があります。
 
-ほとんどの場合、これらのエラーはネットワークに起因し、`electron` のnpmパッケージに問題はないと考えられます。 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` といったエラーが表示されている場合、それはネットワークに問題があることを示しています。 最善の解決策は、ネットワークの切り替えを試みるか、少し待ってからもう一度インストールを試みることです。
+ほとんどの場合、このエラーはネットワークによるもので、`electron` の npm パッケージに問題はありません。 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET`、`ETIMEDOUT` といったエラーは、ネットワーク上の問題を示しています。 最善の解決策は、ネットワークを切り替えるか、少し待ってからもう一度インストールしてることです。
 
-`npm` 経由でのインストールに失敗する場合、Electron を [electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードするという方法もあります。
+`npm` でのインストールに失敗する場合、Electron を [electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードすることもできます。
 
 `EACCESS` エラーでインストールが失敗した場合は、おそらく [npmの権限を修正する](https://docs.npmjs.com/getting-started/fixing-npm-permissions) 必要があります。
 
@@ -128,4 +137,4 @@ sudo npm install electron --unsafe-perm=true
 npm install --verbose electron
 ```
 
-強制的に再ダウンロードする必要がある場合は、`force_no_cache` 環境変数を `true` に設定してください。
+強制的に再ダウンロードする必要がある場合は、`force_no_cache`環境変数を`true`に設定してください。
