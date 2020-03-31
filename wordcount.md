@@ -6,7 +6,7 @@ Stat | Value
 ---- | -----
 total files | 271
 total words | 261805
-unique words | 12466
+unique words | 12465
 average words per file | 966
 
 ## Blog English
