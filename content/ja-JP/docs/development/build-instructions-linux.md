@@ -18,7 +18,7 @@ Linux 版 Electron のビルドについては、以下のガイドラインに�
 * Node.js. Node はいろいろな方法でインストールできます。 [nodejs.org](https://nodejs.org)からソースコードをダウンロードしてコンパイルできます。 一般ユーザーのホームディレクトリに Node をインストールできます。 または[NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)のようなリポジトリを試してください。
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 またはそれ以降。
-* GTK+ と libnotify の開発ヘッダ
+* GTK 3 と libnotify の開発ヘッダ
 
 Ubuntu では、以下のライブラリをインストールしてください
 
