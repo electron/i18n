@@ -45,24 +45,33 @@ GitHub에 액세스 할 수 없거나 사용자 정의 빌드를 제공해야하
 
 #### 미러(Mirror)
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `@electron/get` is composed as follows:
+You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The URL used by `@electron/get` is composed as follows:
 
-```plaintext
+```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-예를 들어, 중국 mirror는 다음과 같습니다.
+For instance, to use the China CDN mirror:
 
-```plaintext
+```shell
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
+
+By default, `ELECTRON_CUSTOM_DIR` is set to `v$VERSION`. To change the format, use the `{{ version }}` placeholder. For example, `version-{{ version }}` resolves to `version-5.0.0`, `{{ version }}` resolves to `5.0.0`, and `v{{ version }}` is equivalent to the default. As a more concrete example, to use the China non-CDN mirror:
+
+```shell
+ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+ELECTRON_CUSTOM_DIR="{{ version }}"
+```
+
+The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### 캐시(Cache)
 
 또는, 로컬 캐시를 대체할 수 있습니다. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. 캐시 폴더를 사용하여 electron의 커스텀 빌드를 제공하거나 일체의 네트워크 접속을 피할 수 있습니다.
 
 * Linux: `$XDG_CACHE_HOME` 또는 `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
+* macOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` 또는 `~/AppData/Local/electron/Cache/`
 
 이전 버전의 electron을 사용하는 환경에서는, `~/.electron`에서 캐시를 찾을 수 있습니다.
@@ -112,7 +121,7 @@ ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 
 대부분의 경우에는, 이 오류는 네트웍 문제로 인한 것이고 `electron` npm 패키지 자체의 오류는 아닙니다. `ELIFECYCLE`나 `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` 같은 오류는 이런 네트웍 문제임을 나타냅니다. 최선의 방법은 네트웍을 전환하거나 잠시 기다린 후에 다시 설치를 시도하는 것입니다.
 
-`npm`을 통한 설치가 실패 할 경우[electron/electron/releases](https://github.com/electron/electron/releases)에서 Electron을 직접 다운로드 할 수도 있습니다.
+`npm`을 통해 설치하는 것에 실패한다면 Electron을 [electron/electron/releases](https://github.com/electron/electron/releases)로부터 직접 다운로드할 수 있습니다.
 
 `EACCESS` 오류로 설치가 실패한 경우 [여러분의 npm 권한을 수정하십시오](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
