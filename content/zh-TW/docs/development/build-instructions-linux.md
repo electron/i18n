@@ -18,7 +18,7 @@ Follow the guidelines below for building Electron on Linux.
 * Node.js。 有幾種方法安裝node 你可以從[node.org](https://nodejs.org)下載源代碼並編譯 也可以作為普通用戶在你的home目錄下安裝node 或者嘗試使用[NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)倉庫
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 或之後的版本。
-* Development headers of GTK+ and libnotify.
+* Development headers of GTK 3 and libnotify.
 
 在 Ubuntu 上，安將下列程式庫:
 
