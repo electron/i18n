@@ -18,7 +18,7 @@
 * Node.js에서 Node를 설치하는 방법은 여러 가지가 있습니다. [nodejs.org](https://nodejs.org) 에서 소스 코드를 받아 빌드하는 방법입니다. 이렇게 하면 Node를 일반 유저로 홈 폴더에 설치할 수 있습니다. 다른 방법으로는 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)에서 소스 파일을 받아와 설치할 수 있습니다.
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 또는 최신 버전
-* GTK+ 와 libnotify의 개발용 헤더
+* Development headers of GTK 3 and libnotify.
 
 Ubuntu를 사용하고 있다면 다음과 같이 라이브러리를 설치해야 합니다:
 
