@@ -18,7 +18,7 @@ Follow the guidelines below for building Electron on Linux.
 * Node.js. There are various ways to install Node. Ви можете завантажити вихідний код з [nodejs.org](https://nodejs.org) та скомпілювати його. Таким чином ви зможете встановити Node для вашого домашнього директорію зі стандартними правами користувача. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Development headers of GTK+ and libnotify.
+* Development headers of GTK 3 and libnotify.
 
 On Ubuntu, install the following libraries:
 
