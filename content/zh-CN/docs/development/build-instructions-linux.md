@@ -18,7 +18,7 @@
 * Node.js. 有多种方法安装 Node.js。 您可以从 [ Nodejs.org ](https://nodejs.org) 下载源代码并进行编译。 也可以作为一个标准的用户在 home 目录下安装 node. 或者尝试使用 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) 仓库
 
 * [ clang ](https://clang.llvm.org/get_started.html) 3.4 或更高版本。
-* GTK+ 开发头文件和 libnotify.
+* Development headers of GTK 3 and libnotify.
 
 在 Ubuntu, 安装下面的库:
 
