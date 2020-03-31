@@ -16,7 +16,7 @@
 
 ### 削除: Browser Window の Affinity
 
-`BrowserWindow` を新規構築する際の `affinity` オプションは、セキュリティ、パフォーマンス、保守性のために Chromium プロセスモデルとの共同連携計画の一環として削除されます。
+`BrowserWindow` を新規構築する際の `affinity` オプションは、セキュリティ、パフォーマンス、保守性のために Chromium のプロセスモデルとの共同連携計画の一環として削除されます。
 
 詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
 
