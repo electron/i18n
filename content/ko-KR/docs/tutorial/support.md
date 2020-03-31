@@ -31,6 +31,8 @@
 
 지원되는 모든 릴리스 라인은 이전에 `master`에 병합된 수정 사항을 백포트하기 위한 외부 pull request를 수락하지만, 이는 일부 이전 지원되는 라인의 경우 사례에 따라 다를 수 있습니다. 릴리스 라인 백 포트와 관련된 모든 결정은 [릴리즈 워킹 그룹](https://github.com/electron/governance/tree/master/wg-releases)에 의해 백포트 PR이 제기되는 주별 회의에서 의제 항목으로 해결됩니다.
 
+When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
+
 ### 현재 지원되는 버전
 
 * 8.1.x
