@@ -92,4 +92,4 @@ Chrome `v66.0.3359.181`、Node `v10.2.0`、V8 `v6.6.6.346.23` など、Electron 
 
 # 次回予告
 
-The Electron team continues to work on defining our processes for more rapid and smooth upgrades as we seek to ultimately maintain parity with the development cadences of Chromium, Node, and V8.
+Electron チームは、最終的に Chromium、Node、V8 の開発ケイデンスと同等で維持するため、より迅速でスムーズなアップグレードプロセスの策定作業を続けています。
