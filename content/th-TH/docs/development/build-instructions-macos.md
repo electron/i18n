@@ -37,7 +37,7 @@ $ pip install pyobjc
 
 หากคุณกำลังพัฒนาอิเล็กตรอนและไม่วางแผนที่จะแจกจ่ายต่อ การสร้างอิเล็กตรอนแบบกำหนดเองคุณสามารถข้ามส่วนนี้ได้
 
-งานสร้างอิเล็กตรอนอย่างเป็นทางการนั้นสร้างด้วย [ Xcode 9.4.1 ](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip) และ MacOS 10.13 SDK การสร้างด้วย SDK ที่ใหม่กว่าก็ใช้งานได้เช่นกัน แต่รุ่นปัจจุบันใช้ 10.13 SDK
+Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK. การสร้างด้วย SDK ที่ใหม่กว่าก็ใช้งานได้เช่นกัน แต่รุ่นปัจจุบันใช้ 10.13 SDK
 
 ## สร้าง Electron
 
