@@ -6,7 +6,7 @@ Jika Anda mengalami crash atau masalah di Electron yang Anda percaya tidak diseb
 
 * **Membangun sebuah debug Elektron**: Cara termudah biasanya membangun sendiri, menggunakan alat dan prasyarat yang tercantum dalam [membangun petunjuk untuk MacOS](build-instructions-macos.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
-* **Xcode**: Selain Xcode, juga menginstal alat baris perintah Xcode. Mereka termasuk LLDB, debugger default dalam Xcode di Mac OS X. Ini mendukung debugging C , Objective- C dan C ++ pada desktop dan perangkat iOS dan simulator.
+* **Xcode**: Selain Xcode, juga menginstal alat baris perintah Xcode. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
     
