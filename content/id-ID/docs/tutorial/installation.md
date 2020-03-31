@@ -44,24 +44,33 @@ Jika Anda tidak dapat mengakses GitHub atau Anda memerlukan penyediaan kustom bu
 
 #### Mirror
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `@electron/get` is composed as follows:
+You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The URL used by `@electron/get` is composed as follows:
 
-```plaintext
+```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_NAMABERKAS
 ```
 
-Misalnya, untuk menggunakan mirror China:
+For instance, to use the China CDN mirror:
 
-```plaintext
+```shell
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
+
+By default, `ELECTRON_CUSTOM_DIR` is set to `v$VERSION`. To change the format, use the `{{ version }}` placeholder. For example, `version-{{ version }}` resolves to `version-5.0.0`, `{{ version }}` resolves to `5.0.0`, and `v{{ version }}` is equivalent to the default. As a more concrete example, to use the China non-CDN mirror:
+
+```shell
+ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+ELECTRON_CUSTOM_DIR="{{ version }}"
+```
+
+The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Cache
 
 Sebagai alternatif, Anda dapat mengganti cache lokal. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Anda dapat memakai folder cache itu untuk menyediakan custom build Electron atau untuk menghindari sentuhan sama sekali dengan jaringan.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
+* macOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
 
 Pada lingkungan yang telah menggunakan Elektron versi lama, Anda mungkin juga menemukan cache di ` ~ /.electron `.
@@ -107,19 +116,18 @@ ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 
 ## Penyelesaian masalah
 
-Saat menjalankan `npm install electron`, beberapa pengguna sesekali menemuinya kesalahan instalasi.
+Saat menjalankan `npm install electron`, beberapa pengguna sesekali menemui kesalahan pada instalasi.
 
-Di hampir semua kasus, kesalahan ini adalah hasil dari masalah jaringan dan tidak masalah dengan paket npm `electron`. Kesalahan seperti `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, dan `ETIMEDOUT` adalah semua indikasi dari masalah jaringan. Solusi terbaik adalah untuk mencoba beralih jaringan, atau menunggu sebentar dan mencoba memasang lagi.
+Di hampir semua kasus, kesalahan ini adalah hasil dari masalah jaringan dan tidak masalah dengan paket npm `electron`. Kesalahan seperti `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, dan `ETIMEDOUT` adalah semua indikasi dari masalah jaringan. Solusi terbaik adalah untuk mencoba mengganti jaringan, atau menunggu sebentar dan mencoba menginstall lagi.
 
-Anda juga dapat mencoba mendownload Electron langsung dari [electron/electron/release](https://github.com/electron/electron/releases) Jika memasang melalui `npm`gagal.
+Anda juga dapat mencoba mendownload Electron langsung dari [electron/electron/release](https://github.com/electron/electron/releases) Jika gagal menginstall melalui `npm`.
 
-Jika penginstalan gagal dengan kesalahan ` EACCESS ` Anda mungkin perlu [memperbaiki izin npm anda](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Jika penginstalan gagal dengan kesalahan ` EACCESS </ 0> Anda mungkin memerlukan <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions"> perbaiki izin npm anda </ 1>.</p>
 
-Jika error diatas masih ada, [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag mungkin harus di set true:
+<p>Jika error diatas masih ada, <a href="https://docs.npmjs.com/misc/config#unsafe-perm">unsafe-perm</a> flag mungkin harus di set true:</p>
 
-```sh
-sudo npm menginstal elektron--tidak aman-perm = true
-```
+<pre><code class="sh">sudo npm menginstal elektron--tidak aman-perm = true
+`</pre> 
 
 On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
 
