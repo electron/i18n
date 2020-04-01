@@ -47,7 +47,7 @@ Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 * Keine Schachtelungen sind mehr als 2 Ebenen (aufgrund des Markdown Renderers).
 * Wszystkie bloki kodu `js` i `javascript` są sprawdzane pod względem zgodności ze stylem [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Wörter auswählen
 
 * Use "will" over "would" when describing outcomes.
 * Prefer "in the ___ process" over "on".

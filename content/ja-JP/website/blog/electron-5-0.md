@@ -11,7 +11,7 @@ The Electron team is excited to announce the release of Electron 5.0.0! You can 
 
 ---
 
-## What's New?
+## 何が新しくなったの?
 
 Much of Electron's functionality is provided by the core components of Chromium, Node.js, and V8. Electron keeps up-to-date with these projects to provide our users with new JavaScript features, performance improvements, and security fixes. Each of these packages has a major version bump in Electron 5:
 

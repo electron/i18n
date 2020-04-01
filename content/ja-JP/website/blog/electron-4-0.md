@@ -4,19 +4,19 @@ author: BinaryMuse
 date: '2018-12-20'
 ---
 
-The Electron team is excited to announce that the stable release of Electron 4 is now available! You can install it from [electronjs.org](https://electronjs.org/) or from npm via `npm install electron@latest`. The release is packed with upgrades, fixes, and new features, and we can't wait to see what you build with them. Read more for details about this release, and please share any feedback you have as you explore!
+Electron チームは、Electron 4 安定版が利用可能になった発表でワクワクしています! [electronjs.org](https://electronjs.org/) からか、npm で `npm install electron@latest` からインストールできます。 このリリースにはアップグレード、修正、新機能が詰め込んであります。皆さんが何を作るのか待ち遠しいです。 以下にこのリリースの詳細が続きます。是非使用したご意見を共有してください!
 
 ---
 
-## What's New?
+## 何が新しくなったの?
 
-A large part of Electron's functionality is provided by Chromium, Node.js, and V8, the core components that make up Electron. As such, a key goal for the Electron team is to keep up with changes to these projects as much as possible, providing developers who build Electron apps access to new web and JavaScript features. To this end, Electron 4 features major version bumps to each of these components; Electron v4.0.0 includes Chromium `69.0.3497.106`, Node `10.11.0`, and V8 `6.9.427.24`.
+Electron の機能の大部分は、Electron を構成するコアコンポーネントの Chromium、Node.js、V8 によって提供されています。 そのため Electron チームの主な目標は、これらのプロジェクトの変更に可能な限り対応し、Electron アプリを開発する開発者に新しいウェブや JavaScript の機能へのアクセスを提供することです。 このため Electron 4 ではこれらの各コンポーネントのバージョンが大きく変更されています。Electron v4.0.0 には Chromium `69.0.3497.106`、Node `10.11.0`、V8 `6.9.427.24` が入っています。
 
-In addition, Electron 4 includes changes to Electron-specific APIs. You can find a summary of the major changes in Electron 4 below; for the full list of changes, check out the [Electron v4.0.0 release notes](https://github.com/electron/electron/releases/tag/v4.0.0).
+さらに、Electron 4 には Electron 固有の API への変更が含まれます。 変更箇所の全リストは、[Electron v4.0.0 リリースノート](https://github.com/electron/electron/releases/tag/v4.0.0) を参照してください。
 
-### Disabling the `remote` Module
+### `remote` モジュールの無効化
 
-You now have the ability to disable the `remote` module for security reasons. The module can be disabled for `BrowserWindow`s and for `webview` tags:
+セキュリティ上の理由から、`remote` モジュールを無効化できるようになりました。 このモジュールは `BrowserWindow` や `webview` タグに対して無効化できます。
 
 ```javascript
 // BrowserWindow
@@ -26,71 +26,71 @@ new BrowserWindow({
   }
 })
 
-// webview tag
+// webview タグ
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-See the [BrowserWindow](https://electronjs.org/docs/api/browser-window) and [`<webview>` Tag](https://electronjs.org/docs/api/webview-tag) documentation for more information.
+詳細は [BrowserWindow](https://electronjs.org/docs/api/browser-window) や [`<webview>` タグ](https://electronjs.org/docs/api/webview-tag) のドキュメントを参照してください。
 
-### Filtering `remote.require()` / `remote.getGlobal()` Requests
+### `remote.require()` / `remote.getGlobal()` リクエストのフィルタリング
 
-This feature is useful if you don't want to completely disable the `remote` module in your renderer process or `webview` but would like additional control over which modules can be required via `remote.require`.
+この機能は、レンダラープロセスや `webview` の `remote` モジュールを完全に無効化したくないけれど、`remote.require` で require され得るモジュールを追加で制御したい場合に便利です。
 
-When a module is required via `remote.require` in a renderer process, a `remote-require` event is raised on the [`app` module](https://electronjs.org/docs/api/app). You can call `event.preventDefault()` on the the event (the first argument) to prevent the module from being loaded. The [`WebContents` instance](https://electronjs.org/docs/api/web-contents) where the require occurred is passed as the second argument, and the name of the module is passed as the third argument. The same event is also emitted on the `WebContents` instance, but in this case the only arguments are the event and the module name. In both cases, you can return a custom value by setting the value of `event.returnValue`.
+レンダラープロセス内で `remote.require` からモジュールが require されると、[`app` モジュール](https://electronjs.org/docs/api/app) で `remote-require` イベントが発生します。 event (第一引数) の `event.preventDefault()` を呼び出すと、モジュールをロードしないようにできます。 第 2 引数には require を発生させた [`WebContents` インスタンス](https://electronjs.org/docs/api/web-contents) が、第 3 引数にはモジュール名が渡されます。 同じイベントが `WebContents` インスタンスでも発生しますが、この場合はイベントとモジュール名のみが引数です。 どちらの場合でも、`event.returnValue` に値をセットすることでカスタム値を返すことが出来ます。
 
 ```javascript
-// Control `remote.require` from all WebContents:
+// 全ての WebContents からの `remote.require` を制御:
 app.on('remote-require', function (event, webContents, requestedModuleName) {
   // ...
 })
 
-// Control `remote.require` from a specific WebContents instance:
+// 特定の WebContents インスタンスからの  `remote.require` を制御:
 browserWin.webContents.on('remote-require', function (event, requestedModuleName) {
   // ...
 })
 ```
 
-In a similar fashion, when `remote.getGlobal(name)` is called, a `remote-get-global` event is raised. This works the same way as the `remote-require` event: call `preventDefault()` to prevent the global from being returned, and set `event.returnValue` to return a custom value.
+同様に、`remote.getGlobal(name)` が呼び出されると `remote-get-global` イベントが発生します。 これは `remote-require` イベントと同じように動作します。global が返されないように `preventDefault()` を呼び出したり、`event.returnValue` でカスタム値を返したりできます。
 
 ```javascript
-// Control `remote.getGlobal` from all WebContents:
+// 全ての WebContents からの `remote.getGlobal` を制御:
 app.on('remote-get-global', function (event, webContents, requrestedGlobalName) {
   // ...
 })
 
-// Control `remote.getGlobal` from a specific WebContents instance:
+// 特定の WebContents インスタンスからの  `remote.getGlobal` を制御:
 browserWin.webContents.on('remote-get-global', function (event, requestedGlobalName) {
   // ...
 })
 ```
 
-For more information, see the following documentation:
+詳細は、以下のドキュメントを参照してください。
 
 * [`remote.require`](https://electronjs.org/docs/api/remote#remoterequiremodule)
 * [`remote.getGlobal`](https://electronjs.org/docs/api/remote#remotegetglobalname)
 * [`app`](https://electronjs.org/docs/api/app)
 * [`WebContents`](https://electronjs.org/docs/api/web-contents)
 
-### JavaScript Access to the About Panel
+### JavaScript で アプリについて にアクセス
 
-On macOS, you can now call `app.showAboutPanel()` to programmatically show the About panel, just like clicking the menu item created via `{role: 'about'}`. See the [`showAboutPanel` documentation](https://electronjs.org/docs/api/app?query=show#appshowaboutpanel-macos) for more information
+macOS で `{role: 'about'}` で作成されたメニューアイテムをクリックするのと同じように、`app.showAboutPanel()` を呼び出すとプログラムから このアプリについて のパネルを表示できるようになりました。 詳しくは [`showAboutPanel` ドキュメント](https://electronjs.org/docs/api/app?query=show#appshowaboutpanel-macos) を参照して下さい。
 
-### Controlling `WebContents` Background Throttling
+### `WebContents` バックグラウンド抑制の制御
 
-`WebContents` instances now have a method `setBackgroundThrottling(allowed)` to enable or disable throttling of timers and animations when the page is backgrounded.
+`WebContents` インスタンスに、ページがバックグラウンドになったときにタイマーやアニメーションの抑制を有効または無効にするメソッド `setBackgroundThrottling(allowed)` が加わりました。
 
 ```javascript
 let win = new BrowserWindow(...)
 win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
 ```
 
-See [the `setBackgroundThrottling` documentation](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) for more information.
+詳しくは [`setBackgroundThrottling` ドキュメント](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) を参照して下さい。
 
 ## 破壊的変更
 
-### No More macOS 10.9 Support
+### macOS 10.9 をサポートしないように
 
-Chromium no longer supports macOS 10.9 (OS X Mavericks), and as a result [Electron 4.0 and beyond does not support it either](https://github.com/electron/electron/pull/15357).
+Chromium は macOS 10.9 (OS X Mavericks) をサポートしなくなったので、[Electron 4.0 以降でもサポートしません](https://github.com/electron/electron/pull/15357)。
 
 ### Single Instance Locking
 
