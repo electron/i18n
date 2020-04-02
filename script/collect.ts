@@ -13,7 +13,6 @@ import { execSync } from 'child_process'
 import { Octokit } from '@octokit/rest'
 import { roggy, IResponse as IRoggyResponse } from 'roggy'
 import { generateCrowdinConfig } from '../lib/generate-crowdin-config'
-const electronDocs = require('electron-docs')
 import * as packageJson from '../package.json'
 const currentEnglishBasepath = path.join(
   __dirname,
@@ -34,12 +33,6 @@ const github = new Octokit({
 interface IResponse {
   tag_name: string
   assets: Octokit.ReposGetReleaseByTagResponseAssetsItem[]
-}
-
-interface IElectronDocsResponse {
-  slug: string
-  filename: string
-  markdown_content: string
 }
 
 let release: IResponse
@@ -136,11 +129,14 @@ async function fetchAPIDocsFromLatestStableRelease() {
   console.log(`Fetching API docs from electron/electron#${release.tag_name}`)
 
   writeToPackageJSON('electronLatestStableTag', release.tag_name)
-  const docs = await electronDocs(release.tag_name)
+  const docs = await roggy(release.tag_name, {
+    owner: 'electron',
+    repository: 'electron',
+  })
 
   docs
-    .filter((doc: IElectronDocsResponse) => doc.filename.startsWith('api/'))
-    .forEach((doc: IElectronDocsResponse) => writeDoc(doc))
+    .filter((doc) => doc.filename.startsWith('api/'))
+    .forEach((doc) => writeDoc(doc))
 
   return Promise.resolve()
 }
@@ -271,7 +267,7 @@ async function fetchWebsiteBlogPosts() {
 
 // Utility functions
 
-function writeDoc(doc: IElectronDocsResponse, version?: string) {
+function writeDoc(doc: IRoggyResponse, version?: string) {
   let basepath = currentEnglishBasepath
   if (version) basepath = englishBasepath(version)
   const filename = path.join(basepath, 'docs', doc.filename)
