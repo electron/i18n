@@ -55,14 +55,14 @@
     "name": "Czech",
     "code": "cs",
     "phrases": "15214",
-    "translated": "1383",
+    "translated": "1385",
     "approved": "298",
     "words": "154894",
-    "words_translated": "4033",
+    "words_translated": "4037",
     "words_approved": "441",
     "translated_progress": 2,
     "approved_progress": 0,
-    "qa_issues": 260
+    "qa_issues": 261
   },
   {
     "name": "Dutch",
