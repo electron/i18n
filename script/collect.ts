@@ -12,6 +12,7 @@ import * as path from 'path'
 import { execSync } from 'child_process'
 import { Octokit } from '@octokit/rest'
 import { roggy, IResponse as IRoggyResponse } from 'roggy'
+import { generateCrowdinConfig } from '../lib/generate-crowdin-config'
 const electronDocs = require('electron-docs')
 import * as packageJson from '../package.json'
 const currentEnglishBasepath = path.join(
@@ -116,7 +117,7 @@ async function delUnsupportedBranches(versions: Array<string>) {
     const difference = folders.filter((x) => !versions.includes(x)).toString()
     del(path.join(__dirname, '..', 'content', difference))
     versions.pop()
-    // TODO: regenerateCrowdinYAML()
+    await generateCrowdinConfig(versions)
   }
 }
 
