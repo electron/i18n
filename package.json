@@ -82,5 +82,10 @@
     "hooks": {
       "pre-push": "check-for-leaks"
     }
-  }
+  },
+  "supportedVersions": [
+    "6-1-x",
+    "7-2-x",
+    "9-x-y"
+  ]
 }
