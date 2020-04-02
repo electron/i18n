@@ -81,9 +81,7 @@ async function fetchRelease() {
 
 async function getSupportedBranches(current: string) {
   console.log(`Fetching latest ${NUM_SUPPORTED_VERSIONS} supported versions`)
-  const currentVersion = current
-    .slice(1)
-    .replace(/\.[0-9].[0-9]/, '-x-y')
+  const currentVersion = current.slice(1).replace(/\.[0-9].[0-9]/, '-x-y')
 
   const resp = await github.repos.listBranches({
     owner: 'electron',
@@ -123,12 +121,12 @@ async function delUnsupportedBranches(versions: Array<string>) {
 }
 
 async function delContent(branches: Array<string>) {
-  console.log('Deleting content')
+  console.log('Deleting content:')
 
   console.log('  - Deleting current content')
   await del(currentEnglishBasepath)
   for (const branch of branches) {
-    console.log(` - Deleting content for ${branch}`)
+    console.log(`  - Deleting content for ${branch}`)
     await del(englishBasepath(branch))
   }
 }
@@ -214,9 +212,9 @@ async function fetchTutorialsFromMasterBranch() {
   })
 
   docs
-    .filter(doc => !doc.filename.startsWith('api/'))
-    .filter(doc => !doc.filename.includes('images/'))
-    .filter(doc => !doc.filename.includes('fiddles/'))
+    .filter((doc) => !doc.filename.startsWith('api/'))
+    .filter((doc) => !doc.filename.includes('images/'))
+    .filter((doc) => !doc.filename.includes('fiddles/'))
     .forEach((doc) => writeDoc(doc))
 
   return Promise.resolve()
@@ -226,7 +224,7 @@ async function fetchTutorialsFromSupportedBranch() {
   console.log(`Feching tutorial docs from supported branches`)
 
   for (const version of packageJson.supportedVersions) {
-    console.log(`- from electron/electro#${version}`)
+    console.log(`  - from electron/electro#${version}`)
     const docs = await roggy(version, {
       owner: 'electron',
       repository: 'electron',
@@ -248,7 +246,7 @@ async function fetchWebsiteContent() {
   console.log(`Fetching locale.yml from electron/electronjs.org#master`)
 
   const url =
-    'https://rawgit.com/electron/electronjs.org/master/data/locale.yml'
+    'https://cdn.jsdelivr.net/gh/electron/electronjs.org@master/data/locale.yml'
   const response = await got(url)
   const content = response.body
   const websiteFile = path.join(currentEnglishBasepath, 'website', `locale.yml`)
