@@ -6,12 +6,12 @@
 
 新機能の PR では、誰でも API を実験的なものとしてタグ付けるよう要求できます。新機能が実験的かどうかに関する意見の相違が PR で解決できない場合、API WG で議論にかけることができます。
 
-## Process for removing the Experimental tag
+## 実験的なタグ付けを取り除くプロセス
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+その API が安定しており、2 つ以上のメジャー安定版のリリースラインにある場合は、API の実験的なタグ付けの削除指名ができます。  この議論は API WG ミーティングで執り行われます。  議論/指名の際に考慮すべきこと:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* 上記の "2つのメジャーリリースライン" の条件を満たしていること
+* その間、この機能の採用で大きなバグや問題が発生しなかったこと
+* API が十分に安定しており、Chromium のアップグレードに大きな影響を受けないこと
+* その API を使う人がいるのかどうか
+* API は提案当初のユースケースを満たしていて、かけ離れていないどうか
