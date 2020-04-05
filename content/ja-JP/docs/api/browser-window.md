@@ -226,7 +226,7 @@ child.once('ready-to-show', () => {
 * Linuxでは、設定できる値は、`desktop`、`dock`、`toolbar`、`splash`、`notification` です。
 * macOSでは、設定できる値は、 `desktop`, `textured です。`. 
   * `textured` タイプは、メタルのグラデーションの外観 (`NSTexturedBackgroundWindowMask`) を追加します。
-  * `desktop` タイプは、ウインドウをデスクトップのバックグラウンドウインドウのレベル (`kCGDesktopWindowLevel - 1`) に配置します。 デスクトップウインドウはフォーカス、キーボードやマウスイベントを受け付けることがないことに注意してください。しかしながら、`globalShortcut` を使って、かろうじて入力を受け付けることはできます。
+  * `desktop` タイプは、ウインドウをデスクトップのバックグラウンドウインドウのレベル (`kCGDesktopWindowLevel - 1`) に配置します。 デスクトップウインドウはフォーカス、キーボードやマウスイベントを受け付けようとしないことに注意してください。しかしながら、`globalShortcut` を使って、かろうじて入力を受け付けることはできます。
 * Windowsでは、設定できるタイプは、`toolbar` です。
 
 ### インスタンスイベント
