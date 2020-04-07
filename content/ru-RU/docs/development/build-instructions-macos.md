@@ -30,7 +30,7 @@ If you are using Python as provided by Homebrew, you also need to install the fo
 You can use `pip` to install it:
 
 ```sh
-$ pip install pyobjc
+$ pip установить pyobjc
 ```
 
 ## macOS SDK
