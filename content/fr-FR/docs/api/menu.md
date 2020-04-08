@@ -16,7 +16,7 @@ La classe `Menu` a les méthodes statiques suivantes :
 
 * `menu` Menu | null
 
-Définit le `menu` en tant que menu de l’application sur macOS. Sous Windows et Linux, le `menu` sera définie comme le menu principal de chaque fenêtre.
+Définit le `menu` en tant que menu de l’application sur macOS. Sous Windows et Linux, le `menu` sera défini comme le menu principal de chaque fenêtre.
 
 Aussi sous Windows et Linux, vous pouvez utiliser un `&` dans le nom de l'élément de niveau supérieur pour indiquer quelle lettre doit obtenir un accélérateur généré. Par exemple, en utilisant `&Fichier` pour le menu de fichiers, l'accélérateur `Alt-F` généré qui ouvre le menu associé. Le caractère indiqué dans l'étiquette du bouton obtient un souligné . Le caractère `&` n'est pas affiché sur l'étiquette du bouton.
 
