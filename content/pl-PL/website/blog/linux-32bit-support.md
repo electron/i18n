@@ -8,7 +8,7 @@ The Electron team will discontinue support for 32-bit Linux (ia32 / i386) starti
 
 ---
 
-## What exactly is Electron no longer supporting?
+## Czego dokładnie Electron już nie obsługuje?
 
 You may have seen the description "64-bit" and "32-bit" as stickers on your computer or as options for downloading software. The term is used to describe a specific computer architecture. Most computers made in the 1990s and early 2000s were made with CPUs that were based on the 32-bit architecture, while most computers made later were based on the newer and more powerful 64-bit architecture. The Nintendo 64 (get it?) and the PlayStation 2 were the first widely available consumer devices with the new architecture, computers sold after 2010 contained almost exclusively 64-bit processors. As a result, support has been shrinking: Google stopped releasing Chrome for 32-bit Linux in March 2016, Canonical stopped providing 32-bit desktop images in 2017 and dropped support for 32-bit altogether with Ubuntu 18.10. Arch Linux, elementary OS, and other prominent Linux distributions have already dropped support for the aging processor architecture.
 
@@ -16,13 +16,13 @@ Until now, Electron has provided and supported builds that run on the older 32-b
 
 Electron has always been a vibrant open source project and we continue to support and encourage developers interested in building Electron for exotic architectures.
 
-## What does that mean for developers?
+## Co to oznacza dla programistów?
 
 If you are not currently providing 32-bit distributions of your app for Linux, no action is required.
 
 Projects which ship 32-bit Linux Electron applications will need to decide how to proceed. 32-bit Linux will be supported on Electron 3 [until](https://electronjs.org/docs/tutorial/support#supported-versions) the release of Electron 6, which gives some time to make decisions and plans.
 
-## What does that mean for users?
+## Co to oznacza dla użytkowników?
 
 If you are a Linux user and not sure whether or not you're running a 64-bit based system, you are likely running on a 64-bit based architecture. To make sure, you can run the `lscpu` or `uname -m` commands in your terminal. Either one will print your current architecture.
 
