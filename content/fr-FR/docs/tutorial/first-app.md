@@ -6,7 +6,7 @@ Cela ne veut pas dire qu'Electron est juste une liaison entre du javascript et u
 
 **Note**: Cette exemple est également disponible sur un dépôt que vous pouvez [télécharger et lancer immédiatement](#trying-this-example).
 
-En terme de développement, une application Electron est par essence une application Node.js. Le point de départ est un `package.json` qui est identique à celui d’un module de Node.js. A most basic Electron app would have the following folder structure:
+En terme de développement, une application Electron est par essence une application Node.js. Le point de départ est un `package.json` qui est identique à celui d’un module de Node.js. Une application Electron minimale aurait la structure suivante :
 
 ```plaintext
 votre-app/
@@ -125,7 +125,7 @@ function createWindow () {
 // Certaines APIs peuvent être utilisées uniquement quand cet événement est émit.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// Quitter si toutes les fenêtres ont été fermées.
 app.on('window-all-closed', () => {
   // Sur macOS, il est commun pour une application et leur barre de menu
   // de rester active tant que l'utilisateur ne quitte pas explicitement avec Cmd + Q
