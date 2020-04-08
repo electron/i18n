@@ -54,8 +54,8 @@ Zwraca:
   * `port` Integer
   * `dziedzina` String
 * `callback` Funkcja 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (opcjonalne)
+  * `password` String (opcjonalne)
 
 Emitted when an authenticating proxy is asking for user credentials.
 
