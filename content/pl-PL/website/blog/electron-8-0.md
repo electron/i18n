@@ -12,7 +12,7 @@ Electron 8.0.0 has been released! It includes upgrades to Chromium `80`, V8 `8.0
 
 The Electron team is excited to announce the release of Electron 8.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
 
-## Notable Changes
+## Znaczące zmiany
 
 ### Stack Changes
 * Chromium `80.0.3987.86`
@@ -39,7 +39,7 @@ See the [8.0.0 release notes](https://github.com/electron/electron/releases/tag/
 
 More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
 
-## API Changes
+## Zmiany API
 * `app` API changes:
     * Added `app.getApplicationNameForProtocol(url)`. [#20399](https://github.com/electron/electron/pull/20399)
     * Added `app.showAboutPanel()` and `app.setAboutPanelOptions(options)` support on Windows. [#19420](https://github.com/electron/electron/pull/19420)
@@ -82,15 +82,15 @@ More information about these and future changes can be found on the [Planned Bre
     * Added the support of `fitToPageEnabled` and `scaleFactor` options in WebContents.printToPDF(). [#20436](https://github.com/electron/electron/pull/20436)
 * Updated `webview.printToPDF` documentation to indicate return type is now Uint8Array. [#20505](https://github.com/electron/electron/pull/20505)
 
-### Deprecated APIs
-The following APIs are now deprecated:
+### Przestarzałe API
+Następujące API są teraz przestarzałe:
 * Deprecated the nonfunctional `visibleOnFullScreen` option within `BrowserWindow.setVisibleOnAllWorkspaces` prior to its removal in the next major release version. [#21732](https://github.com/electron/electron/pull/21732)
 * Deprecated `alternate-selected-control-text` on `systemPreferences.getColor(color)` for macOS. [#20611](https://github.com/electron/electron/pull/20611)
 * Deprecated `setLayoutZoomLevelLimits` on `webContents`, `webFrame`, and `<webview> Tag` because Chromium removed this capability. [#21296](https://github.com/electron/electron/pull/21296)
 * The default value of `false` for `app.allowRendererProcessReuse` is now deprecated. [#21287](https://github.com/electron/electron/pull/21287)
 * Deprecated `<webview>.getWebContents()` as it depends on the remote module. [#20726](https://github.com/electron/electron/pull/20726)
 
-## End of Support for 5.x.y
+## Koniec wsparcia dla 5.x.y
 
 Electron 5.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
 
@@ -98,7 +98,7 @@ Electron 5.x.y has reached end-of-support as per the project's [support policy](
 
 We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Co dalej
 
 In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 9.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 9 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
 
