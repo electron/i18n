@@ -424,8 +424,8 @@ Zwraca:
   * `port` Integer
   * `dziedzina` String
 * `callback` Funkcja 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (opcjonalne)
+  * `password` String (opcjonalne)
 
 Emitowane gdy `webContents` żąda podstawowej autoryzacji.
 

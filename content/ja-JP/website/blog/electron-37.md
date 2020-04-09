@@ -1,5 +1,5 @@
 ---
-title: What's new in Electron 0.37
+title: Electron 0.37 の新機能
 author: zeke
 date: '2016-03-25'
 ---
@@ -8,9 +8,9 @@ Electron `0.37` was recently [released](https://github.com/electron/electron/rel
 
 ---
 
-## What's New
+## 新機能
 
-### CSS Custom Properties
+### CSS カスタムプロパティ
 
 If you've used preprocessed languages like Sass and Less, you're probably familiar with *variables*, which allow you to define reusable values for things like color schemes and layouts. Variables help keep your stylesheets DRY and more maintainable.
 

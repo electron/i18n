@@ -1,6 +1,6 @@
-# Rectangle Object
+# אובייקט Rectangle
 
-* `x` Number - The x coordinate of the origin of the rectangle (must be an integer).
-* `y` Number - The y coordinate of the origin of the rectangle (must be an integer).
-* `width` Number - The width of the rectangle (must be an integer).
-* `height` Number - The height of the rectangle (must be an integer).
+* `x` Number - קואורדינטות הx של מקור המלבן (חייב להיות מספר שלם).
+* `y` Number - קואורדינטות הy של מקור המלבן (חייב להיות מספר שלם).
+* `width` Number - הרוחב של המלבן (חייב להיות מספר שלם).
+* `height` Number - הגובה של המלבן (חייב להיות מספר שלם).

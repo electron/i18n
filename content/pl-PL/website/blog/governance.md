@@ -6,11 +6,11 @@ author:
 date: '2019-03-18'
 ---
 
-As Electron grows in popularity for desktop applications, the team working on it has also grown: we have more fulltime maintainers who work for different companies, live in different timezones, and have different interests. We're introducing a governance structure so we can keep growing smoothly.
+Wraz z rosnącą popularnością Electron w zastosowaniach komputerowych, zespół pracujący nad nim również się rozrósł: mamy więcej pełnoetatowych opiekunów, którzy pracują dla różnych firm, mieszkają w różnych strefach czasowych i mają różne zainteresowania. Wprowadzamy strukturę zarządzania, abyśmy mogli stale rosnąć sprawnie.
 
 ---
 
-## Why are things changing?
+## Dlaczego coś się zmienia?
 
 People in the Electron project coordinate in timezones around the world with volunteers, with full-time maintainers, and with several companies who all rely on Electron. Until now, we've been successful with informal coordination; but as the team has grown, we've found that the approach doesn't scale. We also want to make it easier for new contributors to find a place to call home in the project.
 

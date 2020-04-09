@@ -11,7 +11,7 @@ The Electron team is excited to announce the release of Electron 6.0.0! You can 
 
 ---
 
-## What's New
+## 新機能
 
 Today marks a first for the Electron project: this is the first time we've made a stable Electron release **on the same day** as the corresponding [Chrome stable release](https://www.chromestatus.com/features/schedule)! 🎉
 
