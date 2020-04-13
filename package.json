@@ -59,7 +59,6 @@
     "build": "npm-run-all build:*",
     "build:stats": "ts-node script/stats.ts",
     "build:module": "ts-node script/build-module.ts",
-    "build:nav": "ts-node script/parse-nav.ts",
     "build:readme": "ts-node script/readme.ts",
     "build:wordcount": "ts-node script/wordcount.ts > wordcount.md",
     "update-source-content": "script/update-source-content.sh",
