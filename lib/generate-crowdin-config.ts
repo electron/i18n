@@ -6,5 +6,5 @@ export async function generateCrowdinConfig(versions: Array<string>) {
   const template = await fs.readFile(path.join(__dirname, './templates/crowdin.yml.tpl'), { encoding: 'utf8'})
   const generated = hbs.compile(template)({ versions })
 
-  fs.writeFile(path.join(__dirname, '../crowdin.yml'), generated)
+  await fs.writeFile(path.join(__dirname, '../crowdin.yml'), generated)
 }

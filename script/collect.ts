@@ -14,14 +14,14 @@ import { Octokit } from '@octokit/rest'
 import { roggy, IResponse as IRoggyResponse } from 'roggy'
 import { generateCrowdinConfig } from '../lib/generate-crowdin-config'
 import * as packageJson from '../package.json'
-const currentEnglishBasepath = path.join(
+const currentEnglishBasePath = path.join(
   __dirname,
   '..',
   'content',
   'current',
   'en-US'
 )
-const englishBasepath = (version: string) =>
+const englishBasePath = (version: string) =>
   path.join(__dirname, '..', 'content', version, 'en-US')
 
 const NUM_SUPPORTED_VERSIONS = 4
@@ -45,8 +45,8 @@ main().catch((err: Error) => {
 async function main() {
   await fetchRelease()
   await getSupportedBranches(release.tag_name)
-  await delUnsupportedBranches(packageJson.supportedVersions)
-  await delContent(packageJson.supportedVersions)
+  await deleteUnsupportedBranches(packageJson.supportedVersions)
+  await deleteContent(packageJson.supportedVersions)
   await fetchAPIDocsFromLatestStableRelease()
   await fetchAPIDocsFromSupportedVersions()
   await fetchApiData()
@@ -102,26 +102,26 @@ async function getSupportedBranches(current: string) {
   console.log('Successfully written `supportedVersions` into package.json')
 }
 
-async function delUnsupportedBranches(versions: Array<string>) {
+async function deleteUnsupportedBranches(versions: Array<string>) {
   const folders = await fs.promises.readdir('content')
   folders.pop()
   if (folders.length !== versions.length) {
     versions.push('current')
     const difference = folders.filter((x) => !versions.includes(x)).toString()
     del(path.join(__dirname, '..', 'content', difference))
-    versions.pop()
     await generateCrowdinConfig(versions)
+    versions.pop()
   }
 }
 
-async function delContent(branches: Array<string>) {
+async function deleteContent(branches: Array<string>) {
   console.log('Deleting content:')
 
   console.log('  - Deleting current content')
-  await del(currentEnglishBasepath)
+  await del(currentEnglishBasePath)
   for (const branch of branches) {
     console.log(`  - Deleting content for ${branch}`)
-    await del(englishBasepath(branch))
+    await del(englishBasePath(branch))
   }
 }
 
@@ -177,11 +177,11 @@ async function fetchApiData() {
   }
 
   const apis = await got(asset.browser_download_url).json()
-  const filename = path.join(currentEnglishBasepath, 'electron-api.json')
+  const filename = path.join(currentEnglishBasePath, 'electron-api.json')
   mkdir(path.dirname(filename))
   console.log(
     `Writing ${path.relative(
-      currentEnglishBasepath,
+      currentEnglishBasePath,
       filename
     )} (without changes)`
   )
@@ -221,7 +221,7 @@ async function fetchTutorialsFromSupportedBranch() {
   console.log(`Feching tutorial docs from supported branches`)
 
   for (const version of packageJson.supportedVersions) {
-    console.log(`  - from electron/electro#${version}`)
+    console.log(`  - from electron/electron#${version}`)
     const docs = await roggy(version, {
       owner: 'electron',
       repository: 'electron',
@@ -246,9 +246,9 @@ async function fetchWebsiteContent() {
     'https://cdn.jsdelivr.net/gh/electron/electronjs.org@master/data/locale.yml'
   const response = await got(url)
   const content = response.body
-  const websiteFile = path.join(currentEnglishBasepath, 'website', `locale.yml`)
+  const websiteFile = path.join(currentEnglishBasePath, 'website', `locale.yml`)
   mkdir(path.dirname(websiteFile))
-  console.log(`Writing ${path.relative(currentEnglishBasepath, websiteFile)}`)
+  console.log(`Writing ${path.relative(currentEnglishBasePath, websiteFile)}`)
   await fs.promises.writeFile(websiteFile, content)
   return Promise.resolve()
 }
@@ -268,8 +268,8 @@ async function fetchWebsiteBlogPosts() {
 // Utility functions
 
 function writeDoc(doc: IRoggyResponse, version?: string) {
-  let basepath = currentEnglishBasepath
-  if (version) basepath = englishBasepath(version)
+  let basepath = currentEnglishBasePath
+  if (version) basepath = englishBasePath(version)
   const filename = path.join(basepath, 'docs', doc.filename)
   mkdir(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
@@ -278,7 +278,7 @@ function writeDoc(doc: IRoggyResponse, version?: string) {
 
 function writeBlog(doc: IRoggyResponse) {
   const filename = path.join(
-    currentEnglishBasepath,
+    currentEnglishBasePath,
     'website/blog',
     doc.filename
   )
