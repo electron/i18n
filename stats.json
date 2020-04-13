@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "15239",
-    "translated": "1790",
+    "translated": "1792",
     "approved": "367",
     "words": "155215",
-    "words_translated": "10803",
+    "words_translated": "10835",
     "words_approved": "1326",
     "translated_progress": 6,
     "approved_progress": 0,
-    "qa_issues": 522
+    "qa_issues": 524
   },
   {
     "name": "Bulgarian",
@@ -146,14 +146,14 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "15239",
-    "translated": "7357",
+    "translated": "7364",
     "approved": "2463",
     "words": "155215",
-    "words_translated": "56669",
+    "words_translated": "56778",
     "words_approved": "17709",
     "translated_progress": 36,
     "approved_progress": 11,
-    "qa_issues": 2548
+    "qa_issues": 2552
   },
   {
     "name": "Italian",
@@ -289,10 +289,10 @@
     "name": "Thai",
     "code": "th",
     "phrases": "15239",
-    "translated": "1605",
+    "translated": "1606",
     "approved": "429",
     "words": "155215",
-    "words_translated": "8243",
+    "words_translated": "8261",
     "words_approved": "955",
     "translated_progress": 5,
     "approved_progress": 0,
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "15239",
-    "translated": "2289",
+    "translated": "2290",
     "approved": "696",
     "words": "155215",
-    "words_translated": "10026",
+    "words_translated": "10050",
     "words_approved": "1674",
     "translated_progress": 6,
     "approved_progress": 1,
-    "qa_issues": 491
+    "qa_issues": 492
   }
 ]
