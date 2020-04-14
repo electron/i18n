@@ -64,10 +64,10 @@ cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
-- `HOME=~/.electron-gyp` changes where to find development headers.
-- `--target=1.2.3` is the version of Electron.
-- `--dist-url=...` specifies where to download the headers.
-- `--arch=x64` says the module is built for a 64-bit system.
+* `HOME=~/.electron-gyp` changes where to find development headers.
+* `--target=1.2.3` is the version of Electron.
+* `--dist-url=...` specifies where to download the headers.
+* `--arch=x64` says the module is built for a 64-bit system.
 
 ### Manually building for a custom build of Electron
 
@@ -81,17 +81,17 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 If you installed a native module and found it was not working, you need to check the following things:
 
-- Bila ragu, jalankan `elektron-rebuild` terlebih dahulu.
-- Make sure the native module is compatible with the target platform and architecture for your Electron app.
-- Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
-- Setelah Anda mengupgrade Electron, Anda biasanya perlu membangun kembali modul.
+* Bila ragu, jalankan `elektron-rebuild` terlebih dahulu.
+* Make sure the native module is compatible with the target platform and architecture for your Electron app.
+* Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
+* Setelah Anda mengupgrade Electron, Anda biasanya perlu membangun kembali modul.
 
 ### A note about `win_delay_load_hook`
 
 On Windows, by default, `node-gyp` links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll`. In order to load native modules on Windows, `node-gyp` installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
 If you get an error like `Module did not self-register`, or `The specified
-procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook. If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere. If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
+procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook.  If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere.  If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
 
 ```plaintext
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
@@ -100,7 +100,7 @@ procedure could not be found`, it may mean that the module you're trying to use 
 
 In particular, it's important that:
 
-- you link against `node.lib` from *Electron* and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
+- you link against `node.lib` from _Electron_ and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
 - you include the flag `/DELAYLOAD:node.exe`. If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
 - `win_delay_load_hook.obj` is linked directly into the final DLL. If the hook is set up in a dependent DLL, it won't fire at the right time.
 
