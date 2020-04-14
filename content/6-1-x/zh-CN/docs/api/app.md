@@ -1,6 +1,6 @@
 # app
 
-> 控制你的应用程序的事件生命周期。
+> 控制应用程序的事件生命周期。
 
 进程：[主进程](../glossary.md#main-process)
 
@@ -92,7 +92,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 * `event` Event
 * `url` String
 
-当用户想要在应用中打开一个 URL 时发出。 Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+当用户想要在应用中打开一个 URL 时发出。 应用程序的 ` Info. plist ` 文件必须在 ` CFBundleURLTypes ` 项中定义 url 方案, 并将 ` NSPrincipalClass ` 设置为 ` AtomApplication `。
 
 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
@@ -111,7 +111,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 * `event` Event
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
+* ` userInfo `Object-包含由其他设备上的活动存储的应用程序特定状态。
 
 当来自不同设备的活动通过 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 想要恢复时触发。 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
@@ -142,7 +142,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 * `event` Event
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* ` userInfo `Object-存储的应用程序特定状态。
 
 当来自不同设备的活动通过 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 成功恢复后触发。
 
@@ -152,7 +152,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 * `event` Event
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* ` userInfo `Object-存储的应用程序特定状态。
 
 当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 如果需要更新要传输的状态, 应立即调用 ` 事件. preventDefault () `, 构造新的 ` 用户信息 ` 字典, 并及时调用 ` 应用程序 updateCurrentActiviy () `。 否则，操作会失败，并且触发 `continue-activity-error`
 
@@ -292,7 +292,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+当 gpu 进程崩溃或被杀时触发。
 
 ### Event: 'renderer-process-crashed'
 
@@ -416,7 +416,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 ` app ` 对象具有以下方法:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+** 注意: **某些方法仅在特定的操作系统上可用, 这些方法会被标记出来。
 
 ### `app.quit()`
 
@@ -489,11 +489,11 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` 字符串
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
-You can request the following paths by the name:
+你可以通过名称请求以下的路径:
 
 * `home` 用户的 home 文件夹（主目录）
 * `appData` Per-user application data directory, which by default points to:
@@ -532,9 +532,9 @@ On _Windows_, there are 2 kinds of icons:
 * 与某些文件扩展名相关联的图标, 比如 `. mp3 ` ，`. png ` 等。
 * 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
 
-On _Linux_ and _macOS_, icons depend on the application associated with file mime type.
+在 _Linux_ 和 _macOS_ 系统中，图标取决于和应用程序绑定的 文件 mime 类型
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -549,16 +549,16 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 读取文件的关联图标。
 
-On _Windows_, there a 2 kinds of icons:
+在 _Windows_ 上, 会有两种图标：
 
 * 与某些文件扩展名相关联的图标, 比如 `. mp3 ` ，`. png ` 等。
 * 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
 
-On _Linux_ and _macOS_, icons depend on the application associated with file mime type.
+在 _Linux_ 和 _macOS_ 系统中，图标取决于和应用程序绑定的 文件 mime 类型
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `name` 字符串
 * `path` String
 
 重写 `name` 的路径为 `path`，一个特定的文件夹或者文件。 If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
@@ -575,11 +575,11 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 返回 ` String `-当前应用程序的名称, 它是应用程序的 ` package. json ` 文件中的名称。
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
+根据 npm 的命名规则, 通常 `package.json` 中的 `name` 字段是一个短的小写字符串。 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
 
 ### `app.setName(name)`
 
-* `name` String
+* `name` 字符串
 
 设置当前应用程序的名字
 
@@ -587,17 +587,17 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+要设置区域，则需要在应用启动时使用命令行时打开开关，你可以在[这里](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md)找到。
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+** 注意: **分发打包的应用程序时, 你必须指定 ` locales ` 文件夹。
 
-**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+**注意：** 在 Windows 上，你必须得等 `ready` 事件触发之后，才能调用该方法
 
 ### `app.getLocaleCountryCode()`
 
 Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
-**Note:** When unable to detect locale country code, it returns empty string.
+**注意：** 当无法检测本地国家代码时，它返回空字符串。
 
 ### `app.addRecentDocument(path)` _macOS_ _Windows_
 
@@ -613,21 +613,21 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - 协议的名称, 不包含 `://`。 If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `protocol` String - 协议的名称, 不包含 `://`。 如果您希望应用程序处理 `electron://` 的链接, 请将 ` electron ` 作为该方法的参数.
 * ` path `String (可选) _ Windows _-默认为 ` process.execPath `
 * `args` String[] (可选) _Windows_ - 默认为空数组
 
 返回 ` Boolean `-是否成功调用。
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+此方法将当前可执行文件设置为协议(也称为URI方案) 的默认处理程序。 它允许您将应用程序更深入地集成到操作系统中。 一旦注册成功, 所有 `your-protocol://` 格式的链接都会使用你的程序打开。 整个链接 (包括协议) 将作为参数传递给您的应用程序。
 
-On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+在 Windows 系统中，你可以提供可选参数 path（可执行文件的路径）和 args（在启动时传递给可执行文件的参数数组）
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. 有关详细信息，请参阅 [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115)
+** 注意: **在 macOS 上, 您只能注册已添加到应用程序的 ` info. plist ` 中的协议, 在运行时不能对其进行修改。 但是，您可以在构建时使用简单的文本编辑器或脚本更改文件。 有关详细信息，请参阅 [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115)
 
 **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications.  In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
@@ -649,32 +649,32 @@ This method checks if the current executable as the default handler for a protoc
 
 This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. 同时可以通过查看 `~/Library/Preferences/com.apple.LaunchServices.plist` 来确认。 有关详细信息，请参阅 [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme)
+** 注意: **在macOS上, 您可以使用此方法检查应用程序是否已注册为协议的默认协议处理程序。 同时可以通过查看 `~/Library/Preferences/com.apple.LaunchServices.plist` 来确认。 有关详细信息，请参阅 [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme)
 
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+该API在内部使用 Windows 注册表和 LSCopyDefaultHandlerForURLScheme。
 
 ### `app.setUserTasks(tasks)` _Windows_
 
 * `tasks` [Task[]](structures/task.md) - 由 `Task` 对象组成的数组
 
-Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+将 `tasks` 添加到 Windows 中 JumpList 功能的 [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) 分类中。
 
 `tasks` 是 [`Task`](structures/task.md) 对象组成的数组
 
 返回 ` Boolean `-是否成功调用。
 
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+** 注意: **如果您想自定义跳转列表, 请使用 ` aapp.setJumpList(categories) ` 来代替。
 
 ### `app.getJumpListSettings()` _Windows_
 
 返回 ` Object `:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - `JumpListItem` 对象组成的数组，对应用户在跳转列表中明确删除的项目。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
 
 ### `app.setJumpList(categories)` _Windows_
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - `JumpListCategory` 对象组成的数组
 
 设置或删除应用程序的自定义跳转列表，并返回以下字符串之一：
 
@@ -686,7 +686,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 
 如果 `categories` 的值为 `null`， 之前设定的自定义跳转列表(如果存在) 将被替换为标准的应用跳转列表(由windows生成)
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
+** 注意: **如果 ` JumpListCategory ` 对象既没有 ` type `, 也没有 ` name ` 属性设置, 则其 ` type ` 被假定为 ` tasks `。 如果设置了 ` name ` 属性, 但省略了 ` type ` 属性, 则假定 ` type ` 为 ` custom`。
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. 尝试提前将删除的项目重新添加 到自定义类别中，将导致整个自定义类别被隐藏。 删除的项目可以使用 `app.getJumpListSettings()` 获取。
 
@@ -798,7 +798,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 ### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
 * `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
-* `userInfo` Object - App-specific state to store for use by another device.
+* `userInfo` Object - 应用程序特定状态，供其他设备使用
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
 创建一个 ` NSUserActivity ` 并将其设置为当前活动。 该活动之后可以[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)到另一个设备。
@@ -816,7 +816,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
 * `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
-* `userInfo` Object - App-specific state to store for use by another device.
+* `userInfo` Object - 应用程序特定状态，供其他设备使用
 
 当其类型与 ` type ` 匹配时更新当前活动, 将项目从 ` 用户信息 ` 合并到其当前 ` 用户信息 ` 字典中。
 
@@ -850,7 +850,7 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+返回 [`ProcessMetric[]`](structures/process-metric.md): 包含所有与应用相关的进程的内存和CPU的使用统计的 `ProcessMetric` 对象的数组。
 
 ### `app.getGPUFeatureStatus()`
 
@@ -858,9 +858,9 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+* `infoType` String - 值可以是基本信息的`basic`，也可以是完整信息的`complete`
 
-Returns `Promise`
+返回 ` Promise`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). 这包括 `chrome://gpu` 页面上显示的版本和驱动程序信息。
 
@@ -917,7 +917,7 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
 如果你为 ` app. setLoginItemSettings ` 提供` path ` 和 ` args ` 选项，那么你需要在这里为 ` openAtLogin ` 设置相同的参数已确保正确的设置。
 
-返回 ` Object `:
+返回 `Object`:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
 * `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
@@ -957,7 +957,7 @@ app.setLoginItemSettings({
 Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true</0。 查看更多细节，请查阅
 https://www.chromium.org/developers/design-documents/accessibility</p>
 
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Deprecated Soon</a></strong></p>
+<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">即将弃用</a></strong></p>
 
 <h3 spaces-before="0"><code>app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_</h3>
 
@@ -969,7 +969,7 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
-**[Deprecated Soon](modernization/property-updates.md)**
+**[即将弃用](modernization/property-updates.md)**
 
 ### `app.showAboutPanel` _macOS_ _Linux_
 
@@ -981,8 +981,8 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息
-  * `version` String (optional) - The app's build version number. _macOS_
-  * `credits` String (optional) - Credit information. _macOS_
+  * `version` String (可选) - 应用程序版本号 _macOS_
+  * `credits` String (可选) - 信用信息. _macOS_
   * `website` String (optional) - The app's website. _Linux_
   * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. _Linux_
 
@@ -1002,7 +1002,7 @@ Show the platform's native emoji picker.
 
 * `bookmarkData` String - base64 编码的安全作用域的书签数据(bookmark data) ，通过 `dialog.showOpenDialog` 或者 `dialog.showSaveDialog` 方法获取。
 
-Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. 如果你忘记停止访问书签，[内核资源将会泄漏](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)，并且你的应用将失去完全到达沙盒之外的能力，直到应用重启。
+返回 `Function` - 该函数 **必须** 在你完成访问安全作用域文件后调用一次。 如果你忘记停止访问书签，[内核资源将会泄漏](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)，并且你的应用将失去完全到达沙盒之外的能力，直到应用重启。
 
 ```js
 //开始读取文件
@@ -1048,7 +1048,7 @@ stopAccessingSecurityScopedResource()
 
 **注意：** 当开关不存在或没有值时，它返回空字符串。
 
-### `app.enableSandbox()` _Experimental_
+### `app.enableSandbox()` _实验功能_
 
 在应用程序上启用完全沙盒模式。
 
@@ -1064,13 +1064,13 @@ Returns `Boolean` - Whether the move was successful. Please note that if the mov
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 The message in the error should be informative and tell you exactly what went wrong
+**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 错误中的信息应该是信息性的，并告知具体问题。
 
 ### `app.dock.bounce([type])` _macOS_
 
 * `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
 
-Returns `Integer` an ID representing the request.
+返回 `Integer` 这个请求的 ID
 
 当传入的是 `critical` 时, dock 中的应用将会开始弹跳, 直到这个应用被激活或者这个请求被取消。
 
@@ -1116,7 +1116,7 @@ Returns `Boolean` - Whether the dock icon is visible.
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+设置应用程序的[Dock 菜单](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/)。
 
 ### `app.dock.getMenu()` _macOS_
 
@@ -1128,7 +1128,7 @@ Returns `Menu | null` - The application's [dock menu](https://developer.apple.co
 
 设置`image`作为应用在 dock 中显示的图标
 
-## Properties
+## 属性
 
 ### `app.applicationMenu`
 
@@ -1142,7 +1142,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 此 API 必须在 `ready` 事件触发后调用
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
 
 ### `app.userAgentFallback`
 
