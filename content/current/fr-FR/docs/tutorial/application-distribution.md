@@ -122,7 +122,7 @@ Vous aurez besoin de forker Electron quand vous avez du code C++ à intégrer di
   * `SURF_TEMP` - définir `C:\Temp` sur Windows pour empêcher les problèmes de chemin d’accès trop long
   * `TARGET_ARCH` - définir en `ia32` ou `x64`
 
-4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+4. Dans `script/upload.py`, vous _devez_ définir `ELECTRON_REPO` à votre fork (`MYORG/electron`), surtout si vous êtes un contributeur d'Electron approprié.
 
 5. `surf-build -r https://github.com/MYORG/electron -s VOTRE_COMMIT -n 'surf-PLATFORM-ARCH'`
 
