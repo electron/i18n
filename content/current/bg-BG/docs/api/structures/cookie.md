@@ -9,3 +9,4 @@
 * `httpOnly` Boolean (по избор) - Показва дали бисквитката е маркирана само за HTTP употреба.
 * `session` Boolean (по избор) - Показва дали бисквитката е свързана със сесия или е постоянна, записана с крайна дата за използване.
 * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.
