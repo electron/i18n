@@ -8,7 +8,7 @@ Nutzen Sie eine der folgenden Befehlszeilenoptionen um das Debugging des Hauptpr
 
 ### `--inspect=[port]`
 
-Electron wird für V8-Inspektor Protokollnachrichten auf dem angegebenen `port` lauschen, ein externer Debugger muss sich mit diesem Port verbinden. Der standardmäßige `port` ist `5858`.
+Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
 
 ```shell
 electron --inspect=5858 your/app
