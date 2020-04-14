@@ -16,12 +16,12 @@ Ang workflow upang iayos ang nabagong code ay:
 4. Run `git add your_changed_file.cc`, at gumawa ng pagbabago.
 5. Ngayon, ang sangay ay maaari nang mabuksan bilang pull request.
 
-Kung nais mong iayos ang code na nabago sa pinakabagong git commit (HEAD), maaaring paganahin ang `git-clang-format HEAD~1`. Tingnan ang `git-clang-format -h` para sa mga karagdagang detalye.
+If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
 ## Editor Integration
 
-Maaari mo ring pagsamahin ang `clang-format` direkta sa iyong mga paboritong editor. Para sa karagdagang patnubay sa pagsasaayos ng editor integration, tingnan ang mga pahina:
+You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
-- [Atom](https://atom.io/packages/clang-format)
-- [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
-- [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
+  * [Atom](https://atom.io/packages/clang-format)
+  * [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
+  * [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
