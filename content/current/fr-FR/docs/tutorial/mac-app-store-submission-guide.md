@@ -1,8 +1,8 @@
 # Guide de Soumission Mac App Store
 
-Depuis la version 0.34.0, Electron permet la soumission des applications empaquetées pour le Mac App Store (MAS). Ce guide fournit les informations sur : Comment soumettre votre application et les limites du MAS build.
+Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
 
-**Note:** Pour soumettre une application au Mac App Store, il faut s'inscrire dans le [Apple Developer Programme](https://developer.apple.com/support/compare-memberships/), qui coûte de l'argent.
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## Comment soumettre votre App
 
@@ -53,14 +53,14 @@ Ensuite, vous devez préparer les trois fichiers suivant.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1. //FR" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com. pple.security.app-sandbox</key>
+    <key>com.apple.security.app-sandbox</key>
     <true/>
-    <key>com.apple.security. groupes de pplication</key>
+    <key>com.apple.security.application-groups</key>
     <array>
-      <string>TEAM_ID. notre.bundle.id</string>
+      <string>TEAM_ID.your.bundle.id</string>
     </array>
   </dict>
 </plist>
@@ -122,7 +122,7 @@ Au lieu de signer manuellement votre application, vous pouvez également choisir
 
 #### Signer des modules natifs
 
-Les modules natifs utilisés dans votre application doivent également être signés. Si vous utilisez electron-osx-sign, n'oubliez pas d'inclure le chemin d'accès des binaires générés dans la liste d'arguments :
+Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
 ```sh
 electron-osx-sign VotreApp.app VotreApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
