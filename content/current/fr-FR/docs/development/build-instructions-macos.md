@@ -11,7 +11,7 @@ Suivez les indications ci-dessous pour compiler Electron sur macOS.
 
 ## Python
 
-Veuillez vous assurer que votre système et votre version de Python supporte au moins le TLS 1.2. Cela dépend à la fois de votre version de macOS et Python. Pour un test rapide, lancez:
+Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
 
 ```sh
 $ npx @electron/check-python-tls
@@ -37,7 +37,7 @@ $ pip install pyobjc
 
 Si vous développez Electron et ne prévoyez pas de redistribuer votre version d'Electron vous pouvez sauter cette section.
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK. Compiler avec des nouvelles version du SDK marche aussi, mais les releases utilisent actuellement le SDK 10.13.
+Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK.  Compiler avec des nouvelles version du SDK marche aussi, mais les releases utilisent actuellement le SDK 10.13.
 
 ## Compilation d'Electron
 
