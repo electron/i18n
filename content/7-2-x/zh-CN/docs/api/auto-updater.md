@@ -84,8 +84,8 @@ Emitted when there is an available update. The update is downloaded automaticall
 
 * `options` Object
   * `url` String
-  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
-  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Record<String, String> (可选) _macOS_ - HTTP 请求头。
+  * `serverType` String (可选) _macOS_ - `json` 或者 `default`, 有关更多信息，请参考 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 的自述文件(README)。
 
 设置检查更新的 `url`，并且初始化自动更新。
 
@@ -103,4 +103,4 @@ Restarts the app and installs the update after it has been downloaded. It should
 
 在此机制下，调用 `autoUpdater.quitAndInstall()` 将首先关闭所有应用程序窗口，并且在所有窗口都关闭之后自动调用 `app.quit()`
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**注意:** 严格来讲，执行一次自动更新不一定要调用此方法。因为下载更新文件成功之后，下次应用启动的时候会强制更新。
