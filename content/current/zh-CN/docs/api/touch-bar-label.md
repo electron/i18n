@@ -4,7 +4,7 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)`
+### `new TouchBarLabel(options)` _Experimental_
 
 * `options` Object
   * `label` String (可选) - 显示的文本.
