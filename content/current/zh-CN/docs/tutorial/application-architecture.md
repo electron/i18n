@@ -2,11 +2,11 @@
 
 在我们深入了解Electron的API之前，我们需要探讨一下在Electron中可能遇到的两种进程类型。 它们是完全不同的，因此理解它们非常重要。
 
-## 主进程和渲染器进程
+## 主进程和渲染进程
 
-In Electron, the process that runs `package.json`'s `main` script is called __the main process__. 在主进程中运行的脚本通过创建web页面来展示用户界面。 一个 Electron 应用总是有且只有一个主进程。
+Electron 运行 `package.json` 的 `main` 脚本的进程被称为__主进程__。 在主进程中运行的脚本通过创建web页面来展示用户界面。 一个 Electron 应用总是有且只有一个主进程。
 
-由于 Electron 使用了 Chromium 来展示 web 页面，所以 Chromium 的多进程架构也被使用到。 Each web page in Electron runs in its own process, which is called __the renderer process__.
+由于 Electron 使用了 Chromium 来展示 web 页面，所以 Chromium 的多进程架构也被使用到。 每个 Electron 中的 web 页面运行在它的叫__渲染进程__的进程中。
 
 在普通的浏览器中，web页面通常在沙盒环境中运行，并且无法访问操作系统的原生资源。 然而 Electron 的用户在 Node.js 的 API 支持下可以在页面中和操作系统进行一些底层交互。
 
@@ -51,7 +51,7 @@ const { BrowserWindow } = remote
 const win = new BrowserWindow()
 ```
 
-## 使用 Node.js 的 API
+## 使用Node.js的API
 
 Electron同时对主进程和渲染进程暴露了Node.js 所有的接口。 这里有两个重要的定义：
 
@@ -86,4 +86,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 有一个非常重要的提示: 原生Node.js模块 (即指，需要编译源码过后才能被使用的模块) 需要在编译后才能和Electron一起使用。
 
-The vast majority of Node.js modules are _not_ native. 在650000个模块中只有400是原生的。 当然了，如果你的确需要原生模块，可以在这里查询[如何重新为Electron编译原生模块](./using-native-node-modules.md)(很简单)。
+绝大多数的Node.js模块都_不_是原生的， 在650000个模块中只有400是原生的。 当然了，如果你的确需要原生模块，可以在这里查询[如何重新为Electron编译原生模块](./using-native-node-modules.md)(很简单)。
