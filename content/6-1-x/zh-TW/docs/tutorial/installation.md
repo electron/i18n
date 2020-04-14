@@ -32,7 +32,7 @@ npm install --platform=win32 electron
 
 ## 代理伺服器
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+如果需要使用 HTTP 代理伺服器，可以[設定這些環境變數](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables)。
 
 ## 自訂鏡像及快取
 During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. 它會連到 GitHub 的發行下載頁(`https://github.com/electron/electron/releases/tag/v$VERSION`，當中的 `$VERSION` 替換成 Electron 確切的版本) 下載。
@@ -40,20 +40,20 @@ During installation, the `electron` module will call out to [`electron-download`
 如果你連不到 GitHub，或是需要使用客製化的版本，可以提供鏡像或是既有的快取目錄來安裝。
 
 #### 鏡像
-你可以使用環境變數蓋掉 Electron 尋找二位檔的根 URL 及檔名。 The url used by `electron-download` is composed as follows:
+你可以使用環境變數蓋掉 Electron 尋找二位檔的根 URL 及檔名。 `electron-download` 用來下載的 Url 是這樣組出來的:
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+假如我們要使用位於中國的鏡像站:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
 #### 快取
-或是，你也可以蓋過本機快取。 `electron-download` will cache downloaded binaries in a local directory to not stress your network. 你可以使用這個快取目錄來提供客製版的 Electron，或是在完全沒有網路的環境下執行。
+或是，你也可以蓋過本機快取。 `electron-download` 會將下載的檔案放在本機目錄做為快取，以免浪費你的網路頻寬。 你可以使用這個快取目錄來提供客製版的 Electron，或是在完全沒有網路的環境下執行。
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
@@ -61,7 +61,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 在使用舊版 Electron 的環境中，快取可能放在 `~/.electron` 裡。
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+你也可以透過 `ELECTRON_CACHE` 環境變數蓋過本機快取位置的預設值。
 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
