@@ -1,4 +1,4 @@
-# Intégration de l'environnement de bureau
+# Intégration de l’environnement de bureau
 
 Différents systèmes d'exploitation fournissent des fonctionnalités différentes pour intégrer des applications bureautiques dans leurs environnements de bureau. Par exemple, sous Windows, les applications peuvent mettre des raccourcis dans la JumpList de barre des tâches, et sur Mac, les applications peuvent mettre un menu personnalisé dans le menu du dock.
 
