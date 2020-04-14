@@ -6,7 +6,7 @@ Halaman ini mendefinisikan beberapa terminologi yang umum digunakan dalam pengem
 
 ASAR singkatan dari Atom Shell Archive Format. Arsip [asar](https://github.com/electron/asar) adalah sederhana `tar`-seperti format yang concatenates file ke satu file. Elektron dapat membaca file-file sewenang-wenang darinya tanpa membongkar seluruh berkas.
 
-The ASAR Format diciptakan terutama untuk meningkatkan kinerja pada Windows ... TODO
+The ASAR format was created primarily to improve performance on Windows... TODO
 
 ### CRT
 
@@ -22,11 +22,11 @@ Editor Metode Masukan. Sebuah program yang memungkinkan pengguna memasukkan kara
 
 ### IDL
 
-Bahasa deskripsi antarmuka (IDL). Menulis function signatures dan tipe data dalam format yang dapat digunakan untuk menghasilkan antarmuka di java, C++, JavaScript, dll.
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
 
 ### IPC
 
-IPC singkatan dari Inter-Process Communication. Elektron menggunakan IPC untuk dikirim pesan JSON serial antara proses [ utama ](#main-process) dan [ renderer ](#renderer-process).
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### konten libchromium
 
@@ -36,17 +36,17 @@ Perpustakaan bersama yang menyertakan [ modul Konten Kromium ](https://www.chrom
 
 ### proses utama
 
-Proses utama, biasanya sebuah file bernama ` main.js `, entry point untuk setiap Aplikasi elektron Ini mengendalikan kehidupan aplikasi, dari buka sampai tutup. Ini juga mengelola elemen asli seperti Menu, Menu Bar, Dock , Tray, dll. Proses utama bertanggung jawab untuk membuat setiap proses renderer baru di aplikasi. API Node penuh dibangun di dalamnya.
+Proses utama, biasanya sebuah file bernama ` main.js `, entry point untuk setiap Aplikasi elektron Ini mengendalikan kehidupan aplikasi, dari buka sampai tutup. Ini juga mengelola elemen asli seperti Menu, Menu Bar, Dock , Tray, dll. Proses utama bertanggung jawab untuk membuat setiap proses renderer baru di aplikasi. API Node  penuh dibangun di dalamnya.
 
-Setiap aplikasi file proses utama ditentukan di properti ` utama ` di ` package.json `. Ini adalah bagaimana ` elektron. ` mengetahui file apa yang akan dijalankan saat startup.
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-Di Chromium, proses ini disebut sebagai "proses browser". ini berganti nama menjadi Elektron untuk menghindari kebingungan dengan proses renderer.
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
 Lihat juga: [ proses ](#process), [ proses renderer ](#renderer-process)
 
 ### MAS
 
-Akronim untuk App Store Apple Mac. Untuk detail tentang mengirimkan aplikasi Anda ke MAS, lihat Panduan Pengiriman Mac App Store </a>.
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
@@ -68,7 +68,7 @@ Nullsoft Scriptable Install System adalah Installer berbasis script authoring to
 
 ### OSR
 
-OSR (Off-screen rendering) dapat digunakan untuk memuat halaman berat di latar belakang dan kemudian menampilkannya setelah (akan jauh lebih cepat). Ini memungkinkan Anda membuat halaman tanpa menampilkannya di layar.
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
 ### proses
 
@@ -80,7 +80,7 @@ Lihat juga: [ proses ](#main-process), [ proses renderer ](#renderer-process)
 
 ### proses renderer
 
-Proses renderer adalah jendela browser di aplikasi Anda. Berbeda dengan proses utama, ada beberapa kelipatannya dan masing-masing dijalankan dalam proses terpisah. Mereka juga bisa disembunyikan.
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 Di normal browser, halaman web biasanya menjalankan dalam lingkungan sandboxed dan tidak diperbolehkan akses ke sumber daya yang asli. Pengguna Elektron, namun, memiliki kekuatan untuk menggunakan api Node.js di halaman web yang memungkinkan interaksi tingkat sistem operasi yang lebih rendah.
 
@@ -98,11 +98,11 @@ Seperti Node , Elektron difokuskan untuk memiliki sekumpulan API kecil yang meny
 
 ### V8
 
-V8 adalah mesin JavaScript open source Google . Ini ditulis dalam bahasa C ++ dan digunakan di Google Chrome . V8 bisa berjalan standalone, atau bisa dimasukkan ke aplikasi C ++ apapun .
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
 Elektron membangun V8 sebagai bagian dari Chromium dan kemudian mengarahkan Node ke V8 saat membangunnya.
 
-Nomor versi V8 selalu sesuai dengan yang dimiliki Google Chrome . Chrome 59 menyertakan V8 5,9, Chrome 58 menyertakan V8 5.8, dll.
+V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
