@@ -1,6 +1,6 @@
 # Mac App Store 上架導引
 
-從 0.34.0 版開始，Electron 允許你將打包後的應用程式上架到 Mac App Store (MAS)。這份導引文件將教你: 如何上架你的應用程式，並了解 MAS 建置的限制。
+Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
 
 **Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
