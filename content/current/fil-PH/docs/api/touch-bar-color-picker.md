@@ -4,12 +4,12 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `bagong TouchBarColorPicker(options)` *Experimental*
+### `new TouchBarColorPicker(options)` _Experimental_
 
-* `pagpipilian` Bagay 
+* `options` Object
   * `availableColors` String[] (optional) - Pagkakasunod-sunod ng mga linya ng kulay para ipakitang bilang posibleng kulay na mapili.
   * `selectedColor` String (optional) - Ang napiling kulay sa tagapili, i.e `#ABCDEF`.
-  * `pagbabago` Function (optional) - tungkuling taga tawag kung merong kulay na mapili. 
+  * `change` Function (optional) - Function to call when a color is selected.
     * `color` String - Ang kulay na napili ng gumagamit sa pilian.
 
 ### Katangian ng pagkakataon
@@ -18,8 +18,8 @@ Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBarColor
 
 #### `touchBarColorPicker.mamagamitnamgaKulay`
 
-Isang `String`array na kumakatawan sa pagpipilian ng kulay na magagamit sa kasalukuyang pwedeng mapili. Kung babaguhin ang halaga nito ay agad mauupdate ang color picker na nasa touch bar.
+A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
 
 #### `touchBarColorPicker.napilingKulay`
 
-Isang `String` hex code na kumakatawan sa kulay sa pagpipilian ng mga kulay na kasalukuyang napili. Kung babaguhin ang halaga nito ay agad mauupdate ang color picker na nasa touch bar.
+A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
