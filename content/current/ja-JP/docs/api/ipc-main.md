@@ -12,7 +12,7 @@
 
 * メッセージを送信しているとき、イベント名は `channel` です。
 * 同期メッセージに返信をするには、`event.returnValue` を設定する必要があります。
-* 非同期メッセージを送信者に返送するには、`event.reply(...)` を使用できます。 このヘルパーメソッドはメインフレームではないフレーム (例: iframe) から来るメッセージを自動的に処理します。一方、`event.sender.send(...)` は常にメインフレームに送信されます。
+* 非同期メッセージを送信者に返送するには、`event.reply(...)` を使用できます。  このヘルパーメソッドはメインフレームではないフレーム (例: iframe) から来るメッセージを自動的に処理します。一方、`event.sender.send(...)` は常にメインフレームに送信されます。
 
 レンダラー/メインプロセス間のメッセージの送信と処理の例:
 
@@ -48,7 +48,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,16 +57,16 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
-一回だけの `listener` イベント関数を追加します。この `listener` は次に `channel` にメッセージが送信された後にのみ呼び出され、その後削除されます。
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `...args` any[]
 
 指定した `channel` の listener 配列から、指定した `listener` を削除します。
@@ -80,11 +80,11 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-`invoke` 可能な IPC のハンドラを追加します。このハンドラは、レンダラーが `ipcRenderer.invoke(channel, ...args)` を呼び出すたびに呼び出されます。
+Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
 
 `listener` が Promise を返す場合、Promise の最終的な結果は、リモート呼び出し元への応答として返されます。 それ以外は、リスナーの戻り値が応答の値として使用されます。
 
@@ -107,11 +107,11 @@ async () => {
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-単一の `invoke` 可能な IPC メッセージを処理し、リスナーを削除します。`ipcMain.handle(channel, listener)` を参照してください。
+Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
 
 ### `ipcMain.removeHandler(channel)`
 
