@@ -6,7 +6,7 @@
 
 ASAR 表示 Atom Shell Archive Format。 一个 [asar](https://github.com/electron/asar) 档案就是一个简单的 `tar` 文件 - 比如将那些有关联的文件放至一个单独的文件格式中。 Electron 能够任意读取其中的文件并且不需要解压整个文件。
 
-ASAR 格式主要是为了提高 Windows 上的性能而创建的... TODO
+The ASAR format was created primarily to improve performance on Windows... TODO
 
 ### CRT
 
@@ -22,11 +22,11 @@ C 运行时库 (CRT) 是包含了 ISO C99 标准库的 c + + 标准库的一部�
 
 ### IDL
 
-接口描述语言。用一种格式撰写函数签名和数据类型，被用于生成 Java, C++, JavaScript, 等程序接口。
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
 
 ### IPC
 
-IPC 代表 Inter-Process Communication进程间通信。Electron 使用 IPC 来在[main主进程](#main-process)和[renderer渲染进程](#renderer-process)之间传递 JSON 信息。
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
@@ -38,15 +38,15 @@ IPC 代表 Inter-Process Communication进程间通信。Electron 使用 IPC 来�
 
 主进程，通常是名为` main.js ` 的文件，是每个 Electron 应用的入口文件。它控制着整个 App 的生命周期，从打开到关闭。 它也管理着系统原生元素比如菜单，菜单栏，Dock 栏，托盘等。 主进程负责创建 APP 的每个渲染进程。而且整个 Node API 都集成在里面。
 
-每个 app 的主进程文件都定义在 `package.json` 中的 `main` 属性当中。这也是为什么 `electron.` 能够知道应该使用哪个文件来启动。
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-在Chromium中, 这个进程被称为 "浏览器进程"。它在Electron被重新命名, 以避免与渲染器进程混淆。
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
 参见: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-是指苹果系统上的 Mac App Store 的缩略词。有关于如何提交你的 app 至 MAS ，详见 [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)。
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
@@ -68,9 +68,9 @@ Nullsoft Scriptable Install System 是一个微软 Windows 平台上的脚本驱
 
 ### OSR
 
-OSR(离屏渲染) 可以让你渲染页面而不用立刻显示到屏幕上。 这个技术可被用于在后台加载超大页面然后再显示(这样做速度会更快)。
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
-### process
+### 进程
 
 一个进程是计算机程序执行中的一个实例。 Electron 应用同时使用了 [main(主进程)](#main-process) 和一个或者多个 [rendere(渲染进程)](#renderer-process) 来运行多个程序。
 
@@ -80,9 +80,9 @@ OSR(离屏渲染) 可以让你渲染页面而不用立刻显示到屏幕上。 �
 
 ### renderer process
 
-渲染进程是你的应用内的一个浏览器窗口。与主进程不同的是，它能够同时存在多个而且运行在不一样的进程。而且它们也能够被隐藏。
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
-在通常的浏览器内，网页通常运行在一个沙盒的环境挡住并且不能够使用原生的资源。 然而 Electron 的用户在 Node.js 的 API 支持下可以在页面中和操作系统进行一些低级别的交互。
+在普通的浏览器中，web页面通常在沙盒环境中运行，并且无法访问操作系统的原生资源。 然而 Electron 的用户在 Node.js 的 API 支持下可以在页面中和操作系统进行一些底层交互。
 
 参见： [process](#process), [main process](#main-process)
 
@@ -98,11 +98,11 @@ Squirrel 是一个开源的框架来让 Electron 的应用能够自动的更新�
 
 ### V8
 
-V8 是谷歌公司的开源的 JavaScript 引擎。它使用 C++ 编写并使用在谷歌公司开源的的浏览器 Chrome 上。V8 能够单独运行或者集成在任何一个 C++ 应用内。
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
 Electron将 V8 作为Chromium的一个部分进行构建，然后在构建Node时也指向那个 V8
 
-V8 的版本号总是和谷歌 Chrome的版本号对应。Chrome 59包括 V8 5.9，Chrome 58包括 V8 5.8，等等。
+V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
