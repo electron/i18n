@@ -36,7 +36,7 @@ install:
 
 ### Circle CI
 
-Circle CI is awesome and has xvfb and `$DISPLAY` [already setup, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+Circle CI 很威，[已經設定好 xvfb 及 `$DISPLAY`，不用再額外設定。](https://circleci.com/docs/environment#browsers)
 
 ### AppVeyor
 
