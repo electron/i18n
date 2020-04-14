@@ -2,9 +2,9 @@
 
 > Read and respond to changes in Chromium's native color theme.
 
-프로세스: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
-## 이벤트
+## Events
 
 The `nativeTheme` module emits the following events:
 
