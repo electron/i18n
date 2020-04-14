@@ -2,7 +2,7 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
@@ -46,7 +46,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Ereignisse
 
 The `screen` module emits the following events:
 
@@ -54,8 +54,8 @@ The `screen` module emits the following events:
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>newDisplay` [Display](structures/display.md)
+* `event` Event
+* `newDisplay` [Display](structures/display.md)
 
 Emitted when `newDisplay` has been added.
 
@@ -63,8 +63,8 @@ Emitted when `newDisplay` has been added.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>oldDisplay` [Display](structures/display.md)
+* `event` Event
+* `oldDisplay` [Display](structures/display.md)
 
 Emitted when `oldDisplay` has been removed.
 
@@ -72,8 +72,8 @@ Emitted when `oldDisplay` has been removed.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>display` [Display](structures/display.md)
+* `event` Event
+* `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
 Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
