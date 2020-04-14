@@ -8,3 +8,4 @@ yang lama''mulai cepat'' dokumen telah di gunakan disini telah dipecah ke dalam 
 * To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
 
 To learn more about Electron, check out the [official guides](../).
+
