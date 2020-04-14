@@ -1,8 +1,8 @@
 # ProtocolResponse Object
 
 * `error` Integer (opsional)-Ketika ditetapkan, `request` akan gagal dengan nomor/kode `error` tersebut . Untuk nomor kesalahan yang tersedia, silakan lihat [daftar kesalahan bersih](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
-* `statusCode<0> Number (optional) - HTTP respon kode, standarnya 200.</li>
-<li><code>charset` String (opsional) - Charset response body, standarnya adalah `"utf-8"`.
+* `statusCode<0> Number (optional) - HTTP respon kode, standarnya 200.</p></li>
+<li><p spaces-before="0"><code>charset` String (opsional) - Charset response body, standarnya adalah `"utf-8"`.
 * `mimeType` String (optional) - MIME type dari response body, standarnya `"text/html"`. Pengaturan `mimeType` akan secara implisit mengatur `content-type` header dari sebuah response, tetapi jika `content-type` sudah diatur didalam `headers`, `mimeType` akan diabaikan.
 * `headers` Record<string, string | string[]> (opsional) - Sebuah object yang berisi response headers</1>. "key" harus berupa String, dan "value" harus berupa String atau Array of String.
 * `data` (Buffer | String | ReadableStream) (optional) - The response body. When returning stream as response, this is a Node.js readable stream representing the response body. When returning `Buffer` as response, this is a `Buffer`. When returning `String` as response, this is a `String`. This is ignored for other types of responses.
