@@ -6,7 +6,7 @@ Il est fortement recommandé de formater votre code C++ avant d'ouvrir des pull 
 
 Vous pouvez installer `clang-format` et `git-clang-format` via `npm install -g clang-format`.
 
-Pour automatiquement formater un fichier selon le style de code C++ d'Electron, il suffit de lancer `clang-format -i chemin/vers/electron/fichier.cc`. Cela devrait fonctionner sur MacOS, Linux et Windows.
+To automatically format a file according to Electron C++ code style, run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
 
 Suivez ces étapes pour changer votre code :
 
@@ -16,12 +16,12 @@ Suivez ces étapes pour changer votre code :
 4. Exécutez `git add votre_fichier.cc` et commitez vos modifications.
 5. Maintenant la branche est prête pour être en pull request.
 
-Si vous voulez formater le code changé sur votre dernier git commit (HEAD), vous pouvez exécuter `git-clang-format HEAD~1`. Voir `git-clang-format-h` pour plus de détails.
+If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
 ## Intégration dans l’éditeur
 
-Vous pouvez également intégrer `clang-format` directement dans vos éditeurs préférés. Pour plus d’informations sur l’intégration, consultez ces pages :
+You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
-- [Atom](https://atom.io/packages/clang-format)
-- [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
-- [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
+  * [Atom](https://atom.io/packages/clang-format)
+  * [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
+  * [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
