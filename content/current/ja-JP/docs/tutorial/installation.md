@@ -1,6 +1,6 @@
 # インストール
 
-ビルド済み Electron バイナリをインストールするには、[`npm`](https://docs.npmjs.com) を使用します。Electron をアプリ開発の依存関係として追加する際は、以下のようにすることを推奨します。
+To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
 npm install electron --save-dev
@@ -38,14 +38,12 @@ HTTP プロキシを使用する必要がある場合は、`ELECTRON_GET_USE_PRO
 * [Node 10 以前](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## ミラーとキャッシュのカスタマイズ
-
 インストール中、`electron` モジュールは [`@electron/get`](https://github.com/electron/get) を呼び出して、プラットフォーム用のビルド済み Electron バイナリをダウンロードします。 これは Github のリリースダウンロードページ (`https://github.com/electron/electron/releases/tag/v$VERSION`、 `$VERSION` は Electron の正確なバージョン) からダウンロードします。
 
 もし Github にアクセス出来ないかカスタムビルドを提供する必要がある場合、他に提供されているミラーや既存のキャッシュからダウンロードできます。
 
 #### ミラー
-
-基底 URL、Electron のバイナリを見つけるためのパス、バイナリのファイル名は、環境変数を用いて上書きできます。URL は `@electron/get` で使用されている以下のように構成されたものです。
+You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The URL used by `@electron/get` is composed as follows:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -67,7 +65,6 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 上記の構成では、`https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip` の URL からダウンロードされます。
 
 #### キャッシュ
-
 代わりに、ローカルキャッシュを上書きできます。 `@electron/get` はあなたのネットワークに負荷がかからないように、ダウンロードしたバイナリをローカルディレクトリにキャッシュします。 そのキャッシュフォルダは、Electron のカスタムビルドの提供やネットワークとの接続を回避するために使用できます。
 
 * Linux: `$XDG_CACHE_HOME` または `~/.cache/electron/`
@@ -78,7 +75,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 また、`electron_config_cache` 環境変数を設けることでローカルキャッシュの場所を上書きできます。
 
-キャッシュには、バージョンの公式の zip ファイルと共に、テキストファイルとして格納されているチェックサムが含まれています。典型的なキャッシュは、次のようになっています。
+The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -104,13 +101,11 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 ```
 
 ## バイナリダウンロードのスキップ
-
 `electron` NPM パッケージをインストールすると、electron バイナリが自動的にダウンロードされます。
 
 これは時々不要になることがあります。CI 環境で、他のコンポーネントをテストするときなどです。
 
-すべての npm 依存関係をインストールするときにバイナリがダウンロードされないようにするには、環境変数 `ELECTRON_SKIP_BINARY_DOWNLOAD` を設定します。以下はその例です。
-
+To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
