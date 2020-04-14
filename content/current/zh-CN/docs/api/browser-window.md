@@ -180,7 +180,7 @@ child.once('ready-to-show', () => {
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. 默认值为 `true`。
     * `session` [Session](session.md#class-session) (可选) - 设置页面的 session 而不是直接忽略 Session 对象, 也可用 `partition` 选项来代替，它接受一个 partition 字符串. 同时设置了`session` 和 `partition`时, `session` 的优先级更高. 默认使用默认的 session.
     * `partition` String (optional) - 通过 session 的 partition 字符串来设置界面session. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 默认使用默认的 session.
-    * `affinity` String (可选) - 当指定，具有相同`affinity` 的 web页面将在相同的渲染进程运行。 需要注意的是，由于渲染过程中会有代码重用，如 `webPreferences`的`preload`, `sandbox` 和 `nodeIntegration`等选项会在不同页面之间共用，即使你已经在不同页面中为同一选项设置过不同的值，它们仍会被共用。 因此，建议为`affinity`相同的页面，使用相同的 `webPreferences` _This property is experimental_
+    * `affinity` String (可选) - 当指定，具有相同`affinity` 的 web页面将在相同的渲染进程运行。 需要注意的是，由于渲染过程中会有代码重用，如 `webPreferences`的`preload`, `sandbox` 和 `nodeIntegration`等选项会在不同页面之间共用，即使你已经在不同页面中为同一选项设置过不同的值，它们仍会被共用。 因此，建议为`affinity`相同的页面，使用相同的 `webPreferences` _这一选项当前是实验性的_
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. 默认值为 `true`。
     * `webSecurity` Boolean (可选) - 当设置为 `false`, 它将禁用同源策略 (通常用来测试网站), 如果此选项不是由开发者设置的，还会把 `allowRunningInsecureContent`设置为 `true`. 默认值为 `true`。
@@ -755,7 +755,7 @@ Sets the background color of the window. See [Setting `backgroundColor`](#settin
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
 * `animate` Boolean (optional) _macOS_
 
-Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+重置窗口，并且移动窗口到指定的位置. Any properties that are not supplied will default to their current values.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -790,7 +790,7 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 
 返回 [`Rectangle`](structures/rectangle.md) - 包含正常状态下的窗口大小。
 
-**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. 在正常状态下，getBounds 与 getNormalBounds 得到的边界信息 [`Rectangle`](structures/rectangle.md) 是一致的。
+**注意：**无论当前的窗口状态为：最大化、最小化或者全屏，这个方法都将得到窗口在正常显示状态下的位置信息以及大小信息。 在正常状态下，getBounds 与 getNormalBounds 得到的边界信息 [`Rectangle`](structures/rectangle.md) 是一致的。
 
 #### `win.setEnabled(enable)`
 
@@ -808,7 +808,7 @@ Returns Boolean - whether the window is enabled.
 * `height` Integer
 * `animate` Boolean (optional) _macOS_
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+调整窗口的`width`和 `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
 #### `win.getSize()`
 
@@ -1201,7 +1201,7 @@ Sets the opacity of the window. On Linux, does nothing. Out of bound number valu
 
 Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
 
-#### `win.setShape(rects)` _Windows_ _Linux_ _Experimental_
+#### `win.setShape(rects)` _Windows_ _Linux_ _实验性_
 
 * `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
 
@@ -1311,13 +1311,13 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 设置窗口是否在所有工作空间上可见
 
-**Note:** This API does nothing on Windows.
+**注意:** 该 API 在 Windows 上无效.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
 返回 `Boolean` - 判断窗口是否在所有工作空间上可见.
 
-**Note:** This API always returns false on Windows.
+**注意:** 该 API 在 Windows 上始终返回 false.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
@@ -1409,7 +1409,7 @@ Set a custom position for the traffic light buttons. Can only be used with `titl
 
 Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
 
-#### `win.setTouchBar(touchBar)` _macOS_ _Experimental_
+#### `win.setTouchBar(touchBar)` _macOS_ _实验_
 
 * `touchBar` TouchBar | null
 
@@ -1417,26 +1417,26 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` _Experimental_
+#### `win.setBrowserView(browserView)` _实验_
 
 * `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
-#### `win.getBrowserView()` _Experimental_
+#### `win.getBrowserView()` _实验功能_
 
 Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
-#### `win.addBrowserView(browserView)` _Experimental_
+#### `win.addBrowserView(browserView)` _实验_
 
 * `browserView` [BrowserView](browser-view.md)
 
 Replacement API for setBrowserView supporting work with multi browser views.
 
-#### `win.removeBrowserView(browserView)` _Experimental_
+#### `win.removeBrowserView(browserView)` _实验_
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` _Experimental_
+#### `win.getBrowserViews()` _实验功能_
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。
