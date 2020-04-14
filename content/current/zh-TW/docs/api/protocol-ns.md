@@ -8,7 +8,7 @@ The content of this document should be moved to `protocol.md` after we have enab
 
 > 註冊自訂通訊協定並攔截原有的通訊協定請求。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
@@ -91,7 +91,7 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
 * `scheme` String
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Function (選用
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Registers a protocol of `scheme` that will send a file as the response. The `handler` will be called with `request` and `callback` where `request` is an incoming request for the `scheme`.
@@ -105,7 +105,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
 * `scheme` String
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Function (選用
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
 Registers a protocol of `scheme` that will send a `Buffer` as a response.
@@ -125,7 +125,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `scheme` String
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Function (選用
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Registers a protocol of `scheme` that will send a `String` as a response.
@@ -137,7 +137,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `scheme` String
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Function (選用
     * `response` ProtocolResponse
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
@@ -149,7 +149,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `scheme` String
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Function (選用
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
 Registers a protocol of `scheme` that will send a stream as a response.
@@ -205,7 +205,7 @@ Returns `Boolean` - Whether `scheme` is already registered.
 * `scheme` String
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Function (選用
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
@@ -215,7 +215,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Function (選用
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
@@ -225,7 +225,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Function (選用
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
@@ -235,7 +235,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Function (選用
     * `response` ProtocolResponse
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
@@ -245,7 +245,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Function (選用
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
 Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
