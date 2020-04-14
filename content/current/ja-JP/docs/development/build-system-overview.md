@@ -17,7 +17,7 @@ ElectronはChromiumビルドオプションを継承します。 `Debug` ビル�
 
 ## テスト
 
-**注意** *この章は古い内容であり、この情報は GN でビルドされた Electron には該当しません。*
+**NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
 
 プロジェクトのコーディングスタイルは以下で確認できます。
 
@@ -41,7 +41,7 @@ Mocha の[排他テスト (exclusive tests)](https://mochajs.org/#exclusive-test
 
 ```js
 describe.only('some feature', () => {
-  // ... このブロックのテストのみ実行されます
+  // ... only tests in this block will be run
 })
 ```
 
