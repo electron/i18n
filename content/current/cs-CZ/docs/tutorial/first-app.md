@@ -1,10 +1,10 @@
 # Vytvoření první aplikace
 
-Electron vám umožňuje vytvářet desktopové aplikace za pomocí čistého JavaScriptu s použitím bohaté nabídky nativních API (operačního systému). Lze to chápat jako variantu Node.js zaměřenou na vytváření desktopových aplikací namísto webových.
+Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
 
 To neznamená, že Electron je JavaScript vázaný na knihovny grafického uživatelského rozhraní (GUI). Místo toho, Electron využívá webové stránky jako GUI, takže by jste to mohli vidět jako ořezaný prohlížeč Chromium kontrolovaný JavaScriptem.
 
-**Poznámka**: Tento příklad je také dostupný jako úložiště který si můžete [stáhnout a spustit ihned](#trying-this-example).
+**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
 
 Pokud jde o vývoj, aplikace Elektronu je v podstatě Node.js aplikace. Začínající bod je soubor `package.json`, který je identický s tím, který vytváří Node.js. Nejvíce jednoduchá Electron aplikace by měla následující strukturu složek:
 
@@ -31,7 +31,7 @@ npm skript vytvoří základní `package.json` soubor na základě Vámi zadaný
 }
 ```
 
-**Poznámka**: Pokud položka `main` neexistuje v `package.json`, Electron se pokusí spustit`index.js` (stejně jako v případě Node.js). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
 
 ```json
 {
