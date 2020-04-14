@@ -4,7 +4,7 @@ Electron有API来配置macOS Dock中的应用程序图标。 可以使用API用�
 
 一个自定义的Dock项也普遍用于为那些用户不愿意为之打开整个应用窗口的任务添加快捷方式。
 
-**Terminal.app 的 Dock 菜单:**
+__Terminal.app 的 Dock 菜单:__
 
 ![Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
