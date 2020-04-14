@@ -1,18 +1,18 @@
 # Ajukan Permintaan
 
-* [Atur ulang lingkungan lokal anda](#setting-up-your-local-environment) 
+* [Atur ulang lingkungan lokal anda](#setting-up-your-local-environment)
   * [Step 1: Fork](#step-1-fork)
   * [Langkah 2: Membangun](#step-2-build)
   * [Langkah 3: Cabang](#step-3-branch)
-* [Membuat Perubahan](#making-changes) 
+* [Membuat Perubahan](#making-changes)
   * [Langkah 4: Kode](#step-4-code)
-  * [Langkah 5: Mempercayakan](#step-5-commit) 
+  * [Langkah 5: Mempercayakan](#step-5-commit)
     * [Panduan pesan Commit](#commit-message-guidelines)
   * [Langkah 6: Rebase](#step-6-rebase)
   * [Langkah 7: Tes](#step-7-test)
   * [Langkah 8: Push](#step-8-push)
   * [Step 9: Opening the Pull Request](#step-9-opening-the-pull-request)
-  * [Step 10: Discuss and Update](#step-10-discuss-and-update) 
+  * [Step 10: Discuss and Update](#step-10-discuss-and-update)
     * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
   * [Step 11: Landing](#step-11-landing)
   * [Continuous Integration Testing](#continuous-integration-testing)
@@ -33,7 +33,6 @@ $ git fetch upstream
 ### Langkah 2: Membangun
 
 Mulai dengan langkah dan dependensi sedikit berbeda tergantung pada sistem operasi Anda. Lihat detail panduan lebih rinci di Building Electron Locally:
-
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Membuat di Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Membuat di Windows](https://electronjs.org/docs/development/build-instructions-windows)
@@ -77,29 +76,28 @@ Before a pull request can be merged, it **must** have a pull request title with 
 
 Examples of commit messages with semantic prefixes:
 
-* `fix: don't overwrite prevent_default if default wasn't prevented`
-* `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux`
+- `fix: don't overwrite prevent_default if default wasn't prevented`
+- `feat: add app.isPackaged() method`
+- `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Common prefixes:
 
-    - fix: A bug fix
-    - feat: A new feature
-    - docs: Documentation changes
-    - test: Adding missing tests or correcting existing tests
-    - build: Changes that affect the build system
-    - ci: Changes to our CI configuration files and scripts
-    - perf: A code change that improves performance
-    - refactor: A code change that neither fixes a bug nor adds a feature
-    - style: Changes that do not affect the meaning of the code (linting)
-    - vendor: Bumping a dependency like libchromiumcontent or node
-    
+  - fix: A bug fix
+  - feat: A new feature
+  - docs: Documentation changes
+  - test: Adding missing tests or correcting existing tests
+  - build: Changes that affect the build system
+  - ci: Changes to our CI configuration files and scripts
+  - perf: A code change that improves performance
+  - refactor: A code change that neither fixes a bug nor adds a feature
+  - style: Changes that do not affect the meaning of the code (linting)
+  - vendor: Bumping a dependency like libchromiumcontent or node
 
 Other things to keep in mind when writing a commit message:
 
-1. Baris pertama harus: 
-  * mengandung deskripsi yang singkat tentang perubahan ( Disarankan 50 karakter atau kurang dan tidak lebih dari 72 karakter)
-  * masukkan semuanya dengan huruf kecil dengan pengecualian kata benda, akronim dan kata yang berhubungan dengan kode, seperti fungsi/ nama variabel
+1. Baris pertama harus:
+   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   - masukkan semuanya dengan huruf kecil dengan pengecualian kata benda, akronim dan kata yang berhubungan dengan kode, seperti fungsi/ nama variabel
 2. Biarkan baris kedua kosong.
 3. Jadikan semua baris pada 72 kolom.
 
@@ -198,3 +196,4 @@ Every pull request is tested on the Continuous Integration (CI) system to confir
 Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
 
 CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
+
