@@ -36,9 +36,9 @@ app.on('ready', () => {
 })
 ```
 
-`net` API는 애플리케이션이 `ready` 이벤트를 발생시킨 후에만 사용할 수 있습니다. `ready` 이벤트 이전에 이 모듈을 사용하려고 하면 오류를 발생시킵니다.
+The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
-## 메서드
+## 메소드
 
 다음은 `net` 객체에서 사용할 수 있는 메서드입니다.
 
