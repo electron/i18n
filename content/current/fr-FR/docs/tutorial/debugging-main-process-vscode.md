@@ -1,13 +1,13 @@
 # Débogguer le main process dans VSCode
 
-### 1. Open an Electron project in VSCode.
+### 1. Ouvrez un projet Electron dans VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. Ajouter un fichier `.vscode/launch.json` avec la configuration suivante :
 
 ```json
 {
