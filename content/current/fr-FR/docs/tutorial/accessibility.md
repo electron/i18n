@@ -2,7 +2,7 @@
 
 Développer des applications de manière accessible est important, nous sommes heureux de vous introduire [Devtron](https://electronjs.org/devtron) et [Spectron](https://electronjs.org/spectron) qui donnent aux développeurs l'opportunité de faire de meilleures applications pour tout le monde.
 
-* * *
+---
 
 L'accessibilité de développement avec l'application Electron est similaire à la création d'un site web, car les deux fonctionnent avec de L'HTML . Avec les applications Electron, cependant, vous ne pouvez pas utiliser de ressources en ligne afin de mesurer l'accessibilité de votre application, parce qu'elle ne possède pas d'URL sur laquelle ces outils pourraient pointer.
 
@@ -10,7 +10,7 @@ De nouvelles fonctionnalités apportent des outils d’audit à votre applicatio
 
 ## Spectron
 
-Dans le framework de test Spectron, vous pouvez désormais auditer chaque fenêtre et `<webview>`balise dans votre application. Par exemple :
+In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Par exemple :
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
