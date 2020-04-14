@@ -44,7 +44,7 @@ require('update-electron-app')()
 
 一旦你部署了更新服务器, 继续导入你所需要的代码模块. 下列代码可能因不同的服务器软件而变化, but it works like described when using [Hazel](https://github.com/zeit/hazel).
 
-**重要:** 请确保下面的代码只在打包的应用程序, 而不是开发中. 你可以使用[electron-is-dev](https://github.com/sindresorhus/electron-is-dev)检查当前环境.
+**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. 你可以使用[electron-is-dev](https://github.com/sindresorhus/electron-is-dev)检查当前环境.
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
@@ -59,7 +59,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-最后一步, 检查更新. 下面的例子将每分钟检查一次:
+As the final step, check for updates. The example below will check every minute:
 
 ```javascript
 setInterval(() => {
@@ -89,7 +89,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-同时要确保错误被[being handled](../api/auto-updater.md#event-error). 这是一个例子它将记录到`stderr`:
+Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
