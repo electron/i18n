@@ -92,7 +92,7 @@ Insère le `menuItem` à la position `pos` du menu.
 
 Les objets créés avec `nouveau Menu` ou retournés par `Menu.buildFromTemplate` émettent les événements suivants :
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Remarque :** Certains événements sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
 #### Événement : 'menu-will-show'
 
