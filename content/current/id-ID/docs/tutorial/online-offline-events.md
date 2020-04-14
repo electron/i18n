@@ -4,7 +4,7 @@
 
 Contoh:
 
-*main.js*
+_main.js_
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -17,7 +17,7 @@ app.whenReady().then(() => {
 })
 ```
 
-*online-status.html*
+_online-status.html_
 
 ```html
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ app.whenReady().then(() => {
 
 Mungkin ada kejadian di mana Anda ingin menanggapi kejadian ini di Proses utama juga. Proses utama bagaimanapun tidak memiliki `navigator` dan dengan demikian tidak dapat mendeteksi kejadian ini secara langsung. Menggunakan Perangkat komunikasi inter-proses Elektron, acara dapat diteruskan ke proses utama dan ditangani sesuai kebutuhan, seperti yang ditunjukkan pada contoh berikut.
 
-*main.js*
+_main.js_
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
@@ -55,7 +55,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-*online-status.html*
+_online-status.html_
 
 ```html
 <!DOCTYPE html>
