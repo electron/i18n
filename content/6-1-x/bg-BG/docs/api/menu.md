@@ -10,7 +10,7 @@
 
 ### Статични член функции
 
-The `menu` class has the following static methods:
+Класът `menu` има следните статични член-функции:
 
 #### `Menu.setApplicationMenu(menu)`
 
