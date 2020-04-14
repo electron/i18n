@@ -16,7 +16,7 @@
 
 가능한 값:
 
-* `disabled_software` - 소프트웨어 전용. 하트웨어 가속 비활성화(yellow)
+* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - 사용안함 (red)
 * `disabled_off_ok` - 사용안함 (yellow)
 * `unavailable_software` - 소프트웨어 전용, 하드웨어 가속 사용 불가(yellow)
