@@ -4,9 +4,9 @@ Before we can dive into Electron's APIs, we need to discuss the two process type
 
 ## Main and Renderer Processes
 
-इलेक्ट्रॉन में, `package.json` की `main` स्क्रिप्ट चलाने वाली प्रक्रिया को **मुख्य प्रक्रिया** कहते है | The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+In Electron, the process that runs `package.json`'s `main` script is called __the main process__. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
 
-चूँकि इलेक्ट्रॉन वेब पेजेज को प्रदशित करने के लिए क्रोमियम का इस्तेमाल करता है, इसलिए क्रोमियम के बहु-प्रक्रिया बनावट का भी इस्तेमाल होता है | इलेक्ट्रॉन में हर वेब पेज अपनी खुद की प्रक्रिया में चलता है, जिसे **रेंदेरेर प्रक्रिया** कहा जाता है |
+चूँकि इलेक्ट्रॉन वेब पेजेज को प्रदशित करने के लिए क्रोमियम का इस्तेमाल करता है, इसलिए क्रोमियम के बहु-प्रक्रिया बनावट का भी इस्तेमाल होता है | Each web page in Electron runs in its own process, which is called __the renderer process__.
 
 सामान्य ब्राउज़र्स में, वेब पेजेस अक्सर सैंडबॉक्स वातावरण में चलते हैं और इन्हें मूल संसाधनों तक पहुँच उपलब्ध नहीं होती | पर इलेक्ट्रॉन उपयोगकर्ताओं के पास वेब पेजेज में नोड.जेएस का इस्तेमाल करने की शक्ति होती है, जिससे कि वे ऑपरेटिंग सिस्टम के निचले स्तर की इंटरेक्शन कर सकते हैं |
 
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
+The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
