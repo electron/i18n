@@ -6,7 +6,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 
 ## 有効にする
 
-既定では `webview` タグは Electron 5 以降では無効化されています。 タグを有効にするには、`BrowserWindow` を構築するときに `webviewTag` webPreferences オプションを設定します。 詳しい情報については、[BrowserWindow コンストラクタ](browser-window.md) を参照してください。
+By default the `webview` tag is disabled in Electron >= 5.  タグを有効にするには、`BrowserWindow` を構築するときに `webviewTag` webPreferences オプションを設定します。 詳しい情報については、[BrowserWindow コンストラクタ](browser-window.md) を参照してください。
 
 ## 概要
 
@@ -16,7 +16,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 
 `webview`タグを使用して、Electron アプリに 'ゲスト' コンテンツ (ウェブページなど) を埋め込むことができます。ゲストコンテンツは `webview` コンテナに含まれています。 アプリ内の埋め込みページは、ゲストコンテンツのレイアウトとレンダリングの方法を制御します。
 
-`iframe` とは異なり、`webview` はアプリとは別のプロセスで実行されます。 それはウェブページと同じ権限を持っておらず、アプリと組み込みコンテンツの間のすべてのやりとりは非同期になります。 これにより、埋め込みコンテンツからアプリが保護されます。 **注釈:** ホストページから webview 上で呼び出されるほとんどのメソッドは、メインプロセスへの同期呼び出しを必要とします。
+`iframe` とは異なり、`webview` はアプリとは別のプロセスで実行されます。 それはウェブページと同じ権限を持っておらず、アプリと組み込みコンテンツの間のすべてのやりとりは非同期になります。 これにより、埋め込みコンテンツからアプリが保護されます。 **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
 ## サンプル
 
@@ -35,7 +35,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
     const indicator = document.querySelector('.indicator')
 
     const loadstart = () => {
-      indicator.innerText = 'ロード中...'
+      indicator.innerText = 'loading...'
     }
 
     const loadstop = () => {
@@ -72,7 +72,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 <webview src="https://www.github.com/"></webview>
 ```
 
-表示されている URL を表す `String`。この属性に書き込むと、トップレベルのナビゲーションが開始されます。
+A `String` representing the visible URL. Writing to this attribute initiates top-level navigation.
 
 `src` に独自の値を代入すると、現在のページがリロードされます。
 
@@ -108,7 +108,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-`Boolean`。この属性が存在する場合、`webview` 内のゲストページはブラウザのプラグインを使用することができます。プラグインはデフォルトでは無効です。
+`Boolean`。 When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
 ### `preload`
 
@@ -120,7 +120,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 
 ゲストページに Node Integration がない場合、このスクリプトはすべての Node APIにアクセスできますが、Node によって挿入されたグローバルオブジェクトはこのスクリプトの実行が終了した後に削除されます。
 
-**注:** このオプションは、`will-attach-webview` イベントに指定された `webPreferences` に `preloadURL` (`preload` ではない) として表示されます。
+**Note:** This option will appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
 
 ### `httpreferrer`
 
@@ -136,7 +136,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-ページがナビゲートされる前にゲストページ用のユーザーエージェントを設定する `String`。一度ページがロードされた場合は、`setUserAgent` メソッドを使用してユーザーエージェントを変更します。
+A `String` that sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
 
 ### `disablewebsecurity`
 
@@ -144,7 +144,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-`Boolean` です。この属性が存在すると、ゲストページでウェブセキュリティが無効になります。ウェブセキュリティはデフォルトで有効になっています。
+`Boolean`。 When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
 
 ### `partition`
 
@@ -155,7 +155,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 
 ページが使用するセッションを設定する `String` です。 `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 `partition` が設定されていない場合は、アプリのデフォルトのセッションが使用されます。
 
-アクティブなレンダラープロセスのセッションは変更できないため、この値は最初のナビゲーションの前にのみ変更できます。 その後の値の変更は、DOM 例外によって失敗します。
+This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
 ### `allowpopups`
 
@@ -163,7 +163,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-`Boolean` です。この属性が存在すると、ゲストページは新しいウィンドウを開くことが許可されます。 ポップアップはデフォルトで無効になっています。
+`Boolean`。 When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
 
 ### `webpreferences`
 
@@ -195,7 +195,7 @@ webview に設定するウェブ設定を指定する文字列のコンマ区切
 
 `webview` タグには以下のメソッドがあります。
 
-**注釈:** メソッドを使用する前に webview 要素をロードする必要があります。
+**Note:** The webview element must be loaded before using the methods.
 
 **サンプル**
 
@@ -209,7 +209,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (任意) 
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
@@ -324,7 +324,7 @@ webview.addEventListener('dom-ready', () => {
 
 戻り値 `Promise<void>` - 削除に成功すると解決されます。
 
-現在のウェブページから挿入された CSS を削除します。 スタイルシートは `<webview>.insertCSS(css)` から返されるキーによって識別されます。
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
@@ -439,11 +439,11 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - 検索するコンテンツ。空にしてはいけません。
-* `options` Object (任意) 
+* `options` Object (optional)
   * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
   * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
   * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean (任意) - 単語の始めだけを見るかどうか。省略値は `false`。
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
@@ -452,7 +452,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - [`<webview>.findInPage`](#webviewfindinpagetext-options) リクエストの終了時に実行されるアクションを指定します。 
+* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request.
   * `clearSelection` - 選択を消去する。
   * `keepSelection` - その選択を通常の選択に変換する。
   * `activateSelection` - 選択ノードをフォーカスして、クリックする。
@@ -461,19 +461,19 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.print([options])`
 
-* `options` Object (任意) 
-  * `silent` Boolean (任意) - プリンタの設定をユーザに尋ねないかどうか。省略値は `false`。
-  * `printBackground` Boolean (任意) - ウェブページの背景色と画像も印刷するかどうか。省略値は `false`。
-  * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
+* `options` Object (optional)
+  * `silent` Boolean (optional) - Don't ask user for print settings. 省略値は、`false` です。
+  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. 省略値は、`false` です。
+  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 
 戻り値 `Promise<void>`
 
-`webview` のウェブページを印刷します。`webContents.print([options])` と同じです。
+Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options)`
 
-* `options` Object 
-  * `marginsType` Integer (任意) - 使用するマージンの種類を指定する。デフォルトマージンには 0 を、マージン無しには 1 を、最小マージンには 2 を使用する。
+* `options` Object
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
   * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
@@ -489,7 +489,7 @@ webview.addEventListener('dom-ready', () => {
 
 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
 
-`rect` 範囲内のページのスナップショットを撮ります。`rect` を省略すると、表示されているページ全体をキャプチャします。
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 ### `<webview>.send(channel, ...args)`
 
@@ -504,7 +504,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.sendInputEvent(event)`
 
-* `event` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
+* `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
 戻り値 `Promise<void>`
 
@@ -516,7 +516,7 @@ webview.addEventListener('dom-ready', () => {
 
 * `factor` Number - 拡大率。
 
-指定の倍率に拡大率を変更します。拡大率は百分率なので、300% = 3.0 です。
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
@@ -541,7 +541,7 @@ webview.addEventListener('dom-ready', () => {
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *非推奨*
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -550,13 +550,13 @@ webview.addEventListener('dom-ready', () => {
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
-**非推奨:** この API は Chromium がサポートしなくなりました。
+**Deprecated:** This API is no longer supported by Chromium.
 
-### `<webview>.showDefinitionForSelection()` *macOS*
+### `<webview>.showDefinitionForSelection()` _macOS_
 
 ページ上の選択された単語を検索するポップアップ辞書を表示します。
 
-### `<webview>.getWebContents()` *非推奨*
+### `<webview>.getWebContents()` _Deprecated_
 
 戻り値 [`WebContents`](web-contents.md) - この `webview` に関連付けられた webContents。
 
@@ -577,7 +577,7 @@ webview.addEventListener('dom-ready', () => {
 * `url` String
 * `isMainFrame` Boolean
 
-ロードがコミットされたときに発生します。これには、現在のドキュメント内のナビゲーションとサブフレームのドキュメントレベルの読み込みが含まれますが、非同期のリソース読み込みは含まれません。
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
 ### イベント: 'did-finish-load'
 
@@ -621,7 +621,7 @@ webview.addEventListener('dom-ready', () => {
 * `title` String
 * `explicitSet` Boolean
 
-ナビゲーション中にページタイトルが設定されたときに発生します。 `explicitSet` は、タイトルがファイル URL から合成されている場合に false になります。
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### イベント: 'page-favicon-updated'
 
@@ -663,7 +663,7 @@ webview.addEventListener('console-message', (e) => {
 
 戻り値:
 
-* `result` Object 
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - アクティブなマッチの位置。
   * `matches` Integer - マッチの個数。
@@ -713,13 +713,13 @@ webview.addEventListener('new-window', async (e) => {
 
 * `url` String
 
-ユーザまたはページがナビゲーションを開始したいときに発行されます。 `window.location` オブジェクトが変更されるか、ユーザがページ内のリンクをクリックしたときに発生します。
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
 このイベントは、 `<webview>.loadURL` や `<webview>.back` のような、API によってプログラム上から開始されるナビゲーションのときには発行されません。
 
-アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでも発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-`event.preventDefault()` を呼んでも効果は **ありません**。
+Calling `event.preventDefault()` does __NOT__ have any effect.
 
 ### イベント: 'did-navigate'
 
@@ -729,7 +729,7 @@ webview.addEventListener('new-window', async (e) => {
 
 ナビゲーションが完了したときに発行されます。
 
-このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 ### イベント: 'did-navigate-in-page'
 
@@ -767,17 +767,17 @@ webview.addEventListener('close', () => {
 `sendToHost` メソッドと `ipc-message` イベントを使用すると、ゲストページと埋め込みページの間で通信できます。
 
 ```javascript
-// 埋め込みページ。
+// In embedder page.
 const webview = document.querySelector('webview')
 webview.addEventListener('ipc-message', (event) => {
   console.log(event.channel)
-  // "pong" と出力される
+  // Prints "pong"
 })
 webview.send('ping')
 ```
 
 ```javascript
-// ゲストページ。
+// In guest page.
 const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
@@ -815,7 +815,7 @@ webContents が破棄されたときに発生します。
 
 * `themeColor` String
 
-ページのテーマカラーが変更されたときに発行されます。これはよく、このような meta タグによって発生します。
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
