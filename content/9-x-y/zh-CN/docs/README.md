@@ -10,7 +10,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## 指南和教程
 
-* [About Electron](tutorial/about.md)
+* [关于 Electron](tutorial/about.md)
 * [配置开发环境](tutorial/development-environment.md)
   * [macOS 开发环境配置](tutorial/development-environment.md#setting-up-macos)
   * [Windows 开发环境配置](tutorial/development-environment.md#setting-up-windows)
