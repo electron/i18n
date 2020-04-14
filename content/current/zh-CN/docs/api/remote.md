@@ -6,8 +6,7 @@
 
 ` remote ` 模块为渲染进程（web页面）和主进程通信（IPC）提供了一种简单方法。
 
-在Electron中, GUI 相关的模块 (如 ` dialog`、` menu ` 等) 仅在主进程中可用, 在渲染进程中不可用。 为了在渲染进程中使用它们, ` ipc ` 模块是向主进程发送进程间消息所必需的。 使用 ` remote ` 模块, 你可以调用 main 进程对象的方法, 而不必显式发送进程间消息, 类似于 Java 的 [ RMI ](https://en.wikipedia.org/wiki/Java_remote_method_invocation)。   
-例如：从渲染进程创建浏览器窗口
+在Electron中, GUI 相关的模块 (如 ` dialog`、` menu ` 等) 仅在主进程中可用, 在渲染进程中不可用。 为了在渲染进程中使用它们, ` ipc ` 模块是向主进程发送进程间消息所必需的。 使用 ` remote ` 模块, 你可以调用 main 进程对象的方法, 而不必显式发送进程间消息, 类似于 Java 的 [ RMI ](https://en.wikipedia.org/wiki/Java_remote_method_invocation)。 <br>例如：从渲染进程创建浏览器窗口
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
@@ -15,12 +14,11 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-** 注意: **反过来（如果需要从主进程访问渲染进程），可以使用 [ webContents. executeJavascript ](web-contents.md#contentsexecutejavascriptcode-usergesture)。
+**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
-**注意事项：** 因为安全原因，remote 模块能在以下几种情况下被禁用：
-
-* [`BrowserWindow`](browser-window.md) - 通过设置 `enableRemoteModule` 选项为 `false`。
-* [`<webview>`](webview-tag.md) - 通过把 ` enableremotemodule`属性设置成 `false`。
+**Note:** The remote module can be disabled for security reasons in the following contexts:
+- [`BrowserWindow`](browser-window.md) - 通过设置 `enableRemoteModule` 选项为 `false`。
+- [`<webview>`](webview-tag.md) - 通过把 ` enableremotemodule`属性设置成 `false`。
 
 ## 远程对象（Remote Objects）
 
@@ -28,9 +26,10 @@ win.loadURL('https://github.com')
 
 在上面的示例中, [ BrowserWindow ` 和 ` win ](browser-window. md) 都是远程对象, ` new BrowserWindow ` 在渲染过程中没有创建 ` BrowserWindow ` 对象。 取而代之的是，它在主进程中创建了一个 `BrowserWindow`对象，并且在渲染进程中返回相应的远程对象，即` win </ 0>对象。</p>
 
-<p><strong>注意： </strong>当远程对象被第一次引用时，只有<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">可枚举的属性</a>可以通过远程访问。</p>
+<p spaces-before="0"><strong x-id="1">Note:</strong> Only <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">enumerable properties</a> which are present
+when the remote object is first referenced are accessible via remote.</p>
 
-<p><strong>注意：</strong> 当通过<code> remote `模块访问时，数组和缓冲区在IPC上复制。 在渲染进程中修改它们不会在主进程中修改它们，反之亦然。
+<p spaces-before="0"><strong x-id="1">Note:</strong> Arrays and Buffers are copied over IPC when accessed via the <code>remote` module. 在渲染进程中修改它们不会在主进程中修改它们，反之亦然。
 
 ## 远程对象的生命周期
 
@@ -44,7 +43,7 @@ Electron 确保只要渲染进程中的远程对象一直存在（换句话说�
 
 主进程中的代码可以接受来自渲染进程的回调 - 例如`remote`模块 - 但使用此功能时应该非常小心。
 
-首先，为了避免死锁，传递给主进程的回调被异步调用。 您不应该期望主进程获得传递回调的返回值。
+First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
 
 例如，您不能在主进程中调用的` Array.map `中使用来自渲染器进程的函数：
 
@@ -73,7 +72,7 @@ console.log(withRendererCb, withLocalCb)
 
 其次，传递给主进程的回调将持续到主进程垃圾回收。
 
-例如，下面的代码乍一看似乎是无辜的。 它为远程对象上的` close `事件安装一个回调：
+For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
@@ -138,7 +137,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 返回 [`BrowserWindow`](browser-window.md) - 此网页所属的窗口
 
-**注意事项：** 请勿在[` BrowserWindow`](browser-window.md)上使用 `removeAllListeners`。 使用这个可导致移除 [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) 监听，禁用点击触控按钮的事件，或者其它意外的后果。
+**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). 使用这个可导致移除 [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) 监听，禁用点击触控按钮的事件，或者其它意外的后果。
 
 ### `remote.getCurrentWebContents()`
 
@@ -150,8 +149,8 @@ const foo = require('electron').remote.require('./foo') // bar
 
 返回 ` any `-主进程中 ` name ` (例如 ` global[name]`) 的全局变量。
 
-## 属性
+## Properties
 
-### `remote.process` *Readonly*
+### `remote.process` _Readonly_
 
-A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
