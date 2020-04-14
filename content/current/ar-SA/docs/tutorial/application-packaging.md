@@ -16,7 +16,7 @@ Steps to package your app into an `asar` archive:
 
 
 
-### 1. Install the asar Utility
+### 1. قم بتثبيت الأداة asar
 
 
 
