@@ -46,22 +46,22 @@ app.on('ready', () => {
 })
 ```
 
-## Mga event
+## Pangyayari
 
 Ang `screen` na modyul na naglalabas ng mga sumusunod na pangyayari:
 
 ### Pangyayari: 'display-added'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` Kaganapan
+* `event` na Kaganapan
 * `newDisplay` [Display](structures/display.md)
 
 Naglalabas kapag `newDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-removed'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `event` na Kaganapan
 * `oldDisplay` [Display](structures/display.md)
@@ -70,15 +70,15 @@ Naglalabas kapag `oldDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-metrics-changed'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `event` na Pangyayari
+* `event` na Kaganapan
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
 Naglalabas kapag ang isa o maraming panukat ay nagbago sa isang `display`. Ang `changedMetrics` ay isang array ng mga strings na naglalarawan ng mga pagbabago. Mga posiblen pagbabago sa `bounds`, `workArea`, `scaleFactor` at `rotation`.
 
-## Mga Pamamaraan
+## Mga Paraan
 
 Ang `screen` na modyul ay may mga sumusunod na mga paraan:
 
