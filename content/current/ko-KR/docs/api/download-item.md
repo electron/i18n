@@ -66,7 +66,7 @@ The `state` can be one of following:
 * `cancelled` - The download has been cancelled.
 * `interrupted` - The download has interrupted and can not resume.
 
-### 인스턴스 메서드
+### Instance Methods (인스턴스 메소드)
 
 `downloadItem` 객체에는 다음과 같은 메서드들이 있습니다:
 
@@ -170,7 +170,7 @@ Returns `String` - ETag header value.
 
 Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 #### `downloadItem.savePath`
 
