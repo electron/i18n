@@ -8,13 +8,13 @@
 - [`electron`](https://discuss.atom.io/c/electron) 各种 Atom 论坛
 - `#atom-shell` Freenode上的频道
 - `#electron` [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)上的频道
-- [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-- [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-- [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-- [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-- [`electron-pl`](https://electronpl.github.io) *(Poland)*
+- [`electron-ru`](https://telegram.me/electron_ru) *(俄语版)*
+- [`electron-br`](https://electron-br.slack.com) *(巴西葡语版)*
+- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韩语版)*
+- [`electron-jp`](https://electron-jp.slack.com) *(日语版)*
+- [`electron-tr`](https://electron-tr.herokuapp.com) *(土耳其语版)*
+- [`electron-id`](https://electron-id.slack.com) *(印尼语版)*
+- [`electron-pl`](https://electronpl.github.io) *(波兰语版)*
 
 如果你有意为加入Electron的开发，可参阅[贡献文档](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 
@@ -24,7 +24,7 @@
 
 ## 支持版
 
-The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
+最新的 3 个*稳定的*的版本受 Electron 团队支持。 For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
 
 The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
 
