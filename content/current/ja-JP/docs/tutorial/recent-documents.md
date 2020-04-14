@@ -2,11 +2,11 @@
 
 Windows と macOS は、それぞれジャンプリストまたは Dock メニューを介して、アプリケーションによって開かれた最近の書類のリストへのアクセスを提供します。
 
-**ジャンプリスト:**
+__ジャンプリスト:__
 
 ![ジャンプリストの最近使った書類](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**アプリケーションの Dock メニュー:**
+__アプリケーションの Dock メニュー:__
 
 ![macOS の Dock メニュー](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
