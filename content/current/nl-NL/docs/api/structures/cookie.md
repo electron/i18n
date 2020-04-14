@@ -8,4 +8,4 @@
 * `veilig` Boolean (optioneel) - Of de cookie is gemarkeerd als veilig.
 * `httpOnly` Boolean (optioneel) - of de cookie is gemarkeerd als alleen HTTP.
 * `sessie` Boolean (optioneel) - Of de cookie een sessie-cookie is of een permanente cookie met een vervaldatum.
-* `vervaldatum` Dubbel (optioneel) - De vervaldatum van de cookie als het aantal seconden sinds de UNIX-epoch. Niet voorzien in sessie-cookies.
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
