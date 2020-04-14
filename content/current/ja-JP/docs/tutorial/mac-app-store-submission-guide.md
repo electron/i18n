@@ -1,8 +1,8 @@
 # Mac App Store への公開ガイド
 
-v0.34.0から、ElectronはMac App Store (MAS) にパッケージ化したアプリを登録することができます。このガイドでは、MASビルド用の制限とアプリを登録する方法についての情報を提供します。
+Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
 
-**注意:** Mac App Store にアプリを登録するには、[Apple Developer Program](https://developer.apple.com/support/compare-memberships/) に登録する必要があります。これには費用がかかります。
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## アプリを登録する方法
 
@@ -122,7 +122,7 @@ macOS でのアプリのサンドボックス化を行うことが初めてな�
 
 #### ネイティブ モジュールに署名
 
-アプリで使用されているネイティブモジュールも署名する必要があります。electron-osx-sign を使用している場合は、必ず引数リストに構築済みバイナリへのパスを含めてください。
+Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
