@@ -8,7 +8,7 @@ L’URL du serveur symbole officiel pour Electron est https://electron-symbols.g
 
 ## À l’aide du serveur de symboles dans Windbg
 
-Le chemin de symbole Windbg est configuré avec un string délimité par des : *. Pour utiliser uniquement le serveur de symboles d’Electron, ajoutez l’entrée suivante à votre chemin de symbole (**Remarque :** vous pouvez remplacer `c:\code\symbols` par n’importe quel répertoire accessible en écriture sur votre ordinateur, si vous préférez un emplacement différent pour les symboles téléchargés) :
+Le chemin de symbole Windbg est configuré avec un string délimité par des : *. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
 
 ```powershell
 SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
@@ -22,7 +22,8 @@ SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\sym
 
 ## À l’aide du serveur de symboles dans Visual Studio
 
-<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
+<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' />
+<img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
 ## Problèmes : Les symboles ne se chargent pas
 
