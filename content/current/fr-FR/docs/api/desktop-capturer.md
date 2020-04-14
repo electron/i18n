@@ -2,7 +2,7 @@
 
 > Accède aux informations sur les sources de médias qui peuvent être utilisées pour capturer l'audio et la vidéo à partir du bureau en utilisant l'API [`navigator.mediaDevices.getUserMedia`].
 
-Processus : [Renderer](../glossary.md#renderer-process)
+Processus : [Rendu](../glossary.md#renderer-process)
 
 L'exemple suivant montre comment faire pour capturer la vidéo à partir d'une fenêtre dont le titre est `Electron` :
 
@@ -72,7 +72,7 @@ Le module `desktopCapturer` dispose des méthodes suivantes :
 
 ### `desktopCapturer.getSources(options)`
 
-* `options` Objet 
+* `options` Object
   * `types` String[] - un tableau de Chaîne de caractères qui répertorie les types de sources bureau à être capturé, les types disponibles sont `screen` et `window`.
   * `thumbnailSize` [Size](structures/size.md) (facultatif) - La taille de la miniature de la source de média doit être redimensionnée. La valeur par défaut est `150` x `150`. Définissez la largeur ou la hauteur à 0 lorsque vous n'avez pas besoin de les vignettes. Cela permettra de gagner le temps de traitement nécessaire pour capturer le contenu de chaque fenêtre et écran.
   * `fetchWindowIcons` Boolean (facultatif) - Définir à true pour activer la récupération des icônes de fenêtre. La valeur par défaut est faux. Lorsque false la propriété appIcon des sources retourne null. Même si une source a l'écran de type.
