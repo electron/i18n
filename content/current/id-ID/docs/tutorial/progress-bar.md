@@ -6,7 +6,7 @@ Pada MacOS progress bar akan ditampilkan sebagai bagian dari dermaga ikon.
 
 Pada Unity DE juga memiliki fitur serupa yang memungkinkan Anda untuk menentukan kemajuan bar di peluncur.
 
-**Progres bar di tombol taskbar:**
+__Progres bar di tombol taskbar:__
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
