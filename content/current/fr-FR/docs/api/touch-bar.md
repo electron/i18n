@@ -4,17 +4,17 @@
 
 Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBar(options)` *Experimental*
+### `new TouchBar(options)` _Experimental_
 
-* `options` Objet 
+* `options` Object
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
 
 Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
 
-**Remarque :** L’API TouchBar est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-**Astuce :** Si vous n’avez pas un MacBook avec Touch Bar, vous pouvez utiliser [Touch Bar simulator](https://github.com/sindresorhus/touch-bar-simulator) pour tester la Touch Bar dans votre application.
+**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
 
 ### Static Properties
 
