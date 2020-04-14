@@ -10,7 +10,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## Příručky a Návody
 
-* [About Electron](tutorial/about.md)
+* [O Electron](tutorial/about.md)
 * [Nastavení vývojového prostředí](tutorial/development-environment.md)
   * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
   * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
