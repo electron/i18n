@@ -70,7 +70,7 @@ Force closing the view, the `unload` and `beforeunload` events won't be emitted 
 
 Returns `Boolean` - Whether the view is destroyed.
 
-#### `view.setAutoResize(options)` _Experimental_
+#### `view.setAutoResize(options)` _Experimenteel_
 
 * `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
@@ -78,18 +78,18 @@ Returns `Boolean` - Whether the view is destroyed.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` _Experimental_
+#### `view.setBounds(bounds)` _Experimenteel_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.getBounds()` _Experimental_
+#### `view.getBounds()` _Experimenteel_
 
 Returns [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` _Experimental_
+#### `view.setBackgroundColor(color)` _Experimenteel_
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
