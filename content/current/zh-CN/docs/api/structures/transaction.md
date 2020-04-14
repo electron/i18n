@@ -6,6 +6,6 @@
 * `transactionState` String - 事务状态, 可以是 `purchasing`, `purchased`, `failed`, `restored` 或 `deferred`.
 * `errorCode` Integer - 处理事务时发生错误时的错误代码。
 * `errorMessage` String - 处理事务时发生错误时的错误消息。
-* `payment` Object 
+* `payment` Object
   * `productIdentifier` String - 购买产品的标识符。
-  * `quantity` Integer - 购买数量。
+  * `quantity` Integer  - 购买数量。
