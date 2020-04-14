@@ -12,7 +12,7 @@ This document uses the following convention to categorize breaking changes:
 - **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
 - **Removed:** An API or feature was removed, and is no longer supported by Electron.
 
-## Planned Breaking API Changes (10.0)
+## 计划重写的 API (10.0)
 
 ### Removed: Browser Window Affinity
 
@@ -34,7 +34,7 @@ const w = new BrowserWindow({
 
 We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
-## Planned Breaking API Changes (9.0)
+## 计划重写的 API (9.0)
 
 ### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
 
@@ -470,7 +470,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `剪贴板`
+### `clipboard`
 
 ```js
 // 弃用
@@ -497,7 +497,7 @@ clipboard.writeHTML()
 ### `crashReporter`
 
 ```js
-// 弃用
+// 过时的
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -522,7 +522,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `进程`
+### `process`
 
 ```js
 // 弃用
@@ -654,7 +654,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `进程`
+### `process`
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
