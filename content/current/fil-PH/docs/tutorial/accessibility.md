@@ -2,7 +2,7 @@
 
 Ang paggawa ng mga naa-acess na mga aplikasyon ay mahalaga, at masaya kaming ipakilala ang bagong mga functionality sa [Devtron](https://electronjs.org/devtron) at [Spectron](https://electronjs.org/spectron) na nagbibigay sa mga tagabuo ng mga oportunidad na gawing mas maganda ang kanilang mga app para sa lahat.
 
-* * *
+---
 
 Ang mga pinag-iisipan sa mga Electron na aplikasyon ay katulad sa mga websayt na iyon dahil sila ay pawang naka-HTML. Gamit ang mga Electron na mga app, datapwat, hindi mo magagamit ang mga online na pinagkukunang-yaman para sa mga aksesibilidad na awdit dahil ang iyong app ay walang isang URL upang ituro ang awditor.
 
@@ -10,7 +10,7 @@ Ang mga katangiang ito ay magdadala ng mga kagamitang pang-awdit sa iyong Electr
 
 ## Spectron
 
-Sa pagsusubok sa balangkas na Spectron, pwede mo nang i-awdit ang bawat window at `<webview>` tag sa iyong aplikasyon. Halimbawa:
+In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Halimbawa:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
