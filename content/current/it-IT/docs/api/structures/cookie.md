@@ -8,4 +8,4 @@
 * `secure` Booleano (opzionale) - Indica se il cookie è segnato come sicuro.
 * `httpOnly` Booleano (opzionale) - Indica se il cookie è segnato come solo HTTP.
 * `session` Booleano (opzionale) - Indica se si tratta di un cookie di sessione o di uno persistente con data di scadenza.
-* `expirationDate` Double (opzionale) - La data di scadenza del cookie come numero di secondi dall'epoca UNIX. Non fornito per i cookie di sessione.
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
