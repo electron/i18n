@@ -1440,4 +1440,4 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Забележка:** API на BrowserView в момента е експериментално и може да се промени или да бъде отстранено в бъдещо издание на Електрон.
