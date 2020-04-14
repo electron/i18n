@@ -8,7 +8,7 @@ Electron 使用的官方 symbol 服务器地址为 https://electron-symbols.gith
 
 ## 在 Windbg 中使用 Symbol 服务器
 
-Windbg symbol 路径被配制为一个限制带星号字符的字符串. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
+Windbg symbol 路径被配制为一个限制带星号字符的字符串. 要只使用 Electron 的 symbol 服务器, 将下列记录添加到你的 symbol 路径 (**注意:** 如果你愿意使用一个不同的地点来下载 symbols，你可以在你的电脑中使用任何可写的目录来代替 `c:\code\symbols`):
 
 ```powershell
 SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
