@@ -6,7 +6,7 @@
 
 ASARはAtom Shell Archive Formatの略語です。 [asar](https://github.com/electron/asar)アーカイブは、複数のファイルを1つにまとめる`tar`ライクでシンプルなアーカイブ形式です。 Electron はASARファイルから全体を解凍せずに任意のファイルを読み出すことができます。
 
-ASAR 形式は、Windows でのパフォーマンスを向上させるために主に作成されました…[書きかけです]
+ASAR 形式は、主に Windows でのパフォーマンス向上を目的に作成されました… 要加筆
 
 ### CRT
 
@@ -22,11 +22,11 @@ Input Method Editorの略で、日本では「かな漢字変換システム」�
 
 ### IDL
 
-インターフェース記述言語。関数シグネチャとデータ型を記述するとJavaやC++、Javascript等の言語でインターフェースを生成するために使用されるフォーマット
+Interface description language、インターフェイス記述言語のことです。 Java、C++、JavaScript などのインターフェース生成に使用できるフォーマットで、関数のシグネチャやデータ型を記述します。
 
 ### IPC
 
-IPCはプロセス間通信 (Inter-Process Communication) の略語です。Electron は シリアル化されたJSON メッセージを [メインプロセス](#main-process) と [レンダラプロセス](#renderer-process) 間で送信する際にIPCを使用します。
+IPC は Inter-Process Communication、プロセス間通信の略です。 Electron は、シリアライズされた JSON メッセージを [メインプロセス](#main-process) と [レンダラプロセス](#renderer-process) 間で送信する際に IPC を使用します。
 
 ### libchromiumcontent
 
@@ -38,15 +38,15 @@ IPCはプロセス間通信 (Inter-Process Communication) の略語です。Elec
 
 メインプロセスは通常、 `main.js` というファイル名で配置され、Electron アプリのエントリポイントになります。アプリケーションが開始されてから終了されるまでを制御します。 また、メニュー、メニューバー、ドック、タスクトレイなどのネイティブ要素の管理も担当します。 メインプロセスは、アプリ中におけるレンダラプロセスの生成も担当しています。完全なNode APIを使用できます。
 
-アプリのメインプロセスファイルは、`package.json` の `main`プロパティで指定されます。これをもとに`Electron`は起動時に実行するファイルを知ることが出来ます。
+各アプリのメインプロセスファイルは、`package.json` の `main` プロパティに指定します。 `electron .` はここから起動時に実行するファイルを取得します。
 
-なお、Chromium においては、メインプロセスは「ブラウザプロセス」(browser process) と称されます。Electron では、レンダラプロセスとの混同を防ぐために名称が変更されています。
+Chromium では、このプロセスを "ブラウザプロセス" と呼びます。 レンダラープロセスとの混同を避けるため、Electron では名前を変更しています。
 
 [プロセス](#process)、[レンダラープロセス](#renderer-process)についても参照してください。
 
 ### MAS
 
-AppleのMac App Storeの略語です。MASへアプリを登録する際の詳細については、[Mac App Store 登録ガイド](tutorial/mac-app-store-submission-guide.md)をご参照ください。
+Apple の Mac App Store の頭文字をつなげたものです。 MAS へのアプリ登録の詳細は、[Mac App Store 登録ガイド](tutorial/mac-app-store-submission-guide.md) を参照してください。
 
 ### Mojo
 
@@ -68,7 +68,7 @@ Nullsoft Script Install Systemは、Microsoft Windows向けの、スクリプト
 
 ### OSR
 
-OSR (Off-screen rendering) を使用すると、重いページをバックグラウンドで読み込みんだ後で表示することができます（かなりの高速化が期待されます）。画面に表示することなくページをレンダリングすることができます。
+OSR (Off-screen rendering、オフスクリーンレンダリング) を使用すると、重いページをバックグラウンドで読み込みんだ後で表示することができます (かなりの高速化が期待されます)。 画面に表示することなくページをレンダリングできます。
 
 ### プロセス
 
@@ -80,7 +80,7 @@ Node.jsとElectronでは、実行中のプロセスは、`process`オブジェ�
 
 ### レンダラプロセス (renderer process)
 
-レンダラプロセスは、アプリ中のブラウザーウィンドウです。メインプロセスと異なり、複数存在することが出来、それぞれが別のプロセスとして動作します。また、非表示にもできます。
+レンダラープロセスは、アプリ中のブラウザウィンドウです。メインプロセスと違って複数存在でき、それぞれが別のプロセスとして動作します。 また、非表示にもできます。
 
 通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electronを使用している場合は、Node.js APIをウェブページ内で使用して、OSへ作用できる低レベルAPIを使用することが出来ます。
 
@@ -98,11 +98,11 @@ Nodeのように、Electronはマルチプラットフォームデスクトッ�
 
 ### V8
 
-V8 は Google 製のオープンソース JavaScript エンジンです。C++で書かれており、Google Chrome で使用されています。V8 はスタンドアロンで実行することも、任意の C++ アプリケーションに埋め込むこともできます。
+V8 は Google のオープンソース JavaScript エンジンです。 C++ で書かれており、Google Chrome で使用されています。 V8 はスタンドアローンで実行することも、任意の C++ アプリケーションに組み込むこともできます。
 
 Electron は V8 を Chromium の一部としてビルドし、それからNodeをビルドする際に NodeがV8を指すようにします。
 
-V8のバージョンは必ず Google Chrome のバージョンに対応しています。例えば Chrome 59 には V8 5.9 が、Chrome 58 には V8 5.8 が含まれています。
+V8 のバージョンは必ず Google Chrome のバージョンに対応しています。 例えば Chrome 59 には V8 5.9 が入っており、Chrome 58 には V8 5.8 が入っています。
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
