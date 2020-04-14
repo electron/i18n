@@ -10,13 +10,13 @@
 
 1) בעזרת [`electron-forge`](https://github.com/electron-userland/electron-forge) או [`electron-builder`](https://github.com/electron-userland/electron-builder), שניהם כלים שכוללים תמיכה ב־`snap` באופן מובנה. זאת הדרך הקלה ביותר. 2) בעזרת `electron-installer-snap`, שלוקח את הפלט של `electron-packager`. 3) באמצעות חבילת `.deb` קיימת.
 
-בכל המקרים, אמור להיות מותקן אצלך במחשב הכלי `snapcraft`. אנו ממליצים לבנות על גבי אובונטו 16.04 (או הגרסה הנוכחית עם תמיכה לטווח ארוך - LTS).
+In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
 ```sh
 snap install snapcraft --classic
 ```
 
-על אף ש*ניתן* להתקין את `snapcraft` על macOS בעזרת Homebrew, אין שם אפשרות לבנות חבילות `snap` ועיקר ההתמקדות שם היא על ניהול חבילות בחנות.
+While it _is possible_ to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
 
 ## בעזרת `electron-installer-snap`
 
@@ -76,7 +76,7 @@ snap(options)
 
 ### שלב 2: יצירת snapcraft.yaml
 
-למידע נוסף על אפשרויות התצורה השונות, ניתן לעיין ב[תיעוד התחביר של snapcraft](https://docs.snapcraft.io/build-snaps/syntax). להלן דוגמה:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 name: myApp
@@ -95,7 +95,6 @@ parts:
     source: my-deb.deb
     source-type: deb
     after:
-
       - desktop-gtk3
     stage-packages:
       - libasound2
@@ -122,7 +121,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-כפי שניתן לראות, הקובץ `snapcraft.yaml` מנחה את המערכת להפעיל קובץ שנקרא `electron-launch`. בדוגמה הבאה הוא מעביר הלאה מידע אל הקובץ הבינרי של היישום:
+As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
 
 ```sh
 #!/bin/sh
