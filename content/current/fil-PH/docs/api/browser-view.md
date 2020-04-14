@@ -6,7 +6,7 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Ito ay katulad ng isang batang window, maliban na ito ay naka-posisyon kaugnay sa kanyang angking window. Ito ay sinadya na maging isang alternatibo ng mga tag ng `webview`.
 
-### Halimbawa
+### Mga halimbawa
 
 ```javascript
 // Ang pangunahing pag-proseso.
@@ -23,9 +23,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` _Experimental_
 
-* `pagpipilian` Bagay (opsyonal) 
+* `options` Object (optional)
   * `webPreferences` Bagay (opsyonal) - Tingnan ang [BrowserWindow](browser-window.md).
 
 ### Mga istatikong pamamaraan
@@ -36,7 +36,7 @@ Returns `BrowserView[]` - An array of all opened BrowserViews.
 
 #### `BrowserView.fromWebContents(webContents)`
 
-* `webContents` [WebContents](web-contents.md)
+* `webContents` na [WebContents](web-contents.md)
 
 Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
@@ -46,19 +46,19 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 Nagbabalik ang `BrowserView` - Ang pagtanaw sa ibinigay na mga `id`.
 
-### Mga Katangian ng Instance
+### Katangian ng pagkakataon
 
 Mga bagay na ginawa na may `new BrowserView`ay may mga sumusunod na katangian:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` _Experimental_
 
 Ang isang [`WebContents`](web-contents.md) na bagay na pag-aari ng tanawin na ito.
 
-#### `view.id` *Experimental*
+#### `view.id` _Experimental_
 
 Ang isang `integer` kumakatawan sa natatanging ID ng tanawin.
 
-### Mga Paraan ng Halimbawa
+### Mga Halimbawa ng Sistematikong Paraan
 
 Mga bagay na ginawa na may `new BrowserView` ay may mga sumusunod na mga pamamaraan ng pagkakataon:
 
@@ -70,26 +70,26 @@ Force closing the view, the `unload` and `beforeunload` events won't be emitted 
 
 Returns `Boolean` - Whether the view is destroyed.
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` _Experimental_
 
-* `options` Bagay 
+* `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` _Experimental_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Binabago ang laki at inililipat ang view mula sa ibinibigay na hangganan na may kaugnayan sa window.
 
-#### `view.getBounds()` *Experimental*
+#### `view.getBounds()` _Experimental_
 
 Nagbabalik[`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` _Experimental_
 
-* `color` String - Ang kulay sa form ng `#aarrggbb` o sa `#argb`. Ang channel ng alpha ay opsyonal.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
