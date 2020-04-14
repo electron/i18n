@@ -17,23 +17,23 @@ Met `Quick Start` als voorbeeld:
 
 ...
 
-## Basis proces
+## Main process
 
 ...
 
-## Renderer proces
+## Renderer process
 
 ...
 
-## Je app onderhouden
+## Run your app
 
 ...
 
-### Onderhoud als een bijdrage
+### Run as a distribution
 
 ...
 
-### Handmatig Electron binaire gedownload
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -95,10 +95,10 @@ Gebruik `autoUpdater` als voorbeeld:
 * Constructors moeten worden vermeld met ` ### `-titels op niveau.
 * [Statische methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) moeten worden vermeld onder een `### Static Methods` hoofdstuk.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) moeten worden vermeld onder een `### Instance Methods` hoofdstuk.
-* Alle methoden die een waarde terug geven moeten hun beschrijving beginnen met "Returns `[TYPE]` - Return omschrijving" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * Als de methode een `object` retourneert, kan de structuur worden opgegeven met een dubbele punt gevolgd door een nieuwe regel en vervolgens een ongeordende lijst met eigenschappen in dezelfde stijl als functieparameters.
 * Instantie events moeten vermeld worden onder een `### Instance Events` hoofdstuk.
-* Instantie Properties moeten worden vermeld onder een `### Instance Properties` hoofdstuk. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Instantie properties moeten beginnen met "A [Property Type] ..."
 
 Het gebruik van de `Session` en `Cookies` klassen in een voorbeeld:
@@ -150,7 +150,7 @@ Het hoofdstuk Methoden moet de volgende vorm hebben:
 
 De titel kan `###` of `####`-niveau zijn, afhankelijk van of het een methode van een module of een klasse.
 
-Voor modules is de `objectName` de naam van de module. Voor klassen moet het de naam van het exemplaar van de klasse zijn, en mag niet hetzelfde zijn als die van de module naam.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 De methoden van de sessie `Session` onder de module `session` moeten bijvoorbeeld `ses` gebruiken als de `objectName`.
 
@@ -160,7 +160,7 @@ De optionele argumenten worden aangegeven door vierkante haakjes `[]` rondom het
 required[, optional]
 ```
 
-Onder de methode is meer gedetailleerde informatie over elk van de argumenten. Het type van het argument wordt genoteerd door de gemeenschappelijke soorten:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
