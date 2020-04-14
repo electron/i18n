@@ -3,13 +3,11 @@
 ## 准备工作
 
 ### 付费应用协议
-
 如果你还没有，你需要在 iTunes Connect 签署付费应用协议, 并设置您的银行和税务信息。
 
 [iTunes Connect 开发人员帮助: 协议、税务和银行概述](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### 创建您的应用内购买
-
 然后，您需要在iTunes Connect中配置您的应用内购买，并包含名称，定价和说明等详细信息，以突出显示您的应用内购买的功能。
 
 [iTunes Connect开发人员帮助：创建应用程序内购买](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
