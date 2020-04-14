@@ -4,12 +4,12 @@ Electron ermöglicht Ihnen Desktop-Applikationen mittels reinem JavaScript zu er
 
 Das bedeutet nicht, dass Electron's JavaScript an Bibliotheken für die grafische Oberfläche (GUI) gebunden ist. Anstattdessen benutzt Electron Webseiten als GUI. Man könnte es auch als eine Art abgespeckten Chromium-Browser ansehen, welcher durch JavaScript gesteuert wird.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**Hinweis**: Dieses Beispiel ist auch verfügbar als Repository, dieses können Sie [herunterladen und sofort ausführen](#trying-this-example).
 
 Was die Entwicklung betrifft, so ist eine Electron-Anwendung grundlegend eine Node.js-Anwendung. Beginnen wir mit einer `package.json`, die die gleiche ist wie die eines Node.js-Moduls. Eine einfache Electron-App hat die folgende Ordnerstruktur:
 
 ```plaintext
-your-app/
+deine-app/
 ├── package.json
 ├── main.js
 └── index.html
@@ -31,7 +31,7 @@ npm wird dich schrittweise durch die Erstellung einer `package.json`-Datei führ
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). Wenn es sich um eine einfache Node-Anwendung handelt, würden Sie ein `start`-Skript hinzufügen, das `node` anweist, das aktuelle Paket auszuführen:
+__Bemerkung__: Wenn das `main`-Feld in der `package.json`-Datei nicht angegeben ist, wird Electron (so wie Node.js) versuchen, eine `index.js`-Datei zu laden. Wenn es sich um eine einfache Node-Anwendung handelt, würden Sie ein `start`-Skript hinzufügen, das `node` anweist, das aktuelle Paket auszuführen:
 
 ```json
 {
@@ -166,7 +166,7 @@ Zu guter Letzt, die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 </html>
 ```
 
-## Ihre App ausführen
+## Starten deiner Anwendung
 
 Sobald Sie Ihre ersten `main.js`, `index.html` und `package.json` Dateien erstellt haben, können Sie Ihre Anwendung testen, indem Sie `npm start` aus dem Verzeichnis Ihrer Anwendung ausführen.
 
