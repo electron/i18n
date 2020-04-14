@@ -61,11 +61,12 @@ app.on('ready', () => {
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
+
 **注意:** このメソッドは、`app` モジュールの `ready` イベントが発行される前にのみ使用でき、一度だけ呼び出すことができます。
 
 `scheme` を標準の安全なものとして登録し、リソースに対するコンテンツセキュリティポリシーをバイパスし、ServiceWorker を登録し、fetch API をサポートします。
 
-この機能を有効にするには、値を `true` で指定します。 コンテンツセキュリティポリシーを迂回して特権スキームを登録する例：
+Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
 
 ```javascript
 const { protocol } = require('electron')
@@ -92,8 +93,7 @@ protocol.registerSchemesAsPrivileged([
 
 `protocol.registerSchemesAsPrivileged` は、Electron 5.0.0 以前に存在していた以前の `protocol.registerStandardSchemes`、`webFrame.registerURLSchemeAs*`、および `protocol.registerServiceWorkerSchemes` 関数の機能を再現するために使用できます。以下に例を示します。
 
-**以前 (<= v4.x)**
-
+**before (<= v4.x)**
 ```javascript
 // メイン
 protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
@@ -102,8 +102,7 @@ webFrame.registerURLSchemeAsPrivileged('scheme1', { secure: true })
 webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
 ```
 
-**以降 (>= v5.x)**
-
+**after (>= v5.x)**
 ```javascript
 protocol.registerSchemesAsPrivileged([
   { scheme: 'scheme1', privileges: { standard: true, secure: true } },
@@ -114,16 +113,16 @@ protocol.registerSchemesAsPrivileged([
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (任意)
-* `completion` Function (任意) 
+* `completion` Function (optional)
   * `error` Error
 
 ファイルをレスポンスとして送信する `scheme` のプロトコルを登録します。 `request` が `scheme` で作成されると、`handler` が `handler(request, callback)` で呼び出されます。 `completion` は、`scheme` が正常に登録された場合は `completion(null)`、失敗した場合は `completion(error)` で呼び出されます。
@@ -137,16 +136,16 @@ protocol.registerSchemesAsPrivileged([
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (任意)
-* `completion` Function (任意) 
+* `completion` Function (optional)
   * `error` Error
 
 `Buffer` をレスポンスとして送信する `scheme` のプロトコルを登録します。
@@ -168,16 +167,16 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (任意)
-* `completion` Function (任意) 
+* `completion` Function (optional)
   * `error` Error
 
 `String` をレスポンスとして送信する `scheme` のプロトコルを登録します。
@@ -187,43 +186,43 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `redirectRequest` Object 
+  * `callback` Function
+    * `redirectRequest` Object
       * `url` String
       * `method` String (任意)
       * `session` Session | null (任意)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (任意)
-* `completion` Function (任意) 
+* `completion` Function (optional)
   * `error` Error
 
 HTTP リクエストをレスポンスとして送信する `scheme` のプロトコルを登録します。
 
 使用法は `registerFileProtocol` と同じですが、 `callback` を `redirectRequest` オブジェクト、または `url`、`method` 、`referrer`、`uploadData`、`session` プロパティを持つオブジェクトで呼び出す必要があります。
 
-デフォルトでは、HTTP リクエストは現在のセッションを再利用します。リクエストが別のセッションであるようにするには、`session` を `null` に設定する必要があります。
+By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
 POST リクエストの場合、`uploadData` オブジェクトを提供する必要があります。
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (任意)
-* `completion` Function (任意) 
+* `completion` Function (optional)
   * `error` Error
 
 `Readable` をレスポンスとして送信する `scheme` のプロトコルを登録します。
@@ -256,7 +255,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-Readable ストリーム API (`data` / `end` / `error` イベントが発生する) を実装するオブジェクトを渡すことは可能です。例として、ファイルを返す方法を以下に示します。
+Readable ストリーム API (`data` / `end` / `error` イベントが発生するもの) を実装するオブジェクトを渡すことが可能です。 例として、ファイルを返す方法を以下に示します。
 
 ```javascript
 const { protocol } = require('electron')
@@ -272,7 +271,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (任意) 
+* `completion` Function (optional)
   * `error` Error
 
 `scheme` のカスタムプロトコルを登録解除します。
@@ -286,16 +285,16 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `filePath` String
-* `completion` Function (任意) 
+* `completion` Function (optional)
   * `error` Error
 
 `scheme` プロトコルを傍受し、ファイルをレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
@@ -303,16 +302,16 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (任意)
-* `completion` Function (任意) 
+* `completion` Function (optional)
   * `error` Error
 
 `scheme` プロトコルを傍受し、`String` をレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
@@ -320,16 +319,16 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `buffer` Buffer (任意)
-* `completion` Function (任意) 
+* `completion` Function (optional)
   * `error` Error
 
 `scheme` プロトコルを傍受し、`Buffer` をレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
@@ -337,20 +336,20 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `redirectRequest` Object 
+  * `callback` Function
+    * `redirectRequest` Object
       * `url` String
       * `method` String (任意)
       * `session` Session | null (任意)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (任意)
-* `completion` Function (任意) 
+* `completion` Function (optional)
   * `error` Error
 
 `scheme` プロトコルを傍受し、新しい HTTP リクエストをレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
@@ -358,16 +357,16 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (任意)
-* `completion` Function (任意) 
+* `completion` Function (optional)
   * `error` Error
 
 `protocol.registerStreamProtocol` と同じですが、既存のプロトコルハンドラを置き換える点が異なります。
@@ -375,7 +374,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (任意) 
+* `completion` Function (optional)
   * `error` Error
 
 `scheme` のためにインストールされた傍受するハンドラを削除し、元のハンドラを復元します。
