@@ -22,7 +22,8 @@ SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\sym
 
 ## 使用 Visual Studio 中的符號伺服器
 
-<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
+<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' />
+<img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
 ## 疑難排解: 符號沒被載入
 
