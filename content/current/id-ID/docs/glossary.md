@@ -104,7 +104,7 @@ Elektron membangun V8 sebagai bagian dari Chromium dan kemudian mengarahkan Node
 
 V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
-- [developers.google.com/v8](https://developers.google.com/v8)
+- [developers.Google.com/V8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 
