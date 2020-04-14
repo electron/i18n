@@ -46,7 +46,7 @@ Un `String` représentant le message d'état HTTP.
 
 #### `response.headers`
 
-Un `Enregistrement<string, string[]>` représentant les en-têtes HTTP de la réponse. L’objet `en-têtes` est formaté comme suit :
+An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
 
 * Tous les noms d’en-têtes sont en minuscules.
 * Chaque nom d’en-tête créer une propriété de tableau sur l’objet d'en-têtes.
