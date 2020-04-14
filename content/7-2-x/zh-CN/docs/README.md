@@ -101,7 +101,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 * [简介](api/synopsis.md)
 * [进程对象](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [支持的 Chrome 命令行开关](api/chrome-command-line-switches.md)
 * [环境变量](api/environment-variables.md)
 * [重要的API变更](api/breaking-changes.md)
 
