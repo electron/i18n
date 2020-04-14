@@ -4,34 +4,34 @@
 
 ## Често задавани въпроси
 
-При работата си с продукта често ще се натъквате на проблеми, които са тривиални и са представлявали пречка и за други потребители. Разгледайте секцията с често задавани въпроси и проверете дали проблема който ви тревожи не е получил вече, своето решение:
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [често задавани въпроси за Electron](faq.md)
 
 ## Ръководства и уроци
 
-* [Създаване на среда за разработка](tutorial/development-environment.md) 
+* [Създаване на среда за разработка](tutorial/development-environment.md)
   * [Настройване при macOS](tutorial/development-environment.md#setting-up-macos)
   * [Настройване при Windows](tutorial/development-environment.md#setting-up-windows)
   * [Настройване при Linux](tutorial/development-environment.md#setting-up-linux)
   * [Избор на редактор](tutorial/development-environment.md#a-good-editor)
-* [Създаване на вашето първо приложение](tutorial/first-app.md) 
+* [Създаване на вашето първо приложение](tutorial/first-app.md)
   * [Инсталиране на Електрон](tutorial/first-app.md#installing-electron)
   * [Същност при разработка с Електрон](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Работа на вашето приложение](tutorial/first-app.md#running-your-app)
-* [Шаблони и CLI](tutorial/boilerplates-and-clis.md) 
+* [Шаблони и CLI](tutorial/boilerplates-and-clis.md)
   * [Шаблон срещу CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Други инструменти и шаблони](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Архитектура на приложението](tutorial/application-architecture.md) 
+* [Архитектура на приложението](tutorial/application-architecture.md)
   * [Основен и Рендериращ процес](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Използване на API на Електрон](tutorial/application-architecture.md#using-electron-apis)
   * [Използване на Node.js API](tutorial/application-architecture.md#using-nodejs-apis)
   * [Използване на родни Node.js модули](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-* Добавяне на функции към вашето приложение 
+* Добавяне на функции към вашето приложение
   * [Известия](tutorial/notifications.md)
   * [Последни документи](tutorial/recent-documents.md)
   * [Прогрес на приложението](tutorial/progress-bar.md)
@@ -45,29 +45,29 @@
   * [Рендиране извън екрана](tutorial/offscreen-rendering.md)
   * [5256783105227699](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
-* [Accessibility](tutorial/accessibility.md) 
+* [Accessibility](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Разрешаване на достъпността](tutorial/accessibility.md#enabling-accessibility)
-* [5256783105227699](tutorial/application-debugging.md) 
+* [5256783105227699](tutorial/application-debugging.md)
   * [Отстраняване на грешк](tutorial/debugging-main-process.md)
   * [5256783105227699](tutorial/debugging-main-process-vscode.md)
   * [Работа със Selenium Web Driver](tutorial/using-selenium-and-webdriver.md)
   * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)
   * [5256783105227699](tutorial/automated-testing-with-a-custom-driver.md)
-* [Разпределения](tutorial/application-distribution.md) 
+* [Разпределения](tutorial/application-distribution.md)
   * [Поддържани платформи](tutorial/support.md#supported-platforms)
   * [5256783105227699](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Сигурност](tutorial/security.md) 
+* [Сигурност](tutorial/security.md)
   * [Докладване на проблеми със сигурността](tutorial/security.md#reporting-security-issues)
   * [Проблеми със сигурността и обновяване на Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Предупреждения за сигурността при Електрон](tutorial/security.md#electron-security-warnings)
   * [Списък за сигурност](tutorial/security.md#checklist-security-recommendations)
-* [5256783105227699](tutorial/updates.md) 
+* [5256783105227699](tutorial/updates.md)
   * [Дистрибуция на обновен сървър](tutorial/updates.md#deploying-an-update-server)
   * [Добавяне на новости във вашето приложение](tutorial/updates.md#implementing-updates-in-your-app)
   * [Прилагане на новости](tutorial/updates.md#applying-updates)
@@ -77,15 +77,15 @@
 
 บทความสอนแต่ละบทจะขยายความจากหัวข้อคำแนะนำข้างบน.
 
-* [Инсталиране на Електрон](tutorial/installation.md) 
+* [Инсталиране на Електрон](tutorial/installation.md)
   * [Proxies](tutorial/installation.md#proxies)
   * [Потребителски mirrors и кеширане](tutorial/installation.md#custom-mirrors-and-caches)
   * [Отстраняване на неизправности](tutorial/installation.md#troubleshooting)
-* Versiones Electron & Comentarios de desarrollador 
+* Versiones Electron & Comentarios de desarrollador
   * [Versiebeleidid](tutorial/electron-versioning.md)
   * [Calendrier de release9996](tutorial/electron-timelines.md)
   * [525678310522769](tutorial/app-feedback-program.md)
-* [5256783105227699](tutorial/application-packaging.md) 
+* [5256783105227699](tutorial/application-packaging.md)
   * [การสร้างคลังเก็บอาซาร์](tutorial/application-packaging.md#generating-asar-archives)
   * [การใช้ asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -93,7 +93,7 @@
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [การใช้ปลั้กอิน Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [Речник на термините](glossary.md)
 
@@ -155,4 +155,4 @@
 
 ## Разработка
 
-See <development/README.md>
+See [development/README.md](development/README.md)
