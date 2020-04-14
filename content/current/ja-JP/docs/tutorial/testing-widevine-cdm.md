@@ -30,7 +30,7 @@ Chrome ブラウザで `chrome://components/` を開き、`Widevine Content Decr
 
 ライブラリファイル `libwidevinecdm.dylib` は、`/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` ディレクトリにあります。
 
-**注意:** Electron が使用する chrome バージョンが、Chrome の widevine cdm コンポーネントの `min_chrome_version` 値以上であることを確認してください。 値は、`WidevineCdm` ディレクトリの `manifest.json` にあります。
+**Note:** Make sure that chrome version used by Electron is greater than or equal to the `min_chrome_version` value of Chrome's widevine cdm component. 値は、`WidevineCdm` ディレクトリの `manifest.json` にあります。
 
 ## ライブラリの使用
 
