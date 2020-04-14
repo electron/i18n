@@ -1,4 +1,4 @@
-# Electron Documentation Styleguide
+# Electron 文件編寫風格
 
 Electron 說明文件撰寫指導方針。
 
