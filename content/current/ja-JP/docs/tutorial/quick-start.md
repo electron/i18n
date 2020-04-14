@@ -8,3 +8,4 @@ Electronは、豊富なネイティブ (オペレーティング・システム)
 * プロセスアーキテクチャを確認するには、[メインプロセスとレンダラープロセス](./application-architecture.md#main-and-renderer-processes) を参照してください。
 
 Electron についてより深く学ぶには、[公式のガイド](../)をチェックしてください。
+
