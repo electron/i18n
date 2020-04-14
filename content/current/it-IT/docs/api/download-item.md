@@ -58,7 +58,7 @@ Restituisce:
 * `event` Event
 * `state` String - Può essere `completed`, `cancelled` o `interrupted`.
 
-Emesso quando il download è in uno stato terminale. Questo include un download completato, un download annullato (tramite `downloadItem.cancel()`), e download interrotto che non può essere ripreso.
+Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
 Lo `state` può essere uno dei seguenti:
 
@@ -80,7 +80,7 @@ L'API è disponibile solo nella funzione callback `will-download` della sessione
 
 #### `downloadItem.getSavePath()`
 
-Restituisce `String` - Il percorso di salvataggio dell'elemento scaricato. Questo sarà o il percorso impostato tramite `downloadItem.setSavePath(path)` o il percorso selezionato dal save dialog mostrato.
+Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
 
 **[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
@@ -88,7 +88,7 @@ Restituisce `String` - Il percorso di salvataggio dell'elemento scaricato. Quest
 
 * `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+This API allows the user to set custom options for the save dialog that opens for the download item by default. L'API è disponibile solo nella funzione callback `will-download` della sessione.
 
 #### `downloadItem.getSaveDialogOptions()`
 
@@ -106,7 +106,7 @@ Restituisce `Boolean` - Se il download è in pausa.
 
 Riprende il download che è stato messo in pausa.
 
-**Nota:** Per abilitare la ripresa dei downloads il server da cui stai scaricando deve supportare una serie di richieste e fornire entrambi i valori di intestazione `Last-Modified` e `ETag`. Altrimenti `resume()` respingerà i bytes precedentemente ricevuti e riavvia il download dall'inizio.
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Altrimenti `resume()` respingerà i bytes precedentemente ricevuti e riavvia il download dall'inizio.
 
 #### `downloadItem.canResume()`
 
@@ -132,7 +132,7 @@ Restituisce `Boolean` - Se il download ha una user gesture.
 
 Restituisce `String` - Nome del file scaricato.
 
-**Nota:** Il nome del file non sempre è lo stesso di quello effettivamente salvato su disco locale. Se l'utente cambia il nome del file proposto nella finestra di salvataggio, l'attuale nome del file sarà differente.
+**Note:** The file name is not always the same as the actual one saved in local disk. Se l'utente cambia il nome del file proposto nella finestra di salvataggio, l'attuale nome del file sarà differente.
 
 #### `downloadItem.getTotalBytes()`
 
@@ -150,9 +150,9 @@ Restituisce `String` - Campo Content-Disposition ottenuta dall'intestazione dell
 
 #### `downloadItem.getState()`
 
-Restituisce `String` - Lo stato corrente. Può essere `progressing`, `completed`, `cancelled` o `interrupted`.
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**Nota:** I seguenti metodi sono utili specificatamente per riprendere un elemento in stato `cancelled` quando la sessione è riavviata.
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
@@ -170,7 +170,7 @@ Restituisce `String` - Valore dell'intestazione ETag.
 
 Restituisce `Double` - Numero di secondi dall'epoca UNIX da quando il download è stato avviato.
 
-### Proprietà Istanze
+### Proprietà Istanza
 
 #### `downloadItem.savePath`
 
