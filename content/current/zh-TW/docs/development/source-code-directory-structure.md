@@ -78,12 +78,12 @@ Electron
 
 * **.circleci** - Config file for CI with CircleCI.
 * **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
+* **dist** - `script/create-dist.py` 建立發佈檔時產生的暫存目錄。
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
-* **node_modules** - Third party node modules used for building.
+* **node_modules** - 建置時使用的第三方 Node 模組。
 * **npm** - Logic for installation of Electron via npm.
-* **out** - Temporary output directory of `ninja`.
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
+* **out** - `ninja` 的暫存目錄。
+* **script** - 開發時期用的腳本，例如建置、打包、測試等。
 ```diff
 script/ - The set of all scripts Electron runs for a variety of purposes.
 ├── codesign/ - Fakes codesigning for Electron apps; used for testing.
