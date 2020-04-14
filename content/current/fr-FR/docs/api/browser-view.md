@@ -84,7 +84,7 @@ Retourne `Boolean` - Si la vue est détruite.
 
 Redimensionne et déplace la vue vers les limites fournies par rapport à la fenêtre.
 
-#### `view.getBounds()` _Experimental_
+#### `view.getBounds()` _Expérimental_
 
 Retourne [`Rectangle`](structures/rectangle.md)
 
