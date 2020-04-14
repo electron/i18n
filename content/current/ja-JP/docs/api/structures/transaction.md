@@ -6,6 +6,6 @@
 * `transactionState` String - 支払いの状態。`purchasing`, `purchased`, `failed`, `restored`, `deferred` にできます。
 * `errorCode` Integer - 支払いの処理中にエラーが発生したときのエラーコード。
 * `errorMessage` String - 支払いの処理中にエラーが発生したときのエラーメッセージ。
-* `payment` Object 
+* `payment` Object
   * `productIdentifier` String - 購入した製品の識別子。
   * `quantity` Integer - 購入した数。
