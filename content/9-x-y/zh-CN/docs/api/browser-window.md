@@ -444,7 +444,7 @@ Emitted on trackpad rotation gesture. Continually emitted until rotation gesture
 
 窗口关闭sheet(工作表) 时触发
 
-#### Event: 'new-window-for-tab' _macOS_
+#### 事件: 'new-window-for-tab' _macOS_
 
 当点击了系统的新标签按钮时触发
 
