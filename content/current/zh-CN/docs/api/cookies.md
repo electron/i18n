@@ -2,7 +2,7 @@
 
 > 查询和修改一个会话的cookies
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 通过`Session`的`cookies`属性来访问`Cookies`的实例
 
@@ -46,7 +46,7 @@ session.defaultSession.cookies.set(cookie)
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - 变更后的 cookie 值。
-* `cause` String - cookie 值变动的原因，该变量可能的值为： 
+* `cause` String - The cause of the change with one of the following values:
   * ` explicit ` - cookie 是由消费者的操作直接更改的。
   * ` overwrite ` - 一个覆盖原值的插入操作导致的 cookie 被自动删除。
   * ` expired ` - cookie 在过期时自动删除。
@@ -62,7 +62,7 @@ session.defaultSession.cookies.set(cookie)
 
 #### `cookies.get(filter)`
 
-* `filter` Object - 过滤器对象，包含过滤参数 
+* `filter` Object
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * ` name `String (可选) - 按名称筛选 cookie。
   * `domain` String (optional) - 检索与域名或者 `domain` 子域名匹配的cookie。
@@ -76,14 +76,14 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 #### `cookies.set(details)`
 
-* `details` Object 
+* `details` Object
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
-  * ` name `String (可选) - cookie 名称。如果省略, 则默认为空。
-  * ` value `String (可选) - cookie 值。如果省略, 则默认为空。
-  * `domain` String (可选) - cookie所在域名，通常使用点号开头，以使其对子域名可用。未指定时默认为空。
-  * ` path `String (可选) - cookie 的路径。如果省略, 则默认为空。
-  * ` secure `Boolean (可选) - 是否将 cookie 标记为Secure。默认为 false。
-  * ` httpOnly `Boolean (可选) - 是否只将 cookie 标记为 只允许HTTP 访问。默认为 false。
+  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
+  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
+  * `domain` String (可选) - cookie所在域名，通常使用点号开头，以使其对子域名可用。 Empty by default if omitted.
+  * `path` String (可选) - cookie 的路径。 Empty by default if omitted.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. 默认值为 false.
   * ` expirationDate `Double (可选) - cookie 的到期日期，类型为时间戳，单位为秒。 如果省略, 则 cookie 将成为会话 cookie, 并且不会在会话之间保留。
 
 返回 `Promise<void>` - cookie 设置时解析的一个 promise。
