@@ -12,7 +12,7 @@ Ito rin ay posibleng maipada ang mga mensaheng mula sa pangunahing proseso papun
 
 * Kapag nagpadala ng mensahe, ang event name ay ang `channel`.
 * Upang tumugon sa mensahe ng synchronous, maaari mong i-set ang `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 Isang halimbawa ng pagpapadala at paghawak ng mensahe sa pagitan ng render at ng pangunahing proseso:
 
@@ -41,14 +41,14 @@ ipcRenderer.on('asynchronous-reply', (event, arg) => {
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
 
-## Mga Method
+## Mga Paraan
 
 Ang modyul ng `ipcRenderer` ay mayroong mga sumusunod na pamamaraan sa pakikinig sa mga event:
 
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` anuman[]
 
@@ -57,16 +57,16 @@ Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` anuman[]
 
-Nagdadagdag ng isang beses na punsyon ng `listener` para sa event. Ang `listener` na ito ay naihalo lamang sa susunod na ang isang mensahe ay naipadala sa `channel`, ito ay aalisin pagkatapos nito.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `...args` anuman[]
 
 Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
@@ -80,7 +80,7 @@ Tinatanggal ang mga tagapakinig ng tinukoy na `channel`.
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` Ang Function<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` anuman[]
 
@@ -107,7 +107,7 @@ The `event` that is passed as the first argument to the handler is the same as t
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` anuman[]
 
