@@ -1,13 +1,13 @@
-# "Debugging", Pangunahing Proseso sa "VSCode"
+# "Debugging Ang pangunahing Proseso sa "VSCode"
 
-### 1. Open an Electron project in VSCode.
+### 1. Buksan ang proyekto ng Elektron sa VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. Idagdag ang payl na `.vscode/launch.json` gamit ang sumusunod na kumpigurasyon:
 
 ```json
 {
