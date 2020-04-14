@@ -2,7 +2,7 @@
 
 > Behandelt Antworten zu HTTP/HTTPS Anfragen.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 `IncomingMessage` implementiert das [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface und ist somit ein [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -24,7 +24,7 @@ Gibt an dass der Body der Antwort endet.
 
 Ausgegeben wenn eine Anfrage während einer laufenden HTTP Transaktion abgebrochen wurde.
 
-#### Ereignis : "Fehler
+#### Event: 'error'
 
 Rückgabewert:
 
