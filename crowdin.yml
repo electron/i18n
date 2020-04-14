@@ -1,16 +1,16 @@
 commit_message: 'feat: new translations'
 files:
-  - source: /content/en-US/docs/*.md
-    translation: /content/%locale%/docs/%original_file_name%
-  - source: /content/en-US/docs/development/*.md
-    translation: /content/%locale%/docs/development/%original_file_name%
-  - source: /content/en-US/docs/tutorial/*.md
-    translation: /content/%locale%/docs/tutorial/%original_file_name%
-  - source: /content/en-US/website/*.yml
-    translation: /content/%locale%/website/%original_file_name%
-  - source: /content/en-US/docs/api/*.md
-    translation: /content/%locale%/docs/api/%original_file_name%
-  - source: /content/en-US/docs/api/structures/*.md
-    translation: /content/%locale%/docs/api/structures/%original_file_name%
-  - source: /content/en-US/website/blog/*.md
-    translation: /content/%locale%/website/blog/%original_file_name%
+  - source: /content/current/en-US/docs/*.md
+    translation: /content/current/%locale%/docs/%original_file_name%
+  - source: /content/current/en-US/docs/development/*.md
+    translation: /content/current/%locale%/docs/development/%original_file_name%
+  - source: /content/current/en-US/docs/tutorial/*.md
+    translation: /content/current/%locale%/docs/tutorial/%original_file_name%
+  - source: /content/current/en-US/website/*.yml
+    translation: /content/current/%locale%/website/%original_file_name%
+  - source: /content/current/en-US/docs/api/*.md
+    translation: /content/current/%locale%/docs/api/%original_file_name%
+  - source: /content/current/en-US/docs/api/structures/*.md
+    translation: /content/current/%locale%/docs/api/structures/%original_file_name%
+  - source: /content/current/en-US/website/blog/*.md
+    translation: /content/current/%locale%/website/blog/%original_file_name%
