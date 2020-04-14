@@ -8,7 +8,7 @@ Electron のメインプロセスをデバッグするためには、以下の�
 
 ### `--inspect=[port]`
 
-Electron は、指定された `port` で V8 インスペクタープロトコルメッセージをリッスンします。外部デバッガはこのポートに接続する必要があります。デフォルトの `port` は `5858` です。
+Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
 
 ```shell
 electron --inspect=5858 your/app
