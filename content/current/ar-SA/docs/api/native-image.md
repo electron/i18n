@@ -302,11 +302,15 @@ Returns [`Size`](structures/size.md)
 
 Marks the image as a template image.
 
+**[Deprecated](modernization/property-updates.md)**
+
 
 
 #### `image.isTemplateImage()`
 
 Returns `Boolean` - Whether the image is a template image.
+
+**[Deprecated](modernization/property-updates.md)**
 
 
 
