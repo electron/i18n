@@ -8,3 +8,4 @@ Electron 讓你可以使用 JavaScript 呼叫豐富的原生 (作業系統) APIs
 * 要查看處理程序體系，請查看[主處理程序和渲染處理程序](./application-architecture.md#main-and-renderer-processes)。
 
 了解更多有關Electron，請查閱[官方指南](../)。
+
