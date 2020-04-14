@@ -44,7 +44,7 @@ The `net` API can be used only after the application emits the `ready` event. Tr
 
 ### `net.request(options)`
 
-* `options` (Object | String) - The `ClientRequest` constructor options.
+* `options` (Object | String) - `ClientRequest` 构造函数的选项.
 
 返回 [`ClientRequest`](./client-request.md)
 
