@@ -12,7 +12,7 @@
 
 通常在 Chrome 穩定版本發佈後一至兩周內會升級， 但實際需時取決於升級 Chrome 所涉及的工作量。
 
-我們只會用 Chrome 的穩定版本，但如果 dev 或 beta 管道有重要的修復程式，我們會 backport。
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 詳情請參閱[安全簡介](tutorial/security.md)。
 
@@ -29,19 +29,19 @@
 你也可以使用 Electron 特有的 IPC 系統，將物件以全域變數的型式存到主處理序中，再由畫面轉譯器中透過 `electron` 模組的 `remote` 屬性存取:
 
 ```javascript
-// 在主處理序裡。
+// 在主處理序中.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// 第 1 頁裡。
+// In page 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// 第 2 頁裡。
+// In page 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -82,7 +82,7 @@ app.whenReady().then(() => {
 要解決這個問題，可以停用 Electron 的 Node 整合功能:
 
 ```javascript
-// 在主處理序裡。
+// 在主處理序中.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -115,32 +115,11 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-這是因為你在專案內或是系統上安裝了 [npm 的 `electron` 模組](https://www.npmjs.com/package/electron)，蓋掉了 Electron 的內建模組。
-
-要驗證是否使用對了模組，可以印出 `electron` 模組的路徑:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-檢查是否像:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-如果看起來是像 `node_modules/electron/index.js`，那你就得移掉 npm `electron` 模組，或是將它改名。
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-假如你使用的確定是內建模組，但還是有狀況，很有可能是因為你在錯的處理序裡使用。 例如 `electron.app` 只能在主處理序中用，而 `electron.webFrame` 只能在畫面轉譯處理序裡用。
+It is very likely you are using the module in the wrong process. 例如 `electron.app` 只能在主處理序中用，而 `electron.webFrame` 只能在畫面轉譯處理序裡用。
 
 ## The font looks blurry, what is this and what can I do?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 範例:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
