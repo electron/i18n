@@ -75,15 +75,14 @@ Electron
 
 ## その他のディレクトリの構造
 
-* **.circleci** - CircleCI を使用した CI のコンフィグファイル。
-* **.github** - Issue のテンプレートとコード所有者を含む GitHub 指定のコンフィグファイル。
-* **dist** - 配布用に作成したときに `script/create-dist.py` スクリプトが作成する一時的なディレクトリ。
-* **external_binaries** - `gn`によるビルドがサポートされていない第三者のフレームワークのバイナリでダウンロードしたもの。
-* **node_modules** - ビルドに使用する第三者のnodeモジュール。
-* **npm** - npm を介した Electron のインストールロジック。
-* **out** - `ninja`の一時的な出力用ディレクトリ。
-* **script** - ビルド、パッケージ、テストなどの開発目的に使用されるスクリプト。
-
+* **.circleci** - Config file for CI with CircleCI.
+* **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
+* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
+* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
+* **node_modules** - Third party node modules used for building.
+* **npm** - Logic for installation of Electron via npm.
+* **out** - Temporary output directory of `ninja`.
+* **script** - Scripts used for development purpose like building, packaging, testing, etc.
 ```diff
 script/ - Electron がさまざまな目的で実行するすべてのスクリプトの集合。
 ├── codesign/ - Electron アプリのコード署名を偽装します。テスト用です。
@@ -92,11 +91,10 @@ script/ - Electron がさまざまな目的で実行するすべてのスクリ�
     ├── notes/ - 新しいバージョンの Electron のリリースノートを生成します。
     └── uploaders/ - リリース中にさまざまなリリースに関するファイルをアップロードします。
 ```
-
-* **ツール** - GN ファイルで使用されるヘルパースクリプト。 
+* **tools** - Helper scripts used by GN files.
   * ここに配置されたスクリプトは、`script` のスクリプトと違ってユーザーが直接呼び出せません。
-* **typings** - Electron 内部コードの TypeScript 型定義。
-* **vendor** - `boto` や `requests` など、サードパーティの依存関係のソースコード。
+* **typings** - TypeScript typings for Electron's internal code.
+* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
 
 ## Git Submodules を最新に保つ
 
@@ -105,8 +103,8 @@ script/ - Electron がさまざまな目的で実行するすべてのスクリ�
 ```sh
 $ git status
 
-  modified:   vendor/depot_tools (new commits)
-  modified:   vendor/boto (new commits)
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 これらのベンダー依存関係を更新するには次のコマンドを実行します。
@@ -119,5 +117,5 @@ git submodule update --init --recursive
 
 ```sh
 [alias]
-  su = submodule update --init --recursive
+    su = submodule update --init --recursive
 ```
