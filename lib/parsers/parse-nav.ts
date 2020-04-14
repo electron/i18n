@@ -3,6 +3,7 @@ import * as cheerio from 'cheerio'
 export function parseNav(i18nDocs: Record<string, any>, locale: string) {
   const docs = i18nDocs[locale]
   const readme = docs['/docs/README']
+  console.log(readme)
   const html = readme.sections
     .map((section: { html: string }) => section.html)
     .join('\n')
