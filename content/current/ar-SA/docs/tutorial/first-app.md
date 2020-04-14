@@ -4,7 +4,7 @@
 
 هذا لا يعني أن Electron هو ربط جافا سكريبت لمكتبات واجهة المستخدم الرسومية (GUI). بدلاً من ذلك ، يستخدم Electron صفحات الويب كجهاز GUI ، لذا يمكنك أيضًا رؤيتها كمتصفح صغير على Chromium ، يتم التحكم فيه بواسطة جافا سكريبت.
 
-**ملاحظة**: هذا المثال متاح أيضًا كمستودع يمكنك</a> تنزيله وتشغيله على الفور .</p> 
+**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
 
 وفيما يتعلق بالتطوير ، فإن تطبيق الإلكترون هو في الأساس تطبيق Node.js. نقطة البداية `package.json ` هي مماثلة لتلك الخاصة بوحدة Node.js. سيكون تطبيق الإلكترون على بنية المجلد التالية:
 
@@ -31,7 +31,7 @@ npm init
 }
 ```
 
-**ملاحظة** : إذا كان `main` الحقل غير موجود في `package.json` ، سيحاول الإلكترون تحميل `index.js` (كما يفعل Node.js) . إذا كان هذا في الواقع تطبيقًا بسيطًا للعقدة ، فيمكنك إضافة برنامج `start` نصي يوجه `node` لتنفيذ الحزمة الحالية:
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). إذا كان هذا في الواقع تطبيقًا بسيطًا للعقدة ، فيمكنك إضافة برنامج `start` نصي يوجه `node` لتنفيذ الحزمة الحالية:
 
 ```json
 {
@@ -44,7 +44,7 @@ npm init
 }
 ```
 
-تحويل تطبيق العقدة هذا إلى تطبيق إلكتروني بسيط للغاية - نحن فقط نستبدل `node` بــ `electron` 
+تحويل تطبيق العقدة هذا إلى تطبيق إلكتروني بسيط للغاية - نحن فقط نستبدل  `node` بــ  `electron`
 
 ```json
 {
@@ -65,15 +65,22 @@ npm init
 npm install --save-dev electron
 ```
 
-توجد وسائل أخرى لتثبيت الكترون. يرجى الرجوع إلى </a>دليل التثبيت للتعرف على الاستخدام مع البروكسي والتخزين المؤقت المخصص.</p> 
+توجد وسائل أخرى لتثبيت الكترون. يرجى الرجوع إلى </a>دليل التثبيت
+
+ للتعرف على الاستخدام مع البروكسي والتخزين المؤقت المخصص.</p> 
+
+
 
 ## اسلوب تطوير إلكترون باختصار
 
 يتم تطوير تطبيقات الإلكترون في جافا سكريبت باستخدام نفس المبادئ والأساليب الموجودة في تطوير Node.js. يمكن الوصول إلى جميع واجهات برمجة التطبيقات والميزات الموجودة في Electron من خلال `electron` الوحدة النمطية ، والتي يمكن أن تكون مطلوبة مثل أي وحدة Node.js أخرى:
 
+
+
 ```javascript
 const electron = require('electron')
 ```
+
 
 تعرض الوحدة النمطية ` electron </ 0> ميزات في مساحات الأسماء. كأمثلة ، دورة الحياة
 يتم إدارة التطبيق من خلال <code> electron.app </ 0> ، يمكن إنشاء النوافذ
@@ -168,17 +175,21 @@ app.on('activate', () => {
 </html>
 `</pre> 
 
+
+
 ## تشغيل تطبيقك الأول
 
 بمجرد إنشائك الأولية ` main.js </ 0> ، <code> index.html </ 0> ، و <code> package.json </ 0>
 الملفات ، يمكنك تجربة التطبيق الخاص بك عن طريق تشغيل <code> npm start </ 0> من التطبيق الخاص بك
 دليل.</p>
 
-<h2>جرب هذا المثال</h2>
+<h2 spaces-before="0">جرب هذا المثال</h2>
 
-<p>استنساخ وتشغيل الكود في هذا البرنامج التعليمي باستخدام <a href="https://github.com/electron/electron-quick-start"><code>electron/electron-quick-start`</a> repository.
+<p spaces-before="0">استنساخ وتشغيل الكود في هذا البرنامج التعليمي باستخدام <a href="https://github.com/electron/electron-quick-start"><code>electron/electron-quick-start`</a> repository.
 
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
+
+
 
 ```sh
 # Clone the repository
@@ -190,5 +201,6 @@ $ npm install
 # Run the app
 $ npm start
 ```
+
 
 للحصول على قائمة بألواح الصفيح والأدوات لبدء عملية التطوير ، راجع [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
