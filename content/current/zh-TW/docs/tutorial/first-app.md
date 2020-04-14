@@ -1,10 +1,10 @@
 # 寫你第一個 Electron 應用程式
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. 你可以將它視為另一個著重於桌面應用程式的 Node.js ，而非網站伺服器。
+Electron 讓你可以使用 JavaScript 呼叫豐富的原生 (作業系統) APIs 來建立桌面應用程式。 你可以將它視為一個著重於桌面應用程式的 Node.js ，而非網站伺服器。
 
 這並不表示 Electron 是綁定在圖形使用者介面 (GUI) 上的 JavaScript 函式庫。 相反地，Electron 使用網頁作為他的 GUI, 因此你可以把它視為被 JavaScript 所控制的一個精簡版的 Chromium 瀏覽器。
 
-**注意**：這個範例同時是一個 repo，你可以立即[下載並執行](#trying-this-example)。
+**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
 
 As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
@@ -31,7 +31,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
 
 ```json
 {
