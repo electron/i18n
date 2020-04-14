@@ -64,10 +64,10 @@ cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
-- `HOME=~/.electron-gyp` は開発用のヘッダーを探す場所によって変わります。
-- `--target=1.2.3` は Electron のバージョンです。
-- `--dist-url=...` はヘッダをダウンロードする場所を指定します。
-- `--arch=x64` はモジュールを 64bit システム向けにビルドします。
+* `HOME=~/.electron-gyp` は開発用のヘッダーを探す場所によって変わります。
+* `--target=1.2.3` は Electron のバージョンです。
+* `--dist-url=...` はヘッダをダウンロードする場所を指定します。
+* `--arch=x64` はモジュールを 64bit システム向けにビルドします。
 
 ### Electron のカスタムビルドを手動ビルド
 
@@ -81,16 +81,16 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 もしネイティブモジュールがインストールされていてもうまく動いていないと気づいた場合は、下記のことを確認してみてください。
 
-- 何かおかしいと思ったら、まず `electron-rebuild` を実行しましょう。
-- ネイティブモジュールが Electron アプリのターゲットプラットフォームおよびアーキテクチャと互換性があることを確認してください。
-- モジュールの `binding.gyp` 内の `win_delay_load_hook` が `false` にセットされていないことを確認してください。
-- Electron のアップグレード後は、モジュールの再ビルドが必要になります。
+* 何かおかしいと思ったら、まず `electron-rebuild` を実行しましょう。
+* ネイティブモジュールが Electron アプリのターゲットプラットフォームおよびアーキテクチャと互換性があることを確認してください。
+* モジュールの `binding.gyp` 内の `win_delay_load_hook` が `false` にセットされていないことを確認してください。
+* Electron のアップグレード後は、モジュールの再ビルドが必要になります。
 
 ### `win_delay_load_hook` についての注釈
 
 Windows のデフォルトでは、`node-gyp` は `node.dll` に対してネイティブモジュールをリンクします。 しかし Electron 4.x 以降では、ネイティブモジュールで必要とされるシンボルは `electron.exe` によってエクスポートされ、`node.dll` は存在しません。 Windows にネイティブモジュールをロードするために、`node-gyp` はネイティブモジュールがロードされたときにトリガーされる [delay-load-hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) をインストールします。これはライブラリの (何も出てこない) 検索パスで `node.dll` を探す代わりに、ロード可能な実行可能ファイルを使用するように `node.dll` 参照をリダイレクトします。 そのため、Electron 4.x 以降でネイティブモジュールをロードするには `'win_delay_load_hook': 'true'` が必要です。
 
-`モジュールが自己登録されなかった` や `指定されたプロシージャが見つかりませんでした` のようなエラーが得られた場合は、使用しようとしているモジュールが見つからないことを意味しているかもしれません。遅延読み込みフックを正しくインクルードしてください。 モジュールが node-gyp でビルドされている場合、`binding.gyp` ファイルで `win_delay_load_hook` 変数が `true` に設定されておらず、どこかで上書きされていないことを確認します。 モジュールが別のシステムでビルドされている場合は、メインの `.node` ファイルにインストールされている遅延読み込みフックを使用してビルドする必要があります。 `link.exe` の呼び出しは以下ようにしなければなりません。
+`モジュールが自己登録されなかった` や `指定されたプロシージャが見つかりませんでした` のようなエラーが得られた場合は、使用しようとしているモジュールが見つからないことを意味しているかもしれません。遅延読み込みフックを正しくインクルードしてください。  モジュールが node-gyp でビルドされている場合、`binding.gyp` ファイルで `win_delay_load_hook` 変数が `true` に設定されておらず、どこかで上書きされていないことを確認します。  モジュールが別のシステムでビルドされている場合は、メインの `.node` ファイルにインストールされている遅延読み込みフックを使用してビルドする必要があります。 `link.exe` の呼び出しは以下ようにしなければなりません。
 
 ```plaintext
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
@@ -99,9 +99,9 @@ Windows のデフォルトでは、`node-gyp` は `node.dll` に対してネイ�
 
 特に、次のことが重要です。
 
-- Node ではなく *Electron* の `node.lib` に対してリンクします。 間違った `node.lib` に対してリンクすると、Electron のモジュールが必要になったときにロード時エラーが発生します。
+- you link against `node.lib` from _Electron_ and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
 - `/DELAYLOAD:node.exe` フラグをインクルードします。 `node.exe` のリンクが遅延されていない場合、遅延読み込みフックが起動する機会がなく、Node のシンボルは正しく解決されません。
-- `win_delay_load_hook.obj` は、最後の DLL に直接リンクされます。フックが依存 DLL に設定されていると、適切なタイミングで起動されません。
+- `win_delay_load_hook.obj` is linked directly into the final DLL. If the hook is set up in a dependent DLL, it won't fire at the right time.
 
 遅延ロードフックを独自で実装する例については [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) を参照してください。
 
