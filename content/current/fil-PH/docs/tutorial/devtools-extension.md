@@ -11,28 +11,26 @@ Sa pag-load ng ekstensiyon sa elektron, kailangan mong i-download ito sa Chrome 
 Gamit ang [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) bilang halimbawa:
 
 1. I-install ito sa browser ng Chrome.
-2. Mag-navigate sa `chrome://ekstensiyon`, at mahanap ito ang ekstensiyon ng ID, kung saan ang hash string tulad ng `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Alamin ang lokasyon ng filesystem lokasyon gamit ang Chrome para sa pag-iimbak ng mga ekstensiyon: 
-    * sa Windows ito ang `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * sa Linux ito ay maaaring: 
-        * `~/.config/Google-Chrome/default/Extensions/`
-        * `~/.config/google-chrome-beta/Default/Extensions/`
-        * `~/.config/google-chrome-canary/Default/Extensions/`
-        * `~/.config/chromium/Default/Extensions/`
-    * sa macOS ito ay `~/Library/Application Support/Google/Chrome/Default/Extension`.
+1. Mag-navigate sa `chrome://ekstensiyon`, at mahanap ito ang ekstensiyon ng ID, kung saan ang hash string tulad ng `fmkadmapgofadopljbjfkapdkoienihi`.
+1. Alamin ang lokasyon ng filesystem lokasyon gamit ang Chrome para sa pag-iimbak ng mga ekstensiyon:
+   * sa Windows ito ang `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+   * sa Linux ito ay maaaring:
+     * `~/.config/Google-Chrome/default/Extensions/`
+     * `~/.config/google-chrome-beta/Default/Extensions/`
+     * `~/.config/google-chrome-canary/Default/Extensions/`
+     * `~/.config/chromium/Default/Extensions/`
+   * sa macOS ito ay `~/Library/Application Support/Google/Chrome/Default/Extension`.
+1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+   ```javascript
+   const path = require('path')
+   const os = require('os')
 
-4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
-    
-    ```javascript
-    const path = require('path')
-    const os = require('os')
-    
-    BrowserWindow.addDevToolsExtension(
+   BrowserWindow.addDevToolsExtension(
       path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-    )
-    ```
+   )
+   ```
 
-**Paunawa:** Ang `BrowserWindow.addDevToolsExtension` API huwag tawagan bago mahanda ang pangyayari sa app ng modyul sa paglabas.
+**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
 
 The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
