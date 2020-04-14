@@ -420,7 +420,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process of `
 
 Обектът `app` има следните методи:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Забележка:** Някои методи са достъпни само в конкретни операционни системи и са етикетирани като такива.
 
 ### `app.quit()`
 
@@ -530,7 +530,7 @@ Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [Nati
 
 Хваща асоциираната икона за съответния път.
 
-On _Windows_, there a 2 kinds of icons:
+На _Windows_, има 2 типа икони:
 
 * Икони асоциирани с конкретни разширения на файлове, като `.mp3`, `.png`, др.
 * Икони в самия файл, като `.exe`, `.dll`, `.ico`.
@@ -574,7 +574,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**Забележка:** Когато се разпространявате пакетираното приложение, трябва също така да изпратите и `locales` папката.
 
 **Note:** On Windows, you have to call it after the `ready` events gets emitted.
 
@@ -630,7 +630,7 @@ This method checks if the current executable as the default handler for a protoc
 
 Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. Можете също така да проверите това чрез проверка на `~/Library/Preferences/com.apple.LaunchServices.plist` на macOS машина. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) за подробности.
+**Забележка:** На macOS можете да използвате този метод, за да проверите дали приложението е регистрирана като манипулатор по подразбиране за протоколa. Можете също така да проверите това чрез проверка на `~/Library/Preferences/com.apple.LaunchServices.plist` на macOS машина. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) за подробности.
 
 The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
 
@@ -644,7 +644,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 
 Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+**Забележка:** Ако искате да персонализирате още повече скок списък (Jump List) използвайте `app.setJumpList(categories)`.
 
 ### `app.getJumpListSettings()` _Windows_
 
@@ -1025,7 +1025,7 @@ Returns `Boolean` - Whether the move was successful. Please note that if the mov
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Съобщението в грешката би трябвало да е информативно и да ви каже точно какво се е случило.
+**Забележка:**Този метод хвърля грешка ако нещо различно от потребителя попречи на местенето. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Съобщението в грешката би трябвало да е информативно и да ви каже точно какво се е случило.
 
 By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
