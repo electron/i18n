@@ -4,7 +4,7 @@ author: jlord
 date: '2015-06-04'
 ---
 
-This week we've given Electron's documentation a home on [electronjs.org](https://electronjs.org). You can visit [/docs/latest](https://electronjs.org/docs/latest) for the latest set of docs. We'll keep versions of older docs, too, so you're able to visit [/docs/vX.XX.X](https://electronjs.org/docs/v0.26.0) for the docs that correlate to the version you're using.
+今週、[electronjs.org](https://electronjs.org) にて Electron のドキュメントを掲載しました。 [/docs/latest](https://electronjs.org/docs/latest) に最新のドキュメントがあります。 古いバージョンのドキュメントも保持します。[/docs/vX.XX.XX.X](https://electronjs.org/docs/v0.26.0) にアクセスすれば、使用バージョンに関するドキュメントも確認できます。
 
 ---
 
