@@ -95,10 +95,10 @@
 * 构造函数必须用 `###` 级标题列出.
 * [静态方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) 必须在 `### Static Methods` 章节中列出.
 * [实例方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) 必须在 `### Instance Methods` 章节中列出.
-* 所有具有返回值的方法必须用"Returns `[TYPE]` - Return description" 的形式描述. 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * 如果该方法返回一个 `Object`，则可以使用冒号后跟换行符，然后使用与函数参数相同样式的属性的无序列表来指定其结构.
 * 实例事件必须在 `### Instance Events` 章节中列出.
-* 实例属性必须在 `### 实例属性` 章节中列出. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * 实例属性必须以 "A [Property Type] ..." 开始描述.
 
 这里用 `Session` 和 `Cookies` 类作为例子:
@@ -150,7 +150,7 @@
 
 标题可以是 `###` 级别或 `####` 级别，具体取决于它是模块还是类的方法。
 
-对于模块，`objectName` 是模块的名称。 对于类，它必须是类的实例的名称，并且不能与模块的名称相同。
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 例如，`session` 模块下的 `Session` 类的方法必须使用 `ses` 作为 `objectName` 。
 
@@ -160,7 +160,7 @@
 required[, optional]
 ```
 
-下面的方法是每个参数更加详细的信息。 参数的类型由常见类型表示:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`字符串`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
