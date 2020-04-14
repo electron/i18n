@@ -2,7 +2,7 @@
 
 > In-app purchases on Mac App Store.
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 ## 事件
 
