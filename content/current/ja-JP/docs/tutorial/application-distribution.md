@@ -1,6 +1,6 @@
 # アプリケーションの配布
 
-あなたのアプリケーションをElectronで配布する場合、それをパッケージし、そのリブランドする必要があります。その、最も簡単な方法は以下のサードパーティーのツールを使用することです。
+To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
@@ -9,8 +9,7 @@
 これらのツールは、配布可能なあなたのElectronアプリケーションに行う必要のある全ての手順をカバーします。その手順には、あなたのアプリケーションのパッケージング、実行ファイルのリブランド、正しいアイコンの設定、インストーラーの作成(オプション)が含まれます。
 
 ## マニュアル配布
-
-あなたは配布の準備のできたアプリを選ぶことができます。この実施すべきステップを以下に示します。
+You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
 
 Electron でアプリを配布する際は、Electron の [プレビルドバイナリ](https://github.com/electron/electron/releases) をダウンロードする必要があります。 次に、アプリケーションが含まれたフォルダの名前を `app` に変更し、Electron のリソースディレクトリに以下に示すように配置します。 Electron のプレビルドバイナリの場所は、以下の例では `electron/` と示されていることに注意してください。
 
@@ -62,7 +61,7 @@ electron/resources/
 
 ### Windows
 
-`electron.exe` のファイル名は、任意の名前に変更することが出来ます。また、アイコンやその他の情報を [rcedit](https://github.com/atom/rcedit) のようなツールで編集出来ます。
+`electron.exe` のファイル名は、任意の名前に変更することが出来ます。また、アイコンやその他の情報を [rcedit](https://github.com/electron/rcedit) のようなツールで編集出来ます。
 
 ### macOS
 
@@ -106,7 +105,7 @@ Electron のカスタムフォークを作成することは、"製品レベル"
 1. npm を介して [Surf](https://github.com/surf-build/surf) をインストールします。`npm install -g surf-build@latest`
 
 2. 新しい S3 バケットを作成し、以下の空のディレクトリ構造を作成します。
-    
+
     ```sh
     - electron/
       - symbols/
@@ -115,16 +114,16 @@ Electron のカスタムフォークを作成することは、"製品レベル"
 
 3. 以下の環境変数を設定します。
 
-* `ELECTRON_GITHUB_TOKEN` - GitHub 上でリリースを作成できるトークン
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - シンボルと同じように Node.js ヘッダをアップロードする場所
-* `ELECTRON_RELEASE` - `true` に設定すると、アップロード部分が実行され、未設定のままになり、`surf-build` はあらゆるプルリクエストに対して実行するのに適した CI タイプのチェックを行います。
-* `CI` - `true` に設定しないと失敗します。
-* `GITHUB_TOKEN` - `ELECTRON_GITHUB_TOKEN` と同じに設定します
-* `SURF_TEMP` - パスが長すぎる問題を防ぐために、Windowsでは `C:\Temp` に設定してください
-* `TARGET_ARCH` - `ia32` か `x64` に設定します。
+  * `ELECTRON_GITHUB_TOKEN` - GitHub 上でリリースを作成できるトークン
+  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - シンボルと同じように Node.js ヘッダをアップロードする場所
+  * `ELECTRON_RELEASE` - `true` に設定すると、アップロード部分が実行され、未設定のままになり、`surf-build` はあらゆるプルリクエストに対して実行するのに適した CI タイプのチェックを行います。
+  * `CI` - `true` に設定しないと失敗します。
+  * `GITHUB_TOKEN` - `ELECTRON_GITHUB_TOKEN` と同じに設定します
+  * `SURF_TEMP` - パスが長すぎる問題を防ぐために、Windowsでは `C:\Temp` に設定してください
+  * `TARGET_ARCH` - `ia32` か `x64` に設定します。
 
-1. `script/upload.py` で、特にあなたが Electron proper のコントリビュータである場合、`ELECTRON_REPO` をあなたのフォーク (`MYORG/electron`) に設定*しなければなりません*。
+4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 
-2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. ビルドが完了するまで、非常に、非常に長い間待ちます。
+6. ビルドが完了するまで、非常に、非常に長い間待ちます。
