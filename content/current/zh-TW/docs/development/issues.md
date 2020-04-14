@@ -45,9 +45,7 @@ Thanks for opening an issue! A few things to keep in mind:
 
 <!-- What actually happens? -->
 
-### How to reproduce
-
-<!--
+### How to reproduce<!--
 
 Your best chance of getting this bug looked at quickly is to provide a REPOSITORY that can be cloned and run.
 
@@ -59,8 +57,7 @@ You can fork https://github.com/electron/electron-quick-start and include a link
   $ npm install
   $ npm start || electron .
 
--->
-```
+-->```
 
 If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
 
