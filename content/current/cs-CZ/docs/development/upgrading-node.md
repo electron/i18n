@@ -70,7 +70,7 @@ It's usually easier to update Node to work without the compatibility patch than 
 
 Update the `DEPS` file in the root of [electron/electron](https://github.com/electron/electron) to point to the git hash of the updated Node.
 
-## Notes
+## Poznámky
 
 - Node maintains its own fork of V8
   - They backport a small amount of things as needed
