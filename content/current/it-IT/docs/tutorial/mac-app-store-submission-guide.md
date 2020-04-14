@@ -1,6 +1,6 @@
 # Guida alla pubblicazione su Mac App Store
 
-Dalla v0.34.0, Electron permette di inviare pacchetti app al Mac App Store (MAS). Questa guida fornisce informazioni su: come inviare un'app e sulle limitazioni della build MAS.
+Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
 
 **Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
