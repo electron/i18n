@@ -24,29 +24,16 @@ To submit a bug report:
 
 When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
-```markdown
-<!-- 
+```markdown<!-- 
 Terimakasih karena telah membuka isu! Beberapa hal yang perlu di perhatikan:
 
 - Pelacak isu hanya untuk Bug dan fitur permintaan.
 - Sebelum melaporkan Bug, silahkan coba mereproduksi masalah anda terhadap versi terbaru dari electron.
 -Jika anda membutuhkan saran secara umum, gabung di Slack kami: http://atom-slack.herokuapp.com 
--->
-
-*Versi Electron
+-->*Versi Electron
 *Sistem Operasi
 
-### Kebiasaan yang diharapkan
-
-<!--Apa menurut anda yang akan terjadi? -->
-
-### Perilaku Aktual
-
-<!-- Apa yang sebenarnya terjadi? -->
-
-### Bagaimana cara memproduksi
-
-<!--
+### Kebiasaan yang diharapkan<!--Apa menurut anda yang akan terjadi? -->### Perilaku Aktual<!-- Apa yang sebenarnya terjadi? -->### Bagaimana cara memproduksi<!--
 Kesempatan terbaik anda untuk menemukan Bug ini secara cepat adalah dengan menyediakan REPOSITORI yang bisa di klon dan berfungsi.
 
 Kamu dapat menarik file di https://github.com/electron/electron-quick-start dan termasuk link untuk cabang dengan perubahan yang telah anda buat.
@@ -57,8 +44,7 @@ $ git clone $YOUR_URL -b $BRANCH
 $ npm install   
 $ npm start || electron .
 
--->
-```
+-->```
 
 Jika anda yakin bahwa anda telah menemukan Bug di electron, mohon isi formulir ini sesuai kemampuan terbaik anda.
 
