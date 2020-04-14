@@ -8,7 +8,7 @@ Chromium 和 Node.js 都依赖于 V8 ， Electron 只包含 了 V8 的一个副�
 
 Electron 有它自己的 [ Node 克隆](https://github.com/electron/node), 并对上面提到的 V8 构建细节进行修改, 并用于暴露Electron所需的 API。 一旦选择了一个上游Node的发布版本, 它就被放置在Electron的Node克隆的一个分支中，并且任何Electron Node的补丁会被应用在那里。
 
-另一个因素是Node只给其自己版本的 V8打补丁。如上所述, Electron用一份 V8 副本来构建一切, 所以Node的 V8 补丁必须被移植到该副本。
+Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
 
 一旦所有电子的依赖建立和使用相同的副本 V8, 下一步是修复任何电子代码问题引起的节点升级。
 
@@ -24,17 +24,18 @@ Electron 有它自己的 [ Node 克隆](https://github.com/electron/node), 并�
 ## 更新Electron的Node[克隆](https://github.com/electron/node)
 
 1. 确保 `electron/node` 上的 `master` 已经从 `nodejs/node` 更新过发布标签
-2. 在https://github.com/electron/node创建一个分支 `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
+2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update
   - `vX.X.X` 必须使用与当前版本的 Chromium 兼容的Node 版本
-3. 从我们使用的以前版本的 Node 重新应用我们的提交 (`vY.Y.Y`) 到 `v.X.X.X` 
+3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X`
   - 检查发布标签并选择我们需要重新应用的提交的范围
-  - Cherry-pick 提交范围： 
+  - Cherry-pick 提交范围：
     1. 检查 `vY.Y.Y` & `v.X.X.X`
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - 解决遇到的每个文件中的合并冲突，然后： 
+  - 解决遇到的每个文件中的合并冲突，然后：
     1. `git add <冲突文件>`
     2. `git cherry-pick --continue`
     3. 重复直到完成
+
 
 ## 更新 [V8](https://github.com/electron/node/src/V8) 补丁
 
@@ -71,16 +72,16 @@ Update the `DEPS` file in the root of [electron/electron](https://github.com/ele
 
 ## 注意：
 
-- Node维护它自己的V8的克隆 
+- Node维护它自己的V8的克隆
   - They backport a small amount of things as needed
   - Documentation in Node about how [they work with V8](https://nodejs.org/api/v8.html)
-- We update code such that we only use one copy of V8 across all of Electron 
+- We update code such that we only use one copy of V8 across all of Electron
   - E.g Electron, Chromium, and Node.js
-- We don’t track upstream closely due to logistics: 
-  - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
-- Chromium is large and time-consuming to update, so we typically choose the Node version based on which of its releases has a version of V8 that’s closest to the version in Chromium that we’re using. 
+- We don’t track upstream closely due to logistics:
+   - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
+- Chromium is large and time-consuming to update, so we typically choose the Node version based on which of its releases has a version of V8 that’s closest to the version in Chromium that we’re using.
   - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new Chromium
-  - Electron keeps all its patches in the repo because it’s simpler than maintaining different repos for patches for each upstream project. 
-    - Crashpad, Node.js, Chromium, Skia etc. patches are all kept in the same place
-  - Building Node: 
-    - We maintain our own GN build files for Node.js to make it easier to ensure that eevrything is built with the same compiler flags. This means that every time we upgrade Node.js we have to do a modest amount of work to synchronize the GN files with the upstream GYP files.
+ - Electron keeps all its patches in the repo because it’s simpler than maintaining different repos for patches for each upstream project.
+   - Crashpad, Node.js, Chromium, Skia etc. patches are all kept in the same place
+ - Building Node:
+   - We maintain our own GN build files for Node.js to make it easier to ensure that eevrything is built with the same compiler flags. This means that every time we upgrade Node.js we have to do a modest amount of work to synchronize the GN files with the upstream GYP files.
