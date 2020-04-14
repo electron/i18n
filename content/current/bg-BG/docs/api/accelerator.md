@@ -25,7 +25,7 @@ app.on('ready', () => {
 
 На Linux и Windows, клавиша `Command` няма ефект, така че използвайте `CommandOrControl`, която представлява `Command` на macOS и `Control` на Linux и Windows, за да дефинирате някои ускорители.
 
-Използвайте `Alt` вместо `Option`. Клавиша `Option` съществува само на macOS, докато клавиша `Alt` е достъпнен за всички платформи.
+Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
 Клавиша `Super` е свързан с клавиша `Windows` на Windows и Linux, а клавиша `Cmd` на macOS.
 
@@ -63,7 +63,7 @@ app.on('ready', () => {
 * `VolumeUp`, `VolumeDown` и `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` и `MediaPlayPause`
 * `PrintScreen`
-* NumPad Keys 
+* NumPad Keys
   * `num0` - `num9`
   * `numdec` - decimal key
   * `numadd` - numpad `+` key
