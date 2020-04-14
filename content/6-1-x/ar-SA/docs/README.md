@@ -6,7 +6,7 @@
 
 There are questions that are asked quite often. Check this out before creating an issue:
 
-* [Electron FAQ](faq.md)
+* [إلكترون - الاسئلة الشائعة](faq.md)
 
 ## الدليل الإرشادي والدروس
 
@@ -16,10 +16,10 @@ There are questions that are asked quite often. Check this out before creating a
   * [اعداد نظام لينكس (Linux)](tutorial/development-environment.md#setting-up-linux)
   * [اختيار محرر الكود](tutorial/development-environment.md#a-good-editor)
 * [انشاء تطبيقك الأول](tutorial/first-app.md)
-  * [تنصيب إلكترون (Electron)](tutorial/first-app.md#installing-electron)
-  * [اسلوب تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [تشغيل تطبيقك الأول](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md)
+  * [تثبيت إكترون](tutorial/first-app.md#installing-electron)
+  * [تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [تشغيل تطبيقك](tutorial/first-app.md#running-your-app)
+* [Boilerplates و CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate مقابل CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
@@ -37,18 +37,18 @@ There are questions that are asked quite often. Check this out before creating a
   * [خصص شريط المهام](tutorial/macos-dock.md)
   * [خصص شريط مهام الويندوز](tutorial/windows-taskbar.md)
   * [خصص إجراءات سطح المكتب المخصص لـ Linux](tutorial/linux-desktop-actions.md)
-  * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+  * [میانبرهای صفحه کلید](tutorial/keyboard-shortcuts.md)
   * [إكتشاف المتصل/ غير المتصل](tutorial/online-offline-events.md)
   * [الملف الممثّل في نافذة المستعرض في نظام ماك أو إس](tutorial/represented-file.md)
   * [سحب الملفات الأصلية & Drop&](tutorial/native-file-drag-drop.md)
 * [إمكانية الوصول](tutorial/accessibility.md)
-  * [Spectron](tutorial/accessibility.md#spectron)
+  * [سبيكترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [تمكين الوصول](tutorial/accessibility.md#enabling-accessibility)
+  * [تمكين امكانيات الوصول](tutorial/accessibility.md#enabling-accessibility)
 * [اختبار وتصحيح](tutorial/application-debugging.md)
-  * [تنقيح عملية الرئيسية](tutorial/debugging-main-process.md)
-  * [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [تصحيح عملية الرئيسية](tutorial/debugging-main-process.md)
+  * [استخدام السيلينيوم و WebDriver](tutorial/using-selenium-and-webdriver.md)
+  * [اختبار على أنظمة CI بدون رأس (ترافيس ، جنكينز)](tutorial/testing-on-headless-ci.md)
   * [DevTools Extension](tutorial/devtools-extension.md)
   * [الاختبار الآلي مع برنامج تشغيل مخصص](tutorial/automated-testing-with-a-custom-driver.md)
 * Packaging
@@ -72,21 +72,21 @@ There are questions that are asked quite often. Check this out before creating a
 
 هذه دروس مفصلة للمواضيع التي تمت مناقشتها في الدليل بالأعلى.
 
-* [In Detail: Installing Electron](tutorial/installation.md)
+* [في التفاصيل: تثبيت الكترون](tutorial/installation.md)
   * [بروكسيات](tutorial/installation.md#proxies)
   * [مرايا مخصصة ومخابئ](tutorial/installation.md#custom-mirrors-and-caches)
   * [اكتشاف الأخطاء وإصلاحها](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md)
+* [بالتفصيل: نظام إصدار إلكترون](tutorial/electron-versioning.md)
   * [semver](tutorial/electron-versioning.md#semver)
   * [فروع التثبيت](tutorial/electron-versioning.md#stabilization-branches)
   * [إصدارات بيتا وإصلاحات الأخطاء](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md)
+* [بالتفاصيل: رمز مصدر تطبيق Packaging مع asar](tutorial/application-packaging.md)
   * [توليد ملفات asar](tutorial/application-packaging.md#generating-asar-archives)
   * [استخدام أرشيفات asar](tutorial/application-packaging.md#using-asar-archives)
   * [القيود](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [إضافة ملفات غير مخزنة إلى أرشيفات asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [بالتفصيل: اختبار Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [بالتفصيل: استخدام ملحق فلاش Pepper](tutorial/using-pepper-flash-plugin.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 
 ---
@@ -109,13 +109,13 @@ There are questions that are asked quite often. Check this out before creating a
 
 ### وحدات للـ Main Process:
 
-* [التطبيقات](api/app.md)
-* [تحديث تلقائي](api/auto-updater.md)
+* [app (التطبيق)](api/app.md)
+* [autoUpdater (التحديث التلقائي)](api/auto-updater.md)
 * [BrowserView (عرض المتصفح)](api/browser-view.md)
-* [نافذة المتصفح](api/browser-window.md)
-* [تتبع المحتوى](api/content-tracing.md)
-* [نافذة الحوار](api/dialog.md)
-* [اختصار عالمي](api/global-shortcut.md)
+* [BrowserWindow](api/browser-window.md)
+* [contentTracing (تتبع المحتوى)](api/content-tracing.md)
+* [dialog (الحوار)](api/dialog.md)
+* [globalShortcut (اختصار عالمي)](api/global-shortcut.md)
 * [inAppPurchase (مشتريات داخل التطبيق)](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu (القائمة)](api/menu.md)
@@ -134,12 +134,12 @@ There are questions that are asked quite often. Check this out before creating a
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [منصة_شليلة](api/remote.md)
+* [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### الوحدات لكلا العمليتين:
 
-* [لوحة القُصاصات](api/clipboard.md)
+* [الحافظة](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [شاشة](api/screen.md)
