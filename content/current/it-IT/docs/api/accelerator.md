@@ -27,7 +27,7 @@ const { app, globalShortcut } = require('electron')
 
 Su Linux e Windows, la chiave `Comando` non ha effetto quindi usa `ComandoOControllo` che rappresenta `Comando` su macOS e `Controllo` su Linux e Windows per definire alcuni acceleratori.
 
-Usa `Alt` al posto di `Opzione`. La chiave `opzione` esiste solo su macOS mentre la chiave `Alt` è disponibile su tutte le piattaforme.
+Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
 La chiave `Super` è mappata alla chiave `Windows` per Windows e Linux e `Cmd` su macOS.
 
@@ -65,7 +65,7 @@ La chiave `Super` è mappata alla chiave `Windows` per Windows e Linux e `Cmd` s
 * `VolumeSu`, `VolumeGiù` e `VolumeMuto`
 * `MediaProssimaTraccia`, `MediaPrecedenteTraccia`, `MediaStop` e `MediaPlayPausa`
 * `StampaSchermo`
-* NumPad Keys 
+* NumPad Keys
   * `num0` - `num9`
   * `numdec` - decimal key
   * `numadd` - numpad `+` key
