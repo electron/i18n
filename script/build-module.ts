@@ -125,7 +125,6 @@ async function main() {
   }
 
   const navsByLocale = Object.keys(locales).reduce((acc, locale) => {
-    console.log('NAVSByLocale', docsByLocale)
     acc[locale] = parseNav(docsByLocale, locale)
     return acc
   }, {} as Record<string, string>)
