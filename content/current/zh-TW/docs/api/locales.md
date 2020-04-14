@@ -2,7 +2,7 @@
 
 > 呼叫 `app.getLocale()` 回傳的語系值。
 
-Electron 使用 Chromium 的 `l10n_util` 程式庫來取得語系。可能的值都列在下面:
+Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
 
 | 語言代碼   | 語言名稱                    |
 | ------ | ----------------------- |
@@ -93,7 +93,7 @@ Electron 使用 Chromium 的 `l10n_util` 程式庫來取得語系。可能的值
 | no     | Norwegian               |
 | oc     | Occitan                 |
 | om     | Oromo                   |
-| 或      | Oriya                   |
+| or     | Oriya                   |
 | pa     | Punjabi                 |
 | pl     | Polish                  |
 | ps     | Pashto                  |
