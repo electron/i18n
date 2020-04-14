@@ -23,9 +23,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` _Experimental_
 
-* `options` Object (facultatif) 
+* `options` Object (optional)
   * `webPreferences` Object (facultatif) - Voir [BrowserWindow](browser-window.md).
 
 ### Méthodes statiques
@@ -50,11 +50,11 @@ Retourne `BrowserView` - La vue avec l'`id` donné.
 
 Les objets créés avec `new BrowserView` ont les propriétés suivantes :
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` _Experimental_
 
 Un objet [`WebContents`](web-contents.md) appartient à cette vue.
 
-#### `view.id` *Experimental*
+#### `view.id` _Experimental_
 
 Un`Integer` représentant l’ID unique de la vue.
 
@@ -70,26 +70,26 @@ Force la fermeture de la vue, les événements `unload` et `beforeunload` ne ser
 
 Retourne `Boolean` - Si la vue est détruite.
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` _Experimental_
 
-* `options` Objet 
-  * `width` Boolean (facultatif) - Si `true`, la largeur de la vue va s'agrandir et se rétrécir ensemble avec la fenêtre. `false` par défaut.
-  * `height` Boolean (facultatif) - Si `true`, la hauteur de la vue va croître et se rétrécir avec la fenêtre. `false` par défaut.
-  * `horizontal` Booléen (facultatif) - Si `true`, la position et la largeur de la vue croîtront et se rétréciront proportionnellement à la fenêtre. `faux` par défaut.
-  * `vertical` Booléen (facultatif) - Si `true`, la position et la hauteur de la vue augmenteront et se rétréciront proportionnellement à la fenêtre. `faux` par défaut.
+* `options` Object
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` _Experimental_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Redimensionne et déplace la vue vers les limites fournies par rapport à la fenêtre.
 
-#### `view.getBounds()` *Expérimental*
+#### `view.getBounds()` _Experimental_
 
 Retourne [`Rectangle`](structures/rectangle.md)
 
 Les `limites` de cette instance BrowserView comme `Object`.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` _Experimental_
 
-* `color` String - Couleur dans le format `#aarrggbb` ou `#argb`. Le canal alpha est facultatif.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
