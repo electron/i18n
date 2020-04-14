@@ -2,13 +2,13 @@
 
 > 在一个请求生命周期的不同阶段，截取和修改其内容。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 使用 ` Session ` 的 ` WebRequest ` 属性访问 ` WebRequest ` 类的实例。
 
 ` WebRequest ` 的方法接受可选的 `filter ` 和 ` listener `。 当 API 的事件发生时, 将使用 ` listener(details) ` 来调用 ` listener`。 `详细信息`对象描述了请求。
 
-⚠️ 仅最后一个附加的 `listener` 将被使用。对 `listener` 传递 `null` 将会取消监听该事件。
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
 ` filter ` 对象具有一个 ` url ` 属性, 它是一个 url 模式数组, 用于筛选出与 url 模式不匹配的请求。 如果省略 ` filter `, 则所有请求都将匹配。
 
@@ -36,10 +36,10 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Object (可选) 
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -48,8 +48,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
-    * `response` Object 
+  * `callback` Function
+    * `response` Object
       * `cancel` Boolean (可选)
       * `redirectURL` String (可选) - 原始请求被阻止发送或完成，而不是重定向到给定的URL。
 
@@ -76,10 +76,10 @@ Some examples of valid `urls`:
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Object (可选) 
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -88,8 +88,8 @@ Some examples of valid `urls`:
     * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
-  * `callback` Function 
-    * `beforeSendResponse` Object 
+  * `callback` Function
+    * `beforeSendResponse` Object
       * `cancel` Boolean (可选)
       * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
@@ -99,10 +99,10 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `过滤` Object (可选) 
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -116,10 +116,10 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Object (可选) 
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -131,8 +131,8 @@ The `callback` has to be called with a `response` object.
     * `statusCode` Integer
     * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (optional)
-  * `callback` Function - 回调函数 
-    * `headersReceivedResponse` Object 
+  * `callback` Function
+    * `headersReceivedResponse` Object
       * `cancel` Boolean (可选)
       * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
@@ -143,10 +143,10 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Object (可选) 
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -163,10 +163,10 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Object (可选) 
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -185,10 +185,10 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Object (可选) 
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -206,10 +206,10 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Object (可选) 
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
