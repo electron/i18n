@@ -1,13 +1,13 @@
 # "Debugging", Pangunahing Proseso sa "VSCode"
 
-### 1. Buksan ang proyekto ng Elektron sa VSCode.
+### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Idagdag ang payl na `.vscode/launch.json` gamit ang sumusunod na kumpigurasyon:
+### 2. Add a file `.vscode/launch.json` with the following configuration:
 
 ```json
 {
@@ -29,8 +29,9 @@ $ code electron-quick-start
 }
 ```
 
-### 3. "Debugging"
 
-Itakda ang ilang "breakpoints" sa `main.js`, at simulang ang "debugging" sa [Debug View](https://code.visualstudio.com/docs/editor/debugging). Kinakailangan mong matamaan ang "breakpoints".
+### 3. Debugging
+
+Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 
 Ito ang proyekto na ginamitan na ng kumpigurasyon na maaaring kunin o "download" at direktang gagamitan ng "debug" sa VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
