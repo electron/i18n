@@ -19,7 +19,6 @@ Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window a
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 Например:
-
 ```js
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
@@ -34,7 +33,7 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ### `window.opener.postMessage(message, targetOrigin)`
 
 * `потребителско име` Низ
-* `description` String - Описание 
+* `targetOrigin` String
 
 Изпраща съобщение до новия прозорец с определен произход или <0citybanamex perfiles >*</code>5256783105227699 ако няма предпочитание към произхода.
 
@@ -44,15 +43,15 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 
 `citybanamex perfiles </p>
 
-<p>5256783105227699</p>
+<p spaces-before="0">5256783105227699</p>
 
-<pre><code class="html"></02
-`</pre> 
+<pre><code class="html"><webview webpreferences="nativeWindowOpen=yes"></webview>
+`</pre>
 
 `12</p>
 
 <pre><code class="javascript">5256783105227699
-`</pre> 
+`</pre>
 
 ```javascript
 </h1>023119042275829058
