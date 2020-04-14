@@ -8,7 +8,7 @@ Electron の公式シンボルサーバの URL は https://electron-symbols.gith
 
 ## Windbg でシンボルサーバを使用する
 
-Windbg シンボルパスは、アスタリスク文字で区切られた文字列値で構成されています。 Electron シンボルサーバーのみを使用するには、以下のシンボルパスに次のエントリを追加します (**注意:** `c:\code\symbols` をコンピュータ上の書き込み可能なディレクトリに置き換えてください)。
+Windbg シンボルパスは、アスタリスク文字で区切られた文字列値で構成されています。 To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
 
 ```powershell
 SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
@@ -22,7 +22,8 @@ SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\sym
 
 ## Visual Studio 内でシンボルサーバを使用する
 
-<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
+<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' />
+<img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
 ## トラブルシューティング: シンボルが読み込めない
 
