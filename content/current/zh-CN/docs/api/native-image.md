@@ -239,9 +239,13 @@ Returns [`Size`](structures/size.md)
 
 将图像标记为模板图像。
 
+**[过时的](modernization/property-updates.md)**
+
 #### `image.isTemplateImage()`
 
 返回 ` Boolean `-图像是否为模板图像。
+
+**[过时的](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 
