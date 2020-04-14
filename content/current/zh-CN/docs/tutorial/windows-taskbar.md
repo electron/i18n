@@ -10,7 +10,7 @@ Windows 允许应用程序自定义一个上下文菜单，用户右键单击任
 > 
 > 强烈推荐“任务”列表内容是静态的。 不管什么情形，也不管应用程序是什么状态，它都应该是保持不变的。 尽管这个列表是动态可变的，你应该注意，那些没想过这个列表会变的用户会被这个行为搞糊涂。
 
-**Internet Explorer 的 任务:**
+__Internet Explorer 的 任务:__
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
@@ -41,6 +41,7 @@ app.setUserTasks([])
 
 当你的应用关闭时，用户任务仍然会被显示，因此在你的应用被卸载之前，任务的图标和程序的路径必须是存在的。
 
+
 ## 缩略图工具栏
 
 在 Windows，你可以在任务栏上添加一个按钮来当作应用的缩略图工具栏。 它为用户提供了一种访问特定窗口命令的方式, 而无需还原或激活该窗口。
@@ -51,7 +52,7 @@ app.setUserTasks([])
 > 
 > 例如, Windows 媒体播放机可能提供标准的媒体传输控制, 如播放、暂停、静音和停止。
 
-**Windows Media Player 的缩略图工具栏:**
+__Windows Media Player 的缩略图工具栏:__
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
@@ -86,13 +87,14 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
+
 ## 任务栏中的图标叠加
 
 在 Windows，任务栏按钮可以使用小型叠加层显示应用程序 状态，引用 MSDN 的文档：
 
 > 图标叠加作为状态的上下文通知, 旨在否定需要一个单独的通知区域状态图标来将该信息传达给用户。 例如, 当前在通知区域中显示的 Microsoft Outlook 中的新邮件状态现在可以通过任务栏按钮上的叠加来表示。 同样, 您必须在开发周期中决定哪个方法最适合您的应用程序。 叠加图标用于提供重要的、长期的状态或通知, 如网络状态、messenger 状态或新邮件。 不应向用户显示不断变化的叠加或动画。
 
-**任务栏按钮的叠加:**
+__任务栏按钮的叠加:__
 
 ![任务栏按钮的叠加](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
@@ -103,6 +105,7 @@ const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
+
 
 ## 闪烁框
 
