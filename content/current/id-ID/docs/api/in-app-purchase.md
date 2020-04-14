@@ -4,7 +4,7 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-## Kejadian
+## Events
 
 Modul `inAppPurchase` menghasilkan even sebagai berikut:
 
@@ -12,12 +12,12 @@ Modul `inAppPurchase` menghasilkan even sebagai berikut:
 
 Dikeluarkan saat ada transaksi yang diupdate.
 
-Pengembalian:
+Mengembalikan:
 
-* `event` Event
+* `event` Sinyal
 * `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
 
-## Metode
+## Methods
 
 Modul `inAppPurchase` memiliki fungsi sebagai berikut:
 
