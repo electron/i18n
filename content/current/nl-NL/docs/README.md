@@ -4,34 +4,34 @@ Wees er zeker van dat je de documenten gebruikt die overeenkomen met jouw Electr
 
 ## Veelgestelde vragen (FAQ)
 
-Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem invoert:
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [Electron FAQ](faq.md)
 
 ## Handleidingen en Tutorials
 
-* [Een Ontwikkelingsomgeving opzetten](tutorial/development-environment.md) 
+* [Een Ontwikkelingsomgeving opzetten](tutorial/development-environment.md)
   * [MacOS instellen](tutorial/development-environment.md#setting-up-macos)
   * [Windows instellen](tutorial/development-environment.md#setting-up-windows)
   * [Linux instellen](tutorial/development-environment.md#setting-up-linux)
   * [Een tekstbewerker kiezen](tutorial/development-environment.md#a-good-editor)
-* [Maak je eerste App](tutorial/first-app.md) 
+* [Maak je eerste App](tutorial/first-app.md)
   * [Electron installeren](tutorial/first-app.md#installing-electron)
   * [Electron Development in een notendop](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Je App starten](tutorial/first-app.md#running-your-app)
-* [Boilerplates en CLIs](tutorial/boilerplates-and-clis.md) 
+* [Boilerplates en CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Andere Tools en Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Applicatie architectuur](tutorial/application-architecture.md) 
+* [Applicatie architectuur](tutorial/application-architecture.md)
   * [Hoofd en Renderer Processen](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Het gebruik maken van Electron's API's](tutorial/application-architecture.md#using-electron-apis)
   * [Het gebruik maken van Node.js API's](tutorial/application-architecture.md#using-nodejs-apis)
   * [Het gebruik maken van Native Node.js Modules](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-* Toevoegen van functionaliteit aan uw App 
+* Toevoegen van functionaliteit aan uw App
   * [Notificaties](tutorial/notifications.md)
   * [Recente documenten](tutorial/recent-documents.md)
   * [Voortgang van de applicatie](tutorial/progress-bar.md)
@@ -45,29 +45,29 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
-* [Accessibility](tutorial/accessibility.md) 
+* [Accessibility](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Toegankelijkheid beschikbaar maken](tutorial/accessibility.md#enabling-accessibility)
-* [Testen en Debuggen](tutorial/application-debugging.md) 
+* [Testen en Debuggen](tutorial/application-debugging.md)
   * [Debuggen van het hoofd proces](tutorial/debugging-main-process.md)
   * [Debuggen van het hoofdproces met Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Het gebruik maken van Selenium en WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testen op Headless CI systemen (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools extensie](tutorial/devtools-extension.md)
   * [Geautomatiseerd testen met een aangepast stuurprogramma](tutorial/automated-testing-with-a-custom-driver.md)
-* [Distributie](tutorial/application-distribution.md) 
+* [Distributie](tutorial/application-distribution.md)
   * [Ondersteunde platformen](tutorial/support.md#supported-platforms)
   * [Code signeren](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Beveiliging](tutorial/security.md) 
+* [Beveiliging](tutorial/security.md)
   * [Melden van beveiligingsproblemen](tutorial/security.md#reporting-security-issues)
   * [Chromium beveiligingsproblemen en upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron beveiligingswaarschuwingen](tutorial/security.md#electron-security-warnings)
   * [Beveiligingschecklist](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
+* [Updates](tutorial/updates.md)
   * [Een Update Server implementeren](tutorial/updates.md#deploying-an-update-server)
   * [Updates implementeren in uw App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Updates toepassen](tutorial/updates.md#applying-updates)
@@ -77,15 +77,15 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 
 Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden besproken.
 
-* [Electron installeren](tutorial/installation.md) 
+* [Electron installeren](tutorial/installation.md)
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors en Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Probleemoplossen](tutorial/installation.md#troubleshooting)
-* Electron uitgaven & Feedback van de ontwikkelaar 
+* Electron uitgaven & Feedback van de ontwikkelaar
   * [Versiebeleid](tutorial/electron-versioning.md)
   * [Tijdlijn van uitgaves](tutorial/electron-timelines.md)
   * [App Feedback programma](tutorial/app-feedback-program.md)
-* [De broncode van de app inpakken met asar](tutorial/application-packaging.md) 
+* [De broncode van de app inpakken met asar](tutorial/application-packaging.md)
   * [Genereren asar archieven](tutorial/application-packaging.md#generating-asar-archives)
   * [Het gebruik maken van asar archieven](tutorial/application-packaging.md#using-asar-archives)
   * [Limitaties](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -93,7 +93,7 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 * [Widevine CDM testen](tutorial/testing-widevine-cdm.md)
 * [Het gebruik maken van Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [Verklarende woordenlijst van termen](glossary.md)
 
@@ -155,4 +155,4 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 
 ## Ontwikkeling
 
-Zie <development/README.md>
+Zie [development/README.md](development/README.md)
