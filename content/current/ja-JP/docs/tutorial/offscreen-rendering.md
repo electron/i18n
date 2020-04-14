@@ -4,7 +4,7 @@
 
 2つの描画モードを使用でき、また、より効果的に描画するために、`'paint'` イベント内では変更された領域だけが渡されます。 描画は停止でき、設定されたフレームレートで再開できます。 指定のフレームレートは上限値で、ウェブページ上で何も発生しなかった場合、フレームは生成されません。 最大フレームレートは 60 です。それ以上はパフォーマンスが低下するだけで、利点はありません。
 
-**注釈:** オフスクリーンウインドウは、常に [フレームレスウインドウ](../api/frameless-window.md) として作成されます。
+**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
 ## レンダリングモード
 
@@ -20,7 +20,7 @@ GPU アクセラレーションレンダリングとは、GPU が構成に使用
 
 ## 使い方
 
-```javascript
+``` javascript
 const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
