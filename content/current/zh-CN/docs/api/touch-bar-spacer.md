@@ -4,10 +4,10 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new BrowserView(可选)` *实验功能*
+### `new TouchBarSpacer(options)` _Experimental_
 
-* `参数` 对象 
-  * `size` String (可选) - 留白大小，可以是: 
+* `options` Object
+  * `size` String (optional) - Size of spacer, possible values are:
     * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
     * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
     * `flexible` - Take up all available space. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
