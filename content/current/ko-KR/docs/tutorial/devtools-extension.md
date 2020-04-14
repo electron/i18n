@@ -11,28 +11,26 @@ Electron에 확장 기능을 로드하려면, Chrome 브라우저에서 다운�
 예시로 [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)를 사용한다면:
 
 1. Chrome 브라우저를 설치합니다.
-2. `chrome://extensions`로 이동한 후 해시된 `fmkadmapgofadopljbjfkapdkoienihi` 같이 생긴 확장 기능의 ID를 찾습니다.
-3. Chrome에서 사용하는 확장 기능을 저장해둔 파일 시스템 경로를 찾습니다: 
-    * windows에선 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * Linux에선: 
-        * `~/.config/google-chrome/Default/Extensions/`
-        * `~/.config/google-chrome-beta/Default/Extensions/`
-        * `~/.config/google-chrome-canary/Default/Extensions/`
-        * `~/.config/chromium/Default/Extensions/`
-    * macOS에선 `~/Library/Application Support/Google/Chrome/Default/Extensions`
+1. `chrome://extensions`로 이동한 후 해시된 `fmkadmapgofadopljbjfkapdkoienihi` 같이 생긴 확장 기능의 ID를 찾습니다.
+1. Chrome에서 사용하는 확장 기능을 저장해둔 파일 시스템 경로를 찾습니다:
+   * windows에선 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+   * Linux에선:
+     * `~/.config/google-chrome/Default/Extensions/`
+     * `~/.config/google-chrome-beta/Default/Extensions/`
+     * `~/.config/google-chrome-canary/Default/Extensions/`
+     * `~/.config/chromium/Default/Extensions/`
+   * macOS에선 `~/Library/Application Support/Google/Chrome/Default/Extensions`
+1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+   ```javascript
+   const path = require('path')
+   const os = require('os')
 
-4. React Developer Tools의 경우 확장 위치를 `BrowserWindow.addDevToolsExtension` API로 전달하십시오.
-    
-    ```javascript
-    const path = require('path')
-    const os = require('os')
-    
-    BrowserWindow.addDevToolsExtension(
+   BrowserWindow.addDevToolsExtension(
       path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-    )
-    ```
+   )
+   ```
 
-**참고:** `BrowserWindow.addDevToolsExtension` API는 app 모듈의 ready 이벤트가 발생하기 전까지 사용할 수 없습니다.
+**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
 
 The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
