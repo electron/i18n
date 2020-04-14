@@ -16,6 +16,8 @@ Penggunaan ` teks </ 0></th>
 
 </tr> </tbody> </table> 
 
+
+
 ### Dukungan tombol pada macos
 
 Agar tombol notifikasi tambahan dapat berfungsi di macOS, aplikasi Anda harus memenuhi kriteria berikut.
