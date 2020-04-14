@@ -2,7 +2,7 @@
 
 Ang tatlong operating system ay nagbibigay ng paraan para sa mga aplikasyon na magpadala ng abiso sa mga gumagamit. Maginhawang nagbibigay-daan ang Elektron sa mga developer upang magpadala ng mga abiso kasama ang [HTML5 Abiso API](https://notifications.spec.whatwg.org/), gamit ang tumatakbong operating system sa native notification APIs upang ipakita ito.
 
-**Tandaan:** Dahil ito ay isang HTML5 API magagamit lamang ito sa proseso ng tagasalin. Kung gusto mong makita ang mga abiso sa pangunahing proseso mangyaring tignan ang [Notification](../api/notification.md) modyul.
+**Note:** Since this is an HTML5 API it is only available in the renderer process. Kung gusto mong makita ang mga abiso sa pangunahing proseso mangyaring tignan ang [Notification](../api/notification.md) modyul.
 
 ```javascript
 hayaan myNotification = bagong Abiso ('Pamagat', {
@@ -17,7 +17,6 @@ myNotification.onclick = () = & gt; {
 Bagama 't magkatulad ang code at gumagamit ng mga karanasan sa iba 't ibang mga operating system, doon ay may mga bahagyang pagkakaiba.
 
 ## Windows
-
 * On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
 * On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Paalala, Bagamat, ito ay hindi kailangan naka pin para magsimula ang screen.
 * Sa Windows 7, ang notipikasyon trabaho sa via pasadya at implementadong biswal ay kahawig noong luma sa panibagong sistema.
