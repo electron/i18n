@@ -2,7 +2,7 @@
 
 > Control file downloads from remote sources.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 `DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
@@ -41,8 +41,8 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>state` String - Can be `progressing` or `interrupted`.
+* `event` Event
+* `state` String - Can be `progressing` or `interrupted`.
 
 Emitted when the download has been updated and is not done.
 
@@ -53,10 +53,10 @@ The `state` can be one of following:
 
 #### Event: 'done'
 
-Kehrt zurück:
+Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>state` String - Can be `completed`, `cancelled` or `interrupted`.
+* `event` Event
+* `state` String - Can be `completed`, `cancelled` or `interrupted`.
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
