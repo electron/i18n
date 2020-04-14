@@ -17,7 +17,7 @@ console.log(clipboard.readText('selection'))
 
 Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
 
-**Note:** Eksperimental na APIs ay minarkahan bilang tulad at pwedeng maalis sa hinaharap. 
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([i-type])
 
@@ -25,7 +25,7 @@ Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - Ang nilalaman ng klipboard bilang textstong walang format. 
+Returns `String` - Ang nilalaman ng klipboard bilang textstong walang format.
 
 ```js
 const { clipboard } = require('electron')
@@ -57,7 +57,7 @@ clipboard.writeText(text)
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - Ang nilalaman ng klipboard bilang texkstong walang format. 
+Returns `String` - Ang nilalaman ng klipboard bilang texkstong walang format.
 
 ```js
 const { clipboard } = require('electron')
@@ -76,7 +76,7 @@ console.log(html)
 * `markup` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Pagsulat ng `markup` sa klipboard. 
+Pagsulat ng `markup` sa klipboard.
 
 ```js
 const { clipboard } = require('electron')
@@ -90,7 +90,7 @@ clipboard.writeHTML('<b>Hi</b')
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Nagbabalik ang [`NativeImage`](native-image.md) ang nilalaman ng larawan sa klipbord. 
+Nagbabalik ang [`NativeImage`](native-image.md)  ang nilalaman ng larawan sa klipbord.
 
 ### `clipboard.writeImage(image[ ,i-type])
 
@@ -133,16 +133,16 @@ const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is 
 clipboard.writeRTF(rtf)
 ```
 
-### `clipboard.readBookmark()` *macOS* *Windows*
+### `clipboard.readBookmark()` _macOS_ _Windows_
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `title` String
 * `url` Tali
 
-Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa bookmark sa klipbord. Ang `title` and `url` values ay walang laman na string kapag ang bookmark ay hindi magagamit. 
+Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa bookmark sa klipbord. Ang `title` and `url` values ay walang laman na string kapag ang bookmark ay hindi magagamit.
 
-### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
+### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
 * `title` String
 * `url` Tali
@@ -150,7 +150,7 @@ Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa 
 
 Pagsulat ng `title` and `url` sa klipbord bilang bookmark.
 
-**Note:** Karamihan ng apps sa Windows ay hindi sumusuporta sa pasting bookmarks para sa kanila kaya pwede kang gumamit ng `clipboard.write` para sumulat ng kapwa bookmark at fallback na texsto sa klipboard.
+**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
 ```js
 const { clipboard } = require('electron')
@@ -161,13 +161,13 @@ clipboard.writeBookmark({
 })
 ```
 
-### `clipboard.readFindText()` *macOS*
+### `clipboard.readFindText()` _macOS_
 
 Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
 
 This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
-### `clipboard.writeFindText(text)` *macOS*
+### `clipboard.writeFindText(text)` _macOS_
 
 * `text` String
 
@@ -179,7 +179,7 @@ Writes the `text` into the find pasteboard (the pasteboard that holds informatio
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Nililimas ang mga nilalaman ng klipboard. 
+Nililimas ang mga nilalaman ng klipboard.
 
 ### `clipboard.availableFormats([i-type])
 
@@ -197,7 +197,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` _Experimental_
 
 * `format` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -212,17 +212,17 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` *Experimental* 
+### `clipboard.read(format)` _Experimental_
 
 * `format` String
 
-Returns `String` - Reads `format` uri mula sa klipboard. 
+Returns `String` - Reads `format` uri mula sa klipboard.
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(format)` _Experimental_
 
 * `format` String
 
-Returns `Buffer` - Reads `format` uri mula sa klipboard. 
+Returns `Buffer` - Reads `format` uri mula sa klipboard.
 
 ```js
 const { clipboard } = require('electron')
@@ -236,13 +236,13 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
 
 * `format` String
 * `buffer` Buffer
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Pagsulat ng `buffer` sa klipboard bilang `format`.
+Pagsulat ng `buffer`  sa klipboard bilang `format`.
 
 ```js
 const { clipboard } = require('electron')
@@ -255,7 +255,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
 
 `
 
-* `datos` Bagay 
+* `data` Object
   * `text` String (opsiyonal)
   * `html` String (opsiyonal)
   * `image` [NativeImage](native-image.md) (opsiyonal)
@@ -263,7 +263,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * `bookmark` String (optional) - The title of the URL at `text`.
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Pagsulat ng `data` sa klipboard. 
+Pagsulat ng `data` sa klipboard.
 
 ```js
 const { clipboard } = require('electron')
