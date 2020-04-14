@@ -23,7 +23,7 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` _Experimental_
+### `new BrowserView([可选])` _实验功能_
 
 * `options` Object (optional)
   * `webPreferences` Object (可选) - 详情请看 [BrowserWindow](browser-window.md).
@@ -50,11 +50,11 @@ view.webContents.loadURL('https://electronjs.org')
 
 使用 `new BrowserView` 创建的对象具有以下属性:
 
-#### `view.webContents` _Experimental_
+#### `view.webContents` _实验功能_
 
 视图的[`WebContents`](web-contents.md) 对象
 
-#### `view.id` _Experimental_
+#### `view.id` _实验功能_
 
 视图的唯一ID `Integer`.
 
@@ -70,7 +70,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 返回 `Boolean` -判断窗口是否被销毁
 
-#### `view.setAutoResize(options)` _Experimental_
+#### `view.setAutoResize(options)` _实验功能_
 
 * `options` Object
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
@@ -78,12 +78,12 @@ view.webContents.loadURL('https://electronjs.org')
   * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
   * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
 
-#### `view.setBounds(bounds)` _Experimental_
+#### `view.setBounds(bounds)` _实验功能_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 调整视图的大小，并将它移动到窗口边界
 
-#### `view.setBackgroundColor(color)` _Experimental_
+#### `view.setBackgroundColor(color)` _实验功能_
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
