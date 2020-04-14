@@ -17,7 +17,7 @@ Electron hérite de cette option de compilation de Chromium. Dans les versions `
 
 ## Tests
 
-**NB** *cette section est obsolète et contient des informations qui ne sont plus pertinentes pour l'électronique GN.*
+**NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
 
 Pour tester que vos changements soient conforme avec le code style du projet :
 
@@ -41,7 +41,7 @@ Vous pouvez rendre la suite de tests plus rapide en isolant le test spécifique 
 
 ```js
 describe.only('some feature', () => {
-  // ... Seuls les tests de ce bloc seront exécutés
+  // ... only tests in this block will be run
 })
 ```
 
