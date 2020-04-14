@@ -6,17 +6,16 @@ Linux 版 Electron のビルドについては、以下のガイドラインに�
 
 * 最低 25 GB のストレージ空き容量と 8 GB以上の RAM。
 * Python 2.7.x。CentOS 6.xのようないくつかのディストリビューションでは Python 2.6.x を採用しています。そのため、`python -V`などでPythonのバージョンを確認してください。
-    
-    あなたのシステムと Python が少くとも TLS 1.2をサポートしていることを確認してください。 確認するには、次のスクリプトを実行します。:
-    
-    ```sh
-    $ npx @electron/check-python-tls
-    ```
-    
-    あなたの設定が時代遅れのセキュリティプロトコルを使用していると、このスクリプトが返した場合、あなたのシステムパッケージマネージャでPythonを2.7.xブランチまで更新してください。 または、https://www.python.org/downloads/ を参照して、詳細な情報を入手してください。
+
+  あなたのシステムと Python が少くとも TLS 1.2をサポートしていることを確認してください。 確認するには、次のスクリプトを実行します。:
+
+  ```sh
+  $ npx @electron/check-python-tls
+  ```
+
+  あなたの設定が時代遅れのセキュリティプロトコルを使用していると、このスクリプトが返した場合、あなたのシステムパッケージマネージャでPythonを2.7.xブランチまで更新してください。 または、https://www.python.org/downloads/ を参照して、詳細な情報を入手してください。
 
 * Node.js. Node はいろいろな方法でインストールできます。 [nodejs.org](https://nodejs.org)からソースコードをダウンロードしてコンパイルできます。 一般ユーザーのホームディレクトリに Node をインストールできます。 または[NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)のようなリポジトリを試してください。
-
 * [clang](https://clang.llvm.org/get_started.html) 3.4 またはそれ以降。
 * GTK 3 と libnotify の開発ヘッダ
 
@@ -48,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-その他のディストリビューションも、例えば pacmanのようなパッケージマネージャーで同様のパッケージをインストールできるでしょう、またはソースコードからコンパイルする必要があるかもしれません。
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
 ### クロスコンパイル
 
@@ -80,7 +79,7 @@ $ gn gen out/Testing --args='import(...) target_cpu="arm"'
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
-プレビルドの`clang` は `libtinfo.so.5` へリンクしようとします。ホストのアーキテクチャにしたがって、適切な`libncurses`にシンボリックリンクしてください。:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -88,7 +87,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## 高度なトピック
 
-デフォルトのビルド設定はメジャーナデスクトップLinuxディストリビューション向けになっています。特定のディストリビューションやデバイス向けにビルドする場合、以下の情報が助けになるかもしれません。
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### システムの`clang`をダウンロードした`clang`バイナリの代りに使う
 
