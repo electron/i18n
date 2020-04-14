@@ -30,23 +30,23 @@ Installiere zuerste eine aktuelle Version von Node.js. Wir empfehlen Dir entwede
 
 Stellen sicher, dass Sie in dem Fenster, welches Ihnen erlaubt die Installation zu konfigurieren, `Node.js runtime`, `npm package manager`, und `Add to PATH` auswählen.
 
-Wenn abgeschlossen ist, dann überprüfe ob alles wie gewünscht funktioniert. Finden Sie die Windows PowerShell, indem Sie das Startmenü öffnen und beginnen `PowerShell` einzugeben. Öffnen Sie PowerShell oder einen anderen Command Line Client Ihrer Wahl und bestätigen Sie, dass sowohl `node`, als auch `npm` verfügbar sind:
+Wenn abgeschlossen, bestätigen Sie, dass alles wie gewünscht funktioniert. Finden Sie die Windows PowerShell, indem Sie das Startmenü öffnen und beginnen `PowerShell` einzugeben. Öffnen Sie PowerShell oder einen anderen Command Line Client Ihrer Wahl und bestätigen Sie, dass sowohl `node`, als auch `npm` verfügbar sind:
 
 ```powershell
-# Dieses command gibt die Node.js Version aus
+# Dieser Befehl gibt die Node.js Version aus
 node -v
 
-# Dieses command gibt die npm Version aus
+# Dieser Befehl gibt die npm Version aus
 npm -v
 ```
 
-Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du anfängst solltest du dir noch einen [code editor](#a-good-editor) installieren der sich für JavaScript Entwicklung eignet.
+Wenn beide Befehle eine Versionsnummer ausgeben, dann sind Sie bereit! Bevor du anfängst solltest du dir noch einen [code editor](#a-good-editor) installieren der sich für JavaScript Entwicklung eignet.
 
 ## Einrichtung auf Linux
 
 > Generell unterstützt Electron Ubuntu ab 12.04, Feudora ab 21 und Debian ab 8.
 
-Installiere zuerste eine aktuelle Version von Node.js. Abhängig von der Linux Distribution können sie die Installationsschritte unterscheiden. Davon ausgehen das Du Software auf dem normalen Weg mit `apt` oder `pacman`, dan lies die offizielle [Node.js Anleitung zur Installation auf Linux](https://nodejs.org/en/download/package-manager/).
+Installiere zuerst eine aktuelle Version von Node.js. Abhängig von der Linux Distribution können sie die Installationsschritte unterscheiden. Davon ausgehen das Du Software auf dem normalen Weg mit `apt` oder `pacman`, dan lies die offizielle [Node.js Anleitung zur Installation auf Linux](https://nodejs.org/en/download/package-manager/).
 
 Du verwendest Linux, so weißt du wohl schon wie man einen Command Line Client verwendet. Öffne deine bevorzugten Client und überprüfe ob `node` und `npm` global verfügbar sind:
 
