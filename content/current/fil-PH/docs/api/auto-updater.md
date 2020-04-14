@@ -1,4 +1,4 @@
-# awtoUpdeyter
+# autoUpdater
 
 > Paganahin ang app na awtomatikong mag-update ang kanilang sarili.
 
@@ -18,7 +18,7 @@ In addition, there are some subtle differences on each platform:
 
 Sa macOS, ang `autoUpdater` na modyul ay ginawa [sa Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), ibig sabihin hindi mo kailangan ng kahit anong espesyal na set-up para mapagana ito. Para sa mga kinakailangan ng panig ng server, maari mong basahin ang [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Tandaan lamang na ang [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)(ATS) ay nalalapat sa lahat ng mga kahilingan na ginawa bilang bahagi ng proseso ng pag-update. Ang mga apps na kailangan hindi isama sa ATS ay maaaring idadag sa susi ng `NSAllowsArbitraryLoads` para sa kanilang app plist.
 
-**Tandaan:** Ang iyong applikasyon at dapat nakalagda para sa awtomatikong pag-aupdate ng macOS. Ito ay kinakailangan ng `Squirrel.Mac`.
+**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
 ### Windows
 
@@ -36,7 +36,7 @@ Ang `autoUpdater` maglalabas ng mga ganitong pangyayari:
 
 ### Pangyayari: 'error'
 
-Magbabalik ng:
+Pagbabalik:
 
 * `error` Error
 
@@ -48,7 +48,7 @@ Lumalabas kapag sinusuri kung ang update ay nagsimula na.
 
 ### Pangyayari: 'update-available'
 
-Lumalabas kapag mayroong pagbabago. Ang pag-update ay awtomatikong na-download.
+Emitted when there is an available update. The update is downloaded automatically.
 
 ### Pangyayari: 'update-not-available'
 
@@ -56,7 +56,7 @@ Napalabas kapag walang available na pag-update.
 
 ### Pangyayari: 'update-downloaded'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `event` na Kaganapan
 * `releaseNotes` Lupid
@@ -76,16 +76,16 @@ This event is emitted after a user calls `quitAndInstall()`.
 
 When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
-## Pamamaraan
+## Mga Paraan
 
 Ang `autoUpdater` na gamit ay mayroong ibat-ibang pamamaraan:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `mga opsyon` Bagay 
+* `options` Object
   * `url` Tali
-  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Tinatakda ang `url` at nagpapasimula ng auto-updater.
 
@@ -95,11 +95,11 @@ Bumalik `String` - Ang kasalukuyang update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Itanong sa server kung merong bago. Kaylangan mong tumawag `setFeedURL` bago gamitin itong API.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Uulitin ang app at iinstall ang mga update pagkatapos itong ma download. Ito ay dapat lamang tawagin pagkatapos ng `update-downloaded` ay lumabas na.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
