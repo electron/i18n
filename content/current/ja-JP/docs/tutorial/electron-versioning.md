@@ -2,7 +2,7 @@
 
 > バージョン管理ポリシーと実装の詳細をご覧ください。
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+バージョン 2.0.0 から、Electron は [semver](#semver) に準拠します。 以下のコマンドで、最新の安定版 Electron のビルドをインストールできます。
 
 ```sh
 npm install --save-dev electron
@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## Version 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 機能を統合する開発者にとっては便利ですが、クライアント向けアプリケーションの開発者には問題が生じます。 Slack、Stride、Teams、Skype、VS Code、Atom、Desktop などのメジャーなアプリの QA テストサイクルは時間がかかることがあり、安定性においては非常に望ましい結果を出します。 これは、バグ修正を吸収しようとする一方で、新しい機能を採用することに高いリスクがあります。
+Electron *< 2.0* のバージョンは [semver](http://semver.org) 仕様に準拠していませんでした。メジャーバージョンはエンドユーザ API の変更に、マイナーバージョンは Chromium のメジャーリリースに、パッチバージョンは新機能やバグ修正に対応していました。 機能を統合する開発者にとっては便利ですが、クライアント向けアプリケーションの開発者には問題が生じます。 Slack、Stride、Teams、Skype、VS Code、Atom、Desktop などのメジャーなアプリの QA テストサイクルは時間がかかることがあり、安定性においては非常に望ましい結果を出します。 これは、バグ修正を吸収しようとする一方で、新しい機能を採用することに高いリスクがあります。
 
 1.x の方針の例を以下に示します。
 
@@ -26,7 +26,7 @@ Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spe
 
 ## Version 2.0 以降
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+上に概説されている 1.x の方針から、いくつかの大きな変更があります。 各変更は、開発者/管理者とアプリ開発者のニーズと優先順位を満たすためのものです。
 
 1. semver の厳格な使用
 2. semver 準拠の `-beta` タグの導入
@@ -49,15 +49,15 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 | Chromium のバージョン更新       |                           | Chromium パッチの修正関連   |
 
 
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+注意として、ほとんどの Chromium のアップデートは破壊的とみなされます。 バックポート可能な修正は、パッチとしてチェリーピックされます。
 
 # 安定ブランチ
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+安定ブランチは、セキュリティまたは安定性に関連する cherry-pick されたコミットのみを取り入れて、master と並行して実行されるブランチです。 これらのブランチはマスターに戻されることはありません。
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+安定化ブランチは、常に **major** または **minor** のバージョンラインのいずれかであり、テンプレート `$MAJOR-$MINOR-x` に従って `2-0-x` のように命名されます。
 
 複数の安定化ブランチを同時に存在させることができます。また、必要に応じてセキュリティ修正を後方移植しながら、少なくとも2つのサポートを常に並行してサポートする予定です。 ![](../images/versioning-sketch-2.png)
 
@@ -65,18 +65,18 @@ Stabilization branches are always either **major** or **minor** version lines, a
 
 # ベータリリースとバグ修正
 
-Developers want to know which releases are _safe_ to use. 一見無害な機能でさえ、複雑なアプリケーションに後退をもたらすことがあります。 同時に、あなたのバージョンから出るセキュリティパッチとバグ修正の可能性を無視しているので、固定バージョンへのロックは危険です。 私たちの目標は、`package.json` で以下のように標準的な semver 範囲を許可することです。
+開発者はどのリリースが _安全_ に使用できるかを知りたいものです。 一見無害な機能でさえ、複雑なアプリケーションに後退をもたらすことがあります。 同時に、あなたのバージョンから出るセキュリティパッチとバグ修正の可能性を無視しているので、固定バージョンへのロックは危険です。 私たちの目標は、`package.json` で以下のように標準的な semver 範囲を許可することです。
 
 * `~2.0.0` を使用すると、`2.0.0` リリースに対する安定性またはセキュリティ関連の修正のみを認めます。
-* Use `^2.0.0` to admit non-breaking _reasonably stable_ feature work as well as security and bug fixes.
+* `^2.0.0` を使用すると、セキュリティやバグ修正だけでなく、破壊的でない _合理的で安定した_ 機能も認めます。
 
-2つ目の点に関して重要なことは、`^` を使用しているアプリはまだ妥当なレベルの安定性を期待できることです。 To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+2つ目の点に関して重要なことは、`^` を使用しているアプリはまだ妥当なレベルの安定性を期待できることです。 これを達成するために、semver では特定のバージョンがまだ _安全_ または _安定_ ではないことを示す _プレリリース識別子_ を指定できます。
 
 どれを選択しても、破壊的な変更は Chromium が寿命である事実であるため、定期的に `package.json` 内のバージョンを更新する必要があります。
 
 プロセスは以下の通りです。
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions:
+1. すべての新しいメジャーリリースラインとマイナーリリースラインは、`2.0.0-beta.1` のような `beta.N` の semver プレリリースタグで示されたベータ系列で始めます。 最初のベータ版の後、その後のベータ版リリースは以下のすべての条件を満たす必要があります。
     1. 変更は API に後方互換性がある (非推奨は構いません)
     2. 安定版のスケジュールを守るリスクが低くなければならない。
 2. リリースがベータ版になった後に許可された変更を加える必要がある場合は、それらが適用され、例として `2.0.0-beta.2` のようにプレリリースタグが増分されます。
