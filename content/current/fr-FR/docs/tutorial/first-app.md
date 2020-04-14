@@ -1,10 +1,10 @@
 # Créer votre première App
 
-Electron vous permet de créer des applications de bureau avec du pur JavaScript fournissant un runtime avec des API natives riches (système d'exploitation). Vous pourriez le voir comme une variante d'une application Node.js directement exécutable sur le bureau au lieu des serveurs Web.
+Electron vous permet de créer des applications de bureau avec du pur JavaScript fournissant un runtime avec des API natives riches (système d'exploitation). Vous pouvez le voir comme une variante de node.js qui se concentre sur les applications de bureau au lieu des serveur web.
 
 Cela ne veut pas dire qu'Electron est juste une liaison entre du javascript et une librairie d'interface graphique (GUI). Au lieu de cela, Electron utilise des pages Web comme interface graphique utilisateur, donc vous pouvez aussi le voir comme un navigateur Chromium minimal, contrôlé par JavaScript.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**Note**: Cette exemple est également disponible sur un dépôt que vous pouvez [télécharger et lancer immédiatement](#trying-this-example).
 
 En terme de développement, une application Electron est par essence une application Node.js. Le point de départ est un `package.json` qui est identique à celui d’un module de Node.js. Une application Electron minimale aurait la structure suivante :
 
@@ -31,7 +31,7 @@ npm vous guidera dans la création d'un fichier `package.json` basique. Le scrip
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). En fait si c'était une simple application Node, vous ajouteriez un script `start` qui demanderait à `node` d'exécuter le package courant:
+__Note__: Si le champ `main` n'est pas présent dans le fichier `package.json`, Electron tentera de charger un fichier `index.js` (comme le fait Node.js lui-même). En fait si c'était une simple application Node, vous ajouteriez un script `start` qui demanderait à `node` d'exécuter le package courant:
 
 ```json
 {
