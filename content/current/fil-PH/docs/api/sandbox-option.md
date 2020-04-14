@@ -46,7 +46,7 @@ app.on('ready', () => {
 
 ## Preload
 
-Ang app na ito ay maaaring makapagcustomize sa sandboxed renderers gamit ang preload script. Ito ang halimbawa:
+An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
 ```js
 let win
@@ -104,8 +104,8 @@ Ang `-x` na watawat ay dapat gamitin sa anumang modyul na kasalukuyang nka-ekspo
 
 Kasalukuyan ang `require` ng function na nakapagbibigay ng preload na saklaw na inilalantad sa mga sumusunod na mga modyul:
 
-- `electron` 
-  - `kalabog ng tagapagbalita`
+- `electron`
+  - `crashReporter`
   - `pagkakahuli sa tuktok ng desk`
   - `ipcrenderer`
   - `gupitin ng maikli ang mga litrato`
