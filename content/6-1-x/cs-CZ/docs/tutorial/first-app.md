@@ -1,6 +1,6 @@
 # Vytvoření první aplikace
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electron vám umožňuje vytvářet desktopové aplikace za pomocí čistého JavaScriptu s použitím bohaté nabídky nativních API (operačního systému). Lze to chápat jako variantu Node.js zaměřenou na vytváření desktopových aplikací namísto webových.
 
 To neznamená, že Electron je JavaScript vázaný na knihovny grafického uživatelského rozhraní (GUI). Místo toho, Electron využívá webové stránky jako GUI, takže by jste to mohli vidět jako ořezaný prohlížeč Chromium kontrolovaný JavaScriptem.
 
