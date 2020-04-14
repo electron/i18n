@@ -1,4 +1,4 @@
-# Aperçu du Système de Build
+# Aperçu du Système de compilation
 
 Electron utilise [GN](https://gn.googlesource.com/gn) pour la génération de projet et [ninja](https://ninja-build.org/) pour la construction. Les configurations du projet peuvent être trouvées dans les fichiers `.gn` et `.gni` .
 
