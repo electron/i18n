@@ -15,7 +15,7 @@ Chromiumベースであるため、 Electronは機能するためにディスプ
 xvfb-maybe electron-mocha ./test/*.js
 ```
 
-### Travis CI 
+### Travis CI
 
 Travisにおいては、 `.travis.yml` を以下のようなものにしてください。
 
