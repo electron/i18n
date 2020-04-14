@@ -8,3 +8,4 @@
 * כדי לבדוק את ארכיטקטורת התהליך, ראה [תהליך ראשי וRenderer](./application-architecture.md#main-and-renderer-processes).
 
 כדי ללמוד עוד על אלקטרון, בדוק את [המדריך הרשמי](../).
+
