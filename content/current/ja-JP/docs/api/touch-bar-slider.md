@@ -4,14 +4,14 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSlider(options)` *実験的*
+### `new TouchBarSlider(options)` _Experimental_
 
-* `options` オブジェクト 
+* `options` Object
   * `label` String (任意) - ラベルのテキスト。
   * `value` Integer (任意) - 選択されている値。
   * `minValue` Integer (任意) - 最小値。
   * `maxValue` Integer (任意) - 最大値。
-  * `change` Function (任意) - スライダーが変更されたときに呼ぶ関数。 
+  * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Number - Slider 上でユーザが選択した値。
 
 ### インスタンスプロパティ
@@ -20,16 +20,16 @@
 
 #### `touchBarSlider.label`
 
-スライダーの現在のテキストを表す `String`。この値を変更すると、タッチバーのスライダーがすぐに更新されます。
+A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.value`
 
-スライダーの現在の値を表す `Number`。この値を変更すると、タッチバーのスライダーがすぐに更新されます。
+A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.minValue`
 
-スライダーの現在の最小値を表す `Number`。この値を変更すると、タッチバーのスライダーがすぐに更新されます。
+A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.maxValue`
 
-スライダーの現在の最大値を表す `Number`。この値を変更すると、タッチバーのスライダーがすぐに更新されます。
+A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
