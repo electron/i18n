@@ -6,7 +6,7 @@ Sous macOS, la barre de progression s'affichera dans le cadre de l'icône du doc
 
 Le Unity DE possède également une fonctionnalité similaire qui vous permet de spécifier la barre de progression dans le lanceur.
 
-**Barre de progression dans le bouton de la barre des tâches :**
+__Barre de progression dans le bouton de la barre des tâches :__
 
 ![Barre de progression personnalisée](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
