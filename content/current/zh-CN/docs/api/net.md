@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`net` 模块是一个发送 HTTP(S) 请求的客户端API。 它类似于Node.js的[HTTP](https://nodejs.org/api/http.html) 和 [HTTPS](https://nodejs.org/api/https.html) 模块 ，但它使用的是Chromium原生网络库来替代Node.js的实现，提供更好的网络代理支持。 
+`net` 模块是一个发送 HTTP(S) 请求的客户端API。 它类似于Node.js的[HTTP](https://nodejs.org/api/http.html) 和 [HTTPS](https://nodejs.org/api/https.html) 模块 ，但它使用的是Chromium原生网络库来替代Node.js的实现，提供更好的网络代理支持。
 
 下面是一个非详尽的列表, 用于说明为什么使用 ` net ` 模块而不是原生Node. js 模块:
 
@@ -36,7 +36,7 @@ app.on('ready', () => {
 })
 ```
 
-只有在应用程序发出 ` ready ` 事件之后, 才能使用 ` net ` API。尝试在 ` ready ` 事件之前使用该模块将抛出一个错误。
+The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
 ## 方法
 
