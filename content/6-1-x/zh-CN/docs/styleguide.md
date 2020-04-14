@@ -1,4 +1,4 @@
-# Electron Documentation Styleguide
+# Electron 文档风格指南
 
 这里是一些编写 Electron 文档的指南。
 
@@ -106,31 +106,31 @@
 ```markdown
 # session
 
-## Methods
+## 方法
 
 ### session.fromPartition(partition)
 
-## Properties
+## 属性
 
 ### session.defaultSession
 
-## Class: Session
+## 类: Session
 
-### Instance Events
+### 实例事件
 
-#### Event: 'will-download'
+#### 事件: 'will-download'
 
-### Instance Methods
+### 实例方法
 
 #### `ses.getCacheSize()`
 
-### Instance Properties
+### 实例属性
 
 #### `ses.cookies`
 
-## Class: Cookies
+## 类: Cookies
 
-### Instance Methods
+### 实例方法
 
 #### `cookies.get(filter, callback)`
 ```
@@ -162,9 +162,9 @@ required[, optional]
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
-* [`字符串`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object - 过滤器对象，包含过滤参数`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * 或自定义类型, 就像 Electron 的 [`WebContent`](api/web-contents.md)
@@ -197,7 +197,7 @@ Returns:
 
 事件的参数遵循与方法相同的规则.
 
-### Properties
+### 属性
 
 属性章节必须采用以下形式:
 
