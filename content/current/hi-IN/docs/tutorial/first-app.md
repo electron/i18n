@@ -1,6 +1,6 @@
 # Writing Your First Electron App
 
-इलेक्ट्रॉन आपको एक रनटाइम के साथ संपन्न मूल (ऑपरेटिंग सिस्टम) ऐपीआई प्रदान कर के शुद्ध जावास्क्रिप्ट के साथ डेस्कटॉप एप्लीकेशनस निर्मित करने की क्षमता प्रदान करता है | You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+इलेक्ट्रॉन आपको एक रनटाइम के साथ संपन्न मूल (ऑपरेटिंग सिस्टम) ऐपीआई प्रदान कर के शुद्ध जावास्क्रिप्ट के साथ डेस्कटॉप एप्लीकेशनस निर्मित करने की क्षमता प्रदान करता है | आप इसे नोड.जेएस की एक भिन्न किस्म की तरह देख सकते हैं जो कि वेब सर्वर्स के बजाये डेस्कटॉप एप्लीकेशनस पर केन्द्रित है |
 
 इसका मतलब यह नहीं है कि ग्राफिकल यूजर इंटरफ़ेस (जीयुआई) लाइब्रेरीज के लिए इलेक्ट्रॉन एक जवासक्रिप्त बिन्डिंग है| बल्कि इलेक्ट्रॉन, वेब पेजेज को अपने जीयुआई की तरह इस्तेमाल करता है, तो आप इसे एक न्यूनतम क्रोमियम ब्राउज़र की तरह भी देख सकते हैं, जो कि जावास्क्रिप्ट से नियंत्रित है |
 
@@ -31,7 +31,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
 
 ```json
 {
