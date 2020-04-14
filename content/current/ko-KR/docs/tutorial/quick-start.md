@@ -8,3 +8,4 @@ Electron은 풍부한 네이티브(운영 체제) API를 가진 런타임을 제
 * 프로세스 아키텍처가 궁금하신 분은 [메인과 렌더러 프로세스](./application-architecture.md#main-and-renderer-processes) 문서를 보세요.
 
 Electron에 대해 더 자세히 알고 싶다면 [공식 가이드](../)문서 목록을 확인하세요.
+
