@@ -10,13 +10,13 @@ Une archive [asar](https://github.com/electron/asar) est un simple format d'arch
 
 Étapes pour empaqueter votre application dans une archive `asar` :
 
-### 1. Installez l'utilitaire asar
+### 1. Install the asar Utility
 
 ```sh
 $ npm install -g asar
 ```
 
-### Empaquetez avec `asar pack`
+### 2. Package with `asar pack`
 
 ```sh
 $ asar pack votre-application app.asar
@@ -24,7 +24,7 @@ $ asar pack votre-application app.asar
 
 ## Lire une archive `asar`
 
-Il y a deux méthodes dans les APIs d'Electron : Node APIs fournies par Node.js et Web APIs fournies par Chromium. Les deux APIs prennent en charge la lecture de fichier provenant d'archives `asar`.
+In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
 ### Node API
 
@@ -73,14 +73,14 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-Dans une page web, les fichiers dans une archive peuvent être requis avec le protocole `file:`. Comme dans Node API, les archives `asar` sont considérés comme des répertoires.
+In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
 Par exemple, pour obtenir un fichier avec `$.get`:
 
 ```html
 <script>
 let $ = require('./jquery.min.js')
-$.get('file:///chemin/vers/exemple.asar/fichier.txt', (data) => {
+$.get('file:///path/to/example.asar/file.txt', (data) => {
   console.log(data)
 })
 </script>
@@ -139,12 +139,13 @@ C'est parce que `exec` et `spawn` acceptent `command` au lieu de `file` en entr�
 
 ## Ajouter des fichiers non empaquetés dans une archive `asar`
 
-Comme déclaré ci-dessus, certaines APIs Node décompresse le fichier vers le système de fichiers de l'ordinateur lorsqu'elle sont appelées. Cela peut cause des problèmes de performances, et surtout, certains scanners anti-virus pourraient être alertés par ce comportement.
+As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
-Comme solution de contournement, vous pouvez laisser divers fichiers décompressés en utilisant l'option `--unpack`. Dans l'exemple suivant, les bibliothèques partagées des modules Node.js natifs ne seront pas empaqueté :
+As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
 Après avoir exécuter la commande, vous remarquerez qu'un dossier nommé `app.asar.unpacked` a été créé avec le fichier `app.asar`. Il contient les fichiers non-empaquetés et devrait être distribué avec l'archive `app.asar`.
+
