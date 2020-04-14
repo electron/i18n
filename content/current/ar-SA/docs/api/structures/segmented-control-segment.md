@@ -2,4 +2,4 @@
 
 * `علامة مميزة` String (اختياري) - النص المراد إظهاره في هذا الفصل.
 * `أيقونة` NativeImage (اختياري) - الصورة الصورة المراد إظهارها في هذا الفصل.
-* `مكّن` Boolean (اختياري) - ما إذا كان هذا الجزء قابل للتحديد. الافتراضي: صحيح.
+* `enabled` Boolean (optional) - Whether this segment is selectable. Default: true.
