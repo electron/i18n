@@ -49,11 +49,11 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-* `commandParams` Object (optional) - JSON object with request parameters.
+* `method` 字符串 - 方法名称，应该为[远程调试协议](https://chromedevtools.github.io/devtools-protocol/)中定义的方法之一。
+* ` commandParams ` Object (可选) - 具有请求参数的 JSON 对象。
 * `callback` Function (optional) - Response
-  * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+  * `error` Object - 显示命令失败的错误消息。
+  * `result` Any - 由远程调试协议中的命令描述的“returns”属性定义的响应。
 
 向调试目标发送给定的命令。
 
@@ -61,8 +61,8 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 
 #### `debugger.sendCommand(method[, commandParams])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-* `commandParams` Object (optional) - JSON object with request parameters.
+* `method` 字符串 - 方法名称，应该为[远程调试协议](https://chromedevtools.github.io/devtools-protocol/)中定义的方法之一。
+* ` commandParams ` Object (可选) - 具有请求参数的 JSON 对象。
 
 返回 `Promise<any>` - 一个 promise，远程调试协议中的命令描述的“returns”属性定义的响应，或者显示命令失败的错误消息。
 
@@ -81,6 +81,6 @@ Emitted when debugging session is terminated. This happens either when `webConte
 
 * `event` Event
 * `method` String - 方法名.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `params` Object - 由远程调试协议中的 parameters 属性定义的事件参数。
 
-Emitted whenever debugging target issues instrumentation event.
+当调试目标问题时发送
