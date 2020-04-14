@@ -6,7 +6,7 @@
 
 ASAR 代表 Atom Shell Archive Format。 [Asar](https://github.com/electron/asar)壓縮檔類似 `tar` 格式，都是將多個檔案數個檔案串接成單一個檔案。 Electron 可以任意從它讀取，無須拆包整個檔。
 
-ASAR 格式主要是為了提高在 Windows 上執行的效能... TODO
+The ASAR format was created primarily to improve performance on Windows... TODO
 
 ### CRT
 
@@ -22,11 +22,11 @@ Apple 磁碟映像檔 (Apple Disk Image) 是 macOS 用的打包格式。 DMG 檔
 
 ### IDL
 
-接口描述語言，用同一種格式生成java，c++，JavaScript等接口的函數簽名與數據類型
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
 
 ### IPC
 
-IPC 全名是跨處理序通訊 (Inter-Process Communication)。Electron 使用 IPC 在[主處理序](#main-process)及[畫面轉譯處理序](#renderer-process)間傳送序列化的 JSON 訊息。
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
@@ -38,15 +38,15 @@ IPC 全名是跨處理序通訊 (Inter-Process Communication)。Electron 使用 
 
 主處理序通常命名為 `main.js`，是每個 Electron 應用程式的入口點。控制應用程式由開啟到關閉的整個生命週期。 通常也會用它來管理功能表、功能表列、Dock、Tray 等原生元素。 主處理序也負責建立應用程式中的每個畫面轉譯處理序。內建完成的 Node API。
 
-每個應用程式的主處理序檔是 `package.json` 的 `main` 值指定。`electron` 才知道啟動時要執行哪隻程式。
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-這個處理序在 Chromium 中叫做「瀏覽器處理序」。Electron 改叫主處理序是為了避免與畫面轉譯處理序搞混。
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
 可再參考: [處理序](#process), [畫面轉譯處理序](#renderer-process)
 
 ### MAS
 
-Apple Mac App Store 的縮寫。如何將你的應用程式送上 MAS，可以參考[Mac App Store 上架導引](tutorial/mac-app-store-submission-guide.md)。
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
@@ -68,9 +68,9 @@ Nullsoft 腳本式安裝系統 (Nullsoft Scriptable Install System)，是 Micros
 
 ### OSR
 
-螢幕外畫面轉譯功能 (Off-Screen Rendering，縮寫 OSR) 能用來在背景載入負載較重的頁面，之後再一次顯示 (速度會快很多)。允許你轉譯頁面內容，而不用在畫面上顯示。
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
-### 處理序
+### process
 
 處理序 (Process) 是電腦程式執行中的一個執行個體。 使用[主處理序](#main-process)及一或多個[畫面轉譯處理序](#renderer-process)的 Electron 應用程式，實際上是同時執行多個程式。
 
@@ -80,7 +80,7 @@ Nullsoft 腳本式安裝系統 (Nullsoft Scriptable Install System)，是 Micros
 
 ### 畫面轉譯處理序
 
-畫面轉譯處理序就是你應用程式中的瀏覽器視窗。與主處理序不同，同時能有畫面轉譯程式分別在不同的處理序中執行。它們也可以是看不見的。
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 在一般的瀏覽器中，網頁通常是在沙箱環境中執行，不能存取本機資源。 然後，Electron 的使用者，能在網頁中使用 Node.js API，與作業系統進行較低階的互動。
 
@@ -98,11 +98,11 @@ Squirrel 是讓 Electron 應用程式的新版本發佈時能自動更新的開�
 
 ### V8
 
-V8 是 Goolge 開放原始碼的 JavaScript 引擎。以 C++ 撰寫，被用在 Google Chrome 裡。V8 也可以獨立執行，或嵌入在任何的 C++ 應用程式中。
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
 Electron 把 V8 視為 Chromium 的一部分一起建置，再建置 Node 時就直接指到這份 V8。
 
-V8 的版本會對應 Google Chrome 的版本。例如 Chrome 59 包含 V8 5.9 版，而 Chrome 58 則包含 V8 5.8 版。
+V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
