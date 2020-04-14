@@ -2,7 +2,7 @@
 
 > 使应用程序能够自动更新
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 **请参阅：在应用程序中如何实现更新的详细指南。**
 
@@ -10,7 +10,7 @@
 
 ## 跨平台提醒
 
-目前，只有 macOS 和 Window 支持该功能。在 Linux 上没有对自动更新程序的内置支持，因此建议使用发行版的包管理器来更新您的应用程序。
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
 此外，每个平台都有一些细微的差别:
 
@@ -18,7 +18,7 @@
 
 在macOS上, `autoUpdater`模块建立在 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac)上,这意味着你不需要任何特殊的设置来使它工作。 对于服务器端要求, 你可以阅读 [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). 注意[App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) 适用于所有请求作为更新过程的一部分。</0> 如需禁用ATS的应用程序可以在其应用程序的plist中添加 `NSAllowsArbitraryLoads`属性。
 
-**注意:** 你的应用程序必须签署 macOS 自动更新。 这是 `Squirrel.Mac` 的要求。
+**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
 ### Windows
 
@@ -34,7 +34,7 @@
 
 `autoUpdater` 对象会触发以下的事件:
 
-### Event: 'error'
+### 事件: 'error'
 
 返回:
 
@@ -48,7 +48,7 @@
 
 ### Event: 'update-available'
 
-当发现一个可用更新的时候触发，更新包下载会自动开始。
+Emitted when there is an available update. The update is downloaded automatically.
 
 ### Event: 'update-not-available'
 
@@ -68,9 +68,9 @@
 
 在 Windows 上只有 `releaseName` 是有效的。
 
-**注意:**：严格来说不需要处理此事件。即时成功下载之后，下一次应用程序启动时，仍将继续下载更新文件。
+**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
 
-### Event: 'before-quit-for-update'
+### Event:  'before-quit-for-update'
 
 此事件是在用户调用`quitAndInstall()`之后发出的。
 
@@ -82,10 +82,10 @@
 
 ### `autoUpdater.setFeedURL(选项)`
 
-* `options` Object 
+* `options` Object
   * `url` String
-  * `headers` Record<String, String> (可选) *macOS* - HTTP 请求头。
-  * `serverType` String (可选) *macOS* - `json` 或者 `default`, 有关更多信息，请参考 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 的自述文件(README)。
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 设置检查更新的 `url`，并且初始化自动更新。
 
@@ -95,12 +95,12 @@
 
 ### `autoUpdater.checkForUpdates()`
 
-向服务端查询现在是否有可用的更新。在调用这个方法之前，必须要先调用 `setFeedURL`。
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-在下载完成后，重启当前的应用并且安装更新。这个方法应该仅在 `update-downloaded` 事件触发后被调用。
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 在此机制下，调用 `autoUpdater.quitAndInstall()` 将首先关闭所有应用程序窗口，并且在所有窗口都关闭之后自动调用 `app.quit()`
 
-**注意:** 严格来讲，执行一次自动更新不一定要调用此方法。因为下载更新文件成功之后，下次应用启动的时候会强制更新。
+**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
