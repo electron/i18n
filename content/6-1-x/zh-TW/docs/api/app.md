@@ -2,7 +2,7 @@
 
 > 控制你的應用程式事件生命週期。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 以下例子顯示如何當最後一個視窗已經關閉的時候終止程式
 
@@ -259,7 +259,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `request` Object
-  * `method` String
+  * `title` [string]
   * `url` URL
   * `referrer` URL
 * `authInfo` Object
@@ -493,7 +493,7 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
-You can request the following paths by the name:
+您可以通過名稱請求以下路徑：
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to:
@@ -607,7 +607,7 @@ Returns `string` - User operating system's locale two-letter [ISO 3166](https://
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
-### `app.clearRecentDocuments()` _macOS_ _Windows_
+### `app.addRecentDocument(path)` _macOS_ _Windows_
 
 清除最近使用的文件清單。
 
