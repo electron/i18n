@@ -6,7 +6,7 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 * 各ページは最上部に1つの`#`レベルのタイトルが必要です。
 * 同じページの章には、`##`レベルのタイトルが必要です。
-* サブチャプターのタイトルは、ネストする深さに応じて `#` の数を増やす必要があります。
+* サブチャプターのタイトルは、ネストする深さに応じて  `#`  の数を増やす必要があります。
 * ページのタイトルは全ての単語の頭文字を大文字にする（capitalizeする）必要があります。ただし、 of や and といった接続詞は例外です。
 * 章のタイトルにおいては、最初の単語の頭文字だけを大文字にします。
 
@@ -95,10 +95,10 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 * Constructors は `###` 階層のタイトルで列挙されなければなりません。
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) は `### Static Methods` の章の下に列挙しなければなりません。
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) は `### Instance Methods` の章の下にリストアップしなければなりません。
-* 戻り値があるすべてのメソッドを説明するときは、このように始めます。「戻り値 `[TYPE]` - 戻り値の説明」 
+* すべての戻り値があるメソッドの説明は、"戻り値 `[TYPE]` - 戻り値の説明" というように書き始めます。
   * メソッドが `Object` を返す場合、その構造を記述します。コロンとそれに続く改行、そして関数の引数と同じスタイルでプロパティの順不同リストにします。
 * Instance Events は `### Instance Events` の章の下に列挙しなければなりません。
-* Instance Properties は `### Instance Properties` の章の下に列挙しなければなりません。 
+* Instance Properties は `### Instance Properties` の章の下に列挙しなければなりません。
   * Instance Properties は "A [プロパティの型] ..." で始まらなければなりません。
 
 `Session` と `Cookies` クラスを例にすると、以下のようにします。
@@ -142,15 +142,15 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - 引数の説明。
+* `optional` Integer (optional) - 他の引数の説明。
 
 ...
 ```
 
 タイトルが `###` 階層か `####` 階層かは、メソッドがモジュール内かクラス内かに依存しています。
 
-モジュールでは、`objectName` がモジュールの名前です。クラスでは、クラスのインスタンスの名前にするべきで、モジュールの名前と同じではいけません。
+モジュールでは、`objectName` がモジュールの名前です。 クラスでは、クラスのインスタンスの名前にするべきで、モジュールの名前と同じではいけません。
 
 例として、`session` モジュール下の `Session` クラスのメソッドは `ses` を `objectName` として使用しなければなりません。
 
@@ -160,7 +160,7 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 必須[, 任意]
 ```
 
-メソッドの下は、それぞれの引数に関する詳細情報です。引数の型は次のいずれかの一般的な型によって表記されます。
+メソッドの下は、それぞれの引数に関する詳細情報です。 引数の型は次のいずれかの一般的な型によって表記されます。
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
