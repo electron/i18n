@@ -23,9 +23,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([可选])` *实验功能*
+### `new BrowserView([options])` _Experimental_
 
-* `参数` Object (可选) 
+* `options` Object (optional)
   * `webPreferences` Object (可选) - 详情请看 [BrowserWindow](browser-window.md).
 
 ### 静态方法
@@ -50,11 +50,11 @@ view.webContents.loadURL('https://electronjs.org')
 
 使用 `new BrowserView` 创建的对象具有以下属性:
 
-#### `view.webContents` *实验功能*
+#### `view.webContents` _Experimental_
 
 视图的[`WebContents`](web-contents.md) 对象
 
-#### `view.id` *实验功能*
+#### `view.id` _Experimental_
 
 视图的唯一ID `Integer`.
 
@@ -70,26 +70,26 @@ view.webContents.loadURL('https://electronjs.org')
 
 返回 `Boolean` -判断窗口是否被销毁
 
-#### `view.setAutoResize(options)` *实验功能*
+#### `view.setAutoResize(options)` _Experimental_
 
-* `options` Object 
+* `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *实验功能*
+#### `view.setBounds(bounds)` _Experimental_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 调整视图的大小，并将它移动到窗口边界
 
-#### `view.getBounds()` *实验功能*
+#### `view.getBounds()` _Experimental_
 
 返回 [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *实验功能*
+#### `view.setBackgroundColor(color)` _Experimental_
 
-* `color` String - 颜色值格式为 `#aarrggbb` 或 `#argb`, 透明度为可选参数.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
