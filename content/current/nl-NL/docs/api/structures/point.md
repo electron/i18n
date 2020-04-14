@@ -3,4 +3,4 @@
 * `x` Number
 * `y` Number
 
-**Opmerking:** Zowel `x` als `y` moet gehele getallen zijn, wanneer je een puntobject als input voor een Electron-API geeft, zullen we automatisch je `x` en `y` waarden afronden naar het dichtstbijzijnde hele getal.
+**Note:** Both `x` and `y` must be whole integers, when providing a point object as input to an Electron API we will automatically round your `x` and `y` values to the nearest whole integer.
