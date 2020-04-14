@@ -189,7 +189,7 @@ Returns `Integer` - the index of the clicked button.
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
+` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。 If the `browserWindow` is not shown, the dialog will not be attached to it. In that case it will be displayed as an independent window.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
