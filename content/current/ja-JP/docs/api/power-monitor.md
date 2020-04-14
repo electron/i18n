@@ -4,6 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
+
 `app` モジュールの `ready` イベントが発生するまでは、このモジュールは使用できません。
 
 例:
@@ -30,23 +31,23 @@ app.on('ready', () => {
 
 システムが再開するときに発生します。
 
-### イベント: 'on-ac' *Windows*
+### Event: 'on-ac' _Windows_
 
 システムが AC 電源に切り替わったときに発生します。
 
-### イベント: 'on-battery' *Windows*
+### Event: 'on-battery' _Windows_
 
 システムがバッテリー電源に切り替わったときに発生します。
 
-### イベント: 'shutdown' *Linux* *macOS*
+### Event: 'shutdown' _Linux_ _macOS_
 
 システムが再起動またはシャットダウンしようとしているときに発生します。 イベントハンドラが `e.preventDefault()` を呼び出した場合、Electron は正常にアプリを終了するためにシステムのシャットダウンの遅延を試みます。 `e.preventDefault()` が呼ばれた場合、出来る限り `app.quit()` のようなものを呼ぶのと同じようにアプリを終了します。
 
-### イベント: 'lock-screen' *macOS* *Windows*
+### Event: 'lock-screen' _macOS_ _Windows_
 
 システムがスクリーンをロックしようとしているときに発生します。
 
-### イベント: 'unlock-screen' *macOS* *Windows*
+### Event: 'unlock-screen' _macOS_ _Windows_
 
 システムスクリーンがアンロックされたときに発行されます。
 
@@ -58,9 +59,9 @@ app.on('ready', () => {
 
 * `idleThreshold` Integer
 
-戻り値 `String` - システムの現在の状態。`active`、`idle`、`locked` または `unknown` のいずれかです。
+Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-システムのアイドル状態を算出します。`idleThreshold` は、アイドル状態と見なされるまでの時間 (秒単位) です。`locked` は、サポートされているシステムでのみ利用できます。
+Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
 
 ### `powerMonitor.getSystemIdleTime()`
 
