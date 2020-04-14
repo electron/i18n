@@ -1,4 +1,4 @@
-# Supported Chrome Command Line Switches
+# 支持的 Chrome 命令行开关
 
 > Electron支持的命令行开关.
 
