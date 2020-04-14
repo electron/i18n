@@ -31,7 +31,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Използване на Node.js API](tutorial/application-architecture.md#using-nodejs-apis)
   * [Използване на родни Node.js модули](tutorial/using-native-node-modules.md)
 * Добавяне на функции към вашето приложение
-  * [Notifications](tutorial/notifications.md)
+  * [Известия](tutorial/notifications.md)
   * [Последни документи](tutorial/desktop-environment-integration.md#recent-documents)
   * [Прогрес на приложението](tutorial/progress-bar.md)
   * [Потребителско док меню](tutorial/macos-dock.md)
@@ -39,15 +39,15 @@ There are questions that are asked quite often. Check this out before creating a
   * [Потребителски настолни действия при Linux](tutorial/linux-desktop-actions.md)
   * [Клавишни комбинации](tutorial/keyboard-shortcuts.md)
   * [Offline/Online откриване](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Представляващ файл за macOS BrowserWindows](tutorial/represented-file.md)
+  * [Роден Drag & Drop файл](tutorial/native-file-drag-drop.md)
 * [Accessibility](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
+  * [Разрешаване на достъпността](tutorial/accessibility.md#enabling-accessibility)
 * [5256783105227699](tutorial/application-debugging.md)
-  * [Debugging the Main Process](tutorial/debugging-main-process.md)
-  * [Работа със Selenium Web Driver](tutorial/using-selenium-and-webdriver.md)
+  * [Отстраняване на грешк](tutorial/debugging-main-process.md)
+  * [Работа със Selenium и Web Driver](tutorial/using-selenium-and-webdriver.md)
   * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)
   * [5256783105227699](tutorial/automated-testing-with-a-custom-driver.md)
@@ -61,10 +61,10 @@ There are questions that are asked quite often. Check this out before creating a
 * [Сигурност](tutorial/security.md)
   * [Докладване на проблеми със сигурността](tutorial/security.md#reporting-security-issues)
   * [Проблеми със сигурността и обновяване на Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Предупреждения за сигурността при Електрон](tutorial/security.md#electron-security-warnings)
+  * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
   * [Списък за сигурност](tutorial/security.md#checklist-security-recommendations)
 * [5256783105227699](tutorial/updates.md)
-  * [Дистрибуция на обновен сървър](tutorial/updates.md#deploying-an-update-server)
+  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
   * [Добавяне на новости във вашето приложение](tutorial/updates.md#implementing-updates-in-your-app)
   * [Прилагане на новости](tutorial/updates.md#applying-updates)
 
@@ -72,21 +72,21 @@ There are questions that are asked quite often. Check this out before creating a
 
 บทความสอนแต่ละบทจะขยายความจากหัวข้อคำแนะนำข้างบน.
 
-* [In Detail: Installing Electron](tutorial/installation.md)
+* [Инсталиране на Електрон в детайли](tutorial/installation.md)
   * [Proxies](tutorial/installation.md#proxies)
   * [Потребителски mirrors и кеширане](tutorial/installation.md#custom-mirrors-and-caches)
   * [Отстраняване на неизправности](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md)
+* [Схема на версиите в детайли](tutorial/electron-versioning.md)
   * [semver](tutorial/electron-versioning.md#semver)
   * [Стабилни клонове](tutorial/electron-versioning.md#stabilization-branches)
   * [Бета версии и поправка на bug-ове](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md)
+* [В детайли: Пакетиране на кода на приложението с asar](tutorial/application-packaging.md)
   * [การสร้างคลังเก็บอาซาร์](tutorial/application-packaging.md#generating-asar-archives)
   * [การใช้ asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [การเพิ่มไฟล์ที่คลายการบีบอัดไปยัง asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [Използване на Pepper Flash Plugin в детайли](tutorial/using-pepper-flash-plugin.md)
 * [Рендиране извън екрана](tutorial/offscreen-rendering.md)
 
 ---
@@ -95,10 +95,10 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## Функционална документация
 
-* [Обзор](api/synopsis.md)
+* [บทย่อ](api/synopsis.md)
 * [กระบวนการของวัตถุ](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Променливи на средата](api/environment-variables.md)
+* [Поддържани превключващи команди на Chrome](api/chrome-command-line-switches.md)
+* [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
 * [5256783105227699](api/breaking-changes.md)
 
 ### Персонални DOM елементи:
