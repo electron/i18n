@@ -16,7 +16,7 @@ Schritte um Ihre App in ein `asar`-Archiv zu packen:
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Packen mit `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
