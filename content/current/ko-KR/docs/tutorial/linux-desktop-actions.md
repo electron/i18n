@@ -2,7 +2,7 @@
 
 많은 Linux 환경에서 실행 프로그램에, `.desktop`을 수정하여 사용자 정의 항목을 추가 할 수 있습니다. Canonical's Unity 문서는 여기를 참조하세요([Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher)). 좀 더 일반적인 구현에 대한 자세한 내용은 [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html) 참조하십시오.
 
-**Audacious(오디오 플레이어) 의 Launcher shortcuts:**
+__Audacious(오디오 플레이어) 의 Launcher shortcuts:__
 
 ![audacious(linux의 오디오 플레이어)](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
