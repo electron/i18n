@@ -8,12 +8,12 @@
 var childProcess = require('child_process')
 var electronPath = require('electron')
 
-// spawn the process
+// 生成进程
 var env = { /* ... */ }
 var stdio = ['inherit', 'inherit', 'inherit', 'ipc']
 var appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
-// listen for IPC messages from the app
+// 从应用侦听IPC消息
 appProcess.on('message', (msg) => {
   // ...
 })
