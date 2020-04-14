@@ -4,34 +4,34 @@
 
 ## अक्सर पूछे जाने वाले सवाल
 
-यह वे सवाल हैं जो की अक्सर पूछे जाते हैं | नयी समस्या जमा करने से पहले इन्हें जरूर पढ़ें:
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [इलेक्ट्रॉन के अकसर पूछे जाने वाले सवाल](faq.md)
 
 ## Guides and Tutorials
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
+* [Setting up the Development Environment](tutorial/development-environment.md)
   * [मैकओएस का सेटअप करना](tutorial/development-environment.md#setting-up-macos)
   * [विंडोज का सेटअप करना](tutorial/development-environment.md#setting-up-windows)
   * [लिनक्स का सेटअप करना](tutorial/development-environment.md#setting-up-linux)
   * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
+* [Creating your First App](tutorial/first-app.md)
   * [Installing Electron](tutorial/first-app.md#installing-electron)
   * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Running Your App](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
+* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Application Architecture](tutorial/application-architecture.md) 
+* [Application Architecture](tutorial/application-architecture.md)
   * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
   * [Using Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-* Adding Features to Your App 
+* Adding Features to Your App
   * [नोटीफीकेशनस](tutorial/notifications.md)
   * [Recent Documents](tutorial/recent-documents.md)
   * [Application Progress](tutorial/progress-bar.md)
@@ -45,29 +45,29 @@
   * [ऑफस्क्रीन रेंडरिंग](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
   * [इलेक्ट्रॉन में वेब एम्बेड](tutorial/web-embeds.md)
-* [Accessibility](tutorial/accessibility.md) 
+* [Accessibility](tutorial/accessibility.md)
   * [स्पेकट्रॉन](tutorial/accessibility.md#spectron)
   * [डेवट्रॉन](tutorial/accessibility.md#devtron)
   * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
-* [Testing and Debugging](tutorial/application-debugging.md) 
+* [Testing and Debugging](tutorial/application-debugging.md)
   * [Debugging the Main Process](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [सेलेनियम और वेबड्राईवर का इस्तेमाल](tutorial/using-selenium-and-webdriver.md)
   * [हेडलेस सीआई सिस्टम (ट्रेविस, जेनकिंस) पर परिक्षण](tutorial/testing-on-headless-ci.md)
   * [डेवटूल्स एक्सटेंशन](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* [Distribution](tutorial/application-distribution.md) 
+* [Distribution](tutorial/application-distribution.md)
   * [समर्थित प्लेटफ़ॉर्म](tutorial/support.md#supported-platforms)
   * [Code Signing](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [सुरक्षा](tutorial/security.md) 
+* [सुरक्षा](tutorial/security.md)
   * [सुरक्षा समस्याओं को रिपोर्ट करना](tutorial/security.md#reporting-security-issues)
   * [क्रोमियम सुरक्षा समस्यायें और अपग्रेडस](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
   * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
+* [Updates](tutorial/updates.md)
   * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applying Updates](tutorial/updates.md#applying-updates)
@@ -77,15 +77,15 @@
 
 These individual tutorials expand on topics discussed in the guide above.
 
-* [Installing Electron](tutorial/installation.md) 
+* [Installing Electron](tutorial/installation.md)
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [समस्या निवारण](tutorial/installation.md#troubleshooting)
-* इलेक्ट्रॉन विज्ञप्ति & डेवलपर फीडबैक 
+* इलेक्ट्रॉन विज्ञप्ति & डेवलपर फीडबैक
   * [वर्जन नीति](tutorial/electron-versioning.md)
   * [टाइमलाइन जारी करें](tutorial/electron-timelines.md)
   * [ऐप फीडबैक प्रोग्राम](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* [Packaging App Source Code with asar](tutorial/application-packaging.md)
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -93,7 +93,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [पेप्पर फ़्लैश प्लगइन का इस्तेमाल](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [शब्दों की शब्दावली](glossary.md)
 
@@ -155,4 +155,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## विकास
 
-See <development/README.md>
+See [development/README.md](development/README.md)
