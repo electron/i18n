@@ -45,25 +45,21 @@ The `globalShortcut` module has the following methods:
 
 Devuelve `Boolean` - Si el acceso fue registrado con éxito.
 
-Mendaftarkan pintasan global ` akselerator </ 0>. The <code> callback </ 0> disebut ketika shortcut yang terdaftar ditekan oleh pengguna.</p>
+Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
-<p>Lorsque l'accélérateur est déjà utilisé par d'autres applications, cet appel échouera silencieusement. This behavior is intended by operating systems, since they don't
-want applications to fight for global shortcuts.</p>
+Lorsque l'accélérateur est déjà utilisé par d'autres applications, cet appel échouera silencieusement. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
-<p>The following accelerators will not be registered successfully on macOS 10.14 Mojave unless
-the app has been authorized as a <a href="https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html">trusted accessibility client</a>:</p>
+The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
-<ul>
-<li>"Media Play/Pause"</li>
-<li>"Media Next Track"</li>
-<li>"Media Previous Track"</li>
-<li>"Media Stop"</li>
-</ul>
+* "Media Play/Pause"
+* "Media Next Track"
+* "Media Previous Track"
+* "Media Stop"
 
-<h3><code>globalShortcut.registerAll(accelerators, callback)`</h3> 
+### `globalShortcut.registerAll(accelerators, callback)`
 
 * `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
-* `callback` Function
+* `callback` Function (選用
 
 Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
