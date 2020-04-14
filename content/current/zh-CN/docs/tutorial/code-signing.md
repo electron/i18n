@@ -4,7 +4,7 @@
 
 macOS 系统能通过代码签名检测对app的任何修改，包括意外修改和来自恶意代码的修改。
 
-在Windows系统中，如果程序没有代码签名证书，或者代码签名授信级别较低时，系统同样会将其列为可信程序，只是当用户运行该应用时，系统会显示安全提示。 确立授信级别的过程比较费时，因此最好提早开始着手代码签名的工作。
+在Windows系统中，如果程序没有代码签名证书，或者代码签名授信级别较低时，系统同样会将其列为可信程序，只是当用户运行该应用时，系统会显示安全提示。  确立授信级别的过程比较费时，因此最好提早开始着手代码签名的工作。
 
 即使开发者可以发布一个未签名的应用程序，但是我们并不建议这样做。 默认情况下，Windows和macOS都会禁止未签名的应用下载或运行。 从macOS Catalina（10.15版本）开始，用户需要操作数个步骤来运行一个未签名的应用。
 
@@ -25,13 +25,13 @@ macOS 系统能通过代码签名检测对app的任何修改，包括意外修�
 你可以运用许多方式来签署你的应用：
 
 - [`electron-osx-sign`]，一个独立的macOS签名工具。
-- [`electron-packager`] 打包 `electron-osx-sign`. 如果你正在使用 `electron-packager`，那么在签署包文件时请传`--osx-sign=true`参数。 
-    - [`electron-forge`]，它在内部使用`electron-packager`，你可以在forge配置中设置 `osxSign`配置项。
+- [`electron-packager`] 打包 `electron-osx-sign`. 如果你正在使用 `electron-packager`，那么在签署包文件时请传`--osx-sign=true`参数。
+  - [`electron-forge`]，它在内部使用`electron-packager`，你可以在forge配置中设置 `osxSign`配置项。
 - [`electron-builder`] 内置代码签名功能。 可参考[electron.build/code-signing](https://www.electron.build/code-signing)
 
 ## Notarization
 
-Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification *before* distributing the app to your users.
+Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
 
 To automate this process, you can use the [`electron-notarize`] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
 
@@ -48,10 +48,10 @@ See the [Mac App Store Guide](mac-app-store-submission-guide.md).
 
 You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
 
-- [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-- [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
-- [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-- 可以根据自身需求，选择其它的签名分销商。
+* [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
+* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
+* 可以根据自身需求，选择其它的签名分销商。
 
 你可以运用许多方式来签署你的应用：
 
