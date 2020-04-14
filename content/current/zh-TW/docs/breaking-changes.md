@@ -522,7 +522,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `process`
+### `處理序`
 
 ```js
 // Deprecated
@@ -654,7 +654,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `process`
+### `處理序`
 
 * `process.versions.electron` 及 `process.version.chrome` 將變為唯讀的屬性，與其他由 Node 設定的 `process.versions` 一致。
 
