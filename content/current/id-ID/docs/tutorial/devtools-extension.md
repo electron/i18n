@@ -11,28 +11,26 @@ Untuk memuat ekstensi elektron, Anda perlu mengunduh di peramban Chrome, gunakan
 Menggunakan [Alat-alat pengembang React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) sebagai contoh:
 
 1. Menginstal di peramban Chrome.
-2. Navigasikan ke `chrome://extensions`, dan cari ID ekstensi, yang merupakan hash string seperti `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Cari lokasi filesystem yang digunakan oleh Chrome untuk menyimpan ekstensi: 
-    * pada Windows berada di `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * pada Linux bisa berada di: 
-        * `~/.config/google-chrome/Default/Extensions/`
-        * `~/.config/google-chrome-beta/Default/Extensions/`
-        * `~/.config/google-chrome-canary/Default/Extensions/`
-        * `~/.config/chromium/Default/Extensions/`
-    * pada macOS berada di `~/Library/Application Support/Google/Chrome/Default/Extensions`.
+1. Navigasikan ke `chrome://extensions`, dan cari ID ekstensi, yang merupakan hash string seperti `fmkadmapgofadopljbjfkapdkoienihi`.
+1. Cari lokasi filesystem yang digunakan oleh Chrome untuk menyimpan ekstensi:
+   * pada Windows berada di `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+   * pada Linux bisa berada di:
+     * `~/.config/google-chrome/Default/Extensions/`
+     * `~/.config/google-chrome-beta/Default/Extensions/`
+     * `~/.config/google-chrome-canary/Default/Extensions/`
+     * `~/.config/chromium/Default/Extensions/`
+   * pada macOS berada di `~/Library/Application Support/Google/Chrome/Default/Extensions`.
+1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+   ```javascript
+   const path = require('path')
+   const os = require('os')
 
-4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
-    
-    ```javascript
-    const path = require('path')
-    const os = require('os')
-    
-    BrowserWindow.addDevToolsExtension(
+   BrowserWindow.addDevToolsExtension(
       path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-    )
-    ```
+   )
+   ```
 
-**Catatan:** `BrowserWindow.addDevToolsExtension` API tidak disebut sebelum event siap saat modul app dibunyikan.
+**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
 
 The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
