@@ -8,3 +8,4 @@ Il vecchio documento "Avvio Veloce" che viveva qui è stato separato in due docu
 * Per controllare l'architettura del processo, vedi [Processi Principali e di Rendering](./application-architecture.md#main-and-renderer-processes).
 
 To learn more about Electron, check out the [official guides](../).
+
