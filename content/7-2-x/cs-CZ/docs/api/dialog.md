@@ -189,7 +189,7 @@ Returns `Integer` - the index of the clicked button.
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal. If the `browserWindow` is not shown, the dialog will not be attached to it. In that case it will be displayed as an independent window.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
