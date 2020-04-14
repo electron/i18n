@@ -2,7 +2,7 @@
 
 애플리케이션의 접근성을 용이하게 만드는 것은 중요한 일입니다. 저희는 개발자들이 멋진 애플리케이션을 만들 수 있도록 [Devtron](https://electronjs.org/devtron)과 [Spectron](https://electronjs.org/spectron)을 개발 도구로 제공하고 있습니다.
 
-* * *
+---
 
 Electron 애플리케이션과 웹사이트 모두 궁극적으로는 HTML을 사용하기 때문에 Electron 애플리케이션의 접근성 문제는 웹사이트의 접근성 문제와 유사합니다. 하지만 Electron 앱의 경우, 검증 도구(auditor)가 접근할 수 있는 URL을 가지고 있지 않기 때문에 접근성 검증에 온라인 자원을 사용할 수 없습니다.
 
@@ -10,7 +10,7 @@ Devtron과 Spectron 기능을 통해 Electron 앱에서 검증 도구를 사용�
 
 ## Spectron
 
-테스팅 프레임워크인 Spectron에서는 애플리케이션 안에 있는 각각의 window와 `<webview>` 태그를 검증할 수 있습니다. 예제 코드는 다음과 같습니다:
+In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. 예시:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
