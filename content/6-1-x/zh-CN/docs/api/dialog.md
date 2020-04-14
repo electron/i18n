@@ -241,7 +241,7 @@ Shows a message box, it will block the process until the message box is closed.
 * `message` 参数无效，因为操作系统提供了自身的确认对话框。
 * `browserWindow` 参数被忽略，因此无法成为模态对话框。
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` _macOS_ _Windows_
 
