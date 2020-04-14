@@ -12,23 +12,24 @@ Electron の脆弱性を報告する正しい方法については [SECURITY.md]
 
 ## Chromium のセキュリティ問題とアップグレード
 
-Electron は Chromium のリリースと交互に更新しています。詳細については、[Electron リリースケイデンスのブログ投稿](https://electronjs.org/blog/12-week-cadence) を参照してください。
+Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
 
 ## セキュリティはみんなの責任
 
-あなたのElectronアプリケーションのセキュリティは、フレームワーク (*Chromium*, *Node.js*), Electron 自身、NPM の依存関係、あなたのコード のセキュリティの結果であることを覚えておくことは重要です。 そのため、いくつかの重要なベストプラックティスに従う、責任があります。
+It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. そのため、いくつかの重要なベストプラックティスに従う、責任があります。
 
-* **あなたのアプリケーションは最新リリースの Electron フレームワークを使う。** あなたはプロダクトをリリースしたとき、Electron、 Chromium 共有ライブラリ、Node.js を組み込んでリリースしています。 これらのコンポーネントに影響する脆弱性は、あなたのアプリケーションのセキュリティに影響する可能性があります。 Electronを最新バージョンにアップデートすることで、あなたはクリティカルな脆弱性(例えば *nodeIntegration bypasses*) にパッチを当てた状態にして、あなたのアプリケーションで発現しないようにできます。 詳細については、"[現行バージョンの Electron を使う](#17-use-a-current-version-of-electron)" を参照してください。
+* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. これらのコンポーネントに影響する脆弱性は、あなたのアプリケーションのセキュリティに影響する可能性があります。 By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application. 詳細については、"[現行バージョンの Electron を使う](#17-use-a-current-version-of-electron)" を参照してください。
 
-* **あなたのアプリの依存関係の評価する。** NPM は 50万もの再利用できるパッケージを提供しています。一方、あなたは信頼するサードパーティのライブラリを選択する責任があります。 あなたが既知の脆弱性の影響を受けるライブラリを利用する場合や、あまりメンテナンスされていないコードに頼る場合、あなたのアプリケーションのセキュリティは低下し危険な状態になります。
+* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. あなたが既知の脆弱性の影響を受けるライブラリを利用する場合や、あまりメンテナンスされていないコードに頼る場合、あなたのアプリケーションのセキュリティは低下し危険な状態になります。
 
-* **セキュアコーディングプラクティスの採用。** あなたのアプリケーションの防衛の第一歩はあなたのコードです。 クロスサイトスクリプティング(XSS) のような共通WEB脆弱性は、Electronアプリケーション上でセキュリティの影響度が高くなります。そのため、セキュアなソフトウェア開発のベストプラクティスの採用やセキュリティテストの実施が強く求められます。
+* **Adopt secure coding practices.** The first line of defense for your application is your own code. クロスサイトスクリプティング(XSS) のような共通WEB脆弱性は、Electronアプリケーション上でセキュリティの影響度が高くなります。そのため、セキュアなソフトウェア開発のベストプラクティスの採用やセキュリティテストの実施が強く求められます。
+
 
 ## 信用されないコンテンツの隔離
 
 信用されていないソース (例えばリモートサーバー) からコードを受け取ってローカルで実行するときは、常にセキュリティの問題が存在します。 例として、リモートのウェブサイトがデフォルト [`BrowserWindow`](../api/browser-window.md) 内に表示されていると考えてください。 もし攻撃者がどうにかして(情報源そのものの攻撃や中間者攻撃によって) 得られる内容を変更した場合、ユーザーのPC上でネイティブコードを実行できることになります。
 
-> :警告: Node integration が有効な環境で、リモートコードの読み込みと実行を行ってはいけません。 代わりに、Node.js コードの実行にはローカルファイル (アプリケーションと一緒にパッケージ化されているもの) だけを使用してください。 remote コンテンツを表示するには、[`<webview>`](../api/webview-tag.md) tag または [`BrowserView`](../api/browser-view.md)を使用します。その時`nodeIntegration`を無効に、`contextIsolation`を有効にすることを確認してください。
+> :警告:  Node integration が有効な環境で、リモートコードの読み込みと実行を行ってはいけません。 代わりに、Node.js コードの実行にはローカルファイル (アプリケーションと一緒にパッケージ化されているもの) だけを使用してください。 remote コンテンツを表示するには、[`<webview>`](../api/webview-tag.md) tag または [`BrowserView`](../api/browser-view.md)を使用します。その時`nodeIntegration`を無効に、`contextIsolation`を有効にすることを確認してください。
 
 ## Electron のセキュリティ警告
 
@@ -81,18 +82,19 @@ browserWindow.loadURL('https://example.com')
 ```
 
 ```html
-<!-- NG -->
+<!-- Bad -->
 <script crossorigin src="http://example.com/react.js"></script>
 <link rel="stylesheet" href="http://example.com/style.css">
 
-<!-- OK -->
+<!-- Good -->
 <script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
+
 ## 2) リモートコンテンツで、Node.js integration を有効にしない
 
-*この推奨は、Electron 5.0.0 からデフォルトの振舞いです。*
+_この推奨は、Electron 5.0.0 からデフォルトの振舞いです。_
 
 リモートコンテンツをロードするレンダラー ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`<webview>`](../api/webview-tag.md)) で Node.js integration を有効にしないことが重要です。 リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
 
@@ -128,10 +130,10 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```html
-<!-- NG -->
+<!-- Bad -->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- OK -->
+<!-- Good -->
 <webview src="page.html"></webview>
 ```
 
@@ -148,6 +150,7 @@ window.readConfig = function () {
 }
 ```
 
+
 ## 3) リモートコンテンツで、コンテキストイソレーションを有効にする
 
 コンテキストイソレーションは、開発者が専用の JavaScript コンテキストで、プリロードスクリプトと Electron API でコードを実行できるようにする Electron の機能です。 つまり、`Array.prototype.push` や `JSON.parse` などのグローバルオブジェクトは、レンダラープロセスで実行されているスクリプトでは変更できません。
@@ -162,7 +165,7 @@ Electron は Chromium の [コンテンツスクリプト](https://developer.chr
 
 まだ実験的なElectronの機能ですが、コンテキストアイソレーションはセキュリティのためのレイヤーを追加します。 これは Electron APIとプリロードスクリプトのために新しいJavaScriptの世界を作成します。そのため、プロトタイプ汚染攻撃を緩和します。
 
-同時に、プリロードスクリプトは `document` および `window` オブジェクトにアクセスできます。 言い換えれば、ローリスクでハイリターンを得ているということです。
+At the same time, preload scripts still have access to the  `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
 
 ### どうすればいいの？
 
@@ -197,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
+
 ## 4) リモートのコンテンツからセッション権限リクエストを利用する
 
 Chromeを使用しているときに許可リクエストが表示されていることがあります――ユーザーが手動で承認する必要がある機能 (通知など) をウェブサイトが使用しようとするたびにポップアップが表示されます。
@@ -230,9 +234,10 @@ session
   })
 ```
 
+
 ## 5) webSecurity を無効にしない
 
-*Electron のデフォルトを推奨しています*
+_Electron のデフォルトを推奨しています_
 
 レンダラープロセス ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`<webview>`](../api/webview-tag.md)) 上の `webSecurity` プロパティを無効にすることは、 重要なセキュリティ機能を無効にするということです。
 
@@ -243,7 +248,6 @@ session
 ` webSecurity` を無効にすると、同一オリジンポリシーが無効になり、`allowRunningInsecureContent` プロパティが `true` に設定されます。 つまり、異なるドメインからの安全でないコードの実行を可能にしてしまいます。
 
 ### どうすればいいの？
-
 ```js
 // NG
 const mainWindow = new BrowserWindow({
@@ -259,12 +263,13 @@ const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- NG -->
+<!-- Bad -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- OK -->
+<!-- Good -->
 <webview src="page.html"></webview>
 ```
+
 
 ## 6) Content-Security-Policy を定義する
 
@@ -309,9 +314,10 @@ CSP の推奨伝達メカニズムは HTTP ヘッダですが、`file://` プロ
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
+
 ## 7) `allowRunningInsecureContent` を `true` にしない
 
-*Electron のデフォルトを推奨しています*
+_Electron のデフォルトを推奨しています_
 
 デフォルトでは、Electron は `HTTPS` 上でロードされたウェブサイト上でのみ、安全でないソース (`HTTP`) からスクリプト、CSS、またはプラグインを読み込んで実行できるようにします。 `allowRunningInsecureContent` プロパティを `true` にすることで、その保護を無効にします。
 
@@ -337,15 +343,16 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
+
 ## 8) 実験的な機能を有効にしない
 
-*Electron のデフォルトを推奨しています*
+_Electron のデフォルトを推奨しています_
 
 Electron の上級ユーザは、`experimentalFeatures` のプロパティを使用して Chromium の実験的な機能を有効にすることができます。
 
 ### なぜ？
 
-実験的な機能は、その名前が示すように、実験的であり、Chromium のすべてのユーザに有効にされていません。 さらに、Electron 全体への影響はテストされていない可能性が高いです。
+Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
 
 正しい使用方法は存在しますが、何をしているのか分からない限り、このプロパティを有効にしないでください。
 
@@ -365,9 +372,10 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
+
 ## 9) `enableBlinkFeatures` を使用しない
 
-*Electron のデフォルトを推奨しています*
+_Electron のデフォルトを推奨しています_
 
 Blink は、Chromium のバックグラウンドにあるレンダリングエンジンの名前です。 `experimentalFeatures` と同様に、`enableBlinkFeatures` プロパティを使用すると、デフォルトで無効になっている機能を有効にすることができます。
 
@@ -376,7 +384,6 @@ Blink は、Chromium のバックグラウンドにあるレンダリングエ�
 一般に、機能がデフォルトで有効になっていない場合は、よい理由が考えられます。 その機能を有効にするための、正しい使用方法は存在します。 開発者は、機能を有効にする必要がある理由、影響の内容、アプリケーションのセキュリティにどのように影響するかを正確に把握する必要があります。 どのような場合においても、機能を推論的に有効にするべきではありません。
 
 ### どうすればいいの？
-
 ```js
 // 悪例
 const mainWindow = new BrowserWindow({
@@ -391,9 +398,10 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
+
 ## 10) `allowpopups` を使用しない
 
-*Electron のデフォルトを推奨しています*
+_Electron のデフォルトを推奨しています_
 
 [`<webview>`](../api/webview-tag.md) を使用している場合、新しいウィンドウを開くには `<webview>` タグにページとスクリプトをロードする必要があります。 `allowpopups` 属性は、`window.open()` メソッドを使用して新しい [`BrowserWindows`](../api/browser-window.md) を作成することができるようにします。 そうでなければ、`<webview>` は新しいウインドウを作成できません。
 
@@ -404,12 +412,13 @@ const mainWindow = new BrowserWindow()
 ### どうすればいいの？
 
 ```html
-<!-- NG -->
+<!-- Bad -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- OK -->
+<!-- Good -->
 <webview src="page.html"></webview>
 ```
+
 
 ## 11) 作成前に WebView のオプションを確認する
 
@@ -445,7 +454,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-繰り返しになりますが、このチェックリストはリスクを最小化するものであり、リスクを無くすものではありません。ただ単にWebサイトを表示するという目的であれば、Electronアプリケーションよりもブラウザを利用した方がよりセキュアでしょう。
+Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
 
 ## 12) ナビゲーションを無効化か制限
 
@@ -520,7 +529,6 @@ Shellの [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback)
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
-
 ```js
 //  Good
 const { shell } = require('electron')
@@ -539,7 +547,7 @@ shell.openExternal('https://example.com/index.html')
 
 さらに、プリロードスクリプトが誤ってサンドボックス化されたレンダラーにモジュールをリークさせる可能性があります。 `remote` をリークすると、攻撃を実行するため、多数の主要なプロセスモジュールに悪意のあるコードが仕掛けられます。
 
-`remote` モジュールの無効化によってこれらの攻撃手法は無効化できます。コンテキストの隔離の有効化もまた、これに続くプロトタイプ汚染攻撃を防ぎます。
+Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
 
 ### どうすればいいの？
 
@@ -558,10 +566,10 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```html
-<!-- レンダラーが信頼できないコンテンツを実行する場合、危険  -->
+<!-- Bad if the renderer can run untrusted content  -->
 <webview src="page.html"></webview>
 
-<!-- 安全 -->
+<!-- Good -->
 <webview enableremotemodule="false" src="page.html"></webview>
 ```
 
@@ -617,7 +625,7 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 ## 17) 現行バージョンの Electron を使う
 
-最新バージョンの Electron を常に使用するよう努めるべきです。新しいメジャーバージョンがリリースされるたびに、できるだけ早くアプリを更新してください。
+You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
 
 ### なぜ？
 
