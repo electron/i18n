@@ -12,8 +12,7 @@
 
 IPC を介して (`ipcRenderer.send`、`ipcRenderer.sendSync`、`WebContents.send` 及び関連メソッドから) オブジェクトを送信できます。このオブジェクトのシリアライズに使用されるアルゴリズムが、カスタムアルゴリズムから V8 組み込みの [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) に切り替わります。これは `postMessage` のメッセージのシリアライズに使用されるものと同じアルゴリズムです。 これにより、大きなメッセージに対するパフォーマンスが 2 倍向上しますが、動作に重大な変更が加えられます。
 
-* 関数、Promise、WeakMap、WeakSet、これらの値を含むオブジェクトを IPC 経由で送信すると、関数らを暗黙的に `undefined` に変換していましたが、代わりに例外が送出されるようになります。
-
+- 関数、Promise、WeakMap、WeakSet、これらの値を含むオブジェクトを IPC 経由で送信すると、関数らを暗黙的に `undefined` に変換していましたが、代わりに例外が送出されるようになります。
 ```js
 // 以前:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
@@ -23,16 +22,14 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => Error("() => {} could not be cloned.") を投げる
 ```
-
-* `NaN`、`Infinity`、`-Infinity` は、`null` に変換するのではなく、正しくシリアライズします。
-* 循環参照を含むオブジェクトは、`null` に変換するのではなく、正しくシリアライズします。
-* `Set`、`Map`、`Error`、`RegExp` の値は、`{}` に変換するのではなく、正しくシリアライズします。
-* `BigInt` の値は、`null` に変換するのではなく、正しくシリアライズします。
-* 疎配列は、`null` の密配列に変換するのではなく、そのままシリアライズします。
-* `Date` オブジェクトは、ISO 文字列表現に変換するのではなく、`Date` オブジェクトとして転送します。
-* 型付き配列 (`Uint8Array`、`Uint16Array`、`Uint32Array` など) は、Node.js の `Buffer` に変換するのではなく、そのまま転送します。
-* Node.js の `Buffer` オブジェクトは、`Uint8Array` として転送します。 基底となる `ArrayBuffer` をラップすることで、`Uint8Array` を Node.js の `Buffer` に変換できます。
-
+- `NaN`、`Infinity`、`-Infinity` は、`null` に変換するのではなく、正しくシリアライズします。
+- 循環参照を含むオブジェクトは、`null` に変換するのではなく、正しくシリアライズします。
+- `Set`、`Map`、`Error`、`RegExp` の値は、`{}` に変換するのではなく、正しくシリアライズします。
+- `BigInt` の値は、`null` に変換するのではなく、正しくシリアライズします。
+- 疎配列は、`null` の密配列に変換するのではなく、そのままシリアライズします。
+- `Date` オブジェクトは、ISO 文字列表現に変換するのではなく、`Date` オブジェクトとして転送します。
+- 型付き配列 (`Uint8Array`、`Uint16Array`、`Uint32Array` など) は、Node.js の `Buffer` に変換するのではなく、そのまま転送します。
+- Node.js の `Buffer` オブジェクトは、`Uint8Array` として転送します。 基底となる `ArrayBuffer` をラップすることで、`Uint8Array` を Node.js の `Buffer` に変換できます。
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 ```
@@ -87,7 +84,7 @@ Chromium は、レイアウトのズームレベル制限を変更するサポ�
 
 ### Node Headers URL
 
-これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。 両方とも近い将来サポートされますが、切り替えることを推奨します。
+これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。  両方とも近い将来サポートされますが、切り替えることを推奨します。
 
 非推奨: https://atom.io/download/electron
 
@@ -144,30 +141,23 @@ webFrame.setIsolatedWorldInfo(
 このプロパティは Chromium 77 で削除されたため、利用できなくなりました。
 
 ### `<input type="file"/>` の `webkitdirectory` 属性
-
 `webkitdirectory` プロパティは、HTML ファイル上の input でフォルダーを選択できるようにします。 以前の Electron のバージョンでは、input の `event.target.files` において、選択したフォルダーに対応する 1 つの `File` が入った `FileList` を返すという誤った実装がありました。 Electron 7 では、Chrome、Firefox、Edge と同様 ([MDNドキュメントへのリンク](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)) に、`FileList` はフォルダー内に含まれるすべてのファイルのリストになりました。 例として、以下の構造のフォルダーを使用します。
-
 ```console
 folder
 ├── file1
 ├── file2
 └── file3
 ```
-
-Electron <= 6 では、以下のような `File` オブジェクトが 1 つ入った `FileList` を返します。
-
+￼ In Electron <=6, this would return a `FileList` with a `File` object for:
 ```console
 path/to/folder
 ```
-
 Electron 7 では、以下のような `File` オブジェクトが入った `FileList` を返します。
-
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
 /path/to/folder/file1
 ```
-
 `webkitdirectory` は、選択したフォルダーへのパスを公開しないことに注意してください。 フォルダーの内容ではなく選択したフォルダーへのパスが必要な場合は、`dialog.showOpenDialog` API ([リンク](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)) を参照してください。
 
 ## 予定されている破壊的なAPIの変更 (6.0)
@@ -312,9 +302,7 @@ webFrame.setIsolatedWorldInfo(
 ```
 
 ## `webFrame.setSpellCheckProvider`
-
 `spellCheck` コールバックは非同期になり、`autoCorrectWord` パラメーターは削除されました。
-
 ```js
 // 非推奨
 webFrame.setSpellCheckProvider('en-US', true, {
@@ -463,7 +451,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `プロセス`
+### `process`
 
 ```js
 // 非推奨
@@ -595,7 +583,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `プロセス`
+### `process`
 
 * `process.versions.electron` と `process.version.chrome` は、Node によって定められた他の `process.versions` プロパティと一貫性を持つために読み取り専用プロパティになりました。
 
@@ -630,6 +618,6 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 どの Electron リリースにも、`electron-v1.7.3-linux-arm.zip` や `electron-v1.7.3-linux-armv7l.zip` のような少しファイル名が異なる2つの同一な ARM ビルドが含まれます。 サポートされている ARM バージョンをユーザに明確にし、将来作成される armv6l および arm64 アセットらと明確にするために、`v7l` という接頭子を持つアセットが追加されました。
 
-*接頭子が付いていない*ファイルは、まだそれを使用している可能性がある設定を破壊しないようにするために公開されています。 2.0 からは、接頭子のないファイルは公開されなくなりました。
+_接頭子が付いていない_ファイルは、まだそれを使用している可能性がある設定を破壊しないようにするために公開されています。 2.0 からは、接頭子のないファイルは公開されなくなりました。
 
 詳細は、[6986](https://github.com/electron/electron/pull/6986) と [7189](https://github.com/electron/electron/pull/7189) を参照してください。
