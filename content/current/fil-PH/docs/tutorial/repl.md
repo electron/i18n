@@ -17,6 +17,6 @@ Ang `repl` modyul na ito ay nagbibigay ng isang REPL implementasyon na maaaring 
 
 This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
 
-**Note:** `electron --interactive` is not available on Windows.
+**Note:** `elektron --interactive` ay hindi magagamit sa Windows.
 
 Matatagpuan ang karagdagang impormasyon sa mga [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html).
