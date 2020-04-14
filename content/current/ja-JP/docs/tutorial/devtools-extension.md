@@ -11,28 +11,26 @@ Electron に拡張をロードするには、Chrome ブラウザでそれをダ�
 以下は [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) を使用する例です。
 
 1. それを Chrome ブラウザでインストールします。
-2. `chrome://extensions` に移動し、`fmkadmapgofadopljbjfkapdkoienihi` のようなハッシュ文字列であるそれの拡張 ID を探します。
-3. 拡張機能を保存するために Chrome が使用するファイルシステムの場所を調べます。 
-    * Windows では `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions` です。
-    * Linux では以下のいずれかになります。 
-        * `~/.config/google-chrome/Default/Extensions/`
-        * `~/.config/google-chrome-beta/Default/Extensions/`
-        * `~/.config/google-chrome-canary/Default/Extensions/`
-        * `~/.config/chromium/Default/Extensions/`
-    * macOS では `~/Library/Application Support/Google/Chrome/Default/Extensions` になります。
+1. `chrome://extensions` に移動し、`fmkadmapgofadopljbjfkapdkoienihi` のようなハッシュ文字列であるそれの拡張 ID を探します。
+1. 拡張機能を保存するために Chrome が使用するファイルシステムの場所を調べます。
+   * Windows では `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions` です。
+   * Linux では以下のいずれかになります。
+     * `~/.config/google-chrome/Default/Extensions/`
+     * `~/.config/google-chrome-beta/Default/Extensions/`
+     * `~/.config/google-chrome-canary/Default/Extensions/`
+     * `~/.config/chromium/Default/Extensions/`
+   * macOS では `~/Library/Application Support/Google/Chrome/Default/Extensions` になります。
+1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+   ```javascript
+   const path = require('path')
+   const os = require('os')
 
-4. 拡張の場所を `BrowserWindow.addDevToolsExtension` API に渡します。React Developer Tools の場合は、以下のようになります。
-    
-    ```javascript
-    const path = require('path')
-    const os = require('os')
-    
-    BrowserWindow.addDevToolsExtension(
+   BrowserWindow.addDevToolsExtension(
       path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-    )
-    ```
+   )
+   ```
 
-**注:** `BrowserWindow.addDevToolsExtension` API は app モジュールの ready イベントが発生する前には呼び出すことはできません。
+**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
 
 拡張機能は記憶されるため、この API は拡張に付き一度しか呼び出す必要はありません。 既にロードされている拡張機能を追加しようとした場合、このメソッドは何も返さず、代わりにコンソールに警告を出力します。
 
