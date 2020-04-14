@@ -14,7 +14,7 @@
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Do stuff when Y and either Command/Control is pressed.
@@ -46,7 +46,7 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 * `0` 到 `9`
 * `A` 到 `Z`
 * `F1` 到 `F24`
-* 类似`~`, `!`, `@`, `#`, `$`的标点符号
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`
