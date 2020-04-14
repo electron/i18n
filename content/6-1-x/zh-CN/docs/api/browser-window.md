@@ -547,7 +547,7 @@ A `Integer` representing the unique ID of the window.
 
 使用 `new BrowserWindow `创建的对象具有以下实例方法:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+** 注意: **某些方法仅在特定的操作系统上可用, 这些方法会被标记出来。
 
 #### `win.destroy()`
 
@@ -975,7 +975,7 @@ Hooks a windows message. The `callback` is called when the message is received i
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `win.capturePage([rect])`
 
