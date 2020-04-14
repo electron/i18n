@@ -17,7 +17,7 @@ Electron inherits this build option from Chromium. In `Debug` builds, the binary
 
 ## 테스트
 
-**NB** *this section is out of date and contains information that is no longer relevant to the GN-built electron.*
+**NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
 
 변경사항이 프로젝트 코딩 스타일을 준수하는지 테스트하려면 다음 명령을 사용하세요:
 
@@ -40,7 +40,9 @@ $ npm run build && npm test
 모카의 [전용 테스트](https://mochajs.org/#exclusive-tests) 기능을 사용해서 특정 테스트 또는 블록을 분리하여 테스트 세트 실행을 빠르게 할 수 있습니다. Append `.only` to any `describe` or `it` function call:
 
 ```js
-description.only ('some feature'، function () {// ... 이 블록 에서는 에서는 만 실행될 것}.})
+describe.only('some feature', () => {
+  // ... only tests in this block will be run
+})
 ```
 
 또는, 주어진 정규 표현 패턴에 일치하는 경우에만 테스트를 실행하기 위해 모카의 `grep` 을 사용할 수 있습니다:
@@ -51,7 +53,7 @@ $ npm test -- --grep child_process
 
 테스트시 (`runas<0> 같은) 네이티브 모듈을 포함하면 디버그 빌드에서 실행할 수 없습니다. (자세한 것은 <a href="https://github.com/electron/electron/issues/2558">#2558</a> 를 보세요). 그러나 릴리즈 빌드에서는 작동할 것 입니다.</p>
 
-<p>릴리즈 빌드로 테스트를 실행하려면 다음 명령을 사용하세요:</p>
+<p spaces-before="0">릴리즈 빌드로 테스트를 실행하려면 다음 명령을 사용하세요:</p>
 
 <pre><code class="sh">$ npm test -- -R
 `</pre>
