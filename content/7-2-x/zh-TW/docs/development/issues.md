@@ -1,12 +1,12 @@
 # Electron 議題管理
 
-* [How to Contribute in Issues](#how-to-contribute-in-issues)
+* [如何對議題做出貢獻](#how-to-contribute-in-issues)
 * [尋求一般協助](#asking-for-general-help)
 * [提交 Bug 報告](#submitting-a-bug-report)
 * [分級 Bug 報告](#triaging-a-bug-report)
 * [解決 Bug 報告](#resolving-a-bug-report)
 
-## How to Contribute in Issues
+## 如何對議題做出貢獻
 
 對任何議題來說，個人可以貢獻的方式基本上有三種:
 
