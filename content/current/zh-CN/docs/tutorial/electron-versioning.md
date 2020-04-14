@@ -63,12 +63,12 @@ Stabilization branches are always either **major** or **minor** version lines, a
 
 GitHub不支持旧线路，但是其他分组可以自行获取所有权和返回稳定性和安全修复。 我们不鼓励这样做，但是认识到它使得许多应用程序开发人员的生活更轻松。
 
-# 测试版和 Bug 修复
+# 测试版和Bug修复
 
-Developers want to know which releases are _safe_ to use. 即使是简单的功能也会使应用程序变得复杂。 同时，锁定到一个固定的版本是很危险的，因为你忽略了自你的版本以来可能出现的安全补丁和错误修复。 我们的目标是在 `package.json ` 中允许以下标准的 semver 范围:
+开发人员想知道哪个版本可以 _安全_ 使用。 即使是简单的功能也会使应用程序变得复杂。 同时，锁定到一个固定的版本是很危险的，因为你忽略了自你的版本以来可能出现的安全补丁和错误修复。 我们的目标是在 `package.json ` 中允许以下标准的 semver 范围:
 
 * 使用 ` ~ 2.0. 0 ` 只接受您的 ` 2.0.0 ` 版本的稳定性或安全性相关的修复程序。
-* Use `^2.0.0` to admit non-breaking _reasonably stable_ feature work as well as security and bug fixes.
+* 使用 ` ^ 2.0. 0 ` 可允许不破坏性的 _ 合理稳定 _ 功能以及安全性和 bug 修复。
 
 第二点重要的是使用 `^` 的应用程序仍然能够期望合理的稳定性水平。 To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
 
@@ -80,8 +80,8 @@ Developers want to know which releases are _safe_ to use. 即使是简单的功�
     1. 更改是落后的 API 兼容 (允许废弃)
     2. 实现我们稳定的时间表的危险必须是低的。
 2. 如果允许更改需要在释放测试版之后进行，则使用并增加预放标签，例如`2.0.0-beta.2`。
-3. If a particular beta release is _generally regarded_ as stable, it will be re-released as a stable build, changing only the version information. 例如 `2.0.0-beta.1`. 在第一个稳定之后，所有的变化都必须落后兼容的 bug 或安全修复。
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the _patch_ version is incremented e.g. `2.0.1`.
+3. 如果特定的beta版本_通常被认为_是稳定的，那么它将作为稳定版本被重新发布，只改变版本信息。例如.0。 例如 `2.0.0-beta.1`. 在第一个稳定之后，所有的变化都必须落后兼容的 bug 或安全修复。
+4. 如果未来错误修复或安全补丁一旦发布稳定，它们将被应用，并且 _补丁_ 版本被增量 ，例如 `2.0.1`。
 
 特别地，上述步骤意味着：
 
@@ -104,7 +104,7 @@ Developers want to know which releases are _safe_ to use. 即使是简单的功�
 
 * A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
 * A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
+* 测试版被认为是 _ 一般稳定 _ 的, 它在 ` 2.0.0 ` 下作为非 beta 版本再次被发布。 ![](../images/versioning-sketch-5.png)
 * Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 几个不同的 semver 范围将如何接收新版本的示例:
@@ -116,22 +116,22 @@ Developers want to know which releases are _safe_ to use. 即使是简单的功�
 
 作为未来的考虑, 我们可以介绍以下一种或两种情况:
 
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in _alpha_
+* 具有松散稳定性限制的 alpha 释放版; 例如, 当稳定通道在 _ alpha _ 中时, 允许接纳新特性
 
 # 功能标志
-功能标志是 Chromium 的一种常见的做法, 在网络开发生态系统中得到了很好的确立。 In the context of Electron, a feature flag or **soft branch** must have the following properties:
+功能标志是 Chromium 的一种常见的做法, 在网络开发生态系统中得到了很好的确立。 在 Electron 环境中, 功能标志或 ** 软分支 ** 必须具有以下属性:
 
 * 是在运行时或生成时启用/禁用的。我们不支持请求作用域功能标志的概念
-* it completely segments new and old code paths; refactoring old code to support a new feature _violates_ the feature-flag contract
+* 它完全细分新的和旧的代码路径; 重构旧代码以允许新功能 _ 违反 _ 功能标志内容
 * 在合并功能后, 功能标志最终将被删除
 
 # 提交语义
 
 我们力求在更新和发布过程的各个层面提高清晰度。 从 ` 2.0.0 ` 开始, 我们将要求遵循 [ 常规提交 ](https://conventionalcommits.org/) 规范的拉请求, 可以概括如下:
 
-* Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* 会导致 semver **major** 版本改变的提交必须以`BREAKING CHANGE:`开头。
+* 提交会导致 semver **minor** 必须以 `feat:` 开头。
+* 提交会导致 semver ** patch ** 必须以 ` fix:` 开头。
 
 * 我们允许合并提交，只要合并提交的消息符合上述消息格式。
 * 只要pull request里包含有意义的总结性的版本语义消息，即使它其中的某些提交消息不包含版本语义前缀也是可以接受的
@@ -140,5 +140,5 @@ Developers want to know which releases are _safe_ to use. 即使是简单的功�
 
 - The `master` 分支将始终在其 `package.json` 中包含 `0.0.0-dev`.
 - Release 分支永远不会合并回 master 分支
-- Release branches _do_ contain the correct version in their `package.json`
+- 发布分支 _在_ 其`package.json ` 中包含正确的版本
 - As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
