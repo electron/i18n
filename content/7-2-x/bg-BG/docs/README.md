@@ -101,7 +101,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 * [Обзор](api/synopsis.md)
 * [กระบวนการของวัตถุ](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [Поддържани превключващи команди на Chrome](api/chrome-command-line-switches.md)
 * [Променливи на средата](api/environment-variables.md)
 * [5256783105227699](api/breaking-changes.md)
 
