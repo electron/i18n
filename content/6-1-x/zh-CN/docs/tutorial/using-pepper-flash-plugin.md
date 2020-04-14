@@ -31,7 +31,7 @@ switch (process.platform) {
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
+// 可选：指定 flash 的版本，例如 v17.0.0.169
 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
 app.on('ready', () => {
@@ -43,7 +43,7 @@ app.on('ready', () => {
     }
   })
   win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
+  // 一些别的什么
 })
 ```
 
