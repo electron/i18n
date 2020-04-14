@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 Il modulo `globalShortcut` può registrare/eliminare una scorciatoia di tastiera con il sistema operativo in modo che tu possa personalizzare le operazioni con diverse scorciatoie.
 
-**Nota:** La scorciatoia è globale; funzionerà anche se l'app non ha il focus sulla tastiera. Non dovresti utilizzare questo modulo finchè l'evento `ready` dell'app non è stato lanciato.
+**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. Non dovresti utilizzare questo modulo finchè l'evento `ready` dell'app non è stato lanciato.
 
 ```javascript
 const { app, globalShortcut } = require('electron')
@@ -45,7 +45,7 @@ Il modulo `globalShortcut` ha i seguenti metodi:
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
-Registra la scorciatoia di `accelerator`. Il `callback` viene chiamato quando la scorciatoia registrata viene premuta dall'utente.
+Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
 Quando l'accelerator è già stato occupato da un'altra applicazione, fallirà silenziosamente. Questo comportamento è utilizzato dai sistemi operativi, dal momento che non vogliono che le applicazioni entrino in conflitto sulle scorciatoie globali.
 
@@ -59,7 +59,7 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 ### `globalShortcut.registerAll(accelerators, callback)`
 
 * `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
-* `callback` Funzione
+* `callback` Function
 
 Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
