@@ -8,3 +8,4 @@ De oude "Snelle start" documentatie dat oorspronkelijk hier was, is verdeeld ove
 * Om te kijken hoe de proces architectuur er uit ziet bekijk, [Standaard en Render Processen](./application-architecture.md#main-and-renderer-processes).
 
 Om meer te leren over Electron, ga naar de [officiële documentatie](../).
+
