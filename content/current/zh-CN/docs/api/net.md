@@ -19,7 +19,7 @@ Example usage:
 
 ```javascript
 const { app } = require('electron')
-app.whenReady().then(() => {
+app.on('ready', () => {
   const { net } = require('electron')
   const request = net.request('https://github.com')
   request.on('response', (response) => {
