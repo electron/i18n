@@ -2,7 +2,7 @@
 
 세 가지 운영체제 모두 애플리케이션이 유저에게 알림(notification) 을 보낼 수 있도록 제공하고 있습니다. Electron은 개발자가 간단히 [HTML5 Notification API](https://notifications.spec.whatwg.org/)를 사용하여 알림을 보내고, 해당 운영 체제의 내장(native) notification API를 사용하여 화면에 표시 할 수 있도록 제공합니다.
 
-**Note:** HTML5 API 이므로 오직 렌더러 프로세스에서만 사용이 가능합니다. 만약 메인 프로세스에 notification을 표시하려면 [Notification](../api/notification.md) 모듈을 확인하십시오.
+**Note:** Since this is an HTML5 API it is only available in the renderer process. 만약 메인 프로세스에 notification을 표시하려면 [Notification](../api/notification.md) 모듈을 확인하십시오.
 
 ```javascript
 let myNotification = new Notification('Title', {
@@ -17,8 +17,7 @@ myNotification.onclick = () => {
 전반적인 코드 및 사용자 경험(UX)은 운영체제마다 비슷하지만, 약간의 차이가 있습니다.
 
 ## Windows
-
-* Windows 10 에서는 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 와 앱의 바로가기(shortcut)가 시작메뉴에 설치되어 있어야 합니다. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
+* Windows 10 에서는  [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 와 앱의 바로가기(shortcut)가 시작메뉴에 설치되어 있어야 합니다. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
 * Windows 8.1 및 Windows 8.0 에서는 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)와 앱의 바로가기가 시작화면(Start screen)에 설치되어 있어야 합니다. 그러나, 시작화면에 고정시킬 필요는 없습니다.
 * Windows 7에서, notifications은 새로운 시스템에서 native notification과 시각적으로 유사하게 커스텀으로 구현함으로써 동작합니다.
 
@@ -46,7 +45,7 @@ Notifications은 크기가 256 바이트로 제한되고 제한을 초과하면 
 
 ### 고급 알림
 
-최신 버전의 macOS는 사용자가 notification에 신속하게 응답 할 수 있도록, 입력 필드가있는 notifications을 허용합니다. 입력 필드와 함께 notifications을 보내려면, userland 모듈 [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier)를 사용하십시오.
+최신 버전의 macOS는 사용자가  notification에 신속하게 응답 할 수 있도록, 입력 필드가있는 notifications을 허용합니다. 입력 필드와 함께 notifications을 보내려면, userland 모듈 [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier)를 사용하십시오.
 
 ### 방해금지 / 세션 상태
 
