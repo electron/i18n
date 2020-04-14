@@ -2,10 +2,10 @@
 
 > 建立及控制瀏覽器視窗。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 ```javascript
-// 在主處理序中.
+// 在主處理序裡。
 const { BrowserWindow } = require('electron')
 
 // 或由畫面轉譯處理序裡使用 `remote`。
@@ -109,9 +109,9 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > 建立及控制瀏覽器視窗。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` 是個 [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter)。
 
 It creates a new `BrowserWindow` with native properties as set by the `options`.
 
@@ -172,7 +172,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Default is `false`. 更多相關資料可以[多執行緒](../tutorial/multithreading.md)中找到。
     * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
-    * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
+    * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **注意:** 這個選項目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
@@ -263,7 +263,7 @@ _**Note**: There is a subtle difference between the behaviors of `window.onbefor
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Event: 'session-end' _Windows_
+#### 事件: 'session-end' _Windows_
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
@@ -343,7 +343,7 @@ Emitted when the window is being moved to a new position.
 
 __Note__: On macOS this event is an alias of `moved`.
 
-#### Event: 'moved' _macOS_
+#### 事件: 'moved' _macOS_
 
 Emitted once when the window is moved to a new position.
 
@@ -399,19 +399,19 @@ The following app commands are explictly supported on Linux:
 * `browser-backward`
 * `browser-forward`
 
-#### Event: 'scroll-touch-begin' _macOS_
+#### 事件: 'scroll-touch-begin' _macOS_
 
 Emitted when scroll wheel event phase has begun.
 
-#### Event: 'scroll-touch-end' _macOS_
+#### 事件: 'scroll-touch-end' _macOS_
 
 Emitted when scroll wheel event phase has ended.
 
-#### Event: 'scroll-touch-edge' _macOS_
+#### 事件: 'scroll-touch-edge' _macOS_
 
 Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
-#### Event: 'swipe' _macOS_
+#### 事件: 'swipe' _macOS_
 
 回傳:
 
@@ -420,11 +420,11 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' _macOS_
+#### 事件: 'sheet-begin' _macOS_
 
 Emitted when the window opens a sheet.
 
-#### Event: 'sheet-end' _macOS_
+#### 事件: 'sheet-end' _macOS_
 
 Emitted when the window has closed a sheet.
 
@@ -470,7 +470,7 @@ Adds Chrome extension located at `path`, and returns extension's name.
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.removeExtension(name)`
 
@@ -478,13 +478,13 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a Chrome extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.getExtensions()`
 
 Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
@@ -496,7 +496,7 @@ The extension will be remembered so you only need to call this API once, this AP
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
@@ -504,7 +504,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a DevTools extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
@@ -519,7 +519,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 ### 物件屬性
 
@@ -673,7 +673,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (選用) _macOS_
 
 Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
 
@@ -698,7 +698,7 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (選用) _macOS_
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
@@ -722,7 +722,7 @@ Disable or enable the window.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (選用) _macOS_
 
 Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
@@ -734,7 +734,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (選用) _macOS_
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -856,7 +856,7 @@ Moves window to the center of the screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (選用) _macOS_
 
 Moves window to `x` and `y`.
 
@@ -1281,15 +1281,15 @@ Adds a window as a tab on this window, after the tab for the window instance.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
-#### `win.setTouchBar(touchBar)` _macOS_ _Experimental_
+#### `win.setTouchBar(touchBar)` _macOS_ _試驗中_
 
 * `touchBar` TouchBar
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**注意:** TouchBar API 目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
 
-#### `win.setBrowserView(browserView)` _Experimental_
+#### `win.setBrowserView(browserView)` _試驗中_
 
 * `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
@@ -1297,13 +1297,13 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
 
-#### `win.addBrowserView(browserView)` _Experimental_
+#### `win.addBrowserView(browserView)` _試驗中_
 
 * `browserView` [BrowserView](browser-view.md)
 
 Replacement API for setBrowserView supporting work with multi browser views.
 
-#### `win.removeBrowserView(browserView)` _Experimental_
+#### `win.removeBrowserView(browserView)` _試驗中_
 
 * `browserView` [BrowserView](browser-view.md)
 
@@ -1311,7 +1311,7 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**注意:** BrowserView API 目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
 
 ### 屬性
 
