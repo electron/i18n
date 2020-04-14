@@ -115,28 +115,28 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Това се случва защото имате локално инсталиран [npm `electron` module](https://www.npmjs.com/package/electron) или инсталиран глобално, който замества вграден модул на Електрон.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+За да проверите дали използвате правилния вграден модул, можете да отпечатате пътя на `electron` модула:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+и след това проверете дали той е в следния вид:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Ако видите нещо като `node_modules/electron/index.js`, тогава трябва да премахнете npm `electron` модула, или да го преименувате.
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. На пример, `electron.app` може да бъде използван само от главния процес, докато `electron.webFrame` е достъпен само от рендериращия процес.
+Обаче, ако използвате вградения модул но все още получавате грешка, най-вероятно получавате модула от грешния процес. На пример, `electron.app` може да бъде използван само от главния процес, докато `electron.webFrame` е достъпен само от рендериращия процес.
 
 ## 5256783105227699
 
