@@ -13,7 +13,7 @@ These guides are intended for people working on the Electron project itself. For
 * [建置系統概述](build-system-overview.md)
 * [建置步驟 (macOS)](build-instructions-macos.md)
 * [建置步驟 (Windows)](build-instructions-windows.md)
-* [建置步驟 (Linux)](build-instructions-linux.md)
+* [建置步驟 (macOS)](build-instructions-linux.md)
 * [Chromium 開發](chromium-development.md)
 * [V8 開發](v8-development.md)
 * [測試](testing.md)
