@@ -1,4 +1,4 @@
-# 使用 Node 原生模块
+# 使用原生 Node 模块
 
 Electron 支持原生的 Node 模块，但由于 Electron 非常有可能使用一个与您的系统上所安装的 Node 不同的 V8 引擎，您所使用的模块将需要被重新编译。 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
 
@@ -47,7 +47,7 @@ export npm_config_arch=x64
 export npm_config_target_arch=x64
 # 下载 Electron 的 headers。
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# 告诉 node-pre-gyp 我们是在为 Electron 生成模块。
 export npm_config_runtime=electron
 # 告诉 node-pre-gyp 从源代码构建模块。
 export npm_config_build_from_source=true
