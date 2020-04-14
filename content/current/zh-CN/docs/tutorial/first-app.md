@@ -1,12 +1,12 @@
 # 打造你的第一个 Electron 应用
 
-Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) APIs 来创造桌面应用。 你可以把它看作一个 Node. js 的变体，它专注于桌面应用而不是 Web 服务器端。
+Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) APIs 来创造桌面应用。 你可以把它看作一个专注于桌面应用的 Node. js 的变体，而不是 Web 服务器。
 
 这不意味着 Electron 是某个图形用户界面（GUI）库的 JavaScript 版本。 相反，Electron 使用 web 页面作为它的 GUI，所以你能把它看作成一个被 JavaScript 控制的，精简版的 Chromium 浏览器。
 
-**注意**: 获取该示例的代码仓库: [ 立即下载并运行 ](#trying-this-example)。
+**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
 
-从开发的角度来看, Electron application 本质上是一个 Node. js 应用程序。 与 Node.js 模块相同，应用的入口是 `package.json` 文件。 一个最基本的 Electron 应用一般来说会有如下的目录结构：
+从开发的角度来看, Electron application 本质上是一个 Node. js  应用程序。 与 Node.js 模块相同，应用的入口是 `package.json` 文件。 一个最基本的 Electron 应用一般来说会有如下的目录结构：
 
 ```plaintext
 your-app/
@@ -31,7 +31,7 @@ npm 会帮助你创建一个基本的 `package.json` 文件。 其中的 `main` 
 }
 ```
 
-**注意**：如果 `main` 字段没有在 `package.json` 中出现，那么 Electron 将会尝试加载 `index.js` 文件（就像 Node.js 自身那样）。 如果你实际开发的是一个简单的 Node 应用，那么你需要添加一个 `start` 脚本来指引 `node` 去执行当前的 package：
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). 如果你实际开发的是一个简单的 Node 应用，那么你需要添加一个 `start` 脚本来指引 `node` 去执行当前的 package：
 
 ```json
 {
@@ -173,7 +173,7 @@ app.on('activate', () => {
 
 复制并运行这个库 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start)。
 
-**注意**：本例需要 [Git](https://git-scm.com) 和 [npm](https://www.npmjs.com/) 来运行。
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # 克隆这仓库
