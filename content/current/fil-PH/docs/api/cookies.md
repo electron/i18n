@@ -38,15 +38,15 @@ session.defaultSession.cookies.set(cookie)
   })
 ```
 
-### Mga Halimbawa ng "Events"
+### Halimbawa ng mga Event
 
 Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
 
 #### Kaganapan: 'nagbago'
 
-* `kaganapan` Kaganapan
+* `event` na Kaganapan
 * `cookie` [Cookie](structures/cookie.md) - Ang "cookie" na binago.
-* `sanhi` String - Ang mga sanhi ng mga pagbabago sa isa't isa sa mga sumusunod na mga halaga: 
+* `cause` String - The cause of the change with one of the following values:
   * `explicit` - Ang cookie ay direktang nagbago sa pamamagitan ng pagkilos ng isang mamimili.
   * `overwrite` - Ang cookie ay awtomatikong natanggal dahil sa ipinasok na operasyon na i-overwrite.
   * `expired` - Ang cookie ay awtomatikong natanggal dahil na-expired.
@@ -56,13 +56,13 @@ Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
 
 Napalabas kapag ang cookie ay nagbago dahil ito'y idinagdag, inedit, natanggal, o napaso.
 
-### Mga Pamamaraan ng Instance
+### Mga Halimbawa ng Sistematikong Paraan
 
 Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
 
 #### `cookies.get(filter)`
 
-* `salain` Bagay 
+* `filter` Object
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * `name` String (opsyunal) - Efilter ang mga cookies sa kanilang pangalan.
   * `domain` String (opsyunal) - Ang mga kinuhang cookies na ang domain ay nagtugma o ang mga subdomain ng `domain`.
@@ -76,14 +76,14 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 #### `cookies.set(details)`
 
-* `ang mga detalye` Bagay 
+* `details` Object
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
-  * `name` String (opsyunal) - Ang pangalan ng cookie. Walang laman ito pagdefault kung itinanggal.
-  * `value` String (opsyunal) - Ang halaga ng isang cookie. Walang laman ito pagdefault kung itinanggal.
+  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
+  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
-  * `path<0> String (opsyunal) - Ang daan ng isang cookie. Walang laman ito pagdefault kung itinanggal.</li>
-<li><code>secure` Boolean (opsyunal) - Kung ang isang cookie ay dapat markado na Secure. Pagdefaults to mali.
-  * `httpOnly` Boolean (opsyunal) - Kung ang isang cookie ay dapat na markado nang HTTP lang. Pagdefault ito false.
+  * `path` na String (opsyonal) - Ang path ng mga cookie. Empty by default if omitted.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Ang default na mali.
   * `expirationDate` Double (opsyunal) - Ang expiration na petsa ng isang cookie ng bilang ng segundo dahil sa UNIX epoch. Kung ito ay tatanggalin ang cookie ay magiging isang sesyon cookie at hindi na ito mananatili sa pagitan ng mga sesyon.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been set
