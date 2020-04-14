@@ -2,7 +2,7 @@
 
 > 使用預設應用程式管理檔案及 URL。
 
-處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
 The `shell` module provides functions related to desktop integration.
 
@@ -14,6 +14,8 @@ const { shell } = require('electron')
 shell.openExternal('https://github.com')
 ```
 
+**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
+
 ## 方法
 
 The `shell` module has the following methods:
@@ -24,11 +26,11 @@ The `shell` module has the following methods:
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openItem(fullPath)`
+### `shell.openPath(path)`
 
-* `fullPath` String
+* `path` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 Open the given file in the desktop's default manner.
 
