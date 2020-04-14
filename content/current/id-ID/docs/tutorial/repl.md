@@ -5,19 +5,18 @@ Read-Eval-Print-Loop (REPL) merupakan lingkungan pemrograman komputer sederhana,
 Modul `repl` menyediakan implementasi REPL yang dapat diakses menggunakan:
 
 * Dengan asumsi Anda memiliki `electron` atau `electron-prebuilt` yang terinstal sebagai ketergantungan proyek lokal:
-    
-    ```sh
-    ./node_modules/.bin/electron --interactive
-    ```
 
+  ```sh
+  ./node_modules/.bin/electron --interactive
+  ```
 * Dengan asumsi Anda memiliki `electron` atau `electron-prebuilt` diinstal secara global:
-    
-    ```sh
-    electron --interactive
-    ```
 
-Hal ini hanya menciptakan REPL untuk proses utama. Anda dapat menggunakan tab konsol DevTool untuk mendapatkan REPL untuk proses renderer.
+  ```sh
+  electron --interactive
+  ```
 
-**Catatan:** `electron--interactive` tidak tersedia pada Windows.
+This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+
+**Note:** `electron --interactive` is not available on Windows.
 
 Informasi lebih lanjut dapat ditemukan di [Dokumentasi Node.js REPL](https://nodejs.org/dist/latest/docs/api/repl.html).
