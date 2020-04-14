@@ -9,9 +9,9 @@ In your renderer process, handle the `ondragstart` event and forward the informa
 ```html
 <a href="#" id="drag">item</a>
 <script type="text/javascript" charset="utf-8">
-  document. getElementById('drag'). ondragstart = (event) => {
-    event. preventDefault()
-    ipcRenderer. send('ondragstart', '/path/to/item')
+  document.getElementById('drag').ondragstart = (event) => {
+    event.preventDefault()
+    ipcRenderer.send('ondragstart', '/path/to/item')
   }
 </script>
 ```
