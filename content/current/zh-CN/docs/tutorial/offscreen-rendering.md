@@ -4,7 +4,7 @@
 
 可以使用两种渲染模式，并且只有脏区通过 `'paint'` 事件才能更高效。 渲染可以停止、继续，并且可以设置帧速率。 指定的帧速率是上限值，当网页上没有发生任何事件时，不会生成任何帧。 最大帧速率是60，因为再高没有好处，而且损失性能。
 
-**注意:** 屏幕窗口始终创建为 [Frameless Window](../api/frameless-window.md).
+**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
 ## 渲染模式
 
@@ -20,7 +20,7 @@ GPU加速渲染意味着使用GPU用于合成。 因为帧必须从需要更多�
 
 ## 用法
 
-```javascript
+``` javascript
 const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
