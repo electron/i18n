@@ -2,7 +2,7 @@
 
 在我们深入了解Electron的API之前，我们需要探讨一下在Electron中可能遇到的两种进程类型。 它们是完全不同的，因此理解它们非常重要。
 
-## 主进程和渲染器进程
+## 主进程和渲染进程
 
 Electron 运行 `package.json` 的 `main` 脚本的进程被称为__主进程__。 在主进程中运行的脚本通过创建web页面来展示用户界面。 一个 Electron 应用总是有且只有一个主进程。
 
@@ -51,7 +51,7 @@ const { BrowserWindow } = remote
 const win = new BrowserWindow()
 ```
 
-## 使用 Node.js 的 API
+## 使用Node.js的API
 
 Electron同时对主进程和渲染进程暴露了Node.js 所有的接口。 这里有两个重要的定义：
 
@@ -86,4 +86,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 有一个非常重要的提示: 原生Node.js模块 (即指，需要编译源码过后才能被使用的模块) 需要在编译后才能和Electron一起使用。
 
-绝大多数的Node.js模块都_不_是原生的， Only 400 out of the ~650.000 modules are native. 当然了，如果你的确需要原生模块，可以在这里查询[如何重新为Electron编译原生模块](./using-native-node-modules.md)(很简单)。
+绝大多数的Node.js模块都_不_是原生的， 只有大概400~650个模块是原生的。 当然了，如果你的确需要原生模块，可以在这里查询[如何重新为Electron编译原生模块](./using-native-node-modules.md)(很简单)。
