@@ -2,19 +2,19 @@
 
 > 发起HTTP/HTTPS请求.
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 `ClientRequest`实现了[Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)接口, 因此是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)类型.
 
 ### `new ClientRequest(options)`
 
-* `参数` (Object | String) -如果 `选项` 是一个String类型, 它被解释为请求的URL. 如果它是一个Object类型, 那么它可以通过以下属性指定一个HTTP请求: 
-  * `method` String (可选) - HTTP请求方法. 默认为GET方法.
-  * `url` String (可选) - 请求的URL. 必须在指定了http或https的协议方案的独立表单中提供.
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (可选) - 与请求相关联的[`partition`](session.md)名称. 默认为空字符串. `session`选项优先于`partition`选项. 因此, 如果`session`是显式指定的, 则`partition`将被忽略.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. 默认值为 `false`.
-  * `protocol` String (可选) - 在"scheme:"表单中的协议方案. 目前支持的值为'http:' 或者'https:'. 默认为'http:'.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. 默认值为 `false`.
+  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (可选) - 作为连接提供的服务器主机,主机名和端口号'hostname:port'.
   * `hostname` String (可选) - 服务器主机名.
   * `port` Integer (可选) - 服务器侦听的端口号.
@@ -47,13 +47,13 @@ const request = net.request({
 
 返回:
 
-* `authInfo` Object 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function - 回调函数 
+* `callback` Function
   * `username` String (optional)
   * `password` String (optional)
 
@@ -69,7 +69,6 @@ request.on('login', (authInfo, callback) => {
   callback('username', 'password')
 })
 ```
-
 提供空的凭证将取消请求，并在响应对象上报告一个身份验证错误:
 
 ```JavaScript
@@ -90,7 +89,7 @@ request.on('login', (authInfo, callback) => {
 
 #### 事件: 'abort'
 
-当 `request`请求被中止时发出。如果`request` 请求已经关闭， `abort`中止事件将不会被触发。
+Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### 事件: 'error'
 
@@ -104,6 +103,7 @@ request.on('login', (authInfo, callback) => {
 
 作为HTTP 的 request-response 中的最后一个事件发出。 `close`事件表明，在`request`或`response` 对象中不会发出更多的事件。
 
+
 #### 事件: 'redirect'
 
 返回:
@@ -113,7 +113,7 @@ request.on('login', (authInfo, callback) => {
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### 实例属性
 
@@ -142,12 +142,12 @@ Returns `String` - The value of a previously set extra header name.
 
 * `name` String - 指定一个额外的头名称.
 
-删除以前设置的额外头名称。此方法只能在首次写入之前调用。尝试在第一次写入后调用它会引发错误。
+Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - 请求主体数据的一个块。如果是字符串, 它将使用指定的编码转换Buffer。
-* ` encoding`String(可选)-用于将字符串块转换为Buffer对象。默认值为 "utf-8"。
+* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
+* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
 * ` callback ` Function (可选)-在写操作结束后调用。
 
 ` callback ` 实质上是为了保持与 Node.js API 的相似性而引入的虚拟函数。 在将 ` chunk ` 内容传递到 Chromium 网络层之后, 在下一个 tick 中异步调用。 与 Node.js 实现相反, 不保证 ` chunk ` 内容在调用 ` callback ` 之前已经被刷新。
@@ -160,7 +160,7 @@ Returns `String` - The value of a previously set extra header name.
 * `encoding` String (可选)
 * `callback` Function (可选)
 
-发送请求数据的最后一个块。将不允许后续的写入或结束操作。` finish ` 事件将在结束操作后发出。
+Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
 #### `request.abort()`
 
