@@ -120,7 +120,7 @@ protocol.registerSchemesAsPrivileged([
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `filePath` String (optional)
+    * `filePath` String (可选)
 * `completion` Function (optional)
   * `error` Error
 
@@ -150,7 +150,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 该用法与 `registerFileProtocol` 相同, 只是`callback` 会被`Buffer`对象或者带有`data`，`mimeType`和 `charset`属性的对象调用。
 
-示例:
+示例：
 
 ```javascript
 const { protocol } = require('electron')
@@ -172,7 +172,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `data` String (optional)
+    * `data` String (可选)
 * `completion` Function (optional)
   * `error` Error
 
@@ -194,10 +194,10 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `redirectRequest` Object
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (可选)
       * `uploadData` Object (optional)
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+        * `contentType` String - 内容的MIME类型。
+        * `data` String - 要发送的内容。
 * `completion` Function (optional)
   * `error` Error
 
@@ -220,7 +220,7 @@ By default the HTTP request will reuse the current session. If you want the requ
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * ` stream `(ReadableStream |[ StreamProtocolResponse ](structures/stream-protocol-response.md)) (可选)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (optional)
   * `error` Error
 
@@ -228,7 +228,7 @@ By default the HTTP request will reuse the current session. If you want the requ
 
 该用法类似于 `register{Any}Protocol` ，只是`callback` 会被` Readable `对象或者带有`data`, `statusCode` 和 `headers` 属性的对象调用。
 
-示例:
+示例：
 
 ```javascript
 const { protocol } = require('electron')
@@ -281,7 +281,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `callback` Function
   * `handled` Boolean
 
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
+`callback` 会被调用，带有布尔值，表示是否已经有`scheme` 的处理程序。
 
 **[即将弃用](modernization/promisification.md)**
 
@@ -317,7 +317,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `data` String (optional)
+    * `data` String (可选)
 * `completion` Function (optional)
   * `error` Error
 
@@ -353,10 +353,10 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `redirectRequest` Object
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (可选)
       * `uploadData` Object (optional)
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+        * `contentType` String - 内容的MIME类型。
+        * `data` String - 发送内容。
 * `completion` Function (optional)
   * `error` Error
 
