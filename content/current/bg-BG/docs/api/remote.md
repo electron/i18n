@@ -119,7 +119,7 @@ project/
 ```js
 // main process: main/index.js
 const { app } = require('electron')
-app.whenReady().then(() => { /* ... */ })
+app.on('ready', () => { /* ... */ })
 ```
 
 ```js
