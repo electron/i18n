@@ -433,7 +433,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 The following list includes the breaking API changes in Electron 3.0.
 
-### `app`
+### `ang app`
 
 ```js
 // Deprecated
@@ -446,7 +446,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Deprecated property
 ```
 
-### `Ang Browser ng Window`
+### `Kulayan ang bintana`
 
 ```js
 // Deprecated
@@ -494,7 +494,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-### `kalabog ng tagapagbalita`
+### `crashReporter`
 
 ```js
 // Deprecated
@@ -620,7 +620,7 @@ Palitan ng: https://atom.io/download/electron
 
 The following list includes the breaking API changes made in Electron 2.0.
 
-### `Ang Browser ng Window`
+### `Kulayan ang bintana`
 
 ```js
 // Deprecated
