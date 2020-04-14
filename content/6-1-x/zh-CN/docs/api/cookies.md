@@ -89,7 +89,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `cookies.set(details)`
 
@@ -123,7 +123,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `cookies.remove(url, name)`
 
@@ -142,7 +142,7 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 
 Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `cookies.flushStore()`
 
@@ -156,4 +156,4 @@ Removes the cookies matching `url` and `name`, `callback` will called with `call
 
 写入所有未写入磁盘的 cookie。
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
