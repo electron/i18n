@@ -5,7 +5,7 @@
 ## 前提条件
 
 * Windows 10 / Server 2012 R2 或更高版本
-* Visual Studio 2017 15.7.2 or higher - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
+* Visual Studio 2017 15.7.2 或更高版本 - [免费下载 VS 2017 社区版](https://www.visualstudio.com/vs/)
 * [Python 2.7.10 或更高版本](http://www.python.org/download/releases/2.7/)
   * 与下面 `depot_tools` 的安装说明不同，你必须安装 2.7.10 以上版本的 Python（支持 TLS 1.2）。 为此，应确保 **PATH** 中 Python 的安装目录在 `depot_tools` 之前。 目前 `depot_tools` 仍捆绑 Python 2.7.6，这将导致 `gclient` 命令失效（见 https://crbug.com/868864）。
   * [Python for Windows (pywin32) 扩展](https://pypi.org/project/pywin32/#files)对于构建流程也是必需的。
