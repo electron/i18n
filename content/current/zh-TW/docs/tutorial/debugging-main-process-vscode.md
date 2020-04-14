@@ -1,13 +1,13 @@
 # 在 VSCode 中 Debug 主處理序
 
-### 1. 在 VSCode 中開啟 Electron 專案。
+### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. 新增 `.vscode/launch.json` 檔，貼上以下設定:
+### 2. Add a file `.vscode/launch.json` with the following configuration:
 
 ```json
 {
@@ -29,8 +29,9 @@ $ code electron-quick-start
 }
 ```
 
-### 3. Debug
 
-在 `main.js` 中設定一些中斷點，然後在 [Debug 視景](https://code.visualstudio.com/docs/editor/debugging) 中開始 debug。你應該能看到程式執行到中斷點時停下來。
+### 3. Debugging
+
+Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 
 這裡有一個預先設定好的專案，你可以直接下載並在 VSCode 中 debug: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
