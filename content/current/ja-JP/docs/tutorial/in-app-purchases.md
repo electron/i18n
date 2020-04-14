@@ -3,13 +3,11 @@
 ## 下準備
 
 ### 有料アプリケーション契約
-
 まだしていないのであれば、iTunes Connect 内で有料アプリケーション契約に署名し、銀行口座情報と納税フォームをセットアップする必要があります。
 
 [iTunes Connect デベロッパーヘルプ: 契約／税金／口座情報の概要](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### App 内課金の作成
-
 次に、iTunes Connect でアプリ内購入を設定し、名前、価格、説明、アプリ内購入の特徴と機能の説明などの詳細を含める必要があります。
 
 [iTunes Connect デベロッパーヘルプ: App 内課金の作成](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
