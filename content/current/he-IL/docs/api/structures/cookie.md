@@ -8,4 +8,4 @@
 * `secure` ‏Boolean (רשות) - האם העוגייה סומנה כמאובטחת.
 * `httpOnly` ‏Boolean (רשות) - האם העוגייה סומנה כ־HTTP בלבד.
 * `session` ‏Boolean (רשות) - האם העוגייה היא עוגייה זמנית או עוגייה עם תאריך תפוגה.
-* `expirationDate` ‏Double (רשות) - תאריך התפוגה של העוגייה כמספר השניות מאז תחילת ספירת UNIX. לא מסופק ברמת הפעלה בודדת.
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
