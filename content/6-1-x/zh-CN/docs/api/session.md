@@ -92,7 +92,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Callback is invoked with the session's current cache size.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `ses.getCacheSize()`
 
@@ -105,7 +105,7 @@ Returns `Promise<Integer>` - the session's current cache size, in bytes.
 
 清除session的HTTP缓存。
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `ses.clearCache()`
 
@@ -123,7 +123,7 @@ Returns `Promise<void>` - resolves when the cache clear operation is complete.
 
 Clears the storage data for the current session.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `ses.clearStorageData([options])`
 
@@ -200,7 +200,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
    Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `ses.setProxy(config)`
 
@@ -273,7 +273,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `ses.resolveProxy(url)`
 
@@ -402,7 +402,7 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 清除主机解析程序的缓存。
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `ses.clearHostResolverCache()`
 
@@ -446,7 +446,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 * `callback` Function
   * `result` Buffer - Blob data.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `ses.getBlobData(identifier)`
 
@@ -475,7 +475,7 @@ Returns `Promise<Buffer>` - resolves with blob data.
 
 Clears the session’s HTTP authentication cache.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `ses.clearAuthCache(options)` _(deprecated)_
 
