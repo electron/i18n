@@ -1,6 +1,6 @@
 # Pepper Flash プラグインを使用する
 
-Electron は Pepper Flash プラグインをサポートしています。Electron で Pepper Flash プラグインを使用するには、Pepper Flash プラグインの場所を手動で指定してからアプリケーションで有効にする必要があります。
+Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
 ## Flash プラグインのコピーを準備する
 
@@ -61,8 +61,8 @@ app.whenReady().then(() => {
 
 Pepper Flash プラグインがロードされているかどうかを確認するには、デベロッパー ツールのコンソール内で `navigator.plugins` を調べます (ただしそのプラグインのパスが正しいかどうかはわかりません)。
 
-Pepper Flash プラグインのアーキテクチャは、Electron のものと一致する必要があります。Windows でよくあるエラーは、64 ビット版の Electron に対して32ビット版の Flash プラグインを使用することです。
+The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
-Windows では、`--ppapi-flash-path` に渡されるパスは、パス区切り文字として `` を使用する必要があります。POSIX スタイルのパスを使用しても機能しません。
+On Windows the path passed to `--ppapi-flash-path` has to use `\` as path delimiter, using POSIX-style paths will not work.
 
 RTMP を使用したメディアのストリーミングのような、いくつかの操作では、Flash Player の `.swf` ファイルに対してより広範な権限を付与する必要があります。 これを実現する方法の 1 つは、[nw-flash-trust](https://github.com/szwacz/nw-flash-trust) を使用することです。
