@@ -4,7 +4,7 @@
 
 रेंडरिंग के दो मोड इस्तेमाल किये जा सकते हैं और ज्यादा कुशलता के लिए `'paint'` इवेंट में केवल गन्दा क्षेत्र पास किया जाता है | रेंडरिंग को रोका या जारी रखा जा सकता है और फ्रेम रेट को भी सेट किया जा सकता है | निर्दिष्ट फ्रेम रेट एक शीर्ष सीमा मान है, जब एक वेबपेज पर कुछ न हो रहा हो, तो कोई फ्रेम्स उत्पन्न नहीं होते हैं | The maximum frame rate is 60, because above that there is no benefit, only performance loss.
 
-**नोट:** एक ऑफस्क्रीन विंडो हमेशा एक [फ्रेमलेस विंडो](../api/frameless-window.md) की तरह निर्मित होती है |
+**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
 ## Rendering Modes
 
@@ -20,7 +20,7 @@
 
 ## उपयोग
 
-```javascript
+``` javascript
 const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
