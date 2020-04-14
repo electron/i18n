@@ -10,13 +10,13 @@ Windows上の長いパス名の周りの [問題](https://github.com/joyent/node
 
 以下はアプリを `asar` アーカイブにパッケージする手順です。
 
-### 1. asar ユーティリティをインストール
+### 1. Install the asar Utility
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. `asar pack`でパッケージ化
+### 2. Package with `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
@@ -24,7 +24,7 @@ $ asar pack your-app app.asar
 
 ## `asar` アーカイブを使用する
 
-Electron には、2組の API があります。Node.js により提供される Node API、そして Chromium により提供される Web API です。どちらの API も `asar` アーカイブからのファイル読み込みに対応しています。
+In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
 ### Node API
 
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-ウェブページで、アーカイブ内のファイルを `file:` プロトコルでリクエストできます。Node API と同様に、`asar` アーカイブはディレクトリのように扱われます。
+In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
 例えば、`$.get` でファイルを取得するには以下のようにします。
 
@@ -139,12 +139,13 @@ Node API で、`asar` アーカイブがディレクトリのように動作す�
 
 ## `asar` アーカイブへパックされていないファイルを追加
 
-上で述べたように、いくつかの Node API は、呼び出されたときにファイルをファイルシステムに解凍します。 パフォーマンスの問題とは別に、この動作によってさまざまなウイルス対策スキャナが起動される可能性があります。
+As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
-回避策として、`--unpack` オプションを使用してさまざまなファイルを展開したままにすることができます。以下の例では、ネイティブ Node.js モジュールの共有ライブラリはパックされません。
+As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
 コマンドを実行すると、`app.asar.unpacked` という名前のフォルダが `app.asar` ファイルとともに作成されていることがわかります。 それには解凍されたファイルが含まれており、`app.asar` アーカイブと共に送られる必要があります。
+
