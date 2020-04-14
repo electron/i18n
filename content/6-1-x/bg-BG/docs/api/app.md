@@ -41,7 +41,7 @@ In most cases, you should do everything in the `ready` event handler.
 
 Връща:
 
-* `event` Събитие
+* `event` Event
 
 Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
@@ -92,7 +92,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 * `event` Събитие
 * `url` String
 
-Излъчено, когато потребителя желае да отвори URL с приложението. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Излъчено, когато потребителя желае да отвори URL с приложението. Файлът `Info.plist` на вашето приложение трябва да дефинира URL схемата в ключа `CFBundleURLTypes` и да постави `NSPrincipalClass` в `AtomApplication`.
 
 Трябва да извикате `event.preventDefault()` ако желаете да се справите с това събитие.
 
@@ -111,7 +111,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 * `event` Събитие
 * `type` String - Надпис, идентифициращ активността. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
+* `userInfo` Object - Съдържа запис на специфичното състояние на приложението като активност на друго устройство.
 
 Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когато активност на друго устройство иска да се извърши отново. Трябва да извикате `event.preventDefault()` ако желаете да се справите с това събитие.
 
@@ -142,7 +142,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 * `event` Събитие
 * `type` String - Надпис, идентифициращ активността. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `userInfo` Object - Съдържа запис на специфичното състояние на приложението като активност.
 
 Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), след активността на това устройство е извършена отново успешно от друго устройство.
 
@@ -152,7 +152,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 * `event` Събитие
 * `type` String - Надпис, идентифициращ активността. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `userInfo` Object - Съдържа запис на специфичното състояние на приложението като активност.
 
 Излъчено, когато [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) тъкмо ще бъде подновено на друго устройство. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
@@ -269,8 +269,8 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `потребителско име` Низ
-  * `парола` Низ
+  * `username` String
+  * `password` String
 
 Излъчено, когато `webContents` иска да направи базово удостоверяване.
 
@@ -280,8 +280,8 @@ The default behavior is to cancel all authentications. To override this you shou
 const { app } = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
-  event.preventDefault()
-  callback('username', 'secret')
+   event.preventDefault()
+   callback('username', 'secret')
 })
 ```
 
@@ -292,7 +292,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Събитие
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Излъчено, когато GPU процес е спрян или убит.
 
 ### Event: 'renderer-process-crashed'
 
@@ -416,7 +416,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process of `
 
 Обектът `app` има следните методи:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Забележка:** Някои методи са достъпни само в конкретни операционни системи и са етикетирани като такива.
 
 ### `app.quit()`
 
@@ -489,11 +489,11 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` String - Име
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
-You can request the following paths by the name:
+Може да заявите следните пътища по име:
 
 * `home` Потребителската начална/home папка.
 * `appData` Per-user application data directory, which by default points to:
@@ -549,7 +549,7 @@ Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [Nati
 
 Хваща асоциираната икона за съответния път.
 
-On _Windows_, there a 2 kinds of icons:
+На _Windows_, има 2 типа икони:
 
 * Икони асоциирани с конкретни разширения на файлове, като `.mp3`, `.png`, др.
 * Икони в самия файл, като `.exe`, `.dll`, `.ico`.
@@ -558,7 +558,7 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `name` String - Име
 * `path` String
 
 Презаписва стойността на `path` към специална папка или файл свързан с `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
@@ -575,11 +575,11 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 Връща `String` - Името на текущото приложение, което е името във файла `package.json` на приложението.
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. Обикновено трябва също така да укажете полето `productName`, което е пълното име на вашето приложение, само в главни букви. То ще бъде предпочетено пред `name` от Електрон.
+Обикновено полето `name` на `package.json` е кратко наименование с малки букви според npm спецификацията за модулите. Обикновено трябва също така да укажете полето `productName`, което е пълното име на вашето приложение, само в главни букви. То ще бъде предпочетено пред `name` от Електрон.
 
 ### `app.setName(name)`
 
-* `name` String
+* `name` String - Име
 
 Замества името на текущото приложение.
 
@@ -589,7 +589,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**Забележка:** Когато се разпространявате пакетираното приложение, трябва също така да изпратите и `locales` папката.
 
 **Note:** On Windows, you have to call it after the `ready` events gets emitted.
 
@@ -613,21 +613,21 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - Името на протокола, без `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `protocol` String - Името на протокола, без `://`. Ако искате вашето приложение да се справят `electron://` връзките, извикайте този метод с `electron` като параметър.
 * `path` String (по избор) _Windows_ - По подразбиране е `process.execPath`
 * `args` String [] (по избор) _Windows_ - По подразбиране е празен масив
 
 Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Този метод определя текущия изпълнимия файл като манипулатор по подразбиране за протокола (известно още като URI схема). Позволява ви да интегрирате вашето приложение по-дълбоко в операционната система. Веднъж регистрирана, всички връзки с `вашият-протокол://` ще бъдат отворени със сегашния изпълним файл. Цялата връзка, включително и протокола, ще бъде изпратена към вашето приложение, като параметър.
 
 On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) за подробности.
+**Забележка:** На macOS можете да регистрирате само протоколи, които са били добавени към `info.plist` на вашето приложение. Тези стойности не могат да бъдат променени по време на изпълнение на приложението. Можете обаче да промените файла с обикновен текстов редактор или скрипт по време на изграждане на рпиложението. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) за подробности.
 
 **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications.  In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+API използва системния регистър на Windows и LSSetDefaultHandlerForURLScheme вътрешно.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
@@ -649,32 +649,32 @@ This method checks if the current executable as the default handler for a protoc
 
 This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. Можете също така да проверите това чрез проверка на `~/Library/Preferences/com.apple.LaunchServices.plist` на macOS машина. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) за подробности.
+**Забележка:** На macOS можете да използвате този метод, за да проверите дали приложението е регистрирана като манипулатор по подразбиране за протоколa. Можете също така да проверите това чрез проверка на `~/Library/Preferences/com.apple.LaunchServices.plist` на macOS машина. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) за подробности.
 
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+API използва системния регистър на Windows и LSCopyDefaultHandlerForURLScheme вътрешно.
 
 ### `app.setUserTasks(tasks)` _Windows_
 
 * `tasks` [Task[]](structures/task.md) - Масив от `Task` обекти
 
-Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+Добавя `tasks` към категорията [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) на преход/JumpList на Windows.
 
 `tasks` е масив от [`Task`](structures/task.md) обекти.
 
 Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+**Забележка:** Ако искате да персонализирате още повече скок списък (Jump List) използвайте `app.setJumpList(categories)`.
 
 ### `app.getJumpListSettings()` _Windows_
 
 Връща `Object`:
 
 * `minItems` Integer - Минималният брой на елементите, които ще бъдат показани в списъка за прескачане (Jump List) (за по-подробно описание на тази стойност вижте [MSDN документацията](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Тези елементи не трябва да бъде отново добавя към списъка за прескачане в **следващото** извикване на `app.setJumpList()`, Windows няма да показва никакви потребителски категории, който съдържат някои от отстранените елементи.
+* `removedItems` [[JumpListItem]](structures/jump-list-item.md) - Масив от `JumpListItem` обекти, които съответстват на елементите, които потребителят изрично е премахнал от категории в списъка за прескачане. Тези елементи не трябва да бъде отново добавя към списъка за прескачане в **следващото** извикване на `app.setJumpList()`, Windows няма да показва никакви потребителски категории, който съдържат някои от отстранените елементи.
 
 ### `app.setJumpList(categories)` _Windows_
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
+* `categories` [JumpListCategory []](structures/jump-list-category.md) или `null` - Масив от `JumpListCategory` обекти.
 
 Задава или премахва потребителски списък за прескачане на приложението, като връща един от следните низове:
 
@@ -686,7 +686,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 
 Ако `categories` е `null` предварително зададени потребителски списък за прескачане (ако има такъв) ще се замени със стандартен списък за прескачане за приложението (управлявано от Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Ако свойството на `name` е зададено, но `type` е пропуснато, тогава `type` се приема да бъде `custom`.
+**Забележка:** Ако обекта `JumpListCategory` няма нито `type`, нито `name` свойство, тогава неговия `type` се приема за `tasks`. Ако свойството на `name` е зададено, но `type` е пропуснато, тогава `type` се приема да бъде `custom`.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Всеки опит да повторно добавяне на премахнат елемент към потребителска категория по-рано от това ще доведе до пропускане на цялата потребителска категория от списъка за прескачане. Списъкът на отстранени елементи може да бъде получен с помощта на `app.getJumpListSettings()`.
 
@@ -798,7 +798,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 ### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
 * `type` String - Идентифицира активността уникално. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
+* `userInfo` Object - Състояние специфично за приложението, което да бъде използвано от друго приложение.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
 Създава `NSUserActivity` и го задава като текущата дейност. Дейността е подходяща за [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) към друго устройство след това.
@@ -816,7 +816,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
 * `type` String - Идентифицира активността уникално. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
+* `userInfo` Object - Състояние специфично за приложението, което да бъде използвано от друго приложение.
 
 Текущата дейност се актуализира, ако нейния тип съвпада с `type`, слива записи от `userInfo` в нейния текущ речник `userInfo`.
 
@@ -980,8 +980,8 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` String (по избор) - Името на приложението.
   * `applicationVersion` String (по избор) - Версията на приложението.
   * `copyright` String (по избор) - Информация за правата при копиране и разпространение.
-  * `version` String (optional) - The app's build version number. _macOS_
-  * `credits` String (optional) - Credit information. _macOS_
+  * `version` String (по избор) - Номерът на изграждане на приложението. _macOS_
+  * `credits` String (по избор) - Информация за авторите. _macOS_
   * `website` String (optional) - The app's website. _Linux_
   * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. _Linux_
 
@@ -1063,13 +1063,13 @@ Returns `Boolean` - Whether the move was successful. Please note that if the mov
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**Забележка:**Този метод хвърля грешка ако нещо различно от потребителя попречи на местенето. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Съобщението в грешката би трябвало да е информативно и да ви каже точно какво се е случило
 
 ### `app.dock.bounce([type])` _macOS_
 
 * `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
 
-Returns `Integer` an ID representing the request.
+Връща `Integer` идентификационен номер, който представлява приложението.
 
 Когато е изпратено `critical`, иконката на дока ще подскоча докато или приложението не стане активно или заявката не бъде спряна.
 
@@ -1141,7 +1141,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 This API must be called after the `ready` event is emitted.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Забележка:** Рендирането на accessibility tree може осезаемо да повлияе на работата на вашето приложение. Не трябва да се активира по подразбиране.
 
 ### `app.userAgentFallback`
 
