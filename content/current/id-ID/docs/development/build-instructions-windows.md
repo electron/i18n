@@ -1,4 +1,4 @@
-# Membangun petunjuk (Windows)
+# Membangun Intruksi (Windows)
 
 Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 
