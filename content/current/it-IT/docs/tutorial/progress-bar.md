@@ -6,7 +6,7 @@ Su macOS la barra dei progressi sarà mostrata come parte dell'icona del dock.
 
 L'Unità DE ha anche una funzione simile che ti consente di specificare la barra del progresso nel launcher.
 
-**Progress bar nel pulsante della taskbar:**
+__Progress bar nel pulsante della taskbar:__
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
