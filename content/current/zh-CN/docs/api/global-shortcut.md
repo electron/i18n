@@ -2,11 +2,11 @@
 
 > 在应用程序没有键盘焦点时，监听键盘事件。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 ` globalShortcut ` 模块可以在操作系统中注册/注销全局快捷键, 以便可以为操作定制各种快捷键。
 
-** 注意: **快捷方式是全局的; 即使应用程序没有键盘焦点, 它也仍然在持续监听键盘事件。 在应用程序模块发出 `ready ` 事件之前, 不应使用此模块。
+**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. 在应用程序模块发出 `ready ` 事件之前, 不应使用此模块。
 
 ```javascript
 const { app, globalShortcut } = require('electron')
@@ -45,7 +45,7 @@ app.on('will-quit', () => {
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
-注册指定的 ` accelerator ` 为全局快捷键。当用户按下该注册的快捷键时, 将调用 ` callback `回调函数。
+Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
 如果指定的快捷键已经被其他应用程序注册掉, 调用会默默失败。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
