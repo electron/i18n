@@ -23,9 +23,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *実験的*
+### `new BrowserView([options])` _Experimental_
 
-* `options` Object (任意) 
+* `options` Object (optional)
   * `webPreferences` Object (任意) - [BrowserWindow](browser-window.md) を参照してください。
 
 ### 静的メソッド
@@ -50,11 +50,11 @@ view.webContents.loadURL('https://electronjs.org')
 
 `new BrowserView` で作成されたオブジェクトは、以下のプロパティを持っています。
 
-#### `view.webContents` *実験的*
+#### `view.webContents` _Experimental_
 
 このビューによって保持されている [`WebContents`](web-contents.md) オブジェクト。
 
-#### `view.id` *実験的*
+#### `view.id` _Experimental_
 
 ビューの一意のIDを表す `Integer`。
 
@@ -70,26 +70,26 @@ view.webContents.loadURL('https://electronjs.org')
 
 戻り値 `Boolean` - ビューが破棄されているかどうか。
 
-#### `view.setAutoResize(options)` *実験的*
+#### `view.setAutoResize(options)` _Experimental_
 
-* `options` Object 
-  * `width` Boolean (任意) - `true` の場合、ビューの横幅はウインドウと一緒に伸び縮みします。省略値は、`false` です。
-  * `height` Boolean (任意) - `true` の場合、ビューの高さはウインドウと一緒に伸び縮みします。省略値は、`false` です。
-  * `horizontal` Boolean (任意) - `true` の場合、ビューの x 位置と幅はウィンドウに比例して増減します。既定値は `false` です。
-  * `vertical` Boolean (任意) - `true` の場合、ビューの y 位置と高さはウィンドウに比例して増減します。既定値は `false` です。
+* `options` Object
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *実験的*
+#### `view.setBounds(bounds)` _Experimental_
 
-* `bounds` [Rectangle](structures/rectangle.md) 
+* `bounds` [Rectangle](structures/rectangle.md)
 
 ウインドウを基準に指定された境界までビューをリサイズしたり、移動させたりします。
 
-#### `view.getBounds()` *実験的*
+#### `view.getBounds()` _Experimental_
 
 戻り値 [`Rectangle`](structures/rectangle.md)
 
 `Object` としてのこの BrowserView インスタンスの `bounds`。
 
-#### `view.setBackgroundColor(color)` *実験的*
+#### `view.setBackgroundColor(color)` _Experimental_
 
-* `color` String - `#aarrggbb` や `#argb` といった形式の色。アルファチャンネルは任意です。
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
