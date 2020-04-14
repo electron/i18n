@@ -2,7 +2,7 @@
 
 遵循下面的引导，在 macOS 上构建 Electron.
 
-## 基本要求
+## 前提条件
 
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
@@ -11,10 +11,10 @@
 
 ## Python
 
-请确保你的运行系统和Python均支持TLS 1.2 及其以上版本。可以运行以下命令来快速检测python版本：
+Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
 
 ```sh
-$ npx @electron/check-python-tls
+$npx @emen/chect-python-tls
 ```
 
 如果以上命令的回调显示你正在使用过期的安全协议，你可以把macOS系统更新至High Sierra版，或者安装2.7.x版的Python。你可以使用[Homebrew](https://brew.sh/)来更新Python版本：
@@ -37,7 +37,7 @@ $ pip install pyobjc
 
 如果你已经在开发Electron项目，而且没有重新分发Electron构建文件的计划，那你可以忽略下面内容。
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK. 可以使用新的SDK来构建，但是当前使用的Release版本是 10.13 SDK
+Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK.  可以使用新的SDK来构建，但是当前使用的Release版本是 10.13 SDK
 
 ## 构建Electron
 
