@@ -1,6 +1,6 @@
 # मैक एप्प स्टोर सबमिशन गाइड
 
-v0.34.0 संस्करण से, इलेक्ट्रॉन पैकेज्ड एप्प्स को मैक एप्प स्टोर (एमऐएस) में सबमिट करने की सुविधा प्रदान करता है | यह गाइड जानकारी उपलब्ध कराती है कि: कैसे अपनी एप्प को सबमिट करें और एमऐएस बनावट की सीमायें |
+Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
 
 **Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
@@ -122,7 +122,7 @@ productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RES
 
 #### मूल मोडयुल्स पर हस्ताक्षर करना
 
-आपकी एप्प में इस्तेमाल हुए मूल मोडयुल्स पर भी हस्ताक्षर करना ज़रूरी है | अगर electron-osx-sign का इस्तेमाल कर रहे हैं, तो आर्गुमेंट लिस्ट में निर्मित बाइनरिज़ के पथ को शामिल करना न भूलें:
+Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
