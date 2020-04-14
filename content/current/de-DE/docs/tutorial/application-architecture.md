@@ -4,9 +4,9 @@ Bevor wir in die APIs von Electron eintauchen können, müssen wir die beiden in
 
 ## Main und Render Prozesse
 
-Der Prozess, der das `main`-Skript der `package.json`-Datei ausführt, wird in Electron als **Main Prozess** bezeichnet. Das im Main Prozess laufende Skript kann durch das Erstellen von Webseiten eine grafische Oberfläche generieren. Eine Electron-App hat immer einen Main Prozess, aber niemals mehrere.
+In Electron, the process that runs `package.json`'s `main` script is called __the main process__. Das im Main Prozess laufende Skript kann durch das Erstellen von Webseiten eine grafische Oberfläche generieren. Eine Electron-App hat immer einen Main Prozess, aber niemals mehrere.
 
-Dadurch, dass Electron für die Darstellung der Webseiten Chromium nutzt, wird auch Chromium's Multi-Prozess-Architektur verwendet. Jede Webseite in Electron läuft in ihrem eigenen Prozess, welcher **Renderer-Prozess** genannt wird.
+Dadurch, dass Electron für die Darstellung der Webseiten Chromium nutzt, wird auch Chromium's Multi-Prozess-Architektur verwendet. Each web page in Electron runs in its own process, which is called __the renderer process__.
 
 In regulären Browsern laufen Webseiten normalerweise in einer isolierten Umgebung und haben daher keinen Zugriff auf native Ressourcen. Als Nutzer von Electron haben Sie die Option Node.js-APIs in den Webseiten zu nutzen. Damit werden Interaktionen auf Betriebssystemebene möglich.
 
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 Es gibt eine wichtig Einschränkung: Native Node.js Module welche compiliert werden müssen bevor sie verwendet werden können, müssen compiliert werden bevor sie in Electron verwendet werden können.
 
-Die große Mehrheit der Node.js Module sind *nicht* nativ. Only 400 out of the ~650,000 modules are native. Dennoch, wenn Du Native Module benötigst, dann lies bitte [diese Anleitung über das recompilen von Modulen für Electron](./using-native-node-modules.md).
+The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. Dennoch, wenn Du Native Module benötigst, dann lies bitte [diese Anleitung über das recompilen von Modulen für Electron](./using-native-node-modules.md).
