@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarGroup(options)` *試驗中*
+### `new TouchBarGroup(options)` _Experimental_
 
-* `options` Object 
+* `options` Object
   * `items` [TouchBar](touch-bar.md) - Items to display as a group.
