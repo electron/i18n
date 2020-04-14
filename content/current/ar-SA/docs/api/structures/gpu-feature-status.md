@@ -16,7 +16,7 @@
 
 القيم الممكنة:
 
-* `disabled_software` - البرنامج فقط. تم تعطيل تسريع الأجهزة (yellow)
+* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - معطل (أحمر)
 * `disabled_off_ok` - معطل (أصفر)
 * `unavailable_software` - البرنامج فقط ، تسريع الأجهزة غير متوفر (أصفر)
