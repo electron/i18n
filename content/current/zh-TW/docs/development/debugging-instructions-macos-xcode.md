@@ -1,13 +1,10 @@
 ## 使用Xcode 进行断点调试
 
 ### 生成用于源代码断点调试的xcode工程项目(不能使用xcode编译代码)
-
 Run `gn gen` with the --ide=xcode argument.
-
 ```sh
 $ gn gen out/Testing --ide=xcode
 ```
-
 This will generate the electron.ninja.xcworkspace. You will have to open this workspace to set breakpoints and inspect.
 
 See `gn help gen` for more information on generating IDE projects with GN.
