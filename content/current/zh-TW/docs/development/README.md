@@ -4,7 +4,7 @@ These guides are intended for people working on the Electron project itself. For
 
 * [行為準則](../../CODE_OF_CONDUCT.md)
 * [貢獻 Electron](../../CONTRIBUTING.md)
-* [議題管理](issues.md)
+* [議題](issues.md)
 * [合併請求 (PR)](pull-requests.md)
 * [文件編寫風格](coding-style.md#documentation)
 * [原始碼目錄結構](source-code-directory-structure.md)
@@ -13,7 +13,7 @@ These guides are intended for people working on the Electron project itself. For
 * [建置系統概述](build-system-overview.md)
 * [建置步驟 (macOS)](build-instructions-macos.md)
 * [建置步驟 (Windows)](build-instructions-windows.md)
-* [建置步驟 (macOS)](build-instructions-linux.md)
+* [建置步驟 (Linux)](build-instructions-linux.md)
 * [Chromium 開發](chromium-development.md)
 * [V8 開發](v8-development.md)
 * [測試](testing.md)
