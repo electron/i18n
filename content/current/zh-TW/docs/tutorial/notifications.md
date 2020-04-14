@@ -2,7 +2,7 @@
 
 三種作業系統都提供了由應用程式發送通知給使用者的方法。 Electron 讓開發者能方便的透過 [HTML5 通知 API](https://notifications.spec.whatwg.org/) 發送通知，再交由各作業系統原生的通知 API 來顯示。
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. 如果你想由主處理序顯示通知，請參考 [Notification](../api/notification.md) 模組。
+**注意:** 因為 HTML5 API 只能在畫面轉譯處理序裡用。 如果你想由主處理序顯示通知，請參考 [Notification](../api/notification.md) 模組。
 
 ```javascript
 let myNotification = new Notification('標題', {
