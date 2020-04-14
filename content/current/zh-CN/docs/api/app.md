@@ -1,6 +1,6 @@
 # app
 
-> 控制你的应用程序的事件生命周期。
+> 控制应用程序的事件生命周期。
 
 进程：[主进程](../glossary.md#main-process)
 
@@ -29,7 +29,7 @@ app.on('window-all-closed', () => {
 
 * `launchInfo` unknown _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+当 Electron 完成初始化时被触发。 在 macOS 中, 如果从通知中心中启动，那么 `launchInfo` 中的 `userInfo` 包含用来打开应用程序的 `NSUserNotification` 信息。 你可以通过调用 `app.isReady()` 方法来检查此事件是否已触发。
 
 ### 事件: 'window-all-closed'
 
@@ -47,7 +47,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
 ### 事件: 'will-quit'
 
@@ -55,11 +55,11 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
 关于 ` window-all-closed` 和 ` will-quit ` 事件之间的差异, 请参见 `window-all-closed ` 事件的说明。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
 ### 事件: 'quit'
 
@@ -70,9 +70,9 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 在应用程序退出时发出。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
-### Event: 'open-file' _macOS_
+### 事件: 'open-file' _macOS_
 
 返回:
 
@@ -85,7 +85,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 在 Windows 系统中，你需要解析 `process.argv` (在主进程中) 来获取文件路径
 
-### Event: 'open-url' _macOS_
+### 事件: 'open-url' _macOS_
 
 返回:
 
@@ -96,7 +96,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
-### Event: 'activate' _macOS_
+### 事件: 'activate' _macOS_
 
 返回:
 
@@ -105,7 +105,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 当应用被激活时发出。 各种操作都可以触发此事件, 例如首次启动应用程序、尝试在应用程序已运行时或单击应用程序的坞站或任务栏图标时重新激活它。
 
-### Event: 'continue-activity' _macOS_
+### 事件: 'continue-activity' _macOS_
 
 返回:
 
@@ -117,7 +117,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 只有具有支持相应的活动类型并且相同的开发团队 ID 作为启动程序时，用户行为才会进行。 所支持活动类型已在应用的 `Info.plist` 中的 `NSUserActivityTypes` 里明确定义。
 
-### Event: 'will-continue-activity' _macOS_
+### 事件: 'will-continue-activity' _macOS_
 
 返回:
 
@@ -126,7 +126,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 当来自不同设备的活动通过 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 恢复之前触发。 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
-### Event: 'continue-activity-error' _macOS_
+### 事件: 'continue-activity-error' _macOS_
 
 返回:
 
@@ -136,7 +136,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 当来自不同设备的活动通过 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 恢复失败时触发。
 
-### Event: 'activity-was-continued' _macOS_
+### 事件: 'activity-was-continued' _macOS_
 
 返回:
 
@@ -146,7 +146,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 当来自不同设备的活动通过 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 成功恢复后触发。
 
-### Event: 'update-activity-state' _macOS_
+### 事件: 'update-activity-state' _macOS_
 
 返回:
 
@@ -154,9 +154,9 @@ Emitted when all windows have been closed and the application will quit. Calling
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. 否则，操作会失败，并且触发 `continue-activity-error`
+当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 如果需要更新要传输的状态, 应立即调用 ` 事件. preventDefault () `, 构造新的 ` 用户信息 ` 字典, 并及时调用 ` 应用程序 updateCurrentActiviy () `。 否则，操作会失败，并且触发 `continue-activity-error`
 
-### Event: 'new-window-for-tab' _macOS_
+### 事件: 'new-window-for-tab' _macOS_
 
 返回:
 
@@ -308,7 +308,7 @@ Emitted when the GPU process crashes or is killed.
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
-### Event: 'accessibility-support-changed' _macOS_ _Windows_
+### 事件: "accessibility-support-changed" _ macOS _ _ Windows _
 
 返回:
 
@@ -347,7 +347,7 @@ app.on('session-created', (session) => {
 
 保证在 `app` 的 `ready` 事件发出后发出此事件。
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**注意：** 额外命令行参数可能由 Chromium 添加， ，例如 `--original-process-start-time`。
 
 ### 事件: 'desktop-capturer-get-sources'
 
@@ -406,6 +406,16 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 在 `webContents` 的渲染器进程中调用 `remote.getCurrentWebContents()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
+### 事件: 'remote-get-guest-web-contents'
+
+返回:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `guestWebContents` [WebContents](web-contents.md)
+
+在`webContents`的渲染进程中调用`getWebContents`时触发 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
+
 ## 方法
 
 ` app ` 对象具有以下方法:
@@ -451,20 +461,15 @@ app.exit(0)
 
 ### `app.isReady()`
 
-返回 `Boolean` 类型 - 如果 Electron 已经完成初始化，则返回 `true`, 其他情况为 `false` See also `app.whenReady()`.
+返回 `Boolean` 类型 - 如果 Electron 已经完成初始化，则返回 `true`, 其他情况为 `false`
 
 ### `app.whenReady()`
 
 返回 `Promise<void>` - 当Electron 初始化完成。 可用作检查 `app.isReady()` 的方便选择，假如应用程序尚未就绪，则订阅`ready`事件。
 
-### `app.focus([options])`
-
-* `options` Object (optional)
-  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
+### `app.focus()`
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
-
-You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macOS_
 
@@ -534,7 +539,7 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `name` 字符串
 * `path` String
 
 重写 `name` 的路径为 `path`，一个特定的文件夹或者文件。 If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
@@ -553,13 +558,17 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
 
+**[过时的](modernization/property-updates.md)**
+
 ### `app.setName(name)`
 
-* `name` String
+* `name` 字符串
 
 设置当前应用程序的名字
 
 **Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+
+**[过时的](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -608,8 +617,8 @@ The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internal
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
 * `protocol` String - 协议的名称, 不包含 `://`。
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* ` path `String (可选) _ Windows _-默认为 ` process.execPath `
+* `args` String[] (可选) _Windows_ - 默认为空数组
 
 返回 ` Boolean `-是否成功调用。
 
@@ -618,8 +627,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - 协议的名称, 不包含 `://`。
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* ` path `String (可选) _ Windows _-默认为 ` process.execPath `
+* `args` String[] (可选) _Windows_ - 默认为空数组
 
 Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
@@ -652,7 +661,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 返回 ` Object `:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
 
 ### `app.setJumpList(categories)` _Windows_
 
@@ -762,7 +771,7 @@ if (!gotTheLock) {
   })
 
   // 创建 myWindow, 加载应用的其余部分, etc...
-  app.whenReady().then(() => {
+  app.on('ready', () => {
   })
 }
 ```
@@ -810,17 +819,6 @@ Marks the current [Handoff](https://developer.apple.com/library/ios/documentatio
 
 改变当前应用的 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 为 `id`.
 
-### `app.setActivationPolicy(policy)` _macOS_
-
-* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
-
-Sets the activation policy for a given app.
-
-Activation policy types:
-* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
-* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
-* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
-
 ### `app.importCertificate(options, callback)` _Linux_
 
 * `options` Object
@@ -839,7 +837,7 @@ Activation policy types:
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
@@ -899,9 +897,13 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
+**[过时的](modernization/property-updates.md)**
+
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
 Returns `Integer` - 获取计数器提醒(badge) 中显示的当前值
+
+**[过时的](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` _Linux_
 
@@ -955,6 +957,8 @@ app.setLoginItemSettings({
 Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true</0。 查看更多细节，请查阅
 https://www.chromium.org/developers/design-documents/accessibility</p>
 
+<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">过时的</a></strong></p>
+
 <h3 spaces-before="0"><code>app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_</h3>
 
 * `enable` 逻辑值 - 启用或禁用[访问权限树](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)视图。
@@ -964,6 +968,8 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 此 API 必须在 `ready` 事件触发后调用
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+
+**[过时的](modernization/property-updates.md)**
 
 ### `app.showAboutPanel()`
 
@@ -981,7 +987,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-设置 "关于" 面板选项。 This will override the values defined in the app's `.plist` file on macOS. 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 在 Linux 上，没有默认值，所以必须设置值才能显示。
+设置 "关于" 面板选项。 This will override the values defined in the app's `.plist` file on MacOS. 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 在 Linux 上，没有默认值，所以必须设置值才能显示。
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1010,9 +1016,9 @@ stopAccessingSecurityScopedResource()
 
 开始访问安全范围内的资源。 通过这个方法，Electron 应用被打包为可到达Mac App Store沙箱之外访问用户选择的文件。 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
-### `app.enableSandbox()`
+### `app.enableSandbox()` _Experimental_
 
-Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
+在应用程序上启用完全沙盒模式。
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
@@ -1053,7 +1059,7 @@ app.moveToApplicationsFolder({
 
 Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
-## Properties
+## 属性
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
 
@@ -1083,7 +1089,7 @@ A [`CommandLine`](./command-line.md) object that allows you to read and manipula
 
 ### `app.dock` _macOS_ _Readonly_
 
-A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
+A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
 
 ### `app.isPackaged` _Readonly_
 
