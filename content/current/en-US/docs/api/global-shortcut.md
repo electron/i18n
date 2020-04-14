@@ -15,7 +15,7 @@ event of the app module is emitted.
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.whenReady().then(() => {
+app.on('ready', () => {
   // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')

@@ -18,7 +18,7 @@ An example of creating a window that fills the whole screen:
 const { app, BrowserWindow, screen } = require('electron')
 
 let win
-app.whenReady().then(() => {
+app.on('ready', () => {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize
   win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
@@ -32,7 +32,7 @@ const { app, BrowserWindow, screen } = require('electron')
 
 let win
 
-app.whenReady().then(() => {
+app.on('ready', () => {
   let displays = screen.getAllDisplays()
   let externalDisplay = displays.find((display) => {
     return display.bounds.x !== 0 || display.bounds.y !== 0
