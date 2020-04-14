@@ -84,7 +84,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: '應用程式更新',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: '新版已經下載完成。 Restart the application to apply the updates.'
+    detail: '新版已經下載完成。 重新啟動應用程式即可更新。'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {
