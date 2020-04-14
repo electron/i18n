@@ -8,4 +8,4 @@
 * `secure` Boolean (可选) - cookie 是否标记为安全。
 * `httpOnly` Boolean (可选) - cookie 是否只标记为 HTTP。
 * `session` Boolean (可选) - cookie是会话cookie 还是具有过期时间的持久性 cookie
-* `expirationDate` Double (可选) - cookie 距离 UNIX 时间戳的过期时间，数值为秒。不需要提供给 session cookies。
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
