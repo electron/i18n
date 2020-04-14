@@ -2,7 +2,7 @@
 
 所有三个操作系统都提供了应用程序向用户发送通知的手段。 Electron允许开发者使用 [HTML5 Notification API](https://notifications.spec.whatwg.org/) 发送通知，并使用当前运行的操作系统的本地通知 API 来显示它。
 
-**注意:** 由于这是一个 HTML5 API，它只能在渲染器进程中使用。 如果你想在主进程中显示通知，请查看 [Notification](../api/notification.md) 模块.
+**Note:** Since this is an HTML5 API it is only available in the renderer process. 如果你想在主进程中显示通知，请查看 [Notification](../api/notification.md) 模块.
 
 ```javascript
 let myNotification = new Notification('标题', {
@@ -17,7 +17,6 @@ myNotification.onclick = () => {
 虽然操作系统的代码和用户体验相似，但依然存在微妙的差异。
 
 ## Windows
-
 * 在 Windows 10, 必须被添加您应用程序[ 应用程序用户模型ID ](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)的快捷方式到开始菜单上。 This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
 * 在 Windows 8.1 和 Windows 8 上，带有 [ 应用程序用户模型ID（Application User Model ID）](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 的应用程序快捷方式必须被添加到开始屏幕上。 但是请注意，它不需要被固定到开始屏幕。
 * 在 Windows 7 上, 通知通过视觉上类似于较新系统原生的一个自定义的实现来工作。
