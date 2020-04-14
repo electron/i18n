@@ -23,7 +23,7 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` _Experimental_
+### `new BrowserView([options])` _試驗中_
 
 * `options` Object (optional)
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
@@ -50,11 +50,11 @@ Returns `BrowserView` - The view with the given `id`.
 
 Objects created with `new BrowserView` have the following properties:
 
-#### `view.webContents` _Experimental_
+#### `view.webContents` _試驗中_
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` _Experimental_
+#### `view.id` _試驗中_
 
 A `Integer` representing the unique ID of the view.
 
@@ -70,7 +70,7 @@ Force closing the view, the `unload` and `beforeunload` events won't be emitted 
 
 Returns `Boolean` - Whether the view is destroyed.
 
-#### `view.setAutoResize(options)` _Experimental_
+#### `view.setAutoResize(options)` _試驗中_
 
 * `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
@@ -78,7 +78,7 @@ Returns `Boolean` - Whether the view is destroyed.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` _Experimental_
+#### `view.setBounds(bounds)` _試驗中_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
@@ -90,6 +90,6 @@ Resizes and moves the view to the supplied bounds relative to the window.
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` _Experimental_
+#### `view.setBackgroundColor(color)` _試驗中_
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
