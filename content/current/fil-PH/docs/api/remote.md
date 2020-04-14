@@ -17,9 +17,8 @@ win.loadURL('https://github.com')
 **Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Note:** The remote module can be disabled for security reasons in the following contexts:
-
-* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
-* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
+- [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
+- [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
 
 ## Mga bagay ng Remote
 
@@ -27,9 +26,9 @@ Bawat bagay (kasama ang mga punsyon) ay nagbabalik dahil ang modyul ng `remote` 
 
 In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Sa halip, ito ay gumawa ng isang bagay ng `BrowserWindow` sa pangunahing proseso at ibinalik ang nararapat na remote na bagay sa prosesong tagabigay, kagaya ng bagay sa `win`.
 
-**Note:** Ang [enurable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) lamang na kung saan ay naroroon nang ang remote na bagay ay unang isinangguni na mapupuntahan sa pamamagitan ng remote.
+**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
 
-**Note:** Ang mga hanay at mga Buffer ay kinopya sa ibabaw ng IPC kapag na-access sa pamamagitan ng modyul ng `remote`. Ang pagbabago sa kanila sa prosesong tagabigay ay hindi magpapabago sa kanila sa pangunahing proseso at kahit sa kabaligtaran.
+**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Ang pagbabago sa kanila sa prosesong tagabigay ay hindi magpapabago sa kanila sa pangunahing proseso at kahit sa kabaligtaran.
 
 ## Ang tagal ng buhay ng mga Remote na Bagay
 
@@ -43,7 +42,7 @@ Ang mga uri ng pangunahing halaga tulad ng mga string at mga numero, gayunpaman,
 
 Ang kodigo sa pangunahing proaeso ay maaaring tanggapin ang mga gantingtawag mula sa tagabigay - sa isang pagkakataon ang modyul ng `remote` - ngunit kailangan mo ng matinding pag-iingat kapag ginagamit ang katangian na ito.
 
-Una, upang maiwasan ang mga dedlak, ang mga gantingtawag na naipadala sa pangunahing proseso ay tatawagin ng magkakahiwalay. Hindi mo dapat asahan ang pangunahing proseso na kuhanin ang naibalik na halaga ng naipasang mga gantingtawag.
+First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
 
 Sa isang pagkakataon hindi mo magagamit ang isang punsyon mula sa prosesong tagabigay sa isang `Array.map` na tinawag sa pangunahing proseso:
 
@@ -72,10 +71,10 @@ Kagaya ng iyong nakikita, ang magkakasabay na nagbalik na halaga ng gantingtawag
 
 Pangalawa, ang mga gantingtawag na ipinasa sa pangunahing proseso ay mananatili hanggang sila ay ibasura ng pangunahing proseso.
 
-Halimbawa, ang mga sumusunod na kodigo ay mukhang inosente sa unang tingin. Nag-install ito ng isang gantingtawag para sa event ng `close` sa isang remote na bahay:
+For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
 
 ```javascript
-kailangan('electron').remote.getCurrentWindow().on('close', () => {
+require('electron').remote.getCurrentWindow().on('close', () => {
   // window was closed...
 })
 ```
@@ -119,7 +118,7 @@ proyekto/
 
 ```js
 // main process: main/index.js
-const { app } = kailangan('electron')
+const { app } = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
 
@@ -151,6 +150,6 @@ Nagbabalik ang `any` - Ang global na pagbabago-bago ng `name` (hal. `global[name
 
 ## Mga Katangian
 
-### `remote.process` *Readonly*
+### `remote.process` _Readonly_
 
-A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
