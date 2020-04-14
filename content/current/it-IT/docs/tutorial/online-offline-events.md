@@ -4,7 +4,7 @@ L'identificazione [Evento online ed offline](https://developer.mozilla.org/en-US
 
 Esempio:
 
-*main.js*
+_main.js_
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -17,7 +17,7 @@ app.whenReady().then(() => {
 })
 ```
 
-*stato-online.html*
+_stato-online.html_
 
 ```html
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ app.whenReady().then(() => {
 
 Ci potrebbero essere instanze dove vuoi rispondere a questi eventi anche nel processo principale. Il processo principale comunque non ha oggetto `navigatore` e quindi non può identificare questi eventi direttamente. Usando le utilità di comunicazione interprocessuali di Electron, questi eventi possono essere inoltrati al processo principale e gestiti per le necessità, come mostrato nell'esempio seguente.
 
-*main.js*
+_main.js_
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
@@ -55,7 +55,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-*stato-online.html*
+_stato-online.html_
 
 ```html
 <!DOCTYPE html>
