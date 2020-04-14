@@ -1,6 +1,6 @@
 # 发布
 
-This document describes the process for releasing a new version of Electron.
+本文档描述了发布 Electron 版本的过程。
 
 ## Set your tokens and environment variables
 You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
@@ -18,24 +18,24 @@ There are a handful of `*_TOKEN` environment variables needed by the release scr
 Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
 
 
-## Determine which branch to release from
+## 决定从哪个版本发布
 
-- **If releasing beta,** run the scripts below from `master`.
-- **If releasing a stable version,** run the scripts below from the branch you're stabilizing.
+- **如果发布beta版本，**请从`master`运行以下脚本。
+- **如果发布稳定版本，**请从你要试图稳定的分支运行下列脚本。
 
-## Find out what version change is needed
-Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
+## 找出需要哪个版本更改
+运行`npm run prepare-release -- --notesOnly`来查看自动生成的发布说明。 生成的记录会帮助你判断这是主要的、次要的、补丁或者是公测版本变化 请参考[版本变更规则](../tutorial/electron-versioning.md#semver)以获取更多信息。
 
-**NB:** If releasing from a branch, e.g. 1-8-x, check out the branch with `git checkout 1-8-x` rather than `git checkout -b remotes/origin/1-8-x`. The scripts need `git rev-parse --abbrev-ref HEAD` to return a short name, e.g. no `remotes/origin/`
+**注意：** 如果从一个分支发布，例如1-8-x，使用 `git checkout 1-8-x` 检出分支而不是 `git checkout -b remotes/origin/1-8-x`。 这脚本需要`git rev-parse --abbrev-ref HEAD`返回一个短名称， 例如：no `remotes/origin/`
 
-## Run the prepare-release script
+## 运行 prepare-release 脚本
 The prepare release script will do the following:
-1. Check if a release is already in process and if so it will halt.
-2. Create a release branch.
-3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example.
-4. Create a draft release on GitHub with auto-generated release notes.
-5. Push the release branch.
-6. Call the APIs to run the release builds.
+1. 校验一个分布是否已经在 process 中，如果是，将会停止。
+2. 创建一个发布分支。
+3. 碰撞个几文件的版本号 参照[这冲突提交](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a)这个例子
+4. 用自动生成的发布记录在GitHub上创建一个发布草案
+5. 推送release分支
+6. 调用API以运行release构建
 
 Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need:
 - `[major|minor|patch|beta]` to increment one of the version numbers, or
@@ -43,23 +43,23 @@ Once you have determined which type of version change is needed, run the `prepar
 
 例如：
 
-### Major version change
+### Major 版本更改
 ```sh
 npm run prepare-release -- major
 ```
-### Minor version change
+### Minor 版本更改
 ```sh
 npm run prepare-release -- minor
 ```
-### Patch version change
+### Patch 版本更改
 ```sh
 npm run prepare-release -- patch --stable
 ```
-### Beta version change
+### Beta 版本更改
 ```sh
 npm run prepare-release -- beta
 ```
-### Promote beta to stable
+### 促进 beta 稳定
 ```sh
 npm run prepare-release -- --stable
 ```
@@ -69,7 +69,7 @@ Tip: You can test the new version number before running `prepare-release` with a
 $ ./script/bump-version.py --bump minor --dry-run
 ```
 
-## Wait for builds :hourglass_flowing_sand:
+## 等待构建 :hourglass_flowing_sand:
 The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
 
 - [electron-release-mas-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=19&_a=completed) for MAS builds.
@@ -78,18 +78,18 @@ The `prepare-release` script will trigger the builds via API calls. To monitor t
 - [windows-ci.electronjs.org/project/AppVeyor/electron-39ng6](https://windows-ci.electronjs.org/project/AppVeyor/electron-39ng6) for Windows 32-bit builds.
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows 64-bit builds.
 
-## Compile release notes
+## 编译发布说明
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+编写发行说明是在生成运行时保持忙碌的好方法。 有关以前的技术, 请参阅 [ 发布页 ](https://github.com/electron/electron/releases) 上的现有版本。
 
-Tips:
+提示：
 - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc.
 - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com.
 - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
-### Patch releases
+### Patch 发布
 
-For a `patch` release, use the following format:
+对于 ` 修补程序 ` 版本, 请使用以下格式:
 
 ```sh
 ## Bug Fixes
@@ -109,98 +109,97 @@ For a `patch` release, use the following format:
 * Fixed a Windows thing. #1234
 ```
 
-### Minor releases
+### Minor 发布
 
-For a `minor` release, e.g. `1.8.0`, use this format:
+对于 ` 次要 ` 版本, 如 ` 1.8.0 `, 请使用以下格式:
 
 ```sh
-## Upgrades
+## 升级
 
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+- 升级 Node 从 `oldVersion` 到 `newVersion`. #123
 
-## API Changes
+## API 变更
 
-* Changed a thing. #123
+* 变更内容. #123
 
 ### Linux
 
-* Changed a Linux thing. #123
+* 变更 Linux 内容. #123
 
 ### macOS
 
-* Changed a macOS thing. #123
+* 变更 macOS 内容. #123
 
 ### Windows
 
-* Changed a Windows thing. #123
+* 变更 Windows 内容. #123
 ```
 
-### Major releases
+### Major 发布
 ```sh
-## Upgrades
+## 升级
 
-- Upgraded from Chromium `oldVersion` to `newVersion`. #123
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+- 升级 Chromium 从 `oldVersion` 到 `newVersion`. #123
+- 升级 Node 从 `oldVersion` 到 `newVersion`. #123
 
-## Breaking API changes
+## 破坏性 API 变更
 
-* Changed a thing. #123
+* 变更内容. #123
 
 ### Linux
 
-* Changed a Linux thing. #123
+* 变更 Linux 内容. #123
 
 ### macOS
 
-* Changed a macOS thing. #123
+* 变更 macOS 内容. #123
 
 ### Windows
 
-* Changed a Windows thing. #123
+* 变更 Windows 内容. #123
 
-## Other Changes
+## 其它变更
 
-- Some other change. #123
+- 其它变更内容. #123
 ```
 
-### Beta releases
-Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
+### Beta 发布
+使用与上述建议相同的格式，但在变更日志的开头添加以下内容：
 ```sh
-**Note:** This is a beta release and most likely will have have some
-instability and/or regressions.
+**注意：** 这是一个测试版本并很可能会有一些不稳定和/或复原。
 
-Please file new issues for any bugs you find in it.
+请为您在其中找到的任何错误提出新问题。
 
 This release is published to [npm](https://www.npmjs.com/package/electron)
 under the `beta` tag and can be installed via `npm install electron@beta`.
 ```
 
 
-## Edit the release draft
+## 编辑发布草稿
 
-1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-2. Edit the release and add release notes.
+1. 访问 [发行页面](https://github.com/electron/electron/releases) 然后你将看到一个新的带有发行说明的草稿版本。
+2. 编辑版本并添加发行说明.
 3. Click 'Save draft'. **Do not click 'Publish release'!**
-4. Wait for all builds to pass before proceeding.
+4. 等待所有生成通过, 然后再继续。
 5. In the branch, verify that the release's files have been created:
 ```sh
 $ npm run release -- --validateRelease
 ```
 Note, if you need to run `--validateRelease` more than once to check the assets, run it as above the first time, then `node ./script/release.js --validateRelease` for subsequent calls so that you don't have to rebuild each time you want to check the assets.
 
-## Publish the release
+## 发布版本
 
 Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following:
 1. Build the project to validate that the correct version number is being released.
 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules.
 3. Create and upload the SHASUMS files stored on S3 for the node files.
-4. Create and upload the SHASUMS256.txt file stored on the GitHub release.
+4. 创建并上传储存在GitHub发布中的SHASUMS256.txt文件。
 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files.
 6. Publish the release on GitHub
 
-## Publish to npm
+## 发布到 npm
 
-Before publishing to npm, you'll need to log into npm as Electron. Optionally, you may find [npmrc](https://www.npmjs.com/package/npmrc) to be a useful way to keep Electron's profile side-by-side with your own:
+在发布到npm之前，您会需要作为Electron登入npm。 Optionally, you may find [npmrc](https://www.npmjs.com/package/npmrc) to be a useful way to keep Electron's profile side-by-side with your own:
 ```sh
 $ sudo npm install -g npmrc
 $ npmrc -c electron
@@ -216,7 +215,7 @@ Password: <This can be found under NPM Electron Nightly on LastPass>
 Email: (this IS public) electron@github.com
 ```
 
-Publish the release to npm. Before running this you'll need to have set `ELECTRON_NPM_OTP` as an environment variable using a code from the aforementioned 2FA authenticator app.
+发布版本到npm。 Before running this you'll need to have set `ELECTRON_NPM_OTP` as an environment variable using a code from the aforementioned 2FA authenticator app.
 ```sh
 $ npm whoami
 electron-nightly
@@ -230,18 +229,18 @@ $ npm dist-tag ls electron
 
 If for some reason `npm run publish-to-npm` fails, you can tag the release manually:
 ```sh
-$ npm dist-tag add electron@<version> <tag>
+npm dist-tag add electron@&lt;version&gt; &lt;tag&gt;
 ```
-e.g.:
+例如:
 ```sh
-$ npm dist-tag add electron@2.0.0 latest
+npm dist-tag add electron@2.0.0 latest
 ```
 
 # 故障排查
 
-## Rerun broken builds
+## 重新运行中断的构建
 
-If a release build fails for some reason, you can use `script/ci-release-build.js` to rerun a release build:
+如果一个分发构建因某些原因失败，你可以用`script/ci-release-build.js`重新运行一次分发构建：
 
 ### Rerun all linux builds:
 ```sh
@@ -266,16 +265,16 @@ Additionally you can pass a job name to the script to run an individual job, eg:
 node script/ci-release-build.js --ci=AppVeyor --ghRelease --job=electron-x64 TARGET_BRANCH
 ```
 
-## Fix missing binaries of a release manually
+## 手动修复发行版的缺失二进制文件
 
-In the case of a corrupted release with broken CI machines, we might have to re-upload the binaries for an already published release.
+在发布版本受损的情况下，则可能需要重新上传已发布版本的二进制文件。
 
-The first step is to go to the [Releases](https://github.com/electron/electron/releases) page and delete the corrupted binaries with the `SHASUMS256.txt` checksum file.
+第一步是转到[Releases](https://github.com/electron/electron/releases)页面，并使用 `SHASUMS256.txt`校验文件和删除损坏的二进制文件。
 
-Then manually create distributions for each platform and upload them:
+然后手动为每个平台创建分发并上传它们：
 
 ```sh
-# Checkout the version to re-upload.
+# 检出要重新上传的版本。
 git checkout vX.Y.Z
 
 # Create release build
@@ -294,7 +293,7 @@ ninja -C out/Release electron:dist_zip
 
 Allowable values for [target_cpu](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) and [target_os](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values).
 
-After re-uploading all distributions, publish again to upload the checksum file:
+重新上传所有发行版之后，再次发布以上载校验和文件：
 
 ```sh
 npm run release
