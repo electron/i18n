@@ -4,7 +4,7 @@
 
  مع القليل من التغييرات على شفرة المصدر الخاصة بك.</p> 
 
-Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). أما إذا كنت لا تستخدم أيًا من هذه الأدوات ، فقط تابع القراءة.
+معظم المستخدمين سيحصلون على هذه الميزة مجانا ، نظرا لأنها مدعومة من الصندوق بواسطة [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), و[`electron-builder`](https://github.com/electron-userland/electron-builder). أما إذا كنت لا تستخدم أيًا من هذه الأدوات ، فقط تابع القراءة.
 
 
 
