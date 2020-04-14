@@ -1,8 +1,8 @@
-# 构建步骤（macOS）
+# 构建步骤 (macOS)
 
 遵循下面的引导，在 macOS 上构建 Electron.
 
-## 前提条件
+## 基本要求
 
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
@@ -37,7 +37,7 @@ $ pip install pyobjc
 
 如果你已经在开发Electron项目，而且没有重新分发Electron构建文件的计划，那你可以忽略下面内容。
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the MacOS 10.13 SDK.  可以使用新的SDK来构建，但是当前使用的Release版本是 10.13 SDK
+官方 Electron 构建于[Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), 并采用 MacOS 10.13 SDK.  可以使用新的SDK来构建，但是当前使用的Release版本是 10.13 SDK
 
 ## 构建Electron
 
