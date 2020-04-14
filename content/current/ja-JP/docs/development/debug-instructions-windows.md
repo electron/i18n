@@ -1,16 +1,16 @@
 # Windows におけるデバッグ
 
-JavaScriptアプリケーションによらないと思われるクラッシュや問題がElectron上で起こった場合、デバッグは少し複雑になります。ネイティブ/C++の経験がない場合には得にそうでしょう。 しかし、Visual Studio、Github にホストされている Electron のシンボルサーバーと Electron のソースコードを使用することで、Electron のソースコード内でブレークポイントを使用したデバッグを有効にできます。
+JavaScript アプリケーションに起因しないと思われるクラッシュや問題が Electron 上で起こった場合、特にネイティブ/ C++ デバッグの経験がない開発者にとって少しトリッキーなデバッグになります。 しかし、Visual Studio、Github にホストされている Electron のシンボルサーバーと Electron のソースコードを使用することで、Electron のソースコード内でブレークポイントを使用したデバッグを有効にできます。
 
-**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+**こちらも参照**: Chromium のデバッグに関する豊富な情報があります。その多くは Chromium 開発者サイト ([Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows)) の Electron にも適しています。
 
 ## 要件
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). Electron を直接ダウンロードしてアタッチしデバッグできますが、Electron は高度に最適化されているためデバッグが困難であることに気付くでしょう。デバッガはすべての変数の内容は表示できませんし、インラインに展開されたり、末尾再帰やその他のコンパイラによる最適化により実行経路は奇妙に見えるはずです。
+* **Electronのデバッグビルド**: 最も簡単な方法は、[ビルド手順 (Windows) ](build-instructions-windows.md)にリストされているツールと必要な環境を使って、自分でビルドをする方法です。 Electron を直接ダウンロードしてアタッチしデバッグできますが、Electron は高度に最適化されているためデバッグが困難であることに気付くでしょう。デバッガはすべての変数の内容は表示できませんし、インラインに展開されたり、末尾再帰やその他のコンパイラによる最適化により実行経路は奇妙に見えるはずです。
 
-* **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. インストール後[GithubのElectron シンボルサーバーを使うための設定を行います](setting-up-symbol-server.md)。 これによりVisual StudioがElectron内で起こっていることをより理解できるようになり、人が読める形式で現在の変数を表示することができます。
+* **Visual Studio with C++ Tools**: Visual Studio 2013 と Visual Studio 2015 の無料コミュニティ版両方が動きます。 インストール後[GithubのElectron シンボルサーバーを使うための設定を行います](setting-up-symbol-server.md)。 これによりVisual StudioがElectron内で起こっていることをより理解できるようになり、人が読める形式で現在の変数を表示することができます。
 
-* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
+* **ProcMon**: [無料の SysInternals ツール](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx)を使うことでプロセスパラメーター、ファイル操作、レジストリ操作を検査することができます。
 
 ## Electronへの接続とデバッグ
 
@@ -40,6 +40,6 @@ Electron が異なるユーザアカウントで実行されている場合、`�
 
 ## プロセス監視にProcMonを使用する
 
-Visual Studio は特定のコードパスを検査するのには優れていますが、ProcMon の強みは、アプリケーションのオペレーティングシステムで行われているすべてのことを実際に監視していることです。プロセスのファイル、レジストリ、ネットワーク、プロセス、プロファイリングの詳細をキャプチャします。 It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Visual Studio は特定のコードパスを検査するのには優れていますが、ProcMon の強みは、アプリケーションのオペレーティングシステムで行われているすべてのことを実際に監視していることです。プロセスのファイル、レジストリ、ネットワーク、プロセス、プロファイリングの詳細をキャプチャします。 **すべての**イベントをログに記録しようするので非常に巨大になる可能性がありますが、アプリケーションがオペレーティングシステムに対して何をどのようにして行っているのかを理解しようとするには価値のあるリソースになるかもしれません。
 
 ProcMon の基本及び高度なデバッグ機能については、Microsoft が提供する [このビデオチュートリアル](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) を参照してください。
