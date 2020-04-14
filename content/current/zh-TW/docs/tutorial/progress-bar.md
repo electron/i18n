@@ -6,7 +6,7 @@ On Windows a taskbar button can be used to display a progress bar. This enables 
 
 Unity DE 也有類似的功能，讓你指定啟動器中的進度列。
 
-**工作列按鈕的進度列:**
+__工作列按鈕的進度列:__
 
 ![工作列進度列](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
