@@ -4,12 +4,16 @@ Berdasarkan Chromium , Electron mengharuskan penggerak tampilan berfungsi. If Ch
 
 ## Mengkonfigurasi Server Tampilan Virtual
 
-Pertama, instal  Xvfb </ 0> . Ini adalah framebuffer virtual, menerapkan protokol server tampilan X11 - itu melakukan semua operasi grafis di memori tanpa menunjukkan output layar, itulah yang kita butuhkan.</p> 
+Pertama, instal
+
+ Xvfb </ 0> . Ini adalah framebuffer virtual, menerapkan protokol server tampilan X11 - itu melakukan semua operasi grafis di memori tanpa menunjukkan output layar, itulah yang kita butuhkan.</p> 
 
 Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron secara otomatis akan mencari ` $ DISPLAY </ 0> , sehingga tidak diperlukan konfigurasi lebih lanjut dari aplikasi Anda.
 This step can be automated with Anaïs Betts'
 <a href="https://github.com/anaisbetts/xvfb-maybe">xvfb-maybe</a>: Prepend your test
 commands with <code>xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. On Windows or macOS, it will do nothing.
+
+
 
 ```sh
 ## On Windows or macOS, this invokes electron-mocha
@@ -18,9 +22,14 @@ commands with <code>xvfb-maybe` and the little tool will automatically configure
 xvfb-maybe electron-mocha ./test/*.js
 ```
 
+
+
+
 ### Travis CI
 
 Di Travis, ` .travis.yml ` Anda akan terlihat seperti ini:
+
+
 
 ```yml
 addons:
@@ -31,13 +40,20 @@ addons:
  - Xvfb: 99 -screen 0 1024x768x24 & gt; / dev / null 2 & gt; & amp; 1 & amp;
 ```
 
+
+
+
 ### Jenkins
 
 Untuk Jenkins, plugin  Xvfb tersedia </ 0> .</p> 
 
+
+
 ### Lingkaran CI
 
 Circle CI is awesome and has Xvfb and `$DISPLAY` [already set up, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+
+
 
 ### AppVeyor
 
