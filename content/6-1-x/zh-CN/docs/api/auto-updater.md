@@ -32,7 +32,7 @@ Currently, only macOS and Windows are supported. There is no built-in support fo
 
 `autoUpdater` 对象会触发以下的事件:
 
-### 事件: 'error'
+### Event: 'error'
 
 返回:
 
@@ -82,7 +82,7 @@ Emitted when there is an available update. The update is downloaded automaticall
 
 * `options` Object
   * `url` String
-  * `headers` Object (optional) _macOS_ - HTTP request headers.
+  * `headers` Object (可选) _macOS_ - HTTP 请求头。
   * `serverType` String (可选) _macOS_ - `json` 或者 `default`, 有关更多信息，请参考 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 的自述文件(README)。
 
 设置检查更新的 `url`，并且初始化自动更新。
