@@ -1,4 +1,4 @@
 # CPUUsage 对象
 
-* ` percentCPUUsage ` Number - 自上次调用 getCPUUsage 以来使用的 CPU 百分比。第一次调用返回0。
-* `idleWakeupsPerSecond` Number - 自上次调用 getCPUUsage 以来每秒唤醒空闲 CPU 的平均次数。第一次调用返回0。在Windows环境下会永远返回0。
+* `percentCPUUsage` Number - Percentage of CPU used since the last call to getCPUUsage. First call returns 0.
+* `idleWakeupsPerSecond` Number - The number of average idle CPU wakeups per second since the last call to getCPUUsage. First call returns 0. Will always return 0 on Windows.
