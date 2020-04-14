@@ -9,3 +9,4 @@
 * `httpOnly` Boolean (可选) - cookie 是否只标记为 HTTP。
 * `session` Boolean (可选) - cookie是会话cookie 还是具有过期时间的持久性 cookie
 * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.
