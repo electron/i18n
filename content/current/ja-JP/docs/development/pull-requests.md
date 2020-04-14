@@ -72,7 +72,7 @@ $ git commit
 
 良いコミットメッセージは、何が何故変更されたのか、が記述されるべきです。 このElectronプロジェクトは[セマンティックコミットメッセージ](https://conventionalcommits.org/)をつかって、このリリースプロセスを合理化しています。
 
-Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
+プルリクエストがマージされるためには、プルリクエストにタイトルがあり、それには意図を示すプレフィックスが**なければなりません**
 
 意図を示すプレフィックスのあるコミットメッセージのの例です。:
 
@@ -178,7 +178,7 @@ $ git push origin my-branch
 
 #### 承認とリクエストの変更ワークフロー
 
-すべてのプルリクエストは、取り込むために、変更した部分の [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) の承認が必要です。 管理者はプルリクエストをレビューするたびに、変更を要求することができます。 これらは、タイプミスを修正するなどの小さなもから、実質的な変更を伴うものまでにもなります。 Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+すべてのプルリクエストは、取り込むために、変更した部分の [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) の承認が必要です。 管理者はプルリクエストをレビューするたびに、変更を要求することができます。 これらは、タイプミスを修正するなどの小さなもから、実質的な変更を伴うものまでにもなります。 このような要求は役に立ちますが、時には、特に変更する *やり方* についての具体的な提案が含まれていないために、唐突だったり親切でないものに出くわすことがあります。
 
 がっかりしないでください。 レビューが不公平であると感じる場合は、そう言い、別のプロジェクトのコントリビューターの意見を求めてください。 大抵の場合、そのようなコメントはレビュアーがレビューするのに十分な時間が無いためで、意図しないものです。 そのような困難はしばしば少しの忍耐で解決することができます。 要するに、レビュアーは親切なやりとりを提供することが期待されているということです。
 
