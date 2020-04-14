@@ -2,7 +2,7 @@
 
 Sur de nombreux environnements Linux, vous pouvez ajouter des entrées personnalisées à son lanceur en modifiant le fichier `.desktop`. Pour la documentation canonique d'Unity, voir [Ajouter des raccourcis vers un lanceur](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). Pour plus de détails sur une implémentation plus générique, voir la [Spécification freedesktop.org](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
-**Raccourcis du lanceur d'Audacious :**
+__Raccourcis du lanceur d'Audacious :__
 
 ![audacieux](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
