@@ -1,17 +1,17 @@
-# Instructions de Build (Windows)
+# Instructions de compilation (Windows)
 
 Suivez les indications ci-dessous pour compiler Electron sur Windows.
 
 ## Prérequis
 
 * Windows 10 / Server 2012 R2 ou supérieur
-* Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
+* Visual Studio 2017 15.7.2 ou plus - [télécharger VS 2019 Community Edition gratuitement](https://www.visualstudio.com/vs/)
   * Voir [la documentation de construction de Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) pour plus de détails sur les composants de Visual Studio.
   * Si votre Visual Studio est installé dans un autre répertoire que celui par défaut, vous aurez besoin de définir quelques variables d'environnement pour pointer les chaînes de compilation vers votre chemin d'installation.
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, remplaçant `2019` et `Communauté` par vos versions installées et remplaçant `DRIVE:` par le lecteur sur lequel Visual Studio est allumé. Souvent, ce sera `C:`.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Souvent, ce sera `C:`.
 * [Python 2.7.10 ou supérieur](http://www.python.org/download/releases/2.7/)
-  * Contrairement aux instructions de configuration `depot_tools` liées ci-dessous, vous aurez besoin de pour utiliser Python installé localement avec au moins la version 2. . 10 (avec support pour TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Actuellement, `depot_tools` est toujours livré avec Python 2.7.6, ce qui fera échouer la commande `gclient` (voir https://crbug.com/868864).
+  * Contrairement aux instructions de configuration `depot_tools` liées ci-dessous, vous aurez besoin de pour utiliser Python installé localement avec au moins la version 2. . 10 (avec support pour TLS 1.2). Pour ce faire, assurez-vous que dans **PATH**, votre Python installé localement arrive avant le dossier `depot_tools`. Actuellement, `depot_tools` est toujours livré avec Python 2.7.6, ce qui fera échouer la commande `gclient` (voir https://crbug.com/868864).
   * [Les extensions Python pour Windows (pywin32) ](https://pypi.org/project/pywin32/#files) sont également nécessaires pour exécuter le processus de compilation.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
