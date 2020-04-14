@@ -4,9 +4,9 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)` *实验功能*
+### `new TouchBarLabel(options)` _Experimental_
 
-* `参数` 对象 
+* `options` Object
   * `label` String (可选) - 显示的文本.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `textColor` String（可选） - 文本的十六进制颜色，例如#ABCDEF。
@@ -19,7 +19,7 @@ When defining `accessibilityLabel`, ensure you have considered macOS [best pract
 
 #### `touchBarLabel.label`
 
-表示标签当前文本的字符串。 更改此值会立即更新触摸栏中的标签。
+A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
 
 #### `touchBarLabel.accessibilityLabel`
 
@@ -27,5 +27,4 @@ A `String` representing the description of the label to be read by a screen read
 
 #### `touchBarLabel.textColor`
 
-代表标签当前文字颜色的 字符串</ 0> 十六进制代码。 更改此值立即更新
-标签在触摸栏中。</p>
+A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
