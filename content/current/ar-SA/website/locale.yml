@@ -1,4 +1,4 @@
-tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
+tagline: اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS
 nav:
   apps: التطبيقات
   blog: المدونة
@@ -137,7 +137,7 @@ footer:
   see_the_faq: راجع اﻷسئلة المتداولة بكثرة
 companies:
   title: مبنية على Electron
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
+  description: وضعت في البداية لGitHub <a href='https://atom.io' target='_blank'>محرر أتوم</a>، ومنذ ذلك الحين اعتمدت الإلكترون من قبل الشركات في جميع أنحاء العالم.
 apps:
   description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: عرض المزيد من التطبيقات
