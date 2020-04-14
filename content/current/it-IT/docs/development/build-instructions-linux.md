@@ -71,7 +71,7 @@ E per compilare anche per le architetture `arm` o `ia32` devi passare il paramet
 $ gn gen out/Testing --args='import(...) target_cpu="arm"'
 ```
 
-## Costruzione
+## Compilazione
 
 Vedi [Istruzioni di Compilazione: GN](build-instructions-gn.md)
 
