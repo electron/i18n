@@ -29,9 +29,9 @@ require('update-electron-app')()
 
 如果你需要定制化你的配置，你可以 [将配置设置传递给 `update-electron-app`](https://github.com/electron/update-electron-app) 或者 [直接使用更新服务](https://github.com/electron/update.electronjs.org)。
 
-## Using `electron-builder`
+## 使用 `electron-builder`
 
-If your app is packaged with [`electron-builder`](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
+如果你的app是通过[`electron-builder`](https://github.com/electron-userland/electron-builder)打包那么你可以使用[electron-updater](https://www.electron.build/auto-update)模块, 它不依赖任何服务器并且可以从S3, GitHub或者任何其它静态文件存储更新. 这避开了 Electron 内置的更新机制，这意味着本文档的其余部分不适用于此 ` electron-builder `的更新程序。
 
 ## 部署更新服务器
 
