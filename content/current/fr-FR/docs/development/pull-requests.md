@@ -1,4 +1,4 @@
-# Pull Requests
+# Proposer une Evolution: Demande de Pull
 
 * [Configurer votre environnement local](#setting-up-your-local-environment)
   * [Étape 1 : Dupliquer un projet](#step-1-fork)
@@ -30,7 +30,7 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Etape 2 : Construire, compiler
+### Etape 2 : construire, compiler
 
 Le type de système d'exploitation peut faire varier les étapes de construction et les dépendances. Reportez vous au guide dédié pour compiler Electron:
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
