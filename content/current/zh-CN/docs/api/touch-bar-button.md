@@ -4,9 +4,9 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new BrowserView(可选)` *实验功能*
+### `new TouchBarButton(options)` _Experimental_
 
-* `参数` 对象 
+* `options` Object
   * ` label `String (可选) 按钮文本。
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * ` backgroundColor `String (可选) - 按钮背景颜色以十六进制格式，例如 ` #ABCDEF `。
@@ -26,12 +26,12 @@ A `String` representing the description of the button to be read by a screen rea
 
 #### `touchBarButton.label`
 
-用一个`String`展示按钮里面当前文本。改变这个值会即时刷新。
+A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.backgroundColor`
 
-用一个16进制`String`定义按钮的背景色。改变这个值会即时刷新。
+A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.icon`
 
-用一个`NativeImage`定义按钮上的图标。改变这个值会即时刷新。
+A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
