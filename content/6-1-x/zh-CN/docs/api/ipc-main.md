@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. 当在主进程中使用时，它处理从渲染器进程（网页）发送出来的异步和同步信息。 从渲染器进程发送的消息将被发送到该模块。
+ipcMain模块是EventEmitter类的一个实例。 当在主进程中使用时，它处理从渲染器进程（网页）发送出来的异步和同步信息。 从渲染器进程发送的消息将被发送到该模块。
 
 ## 发送消息
 
@@ -52,7 +52,7 @@ IpcMain模块有以下方法来侦听事件：
   * `event` IpcMainEvent
   * `...args` any[]
 
-监听 `channel`，当接收到新的消息时 `listener` 会以 `listener(event, args...)` 的形式被调用。
+监听 channel, 当新消息到达，将通过 listener(event, args...) 调用 listener。
 
 ### `ipcMain.once(channel, listener)`
 
@@ -68,7 +68,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 * `channel` String
 * `listener` Function
 
-从监听器数组中移除监听 `channel` 的指定 `listener`。
+为特定的 channel 从监听队列中删除特定的 listener 监听者.
 
 ### `ipcMain.removeAllListeners([channel])`
 
