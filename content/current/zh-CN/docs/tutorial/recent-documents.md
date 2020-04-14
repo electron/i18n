@@ -2,11 +2,11 @@
 
 Windows 和 macOS 分别通过打开跳转列表和dock菜单使应用程序能够快速的访问最近打开的文档列表。
 
-**JumpList:**
+__JumpList:__
 
 ![跳转列表最近的文件](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**应用 dock 菜单**
+__应用 dock 菜单__
 
 ![macOS Dock 菜单](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
