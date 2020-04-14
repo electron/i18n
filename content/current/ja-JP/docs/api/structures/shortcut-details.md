@@ -1,9 +1,9 @@
 # ShortcutDetails オブジェクト
 
 * `target` String - このショートカットから起動するターゲット。
-* `cwd` String (任意) - 作業ディレクトリ。初期値は空です。
-* `args` String (任意) - このショートカットから起動された場合に `target` に適用される引数。初期値は空です。
-* `description` String (任意) - ショートカットの説明。初期値は空です。
-* `icon` String (任意) - DLL もしくは EXE となりうるアイコンのパス。`icon` と `iconIndex` は 一緒に設定されなければなりません。初期値は空で、その場合、ターゲットのアイコンが使われます。
-* `iconIndex` Number (任意) - `icon` が DLL もしくは EXE の場合のアイコンのリソース ID。初期値は0です。
-* `appUserModelId` String (任意) - アプリケーションユーザーモデル ID。初期値は空です。
+* `cwd` String (optional) - The working directory. Default is empty.
+* `args` String (optional) - The arguments to be applied to `target` when launching from this shortcut. Default is empty.
+* `description` String (optional) - The description of the shortcut. Default is empty.
+* `icon` String (optional) - The path to the icon, can be a DLL or EXE. `icon` and `iconIndex` have to be set together. Default is empty, which uses the target's icon.
+* `iconIndex` Number (optional) - The resource ID of icon when `icon` is a DLL or EXE. Default is 0.
+* `appUserModelId` String (optional) - The Application User Model ID. Default is empty.
