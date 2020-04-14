@@ -34,7 +34,7 @@ See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log 
 
 停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `netLog.stopLogging()`
 
