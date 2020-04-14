@@ -4,7 +4,7 @@ Pada macOS, sebuah jendela dapat mengatur file yang diwakilinya, sehingga ikon f
 
 Anda juga dapat mengatur keadaan diedit dari jendela sehingga ikon file dapat menunjukkan apakah dokumen di jendela ini telah dimodifikasi.
 
-**Mewakili menu data popup:**
+__Mewakili menu data popup:__
 
 ![Represented File](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
