@@ -4,6 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
+
 Ce module ne peut pas être utilisé tant que l'événement `prêt` du module `app` n'est pas émis.
 
 Par exemple :
@@ -30,23 +31,23 @@ Le module `powerMonitor` émet les événements suivants :
 
 Émis lorsque le système reprend.
 
-### Événement : 'on-ac' *Windows*
+### Event: 'on-ac' _Windows_
 
 Émis lorsque le système est branché sur prise.
 
-### Événement : 'on-battery' *Windows*
+### Event: 'on-battery' _Windows_
 
 Émis lorsque le système passe sur batterie.
 
-### Événement : 'shutdown' *Linux* *macOS*
+### Event: 'shutdown' _Linux_ _macOS_
 
 Émis lorsque le système est sur le point de redémarrer ou d'arrêter. Si le gestionnaire d'événements appelle `e.preventDefault()`, Electron tentera de retarder l'arrêt du système dans afin que l'application se ferme proprement. Si `e.preventDefault()` est appelé, l'application devrait quitter dès que possible en appelant quelque chose comme `app.quit()`.
 
-### Événement : 'lock-screen' *macOS* *Windows*
+### Event: 'lock-screen' _macOS_ _Windows_
 
 Émis lorsque le système est sur le point de verrouiller l'écran.
 
-### Événement : 'unlock-screen' *macOS* *Windows*
+### Event: 'unlock-screen' _macOS_ _Windows_
 
 Émis dès que l'écran du système est déverrouillé.
 
@@ -58,9 +59,9 @@ Le module `powerMonitor` a les méthodes suivantes :
 
 * `idleThreshold` Entier
 
-Retourne `String` - L'état actuel du système. Peut être `active`, `idle`, `verrouillé` ou `inconnu`.
+Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-Calcule l'état d'inactivité du système. `idleThreshold` est la durée (en secondes) avant d'être considéré comme inactif. `verrouillé` n'est disponible que sur les systèmes pris en charge.
+Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
 
 ### `getSystemIdleTime()`
 
