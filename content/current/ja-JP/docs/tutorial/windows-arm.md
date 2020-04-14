@@ -86,9 +86,9 @@ Arm 版 Windows デバイスでアプリケーションを直接開発したい�
 
 1. _コマンドプロンプト_ (これで `-inspect-brk` を渡すとネイティブモジュールがロードされる前に一時停止します) を介して、ターゲットデバイスでアプリの `.exe` を起動します。
 2. 開発マシン上で Visual Studio 2017 を起動します。
-3. ターゲットのデバイスに接続するためには、_デバッグ > プロセスにアタッチ..._ を選択し、デバイスの IP アドレスと Visual Studio Remote Debugger ツールに表示されているポート番号を入力します。
+3. Connect to the target device by selecting _Debug > Attach to Process..._ and enter the device's IP address and the port number displayed by the Visual Studio Remote Debugger tool.
 4. _更新_ をクリックしてから、[割り当てるべき正しい Electron プロセス](../development/debug-instructions-windows.md) を選択します。
-5. アプリのネイティブモジュールのシンボルが正しくロードされていることを確認する必要がある場合があるでしょう。 これを構成するには、Visual Studio 2017 で _デバッグ > オプション..._ に進み、_デバッグ > シンボル_ 下で `.pdb` シンボルが含まれたフォルダーを追加します。
+5. アプリのネイティブモジュールのシンボルが正しくロードされていることを確認する必要がある場合があるでしょう。 To configure this, head to _Debug > Options..._ in Visual Studio 2017, and add the folders containing your `.pdb` symbols under _Debugging > Symbols_.
 5. 接続したら、適切なブレークポイントを設定し、Chrome の [Node 向けリモートツール](debugging-main-process.md) を使用して JavaScript の実行を再開します。
 
 ## さらなるヘルプが必要な場合
