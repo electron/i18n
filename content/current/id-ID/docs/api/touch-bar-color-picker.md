@@ -4,22 +4,22 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `TouchBarColorPicker baru (pilihan)`*Eksperimental*
+### `new TouchBarColorPicker(options)` _Experimental_
 
-* `pilihan` Benda 
+* `options` Object
   * `tersediaWarna`String[](opsional) - Array string warna hex ke muncul sebagai warna yang mungkin dipilih.
   * `selectedColor` String (opsional) - Warna hex yang dipilih di pemetik, i.e`#ABCDEF`.
-  * `perubahan` Fungsi (opsional) - Fungsi untuk memanggil saat warna dipilih. 
+  * `change` Function (optional) - Function to call when a color is selected.
     * `warna` String - Warna yang dipilih pengguna dari pemetik.
 
-### Contoh properti
+### Instance Properties
 
 Properti berikut tersedia pada contoh `TouchBarColorPicker`:
 
 #### `sentuhBarColorPicker.availableColors`
 
-Array`String[]` yang mewakili warna pemetik warna yang tersedia untuk dipilih. Segera ganti nilai ini perbarui pemetik warna di bilah sentuh.
+A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
 
 #### `sentuhBarColorPicker.selectedColor`
 
-A `String` kode hex yang mewakili warna pemetik warna yang dipilih saat ini. Segera ganti nilai ini perbarui pemetik warna di bilah sentuh.
+A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
