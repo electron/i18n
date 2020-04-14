@@ -61,6 +61,7 @@ The `protocol` module has the following methods:
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
+
 **Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
 
 Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
@@ -93,7 +94,6 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
 `protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
 
 **before (<= v4.x)**
-
 ```javascript
 // Main
 protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
@@ -103,7 +103,6 @@ webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
 ```
 
 **after (>= v5.x)**
-
 ```javascript
 protocol.registerSchemesAsPrivileged([
   { scheme: 'scheme1', privileges: { standard: true, secure: true } },
@@ -113,17 +112,17 @@ protocol.registerSchemesAsPrivileged([
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
-* `схема` Низ
-* `handler` Функция 
-  * `request` Object 
+* `scheme` String
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Function
     * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
-* `completion` Function (optional) 
+* `completion` Function (optional)
   * `error` Error
 
 Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
@@ -136,17 +135,17 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
-* `схема` Низ
-* `handler` Функция 
-  * `request` Object 
+* `scheme` String
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Функция 
+  * `callback` Function
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
-* `completion` Function (optional) 
+* `completion` Function (optional)
   * `error` Error
 
 Registers a protocol of `scheme` that will send a `Buffer` as a response.
@@ -167,17 +166,17 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
-* `схема` Низ
-* `handler` Функция 
-  * `request` Object 
+* `scheme` String
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Function
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
-* `completion` Function (optional) 
+* `completion` Function (optional)
   * `error` Error
 
 Registers a protocol of `scheme` that will send a `String` as a response.
@@ -186,21 +185,21 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
-* `схема` Низ
-* `handler` Функция 
-  * `request` Object 
+* `scheme` String
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `redirectRequest` Object 
+  * `callback` Function
+    * `redirectRequest` Object
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
-* `completion` Function (optional) 
+* `completion` Function (optional)
   * `error` Error
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
@@ -213,17 +212,17 @@ For POST requests the `uploadData` object must be provided.
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
-* `схема` Низ
-* `handler` Функция 
-  * `request` Object 
+* `scheme` String
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `completion` Function (optional) 
+* `completion` Function (optional)
   * `error` Error
 
 Registers a protocol of `scheme` that will send a `Readable` as a response.
@@ -271,111 +270,111 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
-* `схема` Низ
-* `completion` Function (optional) 
+* `scheme` String
+* `completion` Function (optional)
   * `error` Error
 
 Unregisters the custom protocol of `scheme`.
 
 ### `protocol.isProtocolHandled(scheme)`
 
-* `схема` Низ
+* `scheme` String
 
 Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether there is already a handler for `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
-* `схема` Низ
-* `handler` Функция 
-  * `request` Object 
+* `scheme` String
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Function
     * `filePath` String
-* `completion` Function (optional) 
+* `completion` Function (optional)
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
-* `схема` Низ
-* `handler` Function 
-  * `request` Object 
+* `scheme` String
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Function 
+  * `callback` Function
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
-* `completion` Function (optional) 
+* `completion` Function (optional)
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
-* `схема` Низ
-* `handler` Функция 
-  * `request` Object 
+* `scheme` String
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Function 
+  * `callback` Function
     * `buffer` Buffer (optional)
-* `completion` Function (optional) 
+* `completion` Function (optional)
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
-* `схема` Низ
-* `handler` Function 
-  * `request` Object 
+* `scheme` String
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `redirectRequest` Object 
+  * `callback` Function
+    * `redirectRequest` Object
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
-* `completion` Function (optional) 
+* `completion` Function (optional)
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
-* `схема` Низ
-* `handler` Function 
-  * `request` Object 
+* `scheme` String
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Function
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `completion` Function (optional) 
+* `completion` Function (optional)
   * `error` Error
 
 Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
-* `схема` Низ
-* `completion` Function (optional) 
+* `scheme` String
+* `completion` Function (optional)
   * `error` Error
 
 Remove the interceptor installed for `scheme` and restore its original handler.
