@@ -47,7 +47,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 [वेबड्राईवरजेएस](https://code.google.com/p/selenium/wiki/WebDriverJs) वेब ड्राईवर के साथ परिक्षण करने के लिए एक नोड पैकेज प्रदान करता है, हम उसे एक उदाहरण के तौर पर इस्तेमाल करेंगे |
 
-### 1. क्रोमड्राईवर शुरू करें
+### 1. Start ChromeDriver
 
 सबसे पहले `क्रोमड्राईवर` बाइनरी डाउनलोड करें, और फिर उसे चलायें:
 
@@ -60,13 +60,13 @@ $ ./node_modules/.bin/chromedriver
 
 पोर्ट संख्या `9515` को याद रखें, यह बाद में इस्तेमाल होगी
 
-### 2. वेबड्राईवरजेएस इनस्टॉल करें
+### 2. Install WebDriverJS
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. क्रोमड्राईवर से कनेक्ट करें
+### 3. Connect to ChromeDriver
 
 The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
 
@@ -102,7 +102,7 @@ driver.quit()
 
 [वेबड्राईवरआईओ](http://webdriver.io/) वेब ड्राईवर के साथ परिक्षण करने के लिए एक नोड पैकेज प्रदान करता है |
 
-### 1. क्रोमड्राईवर शुरू करें
+### 1. Start ChromeDriver
 
 सबसे पहले `क्रोमड्राईवर` बाइनरी डाउनलोड करें, और फिर उसे चलायें:
 
@@ -115,13 +115,13 @@ $ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
 
 पोर्ट संख्या `9515` को याद रखें, यह बाद में इस्तेमाल होगी
 
-### 2. वेबड्राईवरआईओ इनस्टॉल करें
+### 2. Install WebdriverIO
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. क्रोम ड्राईवर से जुड़ें
+### 3. Connect to chrome driver
 
 ```javascript
 const webdriverio = require('webdriverio')
