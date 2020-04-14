@@ -138,7 +138,7 @@ app.on('ready', createWindow)
 let win
 
 function createWindow () {
-  // Create the browser window.
+   // إنشاء نافذة المتصفح.
   win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -153,21 +153,21 @@ function createWindow () {
    // افتح DevTools.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // المنبعث عندما تكون النافذة مغلقة.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // Dereference الكائن نافذة ، وعادة ما يمكنك تخزين النوافذ
+    // في مصفوفة إذا كان تطبيقك يدعم النوافذ المتعددة.
+    // عندما يجب عليك حذف العنصر المقابل.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// ستتم تسمية هذه الطريقة عندما ينتهي الإلكترون
+// التهيئة وجاهز لإنشاء نوافذ المتصفح.
 // لا يمكن استخدام بعض APIs إلا بعد حدوث هذا الحدث.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// قم بإنهاء عند إغلاق كافة الإطارات.
 app.on('window-all-closed', () => {
 // على macOS من الشائع للتطبيقات وشريط القوائم
    // للبقاء نشطًا حتى يتم إنهاء المستخدم بشكل صريح باستخدام Cmd + Q
@@ -184,8 +184,8 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. يمكنك أيضًا وضعها في ملفات منفصلة وطلبها هنا.
+// في هذا الملف ، يمكنك تضمين بقية العملية الرئيسية المحددة لتطبيقك
+// الشفرة. يمكنك أيضًا وضعها في ملفات منفصلة وطلبها هنا.
 `</pre> 
 
 وأخيرًا ، فإن ` index.html </ 0> هي صفحة الويب التي تريد إظهارها:</p>
