@@ -135,7 +135,7 @@ Menggunakan `Session` dan `Cookies` kelas sebagai contoh:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Metode
 
 Metode Bab harus dalam bentuk berikut:
 
@@ -162,11 +162,11 @@ diperlukan [, opsional]
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
-* [`Tali`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Deretan`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Jumlah`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Sasaran`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Obyek`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`susunan`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Atau jenis kustom seperti Electron [`webcontent`](api/web-contents.md)
 
 Jika argumen atau metode unik untuk platform tertentu, platform tersebut dilambangkan menggunakan daftar dicetak miring ruang-delimited berikut datatype. Nilai bisa saja `MacOS`, `Windows`, atau `Linux`.
@@ -179,7 +179,7 @@ Jika argumen atau metode unik untuk platform tertentu, platform tersebut dilamba
 
 Deskripsi untuk `Fungsi` ketik argumen harus menjelaskan bagaimana hal itu dapat disebut dan daftar jenis parameter yang akan dikirimkan ke sana.
 
-### Events
+### Acara
 
 Peristiwa Bab harus dalam bentuk berikut:
 
@@ -197,7 +197,7 @@ Judul bisa `###` atau `####`-levels tergantung pada apakah itu adalah acara dari
 
 Argumen dari suatu acara mengikuti aturan yang sama seperti metode.
 
-### Properti/peralatan
+### properti
 
 Sifat Bab harus dalam bentuk berikut:
 
