@@ -108,12 +108,6 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 
 
-### `process.enablePromiseAPIs`
-
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
-
-
-
 ### `process.resourcesPath` _Readonly_
 
 A `String` representing the path to the resources directory.
@@ -146,7 +140,11 @@ A `Boolean` that controls whether or not process warnings printed to `stderr` in
 
 ### `process.type` _Readonly_
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
+A `String` representing the current process's type, can be:
+
+* `browser` - The main process
+* `renderer` - A renderer process
+* `worker` - In a web worker
 
 
 
