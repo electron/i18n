@@ -2,7 +2,7 @@
 
 Su molti ambienti Linux, puoi aggiungere voci personalizzate al suo Launcher modificando il file `.desktop`. Per la documentazione Unità canonica, vedi [Aggiungere Shortcut ad un launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). Per dettagli su un'implementazione più generica, vedi la [Specificazione freedesktop.org](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
-**Shortcut del launcher di Audaious:**
+__Shortcut del launcher di Audaious:__
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
