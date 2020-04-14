@@ -107,6 +107,59 @@ describe('i18n.docs', () => {
   })
 })
 
+describe('i18n.versionedDocs', () => {
+  it('is an object with three versions inside', () => {
+    const versions = Object.keys(i18n.versionedDocs)
+    expect(versions.length).to.equal(3)
+  })
+
+  i18n.electronSupportedVersions.forEach((version) => {
+    it(`is an object with docs object as value for (version ${version})`, () => {
+      const docs = i18n.versionedDocs[version]['en-US']
+      expect(docs).should.be.an('object')
+      expect(docs[`/docs/${version}/api/accelerator`]).should.be.an('object')
+    })
+
+    it(`sets githubUrl on every doc (version ${version})`, () => {
+      const base = 'https://github.com/electron/electron/tree/master'
+      const docs = i18n.versionedDocs[version]['en-US']
+      docs[`/docs/${version}/api/accelerator`].githubUrl.should.equal(
+        `${base}/docs/${version}/api/accelerator.md`
+      )
+      docs[
+        `/docs/${version}/tutorial/electron-versioning`
+      ].githubUrl.should.equal(
+        `${base}/docs/${version}/tutorial/electron-versioning.md`
+      )
+    })
+
+    it(`does not contain <html>, <head>, or <body> tag in compiled html (version ${version})`, () => {
+      const html = i18n.versionedDocs[version]['en-US'][
+        `/docs/${version}/api/accelerator`
+      ].sections
+        .map((section) => section.html)
+        .join('')
+      html.should.be.a('string')
+      html.should.contain('<p>')
+      html.should.not.contain('<html>')
+      html.should.not.contain('</html>')
+      html.should.not.contain('<head>')
+      html.should.not.contain('</head>')
+      html.should.not.contain('<body>')
+      html.should.not.contain('</body>')
+    })
+
+    it(`breaks up HTML into sections, for language-toggling on the website (version ${version})`, () => {
+      const { sections } = i18n.versionedDocs[version]['en-US'][
+        `/docs/${version}/api/accelerator`
+      ]
+      sections.should.be.an('array')
+      sections.length.should.be.above(0)
+      sections.every((section) => section.name && section.html).should.eq(true)
+    })
+  })
+})
+
 describe('i18n.blogs', () => {
   it('is an object with locales as keys', () => {
     const locales = Object.keys(i18n.blogs)
@@ -429,6 +482,16 @@ describe('i18n.electronLatestStableTag', () => {
     i18n.electronLatestStableTag.should.eq(
       'v' + i18n.electronLatestStableVersion
     )
+  })
+})
+
+describe('i18n.electronSupportedVersions', () => {
+  it('its array', () => {
+    expect(i18n.electronSupportedVersions).to.be.a('array')
+  })
+
+  it('contains three last versions', () => {
+    expect(i18n.electronSupportedVersions.length).to.equal(3)
   })
 })
 

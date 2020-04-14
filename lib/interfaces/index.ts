@@ -12,6 +12,7 @@ export interface IParseFile extends WalkEntry {
   githubUrl?: string
   crowdinFileId?: string
   ignore?: boolean
+  version?: string
 
   content?: string
 

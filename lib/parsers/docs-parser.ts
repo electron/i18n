@@ -28,7 +28,11 @@ export async function parseFile(file: IParseFile, ids: Record<string, string>) {
   // nice categories for use in nav
   file.categoryFancy = categoryNames[file.category]
 
-  file.href = `/docs/${file.category}/${file.slug}`.replace('//', '/')
+  file.version = file.basePath.split('/').slice(5).join('/')
+
+  file.href = `/docs${file.version !== 'current' ? `/${file.version}` : ''}/${
+    file.category
+  }/${file.slug}`.replace('//', '/')
 
   // build a reference to the source
   file.githubUrl = `https://github.com/electron/electron/tree/master${file.href}.md`

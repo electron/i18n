@@ -10,6 +10,7 @@ const JSTemplate = `module.exports = {
   glossary: require('./glossary.json'),
   locales: require('./locales.json'),
   navs: require('./navs.json'),
+  versionedDocs: require('./versioned-docs.json'),
   website: require('./website.json'),
 
   electronLatestStableVersion: \'${packageJSON.electronLatestStableTag.replace(
@@ -18,8 +19,11 @@ const JSTemplate = `module.exports = {
   )}\',
   electronLatestStableTag: \'${packageJSON.electronLatestStableTag}\',
   electronMasterBranchCommit: \'${packageJSON.electronMasterBranchCommit}\',
+  electronSupportedVersions: [${packageJSON.supportedVersions
+    .map((v) => `'${v}'`)
+    .join(', ')}],
 
-  date: \'${now}\'
+  date: \'${now}\',
 }
 `
 
@@ -28,8 +32,10 @@ export declare const docs: typeof import('./docs.json')
 export declare const glossary: typeof import('./glossary.json')
 export declare const locales: typeof import('./locales.json')
 export declare const navs: typeof import('./navs.json')
+export declare const versionedDocs: typeof import('./versioned-docs.json')
 export declare const website: typeof import('./website.json')
 
+export declare const electronSupportedVersions: Array<string>
 export declare const electronLatestStableVersion: string
 export declare const electronLatestStableTag: string
 export declare const electronMasterBranchCommit: string
