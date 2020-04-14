@@ -74,7 +74,7 @@ Electron にバグが見つかったと思われる場合は、できる限り�
 
 補足の文脈も裏付けとなる詳細も示さない簡潔な回答は、役に立たず専門的ではありません。 多くの人にとって、そのようなレスポンスは面倒で不親切です。
 
-コントリビュータは、問題を共同で解決し互いに進歩するのを手助けすることが奨励されます。 無効、または誤った情報が含まれていると思われる Issue に遭遇した場合は、その *理由* をあなたが間違っている可能性も考えて説明してください。 そうすることで、大抵の場合正しい結論に早く到達することができます。
+コントリビュータは、問題を共同で解決し互いに進歩するのを手助けすることが奨励されます。 If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. そうすることで、大抵の場合正しい結論に早く到達することができます。
 
 ## バグレポートの解決
 
