@@ -8,4 +8,4 @@
 * `secure` Boolean (選用) - 是否將這個 cookie 標示為 secure。
 * `httpOnly` Boolean (選用) - 是否將這個 cookie 標示為 HTTP only。
 * `session` Boolean (選用) - 這是個 session cookie 或是具有效期的的持續性 cookie。
-* `expirationDate` Double (選用) - 這個 cookie 的有效期限，為 UNIX 紀元以來的秒數，session cookie 不支援這個選項。
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
