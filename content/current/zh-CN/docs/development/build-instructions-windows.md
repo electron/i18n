@@ -2,20 +2,20 @@
 
 遵循下面的步骤, 在 Windows 平台上构建 Electron。
 
-## 基本要求
+## 前提条件
 
 * Windows 10 / Server 2012 R2 或更高版本
-* Visual Studio 2017 15.7.2 或更高版本 - [免费下载 VS 2019 社区版](https://www.visualstudio.com/vs/) 
+* Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
   * 请参阅[Chromium构建文档](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio)，以了解有哪些Visual Studio 组件需要安装等详细信息。
-  * 如果您的 Visual Studio 安装在非默认目录中， 您需要 设置几个环境变量来将工具链指向您的安装路径。 
+  * 如果您的 Visual Studio 安装在非默认目录中， 您需要 设置几个环境变量来将工具链指向您的安装路径。
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Often, this will be `C:`.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Often, this will be `C:`.
-* [Python 2.7.10 或更高版本](http://www.python.org/download/releases/2.7/) 
-  * 与下面 `depot_tools` 的安装说明不同，你必须安装 2.7.10 以上版本的 Python（支持 TLS 1.2）。 为此，应确保 **PATH** 中 Python 的安装目录在 `depot_tools` 之前。 目前 `depot_tools` 仍捆绑 Python 2.7.6，这将导致 `gclient` 命令失效（见 https://crbug.com/868864）。
+* [Python 2.7.10 或更高版本](http://www.python.org/download/releases/2.7/)
+  * 与下面 `depot_tools` 的安装说明不同，你必须安装 2.7.10 以上版本的 Python（支持 TLS 1.2）。 To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. 目前 `depot_tools` 仍捆绑 Python 2.7.6，这将导致 `gclient` 命令失效（见 https://crbug.com/868864）。
   * [Python for Windows (pywin32) 扩展](https://pypi.org/project/pywin32/#files)对于构建流程也是必需的。
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* 如果您计划使用Windows SDK 10.0.15063.468的Windows调试工具 创建一个完整的发行版 `symstore.exe` 用来创建符号 保存于 `.pdb` 文件。 
+* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
   * 不同版本的SDK可以同时安装 安装 SDK，打开 Visual Studio 安装程序，选择 `更改`→`单个组件`，向下滚动并选择适当的 要安装的 Windows SDK 组件。 另一个选择是查看 [windows SDK 和仿真器存档](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) 并分别下载 SDK 的独立版本。
   * 还必须安装 SDK 调试工具。 如果已安装了 Windows 10 SDK 通过 Visual Studio 安装程序，然后可以用以下方式安装它们： `控制面板`→`程序`→`程序和功能`→选择“Windows 软件开发工具包”→ `更改`→`更改`→选中“Windows 调试工具”→`更改`。 或者，您可以下载独立的 SDK 安装程序，并且使用它安装调试工具。
 
@@ -23,7 +23,7 @@
 
 构建 Electron 完全由命令行脚本完成，无法通过 Visual Studio 完成。 您可以使用任何编辑器开发 Electron，但将来将会使用 Visual Studio 构建支持。
 
-**注意:** 即使 Visual Studio 不用于构建，但是仍然**需要**，因为我们需要它提供的构建工具链。
+**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
 ## 构建
 
@@ -83,7 +83,7 @@ $ git config --system core.longpaths true
 
 ### 错误：使用未声明的标识符“DefaultDelegateCheckMode”
 
-在使用 Windows 驱动程序工具包安装 Windows 调试工具时，可能会在构建期间发生这种情况。卸载 Windows 驱动程序工具包并使用上述步骤安装调试工具。
+This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
 
 ### 导入错误：没有名为 win32file 的模块
 
