@@ -43,7 +43,7 @@ Force l'espace disque maximum à utiliser par le cache disque, en octets.
 
 ## --js-flags=`flags`
 
-Spécifie les drapeaux passés au moteur Node.js. Il doit être passé en démarrant Electron si vous voulez activer les `flags` dans le processus principal.
+Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" votre-app
@@ -57,7 +57,7 @@ Utilise le serveur proxy spécifié, qui remplace le paramètre système. Cet in
 
 ## --proxy-bypass-list=`hosts`
 
-Demande à Electron de contourner le serveur proxy pour la liste d'hôtes séparées par des points-virgules (;). Cet indicateur prend effet uniquement s'il est utilisé avec `--proxy-server`.
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
 Par exemple :
 
@@ -74,7 +74,7 @@ Utilise le script PAC à l'`url` spécifiée.
 
 ## --no-proxy-server
 
-N'utilise pas de serveur proxy et établit toujours des connexions directes. Remplace tous les autres drapeaux du serveur proxy qui sont passés.
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
 ## --host-rules=`rules`
 
@@ -82,10 +82,10 @@ Une liste séparée par des virgules de `rules` qui contrôle comment les noms d
 
 Par exemple :
 
-- `MAP * 127.0.0.1` Force tous les noms d'hôtes à être mappés à 127.0.0.1
-- `MAP *.google.com proxy` Force tous les sous-domaines google.com à être résolus en "proxy".
-- `MAP test.com [::1]:77` Force "test. com" à être résolu en boucle IPv6. Force également le port de l'adresse socket à 77.
-- `MAP * baz, EXCLUDE www.google.com` Remappe tout à "baz", sauf pour "www.google.com".
+* `MAP * 127.0.0.1` Force tous les noms d'hôtes à être mappés à 127.0.0.1
+* `MAP *.google.com proxy` Force tous les sous-domaines google.com à être résolus en "proxy".
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP * baz, EXCLUDE www.google.com` Remappe tout à "baz", sauf pour "www.google.com".
 
 Ces mappages s'appliquent à l'hôte ciblé dans une requête réseau (le résolveur de connexion et d'hôte TCP dans une connexion directe, et l'hôte `CONNECT` dans une connexion avec proxy HTTP, et l'hôte du point terminal dans une connexion proxy `SOCKS`).
 
@@ -107,7 +107,7 @@ puis toute `url` finissant par `example.com`, `foobar.com`, `baz` se verra appli
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-Une liste de serveurs séparés par des virgules pour lesquels une délégation d'identifiants utilisateur est requise. Sans préfixe `*`, l'URL doit correspondre exactement.
+A comma-separated list of servers for which delegation of user credentials is required. Sans le préfixe `*` l'URL doit correspondre exactement.
 
 ## --ignore-certificate-errors
 
@@ -139,7 +139,7 @@ Ce commutateur ne peut pas être utilisé dans `app.commandLine.appendSwitch` ca
 
 ## --v=`log_level`
 
-Définit le niveau maximal par défaut de V-logging actif ; 0 est la valeur par défaut. Normalement on utilise des valeurs positives pour les niveaux V-logging.
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
 
@@ -154,7 +154,6 @@ Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
 ## --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
-
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`
@@ -165,4 +164,4 @@ Enables caller stack logging for the following APIs (filtering events):
 
 ## --no-sandbox
 
-Désactive le bac à sable Chromium, qui est maintenant activé par défaut. Ne devrait être utilisé que pour les tests.
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
