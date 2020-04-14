@@ -17,7 +17,7 @@ console.log(clipboard.readText('selection'))
 
 ` clipboard ` 对象具有以下方法:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+** 注意: **被标记为实验性的 api 将来可能被删除。
 
 ### `clipboard.readText([type])`
 
@@ -138,7 +138,7 @@ clipboard.writeRTF(rtf)
 
 将书签的 ` title ` 和 ` url ` 写入剪贴板。
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**注意**：Windows上的大多数应用程序不支持粘贴书签，因此您可以使用 `clipboard.write` 将书签和后备文本写入剪贴板。
 
 ```js
 const { clipboard } = require('electron')
@@ -181,7 +181,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` _Experimental_
+### `clipboard.has(format[, type])` _实验功能_
 
 * `format` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` _Experimental_
+### `clipboard.read(format)` _实验功能_
 
 * `format` String
 
 返回 ` String `- 从剪贴板中读取 ` format ` 类型的内容。
 
-### `clipboard.readBuffer(format)` _Experimental_
+### `clipboard.readBuffer(format)` _实验功能_
 
 * `format` String
 
@@ -220,7 +220,7 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
+### `clipboard.writeBuffer(format, buffer[, type])` _实验功能_
 
 * `format` String
 * `buffer` Buffer
