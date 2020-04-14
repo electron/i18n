@@ -10,13 +10,13 @@ Ci sono tre modi per creare un file `.snap`:
 
 1) Usando [`forgia-electron`](https://github.com/electron-userland/electron-forge) o [`builder-electron`](https://github.com/electron-userland/electron-builder), entrambi strumenti con supporto `snap` fuori dalla scatola. Questa è l'opzione più facile. 2) Usando `electron-istallatore-snap`, che prende l'output dell'`electron-impacchettatore`. 3) Usando un pacchetto `.deb` preesistente.
 
-In ogni caso, hai bisogno di uno strumento `snapcraft` installato. Raccomandiamo la building su Ubuntu 16.04 (o l'LTS corrente).
+In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
 ```sh
 snap install snapcraft --classic
 ```
 
-Mentre *è possibile* installare `snapcraft` su macOS usando Homebrew, non è possibile costruire pacchetti `snap` ed è focalizzato su pacchetti gestionali nel negozio.
+While it _is possible_ to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
 
 ## Usando `electron-installatore-snap`
 
@@ -76,7 +76,7 @@ Se non hai già un pacchetto `.deb`, usando `electron-installatore-snap` potrebb
 
 ### Fase 2: Crea uno snapcraft.yaml
 
-Per altre informazioni sulle opzioni di configurazione disponibili, vedi la [documentazione sulla sintassi snapcraft](https://docs.snapcraft.io/build-snaps/syntax). Guardiamo un esempio:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 nome: miaApp
@@ -95,7 +95,6 @@ parts:
     source: my-deb.deb
     source-type: deb
     after:
-
       - desktop-gtk3
     stage-packages:
       - libasound2
