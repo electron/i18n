@@ -24,29 +24,16 @@ To submit a bug report:
 
 When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
-```markdown
-<!--
+```markdown<!--
 Salamat sa pagbukas ng isang isyu! Ilang mga bagay na dapat tandaan:
 
 - Ang tagagsubaybay sa isyu ay para sa mga bug at mga paghiling ng katangian.
 Bago mag-ulat ng isang bug, pakiusap subukang gawin ulit ang iyong isyu laban sa pinakabagong  bersyon ng Electron.
 -Kung kailangan mo ng pangkalahatang mungkahi, sumali ka sa aming Slack: http://atom-slack.herokuapp.com
--->
-
-*Bersyon ng Electron:
+-->*Bersyon ng Electron:
 *Sistemang pang-operasyon:
 
-###Inaasahang paggalaw
-
-<!-- Anong sa tingin mo ang dapat mangyari? -->
-
-### Aktwal na paggalaw
-
-<!-- Ano ba ang aktwal na nangyari? -->
-
-### Paano magparami
-
-<!--
+###Inaasahang paggalaw<!-- Anong sa tingin mo ang dapat mangyari? -->### Aktwal na paggalaw<!-- Ano ba ang aktwal na nangyari? -->### Paano magparami<!--
 Ang pinakamahusay na pagkakataon upang madaling masuri ang bug na ito ay ang magbigay ng isang REPOSITORI na maaaring kopyahin at patakbuhin.
 
 Maari mong i-fork ang https://github.com/electron/electron-quick-start at isama ang isang link sa iyong sangay kasama ang mga pagbabago.
@@ -57,8 +44,7 @@ $ git clone $YOUR_URL -b $BRANCH
 $ npm install
 $ npm start || electron.
 
--->
-```
+-->```
 
 Kung naniniwala ka na nakshanap ka ng isang bug sa Elektron, pakiusap punan mo ang form na ito sa abot ng iyong makakaya.
 
