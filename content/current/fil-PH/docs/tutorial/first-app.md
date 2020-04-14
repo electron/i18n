@@ -1,10 +1,10 @@
 # Pag-gawa ng iyong unang Electron App
 
-Ang Electron ang nagbibigay-daan para makalikha ng desktop application na may malinis na JavaScript sa pamamagitan ng pagbibigay ng runtime na may rich native (operating system)APIs. Maari mong makita ang mga ito bilang isang baryante ng Node.js runtime na nakatuon sa desktop applications na sa halip na mga server ng web.
+Ang Electron ang nagbibigay-daan para makalikha ng desktop application na gawa sa purong JavaScript sa pamamagitan ng pagbibigay ng runtime na may mayamang lokal na (operating system) APIs. Maari mong makita ang mga ito bilang isang baryante ng Node.js runtime na nakatuon sa desktop applications na sa halip na mga server ng web.
 
 Hindi ito nangangahulugan na ang Electron ay isang JavaScript na may bisa sa graphical user interface (GUI) libraries. Sa halip, ang Electron ay gumagamit ng mga web pages bilang GUI, kaya pwede mong makita ito bilang isang minimal Chromium browser, kontrolado ng JavaScript.
 
-**Tandaan**: Ang halimbawang ito ay isang repository na pwedeng [i-download at subukan kaagad](#trying-this-example).
+**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
 
 As far as development is concerned, an Electron application is essentially a Node.js application. Ang panimula ay `package.json` na katulad sa node.js module. A pinaka simpleng Electron app ay merong sumusunod na folder na struktura:
 
@@ -31,7 +31,7 @@ gagabayan ka ni npm mula sa pinaka basic na `package.json` file. Ang script na t
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
 
 ```json
 {
