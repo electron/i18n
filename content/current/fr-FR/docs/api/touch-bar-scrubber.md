@@ -4,13 +4,13 @@
 
 Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarScrubber(options)` *Experimental*
+### `new TouchBarScrubber(options)` _Experimental_
 
-* `options` Objet 
+* `options` Object
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - Un tableau d'éléments à placer dans ce scrubber.
-  * `select` Function (optionnel) - Appelée lorsque l'utilisateur clique sur un élément qui n'était par le dernier élément cliqué. 
+  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
     * `selectedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné.
-  * `highlight` Function (optionnel) - Appelée lorsque l'utilisateur clique sur un élément quelconque. 
+  * `highlight` Function (optional) - Called when the user taps any item.
     * `highlightedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné.
   * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
   * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
@@ -24,11 +24,11 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarScrub
 
 #### `touchBarScrubber.items`
 
-Un tableau de `ScrubberItem[]`représentant les éléments dans ce scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Changer une propriété dans le tableau **ne met pas à jour la touch bar**.
+Un tableau de `ScrubberItem[]`représentant les éléments dans ce scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Updating deep properties inside this array **does not update the touch bar**.
 
 #### `touchBarScrubber.selectedStyle`
 
-Une `String` représentant le style que l'item sélectionné dans le scrubber devrait avoir. Mettre à jour cette valeur met à jour immédiatement le contrôle dans la touch bar. Valeurs possibles :
+Un `String` représentant le style des éléments sélectionnés dans le scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Valeurs possibles :
 
 * `background` - Mappé à `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Mappé à `[NSScrubberSelectionStyle outlineOverlayStyle]`.
@@ -44,15 +44,15 @@ Un `String` représentant le style des éléments sélectionnés dans le scrubbe
 
 #### `touchBarScrubber.showArrowButtons`
 
-Un `Boolean` si l'on affiche les flèches de sélection à droite et à gauche dans ce scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar.
+A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
 
 #### `touchBarScrubber.mode`
 
-Un `String` représentant le mode de ce scrubber. Changer cette valeur immédiatement met à jour dans la touch bar. Valeurs possible :
+A `String` representing the mode of this scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Valeurs possibles :
 
 * `fixed` - Mappé à `NSScrubberModeFixed`.
 * `free` - Mappé à `NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 
-Un `Boolean` représentant si ce scrubber est permanent ou non. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar.
+A `Boolean` representing whether this scrubber is continuous or not. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar.
