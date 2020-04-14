@@ -4,7 +4,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-## 이벤트
+## Events
 
 `inAppPurchase` 모듈은 다음 이벤트를 발생시킵니다:
 
