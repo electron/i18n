@@ -410,7 +410,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 ` app ` 对象具有以下方法:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+** 注意: **某些方法仅在特定的操作系统上可用, 这些方法会被标记出来。
 
 ### `app.quit()`
 
@@ -520,12 +520,12 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 读取文件的关联图标。
 
-On _Windows_, there a 2 kinds of icons:
+在 _Windows_ 上, 会有两种图标：
 
 * 与某些文件扩展名相关联的图标, 比如 `. mp3 ` ，`. png ` 等。
 * 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
 
-On _Linux_ and _macOS_, icons depend on the application associated with file mime type.
+在 _Linux_ 和 _macOS_ 系统中，图标取决于和应用程序绑定的 文件 mime 类型
 
 ### `app.setPath(name, path)`
 
@@ -562,15 +562,15 @@ Returns `String` - The current application locale. Possible return values are do
 
 要设置区域，则需要在应用启动时使用命令行时打开开关，你可以在[这里](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md)找到。
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+** 注意: **分发打包的应用程序时, 你必须指定 ` locales ` 文件夹。
 
-**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+**注意：** 在 Windows 上，你必须得等 `ready` 事件触发之后，才能调用该方法
 
 ### `app.getLocaleCountryCode()`
 
 Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
-**Note:** When unable to detect locale country code, it returns empty string.
+**注意：** 当无法检测本地国家代码时，它返回空字符串。
 
 ### `app.addRecentDocument(path)` _macOS_ _Windows_
 
@@ -618,7 +618,7 @@ This method checks if the current executable as the default handler for a protoc
 
 Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. 同时可以通过查看 `~/Library/Preferences/com.apple.LaunchServices.plist` 来确认。 有关详细信息，请参阅 [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme)
+** 注意: **在macOS上, 您可以使用此方法检查应用程序是否已注册为协议的默认协议处理程序。 同时可以通过查看 `~/Library/Preferences/com.apple.LaunchServices.plist` 来确认。 有关详细信息，请参阅 [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme)
 
 The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
 
@@ -640,7 +640,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 
 返回 ` Boolean `-是否成功调用。
 
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+** 注意: **如果您想自定义跳转列表, 请使用 ` aapp.setJumpList(categories) ` 来代替。
 
 ### `app.getJumpListSettings()` _Windows_
 
@@ -992,7 +992,7 @@ Show the platform's native emoji picker.
 
 * `bookmarkData` String - base64 编码的安全作用域的书签数据(bookmark data) ，通过 `dialog.showOpenDialog` 或者 `dialog.showSaveDialog` 方法获取。
 
-Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. 如果你忘记停止访问书签，[内核资源将会泄漏](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)，并且你的应用将失去完全到达沙盒之外的能力，直到应用重启。
+返回 `Function` - 该函数 **必须** 在你完成访问安全作用域文件后调用一次。 如果你忘记停止访问书签，[内核资源将会泄漏](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)，并且你的应用将失去完全到达沙盒之外的能力，直到应用重启。
 
 ```js
 //开始读取文件
@@ -1005,7 +1005,7 @@ stopAccessingSecurityScopedResource()
 
 开始访问安全范围内的资源。 通过这个方法，Electron 应用被打包为可到达Mac App Store沙箱之外访问用户选择的文件。 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
-### `app.enableSandbox()` _Experimental_
+### `app.enableSandbox()` _实验功能_
 
 在应用程序上启用完全沙盒模式。
 
@@ -1025,7 +1025,7 @@ Returns `Boolean` - Whether the move was successful. Please note that if the mov
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 The message in the error should be informative and tell you exactly what went wrong.
+**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 The message in the error should be informative and tell you exactly what went wrong.
 
 By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
