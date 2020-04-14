@@ -5,7 +5,7 @@
 * `status` Number
 * `isDefault` Boolean
 
-## Exemple
+## Example
 
 Ci-dessous, un exemple de certaines des options supplémentaires qui peuvent être définies en étant différentes pour chaque plateforme.
 
