@@ -6,11 +6,11 @@
 
 * **Electron 的调试版本**: 最简单的方法是自己构建它，使用 [macOS 的构建说明](build-instructions-macos.md) 中列出的工具和先决条件要求。 While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
-* **Xcode**: 除了 Xcode，还安装 Xcode 命令行工具. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: 除了 Xcode，还安装 Xcode 命令行工具. 它们包括 LLDB，在 Mac OS X 的 Xcode 中的默认调试器。它支持在桌面和iOS设备和模拟器上调试 C，Objective-C 和 C++。
 
 ## 附加并调试 Electron
 
-To start a debugging session, open up Terminal and start `lldb`, passing a debug build of Electron as a parameter.
+要启动调试会话，打开命令行并启动 `lldb` ，并传递一个调试版本的 Electron 作为参数。
 
 ```sh
 $ lldb ./out/Debug/Electron.app
@@ -43,8 +43,12 @@ Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_
 (lldb) run
 Process 25244 launched: '/Users/fr/Code/electron/out/Debug/Electron.app/Contents/MacOS/Electron' (x86_64)
 Process 25244 stopped
-* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
-    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118
+* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(
+    this=0x0000000108b14f20, name="Electron"
+) + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(
+    this=0x0000000108b14f20, name="Electron"
+) + 20 at browser.cc:118
    115  }
    116
    117  void Browser::SetName(const std::string& name) {
