@@ -91,7 +91,7 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Funzione
+  * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Registers a protocol of `scheme` that will send a file as the response. The `handler` will be called with `request` and `callback` where `request` is an incoming request for the `scheme`.
@@ -105,7 +105,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Funzione
+  * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
 Registers a protocol of `scheme` that will send a `Buffer` as a response.
@@ -125,7 +125,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Funzione
+  * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Registers a protocol of `scheme` that will send a `String` as a response.
@@ -137,7 +137,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Funzione
+  * `callback` Function
     * `response` ProtocolResponse
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
@@ -149,7 +149,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Funzione
+  * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
 Registers a protocol of `scheme` that will send a stream as a response.
@@ -205,7 +205,7 @@ Returns `Boolean` - Whether `scheme` is already registered.
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Funzione
+  * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
@@ -215,7 +215,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Funzione
+  * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
@@ -225,7 +225,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Funzione
+  * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
@@ -235,7 +235,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Funzione
+  * `callback` Function
     * `response` ProtocolResponse
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
@@ -245,7 +245,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Funzione
+  * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
 Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
