@@ -6,7 +6,7 @@
 
 ऐ एस ऐ आर का मतलब है एटम शैल आर्काइव फॉर्मेट | एक [ऐ एस ऐ आर](https://github.com/electron/asar) आर्काइव, `टार`-जैसा एक सरल फॉर्मेट है जो कि बहुत सारी फाइल्स को एक ही फाइल में जोड़ देता है | इससे इलेक्ट्रॉन बिना पूरी फाइल खोले किसी भी तरह से फाइल्स को पढ़ सकता है |
 
-ऐ एस ऐ आर फॉर्मेट मुख्य रूप से विंडोज पर प्रदर्शन सुधारने के लिए बनाया गया था.... करना है
+The ASAR format was created primarily to improve performance on Windows... TODO
 
 ### सीआरटी
 
@@ -26,7 +26,7 @@ Interface description language. Write function signatures and data types in a fo
 
 ### आईपीसी
 
-आईपीसी का मतलब है अंतर-प्रक्रिया संवाद | इलेक्ट्रॉन आईपीसी का इस्तेमाल [मुख्य](#main-process) और [रेंदेरेर](#renderer-process) प्रक्रियाओं के बीच श्रृंखलाबद्ध जेएसओएन सन्देश भेजने के लिए करता है |
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### लिब क्रोमियम कंटेंट
 
@@ -38,15 +38,15 @@ Interface description language. Write function signatures and data types in a fo
 
 मुख्य प्रक्रिया, सामान्यतः `मेन.जेएस` नामक एक फाइल है, जो कि हर इलेक्ट्रॉन एप्प का प्रवेश द्वार है | यह एक एप्प के जीवन को नियंत्रित करता है, शुरू से अंत तक | या मेन्यु, मेन्यु बार, डॉक, ट्रे, आदि जैसे मूल तत्वों को भी प्रबंधित करता है | एप्प में हर नयी रेंदेरेर प्रक्रिया को निर्मित करने के लिए मुख्य प्रक्रिया जिम्मेदार है | पूर्ण नोड ऐपीआई इसमें पूर्व निर्मित है |
 
-हर एप्प की मुख्य प्रक्रिया फाइल, `पैकेज.जेएसओएन` में `मेन` गुण में निर्दिष्ट है | इस तरह से `इलेक्ट्रॉन.` को पता चलता है कि स्टार्टउप के समय कौन सी फाइल को चलाना है |
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-क्रोमियम में, इस प्रक्रिया को "ब्राउज़र प्रक्रिया" के नाम से जाना जाता है | इलेक्ट्रॉन में इसका नाम बदल दिया गया है ताकि रेंदेरेर प्रक्रिया से भ्रमित न हो जाये |
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
 इसे भी देखें: [प्रक्रिया](#process), [रेंदेरेर प्रक्रिया](#renderer-process)
 
 ### एमऐएस
 
-इसका मतलब है मैक एप्पल स्टोर | एमऐएस पर अपनी एप्प सबमिट करने के लिए, [मैक एप्पल स्टोर सबमिशन गाइड](tutorial/mac-app-store-submission-guide.md) गाइड देखें |
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
@@ -68,7 +68,7 @@ Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node
 
 ### ओएसआर
 
-ओएसआर (ऑफ-स्क्रीन रेंडरिंग) का इस्तेमाल बैकग्राउंड में भारी पेज लोड करने के लिए और फिर बाद में उसे डिस्प्ले करने के लिए (वह और भी तेज़ हो जायेगा) किया जा सकता है| यह आपको स्क्रीन पर दिखाये बिना रेंडर करने की अनुमति देता है |
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
 ### प्रक्रिया
 
@@ -80,7 +80,7 @@ Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node
 
 ### रेंदेरेर प्रक्रिया
 
-रेंदेरेर प्रक्रिया आपकी एप्प में एक ब्राउज़र विंडो है |मुख्य प्रक्रिया के विपरीत, ये कई सारी हो सकती हैं और हर एक रेंदेरेर प्रक्रिया एक अलग प्रक्रिया में चलती है | इन्हें छुपाया भी जा सकता है |
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 सामान्य ब्राउज़र्स में, वेब पेजेस अक्सर सैंडबॉक्स वातावरण में चलते हैं और इन्हें मूल संसाधनों तक पहुँच उपलब्ध नहीं होती | पर इलेक्ट्रॉन उपयोगकर्ताओं के पास वेब पेजेज में नोड.जेएस का इस्तेमाल करने की शक्ति होती है, जिससे कि वे ऑपरेटिंग सिस्टम के निचले स्तर की इंटरेक्शन कर सकते हैं |
 
@@ -98,11 +98,11 @@ Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node
 
 ### वी8
 
-वी8 गूगल का मुक्त स्त्रोत जावास्क्रिप्ट इंजन है | यह सी++ में लिखा गया है और गूगल क्रोम में इस्तेमाल होता है | वी8 अकेला चल सकता है, या किसी भी सी++ एप्लीकेशन में डाला जा सकता है |
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
 इलेक्ट्रॉन वी8 का निर्माण क्रोमियम के हिस्से के रूप में करता है और फ़िर निर्माण करने के दौरान नोड का उस वी8 की तरफ इशारा कर देता है |
 
-वी8 की संस्करण संख्या हमेशा गूगल क्रोम की संस्करण संख्या समान होती है | क्रोम 59 शामिल करता है वी8 5.9, क्रोम 58 शामिल करता है वी8 5.8, आदि |
+V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
