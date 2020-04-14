@@ -2,7 +2,7 @@
 
 應用程式的易用性很重要，所以我們在 [Devtron](https://electronjs.org/devtron) 及 [Spectron](https://electronjs.org/spectron) 中加入了新功能，讓開發人員更容易打造出適用每個人的應用程式。
 
-* * *
+---
 
 Electron 應用程式中的易用性考量與網站類似，畢竟兩者都是 HTML。 然而，你不能用線上的資源來稽查 Electron 應用程式的易用性，畢竟應用程式根本沒有網址可以給稽查程式用。
 
@@ -10,7 +10,7 @@ Electron 應用程式中的易用性考量與網站類似，畢竟兩者都是 H
 
 ## Spectron
 
-在 Spectron 測試框架中，你可以稽查應用程式中的每個視窗及 `<webview>` 標籤。例如:
+In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
