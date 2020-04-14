@@ -10,7 +10,7 @@ Windows allows apps to define a custom context menu that shows up when users rig
 > 
 > It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
 
-**Internet Explorer 的工作:**
+__Internet Explorer 的工作:__
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
@@ -41,6 +41,7 @@ app.setUserTasks([])
 
 就算應用程式關閉了，使用者工作還是會繼續顯示。因此工作用到的圖示及應用程式路徑應該要一直存在，直到應用程式被移除。
 
+
 ## 縮圖工具列
 
 你可以在 Windows 應用程式的工作列配置中加入包含指定按鈕的縮圖工具列。 讓使用者不用還原或啟動視窗就能執行特定的視窗指令。
@@ -51,7 +52,7 @@ app.setUserTasks([])
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
-**Windows Media Player 的縮圖工具列:**
+__Windows Media Player 的縮圖工具列:__
 
 ![播放器](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
@@ -86,13 +87,14 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
+
 ## Icon Overlays in Taskbar
 
 在 Windows 中，工作列按鈕上可以疊一個小圖示，顯示應用程式的狀態，引述 MSDN 的說明:
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
-**工作列按鈕重疊:**
+__工作列按鈕重疊:__
 
 ![工作列按鈕重疊](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
@@ -103,6 +105,7 @@ const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Overlay 的說明')
 ```
+
 
 ## Flash Frame
 
