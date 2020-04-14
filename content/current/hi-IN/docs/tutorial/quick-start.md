@@ -8,3 +8,4 @@ The old "Quick Start" document that used to live here has been split up into two
 * To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
 
 To learn more about Electron, check out the [official guides](../).
+
