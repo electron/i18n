@@ -36,7 +36,7 @@ app.on('ready', () => {
 })
 ```
 
-L'API `net` peut être utilisé seulement une fois que l'application ait émis l'événement `ready`. Essayer d'utiliser le module avant l'événement `ready` soulèvera une erreur.
+The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
 ## Méthodes
 
@@ -47,5 +47,6 @@ Le module `net` dispose des méthodes suivantes :
 * `options` (ClientRequestConstructorOptions | String) - Les `options du constructeur.</li>
 </ul>
 
-<p>Retourne <a href="./client-request.md"><code>ClientRequest`</a></p> 
-    Créer une instance de [`ClientRequest`](./client-request.md) avec les `options` founies qui sont directement transmis au constructor de `ClientRequest`. La méthode `net.request` doit être utilisée pour émettre des requêtes HTTP sécurisés et non sécurisés selon le schéma de protocole spécifié dans l'objet `options`.
+<p spaces-before="0">Retourne <a href="./client-request.md"><code>ClientRequest`</a></p>
+
+Créer une instance de [`ClientRequest`](./client-request.md) avec les `options` founies qui sont directement transmis au constructor de `ClientRequest`. La méthode `net.request` doit être utilisée pour émettre des requêtes HTTP sécurisés et non sécurisés selon le schéma de protocole spécifié dans l'objet `options`.
