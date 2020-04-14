@@ -72,7 +72,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 **Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
-### Event: 'open-file' _macOS_
+### Събитие: 'open-file' _macOS_
 
 Връща:
 
@@ -85,7 +85,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 На Windows трябва да се анализира `process.argv` (в главния процес), за да получите filepath.
 
-### Event: 'open-url' _macOS_
+### Събитие: 'open-url' _macOS_
 
 Връща:
 
@@ -96,7 +96,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Трябва да извикате `event.preventDefault()` ако желаете да се справите с това събитие.
 
-### Event: 'activate' _macOS_
+### Събитие: 'activate' _macOS_
 
 Връща:
 
@@ -105,7 +105,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Излъчено, когато приложението бива активирано. Различни действия могат да предизвикат това събитие, като стартиране на приложението за първи път, опит за стартиране на приложението, когато то е вече стартирано, или натискане върху докът на приложението или иконата в линията на задачите (taskbar).
 
-### Event: 'continue-activity' _macOS_
+### Събитие: 'continue-activity' _macOS_
 
 Връща:
 
@@ -117,7 +117,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Активност на потребителя може да продължи само в приложение, което има същия Team ID - записан като произход на активността на приложението, което също поддържа типа на активността. Поддържани типове на активност са специализирани в `Info.plist` на приложението, под ключа `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' _macOS_
+### Събитие: 'will-continue-activity' _macOS_
 
 Връща:
 
@@ -126,7 +126,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), преди активността на друго устройство иска да се извърши отново. Трябва да извикате `event.preventDefault()` ако желаете да се справите с това събитие.
 
-### Event: 'continue-activity-error' _macOS_
+### Събитие: 'continue-activity-error' _macOS_
 
 Връща:
 
@@ -136,7 +136,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когато активност на друго устройство не може да се извърши отново.
 
-### Event: 'activity-was-continued' _macOS_
+### Събитие: 'activity-was-continued' _macOS_
 
 Връща:
 
@@ -146,7 +146,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), след активността на това устройство е извършена отново успешно от друго устройство.
 
-### Event: 'update-activity-state' _macOS_
+### Събитие: 'update-activity-state' _macOS_
 
 Връща:
 
@@ -156,7 +156,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Излъчено, когато [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) тъкмо ще бъде подновено на друго устройство. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
-### Event: 'new-window-for-tab' _macOS_
+### Събитие: 'new-window-for-tab' _macOS_
 
 Връща:
 
@@ -304,7 +304,7 @@ Emitted when the gpu process crashes or is killed.
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
-### Event: 'accessibility-support-changed' _macOS_ _Windows_
+### Събитие: 'accessibility-support-changed' _macOS_ _Windows_
 
 Връща:
 
@@ -614,8 +614,8 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - Името на протокола, без `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `path` String (по избор) _Windows_ - По подразбиране е `process.execPath`
+* `args` String [] (по избор) _Windows_ - По подразбиране е празен масив
 
 Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
@@ -632,8 +632,8 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
 * `protocol` String - Името на протокола, без `://`.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `path` String (по избор) _Windows_ - По подразбиране е `process.execPath`
+* `args` String [] (по избор) _Windows_ - По подразбиране е празен масив
 
 Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
@@ -642,8 +642,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - Името на протокола, без `://`.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `path` String (по избор) _Windows_ - По подразбиране е `process.execPath`
+* `args` String [] (по избор) _Windows_ - По подразбиране е празен масив
 
 Връща `Boolean`
 
@@ -670,7 +670,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 Връща `Object`:
 
 * `minItems` Integer - Минималният брой на елементите, които ще бъдат показани в списъка за прескачане (Jump List) (за по-подробно описание на тази стойност вижте [MSDN документацията](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Тези елементи не трябва да бъде отново добавя към списъка за прескачане в **следващото** извикване на `app.setJumpList()`, Windows няма да показва никакви потребителски категории, който съдържат някои от отстранените елементи.
 
 ### `app.setJumpList(categories)` _Windows_
 
