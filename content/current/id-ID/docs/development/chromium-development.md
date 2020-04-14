@@ -1,4 +1,4 @@
-# Kromium pengembangan
+# Pengembangan Chromium
 
 > Kumpulan sumber daya untuk belajar tentang Chromium dan melacak perkembangannya
 
