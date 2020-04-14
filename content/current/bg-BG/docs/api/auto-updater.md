@@ -10,7 +10,7 @@
 
 ## Известия от платформата
 
-В момента се поддържат само macOS и Windows. Няма вградена поддръжка за auto-updater на Linux, така че е препоръчително да се използва мениджъра на доставения пакет, за да актуализирате вашето приложение.
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
 В допълнение има някои фините разлики за всяка платформа:
 
@@ -18,7 +18,7 @@
 
 На macOS `autoUpdater` модула е изграден върху [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) т.е. нямате нужда от специални настройки за да работи. За изисквания, от страна на сървъра можете да прочетете [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Обърнете внимание, че [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (АТС) се прилага за всички искания, направени като част от процеса на актуализиране. Приложения, за които трябва да изключите ATS може да добавите `NSAllowsArbitraryLoads` ключ към тяхното plist на приложението.
 
-**Забележка:** Вашето приложение трябва да бъде подписано за автоматични актуализации на macOS. Това е изискване на `Squirrel.Mac`.
+**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
 ### Windows
 
@@ -48,7 +48,7 @@
 
 ### Събитие: 'update-available'
 
-Излъчено, когато има достъпно обновяване. Обновяването бива свалено автоматично.
+Emitted when there is an available update. The update is downloaded automatically.
 
 ### Събитие: 'update-not-available'
 
@@ -58,7 +58,7 @@
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
@@ -82,10 +82,10 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `опции` Object 
+* `options` Object
   * `url` String
-  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Поставя `url` и инициализира автоматичното обновяване.
 
@@ -95,11 +95,11 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ### `autoUpdater.checkForUpdates()`
 
-Пита сървъра за налично обновяване. Трябва да извикате `setFeedURL` преди да използвате този API.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Връща приложението и инсталира обновяването, след като е било свалено. Може да бъде извикано само след като `update-downloaded` е било излъчено.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
