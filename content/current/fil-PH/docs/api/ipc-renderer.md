@@ -4,7 +4,7 @@
 
 Mga proseso: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ito ay nagbibigay ng ilang mga pamamaraan kaya maaari kang magpadala ng magkasabay at sabay-sabay na mga mensahe mula sa proseso ng pagsalin (pahina ng web) patungo sa pangunahing proseso. Maaari ka ring makatanggap ng kasagutan mula sa pangunahing proseso.
+The `ipcRenderer` module is an  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ito ay nagbibigay ng ilang mga pamamaraan kaya maaari kang magpadala ng magkasabay at sabay-sabay na mga mensahe mula sa proseso ng pagsalin (pahina ng web) patungo sa pangunahing proseso. Maaari ka ring makatanggap ng kasagutan mula sa pangunahing proseso.
 
 Tingnan ang [ipcMain](ipc-main.md) para sa mga halimbawa ng code.
 
@@ -15,28 +15,28 @@ Ang modyul ng `ipcRenderer` ay mayroon ng mga sumusunod na pamamaraan para makin
 ### `ipcRenderer.on(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` anuman[]
 
-Makinig sa `channel`, kapag ang bagong mensaheng dumating sa `listener` ay tinawag pati ang `listener(event, args...)`.
+Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay tatawagin pati ang `listener(event, args....)`.
 
 ### `ipcRenderer.once(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` anuman[]
 
-Nagdadagdag ng isang beses na function ng `listener` para sa event. Ang `listener` na ito ay naihalo lamang sa susunod na ang isang mensahe ay naipadala sa `channel`, ito ay aalisin pagkatapos nito.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcRenderer.removeListener(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `...args` anuman[]
 
-Tatanggalin ang mga tinukoy na `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
+Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
@@ -69,7 +69,6 @@ Send a message to the main process via `channel` and expect a result asynchronou
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 Halimbawa:
-
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
