@@ -8,7 +8,7 @@ Gamitin ang isa sa mga sumusunod na "command line switches" upang paganahin ang 
 
 ### `--inspect=[port]`
 
-Ang Elektron ay makikinig at susunod sa mensahe ng "V8 inspector protocol" na tinutukoy na `port`, isang panlabas na s'yang humahanap at nag-aayos ng problema o "external debugger" at kinakailangan na maiugnay ito sa tinatawag na "port". Ang "default" `port` ay `5858`.
+Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
 
 ```shell
 electron --inspect=5858 your/app
