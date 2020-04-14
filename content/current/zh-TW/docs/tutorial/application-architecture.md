@@ -4,9 +4,9 @@
 
 ## 主處理序及畫面轉譯處理序
 
-In Electron, the process that runs `package.json`'s `main` script is called __the main process__. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+在 Electron 中，透過 `package.json` 中的 `main` 指令執行的程序稱作__主程序__。 The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
 
-由於 Electron 使用 Chromium 來顯示網頁，因此 Chromium 的多程序架構也可以被使用。 Each web page in Electron runs in its own process, which is called __the renderer process__.
+由於 Electron 使用 Chromium 來顯示網頁，因此 Chromium 的多程序架構也可以被使用。 Electron 中每個網頁都執行在各自的程序中，稱作__渲染器程序__。
 
 在一般的瀏覽器中，網頁通常是在沙箱環境中執行，不能存取本機資源。 然後，Electron 的使用者，能在網頁中使用 Node.js API，與作業系統進行較低階的互動。
 
