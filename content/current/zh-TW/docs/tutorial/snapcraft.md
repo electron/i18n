@@ -16,7 +16,7 @@ In all cases, you will need to have the `snapcraft` tool installed. We recommend
 snap install snapcraft --classic
 ```
 
-While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+While it _is possible_ to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
 
 ## 使用 `electron-installer-snap`
 
@@ -94,7 +94,6 @@ parts:
     source: my-deb.deb
     source-type: deb
     after:
-
       - desktop-gtk3
     stage-packages:
       - libasound2
