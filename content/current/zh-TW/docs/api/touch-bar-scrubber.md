@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarScrubber(options)`
+### `new TouchBarScrubber(options)` _Experimental_
 
 * `options` Object
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.
