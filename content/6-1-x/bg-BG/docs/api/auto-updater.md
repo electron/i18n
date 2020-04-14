@@ -56,7 +56,7 @@ Emitted when there is an available update. The update is downloaded automaticall
 
 Връща:
 
-* `event` Събитие
+* `event` Event
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
