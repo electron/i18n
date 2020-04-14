@@ -1,4 +1,4 @@
-# Paggamit ng kumakalat na-format C++ Code
+# Gamit ang clang-format sa C++ Code
 
 Ang gamit ng[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html)ay upang kusang umayos ang code na C/C++/Objective-C, upang sa gayon, ang mga naglilinang ay 'di nangangailangan na mangamba tungkol sa istilo ng mga isyu sa tuwing nagsasagawa ng mga pagsusuri sa code.
 
