@@ -115,28 +115,28 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+這是因為你在專案內或是系統上安裝了 [npm 的 `electron` 模組](https://www.npmjs.com/package/electron)，蓋掉了 Electron 的內建模組。
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+要驗證是否使用對了模組，可以印出 `electron` 模組的路徑:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+檢查是否像:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+如果看起來是像 `node_modules/electron/index.js`，那你就得移掉 npm `electron` 模組，或是將它改名。
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. 例如 `electron.app` 只能在主處理序中用，而 `electron.webFrame` 只能在畫面轉譯處理序裡用。
+假如你使用的確定是內建模組，但還是有狀況，很有可能是因為你在錯的處理序裡使用。 例如 `electron.app` 只能在主處理序中用，而 `electron.webFrame` 只能在畫面轉譯處理序裡用。
 
 ## The font looks blurry, what is this and what can I do?
 
