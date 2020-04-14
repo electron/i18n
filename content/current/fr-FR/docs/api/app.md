@@ -27,7 +27,7 @@ Dans la plupart des cas, vous devriez pouvoir tout faire dans l'évènement `rea
 
 Retourne :
 
-* `launchInfo` unknown _macOS_
+* `launchInfo` inconnu _macOS_
 
 Émis lorsqu'Electron a terminé l’initialisation. Sur macOs, `launchInfo` détient le `userInfo` de `NSUserNotification` qui a été utilisé pour ouvrir l'application si elle a été lancée depuis le centre de notification. Vous pouvez appeler `app.isReady()` pour vérifier si cet événement a déjà été déclenché.
 
@@ -39,7 +39,7 @@ Si vous n'être pas abonné à cet événement et que toutes les fenêtres sont 
 
 ### Événement : 'before-quit'
 
-Retourne :
+Renvoie :
 
 * `event` Événement
 
@@ -47,7 +47,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Note:** Sous Windows, cet événement ne sera pas émit si l'application est fermée à cause d'un extinction du système/re-démarrage ou une déconnexion de l'utilisateur.
 
 ### Événement : 'will-quit'
 
@@ -59,20 +59,20 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Consultez la description de l’événement `window-all-closed` pour voir les différences entre les événements `will-quit` et `window-all-closed`.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Note:** Sous Windows, cet événement ne sera pas émit si l'application est fermée à cause d'un extinction du système/re-démarrage ou une déconnexion de l'utilisateur.
 
 ### Événement : 'quit'
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `exitCode` Integer
 
 Émis lorsque l'application se quitte.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Note:** Sous Windows, cet événement ne sera pas émit si l'application est fermée à cause d'un extinction du système/re-démarrage ou une déconnexion de l'utilisateur.
 
-### Event: 'open-file' _macOS_
+### Événement : 'open-file' _macOS_
 
 Retourne :
 
@@ -85,7 +85,7 @@ Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet évén
 
 Sur Windows, vous devrez analyser `process.argv` (dans le main process) pour obtenir le chemin d'accès.
 
-### Event: 'open-url' _macOS_
+### Événement : 'open-url' _macOS_
 
 Retourne :
 
@@ -96,7 +96,7 @@ Retourne :
 
 Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet événement.
 
-### Event: 'activate' _macOS_
+### Événement : 'activate' _macOS_
 
 Retourne :
 
@@ -105,7 +105,7 @@ Retourne :
 
 Émis lorsque l'application est activée. Différentes actions peuvent déclencher cet événement, comme le lancement de l’application pour la première fois, essayer de relancer l’application lorsqu’elle est déjà en cours d’exécution, ou en cliquant sur l'icône du dock de l’application ou de l’icône de la barre des tâches.
 
-### Event: 'continue-activity' _macOS_
+### Événement : 'continue-activity' _macOS_
 
 Retourne :
 
@@ -117,7 +117,7 @@ Retourne :
 
 Une activité d'utilisateur peut être poursuivie seulement dans une application qui a le même identifiant d'équipe développeur que l'application d'origine de la source d'activité et qui prend en charge le type d'activité. La prise en charge d’activité types est spécifiée dans le `Info.plist` de l'application sous la clé `NSUserActivityType`.
 
-### Event: 'will-continue-activity' _macOS_
+### Événement: 'wil-continue-activity' _macOS_
 
 Retourne :
 
@@ -126,7 +126,7 @@ Retourne :
 
 Émis au cours de la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quand une activité depuis un périphérique différent veut reprendre. Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet événement.
 
-### Event: 'continue-activity-error' _macOS_
+### Événement : 'continue-activity-error' _macOS_
 
 Retourne :
 
@@ -136,7 +136,7 @@ Retourne :
 
 Émis au cours de la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quand une activité depuis un périphérique différent n'arrive pas à reprendre.
 
-### Event: 'activity-was-continued' _macOS_
+### Événement : 'activity-was-continued' _macOS_
 
 Retourne :
 
@@ -146,7 +146,7 @@ Retourne :
 
 Émis au cours de la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)après qu'une activité depuis un périphérique différent a bien repris.
 
-### Event: 'update-activity-state' _macOS_
+### Événement : 'update-activity-state' _macOS_
 
 Retourne :
 
@@ -156,7 +156,7 @@ Retourne :
 
 Émis lorsque la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va être repris par un autre appareil. Si vous avez besoin de mettre à jour l'état à transférer, vous devez appeler `event.preventDefault()` immédiatement, construire un nouveau dictionnaire `userInfo` et appeler `app.updateCurrentActiviy()` en suivant. Sinon, l'opération échouera et `continue-activity-error` sera appelée.
 
-### Event: 'new-window-for-tab' _macOS_
+### Événement : 'new-window-for-tab' _macOS_
 
 Retourne :
 
@@ -308,7 +308,7 @@ Retourne :
 
 Émis lorsque le processus de rendu de `webContents` plante ou est tué.
 
-### Event: 'accessibility-support-changed' _macOS_ _Windows_
+### Événement : 'accessibility-support-changed' _macOS_ _Windows_
 
 Retourne :
 
@@ -347,7 +347,7 @@ Cet événement sera émis dans l'instance principale de votre application quand
 
 Cet évènement est garanti d'être émis après que l'évènement `ready` de `app` soit émis.
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**Remarque :** Des arguments supplémentaires en ligne de commande peuvent être ajoutés par Chromium, tels que `--original-process-start-time`.
 
 ### Événement : 'desktop-capturer-get-sources'
 
@@ -599,7 +599,7 @@ Efface la liste des documents récents.
 
 * `protocol` String - Le nom de votre protocole, sans le préfixe `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
 * `path` String (optional) _Windows_ - The path to the Electron executable. Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Arguments passed to the executable. Defaults to an empty array
+* `args` String[] (optional) _Windows_ - Arguments passed to the executable. Par défaut, un tableau vide
 
 Returns `Boolean` - Si l'appel a réussi.
 
@@ -614,8 +614,8 @@ The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internal
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
 * `protocol` String - Le nom de votre protocole, sans le préfixe `://`.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `path` String (facultatif) _Windows_ - `process.execPath` par défaut
+* `args` String[] (facultatif) _Windows_ - Un tableau vide par défaut
 
 Returns `Boolean` - Si l'appel a réussi.
 
@@ -624,8 +624,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - Le nom de votre protocole, sans le préfixe `://`.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `path` String (facultatif) _Windows_ - `process.execPath` par défaut
+* `args` String[] (facultatif) _Windows_ - Un tableau vide par défaut
 
 Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
@@ -658,7 +658,7 @@ Returns `Boolean` - Si l'appel a réussi.
 Retourne `Object`:
 
 * `minItems` Integer - Le nombre minimum d'éléments qui seront affichés dans la JumpList (pour une description plus détaillée de cette valeur, voir les [documentations MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Tableau des objets `JumpListItem` qui correspondent aux éléments que l'utilisateur a explicitement retirés des catégories personnalisées dans la liste de saut de . These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Tableau des objets `JumpListItem` qui correspondent aux éléments que l'utilisateur a explicitement retirés des catégories personnalisées dans la liste de saut de . Ces éléments ne doivent pas être ajoutés de nouveau à la JumpList dans l'appel **suivant** à `app.setJumpList()`, Windows n'affichera aucune catégorie personnalisée qui contient les éléments supprimés.
 
 ### `app.setJumpList(categories)` _Windows_
 
