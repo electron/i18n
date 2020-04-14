@@ -4,13 +4,13 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarPopover(options)` *実験的*
+### `new TouchBarPopover(options)` _Experimental_
 
-* `options` Object 
+* `options` Object
   * `label` String (任意) - ポップオーバーするボタンのテキスト。
   * `icon` [NativeImage](native-image.md) (任意) - ポップオーバーするボタンのアイコン。
   * `items` [TouchBar](touch-bar.md) - ポップオーバー内に表示するアイテム。
-  * `showCloseButton` Boolean (任意) - `true` にするとポップオーバーの左に閉じるボタンを表示し、`false` にすると表示しません。省略値は `true` です。
+  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. 省略値は `true` です。
 
 ### インスタンスプロパティ
 
@@ -18,8 +18,8 @@
 
 #### `touchBarPopover.label`
 
-ポップオーバーの現在のボタンのテキストを表す `String`。この値を変更すると、タッチバーのポップオーバーがすぐに更新されます。
+A `String` representing the popover's current button text. Changing this value immediately updates the popover in the touch bar.
 
 #### `touchBarPopover.icon`
 
-ポップオーバーの現在のボタンのアイコンを表す `NativeImage`。この値を変更すると、タッチバーのポップオーバーがすぐに更新されます。
+A `NativeImage` representing the popover's current button icon. Changing this value immediately updates the popover in the touch bar.
