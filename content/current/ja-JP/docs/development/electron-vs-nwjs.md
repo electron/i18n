@@ -8,34 +8,34 @@
 
 NW.js では、アプリケーションのメインエントリポイントを HTML ウェブページにできます。 その場合、NW.js は指定のエントリポイントをブラウザウインドウで開きます。
 
-Electron では、エントリポイントは常に JavaScript スクリプトです。 Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+Electron では、エントリポイントは常に JavaScript スクリプトです。 URL を直接指定するのではなく、手動でブラウザウィンドウを作成し、API で HTML ファイルをロードします。 アプリケーションを終了するタイミングを決めるため、ウインドウイベントを監視する必要もあります。
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
+Electron は Node.js ランタイムのように動作します。 Electron の API はローレベルなので、[PhantomJS](http://phantomjs.org/) 代わりのブラウザテストに使うことができます。
 
-## 2) Node Integration
+## 2) Node インテグレーション
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the `libuv` loop with each platform's message loop to avoid hacking Chromium. これがどのように行われているかについては [`node_bindings`](https://github.com/electron/electron/tree/master/lib/common) コードを参照してください。
+NW.js では、ウェブページで Node インテグレーションをするには Chromium にパッチを当てる必要があります。Electron では Chromium のハッキングを避けるために各プラットフォームのメッセージループに `libuv` ループを統合する、別の選択をしました。 これがどのように行われているかについては [`node_bindings`](https://github.com/electron/electron/tree/master/lib/common) コードを参照してください。
 
-## 3) JavaScript Contexts
+## 3) JavaScript コンテキスト
 
-If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
+NW.js の経験者であれば、Node コンテキストやウェブコンテキストの概念をご存知でしょう。 これらの概念は、NW.js の実装手段から考案されたものです。
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+Node の [マルチコンテキスト](https://github.com/nodejs/node-v0.x-archive/commit/756b622) 機能を使用すると、Electron はウェブページ内に新しい JavaScript コンテキストを導入しません。
 
 注釈: NW.js は 0.13 からマルチコンテキストを任意でサポートしています。
 
-## 4) Legacy Support
+## 4) レガシーサポート
 
-NW.js still offers a "legacy release" that supports Windows XP. It doesn't receive security updates.
+NW.js では、Windows XP 対応の "レガシーリリース" がまだ提供されています。 これはセキュリティアップデートを受けません。
 
-Given that hardware manufacturers, Microsoft, Chromium, and Node.js haven't released even critical security updates for that system, we have to warn you that using Windows XP is wildly insecure and outright irresponsible.
+ハードウェアメーカー、Microsoft、Chromium、Node.js がシステムの重大セキュリティアップデートすらリリースしていないことを鑑みると、Windows XP の使用は危険であり、完全に自己責任であることを警告しなければなりません。
 
-However, we understand that requirements outside our wildest imagination may exist, so if you're looking for something like Electron that runs on Windows XP, the NW.js legacy release might be the right fit for you.
+しかし、私たちの想像を超える要件が存在する可能性があることは理解しています。Windows XP で動作する Electron のようなものをお探しであれば、NW.js のレガシーリリースをお勧めします。
 
-## 5) Features
+## 5) 機能
 
-There are numerous differences in the amount of supported features. Electron has a bigger community, more production apps using it, and [a large amount of userland modules available on npm](https://www.npmjs.com/search?q=electron).
+サポートする機能の量は多くの差異があります。 Electron にはより大きなコミュニティがあり、これを使用するアプリ製品の数も多く、[npm](https://www.npmjs.com/search?q=electron) で利用できる大量のユーザー製モジュールがあります。
 
-As an example, Electron has built-in support for automatic updates and countless tools that make the creation of installers easier. As an example in favor of NW.js, NW.js supports more `Chrome.*` APIs for the development of Chrome Apps.
+例えば、Electron には自動更新サポートが組み込まれており、インストーラ作成を容易にする無数のツールも用意されています。 NW.js の良いところを挙げると、NW.js は Chrome アプリ開発向けに `Chrome.*` API を数多くサポートしています。
 
-Naturally, we believe that Electron is the better platform for polished production applications built with web technologies (like Visual Studio Code, Slack, or Facebook Messenger); however, we want to be fair to our web technology friends. If you have feature needs that Electron does not meet, you might want to try NW.js.
+もちろん、ウェブ技術で構築された、洗練されたアプリケーション製品 (Visual Studio Code、Slack、Facebook Messenger など) のプラットフォームとしては Electron の方が優れていると考えます。しかし、ウェブ技術の仲間たるもの公平でありたいです。 Electron にはない機能が必要であれば、NW.js を試すのもいいかもしれません。
