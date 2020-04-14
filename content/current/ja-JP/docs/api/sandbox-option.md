@@ -1,6 +1,6 @@
 # `sandbox` オプション
 
-> ブラウザーウインドウをサンドボックス化されたレンダラーで作成します。このオプションを有効にすると、レンダラーは Node API にアクセスするために IPC 経由でメインプロセスと通信する必要があります。
+> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 
 Chromium の主なセキュリティ機能の1つは、すべての Blink レンダリング / JavaScript コードがサンドボックス内で実行されることです。 このサンドボックスは、OS 固有の機能を使用して、レンダラープロセスの悪用がシステムに悪影響を及ぼすことがないようにします。
 
@@ -38,7 +38,7 @@ app.on('ready', () => {
 let win
 app.enableSandbox()
 app.on('ready', () => {
-  // `app.enableSandbox()` が呼ばれたので `sandbox: true` を渡さなくてよい
+  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
@@ -46,7 +46,7 @@ app.on('ready', () => {
 
 ## Preload
 
-アプリは、プリロードスクリプトを使用してサンドボックス化されたレンダラーをカスタマイズすることができます。以下はサンプルです。
+An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
 ```js
 let win
@@ -105,7 +105,7 @@ browserify バンドルを作成してプリロードスクリプトとして使
 
 現在、プリロードスコープで提供されている `require` 関数は、以下のモジュールを公開しています。
 
-- `electron` 
+- `electron`
   - `crashReporter`
   - `desktopCapturer`
   - `ipcRenderer`
