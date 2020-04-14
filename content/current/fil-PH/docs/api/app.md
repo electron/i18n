@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Pangyayari
+## Mga event
 
 Ang bagay ng `app` ay naglalabas ng mga sumusunod na mga event:
 
@@ -39,7 +39,7 @@ Kung ikaw ay hindi nag-subscribe sa event na ito at ang lahat ng mga window ay s
 
 ### Ang event: 'before-quit'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` na Kaganapan
 
@@ -51,9 +51,9 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 ### Event: 'will-quit'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` na Pangyayari
 
 Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
@@ -63,9 +63,9 @@ Tingnan ang deskripsyon ng event ng `window-all-closed` para sa mga pagkakaiba s
 
 ### Event: 'quit'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` kaganapan
 * `exitCode` Integer
 
 Lalabas kung humihinto ang aplikasyon.
@@ -74,10 +74,10 @@ Lalabas kung humihinto ang aplikasyon.
 
 ### Event: 'open-file' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `path` na String
+* `kaganapan` Kaganapan
+* `path` String
 
 Lalabas kung ang gusto ng user na mag-bukas ng isang file gamit ang aplikasyon. Ang event ng `open-file` ay kadalasang lumalabas kung ang aplikasyon ay bukas na at ang OS ay gustong muling gumamit ng aplikasyon para buksan ang file. Ang `open-file` ay ilalabas din kapag ang file ay ilinaglag sa dock at ang aplikasyon ay hindi pa gumagana. Siguraduhin na pinapakinggan ang event ng `open-file` sa maagang startup ng iyong application para mapamahalaan ang sitwasyon na ito (kahit bago pa ang event ng `ready` ay lumabas).
 
@@ -87,9 +87,9 @@ Sa Windows, kailangan mong i-parse ang `process.argv` (sa pangunahing proseso) p
 
 ### Event: 'open-url' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 
 Lalabas kapag ang user ay gustong buksan ang isang URL kasama ang aplikasyon. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
@@ -98,18 +98,18 @@ Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang even
 
 ### Event: 'activate' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` Event
 * `hasVisibleWindows` Boolean
 
 Lalabas kapag ang aplikasyon ay naka-aktibeyt. Iba't-ibang mga aksyon ang maaaring mag-trigger ng event na ito, tulad ng pagla-launch ng aplikasyon para sa unang pagkakataon, sinusubukang muling i-launch ang aplikasyon kahit ito ay tumatakbo na, o pagpindot sa icon ng dock o taskbar ng aplikasyon.
 
 ### Event: 'continue-activity' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
@@ -119,18 +119,18 @@ Ang aktibidad ng isang user ay maaari lamang magpatuloy sa isang app na may kapa
 
 ### Event: 'will-continue-activity' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
 Napalabas habang [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) bago ang aktibidad galing sa ibang device na gustong mapagpatuloy. Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang event na ito.
 
 ### Event: 'continue-activity-error' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `error` String - Ang string na may error sa localized na deskripsyon.
 
@@ -138,9 +138,9 @@ Napalabas habang [Handoff](https://developer.apple.com/library/ios/documentation
 
 ### Event: 'activity-was-continued' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
@@ -148,9 +148,9 @@ Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'update-activity-state' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
@@ -158,54 +158,54 @@ Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'new-window-for-tab' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
 ### Mga event: 'browser-window-blur'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `window` [BrowserWindow](browser-window.md)
 
 Lalabas kapag ang [browserWIndow](browser-window.md) ay nagiging malabo.
 
 ### Mga event: 'browser-window-focus'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `window` [BrowserWindow](browser-window.md)
 
 Lalabas kapag ang [browserWindow](browser-window.md) ay ipopokus.
 
 ### Event: 'browser-window-created'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `window` [BrowserWindow](browser-window.md)
 
 Lalabas kapag ang bagong [browserWindow](browser-window.md) ay nagawa na.
 
 ### Event: 'web-contents-created'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `webContents` na [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
 
 Lalabas kapag ang bagong [webContents](web-contents.md) ay nagawa na.
 
 ### Mga event: 'certificate-error'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `webContents` na [WebContents](web-contents.md)
+* `event` Ang event
+* `webContents` [WebContents](web-contents.md)
 * `url` Tali
 * `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
@@ -230,10 +230,10 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `webContents` na [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
 * `url` Ang URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` na Function
@@ -254,10 +254,10 @@ app.on('select-client-certificate', (mga event, mga webContents, mga url, mga ta
 
 ### Event: 'login'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `webContents` na [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
 * `authenticationResponseDetails` Object
   * `url` Ang URL
 * `authInfo` Object
@@ -291,35 +291,35 @@ Emitted whenever there is a GPU info update.
 
 ### Event: 'gpu-process-crashed'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `killed` Ang Boolean
 
 Emitted when the GPU process crashes or is killed.
 
 ### Event: 'renderer-process-crashed'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `webContents` na [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
 * `killed` Ang Boolean
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
 ### Event: 'accessibility-support-changed' _macOS_ _Windows_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `accessibilitySupportEnabled` Boolean - `true` kapag ang parating na suporta ng Chrome ay pinagana, `false` kung hindi.
 
 Lalabas kapag ang parating na suporta ng Chrome ay nabago. Ang event na ito ay sisimulan kapag ang assistive na teknologhiya, kagaya ng mga screen reader, ay naka-enable o hindi. Tingnan ang https://www.chromium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
 
 ### Event: 'session-created'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `session` [Session](session.md)
 
@@ -335,9 +335,9 @@ app.on('session-created', (session) => {
 
 ### Event: 'second-instance'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan`Kaganapan
 * `argv` String[] - Isang hanay ng mga argumento sa linya ng command sa ikalawang pagkakataon
 * `workingDirectory` String - Ang working directory ng ikalawang pagkakataon
 
@@ -351,58 +351,58 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 ### Event: 'desktop-capturer-get-sources'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `webContents` na [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
 ### Event: 'remote-require'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `webContents` na [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
 Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ### Event: 'remote-get-global'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `webContents` na [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
 Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ### Event: 'remote-get-builtin'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `webContents` na [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
 Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ### Event: 'remote-get-current-window'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `webContents` na [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ### Event: 'remote-get-current-web-contents'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `webContents` na [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
@@ -416,7 +416,7 @@ Pagbabalik:
 
 Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-## Mga Paraan
+## Mga Pamamaraan
 
 Ang `app` na object ay maroong mga sumusunod na mga method:
 
@@ -519,7 +519,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 ### `app.getFileIcon(path[, options])`
 
-* `path` na String
+* `path` String
 * `options` Object (optional)
   * `size` String
     * `small` - 16x16
@@ -540,7 +540,7 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 ### `app.setPath(name,path)`
 
 * `name` String
-* `path` na String
+* `path` String
 
 Ipawalangbisa ang `path` sa isang espesyal na direktoryo o sa file na may kaugnayan sa `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
@@ -588,7 +588,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 ### `app.addRecentDocument(path)` _macOS_ _Windows_
 
-* `path` na String
+* `path` String
 
 Nagdadagdag ng `path` sa listahan ng mga bagong dokumento.
 
@@ -617,8 +617,8 @@ The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internal
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
 * `protocol` String - Ang pangalan ng iyong protocol, walang `://`.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `path` String (opsyonal) _Windows_ - Magdedefault sa `process.execPath`
+* `args` String[] (opsyonal) _Windows_ - Magdedefault sa isang walang laman na array
 
 Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
@@ -627,8 +627,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - Ang pangalan ng iyong protocol, walang `://`.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `path` String (opsyonal) _Windows_ - Magdedefault sa `process.execPath`
+* `args` String[] (opsyonal) _Windows_ - Magdedefault sa isang walang laman na array
 
 Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
@@ -661,7 +661,7 @@ Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 Returns `Object`:
 
 * `minItems` Integer - Ang pinakamaliit na bilang ng mga item na ipapakita sa Jump List (para sa mas detalyadong deskripsyon ng halaga nito tingnan ang [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Ang mga item na ito ay hindi dapat maidagdag na muli sa Jump List sa **next** na tawag sa `app.setJumpList()`, ang Windows ay hindi magpapakita ng kahit anong pasadyang kategorya na maglalaman ng kahit anong natanggal ng mga item.
 
 ### `app.setJumpList(categories)` _Windows_
 
@@ -815,7 +815,7 @@ Ini-update ang kasalukuyang aktibidad kung tumutugma ito`type`, pinagsamasama an
 
 ### `app.setAppUserModelId(id)` _Windows_
 
-* `id` na String
+* `id` String
 
 Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) tungo sa `id`.
 
