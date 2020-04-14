@@ -594,7 +594,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
-### `app.clearRecentDocuments()` _macOS_ _Windows_
+### `app.addRecentDocument(path)` _macOS_ _Windows_
 
 清除最近使用的文件清單。
 
