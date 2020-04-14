@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 Sa Linux at Windows, ang key na `Command` ay walang anumang epekto kaya dapat gamitin ang `CommandOrControl` na kumakatawan sa mga `Command` sa macOS at `Control` sa Linux at Windows upang bigyang kahulugan ang ilang mga aselerador.
 
-Gamitin ang `Alt` sa halip na `Option`. Ang key na `Option` ay umiiral lamang sa macOS, samantalang ang key ng `Alt` ay magagamit sa lahat ng mga platform.
+Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
 Ang key ng `Super` ay naka-balangkas sa key ng `Windows` sa Windows at Linux at `Cmd` naman sa macOS.
 
@@ -64,7 +64,7 @@ Ang key ng `Super` ay naka-balangkas sa key ng `Windows` sa Windows at Linux at 
 * `VolumeUp`, `VolumeDown` at `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` at `MediaPlayPause`
 * `PrintScreen`
-* NumPad Keys 
+* NumPad Keys
   * `num0` - `num9`
   * `numdec` - decimal key
   * `numadd` - numpad `+` key
