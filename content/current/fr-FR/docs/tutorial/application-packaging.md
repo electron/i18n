@@ -10,7 +10,7 @@ Une archive [asar](https://github.com/electron/asar) est un simple format d'arch
 
 Étapes pour empaqueter votre application dans une archive `asar` :
 
-### 1. Install the asar Utility
+### 1. Installez l'utilitaire asar
 
 ```sh
 $ npm install -g asar
@@ -80,7 +80,7 @@ Par exemple, pour obtenir un fichier avec `$.get`:
 ```html
 <script>
 let $ = require('./jquery.min.js')
-$.get('file:///path/to/example.asar/file.txt', (data) => {
+$.get('file:///chemin/vers/exemple.asar/fichier.txt', (data) => {
   console.log(data)
 })
 </script>
