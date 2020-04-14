@@ -101,7 +101,7 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * [簡介](api/synopsis.md)
 * [處理序物件](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [支援的 Chrome 命令列參數](api/chrome-command-line-switches.md)
 * [環境變數](api/environment-variables.md)
 * [Breaking API Changes](api/breaking-changes.md)
 
