@@ -49,7 +49,7 @@ During installation, the `electron` module will call out to [`@electron/get`](ht
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+例如，使用中国镜像：
 
 ```plaintext
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
