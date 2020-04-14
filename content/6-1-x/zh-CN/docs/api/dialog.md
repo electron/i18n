@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+显示用于选择多个文件和目录的对话框的示例:
 
 ```javascript
 const { dialog } = require('electron')
@@ -35,12 +35,12 @@ console.log(dialog)
     * `openDirectory` - 允许选择文件夹
     * ` multiSelections `-允许多选。
     * ` showHiddenFiles `-显示对话框中的隐藏文件。
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
-    * `promptToCreate` _Windows_ - Prompt for creation if the file path entered in the dialog does not exist. 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。
+    * `createDirectory` _macOS_ -允许你通过对话框的形式创建新的目录。
+    * ` promptToCreate ` _Windows_-如果输入的文件路径在对话框中不存在, 则提示创建。 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
-  * `securityScopedBookmarks` Boolean (optional) _masOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+    * ` treatPackageAsDirectory `_ macOS _-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
+  * `message` String (可选) _ macOS _-显示在输入框上方的消息。
+  * `securityScopedBookmarks` Boolean (可选) _masOS_ _mas_ - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
 Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
 
@@ -61,7 +61,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 
 ` extensions ` 数组应为没有通配符或点的扩展名 (例如, ` "png" ` 是正确的, 而 ` ".png" ` 和 ` *. png "` 就是错误的)。 若要显示所有文件, 请使用 ` "*" ` 通配符 (不支持其他通配符)。
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+** 注意: **在 Windows 和 Linux 上, 打开对话框不能同时是文件选择器和目录选择器, 因此如果在这些平台上将 ` properties ` 设置为`["openFile"、"openDirectory"]`, 则将显示为目录选择器。
 
 ```js
 dialog.showOpenDialogSync(mainWindow, {
@@ -82,12 +82,12 @@ dialog.showOpenDialogSync(mainWindow, {
     * `openDirectory` - 允许选择文件夹
     * ` multiSelections `-允许多选。
     * ` showHiddenFiles `-显示对话框中的隐藏文件。
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
-    * `promptToCreate` _Windows_ - Prompt for creation if the file path entered in the dialog does not exist. 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。
+    * `createDirectory` _macOS_ -允许你通过对话框的形式创建新的目录。
+    * ` promptToCreate ` _Windows_-如果输入的文件路径在对话框中不存在, 则提示创建。 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
-  * `securityScopedBookmarks` Boolean (optional) _masOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+    * ` treatPackageAsDirectory `_ macOS _-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
+  * `message` String (可选) _ macOS _-显示在输入框上方的消息。
+  * `securityScopedBookmarks` Boolean (可选) _masOS_ _mas_ - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 * `callback` Function (可选)
 
 Returns `Promise<Object>` - Resolve wih an object containing the following:
@@ -113,7 +113,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 
 ` extensions ` 数组应为没有通配符或点的扩展名 (例如, ` "png" ` 是正确的, 而 ` ".png" ` 和 ` *. png "` 就是错误的)。 若要显示所有文件, 请使用 ` "*" ` 通配符 (不支持其他通配符)。
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+** 注意: **在 Windows 和 Linux 上, 打开对话框不能同时是文件选择器和目录选择器, 因此如果在这些平台上将 ` properties ` 设置为`["openFile"、"openDirectory"]`, 则将显示为目录选择器。
 
 ```js
 dialog.showOpenDialog(mainWindow, {
@@ -134,9 +134,9 @@ dialog.showOpenDialog(mainWindow, {
   * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
-  * `message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
+  * `message` String (可选) _ macOS _-显示在对话框上的消息。
+  * ` nameFieldLabel ` String (可选) _ macOS _ - 文件名输入框对应的自定义标签名。
+  * ` showsTagField ` Boolean (可选) _ macOS _-显示标记输入框, 默认为 ` true `。
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. 当该选项被启用且文件尚不存在时，那么在选定的路径下将创建一个空文件。
 
 Returns `String | undefined`, the path of the file chosen by the user; if the dialog is cancelled it returns `undefined`.
@@ -153,15 +153,15 @@ Returns `String | undefined`, the path of the file chosen by the user; if the di
   * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
-  * `message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
+  * `message` String (可选) _ macOS _-显示在对话框上的消息。
+  * ` nameFieldLabel ` String (可选) _ macOS _ - 文件名输入框对应的自定义标签名。
+  * ` showsTagField ` Boolean (可选) _ macOS _-显示标记输入框, 默认为 ` true `。
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. 当该选项被启用且文件尚不存在时，那么在选定的路径下将创建一个空文件。
 
 Returns `Promise<Object>` - Resolve with an object containing the following:
   * `canceled` Boolean - whether or not the dialog was canceled.
   * `filePath` String (optional) If the dialog is canceled this will be `undefined`.
-  * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+  * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` 必须启用才有效。
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
@@ -182,7 +182,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` ([NativeImage](native-image.md) | String) (可选)
-  * `cancelId` Integer (可选) - 用于取消对话框的按钮的索引，例如 `Esc` 键. By default this is assigned to the first button with "cancel" or "no" as the label. 默认情况下，它被分配给第一个按钮，文字为 “cancel” 或 “no”。 If no such labeled buttons exist and this option is not set, `0` will be used as the return value or callback response.
+  * `cancelId` Integer (可选) - 用于取消对话框的按钮的索引，例如 `Esc` 键. By default this is assigned to the first button with "cancel" or "no" as the label. 默认情况下，它被分配给第一个按钮，文字为 “cancel” 或 “no”。 如果不存在这样的标记按钮，并且该选项没有设置，那么 `0` 将用作返回值或回调响应。
   * `noLink` Boolean (可选) - 在Windows上，应用将尝试找出哪个 `buttons` 是常用按钮(例如 "Cancel" 或 "Yes")，然后在对话框中以链接命令的方式展现其它的按钮。 这可以使对话框以现代Windows应用程序的风格显示。 如果你不喜欢这个行为, 你可以设置 `noLink` 为 `true`.
   * `normalizeAccessKeys` Boolean (可选) -规范跨平台的键盘访问键。 默认值为 `false`. 用 `&` 连接和转换键盘访问键, 以便它们在每个平台上正常工作.`&` 字符会在macOS上被删除，在 Linux 上会被转换为 `_`，在 Windows 上保持不变。 例如 `Vie&w` 的按钮标签在 Linux 上会被转换为 `Vie_w`，在 macOS 转换为 `View` 并且可以被选择。而Windows和Linux上表示 `Alt-W` 。
 
@@ -205,7 +205,7 @@ Shows a message box, it will block the process until the message box is closed. 
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` [NativeImage](native-image.md) (可选)
-  * `cancelId` Integer (可选) - 用于取消对话框的按钮的索引，例如 `Esc` 键. By default this is assigned to the first button with "cancel" or "no" as the label. 默认情况下，它被分配给第一个按钮，文字为 “cancel” 或 “no”。 If no such labeled buttons exist and this option is not set, `0` will be used as the return value or callback response.
+  * `cancelId` Integer (可选) - 用于取消对话框的按钮的索引，例如 `Esc` 键. By default this is assigned to the first button with "cancel" or "no" as the label. 默认情况下，它被分配给第一个按钮，文字为 “cancel” 或 “no”。 如果不存在这样的标记按钮，并且该选项没有设置，那么 `0` 将用作返回值或回调响应。
   * `noLink` Boolean (可选) - 在Windows上，应用将尝试找出哪个 `buttons` 是常用按钮(例如 "Cancel" 或 "Yes")，然后在对话框中以链接命令的方式展现其它的按钮。 这可以使对话框以现代Windows应用程序的风格显示。 如果你不喜欢这个行为, 你可以设置 `noLink` 为 `true`.
   * `normalizeAccessKeys` Boolean (可选) -规范跨平台的键盘访问键。 默认值为 `false`. 用 `&` 连接和转换键盘访问键, 以便它们在每个平台上正常工作.`&` 字符会在macOS上被删除，在 Linux 上会被转换为 `_`，在 Windows 上保持不变。 例如 `Vie&w` 的按钮标签在 Linux 上会被转换为 `Vie_w`，在 macOS 转换为 `View` 并且可以被选择。而Windows和Linux上表示 `Alt-W` 。
 
