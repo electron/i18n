@@ -4,9 +4,9 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `TouchBarButtonbaru(pilihan)`*Eksperimental*
+### `new TouchBarButton(options)` _Experimental_
 
-* `pilihan` Benda 
+* `options` Object
   * `label` String (opsional) - Teks tombol.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (opsional) - Tombol warna latar dalam format hex, i.e `#ABCDEF`.
@@ -16,7 +16,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
-### Contoh properti
+### Instance Properties
 
 Properti berikut tersedia pada contoh `TouchBarButton`:
 
@@ -26,12 +26,12 @@ A `String` representing the description of the button to be read by a screen rea
 
 #### `touchBarButton.label`
 
-A `String` mewakili teks tombol saat ini. Mengubah nilai ini segera memperbarui tombolnya di bilah sentuh.
+A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.backgroundColor`
 
-Kode `String` hex mewakili warna latar belakang tombol saat ini. Mengubah nilai ini segera diperbarui tombol di panel sentuh.
+A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.icon`
 
-A `NativeImage` mewakili ikon tombol saat ini. Mengubah nilai ini segera memperbarui tombolnya di bilah sentuh.
+A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
