@@ -6,7 +6,7 @@
 
 The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
 
-**주의:** 단축키는 전역입니다; 앱이 키보드 포커스를 받고 있지 않을 때도 작동합니다. 앱 모듈의 `ready` 이벤트가 발생하기 전에 이 모듈을 사용하면 안 됩니다.
+**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. 앱 모듈의 `ready` 이벤트가 발생하기 전에 이 모듈을 사용하면 안 됩니다.
 
 ```javascript
 const { app, globalShortcut } = require('electron')
@@ -34,7 +34,7 @@ app.on('will-quit', () => {
 })
 ```
 
-## 메서드
+## 메소드
 
 `globalShortcut` 모듈은 다음 매서드를 가지고 있습니다:
 
@@ -45,7 +45,7 @@ app.on('will-quit', () => {
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
-` accelerator`의 전역 단축키를 등록합니다. `callback`은 등록된 단축키가 사용자에 의해서 눌러졌을 때 호출합니다.
+Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
 accelerator가 다른 애플리케이션에 의해 이미 등록되어 있으면, 이 호출은 조용히 실패할 것입니다. 이 동작은 애플리케이션끼리의 전역 키보드 단축키 충돌을 막기 위해 운영 체제가 관리합니다.
 
