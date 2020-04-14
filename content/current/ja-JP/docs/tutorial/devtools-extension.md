@@ -20,7 +20,7 @@ Electron に拡張をロードするには、Chrome ブラウザでそれをダ�
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * macOS では `~/Library/Application Support/Google/Chrome/Default/Extensions` になります。
-1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+1. 拡張の場所を `BrowserWindow.addDevToolsExtension` API に渡します。React Developer Tools の場合は、以下のようになります。
    ```javascript
    const path = require('path')
    const os = require('os')
@@ -30,7 +30,7 @@ Electron に拡張をロードするには、Chrome ブラウザでそれをダ�
    )
    ```
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**注:** `BrowserWindow.addDevToolsExtension` API は、app モジュールの ready イベントが発生する前に呼び出すことはできません。
 
 拡張機能は記憶されるため、この API は拡張に付き一度しか呼び出す必要はありません。 既にロードされている拡張機能を追加しようとした場合、このメソッドは何も返さず、代わりにコンソールに警告を出力します。
 
