@@ -8,6 +8,7 @@ A frameless window is a window that has no [chrome](https://developer.mozilla.or
 
 테두리 없는 창을 만들기 위해서는 [BrowserWindow](browser-window.md)의 `옵션` 중에서 `frame`을 `false`로 설정 해야 합니다.
 
+
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ width: 800, height: 600, frame: false })
