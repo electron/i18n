@@ -2,7 +2,7 @@
 
 > Pltfrom@shliilh. com. autmatic. remote. Google play
 
-shliilhpltfrom
+Process: [Renderer](../glossary.md#renderer-process)
 
 platform@shliilh.com
 
@@ -17,9 +17,8 @@ win.loadURL('https://github.com')
 **Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Note:** The remote module can be disabled for security reasons in the following contexts:
-
-* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
-* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
+- [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
+- [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
 
 ## Remote Objects
 
@@ -149,8 +148,8 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
 
-## Properties
+## الخصائص
 
-### `remote.process` *Readonly*
+### `remote.process` _Readonly_
 
-A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
