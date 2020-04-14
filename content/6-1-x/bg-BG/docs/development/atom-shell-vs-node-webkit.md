@@ -1,31 +1,31 @@
-# Technical Differences Between Electron and NW.js (formerly node-webkit)
+# Технически разлики между Electron и NW.js (по-рано node-webkit)
 
-__Note: Electron was previously named Atom Shell.__
+__Бележка: Преди Electron се наричаше "Atom Shell".5256783105227699__
 
-Like NW.js, Electron provides a platform to write desktop applications with JavaScript and HTML and has Node integration to grant access to the low level system from web pages.
+Подобно на NW.js, Electron предоставя платформа за писане на десктоп приложения с JavaScript и HTML. Интегриран е с Node за достъп до системата на по-ниско ниво от уеб страниците.
 
-But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
+Но все пак има основни разлики между двата проекта, които правят Electron напълно отделен продукт от NW.js:
 
-__1. Entry of Application__
+__1. Вход в приложението__
 
-In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+В NW.js входът в едно приложение е уеб страница или JS скрипт. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
 
-In Electron, the entry point is a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+5256783105227699 5256783105227699 5256783105227699
 
 Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
 
 __2. Build System__
 
-In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
+</0023119042275829058 0023119042275829058 5256783105227699
 
 __3. Node Integration__
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
+5256783105227699 5256783105227699
 
 __4. Multi-context__
 
 If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+5256783105227699
 
 5256783105227699
