@@ -4,9 +4,9 @@
 
 ## 主處理序及畫面轉譯處理序
 
-在 Electron 中，透過 `package.json` 中的 `main` 指令執行的程序稱作**主處理序**。 The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+In Electron, the process that runs `package.json`'s `main` script is called __the main process__. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
 
-由於 Electron 使用 Chromium 來顯示網頁，因此 Chromium 的多程序架構也可以被使用。 Electron 中每個網頁都執行在各自的程序中，稱作**渲染器程序**。
+由於 Electron 使用 Chromium 來顯示網頁，因此 Chromium 的多程序架構也可以被使用。 Each web page in Electron runs in its own process, which is called __the renderer process__.
 
 在一般的瀏覽器中，網頁通常是在沙箱環境中執行，不能存取本機資源。 然後，Electron 的使用者，能在網頁中使用 Node.js API，與作業系統進行較低階的互動。
 
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
+The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
