@@ -2,7 +2,7 @@
 
 > 控制来自于远程资源的文件下载。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 `DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
 
@@ -35,7 +35,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### 事件
+### 实例事件
 
 #### 事件名: 'updated'
 
@@ -58,11 +58,11 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 * `event` Event
 * `state` String - 可以是 `completed`, `cancelled` 或 `interrupted`.
 
-当下载文件已经到本地时发出。这包括一个完整的下载，取消下载（`downloadItem.cancel()`）和中断不可恢复的下载。
+Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
 状态可以是以下之一：
 
-* `completed` - 下载成功完成 
+* `completed` - 下载成功完成
 * `cancelled` - 下载已被取消
 * `interrupted` - 下载已经中断，无法恢复
 
@@ -80,7 +80,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.getSavePath()`
 
-返回 `String` - 下载项目的保存路径。这将是通过`downloadItem.setSavePath(path)`设置的路径，或从显示的保存对话框中选择的路径。
+Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
 
 **[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
@@ -88,7 +88,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 * `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+This API allows the user to set custom options for the save dialog that opens for the download item by default. 该API仅能在`will-download` 方法的回调中使用。
 
 #### `downloadItem.getSaveDialogOptions()`
 
@@ -106,7 +106,7 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 恢复已暂停的下载。
 
-**笔记：** 为了支持断点下载，必须要从支持范围内请求下载，并且提供`Last-Modified` 和 `ETag`的值。 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
 
 #### `downloadItem.canResume()`
 
@@ -126,17 +126,17 @@ Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.hasUserGesture()`
 
-返回`Boolean` - 下载是否具有用户手势。
+返回`Boolean`  - 下载是否具有用户手势。
 
 #### `downloadItem.getFilename()`
 
 返回`String` - 下载项目的文件名。
 
-**笔记：**文件名与本地磁盘中保存的实际文件名不尽相同。 如果用户在提示的下载保存对话框中更改文件名称，保存的文件的实际名称将会不同。
+**Note:** The file name is not always the same as the actual one saved in local disk. 如果用户在提示的下载保存对话框中更改文件名称，保存的文件的实际名称将会不同。
 
 #### `downloadItem.getTotalBytes()`
 
-返回`Integer` - 下载项目的总大小（以字节为单位）。
+返回`Integer`  - 下载项目的总大小（以字节为单位）。
 
 如果大小未知，则返回0。
 
@@ -146,13 +146,13 @@ Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getContentDisposition()`
 
-返回`String` - 响应头中的Content-Disposition字段。
+返回`String`  - 响应头中的Content-Disposition字段。
 
 #### `downloadItem.getState()`
 
-返回 `String` - 表示当前状态。可能是 `progressing`, `completed`, `cancelled` 或者 `interrupted`。
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**笔记：** 以下方法特别有助于在会话重新启动时恢复取消的项目。
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
@@ -168,7 +168,7 @@ Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.getStartTime()`
 
-返回`Double` - 自下载开始时的UNIX纪元以来的秒数。
+返回`Double`  - 自下载开始时的UNIX纪元以来的秒数。
 
 ### 实例属性
 
