@@ -1,4 +1,4 @@
-# Model coding
+# Gaya coding
 
 Berikut adalah pedoman gaya untuk penulisan coding di Electron.
 
