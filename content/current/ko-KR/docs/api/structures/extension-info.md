@@ -1,4 +1,4 @@
 # ExtensionInfo 객체
 
-* PrinterInfo Object
+* `name` String
 * `version` String
