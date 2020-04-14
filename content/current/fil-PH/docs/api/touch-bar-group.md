@@ -4,7 +4,7 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `bagong TouchBarGroup(options)` *Pangeksperimento*
+### `new TouchBarGroup(options)` _Experimental_
 
-* `pagpipilian` Bagay 
+* `options` Object
   * `mga aytem` [TouchBar](touch-bar.md) - mga item naiipakita bilang isang grupo.
