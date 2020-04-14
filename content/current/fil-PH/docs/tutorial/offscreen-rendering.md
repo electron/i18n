@@ -4,7 +4,7 @@ Ang offscreen rendering ay nagpapahintulot sa iyo na kumuha ng nilalaman ng isan
 
 May dalawang mode ng rendering na pwedeng magamit at ang maruming lugar lamang ay nakapasa sa `'pintura'`event upang maging mas mahusay. Ang rendering ay maaring tumigil, magpatuloy at maaring magtakda ng frame rate. Ang tinukoy na frame rate ay isang nangungunang limit value, kapag mayroong walang nangyayari sa isang webpage, walang mga frame ang nabuo. The maximum frame rate is 60, because above that there is no benefit, only performance loss.
 
-**Note:** Ang offscreen window ay laging nilikha bilang isang[Frameless Window](../api/frameless-window.md).
+**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
 ## Rendering Modes
 
@@ -20,7 +20,7 @@ Upang paganahin ang mode na ito ng GPU acceleration ay dapat hindi paganahin sa 
 
 ## Paggamit
 
-```javascript
+``` javascript
 const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
