@@ -105,12 +105,12 @@ The `-x` flag should be used with any required module that is already exposed in
 
 Currently the `require` function provided in the preload scope exposes the following modules:
 
-- `electron` 
+- `electron`
   - `crashReporter`
   - `desktopCapturer`
   - `ipcRenderer`
   - `nativeImage`
-  - `remote`
+  - `منصة_شليلة`
   - `webFrame`
 - `events`
 - `timers`
