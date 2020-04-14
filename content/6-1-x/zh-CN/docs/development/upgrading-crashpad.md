@@ -1,4 +1,4 @@
-# Upgrading Crashpad
+# 更新崩溃报告（Crashpad）
 
 1. Get the version of crashpad that we're going to use.
   - `libcc/src/third_party/crashpad/README.chromium` will have a line `Revision:` with a checksum
