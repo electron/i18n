@@ -1,6 +1,6 @@
 # पेप्पर फ़्लैश प्लगइन का इस्तेमाल
 
-इलेक्ट्रॉन पेप्पर फ़्लैश प्लगइन का समर्थन करता है | इलेक्ट्रॉन में पेप्पर फ़्लैश प्लगइन इस्तेमाल करने के लिए, आपको पेप्पर फ़्लैश प्लगइन की लोकेशन मैन्युअली निर्दिष्ट करनी होगी और फिर उसे अपनी एप्लीकेशन में शुरू करना होगा |
+Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
 ## फ़्लैश प्लगइन की एक कॉपी तैयार करें
 
@@ -61,8 +61,8 @@ app.whenReady().then(() => {
 
 डेवटूल्स के कंसोल में `नेविगेटर.प्लगइनस` को जाँच कर आप यह पता लगा सकते हैं कि क्या पेप्पर फ़्लैश प्लगइन लोड हुआ था (हालँकि आप यह नहीं पता लगा सकते कि प्लगइन का पथ सही है या नहीं) |
 
-पेप्पर फ़्लैश प्लगइन की बनावट इलेक्ट्रॉन की बनावट के अनुरूप होनी चाहिये | विंडोज पर, एक जो बेहद आम त्रुटी है, वो यह कि इलेक्ट्रॉन के 64बिट संस्करण के साथ फ़्लैश प्लगइन के 32बिट संस्करण का इस्तेमाल करना |
+The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
-विंडोज पर `--ppapi-flash-path` को पास किये गये पथ को `` का इस्तेमाल करना ज़रूरी है, पोसआईएक्स-स्टाइल के पथ इस्तेमाल करने से बात नहीं बनेगी |
+On Windows the path passed to `--ppapi-flash-path` has to use `\` as path delimiter, using POSIX-style paths will not work.
 
 आरटीएमपी का इस्तेमाल कर मीडिया स्ट्रीम करने जैसे कुछ कामों के लिए, यह ज़रूरी है कि प्लेयर की `.एसडब्यूऍफ़` फाइल्स को व्यापक अनुमतियाँ प्रदान की जायें | इस को पूरा करने का एक तरीका है, [एनडब्यू-फ़्लैश-ट्रस्ट](https://github.com/szwacz/nw-flash-trust) का इस्तेमाल करना।
