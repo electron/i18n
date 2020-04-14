@@ -8,6 +8,7 @@ Ein rahmenloses Fenster ist ein Fenster ohne die üblichen [Bestandteile](https:
 
 Um ein rahmenloses Fenster zu erstellen musst du `frame` in den [BrowserWindow](browser-window.md) `Optionen` auf `false` setzen:
 
+
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ width: 800, height: 600, frame: false })
