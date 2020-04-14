@@ -168,7 +168,7 @@ clipboard:
 fiddle_launch_button:
   launch: Spustit
   launch_in_fiddle: Spustit ve Fiddle
-or: or
+or: nebo
 pages:
   '/':
     title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
