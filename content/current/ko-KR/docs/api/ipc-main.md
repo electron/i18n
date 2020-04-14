@@ -12,7 +12,7 @@ main 프로세스에서 renderer 프로세스로 메시지를 보내는 것도 �
 
 * 메시지를 보낼 때 이벤트 이름은 `channel`입니다.
 * 동기 메시지에 회신 하려면 `event.returnValue`를 설정 해야 합니다.
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 renderer와 main 프로세스간의 메시지 발송과 처리 예:
 
@@ -48,7 +48,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` 함수 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,16 +57,16 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` 함수 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
-이벤트에 일회성 `listener` 함수를 추가합니다. 이 `listener` 는 다음 메시지가 `channel`에 보내지면 한번 동작하고 이후에 제거됩니다.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` 함수 
+* `listener` Function
   * `...args` any[]
 
 `channel` 의 listener 배열에서 지정한 `listener`를 제거합니다.
@@ -80,7 +80,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` 함수<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -107,7 +107,7 @@ The `event` that is passed as the first argument to the handler is the same as t
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` 함수<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
