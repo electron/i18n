@@ -24,12 +24,12 @@
     "crowdin-glossary": "^1.2.0",
     "del": "^5.0.0",
     "dotenv-safe": "^8.1.0",
-    "electron-docs": "^3.0.2",
     "extract-zip": "^2.0.0",
     "get-crowdin-file-ids": "^1.1.1",
     "github-slugger": "^1.2.0",
     "globals": "^13.0.0",
     "got": "^10.2.1",
+    "handlebars": "^4.7.4",
     "href-type": "^1.0.1",
     "hubdown": "^2.3.2",
     "husky": "^4.0.1",
@@ -82,5 +82,10 @@
     "hooks": {
       "pre-push": "check-for-leaks"
     }
-  }
+  },
+  "supportedVersions": [
+    "6-1-x",
+    "7-2-x",
+    "9-x-y"
+  ]
 }

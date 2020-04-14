@@ -17,7 +17,7 @@ import {
 } from '../lib/parse-electron-glossary'
 const getIds = require('get-crowdin-file-ids')
 
-const contentDir = path.join(__dirname, '../content')
+const contentDir = path.join(__dirname, '../content/current')
 
 let ids: Record<string, string> = {}
 
@@ -92,7 +92,7 @@ async function main() {
   }, {} as Record<string, IParseFile>)
 
   const websiteStringsByLocale = Object.keys(locales).reduce((acc, locale) => {
-    acc[locale] = require(`../content/${locale}/website/locale.yml`)
+    acc[locale] = require(`../content/current/${locale}/website/locale.yml`)
     return acc
   }, {} as Record<string, string>)
 

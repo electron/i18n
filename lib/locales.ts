@@ -1,7 +1,7 @@
 import * as path from 'path'
 import * as fs from 'fs'
 import * as allStats from '../stats.json'
-const contentDir = path.join(__dirname, '../content')
+const contentDir = path.join(__dirname, '../content/current')
 
 const {
   getLanguageName,

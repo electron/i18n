@@ -16,7 +16,7 @@ export async function parseElectronGlossary(
 
   const sourceFile = path.join(
     __dirname,
-    `../content/${locale}/docs/glossary.md`
+    `../content/current/${locale}/docs/glossary.md`
   )
   const md = fs.readFileSync(sourceFile, 'utf8')
   const { content: html } = await hubdown(md)

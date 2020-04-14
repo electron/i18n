@@ -12,8 +12,19 @@ import * as path from 'path'
 import { execSync } from 'child_process'
 import { Octokit } from '@octokit/rest'
 import { roggy, IResponse as IRoggyResponse } from 'roggy'
-const electronDocs = require('electron-docs')
-const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
+import { generateCrowdinConfig } from '../lib/generate-crowdin-config'
+import * as packageJson from '../package.json'
+const currentEnglishBasePath = path.join(
+  __dirname,
+  '..',
+  'content',
+  'current',
+  'en-US'
+)
+const englishBasePath = (version: string) =>
+  path.join(__dirname, '..', 'content', version, 'en-US')
+
+const NUM_SUPPORTED_VERSIONS = 4
 
 const github = new Octokit({
   auth: process.env.GH_TOKEN ?? '',
@@ -24,12 +35,6 @@ interface IResponse {
   assets: Octokit.ReposGetReleaseByTagResponseAssetsItem[]
 }
 
-interface IElectronDocsResponse {
-  slug: string
-  filename: string
-  markdown_content: string
-}
-
 let release: IResponse
 
 main().catch((err: Error) => {
@@ -38,12 +43,16 @@ main().catch((err: Error) => {
 })
 
 async function main() {
-  await del(englishBasepath)
   await fetchRelease()
+  await getSupportedBranches(release.tag_name)
+  await deleteUnsupportedBranches(packageJson.supportedVersions)
+  await deleteContent(packageJson.supportedVersions)
   await fetchAPIDocsFromLatestStableRelease()
+  await fetchAPIDocsFromSupportedVersions()
   await fetchApiData()
   await getMasterBranchCommit()
   await fetchTutorialsFromMasterBranch()
+  await fetchTutorialsFromSupportedBranch()
   await fetchWebsiteContent()
   await fetchWebsiteBlogPosts()
 }
@@ -64,15 +73,90 @@ async function fetchRelease() {
   release = res.data
 }
 
+async function getSupportedBranches(current: string) {
+  console.log(`Fetching latest ${NUM_SUPPORTED_VERSIONS} supported versions`)
+  const currentVersion = current.slice(1).replace(/\.[0-9].[0-9]/, '-x-y')
+
+  const resp = await github.repos.listBranches({
+    owner: 'electron',
+    repo: 'electron',
+  })
+
+  const branches = resp.data
+    .filter((branch) => {
+      return (
+        branch.protected &&
+        branch.name.match(/(\d)+-(?:(?:[0-9]+-x$)|(?:x+-y$))/)
+      )
+    })
+    .map((b) => b.name)
+
+  const filtered: Record<string, string> = {}
+  branches.sort().forEach((branch) => (filtered[branch.charAt(0)] = branch))
+  const filteredBranches = Object.values(filtered)
+    .sort()
+    .slice(-NUM_SUPPORTED_VERSIONS)
+    .filter((arr) => arr !== currentVersion && arr !== 'current')
+
+  writeToPackageJSON('supportedVersions', filteredBranches)
+  console.log('Successfully written `supportedVersions` into package.json')
+}
+
+async function deleteUnsupportedBranches(versions: Array<string>) {
+  const folders = await fs.promises.readdir('content')
+  folders.pop()
+  if (folders.length !== versions.length) {
+    versions.push('current')
+    const difference = folders.filter((x) => !versions.includes(x)).toString()
+    del(path.join(__dirname, '..', 'content', difference))
+    await generateCrowdinConfig(versions)
+    versions.pop()
+  }
+}
+
+async function deleteContent(branches: Array<string>) {
+  console.log('Deleting content:')
+
+  console.log('  - Deleting current content')
+  await del(currentEnglishBasePath)
+  for (const branch of branches) {
+    console.log(`  - Deleting content for ${branch}`)
+    await del(englishBasePath(branch))
+  }
+}
+
 async function fetchAPIDocsFromLatestStableRelease() {
   console.log(`Fetching API docs from electron/electron#${release.tag_name}`)
 
   writeToPackageJSON('electronLatestStableTag', release.tag_name)
-  const docs = await electronDocs(release.tag_name)
+  const docs = await roggy(release.tag_name, {
+    owner: 'electron',
+    repository: 'electron',
+  })
 
   docs
-    .filter((doc: IElectronDocsResponse) => doc.filename.startsWith('api/'))
-    .forEach(writeDoc)
+    .filter((doc) => doc.filename.startsWith('api/'))
+    .forEach((doc) => writeDoc(doc))
+
+  return Promise.resolve()
+}
+
+async function fetchAPIDocsFromSupportedVersions() {
+  console.log('Fetching API docs from supported branches')
+
+  for (const version of packageJson.supportedVersions) {
+    console.log(`  - from electron/electron#${version}`)
+    const docs = await roggy(version, {
+      owner: 'electron',
+      repository: 'electron',
+    })
+
+    docs
+      .filter((doc) => doc.filename.startsWith('api/'))
+      .forEach((doc) => {
+        writeDoc(doc, version)
+      })
+  }
 
   return Promise.resolve()
 }
@@ -93,12 +177,15 @@ async function fetchApiData() {
   }
 
   const apis = await got(asset.browser_download_url).json()
-  const filename = path.join(englishBasepath, 'electron-api.json')
+  const filename = path.join(currentEnglishBasePath, 'electron-api.json')
   mkdir(path.dirname(filename))
   console.log(
-    `Writing ${path.relative(englishBasepath, filename)} (without changes)`
+    `Writing ${path.relative(
+      currentEnglishBasePath,
+      filename
+    )} (without changes)`
   )
-  fs.writeFileSync(filename, JSON.stringify(apis, null, 2))
+  await fs.promises.writeFile(filename, JSON.stringify(apis, null, 2))
   return Promise.resolve(apis)
 }
 
@@ -116,13 +203,38 @@ async function getMasterBranchCommit() {
 async function fetchTutorialsFromMasterBranch() {
   console.log(`Fetching tutorial docs from electron/electron#master`)
 
-  const docs = await electronDocs('master')
+  const docs = await roggy('master', {
+    owner: 'electron',
+    repository: 'electron',
+  })
 
   docs
-    .filter((doc: IElectronDocsResponse) => !doc.filename.startsWith('api/'))
-    .filter((doc: IElectronDocsResponse) => !doc.filename.includes('images/'))
-    .filter((doc: IElectronDocsResponse) => !doc.filename.includes('fiddles/'))
-    .forEach(writeDoc)
+    .filter((doc) => !doc.filename.startsWith('api/'))
+    .filter((doc) => !doc.filename.includes('images/'))
+    .filter((doc) => !doc.filename.includes('fiddles/'))
+    .forEach((doc) => writeDoc(doc))
+
+  return Promise.resolve()
+}
+
+async function fetchTutorialsFromSupportedBranch() {
+  console.log(`Feching tutorial docs from supported branches`)
+
+  for (const version of packageJson.supportedVersions) {
+    console.log(`  - from electron/electron#${version}`)
+    const docs = await roggy(version, {
+      owner: 'electron',
+      repository: 'electron',
+    })
+
+    docs
+      .filter((doc) => !doc.filename.startsWith('api/'))
+      .filter((doc) => !doc.filename.includes('images/'))
+      .filter((doc) => !doc.filename.includes('fiddles/'))
+      .forEach((doc) => {
+        writeDoc(doc, version)
+      })
+  }
 
   return Promise.resolve()
 }
@@ -131,13 +243,13 @@ async function fetchWebsiteContent() {
   console.log(`Fetching locale.yml from electron/electronjs.org#master`)
 
   const url =
-    'https://rawgit.com/electron/electronjs.org/master/data/locale.yml'
+    'https://cdn.jsdelivr.net/gh/electron/electronjs.org@master/data/locale.yml'
   const response = await got(url)
   const content = response.body
-  const websiteFile = path.join(englishBasepath, 'website', `locale.yml`)
+  const websiteFile = path.join(currentEnglishBasePath, 'website', `locale.yml`)
   mkdir(path.dirname(websiteFile))
-  console.log(`Writing ${path.relative(englishBasepath, websiteFile)}`)
-  fs.writeFileSync(websiteFile, content)
+  console.log(`Writing ${path.relative(currentEnglishBasePath, websiteFile)}`)
+  await fs.promises.writeFile(websiteFile, content)
   return Promise.resolve()
 }
 
@@ -155,20 +267,26 @@ async function fetchWebsiteBlogPosts() {
 
 // Utility functions
 
-function writeDoc(doc: IElectronDocsResponse) {
-  const filename = path.join(englishBasepath, 'docs', doc.filename)
+function writeDoc(doc: IRoggyResponse, version?: string) {
+  let basepath = currentEnglishBasePath
+  if (version) basepath = englishBasePath(version)
+  const filename = path.join(basepath, 'docs', doc.filename)
   mkdir(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
   // console.log('   ' + path.relative(englishBasepath, filename))
 }
 
 function writeBlog(doc: IRoggyResponse) {
-  const filename = path.join(englishBasepath, 'website/blog', doc.filename)
+  const filename = path.join(
+    currentEnglishBasePath,
+    'website/blog',
+    doc.filename
+  )
   mkdir(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
 }
 
-function writeToPackageJSON(key: string, value: string) {
+function writeToPackageJSON(key: string, value: string | string[]) {
   const pkg = require('../package.json')
   pkg[key] = value
   fs.writeFileSync(
