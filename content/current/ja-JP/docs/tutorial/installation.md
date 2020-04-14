@@ -1,6 +1,6 @@
 # インストール
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
+Electron のビルド済みバイナリをインストールするには、[`npm`](https://docs.npmjs.com) を使用します。 アプリの開発用依存関係として Electron をインストールする方法を推奨します。
 
 ```sh
 npm install electron --save-dev
@@ -43,7 +43,7 @@ HTTP プロキシを使用する必要がある場合は、`ELECTRON_GET_USE_PRO
 もし Github にアクセス出来ないかカスタムビルドを提供する必要がある場合、他に提供されているミラーや既存のキャッシュからダウンロードできます。
 
 #### ミラー
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The URL used by `@electron/get` is composed as follows:
+基底URL、Electron のバイナリを見つけるためのパス、バイナリのファイル名は、環境変数を用いて上書きできます。 `@electron/get` で使われる URL は以下の組み合わせです。
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -75,7 +75,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 また、`electron_config_cache` 環境変数を設けることでローカルキャッシュの場所を上書きできます。
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+キャッシュには、バージョンの公式の zip ファイルと共に、テキストファイルとして格納されているチェックサムが含まれています。 典型的なキャッシュは、次のようになっています。
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -105,7 +105,7 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 これは時々不要になることがあります。CI 環境で、他のコンポーネントをテストするときなどです。
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+すべての npm 依存関係をインストールするときにバイナリがダウンロードされないようにするには、環境変数 `ELECTRON_SKIP_BINARY_DOWNLOAD` を設定します。 以下はその例です。
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
