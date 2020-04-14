@@ -11,7 +11,7 @@
 * `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
+  * `сесия` Обект (по избор) - екземплярът на [`сесията`](session.md), с който е свързана заявката.
   * `сесия` Обект (по избор) - екземплярът на [`сесията`](session.md), с който е свързана заявката. По подразбиране е празен низ. Опцията `сесия` преобладава на `дял`. Следователно ако изрично е указано `сесия`, `дял` се игнорира.
   * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
@@ -42,16 +42,16 @@ const request = net.request({
 
 * `отговор` IncomingMessage - обект, представляващ HTTP отговор съобщението.
 
-#### Събитие: 'login'
+#### Събитие: "вход"
 
 Връща:
 
 * `authInfo` Object
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
+  * `isProxy` Булев
+  * `схема` Низ
+  * `домакин` Низ
+  * `порт` Цяло число
+  * `царство` Низ
 * `callback` Function
   * `потребителско име` Низ
   * `парола` Низ
