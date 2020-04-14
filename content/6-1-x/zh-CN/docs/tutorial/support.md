@@ -8,13 +8,13 @@ If you have a security concern, please see the [security document](../../SECURIT
 - [`electron`](https://discuss.atom.io/c/electron) 各种 Atom 论坛
 - `#atom-shell` Freenode上的频道
 - [`Electron`](https://atom-slack.herokuapp.com) channel on Atom's Slack
-- [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-- [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-- [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-- [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-- [`electron-pl`](https://electronpl.github.io) *(Poland)*
+- [`electron-ru`](https://telegram.me/electron_ru) *(俄语版)*
+- [`electron-br`](https://electron-br.slack.com) *(巴西葡语版)*
+- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韩语版)*
+- [`electron-jp`](https://electron-jp.slack.com) *(日语版)*
+- [`electron-tr`](https://electron-tr.herokuapp.com) *(土耳其语版)*
+- [`electron-id`](https://electron-id.slack.com) *(印尼语版)*
+- [`electron-pl`](https://electronpl.github.io) *(波兰语版)*
 
 If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
 
