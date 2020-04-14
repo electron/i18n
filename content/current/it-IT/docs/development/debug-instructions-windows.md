@@ -2,15 +2,15 @@
 
 Se si verificano arresti anomali o problemi in Electron che si ritiene non siano causati dall'applicazione JavaScript, ma invece da Electron stesso, il debug può essere un po 'complicato, specialmente per gli sviluppatori non utilizzati per il debug di nativi / C ++. Comunque, usando Visual Studio, GitHub è ospitato dal Server Electron Symbol, e il codice sorgente di Electron, puoi abilitare il debug passo dopo passo con i breakpoint interni al codice sorgente di Electron.
 
-**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+**Vedi anche**: C'è una ricchezza di informazioni sul debug di Chromium, gran parte delle quali si applica anche ad Electron, sul sito degli sviluppatori di Chromium: [Debug Chromium su Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
 ## Requisiti
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). Mentre puoi allegare e fare il debug di Electron come puoi scaricarlo direttamente, potresti trovare che è pesantemente ottimizzato, rendendo il debug sostanzialmente più difficile: Il debugger non potrà mostrarti il contenuto di tutte le variabili ed il percorso di esecuzione può sembrare strano per la messa in linea, le chiamate di coda, ed altre ottimizzazioni del compilatore.
+* **Una build di debug di Electron**: Il modo più semplice è di solito costruirlo da se, usando strumenti e prerequisiti elencati nelle [istruzioni di costruzione per Windows](build-instructions-windows.md). Mentre puoi allegare e fare il debug di Electron come puoi scaricarlo direttamente, potresti trovare che è pesantemente ottimizzato, rendendo il debug sostanzialmente più difficile: Il debugger non potrà mostrarti il contenuto di tutte le variabili ed il percorso di esecuzione può sembrare strano per la messa in linea, le chiamate di coda, ed altre ottimizzazioni del compilatore.
 
-* **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Una volta installato, [configura Visual Studio per usare il server di GitHub Electron Symbol](setting-up-symbol-server.md). Abiliterà Visual Studio a guadagnare una migliore comprensione di ciò che succede dentro Electron, rendendo più facile presentare variabili in un formato umanamente leggibile.
+* **Visual Studio con Strumenti C++**: Le edizioni libere della comunità di Visual Studio 2013 e Visual Studio 2015 funzionano entrambe. Una volta installato, [configura Visual Studio per usare il server di GitHub Electron Symbol](setting-up-symbol-server.md). Abiliterà Visual Studio a guadagnare una migliore comprensione di ciò che succede dentro Electron, rendendo più facile presentare variabili in un formato umanamente leggibile.
 
-* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
+* **ProcMon**: Lo [strumento gratuito SysInternals](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) ti consente di ispezionare i parametri di processo, le voci file e le operazioni di registro.
 
 ## Allegare a e Debug Electron
 
@@ -40,6 +40,6 @@ Puoi essere allegato a programmi multipli quando stai facendo il debug, ma solo 
 
 ## Usare ProcMon per Osservare un Processo
 
-Mentre Visual Studio è fantastico per ispezionare percorsi di codice specifici, la forza di ProcMon è realmente nell'osservare tutto ciò che le tue applicazioni stanno facendo con il sistema operativo - cattura File, Registri, Rete, Processi e dettagli di Profilazione dei processi. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Mentre Visual Studio è fantastico per ispezionare percorsi di codice specifici, la forza di ProcMon è realmente nell'osservare tutto ciò che le tue applicazioni stanno facendo con il sistema operativo - cattura File, Registri, Rete, Processi e dettagli di Profilazione dei processi. Tenta di registrare **tutti** gli eventi che si stanno verificando e può essere abbastanza schiacciante, ma se provi a capire cosa e come la tua applicazione sta operando al sistema operativo, può essere una preziosa risorsa.
 
 Per un'introduzione alle basi di ProcMon ed alle sue funzionalità di debug, vai a vedere [questo video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) fornito da Microsoft.
