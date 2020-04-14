@@ -167,7 +167,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `type` String - 参见 [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` String
 
 设置 `NSUserDefaults` 中 `key` 的值.
@@ -295,7 +295,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-background` - The background of a window.
     * `window-frame-text` - The text in the window's titlebar area.
 
-返回 `String` -系统颜色设置为RGB十六进制格式 (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+返回 `String` -系统颜色设置为RGB十六进制格式 (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
 
 The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 
@@ -326,7 +326,7 @@ Returns `Boolean` - `true` if an inverted color scheme (a high contrast color sc
 
 Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
+**Depreacted:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
 
 ### `systemPreferences.getEffectiveAppearance()` _macOS_
 
@@ -334,17 +334,23 @@ Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise
 
 获取当前应用到你的程序上的 macOS 设置项，会映射到 [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
+**[过时的](modernization/property-updates.md)**
+
 ### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
 
 返回 `String` | `null` - 其值可能为 `dark`、`light` 或 `unknown`。
 
 Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). 您可以使用 `setAppLevelAppearance` API 来设置此值。
 
+**[过时的](modernization/property-updates.md)**
+
 ### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _Deprecated_
 
 * `appearance` String | null - 可以是 `dark` 或 `light`
 
 设定您的应用程序的外观设置，这应该覆盖系统默认值以及覆盖 `getEffectiveAppearance` 的值。
+
+**[过时的](modernization/property-updates.md)**
 
 ### `systemPreferences.canPromptTouchID()` _macOS_
 
