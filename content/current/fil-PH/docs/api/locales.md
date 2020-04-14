@@ -2,7 +2,7 @@
 
 > Ang kahalagahan ng lokal ay ibinabalik ng `app.getLocale()`.
 
-Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lokal. Ang posibleng halaga ay nakalista sa ibaba:
+Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
 
 | Code ng Lengguwahe | Pangalan ng Lengguwahe     |
 | ------------------ | -------------------------- |
