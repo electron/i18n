@@ -8,7 +8,7 @@ Ang opisyal na simbolong server na URL para sa Electron ay https://electron-symb
 
 ## Pagamit ng Simbolong Server sa Windbg
 
-Ang simbolong landas ng Windbg ay na-configure gamit ang halaga ng string na nalimitahan ng mga asterisk na karakter. Upang magamit lamang ang simbolong server ng Electron, idagdag ang sumusunod na entry sa iyong simbolong landas (**Tandaan:**maaari mong palitan` c:\code\symbols` sa anumang masusulatang direktoryo sa iyong kompyuter, kung gusto mo ng ibang lokasyon para na-download na mga simbolo):
+Ang simbolong landas ng Windbg ay na-configure gamit ang halaga ng string na nalimitahan ng mga asterisk na karakter. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
 
 ```powershell
 SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
@@ -22,7 +22,8 @@ SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\sym
 
 ## Paggamit ng simbolong server sa Visual Studio
 
-<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
+<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' />
+<img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
 ## Pag-troubleshoot: Ang mga simbolo ay hindi mai-load
 
