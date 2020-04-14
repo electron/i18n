@@ -26,7 +26,7 @@
 * `productID` String - 预付款商品的ID (`com.example.app.product1` 的ID是 `product1`).
 * `quantity` Integer (可选) - 用户所要购买的商品数量.
 * `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue.
-  * `isProductValid` Boolean - Determine if the product is valid and added to the payment queue.
+  * `isProductValid` Boolean - 用来表示商品是否已经添加到支付队列中。
 
 在调用`purchaseProduct`之前，你应该尽可能快的监听`transactions-updated`事件
 
@@ -45,7 +45,7 @@ Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to
 
 * `productIDs` String[] - 预购商品ID
 * `callback` Function - The callback called with the products or an empty array if the products don't exist.
-  * `products` Product[] - Array of [`Product`](structures/product.md) objects
+  * `products` Product[] - [`Product`](structures/product.md) 对象的数据
 
 检索商品的描述
 
