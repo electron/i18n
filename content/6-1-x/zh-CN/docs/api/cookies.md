@@ -38,7 +38,7 @@ session.defaultSession.cookies.set(cookie)
   })
 ```
 
-### 实例事件
+### 事件
 
 以下事件会在` Cookies `实例触发。
 
@@ -85,21 +85,21 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * ` session `Boolean (可选) - 筛选出session 内可用或持久性 cookie。
 * `callback` Function
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - 返回的cookie 对象数组.
 
-Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
+发送一个请求获取所有匹配 `filter` 对象条件的cookie，回调函数将在请求结束后以 `callback(error, cookies)` 的形式被调用。
 
 **[即将弃用](modernization/promisification.md)**
 
 #### `cookies.set(details)`
 
 * `details` Object
-  * `url` String - The url to associate the cookie with. The promise will be rejected if the url is invalid.
+  * ` url `String - 与 cookie 关联的 url。 The promise will be rejected if the url is invalid.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (可选) - cookie所在域名，通常使用点号开头，以使其对子域名可用。 Empty by default if omitted.
   * `path` String (可选) - cookie 的路径。 Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. 默认为false。
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. 默认值为 false.
   * ` expirationDate `Double (可选) - cookie 的到期日期，类型为时间戳，单位为秒。 如果省略, 则 cookie 将成为会话 cookie, 并且不会在会话之间保留。
 
@@ -110,18 +110,18 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
 #### `cookies.set(details, callback)`
 
 * `details` Object
-  * `url` String - The url to associate the cookie with.
+  * ` url `String - 与 cookie 关联的 url。
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
+  * `domain` String (可选) - cookie 的域名。 Empty by default if omitted.
   * `path` String (可选) - cookie 的路径。 Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. 默认为false。
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. 默认值为 false.
   * ` expirationDate `Double (可选) - cookie 的到期日期，类型为时间戳，单位为秒。 如果省略, 则 cookie 将成为会话 cookie, 并且不会在会话之间保留。
 * `callback` Function
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+设置一个以` details `对象为模型的cookie，回调函数将在设置执行后以` callback(error) `形式被调用。
 
 **[即将弃用](modernization/promisification.md)**
 
@@ -140,7 +140,7 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 * ` name `String - cookie 名称。
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+删除与 ` url ` 和 ` name ` 相匹配的 cookie, 回调函数将在执行完成时被调用。
 
 **[即将弃用](modernization/promisification.md)**
 
@@ -156,4 +156,4 @@ Removes the cookies matching `url` and `name`, `callback` will called with `call
 
 写入所有未写入磁盘的 cookie。
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
