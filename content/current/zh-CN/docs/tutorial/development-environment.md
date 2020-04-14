@@ -24,7 +24,7 @@ npm -v
 
 ## Windows 开发环境配置
 
-> Electron 支持Windows 7 及以上版本\---任何在低版本Windows上开发Electron的尝试都将是徒劳无功的。 您可以使用微软向开发者免费提供的[Windows 10虚拟机镜像](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines)。
+> Electron 支持Windows 7 及以上版本---任何在低版本Windows上开发Electron的尝试都将是徒劳无功的。 您可以使用微软向开发者免费提供的[Windows 10虚拟机镜像](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines)。
 
 首先，安装最新版本的Node.js 。 我们推荐您安装最新的 `长期支持版本` 或者 `当前发行版本` 。 访问[Node.js下载页面](https://nodejs.org/en/download/)，选择`Windows Installer`。 下载完成后， 执行安装程序，根据引导完成安装即可。
 
