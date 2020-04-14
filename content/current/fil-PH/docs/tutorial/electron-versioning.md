@@ -65,10 +65,10 @@ Ang mga lumang linya ay hindi suportado ng GitHub, pero pwedeng may ibang grupo 
 
 # Beta Releases at ang pagsasaayos ng Bug
 
-Developers want to know which releases are _safe_ to use. Kahit mga bagong tampok ay tila maaaring ipakilala ang pagbabalik sa mga kumplikadong applications. Kasabay nito, ang pagla-lock sa isang permanenteng bersyon ay delikado dahil ikaw ay nagbabalewala sa seguridad ng patches at pagsasaayos ng bug naa maaring dumating sa iyong bersyon. Ang hangad namin ay upang payagan ang mga sumusunod na pamantayan ng semver na saklaw ng `package.json` :
+Gustong malaman ng mga developers kung aling release ang mga _ligtas_ gamitin. Kahit mga bagong tampok ay tila maaaring ipakilala ang pagbabalik sa mga kumplikadong applications. Kasabay nito, ang pagla-lock sa isang permanenteng bersyon ay delikado dahil ikaw ay nagbabalewala sa seguridad ng patches at pagsasaayos ng bug naa maaring dumating sa iyong bersyon. Ang hangad namin ay upang payagan ang mga sumusunod na pamantayan ng semver na saklaw ng `package.json` :
 
 * Gumamit ng `~2.0.0` para aminin lamang ang katatagan o seguridad katulad ng pagsasaayos sa `2.0.0` na release.
-* Use `^2.0.0` to admit non-breaking _reasonably stable_ feature work as well as security and bug fixes.
+* Gumamit ng `^2.0.0` para aminin ang di paglabag sa _matatag na katwiran_ sa tampok na trabaho pati na rin ang seguridad at pagsasaayos ng mga bug.
 
 Ang importante sa ikalawang punto ay ang mga aplikasyon ay gumagamit ng `^` na dapat paring asahan ang makatuwirang antas ng stabilidad. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
 
@@ -104,7 +104,7 @@ Isang halimbawa ng lifecycle na makikita sa larawan ay:
 
 * A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
 * A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
+* Itinuturi ang beta na _pangkalahatang matatag_ at ito ay inilathala muli bilang di-beta sa ilalim ng `2.0.0`. ![](../images/versioning-sketch-5.png)
 * Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 Ang mga ilang halimbawa kung paano ang iba't-ibang semver na saklaw ay kumukuha sa mga bagong labas:
@@ -116,13 +116,13 @@ Ang aming istratehiya ay may ilang tradeoffs, na sa ngayon nadarama namin ang am
 
 Bilang pagsasaalang-alang sa hinaharap, maari naming ipakilala ang isa o pareho ang mga sumusunod:
 
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in _alpha_
+* inilabas ng alpha ang maluwag na katatagan na balakid sa mga beta; halimbawa ito'y pinapahintulutan para umamin ang bagong tampok habang ang stabilidad channel ay nasa _alpha_
 
 # Mga tampok na Bandila
-Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na itinatag sa web-development na ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na itinatag sa web-development na ecosystem. Sa konteksto ng Electron, ang tampok na bandila o **malambot na branch** ay dapat magkaroon ng sumusunod na katangian:
 
 * it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature _violates_ the feature-flag contract
+* ito'y kumukumpleto sa bahagi ng bago at lumang landas ng kodigo para masuportahan ang bagong tampok na _lumalabag_ sa kontrata ng tampok na bandila
 * feature flags are eventually removed after the feature is released
 
 # Mga Commit ng Semantiko
@@ -130,8 +130,8 @@ Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na iti
 Hangad nating madagdagan ang kalinawan sa lahat ng antas ng proseso sa updeyt at release. Simula sa `2.0.0` kinakailangan natin hilahin ang mga request para umayon sa [Conventional Commits](https://conventionalcommits.org/) spec, na pwedeng ibuod sa sumusunod:
 
 * Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* Ang mga commits na magreresulta sa semver ang **minor** bump ay dapat nagsisimula sa `feat:`.
+* Ang mga commits na magreresulta sa semver ang **patch** bump ay dapat nagsisimula sa `fix:`.
 
 * Pumapayag kami sa squashing ng commits, ngunit dapat ang squashed na mensahe ay sumusunod sa format na nasa itaas.
 * It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
@@ -140,5 +140,5 @@ Hangad nating madagdagan ang kalinawan sa lahat ng antas ng proseso sa updeyt at
 
 - The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Ang mga release na branch ay hindi maaring isama ulit sa master
-- Release branches _do_ contain the correct version in their `package.json`
+- Ang mga release branches _ba_ay may laman nang tamang bersyon sa kanilang `package.json`
 - As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
