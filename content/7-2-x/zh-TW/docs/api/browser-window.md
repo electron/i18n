@@ -1378,7 +1378,7 @@ Adds a vibrancy effect to the browser window. Passing `null` or an empty string 
 
 Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
 
-#### `win.setTouchBar(touchBar)` _macOS_ _Experimental_
+#### `win.setTouchBar(touchBar)` _macOS_ _試驗中_
 
 * `touchBar` TouchBar | null
 
@@ -1386,7 +1386,7 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` _Experimental_
+#### `win.setBrowserView(browserView)` _試驗中_
 
 * `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
@@ -1394,13 +1394,13 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
 
-#### `win.addBrowserView(browserView)` _Experimental_
+#### `win.addBrowserView(browserView)` _試驗中_
 
 * `browserView` [BrowserView](browser-view.md)
 
 Replacement API for setBrowserView supporting work with multi browser views.
 
-#### `win.removeBrowserView(browserView)` _Experimental_
+#### `win.removeBrowserView(browserView)` _試驗中_
 
 * `browserView` [BrowserView](browser-view.md)
 
@@ -1408,4 +1408,4 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**注意:** BrowserView API 目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
