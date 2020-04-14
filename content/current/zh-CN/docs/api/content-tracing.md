@@ -6,7 +6,7 @@
 
 This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
 
-**注意：**在应用程序模块的 `ready ` 事件触发之前，您不应该使用此模块。
+**Note:** You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
 const { app, contentTracing } = require('electron')
