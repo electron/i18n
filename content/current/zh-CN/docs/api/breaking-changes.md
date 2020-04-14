@@ -398,7 +398,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `剪贴板`
+### `clipboard`
 
 ```js
 // 弃用
@@ -450,7 +450,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `进程`
+### `process`
 
 ```js
 // 弃用
@@ -582,7 +582,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `进程`
+### `process`
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
