@@ -2,7 +2,7 @@
 
 ये तीनों ऑपरेटिंग सिस्टम्स उपयोगकर्ताओं तक नोटीफीकेशंस भेजने के लिए एप्लीकेशनस को मार्ग उपलब्ध कराते हैं | इलेक्ट्रॉन डेवलपर्स [एचटीएमएल5 नोटीफिकेशन ऐपीआई](https://notifications.spec.whatwg.org/) के साथ बड़ी आसानी से नोटीफिकेशंस भेज सकते हैं, और मौजूदा ऑपरेटिंग सिस्टम की मूल नोटीफिकेशन ऐपीआई का इस्तेमाल कर उन्हें प्रदर्शित कर सकते हैं |
 
-**नोट:** चूँकि यह एक एचटीएमएल ऐपीआई है इसलिए यह केवल रेंदेरेर प्रक्रिया में उपलब्ध है | अगर आप मुख्य प्रक्रिया में नोटीफीकेशंस को दिखाना चाहते हैं तो कृप्या [नोटीफीकेशन](../api/notification.md) मोड्यूल पढ़ें |
+**Note:** Since this is an HTML5 API it is only available in the renderer process. अगर आप मुख्य प्रक्रिया में नोटीफीकेशंस को दिखाना चाहते हैं तो कृप्या [नोटीफीकेशन](../api/notification.md) मोड्यूल पढ़ें |
 
 ```javascript
 let myNotification = new Notification('Title', {
@@ -17,7 +17,6 @@ myNotification.onclick = () => {
 हालाँकि सभी ऑपरेटिंग सिस्टम्स में कोड और उपयोगकर्ता अनुभव समान हैं, पर फिर भी कुछ सूक्ष्म अंतर है |
 
 ## विंडोज
-
 * On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
 * On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. हालाँकि, उसका स्टार्ट स्क्रीन पर पिनड होना ज़रूरी नहीं है |
 * विंडोज 7 पर, नोटीफीकेशंस एक कस्टम इम्प्लीमेंटेशन के द्वारा काम करती हैं जो कि नये सिस्टम्स पर मूल वाले की तरह दिखाई देता है |
