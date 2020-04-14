@@ -4,17 +4,17 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `baru TouchBar(options)` *Experimental*
+### `new TouchBar(options)` _Experimental_
 
-* `pilihan` Benda 
+* `options` Object
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
 
 Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
 
-**Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-**Tip:** Jika Anda tidak memiliki sebuah MacBook dengan bar sentuhan, Anda dapat menggunakan [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) untuk menguji penggunaan bar sentuhan dalam aplikasi Anda.
+**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
 
 ### Static Properties
 
@@ -54,7 +54,7 @@ A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSli
 
 A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
 
-### Contoh properti
+### Instance Properties
 
 Berikut cara yang tersedia pada contoh-contoh dari `TouchBar`:
 
