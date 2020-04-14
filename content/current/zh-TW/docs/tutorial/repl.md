@@ -5,19 +5,18 @@
 `repl` 模組提供 REPL 實作，可以透過下列方法使用:
 
 * 假設您已將 `electron` 或 `electron-prebuild` 安裝為專案本地的相依元件:
-    
-    ```sh
-    ./node_modules/.bin/electron --interactive
-    ```
 
+  ```sh
+  ./node_modules/.bin/electron --interactive
+  ```
 * 假設您已將 `electron` 或 `electron-prebuild` 安裝為全域元件:
-    
-    ```sh
-    electron --interactive
-    ```
 
-這只會建立主處理序的 REPL。在畫面轉譯處理序中，可以直接用 Dev Tools 的 Console 頁籤使用 REPL。
+  ```sh
+  electron --interactive
+  ```
 
-**注意:** `electron --interactive` 在 Windows 上不能用。
+This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+
+**Note:** `electron --interactive` is not available on Windows.
 
 可以在 [Node.js REPL 文件](https://nodejs.org/dist/latest/docs/api/repl.html) 中找到更多資料。
