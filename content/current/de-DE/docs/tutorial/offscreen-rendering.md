@@ -4,7 +4,7 @@ Offscreen rendering ermöglicht es, den Inhalt eines Browser Fensters in einer B
 
 Zwei Render Modi können verwendet werden. Dabei wird nur die, sogenannte, dirty area an das `'paint'` Event weitergegeben um hohe Effizienz zu bewaren. Das Rendering kann pausiert und fortgesetzt werden. Die Bildrate kann ebenfalls gesetzt werden. Die angegebene Bildrate ist der Maximalwert. Wenn auf einer Seite nichts passiert, werden auch keine Bilder generiert. Die Bildrate hat einen absoluten Maximalwert von 60 da es darüber keine Vorteile gibt, jedoch ein substanzieller Leistungsverlust vorhanden ist.
 
-**Notiz:** Ein offscreen Fenster wird immer als ein [Frameless Window](../api/frameless-window.md) erzeugt.
+**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
 ## Render Modi
 
@@ -20,7 +20,7 @@ Um diesen Modus einzuschalten, muss GPU Beschleunigung ausgeschaltet werden. Die
 
 ## Beispiel
 
-```javascript
+``` javascript
 const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
