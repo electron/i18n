@@ -58,7 +58,7 @@ Gumamit ng isang uri ng proxy server, para mapatungan ang system setting. Lumipa
 
 ## --proxy-bypass-list=`hosts`
 
-Turuan ang Electron na lampasan ang proxy server na semi-colon-separated ang listahan ng mga hosts. ito ay magkakaapekto lamang sa pinagsamang paggamit nito `--proxy-server`.
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
 Halimbawa:
 
@@ -75,7 +75,7 @@ Gumagamit ng mga PAC script at tukuyin ang `url`.
 
 ## --no-proxy-server
 
-Huwag gumamit ng proxy server at palaging gumawa ng mga direktang koneksiyon. patungan ang iba pang mga proxy server flag na nkalipas na.
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
 ## --host-rules=`rules`
 
@@ -83,10 +83,10 @@ Ang kuwit ay nag hihiwalay sa listan ng `rules` na nag kokontrol kung paano ang 
 
 Halimbawa:
 
-- `MAP * 127.0.0.1` kailangang gawin na ang lahat ng hostname ay 127.0.0.1
-- `MAP *.google.com proxy` kailangang lahat ng google.com subdomains ay maresolbahan ng "proxy".
-- `MAP test.com [::1]:77` pinilit ng "test.com" na maayos ng IPv6 loopback. at pilitin ang port na resultahan ang socket address kailangan ay 77.
-- `MAP * baz http, ibukod ang www.google.com` ilipat sa lahat ng bagay na may "baz http", maliban sa "www.google.com".
+* `MAP * 127.0.0.1` kailangang gawin na ang lahat ng hostname ay 127.0.0.1
+* `MAP *.google.com proxy` kailangang lahat ng google.com subdomains ay maresolbahan ng "proxy".
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP * baz http, ibukod ang www.google.com` ilipat sa lahat ng bagay na may "baz http", maliban sa "www.google.com".
 
 Ang pag mappings ay inaaplay sa dulo ng host. sa kahilingan ng net (ang TCP kumonekta at mag-host ng resolver ay isang direktang koneksyon, at ang `CONNECT` sa koneksiyon ng HTTP proxy connection, at ang dulo ng host sa `SOCKS` proxy connection).
 
@@ -140,7 +140,7 @@ Ang Switch na ito ay hindi pwedeng magamit ng `app.commandLine.appendSwitch` dah
 
 ## --v=`log_level`
 
-Binigyan ng default na pinaka mainam at aktibong antas ng V-logging: 0 ang default. pangkaraniwan na ang mga positibong halaga ay ginagamit sa antas ng V-logging.
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 Ang pagpapalit nato ay gagana lamang kapag ang `--enable-logging` ay tapos na.
 
@@ -155,7 +155,6 @@ Ang pagpapalit nato ay gagana lamang kapag ang `--enable-logging` ay tapos na.
 ## --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
-
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`
