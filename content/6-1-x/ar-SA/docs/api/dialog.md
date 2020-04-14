@@ -4,7 +4,7 @@
 
 العملية: [Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+مثال عن كيفية فتح نافذة الحوار لإختيار ملفات و مجلدات متعددة:
 
 ```javascript
 const { dialog } = require('electron')
