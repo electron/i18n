@@ -2,7 +2,7 @@
 
 काफी सारे लिनक्स वातावरणों में, आप `.desktop` फाइल में बदलाव कर उनके लांचर में कस्टम एंट्रीज़ जोड़ सकते हैं | कैनोनिकल की यूनिटी दस्तावेजीकरण के लिए, [एक लांचर में शोर्टकट्स जोड़ना](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) देखें | एक साधारण कार्यान्वयन पर और अधिक जानकारी के लिए, [freedesktop.org स्पेसिफिकेशन](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html) देखें |
 
-**Audacious की लांचर शोर्टकट्स:**
+__Audacious की लांचर शोर्टकट्स:__
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
