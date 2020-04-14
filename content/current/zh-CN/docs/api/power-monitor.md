@@ -4,6 +4,21 @@
 
 进程：[主进程](../glossary.md#main-process)
 
+
+This module cannot be used until the `ready` event of the `app` module is emitted.
+
+例如：
+
+```javascript
+const { app, powerMonitor } = require('electron')
+
+app.on('ready', () => {
+  powerMonitor.on('suspend', () => {
+    console.log('The system is going to sleep')
+  })
+})
+```
+
 ## 事件
 
 ` powerMonitor ` 模块触发以下事件:
