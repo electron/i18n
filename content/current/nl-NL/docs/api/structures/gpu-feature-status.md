@@ -16,7 +16,7 @@
 
 Mogelijke waarden:
 
-* `disabled_software` - Enkel software. Hardware acceleratie uitgeschakeld (geel)
+* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - Uitgeschakeld (rood)
 * `disabled_off_ok` - Uitgeschakeld (geel)
 * `unavailable_software` - Enkel software. Hardware acceleratie onbeschikbaar (geel)
