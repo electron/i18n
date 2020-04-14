@@ -12,17 +12,18 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 ## Chromium 安全问题和升级
 
-Electron 保持与 Chromium 同步更新迭代。更多信息参见 [Electron 博客发布文章](https://electronjs.org/blog/12-week-cadence)。
+Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
 
 ## 安全是所有人的共同责任
 
-需要牢记的是，你的 Electron 程序安全性除了依赖于整个框架基础（*Chromium*、*Node.js*）、Electron 本身和所有相关 NPM 库的安全性，还依赖于你自己的代码安全性。 因此，你有责任遵循下列安全守则：
+It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. 因此，你有责任遵循下列安全守则：
 
-* **使用最新版的 Electron 框架搭建你的程序。**你最终发行的产品中会包含 Electron、Chromium 共享库和 Node.js 的组件。 这些组件存在的安全问题也可能影响你的程序安全性。 你可以通过更新Electron到最新版本来确保像是*nodeIntegration绕过攻击*一类的严重漏洞已经被修复因而不会影响到你的程序。 请参阅“[使用当前版本的Electron](#17-use-a-current-version-of-electron)”以获取更多信息。
+* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. 这些组件存在的安全问题也可能影响你的程序安全性。 By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application. 请参阅“[使用当前版本的Electron](#17-use-a-current-version-of-electron)”以获取更多信息。
 
-* **评估你的依赖项目**NPM提供了五百万可重用的软件包，而你应当承担起选择可信任的第三方库。 如果你使用了受已知漏洞的过时的库，或是依赖于维护的很糟糕的代码，你的程序安全就可能面临威胁。
+* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. 如果你使用了受已知漏洞的过时的库，或是依赖于维护的很糟糕的代码，你的程序安全就可能面临威胁。
 
-* **遵循安全编码实践**你的代码是你的程序安全的第一道防线。 一般的网络漏洞，例如跨站脚本攻击(Cross-Site Scripting, XSS)，对Electron将造成更大的影响，因此非常建议你遵循安全软件开发最佳实践并进行安全性测试。
+* **Adopt secure coding practices.** The first line of defense for your application is your own code. 一般的网络漏洞，例如跨站脚本攻击(Cross-Site Scripting, XSS)，对Electron将造成更大的影响，因此非常建议你遵循安全软件开发最佳实践并进行安全性测试。
+
 
 ## 隔离不信任的内容
 
@@ -80,18 +81,19 @@ browserWindow.loadURL ('https://example.com')
 ```
 
 ```html
-<!-- 不推荐 -->
+<!-- Bad -->
 <script crossorigin src="http://example.com/react.js"></script>
 <link rel="stylesheet" href="http://example.com/style.css">
 
-<!-- 推荐 -->
+<!-- Good -->
 <script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
+
 ## 2) Do not enable Node.js Integration for Remote Content
 
-*This recommendation is the default behavior in Electron since 5.0.0.*
+_This recommendation is the default behavior in Electron since 5.0.0._
 
 It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
@@ -127,10 +129,10 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```html
-<!-- 不推荐 -->
+<!-- Bad -->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- 推荐 -->
+<!-- Good -->
 <webview src="page.html"></webview>
 ```
 
@@ -147,6 +149,7 @@ window.readConfig = function () {
 }
 ```
 
+
 ## 3) 为远程内容开启上下文隔离
 
 上下文隔离是Electron的一个特性，它允许开发者在预加载脚本里运行代码，里面包含Electron API和专用的JavaScript上下文。 实际上，这意味全局对象如 `Array.prototype.push` 或 `JSON.parse`等无法被渲染进程里的运行脚本修改。
@@ -161,7 +164,7 @@ Context isolation allows each of the scripts running in the renderer to make cha
 
 While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
 
-同时，预加载脚本依然能访问`document`和`window`对象。换个角度，就像你以很小的投入却得到双倍回报一样。
+At the same time, preload scripts still have access to the  `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
 
 ### 怎么做？
 
@@ -192,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(window.bar)
 })
 ```
+
 
 ## 4) 处理来自远程内容的会话许可请求
 
@@ -226,9 +230,10 @@ session
   })
 ```
 
+
 ## 5) 不要禁用WebSecurity
 
-*Electron的默认值即是建议值。*
+_Electron的默认值即是建议值。_
 
 在渲染进程（[`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md) 和 [`<webview>`](../api/webview-tag.md)）中禁用 `webSecurity` 将导致至关重要的安全性功能被关闭。
 
@@ -239,7 +244,6 @@ session
 禁用 `webSecurity` 将会禁止同源策略并且将 `allowRunningInsecureContent` 属性置 `true`。 换句话说，这将使得来自其他站点的非安全代码被执行。
 
 ### 怎么做？
-
 ```js
 // 不推荐
 const mainWindow = new BrowserWindow({
@@ -255,12 +259,13 @@ const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- 不推荐 -->
+<!-- Bad -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- 推荐 -->
+<!-- Good -->
 <webview src="page.html"></webview>
 ```
+
 
 ## 6) 定义一个内容安全策略
 
@@ -305,9 +310,10 @@ CSP的首选传递机制是HTTP报头，但是在使用`file://`协议加载资�
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
+
 ## 7) 不要设置`allowRunningInsecureContent`为`true`
 
-*Electron的默认值即是建议值。*
+_Electron的默认值即是建议值。_
 
 默认情况下，Electron不允许网站在`HTTPS`中加载或执行非安全源(`HTTP`) 中的脚本代码、CSS或插件。 将`allowRunningInsecureContent`属性设为`true`将禁用这种保护。
 
@@ -333,15 +339,16 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
+
 ## 8) 不要开启实验室特性
 
-*Electron的默认值即是建议值。*
+_Electron的默认值即是建议值。_
 
 Electron 的熟练用户可以通过 ` experimentalFeatures` 属性来启用 Chromium 实验性功能。
 
 ### 为什么？
 
-实验室特性，恰如其名，是实验性质且不对所有Chromium用户开启。更进一步说，这些特性对Electron的整体影响可能没有测试。
+Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
 
 尽管存在合理的使用场景，但是除非你知道你自己在干什么，否则你不应该开启这个属性。
 
@@ -361,9 +368,10 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
+
 ## 9) 不要使用`enableBlinkFeatures`
 
-*Electron的默认值即是建议值。*
+_Electron的默认值即是建议值。_
 
 Blink是Chromium里的渲染引擎名称。 就像`experimentalFeatures`一样，`enableBlinkFeatures`属性将使开发者启用被默认禁用的特性。
 
@@ -372,7 +380,6 @@ Blink是Chromium里的渲染引擎名称。 就像`experimentalFeatures`一样�
 通常来说，某个特性默认不被开启肯定有其合理的原因。 针对特定特性的合理使用场景是存在的。 作为开发者，你应该非常明白你为何要开启它，有什么后果，以及对你应用安全性的影响。 在任何情况下都不应该推测性的开启特性。
 
 ### 怎么做？
-
 ```js
 // Bad
 const mainWindow = new BrowserWindow({
@@ -387,9 +394,10 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
+
 ## 10) 不要使用`allowpopups`
 
-*Electron的默认值即是建议值。*
+_Electron的默认值即是建议值。_
 
 如果您正在使用 [`<webview>`](../api/webview-tag.md) ，您可能需要页面和脚本加载进您的 `<webview>` 标签以打开新窗口。 开启`allowpopups`属性将使得[`BrowserWindows`](../api/browser-window.md)可以通过`window.open()`方法创建。 否则， `<webview>` 标签内不允许创建新窗口。
 
@@ -400,12 +408,13 @@ const mainWindow = new BrowserWindow()
 ### 怎么做？
 
 ```html
-<!-- 不推荐 -->
+<!-- Bad -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- 推荐 -->
+<!-- Good -->
 <webview src="page.html"></webview>
 ```
+
 
 ## 11) 创建WebView前确认其选项
 
@@ -441,7 +450,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-强调一下，这份列表只是将风险降到最低，并不会完全屏蔽风险。 如果您的目的是展示一个网站，浏览器将是一个更安全的选择。
+Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
 
 ## 12) Disable or limit navigation
 
@@ -516,7 +525,6 @@ Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-ca
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
-
 ```js
 //  Good
 const { shell } = require('electron')
@@ -613,7 +621,7 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 ## 17) 使用当前版本的 Electron
 
-您应该努力使用最新的 Electron 版本。当新版本发布时，您应尽快更新您的应用。
+You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
 
 ### 为什么？
 
