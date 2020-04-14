@@ -1,4 +1,4 @@
-# Upgrading Chromium
+# ترقية الكروميوم
 
 This is an overview of the steps needed to upgrade Chromium in Electron.
 
