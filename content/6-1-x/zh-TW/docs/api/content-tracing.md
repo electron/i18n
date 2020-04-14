@@ -1,8 +1,8 @@
 # contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> 由 Chromium 的內容模組收集追蹤資料，以便找出效能瓶頸及過慢的作業。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
 
@@ -18,11 +18,11 @@ app.on('ready', () => {
   }
 
   contentTracing.startRecording(options, () => {
-    console.log('Tracing started')
+    console.log('開始追蹤')
 
     setTimeout(() => {
       contentTracing.stopRecording('', (path) => {
-        console.log('Tracing data recorded to ' + path)
+        console.log('追蹤資料寫到 ' + path)
       })
     }, 5000)
   })
