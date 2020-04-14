@@ -6,7 +6,7 @@
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
-### 예시
+### Example
 
 ```javascript
 // 메인 프로세스에서.
@@ -23,9 +23,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *실험적*
+### `new BrowserView([options])` _Experimental_
 
-* `options` 객체 (선택) 
+* `options` Object (optional)
   * `webPreferences` 객체 (optional) - [BrowserWindow](browser-window.md) 참조.
 
 ### 정적 메서드
@@ -46,19 +46,19 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 `BrowserView` 반환 - `id`에 해당하는 뷰.
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 Objects created with `new BrowserView` have the following properties:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` _Experimental_
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` *Experimental*
+#### `view.id` _Experimental_
 
 A `Integer` representing the unique ID of the view.
 
-### 인스턴스 메서드
+### Instance Methods (인스턴스 메소드)
 
 Objects created with `new BrowserView` have the following instance methods:
 
@@ -70,26 +70,26 @@ Force closing the view, the `unload` and `beforeunload` events won't be emitted 
 
 Returns `Boolean` - Whether the view is destroyed.
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` _Experimental_
 
-* `options` Object 
+* `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *실험적*
+#### `view.setBounds(bounds)` _Experimental_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.getBounds()` *Experimental*
+#### `view.getBounds()` _Experimental_
 
 Returns [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *실험적*
+#### `view.setBackgroundColor(color)` _Experimental_
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
