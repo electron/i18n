@@ -4,32 +4,32 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `baru TouchBarSlider(options)` *Experimental*
+### `new TouchBarSlider(options)` _Experimental_
 
-* `pilihan` Obyek 
+* `options` Object
   * `label` String (opsional) - Label teks.
   * `nilai` Bulat (opsional) - nilai dipilih.
   * `nilai` Bulat (opsional) - nilai dipilih.
   * `maxValue` Bulat (opsional) - nilai maksimum.
-  * `perubahan` Fungsi (opsional) - fungsi untuk panggilan ketika slider berubah. 
+  * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Nomor - nilai yang dipilih pengguna pada Panel geser Slider.
 
-### Contoh properti
+### Instance Properties
 
 Properti berikut tersedia pada contoh-contoh dari `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
-`String` mewakili slider's teks saat ini. Mengubah nilai ini segera update slider di bar sentuhan.
+A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.value`
 
-`Nomor` mewakili slider's nilai saat ini. Mengubah nilai ini segera update slider di bar sentuhan.
+A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.minValue`
 
-`Nomor` mewakili slider's nilai minimal saat ini. Mengubah nilai ini segera update slider di bar sentuhan.
+A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.maxValue`
 
-`Nomor` mewakili slider's nilai maksimum saat ini. Mengubah nilai ini segera update slider di bar sentuhan.
+A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
