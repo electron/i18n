@@ -49,7 +49,7 @@ During installation, the `electron` module will call out to [`@electron/get`](ht
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+例如，使用中国镜像：
 
 ```plaintext
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
@@ -64,7 +64,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 在使用旧版本 Electron 的环境中，您也可以在`~/.electron`中找到缓存。
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+您也可以通过提供一个 `ELECTRON_CACHE` 环境变量来覆盖本地缓存位置。
 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
