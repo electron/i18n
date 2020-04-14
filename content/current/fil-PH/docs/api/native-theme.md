@@ -4,7 +4,7 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-## Mga event
+## Pangyayari
 
 The `nativeTheme` module emits the following events:
 
