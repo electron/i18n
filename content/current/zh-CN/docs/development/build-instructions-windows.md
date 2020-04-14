@@ -1,17 +1,17 @@
-# 构建步骤（Windows）
+# 构建步骤 (Windows)
 
 遵循下面的步骤, 在 Windows 平台上构建 Electron。
 
-## 前提条件
+## 基本要求
 
 * Windows 10 / Server 2012 R2 或更高版本
-* Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
+* Visual Studio 2017 15.7.2 或更高版本 - [免费下载 VS 2019 社区版](https://www.visualstudio.com/vs/)
   * 请参阅[Chromium构建文档](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio)，以了解有哪些Visual Studio 组件需要安装等详细信息。
   * 如果您的 Visual Studio 安装在非默认目录中， 您需要 设置几个环境变量来将工具链指向您的安装路径。
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Often, this will be `C:`.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Often, this will be `C:`.
 * [Python 2.7.10 或更高版本](http://www.python.org/download/releases/2.7/)
-  * 与下面 `depot_tools` 的安装说明不同，你必须安装 2.7.10 以上版本的 Python（支持 TLS 1.2）。 To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. 目前 `depot_tools` 仍捆绑 Python 2.7.6，这将导致 `gclient` 命令失效（见 https://crbug.com/868864）。
+  * 与下面 `depot_tools` 的安装说明不同，你必须安装 2.7.10 以上版本的 Python（支持 TLS 1.2）。 为此，应确保 **PATH** 中 Python 的安装目录在 `depot_tools` 之前。 目前 `depot_tools` 仍捆绑 Python 2.7.6，这将导致 `gclient` 命令失效（见 https://crbug.com/868864）。
   * [Python for Windows (pywin32) 扩展](https://pypi.org/project/pywin32/#files)对于构建流程也是必需的。
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
