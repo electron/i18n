@@ -719,7 +719,7 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (optional)
-  * `query` Object (optional) - Passed to `url.format()`.
+  * `query` Object (可选) - 传递给 `url.format()`.
   * `search` String (可选) - 传递给 `url.format()`.
   * `hash` String (可选) - 传递给 `url.format()`.
 
@@ -1285,7 +1285,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
