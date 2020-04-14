@@ -15,7 +15,7 @@ app.on('ready', async function () {
 })
 ```
 
-See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log network events throughout the app's lifecycle.
+查看 [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) 记录应用生命周期的网络事件。
 
 ** 注意: **除了指定的方法, 其他方法只能在 ` app ` 模块的 ` ready ` 事件被触发后使用。
 
@@ -30,7 +30,7 @@ See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log 
 ### `netLog.stopLogging([callback])`
 
 * `callback` Function (可选)
-  * `path` String - File path to which network logs were recorded.
+  * `path` String - 记录网络日志的文件路径。
 
 停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
 
@@ -42,7 +42,7 @@ Returns `Promise<String>` - resolves with a file path to which network logs were
 
 停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
 
-## Properties
+## 属性
 
 ### `netLog.currentlyLogging`
 
