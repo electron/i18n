@@ -47,7 +47,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) ay nagbibigay isang pakete ng Node para sa pagsubok sa web driver, gagamitin namin ito bilang isang halimbawa.
 
-### 1. Simulan ang ChromeDriver
+### 1. Start ChromeDriver
 
 First you need to download the `chromedriver` binary, and run it:
 
@@ -101,7 +101,7 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
 
-### 1. Simulan ang ChromeDriver
+### 1. Start ChromeDriver
 
 First you need to download the `chromedriver` binary, and run it:
 
