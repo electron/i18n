@@ -16,12 +16,12 @@ Alur kerja untuk memformat kode yang Anda ubah:
 4. Run `git add your_changed_file.cc`, dan lakukan perubahan Anda.
 5. Kini cabang tersebut siap dibuka sebagai permintaan tarik.
 
-Jika Anda ingin memformat kode yang diubah pada komit git terakhir Anda (HEAD), Anda bisa jalankan `git-clang-format HEAD~1`. Lihat `git-clang-format -h` untuk lebih jelasnya.
+If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
 ## Integrasi Editor
 
-Anda juga bisa mengintegrasikan `clang-format` langsung ke editor favorit Anda. Untuk panduan lebih lanjut tentang menyiapkan integrasi editor, lihat halaman ini:
+You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
-- [Atom](https://atom.io/packages/clang-format)
-- [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
-- [Kode Visual Studio](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
+  * [Atom](https://atom.io/packages/clang-format)
+  * [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
+  * [Kode Visual Studio](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
