@@ -16,7 +16,7 @@
 
 Възможни стойности:
 
-* `disabled_software` - Само за софтуер. Хардуерно ускорение е изключено (жълто)
+* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - Изключено (червено)
 * `disabled_off_ok` - Изключено (жълто)
 * `unavailable_software` - Само за софтуер. Хардуерно ускорение не е налично (жълто)
