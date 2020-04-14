@@ -72,7 +72,7 @@ Emitted when the application is quitting.
 
 **Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
-### Event: 'open-file' _macOS_
+### 事件: 'open-file' _macOS_
 
 回傳:
 
@@ -85,7 +85,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
-### Event: 'open-url' _macOS_
+### 事件: 'open-url' _macOS_
 
 回傳:
 
@@ -96,7 +96,7 @@ Emitted when the user wants to open a URL with the application. Your application
 
 You should call `event.preventDefault()` if you want to handle this event.
 
-### Event: 'activate' _macOS_
+### 事件: 'activate' _macOS_
 
 回傳:
 
@@ -105,7 +105,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 
-### Event: 'continue-activity' _macOS_
+### 事件: 'continue-activity' _macOS_
 
 回傳:
 
@@ -156,7 +156,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
-### Event: 'new-window-for-tab' _macOS_
+### 事件: 'new-window-for-tab' _macOS_
 
 回傳:
 
@@ -308,7 +308,7 @@ Emitted when the GPU process crashes or is killed.
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
-### Event: 'accessibility-support-changed' _macOS_ _Windows_
+### 事件: 'accessibility-support-changed' _macOS_ _Windows_
 
 回傳:
 
@@ -600,7 +600,7 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 
 * `protocol` String - The name of your protocol, without `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
 * `path` String (optional) _Windows_ - The path to the Electron executable. Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Arguments passed to the executable. Defaults to an empty array
+* `args` String[] (optional) _Windows_ - Arguments passed to the executable. 預設值為一個空陣列
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -615,8 +615,8 @@ The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internal
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
 * `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `path` String (選用) _Windows_ - 預設值為 `process.execPath`
+* `args` String[] (選用) _Windows_ - 預設值為空陣列
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -625,8 +625,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `path` String (選用) _Windows_ - 預設值為 `process.execPath`
+* `args` String[] (選用) _Windows_ - 預設值為空陣列
 
 Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
