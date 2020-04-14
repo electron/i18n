@@ -11,28 +11,26 @@ Electron 支援 [Chrome DevTools 擴展功能](https://developer.chrome.com/exte
 以 [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) 為例:
 
 1. 在 Chrome 瀏覽器中安裝。
-2. 連到 `chrome://extensions`，找到擴充功能的 ID，它是一串類似 `fmkadmapgofadopljbjfkapdkoienihi` 的雜湊字串。
-3. 找出 Chrome 儲存擴充功能的檔案系統路徑: 
-    * Windows 中是 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * Linux 中可能是: 
-        * `~/.config/google-chrome/Default/Extensions/`
-        * `~/.config/google-chrome-beta/Default/Extensions/`
-        * `~/.config/google-chrome-canary/Default/Extensions/`
-        * `~/.config/chromium/Default/Extensions/`
-    * macOS 中是 `~/Library/Application Support/Google/Chrome/Default/Extensions`。
+1. 連到 `chrome://extensions`，找到擴充功能的 ID，它是一串類似 `fmkadmapgofadopljbjfkapdkoienihi` 的雜湊字串。
+1. 找出 Chrome 儲存擴充功能的檔案系統路徑:
+   * Windows 中是 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+   * Linux 中可能是:
+     * `~/.config/google-chrome/Default/Extensions/`
+     * `~/.config/google-chrome-beta/Default/Extensions/`
+     * `~/.config/google-chrome-canary/Default/Extensions/`
+     * `~/.config/chromium/Default/Extensions/`
+   * macOS 中是 `~/Library/Application Support/Google/Chrome/Default/Extensions`。
+1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+   ```javascript
+   const path = require('path')
+   const os = require('os')
 
-4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
-    
-    ```javascript
-    const path = require('path')
-    const os = require('os')
-    
-    BrowserWindow.addDevToolsExtension(
+   BrowserWindow.addDevToolsExtension(
       path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-    )
-    ```
+   )
+   ```
 
-**注意:** `BrowserWindow.addDevToolsExtension` API 無法在應用程式模組的 ready 事件發生前叫用。
+**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
 
 The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
