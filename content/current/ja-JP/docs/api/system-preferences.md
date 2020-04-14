@@ -13,77 +13,77 @@ console.log(systemPreferences.isDarkMode())
 
 `systemPreferences` オブジェクトは以下のイベントを発生させます。
 
-### イベント: 'accent-color-changed' *Windows*
+### Event: 'accent-color-changed' _Windows_
 
 戻り値:
 
 * `event` Event
 * `newColor` String - ユーザがシステムのアクセントカラーに割り当てる新しいRGBAカラー。
 
-### イベント: 'color-changed' *Windows*
+### Event: 'color-changed' _Windows_
 
 戻り値:
 
 * `event` Event
 
-### イベント: 'inverted-color-scheme-changed' *Windows* *非推奨*
+### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
 戻り値:
 
 * `event` Event
 * `invertedColorScheme` Boolean - 反転配色 (明るいテキストと暗い背景のハイコントラスト配色) が使用されている場合は `true`、それ以外の場合は `false` です。
 
-**非推奨:** 新しく `nativeTheme` モジュールの [`updated`](native-theme.md#event-updated) イベントを使用する必要があります。
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
-### イベント: 'high-contrast-color-scheme-changed' *Windows* *非推奨*
+### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
 
 戻り値:
 
 * `event` Event
 * `highContrastColorScheme` Boolean - ハイコントラストテーマが使用されている場合は `true`、そうでない場合は `false` です。
 
-**非推奨:** 新しく `nativeTheme` モジュールの [`updated`](native-theme.md#event-updated) イベントを使用する必要があります。
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
 ## メソッド
 
-### `systemPreferences.isDarkMode()` *macOS* *Windows* *非推奨*
+### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
 
 戻り値 `Boolean` - システムがダークモードかどうか。
 
-**注:** macOS 10.15 Catalina で "自動" ダークモード設定のときにこの API が正しい値を返すためには、`Info.plist` に `NSRequiresAquaSystemAppearance=false` があるか、Electron `>=7.0.0` である必要があります。 より詳しい情報については、[ダークモードガイド](../tutorial/mojave-dark-mode-guide.md) を参照してください。
+**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`.  より詳しい情報については、[ダークモードガイド](../tutorial/mojave-dark-mode-guide.md) を参照してください。
 
-**非推奨:** 新しく [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API を使用する必要があります。
+**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
-### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
+### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
 
 戻り値 `Boolean` - ページ間をスワイプの設定がオンかどうか。
 
-### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
+### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` _macOS_
 
 * `event` String
 * `userInfo` Record<String, any>
 * `deliverImmediately` Boolean (任意) - サブスクライブ中のアプリがアクティブでなくても通知をすぐに送信する場合は `true` です。
 
-`event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
-
-* `event` String
-* `userInfo` Record<String, any>
-
-`event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
-
-### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
+### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `event` String
 * `userInfo` Record<String, any>
 
-`event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-### `systemPreferences.subscribeNotification(event, callback)` *macOS*
+### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `event` String
-* `callback` Function 
+* `userInfo` Record<String, any>
+
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+
+### `systemPreferences.subscribeNotification(event, callback)` _macOS_
+
+* `event` String
+* `callback` Function
   * `event` String
   * `userInfo` Record<String, unknown>
   * `object` String
@@ -101,53 +101,53 @@ console.log(systemPreferences.isDarkMode())
 * `AppleColorPreferencesChangedNotification`
 * `AppleShowScrollBarsSettingChanged`
 
-### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
+### `systemPreferences.subscribeLocalNotification(event, callback)` _macOS_
 
 * `event` String
-* `callback` Function 
+* `callback` Function
   * `event` String
   * `userInfo` Record<String, unknown>
   * `object` String
 
 戻り値 `Number` - この登録のID。
 
-`subscribeNotification` と同じですが、ローカルデフォルトでは `NSNotificationCenter` を使用します。これは、`NSUserDefaultsDidChangeNotification` などのイベントに必要です。
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
-### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
+### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
 * `event` String
-* `callback` Function 
+* `callback` Function
   * `event` String
   * `userInfo` Record<String, unknown>
   * `object` String
 
 `subscribeNotification` と同じですが、`NSWorkspace.sharedWorkspace.notificationCenter` を使用します。 これは `NSWorkspaceDidActivateApplicationNotification` といったイベントに必要です。
 
-### `systemPreferences.unsubscribeNotification(id)` *macOS*
+### `systemPreferences.unsubscribeNotification(id)` _macOS_
 
 * `id` Integer
 
 `id` の監視者を削除します。
 
-### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
+### `systemPreferences.unsubscribeLocalNotification(id)` _macOS_
 
 * `id` Integer
 
 `unsubscribeNotification` と同じですが、`NSNotificationCenter` から監視者を削除します。
 
-### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
+### `systemPreferences.unsubscribeWorkspaceNotification(id)` _macOS_
 
 * `id` Integer
 
 `unsubscribeNotification` と同じですが、`NSWorkspace.sharedWorkspace.notificationCenter` から監視者を削除します。
 
-### `systemPreferences.registerDefaults(defaults)` *macOS*
+### `systemPreferences.registerDefaults(defaults)` _macOS_
 
 * `defaults` Record<String, String | Boolean | Number> - ユーザデフォルト (`key: value`) の辞書配列
 
 アプリケーションの `NSUserDefaults` へ指定したデフォルトを追加します。
 
-### `systemPreferences.getUserDefault(key, type)` *macOS*
+### `systemPreferences.getUserDefault(key, type)` _macOS_
 
 * `key` String
 * `type` String - `string`、`boolean`、`integer`、`float`、`double`、`url`、`array` または `dictionary` にできます。
@@ -164,7 +164,7 @@ console.log(systemPreferences.isDarkMode())
 * `NSPreferredWebServices`: `dictionary`
 * `NSUserDictionaryReplacementItems`: `array`
 
-### `systemPreferences.setUserDefault(key, type, value)` *macOS*
+### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
 * `type` String - [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos) を参照してください。
@@ -172,19 +172,19 @@ console.log(systemPreferences.isDarkMode())
 
 `NSUserDefaults` 内の `key` の値を設定します。
 
-`type` は `value` の実際の型と一致する必要があります。そうでない場合は例外がスローされます。
+Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
 いくつかの一般的な `key` と `value` は以下です。
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
-### `systemPreferences.removeUserDefault(key)` *macOS*
+### `systemPreferences.removeUserDefault(key)` _macOS_
 
 * `key` String
 
-`NSUserDefaults` の `key` を削除します。 これは、以前に `setUserDefault`で設定された `key` のデフォルトまたはグローバル値を復元するために使用できます。
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
-### `systemPreferences.isAeroGlassEnabled()` *Windows*
+### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
 戻り値 `Boolean` - [DWM Composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) が有効な場合は `true`、それ以外は `false`。
 
@@ -212,7 +212,7 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` *Windows* *macOS*
+### `systemPreferences.getAccentColor()` _Windows_ _macOS_
 
 戻り値 `String` - RGBA の16進数形式で、ユーザの現在のシステム全体のアクセント色の設定を表します。
 
@@ -226,17 +226,17 @@ const alpha = color.substr(6, 2) // "dd"
 
 この API は macOS 10.14 Mojave 以降でのみ利用可能です。
 
-### `systemPreferences.getColor(color)` *Windows* *macOS*
+### `systemPreferences.getColor(color)` _Windows_ _macOS_
 
-* `color` String - 以下の値の一つ。 
-  * On **Windows**: 
+* `color` String - One of the following values:
+  * On **Windows**:
     * `3d-dark-shadow` - 3D 表示要素の暗い影の色。
     * `3d-face` - 3D 表示要素とダイアログボックスの背景の表面の色。
     * `3d-highlight` - 3D 表示要素のハイライト色。
     * `3d-light` - 3D 表示要素の光源色。
     * `3d-shadow` - 3D 表示要素の影の色。
     * `active-border` - アクティブなウインドウの縁の色。
-    * `active-caption` - アクティブなウインドウのタイトルバー色。グラデーション効果が有効な場合は、その左側の色になります。
+    * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
     * `active-caption-gradient` - アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
     * `app-workspace` - マルチドキュメントインターフェース (MDI) アプリケーションの背景色。
     * `button-text` - 押しボタンのテキスト色。
@@ -247,7 +247,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `highlight-text` - コントロール内で選択されたアイテムのテキスト色。
     * `hotlight` - ハイパーリンクかホットトラックされたアイテムの色。
     * `inactive-border` - 非アクティブなウインドウの縁の色。
-    * `inactive-caption` - 非アクティブなウインドウのキャプション色。グラデーション効果が有効な場合は、その左側の色になります。
+    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
     * `inactive-caption-gradient` - 非アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
     * `inactive-caption-text` - 非アクティブなキャプション内のテキストの色。
     * `info-background` - ツールチップコントロールの背景色。
@@ -260,8 +260,8 @@ const alpha = color.substr(6, 2) // "dd"
     * `window` - ウインドウの背景色。
     * `window-frame` - ウインドウフレームの色。
     * `window-text` - ウインドウ内のテキスト色。
-  * On **macOS** 
-    * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。*非推奨*
+  * On **macOS**
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table. _deprecated_
     * `control-background` - ブラウザやテーブルなど、大きなインターフェイス要素の背景。
     * `control` - コントロールの表面。
     * `control-text` - 無効にされていないコントロールのテキスト。
@@ -273,7 +273,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `keyboard-focus-indicator` - インタフェースナビゲーションにキーボードを使用しているときに、現在フォーカスされているコントロールの周囲に表示されるリング。
     * `label` - 一次コンテンツを含むラベルのテキスト。
     * `link` - 他のコンテンツへのリンク。
-    * `placeholder-text` - コントロールビューまたはテキストビューのプレースホルダ文字列。
+    * `placeholder-text` -  コントロールビューまたはテキストビューのプレースホルダ文字列。
     * `quaternary-label` - 透かしテキストなどの3次ラベルよりも重要度の低いラベルのテキスト。
     * `scrubber-textured-background` - タッチバーのスクラバーの背景。
     * `secondary-label` - 小見出しや追加情報を表すために使用されるラベルなど、通常のラベルよりも重要度の低いラベルのテキスト。
@@ -287,8 +287,8 @@ const alpha = color.substr(6, 2) // "dd"
     * `shadow` - 画面上の隆起したオブジェクトによって投げかけられた仮想の影。
     * `tertiary-label` - 無効なテキストを表すために使用されるラベルなど、2次ラベルより重要度の低いラベルのテキスト。
     * `text-background` - テキストの背景
-    * `text` - 文書内のテキスト
-    * `under-page-background` - 文書のコンテンツの背景。
+    * `text` -  文書内のテキスト
+    * `under-page-background` -  文書のコンテンツの背景。
     * `unemphasized-selected-content-background` - 非キーウィンドウまたはビューで選択されているコンテンツ。
     * `unemphasized-selected-text-background` - 非キーウィンドウまたはビューで選択されているテキストの背景。
     * `unemphasized-selected-text` - 非キーウィンドウまたはビューで選択されているテキスト。
@@ -299,9 +299,9 @@ const alpha = color.substr(6, 2) // "dd"
 
 次の色は macOS 10.14 でのみ使用可能です。`find-highlight`、`selected-content-background`、`separator`、`unemphasized-selected-content-background`、`unemphasized-selected-text-background`、`unemphasized-selected-text`。
 
-### `systemPreferences.getSystemColor(color)` *macOS*
+### `systemPreferences.getSystemColor(color)` _macOS_
 
-* `color` String - 以下の値の一つ。 
+* `color` String - One of the following values:
   * `blue`
   * `brown`
   * `gray`
@@ -316,19 +316,19 @@ const alpha = color.substr(6, 2) // "dd"
 
 「コントラストを上げる」や「透明度を下げる」など、鮮やかさやアクセシビリティ設定の変更に自動的に適応する標準のシステムカラーの1つを返します。 詳しくは、[Apple のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors)をご覧ください。
 
-### `systemPreferences.isInvertedColorScheme()` *Windows* *非推奨*
+### `systemPreferences.isInvertedColorScheme()` _Windows_ _Deprecated_
 
 戻り値 `Boolean` - 反転配色 (明るいテキストと暗い背景のハイコントラスト配色) がアクティブの場合は `true`、それ以外の場合は `false` です。
 
-**非推奨:** 新しく [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API を使用する必要があります。
+**Deprecated:** Should use the new [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API.
 
-### `systemPreferences.isHighContrastColorScheme()` *macOS* *Windows* *非推奨*
+### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _Deprecated_
 
 戻り値 `Boolean` - ハイコントラストテーマがアクティブの場合は `true`、それ以外の場合は `false` です。
 
-**非推奨:** 新しく [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API を使用する必要があります。
+**Depreacted:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
 
-### `systemPreferences.getEffectiveAppearance()` *macOS*
+### `systemPreferences.getEffectiveAppearance()` _macOS_
 
 戻り値 `String` - `dark`、`light` か `unknown` になります。
 
@@ -336,7 +336,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 **[非推奨](modernization/property-updates.md)**
 
-### `systemPreferences.getAppLevelAppearance()` *macOS* *非推奨*
+### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
 
 戻り値 `String` | `null` - `dark`、`light` か `unknown` になります。
 
@@ -344,7 +344,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 **[非推奨](modernization/property-updates.md)**
 
-### `systemPreferences.setAppLevelAppearance(appearance)` *macOS* *非推奨*
+### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _Deprecated_
 
 * `appearance` String | null - `dark` か `light` にできます
 
@@ -352,13 +352,13 @@ const alpha = color.substr(6, 2) // "dd"
 
 **[非推奨](modernization/property-updates.md)**
 
-### `systemPreferences.canPromptTouchID()` *macOS*
+### `systemPreferences.canPromptTouchID()` _macOS_
 
 戻り値 `Boolean` - このデバイスが Touch ID を使用できるかどうか。
 
-**注意:** この API は Sierra 10.12.2 より古い macOS システムでは `false` を返します。
+**NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
 
-### `systemPreferences.promptTouchID(reason)` *macOS*
+### `systemPreferences.promptTouchID(reason)` _macOS_
 
 * `reason` String - あなたが Touch ID 認証を求める理由
 
@@ -376,15 +376,15 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 この API 自体はあなたのユーザーデータを保護しません。むしろ、あなたがそうしてもよいようにするメカニズムです。 ネイティブアプリでは、キーチェーンエントリに [アクセスコントロール定数](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) を、[`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) のように設定する必要があります。これを読み取ると、Touch ID の生体認証に自動的に同意するようになります。 これは `node-keytar` で暗号化キーを保存し、`promptTouchID()` の場合にのみそれを取得するように、[`node-keytar`](https://github.com/atom/node-keytar) を使用して実行されます。
 
-**注意:** この API は Sierra 10.12.2 より古い macOS システムでは拒否された Promise になります。
+**NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
 
-### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
+### `systemPreferences.isTrustedAccessibilityClient(prompt)` _macOS_
 
 * `prompt` Boolean - 現在のプロセスが信頼できない場合にユーザにプロンプトで通知するかどうか。
 
 戻り値 `Boolean` -現在のプロセスが信頼されたアクセシビリティクライアントである場合 `true` で、そうでない場合は `false` です。
 
-### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
+### `systemPreferences.getMediaAccessStatus(mediaType)` _macOS_
 
 * `mediaType` String - `microphone`、`camera`、`screen` のいずれかにできます。
 
@@ -392,13 +392,13 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 macOS 10.13 High Sierra 以前では、このユーザーの同意は必要なかったので、このメソッドは常に `granted` を返します。 macOS 10.14 Mojave 以降では、`microphone` と `camera` へのアクセスに同意が必要です。 macOS 10.15 Catalina 以降では、`screen` へのアクセスに同意が必要です。
 
-### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
+### `systemPreferences.askForMediaAccess(mediaType)` _macOS_
 
 * `mediaType` String - 要求されるメディアのタイプで、`microphone`、`camera` にできます。
 
-戻り値 `Promise<Boolean>` - 許可された場合は `true` で、拒否された場合は `false` で解決する Promise。 無効な `mediaType` を渡した場合、Promise は reject されます。 アクセス要求が拒否されて後でシステム環境設定パネルを通して変更した場合、新しい権限の効果を得るためにアプリの再起動が必要です。 すでにアクセスを要求して拒否された場合、設定パネルを通して変更*しなければなりません*。警告はポップアップせずに Promise は現在のアクセス状態で解決します。
+戻り値 `Promise<Boolean>` - 許可された場合は `true` で、拒否された場合は `false` で解決する Promise。 無効な `mediaType` を渡した場合、Promise は reject されます。 アクセス要求が拒否されて後でシステム環境設定パネルを通して変更した場合、新しい権限の効果を得るためにアプリの再起動が必要です。 If access has already been requested and denied, it _must_ be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
 
-**重要:** この API を正しく活用するには、アプリの `Info.plist` ファイルに `NSMicrophoneUsageDescription` と `NSCameraUsageDescription` の文字列を[設定する必要があります](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc)。 これらのキーの値は許可ダイアログに使用され、許可要求の目的についてユーザーに適切に通知されます。 Electron のコンテキスト内でどのようにこれらを設定するのかについての更なる情報は、[Electron アプリケーション頒布](https://electronjs.org/docs/tutorial/application-distribution#macos) を参照してください。
+**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. これらのキーの値は許可ダイアログに使用され、許可要求の目的についてユーザーに適切に通知されます。 Electron のコンテキスト内でどのようにこれらを設定するのかについての更なる情報は、[Electron アプリケーション頒布](https://electronjs.org/docs/tutorial/application-distribution#macos) を参照してください。
 
 このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `true` を返します。
 
@@ -414,7 +414,7 @@ macOS 10.13 High Sierra 以前では、このユーザーの同意は必要な�
 
 ## プロパティ
 
-### `systemPreferences.appLevelAppearance` *macOS*
+### `systemPreferences.appLevelAppearance` _macOS_
 
 `String` 型のプロパティです。`dark`、`light` か `unknown` にできます。 アプリケーションの macOS 外観設定を決定します。 これは [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc) の値に対応します。 これを設定すると、システムのデフォルトと `getEffectiveAppearance` の値が上書きされます。
 
@@ -422,7 +422,7 @@ macOS 10.13 High Sierra 以前では、このユーザーの同意は必要な�
 
 このプロパティは macOS 10.14 Mojave 以降でのみ利用可能です。
 
-### `systemPreferences.effectiveAppearance` *macOS* *読み出し専用*
+### `systemPreferences.effectiveAppearance` _macOS_ _Readonly_
 
 `String` 型のプロパティです。`dark`、`light` か `unknown` にできます。
 
