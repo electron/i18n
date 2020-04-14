@@ -22,7 +22,7 @@ webFrame.setZoomFactor(2)
 
 * `factor` Double - 拡大率。省略値は 1.0 です。
 
-指定の倍率に拡大率を変更します。拡大率は百分率なので、300% = 3.0 です。
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 拡大率は 0.0 より大きい必要があります。
 
@@ -47,28 +47,27 @@ webFrame.setZoomFactor(2)
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-> **注意**: Electron ではデフォルトで視覚ズームは無効化されています。再び有効にする場合は以下を呼び出します。
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> ```js
-webFrame.setVisualZoomLevelLimits(1, 3)
-```
+> `js
+  webFrame.setVisualZoomLevelLimits(1, 3)`
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *非推奨*
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
-**非推奨:** この API は Chromium がサポートしなくなりました。
+**Deprecated:** This API is no longer supported by Chromium.
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `language` String
-* `provider` Object 
-  * `spellCheck` Function 
+* `provider` Object
+  * `spellCheck` Function
     * `words` String[]
-    * `callback` Function 
+    * `callback` Function
       * `misspeltWords` String[]
 
 入力フィールドとテキストエリアのスペルチェックのプロバイダを設定します。
@@ -113,7 +112,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `key` String
 
-現在のウェブページから挿入された CSS を削除します。 スタイルシートは `webFrame.insertCSS(css)` から返されるキーによって識別されます。
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(text)`
 
@@ -134,7 +133,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。  任意の整数を指定できます。
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (任意) - 省略値は `false`。
 
@@ -143,14 +142,13 @@ webFrame.setSpellCheckProvider('en-US', {
 `executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
-
 * `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `info` Object 
+* `info` Object
   * `securityOrigin` String (任意) - 隔離された空間のためのセキュリティオリジン
   * `csp` String (任意) - 隔離された空間のためのコンテンツセキュリティポリシー
-  * `name` String (任意) - 孤立した世界の名前。devtools で役に立ちます
+  * `name` String (optional) - Name for isolated world. Useful in devtools.
 
-セキュリティのオリジン、コンテンツセキュリティポリシー、隔離された空間の名前を設定します。 注: `csp` が指定されている場合は、`securityOrigin` も指定する必要があります。
+Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
 
 ### `webFrame.getResourceUsage()`
 
@@ -212,26 +210,26 @@ console.log(webFrame.getResourceUsage())
 
 ## プロパティ
 
-### `webFrame.top` *読み出し専用*
+### `webFrame.top` _Readonly_
 
 `webFrame` が属するフレーム階層内のトップフレームを表す `WebFrame | null`。トップフレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.opener` *読み出し専用*
+### `webFrame.opener` _Readonly_
 
 `webFrame` が開かれたフレームを表す `WebFrame | null`。開いたフレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.parent` *読み出し専用*
+### `webFrame.parent` _Readonly_
 
 `webFrame` の親フレームを表す `WebFrame | null`。`webFrame` がトップフレームか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.firstChild` *読み出し専用*
+### `webFrame.firstChild` _Readonly_
 
 `webFrame` の最初の子フレームを表す `WebFrame | null`。`webFrame` に子フレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.nextSibling` *読み出し専用*
+### `webFrame.nextSibling` _Readonly_
 
 次の兄弟フレームを表す `WebFrame | null`。`webFrame` がその親の最後の子フレームか、次の兄弟フレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.routingId` *読み出し専用*
+### `webFrame.routingId` _Readonly_
 
-現在のレンダラープロセスの一意なフレーム ID を表す `Integer`。同じ基底フレームを参照する WebFrame インスタンスは、同じ `routingId` を持ちます。
+An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
