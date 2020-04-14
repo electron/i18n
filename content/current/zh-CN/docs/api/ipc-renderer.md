@@ -2,7 +2,7 @@
 
 > 从渲染器进程到主进程的异步通信。
 
-进程: [ Renderer](../glossary.md#renderer-process)
+进程: [渲染进程](../glossary.md#renderer-process)
 
 `ipcRenderer` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 的实例。 你可以使用它提供的一些方法从渲染进程 (web 页面) 发送同步或异步的消息到主进程。 也可以接收主进程回复的消息。
 
@@ -15,28 +15,28 @@
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
-监听 channel, 当新消息到达，将通过 listener(event, args...) 调用 listener。
+监听 `channel`，当接收到新的消息时 `listener` 会以 `listener(event, args...)` 的形式被调用。
 
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
-* `listener` Function - 回调函数 
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
-为事件添加一个一次性用的listener 函数.这个 listener 只有在下次的消息到达 channel 时被请求调用，之后就被删除了.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `...args` any[]
 
-为特定的 channel 从监听队列中删除特定的 listener 监听者.
+从监听器数组中移除监听 `channel` 的指定 `listener`。
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
@@ -69,7 +69,6 @@ Send a message to the main process via `channel` and expect a result asynchronou
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 例如：
-
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
