@@ -10,13 +10,13 @@ Mayroong tatlong paraan upang lumikha ng file na `.snap`:
 
 1) Gamit ang [`electron-forge`](https://github.com/electron-userland/electron-forge) o [` electron-builder`](https://github.com/electron-userland/electron-builder), parehong mga tool na may `snap` na suportado sa labas ng kahon. Ito ang pinakamadaling opsyon. 2) Paggamit ng ` electron-installer-snap `, na tumatagal ang output ng ` electron-packager `. 3) Gamit ang nilikha na `.deb` na package.
 
-Sa lahat ng kaso, kakailanganin mong mai-install ang tool na `snapcraft`. Inirerekumenda namin na ang paggawa sa Ubuntu 16.04 (o sa kasalukuyang LTS).
+In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
 ```sh
 snap install snapcraft --classic
 ```
 
-Habang ito ay *is posible *to install`snapcraft ` sa macOS gamit ang Homebrew, ito ay hindi nakakagawa ng mga packages ng `snap ` at nakatuon sa pamamahala ng mga packages sa tindahan.
+While it _is possible_ to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
 
 ## Paggamit ng ` electron-installer-snap `
 
@@ -76,7 +76,7 @@ Kung wala kang package na `.deb `, gamit ang ` electron-installer-snap ` maaarin
 
 ### Ikalawang hakbang: Gumawa ng snapcraft.yaml
 
-Para sa higit pang impormasyon sa magagamit na mga opsyon sa pagsasaayos, tingnan ang [documentation on the snapcraft syntax ](https://docs.snapcraft.io/build-snaps/syntax). Tingnan natin ang halimbawa:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 name: myApp
@@ -95,7 +95,6 @@ parts:
     source: my-deb.deb
     source-type: deb
     after:
-
       - desktop-gtk3
     stage-packages:
       - libasound2
