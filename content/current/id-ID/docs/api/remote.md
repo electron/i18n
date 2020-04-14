@@ -2,7 +2,7 @@
 
 > Gunakan modul proses utama dari proses renderer.
 
-Proses:[Renderer](../glossary.md#renderer-process)
+Proses: [Renderer](../glossary.md#renderer-process)
 
 The `remote` Modul menyediakan cara sederhana untuk melakukan komunikasi antar proses (IPC) antara proses renderer (halaman web) dan proses utama.
 
@@ -17,9 +17,8 @@ win.loadURL ('https://github.com')
 **Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Note:** The remote module can be disabled for security reasons in the following contexts:
-
-* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
-* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
+- [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
+- [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
 
 ## Objek Jarak Jauh
 
@@ -27,9 +26,9 @@ Setiap objek (termasuk fungsi) dikembalikan oleh `remote` modul mewakili sebuah 
 
 In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Sebagai gantinya, ia menciptakan `BrowserWindow` objek dalam proses utama dan mengembalikan objek remote yang sesuai dalam proses renderer, yaitu `menang` objek.
 
-**Catatan:** Hanya [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) yang ada Bila objek remote pertama direferensikan bisa diakses via remote.
+**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
 
-**Catatan:** Array dan Buffer disalin melalui IPC saat diakses melalui `remote` modul. Mengubahnya dalam proses renderer tidak mengubahnya menjadi yang utama proses dan sebaliknya.
+**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Mengubahnya dalam proses renderer tidak mengubahnya menjadi yang utama proses dan sebaliknya.
 
 ## Lifetime dari Remote Objects
 
@@ -43,7 +42,7 @@ Jenis nilai primer seperti senar dan angka, bagaimanapun, dikirim melalui salina
 
 Kode dalam proses utama dapat menerima callback dari renderer - misalnya itu `remote` modul - tapi Anda harus sangat berhati-hati saat menggunakan ini fitur.
 
-Pertama, untuk menghindari kebuntuan, callback masuk ke proses utama disebut asynchronous. Anda seharusnya tidak mengharapkan proses utama dapatkan nilai kembalian dari callback yang lewat.
+First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
 
 Misalnya Anda tidak dapat menggunakan fungsi dari proses renderer di a `Array.map` disebut dalam proses utama:
 
@@ -72,11 +71,11 @@ Seperti yang Anda lihat, nilai pengembalian sinkron caller caller tidak seperti 
 
 Kedua, callback yang lolos ke proses utama akan bertahan sampai Proses utama sampah-mengumpulkan mereka.
 
-Misalnya, kode berikut sepertinya tidak bersalah pada pandangan pertama. Ini menginstal a callback untuk `close` acara pada objek remote:
+For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
 
 ```javascript
-membutuhkan ('elektron'). remote.getCurrentWindow().pada ('close', () => {
-  // jendela ditutup ...
+require('electron').remote.getCurrentWindow().on('close', () => {
+  // window was closed...
 })
 ```
 
@@ -95,7 +94,7 @@ const app = require ('elektron'). remote.app
 console.log (app)
 ```
 
-## Metode
+## Methods
 
 Itu `jarak jauh` modul memiliki metode berikut:
 
@@ -118,9 +117,9 @@ proyek/
 ```
 
 ```js
-// proses utama: main/index.js
+// main process: main/index.js
 const { app } = require('electron')
-app.on('siap', () => {/ * ... * /})
+app.on('ready', () => { /* ... */ })
 ```
 
 ```js
@@ -145,12 +144,13 @@ Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
 
 ### `remote.getGlobal(name)`
 
-* ` nama </ 0>  String</li>
+* ` nama </ 0>  Deretan</li>
 </ul>
 
-<p>Mengembalikan <code>sembarang` - Variabel global`nama` (misalnya `global[name]`) di utama proses.</p> 
-    ## properti
-    
-    ### `remote.process` *Readonly*
-    
-    A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+<p spaces-before="0">Mengembalikan <code>sembarang` - Variabel global`nama` (misalnya `global[name]`) di utama proses.</p>
+
+## Properti/peralatan
+
+### `remote.process` _Readonly_
+
+A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
