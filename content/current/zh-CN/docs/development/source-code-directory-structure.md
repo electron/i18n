@@ -1,4 +1,4 @@
-# 源码目录结构
+# 源代码目录结构
 
 Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。
 
@@ -77,12 +77,12 @@ Electron
 
 * **.circleci** - Config file for CI with CircleCI.
 * **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
-* **node_modules** - Third party node modules used for building.
+* **dist** - 由脚本 `script/create-dist.py` 创建的临时发布目录.
+* **external_binaries** - 下载了不支持用 `gn` 构建的第三方框架的二进制文件.
+* **node_modules** - 在构建中用到的第三方 node 模块.
 * **npm** - Logic for installation of Electron via npm.
-* **out** - Temporary output directory of `ninja`.
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
+* **out** - `ninja` 的临时输出目录.
+* **script** - 用于诸如构建、打包、测试等开发用途的脚本等.
 ```diff
 script/ - The set of all scripts Electron runs for a variety of purposes.
 ├── codesign/ - Fakes codesigning for Electron apps; used for testing.
