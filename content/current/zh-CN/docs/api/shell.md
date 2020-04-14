@@ -2,7 +2,7 @@
 
 > 使用默认应用程序管理文件和 url。
 
-进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
 ` shell ` 模块提供与桌面集成相关的功能。
 
@@ -14,6 +14,8 @@ const { shell } = require('electron')
 shell.openExternal('https://github.com')
 ```
 
+**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
+
 ## 方法
 
 ` shell ` 模块具有以下方法:
@@ -24,11 +26,11 @@ shell.openExternal('https://github.com')
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openItem(fullPath)`
+### `shell.openPath(path)`
 
-* `fullPath` String
+* `path` String
 
-返回 `Boolean` - 文件是否成功打开
+Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 以桌面的默认方式打开给定的文件。
 
