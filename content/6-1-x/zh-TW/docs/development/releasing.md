@@ -198,7 +198,7 @@ Once the merge has finished successfully, run the `release` script via `npm run 
 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files.
 6. Publish the release on GitHub
 
-## Publish to npm
+## 發佈到 npm
 
 Before publishing to npm, you'll need to log into npm as Electron. Optionally, you may find [npmrc](https://www.npmjs.com/package/npmrc) to be a useful way to keep Electron's profile side-by-side with your own:
 ```sh
@@ -275,7 +275,7 @@ The first step is to go to the [Releases](https://github.com/electron/electron/r
 Then manually create distributions for each platform and upload them:
 
 ```sh
-# Checkout the version to re-upload.
+# 取出要重新上傳的版本。
 git checkout vX.Y.Z
 
 # Create release build
