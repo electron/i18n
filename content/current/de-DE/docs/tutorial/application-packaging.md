@@ -10,13 +10,13 @@ Ein [asar](https://github.com/electron/asar)-Archiv ist ein simples tar-ähnlich
 
 Schritte um Ihre App in ein `asar`-Archiv zu packen:
 
-### 1. Installieren Sie die "asar Utility"
+### 1. Install the asar Utility
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Packen mit `asar pack`
+### 2. Package with `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
@@ -24,7 +24,7 @@ $ asar pack your-app app.asar
 
 ## Verwenden von `asar` Archiven
 
-In Electron existieren zwei Arten von APIs: Node APIs bereitgestellt von Node.js und Web APIs bereitgestellt von Chromium. Beide APIs unterstützen das Lesen von Dateien aus `asar`-Archiven.
+In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
 ### Node API
 
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-Auf einer Website können Dateien aus einem Archiv mit dem `file:`-Protokoll angefragt werden. Ähnlich wie bei der Node API werden `asar`-Archive als reguläre Verzeichnisse behandelt.
+In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
 Zum Beispiel, Holen einer Datei mit `$.get`:
 
@@ -148,3 +148,4 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+
