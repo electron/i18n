@@ -16,8 +16,8 @@
 
 Nilai yang mungkin:
 
-*  disabled_software </ 0> - Perangkat lunak saja. Akselerasi perangkat keras dinonaktifkan (kuning)</li>
-<li><code> disabled_off </ 0> - Dimatikan (merah)</li>
+* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
+*  disabled_off </ 0> - Dimatikan (merah)</li>
 <li><code> disabled_off_ok </ 0> - Dinonaktifkan (kuning)</li>
 <li><code> unavailable_software </ 0> - Perangkat lunak saja, akselerasi perangkat keras tidak tersedia (kuning)</li>
 <li><code> unavailable_off </ 0> - Tidak tersedia (merah)</li>
