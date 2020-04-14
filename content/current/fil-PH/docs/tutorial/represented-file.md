@@ -4,7 +4,7 @@ Sa macOS, ang isang window ay pwedeng magtakda ng nirerepresentang file, upang a
 
 Pwede mo ring itakda ang binagong katayuan ng isang window upang ang file icon ay makapagpakita na ang dokumento sa window nito ay nabago na.
 
-**Narepresentang menu ng file popup:**
+__Narepresentang menu ng file popup:__
 
 ![Represented File](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
