@@ -2,7 +2,7 @@
 
 > 建立原生應用程式選單及內容功能表。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -10,7 +10,7 @@
 
 ### 靜態方法
 
-The `menu` class has the following static methods:
+`menu`類別有以下幾種靜態方法
 
 #### `Menu.setApplicationMenu(menu)`
 
