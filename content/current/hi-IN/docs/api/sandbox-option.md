@@ -105,7 +105,7 @@ The `-x` flag should be used with any required module that is already exposed in
 
 Currently the `require` function provided in the preload scope exposes the following modules:
 
-- `electron` 
+- `electron`
   - `क्रेश रिपोर्टर`
   - `डेस्कटॉप कैप्चरर`
   - `आईपीसी रेंदेरेर`
