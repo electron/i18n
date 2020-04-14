@@ -30,7 +30,7 @@ Electron 支援 [Chrome DevTools 擴展功能](https://developer.chrome.com/exte
    )
    ```
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**注意:** `BrowserWindow.addDevToolsExtension` API 無法在應用程式模組的 ready 事件發生前叫用。
 
 The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
