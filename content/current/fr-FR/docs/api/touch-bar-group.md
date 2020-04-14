@@ -4,7 +4,7 @@
 
 Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarGroup(options)` *Experimental*
+### `new TouchBarGroup(options)` _Experimental_
 
-* `options` Objet 
+* `options` Object
   * `items` [TouchBar](touch-bar.md) - Éléments à afficher en tant que groupe.
