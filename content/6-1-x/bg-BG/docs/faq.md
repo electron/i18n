@@ -1,4 +1,4 @@
-# често задавани въпроси за Electron
+# Често задавани въпроси за Електрон
 
 ## Защо наблюдавам проблеми при инсталацията на Electron?
 
@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Прозореца/tray на моето приложение изчезна след няколко минути.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Това се случва, когато променливата, която се използва за съхраняване на прозореца/tray бива изчистена от паметта.
 
 Ако ви се случи такъв проблем, следващата статия може да ви бъде от помощ:
 
@@ -59,8 +59,8 @@ This happens when the variable which is used to store the window/tray gets garba
 ```javascript
 const { app, Tray } = require('electron')
 app.on('ready', () => {
-  const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+   const tray = new Tray('/path/to/icon.png')
+   tray.setTitle('hello world')
 })
 ```
 
@@ -70,8 +70,8 @@ app.on('ready', () => {
 const { app, Tray } = require('electron')
 let tray = null
 app.on('ready', () => {
-  tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+   tray = new Tray('/path/to/icon.png')
+   tray.setTitle('hello world')
 })
 ```
 
@@ -115,25 +115,25 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Това се случва защото имате локално инсталиран [npm `electron` module](https://www.npmjs.com/package/electron) или инсталиран глобално, който замества вграден модул на Електрон.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+За да проверите дали използвате правилния вграден модул, можете да отпечатате пътя на `electron` модула:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+и след това проверете дали той е в следния вид:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Ако видите нещо като `node_modules/electron/index.js`, тогава трябва да премахнете npm `electron` модула, или да го преименувате.
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. На пример, `electron.app` може да бъде използван само от главния процес, докато `electron.webFrame` е достъпен само от рендериращия процес.
+Обаче, ако използвате вградения модул но все още получавате грешка, най-вероятно получавате модула от грешния процес. На пример, `electron.app` може да бъде използван само от главния процес, докато `electron.webFrame` е достъпен само от рендериращия процес.
