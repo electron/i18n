@@ -43,7 +43,7 @@ During installation, the `electron` module will call out to [`@electron/get`](ht
 Kung hindi mo ma-access ang GitHub o kailangan mong magbigay ng custom build, ay maaaring gawin mo ito sa alinman sa pagbibigay ng salamin o isang umiiral na direktoryo ng cache.
 
 #### Mirror
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The URL used by `@electron/get` is composed as follows:
+Maaari mong gamitin ang mga variable ng kapaligiran upang i-override ang base URL, ang landas kung saan hahanapin ang mga binary ng Electron, at ang binary filename. The URL used by `@electron/get` is composed as follows:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -110,7 +110,7 @@ To prevent the binary from being downloaded when you install all npm dependencie
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
 
-## Paghahanap ng ProblemaPaghahanap ng Problema
+## "Troubleshooting"
 
 Habang pinatatakbo and `npm install electron`, ang ibang user ay kadalasang nakakasalubong ng error sa pag-install.
 
