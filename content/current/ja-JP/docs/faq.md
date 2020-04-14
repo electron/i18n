@@ -12,7 +12,7 @@
 
 Electron 内の Chrome のバージョンは、通常であれば新しい Chrome の安定バージョンがリリースされてから 1 ~ 2 週間以内に更新します。 この期間というのは保証されておらず、バージョンアップの作業量にも依存します。
 
-Chrome の安定版のみを使用します。重要な修正が beta 及び dev 版にある場合、それをバックポートします。
+Chrome の安定版のみを使用します。 重要な修正が beta や dev 版にある場合、それをバックポートします。
 
 より詳しい情報は、[セキュリティについて](tutorial/security.md) を参照してください。
 
@@ -29,19 +29,19 @@ Chrome の安定版のみを使用します。重要な修正が beta 及び dev
 もしくは、IPC システムも使用できます。これは Electron 特有の機能で、メインプロセスはグローバル変数としてオブジェクトを保存し、レンダラープロセスからは `electron` モジュールの `remote` プロパティを通じてそれにアクセスできます。
 
 ```javascript
-// メインプロセス内
+// メインプロセス
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// ページ1 内
+// ページ 1 内
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// ページ2 内
+// ページ 2 内
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -49,7 +49,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 これは、tray を格納している変数がガベージコレクトされると発生します。
 
-この問題に遭遇した時には、次のドキュメントを読むことをお勧めします。
+以下のドキュメントが参考になるはずです。
 
 * [メモリ管理](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [変数スコープ](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
@@ -82,7 +82,7 @@ Electron の Node.js 組み込みの影響で、`module`、`exports`、`require`
 これを解決するために、Electron の node integration を無効にできます。
 
 ```javascript
-// メインプロセス内
+// メインプロセス
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -115,32 +115,11 @@ Electron の組み込みモジュールを使うと、以下のエラーに遭�
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-これはローカルかグローバルのどちらかで [npm `electron` module](https://www.npmjs.com/package/electron) をインストールしたからです。Electron の組み込みモジュールが上書きされます。
-
-正しい組み込みモジュールを使用しているか確認するために、`electron` モジュールのパスを出力しましょう。
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-そして、これが以下のような形式になっているか確認してください。
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-もし `node_modules/electron/index.js` という形式になっていれば、npm の `electron`モジュールを取り除くか、名前を変更する必要があります。
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-組み込みモジュールを使用していてもまだこのエラーが出る場合、異なるプロセスでモジュールを使用しようとしている可能性が高いです。 たとえば、`electron.app` はメインプロセスのみ、`electron.webFrame` はレンダラープロセスのみで利用できます。
+これは、間違ったプロセスでモジュールを使用している可能性が高いです。 たとえば、`electron.app` はメインプロセスのみ、`electron.webFrame` はレンダラープロセスのみで利用できます。
 
 ## フォントがぼやけます。これはどういうものでどうすればいいのですか?
 
-[サブピクセルアンチエイリアス](http://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。以下がその例です。
+[サブピクセルアンチエイリアス](http://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。 サンプル:
 
 ![サブピクセルレンダリングのサンプル](images/subpixel-rendering-screenshot.gif)
 
@@ -155,6 +134,6 @@ let win = new BrowserWindow({
 })
 ```
 
-この効果は (いくつかの?) 液晶画面上でのみ見られます。あなたに違いが分からなくても、ユーザの何人かにはわかるでしょう。この背景を設定する手段は、そうしてはいけない理由がない限り、最も優れています。
+この効果は (一部の?) 液晶画面でしか見られません。 違いが見えなくても、ユーザーの中には違って見える人がいるかもしれません。 こうしてはいけない理由がなければ、背景は基本的にこのように設定するのが良いでしょう。
 
 CSS で背景を設定するだけでは期待する効果はないことに注意してください。
