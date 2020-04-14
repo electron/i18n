@@ -10,13 +10,13 @@ Ang "[asar](https://github.com/electron/asar) na archive ay isang simpleng ayos 
 
 Mga hakbang para mailagak ang iyong app sa archive ng `asar`:
 
-### 1. Install the asar Utility
+### 1. I-install ang asar Utility
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Pakete kasama ang `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
