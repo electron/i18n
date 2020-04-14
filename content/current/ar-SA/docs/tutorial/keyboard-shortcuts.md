@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# اختصارات لوحة المفاتيح
 
 > Configure local and global keyboard shortcuts
 
