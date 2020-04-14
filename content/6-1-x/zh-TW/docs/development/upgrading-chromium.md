@@ -37,9 +37,9 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
 
 
-## Update Electron's code
+## 更新 Electron 程式碼
 
-1. Get the code:
+1. 取得程式碼:
   ```sh
   $ git clone git@github.com:electron/electron.git
   $ cd electron
@@ -55,7 +55,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
   - Ensure that libcc submodule (`vendor/libchromiumcontent`) points to the right revision
 
 4. Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium is using.
-  - Located in `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
+  - 在 `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
 
 5. Checkout Chromium if you haven't already:
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py
@@ -83,18 +83,18 @@ When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the
 Follow all the steps above to fix Electron code on all supported platforms.
 
 
-## Updating Crashpad
+## 更新 Crashpad
 
 If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](upgrading-crashpad.md) for instructions on how to do that.
 
 
-## Updating NodeJS
+## 更新 NodeJS
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
 See [Upgrading Node](upgrading-node.md) for instructions on this.
 
-## Verify ffmpeg support
+## 驗證 ffmpeg 支援
 
 Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
 
@@ -128,7 +128,7 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 </html>
 ```
 
-## Useful links
+## 相關連結
 
 - [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
