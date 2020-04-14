@@ -2,7 +2,7 @@
 
 Les trois systèmes d’exploitation permettent aux applications d’envoyer des notifications à l’utilisateur. Electron permet aux développeurs d'envoyer des notifications avec l' [API de Notification HTML5](https://notifications.spec.whatwg.org/), utilisant l'API de notifications natives du système d’exploitation en cours d’exécution pour l’afficher.
 
-**Remarque :** Depuis qu'il s'agit d'une API HTML5 c'est seulement disponible dans le processus de rendu. Si vous souhaitez afficher des Notifications depuis le processus principal, veuillez voir le module de [Notification](../api/notification.md).
+**Note:** Since this is an HTML5 API it is only available in the renderer process. Si vous souhaitez afficher des Notifications depuis le processus principal, veuillez voir le module de [Notification](../api/notification.md).
 
 ```javascript
 let myNotification = new Notification('Title', {
@@ -17,7 +17,6 @@ myNotification.onclick = () => {
 Le code et l’expérience utilisateur sur les différents systèmes d’exploitation sont semblables, mais il y a des différences.
 
 ## Windows
-
 * Sous Windows 10, un raccourci vers votre application avec un [Utilisateur de l'application ID modèle](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) doit être installé sur le Menu Démarrer. Cela peut être overkill pendant le développement, donc ajouter `node_modules\electron\dist\electron.exe` à votre menu de démarrage fait aussi l'affaire. Naviguez vers le fichier dans l'explorateur, cliquez avec le bouton droit de la souris et 'Épingler pour démarrer le menu'. Vous devrez ensuite ajouter la ligne `app.setAppUserModelId(process.execPath)` à votre processus principal pour voir les notifications.
 * Sous Windows 8.1 et Windows 8, un raccourci vers votre application avec un [Utilisateur de l'application ID modèle](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) doit être installé sur l'écran de démarrage. Notez, cependant, qu’il n’a pas besoin d’être épinglée à l’écran de démarrage.
 * Sur Windows 7, les notifications fonctionnent via une implémentation personnalisée qui ressemble visuellement au natif sur les systèmes plus récents.
