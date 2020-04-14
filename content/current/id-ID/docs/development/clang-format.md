@@ -1,4 +1,4 @@
-# Menggunakan dentang-format pada kode C++ Code
+# Menggunakan clang-format pada C ++ Code
 
 [` clang-format `](http://clang.llvm.org/docs/ClangFormat.html) adalah alat untuk secara otomatis format C/C++/Objective-C code, sehingga pengembang tidak perlu khawatir tentang masalah gaya selama pengkajian kode.
 
