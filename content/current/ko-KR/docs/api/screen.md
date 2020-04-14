@@ -2,7 +2,7 @@
 
 > 스크린 크기, 디스플레이, 커서위치, 등등 에 대한 정보를 회수한다.
 
-프로세스: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
@@ -46,13 +46,13 @@ app.on('ready', () => {
 })
 ```
 
-## 이벤트
+## Events
 
 The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Returns:
+반환:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
@@ -61,7 +61,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+반환:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
@@ -70,7 +70,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Returns:
+반환:
 
 * `event` Event
 * `display` [Display](structures/display.md)
