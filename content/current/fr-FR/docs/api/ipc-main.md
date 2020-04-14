@@ -12,7 +12,7 @@ Il est également possible d'envoyer des messages depuis le processus main pour 
 
 * Lors de l'envoi d'un message, le nom de l'événement est `channel`.
 * Pour répondre à un message synchrone, vous devez définir `event.returnValue`.
-* Pour renvoyer un message asynchrone à l'expéditeur, vous pouvez utiliser `event.reply(...)`. Cette méthode d'aide gérera automatiquement les messages provenant des images qui ne sont pas le cadre principal (e. . iframes) alors que `event.sender.send(...)` enverra toujours au cadre principal.
+* Pour renvoyer un message asynchrone à l'expéditeur, vous pouvez utiliser `event.reply(...)`.  Cette méthode d'aide gérera automatiquement les messages provenant des images qui ne sont pas le cadre principal (e. . iframes) alors que `event.sender.send(...)` enverra toujours au cadre principal.
 
 Un exemple d'envoi et de gestion des messages entre le processus main et renderer :
 
@@ -48,7 +48,7 @@ Le module de `ipcMain` possède les méthodes suivantes pour écouter les évén
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `événement` IpcMainEvent
   * `...args` any[]
 
@@ -57,16 +57,16 @@ En écoutant `channel`, lorsqu'un nouveau message arrive, `listener` sera appel�
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `événement` IpcMainEvent
   * `...args` any[]
 
-Permet une seule exécution de la fonction `listener` pour cet événement. Ce `listener` est invoqué seulement après qu'un message est envoyé à `channel`, après quoi il sera supprimé.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `...args` any[]
 
 Supprime le `listener` spécifié du tableau d'écouteurs pour le `channel` spécifié.
@@ -80,11 +80,11 @@ Supprime tous les écouteurs du `channel` spécifié.
 ### `ipcMain.handle(canal, écouteur)`
 
 * `channel` String
-* `listener` Function<Promise<void> | tous> 
+* `listener` Function<Promise<void> | any>
   * `événement` IpcMainInvokeEvent
   * `...args` any[]
 
-Ajoute un gestionnaire pour un IPC `appelable`. Ce gestionnaire sera appelé chaque fois qu'un renderer appelle `ipcRenderer.invoke(channel, ...args)`.
+Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
 
 Si `listener` renvoie une Promise, le résultat final de la promesse sera retourné en réponse à l'appelant distant. Sinon, la valeur de retour de l'écouteur sera utilisée comme valeur de la réponse.
 
@@ -109,11 +109,11 @@ Le `event` qui est passé comme premier argument au gestionnaire est le même qu
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | tous> 
+* `listener` Function<Promise<void> | any>
   * `événement` IpcMainInvokeEvent
   * `...args` any[]
 
-Gère un seul `appelé`message IPC visible, puis supprime l'écoute. Voir `ipcMain.handle(channel, listener)`.
+Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
 
 ### `ipcMain.removeHandler(channel)`
 
