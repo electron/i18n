@@ -61,26 +61,25 @@ For instructions on how to acquire a Google API key, visit [this page](https://d
 
 ### `ELECTRON_NO_ASAR`
 
-Disabilita il supporto ASAR. Questa variabile è supportata solo in processi figli e relativi processi generati che hanno impostato `ELECTRON_RUN_AS_NODE`.
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
 Esegue il processo come un normale processo Node.js.
 
-### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
+### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 Non collega l'attuale sessione console.
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
 
 Non usa la barra del menu globale su Linux.
 
-### `ELECTRON_TRASH` *Linux*
+### `ELECTRON_TRASH` _Linux_
 
 Set the trash implementation on Linux. Default is `gio`.
 
 Opzioni:
-
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -90,13 +89,14 @@ Opzioni:
 
 Le seguenti variabili d'ambiente sono principalmente destinate per scopi di sviluppo e debugging.
 
+
 ### `ELECTRON_ENABLE_LOGGING`
 
 Stampa il logging interno di Chrome nella console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-Quando Electron legge da un file ASAR, registra la posizione letta e il percorso del file nella `tmpdir` di sistema. Il file risultate può essere fornito al modulo ASAR per ottimizzare l'ordinamento del file.
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
@@ -104,7 +104,7 @@ Stampa lo stack trace nella console quando Electron crasha.
 
 Questa variabile d'ambiente non funzionerà se il `crashReporter` è avviato.
 
-### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
+### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
 
 Mostra la finestra di crash di Windows quando Electron crasha.
 
