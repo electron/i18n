@@ -10,13 +10,13 @@ Most users will get this feature for free, since it's supported out of the box b
 
 將應用程式打包進 `asar` 封存檔的步驟:
 
-### 1. 安裝 asar 工具
+### 1. Install the asar Utility
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. 透過 `asar pack` 打包
+### 2. Package with `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
@@ -24,7 +24,7 @@ $ asar pack your-app app.asar
 
 ## 使用 `asar` 封存檔
 
-Electron 中有兩大塊 API: 由 Node.js 提供的 Node API，以及 Chromium 提供的 Web API。兩種 API 都能由 `asar` 封存檔中讀取檔案。
+In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
 ### Node API
 
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-在網頁方面，可以使用 `file:` 通訊協定讀取封存檔中的檔案。與 Node API 相同，`asar` 封存檔將被視為目錄。
+In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
 例如，使用 `$.get` 取得檔案:
 
@@ -148,3 +148,4 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+
