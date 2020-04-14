@@ -4,22 +4,22 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### ` TouchBarPopover(pilihan) baru` *Eksperimental*
+### `new TouchBarPopover(options)` _Experimental_
 
-* `pilihan` Benda 
+* `options` Object
   * `label` String (tidak wajib diisi) - tombol teks Popover.
   * `ikon` [GambarAsli](native-image.md) (tidak wajib diisi) - tombol ikon Popover.
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
-  * `showCloseButton` Boolean (tidak wajib diisi) - `benar` untuk menampilkan tombol penutup pada bagian kiri Popover, `salah` untuk tidak memperlihatkannya. Bawaanya adalah `benar`.
+  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Defaultnya adalah `true`.
 
-### Contoh properti
+### Instance Properties
 
 Properti berikut ini tersedia dalam kejadian `TouchBarPopover`:
 
 #### `touchBarPopover.label`
 
-A `String` mewakili tombol text popover yang berlaku Mengganti nilai ini akan segera memperbaharui popover di dalam palang sentuh (touch bar).
+A `String` representing the popover's current button text. Changing this value immediately updates the popover in the touch bar.
 
 #### `touchBarPopover.icon`
 
-Sebuah `GambarAsli` mewakili ikon tombol popover yang berlaku. Mengganti nilai ini akan segera memperbaharui popover di palang sentuh (touch bar).
+A `NativeImage` representing the popover's current button icon. Changing this value immediately updates the popover in the touch bar.
