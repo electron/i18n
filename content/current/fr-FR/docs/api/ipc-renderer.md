@@ -2,7 +2,7 @@
 
 > Communiquer de manière asynchrone depuis le processus renderer au processus main.
 
-Processus : [Renderer](../glossary.md#renderer-process)
+Processus : [Rendu](../glossary.md#renderer-process)
 
 Le module `ipcRender` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Il fournit quelques méthodes pour pouvoir envoyer des messages synchrones et asynchrones depuis le processus render (page web) pour le processus main. Vous pouvez également recevoir des réponses du processus main.
 
@@ -15,7 +15,7 @@ Le module de `ipcRenderer` possède les méthodes suivantes pour écouter les é
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `événement` IpcRendererEvent
   * `...args` any[]
 
@@ -24,16 +24,16 @@ En écoutant `channel`, lorsqu'un nouveau message arrive, `listener` sera appel�
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `événement` IpcRendererEvent
   * `...args` any[]
 
-Permet une seule exécution de la fonction `listener` pour cet événement. Ce `listener` est invoqué seulement après qu'un message est envoyé à `channel`, après quoi il sera supprimé.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `...args` any[]
 
 Supprime le `listener` spécifié du tableau d'écouteurs pour le `channel` spécifié.
@@ -69,7 +69,6 @@ Send a message to the main process via `channel` and expect a result asynchronou
 Le processus principal devrait écouter le `canal` avec [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 Par exemple :
-
 ```javascript
 // Processus de rendu
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
