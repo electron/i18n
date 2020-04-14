@@ -12,8 +12,7 @@
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
-* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
-
+- Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 ```js
 // Previously:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
@@ -23,16 +22,14 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
-
-* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-* `BigInt` values will be correctly serialized, instead of being converted to `null`.
-* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
-* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
-* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
-* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
-
+- `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+- Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+- `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+- `BigInt` values will be correctly serialized, instead of being converted to `null`.
+- Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+- `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+- Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+- Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 ```
@@ -87,7 +84,7 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 
 ### Node Headers URL
 
-这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志. Both will be supported for the foreseeable future but it is recommended that you switch.
+这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
 过时的: https://atom.io/download/electron
 
@@ -144,30 +141,23 @@ webFrame.setIsolatedWorldInfo(
 This property was removed in Chromium 77, and as such is no longer available.
 
 ### `webkitdirectory` attribute for `<input type="file"/>`
-
 ￼ The `webkitdirectory` property on HTML file inputs allows them to select folders. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ As an illustration, take a folder with this structure:
-
 ```console
 folder
 ├── file1
 ├── file2
 └── file3
 ```
-
 ￼ In Electron <=6, this would return a `FileList` with a `File` object for:
-
 ```console
 path/to/folder
 ```
-
 ￼ In Electron 7, this now returns a `FileList` with a `File` object for:
-
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
 /path/to/folder/file1
 ```
-
 ￼ Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## 计划重写的 API (6.0)
@@ -312,9 +302,7 @@ webFrame.setIsolatedWorldInfo(
 ```
 
 ## `webFrame.setSpellCheckProvider`
-
 The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
-
 ```js
 // Deprecated
 webFrame.setSpellCheckProvider('en-US', true, {
@@ -410,7 +398,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `clipboard`
+### `剪贴板`
 
 ```js
 // 弃用
@@ -462,7 +450,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `process`
+### `进程`
 
 ```js
 // 弃用
@@ -594,7 +582,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `process`
+### `进程`
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
@@ -629,6 +617,6 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 每个 Electron 发布版本包含两个相同的ARM版本，文件名略有不同，如`electron-v1.7.3-linux-arm.zip` 和 `electron-v1.7.3-linux-armv7l.zip` 添加包含`v7l`前缀的资源向用户明确其支持的ARM版本，并消除由未来armv6l 和 arm64 资源可能产生的歧义。
 
-为了防止可能导致安装器毁坏的中断，*不带前缀*的文件仍然将被发布。 Starting at 2.0, the unprefixed file will no longer be published.
+为了防止可能导致安装器毁坏的中断，_不带前缀_的文件仍然将被发布。 Starting at 2.0, the unprefixed file will no longer be published.
 
 更多详细情况，查看 [6986](https://github.com/electron/electron/pull/6986) 和 [7189](https://github.com/electron/electron/pull/7189)。
