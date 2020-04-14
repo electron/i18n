@@ -10,13 +10,13 @@ Most users will get this feature for free, since it's supported out of the box b
 
 將應用程式打包進 `asar` 封存檔的步驟:
 
-### 1. Install the asar Utility
+### 1. 安裝 asar 工具
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. 透過 `asar pack` 打包
 
 ```sh
 $ asar pack your-app app.asar
