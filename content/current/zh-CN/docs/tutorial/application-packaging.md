@@ -10,13 +10,13 @@
 
 参照如下步骤将你的应用打包成 `asar`归档文件。
 
-### 1. Install the asar Utility
+### 1. 安装 asar 实用程序
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. 使用 `asar pack` 打包
 
 ```sh
 $ asar pack your-app app.asar
