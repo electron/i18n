@@ -29,7 +29,7 @@ In most cases, you should do everything in the `ready` event handler.
 
 * `launchInfo` unknown _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+Това събитие бива излъчено, когато Електрон е завършил своята инициализация. На macOS `launchInfo` притежава `userInfo` на `NSUserNotification`, която е било използвано за отваряне на приложението, ако приложението е било стартирано от центъра за уведомяване (Notification Center). Можете да използвате `app.isReady()`, за да проверите дали това събитие вече е било излъчено.
 
 ### Събитие: 'window-all-closed'
 
@@ -41,7 +41,7 @@ Emitted once, when Electron has finished initializing. On macOS, `launchInfo` ho
 
 Връща:
 
-* `event` Събитие
+* `event` Event
 
 Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
@@ -55,7 +55,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 * `event` Събитие
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
 Вижте описанието на събитие `window-all-closed` за разликите между събитията `will-quit` и `window-all-closed`.
 
@@ -72,7 +72,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 **Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
-### Event: 'open-file' _macOS_
+### Събитие: 'open-file' _macOS_
 
 Връща:
 
@@ -85,7 +85,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 На Windows трябва да се анализира `process.argv` (в главния процес), за да получите filepath.
 
-### Event: 'open-url' _macOS_
+### Събитие: 'open-url' _macOS_
 
 Връща:
 
@@ -96,7 +96,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Трябва да извикате `event.preventDefault()` ако желаете да се справите с това събитие.
 
-### Event: 'activate' _macOS_
+### Събитие: 'activate' _macOS_
 
 Връща:
 
@@ -105,7 +105,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Излъчено, когато приложението бива активирано. Различни действия могат да предизвикат това събитие, като стартиране на приложението за първи път, опит за стартиране на приложението, когато то е вече стартирано, или натискане върху докът на приложението или иконата в линията на задачите (taskbar).
 
-### Event: 'continue-activity' _macOS_
+### Събитие: 'continue-activity' _macOS_
 
 Връща:
 
@@ -117,7 +117,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Активност на потребителя може да продължи само в приложение, което има същия Team ID - записан като произход на активността на приложението, което също поддържа типа на активността. Поддържани типове на активност са специализирани в `Info.plist` на приложението, под ключа `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' _macOS_
+### Събитие: 'will-continue-activity' _macOS_
 
 Връща:
 
@@ -126,7 +126,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), преди активността на друго устройство иска да се извърши отново. Трябва да извикате `event.preventDefault()` ако желаете да се справите с това събитие.
 
-### Event: 'continue-activity-error' _macOS_
+### Събитие: 'continue-activity-error' _macOS_
 
 Връща:
 
@@ -136,7 +136,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когато активност на друго устройство не може да се извърши отново.
 
-### Event: 'activity-was-continued' _macOS_
+### Събитие: 'activity-was-continued' _macOS_
 
 Връща:
 
@@ -146,7 +146,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), след активността на това устройство е извършена отново успешно от друго устройство.
 
-### Event: 'update-activity-state' _macOS_
+### Събитие: 'update-activity-state' _macOS_
 
 Връща:
 
@@ -154,9 +154,9 @@ Emitted when all windows have been closed and the application will quit. Calling
 * `type` String - Надпис, идентифициращ активността. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Излъчено, когато [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) тъкмо ще бъде подновено на друго устройство. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Излъчено, когато [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) тъкмо ще бъде подновено на друго устройство. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
-### Event: 'new-window-for-tab' _macOS_
+### Събитие: 'new-window-for-tab' _macOS_
 
 Връща:
 
@@ -308,7 +308,7 @@ Emitted when the GPU process crashes or is killed.
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
-### Event: 'accessibility-support-changed' _macOS_ _Windows_
+### Събитие: 'accessibility-support-changed' _macOS_ _Windows_
 
 Връща:
 
@@ -406,6 +406,16 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process of `w
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
+### Event: 'remote-get-guest-web-contents'
+
+Връща:
+
+* `event` Събитие
+* `webContents` [WebContents](web-contents.md)
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ## Методи
 
 Обектът `app` има следните методи:
@@ -451,20 +461,15 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Връща `Boolean` - `true` ако Електрон завърши инициализирането, `false` в противен случай. See also `app.whenReady()`.
+Връща `Boolean` - `true` ако Електрон завърши инициализирането, `false` в противен случай.
 
 ### `app.whenReady()`
 
 Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
-### `app.focus([options])`
-
-* `options` Object (optional)
-  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
+### `app.focus()`
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
-
-You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macOS_
 
@@ -534,7 +539,7 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `name` String - Име
 * `path` String
 
 Презаписва стойността на `path` към специална папка или файл свързан с `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
@@ -553,13 +558,17 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Обикновено трябва също така да укажете полето `productName`, което е пълното име на вашето приложение, само в главни букви. То ще бъде предпочетено пред `name` от Електрон.
 
+**[Deprecated](modernization/property-updates.md)**
+
 ### `app.setName(name)`
 
-* `name` String
+* `name` String - Име
 
 Замества името на текущото приложение.
 
 **Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -608,8 +617,8 @@ The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internal
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
 * `protocol` String - Името на протокола, без `://`.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `path` String (по избор) _Windows_ - По подразбиране е `process.execPath`
+* `args` String [] (по избор) _Windows_ - По подразбиране е празен масив
 
 Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
@@ -618,8 +627,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - Името на протокола, без `://`.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `path` String (по избор) _Windows_ - По подразбиране е `process.execPath`
+* `args` String [] (по избор) _Windows_ - По подразбиране е празен масив
 
 Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
@@ -652,7 +661,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 Връща `Object`:
 
 * `minItems` Integer - Минималният брой на елементите, които ще бъдат показани в списъка за прескачане (Jump List) (за по-подробно описание на тази стойност вижте [MSDN документацията](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Тези елементи не трябва да бъде отново добавя към списъка за прескачане в **следващото** извикване на `app.setJumpList()`, Windows няма да показва никакви потребителски категории, който съдържат някои от отстранените елементи.
 
 ### `app.setJumpList(categories)` _Windows_
 
@@ -762,7 +771,7 @@ if (!gotTheLock) {
   })
 
   // Create myWindow, load the rest of the app, etc...
-  app.whenReady().then(() => {
+  app.on('ready', () => {
   })
 }
 ```
@@ -810,17 +819,6 @@ Marks the current [Handoff](https://developer.apple.com/library/ios/documentatio
 
 Променя [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) на `id`.
 
-### `app.setActivationPolicy(policy)` _macOS_
-
-* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
-
-Sets the activation policy for a given app.
-
-Activation policy types:
-* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
-* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
-* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
-
 ### `app.importCertificate(options, callback)` _Linux_
 
 * `options` Object
@@ -839,7 +837,7 @@ Activation policy types:
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
 Този метод може да бъде извикван само преди приложението да е готово.
 
@@ -899,9 +897,13 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
+**[Deprecated](modernization/property-updates.md)**
+
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
 Връща `Integer` - Текущата стойност, която се показва като брояч в значката.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` _Linux_
 
@@ -954,6 +956,8 @@ app.setLoginItemSettings({
 
 Връща `Boolean` - `true` ако разширената достъпност при Chrome е включена, `false` в противен случай. Този API ще върне `true`, ако използването на помощни технологии, като екранни четци, е била открита. Вижте https://www.chromium.org/developers/design-documents/accessibility за повече подробности.
 
+**[Deprecated](modernization/property-updates.md)**
+
 ### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
 
 * `enabled` Boolean - Включено или изключено [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) рендиране
@@ -963,6 +967,8 @@ app.setLoginItemSettings({
 This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.showAboutPanel()`
 
@@ -980,7 +986,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Вижте панелът с опции about. This will override the values defined in the app's `.plist` file on macOS. Вижте [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) за повече детайли. On Linux, values must be set in order to be shown; there are no defaults.
+Вижте панелът с опции about. This will override the values defined in the app's `.plist` file on MacOS. Вижте [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) за повече детайли. On Linux, values must be set in order to be shown; there are no defaults.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1009,9 +1015,9 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.enableSandbox()`
+### `app.enableSandbox()` _Experimental_
 
-Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
+Enables full sandbox mode on the app.
 
 Този метод може да бъде извикван само преди приложението да е готово.
 
@@ -1082,7 +1088,7 @@ A [`CommandLine`](./command-line.md) object that allows you to read and manipula
 
 ### `app.dock` _macOS_ _Readonly_
 
-A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
+A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
 
 ### `app.isPackaged` _Readonly_
 
