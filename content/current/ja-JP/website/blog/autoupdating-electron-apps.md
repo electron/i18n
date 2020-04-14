@@ -27,7 +27,7 @@ Electron には [autoUpdater](https://electronjs.org/docs/tutorial/updates) API 
 
 最小限の構成にするため、新しい [update.electronjs.org](https://github.com/electron/update.electronjs.org) ウェブサービスと統合する npm モジュール [update-electron-app](https://github.com/electron/update-electron-app) を作成しました。
 
-モジュールは以下のようにインストールします。
+モジュールのインストール
 
 ```sh
 npm install update-electron-app
