@@ -14,7 +14,7 @@
 * [빌드 명령 (macOS)](build-instructions-macos.md)
 * [빌드 명령 (윈도)](build-instructions-windows.md)
 * [빌드 명령 (Linux)](build-instructions-linux.md)
-* [크롬 개발](chromium-development.md)
+* [Chromium 개발](chromium-development.md)
 * [V8 개발](v8-development.md)
 * [테스트](testing.md)
 * [Windows에서 Electron 디버깅하기](debug-instructions-windows.md)
