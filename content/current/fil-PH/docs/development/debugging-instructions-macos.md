@@ -4,15 +4,14 @@ Kung ikaw ay nakararanas ng mga pag-crash o may nagaganap na di tama sa Electron
 
 ## Mga Kinakailangan
 
-* **Isang debug na build ng Elektron**: Ang pinakamadaling paraan ay kadalasan ang pagbuo mo nito mismo, gamit ang mga kagamitan at mga paunang kinakailangan na nasa [instruksyon sa pagbuo para sa Windows](build-instructions-macos.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-macos.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
-* **Xcode**: Bilang karagdagan sa Xcode, i-install rin ang mga kagamitan sa Xcode na pang-utoss na linya. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
-    
-    ```text
-    command script import ~/electron/src/tools/lldb/lldbinit.py
-    ```
+   ```text
+   command script import ~/electron/src/tools/lldb/lldbinit.py
+   ```
 
 ## Pagkakabit at Pagde-debug sa Electron
 
@@ -94,7 +93,6 @@ Sa puntong ito, para matapos ang pagde-debug, paganahin ang `process continue`. 
 Ngayon, kung iyong bubuksan ang mga kagamitan ng tagabuo ng Electron at tatawagin ang `setName`, matatamaan mong muli ang breakpoint.
 
 ### Karagdagang Pagbabasa
-
 Ang LLDB ay ang isang makapangyarihang kagamitan na may magandang dokumentasyon. Upang mas makaalam pa tungkol dito, isaalang-alang ang dokumentasyon sa pagde-debug ng Apple, halimbawa ang [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o ang panimula ng [Paggamit ng LLDB bilang isang Standalone na Taga-debug](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
 Maaari mo ring tingnan ang kamangha-manghang [manwal and tyutoryal](http://lldb.llvm.org/tutorial.html) ng LLDB, na mas magpapaliwanag sa mga mas komplikadong sitwasyon ng pagde-debug.
