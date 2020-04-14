@@ -4,7 +4,7 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSlider(options)`
+### `new TouchBarSlider(options)` _Experimental_
 
 * `options` Object
   * `label` String (可选) - 标签文本.
