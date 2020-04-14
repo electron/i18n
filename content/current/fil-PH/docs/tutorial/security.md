@@ -8,7 +8,7 @@ Nasasaisip iyan, dapat maging alerto sa mga nagpapakitang hindi makatwirang nila
 
 ## Naguulat sa mga Isyung Panseguridad
 
-Para sa inpormasyong kung paano ang tamang pagsisiwalat ng kahinaan ng Electron, tingnan ang [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md) 
+Para sa inpormasyong kung paano ang tamang pagsisiwalat ng kahinaan ng Electron, tingnan ang [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
 ## Mga Isyung Panseguridad at Upgrades ng Chromium
 
@@ -23,6 +23,7 @@ It is important to remember that the security of your Electron application is th
 * **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
 
 * **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
+
 
 ## Isolation For Untrusted Content
 
@@ -81,18 +82,19 @@ browserWindow.loadURL('https://example.com')
 ```
 
 ```html
-<!-- Hindi Kaaya-aya -->
+<!-- Bad -->
 <script crossorigin src="http://example.com/react.js"></script>
 <link rel="stylesheet" href="http://example.com/style.css">
 
-<!-- Kaaya-aya -->
+<!-- Good -->
 <script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
+
 ## 2) Do not enable Node.js Integration for Remote Content
 
-*This recommendation is the default behavior in Electron since 5.0.0.*
+_This recommendation is the default behavior in Electron since 5.0.0._
 
 It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. Ang layunin ay ma-limit ang mga lakas na iginawad sa bahagyang nilalaman, kaya ginawang kapansin-pansin na mas mahirap para sa isang ataker na mapinsala ang gumagamit at magkaroon sila ng kakayahan maka-execute ng JavaScript sa iyong website.
 
@@ -128,9 +130,10 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```html
-<!-- Hindi Kaaya-aya --><webview nodeIntegration src="page.html"></webview>
+<!-- Bad -->
+<webview nodeIntegration src="page.html"></webview>
 
-<! -- Kaaya-aya -->
+<!-- Good -->
 <webview src="page.html"></webview>
 ```
 
@@ -147,9 +150,10 @@ window.readConfig = function () {
 }
 ```
 
+
 ## 3) Enable Context Isolation for Remote Content
 
-Ang kontekstong pagbubukod ay isang Electron na tampok na nagpapahintulot sa mga developer na magpatakbo ng code sa preload na mga manuskrito at mga API ng Electron sa dedikadong JavaScript na conteksto. Sa pagsasanay, ibig sabihin nito ay ang pandaigdigang mga bagay gaya ng `Array.prototype.push` o `JSON.parse` ay hindi na maaaring baguhin ng mga manuskritong pinatakbo sa proseso ng renderer.
+Ang kontekstong pagbubukod ay isang Electron na tampok na nagpapahintulot sa mga developer na magpatakbo ng code sa preload na mga manuskrito at mga API ng Electron sa dedikadong  JavaScript na conteksto. Sa pagsasanay, ibig sabihin nito ay ang pandaigdigang mga bagay gaya ng `Array.prototype.push` o `JSON.parse` ay hindi na maaaring baguhin ng mga manuskritong pinatakbo sa proseso ng renderer.
 
 Gumagamit ang Electron ng parehong teknolohiya sa Chromium na [Mga Manuskritong Nilalaman](https://developer.chrome.com/extensions/content_scripts#execution-environment) para paganahin ang kilos.
 
@@ -161,7 +165,7 @@ Context isolation allows each of the scripts running in the renderer to make cha
 
 While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
 
-Sa parehong oras, ang preload na mga manuskrito ay mayroon pa ring akses sa `dokumento` at`window` na mga bagay. Sa ibang salita, nakakakuha ka ng desenteng tubo sa malamang maliit na pamumuhunan.
+At the same time, preload scripts still have access to the  `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
 
 ### Paano?
 
@@ -194,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(window.bar)
 })
 ```
+
 
 ## 4) Handle Session Permission Requests From Remote Content
 
@@ -228,9 +233,10 @@ session
   })
 ```
 
+
 ## 5) Do Not Disable WebSecurity
 
-*Ang rekomendasyon ay default ng Electron*
+_Ang rekomendasyon ay default ng Electron_
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
 
@@ -241,7 +247,6 @@ Huwag paganahin ang `webSecurity` sa mga application ng produksyon.
 Ang disable `webSecurity` ay hindi paganahin ang patakaran ng parehong pinanggalingan at itatakda `allowRunningInsecureContent` ang ari-arian sa `true`. Sa madaling salita, pinapayagan nito ang pagpapatupad ng hindi secure na code mula sa iba't ibang mga domain.
 
 ### Paano?
-
 ```js
 // Masama
 const mainWindow = new BrowserWindow({
@@ -257,11 +262,13 @@ const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- Hindi Kaaya-aya --><webview disablewebsecurity src="page.html"></webview>
+<!-- Bad -->
+<webview disablewebsecurity src="page.html"></webview>
 
-<! -- Kaaya-aya -->
+<!-- Good -->
 <webview src="page.html"></webview>
 ```
+
 
 ## 6) Define a Content Security Policy
 
@@ -306,9 +313,10 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
+
 ## 7) Do Not Set `allowRunningInsecureContent` to `true`
 
-*Ang rekomendasyon ay default ng Electron*
+_Ang rekomendasyon ay default ng Electron_
 
 By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
@@ -334,9 +342,10 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
+
 ## 8) Do Not Enable Experimental Features
 
-*Ang rekomendasyon ay default ng Electron*
+_Ang rekomendasyon ay default ng Electron_
 
 Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` property.
 
@@ -362,9 +371,10 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
+
 ## 9) Do Not Use `enableBlinkFeatures`
 
-*Ang rekomendasyon ay default ng Electron*
+_Ang rekomendasyon ay default ng Electron_
 
 Ang blink ay ang pangalan ng rendering engine sa likod ng Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -373,7 +383,6 @@ Ang blink ay ang pangalan ng rendering engine sa likod ng Chromium. As with `exp
 Sa pangkalahatan, malamang na may mga dahilan kung ang isang tampok ay hindi pinagana bilang default. Ang mga lehitimong kaso ng paggamit para sa pagpapagana ng mga partikular na tampok ay umiiral. Bilang isang developer, dapat mong malaman eksakto kung bakit kailangan mong paganahin ang isang tampok, kung ano ang Ang mga resulta ay, at kung paano ito nakakaapekto sa seguridad ng iyong aplikasyon. Sa ilalim walang mga pangyayari na dapat mong paganahin ang mga tampok na speculatively.
 
 ### Paano?
-
 ```js
 // Bad
 const mainWindow = new BrowserWindow({
@@ -388,9 +397,10 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
+
 ## 10) Do Not Use `allowpopups`
 
-*Ang rekomendasyon ay default ng Electron*
+_Ang rekomendasyon ay default ng Electron_
 
 If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
 
@@ -401,11 +411,13 @@ Kung hindi mo kailangan ang mga popup, ikaw ay mas mahusay na hindi pinapayagan 
 ### Paano?
 
 ```html
-<!-- Hindi Kaaya-aya --><webview allowpopups src="page.html"></webview>
+<!-- Bad -->
+<webview allowpopups src="page.html"></webview>
 
-<! -- Kaaya-aya -->
+<!-- Good -->
 <webview src="page.html"></webview>
 ```
+
 
 ## 11) Verify WebView Options Before Creation
 
@@ -441,7 +453,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Muli, ang listahang ito ay nagpapaliit lang sa panganib, hindi ito inaalis. Kung ang iyong layunin ay upang ipakita ang isang website, isang browser ay magiging isang mas ligtas na option.
+Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
 
 ## 12) Disable or limit navigation
 
@@ -516,7 +528,6 @@ Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-ca
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
-
 ```js
 //  Good
 const { shell } = require('electron')
