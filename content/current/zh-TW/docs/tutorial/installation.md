@@ -43,7 +43,7 @@ During installation, the `electron` module will call out to [`@electron/get`](ht
 如果你連不到 GitHub，或是需要使用客製化的版本，可以提供鏡像或是既有的快取目錄來安裝。
 
 #### 鏡像
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The URL used by `@electron/get` is composed as follows:
+你可以使用環境變數蓋掉 Electron 尋找二位檔的根 URL 及檔名。 The URL used by `@electron/get` is composed as follows:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
