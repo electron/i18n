@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSegmentedControl(options)`
+### `new TouchBarSegmentedControl(options)` _Experimental_
 
 * `options` Object
   * `segmentStyle` String (optional) - Style of the segments:
