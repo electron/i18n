@@ -41,9 +41,9 @@ OS / Chromium で現在ダークモードが有効になっている、または
 * `updated` イベントが発生します。
 
 このプロパティを使用するにあたって、ユーザーに以下のような 3 つの選択肢がある、古典的なアプリケーションの "ダークモード" ステートマシンに合わせるべきです。
-* `OS 準拠` --> `themeSource = 'system'`
-* `ダークモード` --> `themeSource = 'dark'`
-* `ライトモード` --> `themeSource = 'light'`
+* `Follow OS` --> `themeSource = 'system'`
+* `Dark Mode` --> `themeSource = 'dark'`
+* `Light Mode` --> `themeSource = 'light'`
 
 アプリケーションは、`shouldUseDarkColors` を使用して、適用する CSS を常に決定する必要があります。
 
