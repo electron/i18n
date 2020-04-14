@@ -2,4 +2,4 @@
 
 * `bytes` Buffer - Zu versendender Inhalt.
 * `file` String (optional) - Pfad der Datei zum hochladen.
-* `blobUID` String (optional) - UUID der Blob-Daten. Verwenden Sie die [ses.getBlobData](../session.md#sesgetblobdataidentifier) Methode, um die Daten abzurufen.
+* `blobUUID` String (optional) - UUID of blob data. Use [ses.getBlobData](../session.md#sesgetblobdataidentifier) method to retrieve the data.
