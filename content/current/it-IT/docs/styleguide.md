@@ -13,27 +13,27 @@ Queste sono le linee guida per scrivere la documentazione di Electron.
 Usando `Avvio Rapido` come esempio:
 
 ```markdown
-# Avvio Rapido
+# Quick Start
 
 ...
 
-## Processo principale
+## Main process
 
 ...
 
-## Processo Rendering
+## Renderer process
 
 ...
 
-## Esegui la tua app
+## Run your app
 
 ...
 
-### Esegui come distrubuzione
+### Run as a distribution
 
 ...
 
-### Binario Electron scaricato manualmente
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -95,10 +95,10 @@ Usando `autoUpdatet` come esempio:
 * I costruttori devono essere elencati con i titoli livello-`###`.
 * I [Metodi Statici](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) devono essere elencati sotto ad un capitolo `### Metodi Statici`.
 * I [Metodi Istanza](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) devono essere elencati sotto ad un capitolo `### Metodi Istanza.</li>
-<li>Tutti i metodi che hanno un valore di ritorno devono iniziare la loro descrizione con "Ritorna <code>[TYPE]` - Restituisci descrizione" 
+<li>All methods that have a return value must start their description with "Returns <code>[TYPE]` - Return description"
   * Se il metodo restituisxe un `Oggetto`, la sua struttura può essere specificata usando una colonna seguita da una nuova riga, quindi una lista disordinata di proprietà nello stesso stile come parametri funzione.
 * Gli eventi Istanza devono essere elencati sotto ad un capitoli `### Eventi Istanza`.
-* Le proprietà dell'istanza devono essere elencate sotto a `### Proprietà Istanza` capitolo. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Le proprietà istanza devono essere avviati con "Un [Tipo Proprietà] ..."
 
 Usando le classi `Sessione` e `Cookie` come esempio:
@@ -142,15 +142,15 @@ Il capitolo dei metodi deve essere nella seguente forma:
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `richiesta` Stringa - Una descrizione parametro.
-* `opzionale` Intero (opzionale) - Un'altra descrizione parametro.
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```
 
 Il titolo può essere `###` o `####` in base al fatto che si tratti do un metodo di un modulo o di una classe.
 
-Per i moduli, `Nomeoggetto` è il nome del modulo. Per le classi, deve essere im nome dell'istanza della classe e non deve essere uguale al nome del modulo.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Per esempio, i metodi della classe `Sessione` sotto il modulo `sessione` devono usare `ses` come `Nomeoggetto`.
 
@@ -160,7 +160,7 @@ Gli argomenti opzionali sono notati da parentesi quadre `[]` circondanti l'argom
 richiesto[, opzionale]
 ```
 
-Sotto il metodo sono informazioni più dettagliate su ciascuno degli argomenti. Il tipo di argomento è indicato dai tipi comuni:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`Stringa`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Numero`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
