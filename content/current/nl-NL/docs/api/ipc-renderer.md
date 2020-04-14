@@ -4,7 +4,7 @@
 
 Process: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+The `ipcRenderer` module is an  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
 
 See [ipcMain](ipc-main.md) for code examples.
 
@@ -15,7 +15,7 @@ The `ipcRenderer` module has the following method to listen for events and send 
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
-* `listener` Functie 
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -24,7 +24,7 @@ Listens to `channel`, when a new message arrives `listener` would be called with
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
-* `listener` Functie 
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -33,7 +33,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Functie 
+* `listener` Function
   * `...args` any[]
 
 Removes the specified `listener` from the listener array for the specified `channel`.
@@ -69,7 +69,6 @@ Send a message to the main process via `channel` and expect a result asynchronou
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 Bijvoorbeeld:
-
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
