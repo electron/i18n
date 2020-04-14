@@ -92,7 +92,7 @@ electron_is_easy:
   description: Jika Anda bisa membangun sebuah website, Anda bisa membangun aplikasi desktop. Elektron adalah kerangka kerja untuk membuat aplikasi asli dengan teknologi web seperti JavaScript, HTML, dan CSS. Ini mengurus bagian-bagian yang sulit sehingga Anda dapat fokus pada inti aplikasi Anda.
   video_link: Menonton video
 web_technologies:
-  title: Halaman teknologi 
+  title: Halaman teknologi
   description: Elektron menggunakan Kromium dan Node.js sehingga Anda dapat membangun aplikasi anda dengan HTML, CSS, dan JavaScript.
 open_source:
   title: Sumber Terbuka
