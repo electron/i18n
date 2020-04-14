@@ -4,7 +4,7 @@ Electron에는 macOS Dock에 앱의 아이콘을 구성하는 API가 있습니�
 
 커스텀 독은 일반적으로 사용자가 전체 애플리케이션 윈도우를 열지 않으려는 작업에 바로 가기를 추가하는 데 사용됩니다.
 
-**Terminal.app의 dock menu:**
+__Terminal.app의 dock menu:__
 
 ![Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
