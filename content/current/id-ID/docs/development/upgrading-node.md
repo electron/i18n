@@ -8,7 +8,7 @@ Upgrading Node is much easier than upgrading Chromium, so fewer conflicts arise 
 
 Elektron memiliki garpu [Node sendiri](https://github.com/electron/node) dengan modifikasi untuk detail build V8 yang berisiko di atas dan untuk mengekspos API yang dibutuhkan oleh Elektron. Setelah sebuah Node hulu Pelepasan dipilih, itu ditempatkan di cabang di garpu Node Elektron dan setiap patch Elektron Node diterapkan di sana.
 
-Faktor lain adalah bahwa proyek Node menambal versinya dari V8. Seperti disebutkan di atas, Elektron membangun semuanya dengan satu salinan dari V8, jadi patch V8 Node harus dikirim ke salinan itu.
+Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
 
 Setelah semua dependensi Elektron sedang membangun dan menggunakan yang sama salinan V8, langkah selanjutnya adalah memperbaiki masalah kode Elektron yang ditimbulkan dengan upgrade Node.
 
@@ -24,17 +24,18 @@ Jadi singkatnya, langkah utamanya adalah:
 ## Memperbarui Node Elektron [garpu](https://github.com/electron/node)
 
 1. Pastikan `master` pada `electron/node` telah memperbarui tag rilis dari `nodejs/node`
-2. Buat cabang di https://github.com/electron/node: `elektron-simpul-vX.X.X` where the base that you're branching from is the tag for the desired update 
+2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update
   - `vX.X.X` Must use a version of Node compatible with our current version of Chromium
-3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X` 
+3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X`
   - Check release tag and select the range of commits we need to re-apply
-  - Rentang komando ceri: 
+  - Rentang komando ceri:
     1. Checkout keduanya `vY.Y.Y` & `v.X.X.X`
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - Selesaikan gabungan konflik di setiap file yang ditemui, lalu: 
+  - Selesaikan gabungan konflik di setiap file yang ditemui, lalu:
     1. `git tambahkan <conflict-file>`
     2. `git cherry-pick --lanjutkan`
     3. Ulangi sampai selesai
+
 
 ## Memperbarui [V8](https://github.com/electron/node/src/V8) Patch
 
@@ -71,16 +72,16 @@ Update the `DEPS` file in the root of [electron/electron](https://github.com/ele
 
 ## Catatan
 
-- Node mempertahankan garpu sendiri dari V8 
+- Node mempertahankan garpu sendiri dari V8
   - Mereka mengemas sejumlah barang kecil sesuai kebutuhan
   - Documentation in Node about how [they work with V8](https://nodejs.org/api/v8.html)
-- We update code such that we only use one copy of V8 across all of Electron 
+- We update code such that we only use one copy of V8 across all of Electron
   - E.g Electron, Chromium, and Node.js
-- Kami tidak melacak upstream karena logistik: 
-  - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
-- Chromium is large and time-consuming to update, so we typically choose the Node version based on which of its releases has a version of V8 that’s closest to the version in Chromium that we’re using. 
+- Kami tidak melacak upstream karena logistik:
+   - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
+- Chromium is large and time-consuming to update, so we typically choose the Node version based on which of its releases has a version of V8 that’s closest to the version in Chromium that we’re using.
   - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new Chromium
-  - Electron keeps all its patches in the repo because it’s simpler than maintaining different repos for patches for each upstream project. 
-    - Crashpad, Node.js, Chromium, Skia etc. patches are all kept in the same place
-  - Building Node: 
-    - We maintain our own GN build files for Node.js to make it easier to ensure that eevrything is built with the same compiler flags. This means that every time we upgrade Node.js we have to do a modest amount of work to synchronize the GN files with the upstream GYP files.
+ - Electron keeps all its patches in the repo because it’s simpler than maintaining different repos for patches for each upstream project.
+   - Crashpad, Node.js, Chromium, Skia etc. patches are all kept in the same place
+ - Building Node:
+   - We maintain our own GN build files for Node.js to make it easier to ensure that eevrything is built with the same compiler flags. This means that every time we upgrade Node.js we have to do a modest amount of work to synchronize the GN files with the upstream GYP files.
