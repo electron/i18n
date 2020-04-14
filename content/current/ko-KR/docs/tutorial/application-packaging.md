@@ -10,13 +10,13 @@ Windows에서 일어나는 긴 경로 이름에 대한 [issues](https://github.c
 
 간단한 작업을 통해 애플리케이션을 `asar` 아카이브로 압축할 수 있습니다:
 
-### 1. asar 유틸리티 설치
+### 1. Install the asar Utility
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. `asar pack` 커맨드로 앱 패키징
+### 2. Package with `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
@@ -24,7 +24,7 @@ $ asar pack your-app app.asar
 
 ## `asar` 아카이브 사용하기
 
-Electron은 Node.js로부터 제공된 Node API와 Chromium으로부터 제공된 Web API 두 가지 API를 가지고 있습니다. 따라서 `asar` 아카이브는 두 API 모두 사용할 수 있도록 지원합니다.
+In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
 ### Node API
 
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-웹 페이지 내에선 아카이브 내의 파일을 `file:` 프로토콜을 사용하여 요청할 수 있습니다. 이 또한 `Node API`와 같이 가상 디렉터리 구조를 가집니다.
+In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
 예를 들어 jQuery의 `$.get`을 사용하여 파일을 가져올 수 있습니다:
 
@@ -88,7 +88,7 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 
 ### `asar` 아카이브를 일반 파일로 취급하기
 
-`asar` 아카이브의 체크섬(checksum) 을 검사하는 작업등을 하기 위해선 `asar` 아카이브를 파일 그대로 읽어야 합니다. 이러한 작업을 하기 위해 `original-fs` 빌트인 모듈을 `fs` 모듈 대신에 사용할 수 있습니다. 이 모듈은 `asar` 지원이 빠져있습니다. 즉 파일 그대로를 읽어들입니다:
+`asar` 아카이브의 체크섬(checksum) 을 검사하는 작업등을 하기 위해선 `asar` 아카이브를 파일 그대로 읽어야 합니다.  이러한 작업을 하기 위해 `original-fs` 빌트인 모듈을 `fs` 모듈 대신에 사용할 수 있습니다. 이 모듈은 `asar` 지원이 빠져있습니다. 즉 파일 그대로를 읽어들입니다:
 
 ```javascript
 const originalFs = require('original-fs')
@@ -113,7 +113,7 @@ fs.readFileSync('/path/to/example.asar')
 
 ### 아카이브 안의 디렉터리를 작업 경로로 설정하면 안됩니다
 
-`asar`아카이브는 디렉터리처럼 사용할 수 있도록 구현되었지만 그것은 실제 파일시스템의 디렉터리가 아닌 가상의 디렉터리이고, 그런 이유로 `asar` 아카이브 안의 디렉터리 경로로 작업할 수 없다. 따라서 몇몇 API에서 지원하는 `cwd` 옵션 또한 문제를 야기한다. 
+`asar`아카이브는 디렉터리처럼 사용할 수 있도록 구현되었지만 그것은 실제 파일시스템의 디렉터리가 아닌 가상의 디렉터리이고, 그런 이유로 `asar` 아카이브 안의 디렉터리 경로로 작업할 수 없다. 따라서 몇몇 API에서 지원하는 `cwd` 옵션 또한 문제를 야기한다.
 
 ### 특정 API로 인한 예외적인 아카이브 압축 해제
 
@@ -139,12 +139,13 @@ Node API에는 `child_process.exec`, `child_process.spawn` 그리고 `child_proc
 
 ## `asar` 아카이브에 압축 해제된 파일 추가하기
 
-위에서 언급했듯이, 일부 Node API는 호출시 파일을 파일 시스템에 압축을 풉니다. 성능 문제 외에도 다양한 안티 바이러스 프로그램이 이 동작에 의해 트리거 될 수 있습니다.
+As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
-이 문제를 해결하기 위해 ` -unpack ` 옵션을 사용하여 여러 파일을 압축 해제 된 상태로 둘 수 있습니다. 다음 예제에서 기본 Node.js 모듈의 공유 라이브러리는 압축되지 않습니다.
+As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-명령을 실행하면 ` app.asar.unpacked ` 폴더가 ` app.asar ` 파일과 함께 만들어 졌음을 알 수 있습니다. 이 폴더에는 압축을 푼 파일이 들어 있고, ` app.asar ` 아카이브와 함께 제공해야합니다.
+명령을 실행하면 ` app.asar.unpacked ` 폴더가 ` app.asar ` 파일과 함께 만들어 졌음을 알 수 있습니다. 이 폴더에는 압축을 푼 파일이 들어 있고,  ` app.asar ` 아카이브와 함께 제공해야합니다.
+
