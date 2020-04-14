@@ -14,7 +14,7 @@ Electron 还为开发原生桌面应用程序提供了一些额外的内置模�
 const { app, BrowserWindow } = require('electron')
 let win = null
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL('https://github.com')
 })
@@ -45,7 +45,7 @@ const { app, BrowserWindow } = require('electron')
 
 let win
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.loadURL('https://github.com')
 })
@@ -59,7 +59,7 @@ const { app, BrowserWindow } = electron
 
 let win
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.loadURL('https://github.com')
 })
@@ -73,7 +73,7 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 let win
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.loadURL('https://github.com')
 })
