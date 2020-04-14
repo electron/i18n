@@ -8,7 +8,7 @@ You may need to become familiar with [Chromium's multi-process architecture](htt
 
 ```diff
 Electron
-├── atom/ - C++ source code.
+├── atom/ - C++ مصدر الشفرة.
 |   ├── app/ - شفرة مدخل النظام.
 |   ├── browser/ - The frontend including the main window, UI, and all of the
 |   |   |          main process things. This talks to the renderer to manage web
@@ -28,7 +28,7 @@ Electron
 |       |         message loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |                  Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── chromium_src/ - Source code copied from Chromium. أنظر أدناه.
 ├── default_app/ - The default page to show when Electron is started without
 |                  providing an app.
 ├── docs/ - Documentations.
