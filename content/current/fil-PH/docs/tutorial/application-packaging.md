@@ -10,13 +10,13 @@ Ang "[asar](https://github.com/electron/asar) na archive ay isang simpleng ayos 
 
 Mga hakbang para mailagak ang iyong app sa archive ng `asar`:
 
-### 1. I-install ang asar Utility
+### 1. Install the asar Utility
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Pakete kasama ang `asar pack`
+### 2. Package with `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
@@ -24,7 +24,7 @@ $ asar pack your-app app.asar
 
 ## Paggamit ng mga Archives ng `asar`
 
-Sa Electron, mayroong dalawang nakatakdang mga API: Ang Node na API ay galing sa Node.js at ang Web na API ay galing sa " Chromium". Ang parehong mga API ay sumusuporta sa pagbasa ng mga file galing sa mga archive ng `asar`.
+In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
 ### Node na API
 
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web na API
 
-Sa pahina ng web, ang mga file na nasa archive ay maaaring hilingin sa protokol ng `file:`. Tulad ng Node na API, ang mga archive ng `asar` ay tinuturing bilang mga direktoryo.
+In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
 Halimbawa, para makuha ang isang file gamit ang `$.get`:
 
@@ -139,7 +139,7 @@ Ito ay dahil sa `exec` at `spawn` na tumatanggap ng `command` sa halip na `file`
 
 ## Pagdaragdag ng mga naka-unpack na mga file sa `asar` na mga Archive
 
-Gaya ng nasabi sa itaas, ang ilang mga node na api ay mag-a-unpack sa file patungo sa filesystem kapag tinawag. Hindi lang mga isyu sa pagganap, ang ilang mga anti-virus na mga skaner ay maaaring mapagana ng ganitong paggalaw.
+As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
 As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
 
@@ -148,3 +148,4 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 Pagkatapos paganahin ang utos, mapapansin mo na ang isang folder na pinangalanang `app.asar.unpacked` ay nailikha kasama ang `app.asar` na file. Naglalaman ito ng mga naka-unpack na mga file at dapat ipinadala kasabay ang `app.asar` na archive.
+
