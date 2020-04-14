@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
+在Electron中，`DownloadItem` 是一个代表下载项目的`EventEmitter`。 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
 
 ```javascript
 // 在主进程中.
@@ -35,7 +35,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### 实例事件
+### 事件
 
 #### 事件名: 'updated'
 
@@ -74,7 +74,7 @@ Emitted when the download is in a terminal state. This includes a completed down
 
 * `path` String - 设置下载项目的保存文件路径。
 
-该API仅能在`will-download` 方法的回调中使用。 If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+该API仅能在`will-download` 方法的回调中使用。 如果用户没有通过API设置保存路径，Electron将使用默认方式来确定保存路径（通常会提示保存对话框）。
 
 #### `downloadItem.getSavePath()`
 
@@ -96,11 +96,11 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.isPaused()`
 
-返回`Boolean` - 下载是否暂停。
+Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-恢复已暂停的下载。
+Resumes the download that has been paused.
 
 **Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
 
@@ -114,7 +114,7 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+返回`String` - 从中​​下载项目的源URL。
 
 #### `downloadItem.getMimeType()`
 
@@ -152,7 +152,7 @@ Returns `String` - The current state. Can be `progressing`, `completed`, `cancel
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+返回String [] - 包含任何重定向的项目的完整url链。
 
 #### `downloadItem.getLastModifiedTime()`
 
