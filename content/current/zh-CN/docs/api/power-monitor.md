@@ -4,6 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
+
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
 例如：
@@ -30,23 +31,23 @@ app.on('ready', () => {
 
 在系统恢复时触发。
 
-### Event: 'on-ac' *Windows*
+### Event: 'on-ac' _Windows_
 
 当系统变为交流电源时触发。
 
-### Event: 'on-battery' *Windows*
+### Event: 'on-battery' _Windows_
 
 当系统更改为电池电量时触发。
 
-### Event: 'shutdown' *Linux* *macOS*
+### Event: 'shutdown' _Linux_ _macOS_
 
 当系统即将重启或关机时出发 如果事件调用`e.preventDefault()`, Electron 将会尝试延迟系统关机，以便 app 完全退出。 如果`e.preventDefault()`被调用，在调用类似 `app.quit()` 后，app 会很快地退出。
 
-### Event: 'lock-screen' *macOS* *Windows*
+### Event: 'lock-screen' _macOS_ _Windows_
 
 当系统即将锁定屏幕时触发。
 
-### Event: 'unlock-screen' *macOS* *Windows*
+### Event: 'unlock-screen' _macOS_ _Windows_
 
 当系统屏幕解锁，立即触发。
 
@@ -60,7 +61,7 @@ app.on('ready', () => {
 
 Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `locked` is available on supported systems only.
+Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
 
 ### `powerMonitor.getSystemIdleTime()`
 
