@@ -4,7 +4,7 @@ Su macOS una finestra può impostare il suo file rappresentato, così l'icona de
 
 Puoi anche impostare lo stato personalizzato di una finestra cosicchè l'icona del file possa indicare se il documento in questa finestra è stato modificato.
 
-**Menu popup file rappresentato:**
+__Menu popup file rappresentato:__
 
 ![File Rappresentato](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
