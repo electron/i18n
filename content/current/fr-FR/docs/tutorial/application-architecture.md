@@ -4,9 +4,9 @@ Avant de se plonger dans les APIs Electron, discutons des deux types de processu
 
 ## Processus Principal et de Rendu
 
-Dans Electron, le processus qui exécute le script `main` dans le `package.json` est appelé le **processus principal**. Le script qui exécute le processus principal peut afficher une interface graphique en créant des pages web. Une application Electron possède toujours un processus principal, jamais plus.
+In Electron, the process that runs `package.json`'s `main` script is called __the main process__. Le script qui exécute le processus principal peut afficher une interface graphique en créant des pages web. Une application Electron possède toujours un processus principal, jamais plus.
 
-Puisque Electron utilise Chromium pour l'affichage de pages web, l'architecture multiprocessus de Chromium est également utilisée. Chaque page web dans Electron s'exécute dans son propre processus, qui s'appelle le **processus de rendu**.
+Puisque Electron utilise Chromium pour l'affichage de pages web, l'architecture multiprocessus de Chromium est également utilisée. Each web page in Electron runs in its own process, which is called __the renderer process__.
 
 Dans un navigateur normal, les pages web sont habituellement exécuté dans un environnement sandbox et ne sont pas autorisé à accéder aux ressources natives. Cependant, les utilisateurs d'Electron peuvent utiliser l'API Node.js dans les pages web, ce qui permet des interactions bas niveau avec le système d'exploitation.
 
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 Il y a une mise en garde importante : les modules Node.js natifs (les modules contenant du code natif devant être compilé) devront être compilés pour être utilisés dans Electron.
 
-La grande majorité des modules Node.js ne sont pas natifs. Seulement 400 sur environ 650 000 modules sont natifs. Toutefois, si vous avez besoin d'utiliser un module natif, veuillez consulter [ce guide sur la compilation des modules natifs pour Electron](./using-native-node-modules.md).
+The vast majority of Node.js modules are _not_ native. Seulement 400 sur environ 650 000 modules sont natifs. Toutefois, si vous avez besoin d'utiliser un module natif, veuillez consulter [ce guide sur la compilation des modules natifs pour Electron](./using-native-node-modules.md).
