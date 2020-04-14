@@ -1,30 +1,30 @@
 # 升级 Chromium
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+本文概述了在Electron中升级Chromium所需的步骤。
 
-- Upgrade libcc to a new Chromium version
-- Make Electron code compatible with the new libcc
-- Update Electron dependencies (crashpad, NodeJS, etc.) if needed
-- Make internal builds of libcc and electron
-- Update Electron docs if necessary
+- 将libcc升级到新的Chromium版本
+- 使Electron兼容新的libcc
+- 如有必要，请更新Electron的相关依赖（如崩溃报告，NodeJS等）
+- 创建libcc和Electron的内部编译本
+- 如有需要，请更新Electron文档
 
 
-## Upgrade `libcc` to a new Chromium version
+## 将`libcc`升级到新的Chromium版本
 
-1. Get the code and initialize the project:
+1. 取得代码并初始化项目：
   ```sh
   $ git clone git@github.com:electron/libchromiumcontent.git
   $ cd libchromiumcontent
   $ ./script/bootstrap -v
   ```
-2. Update the Chromium snapshot
+2. 更新 Chromium 快照
   - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it
-    - This can be done manually by visiting OmahaProxy in a browser, or automatically:
-    - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
-    - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
+    - 这可以通过在浏览器中访问 OmahaProxy 手动完成，或自动完成：
+    - 最新稳定版 Mac 可用的一键脚本：`curl -so- https://omahaproxy.appspot.com/mac > VERSION`
+    - 最新测试版 win64 一键脚本： `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
   - run `$ ./script/update`
-    - Brew some tea -- this may run for 30m or more.
-    - It will probably fail applying patches.
+    - 倒杯茶吧 -- 这可能会运行 30 分钟或更长。
+    - 补丁的应用可能会失败。
 3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
 4. (Optional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches`
   - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
@@ -37,9 +37,9 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
 
 
-## Update Electron's code
+## 更新Electron代码
 
-1. Get the code:
+1. 获取代码:
   ```sh
   $ git clone git@github.com:electron/electron.git
   $ cd electron
@@ -60,45 +60,45 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 5. Checkout Chromium if you haven't already:
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py
     - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
-6. Build Electron.
+6. 构建Electron。
   - Try to build Debug version first: `$ ./script/build.py -c D`
   - You will need it to run tests
-7. Fix compilation and linking errors
-8. Ensure that Release build can be built too
+7. 修复编译和链接错误
+8. 确保也可以构建发布版本
   - `$ ./script/build.py -c R`
   - Often the Release build will have different linking errors that you'll need to fix.
   - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
 9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
 
-### Tips for fixing compilation errors
-- Fix build config errors first
-- Fix fatal errors first, like missing files and errors related to compiler flags or defines
-- Try to identify complex errors as soon as possible.
-  - Ask for help if you're not sure how to fix them
-- Disable all Electron features, fix the build, then enable them one by one
-- Add more build flags to disable features in build-time.
+### 关于修复编译错误的提示
+- 首先修复构建配置的错误
+- 首先修复致命错误，例如丢失文件和与编译器相关的错误 标志或定义
+- 尝试尽快识别复杂错误。
+  - 如果您不确定如何修复问题，请寻求帮助
+- 禁用所有 Electron 功能，修复构建，然后逐个启用它们
+- 添加更多构建标志以在构建时禁用功能。
 
 When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the failing tests.
 
-Follow all the steps above to fix Electron code on all supported platforms.
+按照上述所有步骤在所有支持的平台上修复 Electron 代码。
 
 
-## Updating Crashpad
+## 更新崩溃报告（Crashpad）
 
-If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](upgrading-crashpad.md) for instructions on how to do that.
+如果有任何与Crashpad相关的编译错误，则可能意味着您需要将fork更新为更新的版本。 查阅 [更新崩溃报告](upgrading-crashpad.md) 了解相关步骤。
 
 
-## Updating NodeJS
+## 更新NodeJS
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
-See [Upgrading Node](upgrading-node.md) for instructions on this.
+请参见 [更新 Node ](upgrading-node.md) 有关这方面的说明。
 
-## Verify ffmpeg support
+## 验证 ffmpeg 支持
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
+Electron 发行版的 `ffmpeg`，默认包括专有的编解码器 没有这些编解码器的版本也被构建并分发到每个版本。 每个Chrome升级都应该验证是否仍然支持切换此版本。
 
-You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+您可以通过加载以下页面来验证Electron对多个`ffmpeg`构建的支持。 它应该与使用Electron分发的默认`ffmpeg`库一起工作，而不使用没有专有编解码器的`ffmpeg`库。
 
 ```html
 <!DOCTYPE html>
@@ -128,8 +128,8 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 </html>
 ```
 
-## Useful links
+## 相关链接
 
-- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
+- [Chrome 发布日程](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
-- [Chromium Issue Tracker](https://bugs.chromium.org/p/chromium)
+- [Chromium 问题追踪器](https://bugs.chromium.org/p/chromium)
