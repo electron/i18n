@@ -49,7 +49,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## 属性
 
 ### `process.defaultApp`
 
@@ -171,13 +171,13 @@ Returns an object giving memory usage statistics about the entire system. Note t
 
 Returns `String` - The version of the host operating system.
 
-示例：
+示例
 
-| Platform | 版本                  |
-| -------- | ------------------- |
-| macOS    | `10.13.6`           |
-| Windows  | `10.0.17763`        |
-| Linux    | `4.15.0-45-generic` |
+| 平台      | 版本                  |
+| ------- | ------------------- |
+| macOS   | `10.13.6`           |
+| Windows | `10.0.17763`        |
+| Linux   | `4.15.0-45-generic` |
 
 **Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
 
