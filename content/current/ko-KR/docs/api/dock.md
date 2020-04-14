@@ -2,7 +2,7 @@
 
 > Control your app in the macOS dock
 
-프로세스: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 The following example shows how to bounce your icon on the dock.
 
