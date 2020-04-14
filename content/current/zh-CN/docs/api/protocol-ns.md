@@ -112,7 +112,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data` property.
 
-示例：
+示例:
 
 ```javascript
 protocol.registerBufferProtocol('atom', (request, callback) => {
@@ -156,7 +156,7 @@ Registers a protocol of `scheme` that will send a stream as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a [`ReadableStream`](https://nodejs.org/api/stream.html#stream_class_stream_readable) object or an object that has the `data` property.
 
-示例：
+示例:
 
 ```javascript
 const { protocol } = require('electron')
