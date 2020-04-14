@@ -12,7 +12,7 @@ Vous pouvez également essayer de télécharger Electron directement depuis [ele
 
 La version Chrome d'Electron est généralement mise à jour entre une et deux semaines après qu'une nouvelle mise à jour stable de Chrome soit disponible. Cette estimation n'est toutefois pas garantie et dépend de l'effort nécessaire pour faire la mise à jour.
 
-Seul le canal "stable" de Chrome est utilisé. Si un fix important est disponible sur le canal "beta" ou "dev", nous l'installerons.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 Pour plus d'informations, veuillez voir [l'introduction à la sécurité](tutorial/security.md).
 
@@ -29,19 +29,19 @@ Pour partager des données entre les pages web (les processus de rendu), le moye
 Ou vous pouvez utiliser le système IPC, qui est spécifique à Electron, pour stocker des objets dans le processus principal comme une variable globale, puis d'y accéder depuis les moteurs de rendu via la propriété `remote` du module `electron` :
 
 ```javascript
-// Dans le processus principal. 
+// Dans le processus main.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// Dans la page 1.
+// In page 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// Dans la page 2.
+// In page 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -82,7 +82,7 @@ En raison de l'intégration de Node.js dans Electron, il y a quelques symboles s
 Pour résoudre ce problème, vous pouvez désactiver l'intégration de node dans Electron :
 
 ```javascript
-// In the main process.
+// Dans le processus main.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -115,32 +115,11 @@ Lorsque vous utilisez le module intégré d'Electron, vous pouvez obtenir une er
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-C'est parce que vous avez le [module `Electron` npm](https://www.npmjs.com/package/electron) installé localement ou en global, qui remplace le module intégré d'Electron.
-
-Pour vérifier si vous utilisez le module intégré correct, vous pouvez afficher le chemin d'accès du module `Electron` ainsi :
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-et ensuite vérifier si elle est sous la forme suivante :
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-Si c'est quelque chose comme `node_modules/electron/index.js`, vous devrez retirer le module `Electron` de npm ou le renommer.
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-Cependant si vous utilisez le module intégré et que vous avez toujours cette erreur, il est très probable que vous utilisiez le module dans le mauvais processus. Par exemple `electron.app` peut seulement être utilisé dans le processus principal, tandis que `electron.webFrame` n'est disponible que dans les processus de rendu.
+It is very likely you are using the module in the wrong process. Par exemple `electron.app` peut seulement être utilisé dans le processus principal, tandis que `electron.webFrame` n'est disponible que dans les processus de rendu.
 
 ## La police semble floue, qu'est-ce et à que puis-je faire?
 
-Si [l'anticrénelage des sous-pixels](http://alienryderflex.com/sub_pixel/) est désactivé, alors les polices sur les écrans LCD peuvent être floues. Exemple :
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemple :
 
 ![exemple de rendu de sous-pixel](images/subpixel-rendering-screenshot.gif)
 
@@ -155,6 +134,6 @@ let win = new BrowserWindow({
 })
 ```
 
-L'effet n'est visible que sur (certains ?) écrans LCD. Même si vous ne voyez pas de différence, certains de vos utilisateurs peuvent en voir. Il est préférable de toujours régler l'arrière-plan de cette façon, à moins que vous n'ayez des raisons de ne pas le faire.
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 Veuillez noter que simplement paramétrer la couleur de fond avec le CSS ne donnera pas l'effet souhaité.
