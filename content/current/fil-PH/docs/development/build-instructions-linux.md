@@ -71,7 +71,7 @@ And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cp
 $ gn gen out/Testing --args='import(...) target_cpu="arm"'
 ```
 
-## Pagbuo
+## Ang Pagbubuo
 
 See [Build Instructions: GN](build-instructions-gn.md)
 
