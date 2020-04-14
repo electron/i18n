@@ -3,13 +3,13 @@
 * `icon` [NativeImage](../native-image.md) - サムネイルツールバーで表示されるアイコン。
 * `click` Function
 * `tooltip` String (任意) - ボタンのツールチップのテキスト。
-* `flags` String[] (任意) - ボタンの特定の状態や動作を制御します。デフォルトでは、`['enabled']` です。
+* `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
 `flags` は、以下の `String` を含めることができる配列です。
 
 * `enabled` - そのボタンはアクティブかつユーザが使用可能です。
-* `disabled` - そのボタンは無効です。存在しますが、ユーザ操作に応答しないことを示す視覚的な状態です。
+* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
 * `dismissonclick` - そのボタンをクリックすると、サムネイルウインドウがすぐに閉じます。
 * `nobackground` - そのボタンの縁を描画しません。画像にのみ使用してください。
 * `hidden` - そのボタンはユーザに表示されません。
-* `noninteractive` - そのボタンは有効ですが、反応せず、押されたボタンの状態も描画されません。この値は、例えば通知内で使用するボタンに使用されます。
+* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
