@@ -4,14 +4,14 @@ macOS 版 Electron のビルドについては、以下のガイドラインに�
 
 ## 必要な環境
 
-* macOS 10.11.6 以上
-* [Xcode](https://developer.apple.com/technologies/tools/) 9.0.0 以上
+* macOS >= 10.11.6
+* [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
 * [Node.js](https://nodejs.org) (外部)
 * TLS 1.2 に対応した Python 2.7
 
 ## Python
 
-システムと Python のバージョンが少なくともTLS 1.2をサポートしていることも確認してください。 これはあなたの macOS と Python のバージョンの両方に依存します。 クイックテストを実行するには以下を実行します。
+Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
 
 ```sh
 $ npx @electron/check-python-tls
@@ -37,7 +37,7 @@ $ pip install pyobjc
 
 Electron を開発していて独自の Electron ビルドを再配布する予定がない場合は、このセクションを飛ばして構いません。
 
-公式の Electron ビルドは、[Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip) と macOS 10.13 SDK でビルドされています。 より新しい SDK でビルドして同様に動いても、現在のリリースは 10.13 SDK を使用します。
+公式の Electron ビルドは、[Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip) と macOS 10.13 SDK でビルドされています。  より新しい SDK でビルドして同様に動いても、現在のリリースは 10.13 SDK を使用します。
 
 ## Electron のビルド
 
