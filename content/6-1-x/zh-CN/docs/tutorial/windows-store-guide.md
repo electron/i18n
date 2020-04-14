@@ -1,4 +1,4 @@
-# Windows 商店提交指南
+# Windows 商店指南
 
 在 Windows 10 中，一些不错的旧 win32 程序迎来了一个新朋友：通用 Windows 平台。 新的 `.appx` 格式不仅启用了许多新的强大的 API，如 Cortana 或推送通知，而且通过 Windows 应用商店，也同时简化了安装和更新。
 
@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## 步骤 1: 打包你的 Electron 应用程序
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). 确保在最终的应用程序中删除不需要的 `node_modules`, 因为这些你不需要模块只会额外增加你的应用程序的大小.
+打包应用程序使用 [electron-packager](https://github.com/electron-userland/electron-packager) (或类似工具). 确保在最终的应用程序中删除不需要的 `node_modules`, 因为这些你不需要模块只会额外增加你的应用程序的大小.
 
 结构输出应该看起来大致像这样:
 
@@ -39,14 +39,14 @@ Package the application using [electron-packager](https://github.com/electron-us
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
 ├── natives_blob.bin
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   ├── app
+│   └── atom.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
