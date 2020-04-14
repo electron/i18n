@@ -61,7 +61,7 @@ electron/resources/
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+你可以将 `electron.exe` 重命名为任何你喜欢的名字，然后可以使用像 [rcedit](https://github.com/atom/rcedit) 那样的工具编辑它的 icon 和其他信息。
 
 ### macOS
 
