@@ -8,3 +8,4 @@ Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) AP
 * 要查阅进程体系, 请参见 [ 主进程和渲染进程 ](./application-architecture.md#main-and-renderer-processes)。
 
 关于Electron的更多信息，可以查阅[official guides](../)
+
