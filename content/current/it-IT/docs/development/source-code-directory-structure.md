@@ -77,13 +77,12 @@ Electron
 
 * **.circleci** - Config file for CI with CircleCI.
 * **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
-* **dist** - Cartella temporanea creata dallo script `script/create-dist.py` all'atto della creazione di una distribuzione.
-* **external_binaries** - Codice binario di framework di terze parti che non è possibile compilare con `gn`.
-* **node_modules** - Moduli di terze parti usati per la compilazione.
+* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
+* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
+* **node_modules** - Third party node modules used for building.
 * **npm** - Logic for installation of Electron via npm.
-* **out** - Directory temporanea di output di `ninja`.
-* **script** - Script usati per finalità di sviluppo come compilazione, assemblaggio dei pacchetti, testing, ecc.
-
+* **out** - Temporary output directory of `ninja`.
+* **script** - Scripts used for development purpose like building, packaging, testing, etc.
 ```diff
 script/ - The set of all scripts Electron runs for a variety of purposes.
 ├── codesign/ - Fakes codesigning for Electron apps; used for testing.
@@ -92,8 +91,7 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
     ├── notes/ - Generates release notes for new Electron versions.
     └── uploaders/ - Uploads various release-related files during release.
 ```
-
-* **strumenti** - Helper scripts used by GN files. 
+* **tools** - Helper scripts used by GN files.
   * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
 * **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
@@ -105,8 +103,8 @@ Il repository di Electron dipende anche da software di terze parti, che è possi
 ```sh
 $ git status
 
-  modified:   vendor/depot_tools (new commits)
-  modified:   vendor/boto (new commits)
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 Per aggiornare queste dipendenze eseguite il seguente comando:
@@ -119,5 +117,5 @@ Se vi accorgete di eseguire il comando molto spesso, potete creare un alias nel 
 
 ```sh
 [alias]
-  su = submodule update --init --recursive
+    su = submodule update --init --recursive
 ```
