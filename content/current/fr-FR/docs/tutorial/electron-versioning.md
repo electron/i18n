@@ -140,5 +140,5 @@ Nous cherchons à accroître la clarté à tous les niveaux du processus de mise
 
 - La branche `master` contiendra toujours la prochaine version majeure `X.0.0-nightly.DATE` dans son `package.json`
 - Les branches de version ne sont jamais fusionnées vers master
-- Release branches _do_ contain the correct version in their `package.json`
+- Les branches de version _do_ contiennent la version correcte dans leur `package.json`
 - As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
