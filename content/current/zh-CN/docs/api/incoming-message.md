@@ -46,11 +46,13 @@
 
 #### `response.headers`
 
-An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
+A `Record<string, string | string[]>` representing the HTTP response headers. The `headers` object is formatted as follows:
 
 * 所有的头文件名是小写的。
-* 每个头名称在头对象上生成一个数组值属性。
-* 每个头值被推入与它的头名称相关联的数组中。
+* Duplicates of `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, or `user-agent` are discarded.
+* `set-cookie` is always an array. Duplicates are added to the array.
+* For duplicate `cookie` headers, the values are joined together with '; '.
+* For all other headers, the values are joined together with ', '.
 
 #### `response.httpVersion`
 
