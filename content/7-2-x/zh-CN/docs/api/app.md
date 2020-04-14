@@ -47,7 +47,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
 ### 事件: 'will-quit'
 
@@ -59,7 +59,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 关于 ` window-all-closed` 和 ` will-quit ` 事件之间的差异, 请参见 `window-all-closed ` 事件的说明。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
 ### 事件: 'quit'
 
@@ -70,9 +70,9 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 在应用程序退出时发出。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
-### Event: 'open-file' _macOS_
+### 事件: 'open-file' _macOS_
 
 返回:
 
@@ -85,7 +85,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 在 Windows 系统中，你需要解析 `process.argv` (在主进程中) 来获取文件路径
 
-### Event: 'open-url' _macOS_
+### 事件: 'open-url' _macOS_
 
 返回:
 
@@ -96,7 +96,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
-### Event: 'activate' _macOS_
+### 事件: 'activate' _macOS_
 
 返回:
 
@@ -105,7 +105,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 当应用被激活时发出。 各种操作都可以触发此事件, 例如首次启动应用程序、尝试在应用程序已运行时或单击应用程序的坞站或任务栏图标时重新激活它。
 
-### Event: 'continue-activity' _macOS_
+### 事件: 'continue-activity' _macOS_
 
 返回:
 
@@ -117,7 +117,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 只有具有支持相应的活动类型并且相同的开发团队 ID 作为启动程序时，用户行为才会进行。 所支持活动类型已在应用的 `Info.plist` 中的 `NSUserActivityTypes` 里明确定义。
 
-### Event: 'will-continue-activity' _macOS_
+### 事件: 'will-continue-activity' _macOS_
 
 返回:
 
@@ -126,7 +126,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 当来自不同设备的活动通过 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 恢复之前触发。 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
-### Event: 'continue-activity-error' _macOS_
+### 事件: 'continue-activity-error' _macOS_
 
 返回:
 
@@ -136,7 +136,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 当来自不同设备的活动通过 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 恢复失败时触发。
 
-### Event: 'activity-was-continued' _macOS_
+### 事件: 'activity-was-continued' _macOS_
 
 返回:
 
@@ -146,7 +146,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 当来自不同设备的活动通过 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 成功恢复后触发。
 
-### Event: 'update-activity-state' _macOS_
+### 事件: 'update-activity-state' _macOS_
 
 返回:
 
@@ -156,7 +156,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 如果需要更新要传输的状态, 应立即调用 ` 事件. preventDefault () `, 构造新的 ` 用户信息 ` 字典, 并及时调用 ` 应用程序 updateCurrentActiviy () `。 否则，操作会失败，并且触发 `continue-activity-error`
 
-### Event: 'new-window-for-tab' _macOS_
+### 事件: 'new-window-for-tab' _macOS_
 
 返回:
 
@@ -308,7 +308,7 @@ Emitted when the GPU process crashes or is killed.
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
-### Event: 'accessibility-support-changed' _macOS_ _Windows_
+### 事件: "accessibility-support-changed" _ macOS _ _ Windows _
 
 返回:
 
@@ -347,7 +347,7 @@ app.on('session-created', (event, session) => {
 
 保证在 `app` 的 `ready` 事件发出后发出此事件。
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**注意：** 额外命令行参数可能由 Chromium 添加， ，例如 `--original-process-start-time`。
 
 ### 事件: 'desktop-capturer-get-sources'
 
@@ -615,8 +615,8 @@ The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internal
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
 * `protocol` String - 协议的名称, 不包含 `://`。
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* ` path `String (可选) _ Windows _-默认为 ` process.execPath `
+* `args` String[] (可选) _Windows_ - 默认为空数组
 
 返回 ` Boolean `-是否成功调用。
 
@@ -625,8 +625,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - 协议的名称, 不包含 `://`。
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* ` path `String (可选) _ Windows _-默认为 ` process.execPath `
+* `args` String[] (可选) _Windows_ - 默认为空数组
 
 Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
@@ -651,7 +651,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 返回 ` Object `:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
 
 ### `app.setJumpList(categories)` _Windows_
 
