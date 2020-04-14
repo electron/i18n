@@ -2,7 +2,7 @@
 
 > 取得螢幕大小、顯示器、游標位置等的資訊。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
