@@ -13,23 +13,29 @@ Ito ang mga alintuntunin sa pagsulat ng dokumento ng elektron.
 Paggamit ng mga `Quick Start` bilang halimbawa:
 
 ```markdown
-# Mabilis na simula
+# Quick Start
 
 ...
 
-## Pangunahing proseso
+## Main process
 
 ...
 
-## Proseso ng tagapagbalita
+## Renderer process
 
 ...
 
-## Patakbuhin ang iyong app
+## Run your app
 
 ...
 
-### Patakbuhin bilang pamamahagi...
+### Run as a distribution
+
+...
+
+### Manually downloaded Electron binary
+
+...
 ```
 
 Para sa mga reperensya ng API, may mga eksepsiyon sa panuntunang ito.
@@ -79,10 +85,10 @@ Paggamit ng mga `autoUpdater` bilang isang halimbawa:
 * Ang mga tagatayo ay dapat na nakalista sa ` ### `-antas na pamagat.
 * [Static na pamamaraan](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) ay dapat nakalista sa ilalim ng isang `### Static na pamamaraan`kabanata.
 * [Halimbawa ng mga pamamaraan](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) ay dapat nakalista sa ilalim ng isang `### pamamaraan ng pagkakataon` kabanata.
-* Lahat ng mga pamamaraan na magkaroon ng isang pagbalik na halaga ay dapat nagsimula ng kanilang deskripsyon sa "Returns `[TYPE]` -Bumalik sa deskrpsyon" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * Kung ang paraan na ito ay nagbabalik ng isang `bagay`. ng istraktura nito ay tinukoy gamit ang isang colon kasunod ng newline at ang unordered na listahan ng mga katangian sa parehong estilo bilang function ng mga parameters.
 * Ang mga Kaganapan ng Instance ay dapat na nakalista sa ilalim ng kabanata ng `### Instance Events `.
-* Instance Properties ay dapat nakalista sa ilalim ng isang `### Katangian ng pagkakataon` kabanata. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Instance properties ay dapat nagsimula ng "A [Property Type] ..."
 
 Gamit ang `Session`at`Cookies`classes bilang halimbawa:
@@ -124,12 +130,17 @@ Gamit ang `Session`at`Cookies`classes bilang halimbawa:
 Ang pamamaraan ng kabanata ay dapat nasa sumusunod na form:
 
 ```markdown
-### ' objectName.methodName (kinakailangan [at opsyonal]))' * 'kailangan' pisi - isang paglalarawan ng parameter. * ' optional' Integer (opsyonal) - isa pang parameter na deskripsyon. ...
+### `objectName.methodName(required[, optional]))`
+
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
+
+...
 ```
 
 Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang pamamaraan ng isang paksa o ng isang klase.
 
-Para sa mga modyul na ito, ang `objectName` ay pangalan ng mga modyul. Para sa klase, ito ay dapat na ang mga pangalan ng mga pagkakataon sa klase, at hindi ay dapat kapareho ng pangalan ng mga modyul.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Halimbawa, ang mga pamamaraan ng `sesyon ng` klase sa ilalim ng `sesyon` seksyon ay dapat gumamit ng `ses` bilang ang `objectName`.
 
@@ -139,7 +150,7 @@ Ang mga opsyonal na argumento ay ipinapahayag sa pamamagitan ng mga square brack
 kinakailangan [at opsyonal]
 ```
 
-Sa ibaba ng paraan ay mas detalyadong impormasyon sa bawat isa sa mga argumento. Ang uri ng argumento ay binibigkas ng alinman sa karaniwang mga uri:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Bilang`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
