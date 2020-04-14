@@ -476,7 +476,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` سلسلة نصية
+* `الإسم`String
 
 Remove a Chrome extension by name.
 
@@ -502,7 +502,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` سلسلة نصية
+* `الإسم`String
 
 Remove a DevTools extension by name.
 
@@ -1315,7 +1315,7 @@ Returns array of `BrowserView` what was an attached with addBrowserView or setBr
 
 **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
 
-### الخصائص
+### Properties
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
