@@ -4,7 +4,7 @@ Different operating systems provide different features for integrating desktop a
 
 This guide explains how to integrate your application into those desktop environments with Electron APIs.
 
-## Notifications
+## Известия
 
 See the [Notifications documentation](notifications.md).
 
