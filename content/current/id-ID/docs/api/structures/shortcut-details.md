@@ -1,11 +1,9 @@
 # Objek ShortcutDetails
 
-*  target </ 0>  String - Target untuk memulai dari shortcut ini.</li>
-<li><code> cwd </ 0>  String (opsional) - Direktori kerja. Defaultnya kosong</li>
-<li><code> args </ 0>  String (opsional) - Argumen yang akan diterapkan pada <code> target </ 0> saat meluncurkan dari shortcut ini. Defaultnya kosong</li>
-<li><code> deskripsi </ 0>  String (opsional) - Deskripsi jalan pintas. Defaultnya kosong</li>
-<li><code> icon </ 0>  String (opsional) - Path ke ikon, bisa berupa DLL atau EXE. <code> ikon </ 0> 
-dan <code> iconIndex </ 0> harus disatukan. Default kosong, yang menggunakan ikon target.</li>
-<li><code> iconIndex </ 0>  Nomor (opsional) - ID sumber ikon bila <code> ikon </ 0> adalah DLL atau EXE. Default adalah 0.</li>
-<li><code> appUserModelId </ 0>  String (opsional) - ID Model Pengguna Aplikasi. Defaultnya kosong</li>
-</ul>
+* ` target </ 0>  String - Target untuk memulai dari shortcut ini.</li>
+<li><code>cwd` String (optional) - The working directory. Default is empty.
+* `args` String (optional) - The arguments to be applied to `target` when launching from this shortcut. Default is empty.
+* `description` String (optional) - The description of the shortcut. Default is empty.
+* `icon` String (optional) - The path to the icon, can be a DLL or EXE. `icon` and `iconIndex` have to be set together. Default is empty, which uses the target's icon.
+* `iconIndex` Number (optional) - The resource ID of icon when `icon` is a DLL or EXE. Default is 0.
+* `appUserModelId` String (optional) - The Application User Model ID. Default is empty.
