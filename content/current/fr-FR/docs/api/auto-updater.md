@@ -2,7 +2,7 @@
 
 > Permet aux application de se mettre à jour automatiquement d'elles-mêmes.
 
-Processus : [Principal](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
 **Voir aussi : [Un guide détaillé à propos de l’implémentation des mises à jour dans votre application](../tutorial/updates.md).**
 
@@ -10,7 +10,7 @@ Processus : [Principal](../glossary.md#main-process)
 
 ## Avertissement sur les plateformes
 
-Actuellement, seuls MacOS et Windows sont supportés. Il n' y a pas de support intégré pour la mise à jour automatique sous Linux, il est donc recommandé d'utiliser le gestionnaire de paquetages de la distribution pour mettre à jour votre application.
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
 En outre, il y a quelques différences subtiles sur chaque plateforme :
 
@@ -18,7 +18,7 @@ En outre, il y a quelques différences subtiles sur chaque plateforme :
 
 Sur macOS, le module `autoUpdater` repose sur [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), ce qui signifie que vous n'avez pas besoin d'une installation spécifique pour le faire fonctionner. Pour les besoins du côté serveur, vous pouvez lire [Le support du serveur](https://github.com/Squirrel/Squirrel.Mac#server-support). Notez que l'[App Transport Securité](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) s'applique à toutes les demandes formulées dans le cadre du processus de mise à jour. Les applications qui ont besoin de désactiver l'ATS peut ajouter la clé `NSAllowsArbitraryLoads` à leur fichier plist.
 
-**Remarque :** Votre application doit être signée pour pouvoir se mettre à jour automatiquement sur macOS. Il s'agit d'une exigence de `Squirrel.Mac`.
+**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
 ### Windows
 
@@ -48,7 +48,7 @@ Retourne :
 
 ### Événement : 'update-available'
 
-Émis lorsqu’il y a une mise à jour disponible. La mise à jour est téléchargé automatiquement.
+Emitted when there is an available update. The update is downloaded automatically.
 
 ### Événement : 'update-not-available'
 
@@ -58,7 +58,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
@@ -68,7 +68,7 @@ Retourne :
 
 Sur Windows, seulement `releaseName` est disponible.
 
-**Remarque :** Il n'est pas strictement nécessaire de gérer cet événement. Une mise à jour téléchargée avec succès sera toujours appliquée au prochain démarrage de l'application.
+**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
 
 ### Événement : 'before-quit-for-update'
 
@@ -82,10 +82,10 @@ L'objet `autoUpdater` dispose des méthodes suivantes :
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Objet 
+* `options` Object
   * `url` String
-  * `en-têtes` Enregistrement<String, String> (facultatif) *macOS* - En-têtes de requête HTTP.
-  * `serverType` String (facultatif) *macOS* - Soit `json` ou `default`, voir le README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) pour plus d’informations.
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Définit l'`url` et initialise l'auto updater.
 
@@ -95,12 +95,12 @@ Retourne `String` - L'URL de flux des mises à jour.
 
 ### `autoUpdater.checkForUpdates()`
 
-Demande au serveur s’il y a une mise à jour. Vous devez appeler `setFeedURL` avant d’utiliser cette API.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Redémarre l'application et installe la mise à jour après qu'elle soit téléchargée. Cette méthode doit être appelé seulement après que `update-downloaded` soit émis.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 Derrière l'appel de `autoUpdater.quitAndInstall()` fermera toutes les applications windows en premier, appellera automatiquement `app.quit()` après que toutes les fenêtres aient été fermées.
 
-**Note:** Il n'est pas strictement nécessaire d'appeler cette fonction pour appliquer une mise à jour, en tant que mise à jour téléchargée avec succès sera toujours appliquée au prochain démarrage de l'application .
+**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
