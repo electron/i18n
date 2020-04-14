@@ -12,7 +12,7 @@
 
 इलेक्ट्रॉन का क्रोम संस्करण, अक्सर नये स्थिर क्रोम संस्करण के जारी होने के 1-2 हफ़्तों में ही बढ़ जाता है | यह अनुमान गलत भी हो सकता है और अपग्रेड करने में लगने वाले कार्य पर निर्भर करता है |
 
-क्रोम का केवल स्थिर चैनल ही इस्तेमाल किया जाता है |अगर कोई महत्वपूर्ण मरम्मत बीटा या डेव चैनल में हो, तो हम उसे बैक-पोर्ट कर देते हैं |
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 और अधिक जानकारी के लिए, कृपया [सुरक्षा परिचय](tutorial/security.md) देखें |
 
@@ -29,22 +29,20 @@
 या फिर आप आईपीसी सिस्टम भी इस्तेमाल कर सकते हैं, जो कि ख़ास इलेक्ट्रॉन के लिए है | इसके द्वारा आप मुख्य प्रक्रिया में ऑब्जेक्ट्स को एक वैश्विक वेरिएबल की तरह स्टोर कर सकते हैं, और फिर उन तक रेंदेरेर्स से `इलेक्ट्रॉन` मोड्यूल के `दूरस्थ` गुण के द्वारा पहुँच सकते हैं |
 
 ```javascript
-// मुख्य प्रक्रिया में |
- global.sharedObject = {
-   someProperty: 'default value' 
+// In the main process.
+global.sharedObject = {
+  someProperty: 'default value'
 }
 ```
 
 ```javascript
-// पेज 1 में |
-require('electron').remote.getGlobal('sharedObject').someProperty =
-'new value'
+// In page 1.
+require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// पेज 2 में |
-console.log(require('electron').remote.getGlobal('sharedObject').
-someProperty)
+// In page 2.
+console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
 ## My app's tray disappeared after a few minutes.
@@ -84,13 +82,13 @@ app.whenReady().then(() => {
 इसे हल करने के लिए, आप इलेक्ट्रॉन में नोड एकीकरण को बंद कर सकते हैं:
 
 ```javascript
-// मुख्य प्रक्रिया में | 
-const { BrowserWindow } = require('electron') 
+// In the main process.
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
-   webPreferences: {     
-      nodeIntegration: false   
-  } 
-}) 
+  webPreferences: {
+    nodeIntegration: false
+  }
+})
 win.show()
 ```
 
@@ -118,32 +116,11 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of
 undefined
 ```
 
-ऐसा इसलिए क्योंकि आपने [एनपीएम `इलेक्ट्रॉन` मोड्यूल](https://www.npmjs.com/package/electron) को स्थानीय या वैश्विक इन्स्टॉल कर रखा है, जो कि इलेक्ट्रॉन के अंतर-निर्मित मोड्यूल को कम महत्वपूर्ण बना देता है |
-
-यह सुनिश्चित करने के लिए कि आप सही अंतर-निर्मित मोड्यूल का इस्तेमाल कर रहे हैं, आप `इलेक्ट्रॉन` मोड्यूल का पथ प्रिंट कर सकते हैं:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-और फिर जाँचे कि क्या वह इसी रूप में हैं:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-अगर वह `node_modules/electron/index.js` जैसा कुछ है, तो आपको या तो एनपीएम `इलेक्ट्रॉन` मोड्यूल हटाना होगा, या फिर उसका नाम बदलना होगा |
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-हालँकि अगर आप अंतर-निर्मित मोड्यूल इस्तेमाल कर रहे हैं और फिर भी इस त्रुटी का सामना कर रहे हैं, तो इस बात की काफी सम्भावना है कि आप मोड्यूल को गलत प्रक्रिया में इस्तेमाल कर रहे हैं | उदाहरण के लिए, `इलेक्ट्रॉन.एप्प` केवल मुख्य प्रक्रिया में इस्तेमाल की जा सकती है, जबकि `इलेक्ट्रान.वेबफ्रेम` सिर्फ़ रेंदेरेर प्रक्रिया में उपलब्ध है |
+It is very likely you are using the module in the wrong process. उदाहरण के लिए, `इलेक्ट्रॉन.एप्प` केवल मुख्य प्रक्रिया में इस्तेमाल की जा सकती है, जबकि `इलेक्ट्रान.वेबफ्रेम` सिर्फ़ रेंदेरेर प्रक्रिया में उपलब्ध है |
 
 ## The font looks blurry, what is this and what can I do?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. उदाहरण:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
