@@ -8,7 +8,7 @@ Electron 的原始碼可分成幾個部分，主要是對照到 Chromium 模組�
 
 ```diff
 Electron
-├── atom/ - C++ source code.
+├── atom/ - C++ 原始碼。
 |   ├── app/ - 系統入口點程式碼。
 |   ├── browser/ - The frontend including the main window, UI, and all of the
 |   |   |          main process things. This talks to the renderer to manage web
@@ -28,20 +28,20 @@ Electron
 |       |         message loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |                  Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── chromium_src/ - 由 Chromium 複製過來的原始碼。 參考下方說明。
 ├── default_app/ - The default page to show when Electron is started without
 |                  providing an app.
-├── docs/ - Documentations.
-├── lib/ - JavaScript source code.
-|   ├── browser/ - Javascript main process initialization code.
-|   |   └── api/ - Javascript API implementation.
-|   ├── common/ - JavaScript used by both the main and renderer processes
-|   |   └── api/ - Javascript API implementation.
-|   └── renderer/ - Javascript renderer process initialization code.
-|       └── api/ - Javascript API implementation.
+├── docs/ - 文件。
+├── lib/ - JavaScript 原始碼。
+|   ├── browser/ - JavaScript 主處理序初始化程式碼。
+|   |   └── api/ - JavaScript API 實作。
+|   ├── common/ - 主處理序及畫面轉譯處理序共用的 JavaScript 程式碼。
+|   |   └── api/ - JavaScript API 實作。
+|   └── renderer/ - JavaScript 畫面轉譯處理序初始化程式碼。
+|       └── api/ - JavaScript API 實作。
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
-├── spec/ - Automatic tests.
+├── spec/ - 自動測試案例。
 └── BUILD.gn - Building rules of Electron.
 ```
 
@@ -53,7 +53,7 @@ The files in `/chromium_src` tend to be pieces of Chromium that aren't part of t
 
 * **script** - 開發時期用的腳本，例如建置、打包、測試等。
 * **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
+* **vendor** - 第三方相依模組的原始碼。我們不用 `third_party`，是為了避免與 Chromium 原始碼目錄裡的那份混淆。
 * **node_modules** - 建置時使用的第三方 Node 模組。
 * **out** - `ninja` 的暫存目錄。
 * **dist** - `script/create-dist.py` 建立發佈檔時產生的暫存目錄。
