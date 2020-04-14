@@ -40,7 +40,7 @@ Retourne :
 * `event` Événement
 * `reason` String - Motif du retrait du débogueur.
 
-Émis lorsque la session de débogage est terminée. Cela se produit lorsque `webContents` est fermé ou que devtools est appelé pour la `webContents`.
+Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Événement : 'message'
 
@@ -70,7 +70,7 @@ Détache le débogueur depuis le `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams])`
 
-* `méthode` String - Nom de la méthode, devrait être l'une des méthodes définies par le [protocole de débogage distant](https://chromedevtools.github.io/devtools-protocol/).
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` n'importe quel objet (facultatif) - JSON avec les paramètres de la requête.
 
 Retourne `Promise<any>` - Une promesse qui résout avec la réponse définie par l'attribut 'returns' de la description de la commande dans le protocole de débogage distant ou qui est rejetée indiquant l'échec de la commande.
