@@ -8,4 +8,4 @@
 * ` सुदृढ़ ` Boolean (वैकल्पिक) - क्या Cookie सुदृढ़ रूप में चिह्नित है ।
 * ` httpOnly ` Boolean (वैकल्पिक) - क्या Cookie केवल HTTP के रूप में चिह्नित है ।
 * ` सत्र ` Boolean (वैकल्पिक) - क्या Cookie एक सत्र Cookie या एक समय सीमा समाप्ति की तारीख के साथ एक निर्बाध Cookie है ।
-* ` expirationDate ` Double (वैकल्पिक) - UNIX युग के बाद से सेकंड की संख्या के रूप में Cookie की समाप्ति की तारीख । सत्र Cookies के लिए प्रदान नहीं की गई ।
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
