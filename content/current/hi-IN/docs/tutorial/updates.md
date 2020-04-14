@@ -44,7 +44,7 @@ If you're developing a private Electron application, or if you're not publishing
 
 एक बार जब आपने अपना अपडेट सर्वर स्थापित कर दिया हो, फिर आप आवश्यक मोडयुल्स को अपने कोड में इम्पोर्ट करना शुरू कर सकते हैं | निम्नलिखित कोड विभिन्न सर्वर सॉफ्टवेर के लिए अलग हो सकता है, पर [हेज़ल](https://github.com/zeit/hazel) का इस्तेमाल करने के दौरान यह नीचे दिए गये विवरण की तरह काम करता है |
 
-**महत्वपूर्ण:** कृप्या ध्यान दें कि निम्नलिखित कोड केवल आपकी पैकेज्ड एप्प में चलेगा, न कि विकास में | वातावरण को जाँचने के लिए आप [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) का इस्तेमाल कर सकते हैं |
+**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. वातावरण को जाँचने के लिए आप [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) का इस्तेमाल कर सकते हैं |
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
@@ -60,7 +60,7 @@ const feed = `${server}/update/${process.platform}
 autoUpdater.setFeedURL(feed)
 ```
 
-अंतिम चरण में, अपडेटस के लिए जाँचें | निम्नलिखित उदाहरण हर मिनट जाँचेगा:
+As the final step, check for updates. The example below will check every minute:
 
 ```javascript
 setInterval(() => {
@@ -91,7 +91,7 @@ releaseName) => {
 })
 ```
 
-साथ ही यह भी सुनिश्चित करें कि त्रुटियाँ [संभाली जा रही है](../api/auto-updater.md#event-error) | `stderr` में उनकी लॉगिंग करने का यह एक उदाहरण है:
+Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
