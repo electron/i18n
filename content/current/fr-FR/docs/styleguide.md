@@ -13,27 +13,27 @@ Ce sont les lignes directrices pour la rédaction de la documentation d'Electron
 Utilisez `Démarrage Rapide` comme exemple :
 
 ```markdown
-# Démarrage Rapide
+# Quick Start
 
 ...
 
-## Principal processus
+## Main process
 
 ...
 
-## Processus de rendu
+## Renderer process
 
 ...
 
-## Exécuter votre application
+## Run your app
 
 ...
 
-### Exécuter en tant que distribution
+### Run as a distribution
 
 ...
 
-### Executable d'Electron téléchargé manuellement
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -95,10 +95,10 @@ En prenant `autoUpdater` comme exemple :
 * Les constructeurs doivent être listés avec un titre de niveau `###`.
 * Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listées sous un chapitre `### Static Methods`.
 * Les [Méthodes d'instance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listées sous un chapitre `### Instance Methods`.
-* Toutes les méthodes ayant une valeur de retour doivent commencer leur description avec « Retourne `[TYPE]` - Description du retour" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * Si la méthode retourne un `Objet`, sa structure peut être décrite à l'aide d'un deux-points suivi d'un saut de ligne et d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
 * Les événements d'instance doivent être listés sous un chapitre `### Instance Events`.
-* Les propriétés d'instances doivent être listés sous un chapitre `### Instance Properties` . 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Les propriétés d'instance doivent commencer par "[Type de la propriété] ..."
 
 En prenant les classes `Session` et `Cookies` comme exemple :
@@ -150,7 +150,7 @@ Le chapitre sur les méthodes doit respecter la forme suivante :
 
 Le titre peut être de niveau `###` ou `#####` dépendant du fait qu'il s'agisse d'une méthode de module ou de classe.
 
-Pour les modules, le `objectName` est le nom du module. Pour les classes, cela doit être le nom de l'instance de la classe et ne doit pas être le même que celui du module.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Par exemple, les méthodes de la classe `Session` sous le module `session` doivent utiliser `ses` pour le `objectName`.
 
@@ -160,7 +160,7 @@ Les arguments optionnels sont notés par les crochets `[]` entourant l'argument 
 required[, optional]
 ```
 
-En-dessous de la méthode, chaque argument est détaillé avec son type. Celui-ci peut être un type générique :
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
