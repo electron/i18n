@@ -6,11 +6,11 @@ Jika Anda mengalami crash atau masalah di Electron yang Anda percaya tidak diseb
 
 ## Persyaratan
 
-* **Sebuah membangun debug Elektron**: Cara termudah biasanya membangun sendiri, menggunakan alat dan prasyarat yang tercantum dalam [membangun petunjuk untuk Windows](build-instructions-windows.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
-* **Visual Studio dengan C ++ Alat**: Edisi masyarakat bebas dari Visual Studio 2013 dan Visual Studio 2015 keduanya bekerja. Setelah terinstal, [mengkonfigurasi Visual Studio untuk menggunakan GitHub ini Electron Simbol Server](setting-up-symbol-server.md). Ini akan memungkinkan Visual Studio untuk mendapatkan pemahaman yang lebih baik dari apa yang terjadi di dalam Electron , sehingga lebih mudah untuk menyajikan variabel dalam format yang dapat dibaca manusia.
+* **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Setelah terinstal, [mengkonfigurasi Visual Studio untuk menggunakan GitHub ini Electron Simbol Server](setting-up-symbol-server.md). Ini akan memungkinkan Visual Studio untuk mendapatkan pemahaman yang lebih baik dari apa yang terjadi di dalam Electron , sehingga lebih mudah untuk menyajikan variabel dalam format yang dapat dibaca manusia.
 
-* **ProcMon**: The [alat SysInternals bebas](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) memungkinkan Anda untuk memeriksa sebuah proses parameter, file menangani, dan operasi registry.
+* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
 
 ## Melekat dan Debugging Electron
 
@@ -40,6 +40,6 @@ Anda dapat dilampirkan ke beberapa program ketika Anda debugging, tetapi hanya s
 
 ## Menggunakan ProcMon untuk Amati Proses sebuah
 
-Sementara Visual Studio fantastis untuk memeriksa jalur kode tertentu, kekuatan ProcMon adalah benar-benar dalam mengamati segala aplikasi Anda lakukan dengan sistem operasi - menangkap File, Registry, Jaringan, Proses, dan rincian Profiling proses. Ia mencoba untuk log **all** peristiwa yang terjadi dan dapat cukup besar, tetapi jika Anda berusaha untuk memahami apa dan bagaimana aplikasi Anda lakukan untuk sistem operasi, dapat menjadi sumber daya berharga.
+Sementara Visual Studio fantastis untuk memeriksa jalur kode tertentu, kekuatan ProcMon adalah benar-benar dalam mengamati segala aplikasi Anda lakukan dengan sistem operasi - menangkap File, Registry, Jaringan, Proses, dan rincian Profiling proses. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
 
 Untuk pengenalan dasar dan lanjutan fitur debugging ProcMon ini, pergi memeriksa [ini video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) disediakan oleh Microsoft.
