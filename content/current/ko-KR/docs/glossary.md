@@ -6,7 +6,7 @@
 
 ASAR는 Atom Shell Archive Format의 약자입니다. [asar](https://github.com/electron/asar) 아카이브는 `tar`과 비슷한 포맷으로, 모든 리소스를 단일 파일로 만듭니다. 그리고 Electron은 압축해제 없이 임의로 모든 파일을 읽어들일 수 있습니다.
 
-ASAR 포맷은 Windows에서의 성능 향상을 목적으로 만들어졌습니다... [작성 중]
+The ASAR format was created primarily to improve performance on Windows... TODO
 
 ### CRT
 
@@ -22,11 +22,11 @@ Apple Disk Image는 macOS에서 사용되는 패키징 포맷입니다. DMG 파�
 
 ### IDL
 
-인터페이스 설명 언어. Java, C ++, JavaScript 등의 인터페이스를 생성하는 데 사용할 수 있는 형식으로 함수 서명 및 데이터 유형을 작성하십시오.
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
 
 ### IPC
 
-IPC는 프로세스 간 통신의 약자입니다. Electron은 [주 프로세스](#main-process)와 [렌더러 프로세스](#renderer-process) 사이에서 serialized 된 JSON 메시지를 보내기 위해 IPC를 사용합니다.
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
@@ -38,21 +38,21 @@ IPC는 프로세스 간 통신의 약자입니다. Electron은 [주 프로세스
 
 일반적으로 `main.js`라는 파일인 메인 프로세스는, 모든 Electron 앱의 진입점입니다. 열기에서 닫기까지 앱의 수명을 제어합니다. 또한 메뉴, 메뉴 막대, Dock, 트레이 같은 네이티브 요소를 관리합니다. 메인 프로세스는 앱에서 각각의 새로운 렌더러 프로세스를 생성합니다. 모든 Node API가 내장되어 있습니다.
 
-모든 앱의 메인 프로세스 파일은 `package.json` 파일의 `main` 속성에서 지정됩니다. 이것이 `electron .` 명령어를 사용할 때, 시작 시 어떤 파일을 사용할지를 아는 이유입니다.
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-Chroimum 에서는, 이 프로세스가 "브라우저 프로세스"라고도 불립니다. Electron에서는 렌더러 프로세스와 혼동을 피하고자 이름을 변경했습니다.
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
 [process](#process), [렌더러 프로세스](#renderer-process)를 참조하세요.
 
 ### MAS
 
-Apple's Mac App Store의 약자입니다. MAS에 앱을 제출하는 방법에 대한 자세한 내용은 [ Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)를 참조하십시오.
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
 프로세스 간 또는 프로세스 간 통신을위한 IPC 시스템이며, 이는 메모리 압박 등에 따라 작업을 별도의 프로세스로 분할 할 수 있는지 여부에 관심이 있기 때문에 중요합니다.
 
-https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md 을 확인하세요.
+https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md 를 참조하세요.
 
 ### 네이티브 모듈
 
@@ -68,7 +68,7 @@ Nullsoft Scriptable Install System은 Microsoft Windows 용 스크립트 기반 
 
 ### OSR
 
-OSR(Off-screen rendering)을 사용하면 배경에 무거운 페이지를 로드한 후 표시 할 수 있습니다(훨씬 빠릅니다). 화면에 표시하지 않고 페이지를 렌더링 할 수 있습니다.
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
 ### 프로세스
 
@@ -80,7 +80,7 @@ Node.js 와 Electron 에선, 각각의 실행 중인 프로세스들은 `process
 
 ### 렌더러 프로세스
 
-렌더러 프로세스는 앱의 브라우저 창입니다. 기본 프로세스와 달리 이들 중 여러 개가 있을 수 있으며 각각 별도의 프로세스에서 실행됩니다. 숨길 수도 있습니다.
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 일반적인 브라우저에서 웹 페이지는 대개 샌드박스 환경에서 실행하고 네이티브 리소스에 액세스 할 수 없습니다. 그러나 Electron 유저들은 Node.js APIs 의 낮은 수준의 운영체제 상호 작용을 허용하는 웹 페이지에서 힘이 있다.
 
@@ -98,11 +98,11 @@ Node와 마찬가지로 Electron은 다중 플랫폼 데스크톱 응용 프로�
 
 ### V8
 
-V8은 Google의 오픈소스 자바스크립트 엔진입니다. 이것은 C++로 작성되었으며 구글 크롬에서 사용되고 있습니다. V8은 독립형으로 실행할 수 있으며 모든 C++ 응용프로그램에 임베디드 될 수 있습니다.
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
 Electron은 Chromium의 일부로 V8을 빌드한 다음 V8을 빌드할 때 노드가 해당 V8을 가리킵니다.
 
-V8의 버전 번호는 항상 Chrome의 버전 번호와 일치합니다. Chrome 59에는 V8 5.9가 포함되어 있으며 Chrome 58에는 V8 5.8 등이 포함되어 있습니다.
+V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
