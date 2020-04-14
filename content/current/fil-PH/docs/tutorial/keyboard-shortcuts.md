@@ -21,7 +21,7 @@ You can configure different key combinations based on the user's operating syste
 
 ```js
 {
-  accelerator: process.platform === 'darwin'? 'Alt + Cmd + I': 'Ctrl + Shift + I'
+  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
 }
 ```
 
