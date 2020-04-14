@@ -47,7 +47,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) 是一个可以配合 WebDriver 做测试的 node 模块，我们会用它来做个演示。
 
-### 1. 启动 ChromeDriver
+### 1. Start ChromeDriver
 
 首先，你要下载 `chromedriver`，然后运行以下命令：
 
@@ -60,13 +60,13 @@ Only local connections are allowed.
 
 记住 `9515` 这个端口号，我们后面会用到
 
-### 2. 安装 WebDriverJS
+### 2. Install WebDriverJS
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. 连接到 ChromeDriver
+### 3. Connect to ChromeDriver
 
 在 Electron 下使用 `selenium-webdriver` 和其平时的用法并没有大的差异，只是你需要手动设置连接 ChromeDriver，以及 Electron 的路径：
 
@@ -101,7 +101,7 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) 也是一个配合 WebDriver 用来测试的 node 模块.
 
-### 1. 启动 ChromeDriver
+### 1. Start ChromeDriver
 
 首先，你要下载 `chromedriver`，然后运行以下命令：
 
@@ -114,13 +114,13 @@ Only local connections are allowed.
 
 记住 `9515` 这个端口号，我们后面会用到
 
-### 2. 安装 WebdriverIO
+### 2. Install WebdriverIO
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. 连接到 chrome driver
+### 3. Connect to chrome driver
 
 ```javascript
 const webdriverio = require('webdriverio')
@@ -153,4 +153,4 @@ client
 
 无需重新编译 Electron，只要把 app 的源码[放到](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) Electron的资源目录 里就可直接开始测试了。
 
-当然，你也可以在运行Electron时传入参数指定你的应用所在文件夹。这样可以免去拷贝粘贴应用到Electron资源目录的步骤。
+Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
