@@ -430,7 +430,7 @@ Emitted when the window opens a sheet.
 
 Emitted when the window has closed a sheet.
 
-#### Event: 'new-window-for-tab' _macOS_
+#### Събитие: 'new-window-for-tab' _macOS_
 
 Emitted when the native new tab button is clicked.
 
