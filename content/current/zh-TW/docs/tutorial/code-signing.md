@@ -4,7 +4,7 @@ Code signing is a security technology that you use to certify that an app was cr
 
 On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
 
-On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application. Trust level builds over time so it's better to start code signing as early as possible.
+On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
 
 While it is possible to distribute unsigned apps, it is not recommended. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
 
@@ -25,13 +25,13 @@ Before signing macOS builds, you must do the following:
 There are a number of tools for signing your packaged app:
 
 - [`electron-osx-sign`] is a standalone tool for signing macOS packages.
-- [`electron-packager`] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build. 
-    - [`electron-forge`] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
+- [`electron-packager`] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build.
+  - [`electron-forge`] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
 - [`electron-builder`] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
 
 ## Notarization
 
-Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification *before* distributing the app to your users.
+Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
 
 To automate this process, you can use the [`electron-notarize`] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
 
@@ -48,10 +48,10 @@ Before signing Windows builds, you must do the following:
 
 You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
 
-- [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-- [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
-- [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-- Amongst others, please shop around to find one that suits your needs, Google is your friend :)
+* [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
+* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
+* Amongst others, please shop around to find one that suits your needs, Google is your friend :)
 
 There are a number of tools for signing your packaged app:
 
