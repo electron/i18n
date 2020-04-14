@@ -199,7 +199,7 @@ $ ninja -C out/Debug third_party/electron_node:headers
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 ```
 
-Then, run Electron with `electron/spec` as the argument:
+接着，通过`electron/spec`命令来运行Electron：
 
 ```sh
 # on Mac:
