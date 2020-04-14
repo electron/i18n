@@ -7,7 +7,7 @@
 ```javascript
 const { netLog } = require('electron')
 
-app.whenReady().then(async () => {
+app.on('ready', async () => {
   await netLog.startLogging('/path/to/net-log')
   // After some network events
   const path = await netLog.stopLogging()
@@ -34,7 +34,7 @@ Returns `Promise<void>` - resolves when the net log has begun recording.
 
 ### `netLog.stopLogging()`
 
-Returns `Promise<void>` - resolves when the net log has been flushed to disk.
+Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
 
 停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
 
@@ -42,4 +42,8 @@ Returns `Promise<void>` - resolves when the net log has been flushed to disk.
 
 ### `netLog.currentlyLogging` _Readonly_
 
-A `Boolean` property that indicates whether network logs are currently being recorded.
+`Boolean` 类型的属性，指示网络日志是否被记录。
+
+### `netLog.currentlyLoggingPath` _Readonly_ _Deprecated_
+
+`String` 类型的属性，返回当前的日志文件路径。
