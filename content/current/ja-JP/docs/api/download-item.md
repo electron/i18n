@@ -58,7 +58,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 * `event` Event
 * `state` String - `completed`、`cancelled` か `interrupted` にできます。
 
-ダウンロードが終息状態になるときに発生します。これには、完了したダウンロード、(`downloadItem.cancel()` 経由で) キャンセルされたダウンロード、再開することができない中断されたダウンロードが含まれます。
+Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
 `state` は、次のいずれかになります。
 
@@ -80,7 +80,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.getSavePath()`
 
-戻り値 `String` - ダウンロードアイテムの保存先のパス。これは、`downloadItem.setSavePath(path)` 経由で設定されたパスか、表示された保存ダイアログで選択されたパスのいずれかです。
+Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
 
 **[非推奨](modernization/property-updates.md): 代わりに `savePath` プロパティを使用してください。**
 
@@ -88,7 +88,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 * `options` SaveDialogOptions - ファイル保存ダイアログのオプションを設定します。 このオブジェクトは `options` パラメータ([`dialog.showSaveDialog()`](dialog.md)の)と同じプロパティを持ちます。
 
-この API により、ユーザはデフォルトでダウンロードアイテム用に開く保存ダイアログのカスタムオプションを設定できます。 この API はセッションの `will-download` コールバック関数内でのみ使用できます。
+This API allows the user to set custom options for the save dialog that opens for the download item by default. このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。
 
 #### `downloadItem.getSaveDialogOptions()`
 
@@ -106,7 +106,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 一時停止されたダウンロードを再開します。
 
-**注:** 再開可能なダウンロードを有効にするには、ダウンロードしているサーバーがRangeリクエストをサポートしており、`Last-Modified` と `ETag` の両方のヘッダーの値を提供していなければなりません。 そうでなければ、`resume()` は、前回受信したバイト数を無視して、最初からダウンロードを再開します。
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. そうでなければ、`resume()` は、前回受信したバイト数を無視して、最初からダウンロードを再開します。
 
 #### `downloadItem.canResume()`
 
@@ -132,7 +132,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 戻り値 `String` - ダウンロードアイテムのファイル名。
 
-**注:** ファイル名は常にローカルディスクに保存したものと同じではありません。 ユーザーが表示されたダウンロード保存ダイアログでファイル名を変更した場合、保存されたファイルの実際の名前は異なります。
+**Note:** The file name is not always the same as the actual one saved in local disk. ユーザーが表示されたダウンロード保存ダイアログでファイル名を変更した場合、保存されたファイルの実際の名前は異なります。
 
 #### `downloadItem.getTotalBytes()`
 
@@ -150,9 +150,9 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.getState()`
 
-戻り値 `String` - 現在の状態。`progressing`、`completed`、`cancelled` または `interrupted` のいずれかです。
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**注:** 以下のメソッドは、セッションが再開されたときに `cancelled` アイテムを再開するのに特に有用です。
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
