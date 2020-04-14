@@ -13,27 +13,27 @@ Electron 說明文件撰寫指導方針。
 以 `Quick Start` 快速入門應用程式為例:
 
 ```markdown
-# 快速入門
+# Quick Start
 
 ...
 
-## 主處理序
+## Main process
 
 ...
 
-## 畫面轉譯處理序
+## Renderer process
 
 ...
 
-## 執行你的應用程式
+## Run your app
 
 ...
 
-### 以發佈檔執行
+### Run as a distribution
 
 ...
 
-### 手動下載 Electron 二進位
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -95,10 +95,10 @@ Electron 說明文件撰寫指導方針。
 * 建構式必須用 `###` 級別的標題列出。
 * [靜態方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)必須列在 `### 靜態方法` 章節下。
 * [物件方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)必須列在 `### 物件方法` 章節下。
-* 具有回傳值的方法第一行描述必須是「回傳 `[TYPE]` - 回傳內容描述」 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * 如果方法回傳的是 `Object`，其結構可以在冒號及分行符號後以無序的屬性清單描述，格式與函數參數相同。
 * 物件事件必須列在 `### 物件事件` 章節下。
-* 物件屬性必須列在 `### 物件屬性` 章節下。 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * 物件屬性必須以「一個 [屬性型別] ...」開頭。
 
 以 `Session` 及 `Cookies` 類別為例:
@@ -142,15 +142,15 @@ Electron 說明文件撰寫指導方針。
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - 參數描述。
-* `optional` Integer (選用) - 另一個參數的描述。
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```
 
 標題可以是 `###` 或 `####` 級別，取決於它是屬於模組還是類別的方法。
 
-對於模組而言，`objectName` 是模組的名稱。對於類別，則必須是類別物件的名稱，而且並且不得與模組名稱相同。
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 例如 `session` 模組下的 `Session` 類別方法必須使用 `ses` 作為 `objectName`。
 
@@ -160,7 +160,7 @@ Electron 說明文件撰寫指導方針。
 required[, optional]
 ```
 
-方法後接每個參數的詳細資訊。參數的類型可使用一般型別:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`String`](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Number)
