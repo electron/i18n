@@ -64,10 +64,10 @@ cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
-- `HOME=~/.electron-gyp` 设置去哪找头文件
-- `--target=1.2.3` 设置了 Electron 的版本。
-- `--dist-url=...`设置了 Electron 的 headers 的下载地址。
-- `--arch=x64` 设置了该模块为适配64位操作系统而编译。
+* `HOME=~/.electron-gyp` 设置去哪找头文件
+* `--target=1.2.3` 设置了 Electron 的版本。
+* `--dist-url=...`设置了 Electron 的 headers 的下载地址。
+* `--arch=x64` 设置了该模块为适配64位操作系统而编译。
 
 ### 为Electron的自定义编译手动编译
 
@@ -81,17 +81,17 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 如果您安装了本机模块并发现它无法正常工作，则需要检查以下内容：
 
-- 当有疑问时，请先执行 `electron-rebuild`。
-- 确保原生模块与Electron应用程序的目标平台和体系结构兼容。
-- Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
-- 如果升级了 Electron，你通常需要重新编译这些模块。
+* 当有疑问时，请先执行 `electron-rebuild`。
+* 确保原生模块与Electron应用程序的目标平台和体系结构兼容。
+* Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
+* 如果升级了 Electron，你通常需要重新编译这些模块。
 
 ### A note about `win_delay_load_hook`
 
 在Windows上，默认情况下，`node-gyp`将原生模块与`node.dll`链接。 However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll`. In order to load native modules on Windows, `node-gyp` installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
 If you get an error like `Module did not self-register`, or `The specified
-procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook. If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere. If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
+procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook.  If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere.  If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
 
 ```plaintext
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
@@ -100,7 +100,7 @@ procedure could not be found`, it may mean that the module you're trying to use 
 
 In particular, it's important that:
 
-- you link against `node.lib` from *Electron* and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
+- you link against `node.lib` from _Electron_ and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
 - you include the flag `/DELAYLOAD:node.exe`. If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
 - `win_delay_load_hook.obj` is linked directly into the final DLL. If the hook is set up in a dependent DLL, it won't fire at the right time.
 
