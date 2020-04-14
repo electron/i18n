@@ -1,16 +1,22 @@
 # إمكانية الوصول
 
-من المهم جعل التطبيقات سهلة الوصول ويسعدنا تقديم طلبات جديدة وظائف ل  Devtron </ 0> و  Spectron </ 1> التي تعطي مطوري الفرصة لجعل تطبيقاتهم أفضل للجميع.</p> 
+من المهم جعل التطبيقات سهلة الوصول ويسعدنا تقديم طلبات جديدة وظائف ل Devtron </ 0> و  Spectron </ 1> التي تعطي مطوري الفرصة لجعل تطبيقاتهم أفضل للجميع.</p> 
 
-* * *
+
+
+---
 
 Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
 
 هذه الميزات الجديدة تجلب أدوات التدقيق إلى تطبيق إليكترون. تستطيع اختيار إضافة تدقيقات إلى اختباراتك باستخدام Spectron أو استخدمها في DevTools مع Devtron. تابع القراءة لملخص الأدوات.
 
-## سبيكترون
 
-في إطار إختبار Spectron ، يمكنك الآن مراجعة كل نافذة و `<webview>` علامة في التطبيق الخاص بك. فمثلا:
+
+## Spectron
+
+In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+
+
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -20,7 +26,10 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
+
 يمكنك قراءة المزيد حول هذه الميزة في  وثائق Spectron </ 0>.</p> 
+
+
 
 ## Devtron
 
@@ -32,19 +41,27 @@ Both of these tools are using the [Accessibility Developer Tools](https://github
 
 If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
 
+
+
 ## تمكين الوصول
 
 Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 
+
+
 ### داخل التطبيق
 
 By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+
+
 
 ### التكنولوجيات المساعدة
 
 Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). أنظر Chrome[إمكانية الوصول للوثائق](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)للمزيد من التفاصيل.
 
 On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+
+
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
