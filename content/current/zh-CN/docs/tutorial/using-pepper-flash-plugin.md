@@ -1,6 +1,6 @@
 # 使用 Pepper Flash 插件
 
-Electron 现在支持 Pepper Flash 插件。要在 Electron 里面使用 Pepper Flash 插件，你需 要手动设置 Pepper Flash 的路径和在你的应用里启用 Pepper Flash。
+Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
 ## 保留一份 Flash 插件的副本
 
@@ -61,8 +61,8 @@ app.whenReady().then(() => {
 
 您可以通过在控制台打印 `navigator.plugins` 来检查 Pepper Flash 插件是否加载 (虽然你不知道插件的路径是正确的)。
 
-Pepper Flash 插件的操作系统必须和 Electron 的操作系统匹配。在 Windows 中， 一个常见的错误是对64位版本的 Electron 使用 32bit 版本的 Flash 插件。
+The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
-在 Windows 中，传递给 `--ppapi-flash-path` 的路径必须使用 `` 作为路径分隔符，使用 POSIX-style 的路径将无法工作。
+On Windows the path passed to `--ppapi-flash-path` has to use `\` as path delimiter, using POSIX-style paths will not work.
 
 对于一些操作，例如使用 RTMP 的流媒体，有必要向播放器的 `.swf` 文件授予更多的权限。 实现这一点的一种方式是使用 [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
