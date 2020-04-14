@@ -17,7 +17,7 @@ Electron inherits this build option from Chromium. In `Debug` builds, the binary
 
 ## Mga Pagsusuri
 
-**NB** *this section is out of date and contains information that is no longer relevant to the GN-built electron.*
+**NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
 
 Suriin ang mga pagbabago ayon sa code ng istilo ng proyekto na iyong gagamitin:
 
