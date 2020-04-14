@@ -6,11 +6,11 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang `IncomingMessage` ay ginagamit ang "interface" na [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams), at samakatuwid ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-### Mga Halimbawa ng "Events"
+### Halimbawa ng mga Event
 
 #### Event: 'data'
 
-Pagbabalik sa:
+Pagbabalik:
 
 * `chunk` Buffer - Ang "chunk" ng pagtugon sa katawan ng datos.
 
@@ -24,7 +24,7 @@ Nagpapahiwatig na ang "response body" ay tapos na.
 
 Lumalabas kapag ang kahilingan ay biglang itinigil habang nagaganap ang transaksyon ng HTTP.
 
-#### Event: 'error'
+#### Pangyayari: 'error'
 
 Pagbabalik:
 
@@ -32,7 +32,7 @@ Pagbabalik:
 
 Lumalabas kapag nakatagpo ng mali habang patuloy ang pagtugon sa datos ng "events". Halimbawa, kung ang "server" ay malapit sa pinagbabatayan nito habang ang proseso ng pagtugon ay nagpapatuloy, ang "`error` event" ay lalabas sa "response object" at ang "`close` event" ay susunod pagkatapos nito.
 
-### Mga Halimbawa ng Katangian
+### Katangian ng pagkakataon
 
 Isang `IncomingMessage` na may mga sumusunod na katangian na maaaring basahin:
 
