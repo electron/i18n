@@ -35,7 +35,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### Event: 'detach'
 
-Returns:
+반환:
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
@@ -44,7 +44,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 #### Event: 'message'
 
-Returns:
+반환:
 
 * `event` Event
 * `method` String - Method name.
@@ -52,7 +52,7 @@ Returns:
 
 Emitted whenever the debugging target issues an instrumentation event.
 
-### 인스턴스 메서드
+### Instance Methods (인스턴스 메소드)
 
 #### `debugger.attach([protocolVersion])`
 
