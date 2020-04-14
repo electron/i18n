@@ -44,7 +44,7 @@ require('update-electron-app')()
 
 アップデートサーバをデプロイしたら、コードに必要なモジュールをインポートします。 次のコードはサーバソフトウェアによって異なる場合がありますが、[Hazel](https://github.com/zeit/hazel) を使用したときの説明のように機能します。
 
-**重要:** 以下のコードは、開発中ではなく、パッケージ化されたアプリでのみ実行されるようにしてください。 [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) を使って環境をチェックすることができます。
+**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) を使って環境をチェックすることができます。
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
@@ -59,7 +59,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-最後のステップとして、更新を確認してください。以下の例は毎分チェックします。
+As the final step, check for updates. The example below will check every minute:
 
 ```javascript
 setInterval(() => {
@@ -89,7 +89,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-エラーが[処理されている](../api/auto-updater.md#event-error)ことも確認してください。これらは `stderr` にログを出力するための例です:
+Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
