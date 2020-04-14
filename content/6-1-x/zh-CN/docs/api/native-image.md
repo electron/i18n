@@ -16,7 +16,7 @@ let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard which returns a `NativeImage`:
+或者从剪贴板中读取返回 ` NativeImage ` 的图像:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -43,13 +43,13 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
  * 64x64 (200% DPI scale)
 * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+在[这篇文章](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx)中查看 *尺寸说明* 的章节
 
 ## 高分辨率
 
 在具有高 DPI 支持的平台 (如 Apple 视网膜显示器) 上, 可以在图像的基本文件名之后追加 ` @ 2x ` 以将其标记为高分辨率图像。
 
-For example if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+例如, 如果 ` icon. png ` 是具有标准分辨率的普通图像, 而 ` icon@2x. png ` 将被视为具有两倍 DPI 密度的高分辨率图像。
 
 If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. 例如：
 
@@ -67,7 +67,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+还支持下面这些 DPI 后缀:
 
 * `@1x`
 * `@1.25x`
@@ -83,11 +83,11 @@ Following suffixes for DPI are also supported:
 
 ## 模板图片
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template images consist of black and an alpha channel. 模板图片不是单独使用的, 它通常与其他内容混合以创建期望的最终效果
 
-The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
+最常见的情况是使用模板图片的菜单栏图标, 使它可以适应浅色和深色菜单栏。
 
-**Note:** Template image is only supported on macOS.
+** 注意: **仅在 macOS 上支持Template image。
 
 To mark an image as a template image, its filename should end with the word `Template`. 例如：
 
@@ -141,7 +141,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 返回 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+从 `buffer ` 创建新的 ` NativeImage ` 实例。 Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -158,9 +158,9 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 返回 `NativeImage`
 
-从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 可以使用的值, 请参见 [` NSImageName `](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) 文档。
 
-The `hslShift` is applied to the image with the following rules
+使用以下规则将`hslShift`应用于图像
 * `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = 保持不变。 1 = fully saturate the image.
 * `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = 保持不变。 1 = 全亮 (所有像素点设置为白色)。
@@ -192,7 +192,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer (**required**) - Between 0 - 100.
+* ` quality ` Integer (** 必需 **)-介于 0-100 之间。
 
 返回 ` Buffer `-一个包含图像 ` JPEG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
@@ -217,13 +217,13 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+`getBitmap()` 和 `toBitmap() 的不同之处在于，<code>getBitmap()` 不会拷贝位图数据，所以你必须在返回 Buffer 后立刻使用它，否则数据可能会被更改或销毁
 
 #### `image.getNativeHandle()` _macOS_
 
 返回 ` Buffer `-一个 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer), 它将 C 指针存储在图像的基础本机句柄上。 在 macOS 上, 将返回指向 ` NSImage ` 实例的指针。
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you _must_ ensure that the associated `nativeImage` instance is kept around.
+请注意, 返回的指针是指向基础本机映像而不是副本的弱指针, 因此 _ 必须 _ 确保关联的 ` nativeImage ` 实例保留在周围。
 
 #### `image.isEmpty()`
 
@@ -254,7 +254,7 @@ Returns [`Size`](structures/size.md)
 * `options` Object
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (可选) - 默认值为图片高度.
-  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` String (optional) - The desired quality of the resize image. 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 返回 ` NativeImage `-裁剪的图像。
 
@@ -268,8 +268,8 @@ Returns [`Size`](structures/size.md)
 
 * `options` Object
   * `scaleFactor` Double - The scale factor to add the image representation for.
-  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
-  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `width` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
+  * `height` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
   * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
