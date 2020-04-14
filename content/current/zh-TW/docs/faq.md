@@ -8,17 +8,17 @@
 
 如果用 `npm` 怎樣都裝不起來的話，你也可以直接由 [electron/electron/releases](https://github.com/electron/electron/releases) 下載 Electron。
 
-## Electron 何時會升級用 Chrome 的最新版本？
+## Electron 什麼時候會升級到最新的 Chrome?
 
-通常在 Chrome 穩定版本發佈後一至兩周內會升級， 但實際需時取決於升級 Chrome 所涉及的工作量。
+通常在新 Chrome 穩定版發佈後一到兩週內，Electron 會更新 Chrome 的版本。 但這個時間只是概估值，沒有人可以給你掛保證，全看升級時需花多少工來決定。
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
-詳情請參閱[安全簡介](tutorial/security.md)。
+詳情請參閱[安全性簡介](tutorial/security.md)。
 
-## Electron 何時會升級用 Node.js 的最新版本？
+## Electron 什麼時候會升級到最新的 Node.js?
 
-通常 Node.js 新版本發佈後，我們會等大概一個月才升級 Electron 用的 Node 版本， 以免受 Node.js 新版本中引入的 bug，這情況經常發生。
+通常 Node.js 新版本發佈後，我們會等大概一個月才升級 Electron 用的 Node 版本。 如此一來我們可以避開新版 Node.js 帶來的 bug，這種事很常發生。
 
 通常 Node.js 的新功能是來自於 V8 升版，而 Electron 是使用 Chrome 瀏覽器的 V8，通常新版 Node.js 裡的 JavaScript 新功能，在 Electron 裡早就有了。
 
@@ -29,7 +29,7 @@ Only the stable channel of Chrome is used. If an important fix is in beta or dev
 你也可以使用 Electron 特有的 IPC 系統，將物件以全域變數的型式存到主處理序中，再由畫面轉譯器中透過 `electron` 模組的 `remote` 屬性存取:
 
 ```javascript
-// 在主處理序中.
+// 在主處理序裡。
 global.sharedObject = {
   someProperty: 'default value'
 }
@@ -82,7 +82,7 @@ app.whenReady().then(() => {
 要解決這個問題，可以停用 Electron 的 Node 整合功能:
 
 ```javascript
-// 在主處理序中.
+// 在主處理序裡。
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
