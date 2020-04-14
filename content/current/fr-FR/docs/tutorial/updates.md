@@ -44,7 +44,7 @@ Selon vos besoins, vous pouvez choisir parmi l'un d'entre eux :
 
 Une fois que vous avez déployé votre serveur de mise à jour, continuez d'importer les modules requis dans votre code. Le code suivant peut varier pour les différents serveurs, mais il fonctionne comme décrit lors de l'utilisation de [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. Vous pouvez utiliser [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) pour vérifier l'environnement.
+**Important :** Veuillez vous assurer que le code ci-dessous sera exécuté uniquement dans votre application empaquetée, et non dans la version en développement. Vous pouvez utiliser [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) pour vérifier l'environnement.
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
