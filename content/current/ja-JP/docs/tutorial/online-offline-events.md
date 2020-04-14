@@ -4,7 +4,7 @@
 
 サンプル:
 
-*main.js*
+_main.js_
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -17,7 +17,7 @@ app.whenReady().then(() => {
 })
 ```
 
-*online-status.html*
+_online-status.html_
 
 ```html
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ app.whenReady().then(() => {
 
 メインプロセスでこれらのイベントに応答したい場合もあります。 ただし、メインプロセスには `navigator` オブジェクトがないため、これらのイベントを直接検出することはできません。 以下の例に示すように、Electron のプロセス間通信ユーティリティを使用して、イベントをメインプロセスに転送し、必要に応じて処理することができます。
 
-*main.js*
+_main.js_
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
@@ -55,7 +55,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-*online-status.html*
+_online-status.html_
 
 ```html
 <!DOCTYPE html>
