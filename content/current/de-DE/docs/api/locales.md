@@ -2,7 +2,7 @@
 
 > Lokalisierte Werte zurückgegeben durch `app.getLocale()`.
 
-Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitteln. Mögliche Werte sind unten aufgeführt:
+Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
 
 | Sprachcode | Sprachname                |
 | ---------- | ------------------------- |
@@ -93,7 +93,7 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | no         | Norwegisch                |
 | oc         | Okzitanisch               |
 | om         | Oromo                     |
-| or         | Oriya                     |
+| oder       | Oriya                     |
 | pa         | Pandschabi                |
 | pl         | Polnisch                  |
 | ps         | Paschtu                   |
