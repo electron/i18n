@@ -1,4 +1,4 @@
-# Mojave Dark Mode
+# Mojave黑暗模式
 
 在 macOS 10.14 Mojave中， Apple 为所有 macOS 电脑引入了一个全新的 [系统级黑暗模式](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/)。  If your app does have a dark mode, you can make your Electron app follow the system-wide dark mode setting.
 
@@ -10,7 +10,7 @@
 
 ## 自动更新你的接口
 
-If your app has its own dark mode you should toggle it on and off in sync with the system's dark mode setting.  You can do this by listening for the theme changed event on Electron's `systemPreferences` module.  E.g.
+如果你的应用本身就有黑暗模式，那么你需要跟系统同步他的开与关。  你可以通过监听 Electron 的 `systemPreferences` 模块上的主题变更事件来实现。  如下:
 
 ```js
 const { systemPreferences } = require('electron')
