@@ -42,7 +42,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `contentTracing.getCategories()`
 
@@ -60,7 +60,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。 The `callback` will be called once all child processes have acknowledged the `startRecording` request.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `contentTracing.startRecording(options)`
 
@@ -86,7 +86,7 @@ Once all child processes have acknowledged the `stopRecording` request, `callbac
 
 Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `contentTracing.stopRecording(resultFilePath)`
 
@@ -109,7 +109,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `contentTracing.getTraceBufferUsage()`
 
