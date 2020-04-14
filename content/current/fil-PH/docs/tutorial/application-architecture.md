@@ -4,9 +4,9 @@ Before we can dive into Electron's APIs, we need to discuss the two process type
 
 ## Pangunahin at Proseso ng Renderer
 
-In Electron, the process that runs `package.json`'s `main` script is called __the main process__. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+Sa Electron, ang tawag sa proseso na tumatakbo ay  `package.json`'s `main` script __ang mga pangunahing proseso__. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
 
-Dahil ang Electron ay gumagamit ng Chromium para sa pagpapakita ng web pages, Chromium's multi-process na arkitektura ay ginagamit din. Each web page in Electron runs in its own process, which is called __the renderer process__.
+Dahil ang Electron ay gumagamit ng Chromium para sa pagpapakita ng web pages, Chromium's multi-process na arkitektura ay ginagamit din. Bawat web page ng Electron ay tumatakbo sa sarili nitong proseso, tinatawag itong __the renderer process__.
 
 Sa normal na mga browser, ang mga web page ay karaniwang tumatakbo sa isang sandboxed na kapaligiran at hindi pinapayagan ang pag-access sa mga katutubong mapagkukunan. Gayunpaman, ang mga gumagamit ng elektron ay may kapangyarihan sa gamitin ang mga API ng Node.js sa mga web page na nagpapahintulot sa mas mababang antas ng operating system mga pakikipag-ugnayan.
 
