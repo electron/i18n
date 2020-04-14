@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
 
-**Note:** Non dovresti usare questo modulo fino a che l'evento `ready` del modulo app sia stato emesso.
+**Note:** You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
 const { app, contentTracing } = require('electron')
