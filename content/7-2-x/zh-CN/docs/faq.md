@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## 为什么应用的窗口、托盘在一段时间后不见了？
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+这通常是因为用来存放窗口、托盘的变量被垃圾回收了。
 
 你可以参考以下两篇文章来了解为什么会遇到这个问题：
 
@@ -115,28 +115,28 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+这是因为你在项目中或者在全局中安装了[npm 上获取的 `electron` 模块](https://www.npmjs.com/package/electron)，它把 Electron 的内置模块覆写了。
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+你可以通过以下方式输出 `electron` 模块的路径来确认你是否使用了正确的模块。
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+确认一下它是不是像下面这样的：
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+假如输出的路径类似于 `node_modules/electron/index.js`，那么你需要移除或者重命名 npm 上的 `electron` 模块。
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
+如果你依然遇到了这个问题，你可能需要检查一下拼写或者是否在错误的进程中调用了这个模块。 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
 
 ## 文字看起来很模糊，这是什么原因造成的？怎么解决这个问题呢？
 
