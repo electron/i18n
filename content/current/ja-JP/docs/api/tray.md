@@ -23,13 +23,13 @@ app.on('ready', () => {
 })
 ```
 
-**プラットフォームによる制限:**
+__プラットフォームによる制限:__
 
 * Linux では、アプリインジゲータがサポートされている場合はそれが使用され、それ以外では `GtkStatusIcon` が代わりに使用されます。
 * アプリインジゲータのみがある Linux ディストリビューションでは、tray アイコンを動かすために `libappindicator1` をインストールする必要があります。
 * アプリインジゲータはコンテキストメニューがあるときのみ表示されます。
 * Linux でアプリインジゲータが使用されるとき、`click` イベントは無視されます。
-* Linux では、個々の `MenuItem` に加えられた変更を有効にするには、`setContextMenu` を再び呼ぶ必要があります。以下は例です。
+* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. 例:
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -49,10 +49,10 @@ app.on('ready', () => {
   appIcon.setContextMenu(contextMenu)
 })
 ```
-
 * Windows では、最適な視覚効果を得るために `ICO` 形式のアイコンファイルを使用することが推奨されています。
 
 すべてのプラットフォームでまったく同じ動作を維持したい場合は、`click` イベントに頼らず、tray アイコンに常にコンテキストメニューを適用して下さい。
+
 
 ### `new Tray(image)`
 
@@ -74,7 +74,7 @@ app.on('ready', () => {
 
 tray アイコンがクリックされたときに発行されます。
 
-#### イベント: 'right-click' *macOS* *Windows*
+#### Event: 'right-click' _macOS_ _Windows_
 
 戻り値:
 
@@ -83,7 +83,7 @@ tray アイコンがクリックされたときに発行されます。
 
 tray アイコンが右クリックされたときに発行されます。
 
-#### イベント: 'double-click' *macOS* *Windows*
+#### Event: 'double-click' _macOS_ _Windows_
 
 戻り値:
 
@@ -92,23 +92,23 @@ tray アイコンが右クリックされたときに発行されます。
 
 tray アイコンがダブルクリックされたときに発行されます。
 
-#### イベント: 'balloon-show' *Windows*
+#### Event: 'balloon-show' _Windows_
 
 tray バルーンを表示するときに発行されます。
 
-#### イベント: 'balloon-click' *Windows*
+#### Event: 'balloon-click' _Windows_
 
 tray バルーンがクリックされたときに発行されます。
 
-#### イベント: 'balloon-closed' *Windows*
+#### Event: 'balloon-closed' _Windows_
 
 tray バルーンが、タイムアウトかユーザの手動で、閉じられたときに発行されます。
 
-#### イベント: 'drop' *macOS*
+#### Event: 'drop' _macOS_
 
 tray アイコン上に何かのドラッグされたアイテムがドロップされたときに発行されます。
 
-#### イベント: 'drop-files' *macOS*
+#### Event: 'drop-files' _macOS_
 
 戻り値:
 
@@ -117,7 +117,7 @@ tray アイコン上に何かのドラッグされたアイテムがドロップ
 
 tray アイコン上にドラッグされたファイルがドロップされたときに発行されます。
 
-#### イベント: 'drop-text' *macOS*
+#### Event: 'drop-text' _macOS_
 
 戻り値:
 
@@ -126,19 +126,19 @@ tray アイコン上にドラッグされたファイルがドロップされた
 
 tray アイコン上にドラッグされたテキストがドロップされたときに発行されます。
 
-#### イベント: 'drag-enter' *macOS*
+#### Event: 'drag-enter' _macOS_
 
 ドラッグ操作が tray アイコン内に入ったときに発行されます。
 
-#### イベント: 'drag-leave' *macOS*
+#### Event: 'drag-leave' _macOS_
 
 ドラッグ操作が tray アイコン内から出たときに発行されます。
 
-#### イベント: 'drag-end' *macOS*
+#### Event: 'drag-end' _macOS_
 
 ドラッグ操作が、tray 上か他の場所で終了したときに発行されます。
 
-#### イベント: 'mouse-enter' *macOS*
+#### Event: 'mouse-enter' _macOS_
 
 戻り値:
 
@@ -147,7 +147,7 @@ tray アイコン上にドラッグされたテキストがドロップされた
 
 マウスが tray アイコン内に入ったときに発行されます。
 
-#### イベント: 'mouse-leave' *macOS*
+#### Event: 'mouse-leave' _macOS_
 
 戻り値:
 
@@ -156,7 +156,7 @@ tray アイコン上にドラッグされたテキストがドロップされた
 
 マウスが tray アイコン内から出たときに発行されます。
 
-#### イベント: 'mouse-move' *macOS* *Windows*
+#### Event: 'mouse-move' _macOS_ _Windows_
 
 戻り値:
 
@@ -179,7 +179,7 @@ tray アイコンを即座に削除します。
 
 この tray アイコンに関連付けられた `image` を設定します。
 
-#### `tray.setPressedImage(image)` *macOS*
+#### `tray.setPressedImage(image)` _macOS_
 
 * `image` ([NativeImage](native-image.md) | String)
 
@@ -191,33 +191,33 @@ macOS において、この tray アイコンが押されたときの関連付�
 
 この tray アイコンのホバーテキストを設定します。
 
-#### `tray.setTitle(title)` *macOS*
+#### `tray.setTitle(title)` _macOS_
 
 * `title` String
 
 ステータスバー内の tray アイコンの隣に表示されるタイトル (ANSI カラーサポート) を設定します。
 
-#### `tray.getTitle()` *macOS*
+#### `tray.getTitle()` _macOS_
 
 戻り値 `String` - ステータスバーの tray アイコンの隣に表示されるタイトル
 
-#### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
+#### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
 * `ignore` Boolean
 
-ダブルクリックイベントを無視するよう設定します。これらのイベントを無視することで tray アイコンそれぞれの独立したクリックを検知することを許可します。
+Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
 この値はデフォルトで false にセットされます。
 
-#### `tray.getIgnoreDoubleClickEvents()` *macOS*
+#### `tray.getIgnoreDoubleClickEvents()` _macOS_
 
 戻り値 `Boolean` - ダブルクリックイベントが無視されているかどうか。
 
-#### `tray.displayBalloon(options)` *Windows*
+#### `tray.displayBalloon(options)` _Windows_
 
-* `options` Object 
+* `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (任意) - `iconType` が `custom` のときに使うアイコン。
-  * `iconType` String (任意) - `none`、`info`、`warning`、`error`、`custom` のいずれかにできます。省略値は `custom` です。
+  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
   * `largeIcon` Boolean (任意) - 大きなバージョンのアイコン。できればこちらを使用します。 省略値は `true` です。 [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020) に対応します。
@@ -226,20 +226,20 @@ macOS において、この tray アイコンが押されたときの関連付�
 
 tray のバルーンを表示します。
 
-#### `tray.removeBalloon()` *Windows*
+#### `tray.removeBalloon()` _Windows_
 
 tray のバルーンを除去します。
 
-#### `tray.focus()` *Windows*
+#### `tray.focus()` _Windows_
 
 タスクバーの通知領域にフォーカスを戻します。 通知領域アイコンは、UI 操作が完了したときにこのメッセージを使う必要があります。 たとえば、アイコンがショートカットメニューを表示しているけれど、ユーザーが ESC を押してキャンセルする場合、`tray.focus()` を使用して通知領域にフォーカスを戻します。
 
-#### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+#### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
 * `menu` Menu (任意)
 * `position` [Point](structures/point.md) (任意) - ポップアップ位置。
 
-tray アイコンのコンテキストメニューをポップアップします。`menu` が渡されると、tray アイコンのコンテキストメニューの代わりに `menu` を表示します。
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
 `position` は Windows でのみ有効で、省略値は (0, 0) です。
 
@@ -249,7 +249,7 @@ tray アイコンのコンテキストメニューをポップアップします
 
 このアイコンのコンテキストメニューを設定します。
 
-#### `tray.getBounds()` *macOS* *Windows*
+#### `tray.getBounds()` _macOS_ _Windows_
 
 戻り値 [`Rectangle`](structures/rectangle.md)
 
