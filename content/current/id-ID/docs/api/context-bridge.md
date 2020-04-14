@@ -2,7 +2,7 @@
 
 > Create a safe, bi-directional, synchronous bridge across isolated contexts
 
-Processo: [Renderizador](../glossary.md#renderer-process)
+Proses: [Renderer](../glossary.md#renderer-process)
 
 An example of exposing an API to a renderer from an isolated preload script is given below:
 
@@ -34,7 +34,7 @@ The "Main World" is the JavaScript context that your main renderer code runs in.
 
 When `contextIsolation` is enabled in your `webPreferences`, your `preload` scripts run in an "Isolated World".  You can read more about context isolation and what it affects in the [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content) docs.
 
-## Metode
+## Methods
 
 The `contextBridge` module has the following methods:
 
@@ -89,10 +89,10 @@ Because parameters, errors and return values are **copied** when they are sent o
 
 | Type                                                                                                           | Complexity | Parameter Support | Return Value Support | Keterbatasan                                                                                                                                                                                                   |
 | -------------------------------------------------------------------------------------------------------------- | ---------- | ----------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Deretan`                                                                                                      | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |
+| `Tali`                                                                                                         | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |
 | `Jumlah`                                                                                                       | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |
-| `boolean`                                                                                                      | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |
-| `Obyek`                                                                                                        | Complex    | ✅                 | ✅                    | Keys must be supported using only "Simple" types in this table.  Values must be supported in this table.  Prototype modifications are dropped.  Sending custom classes will copy values but not the prototype. |
+| `Boolean`                                                                                                      | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |
+| `Sasaran`                                                                                                      | Complex    | ✅                 | ✅                    | Keys must be supported using only "Simple" types in this table.  Values must be supported in this table.  Prototype modifications are dropped.  Sending custom classes will copy values but not the prototype. |
 | `susunan`                                                                                                      | Complex    | ✅                 | ✅                    | Same limitations as the `Object` type                                                                                                                                                                          |
 | `Error`                                                                                                        | Complex    | ✅                 | ✅                    | Errors that are thrown are also copied, this can result in the message and stack trace of the error changing slightly due to being thrown in a different context                                               |
 | `Promise`                                                                                                      | Complex    | ✅                 | ✅                    | Promises are only proxied if they are the return value or exact parameter.  Promises nested in arrays or objects will be dropped.                                                                              |
