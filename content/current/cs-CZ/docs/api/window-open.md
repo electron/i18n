@@ -19,7 +19,6 @@ Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window a
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 Například:
-
 ```js
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
@@ -47,7 +46,7 @@ Native `window.open()` allows synchronous access to opened windows so it is conv
 This option can also be set on `<webview>` tags as well:
 
 ```html
-&lt;webview webpreferences="nativeWindowOpen=yes"&gt;&lt;/webview&gt;
+<webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
 The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
