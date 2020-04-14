@@ -28,7 +28,7 @@ docs:
   title: Dokumentasyon ng Electron
   description: Tingnan ang lahat ng <a href="/docs/all">na mga docs sa isang pahina</a> o tingnan ang  <a href="/docs/faq">FAQ</a>.
   guides: "Guides: Getting Started with Electron"
-  api_reference: Referens ng API 
+  api_reference: Referens ng API
   api_structures: API Structures
   advanced: Advans
   detailed: In Detail
