@@ -2,7 +2,7 @@
 
 > 將項目加進原生應用程式選單及內容功能表。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 範例請看 [`Menu`](menu.md)
 
