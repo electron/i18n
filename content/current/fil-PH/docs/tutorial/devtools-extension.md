@@ -1,4 +1,4 @@
-# Ekstensyon ng DevTools
+# DevTools Ekstensiyon
 
 Sumusuporta ang Elektron [DevTools Ekstensiyon ng Chrome](https://developer.chrome.com/extensions/devtools), na kung saan ay maaaring gamitin upang palawakin ang mga kakayahan ng devtools sa pagdedebug ng kilalang balangkas sa web.
 
@@ -30,7 +30,7 @@ Gamit ang [React Developer Tools](https://chrome.google.com/webstore/detail/reac
    )
    ```
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**Paunawa:** Ang `BrowserWindow.addDevToolsExtension` API huwag tawagan bago mahanda ang pangyayari sa app ng modyul sa paglabas.
 
 The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
