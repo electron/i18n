@@ -1,4 +1,4 @@
-# Instructions de Build (macOS)
+# Instructions de compilation (macOS)
 
 Suivez les indications ci-dessous pour compiler Electron sur macOS.
 
