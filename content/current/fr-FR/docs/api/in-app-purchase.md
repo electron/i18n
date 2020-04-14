@@ -2,7 +2,7 @@
 
 > Achats inApp sur l'Apple Store.
 
-Processus : [Principal](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
 ## Événements
 
@@ -14,7 +14,7 @@ Le module `inAppPurchase` émet les événements suivants :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `transactions` Transaction[] - Tableau d'objets [`Transaction`](structures/transaction.md).
 
 ## Méthodes
