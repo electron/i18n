@@ -30,7 +30,7 @@
 
 在调用`purchaseProduct`之前，你应该尽可能快的监听`transactions-updated`事件
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `inAppPurchase.purchaseProduct(productID, quantity)`
 
@@ -49,7 +49,7 @@ Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to
 
 检索商品的描述
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `inAppPurchase.getProducts(productIDs)`
 
