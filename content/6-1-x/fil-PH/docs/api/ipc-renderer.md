@@ -1,0 +1,85 @@
+# ipcrenderer
+
+> Makipag-usap ng sabay-sabay mula sa prosesong tagasalin hanggang sa pangunahing proseso.
+
+Mga proseso: [Renderer](../glossary.md#renderer-process)
+
+The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. Ito ay nagbibigay ng ilang mga pamamaraan kaya maaari kang magpadala ng magkasabay at sabay-sabay na mga mensahe mula sa proseso ng pagsalin (pahina ng web) patungo sa pangunahing proseso. Maaari ka ring makatanggap ng kasagutan mula sa pangunahing proseso.
+
+Tingnan ang [ipcMain](ipc-main.md) para sa mga halimbawa ng code.
+
+## Mga Paraan
+
+Ang modyul ng `ipcRenderer` ay mayroon ng mga sumusunod na pamamaraan para makinig sa mga event at magpadala ng mga mensahe:
+
+### `ipcRenderer.on(tsanel, tagapakinig)`
+
+* `channel` String
+* `listener` Function
+  * `event` IpcRendererEvent
+  * `...args` anuman[]
+
+Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay tatawagin pati ang `listener(event, args....)`.
+
+### `ipcRenderer.once(tsanel, tagapakinig)`
+
+* `channel` String
+* `listener` Function
+  * `event` IpcRendererEvent
+  * `...args` anuman[]
+
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+
+### `ipcRenderer.removeListener(tsanel, tagapakinig)`
+
+* `channel` String
+* `listener` Function
+
+Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
+
+### `ipcRenderer.removeAllListeners(channel)`
+
+* `channel` String
+
+Tinatanggal ang lahat ng mga tagapakinig, o ang mga tinukoy sa `channel`.
+
+### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
+
+* `channel` String
+* `...args` anuman[]
+
+Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
+
+### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
+
+* `channel` String
+* `...args` anuman[]
+
+Magbabalik ng `any` - Ang halaga ay ipinadala pabalik sa pamamagitan ng tagahawak ng [`ipcMain`](ipc-main.md).
+
+Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
+
+**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+
+### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
+
+* `webContentsId` Number
+* `channel` String
+* `...args` anuman[]
+
+Sends a message to a window with `webContentsId` via `channel`.
+
+### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
+
+* `channel` String
+* `...args` anuman[]
+
+Katulad ng `ipcRenderer.send` ngunit ang event ay ipapadala sa `<webview>` bahagi sa pahina ng host sa halip na sa pangunahing proseso.
+
+## Ang bagay ng event
+
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
