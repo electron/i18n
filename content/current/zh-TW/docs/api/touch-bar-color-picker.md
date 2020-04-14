@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarColorPicker(options)`
+### `new TouchBarColorPicker(options)` _Experimental_
 
 * `options` Object
   * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
