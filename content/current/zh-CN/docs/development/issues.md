@@ -14,7 +14,7 @@
 2. 通过帮助鉴定问题：您可以通过提供辅助信息（一种可以让漏洞被发现的情况）或提出解决问题的建议。
 3. 通过帮助解决问题：这可以通过演示问题不是一个bug或已修复来完成；但更通常，打开一个通过一个具体和可审查的方式改变`electron/electron`中的源代码的拉取请求。
 
-## 请求一般性的帮助
+## Https://crowdin.com/translate/electron/156/en-vi#12327
 
 ["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. 请仅对漏洞使用问题追踪器！
 
@@ -24,29 +24,16 @@ To submit a bug report:
 
 When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
-```markdown
-<!--
+```markdown<!--
 谢谢您提出问题！ 请记住以下几点：
 
 - 问题跟踪器只能用于漏洞和功能的提出。
 - 在提出问题之前，请尝试使用最新版本的Electron让您提出的问题重现。
 如果您需要一般的问题，请参与我们的Slack: http://atom-slack.herokuapp.com
--->
-
-* Electron版本: 
+-->* Electron版本: 
 * 操作系统: 
 
-### 你希望得到的结果
-
-<!-- 你觉得应该发生什么？ -->
-
-### 实际结果
-
-<!-- 实际发生了什么？ -->
-
-### How to reproduce
-
-<!--
+### 你希望得到的结果<!-- 你觉得应该发生什么？ -->### 实际结果<!-- 实际发生了什么？ -->### How to reproduce<!--
 
 Your best chance of getting this bug looked at quickly is to provide a REPOSITORY that can be cloned and run.
 
@@ -58,8 +45,7 @@ Your best chance of getting this bug looked at quickly is to provide a REPOSITOR
   $ npm install
   $ npm start || electron .
 
--->
-```
+-->```
 
 如果你确信你发现了Electron中的漏洞，请尽力填这份表单。
 
