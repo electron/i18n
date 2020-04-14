@@ -8,7 +8,7 @@ Ce niveau de modularité et d'extensibilité garantit que tous les développeurs
 
 Un "Boilerplate" n'est qu'un point de départ - une toile, pour ainsi dire - à partir de laquelle vous construisez votre application. Ils se présentent généralement sous la forme d'un dossier que vous pouvez cloner et personnaliser.
 
-Un outil en ligne de commande quant à lui est à vos côtés durant tout le processus de développement et de déploiement. Ils sont plus assistants et utiles mais imposent une ligne de conduite sur la manière dont votre code doit être structuré et construit. *Pour les débutants utiliser un outil en ligne de commande peut-être utile*.
+Un outil en ligne de commande quant à lui est à vos côtés durant tout le processus de développement et de déploiement. Ils sont plus assistants et utiles mais imposent une ligne de conduite sur la manière dont votre code doit être structuré et construit. *Especially for beginners, using a command line tool is likely to be helpful*.
 
 ## electron-forge
 
