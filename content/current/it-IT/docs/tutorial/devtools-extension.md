@@ -11,26 +11,24 @@ Per caricare un'estensione in Electron, devi scaricarla nel browser di Chrome, l
 Usando gli [Strumenti Reazione Sviluppatore](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) per esempio:
 
 1. Installalo nel browser Chrome.
-2. Naviga a `chrome://estensioni` e trova l'ID estensione che ha una stringa come `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Trova la posizione file di sistema usata da Chrime per immagazzinare estensioni: 
-    * su Windows è `%LOCALAPPDATA%\Google\Chrome\DatiUtente\Predefinito\Estensioni`;
-    * su Linux potrebbe essere: 
-        * `~/.config/googe-chrome/Predefinito/Estensioni/`
-        * `~/.config/google-chrome-beta/Predefinito/Estensioni/`
-        * `~config/google-chrome-canary/Predefinito/Estensioni/`
-        * `~/.config/chromium/Default/Extensions/`
-    * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
+1. Naviga a `chrome://estensioni` e trova l'ID estensione che ha una stringa come `fmkadmapgofadopljbjfkapdkoienihi`.
+1. Trova la posizione file di sistema usata da Chrime per immagazzinare estensioni:
+   * su Windows è `%LOCALAPPDATA%\Google\Chrome\DatiUtente\Predefinito\Estensioni`;
+   * su Linux potrebbe essere:
+     * `~/.config/googe-chrome/Predefinito/Estensioni/`
+     * `~/.config/google-chrome-beta/Predefinito/Estensioni/`
+     * `~config/google-chrome-canary/Predefinito/Estensioni/`
+     * `~/.config/chromium/Default/Extensions/`
+   * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
+1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+   ```javascript
+   const path = require('path')
+   const os = require('os')
 
-4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
-    
-    ```javascript
-    const path = require('path')
-    const os = require('os')
-    
-    BrowserWindow.addDevToolsExtension(
+   BrowserWindow.addDevToolsExtension(
       path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-    )
-    ```
+   )
+   ```
 
 **Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
 
