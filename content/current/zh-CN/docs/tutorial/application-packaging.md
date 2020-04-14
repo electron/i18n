@@ -10,13 +10,13 @@
 
 参照如下步骤将你的应用打包成 `asar`归档文件。
 
-### 1. 安装 asar 实用程序
+### 1. Install the asar Utility
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. 使用 `asar pack` 打包
+### 2. Package with `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
@@ -24,7 +24,7 @@ $ asar pack your-app app.asar
 
 ## 使用 `asar` 档案文件
 
-在 Electron 中有两类 APIs：Node.js 提供的 Node API 和 Chromium 提供的 Web API。 这两种 API 都支持从 `asar` 档案中读取文件。
+In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
 ### Node API
 
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-在 Web 页面里，用 `file:` 协议可以获取 `asar` 包中文件。和 Node API 一样，视 asar 包如虚拟文件夹。
+In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
 例如，用 `$.get` 获取文件:
 
@@ -139,12 +139,13 @@ Node 中有一些可以执行程序的 API，如 `child_process.exec`，`child_p
 
 ## 添加未打包的文件到 asar 档案
 
-如上所述，一些节点APIs将在 调用时解压文件。除了性能问题之外，各种抗病毒扫描器可能会因此行为触发 。
+As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
-有一个解决方法，您可以使用 `--unpack` 选项保持各种文件不被压缩。 在下面这个例子中，原生 Node.js 模块的共享库将不会被打包：
+As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
 运行命令后，您将会看到 `app.asar.unpacked` 文件夹与 `app.asar` 文件一起被创建了。 没有被打包的文件和 `app.asar` 会一起存档发布。
+
