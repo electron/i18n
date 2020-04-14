@@ -267,7 +267,7 @@ _**Note**: There is a subtle difference between the behaviors of `window.onbefor
 
 #### Event: 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+المنبعث عندما تكون النافذة مغلقة. After you have received this event you should remove the reference to the window and avoid using it any more.
 
 #### Event: 'session-end' _Windows_
 
