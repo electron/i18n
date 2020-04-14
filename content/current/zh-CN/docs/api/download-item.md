@@ -76,9 +76,13 @@ Emitted when the download is in a terminal state. This includes a completed down
 
 该API仅能在`will-download` 方法的回调中使用。 If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
 
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
+
 #### `downloadItem.getSavePath()`
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
