@@ -38,11 +38,11 @@ The following languages are currently being translated, but we can
 - [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
 - [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
 - [Nederlands (Dutch)](https://crowdin.com/project/electron/nl)
-- [Tiếng Việt (Vietnamese)](https://crowdin.com/project/electron/vi)
 - [limba română (Romanian)](https://crowdin.com/project/electron/ro)
+- [Tiếng Việt (Vietnamese)](https://crowdin.com/project/electron/vi)
 - [ไทย (Thai)](https://crowdin.com/project/electron/th)
-- [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [čeština (Czech)](https://crowdin.com/project/electron/cs)
+- [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [עברית (Hebrew)](https://crowdin.com/project/electron/he)
 <!-- end language-table -->
 

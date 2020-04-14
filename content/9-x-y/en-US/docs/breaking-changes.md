@@ -1,10 +1,48 @@
 # Breaking Changes
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
+Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](tutorial/electron-versioning.md#semver) before the change is made.
 
 ## `FIXME` comments
 
 The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+
+## Planned Breaking API Changes (9.0)
+
+### `<webview>.getWebContents()`
+
+This API, which was deprecated in Electron 8.0, is now removed.
+
+```js
+// Removed in Electron 9.0
+webview.getWebContents()
+// Replace with
+const { remote } = require('electron')
+remote.webContents.fromId(webview.getWebContentsId())
+```
+
+### `webFrame.setLayoutZoomLevelLimits()`
+
+Chromium has removed support for changing the layout zoom level limits, and it
+is beyond Electron's capacity to maintain it. The function was deprecated in
+Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits
+are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined
+[here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+
+### Sending non-JS objects over IPC now throws an exception
+
+In Electron 8.0, IPC was changed to use the Structured Clone Algorithm,
+bringing significant performance improvements. To help ease the transition, the
+old IPC serialization algorithm was kept and used for some objects that aren't
+serializable with Structured Clone. In particular, DOM objects (e.g. `Element`,
+`Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g.
+`process.env`, some members of `Stream`), and Electron objects backed by C++
+classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not
+serializable with Structured Clone. Whenever the old algorithm was invoked, a
+deprecation warning was printed.
+
+In Electron 9.0, the old serialization algorithm has been removed, and sending
+such non-serializable objects will now throw an "object could not be cloned"
+error.
 
 ## Planned Breaking API Changes (8.0)
 
@@ -78,7 +116,7 @@ However, it is recommended to avoid using the `remote` module altogether.
 // main
 const { ipcMain, webContents } = require('electron')
 
-const getGuestForWebContents = function (webContentsId, contents) {
+const getGuestForWebContents = (webContentsId, contents) => {
   const guest = webContents.fromId(webContentsId)
   if (!guest) {
     throw new Error(`Invalid webContentsId: ${webContentsId}`)
@@ -171,15 +209,15 @@ webFrame.setIsolatedWorldInfo(
 This property was removed in Chromium 77, and as such is no longer available.
 
 ### `webkitdirectory` attribute for `<input type="file"/>`
-￼
+
 The `webkitdirectory` property on HTML file inputs allows them to select folders.
 Previous versions of Electron had an incorrect implementation where the `event.target.files`
 of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
-￼
+
 As of Electron 7, that `FileList` is now list of all files contained within
 the folder, similarly to Chrome, Firefox, and Edge
 ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
-￼
+
 As an illustration, take a folder with this structure:
 ```console
 folder
@@ -187,23 +225,22 @@ folder
 ├── file2
 └── file3
 ```
-￼
+
 In Electron <=6, this would return a `FileList` with a `File` object for:
 ```console
 path/to/folder
 ```
-￼
+
 In Electron 7, this now returns a `FileList` with a `File` object for:
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
 /path/to/folder/file1
 ```
-￼
+
 Note that `webkitdirectory` no longer exposes the path to the selected folder.
 If you require the path to the selected folder rather than the folder contents,
 see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
-
 ## Planned Breaking API Changes (6.0)
 
 ### `win.setMenu(null)`
