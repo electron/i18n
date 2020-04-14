@@ -28,23 +28,25 @@ To run only specific tests matching a pattern, run `npm run test --
 #### Extra steps to run the unit test:
 
 1. Visual Studio 2019 deve essere installato.
-2. Node headers have to be compiled for your configuration. 
-        powershell
-        ninja -C out\Testing third_party\electron_node:headers
-
-3. The electron.lib has to be copied as node.lib. 
-        powershell
-        cd out\Testing
-        mkdir gen\node_headers\Release
-        copy electron.lib gen\node_headers\Release\node.lib
+2. Node headers have to be compiled for your configuration.
+   ```powershell
+   ninja -C out\Testing third_party\electron_node:headers
+   ```
+3. The electron.lib has to be copied as node.lib.
+   ```powershell
+   cd out\Testing
+   mkdir gen\node_headers\Release
+   copy electron.lib gen\node_headers\Release\node.lib
+   ```
 
 #### Caratteri mancanti
-
 Alcune macchine Windows 10<0> vengono distribuite prive del font Meiryo; questa circostanza potrebbe causare il fallimento di uno o più test sulla sostituzione dei font. Per installare Meiryo:</p> 
 
-1. Premere il tasto Windows e cercare *Gestisci funzionalità opzionali*.
-2. Clicca *Aggiungi una funzione*.
-3. Seleziona *Caratteri aggiuntivi giapponesi* e clicca *Installa*.
+1. Push the Windows key and search for _Manage optional features_.
+2. Click _Add a feature_.
+3. Select _Japanese Supplemental Fonts_ and click _Install_.
+
+
 
 #### Dimensioni dei pixel
 
@@ -52,5 +54,5 @@ Alcuni test che si basano su dimensioni precise dei pixel potrebbero non funzion
 
 To configure display scaling:
 
-1. Premi il tasto Windows e cerca *Impostazioni di visualizzazione*.
-2. Under *Scale and layout*, make sure that the device is set to 100%.
+1. Push the Windows key and search for _Display settings_.
+2. Under _Scale and layout_, make sure that the device is set to 100%.
