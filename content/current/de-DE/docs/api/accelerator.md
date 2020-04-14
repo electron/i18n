@@ -9,7 +9,7 @@ Beispiele:
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Tastenkürzel werden registriert mit dem [`globalShortcut`](global-shortcut.md) Modul durch die [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) Methode, z.B.
+Tastenkürzel werden registriert mit dem  [`globalShortcut`](global-shortcut.md) Modul durch die  [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) Methode, z.B.
 
 ```javascript
 const { app, globalShortcut } = require('electron')
@@ -24,9 +24,9 @@ app.on('ready', () => {
 
 ## Hinweis zu Betriebssystemen
 
-Unter Linux und Windows hat die `Command` Taste keinen Effekt, weshalb `CommandOrControl` benutzt werden sollte. Es repräsentiert `Command` unter macOS und `Control` unter Linux und Windows um Tastenkürzel zu definieren.
+Unter Linux und Windows hat die `Command` Taste keinen Effekt, weshalb `CommandOrControl` benutzt werden sollte. Es repräsentiert  `Command` unter macOS und  `Control` unter Linux und Windows um Tastenkürzel zu definieren.
 
-Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Alt` in allen Betriebssystemen verfügbar ist.
+Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
 `Super` wird unter Windows und Linux auf die`Windows`-Taste und unter macOS auf die `Cmd` gemappt.
 
@@ -64,7 +64,7 @@ Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Al
 * `VolumeUp`, `VolumeDown` und `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` und `MediaPlayPause`
 * `PrintScreen`
-* NumPad-Tasten 
+* NumPad-Tasten
   * `num0` - `num9`
   * `numdec` - decimal key
   * `numadd` - numpad `+` key
