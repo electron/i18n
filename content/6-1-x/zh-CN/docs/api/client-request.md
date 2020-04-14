@@ -11,14 +11,14 @@
 * `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
+  * `session` Object (可选) - 与请求相关联的[`Session`](session.md)实例.
   * `partition` String (可选) - 与请求相关联的[`partition`](session.md)名称. 默认为空字符串. `session`选项优先于`partition`选项. 因此, 如果`session`是显式指定的, 则`partition`将被忽略.
   * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (可选) - 作为连接提供的服务器主机,主机名和端口号'hostname:port'.
   * `hostname` String (可选) - 服务器主机名.
   * `port` Integer (可选) - 服务器侦听的端口号.
   * `path` String (可选) - 请求URL的路径部分.
-  * `redirect` String (可选) - 请求的重定向模式. 可选值为 `follow`, `error` 或 `manual`. 默认值为 `follow`. 当模式为`error`时, 重定向将被终止. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `redirect` String (可选) - 请求的重定向模式. 可选值为 `follow`, `error` 或 `manual`. 默认值为 `follow`. 当模式为`error`时, 重定向将被终止. 当模式为 `manual`时，表示延迟重定向直到调用了 [`request.followRedirect`](#requestfollowredirect)。 在此模式中侦听 [`redirect`](#event-redirect)事件，以获得关于重定向请求的更多细节。
 
 `options` 属性，如 `protocol`, `host`, `hostname`, `port` 和 `path`，在 [URL](https://nodejs.org/api/url.html) 模块中会严格遵循 Node.js 的模式
 
@@ -127,15 +127,15 @@ Emitted when there is redirection and the mode is `manual`. Calling [`request.fo
 #### `request.setHeader(name, value)`
 
 * `name` String - 额外的 HTTP 头名称.
-* `value` Object - An extra HTTP header value.
+* `value` Object - 额外的 HTTP 头的值.
 
-添加一个额外的 HTTP 头。 The header name will issued as it is without lowercasing. 它只能在第一次写入之前调用。 在第一次写入后调用此方法将引发错误。 如果传递的值不是 ` String `, 则会调用 ` toString () ` 方法来获取最终值。
+添加一个额外的 HTTP 头。 头名称发出时是大写的. 它只能在第一次写入之前调用。 在第一次写入后调用此方法将引发错误。 如果传递的值不是 ` String `, 则会调用 ` toString () ` 方法来获取最终值。
 
 #### `request.getHeader(name)`
 
 * `name` String - 指定一个额外的头名称.
 
-Returns `Object` - The value of a previously set extra header name.
+返回 ` Object `-以前设置的额外标头名称的值。
 
 #### `request.removeHeader(name)`
 
@@ -167,7 +167,7 @@ Sends the last chunk of the request data. Subsequent write or end operations wil
 
 #### `request.followRedirect()`
 
-Continues any deferred redirection request when the redirection mode is `manual`.
+当重定向模式为 ` manual 手动 ` 时, 将继续延迟的重定向请求。
 
 #### `request.getUploadProgress()`
 
