@@ -172,7 +172,7 @@ or: أو
 pages:
   '/':
     title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    description: 'اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS.'
   '/apps':
     title: تطبيقات إلكترون
     description: تطبيقات مبنية على إلكترون
