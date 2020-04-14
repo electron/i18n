@@ -20,6 +20,6 @@ These guides are intended for people working on the Electron project itself. For
 * [在 Windows 上 Debug](debug-instructions-windows.md)
 * [在 macOS 上 Debug](debugging-instructions-macos.md)
 * [在 Debugger 中設定符號伺服器](setting-up-symbol-server.md)
-* [Upgrading Chromium](upgrading-chromium.md)
-* [Upgrading Crashpad](upgrading-crashpad.md)
+* [Chromium 升版](upgrading-chromium.md)
+* [Crashpad 升版](upgrading-crashpad.md)
 * [Node 升版](upgrading-node.md)
