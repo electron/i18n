@@ -17,7 +17,7 @@
 
 * Node.js. 有多种方法安装 Node.js。 您可以从 [ Nodejs.org ](https://nodejs.org) 下载源代码并进行编译。 也可以作为一个标准的用户在 home 目录下安装 node. 或者尝试使用 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) 仓库
 * [ clang ](https://clang.llvm.org/get_started.html) 3.4 或更高版本。
-* Development headers of GTK+ and libnotify.
+* GTK+ 开发头文件和 libnotify.
 
 在 Ubuntu, 安装下面的库:
 
@@ -68,7 +68,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
 若要为 `arm` 或 `ia32` 平台的目标设备交叉编译，您应当为 `target_cpu` 添加`gn gen` 参数：
 
 ```sh
-$ gn gen out/Debug --args='import(...) target_cpu="arm"'
+gn gen out/Debug --args='import(...) target_cpu="arm"'
 ```
 
 ## 构建
@@ -96,7 +96,7 @@ The default building configuration is targeted for major desktop Linux distribut
 例如如果你的 `clang`安装在 `/usr/local/bin/clang`下：
 
 ```sh
-$ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
+gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
 ```
 
 ### 使用 `clang` 之外的其它编译器
