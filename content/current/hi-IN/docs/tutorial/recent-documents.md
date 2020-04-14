@@ -2,11 +2,11 @@
 
 Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
-**जम्पलिस्ट:**
+__जम्पलिस्ट:__
 
 ![जम्पलिस्ट हाल ही की फाइल्स](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**एप्लीकेशन डॉक मेन्यु:**
+__एप्लीकेशन डॉक मेन्यु:__
 
 ![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
