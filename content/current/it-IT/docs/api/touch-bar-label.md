@@ -4,9 +4,9 @@
 
 Processo: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `nuovo EtichettaBarraTocco(opzioni)` *Sperimentale*
+### `new TouchBarLabel(options)` _Experimental_
 
-* `options` Oggetto 
+* `options` Object
   * `etichetta` Stringa(opzionale) - Testo da mostrare.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `ColoreTesto` Stringa (opzionale) - Colore del testo Hex, come `#ABCDEF`.
@@ -19,7 +19,7 @@ Le proprietà seguenti sono disponibili su istanza di `BarraEtichettaTouch`:
 
 #### `etichettaBarratouch.etichetta`
 
-Una `Stringa` rappresentante il testo corrente dell'etichetta. Modificando questo valore l'etichetta sarà automaticamente aggiornata nella barra touch.
+A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
 
 #### `touchBarLabel.accessibilityLabel`
 
@@ -27,4 +27,4 @@ A `String` representing the description of the label to be read by a screen read
 
 #### `EtichettaBarratouch.testoColore`
 
-Un codice hex della `Stringa` rappresentante il colore corrente del testo dell'etichetta. Cambiando questo valore aggiornerà automatocamente l'etichetta nella barra touch.
+A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
