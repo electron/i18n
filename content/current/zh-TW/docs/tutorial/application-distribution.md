@@ -122,7 +122,7 @@ It is also possible to rebrand Electron by changing the product name and buildin
   * `SURF_TEMP` - 在 Windows 下設為 `C:\Temp`，防止碰到路徑過長問題
   * `TARGET_ARCH` - 設為 `ia32` 或 `x64`
 
-4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+4. 在 `script/upload.py` 中，你_必須_將 `ELECTRON_REPO` 設為你的分支 (`MYORG/electron`)，如果你同時也是原版 Electron 的貢獻者時更要特別注意。
 
 5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
