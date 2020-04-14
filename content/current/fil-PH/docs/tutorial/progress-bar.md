@@ -6,7 +6,7 @@ Sa macOs, ang progress bar ay maipapakita bilang isang bahagi ng dock icon.
 
 Ang Unity DE ay mayroon ding kaparehas na katangian na nagpapahintulot nito na itukoy ang progress bar sa launcher.
 
-**Progress bar sa taskbar na pipindutin:**
+__Progress bar sa taskbar na pipindutin:__
 
 ![Progress bar ng Taskbar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
