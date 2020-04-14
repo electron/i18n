@@ -4,14 +4,14 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `bagong TouchBarSlider(opsyon)` *Eksperimento*
+### `new TouchBarSlider(options)` _Experimental_
 
-* `pagpipilian` Bagay 
+* `options` Object
   * `pangalan` String (opsyonal) - label na teksto.
   * `halaga` Integer (opsyonal) - napiling halaga.
   * `minValue` Integer (opsyonal) - Pinakamaliit na halaga.
   * `maxValue` Integer (opsyonal) - Pinakamalaking halaga.
-  * `baguhin` Tungkuli (opsyonal) - tungkuling tawagan kung ang slider ay napalitan. 
+  * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Numero - Ang halaga na pinili ng gumugamit sa Slider.
 
 ### Katangian ng pagkakataon
@@ -20,16 +20,16 @@ Ang mga sumusunod na propyedad ai pwedeng gamitin sa pagkakataon ng `TouchBarSli
 
 #### `touchBarSlider.label`
 
-Ang <->String</code> na nagrepresenta sa kasalukuyang teksto ng slider. Ang pagpalit ng halagang ito ay kaagad na bumabago ng slider sa pindutang bar.
+A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.value`
 
-Ang `Numero` na narepresenta ng kasalukuyang teksto ng slider. Ang pagapalit ng halagang ito ay kaagad na bumabago ng slider sa pindutang bar.
+A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.minValue`
 
-Ang `Numero` na nagrepresenta ng kasalukuyang pinakamaliit na halaga ng slider. Ang papalit ng halaga ay kaagad na bumabago sa slider ng pindutang bar.
+A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.maxValue`
 
-Ang `Numero` na nagrepresenta ng kasalukuyang pinakamalaking halaga ng slider. Ang papalit ng halaga ay kaagad na bumabago sa slider ng pindutang bar.
+A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
