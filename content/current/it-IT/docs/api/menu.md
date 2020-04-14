@@ -16,7 +16,7 @@ The `Menu` class has the following static methods:
 
 * `menu` Menu | null
 
-Imposta `menu` come menu dell'applicazione in macOS. Su Windows e Linux, il `menu` verrà impostato come menu superiore in ogni finestra.
+Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
 Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
@@ -30,7 +30,7 @@ Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
-#### `Menu.sendActionToFirstResponder(action)` *macOS*
+#### `Menu.sendActionToFirstResponder(action)` _macOS_
 
 * `action` String
 
@@ -54,11 +54,11 @@ La classe `menu` ha is seguenti metodi statici:
 
 #### `menu.popup([options])`
 
-* `options` Object (opzionale) 
+* `options` Object (optional)
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Function (optional) - Called when menu is closed.
 
 Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
@@ -92,7 +92,7 @@ Inserts the `menuItem` to the `pos` position of the menu.
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
-**Nota:** Alcuni metodi sono disponibili solo su sistemi operativi specifici e sono etichettati come tali.
+**Note:** Some events are only available on specific operating systems and are labeled as such.
 
 #### Event: 'menu-will-show'
 
@@ -307,7 +307,7 @@ Template:
 Menu:
 
 ```sh
-<br />- 1
+- 1
 - 2
 - 3
 - 4
@@ -329,7 +329,7 @@ Template:
 Menu:
 
 ```sh
-<br />- 3
+- 3
 - 4
 - ---
 - 1
@@ -350,7 +350,7 @@ Template:
 Menu:
 
 ```sh
-<br />- ---
+- ---
 - 3
 - 2
 - 1
