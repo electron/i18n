@@ -6,7 +6,7 @@ import * as walk from 'walk-sync'
 import { sync as rimraf } from 'rimraf'
 import * as allStats from '../stats.json'
 
-const basePath = path.join(__dirname, '..', 'content')
+const basePath = path.join(__dirname, '..', 'content', 'current')
 const contentPath = (lang: string) => path.join(basePath, lang, 'docs')
 
 const locales = fs.readdirSync(basePath)

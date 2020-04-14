@@ -8,9 +8,9 @@ const matchWords = require('match-words')
 
 console.log(`# Word Count`)
 
-analyze(path.join(__dirname, '../content/en-US'), 'English')
-analyze(path.join(__dirname, '../content/en-US/website/blog'), 'Blog English')
-analyze(path.join(__dirname, '../content'), 'All Languages')
+analyze(path.join(__dirname, '../content/current/en-US'), 'English')
+analyze(path.join(__dirname, '../content/current/en-US/website/blog'), 'Blog English')
+analyze(path.join(__dirname, '../content/current'), 'All Languages')
 
 function analyze(dir: string, title: string) {
   const files = walk(dir, { directories: false }).map((f) => path.join(dir, f))
