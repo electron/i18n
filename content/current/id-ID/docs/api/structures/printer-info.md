@@ -1,14 +1,14 @@
 # PrinterInfo Object
 
-* ` nama </ 0>  String</li>
+* ` nama </ 0>  Deretan</li>
 <li><code> deskripsi </ 0>  String</li>
 <li><code> status </ 0>  nomor</li>
 <li><code> isDefault </ 0>  Boolean</li>
 </ul>
 
-<h2>Contoh</h2>
+<h2 spaces-before="0">Contoh</h2>
 
-<p>Berikut adalah contoh beberapa opsi tambahan yang mungkin ada yang berbeda pada setiap platform.</p>
+<p spaces-before="0">Berikut adalah contoh beberapa opsi tambahan yang mungkin ada yang berbeda pada setiap platform.</p>
 
 <pre><code class="javascript">{
    nama: 'Zebra_LP2844',
