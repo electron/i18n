@@ -23,9 +23,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `nuova BrowserView([options])` *Sperimentale*
+### `new BrowserView([options])` _Experimental_
 
-* `options` Object (opzionale) 
+* `options` Object (optional)
   * `webPreferences` Object (opzionale) - Vedi [BrowserWindow](browser-window.md).
 
 ### Metodi Statici
@@ -42,7 +42,7 @@ Restituisce `BrowserView | null`-The BrowserView che possiede il dato `webConten
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` Numero Intero
 
 Restituisce `VistaBrowser` - La vista con l'`id` dato.
 
@@ -50,11 +50,11 @@ Restituisce `VistaBrowser` - La vista con l'`id` dato.
 
 Oggetti creato con `nuova VistaBrowser` hanno le seguenti proprietà:
 
-#### `view.webContents` *Sperimentale*
+#### `view.webContents` _Experimental_
 
 Un oggetto [`ContenutiWeb`](web-contents.md) da questa vista.
 
-#### `view.id` *Sperimentale*
+#### `view.id` _Experimental_
 
 Un numero `Intero` rappresentante l'unico ID di visualizzazione.
 
@@ -70,26 +70,26 @@ Forza la chiusura della vista, gli enventi `unload` e `beforeunload` non verrann
 
 Restituisce `Boolean` - Se la vista viene distrutta.
 
-#### `view.setAutoResize(options)` *Sperimentale*
+#### `view.setAutoResize(options)` _Experimental_
 
-* `options` Oggetto 
+* `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Sperimentale*
+#### `view.setBounds(bounds)` _Experimental_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Ridimensiona e muovi la vista ai limiti forniti relativamente alla finestra.
 
-#### `view.getBounds()` *Experimental*
+#### `view.getBounds()` _Experimental_
 
 Ritorna [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `vista.impostaColoreSfondo(colore)` *Sperimentale*
+#### `view.setBackgroundColor(color)` _Experimental_
 
-* `color` String - Colore nel formato `#aarrggbb` o `#argb`. Il canale alpha é opzionale.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
