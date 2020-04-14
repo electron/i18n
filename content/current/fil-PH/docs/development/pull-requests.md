@@ -1,18 +1,18 @@
 # Pull Requests
 
-* [Ang pag-set up ng sariling lokal na kapaligiran](#setting-up-your-local-environment) 
+* [Ang pag-set up ng sariling lokal na kapaligiran](#setting-up-your-local-environment)
   * [Unang hakbang: Fork](#step-1-fork)
   * [Ikalawang hakbang: Bumuo](#step-2-build)
   * [Ikatlong hakbang: Sangay](#step-3-branch)
-* [Paggawa ng Pagbabago](#making-changes) 
+* [Paggawa ng Pagbabago](#making-changes)
   * [Ikaapat na hakbang: Code](#step-4-code)
-  * [Ikalimang hakbang: Magtapat](#step-5-commit) 
+  * [Ikalimang hakbang: Magtapat](#step-5-commit)
     * [Magsagawa ng mga alituntunin ng mensahe](#commit-message-guidelines)
   * [Ikaanim na hakbang: Rebase](#step-6-rebase)
   * [Ikapitong hakbang: Pagsubok](#step-7-test)
   * [Ikawalong hakbang: Itulak](#step-8-push)
   * [Ikasiyam na hakbang: Pagbukas ng Kahilingan ng Pull](#step-9-opening-the-pull-request)
-  * [Ikasampong hakbang: Talakayin at I-update](#step-10-discuss-and-update) 
+  * [Ikasampong hakbang: Talakayin at I-update](#step-10-discuss-and-update)
     * [Pag-apruba at Kahilingan sa Pagbabago ng Workflow](#approval-and-request-changes-workflow)
   * [Ikalabin-isang hakbang: Landing](#step-11-landing)
   * [Patuloy na Pagsubok sa Pagsasamasama](#continuous-integration-testing)
@@ -33,7 +33,6 @@ $ git fetch upstream
 ### Ikalawang hakbang: Bumuo
 
 Gumawa ng mga hakbang at mga dependencies ay bahagyang naiiba na nagdedepende sa iyong operating system. Tingnan ang mga detalyadong gabay sa pagtatayo ng Electron sa isang local:
-
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Pagbuo sa Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Pagbuo sa Windows](https://electronjs.org/docs/development/build-instructions-windows)
@@ -77,29 +76,28 @@ Before a pull request can be merged, it **must** have a pull request title with 
 
 Examples of commit messages with semantic prefixes:
 
-* `fix: don't overwrite prevent_default if default wasn't prevented`
-* `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux`
+- `fix: don't overwrite prevent_default if default wasn't prevented`
+- `feat: add app.isPackaged() method`
+- `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Common prefixes:
 
-    - fix: A bug fix
-    - feat: A new feature
-    - docs: Documentation changes
-    - test: Adding missing tests or correcting existing tests
-    - build: Changes that affect the build system
-    - ci: Changes to our CI configuration files and scripts
-    - perf: A code change that improves performance
-    - refactor: A code change that neither fixes a bug nor adds a feature
-    - style: Changes that do not affect the meaning of the code (linting)
-    - vendor: Bumping a dependency like libchromiumcontent or node
-    
+  - fix: A bug fix
+  - feat: A new feature
+  - docs: Documentation changes
+  - test: Adding missing tests or correcting existing tests
+  - build: Changes that affect the build system
+  - ci: Changes to our CI configuration files and scripts
+  - perf: A code change that improves performance
+  - refactor: A code change that neither fixes a bug nor adds a feature
+  - style: Changes that do not affect the meaning of the code (linting)
+  - vendor: Bumping a dependency like libchromiumcontent or node
 
 Other things to keep in mind when writing a commit message:
 
-1. Ang unang linya ay dapat na: 
-  * naglalaman ng isang maikling paglalarawan ng pagbabago (mas mabuti na 50 karakter o mas mababa, at hindi hihigit sa 72 na karakter)
-  * maging ganap sa lowercase na may pagbubukod ng mga tamang nouns, acronyms, at ang mga salita na tumutukoy sa code, tulad ng mga pangalan ng function / variable
+1. Ang unang linya ay dapat na:
+   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   - maging ganap sa lowercase na may pagbubukod ng mga tamang nouns, acronyms, at ang mga salita na tumutukoy sa code, tulad ng mga pangalan ng function / variable
 2. Panatilihing blangko ang ikalawang linya.
 3. I-wrap ang lahat ng iba pang mga linya sa 72 na mga haligi.
 
@@ -198,3 +196,4 @@ Ang bawat pull request ay nasubok sa patuloy na Integrasyon (CI) na sistema kump
 Sa isip, ang kahilingan ng pull ay lilipas ("maging berde") sa lahat ng mga platform ng CI. Nangangahulugan ito na ang lahat ng mga pagsusulit ay pumasa at walang mga pagkakamali. Gayunpaman, ito ay hindi bihira para sa imprastraktura ng CI mismo upang mabigo sa tiyak na platform o para sa mga tinatawag na "flaky" na pagsusulit upang mabigo ("maging pula"). Ang bawat CI Ang kabiguan ay dapat manu-manong sinuri upang matukoy ang dahilan.
 
 CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
+
