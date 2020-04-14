@@ -128,7 +128,7 @@ Native modules used in your app also need to be signed. If using electron-osx-si
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-还要注意，原生模块可能产生的中间文件 不包括在内(因为它们也需要签署)。 If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignore those files by default.
+还要注意，原生模块可能产生的中间文件 不包括在内(因为它们也需要签署)。 如果你使用 [electron-packager](https://github.com/electron-userland/electron-packager) 8.1.0 之前的版本，在构建步骤中添加 `--ignore=.+\.o$` 以忽略这些文件。 Versions 8.1.0 and later ignore those files by default.
 
 ### 上传你的应用
 
