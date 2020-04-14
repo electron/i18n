@@ -8,7 +8,7 @@ Gunakan salah satu dari switch baris perintah berikut untuk mengaktifkan debuggi
 
 ### `--inspect=[port]`
 
-Elektron akan mendengarkan pesan protokol inspektur V8 pada port `yang ditentukan`, debugger eksternal perlu terhubung ke port ini. Default `port` adalah `5858`.
+Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
 
 ```shell
 electron --inspect=5858 your/app
