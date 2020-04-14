@@ -9,29 +9,28 @@ L'objet `process` d'Electron une extension de l'[objet `process` de Node.js](htt
 ## Mode bac à sable
 
 Dans les moteurs de rendu en bac à sable, l'objet `process` ne contient qu'un sous-ensemble des APIs :
-
-* `crash()`
-* `hang()`
-* `getCreationTime()`
-* `getHeapStatistics()`
-* `getBlinkMemoryInfo()`
-* `getProcessMemoryInfo()`
-* `getSystemMemoryInfo()`
-* `getSystemVersion()`
-* `getCPUUsage()`
-* `getIOCounters()`
-* `argv`
-* `execPath`
-* `env`
-* `pid`
-* `arc`
-* `plateforme`
-* `bac à sable`
-* `type`
-* `version`
-* `versions`
-* `mas`
-* `windowsStore`
+- `crash()`
+- `hang()`
+- `getCreationTime()`
+- `getHeapStatistics()`
+- `getBlinkMemoryInfo()`
+- `getProcessMemoryInfo()`
+- `getSystemMemoryInfo()`
+- `getSystemVersion()`
+- `getCPUUsage()`
+- `getIOCounters()`
+- `argv`
+- `execPath`
+- `env`
+- `pid`
+- `arc`
+- `plateforme`
+- `bac à sable`
+- `type`
+- `version`
+- `versions`
+- `mas`
+- `windowsStore`
 
 ## Événements
 
@@ -53,21 +52,21 @@ process.once('loaded', () => {
 
 ## Propriétés
 
-### `process.defaultApp` *Readonly*
+### `process.defaultApp` _Readonly_
 
-A `Booléen`. Lorsque l'application démarre en passant comme paramètre à l'application par défaut, cette propriété est `true` dans le processus principal, sinon elle est `undefined`.
+A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
-### `process.isMainFrame` *Readonly*
+### `process.isMainFrame` _Readonly_
 
-A `Booléen`, `true` lorsque le contexte du moteur de rendu actuel est le cadre du moteur de rendu "main". Si vous voulez l'ID de la frame courante, vous devez utiliser `webFrame.routingId`.
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas` *Readonly*
+### `process.mas` _Readonly_
 
-Une `Boolean`. Pour la construction de l'App Store Mac, cette propriété est `true`, pour les autres builds, elle est `undefined`.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
-Un `Booléen` qui contrôle le support ASAR dans votre application. Définir ceci à `true` désactivera le support des archives `asar` dans les modules intégrés de Node.
+A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
 ### `process.noDeprecation`
 
@@ -77,13 +76,13 @@ Un `Booléen` qui contrôle si oui ou non les avertissements de dépréciation s
 
 Un `Boolean` qui contrôle si oui ou non les avertissements de dépréciation sont imprimés à `stderr` lorsque les APIs anciennement basées sur les callbacks sont convertis en Promises sont appelées en utilisant des callbacks. Définir ceci à `true` activera les avertissements de dépréciation.
 
-### `process.resourcesPath` *Readonly*
+### `process.resourcesPath` _Readonly_
 
 Une `String` représentant le chemin vers le répertoire des ressources.
 
-### `process.sandboxed` *Readonly*
+### `process.sandboxed` _Readonly_
 
-A `Boolean`. Lorsque le processus de rendu est en bac à sable, cette propriété est `true`, sinon elle est `undefined`.
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `process.throwDeprecation`
 
@@ -94,24 +93,23 @@ Un `Booléen` qui contrôle si oui ou non les avertissements de dépréciation s
 Un `Booléen` qui contrôle si les dépréciations affichées sur `stderr` incluent leur trace de pile. En définissant cette valeur à `true` affichera les traces de piles pour les dépréciations. Cette propriété est à la place du drapeau `--trace-deprecation`.
 
 ### `process.traceProcessWarnings`
-
 Un `Booléen` qui contrôle si oui ou non les avertissements affichés sur `stderr` incluent leur trace de pile. En définissant cette valeur à `true` affichera les traces de piles pour les avertissements de processus (y compris les dépréciations). Cette propriété est à la place du drapeau de ligne `--trace-warnings` de la commande .
 
-### `process.type` *Readonly*
+### `process.type` _Readonly_
 
 Une `String` représentant le type du processus courant, peut être `"browser"` (c'est-à-dire le processus principal), `"renderer"`, ou `"worker"` (c'est-à-dire le web worker).
 
-### `process.versions.chrome` *Readonly*
+### `process.versions.chrome` _Readonly_
 
 Un `String` représentant la version de Chrome.
 
-### `process.versions.electron` *Readonly*
+### `process.versions.electron` _Readonly_
 
 Un `String` représentant la version d'Electron.
 
-### `process.windowsStore` *Readonly*
+### `process.windowsStore` _Readonly_
 
-A `Booléen`. Si l'application fonctionne sous la forme d'une application Windows Store (appx), cette propriété est `true`, sinon elle est `indéfinie`.
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## Méthodes
 
@@ -125,13 +123,13 @@ Cause le thread principal du processus en cours de plantage.
 
 Retourne `Nombre | null` - Le nombre de millisecondes depuis Epoch, ou `null` si l'information est indisponible
 
-Indique le temps de création de l'application. L'heure est représentée par le nombre de millisecondes depuis l'époque. Il retourne Null s'il est impossible d'obtenir le temps de création du processus.
+Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
 
 ### `process.getCPUUsage()`
 
 Retourne [`CPUUsage`](structures/cpu-usage.md)
 
-### `process.getIOCounters()` *Windows* *Linux*
+### `process.getIOCounters()` _Windows_ _Linux_
 
 Retourne [`IOCounters`](structures/io-counters.md)
 
@@ -149,7 +147,7 @@ Retourne `Object`:
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Retourne un objet avec des statistiques de pile V8. Notez que toutes les statistiques sont rapportées en kilobytes.
+Returns an object with V8 heap statistics. Notez que toutes les statistiques sont en kilo-octets.
 
 ### `process.getBlinkMemoryInfo()`
 
@@ -159,13 +157,13 @@ Retourne `Object`:
 * `marked` Integer - Taille de tous les objets marqués dans Kilobytes.
 * `total` Integer - Espace total alloué en kilobytes.
 
-Retourne un objet avec des informations de mémoire de Blink. Cela peut être utile pour déboguer les problèmes de mémoire liés au rendu / DOM. Notez que toutes les valeurs sont signalées en Kilobytes.
+Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
 
 ### `process.getProcessMemoryInfo()`
 
 Retourne `Promise<ProcessMemoryInfo>` - résout avec un [ProcessMemoryInfo](structures/process-memory-info.md)
 
-Retourne un objet qui donne des statistiques d'utilisation de la mémoire à propos du processus courant. Notez que toutes les statistiques sont signalées dans des Kilobytes. Cet api doit être appelé après que l'application soit prête.
+Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
 
 Chromium ne fournit pas de valeur `residentSet` pour macOS. Ceci est dû au fait que macOS effectue une compression en mémoire des pages qui n'ont pas été récemment utilisées. En tant que résultat la valeur de la taille de la définition résident n'est pas celle qu'on pourrait attendre. `la mémoire privé` est plus représentative de l'utilisation réelle de la mémoire de pré-compression du processus sur macOS.
 
@@ -175,10 +173,10 @@ Retourne `Object`:
 
 * `total` Integer - La quantité totale de mémoire physique dans Kilobytes disponibles pour le système .
 * `libre` Integer - La quantité totale de mémoire non utilisée par les applications ou le cache du disque.
-* `swapTotal` Integer *Windows* *Linux* - La quantité totale de mémoire swap dans Kilobytes disponible pour le système .
-* `swapFree` Integer *Windows* *Linux* - La quantité gratuite de mémoire swap dans Kilobytes disponible pour le système .
+* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
 
-Renvoie un objet donnant des statistiques d'utilisation de la mémoire sur l'ensemble du système. Note : que toutes les statistiques sont exprimées en kilo-octets.
+Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
 ### `process.getSystemVersion()`
 
@@ -194,7 +192,7 @@ console.log(version)
 // Sous Linux -> '4.15.0-45-générique'
 ```
 
-**Remarque :** Il retourne la version réelle du système d'exploitation au lieu de la version du noyau sur macOS contrairement à `os.release()`.
+**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
 
 ### `process.takeHeapSnapshot(filePath)`
 
@@ -208,7 +206,7 @@ Prend un instantané de tas V8 et l'enregistre dans `filePath`.
 
 Cause le fil de discussion principal du processus actuel.
 
-### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
+### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
 * `maxDescriptors` Integer
 
