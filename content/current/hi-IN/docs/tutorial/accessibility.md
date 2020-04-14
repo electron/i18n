@@ -2,7 +2,7 @@
 
 Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
 
-* * *
+---
 
 Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
 
@@ -10,7 +10,7 @@ These new features bring those auditing tools to your Electron app. You can choo
 
 ## स्पेकट्रॉन
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. उदाहरण के लिए:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
