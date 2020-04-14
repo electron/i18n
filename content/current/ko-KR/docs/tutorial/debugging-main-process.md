@@ -8,7 +8,7 @@ Electron 브라우저 창의 개발자 도구는 윈도우(i.e 웹 페이지) �
 
 ### `--inspect=[port]`
 
-이 스위치를 사용하면 Electron은 지정한 `port`에 V8 디버거 프로토콜을 리스닝합니다. 기본 `port`는 `5858` 입니다.
+Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
 
 ```shell
 electron --inspect=5858 your/app
@@ -22,5 +22,5 @@ electron --inspect=5858 your/app
 
 V8 디버거 프로토콜을 지원하는 디버거가 필요합니다. 다음 가이드들이 도움이 됩니다:
 
-- 크롬의 `chrome://inspect` 를 방문하고, 현재의 거기에 있는 Electron app 을 찾아보고 선정하여 설치하기
+- 크롬의 `chrome://inspect` 를 방문하고, 현재의  거기에 있는  Electron app 을 찾아보고 선정하여 설치하기
 - [VSCode 에서 메인 프로세스 디버깅하기](debugging-main-process-vscode.md)
