@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Electron では、画像を取る API において、ファイルパスか `NativeImage` インスタンスのいずれかを渡すことができます。`null` を渡したときは空の画像が使われます。
+In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
 例として、tray を作ったりウインドウのアイコンを設定したりするとき、`String` で画像ファイルパスを渡せます。
 
@@ -27,23 +27,23 @@ console.log(appIcon)
 
 ## サポートされているフォーマット
 
-現在、`PNG` と `JPEG` 画像フォーマットがサポートされています。`PNG` は透過や可逆圧縮をサポートするため推奨します。
+Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
 
-Windows では、ファイルパスから `ICO` アイコンを読み込むこともできます。最高の画質を得るには、少なくとも以下のサイズを含むことを推奨します。
+On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
-* 小さいアイコン 
+* 小さいアイコン
   * 16x16 (DPI スケール 100%)
   * 20x20 (DPI スケール 125%)
   * 24x24 (DPI スケール 150%)
   * 32x32 (DPI スケール 200%)
-* 大きいアイコン 
+* 大きいアイコン
   * 32x32 (DPI スケール 100%)
   * 40x40 (DPI スケール 125%)
   * 48x48 (DPI スケール 150%)
   * 64x64 (DPI スケール 200%)
   * 256x256
 
-[この記事](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx) 内の *サイズ要件* の章を確認して下さい。
+Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
 ## 高解像度の画像
 
@@ -51,7 +51,7 @@ Apple Retina ディスプレイのような高解像度をサポートしてい�
 
 例えば、`icon.png` が通常の標準解像度の画像であれば、`icon@2x.png` が2倍のピクセル密度を持つ高解像度の画像として扱われます。
 
-同時に異なるピクセル密度のディスプレイをサポートしたい場合、同じフォルダ内に異なるサイズの画像を置き、DPI 接尾子無しでファイル名を使用して下さい。
+If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. 例:
 
 ```plaintext
 images/
@@ -82,13 +82,13 @@ console.log(appIcon)
 
 ## テンプレート画像
 
-テンプレート画像は、黒とアルファチャンネルで構成されています。テンプレート画像は単体の画像として使用するものではなく、通常、最終的にさせたい見た目を作成するため、他のコンテンツと混合されます。
+Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
 最も一般的なケースは、メニューバーのアイコンに使用することです。これは明るいメニューバーと暗いメニューバーの両方に適応できます。
 
-**注釈:** テンプレート画像は macOS でのみサポートされています。
+**Note:** Template image is only supported on macOS.
 
-画像をテンプレート画像としてマークするには、そのファイル名が `Template` で終わる必要があります。以下が例です。
+To mark an image as a template image, its filename should end with the word `Template`. 例:
 
 * `xxxTemplate.png`
 * `xxxTemplate.png`
@@ -121,26 +121,26 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object 
+* `options` Object
   * `width` Integer
   * `height` Integer
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `NativeImage`
 
-`buffer` から新しい `NativeImage` インスタンスを作成します。これには`toBitmap()` によって返された生のビットマップピクセルデータが含まれます。フォーマットはプラットフォームに依存します。
+Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (任意) 
+* `options` Object (optional)
   * `width` Integer (任意) - ビットマップバッファに必要。
   * `height` Integer (任意) - ビットマップバッファに必要。
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `NativeImage`
 
-`buffer` から `NativeImage` の新しいインスタンスを作成します。最初に PNG または JPEG としてデコードしようとします。
+Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -150,7 +150,7 @@ console.log(image)
 
 `dataURL` から `NativeImage` の新しいインスタンスを作成します。
 
-### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
+### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` String
 * `hslShift` Number[] (任意)
@@ -162,7 +162,7 @@ console.log(image)
 `hslShift` は以下のルールで画像に適用されます。
 
 * `hsl_shift[0]` (色相): 画像における色相の絶対値 - 0 から 1 が 色相カラーホイール (赤) の 0 から 360 に割り当てられます。
-* `hsl_shift[1]` (彩度): 画像における彩度の変化量。以下のキー値を使用します。 0 = すべての色が抜かれる。 0.5 = 変わらないまま。 1 = 画像の彩度を最大にする。
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = そのまま変わらない。 1 = fully saturate the image.
 * `hsl_shift[2]` (明るさ): 画像における明るさの変化量。以下のキー値を使用します。 0 = 明るさをすべて取り除く (すべてのピクセルを黒にする)。 0.5 = そのまま変わらない。 1 = 完全に明るい (すべてのピクセルを白にする)。
 
 つまり、`[-1, 0, 1]` は完全に白い画像になり、`[-1, 1, 0]` は完全に黒い画像になります。
@@ -177,7 +177,7 @@ console.log(image)
 
 > tray や Dock やアプリケーションアイコンのような画像を、ネイティブにラップします。
 
-プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
+プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### インスタンスメソッド
 
@@ -185,7 +185,7 @@ console.log(image)
 
 #### `image.toPNG([options])`
 
-* `options` Object (任意) 
+* `options` Object (optional)
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `Buffer` - `PNG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
@@ -198,32 +198,32 @@ console.log(image)
 
 #### `image.toBitmap([options])`
 
-* `options` Object (任意) 
+* `options` Object (optional)
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `Buffer` - 生のビットマップ画像のピクセルデータのコピーを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toDataURL([options])`
 
-* `options` Object (任意) 
+* `options` Object (optional)
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `String` - 画像のデータURL。
 
 #### `image.getBitmap([options])`
 
-* `options` Object (任意) 
+* `options` Object (optional)
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `Buffer` - 生のビットマップ画像のピクセルデータを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 `getBitmap()` と `toBitmap()` には違いがあります。`getBitmap()` はビットマップをコピーしないので、現在のイベントループティックで即座に使用しなければ、そのデータが変更または破棄される可能性があります。
 
-#### `image.getNativeHandle()` *macOS*
+#### `image.getNativeHandle()` _macOS_
 
 戻り値 `Buffer` - 画像の元になるネイティブハンドルへの C ポインタを格納する [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。 macOS では、`NSImage` のインスタンスのポインタが返されます。
 
-返されるポインタは、コピーではなく、元のネイティブな画像へのウィークポインタであることに注意して下さい。関連する `nativeImage` インスタンスが確実に*保持されなければなりません*。
+Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you _must_ ensure that the associated `nativeImage` instance is kept around.
 
 #### `image.isEmpty()`
 
@@ -255,7 +255,7 @@ console.log(image)
 
 #### `image.resize(options)`
 
-* `options` Object 
+* `options` Object
   * `width` Integer (任意) - 省略値は画像の幅。
   * `height` Integer (任意) - 省略値は画像の高さ。
   * `quality` String (任意) - リサイズした画像の希望する画質。 値は `good`、`better`、`best` のいずれかにできます。 省略値は、`best` です。 これらの値は、必要な画質と速度のトレードオフを表現する。 これらは、動作プラットフォームの機能 (CPU、GPU) に依存するアルゴリズム固有のメソッドに変換されます。 3 つのメソッド全てを、特定プラットフォーム上の同じアルゴリズムに割り当てることもできます。
@@ -270,18 +270,18 @@ console.log(image)
 
 #### `image.addRepresentation(options)`
 
-* `options` Object 
+* `options` Object
   * `scaleFactor` Double - 画像を表現する際の拡大倍率。
-  * `width` Integer (任意) - 省略値は 0。ビットマップバッファに `buffer` を指定した場合は必要です。
-  * `height` Integer (任意) - 省略値は 0。ビットマップバッファに `buffer` を指定した場合は必要です。
+  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `buffer` Buffer (任意) - 生の画像データを格納するバッファ。
   * `dataURL` String (任意) - Base64 エンコードした PNG または JPEG 画像を格納しているデータURL。
 
-特定の倍率における画像表現を追加します。これは異なる倍率表現を画像に明示的に追加するために使用できます。これは空の画像でも呼び出すことができます。
+Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
 ### インスタンスプロパティ
 
-#### `nativeImage.isMacTemplateImage` *macOS*
+#### `nativeImage.isMacTemplateImage` _macOS_
 
 `Boolean` 型のプロパティです。その画像が [テンプレート画像](https://developer.apple.com/documentation/appkit/nsimage/1520017-template) と見なされるかどうかを決定します。
 
