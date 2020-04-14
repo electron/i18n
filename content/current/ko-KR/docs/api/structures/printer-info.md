@@ -5,7 +5,7 @@
 * `status` Number
 * `isDefault` Boolean
 
-## 예시
+## Example
 
 다음은 각 플랫폼마다 다를수 있는 몇가지 추가 옵션의 예입니다.
 
