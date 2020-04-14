@@ -4,7 +4,7 @@ Electron a des APIs pour configurer l'icône de l'application dans le macOS Dock
 
 Le dock personnalisé est généralement utilisé pour ajouter des raccourcis aux tâches pour lesquelles l'utilisateur ne voudrait pas ouvrir toute la fenêtre de l'application.
 
-**Menu du Dock de Terminal.app :**
+__Menu du Dock de Terminal.app :__
 
 ![Menu Dock](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
