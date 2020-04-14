@@ -4,7 +4,7 @@
 
 您还可以设置窗口的编辑状态，以便文件图标可以指示 该窗口中的文档是否已修改。
 
-**文件展示弹出菜单:**
+__文件展示弹出菜单:__
 
 ![展示文件（Represented File）](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
