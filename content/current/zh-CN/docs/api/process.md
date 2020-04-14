@@ -72,6 +72,10 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 `Boolean` 类型，用于控制弃用警告是否被打印到`stderr`。 将其设置为`true`将会禁用弃用警告。 使用此属性代替 `-no-deprecation ` 命令行标志。
 
+### `process.enablePromiseAPIs`
+
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. 将其设置为`true`将会禁用弃用警告。
+
 ### `process.resourcesPath` _Readonly_
 
 ` String ` 类型， 表示资源目录的路径。
@@ -93,11 +97,7 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 
 ### `process.type` _Readonly_
 
-A `String` representing the current process's type, can be:
-
-* `browser` - The main process
-* `renderer` - A renderer process
-* `worker` - In a web worker
+A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
 ### `process.versions.chrome` _Readonly_
 
