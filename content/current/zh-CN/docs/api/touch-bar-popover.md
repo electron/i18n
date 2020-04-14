@@ -4,13 +4,13 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSlider(options)` *实验功能*
+### `new TouchBarPopover(options)` _Experimental_
 
-* `参数` 对象 
+* `options` Object
   * ` label `String (可选) 弹出按钮文本。
   * `icon` ([NativeImage](native-image.md) | String) (可选) - 弹出按钮图标。
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
-  * `showCloseButton` Boolean (可选) - `true` 是指在弹出左侧展示关闭按钮, `false` 则相反. 默认为 `true`.
+  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. 默认值为 `true`。
 
 ### 实例属性
 
@@ -18,8 +18,8 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 #### `touchBarPopover.label`
 
-`String`类型，用于为弹出添加展示文本。改变这个字符串的值会即时刷新触摸条中的弹出。
+A `String` representing the popover's current button text. Changing this value immediately updates the popover in the touch bar.
 
 #### `touchBarPopover.icon`
 
-`NativeImage`类型，用于为弹出添加按钮图标。改变它的的值会即时刷新触摸条中的弹出。
+A `NativeImage` representing the popover's current button icon. Changing this value immediately updates the popover in the touch bar.
