@@ -10,7 +10,7 @@ Windows allows apps to define a custom context menu that shows up when users rig
 > 
 > It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
 
-**Aufgaben beim Internet Explorer:**
+__Aufgaben beim Internet Explorer:__
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
@@ -41,6 +41,7 @@ app.setUserTasks([])
 
 Die Aufgaben werden auch nachdem Ihre Anwendung geschlossen wurde zu sehen sein, so dass das Symbol und der Pfad der Anwendung bestehen bleiben sollten bis die App deinstalliert wird.
 
+
 ## Miniaturansicht-Symbolleisten
 
 On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. Es bietet den Nutzern eine Möglichkeit auf bestimmte Funktionen eines Fensters zuzugreifen ohne das Fenster zu aktivieren.
@@ -51,7 +52,7 @@ From MSDN, it's illustrated:
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
-**Miniaturansicht-Symbolleiste von Windows Media Player:**
+__Miniaturansicht-Symbolleiste von Windows Media Player:__
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
@@ -86,13 +87,14 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
+
 ## Icon Overlays in Taskbar
 
 On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
-**Overlay on taskbar button:**
+__Overlay on taskbar button:__
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
@@ -103,6 +105,7 @@ const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
+
 
 ## Flash Frame
 
