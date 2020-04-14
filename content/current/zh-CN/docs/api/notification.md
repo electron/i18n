@@ -26,27 +26,27 @@
 
 Returns ` Boolean `-当前系统是否支持桌面通知
 
-### `new Notification([options])` *实验功能*
+### `new Notification([options])` _Experimental_
 
-* `参数` Object (可选) 
+* `options` Object (optional)
   * ` title `String - 通知的标题, 将在通知窗口的顶部显示.
-  * ` subtitle `String (可选) 通知的副标题, 显示在标题下面。* macOS *
+  * `subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
   * ` body `String 通知的正文文本, 将显示在标题或副标题下面.
   * ` silent `Boolean (可选) 在显示通知时是否发出系统提示音。
   * ` icon`(String | [ NativeImage ](native-image.md)) (可选) 用于在该通知上显示的图标。
-  * ` hasReply `Boolean (可选) 是否在通知中添加一个答复选项。 * macOS *
-  * `timeoutType` String (optional) *Linux* *Windows* - The timeout duration of the notification. Can be 'default' or 'never'.
-  * ` replyPlaceholder `String (可选) 答复输入框中的占位符。* macOS *
-  * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
-  * `urgency` String (optional) *Linux* - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (可选) *macOS* - 要添加到通知中的操作 请阅读 `NotificationAction`文档来了解可用的操作和限制。
-  * `closeButtonText` String (可选) *macOS* - 自定义的警告框关闭按钮文字。如果该字符串为空，那么将使用本地化的默认文本。
+  * `hasReply` Boolean (optional) _macOS_ - Whether or not to add an inline reply option to the notification.
+  * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
+  * `replyPlaceholder` String (optional) _macOS_ - The placeholder to write in the inline reply input field.
+  * `sound` String (optional) _macOS_ - The name of the sound file to play when the notification is shown.
+  * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. 请阅读 `NotificationAction`文档来了解可用的操作和限制。
+  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 ### 实例事件
 
 用 `new Notification` 创建的对象触发以下事件：
 
-** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
+**Note:** Some events are only available on specific operating systems and are labeled as such.
 
 #### 事件: 'show'
 
@@ -74,7 +74,7 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 
 当通知关闭后，这个事件不能保证在所有情况下都会触发。
 
-#### 事件: 'reply' *macOS*
+#### Event: 'reply' _macOS_
 
 返回:
 
@@ -83,7 +83,7 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 
 当用户单击 ` hasReply: true ` 的通知上的 "Reply" 按钮时触发。
 
-#### 事件: 'action' *macOS*
+#### Event: 'action' _macOS_
 
 返回:
 
@@ -138,13 +138,13 @@ A `Boolean` property representing whether the notification is silent.
 
 A `Boolean` property representing whether the notification has a reply action.
 
-#### `notification.urgency` *Linux*
+#### `notification.urgency` _Linux_
 
 A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
 
 Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
 
-#### `notification.timeoutType` *Linux* *Windows*
+#### `notification.timeoutType` _Linux_ _Windows_
 
 A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
 
@@ -156,7 +156,7 @@ A [`NotificationAction[]`](structures/notification-action.md) property represent
 
 ### 播放声音
 
-在 macOS 上, 您可以指定在显示通知时要播放的声音的名称。 除了自定义声音文件之外, 还可以使用任何默认声音 ("系统首选项" > "声音")。 请确保声音文件是在应用程序包(例如, ` YourApp.app/Contents/Resources`) 内存在副本, 或者是下列位置之一:
+在 macOS 上, 您可以指定在显示通知时要播放的声音的名称。 Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. 请确保声音文件是在应用程序包(例如, ` YourApp.app/Contents/Resources`) 内存在副本, 或者是下列位置之一:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
