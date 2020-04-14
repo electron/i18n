@@ -24,7 +24,7 @@ contextBridge.exposeInMainWorld(
 window.electron.doThing()
 ```
 
-## 詞彙表
+## 詞彙總表
 
 ### Main World
 
