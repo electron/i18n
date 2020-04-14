@@ -1,8 +1,8 @@
 # 맥 앱스토어 제출 안내서
 
-V0.34.0 이후, Electron는 패키지 앱을 Mac App Store(MAS) 에 제출할 수 있습니다. 이 가이드는 앱 제출 방법 및 MAS 빌드의 제약들에 관련 정보를 제공합니다.
+Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
 
-**주의:** Mac App Store에 앱을 제출하려면 [애플 개발자 프로그램](https://developer.apple.com/support/compare-memberships/)에 등록해야 하며, 이는 비용이 발생합니다.
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## 앱 제출 방법
 
@@ -116,13 +116,13 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-MacOS에서 앱 샌드 박싱을 처음 사용한다면, Apple의 앱 샌드박스 활성화([Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html))를 읽어야만 합니다. 앱에서 필요로하는 권한에 대한 키를 인 타이틀먼트 파일(보통 plist 형태를 취함)에 추가하십시오.
+MacOS에서 앱 샌드 박싱을 처음 사용한다면,  Apple의 앱 샌드박스 활성화([Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html))를 읽어야만 합니다. 앱에서 필요로하는 권한에 대한 키를 인 타이틀먼트 파일(보통 plist 형태를 취함)에 추가하십시오.
 
 수동으로 앱에 서명하는 것 외에도 [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) 모듈을 사용하여 작업을 수행 할 수도 있습니다.
 
 #### 네이티브 모듈 서명
 
-앱에서 사용되는 native 모듈도 서명이 필요합니다. 만약 electron-osx-sign을 사용하는 경우 argument list에 빌드 된 바이너리의 경로를 포함시켜야합니다.
+Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
@@ -159,7 +159,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 #### 네트워크 접근
 
-앱의 서버 연결을 허용하기 위해 outgoing(outbound) 네트워크 연결을 활성화합니다.
+앱의 서버 연결을 허용하기 위해  outgoing(outbound) 네트워크 연결을 활성화합니다.
 
 ```xml
 <key>com.apple.security.network.client</key>
