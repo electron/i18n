@@ -2,11 +2,15 @@
 
 > Create tray, dock, and application icons using PNG or JPG files.
 
-العملية:  الرئيسية </ 0> ،  العارض </ 1></p> 
+العملية:
+
+ الرئيسية </ 0> ،  العارض </ 1></p> 
 
 In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
 For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
+
+
 
 ```javascript
 const { BrowserWindow, Tray } = require('electron')
@@ -16,7 +20,10 @@ const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
+
 Or read the image from the clipboard, which returns a `NativeImage`:
+
+
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -25,6 +32,9 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
+
+
+
 ## Supported Formats
 
 Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
@@ -32,18 +42,20 @@ Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended bec
 On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
 * Small icon 
-  * 16x16 (100% DPI scale)
+    * 16x16 (100% DPI scale)
   * 20x20 (125% DPI scale)
   * 24x24 (150% DPI scale)
   * 32x32 (200% DPI scale)
 * Large icon 
-  * 32x32 (100% DPI scale)
+    * 32x32 (100% DPI scale)
   * 40x40 (125% DPI scale)
   * 48x48 (150% DPI scale)
   * 64x64 (200% DPI scale)
   * 256x256
 
 Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+
+
 
 ## High Resolution Image
 
@@ -53,6 +65,8 @@ For example, if `icon.png` is a normal image that has standard resolution, then 
 
 If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
 
+
+
 ```plaintext
 images/
 ├── icon.png
@@ -60,11 +74,15 @@ images/
 └── icon@3x.png
 ```
 
+
+
+
 ```javascript
 const { Tray } = require('electron')
 const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
+
 
 The following suffixes for DPI are also supported:
 
@@ -80,6 +98,8 @@ The following suffixes for DPI are also supported:
 * `@4x`
 * `@5x`
 
+
+
 ## Template Image
 
 Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
@@ -93,15 +113,21 @@ To mark an image as a template image, its filename should end with the word `Tem
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
+
+
 ## Methods
 
 The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+
+
 
 ### `nativeImage.createEmpty()`
 
 Returns `NativeImage`
 
 Creates an empty `NativeImage` instance.
+
+
 
 ### `nativeImage.createFromPath(path)`
 
@@ -111,6 +137,8 @@ Returns `NativeImage`
 
 Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
 
+
+
 ```javascript
 const nativeImage = require('electron').nativeImage
 
@@ -118,11 +146,14 @@ const image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
+
+
+
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` الكائنات 
-  * `width` Integer
+* `options` Object 
+    * `width` Integer
   * `height` Integer
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
@@ -130,17 +161,21 @@ Returns `NativeImage`
 
 Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
 
+
+
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
 * `options` Object (optional) 
-  * `width` Integer (optional) - Required for bitmap buffers.
+    * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `NativeImage`
 
 Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+
+
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -150,7 +185,9 @@ Returns `NativeImage`
 
 Creates a new `NativeImage` instance from `dataURL`.
 
-### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
+
+
+### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` String
 * `hslShift` Number[] (optional)
@@ -162,7 +199,9 @@ Creates a new `NativeImage` instance from the NSImage that maps to the given ima
 The `hslShift` is applied to the image with the following rules:
 
 * `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+
 * `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
 
 This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
@@ -173,22 +212,32 @@ In some cases, the `NSImageName` doesn't match its string representation; one ex
 
 where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
 
+
+
 ## Class: NativeImage
+
+
 
 > Natively wrap images such as tray, dock, and application icons.
 
 العملية:  الرئيسية </ 0> ،  العارض </ 1></p> 
 
+
+
 ### Instance Methods
 
 The following methods are available on instances of the `NativeImage` class:
 
+
+
 #### `image.toPNG([options])`
 
 * `options` Object (optional) 
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+    * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+
+
 
 #### `image.toJPEG(quality)`
 
@@ -196,42 +245,56 @@ Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_bu
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
 
+
+
 #### `image.toBitmap([options])`
 
 * `options` Object (optional) 
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+    * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+
+
 
 #### `image.toDataURL([options])`
 
 * `options` Object (optional) 
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+    * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `String` - The data URL of the image.
+
+
 
 #### `image.getBitmap([options])`
 
 * `options` Object (optional) 
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+    * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
 
 The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
-#### `image.getNativeHandle()` *macOS*
+
+
+#### `image.getNativeHandle()` _macOS_
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you _must_ ensure that the associated `nativeImage` instance is kept around.
+
+
 
 #### `image.isEmpty()`
 
 Returns `Boolean` - Whether the image is empty.
 
+
+
 #### `image.getSize()`
 
 Returns [`Size`](structures/size.md)
+
+
 
 #### `image.setTemplateImage(option)`
 
@@ -241,11 +304,15 @@ Marks the image as a template image.
 
 **[Deprecated](modernization/property-updates.md)**
 
+
+
 #### `image.isTemplateImage()`
 
 Returns `Boolean` - Whether the image is a template image.
 
 **[Deprecated](modernization/property-updates.md)**
+
+
 
 #### `image.crop(rect)`
 
@@ -253,10 +320,12 @@ Returns `Boolean` - Whether the image is a template image.
 
 Returns `NativeImage` - The cropped image.
 
+
+
 #### `image.resize(options)`
 
-* `options` الكائنات 
-  * `width` Integer (optional) - Defaults to the image's width.
+* `options` Object 
+    * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (optional) - Defaults to the image's height.
   * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
@@ -264,14 +333,18 @@ Returns `NativeImage` - The resized image.
 
 If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
+
+
 #### `image.getAspectRatio()`
 
 Returns `Float` - The image's aspect ratio.
 
+
+
 #### `image.addRepresentation(options)`
 
-* `options` الكائنات 
-  * `scaleFactor` Double - The scale factor to add the image representation for.
+* `options` Object 
+    * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `buffer` Buffer (optional) - The buffer containing the raw image data.
@@ -279,9 +352,13 @@ Returns `Float` - The image's aspect ratio.
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
+
+
 ### Instance Properties
 
-#### `nativeImage.isMacTemplateImage` *macOS*
+
+
+#### `nativeImage.isMacTemplateImage` _macOS_
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
