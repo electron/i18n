@@ -2,7 +2,7 @@
 
 > 註冊自訂通訊協定並攔截原有的通訊協定請求。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
@@ -117,10 +117,10 @@ protocol.registerSchemesAsPrivileged([
   * `request` Object
     * `url` String
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function (選用
-    * `filePath` String (optional)
+    * `filePath` String (選用)
 * `completion` Function (optional)
   * `error` Error
 
@@ -139,7 +139,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
   * `request` Object
     * `url` String
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function (選用
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (選用)
@@ -169,10 +169,10 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
   * `request` Object
     * `url` String
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function (選用
-    * `data` String (optional)
+    * `data` String (選用)
 * `completion` Function (optional)
   * `error` Error
 
@@ -188,16 +188,16 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
     * `url` String
     * `headers` Object
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function (選用
     * `redirectRequest` Object
       * `url` String
-      * `method` String
-      * `session` Object (optional)
+      * `title` [string]
+      * `session` Object (選用)
       * `uploadData` Object (optional)
         * `contentType` String - 內容的 MIME 類型。
-        * `data` String - Content to be sent.
+        * `data` String - 要傳送的內容。
 * `completion` Function (optional)
   * `error` Error
 
@@ -217,7 +217,7 @@ For POST requests the `uploadData` object must be provided.
     * `url` String
     * `headers` Object
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function (選用
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (選用)
@@ -298,7 +298,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
   * `request` Object
     * `url` String
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function (選用
     * `filePath` String
@@ -314,10 +314,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `request` Object
     * `url` String
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function (選用
-    * `data` String (optional)
+    * `data` String (選用)
 * `completion` Function (optional)
   * `error` Error
 
@@ -330,7 +330,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `request` Object
     * `url` String
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function (選用
     * `buffer` Buffer (選用)
@@ -347,16 +347,16 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `url` String
     * `headers` Object
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function (選用
     * `redirectRequest` Object
       * `url` String
-      * `method` String
-      * `session` Object (optional)
+      * `title` [string]
+      * `session` Object (選用)
       * `uploadData` Object (optional)
         * `contentType` String - 內容的 MIME 類型。
-        * `data` String - Content to be sent.
+        * `data` String - 要傳送的內容。
 * `completion` Function (optional)
   * `error` Error
 
@@ -370,7 +370,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `url` String
     * `headers` Object
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function (選用
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (選用)
