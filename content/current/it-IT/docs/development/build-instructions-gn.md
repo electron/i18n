@@ -71,7 +71,7 @@ $ git pull
 $ gclient sync -f
 ```
 
-## Costruzione
+## Compilazione
 
 ```sh
 $ cd src
