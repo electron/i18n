@@ -6,7 +6,7 @@ On Windows a taskbar button can be used to display a progress bar. This enables 
 
 यूनिटी डीई के पास भी एक ऐसा ही फीचर है जिससे आपको लांचर में प्रगति बार निर्दिष्ट करने की सुविधा मिलती है |
 
-**टास्कबार बटन में प्रगति बार:**
+__टास्कबार बटन में प्रगति बार:__
 
 ![टास्कबार प्रगति बार](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
