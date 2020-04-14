@@ -84,8 +84,8 @@ L'objet `autoUpdater` dispose des méthodes suivantes :
 
 * `options` Object
   * `url` String
-  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
-  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `en-têtes` Enregistrement<String, String> (facultatif) _macOS_ - En-têtes de requête HTTP.
+  * `serverType` String (facultatif) _macOS_ - Soit `json` ou `default`, voir le README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) pour plus d’informations.
 
 Définit l'`url` et initialise l'auto updater.
 
@@ -103,4 +103,4 @@ Restarts the app and installs the update after it has been downloaded. It should
 
 Derrière l'appel de `autoUpdater.quitAndInstall()` fermera toutes les applications windows en premier, appellera automatiquement `app.quit()` après que toutes les fenêtres aient été fermées.
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**Note:** Il n'est pas strictement nécessaire d'appeler cette fonction pour appliquer une mise à jour, en tant que mise à jour téléchargée avec succès sera toujours appliquée au prochain démarrage de l'application .
