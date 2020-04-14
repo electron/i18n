@@ -1,6 +1,6 @@
 # Option `sandbox`
 
-> Créez une fenêtre de navigateur avec un moteur de rendu en bac à sable. Avec cette option activée, le moteur de rendu doit communiquer via IPC au processus principal afin d'accéder aux API de noeuds.
+> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 
 One of the key security features of Chromium is that all blink rendering/JavaScript code is executed within a sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
 
@@ -38,7 +38,7 @@ Dans le code ci-dessus, le [`BrowserWindow`](browser-window.md) qui a été cré
 let win
 app.enableSandbox()
 app.on('ready', () => {
-  // pas besoin de passer `sandbox: true` depuis `app. nableSandbox()` a été appelé.
+  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
@@ -46,7 +46,7 @@ app.on('ready', () => {
 
 ## Preload
 
-Une application peut faire des personnalisations à des moteurs de rendu en bac à sable en utilisant un script de préchargement. Voici un exemple :
+An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
 ```js
 laisser gagner
@@ -105,7 +105,7 @@ Le drapeau `-x` doit être utilisé avec tout module requis qui est déjà expos
 
 Actuellement la fonction `require` fournie dans la portée de préchargement expose les modules suivants :
 
-- `electron` 
+- `electron`
   - `crashReporter`
   - `desktopCapturer`
   - `ipcRenderer`
