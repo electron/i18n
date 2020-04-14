@@ -63,7 +63,7 @@ Emitted when `newDisplay` has been added.
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `oldDisplay` [Display](structures/display.md)
 
 Emitted when `oldDisplay` has been removed.
