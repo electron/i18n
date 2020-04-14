@@ -12,15 +12,18 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 // В процеса main.
 const { BrowserView, BrowserWindow } = require('electron')
 
-const win = new BrowserWindow({ width: 800, height: 600 })
+let win = new BrowserWindow({ width: 800, height: 600 })
+win.on('closed', () => {
+  win = null
+})
 
-const view = new BrowserView()
+let view = new BrowserView()
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` _Experimental_
+### `new BrowserView([опции])` _Experimental_
 
 * `options` Object (optional)
   * `webPreferences` Object (по избор) - виж [BrowserWindow](browser-window.md).
@@ -67,7 +70,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 Връща `Boolean` - Показва дали изгледа е унищожен.
 
-#### `view.setAutoResize(options)` _Experimental_
+#### `view.setAutoResize(опции)` _Experimental_
 
 * `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
