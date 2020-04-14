@@ -1,4 +1,4 @@
-# Paraan sa pagkukudigo
+# Istilo ng Code
 
 Ito ay mga patnubay sa mga istilo ng paggawa ng code sa Electron.
 
