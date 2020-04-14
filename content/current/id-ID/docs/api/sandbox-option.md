@@ -46,7 +46,7 @@ app.on('ready', () => {
 
 ## Preload
 
-Sebuah aplikasi dapat membuat penyesuaian pada perender yang disandbox menggunakan skrip pramuat. Berikut adalah contohnya:
+An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
 ```js
 let win
@@ -104,7 +104,7 @@ Bendera `-x` harus digunakan bersama modul yang dibutuhkan yang sudah terekspos 
 
 Saat ini fungsi `require` yang disediakan dalam lingkup pramuat memaparkan modul sebagai berikut:
 
-- `electron` 
+- `electron`
   - `kerusakanReporter`
   - `penangkapDesktop`
   - `ipcRenderer`
