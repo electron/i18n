@@ -10,13 +10,13 @@
 
 1) [`electron-forge`](https://github.com/electron-userland/electron-forge) または [`electron-builder`](https://github.com/electron-userland/electron-builder)の使用、両方のツールは `snap`ですぐに使用できます。 これは最も簡単な選択肢です。 2) `electron-installer-snap`の使用、これは`electron-packager`のアウトプットを使用します。 3) 作成した`.deb`パッケージの使用
 
-いずれの方法であっても、あなたは`snapcraft` ツールをインストールしていなければなりません。また私達は、Ubuntu 16.04 (または現在のLTS) でのビルドを推奨します。
+In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
 ```sh
 snap install snapcraft --classic
 ```
 
-一方でmacOS上ではHomebrewを使用することで*一応* 、`snapcraft`をインストールすることはできます。しかし、これは`snap` パッケージをビルドできます。このツールは、ストアでのパッケージの管理用です。
+While it _is possible_ to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
 
 ## `electron-installer-snap`の使用
 
@@ -76,7 +76,7 @@ Snapcraft は既存の`.deb`ファイルをもとに、`.snap` ファイルに�
 
 ### ステップ2: snapcraft.yamlファイルの作成
 
-利用可能な設定オプションの詳細については、[snapcraft 構文のドキュメント](https://docs.snapcraft.io/build-snaps/syntax) を参照してください。次に例を挙げます。
+For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 name: myApp
@@ -94,7 +94,6 @@ parts:
     source: my-deb.deb
     source-type: deb
     after:
-
       - desktop-gtk3
     stage-packages:
       - libasound2
@@ -121,7 +120,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-ご覧の通り、`snapcraft.yaml` は `electron-launch` と呼ばれるファイルを起動するようにシステムに伝達しています。この例では、以下のようにアプリのバイナリへ情報を渡しています。
+As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
 
 ```sh
 #!/bin/sh
