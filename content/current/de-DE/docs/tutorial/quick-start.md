@@ -8,3 +8,4 @@ Die alte "Schnellstart-Anleitung" wurde mittlerweile in zwei Dokumente aufgeteil
 * Mehr über die Prozess-Architektur erfährst du unter [Main und Renderer Prozesse](./application-architecture.md#main-and-renderer-processes).
 
 Besuche [Offizielle Anleitungen](../) um mehr über Electron zu erfahren.
+
