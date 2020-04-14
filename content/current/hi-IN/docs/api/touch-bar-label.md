@@ -4,9 +4,9 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)` *Experimental*
+### `new TouchBarLabel(options)` _Experimental_
 
-* `options` ऑब्जेक्ट 
+* `options` Object
   * `label` String (optional) - Text to display.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
