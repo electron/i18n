@@ -4,14 +4,14 @@
 
 Accelerators adalah Strings yang dapat berisi banyak pengubah dan kode kunci, dikombinasikan dengan karakter ` + </ 0> , dan digunakan untuk menentukan cara pintas keyboard di seluruh aplikasi Anda.12eo</p>
 
-<p>Contoh:</p>
+<p spaces-before="0">Contoh:</p>
 
 <ul>
-<li><code>Command Or Control + A`</li> 
+<li><code>Command Or Control + A`</li>
+* `Command Or Control + Shift + Z`</ul>
 
-* `Command Or Control + Shift + Z`</ul> 
-
-Jalan pintas terdaftar dengan modul ` globalShortcut </ 0> dengan menggunakan metode <a href="global-shortcut.md#globalshortcutregisteraccelerator-callback"><code> register </ 1> 
+Jalan pintas terdaftar dengan modul
+` globalShortcut </ 0> dengan menggunakan metode <a href="global-shortcut.md#globalshortcutregisteraccelerator-callback"><code> register </ 1> 
 , misalnya</p>
 
 <pre><code class="javascript">const { app, globalShortcut } = memerlukan ('elektron') app.on ('siap', () = & gt; {
@@ -21,16 +21,18 @@ Jalan pintas terdaftar dengan modul ` globalShortcut </ 0> dengan menggunakan me
   })})
 `</pre> 
 
+
+
 ## Pemberitahuan platform
 
 Di Linux dan Windows , tombol ` Command </ 0> tidak berpengaruh sehingga gunakan <code> CommandOrControl </ 0> yang mewakili <code> Command </ 0> pada macOS dan <code> Control </ 0 > di Linux dan Windows untuk menentukan beberapa akselerator.</p>
 
-<p>Gunakan <code> Alt </ 0> daripada <code> Option </ 0> . Tombol <code> Option </ 0> hanya ada di macOS , sedangkan tombol <code> Alt </ 0> tersedia di semua platform.</p>
+<p spaces-before="0">Use <code>Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
-<p>The <code> super </ 0> kunci dipetakan ke <code> Windows </ 0> tombol pada Windows dan Linux dan
+The ` super </ 0> kunci dipetakan ke <code> Windows </ 0> tombol pada Windows dan Linux dan
  <code> Cmd </ 0> di MacOS .</p>
 
-<h2>Tersedia pengubah</h2>
+<h2 spaces-before="0">Tersedia pengubah</h2>
 
 <ul>
 <li><code> Perintah </ 0> (atau <code> Cmd </ 0> sebentar)</li>
@@ -42,6 +44,8 @@ Di Linux dan Windows , tombol ` Command </ 0> tidak berpengaruh sehingga gunakan
 * `AltGr`
 * `Bergeser`
 * `Super`</ul> 
+
+
 
 ## Kode kunci yang tersedia
 
@@ -67,7 +71,7 @@ Di Linux dan Windows , tombol ` Command </ 0> tidak berpengaruh sehingga gunakan
 <li><code> MediaNextTrack </ 0> , <code> MediaPreviousTrack </ 0> , <code> MediaStop </ 0> dan <code> MediaPlayPause </ 0></li>
 <li><code>Layar cetak`
 * NumPad Keys 
-  * `num0` - `num9`
+    * `num0` - `num9`
   * `numdec` - decimal key
   * `numadd` - numpad `+` key
   * `numsub` - numpad `-` key
