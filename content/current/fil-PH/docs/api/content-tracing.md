@@ -6,10 +6,10 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
 
-**Note:** Hindi mo dapat gamitin ang modyul na ito hanggang sa ` kaganapan ng mga app
-modulo ay napalabas.</p>
+**Note:** You should not use this module until the `ready` event of the app module is emitted.
 
-<pre><code class="javascript">const { app, contentTracing } = require('electron')
+```javascript
+const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
   (async () => {
@@ -22,7 +22,7 @@ app.on('ready', () => {
     console.log('Tracing data recorded to ' + path)
   })()
 })
-`</pre> 
+```
 
 ## Mga Paraan
 
@@ -40,7 +40,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
 
-Simulan ang pagtatala ng lahat ng mga proseso. 
+Simulan ang pagtatala ng lahat ng mga proseso.
 
 Ang pagrerekord ay nagsisimula kaagad sa local at asynchronously sa child processes sa oras na matanggap nila ang kahilingan ng EnableRecording.
 
@@ -52,9 +52,9 @@ If a recording is already running, the promise will be immediately resolved, as 
 
 Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-Itigil ang pagtatala ng mga proseso. 
+Itigil ang pagtatala ng mga proseso.
 
-Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. Tumutulong ito upang mabawasan ang runtime overhead ng pagtukoy dahil mahal na operasyon ang pag padala nga trace data gamit ang IPC. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
+Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. Tumutulong ito upang mabawasan ang runtime overhead ng pagtukoy  dahil mahal na operasyon ang pag padala nga trace data gamit ang IPC. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
 Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
