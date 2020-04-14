@@ -12,11 +12,15 @@ Electron的一个主要特性就是能在渲染进程中运行Node.js（使用we
 
 一个沙箱环境下的渲染器没有node.js运行环境，并且不会将Node.js 的 JavaScript APIs 暴露给客户端代码。 唯一的例外是预加载脚本, 它可以访问electron渲染器 API 的一个子集(subset)。
 
-另一个区别是沙箱渲染器不修改任何默认的 JavaScript API。 因此, 某些 api ，（比如 `window.open`）将像在chromium中一样工作 (即它们不返回  BrowserWindowProxy `)。</p>
+另一个区别是沙箱渲染器不修改任何默认的 JavaScript API。 因此, 某些 api ，（比如 `window.open`）将像在chromium中一样工作 (即它们不返回
 
-<h2>示例</h2>
+ BrowserWindowProxy `)。</p>
 
-<p>创建沙盒窗口, 只需将 <code> sandbox: true ` 传递到 ` webPreferences `:</p> 
+<h2 spaces-before="0">示例</h2>
+
+<p spaces-before="0">创建沙盒窗口, 只需将 <code> sandbox: true ` 传递到 ` webPreferences `:</p> 
+
+
 
 ```js
 let win
@@ -30,9 +34,12 @@ app.on('ready', () => {
 })
 ```
 
+
 以上代码中被创建的[`BrowserWindow`](browser-window.md)禁用了node.js，并且只能使用IPC通信。 这个选项的设置阻止electron在渲染器中创建一个node.js运行环境。 同时，在这个新窗口内`window.open`将按原生方式工作（默认情况下electron会创建一个[`BrowserWindow`](browser-window.md)并通过`window.open`向它返回一个代理）
 
 [`app.enableSandbox`](app.md#appenablesandbox-experimental) can be used to force `sandbox: true` for all `BrowserWindow` instances.
+
+
 
 ```js
 let win
@@ -44,9 +51,14 @@ app.on('ready', () => {
 })
 ```
 
+
+
+
 ## 预加载
 
-一个App可以使用预加载脚本自定义沙箱渲染器。 这里有一个例子：
+An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+
+
 
 ```js
 let win
@@ -61,7 +73,10 @@ app.on('ready', () => {
 })
 ```
 
+
 和 preload.js:
+
+
 
 ```js
 // 一旦javascript上下文创建，这个文件就会被自动加载 它在一个
@@ -87,13 +102,18 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
+
 在预加载脚本中要注意的重要事项:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate`, `clearImmediate` and `require` are available.
+
 - 预加载脚本可以通过 ` remote ` 和 ` ipcRenderer ` 模块间接访问主进程中的所有 api。
+
 - The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like webpack or browserify. An example of using browserify is below.
 
 要创建 browserify 包并将其用作预加载脚本, 应使用类似下面的内容:
+
+
 
 ```sh
   browserify preload/index.js \
@@ -101,12 +121,13 @@ window.open = customWindowOpen
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
+
 `-x ` 标志应该和已经在预加载作用域中公开的所有引用到的模块一起使用, 并通知 browserify 使用封闭的 ` require ` 函数。 `--insert-global-vars ` 将确保 ` process `、` Buffer ` 和 ` setImmediate ` 也从封闭作用域 (通常 browserify 为这些代码注入代码) 中获取。
 
 当前预加载作用域中提供的 ` require ` 函数公开了以下模块:
 
 - `electron` 
-  - `crashReporter`
+    - `crashReporter`
   - `desktopCapturer`
   - `ipcRenderer`
   - `nativeImage`
@@ -118,11 +139,14 @@ window.open = customWindowOpen
 
 可以根据需要添加更多的electron api 以在沙箱中使用, 但主进程中的任何模块都可以通过 ` electron.remote.require ` 使用。
 
+
+
 ## 状态
 
 请小心使用`sandbox`选项，它仍是一个实验性特性。 我们仍然不知道将某些 electron api 暴露给预加载脚本的安全性问题, 但在显示不受信任的内容之前, 需要考虑以下一些事项:
 
 - A preload script can accidentally leak privileged APIs to untrusted code, unless [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) is also enabled.
+
 - V8 引擎中的某些 bug 可能允许恶意代码访问渲染器预加载 api, 从而有效地通过 ` remote ` 模块授予对系统的完全访问权限。 Therefore, it is highly recommended to [disable the `remote` module](../tutorial/security.md#15-disable-the-remote-module). If disabling is not feasible, you should selectively [filter the `remote` module](../tutorial/security.md#16-filter-the-remote-module).
 
 由于在 electron 中渲染不受信任的内容仍然是未知的领域, 因此暴露给沙盒预加载脚本中的 api 应被认为比其他 electron api 更不稳定, 并且这些API可能会更改以修复安全问题。
