@@ -8,7 +8,7 @@
 
 `WebRequest` のメソッドは、任意の `filter` と `listener` を受け取ります。 `listener` は、リクエストが終了したときに `listener(details)` で呼ばれます。 `details` オブジェクトはリクエストについて記述します。
 
-⚠️ 最後にアタッチされている `listener` のみが使用されます。`null` を `listener` として渡すと、イベントの購読が解除されます。
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
 `filter` オブジェクトには、`urls` プロパティがあります。これは、URL パターンと一致しないリクエストをフィルタリングするために使用される URL パターンの配列です。 `filter` を省略するとすべてのリクエストがマッチします。
 
@@ -36,10 +36,10 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Object (任意) 
+* `filter` Object (optional)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -48,8 +48,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` 機能 
-    * `応答` Object 
+  * `callback` Function
+    * `response` Object
       * `cancel` Boolean (任意)
       * `redirectURL` String (任意) - 元のリクエストは送信または終了されず、代わりに指定された URL にリダイレクトされます。
 
@@ -76,10 +76,10 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Object (任意) 
+* `filter` Object (optional)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -88,8 +88,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
-  * `callback` Function 
-    * `beforeSendResponse` Object 
+  * `callback` Function
+    * `beforeSendResponse` Object
       * `cancel` Boolean (任意)
       * `requestHeaders` Record<string, string | string[]> (任意) - 指定すると、これらのヘッダでリクエストが作成されます。
 
@@ -99,10 +99,10 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Object (任意) 
+* `filter` Object (optional)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -116,10 +116,10 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Object (任意) 
+* `filter` Object (optional)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -131,8 +131,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `statusCode` Integer
     * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (任意)
-  * `callback` Function 
-    * `headersReceivedResponse` Object 
+  * `callback` Function
+    * `headersReceivedResponse` Object
       * `cancel` Boolean (任意)
       * `responseHeaders` Record<string, string | string[]> (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
       * `statusLine` String (任意) - ヘッダのステータスを変更するために `responseHeaders` をオーバーライドする場合に指定する必要があります。そうしないと、元の応答ヘッダのステータスが使用されます。
@@ -143,10 +143,10 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Object (任意) 
+* `filter` Object (optional)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -163,10 +163,10 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Object (任意) 
+* `filter` Object (optional)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -185,10 +185,10 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Object (任意) 
+* `filter` Object (optional)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -206,10 +206,10 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Object (任意) 
+* `filter` Object (optional)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
