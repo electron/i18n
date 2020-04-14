@@ -36,20 +36,20 @@ The following methods are available on instances of `WebRequest`:
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Object (選用) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
-    * `title` [string]
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `response` Object 
+  * `callback` Function (選用
+    * `response` Object
       * `cancel` Boolean (選用)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
@@ -76,20 +76,20 @@ Some examples of valid `urls`:
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Object (選用) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
-    * `title` [string]
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
-  * `callback` Function 
-    * `beforeSendResponse` Object 
+  * `callback` Function (選用
+    * `beforeSendResponse` Object
       * `cancel` Boolean (選用)
       * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
@@ -99,13 +99,13 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` 物件 (選用) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `聆聽者` Function | null 
-  * `Details` 目的 
-    * `y` Integer
-    * `value` String
-    * `title` [string]
+* `listener` Function | null
+  * `details` Object
+    * `id` Integer
+    * `url` String
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -116,13 +116,13 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Object (選用) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
-    * `title` [string]
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -131,8 +131,8 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `statusCode` Integer
     * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (optional)
-  * `callback` Function 
-    * `headersReceivedResponse` Object 
+  * `callback` Function (選用
+    * `headersReceivedResponse` Object
       * `cancel` Boolean (選用)
       * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
@@ -143,13 +143,13 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Object (選用) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
-    * `title` [string]
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -163,13 +163,13 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Object (選用) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
-    * `title` [string]
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -185,13 +185,13 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Object (選用) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
-    * `title` [string]
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -206,13 +206,13 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Object (選用) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function | null 
-  * `details` Object 
+* `listener` Function | null
+  * `details` Object
     * `id` Integer
     * `url` String
-    * `title` [string]
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
