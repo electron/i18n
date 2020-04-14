@@ -10,7 +10,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## الدليل الإرشادي والدروس
 
-* [About Electron](tutorial/about.md)
+* [حول Electron قناة شليلة shlylt35@gmail.com ](tutorial/about.md)
 * [اعداد وتجهيز بيئة التطوير](tutorial/development-environment.md)
   * [اعداد نظام تشغيل الماك (macOS)](tutorial/development-environment.md#setting-up-macos)
   * [اعداد نظام الويندوز (Windows)](tutorial/development-environment.md#setting-up-windows)
