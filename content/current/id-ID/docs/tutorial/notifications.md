@@ -2,7 +2,7 @@
 
 Ketiga sistem operasi tersebut menyediakan sarana bagi aplikasi untuk mengirim pemberitahuan ke pengguna. Elektron memudahkan pengembang untuk mengirim notifikasi dengan [HTML5 Notification API](https://notifications.spec.whatwg.org/), menggunakan API pemberitahuan asli sistem operasi yang sedang berjalan untuk menampilkannya.
 
-**Catatan:** Karena ini adalah API HTML5, ini hanya tersedia dalam proses renderer. Jika Anda ingin menampilkan Notifikasi dalam proses utama, periksa modul [Notification](../api/notification.md).
+**Note:** Since this is an HTML5 API it is only available in the renderer process. Jika Anda ingin menampilkan Notifikasi dalam proses utama, periksa modul [Notification](../api/notification.md).
 
 ```javascript
 biarkan myNotification = baru pemberitahuan ('Title', {
@@ -13,7 +13,6 @@ biarkan myNotification = baru pemberitahuan ('Title', {
 Sementara kode dan pengalaman pengguna di seluruh sistem operasi serupa, ada perbedaan halus.
 
 ## Windows
-
 * On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
 * On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Namun perlu dicatat bahwa itu tidak perlu disematkan ke layar Start.
 * Pada Windows 7, notifikasi bekerja melalui penerapan khusus yang secara visual menyerupai yang asli pada sistem yang lebih baru.
