@@ -30,7 +30,7 @@ En utilisant [React Developer Tools](https://chrome.google.com/webstore/detail/r
    )
    ```
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**Remarque :** L'API `BrowserWindow.addDevToolsExtension` ne peut pas être appelée avant que l’événement ready du module app est émis.
 
 L'extension sera mémorisée donc vous n'avez besoin d'appeler cette API qu'une seule fois par extension . Si vous essayez d'ajouter une extension qui a déjà été chargée, cette méthode ne retournera pas et enregistrera à la place une alerte sur la console.
 
