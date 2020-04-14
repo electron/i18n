@@ -26,27 +26,27 @@
 
 戻り値 `Boolean` - 現在のシステムでデスクトップ通知がサポートされているかどうか。
 
-### `new Notification([options])` *実験的*
+### `new Notification([options])` _Experimental_
 
-* `options` Object (任意) 
+* `options` Object (optional)
   * `title` String - 通知ウィンドウの上部に表示される通知のタイトル.
-  * `subtitle` String (任意) *macOS* - タイトルの下に表示される、通知のサブタイトル。
+  * `subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
   * `body` String - タイトルやサブタイトルの下に表示さる、通知の本文。
   * `silent` Boolean (任意) - 通知を表示するときにOSが通知音を鳴らすかどうか。
   * `icon` (String | [NativeImage](native-image.md)) (任意) - 通知に使用されるアイコン。
-  * `hasReply` Boolean (任意) *macOS* - 通知に埋め込み返信オプションを追加するかどうか。
-  * `timeoutType` String (任意) *Linux* *Windows* - 通知の消失までの時間。'default' か 'never' にできます。
-  * `replyPlaceholder` String (任意) *macOS* - 埋め込み返信入力フィールド内に書かれるプレースホルダ。
-  * `sound` String (任意) *macOS* - 通知が表示されるときに再生される音声ファイルの名前。
-  * `urgency` String (任意) *Linux* - 通知の緊急度レベル。'normal'、'critical'、'low' のいずれかにできます。
-  * `actions` [NotificationAction[]](structures/notification-action.md) (任意) *macOS* - 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。
-  * `closeButtonText` String (任意) *macOS* - アラートの閉じるボタンのカスタムタイトル。 空の文字列を使用すると、デフォルトのローカライズされたテキストが使用されます。
+  * `hasReply` Boolean (optional) _macOS_ - Whether or not to add an inline reply option to the notification.
+  * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
+  * `replyPlaceholder` String (optional) _macOS_ - The placeholder to write in the inline reply input field.
+  * `sound` String (optional) _macOS_ - The name of the sound file to play when the notification is shown.
+  * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。
+  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 ### インスタンスイベント
 
 `new Notification` で作成されたオブジェクトでは以下のイベントが発生します。
 
-**注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
+**Note:** Some events are only available on specific operating systems and are labeled as such.
 
 #### イベント: 'show'
 
@@ -74,7 +74,7 @@
 
 このイベントは、通知が閉じられたすべての状況で発行されることは保証されていません。
 
-#### イベント: 'reply' *macOS*
+#### Event: 'reply' _macOS_
 
 戻り値:
 
@@ -83,7 +83,7 @@
 
 `hasReply: true` の通知上で、ユーザが "返信" ボタンをクリックしたときに発行されます。
 
-#### イベント: 'action' *macOS*
+#### Event: 'action' _macOS_
 
 戻り値:
 
@@ -138,17 +138,17 @@ HTML5 Notification の実装とは異なり、`new Notification` でインスタ
 
 通知に応答アクションがあるかどうかを表す `Boolean` プロパティ。
 
-#### `notification.urgency` *Linux*
+#### `notification.urgency` _Linux_
 
-通知の緊急度レベルを表す `String`。'normal'、'critical'、'low' のいずれかにできます。
+A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
 
 省略値は 'low' - この詳細は [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) を参照してください。
 
-#### `notification.timeoutType` *Linux* *Windows*
+#### `notification.timeoutType` _Linux_ _Windows_
 
-通知の消失までの時間を表す `String`。'default' か 'never' にできます。
+A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
 
-`timeoutType` が 'never' に設定されている場合、通知は自動的に閉じられません。呼び出し元の API かユーザによって閉じられるまで開いたままになります。
+If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
 
 #### `notification.actions`
 
@@ -156,7 +156,7 @@ HTML5 Notification の実装とは異なり、`new Notification` でインスタ
 
 ### サウンドの再生
 
-macOS では、通知が表示されたときに再生したいサウンドの名前を指定することができます。 カスタムサウンドファイルに加えて、(システム環境設定 > サウンド にある) デフォルトサウンドのいずれかを使用することができます。 サウンドファイルがアプリバンドル (`YourApp.app/Contents/Resources` など) または以下のいずれかの場所にコピーされることに留意してください。
+macOS では、通知が表示されたときに再生したいサウンドの名前を指定することができます。 Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. サウンドファイルがアプリバンドル (`YourApp.app/Contents/Resources` など) または以下のいずれかの場所にコピーされることに留意してください。
 
 * `~/ライブラリ/Sounds`
 * `/ライブラリ/Sounds`
