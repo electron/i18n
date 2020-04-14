@@ -4,7 +4,7 @@
 
 उदाहरण:
 
-*main.js*
+_main.js_
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -17,15 +17,15 @@ app.whenReady().then(() => {
 })
 ```
 
-*online-status.html*
+_online-status.html_
 
 ```html
 <!DOCTYPE html>
- <html>
- <body>
- <script>
-   const alertOnlineStatus = () => {
-     window.alert(navigator.onLine ? 'online' : 'offline')
+<html>
+<body>
+<script>
+  const alertOnlineStatus = () => {
+    window.alert(navigator.onLine ? 'online' : 'offline')
    }
 
    window.addEventListener('online', alertOnlineStatus)
@@ -39,7 +39,7 @@ app.whenReady().then(() => {
 
 ऐसे भी कुछ उदाहरण हो सकते हैं जहाँ आप इन इवेंट्स की मुख्य प्रक्रिया में भी प्रतिक्रिया देना चाहेंगे | लेकिन मुख्य प्रक्रिया के पास एक `navigator` ऑब्जेक्ट नहीं होता और इसलिए वह इन इवेंट्स को सीधे नहीं खोज सकता | इलेक्ट्रॉन की अंतर-प्रक्रिया संचार यूटिलिटीज का प्रयोग कर, इवेंट्स को मुख्य प्रक्रिया तक भेजा जा सकता है और फिर ज़रुरत के हिसाब से संभाला जा सकता है, जैसे कि निम्नलिखित उदाहरण में दिखाया गया है |
 
-*main.js*
+_main.js_
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
@@ -55,7 +55,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-*online-status.html*
+_online-status.html_
 
 ```html
 <!DOCTYPE html>
