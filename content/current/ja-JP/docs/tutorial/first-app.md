@@ -4,7 +4,7 @@ Electronは、豊富なネイティブ (オペレーティング・システム)
 
 これは、Electron はグラフィカルユーザーインターフェース (GUI) ライブラリへの JavaScript バインディングである、という意味ではありません。 代わりにその GUI としてウェブページを使うので、Electron は JavaScript で操作できる小型 Chromium ブラウザである、とすることもできます。
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**注**: このサンプルは [すぐにダウンロードして実行](#trying-this-example) できるリポジトリとしても利用できます。
 
 開発に関しては、Electron は基本的に Node.js アプリケーションです。 開始点は Node.js モジュールと同じ `package.json` です。 最も基本的な Electron アプリは以下のフォルダ階層になるでしょう。
 
@@ -31,7 +31,7 @@ npm が基本的な `package.json` ファイルを作るガイドをします。
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). もしこれがただのNodeアプリケーションならば、現在のパッケージを実行するように `node` に指示する `start` スクリプトを追加します。
+__注釈__: もし `main` フィールドが `package.json` 内に記載されていない場合、 Electron は (Node.js のように) `index.js` の読み込みを試みます。 もしこれがただのNodeアプリケーションならば、現在のパッケージを実行するように `node` に指示する `start` スクリプトを追加します。
 
 ```json
 {
@@ -174,7 +174,7 @@ app.on('activate', () => {
 
 このチュートリアルのコードを [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) リポジトリからクローンして、実行してみてください。
 
-**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
+**注意**: この実行には [Git](https://git-scm.com) と [npm](https://www.npmjs.com/) が必要です。
 
 ```sh
 # リポジトリをクローン
