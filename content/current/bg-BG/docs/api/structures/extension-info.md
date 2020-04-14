@@ -1,4 +1,4 @@
 # ExtensionInfo Object
 
-* `name` String - Име
+* `name` String
 * `version` String
