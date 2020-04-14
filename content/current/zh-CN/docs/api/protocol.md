@@ -2,7 +2,7 @@
 
 > 注册自定义协议并拦截基于现有协议的请求。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 实现与 ` file://` 协议具有相同效果的协议的示例:
 
@@ -61,6 +61,7 @@ app.on('ready', () => {
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
+
 **注意.** 此方法只能在 `app` 的 `ready` 事件触发前调用，且只能调用一次
 
 Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
@@ -93,7 +94,6 @@ protocol.registerSchemesAsPrivileged([
 `protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
 
 **before (<= v4.x)**
-
 ```javascript
 // Main
 protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
@@ -103,7 +103,6 @@ webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
 ```
 
 **after (>= v5.x)**
-
 ```javascript
 protocol.registerSchemesAsPrivileged([
   { scheme: 'scheme1', privileges: { standard: true, secure: true } },
@@ -114,16 +113,16 @@ protocol.registerSchemesAsPrivileged([
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function - 回调函数 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
-* `completion` Function (可选) 
+* `completion` Function (optional)
   * `error` Error
 
 注册一个 `scheme` 协议, 将该文件作为响应发送 当要使用 `scheme` 创建 `request` 时, 将使用 `handler(request, callback)` 来调用 `handler` 。 `completion` 将在 `scheme` 注册成功时通过`completion(null)` 调用，失败时通过`completion(error)` 调用。
@@ -137,16 +136,16 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function - 回调函数 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
+  * `callback` Function
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (可选)
-* `completion` Function (可选) 
+* `completion` Function (optional)
   * `error` Error
 
 注册一个 `scheme` 协议, 将 `Buffer`作为响应发送
@@ -168,16 +167,16 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function - 回调函数 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
+  * `callback` Function
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
-* `completion` Function (可选) 
+* `completion` Function (optional)
   * `error` Error
 
 注册一个 `scheme` 协议, 将 `String` 作为响应发送
@@ -187,43 +186,43 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function - 回调函数 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
-    * `redirectRequest` Object 
+  * `callback` Function
+    * `redirectRequest` Object
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
-* `completion` Function (可选) 
+* `completion` Function (optional)
   * `error` Error
 
 注册一个 `scheme` 协议, 将 HTTP 请求作为响应发送
 
 该用法与 `registerFileProtocol` 相同, 只是`callback` 会被` redirectRequest `对象或者带有`url`, `method`, `referrer`, `uploadData` 和 `session` 属性的对象调用。
 
-默认情况下, HTTP 请求会重复使用当前的 session。如果希望请求具有不同的session, 则应将 `session`设置为 `null`.
+By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
 对于 POST 请求, 必须提供 ` uploadData ` 对象。
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function - 回调函数 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
+  * `callback` Function
     * ` stream `(ReadableStream |[ StreamProtocolResponse ](structures/stream-protocol-response.md)) (可选)
-* `completion` Function (可选) 
+* `completion` Function (optional)
   * `error` Error
 
 注册一个 `scheme` 协议, 将 ` Readable `作为响应发送
@@ -256,7 +255,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-可以传递任何可读取流 API 的对象(`data`/`end`/`error` 事件)。以下是如何返回文件的方法示例:
+It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
 
 ```javascript
 const { protocol } = require('electron')
@@ -272,7 +271,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (可选) 
+* `completion` Function (optional)
   * `error` Error
 
 取消对自定义`scheme`的注册
@@ -286,16 +285,16 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `filePath` String
-* `completion` Function (可选) 
+* `completion` Function (optional)
   * `error` Error
 
 终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个file。
@@ -303,16 +302,16 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function - 回调函数 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
+  * `callback` Function
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
-* `completion` Function (可选) 
+* `completion` Function (optional)
   * `error` Error
 
 终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个`String`。
@@ -320,16 +319,16 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function - 回调函数 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
+  * `callback` Function
     * `buffer` Buffer (可选)
-* `completion` Function (可选) 
+* `completion` Function (optional)
   * `error` Error
 
 终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个`Buffer`。
@@ -337,20 +336,20 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function - 回调函数 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
-    * `redirectRequest` Object 
+  * `callback` Function
+    * `redirectRequest` Object
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
-* `completion` Function (可选) 
+* `completion` Function (optional)
   * `error` Error
 
 终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个新 HTTP 请求。
@@ -358,16 +357,16 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * ` stream `(ReadableStream |[ StreamProtocolResponse ](structures/stream-protocol-response.md)) (可选)
-* `completion` Function (可选) 
+* `completion` Function (optional)
   * `error` Error
 
 它与 ` registerStreamProtocol `方法相同, 不过它是用来替换现有的protocol处理方式。
@@ -375,7 +374,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (可选) 
+* `completion` Function (optional)
   * `error` Error
 
 移除为 ` scheme ` 安装的拦截器，并还原其原始处理方式。
