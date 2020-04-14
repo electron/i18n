@@ -3,20 +3,18 @@
 ## 사전준비
 
 ### 유료 애플리케이션 계약
-
 아직 유료 애플리케이션 계약에 서명하지 않았다면, 서명이 필요합니다. 그리고 iTunes Connect에서 여러분의 은행 및 세금 정보를 설정해야합니다.
 
 [iTunes Connect Developer Help: 계약, 세금, 그리고 은행에 대한 개요](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### In-App Purchases 생성
-
 그런 다음, iTunes Connect에서 인앱 구매를 구성하고, 이름, 가격 및 인앱 구매의 특징 및 기능을 강조하는 설명을 포함시켜야합니다.
 
 [iTunes Connect Developer Help: 인앱 구매 생성](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
 
 ### CFBundleIdentifier 수정
 
-electron을 사용한 개발에서 In-App Purchase를 테스트하기 위해서는 `node_modules/electron/dist/Electron.app/Contents/Info.plist`의 `CFBundleIdentifier`을 변경해야 합니다. iTunes Connect에서 생성된 애플리케이션의 bundle identifier 값으로 `com.github.electron`의 기본값을 변경해야 합니다.
+electron을 사용한 개발에서 In-App Purchase를 테스트하기 위해서는 `node_modules/electron/dist/Electron.app/Contents/Info.plist`의 `CFBundleIdentifier`을 변경해야 합니다. iTunes Connect에서 생성된 애플리케이션의  bundle identifier 값으로 `com.github.electron`의 기본값을 변경해야 합니다.
 
 ```xml
 <key>CFBundleIdentifier</key>
