@@ -4,7 +4,7 @@ Electron Entwicklung ist weitestgehend gleich zu Node.js Entwicklung. Um in dein
 
 ## Einrichtung auf macOS
 
-> Electron unterstützt macOS 10.10 (Yosemite) und stäter. Apple erlaubt die Verwendung von macOS in Virtuellen Maschienen nicht es seiden der Host Computer selbst ist von Apple. Wenn du also einen Mac braucht, solltest du darüber nachdenken einen Cloud Service zu nutzen (wie [MacInCloud](https://www.macincloud.com/) oder [xcloud](https://xcloud.me)).
+> Electron unterstützt macOS 10.10 (Yosemite) und stäter. Apple erlaubt die Verwendung von macOS  in Virtuellen Maschienen nicht es seiden der Host Computer selbst ist von Apple. Wenn du also einen Mac braucht, solltest du darüber nachdenken einen Cloud Service zu nutzen (wie  [MacInCloud](https://www.macincloud.com/)  oder [xcloud](https://xcloud.me)).
 
 Installiere zuerste eine aktuelle Version von Node.js. Wir empfehlen Dir entweder die `LTS` oder die `Current` Version zu installieren. Gehe zur [Node.js Download Seite](https://nodejs.org/en/download/) und wähle den `macOS Installer`. Auch wenn Homebrew eine Möglichkeit wäre, wir raten dennoch davon ab. Viele Tools sind Inkompatibel mit der Art wie Homebrew Node.js installiert.
 
@@ -30,23 +30,23 @@ Installiere zuerste eine aktuelle Version von Node.js. Wir empfehlen Dir entwede
 
 Stellen sicher, dass Sie in dem Fenster, welches Ihnen erlaubt die Installation zu konfigurieren, `Node.js runtime`, `npm package manager`, und `Add to PATH` auswählen.
 
-Wenn abgeschlossen, bestätigen Sie, dass alles wie gewünscht funktioniert. Finden Sie die Windows PowerShell, indem Sie das Startmenü öffnen und beginnen `PowerShell` einzugeben. Öffnen Sie PowerShell oder einen anderen Command Line Client Ihrer Wahl und bestätigen Sie, dass sowohl `node`, als auch `npm` verfügbar sind:
+Wenn abgeschlossen ist, dann überprüfe ob alles wie gewünscht funktioniert. Finden Sie die Windows PowerShell, indem Sie das Startmenü öffnen und beginnen `PowerShell` einzugeben. Öffnen Sie PowerShell oder einen anderen Command Line Client Ihrer Wahl und bestätigen Sie, dass sowohl `node`, als auch `npm` verfügbar sind:
 
 ```powershell
-# Dieser Befehl gibt die Node.js Version aus
+# Dieses command gibt die Node.js Version aus
 node -v
 
-# Dieser Befehl gibt die npm Version aus
+# Dieses command gibt die npm Version aus
 npm -v
 ```
 
-Wenn beide Befehle eine Versionsnummer ausgeben, dann sind Sie bereit! Bevor du anfängst solltest du dir noch einen [code editor](#a-good-editor) installieren der sich für JavaScript Entwicklung eignet.
+Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du anfängst solltest du dir noch einen [code editor](#a-good-editor) installieren der sich für JavaScript Entwicklung eignet.
 
 ## Einrichtung auf Linux
 
 > Generell unterstützt Electron Ubuntu ab 12.04, Feudora ab 21 und Debian ab 8.
 
-Installiere zuerst eine aktuelle Version von Node.js. Abhängig von der Linux Distribution können sie die Installationsschritte unterscheiden. Davon ausgehen das Du Software auf dem normalen Weg mit `apt` oder `pacman`, dan lies die offizielle [Node.js Anleitung zur Installation auf Linux](https://nodejs.org/en/download/package-manager/).
+Installiere zuerste eine aktuelle Version von Node.js. Abhängig von der Linux Distribution können sie die Installationsschritte unterscheiden. Davon ausgehen das Du Software auf dem normalen Weg mit `apt` oder `pacman`, dan lies die offizielle [Node.js Anleitung zur Installation auf Linux](https://nodejs.org/en/download/package-manager/).
 
 Du verwendest Linux, so weißt du wohl schon wie man einen Command Line Client verwendet. Öffne deine bevorzugten Client und überprüfe ob `node` und `npm` global verfügbar sind:
 
