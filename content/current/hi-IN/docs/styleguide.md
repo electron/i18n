@@ -13,17 +13,28 @@
 उदहारण के रूप में `त्वरित प्रारंभ` का उपयोग:
 
 ```markdown
-# त्वरित प्रारंभ 
-... 
-## मुख्य प्रक्रिया
-... 
-## रेंदेरेर प्रक्रिया
-... 
-## अपनी एप्प चलायें 
-... 
-### वितरण की तरह चलायें 
+# Quick Start
+
 ...
- ### इलेक्ट्रॉन बाइनरी मैन्युअली डाउनलोड की गयी
+
+## Main process
+
+...
+
+## Renderer process
+
+...
+
+## Run your app
+
+...
+
+### Run as a distribution
+
+...
+
+### Manually downloaded Electron binary
+
 ...
 ```
 
@@ -79,10 +90,10 @@
 * कन्स्ट्रकट्र `###`-स्तर शीर्षक के साथ सूचीबद्ध होने चाहियें |
 * [स्थिर मेथड्स](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) एक `### स्थिर मेथड्स` अध्याय के अंतर्गत ही सूचीबद्ध होने चाहियें|
 * [इंस्टैंस मेथड्स](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) एक `### इंस्टैंस मेथड्स` अध्याय के अंतर्गत ही सूचीबद्ध होने चाहियें|
-* वे सभी मेथड्स जिनके पास एक रिटर्न वैल्यू है, उनका विवरण शुरू होना चाहिये "रिटर्न्स `[TYPE]` - रिटर्न विवरण" से | 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * अगर मेथड `ऑब्जेक्ट` रिटर्न करता है, एक कोलन और उसके बाद एक नयी लाइन से उसकी सरंचना निर्दिष्ट की जा सकती है; तो गुणों की एक अव्यवस्थित सूची फंक्शन पैरामीटर्स के जैसे स्टाइल |
 * इंस्टैंस इवेंट्स एक `### इंस्टैंस इवेंट्स` अध्याय के अंतर्गत ही सूचीबद्ध होने चाहियें|
-* इंस्टैंस गुण एक ### इंस्टैंस गुण `अध्याय के अंतर्गत ही` सूचीबद्ध होने चाहियें| 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * इंस्टैंस गुण "एक [गुण प्रकार]..." से ही शुरू होने चाहियें |
 
 उदहारण के रूप में `सेशन` और `कूकीज़` क्लासेज का उपयोग:
@@ -124,15 +135,17 @@
 मेथड्स अध्याय निम्नलिखित रूप में होना चाहिये:
 
 ```markdown
-### `ऑब्जेक्ट नाम. मेथड नाम(ज़रूरी[, वैकल्पिक]))` 
+### `objectName.methodName(required[, optional]))`
 
-* `ज़रूरी` वाक्य - एक पैरामीटर विवरण | 
-* `वैकल्पिक` इन्टिजर (वैकल्पिक) - एक और पैरामीटर विवरण | ...
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
+
+...
 ```
 
 शीर्षक `###` या `####`-स्तर हो सकता है, जो कि इस बात पर निर्भर करता है कि वह एक मोड्यूल का मेथड है या एक क्लास का |
 
-मोडयुल्स के लिए, `ऑब्जेक्ट नाम` ही मोड्यूल का नाम है | क्लासेज के लिए, वह क्लास का इंस्टैंस होना चाहिए, और मोड्यूल के नाम के समान नहीं होनी चाहिये |
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 उदाहरण के लिए, `सेशन` मोड्यूल के अंतर्गत `सेशन` क्लास के मेथड्स को `ऑब्जेक्टनाम` के तौर पर `सेस` का इस्तेमाल करना चाहिये |
 
@@ -142,7 +155,7 @@
 ज़रूरी[, वैकल्पिक]
 ```
 
-मेथड के नीचे प्रत्येकआर्गुमेंट की और भी विस्तृत जानकारी होगी | आर्गुमेंट के प्रकार को इनमे से किसी भी सामान्य प्रकार से चिन्हित किया जा सकता है:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`स्ट्रिंग`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`नंबर`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
