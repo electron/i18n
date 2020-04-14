@@ -9,29 +9,28 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 ## Sandbox
 
 In sandboxed renderers the `process` object contains only a subset of the APIs:
-
-* `crash()`
-* `hang()`
-* `getCreationTime()`
-* `getHeapStatistics()`
-* `getBlinkMemoryInfo()`
-* `getProcessMemoryInfo()`
-* `getSystemMemoryInfo()`
-* `getSystemVersion()`
-* `getCPUUsage()`
-* `getIOCounters()`
-* `argv`
-* `execPath`
-* `env`
-* `pid`
-* `arch`
-* `platform`
-* `沙盒化`
-* `type`
-* `version`
-* `versions`
-* `mas`
-* `windowsStore`
+- `crash()`
+- `hang()`
+- `getCreationTime()`
+- `getHeapStatistics()`
+- `getBlinkMemoryInfo()`
+- `getProcessMemoryInfo()`
+- `getSystemMemoryInfo()`
+- `getSystemVersion()`
+- `getCPUUsage()`
+- `getIOCounters()`
+- `argv`
+- `execPath`
+- `env`
+- `pid`
+- `arch`
+- `platform`
+- `沙盒化`
+- `type`
+- `version`
+- `versions`
+- `mas`
+- `windowsStore`
 
 ## 事件
 
@@ -51,23 +50,23 @@ process.once('loaded', () => {
 })
 ```
 
-## 属性
+## Properties
 
-### `process.defaultApp` *Readonly*
+### `process.defaultApp` _Readonly_
 
-`Boolean`类型， 当作为参数传递给默认应用程序启动应用时，该属性在主进程中为` true `，否则为` undefined `。
+A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
-### `process.isMainFrame` *Readonly*
+### `process.isMainFrame` _Readonly_
 
-`Boolean`类型， 当前渲染器为主渲染器时为`true`。如果你需要获取当前渲染器的ID你需要使用`webFrame.routingId` 。
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas` *Readonly*
+### `process.mas` _Readonly_
 
-` Boolean `类型，为 Mac App Store 生成, 此属性为 ` true `, 对于其他生成，则为 ` undefined `。
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
-` Boolean `类型, 用于控制应用程序内的 ASAR 支持。将此设置为 ` true ` 将在Node的内置模块中禁用对 ` asar ` 的支持。
+A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
 ### `process.noDeprecation`
 
@@ -77,11 +76,11 @@ process.once('loaded', () => {
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. 将其设置为`true`将会禁用弃用警告。
 
-### `process.resourcesPath` *Readonly*
+### `process.resourcesPath` _Readonly_
 
 ` String ` 类型， 表示资源目录的路径。
 
-### `process.sandboxed` *Readonly*
+### `process.sandboxed` _Readonly_
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
@@ -94,24 +93,23 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 ` Boolean `类型，用于控制打印到 ` stderr ` 的弃用中是否包含其堆栈跟踪。 将此设置为 ` true ` 将会打印对弃用的堆栈跟踪。 此属性代替 `--trace-deprecation` 命令行标志。
 
 ### `process.traceProcessWarnings`
-
 一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 将此设置为 `true` 将打印对进程警告的堆栈跟踪（包括弃用）。 此属性代替 `--trace-warnings` 命令行标志。
 
-### `process.type` *Readonly*
+### `process.type` _Readonly_
 
 A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
-### `process.versions.chrome` *Readonly*
+### `process.versions.chrome` _Readonly_
 
 ` string `，一个表示 Chrome 版本的字符串。
 
-### `process.versions.electron` *Readonly*
+### `process.versions.electron` _Readonly_
 
 ` string `，一个表示 Electron 版本的字符串。
 
-### `process.windowsStore` *Readonly*
+### `process.windowsStore` _Readonly_
 
-`Boolean`。如果应用运行于 Windows 商店(appx)，该属性为`true`，否则为 `undefined`。
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## 方法
 
@@ -131,7 +129,7 @@ Indicates the creation time of the application. The time is represented as numbe
 
 返回 [`CPUUsage`](structures/cpu-usage.md)
 
-### `process.getIOCounters()` *Windows* *Linux*
+### `process.getIOCounters()` _Windows_ _Linux_
 
 返回 [`IOCounters`](structures/io-counters.md)
 
@@ -149,7 +147,7 @@ Indicates the creation time of the application. The time is represented as numbe
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+Returns an object with V8 heap statistics. 备注：所有数据值以KB为单位
 
 ### `process.getBlinkMemoryInfo()`
 
@@ -175,16 +173,16 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 * `total` Integer - 系统可用的物理内存总量(Kb)。
 * `free` Integer - 应用程序或磁盘缓存未使用的内存总量。
-* `swapTotal` Integer *Windows* *Linux* - 系统交换内存容量（单位：千字节）。
-* `swapFree` Integer *Windows* *Linux* - 系统可用交换内存大小（单位：千字节）。
+* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
 
-返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
+Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
 ### `process.getSystemVersion()`
 
 Returns `String` - The version of the host operating system.
 
-示例：
+示例:
 
 ```js
 const version = process.getSystemVersion()
@@ -208,7 +206,7 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 
 导致当前进程挂起的主线程。
 
-### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
+### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
 * `maxDescriptors` Integer
 
