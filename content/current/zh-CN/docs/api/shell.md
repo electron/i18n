@@ -22,7 +22,7 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-在文件管理器中显示给定的文件。如果可以, 选中该文件。
+Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openItem(fullPath)`
 
@@ -35,9 +35,9 @@ shell.openExternal('https://github.com')
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Max 2081 characters on windows.
-* `选项` Object (可选) 
-  * `activate` Boolean (optional) *macOS* - `true` to bring the opened application to the foreground. The default is `true`.
-  * `workingDirectory` String (optional) *Windows* - The working directory.
+* `options` Object (optional)
+  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
+  * `workingDirectory` String (optional) _Windows_ - The working directory.
 
 Returns `Promise<void>`
 
@@ -46,7 +46,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. *macOS*
+* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
 
 Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
 
@@ -56,10 +56,10 @@ Returns `Boolean` - Whether the item was successfully moved to the trash or othe
 
 播放哔哔的声音.
 
-### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
+### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
 * `shortcutPath` String
-* `operation` String (optional) - 默认值为 `create`可为下列之一： 
+* `operation` String (optional) - Default is `create`, can be one of following:
   * `create` - 创建一个新的快捷方式, 如有必要可以覆盖。
   * `update` - 仅更新现有快捷方式上的指定属性。
   * `replace` - 覆盖现有快捷方式, 如果快捷方式不存在将会失败。
@@ -69,7 +69,7 @@ Returns `Boolean` - Whether the item was successfully moved to the trash or othe
 
 在`shortcutPath`位置创建或更新一个快捷连接
 
-### `shell.readShortcutLink(shortcutPath)` *Windows*
+### `shell.readShortcutLink(shortcutPath)` _Windows_
 
 * `shortcutPath` String
 
