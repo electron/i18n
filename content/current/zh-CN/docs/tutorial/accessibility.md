@@ -2,7 +2,7 @@
 
 为程序制作辅助功能是很重要的。在这里，我们很高兴地向你们介绍[Devtron](https://electronjs.org/devtron)和[Spectron](https://electronjs.org/spectron)。这两个新功能有机会使开发者们让他们的应用程序更加可用。
 
-* * *
+---
 
 Electron 应用中有关辅助功能的开发和网站是相似的，因为两者最终使用的都是HTML. 然而, 对于Electron应用, 你不能使用在线的辅助功能审查者, 因为你的应用没有一个URL可以提供给审查者.
 
@@ -10,7 +10,7 @@ Electron 应用中有关辅助功能的开发和网站是相似的，因为两�
 
 ## Spectron
 
-在测试框架Spectron中，你可以审查应用程序中的每个window和`<webview>`标签。例如：
+In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. 例如：
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
