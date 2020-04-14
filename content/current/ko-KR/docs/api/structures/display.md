@@ -3,7 +3,7 @@
 * `id` Number - 디스플레이와 관련된 고유 식별자.
 * `rotation` Number - 0, 90, 180, 270, 시계 방향의 화면 회전을 표시.
 * `scaleFactor` Number - 출력 장치의 화소 배율.
-* `touchSupport` String - `available`, `unavailable`, `unknown`. 
+* `touchSupport` String -  `available`, `unavailable`, `unknown`.
 * `monochrome` Boolean - 디스플레이가 monochrome 디스플레이 인지 아닌지.
 * `accelerometerSupport` String - `available`, `unavailable`, `unknown` 중 하나가 될 수 있습니다.
 * `colorSpace` String - 색상 변환을 위해 색상 공간(모든 실현 가능한 색상 조합을 포함하는 3차원 객체) 을 나타냅니다.
