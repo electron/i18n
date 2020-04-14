@@ -10,13 +10,13 @@
 
 1) [`इलेक्ट्रॉन-फोर्ज`](https://github.com/electron-userland/electron-forge) या [`इलेक्ट्रॉन-बिल्डर`](https://github.com/electron-userland/electron-builder) का इस्तेमाल कर, ये दोनों `स्नेप` सपोर्ट के साथ आउट ऑफ़ दा बॉक्स आते हैं | यह सबसे आसान विकल्प है | 2) `इलेक्ट्रॉन-इंस्टालर-स्नेप` का इस्तेमाल कर, जो कि `इलेक्ट्रॉन-पैकेजर` का आउटपुट लेता है | 3) पहले से निर्मित एक `.deb` पैकेज का इस्तेमाल कर |
 
-सभी मामलों में, `स्नेपक्राफ्ट` टूल इनस्टॉल होना चाहिये | हम उबुन्तु 16.04 (या वर्तमान LTS) के ऊपर निर्माण करने की सलाह देते हैं |
+In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
 ```sh
 snap install snapcraft --classic
 ```
 
-हालाँकि *यह संभव* है कि `स्नेपक्राफ्ट` को होमब्रिऊ का इस्तेमाल कर मैकओएस पर इनस्टॉल किया जा सके, पर वह `स्नेप` पैकेजेस का निर्माण करने में सक्षम नहीं है और उसका ध्यान स्टोर में पैकेजेस का प्रबंधन करने पर केन्द्रित है |
+While it _is possible_ to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
 
 ## `इलेक्ट्रॉन-इंस्टालर-स्नेप` का इस्तेमाल
 
@@ -76,7 +76,7 @@ snap(options)
 
 ### दूसरा चरण: एक snapcraft.yaml का निर्माण करें
 
-उपलब्ध कॉन्फ़िगरेशन विकल्पों के बारे में और ज्यादा जानकारी के लिए, [स्नेपक्राफ्ट सिंटेक्स पर मौज़ूद दस्तावेज़ीकरण](https://docs.snapcraft.io/build-snaps/syntax) पढ़ें | आइये एक उदाहरण देखते हैं:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 name: myApp
@@ -94,7 +94,6 @@ parts:
     source: my-deb.deb
     source-type: deb
     after:
-
       - desktop-gtk3
     stage-packages:
       - libasound2
