@@ -32,7 +32,7 @@ Both of these tools are using the [Accessibility Developer Tools](https://github
 
 If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
 
-## Enabling Accessibility
+## Разрешаване на достъпността
 
 Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 
