@@ -2,5 +2,5 @@
 
 * `url` String
 * `referrer` String
-* `title` [string]
+* `method` String
 * `uploadData` [UploadData[]](upload-data.md) (optional)
