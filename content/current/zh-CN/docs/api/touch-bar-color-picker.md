@@ -4,7 +4,7 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarColorPicker(options)` _Experimental_
+### `new TouchBarColorPicker(options)`
 
 * `options` Object
   * `availableColors` String[] (可选) - 由可选的十六进位色值组成的字符串数组.
