@@ -1,8 +1,10 @@
 # الاختبار الآلي مع برنامج تشغيل مخصص
 
-To write automated tests for your Electron app, you will need a way to "drive" your application. [Spectron](https://electronjs.org/spectron) هو حل شائع الاستخدام يتيح لك محاكاة إجراءات المستخدم عبر  WebDriver </ 1>. However, it's also possible to write your own custom driver using node's builtin IPC-over-STDIO. الفائدة من برنامج تشغيل مخصص هو أنه يميل إلى تتطلب حمل أقل من Spectron ، ويسمح لك بتعريف الأساليب المخصصة إلى مجموعة الاختبار الخاصة بك.</p> 
+To write automated tests for your Electron app, you will need a way to "drive" your application. [Spectron](https://electronjs.org/spectron) هو حل شائع الاستخدام يتيح لك محاكاة إجراءات المستخدم عبر WebDriver </ 1>. However, it's also possible to write your own custom driver using node's builtin IPC-over-STDIO. الفائدة من برنامج تشغيل مخصص هو أنه يميل إلى تتطلب حمل أقل من Spectron ، ويسمح لك بتعريف الأساليب المخصصة إلى مجموعة الاختبار الخاصة بك.</p> 
 
 To create a custom driver, we'll use Node.js' [child_process](https://nodejs.org/api/child_process.html) API. The test suite will spawn the Electron process, then establish a simple messaging protocol:
+
+
 
 ```js
 const childProcess = require('child_process')
@@ -22,7 +24,10 @@ appProcess.on('message', (msg) => {
 appProcess.send({ my: 'message' })
 ```
 
+
 From within the Electron app, you can listen for messages and send replies using the Node.js [process](https://nodejs.org/api/process.html) API:
+
+
 
 ```js
 // listen for IPC messages from the test suite
@@ -34,9 +39,12 @@ process.on('message', (msg) => {
 process.send({ my: 'message' })
 ```
 
+
 We can now communicate from the test suite to the Electron app using the `appProcess` object.
 
 For convenience, you may want to wrap `appProcess` in a driver object that provides more high-level functions. Here is an example of how you can do this:
+
+
 
 ```js
 class TestDriver {
@@ -81,7 +89,10 @@ class TestDriver {
 }
 ```
 
+
 In the app, you'd need to write a simple handler for the RPC calls:
+
+
 
 ```js
 if (process.env.APP_TEST_DRIVER) {
@@ -113,7 +124,10 @@ const METHODS = {
 }
 ```
 
+
 Then, in your test suite, you can use your test-driver as follows:
+
+
 
 ```js
 const test = require('ava')
