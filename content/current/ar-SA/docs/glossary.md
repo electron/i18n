@@ -6,7 +6,7 @@
 
 أسار تعني أرشيف تنسيق أتوم شيل. [إسار](https://github.com/electron/asar) هو أرشيف بسيط `تار`- مثل صيغة تار التي تدمج عدة ملفات في ملف واحد. الإلكترون يمكن قراءة ملفات تعسفية منه دون تفريغ الملف بأكمله.
 
-أنشئ تنسيق ASAR في المقام الأول لتحسين الأداء على ويندوز
+The ASAR format was created primarily to improve performance on Windows... TODO
 
 ### CRT
 
@@ -22,11 +22,11 @@
 
 ### IDL
 
-لغة وصف الواجهة. كتابة تعريف الـ function وأنواع بيانات بتنسيق يمكن استخدامه لإنشاء واجهات في Java و C ++ و JavaScript وغيرها.
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
 
 ### IPC
 
-إيبك تعني الاتصالات بين العملية. يستخدم الإلكترون إيبك لإرسال رسائل جسون المسلسلة بين عمليات  الرئيسية </ 0> و  renderer</ 1>.</p> 
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
@@ -38,58 +38,61 @@
 
 العملية الرئيسية، عادة ملف اسمه `main.js`، هي نقطة الدخول لتطبيق كل إلكترون. أنها تسيطر على اللتطبيق، من فتح إغلاق. وتدير أيضا العناصر الأصلية مثل القائمة وشريط القوائم،إلخ. العملية الرئيسية هي المسؤولة عن خلق كل عملية عارض جديد في التطبيق. تم إنشاء واجهة برمجة تطبيقات بالكامل.
 
-يتم تحديد ملف العملية الرئيسي لكل تطبيق في الخاصية ` الرئيسية </ 0> في
-<code> package.json </ 0>. هذه هي طريقة <code> الإلكترون. </ 0> يعرف ما الملف لتنفيذ عند بدء التشغيل.</p>
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-<p>في كروميوم، يشار إلى هذه العملية باسم "عملية المتصفح". تم إعادة تسميته في إلكترون لتجنب الارتباك مع عمليات العارض.</p>
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
-<p>راجع أيضا: <a href="#process"> عملية </ 0>، <a href="#renderer-process"> عملية العارض </ 1></p>
+راجع أيضا:
 
-<h3>MAS</h3>
+ عملية </ 0>،  عملية العارض </ 1></p> 
 
-<p>اختصار لأبل ماك المتجر. للحصول على تفاصيل حول إرسال تطبيقك إلى
-ماس، اطلع على <a href="tutorial/mac-app-store-submission-guide.md"> دليل إرسال ماك أب ستور </ 0>.</p>
 
-<h3>Mojo</h3>
 
-<p>نظام IPC للتواصل داخل أو أثناء العملية ، وهذا أمر مهم لأن Chrome حريص على قدرته على تقسيم عمله إلى عمليات منفصلة أو لا ، اعتمادًا على ضغوط الذاكرة وما إلى ذلك.</p>
+### MAS
 
-<p>أنظر https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md</p>
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
-<h3>native modules</h3>
 
-<p>الوحدات المحلية (يطلق عليها أيضاً <a href="https://nodejs.org/api/addons.html">إضافات</a> في Node.js) هي وحدات مكتوبة بلغة C أو C++ والتي يمكن تحمليها في Node.js أو Electron بإستخدام الدالة require()، وتستخدم كأنها وحدة Node.js عادية. أنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت يعمل في مكتبات Node.js و C/c + +.</p>
 
-<p>Native Node modules are supported by Electron, but since Electron is very
-likely to use a different V8 version from the Node binary installed in your
-system, you have to manually specify the location of Electron’s headers when
-building native modules.</p>
+### Mojo
 
-<p>See also <a href="tutorial/using-native-node-modules.md">Using Native Node Modules</a>.</p>
+نظام IPC للتواصل داخل أو أثناء العملية ، وهذا أمر مهم لأن Chrome حريص على قدرته على تقسيم عمله إلى عمليات منفصلة أو لا ، اعتمادًا على ضغوط الذاكرة وما إلى ذلك.
 
-<h3>NSIS</h3>
+أنظر https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-<p>Nullsoft Scriptable Install System is a script-driven Installer
-authoring tool for Microsoft Windows. It is released under a combination of
-free software licenses, and is a widely-used alternative to commercial
-proprietary products like InstallShield. <a href="https://github.com/electron-userland/electron-builder">electron-builder</a> supports NSIS
-as a build target.</p>
 
-<h3>OSR</h3>
 
-<p>OSR (Off-screen rendering) can be used for loading heavy page in
-background and then displaying it after (it will be much faster).
-It allows you to render page without showing it on screen.</p>
+### native modules
 
-<h3>عملية</h3>
+الوحدات المحلية (يطلق عليها أيضاً [إضافات](https://nodejs.org/api/addons.html) في Node.js) هي وحدات مكتوبة بلغة C أو C++ والتي يمكن تحمليها في Node.js أو Electron بإستخدام الدالة require()، وتستخدم كأنها وحدة Node.js عادية. أنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت يعمل في مكتبات Node.js و C/c + +.
 
-<p>A process is an instance of a computer program that is being executed. Electron
-apps that make use of the <a href="#main-process">main</a> and one or many <a href="#renderer-process">renderer</a> process are
-actually running several programs simultaneously.</p>
+Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-<p>In Node.js and Electron, each running process has a <code>process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+
+
+
+### NSIS
+
+Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+
+
+
+### OSR
+
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+
+
+
+### process
+
+A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+
+In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
 See also: [main process](#main-process), [renderer process](#renderer-process)
+
+
 
 ### renderer process
 
@@ -99,9 +102,13 @@ In normal browsers, web pages usually run in a sandboxed environment and are not
 
 See also: [process](#process), [main process](#main-process)
 
+
+
 ### سنجاب
 
 السنجاب هو إطار مفتوح المصدر الذي يمكن تطبيقات إلكترون لتحديث تلقائيا كما يتم الافراج عن الإصدارات الجديدة. انظر [autoUpdater](api/auto-updater.md) API لمزيد من المعلومات حول الشروع في العمل مع السنجاب.
+
+
 
 ### userland
 
@@ -109,17 +116,21 @@ See also: [process](#process), [main process](#main-process)
 
 مثل node، الالكترون تركز على وجود مجموعة صغيرة من واجهات برمجة التطبيقات التي توفر جميع الأوليات اللازمة تطوير تطبيقات سطح المكتب منصة متعددة. فلسفة التصميم هذه تسمح للإلكترون لتبقى أداة مرنة دون إفراط في وصف كيفية استخدامها. Userland تمكن المستخدمين من إنشاء وتبادل الأدوات التي توفر وظائف إضافية علاوة على ما هو متوفر في "core".
 
+
+
 ### V8
 
-V8 هو محرك جافا سكريبت المفتوح المصدر من غوغل. هو مكتوب في C ++ و هو المستخدم في غوغل كروم. V8 يمكن تشغيل مستقل، أو يمكن أن تكون جزءا لا يتجزأ من أي تطبيق C ++.
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
 بني الإلكترون V8 كجزء من كروميوم ثم يشير node إلى V8 عندما تم البناء.
 
-لا تزال أرقام الإصدار من V8 تطابق أرقام غوغل كروم. يتضمن كروم 59 V8 5.9، يتضمن كروم 58 V8 5.8،.
+V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
+
+
 
 ### معرض الويب
 
