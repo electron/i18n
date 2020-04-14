@@ -1,6 +1,6 @@
 # Panduan Pengiriman Mac App Store
 
-Sejak v0.34.0, Electron mengizinkan pengiriman aplikasi yang dikemas ke Mac App Store (MAS). Panduan ini memberikan informasi tentang: bagaimana cara mengirimkan aplikasi Anda dan keterbatasan MAS membangun.
+Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
 
 **Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
@@ -37,7 +37,16 @@ Kemudian, Anda perlu menyiapkan tiga file hak.
 `child.plist`:
 
 ```xml
-<? versi xml = "1.0" pengkodean = "UTF-8"? ><! DOCTYPE plist umum "-//Apple//DTD PLIST 1.0 / / EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd" > <plist version="1.0"><dict><key>com.apple.security.app-sandbox</key> <true/> <key>com.apple.security.inherit</key> <true/></dict></plist>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>com.apple.security.app-sandbox</key>
+    <true/>
+    <key>com.apple.security.inherit</key>
+    <true/>
+  </dict>
+</plist>
 ```
 
 `parent.plist`:
@@ -60,7 +69,14 @@ Kemudian, Anda perlu menyiapkan tiga file hak.
 `loginhelper.plist`:
 
 ```xml
-<? versi xml = "1.0" pengkodean = "UTF-8"? ><! DOCTYPE plist umum "-//Apple//DTD PLIST 1.0 / / EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd" > <plist version="1.0"><dict><key>com.apple.security.app-sandbox</key> <true/></dict></plist>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>com.apple.security.app-sandbox</key>
+    <true/>
+  </dict>
+</plist>
 ```
 
 Anda harus mengganti `TEAM_ID` dengan ID Tim Anda, dan ganti ` your.bundle.id` dengan ID Bundle aplikasi Anda.
@@ -103,7 +119,7 @@ Terlepas dari penandatanganan aplikasi Anda secara manual, Anda juga dapat memil
 
 #### Masuki Modul Asli
 
-Modul asli yang digunakan di aplikasi Anda juga perlu ditandatangani. Jika menggunakan tanda elektron-osx, pastikan untuk menyertakan jalan ke binari yang dibangun di dalamnya daftar argumen:
+Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
@@ -150,7 +166,8 @@ Aktifkan koneksi jaringan keluar untuk memungkinkan aplikasi Anda terhubung ke s
 Aktifkan koneksi jaringan masuk agar aplikasi Anda dapat membuka jaringan soket mendengarkan:
 
 ```xml
-<key>com.apple.security.network.server</key> <true/>
+<key>com.apple.security.network.server</key>
+<true/>
 ```
 
 Lihat [Mengaktifkan dokumentasi Akses Jaringan](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) untuk lebih jelasnya.
@@ -158,7 +175,8 @@ Lihat [Mengaktifkan dokumentasi Akses Jaringan](https://developer.apple.com/libr
 #### dialog.showOpenDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-only</key> <true/>
+<key>com.apple.security.files.user-selected.read-only</key>
+<true/>
 ```
 
 Lihat [Mengaktifkan dokumentasi Akses Berkas yang Dipilih Pengguna](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) untuk lebih jelasnya.
