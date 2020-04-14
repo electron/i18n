@@ -4,7 +4,7 @@ Ang Electron ang nagbibigay-daan para makalikha ng desktop application na gawa s
 
 Hindi ito nangangahulugan na ang Electron ay isang JavaScript na may bisa sa graphical user interface (GUI) libraries. Sa halip, ang Electron ay gumagamit ng mga web pages bilang GUI, kaya pwede mong makita ito bilang isang minimal Chromium browser, kontrolado ng JavaScript.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**Tandaan**: Ang halimbawang ito ay isang repository na pwedeng [i-download at subukan kaagad](#trying-this-example).
 
 As far as development is concerned, an Electron application is essentially a Node.js application. Ang panimula ay `package.json` na katulad sa node.js module. A pinaka simpleng Electron app ay merong sumusunod na folder na struktura:
 
