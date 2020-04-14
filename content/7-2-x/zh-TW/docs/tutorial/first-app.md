@@ -107,7 +107,7 @@ const { app, BrowserWindow } = require('electron')
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // 建立瀏覽器視窗。
   win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -122,21 +122,21 @@ function createWindow () {
   // Open the DevTools.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // 視窗關閉時會觸發。
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // 拿掉 window 物件的參照。如果你的應用程式支援多個視窗，
+    // 你可能會將它們存成陣列，現在該是時候清除相關的物件了。
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+
+// 當 Electron 完成初始化，並且準備好建立瀏覽器視窗時
+// 會呼叫這的方法
 // 有些 API 只能在這個事件發生後才能用。
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// 在所有視窗都關閉時結束程式。
 app.on('window-all-closed', () => {
   // 在 macOS 中，一般會讓應用程式及選單列繼續留著，
   // 除非使用者按了 Cmd + Q 確定終止它們
@@ -154,8 +154,7 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. 
+// 你可以在這個檔案中繼續寫應用程式主程序要執行的程式碼。 
 // 你也可以將它們放在別的檔案裡，再由這裡 require 進來。
 ```
 
@@ -170,9 +169,9 @@ app.on('activate', () => {
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+    我們用了 node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    以及 Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
