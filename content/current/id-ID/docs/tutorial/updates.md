@@ -1,6 +1,8 @@
 # Memperbarui Aplikasi
 
-Ada beberapa cara untuk mengupdate aplikasi Elektron . Yang sangat mudah dan Secara resmi didukung salah satunya adalah keuntungan dari built-in  Squirrel </ 0> kerangka dan Modul  autoUpdater </ 1> elektron.</p> 
+Ada beberapa cara untuk mengupdate aplikasi Elektron . Yang sangat mudah dan Secara resmi didukung salah satunya adalah keuntungan dari built-in Squirrel </ 0> kerangka dan Modul  autoUpdater </ 1> elektron.</p> 
+
+
 
 ## Using `update.electronjs.org`
 
@@ -15,19 +17,27 @@ The easiest way to use this service is by installing [update-electron-app](https
 
 Install the module:
 
+
+
 ```sh
 npm install update-electron-app
 ```
 
+
 Invoke the updater from your app's main process file:
+
+
 
 ```js
 require('update-electron-app')()
 ```
 
+
 By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
 
 If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+
+
 
 ## Menerapkan Server Pembaruan
 
@@ -36,21 +46,31 @@ If you're developing a private Electron application, or if you're not publishing
 Bergantung pada kebutuhan Anda, Anda dapat memilih salah satu dari ini:
 
 - [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
+
 - [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
+
 - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
+
 - [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+
+
 
 ## Menerapkan pembaruan di aplikasi Anda
 
 Setelah mengeposkan server pembaruan Anda, lanjutkan dengan mengimpor yang diperlukan dalam modul kode Anda. Kode berikut mungkin berbeda untuk server yang berbeda perangkat lunak, tapi bekerja seperti dijelaskan saat menggunakan [Hazel](https://github.com/zeit/hazel).
 
-**Penting:** Pastikan kode di bawah ini hanya akan dijalankan dalam aplikasi kemasan Anda, dan tidak dalam pengembangan. Kamu dapat memakai [elektron-is-dev](https://github.com/sindresorhus/electron-is-dev) untuk memeriksa lingkungan.
+**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. Kamu dapat memakai [elektron-is-dev](https://github.com/sindresorhus/electron-is-dev) untuk memeriksa lingkungan.
+
+
 
 ```javascript
 const { app, autoUpdater, dialog } = membutuhkan ('elektron')
 ```
 
+
 Selanjutnya, buatlah URL server update dan beri tahu [autoUpdater](../api/auto-updater.md) tentangnya:
+
+
 
 ```javascript
 const server = 'https://your-deployment-url.com'
@@ -59,18 +79,26 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-Sebagai langkah terakhir, periksa update. Contoh di bawah ini akan memeriksa setiap menit:
+
+As the final step, check for updates. The example below will check every minute:
+
+
 
 ```javascript
 setInterval (() = & gt; {
    autoUpdater.checkForUpdates ()}, 60000)
 ```
 
+
 Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+
+
 
 ## Menerapkan Pembaruan
 
 Sekarang setelah Anda mengonfigurasi mekanisme pembaruan dasar untuk aplikasi Anda, Anda perlu memastikan bahwa pengguna akan diberitahu bila ada update. Ini dapat dicapai dengan menggunakan API AutoUpdater [acara](../api/auto-updater.md#events):
+
+
 
 ```javascript
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
@@ -88,7 +116,10 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Pastikan juga kesalahannya [ditangani](../api/auto-updater.md#event-error). Inilah contohnya untuk menempuh mereka ke `stderr`:
+
+Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+
+
 
 ```javascript
 autoUpdater.on ('error', message = & gt; {
