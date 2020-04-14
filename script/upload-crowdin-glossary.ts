@@ -5,7 +5,7 @@ require('dotenv-safe').config()
 import * as assert from 'assert'
 import * as globals from 'globals/globals.json'
 
-import * as electronApis from '../content/en-US/electron-api.json'
+import * as electronApis from '../content/current/en-US/electron-api.json'
 import { parseElectronGlossary } from '../lib/parse-electron-glossary'
 
 main()
