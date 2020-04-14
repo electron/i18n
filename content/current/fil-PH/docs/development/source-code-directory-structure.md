@@ -78,13 +78,12 @@ Electron
 
 * **.circleci** - Config file for CI with CircleCI.
 * **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
-* **dist** - Ang pansamantalang direktoryo na likha ng `script/create-dist.py` iskrip kapag gumagawa ng distribusyon.
+* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
-* **node_modules**, Ang pangatlong partido ng mga modyul ng "node" para sa pagbuo.
+* **node_modules** - Third party node modules used for building.
 * **npm** - Logic for installation of Electron via npm.
-* **out** - Ang pansamantalang "output" ng direktoryo ng `ninja`.
-* **iskrip** - Ang mga iskrip ay ginamit upang ang layunin ay mapaunlad tulad ng pagbuo, "packaging", "testing", at iba pa.
-
+* **out** - Temporary output directory of `ninja`.
+* **script** - Scripts used for development purpose like building, packaging, testing, etc.
 ```diff
 script/ - The set of all scripts Electron runs for a variety of purposes.
 ├── codesign/ - Fakes codesigning for Electron apps; used for testing.
@@ -93,8 +92,7 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
     ├── notes/ - Generates release notes for new Electron versions.
     └── uploaders/ - Uploads various release-related files during release.
 ```
-
-* **mga tool** - Helper scripts used by GN files. 
+* **tools** - Helper scripts used by GN files.
   * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
 * **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
@@ -106,8 +104,8 @@ Ang Electron repository ay mayroon ilang "vendored dependencies", at matatagpuan
 ```sh
 $ git status
 
-  modified:   vendor/depot_tools (new commits)
-  modified:   vendor/boto (new commits)
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 Upang hindi mahuli ang mga "vendored dependency", patakbuhin ang mga sumusunod na "command":
@@ -120,5 +118,5 @@ Kung ang "command" na ito ay iyong parating pinapatakbo, maaari kang lumikha ng 
 
 ```sh
 [alias]
-  su = submodule update --init --recursive
+    su = submodule update --init --recursive
 ```
