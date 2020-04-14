@@ -13,27 +13,27 @@ Dies sind die Richtlinien für das Schreiben von Dokumentation zu Elektron.
 Am Beispiel von `Schnellstart`:
 
 ```markdown
-# Schnellstart
+# Quick Start
 
 ...
 
-## Hauptprozess
+## Main process
 
 ...
 
-## Rendering-Prozess
+## Renderer process
 
 ...
 
-## Starten Sie Ihre App
+## Run your app
 
 ...
 
-### Als Distribution ausführen
+### Run as a distribution
 
 ...
 
-### Manuell heruntergeladene Binärdateien von Electron
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -95,10 +95,10 @@ Verwende `AutoUpdater` als Beispiel:
 * Konstruktoren müssen mit `###` Level-Titeln aufgelistet werden.
 * [Statische Methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) müssen unter einem Kapitel `### Statische Methoden` aufgelistet werden.
 * [Instanz-Methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) müssen unter einem `### Instanz-Methoden` Kapitel aufgelistet werden.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Beschreibung des Rückgabewertes 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instanz Eigenschaften` Kapitel. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Instance properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
