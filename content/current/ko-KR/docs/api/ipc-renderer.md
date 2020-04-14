@@ -4,18 +4,18 @@
 
 프로세스: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). 제공되는 몇가지 메소드를 통해서 renderer 프로세스(웹 페이지)에서 main 프로세스로 동기 및 비동기 메시지를 보낼 수 있습니다. main 프로세스로부터 오는 응답을 수신할 수도 있습니다.
+The `ipcRenderer` module is an  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). 제공되는 몇가지 메소드를 통해서 renderer 프로세스(웹 페이지)에서 main 프로세스로 동기 및 비동기 메시지를 보낼 수 있습니다. main 프로세스로부터 오는 응답을 수신할 수도 있습니다.
 
 [ipcMain](ipc-main.md)의 코드 예제를 보세요.
 
-## 메서드
+## 메소드
 
 `ipcRenderer` 모듈은 이벤트를 처리하고 메시지를 보내기 위해 다음의 메소드를 가집니다:
 
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
-* `listener` 함수 
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -24,16 +24,16 @@ The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
-* `listener` 함수 
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
-이벤트에 일회성 `listener` 함수를 추가합니다. 이 `listener` 는 다음 메시지가 `channel`에 보내지면 한번 동작하고 이후에 제거됩니다.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` 함수 
+* `listener` Function
   * `...args` any[]
 
 `channel` 의 listener 배열에서 지정한 `listener`를 제거합니다.
@@ -69,7 +69,6 @@ Send a message to the main process via `channel` and expect a result asynchronou
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 예시:
-
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
