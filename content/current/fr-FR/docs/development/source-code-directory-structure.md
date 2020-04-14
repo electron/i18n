@@ -1,4 +1,4 @@
-# Hiérarchie du Code Source
+# Structure du répertoire du Code Source
 
 Le code source d'Electron est séparé en plusieurs parties, principalement suivant les conventions de séparation de Chromium.
 
@@ -76,14 +76,14 @@ Electron
 
 ## Structure d'autres Dossiers
 
-* **.circleci** - Config file for CI with CircleCI.
-* **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
-* **node_modules** - Third party node modules used for building.
-* **npm** - Logic for installation of Electron via npm.
-* **out** - Temporary output directory of `ninja`.
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
+* **.circleci** - Fichier de configuration pour CI avec CircleCI.
+* **.github** - Les fichiers de configuration spécifiques à GitHub, y compris les modèles de problèmes et CODEOWNERS.
+* **dist** - Dossier temporaire créé par `script/create-dist.py` lors de la création d'une distribution.
+* **external_binaries** - Des binaires téléchargés de frameworks tiers qui ne supportent pas la construction avec `gn`.
+* **node_modules** - Modules de Node tiers utilisés pour les builds.
+* **npm** - Logique pour l'installation d'Electron via npm.
+* **out** - Dossier de sortie temporaire de `ninja`.
+* **script** - Scripts utilisés à des fins de développement comme le build, le packaging, les tests, etc.
 ```diff
 script/ - L'ensemble de tous les scripts que Electron exécute pour une variété de fonctions.
 ── codesign/ - Codesign Fakes pour les applications Electron ; utilisé pour les tests.
@@ -94,8 +94,8 @@ script/ - L'ensemble de tous les scripts que Electron exécute pour une variét�
 ```
 * **tools** - Helper scripts used by GN files.
   * Les scripts mis ici ne devraient jamais être invoqués par les utilisateurs directement, contrairement à ceux de `script`.
-* **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
+* **typings** - Types TypeScript pour le code interne d'Electron.
+* **vendor** - Code source pour certaines dépendances de tiers, y compris `boto` et `requests`.
 
 ## Garder les sous-modules Git à jour
 
