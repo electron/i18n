@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 在 Linux 和 Windows 上, ` Command ` 键没有任何效果, 所以使用 ` CommandOrControl `表述, macOS 是 ` Command ` ，在 Linux 和 Windows 上是` Control `。
 
-使用 `Alt` 代替`Option`. `Option` 键只在 macOS 系统上存在, 而 `Alt` 键在任何系统上都有效.
+Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
 `Super`键是指 Windows 和 Linux 系统上的 `Windows` 键，但在 macOS 里为 `Cmd` 键.
 
@@ -64,7 +64,7 @@ app.on('ready', () => {
 * `VolumeUp`, `VolumeDown` 和 `VolumeMute`
 * ` MediaNextTrack `、` MediaPreviousTrack `、` MediaStop ` 和 ` MediaPlayPause `
 * `PrintScreen`
-* 小键盘按键 
+* 小键盘按键
   * `num1`-`num9` -数字1-数字9
   * `numdec` - 小数点
   * `numadd` - 加号
