@@ -1,4 +1,4 @@
-# C++ 코드에서 clang 형식 사용하기
+# C++ 코드에서 clang-format 사용하기
 
 [`clang-format`](http://clang.llvm.org/docs/ClangFormat.html) 은 C/C++/Objective-C 코드 자동 서식 맞춤 도구입니다. 그래서 개발자들은 코드 검토시에 스타일 문제에 대해 걱정할 필요가 없습니다.
 
