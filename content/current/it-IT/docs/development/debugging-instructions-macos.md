@@ -4,15 +4,14 @@ Se si verificano arresti anomali o problemi in Electron che si ritiene non siano
 
 ## Requisiti
 
-* **Una build di debug di Electron**: Il modo più semplice è di solito costruirlo da se, usando gli strumenti ed i prerequisiti elencati nelle [istruzioni di costruzione per macOS](build-instructions-macos.md). Mentre puoi allegare e fare il debug di Electron come puoi scaricarlo direttamente, potresti trovare che è pesantemente ottimizzato, rendendo il debug sostanzialmente più difficile: Il debugger non potrà mostrarti il contenuto di tutte le variabili ed il percorso di esecuzione può sembrare strano per la messa in linea, le chiamate di coda, ed altre ottimizzazioni del compilatore.
+* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-macos.md). Mentre puoi allegare e fare il debug di Electron come puoi scaricarlo direttamente, potresti trovare che è pesantemente ottimizzato, rendendo il debug sostanzialmente più difficile: Il debugger non potrà mostrarti il contenuto di tutte le variabili ed il percorso di esecuzione può sembrare strano per la messa in linea, le chiamate di coda, ed altre ottimizzazioni del compilatore.
 
-* **Xcode**: Oltre ad Xcode, installa anche gli strumenti di linea di comando. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
-    
-    ```text
-    command script import ~/electron/src/tools/lldb/lldbinit.py
-    ```
+   ```text
+   command script import ~/electron/src/tools/lldb/lldbinit.py
+   ```
 
 ## Allegare a e Debug Electron
 
@@ -94,7 +93,6 @@ Per finire il debug a questo punto, esegui `process continue`. Puoi anche contin
 Ora, se apri gli strumenti sviluppatore di Electron e chiami `setName`, colpirai nuovamente il breakpoint.
 
 ### Ulteriori Letture
-
 LLDB è un potente strumento con una grande documentazione. Per saperne di più, considera la documentazione di debug di Apple, per esempio la [Struttura di Riferimento Comando LLDB](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o l'introduzione all'[Utilizzo LLDB come un Debugger Standalone](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
 Puoi anche vedere il fantastico [manuale e tutorial](http://lldb.llvm.org/tutorial.html) di LLDB che spiegherà scenari di debug più complessi.
