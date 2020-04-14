@@ -64,7 +64,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `VolumeUp`, `VolumeDown` a `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` a `MediaPlayPause`
 * `PrintScreen`
-* NumPad Keys 
+* NumPad Keys
   * `num0` - `num9`
   * `numdec` - decimal key
   * `numadd` - numpad `+` key
