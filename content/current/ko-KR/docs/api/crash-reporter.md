@@ -2,7 +2,7 @@
 
 > 원격 서버에 충돌 보고서를 제출합니다.
 
-프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
 아래는 자동으로 원격 서버에 충돌 보고서를 제출하는 예제입니다.
 
@@ -30,24 +30,24 @@ Or use a 3rd party hosted solution:
 
 충돌 보고서는 애플리케이션 지정 temp 디렉터리에 로컬로 저장됩니다. `productName`이 `YourName`인 경우에는 temp 디렉터리 안에 `YourName Crashes`의 폴더에 저장됩니다. 충돌 제보기를 실행하기 전에 API `app.setPath('temp', '/my/custom/temp')`를 호출하여 이 temp 디렉터리 위치를 수정할 수 있습니다.
 
-## 메서드
+## 메소드
 
 `CrashReporter` 모듈은 다음과 같은 메서드를 가지고 있습니다:
 
 ### `crashReporter.start(options)`
 
-* `options` Object 
+* `options` Object
   * `companyName` String
   * `submitURL` String - POST로 보낼 충돌 보고서 URL 입니다.
   * `productName` String (optional) - Defaults to `app.name`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. 기본값은 `true`이다.
   * `ignoreSystemCrashHandler` Boolean (선택) - 기본값은 `false` 입니다.
   * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. 오직 문자열 속성들만 제대로 보내집니다. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
   * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 다른 `crashReporter` API 혹은 각각의 프로세스 (메인/렌더러) 에서 충돌 보고서를 수집을 사용하기 전에, 이 메서드를 호출해야 합니다. 서로 다른 프로세스에서 호출할 때 다른 옵션을 `crashReporter.start`로 전달할 수 있습니다.
 
-**참고** `child_process` 모듈로 생성된 자식 프로세스는 Electron 모듈에 접근할 수 없습니다. 그러므로, 그것들에서 충돌 정보를 수집하려면, `process.crashReporter.start`를 대신 사용하세요. 위와 똑같은 옵션에 추가로 충돌 보고서를 임시로 저장하는 디렉터리를 가리키는 `crashesDirectory` 값과 함께 전달합니다. `process.crash()`를 호출하여 자식 프로세스를 충돌시켜서 실험해볼 수 있습니다.
+**Note** Child processes created via the `child_process` module will not have access to the Electron modules. 그러므로, 그것들에서 충돌 정보를 수집하려면, `process.crashReporter.start`를 대신 사용하세요. 위와 똑같은 옵션에 추가로 충돌 보고서를 임시로 저장하는 디렉터리를 가리키는 `crashesDirectory` 값과 함께 전달합니다. `process.crash()`를 호출하여 자식 프로세스를 충돌시켜서 실험해볼 수 있습니다.
 
 **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
@@ -63,30 +63,30 @@ Returns the date and ID of the last crash report. Only crash reports that have b
 
 [`CrashReport[]`](structures/crash-report.md)를 반환합니다:
 
-업로드된 모든 충돌 보고서를 반환합니다. 각자의 보고서는 날짜와 업로드 ID를 포함합니다.
+Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
 ### `crashReporter.getUploadToServer()`
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**참고:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
+**Note:** This API can only be called from the main process.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean _macOS_ - Whether reports should be submitted to the server.
 
-주로 유저 설정에 의해 제어됩니다. `start`가 호출 되기 전에는 효과가 없습니다.
+This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**참고:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
+**Note:** This API can only be called from the main process.
 
-### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
+### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
 
 * `key` String - 매개 변수 키, 64글자보다 작아야 합니다.
 * `value` String - 매개 변수 키, 64글자보다 작아야 합니다.
 
 충돌 보고와 함께 보낼 추가 매개 변수를 지정합니다. 여기에 지정된 값은 `start`가 호출 됐을때 `extra` 옵션으로 지정한 값이 추가로 전송됩니다. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
 
-### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
+### `crashReporter.removeExtraParameter(key)` _macOS_ _Windows_
 
 * `key` String - 매개 변수 키, 64글자보다 작아야 합니다.
 
@@ -110,7 +110,7 @@ Returns `String` - The directory where crashes are temporarily stored before bei
 * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
 * `_version` String - `package.json`의 버전입니다.
 * `_productName` String - `crashReporter` `options` 객체의 애플리케이션 이름입니다.
-* `prod` String - 기본 애플리케이션 이름 입니다. 이 경우엔 Electron입니다.
+* `prod` String - Name of the underlying product. In this case Electron.
 * `_companyName` String - `crashReporter` `options` 객체의 조직 이름 입니다.
 * `upload_file_minidump` File - `minidump` 형식의 충돌 보고서입니다.
 * `crashReporter` `options` 객체안의 `extra` 객체의 모든 한 속성들이 포함됩니다.
