@@ -1,18 +1,18 @@
 # プルリクエスト
 
-* [ローカル環境のセットアップ](#setting-up-your-local-environment) 
+* [ローカル環境のセットアップ](#setting-up-your-local-environment)
   * [ステップ1: フォーク](#step-1-fork)
   * [ステップ2: ビルド](#step-2-build)
   * [ステップ3: ブランチ](#step-3-branch)
-* [変更を加える](#making-changes) 
+* [変更を加える](#making-changes)
   * [ステップ4: コーディング](#step-4-code)
-  * [ステップ5: コミット](#step-5-commit) 
+  * [ステップ5: コミット](#step-5-commit)
     * [コミットメッセージのガイドライン](#commit-message-guidelines)
   * [ステップ6: リベース](#step-6-rebase)
   * [ステップ7: テスト](#step-7-test)
   * [ステップ8: プッシュ](#step-8-push)
   * [ステップ9: プルリクエストを開く](#step-9-opening-the-pull-request)
-  * [ステップ10: 議論と更新](#step-10-discuss-and-update) 
+  * [ステップ10: 議論と更新](#step-10-discuss-and-update)
     * [承認とリクエストの変更ワークフロー](#approval-and-request-changes-workflow)
   * [ステップ11: 取り込み](#step-11-landing)
   * [継続的インテグレーションテスト](#continuous-integration-testing)
@@ -33,7 +33,6 @@ $ git fetch upstream
 ### ステップ2: ビルド
 
 ビルド手順と依存関係は、オペレーティングシステムによって若干異なります。 Electron をローカルに構築する際は、これらの詳細なガイドを参照してください。
-
 * [macOS 上でビルド](https://electronjs.org/docs/development/build-instructions-macos)
 * [Linux 上でビルド](https://electronjs.org/docs/development/build-instructions-linux)
 * [Windows 上でビルド](https://electronjs.org/docs/development/build-instructions-windows)
@@ -73,33 +72,32 @@ $ git commit
 
 良いコミットメッセージは、何が何故変更されたのか、が記述されるべきです。 このElectronプロジェクトは[セマンティックコミットメッセージ](https://conventionalcommits.org/)をつかって、このリリースプロセスを合理化しています。
 
-プルリクエストがマージされるためには、プルリクエストにタイトルがあり、それには意図を示すプレフィックスが**なければなりません**
+Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
 
 意図を示すプレフィックスのあるコミットメッセージのの例です。:
 
-* `fix: don't overwrite prevent_default if default wasn't prevented`
-* `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux`
+- `fix: don't overwrite prevent_default if default wasn't prevented`
+- `feat: add app.isPackaged() method`
+- `docs: app.isDefaultProtocolClient is now available on Linux`
 
 プレフィックスの例:
 
-    - fix: バグフィックス
-    - feat: 新しい機能
-    - docs: ドキュメントの修正
-    - test: 不足していたテストの追加や、既存のテストの修正
-    - build: ビルドシステムに影響のある修正
-    - ci: CI の設定ファイルやスクリプトへの修正
-    - perf: 性能を向上させるコードの修正
-    - refactor: バグフィックスでもなく、機能追加でもないコードの修正
-    - style: コードの意味に影響しない修正 (スタイル修正)
-    - vendor: libchromiumcontent や nodeのような依存性に関係する修正
-    
+  - fix: A bug fix
+  - feat: A new feature
+  - docs: Documentation changes
+  - test: Adding missing tests or correcting existing tests
+  - build: Changes that affect the build system
+  - ci: Changes to our CI configuration files and scripts
+  - perf: A code change that improves performance
+  - refactor: A code change that neither fixes a bug nor adds a feature
+  - style: Changes that do not affect the meaning of the code (linting)
+  - vendor: Bumping a dependency like libchromiumcontent or node
 
 その他、コミットメッセージを作成するときに留意すること:
 
-1. 最初の行は、以下の通りにしてください。 
-  * 変更の簡単な説明が含まれている (50文字以下が好ましく、72文字未満である)
-  * 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
+1. 最初の行は、以下の通りにしてください。
+   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   - 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
 2. 2行目は空にしてください。
 3. 他のすべての行は72列で折り返します。
 
@@ -180,7 +178,7 @@ $ git push origin my-branch
 
 #### 承認とリクエストの変更ワークフロー
 
-すべてのプルリクエストは、取り込むために、変更した部分の [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) の承認が必要です。 管理者はプルリクエストをレビューするたびに、変更を要求することができます。 これらは、タイプミスを修正するなどの小さなもから、実質的な変更を伴うものまでにもなります。 このような要求は役に立ちますが、時には、特に変更する *やり方* についての具体的な提案が含まれていないために、唐突だったり親切でないものに出くわすことがあります。
+すべてのプルリクエストは、取り込むために、変更した部分の [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) の承認が必要です。 管理者はプルリクエストをレビューするたびに、変更を要求することができます。 これらは、タイプミスを修正するなどの小さなもから、実質的な変更を伴うものまでにもなります。 Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 がっかりしないでください。 レビューが不公平であると感じる場合は、そう言い、別のプロジェクトのコントリビューターの意見を求めてください。 大抵の場合、そのようなコメントはレビュアーがレビューするのに十分な時間が無いためで、意図しないものです。 そのような困難はしばしば少しの忍耐で解決することができます。 要するに、レビュアーは親切なやりとりを提供することが期待されているということです。
 
@@ -197,3 +195,4 @@ $ git push origin my-branch
 理想的には、プルリクエストは CI のすべてのプラットフォーム上で合格します ("青になる") 。 これは、すべてのテストが合格し、lint のエラーがないことを意味します。 しかし、CI インフラストラクチャ自体が特定のプラットフォームで失敗したり、いわゆる "flaky" テストに失敗する ("赤になる") ことは珍しいことではありません。 各 CI の失敗を手動で検査して原因を特定する必要があります。
 
 プルリクエストを開くと、CI が自動的に開始されますが、メンテナーだけが CI の実行をリスタートできます。 CI が誤検知をしていると思われる場合は、メンテナーにテストをリスタートするよう依頼してください。
+
