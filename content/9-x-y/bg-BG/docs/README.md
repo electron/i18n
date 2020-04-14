@@ -10,7 +10,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## Ръководства и уроци
 
-* [About Electron](tutorial/about.md)
+* [5256783105227699](tutorial/about.md)
 * [Създаване на среда за разработка](tutorial/development-environment.md)
   * [Настройване при macOS](tutorial/development-environment.md#setting-up-macos)
   * [Настройване при Windows](tutorial/development-environment.md#setting-up-windows)
