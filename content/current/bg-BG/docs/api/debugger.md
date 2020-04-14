@@ -46,7 +46,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `method` String - Method name.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
