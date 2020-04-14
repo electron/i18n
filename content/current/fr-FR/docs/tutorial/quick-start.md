@@ -8,3 +8,4 @@ L'ancien document "Démarrage rapide" qui existait ici a été scindé en deux d
 * Pour consulter l'architecture des processus, voir [Processus principal et de rendu](./application-architecture.md#main-and-renderer-processes).
 
 Pour en savoir plus sur Electron, Découvrez les [guides officiels](../).
+
