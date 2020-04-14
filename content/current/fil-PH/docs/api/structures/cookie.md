@@ -8,4 +8,4 @@
 * `secure` Boolean (opsyonal) - Depende kung ang cookie ay markado na ligtas.
 * `httpOnly` Boolean (opsyonal) - Depende kung ang cookie ay markado na HTTP lamang.
 * `session` Boolean (opsyonal) - Depende kung ang cookie ay isang sesyon na cookie o isang matatag na cookie na may petsa ng ekspirasyon.
-* `expirationDate` Double (opsyonal) - Ang petsa ng ekspirasyon ng mga cookie ay mga ilang segundo dahil sa UNIX epoch. Ay hindi inilaan para sa sesyon ng mga cookie.
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
