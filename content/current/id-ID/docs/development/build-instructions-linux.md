@@ -1,4 +1,4 @@
-# Membangun petunjuk (Linux)
+# Bangun Instruksi (Linux)
 
 Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 
