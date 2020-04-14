@@ -8,7 +8,7 @@ That level of modularity and extendability ensures that all developers working w
 
 "Boilerplates" kann man sich wie eine unbemalte Leinwand vorstellen, die als Einstiegspunkt für die Entwicklung einer Anwendung dienen. Sie liegen in der Regel in Form eines Repositories vor, das man klonen und anschließend nach eigenen Wünschen individualisieren kann.
 
-Kommandozeilenwerkzeuge (CLI) hingegen unterstützen den Entwickler auch weiterhin während den verschiedenen Phasen der Entwicklung und Veröffentlichung. Sie sind hilfreicher und wirken unterstützend, erzwingen aber diverse Richtlinien bezogen auf den Aufbau und die Struktur des Programms. *Speziell für Anfänger ist die Verwendung eines Befehlszeilenwerkzeugs häufig hilfreich*.
+Kommandozeilenwerkzeuge (CLI) hingegen unterstützen den Entwickler auch weiterhin während den verschiedenen Phasen der Entwicklung und Veröffentlichung. Sie sind hilfreicher und wirken unterstützend, erzwingen aber diverse Richtlinien bezogen auf den Aufbau und die Struktur des Programms. *Especially for beginners, using a command line tool is likely to be helpful*.
 
 ## electron-forge
 
