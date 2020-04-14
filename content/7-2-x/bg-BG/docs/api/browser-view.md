@@ -23,7 +23,7 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` _Experimental_
+### `new BrowserView([опции])` _Experimental_
 
 * `options` Object (optional)
   * `webPreferences` Object (по избор) - виж [BrowserWindow](browser-window.md).
@@ -70,7 +70,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 Връща `Boolean` - Показва дали изгледа е унищожен.
 
-#### `view.setAutoResize(options)` _Experimental_
+#### `view.setAutoResize(опции)` _Experimental_
 
 * `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
