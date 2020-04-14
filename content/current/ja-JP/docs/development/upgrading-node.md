@@ -8,7 +8,7 @@ Node のアップグレードは Chromium のアップグレードよりもは�
 
 Electron には、上記の V8 ビルドの詳細と Electron が必要とする API を公開するための修正を加えた、独自の [Node フォーク](https://github.com/electron/node) があります。 上流の Node リリースが選択されると、それが Electron の Node フォークのブランチに置かれ、そこに Electron Node パッチが適用されます。
 
-他には、Node プロジェクトがそのバージョンの V8 にパッチを適用する手段があります。 上記のように、Electron は V8 の単一コピーですべてを構築するので、Node の V8 パッチはそのコピーに移植されなければなりません。
+Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
 
 Electron のすべての依存関係が同じ V8 のコピーを構築して使用したら、次の段階は Node のアップグレードによって引き起こされた Electron コードの問題を修正することです。
 
@@ -24,17 +24,18 @@ Electron のすべての依存関係が同じ V8 のコピーを構築して使�
 ## Electron の Node [フォーク](https://github.com/electron/node) のアップデート
 
 1. `electron/node` 上の `master` のリリースタグが `nodejs/node` よりも新しいことを確認します
-2. https://github.com/electron/node で以下のようにブランチを作成します。 `electron-node-vX.X.X` とし、分岐元のベースが目的のアップデートのタグであるようにします。 
+2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update
   - `vX.X.X` は現在の Chromium のバージョンと互換性のある Node のバージョンを使用しなければなりません
-3. 使用していた以前のバージョンのNode (`vY.Y.Y`) から `v.X.X.X へコミットを再適用します。` 
+3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X`
   - リリースタグを確認して、再適用する必要があるコミットの範囲を選択します
-  - Cherry-pick コミットの範囲は以下の通りです。 
+  - Cherry-pick コミットの範囲は以下の通りです。
     1. `vY.Y.Y` と `v.X.X.X` 両方をチェックアウトします
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - それぞれのファイルでマージコンフリクトを解決します。それから、 
+  - それぞれのファイルでマージコンフリクトを解決します。それから、
     1. `git add <conflict-file>`
     2. `git cherry-pick --continue`
     3. 終わるまで繰り返します
+
 
 ## [V8](https://github.com/electron/node/src/V8) パッチのアップデート
 
@@ -71,16 +72,16 @@ Chromium を互換性パッチで動作するように更新するよりも互�
 
 ## 注釈
 
-- Node は自身の V8 のフォークを管理します 
+- Node は自身の V8 のフォークを管理します
   - 必要なだけの少量を後方移植します
   - Node での [V8 の動作](https://nodejs.org/api/v8.html) についてのドキュメント
-- Electron 全体で V8 のコピーを1つだけ使用するようにコードを更新します 
+- Electron 全体で V8 のコピーを1つだけ使用するようにコードを更新します
   - 例えば Electron、Chromium や、Node.js においてです
-- 私たちは以下のロジスティクスのために上流を厳密に追跡することはしません。 
-  - 上流では複数のレポジトリを使用しているため、単一のレポジトリにマージすると履歴が失われます。そのため、Electron で Node バージョン上げを計画しているときにのみ更新します。
-- Chromium は更新に大きく時間がかかるため、通常、使用している Chromium のバージョンに最も近いバージョンの V8 がどのリリースに基づいた Node バージョンを選択します。 
+- 私たちは以下のロジスティクスのために上流を厳密に追跡することはしません。
+   - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
+- Chromium は更新に大きく時間がかかるため、通常、使用している Chromium のバージョンに最も近いバージョンの V8 がどのリリースに基づいた Node バージョンを選択します。
   - 新しい Chromium の V8 のバージョンとより密接に同期するため、次の定期的な Node のリリースを待つ必要がある場合もあります。
-  - Electron は、上流のプロジェクトごとにパッチのレポジトリを別々に管理するよりも簡単なので、すべてのパッチをレポジトリに保存しています。 
-    - Crashpad、Node.js、Chromium、Skia などのパッチはすべて同じ場所に保管されています
-  - Node のビルドについて 
-    - Node.js 用に独自の GN ビルドファイルを管理して、すべてが同じコンパイラフラグで確実にビルドされるようにします。 これは、Node.js をアップグレードするたびに、GN ファイルを上流の GYP ファイルと同期させるためにほんの少し作業をしなければならないことを意味します。
+ - Electron は、上流のプロジェクトごとにパッチのレポジトリを別々に管理するよりも簡単なので、すべてのパッチをレポジトリに保存しています。
+   - Crashpad, Node.js, Chromium, Skia etc. patches are all kept in the same place
+ - Node のビルドについて
+   - Node.js 用に独自の GN ビルドファイルを管理して、すべてが同じコンパイラフラグで確実にビルドされるようにします。 これは、Node.js をアップグレードするたびに、GN ファイルを上流の GYP ファイルと同期させるためにほんの少し作業をしなければならないことを意味します。
