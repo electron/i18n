@@ -10,7 +10,7 @@ Windows allows apps to define a custom context menu that shows up when users rig
 > 
 > Inirerekomenda na ang dapat nakatigil lang ang listahan ng mga gawain. Dapat hindi ito nagbabago ano man ang estado ng aplikasyon. Pwede mang baguhin ang listahan sa dinamikong paraan, dapat isaalang-alang na pwedeng makalilito ito sa mga tagagamit na hindi inaasahan ang pagbabago sa parte ng listahan ng destinasyon.
 
-**Mga Gawain ng Internet Explorer:**
+__Mga Gawain ng Internet Explorer:__
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
@@ -41,6 +41,7 @@ app.setUserTasks([])
 
 Ang mga gawain ng tagagamit ay magpapakita parin kahit na nakasara na ang iyong aplikasyon, kaya ang icon at path ng program na itinakda para sa isang gawain ay nanatili pa hanggang i-uninstall na ang aplikasyon.
 
+
 ## Mga Thumbnail Toolbar
 
 Sa Windows, maaari kang magdagdag ng isang thumbnail toolbar na may partikular na mga pipindutin sa isang taskbar na layout ng isang window ng aplikasyon. Binibigyang-daan nito ang mga tagagamit na ma-access ang isang partikular na utos ng window habang walang ibinabalik o pinapaganang window.
@@ -51,7 +52,7 @@ Mula sa MSDN, inihahayag ito:
 > 
 > Halimbawa, ang Windows Media Player ay possibleng magbibigay ng istandard na kontrol sa paglilipat ng media, katulad ng play, pause, mute at stop.
 
-**Ang Thumbnail Toolbar ng Windows Media Player:**
+__Ang Thumbnail Toolbar ng Windows Media Player:__
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
@@ -86,13 +87,14 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
+
 ## Icon Overlays in Taskbar
 
 Sa Windows, ang isang taskbar na pipindutin ay pwedeng gumamit ng maliit na overlay upang ipakita ang katayuan ng isang aplikasyon, ayon sa sinabi ng MSDN:
 
 > Ang mga icon overlay ay nagsisilbi bilang kontestwal na paalala ng katayuan, at para tanggalin ang pangangailangan sa naiibang icon na pang-estado ng lugar ng paalala upang mailahad ang impormasyon sa gumagamit. Halimbawa, ang isang bagong estado ng mail sa Microsoft Outlook, na kasalukuyang ipinapakita sa lugar ng paalala, ay pwede nang ilagay sa pamamagitan ng isang overlay sa pipindutin sa taskbar. Gaya ng dati, kailangan magdesisyon ka na habang nagbubuo ka pa sa kung anong pamamaraan ang nababagay sa iyong aplikasyon. Ang mga overlay icon ay para sa paghahatid ng mahalaga at matagal nang katayuan o mga paalala, katulad ng estado ng network, estado ng messenger, o bagong mail. Ang tagagamit ay hindi dapat pinapakitaan ng pabago-bagong mga overlay o animation.
 
-**Ang Overlay sa taskbar na pipindutin:**
+__Ang Overlay sa taskbar na pipindutin:__
 
 ![Ang Overlay sa Taskbar na pipindutin](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
@@ -103,6 +105,7 @@ const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
+
 
 ## Flash Frame
 
