@@ -1,6 +1,6 @@
 # `sandbox` 選項
 
-> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
+> Create a browser window with a sandboxed renderer. 啟用這個選項時，畫面轉譯器必需透過 IPC 與主處理序溝通才能存取 Node.js API。
 
 One of the key security features of Chromium is that all blink rendering/JavaScript code is executed within a sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
 
@@ -44,7 +44,7 @@ app.on('ready', () => {
 })
 ```
 
-## Preload
+## 預先載入
 
 An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
