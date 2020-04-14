@@ -4,7 +4,7 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarGroup(options)` *実験的*
+### `new TouchBarGroup(options)` _Experimental_
 
-* `options` Object 
+* `options` Object
   * `items` [TouchBar](touch-bar.md) - グループとして表示するアイテム。
