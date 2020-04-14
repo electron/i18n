@@ -16,12 +16,12 @@ To automatically format a file according to Electron C++ code style, run `clang-
 4. 运行 `git add your_changed_file.cc`, 并提交你的修改.
 5. 现在准备好的分支推送请求已经被打开.
 
-如果你想在你最新的 git commit(HEAD) 中格式化更改的代码, 你可以运行 `git-clang-format HEAD~1`. 通过 `git-clang-format -h` 可以获得更多详情.
+If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
 ## 编辑器集成
 
-您还可以将 `clang-format` 直接集成到您喜欢的编辑器中, 有关设置编辑器集成的更多指导，请参阅这些页面:
+You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
-- [Atom](https://atom.io/packages/clang-format)
-- [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
-- [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
+  * [Atom](https://atom.io/packages/clang-format)
+  * [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
+  * [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
