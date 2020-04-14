@@ -96,7 +96,7 @@ _This recommendation is the default behavior in Electron since 5.0.0._
 
 It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
-在此之后，你可以为指定的主机授予附加权限。 For example, if you are opening a BrowserWindow pointed at `https://example.com/", you can give that website exactly the abilities it needs, but no more.
+在此之后，你可以为指定的主机授予附加权限。 举例来说，如果你正在打开一个指向 "https://example.com/" 的 BrowserWindow，你可以给它正好所需的权限，无需再多。
 
 ### 为什么？
 
@@ -159,7 +159,7 @@ Even when you use `nodeIntegration: false` to enforce strong isolation and preve
 
 ### 为什么？
 
-Context isolation allows each the scripts on running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
+上下文隔离使得每个运行在渲染器上的脚本无需担心改变JavaScript环境变量而与ElectronAPI或预加载脚本发生冲突。
 
 While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
 
@@ -382,7 +382,7 @@ Blink是Chromium里的渲染引擎名称。 就像`experimentalFeatures`一样�
 
 ### 怎么做？
 ```js
-// Bad
+// 不推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: ['ExecCommandInJavaScript']
