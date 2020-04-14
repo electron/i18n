@@ -1,6 +1,6 @@
 # Menggunakan Pepper Flash Plugin
 
-Elektron mendukung plugin Pepper Flash. Untuk menggunakan plugin Pepper Flash di Elektron, Anda harus secara manual menentukan lokasi plugin Pepper Flash dan kemudian mengaktifkannya di aplikasi Anda.
+Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
 ## Mempersiapkan salinan Flash Plugin
 
@@ -63,8 +63,8 @@ Tambahkan atribut ` plugin ` ke tag `<webview>`.
 
 Anda dapat memeriksa apakah plugin Pepper Flash dimuat dengan memeriksa ` navigator.plugins ` di konsol devtools (walaupun Anda tidak dapat mengetahui apakah path plugin benar).
 
-Arsitektur plugin Pepper Flash harus sesuai dengan yang dimiliki Electron. Pada Windows, Kesalahan umum adalah menggunakan plugin Flash versi 32bit melawan versi 64bit Elektron.
+The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
-Pada Windows the path passed to `--ppapi-flash-path` harus menggunakan `` sebagai pembatas, menggunakan POSIX-style paths tidak akan bekerja.
+On Windows the path passed to `--ppapi-flash-path` has to use `\` as path delimiter, using POSIX-style paths will not work.
 
 Untuk beberapa operasi, seperti media streaming menggunakan RTMP, perlu memberikan izin yang lebih luas kepada berkas '`.swf `. Salah satu cara untuk mencapai ini, adalah dengan menggunakan [ nw-flash-trust ](https://github.com/szwacz/nw-flash-trust).
