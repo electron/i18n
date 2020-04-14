@@ -2,11 +2,11 @@
 
 Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
-**捷徑清單 (JumpList):**
+__捷徑清單 (JumpList):__
 
 ![捷徑清單最近的檔案](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**應用程式 Dock 選單:**
+__應用程式 Dock 選單:__
 
 ![macOS Dock 選單](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
