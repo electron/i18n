@@ -4,21 +4,6 @@
 
 處理序: [主處理序](../glossary.md#main-process)
 
-
-This module cannot be used until the `ready` event of the `app` module is emitted.
-
-For example:
-
-```javascript
-const { app, powerMonitor } = require('electron')
-
-app.on('ready', () => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
-})
-```
-
 ## 事件
 
 ` powerMonitor ` 模組發出以下事件:
