@@ -4,10 +4,10 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `bagong diinangPagitangBar(pamimilian)`*Eksperimento*
+### `new TouchBarSpacer(options)` _Experimental_
 
-* `pagpipilian` Bagay 
-  * `sukat` Pisi (opsyonal) - laki ng spacer, posibleng values ay: 
+* `options` Object
+  * `size` String (optional) - Size of spacer, possible values are:
     * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
     * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
     * `flexible` - Take up all available space. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
