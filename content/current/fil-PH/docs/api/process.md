@@ -9,29 +9,28 @@ Ang `prosesong` bagay ng Electron ay pinalawak mula sa [Node.js `proseso` bagay]
 ## Sandbox
 
 In sandboxed renderers the `process` object contains only a subset of the APIs:
-
-* `crash()`
-* `hang()`
-* `getCreationTime()`
-* `getHeapStatistics()`
-* `getBlinkMemoryInfo()`
-* `getProcessMemoryInfo()`
-* `getSystemMemoryInfo()`
-* `getSystemVersion()`
-* `getCPUUsage()`
-* `getIOCounters()`
-* `argv`
-* `execPath`
-* `env`
-* `pid`
-* `arch`
-* `platform`
-* `sandboxed`
-* `ang uri`
-* `version`
-* `versions`
-* `mas`
-* `windowsStore`
+- `crash()`
+- `hang()`
+- `getCreationTime()`
+- `getHeapStatistics()`
+- `getBlinkMemoryInfo()`
+- `getProcessMemoryInfo()`
+- `getSystemMemoryInfo()`
+- `getSystemVersion()`
+- `getCPUUsage()`
+- `getIOCounters()`
+- `argv`
+- `execPath`
+- `env`
+- `pid`
+- `arch`
+- `platform`
+- `sandboxed`
+- `uri`
+- `version`
+- `versions`
+- `mas`
+- `windowsStore`
 
 ## Pangyayari
 
@@ -39,7 +38,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 Napalabas kapag na-load ng Electron ang kanyang panloob na inisyalisasyon iskrip at simulang mag load ang web page o sa pangunahin iskrip.
 
-Pwede rin itong magamit ng preload iskrip para magdagdag ang tinanggal na Node global na simbolo pabalik sa global scope kung ang integrasyon ng node ay nakapatay. 
+Pwede rin itong magamit ng preload iskrip para magdagdag ang tinanggal na Node global na simbolo   pabalik sa global scope kung ang integrasyon ng node ay nakapatay.
 
 ```javascript
 // preload.js
@@ -53,21 +52,21 @@ process.once('loaded', () => {
 
 ## Mga Katangian
 
-### `process.defaultApp` *Readonly*
+### `process.defaultApp` _Readonly_
 
-Ang `Boolean`. Kung ang app ay nagsimula sa pamamagitan ng ipinapasa bilang parametro sa default app, ang katangiang ito ay `totoo` sa pangunahing proseso, kunghindiman ito ay `malabo`
+A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
-### `process.isMainFrame` *Readonly*
+### `process.isMainFrame` _Readonly_
 
 A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas` *Readonly*
+### `process.mas` _Readonly_
 
-Ang `Boolean`. Para sa itinayo na Mac App Store, ang propyedad na ito ay `totoo`, para sa ibang initayo ito ay `malabo`.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `proseso.noAsar`
 
-Ang `Boolean` na nag kontrol ng ASAR ay nagsuporta sa loob ng iyong aplikasyon. Ang pag set nito sa `totoo` ay hindi mapapagana ang suporta para `asar`arkibos sa Node's built-in modyul.
+A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
 ### `proseso.noDeprecation`
 
@@ -77,11 +76,11 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
-### `process.resourcesPath` *Readonly*
+### `process.resourcesPath` _Readonly_
 
 Ang `String` nag representa ng landas patungo sa pangunahing panuto.
 
-### `process.sandboxed` *Readonly*
+### `process.sandboxed` _Readonly_
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
@@ -91,27 +90,26 @@ Ang `Boolean` na kumokontrol kung o hindi ang mga babala sa deprecation ay matat
 
 ### `proseso.bakasDeprecation`
 
-Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stderr` isinama ng isinalansan na bakas. Setting this to `true` will print stack traces for deprecations. Ang propeyedad na ito ay sa halip na ang `--bakas-deprecation` naguutos ng linyang bandila.
+Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stderr`  isinama ng isinalansan na bakas. Setting this to `true` will print stack traces for deprecations. Ang propeyedad na ito ay sa halip na ang `--bakas-deprecation` naguutos ng linyang bandila.
 
 ### `proseso.bakasProsesoBabala`
-
 Ang `Boolean` na nagkontrol kung o hindi na ang mga babalang proseso ay nakalimbag sa `stderr` isama sa isinalansan na bakas. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
-### `process.type` *Readonly*
+### `process.type` _Readonly_
 
 A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
-### `process.versions.chrome` *Readonly*
+### `process.versions.chrome` _Readonly_
 
 Ang `String` nagrepresenta sa bersyon ng Chrome string.
 
-### `process.versions.electron` *Readonly*
+### `process.versions.electron` _Readonly_
 
 Ang `String` nag representang bersyon ng Electron string.
 
-### `process.windowsStore` *Readonly*
+### `process.windowsStore` _Readonly_
 
-Ang `Boolean`. Kung ang app ay tumatakbo bilang Windows Store app (appx), ang propeyedad a `totoo`, para kung hindimna ito ay `malabo`.
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## Mga Paraan
 
@@ -131,13 +129,13 @@ Indicates the creation time of the application. The time is represented as numbe
 
 Pagbabalik [` CPUUsage `](structures/cpu-usage.md)
 
-### ` proseso.kuhaIOCounter()`*Windows**Linux*
+### `process.getIOCounters()` _Windows_ _Linux_
 
 Pagbabalik [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `totalHeapSize` Integer
 * `totalHeapSizeExecutable` Integer
@@ -149,11 +147,11 @@ Nagbabalik ng mga `bagay`:
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+Returns an object with V8 heap statistics. Tandaan na ang lahat ng mga estatistika ay iniulat sa Kilobytes.
 
 ### `process.getBlinkMemoryInfo()`
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `allocated` Integer - Size of all allocated objects in Kilobytes.
 * `marked` Integer - Size of all marked objects in Kilobytes.
@@ -171,14 +169,14 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 ### `proseso.getSystemMemoryInfo()`
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
-* `kabuuan` Integer - Ang kabuuang halaga ng pisikal na memorya sa Kilobytes na maggagamit sa sistema. 
+* `kabuuan` Integer - Ang kabuuang halaga ng pisikal na memorya sa Kilobytes na maggagamit sa sistema.
 * `libre` Integer - Ang kabuuang halaga ng memorya na hindi nagagamit sa aplikasyon o disk cache.
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
 
-Nagbabalik ng bagay at nagbibigay ng memoryang gamit na istatistika tungkol sa buong sistema. Tandaan na ang lahat ng istatistika ay inuulat sa Kilobytes.
+Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
 ### `process.getSystemVersion()`
 
@@ -208,7 +206,7 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 
 Dahilan na ang pangunahing thread sa kasalukuyang proseso sabit.
 
-### `proseso.setFdLimit(maxDescriptors)`macOS</em>*Linux*
+### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
 * `maxDescriptors` Integer
 
