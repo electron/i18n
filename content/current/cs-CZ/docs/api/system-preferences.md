@@ -167,7 +167,7 @@ Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 * `value` String
 
 Set the value of `key` in `NSUserDefaults`.
@@ -295,7 +295,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-background` - The background of a window.
     * `window-frame-text` - The text in the window's titlebar area.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
 
 The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 
@@ -326,7 +326,7 @@ Returns `Boolean` - `true` if an inverted color scheme (a high contrast color sc
 
 Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
-**Depreacted:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
+**Deprecated:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
 
 ### `systemPreferences.getEffectiveAppearance()` _macOS_
 
@@ -334,23 +334,17 @@ Returns `String` - Can be `dark`, `light` or `unknown`.
 
 Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-**[Deprecated](modernization/property-updates.md)**
-
 ### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
 
 Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
 
 Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
 
-**[Deprecated](modernization/property-updates.md)**
-
 ### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _Deprecated_
 
 * `appearance` String | null - Can be `dark` or `light`
 
 Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
-
-**[Deprecated](modernization/property-updates.md)**
 
 ### `systemPreferences.canPromptTouchID()` _macOS_
 
