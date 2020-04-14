@@ -122,7 +122,7 @@ MyApp.app/Contents
   * `SURF_TEMP` - 在 Windows 下设置为 `C:\Temp` 来防止路径太长的问题
   * `TARGET_ARCH` - 设置为 `ia32` 或 `x64`
 
-4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+4. 在 `script/upload.py`，你 _必须_ 为你的分支(`MYORG/electron`)设置 `ELECTRON_REPO`， 尤其如果你本身是一个 Electron 贡献者。
 
 5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
