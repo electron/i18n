@@ -138,7 +138,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `focusable` Boolean (facultatif) - Si la fenêtre peut avoir le focus. La valeur par défaut est `true`. Sur Windows, mettre `focusable: false` implique également le réglage `skipTaskbar: true`. Sur Linux, mettre `focusable: false` fait que la fenêtre arrête d'interragir avec wm, par conséquent la fenêtre restera toujours au dessus dans tous les espaces de travail.
   * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Par défaut la valeur est `false`.
   * `fullscreen` Boolean (facultatif) - Est-ce que la fenêtre doit s'afficher en plein écran. Quand explicitement mit a `faux`, le bouton plein écran sera caché ou désactivé sur macOS. Par défaut la valeur est `false`.
-  * `fullscreen` Boolean (facultatif) - Est-ce que la fenêtre peut s'afficher en plein écran. Sur macOS, indiquez également si le bouton de maximizer/zoom doit basculer en mode plein écran ou agrandir la fenêtre. La valeur par défaut est `true`.
+  * `fullscreen` Boolean (facultatif) - Est-ce que la fenêtre peut s'afficher en plein écran. Sur macOS, indiquez également si le bouton de maximizer/zoom doit basculer en mode plein écran ou agrandir la fenêtre. La valeur par défaut est `vraie`.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Par défaut la valeur est `false`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
   * `kiosk` Boolean (optional) - The kiosk mode. Par défaut la valeur est `false`.
@@ -163,7 +163,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `default` - Résultats dans la barre de titre standard de Mac opaque gris.
     * `Caché` - Résultats dans une barre de titre cachée et une fenêtre de contenu en pleine taille, encore la barre de titre a toujours les contrôles standards de la fenêtre ("feux de circulation") dans en haut à gauche.
     * `hiddenInset` - Résultats dans une barre de titre cachée avec un look alternatif où les boutons du feu de circulation sont légèrement plus insérables à partir du bord de la fenêtre.
-    * `customButtonsOnHover` Boolean (facultatif) - Dessine une fermeture personnalisée, et minimise les boutons sur les fenêtres sans cadre macOS. Ces boutons n'afficheront pas à moins d'être survolés en haut à gauche de la fenêtre. Ces boutons personnalisés empêchent les problèmes liés aux événements de la souris qui se produisent avec les boutons standard de la barre d'outils de la fenêtre. **Note:** This option is currently experimental.
+    * `customButtonsOnHover` Boolean (facultatif) - Dessine une fermeture personnalisée, et minimise les boutons sur les fenêtres sans cadre macOS. Ces boutons n'afficheront pas à moins d'être survolés en haut à gauche de la fenêtre. Ces boutons personnalisés empêchent les problèmes liés aux événements de la souris qui se produisent avec les boutons standard de la barre d'outils de la fenêtre. **Note:** Cette option est actuellement expérimentale.
   * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Par défaut la valeur est `false`.
   * `thickFrame` Boolean (facultatif) - Utilisez le style `WS_THICKFRAME` pour les fenêtres sans cadre sur Windows, qui ajoute une image standard de fenêtre. Le définir à `false` supprimera les animations de fenêtre et de fenêtre. La valeur par défaut est `true`.
@@ -207,8 +207,8 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `backgroundThrottling` Boolean (facultatif) - Si vous voulez maîtriser les animations et les minuteurs lorsque la page devient en arrière-plan. Cela affecte également l'API [Visibilité de la page](#page-visibility). Par défaut, `true`.
     * `Offscreen` Boolean (facultatif) - Activer le rendu hors écran pour la fenêtre du navigateur. Par défaut, `faux`. Voir le [tutoriel de rendu hors écran](../tutorial/offscreen-rendering.md) pour plus de détails.
     * `contextIsolation` Boolean (facultatif) - Exécuter les API Electron et le script `preload` spécifié dans un contexte JavaScript séparé. Par défaut, est `faux`. Le contexte dans lequel le script `preload` s'exécute va toujours avoir un accès complet aux `document` et `window` globales mais il utilisera son propre jeu de builtins JavaScript (`Tableau`, `Objet`, `JSON`, etc. et sera isolé de toute modification apportée à l'environnement global par la page chargée. L'API Electron ne sera disponible que dans le script `preload` et non dans la page chargée. Cette option devrait être utilisée lorsque chargeant du contenu distant potentiellement non fiable pour s'assurer que le contenu chargé ne peut pas altérer avec le script `preload` et toutes les API Electron en cours d'utilisation. Cette option utilise la même technique utilisée par [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Vous pouvez accéder à ce contexte dans les outils de développement en sélectionnant l'entrée « Contexte isolé d'Electron » dans la liste déroulante en haut de l'onglet Console.
-    * `nativeWindowOpen` Boolean (facultatif) - Utiliser natif `window.open()`. Par défaut, `faux`. Les fenêtres enfants auront toujours l'intégration du nœud désactivée sauf si `nodeIntegrationInSubFrames` est vrai. **Note:** This option is currently experimental.
-    * `webviewTag` Boolean (facultatif) - Activer la balise [`< webview>`](webview-tag.md). Par défaut, `faux`. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. Vous pouvez utiliser l'événement `will-attach-webview` sur [webContents](web-contents.md) pour supprimer le script `preload` et valider ou modifier les paramètres initiaux de `< webview>`.
+    * `nativeWindowOpen` Boolean (facultatif) - Utiliser natif `window.open()`. Par défaut, `faux`. Les fenêtres enfants auront toujours l'intégration du nœud désactivée sauf si `nodeIntegrationInSubFrames` est vrai. **Note:** Cette option est actuellement expérimentale.
+    * `webviewTag` Boolean (facultatif) - Activer la balise [`< webview>`](webview-tag.md). Par défaut, `faux`. **Remarque :** Le script `preload` configuré pour le `< webview>` aura une intégration de nœuds activée lorsqu'il est exécuté, donc vous devez vous assurer que le contenu distant/non fiable n'est pas en mesure de créer une balise `<webview>` avec un préchargement de `potentiellement malveillant` script. Vous pouvez utiliser l'événement `will-attach-webview` sur [webContents](web-contents.md) pour supprimer le script `preload` et valider ou modifier les paramètres initiaux de `< webview>`.
     * `additionalArguments` String[] (facultatif) - Une liste de chaînes qui seront ajoutées au processus `. rgv` dans le processus renderer de cette application. Utile pour passer de petites bits de données vers le bas pour le processus de rendu des scripts de préchargement.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Par défaut la valeur est `false`.
     * `safeDialogsMessage` String (facultatif) - Le message à afficher lorsque la protection consécutive des dialogues est déclenchée. Si non défini, le message par défaut serait utilisé, notez que le message par défaut est actuellement en anglais et non localisé.
@@ -233,7 +233,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 Les objets crées avec `new BrowserWindow` émettent les évennements suivants :
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Remarque :** Certains événements sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
 #### Événement : 'page-title-updated'
 
@@ -265,15 +265,15 @@ window.onbeforeunload = (e) => {   console.log('I do not want to be closed')
   e.returnValue = false // Equivaut à un `return false` mais ce n'est pas recommandé
 }
 ```
-_**Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. Il est recommendé de toujours spécifier l' `event.returnValue` explicitement, plutôt que de seulement retourner une valeur, cette méthode fonctionne mieux avec Electron._
+_**Note**: Il y a une subtile différence entre le comportement de `window.onbeforeunload = handler` et `window.addEventListener('beforeunload', handler)`. Il est recommendé de toujours spécifier l' `event.returnValue` explicitement, plutôt que de seulement retourner une valeur, cette méthode fonctionne mieux avec Electron._
 
 #### Événement : 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Émit lorsque la fenêtre est fermée. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Event: 'session-end' _Windows_
+#### Événement : 'session-end' _Windows_
 
-Émis lorsque la session va se terminer à cause d'un redémarrage, une extinction forcée ou une déconnexion.
+Émis lorsque la session va se terminer à cause d'une redémarage, un éteignage forcé ou une déconnexion.
 
 #### Événement : 'unresponsive'
 
@@ -301,7 +301,7 @@ Emitted when the window is closed. After you have received this event you should
 
 #### Événement : 'ready-to-show'
 
-Émis lorsque la page web à été chargée (tout en n'étant pas affichée) et la fenêtre peut être affichée sans flash visuel.
+Émis lorsque la page web à été chargée (tout en n'était pas affichée) et la fenêtre peut être affichée sans flash visuel.
 
 Veuillez noter que l'utilisation de cet événement implique que le moteur de rendu sera considéré comme "visible" et peinture, même si `show` est faux.  Cet événement ne se déclenchera jamais si vous utilisez `paintWhenInitiallyHidden: false`
 
@@ -321,7 +321,7 @@ Veuillez noter que l'utilisation de cet événement implique que le moteur de re
 
 Émis lorsque la fenêtre est restaurée à partir d’un état réduit.
 
-#### Event: 'will-resize' _macOS_ _Windows_
+#### Événement : 'will-resize' _macOS_ _Windows_
 
 Retourne :
 
@@ -351,9 +351,9 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Émis lorsque la fenêtre est déplacée vers une nouvelle position.
 
-__Note__: On macOS this event is an alias of `moved`.
+__Note__ : Sous macOS, cet événement est un alias de `moved`.
 
-#### Event: 'moved' _macOS_
+#### Événement : 'moved' _macOS_
 
 Émis une fois lorsque la fenêtre est déplacée vers une nouvelle position.
 
@@ -382,7 +382,7 @@ Retourne :
 
 Émis lorsque la fenêtre est définie ou non définie pour toujours afficher au dessus des autres fenêtres.
 
-#### Event: 'app-command' _Windows_ _Linux_
+#### Événement : 'app-command' _Windows_ _Linux_
 
 Retourne :
 
@@ -409,19 +409,19 @@ Les commandes d'application suivantes sont explicitement prises en charge sur Li
 * `retour en arrière du navigateur`
 * `navigateur-transfert`
 
-#### Event: 'scroll-touch-begin' _macOS_
+#### Événement : 'scroll-touch-begin' _macOS_
 
 Émis lorsque l’événement scroll de la souris a commencé.
 
-#### Event: 'scroll-touch-end' _macOS_
+#### Événement : 'scroll-touch-end' _macOS_
 
 Émis lorsque l’événement scroll de la souris est terminée.
 
-#### Event: 'scroll-touch-edge' _macOS_
+#### Événement : 'scroll-touch-edge' _macOS_
 
 Émis lorsque l’événement scroll de la souris arrive au bord d'un élément.
 
-#### Event: 'swipe' _macOS_
+#### Événement : 'swipe' _macOS_
 
 Retourne :
 
@@ -430,7 +430,7 @@ Retourne :
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Event: 'rotate-gesture' _macOS_
+#### Événement : 'rotate-gesture' _macOS_
 
 Retourne :
 
@@ -439,15 +439,15 @@ Retourne :
 
 Émis lors du mouvement de rotation du trackpad. Émission continue jusqu'à la fin du geste de rotation. La valeur `rotation` sur chaque émission est l'angle en degrés tourné depuis la dernière émission. Le dernier événement émis lors d'un geste de rotation sera toujours de la valeur `0`. Les valeurs de rotation dans le sens inverse des aiguilles d'une montre sont positives, tandis que les valeurs dans le sens horaire sont négatives.
 
-#### Event: 'sheet-begin' _macOS_
+#### Événement : 'sheet-begin' _macOS_
 
 Émis lorsque la fenêtre ouvre une feuille.
 
-#### Event: 'sheet-end' _macOS_
+#### Événement : 'sheet-end' _macOS_
 
 Émis lorsque la fenêtre a fermé une feuille.
 
-#### Event: 'new-window-for-tab' _macOS_
+#### Événement : 'new-window-for-tab' _macOS_
 
 Émis lorsque le bouton natif du nouvel onglet est cliqué.
 
@@ -489,7 +489,7 @@ Ajoute l'extension Chrome située à `path`, et retourne le nom de l'extension.
 
 La méthode ne retourne pas non plus si le manifeste de l'extension est manquant ou incomplet.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
 #### `BrowserWindow.removeExtension(name)`
 
@@ -497,13 +497,13 @@ La méthode ne retourne pas non plus si le manifeste de l'extension est manquant
 
 Supprime une extension Chrome avec le nom donné.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
 #### `BrowserWindow.getExtensions()`
 
 Retourne `Enregistrement<String, ExtensionInfo>` - Les clés sont les noms des extensions et chaque valeur est un Objet contenant les propriétés `name` et `version` .
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
@@ -515,7 +515,7 @@ L'extension sera mémorisée donc vous n'avez besoin d'appeler cette API qu'une 
 
 La méthode ne retourne pas non plus si le manifeste de l'extension est manquant ou incomplet.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
@@ -523,7 +523,7 @@ La méthode ne retourne pas non plus si le manifeste de l'extension est manquant
 
 Supprimer une extension DevTools par nom.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
@@ -538,7 +538,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
 ### Propriétés d'instance
 
@@ -753,7 +753,7 @@ Ferme le panneau [Aperçu rapide](https://en.wikipedia.org/wiki/Quick_Look) actu
 #### `win.setBounds(bounds[, animate])`
 
 * `limites` Partiel<unk> Rectangle</a>>
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (facultatif) _macOS_
 
 Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
 
@@ -778,7 +778,7 @@ Retourne [`Rectangle`](structures/rectangle.md) - Les `limites` de la fenêtre c
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (facultatif) _macOS_
 
 Redimensionne et déplace la zone client de la fenêtre (par exemple la page web) vers les limites fournies.
 
@@ -806,7 +806,7 @@ Retourne Boolean - si la fenêtre est activée.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (facultatif) _macOS_
 
 Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
@@ -818,7 +818,7 @@ Retourne `Integer[]` - Contient la largeur et la hauteur de la fenêtre.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (facultatif) _macOS_
 
 Redimensionne la zone client de la fenêtre (par exemple la page web) à `largeur` et `hauteur`.
 
@@ -944,7 +944,7 @@ Sous Linux, retourne toujours `true`.
 
 * `flag` Boolean
 * `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). La valeur par défaut est `floating` lorsque `flag` est vrai. Le `niveau` est réinitialisé à `normal` lorsque le drapeau est faux. Notez que de `flottant` à `statut` inclus, la fenêtre est placée sous le Dock sur macOS et sous la barre des tâches sous Windows. De `pop-up-menu` à une valeur supérieure, il est affiché au-dessus du Dock sur macOS et au-dessus de la barre des tâches sur Windows. Voir la documentation [macOS](https://developer.apple.com/documentation/appkit/nswindow/level) pour plus de détails.
-* `relativeLevel` Integer (optional) _macOS_ - The number of layers higher to set this window relative to the given `level`. Par défaut, `0`. Notez que Apple décourage le réglage de niveaux supérieurs à 1 au-dessus de `économiseur d'écran`.
+* `relativeLevel` Integer (facultatif) _macOS_ - Le nombre de calques supérieur à définir cette fenêtre par rapport au `level`. Par défaut, `0`. Notez que Apple décourage le réglage de niveaux supérieurs à 1 au-dessus de `économiseur d'écran`.
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 
@@ -970,7 +970,7 @@ Déplace la fenêtre vers le centre de l’écran.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (facultatif) _macOS_
 
 Déplace la fenêtre à la position `x` et `y`.
 
