@@ -1,6 +1,6 @@
 # Uso del plugin Flash Pepper
 
-Electron supporta il plugin Flash Pepper. Per utilizzare il plugin Flash Pepper in Electron, dovresti specificare manualmente la posizione del plugin Flash Pepper e poi abilitarlo nella tua applicazione.
+Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
 ## Prepara una copia del Plugin Flash
 
@@ -60,8 +60,8 @@ Aggiungi l'attributo `plugins` al tag `<webview>`.
 
 Puoi controllare se il plugin Pepper Flash è stato caricato ispezionando `navigator.plugins` nella console degli strumenti dispositivo (anche se non puoi sapere se il percorso del plugin sia corretto).
 
-L'architettura del plugin Pepper Flash deve corrispondere con quella di Electron. Su Windows, un errore comune è di usare la versione 32bit del plugin Flash contro la versione 64bit di Electron.
+The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
-Su Windows il percorso passato a `--ppapi-flash-path` deve usare `` come delimitatore di percorso, usando percorsi POSIX-style non funzionerà.
+On Windows the path passed to `--ppapi-flash-path` has to use `\` as path delimiter, using POSIX-style paths will not work.
 
 Per alcune operazioni, come streaming media usando RTMP, è necessario garantire tutti i permessi ai lettori di file `.swf`. Un metodo per permetterlo è di usare [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
