@@ -1,14 +1,15 @@
 # Debugging Proses Utama di VSCode
 
-### 1. Buka proyek Elektron di VSCode.
+### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron / $ elektron-cepat-start.git kode elektron-cepat-start
 ```
 
-### 2. Tambahkan file ` .vscode / launch.json </ 0> dengan konfigurasi berikut:</h3>
+### 2. Add a file `.vscode/launch.json` with the following configuration:
 
-<pre><code class="json">{
+```json
+{
   "version": "0.2.0",
   "configurations": [
     {
@@ -25,10 +26,11 @@ $ git clone git@github.com:electron / $ elektron-cepat-start.git kode elektron-c
     }
   ]
 }
-`</pre> 
+```
+
 
 ### 3. Debugging
 
-Tetapkan beberapa breakpoint di  main.js </ 0> , dan mulai debugging di <a href="https://code.visualstudio.com/docs/editor/debugging"> Debug View </ 1> . Anda harus bisa memukul breakpoints.</p>
+Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 
-<p>Berikut adalah proyek pra-konfigurasi yang dapat Anda unduh dan langsung debug di VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start</p>
+Berikut adalah proyek pra-konfigurasi yang dapat Anda unduh dan langsung debug di VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
