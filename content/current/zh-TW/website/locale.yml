@@ -162,13 +162,13 @@ blog:
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
   help: Need help or found a bug? <a href="/contact">Contact us</a>.
 clipboard:
-  copy: Copy
+  copy: 複製
   copy_to_clipboard: 複製到剪貼簿
   copied: 複製成功
 fiddle_launch_button:
   launch: Launch
   launch_in_fiddle: Launch in Fiddle
-or: or
+or: 或
 pages:
   '/':
     title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
