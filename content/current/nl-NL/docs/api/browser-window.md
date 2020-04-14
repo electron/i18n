@@ -1410,7 +1410,7 @@ Set a custom position for the traffic light buttons. Can only be used with `titl
 
 Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
 
-#### `win.setTouchBar(touchBar)` _macOS_ _Experimental_
+#### `win.setTouchBar(touchBar)` _macOS_ _Experimenteel_
 
 * `touchBar` TouchBar | null
 
@@ -1418,26 +1418,26 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` _Experimental_
+#### `win.setBrowserView(browserView)` _Experimenteel_
 
 * `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
-#### `win.getBrowserView()` _Experimental_
+#### `win.getBrowserView()` _Experimenteel_
 
 Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
-#### `win.addBrowserView(browserView)` _Experimental_
+#### `win.addBrowserView(browserView)` _Experimenteel_
 
 * `browserView` [BrowserView](browser-view.md)
 
 Replacement API for setBrowserView supporting work with multi browser views.
 
-#### `win.removeBrowserView(browserView)` _Experimental_
+#### `win.removeBrowserView(browserView)` _Experimenteel_
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` _Experimental_
+#### `win.getBrowserViews()` _Experimenteel_
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Let op:** De BrowserView API is momenteel experimenteel en kan mogelijk veranderen of verwijderd worden in toekomstige Electron uitgaves.
