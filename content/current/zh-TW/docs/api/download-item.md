@@ -7,7 +7,7 @@
 `DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
 ```javascript
-// 在主處理序裡。
+// 在主處理序中.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
