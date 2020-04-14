@@ -4,9 +4,10 @@
 
 處理序: [主處理序](../glossary.md#main-process)
 
+
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
-例如:
+For example:
 
 ```javascript
 const { app, powerMonitor } = require('electron')
@@ -30,23 +31,23 @@ Emitted when the system is suspending.
 
 在系統復原時發出。
 
-### 事件: 'on-ac' *Windows*
+### Event: 'on-ac' _Windows_
 
 當系統變為用交流電作電源時發出。
 
-### 事件: 'on-battery' *Windows*
+### Event: 'on-battery' _Windows_
 
 當系統變為用電池作電源時發出。
 
-### Event: 'shutdown' *Linux* *macOS*
+### Event: 'shutdown' _Linux_ _macOS_
 
 Emitted when the system is about to reboot or shut down. If the event handler invokes `e.preventDefault()`, Electron will attempt to delay system shutdown in order for the app to exit cleanly. If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.
 
-### Event: 'lock-screen' *macOS* *Windows*
+### Event: 'lock-screen' _macOS_ _Windows_
 
 Emitted when the system is about to lock the screen.
 
-### Event: 'unlock-screen' *macOS* *Windows*
+### Event: 'unlock-screen' _macOS_ _Windows_
 
 Emitted as soon as the systems screen is unlocked.
 
@@ -60,7 +61,7 @@ The `powerMonitor` module has the following methods:
 
 Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `locked` is available on supported systems only.
+Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
 
 ### `powerMonitor.getSystemIdleTime()`
 
