@@ -1,10 +1,10 @@
 # はじめての Electron アプリ
 
-Electron は、豊富なネイティブ (オペレーティングシステム) APIを備えたランタイムを提供することで、ピュア JavaScript でデスクトップアプリケーションを開発できるようにします。 ウェブサーバではなくデスクトップアプリケーションに焦点を当てた Node.js ランタイムが、Electron であると捉えても構いません。
+Electronは、豊富なネイティブ (オペレーティング・システム) APIを備えたランタイムを提供することで、純粋なJavaScriptでデスクトップ・アプリケーションを開発できるようにします。 Webサーバではなく、デスクトップ・アプリケーションに焦点を当てたNode.jsランタイムがElectronであると捉えても構いません。
 
 これは、Electron はグラフィカルユーザーインターフェース (GUI) ライブラリへの JavaScript バインディングである、という意味ではありません。 代わりにその GUI としてウェブページを使うので、Electron は JavaScript で操作できる小型 Chromium ブラウザである、とすることもできます。
 
-**注**: このサンプルは [すぐにダウンロードして実行](#trying-this-example) できるリポジトリとしても利用できます。
+**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
 
 開発に関しては、Electron は基本的に Node.js アプリケーションです。 開始点は Node.js モジュールと同じ `package.json` です。 最も基本的な Electron アプリは以下のフォルダ階層になるでしょう。
 
@@ -31,7 +31,7 @@ npm が基本的な `package.json` ファイルを作るガイドをします。
 }
 ```
 
-**注釈**: もし `main` フィールドが `package.json` 内に記載されていない場合、 Electron は (Node.js のように) `index.js` の読み込みを試みます。 もしこれがただのNodeアプリケーションならば、現在のパッケージを実行するように `node` に指示する `start` スクリプトを追加します。
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). もしこれがただのNodeアプリケーションならば、現在のパッケージを実行するように `node` に指示する `start` スクリプトを追加します。
 
 ```json
 {
@@ -159,9 +159,9 @@ app.on('activate', () => {
   </head>
   <body>
     <h1>Hello World!</h1>
-    node <script>document.write(process.versions.node)</script>、
-    Chrome <script>document.write(process.versions.chrome)</script>、
-    Electron <script>document.write(process.versions.electron)</script> を使用しています。
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
@@ -174,7 +174,7 @@ app.on('activate', () => {
 
 このチュートリアルのコードを [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) リポジトリからクローンして、実行してみてください。
 
-**注意**: これを実行するには、[Git](https://git-scm.com) と [npm](https://www.npmjs.com/)が必要です。
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # リポジトリをクローン
