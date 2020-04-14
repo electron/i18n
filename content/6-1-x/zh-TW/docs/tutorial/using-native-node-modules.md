@@ -1,4 +1,4 @@
-# 使用原生 Node 模組
+# 使用 Node 原生模組
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed on your system, the modules you use will need to be recompiled for Electron. Otherwise, you will get the following class of error when you try to run your app:
 
@@ -47,7 +47,7 @@ export npm_config_arch=x64
 export npm_config_target_arch=x64
 # 下載 Electron 標頭檔。
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# 告訴 node-pre-gyp 我們正要跑 Electron 建置。
 export npm_config_runtime=electron
 # 告訴 node-pre-gyp 由原始碼開始建置模組。
 export npm_config_build_from_source=true
