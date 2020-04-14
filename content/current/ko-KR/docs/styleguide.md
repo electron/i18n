@@ -23,7 +23,6 @@ Electron 문서 작성 가이드입니다.
 
 ## Renderer process
 
-
 ...
 
 ## Run your app
@@ -51,7 +50,7 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 ## 단어 선택
 
 * 결과를 설명할 때 "would" 대신 "will" 을 사용합니다.
-* "on" 대신 "in the ___ process" 표현을 지향합니다. 
+* "on" 대신 "in the ___ process" 표현을 지향합니다.
 
 ## API 참조
 
@@ -96,10 +95,10 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 * 생성자는 `###` 레벨 제목으로 나열되야 합니다.
 * [정적 메소드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)는 `### Statis Methods` 챕터 아래에 표시합니다.
 * [인스턴스 메소드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)는 `### Instance Methods` 챕터 아래에 표시합니다.
-* 반환 값이 있는 모든 메소드는 "반환값 `[TYPE]` - 반환 값 설명" 형태의 설명으로 시작해야 합니다. 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * 메소드가 `Object` 를 반환하면, 끝에 콜론을 붙인 뒤 다음줄부터 함수 매개변수와 같은 스타일로 순서에 상관없이 그 구조를 명시해야 합니다.
 * 인스턴스 이벤트는 `### Instance Events` 챕터 아래에 표시합니다.
-* 인스턴스 이벤트는 `### Instance Properties` 챕터 아래에 표시합니다. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * 인스턴스 속성은 "[속성 유형] ..." 으로 시작해야 합니다.
 
 `Session` 과 `Cookies` 클래스 사용 예시:
@@ -143,17 +142,17 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - 파라미터 설명.
-* `optional` Integer (optional) - 다른 파라미터 설명.
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```
 
 제목은 `###` 혹은 `####`-단계로 합니다. 모듈이냐 클래스냐에 따라 달라집니다.
 
-모듈의 경우, `objectName`은 모듈의 이름입니다. 클래스의 경우, 클래스의 인스턴스 이름이어야 하며, 모듈의 이름과 달라야합니다.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
-예를 들어, `session` 모듈의 `Session`클래스의 메소드는 `objectName` 으로 `ses`를 사용해야 합니다.
+예를 들어,  `session` 모듈의 `Session`클래스의 메소드는  `objectName` 으로 `ses`를 사용해야 합니다.
 
 선택적인 인수는 각각을 컴마로 구분하여 대괄호 `[]` 로 감쌉니다:
 
@@ -161,7 +160,7 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 필수[, 선택]
 ```
 
-아래 메소드에 각 인수에 대한 더 자세한 내용이 있습니다. 인수의 유형은 기본 유형 중 하나로 표시합니다.
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -180,7 +179,7 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 
 `Function` 유형의 인수를 위한 설명은 호출방법을 명확히 하고, 전달되는 매개변수의 유형을 표시해야 합니다.
 
-### Events
+### 이벤트
 
 이벤트 챕터는 다음을 따릅니다:
 
