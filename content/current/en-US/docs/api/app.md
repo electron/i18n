@@ -34,10 +34,11 @@ Returns:
 
 * `launchInfo` unknown _macOS_
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds
-the `userInfo` of the `NSUserNotification` that was used to open the application,
-if it was launched from Notification Center. You can call `app.isReady()` to
-check if this event has already fired.
+Emitted once, when Electron has finished initializing. On macOS, `launchInfo`
+holds the `userInfo` of the `NSUserNotification` that was used to open the
+application, if it was launched from Notification Center. You can also call
+`app.isReady()` to check if this event has already fired and `app.whenReady()`
+to get a Promise that is fulfilled when Electron is initialized.
 
 ### Event: 'window-all-closed'
 
@@ -74,7 +75,7 @@ Returns:
 * `event` Event
 
 Emitted when all windows have been closed and the application will quit.
-Calling `event.preventDefault()` will prevent the default behaviour, which is
+Calling `event.preventDefault()` will prevent the default behavior, which is
 terminating the application.
 
 See the description of the `window-all-closed` event for the differences between
@@ -203,7 +204,7 @@ Returns:
   [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Emitted when [Handoff][handoff] is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Emitted when [Handoff][handoff] is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
 ### Event: 'new-window-for-tab' _macOS_
 
@@ -487,18 +488,6 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process 
 Calling `event.preventDefault()` will prevent the object from being returned.
 Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-guest-web-contents'
-
-Returns:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `guestWebContents` [WebContents](web-contents.md)
-
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`.
-Calling `event.preventDefault()` will prevent the object from being returned.
-Custom value can be returned by setting `event.returnValue`.
-
 ## Methods
 
 The `app` object has the following methods:
@@ -557,6 +546,7 @@ app.exit(0)
 ### `app.isReady()`
 
 Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+See also `app.whenReady()`.
 
 ### `app.whenReady()`
 
@@ -564,10 +554,16 @@ Returns `Promise<void>` - fulfilled when Electron is initialized.
 May be used as a convenient alternative to checking `app.isReady()`
 and subscribing to the `ready` event if the app is not ready yet.
 
-### `app.focus()`
+### `app.focus([options])`
+
+* `options` Object (optional)
+  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is
+  currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application
 the active app. On Windows, focuses on the application's first window.
+
+You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macOS_
 
@@ -669,8 +665,6 @@ to the npm modules spec. You should usually also specify a `productName`
 field, which is your application's full capitalized name, and which will be
 preferred over `name` by Electron.
 
-**[Deprecated](modernization/property-updates.md)**
-
 ### `app.setName(name)`
 
 * `name` String
@@ -678,8 +672,6 @@ preferred over `name` by Electron.
 Overrides the current application's name.
 
 **Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
-
-**[Deprecated](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -945,7 +937,7 @@ if (!gotTheLock) {
   })
 
   // Create myWindow, load the rest of the app, etc...
-  app.on('ready', () => {
+  app.whenReady().then(() => {
   })
 }
 ```
@@ -1002,6 +994,17 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 Changes the [Application User Model ID][app-user-model-id] to `id`.
 
+### `app.setActivationPolicy(policy)` _macOS_
+
+* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+
+Sets the activation policy for a given app.
+
+Activation policy types:
+* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
+* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
+* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+
 ### `app.importCertificate(options, callback)` _Linux_
 
 * `options` Object
@@ -1024,7 +1027,7 @@ This method can only be called before app is ready.
 
 By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per
 domain basis if the GPU processes crashes too frequently. This function
-disables that behaviour.
+disables that behavior.
 
 This method can only be called before app is ready.
 
@@ -1088,13 +1091,9 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 **Note:** Unity launcher requires the existence of a `.desktop` file to work,
 for more information please read [Desktop Environment Integration][unity-requirement].
 
-**[Deprecated](modernization/property-updates.md)**
-
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
 Returns `Integer` - The current value displayed in the counter badge.
-
-**[Deprecated](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` _Linux_
 
@@ -1170,8 +1169,6 @@ technologies, such as screen readers, has been detected. See
 https://www.chromium.org/developers/design-documents/accessibility for more
 details.
 
-**[Deprecated](modernization/property-updates.md)**
-
 ### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
 
 * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
@@ -1182,8 +1179,6 @@ details. Disabled by default.
 This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
-
-**[Deprecated](modernization/property-updates.md)**
 
 ### `app.showAboutPanel()`
 
@@ -1201,7 +1196,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file on MacOS. See the [Apple docs][about-panel-options] for more details. On Linux, values must be set in order to be shown; there are no defaults.
+Set the about panel options. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs][about-panel-options] for more details. On Linux, values must be set in order to be shown; there are no defaults.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1230,9 +1225,9 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.enableSandbox()` _Experimental_
+### `app.enableSandbox()`
 
-Enables full sandbox mode on the app.
+Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 This method can only be called before app is ready.
 
@@ -1314,7 +1309,7 @@ command line arguments that Chromium uses.
 
 ### `app.dock` _macOS_ _Readonly_
 
-A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's
+A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's
 dock on macOS.
 
 ### `app.isPackaged` _Readonly_
