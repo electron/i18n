@@ -4,34 +4,34 @@
 
 ## 常見問題集
 
-這裡列出最常被問到旳問題。請在發出議題前先檢查看看你的問題是否已經有人問過了。
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [Electron 常見問題集](faq.md)
 
 ## 使用導引與教學
 
-* [開發環境設定](tutorial/development-environment.md) 
+* [開發環境設定](tutorial/development-environment.md)
   * [macOS 設定](tutorial/development-environment.md#setting-up-macos)
   * [Windows 設定](tutorial/development-environment.md#setting-up-windows)
   * [Linux設定](tutorial/development-environment.md#setting-up-linux)
   * [選擇編輯器](tutorial/development-environment.md#a-good-editor)
-* [建立你的第一個應用程式](tutorial/first-app.md) 
+* [建立你的第一個應用程式](tutorial/first-app.md)
   * [安裝 Electron](tutorial/first-app.md#installing-electron)
   * [使用 Nutshell 開發 Electron](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [執行你的應用程式](tutorial/first-app.md#running-your-app)
-* [模版及命令列介面 (CLI)](tutorial/boilerplates-and-clis.md) 
+* [模版及命令列介面 (CLI)](tutorial/boilerplates-and-clis.md)
   * [模板 vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [其他工具及模版](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [應用程式架構](tutorial/application-architecture.md) 
+* [應用程式架構](tutorial/application-architecture.md)
   * [主處理序及畫面轉譯處理序](tutorial/application-architecture.md#main-and-renderer-processes)
   * [使用 Electron API](tutorial/application-architecture.md#using-electron-apis)
   * [使用 Node.js API](tutorial/application-architecture.md#using-nodejs-apis)
   * [使用原生 Node.js 模組](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-* 新增功能進應用程式 
+* 新增功能進應用程式
   * [通知](tutorial/notifications.md)
   * [最近的文件](tutorial/recent-documents.md)
   * [應用程式進度](tutorial/progress-bar.md)
@@ -45,29 +45,29 @@
   * [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
   * [支援 macOS 的 Dark Mode](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
-* [協助工具](tutorial/accessibility.md) 
+* [協助工具](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [啟用協助工具](tutorial/accessibility.md#enabling-accessibility)
-* [記錄與除錯](tutorial/application-debugging.md) 
+* [記錄與除錯](tutorial/application-debugging.md)
   * [Debug 主處理序](tutorial/debugging-main-process.md)
   * [使用 Visual Studio Code debug 主處理序](tutorial/debugging-main-process-vscode.md)
   * [使用 Selenium 及 WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [在無周邊 CI 系統上測試 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-  * [DevTools 擴充](tutorial/devtools-extension.md)
+  * [DevTools 擴充功能](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* [分發](tutorial/application-distribution.md) 
+* [分發](tutorial/application-distribution.md)
   * [支援平臺](tutorial/support.md#supported-platforms)
   * [Code Signing](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows 市集](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [安全性](tutorial/security.md) 
+* [安全性](tutorial/security.md)
   * [回報安全性問題](tutorial/security.md#reporting-security-issues)
   * [Chromium 安全性議題及升級](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron 安全性警告](tutorial/security.md#electron-security-warnings)
   * [安全性檢查清單](tutorial/security.md#checklist-security-recommendations)
-* [更新](tutorial/updates.md) 
+* [更新](tutorial/updates.md)
   * [佈署更新伺服器](tutorial/updates.md#deploying-an-update-server)
   * [在應用程式中實作更新功能](tutorial/updates.md#implementing-updates-in-your-app)
   * [套用更新](tutorial/updates.md#applying-updates)
@@ -77,15 +77,15 @@
 
 These individual tutorials expand on topics discussed in the guide above.
 
-* [安裝 Electron](tutorial/installation.md) 
+* [安裝 Electron](tutorial/installation.md)
   * [代理伺服器](tutorial/installation.md#proxies)
   * [自訂鏡像及快取](tutorial/installation.md#custom-mirrors-and-caches)
   * [疑難排解](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
+* Electron Releases & Developer Feedback
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* [Packaging App Source Code with asar](tutorial/application-packaging.md)
   * [產生 asar 封存檔](tutorial/application-packaging.md#generating-asar-archives)
   * [使用 asar 封存檔](tutorial/application-packaging.md#using-asar-archives)
   * [限制](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -93,7 +93,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [詞彙表](glossary.md)
 
@@ -155,4 +155,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## 開發
 
-See <development/README.md>
+See [development/README.md](development/README.md)
