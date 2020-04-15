@@ -677,7 +677,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 
 如果 `categories` 的值为 `null`， 之前设定的自定义跳转列表(如果存在) 将被替换为标准的应用跳转列表(由windows生成)
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
+** 注意: **如果 ` JumpListCategory ` 对象既没有 ` type `, 也没有 ` name ` 属性设置, 则其 ` type ` 被假定为 ` tasks `。 如果设置了 ` name ` 属性, 但省略了 ` type ` 属性, 则假定 ` type ` 为 ` custom`。
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. 尝试提前将删除的项目重新添加 到自定义类别中，将导致整个自定义类别被隐藏。 删除的项目可以使用 `app.getJumpListSettings()` 获取。
 
@@ -895,7 +895,7 @@ machineModelVersion: '11.5' }
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher)。
 
 **[过时的](modernization/property-updates.md)**
 
@@ -920,16 +920,16 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 返回 ` Object `:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. 这表示应用程序在启动时不应打开任何窗口。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. 这表示程序应该还原上次关闭时打开的窗口。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
+* `openAsHidden` Boolean _macOS_ - `true` 表示应用在登录时以隐藏的方式启动。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` 表示应用在自动登录后已经启动。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
+* ` wasOpenedAsHidden `Boolean _macOS_ - 如果应用在登录时已经隐藏启动, 则为 ` true `。 这表示应用程序在启动时不应打开任何窗口。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
+* `restoreState` Boolean _macOS_ - `true` 表示应用作为登录启动项并且需要恢复之前的会话状态。 这表示程序应该还原上次关闭时打开的窗口。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. 默认值为 `false`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 `app.getLoginItemSettings().wasOpenedAsHidden` 以了解当前值。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
+  * `openAsHidden` Boolean (可选) _macOS_ - `true` 表示以隐藏的方式启动应用。 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 `app.getLoginItemSettings().wasOpenedAsHidden` 以了解当前值。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
@@ -967,7 +967,7 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 此 API 必须在 `ready` 事件触发后调用
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
 
 **[过时的](modernization/property-updates.md)**
 
@@ -1069,7 +1069,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 此 API 必须在 `ready` 事件触发后调用
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
 
 ### `app.applicationMenu`
 
@@ -1081,7 +1081,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher)。
 
 ### `app.commandLine` _Readonly_
 
