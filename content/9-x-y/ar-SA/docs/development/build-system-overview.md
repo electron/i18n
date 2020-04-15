@@ -1,4 +1,4 @@
-# نظرة عامة حول بناء نظام
+# نظام البناء نظرة عامة
 
 Electron uses [GN](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gn` and `.gni` files.
 
