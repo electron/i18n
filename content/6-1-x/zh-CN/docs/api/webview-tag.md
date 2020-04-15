@@ -12,11 +12,11 @@ By default the `webview` tag is disabled in Electron >= 5.  在构造 `BrowserWi
 
 > 在一个独立的 frame 和进程里显示外部 web 内容。
 
-进程: [渲染进程](../glossary.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
 使用 ` webview ` 标签在Electron 应用中嵌入 "外来" 内容 (如 网页)。外来"内容包含在 ` webview ` 容器中。 应用中的嵌入页面可以控制外来内容的布局和重绘。
 
-与 ` iframe ` 不同, ` webview ` 在与应用程序不同的进程中运行。它与您的网页没有相同的权限, 应用程序和嵌入内容之间的所有交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。 **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
+与 ` iframe ` 不同, ` webview ` 在与应用程序不同的进程中运行。它与您的网页没有相同的权限, 应用程序和嵌入内容之间的所有交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。 ** 注意: **从宿主页上调用 webview 的方法大多数都需要对主进程进行同步调用。
 
 ## 示例
 
@@ -116,11 +116,11 @@ When this attribute is present the guest page in `webview` will be able to use b
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-Specifies a script that will be loaded before other scripts run in the guest page. 该脚本的URL的协议必须是 `file:`  `asar:`二者之一，因为在访客页中，它是通过“内部”的 `require` 去加载的
+指定一个脚本在访客页中其他脚本执行之前先加载。 该脚本的URL的协议必须是 `file:`  `asar:`二者之一，因为在访客页中，它是通过“内部”的 `require` 去加载的
 
 当访客页没有 node integration ，这个脚本仍然有能力去访问所有的 Node APIs, 但是当这个脚本执行执行完成之后，通过Node 注入的全局对象（global objects）将会被删除。
 
-**Note:** This option will be appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
+**注意:** 在为 `will-attach-webview` 事件指定 `webPreferences` 时，这个选项将作为 `preloadURL` 出现，而不是 `preload`。
 
 ### `httpreferrer`
 
@@ -128,7 +128,7 @@ Specifies a script that will be loaded before other scripts run in the guest pag
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Sets the referrer URL for the guest page.
+为访客页设置 referrer URL
 
 ### `useragent`
 
@@ -153,7 +153,7 @@ When this attribute is present the guest page will have web security disabled. W
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sets the session used by the page. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 如果没有设置`partition`，app 将会使用默认的session。
+设置页面使用的会话。 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 如果没有设置`partition`，app 将会使用默认的session。
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -171,7 +171,7 @@ When this attribute is present the guest page will be allowed to open new window
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-A list of strings which specifies the web preferences to be set on the webview, separated by `,`. 支持的首选项字符串的完整列表，请查看 [BrowserWindow](browser-window.md#new-browserwindowoptions)。
+一个设置在 webview 上的 web 首选项的字符串列表，通过 `,` 号分割。 支持的首选项字符串的完整列表，请查看 [BrowserWindow](browser-window.md#new-browserwindowoptions)。
 
 该字符串的格式与 ` window.open ` 中的功能字符串( the features string )相同。 只有自己名字的将被赋予 `true` 布尔值。 可以通过 `=` 来赋予其他值。 `yes` 和 `1` 会被解析成 `true`，而 `no` 和 `0` 解析为 `false`。
 
@@ -195,7 +195,7 @@ A list of strings which specifies the blink features to be disabled separated by
 
 `webview` 标签具有以下方法：
 
-**Note:** The webview element must be loaded before using the methods.
+** 注意: **使用方法之前 <0>webview</0> 元素必须已被加载。
 
 **示例**
 
@@ -314,7 +314,7 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `css` String
 
-Injects CSS into the guest page.
+向访客页注入CSS。
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
@@ -444,7 +444,7 @@ Returns `Boolean` - Whether audio is currently playing.
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. 默认值为 `false`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -523,7 +523,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
+示例请进传送门： [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-)
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -581,7 +581,7 @@ It depends on the [`remote`](remote.md) module, it is therefore not available wh
 
 Returns `Number` - The WebContents ID of this `webview`.
 
-## DOM events
+## DOM 事件
 
 `webview` 标签具有以下有效的 DOM 事件：
 
@@ -807,7 +807,7 @@ Fired when the renderer process is crashed.
 
 返回:
 
-* `name` String
+* `name` 字符串
 * `version` String
 
 Fired when a plugin process is crashed.
