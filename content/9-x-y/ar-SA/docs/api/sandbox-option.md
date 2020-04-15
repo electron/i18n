@@ -110,7 +110,7 @@ Currently the `require` function provided in the preload scope exposes the follo
   - `desktopCapturer`
   - `ipcRenderer`
   - `nativeImage`
-  - `منصة_شليلة`
+  - `remote`
   - `webFrame`
 - `events`
 - `timers`
