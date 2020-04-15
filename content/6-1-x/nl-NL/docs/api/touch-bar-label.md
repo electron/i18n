@@ -4,7 +4,7 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)` _Experimental_
+### `new TouchBarLabel(options)` _Experimenteel_
 
 * `options` Object
   * `label` String (optional) - Text to display.
