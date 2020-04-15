@@ -1,4 +1,4 @@
-# 构建系统概览
+# 构建系统概述
 
 Electron 使用 [GN](https://gn.googlesource.com/gn) 生成项目，并用 [Ninja](https://ninja-build.org/) 完成构建。 项目配置位于 `.gn` 和 `.gni` 文件中。
 
