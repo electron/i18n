@@ -42,7 +42,7 @@ npm -v
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## Linux設定
+## Linux 設定
 
 > Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
 
