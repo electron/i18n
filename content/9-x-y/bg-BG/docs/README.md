@@ -33,7 +33,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Използване на родни Node.js модули](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
 * Добавяне на функции към вашето приложение
-  * [Notifications](tutorial/notifications.md)
+  * [Известия](tutorial/notifications.md)
   * [Последни документи](tutorial/recent-documents.md)
   * [Прогрес на приложението](tutorial/progress-bar.md)
   * [Потребителско док меню](tutorial/macos-dock.md)
@@ -41,17 +41,17 @@ There are questions that are asked quite often. Check this out before creating a
   * [Потребителски настолни действия при Linux](tutorial/linux-desktop-actions.md)
   * [Клавишни комбинации](tutorial/keyboard-shortcuts.md)
   * [Offline/Online откриване](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Представляващ файл за macOS BrowserWindows](tutorial/represented-file.md)
+  * [Роден Drag & Drop файл](tutorial/native-file-drag-drop.md)
   * [Рендиране извън екрана](tutorial/offscreen-rendering.md)
   * [5256783105227699](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
+  * [Разрешаване на достъпността](tutorial/accessibility.md#enabling-accessibility)
 * [5256783105227699](tutorial/application-debugging.md)
-  * [Debugging the Main Process](tutorial/debugging-main-process.md)
+  * [Отстраняване на грешк](tutorial/debugging-main-process.md)
   * [5256783105227699](tutorial/debugging-main-process-vscode.md)
   * [Работа със Selenium Web Driver](tutorial/using-selenium-and-webdriver.md)
   * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
@@ -66,10 +66,10 @@ There are questions that are asked quite often. Check this out before creating a
 * [Сигурност](tutorial/security.md)
   * [Докладване на проблеми със сигурността](tutorial/security.md#reporting-security-issues)
   * [Проблеми със сигурността и обновяване на Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Предупреждения за сигурността при Електрон](tutorial/security.md#electron-security-warnings)
+  * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
   * [Списък за сигурност](tutorial/security.md#checklist-security-recommendations)
 * [5256783105227699](tutorial/updates.md)
-  * [Дистрибуция на обновен сървър](tutorial/updates.md#deploying-an-update-server)
+  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
   * [Добавяне на новости във вашето приложение](tutorial/updates.md#implementing-updates-in-your-app)
   * [Прилагане на новости](tutorial/updates.md#applying-updates)
 * [Getting Support](tutorial/support.md)
@@ -92,7 +92,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [การเพิ่มไฟล์ที่คลายการบีบอัดไปยัง asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Използване на Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [การใช้ปลั้กอิน Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -100,10 +100,10 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## Функционална документация
 
-* [Обзор](api/synopsis.md)
+* [บทย่อ](api/synopsis.md)
 * [กระบวนการของวัตถุ](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
-* [Променливи на средата](api/environment-variables.md)
+* [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
 * [5256783105227699](breaking-changes.md)
 
 ### Персонални DOM елементи:
