@@ -163,7 +163,7 @@ child.once('ready-to-show', () => {
     * `default` - 标准灰色不透明的Mac标题栏
     * `hidden` - 隐藏标题栏, 内容充满整个窗口, 但它依然在左上角, 仍然受标准窗口控制.
     * `hiddenInset` - 隐藏标题栏, 显示小的控制按钮在窗口边缘
-    * `customButtonsOnHover` Boolean (可选) - 在macOS的无框窗口上绘制自定义的关闭与最小化按钮. 除非鼠标悬停到窗口的左上角, 否则这些按钮不会显示出来. 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. **Note:** This option is currently experimental.
+    * `customButtonsOnHover` Boolean (可选) - 在macOS的无框窗口上绘制自定义的关闭与最小化按钮. 除非鼠标悬停到窗口的左上角, 否则这些按钮不会显示出来. 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. ** 注意: **此选项目前是实验性的。
   * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. 默认值为 `false`.
   * `thickFrame` Boolean(可选)-对 Windows 上的无框窗口使用` WS_THICKFRAME ` 样式，会增加标准窗口框架。 设置为 `false` 时将移除窗口的阴影和动画. 默认值为 `true`。
@@ -207,8 +207,8 @@ child.once('ready-to-show', () => {
     * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 这也会影响到 [Page Visibility API](#page-visibility). 默认值为 `true`。
     * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
     * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认值为 `false`. `preload`脚本的运行环境仍然可以访问`document` 和 `window`全局变量，但它将使用自己内置的函数 (如`Array`, `Object`, `JSON`等)，并且将被加载的页面与对全局环境所做的任何更改隔离开来. Electron API 仅在 `preload` 脚本中有效，而不是加载的页面。 在加载可能不受信任的远程内容时, 应使用此选项, 以确保加载的内容不能篡改 ` preload ` 脚本和使用的 Electron APIs。 此选项使用 [ Chrome Content Scripts ](https://developer.chrome.com/extensions/content_scripts#execution-environment) 使用的相同技术。 通过在控制台选项卡顶部的组合框中选择 "Electron Isolated Context" 条目, 可以在开发工具中访问此上下文。
-    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
-    * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认值为 `false`. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
+    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. ** 注意: **此选项目前是实验性的。
+    * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认值为 `false`. ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
     * `additionalArguments` String\[] (可选) - 一系列将会被附加至此app的渲染进程的`process.argv`的字符串. 对于将少量数据向下传至渲染进程的预加载脚本而言是十分实用的.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. 默认值为 `false`.
     * `safeDialogsMessage` String (可选) - 当持续对话框保护被触发时显示的消息。 如果没有定义，那么将使用缺省的消息。注意：当前缺省消息是英文，并没有本地化。
@@ -233,7 +233,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 使用 `new BrowserWindow ` 创建的对象具有以下属性:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
 
 #### 事件： 'page-title-updated'
 
@@ -265,13 +265,13 @@ window.onbeforeunload = (e) => {
   e.returnValue = false // 相当于 `return false` ，但是不推荐使用
 }
 ```
-_**Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. 推荐总是显式地设置 `event.returnValue`, 而不是仅仅返回一个值, 因为前者在Electron中作用得更为一致._
+_**注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('beforeunload', handler)` 的行为有细微的区别。 推荐总是显式地设置 `event.returnValue`, 而不是仅仅返回一个值, 因为前者在Electron中作用得更为一致._
 
 #### 事件： 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Event: 'session-end' _Windows_
+#### 事件: 'session-end' _Windows_
 
 因为强制关机或机器重启或会话注销而导致窗口会话结束时触发
 
@@ -301,7 +301,7 @@ Emitted when the window is closed. After you have received this event you should
 
 #### 事件: 'ready-to-show'
 
-当页面已经渲染完成(但是还没有显示) 并且窗口可以被显示时触发
+当页面已经渲染完成(但是还没有显示) 并且窗口可以被现实时触发
 
 Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
 
@@ -321,7 +321,7 @@ Please note that using this event implies that the renderer will be considered "
 
 当窗口从最小化状态恢复时触发
 
-#### Event: 'will-resize' _macOS_ _Windows_
+#### 事件: 'will-resize' _macOS_ _Windows_
 
 返回:
 
@@ -351,9 +351,9 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 窗口移动到新位置时触发
 
-__Note__: On macOS this event is an alias of `moved`.
+__注意__: 在 macOS 上，此事件是` moved `的别名.
 
-#### Event: 'moved' _macOS_
+#### 事件: 'moved' _macOS_
 
 当窗口移动到新位置时触发一次
 
@@ -382,7 +382,7 @@ __Note__: On macOS this event is an alias of `moved`.
 
 设置或取消设置窗口总是在其他窗口的顶部显示时触发。
 
-#### Event: 'app-command' _Windows_ _Linux_
+#### 事件： 'app-command' _Windows__Linux_
 
 返回:
 
@@ -409,19 +409,19 @@ The following app commands are explicitly supported on Linux:
 * `browser-backward`
 * `browser-forward`
 
-#### Event: 'scroll-touch-begin' _macOS_
+#### 事件: 'scroll-touch-begin' _macOS_
 
 滚轮事件阶段开始时触发
 
-#### Event: 'scroll-touch-end' _macOS_
+#### 事件: 'scroll-touch-end' _macOS_
 
 滚轮事件阶段结束时触发
 
-#### Event: 'scroll-touch-edge' _macOS_
+#### 事件: 'scroll-touch-edge' _macOS_
 
 滚轮事件阶段到达元素边缘时触发
 
-#### Event: 'swipe' _macOS_
+#### 事件: 'swipe' _macOS_
 
 返回:
 
@@ -439,11 +439,11 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
-#### Event: 'sheet-begin' _macOS_
+#### 事件: 'sheet-begin' _macOS_
 
 窗口打开sheet(工作表) 时触发
 
-#### Event: 'sheet-end' _macOS_
+#### 事件: 'sheet-end' _macOS_
 
 窗口关闭sheet(工作表) 时触发
 
@@ -489,21 +489,21 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 该方法如果扩展的 manifest 缺失或不完整，该方法不会返回。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` String
+* `name` 字符串
 
 根据名字删除一个 Chrome 的扩展。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.getExtensions()`
 
 Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
@@ -515,15 +515,15 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 该方法如果扩展的 manifest 缺失或不完整，该方法不会返回。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` String
+* `name` 字符串
 
 根据名字删除一个 DevTools 的扩展。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
@@ -538,7 +538,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 ### 实例属性
 
@@ -753,7 +753,7 @@ Sets the background color of the window. See [Setting `backgroundColor`](#settin
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (可选) _macOS_
 
 重置窗口，并且移动窗口到指定的位置. Any properties that are not supplied will default to their current values.
 
@@ -778,7 +778,7 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (可选) _macOS_
 
 调整窗口的工作区 (如网页) 的大小并将其移动到所提供的边界。
 
@@ -806,7 +806,7 @@ Returns Boolean - whether the window is enabled.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (可选) _macOS_
 
 调整窗口的`width`和 `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
@@ -818,7 +818,7 @@ Returns Boolean - whether the window is enabled.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (可选) _macOS_
 
 将窗口的工作区 (如网页) 的大小调整为 ` width ` 和 ` height `。
 
@@ -944,7 +944,7 @@ Sets whether the window can be manually closed by user. On Linux does nothing.
 
 * `flag` Boolean
 * `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
-* `relativeLevel` Integer (optional) _macOS_ - The number of layers higher to set this window relative to the given `level`. 默认值为`0`. 请注意, Apple 不鼓励在 ` 屏幕保护程序 ` 之上设置高于1的级别。
+* `relativeLevel` Integer (可选) _macOS_ - 设置此窗口相对于给定 `级别`的层数。. 默认值为`0`. 请注意, Apple 不鼓励在 ` 屏幕保护程序 ` 之上设置高于1的级别。
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 
@@ -970,7 +970,7 @@ Moves window above the source window in the sense of z-order. If the `mediaSourc
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (可选) _macOS_
 
 将窗口移动到 ` x ` 和 ` y `。
 
@@ -1415,7 +1415,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 设置窗口的触摸条布局 设置为 `null` 或`undefined`将清除触摸条. 此方法只有在macOS 10.12.1+且设备支持触摸条TouchBar时可用.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**注意:** TouchBar API目前为实验性质，以后的Electron版本可能会更改或删除。
 
 #### `win.setBrowserView(browserView)` _实验_
 
