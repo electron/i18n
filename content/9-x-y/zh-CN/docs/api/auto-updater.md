@@ -34,7 +34,7 @@ Currently, only macOS and Windows are supported. There is no built-in support fo
 
 `autoUpdater` 对象会触发以下的事件:
 
-### 事件: 'error'
+### Event: 'error'
 
 返回:
 
