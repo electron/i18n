@@ -113,7 +113,7 @@ Sets a cookie with `details`.
   * `url` String - The url to associate the cookie with.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
+  * `domain` String (optioneel) - Het domein van de cookie. Empty by default if omitted.
   * `path` String (optioneel) - Het pad van de cookie. Empty by default if omitted.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
