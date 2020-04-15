@@ -1,6 +1,6 @@
 # Обект PrinterInfo
 
-* `name` String
+* `name` String - Име
 * `description` String - Описание
 * `status` Number - Статус
 * `isDefault` Boolean - Показва дали е по подразбиране
