@@ -14,7 +14,7 @@
 * `webgl` String - WebGL.
 * `webgl2` String - WebGL2.
 
-可选值：
+可选值
 
 * `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - 禁用(red)
