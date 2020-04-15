@@ -2,7 +2,7 @@
 
 > 通过[` navigator.mediaDevices.getUserMedia `] API ，可以访问那些用于从桌面上捕获音频和视频的媒体源信息。
 
-进程: [渲染进程](../glossary.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
 下面的示例演示如何从标题为 ` Electron ` 的桌面窗口捕获视频:
 
