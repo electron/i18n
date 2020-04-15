@@ -4,7 +4,7 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarScrubber(options)` _Experimental_
+### `new TouchBarScrubber(options)` _实验功能_
 
 * `options` Object
   * `items` [ScrubberItem[]](structures/scrubber-item.md) 一个数组，表示 scrubber 里的项目。
@@ -32,7 +32,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `background` - 映射为`[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - 映射到`[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - Actually null, not a string, removes all styles.
+* `null` - 真实意义上的null，不是字符串且不含任何样式。
 
 #### `touchBarScrubber.overlayStyle`
 
@@ -40,7 +40,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `background` - 映射为`[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - 映射到`[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - Actually null, not a string, removes all styles.
+* `null` - 真实意义上的null，不是字符串且不含任何样式。
 
 #### `touchBarScrubber.showArrowButtons`
 
