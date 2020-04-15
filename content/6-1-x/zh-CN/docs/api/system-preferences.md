@@ -132,7 +132,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 
 ### `systemPreferences.registerDefaults(defaults)` _macOS_
 
-* `defaults` Object - a dictionary of (`key: value`) user defaults
+* `defaults` Object - 用户默认选项集 (`key: value`)
 
 在应用的`NSUserDefaults`配置项中添加其它默认设置。
 
@@ -315,7 +315,7 @@ Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise
 
 获取当前应用到你的程序上的 macOS 设置项，会映射到 [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`.  If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`.  See the [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
+需要注意的是，在 构建针对Electron 10.14 SDK 之前的版本时，你的程序的`effectiveAppearance`默认为 "light" 并且不会继承系统的设置。 In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`.  If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`.  查看 [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) 以获得更多细节。
 
 ### `systemPreferences.getAppLevelAppearance()` _macOS_
 
