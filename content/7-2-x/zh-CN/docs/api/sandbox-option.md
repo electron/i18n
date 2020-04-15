@@ -1,6 +1,6 @@
 # `sandbox` 沙盒选项
 
-> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
+> Create a browser window with a sandboxed renderer. 在该模式可用情况下，渲染器为了使用node APIs必须通过IPC与主进程通讯。
 
 Chromium主要的安全特征之一便是所有的blink渲染或者JavaScript代码都在sandbox内运行。 该sandbox使用OS特定特征来保障运行在渲染器内的进程不会损害系统。
 
