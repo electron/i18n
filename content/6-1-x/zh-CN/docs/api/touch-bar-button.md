@@ -4,13 +4,13 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarButton(options)` _Experimental_
+### `new BrowserView(可选)` _实验功能_
 
 * `options` Object
   * ` label `String (可选) 按钮文本。
   * ` backgroundColor `String (可选) - 按钮背景颜色以十六进制格式，例如 ` #ABCDEF `。
-  * `icon` [NativeImage](native-image.md) (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
+  * `icon` [NativeImage](native-image.md) (可选)
+  * ` iconPosition `String (可选) - 可以是 ` left `、` right` 或 ` overlay `。
   * ` click `function (可选) - 单击按钮时调用的函数。
 
 ### 实例属性
