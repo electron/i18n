@@ -2,12 +2,12 @@
 
 > 監視電源狀態變更。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
-For example:
+例如:
 
 ```javascript
 const { app, powerMonitor } = require('electron')
@@ -31,11 +31,11 @@ Emitted when the system is suspending.
 
 在系統復原時發出。
 
-### Event: 'on-ac' _Windows_
+### 事件: 'on-ac' _Windows_
 
 當系統變為用交流電作電源時發出。
 
-### Event: 'on-battery' _Windows_
+### 事件: 'on-battery' _Windows_
 
 當系統變為用電池作電源時發出。
 
