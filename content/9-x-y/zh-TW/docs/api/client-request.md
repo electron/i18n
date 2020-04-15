@@ -2,7 +2,7 @@
 
 > 發出 HTTP/HTTPS 請求。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -109,7 +109,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 回傳:
 
 * `statusCode` Integer
-* `method` String
+* `title` [string]
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
