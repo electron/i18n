@@ -181,7 +181,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` _Experimental_
+### `clipboard.has(format[, type])` _試驗中_
 
 * `format` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` _Experimental_
+### `clipboard.read(format)` _試驗中_
 
 * `format` String
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` _Experimental_
+### `clipboard.readBuffer(format)` _試驗中_
 
 * `format` String
 
@@ -220,7 +220,7 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
+### `clipboard.writeBuffer(format, buffer[, type])` _試驗中_
 
 * `format` String
 * `buffer` Buffer
