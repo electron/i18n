@@ -152,7 +152,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 该用法与 `registerFileProtocol` 相同, 只是`callback` 会被`Buffer`对象或者带有`data`，`mimeType`和 `charset`属性的对象调用。
 
-示例:
+示例：
 
 ```javascript
 const { protocol } = require('electron')
@@ -221,7 +221,7 @@ By default the HTTP request will reuse the current session. If you want the requ
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * ` stream `(ReadableStream |[ StreamProtocolResponse ](structures/stream-protocol-response.md)) (可选)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (optional)
   * `error` Error
 
@@ -229,7 +229,7 @@ By default the HTTP request will reuse the current session. If you want the requ
 
 该用法类似于 `register{Any}Protocol` ，只是`callback` 会被` Readable `对象或者带有`data`, `statusCode` 和 `headers` 属性的对象调用。
 
-示例:
+示例：
 
 ```javascript
 const { protocol } = require('electron')
@@ -365,7 +365,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * ` stream `(ReadableStream |[ StreamProtocolResponse ](structures/stream-protocol-response.md)) (可选)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (optional)
   * `error` Error
 
