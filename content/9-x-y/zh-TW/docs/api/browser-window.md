@@ -2,10 +2,10 @@
 
 > 建立及控制瀏覽器視窗。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 ```javascript
-// 在主處理序中.
+// 在主處理序裡。
 const { BrowserWindow } = require('electron')
 
 // 或由畫面轉譯處理序裡使用 `remote`。
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > 建立及控制瀏覽器視窗。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -267,7 +267,7 @@ _**Note**: There is a subtle difference between the behaviors of `window.onbefor
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Event: 'session-end' _Windows_
+#### 事件: 'session-end' _Windows_
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
@@ -349,7 +349,7 @@ Emitted when the window is being moved to a new position.
 
 __Note__: On macOS this event is an alias of `moved`.
 
-#### Event: 'moved' _macOS_
+#### 事件: 'moved' _macOS_
 
 Emitted once when the window is moved to a new position.
 
@@ -405,19 +405,19 @@ The following app commands are explicitly supported on Linux:
 * `browser-backward`
 * `browser-forward`
 
-#### Event: 'scroll-touch-begin' _macOS_
+#### 事件: 'scroll-touch-begin' _macOS_
 
 Emitted when scroll wheel event phase has begun.
 
-#### Event: 'scroll-touch-end' _macOS_
+#### 事件: 'scroll-touch-end' _macOS_
 
 Emitted when scroll wheel event phase has ended.
 
-#### Event: 'scroll-touch-edge' _macOS_
+#### 事件: 'scroll-touch-edge' _macOS_
 
 Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
-#### Event: 'swipe' _macOS_
+#### 事件: 'swipe' _macOS_
 
 回傳:
 
@@ -435,11 +435,11 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
-#### Event: 'sheet-begin' _macOS_
+#### 事件: 'sheet-begin' _macOS_
 
 Emitted when the window opens a sheet.
 
-#### Event: 'sheet-end' _macOS_
+#### 事件: 'sheet-end' _macOS_
 
 Emitted when the window has closed a sheet.
 
@@ -485,7 +485,7 @@ Adds Chrome extension located at `path`, and returns extension's name.
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
 
@@ -495,7 +495,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a Chrome extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 **Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
@@ -503,7 +503,7 @@ Remove a Chrome extension by name.
 
 Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 **Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
@@ -517,7 +517,7 @@ The extension will be remembered so you only need to call this API once, this AP
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
 
@@ -527,7 +527,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a DevTools extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 **Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
@@ -544,7 +544,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 **Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
@@ -760,7 +760,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (選用) _macOS_
 
 Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
 
@@ -789,7 +789,7 @@ Returns `String` - Gets the background color of the window. See [Setting `backgr
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (選用) _macOS_
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
@@ -817,7 +817,7 @@ Returns Boolean - whether the window is enabled.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (選用) _macOS_
 
 Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
@@ -829,7 +829,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (選用) _macOS_
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -957,7 +957,7 @@ Moves window to the center of the screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (選用) _macOS_
 
 Moves window to `x` and `y`.
 
@@ -1396,7 +1396,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**注意:** TouchBar API 目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
 
 #### `win.setBrowserView(browserView)` _試驗中_
 
