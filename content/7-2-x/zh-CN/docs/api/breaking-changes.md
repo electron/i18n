@@ -318,34 +318,34 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `剪贴板`
+### `clipboard`
 
 ```js
-// 弃用
+// 过时的
 clipboard.readRtf()
 // 替换为
 clipboard.readRTF()
 
-// 弃用
+// 过时的
 clipboard.writeRtf()
 // 替换为
 clipboard.writeRTF()
 
-// 弃用
+// 过时的
 clipboard.readHtml()
 // 替换为
 clipboard.readHTML()
 
-// 弃用
+// 过时的
 clipboard.writeHtml()
-// 替换为
+//替换为
 clipboard.writeHTML()
 ```
 
 ### `crashReporter`
 
 ```js
-// 弃用
+// 过时的
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -370,7 +370,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `进程`
+### `process`
 
 ```js
 // 弃用
@@ -502,7 +502,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `进程`
+### `process`
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
