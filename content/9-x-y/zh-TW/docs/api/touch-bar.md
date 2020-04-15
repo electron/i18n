@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBar(options)` _Experimental_
+### `new TouchBar(options)` _試驗中_
 
 * `options` Object
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
