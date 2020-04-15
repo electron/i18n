@@ -12,11 +12,11 @@ By default the `webview` tag is disabled in Electron >= 5.  在构造 `BrowserWi
 
 > 在一个独立的 frame 和进程里显示外部 web 内容。
 
-进程: [渲染进程](../glossary.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
 使用 ` webview ` 标签在Electron 应用中嵌入 "外来" 内容 (如 网页)。外来"内容包含在 ` webview ` 容器中。 应用中的嵌入页面可以控制外来内容的布局和重绘。
 
-与 ` iframe ` 不同, ` webview ` 在与应用程序不同的进程中运行。它与您的网页没有相同的权限, 应用程序和嵌入内容之间的所有交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。 **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
+与 ` iframe ` 不同, ` webview ` 在与应用程序不同的进程中运行。它与您的网页没有相同的权限, 应用程序和嵌入内容之间的所有交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。 ** 注意: **从宿主页上调用 webview 的方法大多数都需要对主进程进行同步调用。
 
 ## 示例
 
@@ -195,7 +195,7 @@ A `String` which is a list of strings which specifies the blink features to be d
 
 `webview` 标签具有以下方法：
 
-**Note:** The webview element must be loaded before using the methods.
+** 注意: **使用方法之前 <0>webview</0> 元素必须已被加载。
 
 **示例**
 
@@ -443,7 +443,7 @@ Returns `Promise<void>`
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. 默认值为 `false`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -792,7 +792,7 @@ Fired when the renderer process is crashed.
 
 返回:
 
-* `name` String
+* `name` 字符串
 * `version` String
 
 Fired when a plugin process is crashed.
