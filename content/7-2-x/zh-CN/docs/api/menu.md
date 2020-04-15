@@ -22,13 +22,13 @@ Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` w
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
-**Note:** The default menu will be created automatically if the app does not set one. 默认生成的菜单中包含了一些初始选项，例如 `文件`,`编辑`, `视图`,`窗口`,`帮助`。
+**Note:** 如果没有在app中设置一个菜单，系统会自动生成一个默认菜单， 默认生成的菜单中包含了一些初始选项，例如 `文件`,`编辑`, `视图`,`窗口`,`帮助`。
 
 #### `Menu.getApplicationMenu()`
 
 返回 `Menu | null` - 如果有设置, 则返回应用程序菜单， 如果没设置，则返回 ` null `。
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. 但仍然可以动态修改 [ 实例属性 ](#instance-properties)。
+** 注意: **返回的 ` menu ` 实例不支持动态添加或删除菜单项。 但仍然可以动态修改 [ 实例属性 ](#instance-properties)。
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 
@@ -141,7 +141,7 @@ You can also attach other fields to the element of the `template` and they will 
 </p>
 
 <p spaces-before="0">
-  <strong x-id="1">Note:</strong> Some events are only available on specific operating systems and are labeled as such.
+  <strong x-id="1"> 注意: </strong>某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
 </p>
 
 
@@ -415,7 +415,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 
 
 <h2 spaces-before="0">
-  Setting Menu for Specific Browser Window (<em x-id="3">Linux</em> <em x-id="3">Windows</em>)
+  设置特定浏览器窗口的菜单 (<em x-id="3"> Linux </em> <em x-id="3"> Windows </em>)
 </h2>
 
 <p spaces-before="0">
