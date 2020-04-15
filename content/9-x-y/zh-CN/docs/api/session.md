@@ -34,7 +34,7 @@ Returns `Session` - 根据`partition`字符串产生的session实例。 当这�
 
 要根据`options`创建`Session`，你需要确保`Session`的`partition`在之前从未被使用。 没有办法修改一个已存在的`Session`对象的`options`。
 
-## Properties
+## 属性
 
 ` session ` 模块具有以下方法:
 
@@ -194,7 +194,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
    与 HOSTNAME_PATTERN 模式匹配的所有主机名。
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   例如: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -233,7 +233,7 @@ Sets download saving directory. By default, the download directory will be the `
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `offline` Boolean (optional) - Whether to emulate network outage. 默认值为 false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
@@ -497,7 +497,7 @@ app.on('ready', async () => {
 
 This API does not support loading packed (.crx) extensions.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `ses.removeExtension(extensionId)`
 
@@ -505,7 +505,7 @@ This API does not support loading packed (.crx) extensions.
 
 Unloads an extension.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `ses.getExtension(extensionId)`
 
@@ -513,13 +513,13 @@ Unloads an extension.
 
 Returns `Extension` | `null` - The loaded extension with the given ID.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `ses.getAllExtensions()`
 
 Returns `Extension[]` - A list of all loaded extensions.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 ### 实例属性
 
