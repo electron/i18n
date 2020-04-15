@@ -6,7 +6,7 @@ Electron 讓你可以使用 JavaScript 呼叫豐富的原生 (作業系統) APIs
 
 **注意**：這個範例同時是一個 repo，你可以立即[下載並執行](#trying-this-example)。
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+就開發而言，Electron 應用程式本質上就是 Node.js 應用程式 The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
 ```text
 your-app/
