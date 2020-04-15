@@ -51,6 +51,6 @@ You can get a code signing certificate from a lot of resellers. Prices vary, so 
 - [`electron-forge`] 可以签署Squirrel.Windows 或MSI 类型的安装包
 - [`electron-builder`] 能签署一些windows安装包。
 
-## Windows Store
+## Windows 应用商店
 
 参考 [Windows Store Guide](windows-store-guide.md).
