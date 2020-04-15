@@ -35,7 +35,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### 实例事件
+### 事件
 
 #### 事件名: 'updated'
 
