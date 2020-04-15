@@ -392,7 +392,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 The following list includes the breaking API changes in Electron 3.0.
 
-### `التطبيقات`
+### `تطبيق`
 
 ```js
 // Deprecated
@@ -429,7 +429,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `لوحة القُصاصات`
+### `الحافظة`
 
 ```js
 // Deprecated
@@ -481,7 +481,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `process`
+### `عملية`
 
 ```js
 // Deprecated
@@ -613,7 +613,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `process`
+### `عملية`
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
