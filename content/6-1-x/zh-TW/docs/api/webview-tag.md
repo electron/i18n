@@ -35,7 +35,7 @@ If you want to control the guest content in any way, you can write JavaScript th
     const indicator = document.querySelector('.indicator')
 
     const loadstart = () => {
-      indicator.innerText = 'loading...'
+      indicator.innerText = '載入中...'
     }
 
     const loadstop = () => {
@@ -581,7 +581,7 @@ It depends on the [`remote`](remote.md) module, it is therefore not available wh
 
 Returns `Number` - The WebContents ID of this `webview`.
 
-## DOM events
+## DOM 事件
 
 The following DOM events are available to the `webview` tag:
 
