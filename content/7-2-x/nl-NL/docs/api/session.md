@@ -216,7 +216,7 @@ window.webContents.session.enableNetworkEmulation({
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
-#### `ses.preconnect(options)` _Experimental_
+#### `ses.preconnect(options)` _Experimenteel_
 
 * `options` Object
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
