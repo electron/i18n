@@ -1,8 +1,8 @@
-# 构建步骤（Linux）
+# 构建步骤 (Linux)
 
 遵循下面的准则在 Linux 上创建 Electron 。
 
-## 前提条件
+## 基本要求
 
 * 至少 25GB 硬盘空间 和 8GB 内存.
 * Python 2.7.x. 一些发行版如 CentOS 6.x 仍然使用 Python 2.6.x ，所以或许需要 check 你的 Python 版本，使用 `python -V`.
@@ -75,7 +75,7 @@ $ gn gen out/Testing --args='import(...) target_cpu="arm"'
 
 参照[Build Instructions: GN](build-instructions-gn.md)
 
-## 故障排查
+## 疑难解答
 
 ### 加载共享库时出现错误： libtinfo.so.5
 
