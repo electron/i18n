@@ -927,7 +927,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` _Experimental_
+#### `contents.setIgnoreMenuShortcuts(ignore)` _实验功能_
 
 * `ignore` Boolean
 
