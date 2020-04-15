@@ -38,7 +38,7 @@ session.defaultSession.cookies.set(cookie)
   })
 ```
 
-### 实例事件
+### 事件
 
 以下事件会在` Cookies `实例触发。
 
@@ -82,7 +82,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (可选) - cookie所在域名，通常使用点号开头，以使其对子域名可用。 Empty by default if omitted.
   * `path` String (可选) - cookie 的路径。 Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. 默认为false。
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. 默认值为 false.
   * ` expirationDate `Double (可选) - cookie 的到期日期，类型为时间戳，单位为秒。 如果省略, 则 cookie 将成为会话 cookie, 并且不会在会话之间保留。
 
