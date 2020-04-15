@@ -22,7 +22,7 @@ npm -v
 
 如果上述命令均打印出一个版本号，就说明Node.js已经安装好了！ 然后，你只需要安装一个适合JavaScript开发的[代码编辑器](#a-good-editor)就可以开始开发工作了。
 
-## Windows 开发环境配置
+## Winodws开发环境配置
 
 > Electron 支持Windows 7 及以上版本---任何在低版本Windows上开发Electron的尝试都将是徒劳无功的。 您可以使用微软向开发者免费提供的[Windows 10虚拟机镜像](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines)。
 
@@ -42,7 +42,7 @@ npm -v
 
 如果上述命令均打印出一个版本号，就说明Node.js已经安装好了！ 然后，你只需要安装一个适合JavaScript开发的[代码编辑器](#a-good-editor)就可以开始开发工作了。
 
-## Linux 开发环境配置
+## Linux开发环境配置
 
 > 一般来说，Electron支持Ubuntu 12.04、Fedora 21、Debian 8 及其以上版本。
 
