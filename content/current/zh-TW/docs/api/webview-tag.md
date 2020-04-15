@@ -35,7 +35,7 @@ If you want to control the guest content in any way, you can write JavaScript th
     const indicator = document.querySelector('.indicator')
 
     const loadstart = () => {
-      indicator.innerText = 'loading...'
+      indicator.innerText = '載入中...'
     }
 
     const loadstop = () => {
