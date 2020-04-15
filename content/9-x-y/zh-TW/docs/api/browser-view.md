@@ -2,14 +2,14 @@
 
 > 建立和控制視景。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
 ### 範例
 
 ```javascript
-// 在主處理序中.
+// 在主處理序裡。
 const { BrowserView, BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
