@@ -93,7 +93,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | no     | 挪威语         |
 | oc     | 奥克西坦语       |
 | om     | 奥罗莫语        |
-| 或      | 奥里雅语        |
+| or     | 奥里雅语        |
 | pa     | 旁遮普语        |
 | pl     | 波兰语         |
 | ps     | 普什图语        |
