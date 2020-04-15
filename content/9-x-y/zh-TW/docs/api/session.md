@@ -2,7 +2,7 @@
 
 > 管理瀏覽器 Session、Cookie、快取、代理伺服器設定等。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -194,7 +194,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
    Match all hostnames that match the pattern HOSTNAME_PATTERN.
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   範例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -497,7 +497,7 @@ app.on('ready', async () => {
 
 This API does not support loading packed (.crx) extensions.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `ses.removeExtension(extensionId)`
 
@@ -505,7 +505,7 @@ This API does not support loading packed (.crx) extensions.
 
 Unloads an extension.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `ses.getExtension(extensionId)`
 
@@ -513,13 +513,13 @@ Unloads an extension.
 
 Returns `Extension` | `null` - The loaded extension with the given ID.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `ses.getAllExtensions()`
 
 Returns `Extension[]` - A list of all loaded extensions.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 ### 物件屬性
 
