@@ -6,7 +6,7 @@
 
 There are questions that are asked quite often. Check this out before creating an issue:
 
-* [Electron FAQ](faq.md)
+* [إلكترون - الاسئلة الشائعة](faq.md)
 
 ## الدليل الإرشادي والدروس
 
@@ -15,12 +15,12 @@ There are questions that are asked quite often. Check this out before creating a
   * [اعداد نظام تشغيل الماك (macOS)](tutorial/development-environment.md#setting-up-macos)
   * [اعداد نظام الويندوز (Windows)](tutorial/development-environment.md#setting-up-windows)
   * [اعداد نظام لينكس (Linux)](tutorial/development-environment.md#setting-up-linux)
-  * [اختيار محرر الكود](tutorial/development-environment.md#a-good-editor)
+  * [اختيار محرر](tutorial/development-environment.md#a-good-editor)
 * [انشاء تطبيقك الأول](tutorial/first-app.md)
-  * [تنصيب إلكترون (Electron)](tutorial/first-app.md#installing-electron)
-  * [اسلوب تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [تشغيل تطبيقك الأول](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md)
+  * [تثبيت إكترون](tutorial/first-app.md#installing-electron)
+  * [تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [تشغيل تطبيقك](tutorial/first-app.md#running-your-app)
+* [Boilerplates و CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate مقابل CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
@@ -47,7 +47,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
 * [إمكانية الوصول](tutorial/accessibility.md)
-  * [Spectron](tutorial/accessibility.md#spectron)
+  * [سبيكترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [تمكين الوصول](tutorial/accessibility.md#enabling-accessibility)
 * [اختبار وتصحيح](tutorial/application-debugging.md)
@@ -78,7 +78,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 هذه دروس مفصلة للمواضيع التي تمت مناقشتها في الدليل بالأعلى.
 
-* [تنصيب إلكترون (Electron)](tutorial/installation.md)
+* [تثبيت إكترون](tutorial/installation.md)
   * [بروكسيات](tutorial/installation.md#proxies)
   * [مرايا مخصصة ومخابئ](tutorial/installation.md#custom-mirrors-and-caches)
   * [اكتشاف الأخطاء وإصلاحها](tutorial/installation.md#troubleshooting)
@@ -115,13 +115,13 @@ There are questions that are asked quite often. Check this out before creating a
 
 ### وحدات للـ Main Process:
 
-* [التطبيقات](api/app.md)
-* [تحديث تلقائي](api/auto-updater.md)
+* [app (التطبيق)](api/app.md)
+* [autoUpdater (التحديث التلقائي)](api/auto-updater.md)
 * [BrowserView (عرض المتصفح)](api/browser-view.md)
-* [نافذة المتصفح](api/browser-window.md)
-* [تتبع المحتوى](api/content-tracing.md)
-* [نافذة الحوار](api/dialog.md)
-* [اختصار عالمي](api/global-shortcut.md)
+* [BrowserWindow](api/browser-window.md)
+* [contentTracing (تتبع المحتوى)](api/content-tracing.md)
+* [dialog (الحوار)](api/dialog.md)
+* [globalShortcut (اختصار عالمي)](api/global-shortcut.md)
 * [inAppPurchase (مشتريات داخل التطبيق)](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu (القائمة)](api/menu.md)
@@ -143,15 +143,15 @@ There are questions that are asked quite often. Check this out before creating a
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [منصة_شليلة](api/remote.md)
+* [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### الوحدات لكلا العمليتين:
 
-* [لوحة القُصاصات](api/clipboard.md)
+* [الحافظة](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [صدفة](api/shell.md)
+* [shell](api/shell.md)
 
 ## التطوير
 
