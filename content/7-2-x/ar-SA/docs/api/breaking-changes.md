@@ -67,7 +67,7 @@ webFrame.setIsolatedWorldInfo(
 This property was removed in Chromium 77, and as such is no longer available.
 
 ### `webkitdirectory` سمة لـ`<input type="file"/>`
-￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼`console
+￼ ￼الـ `webkitdirectory` ￼خاصية في المدخلات ملف HTML تسمح لهم بتحديد المجلدات. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼`console
 ￼folder
 ￼├── file1
 ￼├── file2
@@ -281,7 +281,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 The following list includes the breaking API changes in Electron 3.0.
 
-### `التطبيقات`
+### `تطبيق`
 
 ```js
 // Deprecated
@@ -318,7 +318,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `لوحة القُصاصات`
+### `الحافظة`
 
 ```js
 // Deprecated
@@ -370,7 +370,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `process`
+### `عملية`
 
 ```js
 // Deprecated
@@ -502,7 +502,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `process`
+### `عملية`
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
