@@ -69,7 +69,7 @@ Returns all uploaded crash reports. Each report contains the date and uploaded I
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Note:** This API can only be called from the main process.
+**注意:** 這個 API 只能在主處理序中使用。
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
@@ -77,7 +77,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Note:** This API can only be called from the main process.
+**注意:** 這個 API 只能在主處理序中使用。
 
 ### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
 
