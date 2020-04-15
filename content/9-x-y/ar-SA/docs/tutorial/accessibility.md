@@ -12,7 +12,7 @@ Accessibility concerns in Electron applications are similar to those of websites
 
 
 
-## Spectron
+## سبيكترون
 
 In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
 
