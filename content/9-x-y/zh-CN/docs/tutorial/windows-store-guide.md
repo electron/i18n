@@ -1,4 +1,4 @@
-# Windows 商店提交指南
+# Windows 商店指南
 
 在 Windows 10 中，一些不错的旧 win32 程序迎来了一个新朋友：通用 Windows 平台。 新的 `.appx` 格式不仅启用了许多新的强大的 API，如 Cortana 或推送通知，而且通过 Windows 应用商店，也同时简化了安装和更新。
 
