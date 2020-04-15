@@ -140,7 +140,7 @@ npm uninstall -g electron
 
 ## 文字看起来很模糊，这是什么原因造成的？怎么解决这个问题呢？
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 示例:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 示例：
 
 ![次像素渲染示例](images/subpixel-rendering-screenshot.gif)
 
