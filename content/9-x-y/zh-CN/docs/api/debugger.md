@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### 实例事件
+### 事件
 
 #### Event: 'detach'
 
@@ -70,7 +70,7 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 
 #### `debugger.sendCommand(method[, commandParams])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `method` 字符串 - 方法名称，应该为[远程调试协议](https://chromedevtools.github.io/devtools-protocol/)中定义的方法之一。
 * `commandParams` any (optional) - JSON object with request parameters.
 
 返回 `Promise<any>` - 一个 promise，远程调试协议中的命令描述的“returns”属性定义的响应，或者显示命令失败的错误消息。
