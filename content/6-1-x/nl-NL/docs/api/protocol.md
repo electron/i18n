@@ -172,7 +172,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `data` String (optional)
+    * `data` String (optioneel)
 * `completion` Function (optional)
   * `error` Error
 
@@ -194,7 +194,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
     * `redirectRequest` Object
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (optioneel)
       * `uploadData` Object (optional)
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
@@ -317,7 +317,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `data` String (optional)
+    * `data` String (optioneel)
 * `completion` Function (optional)
   * `error` Error
 
@@ -353,7 +353,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `redirectRequest` Object
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (optioneel)
       * `uploadData` Object (optional)
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
