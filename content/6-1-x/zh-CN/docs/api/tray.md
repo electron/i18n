@@ -191,14 +191,14 @@ Returns `String` - the title displayed next to the tray icon in the status bar
 
 * `mode` String - Highlight mode with one of the following values:
   * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+  * `always` - 总是高亮托盘图标
+  * `never` - 从不高亮托盘图标
 
-Sets when the tray's icon background becomes highlighted (in blue).
+设置托盘图标背景 (蓝色) 高亮的时机
 
 **[过时的](breaking-changes.md#tray)**
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Note:** 当窗口可见状态变化时你可以在[`BrowserWindow`](browser-window.md)中使用 `highlightMode` 实现 `'never'` 和`'always'` 模式的切换
 
 ```javascript
 const { BrowserWindow, Tray } = require('electron')
@@ -232,7 +232,7 @@ Returns `Boolean` - Whether double click events will be ignored.
 #### `tray.displayBalloon(options)` _Windows_
 
 * `options` Object
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (可选) -
   * `title` String
   * `content` String
 
