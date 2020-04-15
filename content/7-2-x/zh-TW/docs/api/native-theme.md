@@ -2,7 +2,7 @@
 
 > Read and respond to changes in Chromium's native color theme.
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 ## 事件
 
