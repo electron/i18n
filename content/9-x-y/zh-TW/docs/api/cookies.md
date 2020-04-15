@@ -2,11 +2,11 @@
 
 > 查詢及修改 Session 的 Cookie 內容。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
-For example:
+例如:
 
 ```javascript
 const { session } = require('electron')
