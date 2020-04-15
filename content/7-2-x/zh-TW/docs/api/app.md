@@ -2,7 +2,7 @@
 
 > 控制你的應用程式事件生命週期。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 以下例子顯示如何當最後一個視窗已經關閉的時候終止程式
 
