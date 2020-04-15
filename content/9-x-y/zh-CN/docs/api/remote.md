@@ -2,7 +2,7 @@
 
 > 在渲染进程中使用主进程模块。
 
-进程: [渲染进程](../glossary.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
 ` remote ` 模块为渲染进程（web页面）和主进程通信（IPC）提供了一种简单方法。
 
@@ -14,9 +14,9 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
+** 注意: **反过来（如果需要从主进程访问渲染进程），可以使用 [ webContents. executeJavascript ](web-contents.md#contentsexecutejavascriptcode-usergesture)。
 
-**Note:** The remote module can be disabled for security reasons in the following contexts:
+**注意事项：** 因为安全原因，remote 模块能在以下几种情况下被禁用：
 - [`BrowserWindow`](browser-window.md) - 通过设置 `enableRemoteModule` 选项为 `false`。
 - [`<webview>`](webview-tag.md) - 通过把 ` enableremotemodule`属性设置成 `false`。
 
@@ -26,10 +26,9 @@ win.loadURL('https://github.com')
 
 在上面的示例中, [ BrowserWindow ` 和 ` win ](browser-window. md) 都是远程对象, ` new BrowserWindow ` 在渲染过程中没有创建 ` BrowserWindow ` 对象。 取而代之的是，它在主进程中创建了一个 `BrowserWindow`对象，并且在渲染进程中返回相应的远程对象，即` win </ 0>对象。</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> Only <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">enumerable properties</a> which are present
-when the remote object is first referenced are accessible via remote.</p>
+<p spaces-before="0"><strong x-id="1">注意： </strong>当远程对象被第一次引用时，只有<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">可枚举的属性</a>可以通过远程访问。</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> Arrays and Buffers are copied over IPC when accessed via the <code>remote` module. 在渲染进程中修改它们不会在主进程中修改它们，反之亦然。
+<p spaces-before="0"><strong x-id="1">注意：</strong> 当通过<code> remote `模块访问时，数组和缓冲区在IPC上复制。 在渲染进程中修改它们不会在主进程中修改它们，反之亦然。
 
 ## 远程对象的生命周期
 
@@ -137,7 +136,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 返回 [`BrowserWindow`](browser-window.md) - 此网页所属的窗口
 
-**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). 使用这个可导致移除 [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) 监听，禁用点击触控按钮的事件，或者其它意外的后果。
+**注意事项：** 请勿在[` BrowserWindow`](browser-window.md)上使用 `removeAllListeners`。 使用这个可导致移除 [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) 监听，禁用点击触控按钮的事件，或者其它意外的后果。
 
 ### `remote.getCurrentWebContents()`
 
@@ -145,11 +144,11 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getGlobal(name)`
 
-* `name` String
+* `name` 字符串
 
 返回 ` any `-主进程中 ` name ` (例如 ` global[name]`) 的全局变量。
 
-## Properties
+## 属性
 
 ### `remote.process` _Readonly_
 
