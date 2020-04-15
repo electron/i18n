@@ -43,7 +43,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
  * 64x64 (200% DPI scale)
 * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+在[这篇文章](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx)中查看 *尺寸说明* 的章节
 
 ## 高分辨率
 
@@ -82,11 +82,11 @@ console.log(appIcon)
 
 ## 模板图片
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template images consist of black and an alpha channel. 模板图片不是单独使用的, 它通常与其他内容混合以创建期望的最终效果
 
 最常见的情况是使用模板图片的菜单栏图标, 使它可以适应浅色和深色菜单栏。
 
-**Note:** Template image is only supported on macOS.
+** 注意: **仅在 macOS 上支持Template image。
 
 To mark an image as a template image, its filename should end with the word `Template`. 例如：
 
@@ -140,7 +140,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 返回 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+从 `buffer ` 创建新的 ` NativeImage ` 实例。 Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -222,7 +222,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 返回 ` Buffer `-一个 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer), 它将 C 指针存储在图像的基础本机句柄上。 在 macOS 上, 将返回指向 ` NSImage ` 实例的指针。
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you _must_ ensure that the associated `nativeImage` instance is kept around.
+请注意, 返回的指针是指向基础本机映像而不是副本的弱指针, 因此 _ 必须 _ 确保关联的 ` nativeImage ` 实例保留在周围。
 
 #### `image.isEmpty()`
 
@@ -271,8 +271,8 @@ Returns [`Size`](structures/size.md)
 
 * `options` Object
   * `scaleFactor` Double - The scale factor to add the image representation for.
-  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
-  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `width` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
+  * `height` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
   * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
