@@ -2,7 +2,7 @@
 
 > 在系統通知區中加入圖示及內容功能表。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 `Tray` 是個 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)。
 
@@ -74,7 +74,7 @@ The `Tray` module emits the following events:
 
 Emitted when the tray icon is clicked.
 
-#### Event: 'right-click' _macOS_ _Windows_
+#### 事件: 'right-click' _macOS_ _Windows_
 
 回傳:
 
@@ -83,7 +83,7 @@ Emitted when the tray icon is clicked.
 
 Emitted when the tray icon is right clicked.
 
-#### Event: 'double-click' _macOS_ _Windows_
+#### 事件: 'double-click' _macOS_ _Windows_
 
 回傳:
 
@@ -92,23 +92,23 @@ Emitted when the tray icon is right clicked.
 
 Emitted when the tray icon is double clicked.
 
-#### Event: 'balloon-show' _Windows_
+#### 事件: 'balloon-show' _Windows_
 
 Emitted when the tray balloon shows.
 
-#### Event: 'balloon-click' _Windows_
+#### 事件: 'balloon-click' _Windows_
 
 Emitted when the tray balloon is clicked.
 
-#### Event: 'balloon-closed' _Windows_
+#### 事件: 'balloon-closed' _Windows_
 
 Emitted when the tray balloon is closed because of timeout or user manually closes it.
 
-#### Event: 'drop' _macOS_
+#### 事件: 'drop' _macOS_
 
 Emitted when any dragged items are dropped on the tray icon.
 
-#### Event: 'drop-files' _macOS_
+#### 事件: 'drop-files' _macOS_
 
 回傳:
 
@@ -117,7 +117,7 @@ Emitted when any dragged items are dropped on the tray icon.
 
 Emitted when dragged files are dropped in the tray icon.
 
-#### Event: 'drop-text' _macOS_
+#### 事件: 'drop-text' _macOS_
 
 回傳:
 
@@ -126,15 +126,15 @@ Emitted when dragged files are dropped in the tray icon.
 
 Emitted when dragged text is dropped in the tray icon.
 
-#### Event: 'drag-enter' _macOS_
+#### 事件: 'drag-enter' _macOS_
 
 Emitted when a drag operation enters the tray icon.
 
-#### Event: 'drag-leave' _macOS_
+#### 事件: 'drag-leave' _macOS_
 
 Emitted when a drag operation exits the tray icon.
 
-#### Event: 'drag-end' _macOS_
+#### 事件: 'drag-end' _macOS_
 
 Emitted when a drag operation ends on the tray or ends at another location.
 
