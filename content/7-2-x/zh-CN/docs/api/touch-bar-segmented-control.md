@@ -4,7 +4,7 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSegmentedControl(options)` _Experimental_
+### `new TouchBarSegmentedControl(options)` _实验功能_
 
 * `options` Object
   * `segmentStyle` String (optional) - Style of the segments:
@@ -21,7 +21,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
     * `multiple` - Multiple items can be selected at a time.
     * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - 被放到控件中的段的集合
-  * `selectedIndex` Integer (optional) - 当前选中的段的下标, 这个值会在用户交互时自动更改 When the mode is multiple it will be the last selected item.
+  * `selectedIndex` Integer (optional) - 当前选中的段的下标, 这个值会在用户交互时自动更改 当处于多选模式时，这个值是选中段中最后一个的下标
   * `change` Function (optional) - Called when the user selects a new segment.
     * `selectedIndex` Integer - 用户选中的段的下标。
     * `isSelected` Boolean - 当前段的选中状态
