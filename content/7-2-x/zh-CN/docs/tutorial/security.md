@@ -232,7 +232,7 @@ session
 
 ## 5) 不要禁用WebSecurity
 
-_Electron的默认值即是建议值。_
+_Electron的默认值就是建议值。_
 
 在渲染进程（[`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md) 和 [`<webview>`](../api/webview-tag.md)）中禁用 `webSecurity` 将导致至关重要的安全性功能被关闭。
 
@@ -314,7 +314,7 @@ CSP的首选传递机制是HTTP报头，但是在使用`file://`协议加载资�
 
 ## 7) 不要设置`allowRunningInsecureContent`为`true`
 
-_Electron的默认值即是建议值。_
+_Electron的默认值就是建议值。_
 
 默认情况下，Electron不允许网站在`HTTPS`中加载或执行非安全源(`HTTP`) 中的脚本代码、CSS或插件。 将`allowRunningInsecureContent`属性设为`true`将禁用这种保护。
 
@@ -343,7 +343,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 8) 不要开启实验室特性
 
-_Electron的默认值即是建议值。_
+_Electron的默认值就是建议值。_
 
 Electron 的熟练用户可以通过 ` experimentalFeatures` 属性来启用 Chromium 实验性功能。
 
@@ -398,7 +398,7 @@ const mainWindow = new BrowserWindow()
 
 ## 10) 不要使用`allowpopups`
 
-_Electron的默认值即是建议值。_
+_Electron的默认值就是建议值。_
 
 如果您正在使用 [`<webview>`](../api/webview-tag.md) ，您可能需要页面和脚本加载进您的 `<webview>` 标签以打开新窗口。 开启`allowpopups`属性将使得[`BrowserWindows`](../api/browser-window.md)可以通过`window.open()`方法创建。 否则， `<webview>` 标签内不允许创建新窗口。
 
