@@ -412,7 +412,7 @@ Returns `Object`:
 
 Returns an object with system animation settings.
 
-## الخصائص
+## Properties
 
 ### `systemPreferences.appLevelAppearance` _macOS_
 
