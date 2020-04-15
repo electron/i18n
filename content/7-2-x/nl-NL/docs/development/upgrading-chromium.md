@@ -1,4 +1,4 @@
-# Chromium updaten
+# Upgraden Chromium
 
 This is an overview of the steps needed to upgrade Chromium in Electron.
 
