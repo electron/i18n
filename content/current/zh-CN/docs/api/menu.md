@@ -141,7 +141,7 @@ You can also attach other fields to the element of the `template` and they will 
 </p>
 
 <p spaces-before="0">
-  <strong x-id="1">Note:</strong> Some events are only available on specific operating systems and are labeled as such.
+  <strong x-id="1"> 注意: </strong>某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
 </p>
 
 
