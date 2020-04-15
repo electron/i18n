@@ -55,7 +55,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 Връща:
 
-* `event` Събитие
+* `event` Event
 * `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
@@ -312,7 +312,7 @@ Emitted when the unresponsive web page becomes responsive again.
 Връща:
 
 * `event` Събитие
-* `name` String
+* `name` String - Име
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -409,7 +409,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Събитие: 'login'
+#### Събитие: "вход"
 
 Връща:
 
@@ -417,11 +417,11 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 * `authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
+  * `isProxy` Булев
+  * `схема` Низ
+  * `домакин` Низ
+  * `порт` Цяло число
+  * `царство` Низ
 * `callback` Function
   * `username` String (optional)
   * `password` String (optional)
