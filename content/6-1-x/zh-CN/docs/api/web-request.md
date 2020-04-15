@@ -91,7 +91,7 @@ Some examples of valid `urls`:
   * `callback` Function
     * `response` Object
       * `cancel` Boolean (可选)
-      * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
+      * `requestHeaders` Object (可选) - 当提供时，将使用这些报头进行请求。
 
 一旦请求头可用，在发送 HTTP 请求之前，`listener` 将以 `listener(details, callback)` 的形式被调用。 这可能发生在对服务器进行 TCP 连接之后，但在发送任何HTTP数据之前。
 
@@ -133,7 +133,7 @@ Some examples of valid `urls`:
   * `callback` Function
     * `response` Object
       * `cancel` Boolean (可选)
-      * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
+      * ` responseHeaders ` Object (可选) - 当提供时，将使用这些报头处理返回。
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
 当HTTP请求接收到报头后，会通过调用 `listener(details, callback)`方法来触发`listener`。
