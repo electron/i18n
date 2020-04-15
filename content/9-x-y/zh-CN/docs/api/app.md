@@ -1,6 +1,6 @@
 # app
 
-> 控制你的应用程序的事件生命周期。
+> 控制应用程序的事件生命周期。
 
 进程：[主进程](../glossary.md#main-process)
 
@@ -529,7 +529,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `name` 字符串
 * `path` String
 
 重写 `name` 的路径为 `path`，一个特定的文件夹或者文件。 If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
@@ -550,7 +550,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.setName(name)`
 
-* `name` String
+* `name` 字符串
 
 设置当前应用程序的名字
 
@@ -663,7 +663,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 
 如果 `categories` 的值为 `null`， 之前设定的自定义跳转列表(如果存在) 将被替换为标准的应用跳转列表(由windows生成)
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
+** 注意: **如果 ` JumpListCategory ` 对象既没有 ` type `, 也没有 ` name ` 属性设置, 则其 ` type ` 被假定为 ` tasks `。 如果设置了 ` name ` 属性, 但省略了 ` type ` 属性, 则假定 ` type ` 为 ` custom`。
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. 尝试提前将删除的项目重新添加 到自定义类别中，将导致整个自定义类别被隐藏。 删除的项目可以使用 `app.getJumpListSettings()` 获取。
 
@@ -910,7 +910,7 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
 如果你为 ` app. setLoginItemSettings ` 提供` path ` 和 ` args ` 选项，那么你需要在这里为 ` openAtLogin ` 设置相同的参数已确保正确的设置。
 
-返回 ` Object `:
+返回 `Object`:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
 * `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
@@ -1048,7 +1048,7 @@ app.moveToApplicationsFolder({
 
 Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
-## Properties
+## 属性
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
 
@@ -1058,7 +1058,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 此 API 必须在 `ready` 事件触发后调用
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
 
 ### `app.applicationMenu`
 
@@ -1070,7 +1070,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher)。
 
 ### `app.commandLine` _Readonly_
 
