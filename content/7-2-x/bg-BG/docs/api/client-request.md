@@ -49,10 +49,10 @@ const request = net.request({
 
 * `authInfo` Object
   * `isProxy` Булев
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
+  * `схема` Низ
+  * `домакин` Низ
+  * `порт` Цяло число
+  * `царство` Низ
 * `callback` Function
   * `username` String (optional)
   * `password` String (optional)
