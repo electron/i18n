@@ -913,7 +913,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 * `options` Object (optional)
   * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. 預設值為一個空陣列.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
@@ -931,7 +931,7 @@ If you provided `path` and `args` options to `app.setLoginItemSettings`, then yo
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
   * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. 預設值為一個空陣列. Take care to wrap paths in quotes.
 
 Set the app's login item settings.
 
