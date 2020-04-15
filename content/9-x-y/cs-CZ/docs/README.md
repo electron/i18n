@@ -12,17 +12,17 @@ There are questions that are asked quite often. Check this out before creating a
 
 * [O Electron](tutorial/about.md)
 * [Nastavení vývojového prostředí](tutorial/development-environment.md)
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Nastavení pro macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Nastavení pro Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Nastavení pro Linux](tutorial/development-environment.md#setting-up-linux)
   * [Výběr editoru](tutorial/development-environment.md#a-good-editor)
 * [Vytvořit tvoji 1. aplikaci](tutorial/first-app.md)
   * [Instalování Electronu](tutorial/first-app.md#installing-electron)
   * [Vývoj pro Electron v kostce](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Spuštění vaší aplikace](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md)
-  * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [Varo.com.chikitaisaac123@gmail.com](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [elektronová kovárna](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
@@ -33,7 +33,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
 * Adding Features to Your App
-  * [Notifications](tutorial/notifications.md)
+  * [Notifikace](tutorial/notifications.md)
   * [Nedávné dokumenty](tutorial/recent-documents.md)
   * [Application Progress](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/macos-dock.md)
@@ -115,7 +115,7 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ### Moduly pro hlavní proces:
 
-* [appka](api/app.md)
+* [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
