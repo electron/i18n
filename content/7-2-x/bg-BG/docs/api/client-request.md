@@ -43,12 +43,12 @@ const request = net.request({
 
 * `отговор` IncomingMessage - обект, представляващ HTTP отговор съобщението.
 
-#### Събитие: 'login'
+#### Събитие: "вход"
 
 Връща:
 
 * `authInfo` Object
-  * `isProxy` Boolean
+  * `isProxy` Булев
   * `scheme` String
   * `host` String
   * `port` Integer
