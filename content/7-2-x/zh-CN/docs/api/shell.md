@@ -47,7 +47,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+返回 `Boolean` - 该对象是否成功移至垃圾箱。
 
 将给定的文件移动到垃圾箱，并返回操作的布尔状态。
 
