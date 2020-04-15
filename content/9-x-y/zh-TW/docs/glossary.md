@@ -70,7 +70,7 @@ Nullsoft 腳本式安裝系統 (Nullsoft Scriptable Install System)，是 Micros
 
 OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
-### process
+### 處理序
 
 處理序 (Process) 是電腦程式執行中的一個執行個體。 使用[主處理序](#main-process)及一或多個[畫面轉譯處理序](#renderer-process)的 Electron 應用程式，實際上是同時執行多個程式。
 
