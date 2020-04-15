@@ -2,7 +2,7 @@
 
 > 轉譯及控制網頁。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -43,7 +43,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 ### 物件事件
 
@@ -392,7 +392,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 * `event` Event
 * `request` Object
-  * `method` String
+  * `title` [string]
   * `url` URL
   * `referrer` URL
 * `authInfo` Object
@@ -903,7 +903,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` _Experimental_
+#### `contents.setIgnoreMenuShortcuts(ignore)` _試驗中_
 
 * `ignore` Boolean
 
@@ -1078,7 +1078,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 Get the system printer list.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md).
+回傳 [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
@@ -1156,7 +1156,7 @@ win.webContents.on('did-finish-load', () => {
     if (error) throw error
     fs.writeFile('/tmp/print.pdf', data, (error) => {
       if (error) throw error
-      console.log('Write PDF successfully.')
+      console.log('PDF 寫入成功。')
     })
   })
 })
@@ -1291,7 +1291,7 @@ The renderer process can handle the message by listening to `channel` with the [
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// 在主處理序中.
+// 在主處理序裡。
 const { app, BrowserWindow } = require('electron')
 let win = null
 
@@ -1375,8 +1375,8 @@ For keyboard events, the `event` object also have following properties:
 
 For mouse events, the `event` object also have following properties:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
+* `x` Integer (**必填**)
+* `y` Integer (**必填**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`.
 * `globalX` Integer
 * `globalY` Integer
