@@ -1,8 +1,8 @@
-# 构建步骤（Windows）
+# 构建步骤 (Windows)
 
 遵循下面的步骤, 在 Windows 平台上构建 Electron。
 
-## 前提条件
+## 基本要求
 
 * Windows 10 / Server 2012 R2 或更高版本
 * Visual Studio 2017 15.7.2 或更高版本 - [免费下载 VS 2019 社区版](https://www.visualstudio.com/vs/)
