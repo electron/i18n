@@ -406,7 +406,7 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 
 Returns an object with system animation settings.
 
-## Properties
+## 属性
 
 ### `systemPreferences.appLevelAppearance` _macOS_
 
