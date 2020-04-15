@@ -312,7 +312,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 返回:
 
 * `event` Event
-* `name` String
+* `name` 字符串
 * `version` String
 
 当有插件进程崩溃时触发
@@ -1051,7 +1051,7 @@ Returns `Promise<void>`
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. 默认值为 `false`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
