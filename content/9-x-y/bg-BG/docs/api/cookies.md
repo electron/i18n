@@ -82,7 +82,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (по избор) - Това е домайн-а на бисквитката, ще бъде нормализирана с точка така, че да бъде валидна и за съб-домайни. Empty by default if omitted.
   * `path` String (по избор) - Пътя на бисквитката. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. По подразбиране е false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 
