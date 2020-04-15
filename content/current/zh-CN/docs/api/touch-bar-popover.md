@@ -4,7 +4,7 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarPopover(options)` _Experimental_
+### `new TouchBarSlider(options)` _实验功能_
 
 * `options` Object
   * ` label `String (可选) 弹出按钮文本。
