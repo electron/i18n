@@ -2,7 +2,7 @@
 
 > 顯示系統原生對話框，以便開啟檔案、儲存檔案，發出警告等。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 An example of showing a dialog to select multiple files:
 
