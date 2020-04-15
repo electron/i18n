@@ -754,7 +754,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (optioneel) _macOS_
 
 Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
 
@@ -779,7 +779,7 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (optioneel) _macOS_
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
@@ -807,7 +807,7 @@ Returns Boolean - whether the window is enabled.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (optioneel) _macOS_
 
 Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
@@ -819,7 +819,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (optioneel) _macOS_
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -971,7 +971,7 @@ Moves window to the center of the screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (optioneel) _macOS_
 
 Moves window to `x` and `y`.
 
