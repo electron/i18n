@@ -1,4 +1,4 @@
 # FileFilter 对象
 
-* `name` String
+* `name` 字符串
 * `extensions` String[]
