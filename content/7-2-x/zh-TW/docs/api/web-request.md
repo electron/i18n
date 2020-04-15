@@ -2,7 +2,7 @@
 
 > 在請求的不同時機攔截並修改其內容。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
@@ -42,7 +42,7 @@ The following methods are available on instances of `WebRequest`:
   * `details` Object
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -82,7 +82,7 @@ Some examples of valid `urls`:
   * `details` Object
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -103,9 +103,9 @@ The `callback` has to be called with a `response` object.
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
-    * `id` Integer
-    * `url` String
-    * `method` String
+    * `y` Integer
+    * `value` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -122,7 +122,7 @@ The `listener` will be called with `listener(details)` just before a request is 
   * `details` Object
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -149,7 +149,7 @@ The `callback` has to be called with a `response` object.
   * `details` Object
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -169,7 +169,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
   * `details` Object
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -191,7 +191,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
   * `details` Object
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -212,7 +212,7 @@ The `listener` will be called with `listener(details)` when a request is complet
   * `details` Object
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
