@@ -28,7 +28,7 @@ export async function parseFile(file: IParseFile, ids: Record<string, string>) {
   // nice categories for use in nav
   file.categoryFancy = categoryNames[file.category]
 
-  file.version = file.basePath.split('/').slice(-1).join('/')
+  file.version = path.basename(file.basePath)
 
   file.href = `/docs${file.version !== 'current' ? `/${file.version}` : ''}/${
     file.category

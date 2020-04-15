@@ -486,8 +486,8 @@ describe('i18n.electronLatestStableTag', () => {
 })
 
 describe('i18n.electronSupportedVersions', () => {
-  it('its array', () => {
-    expect(i18n.electronSupportedVersions).to.be.a('array')
+  it('its an array', () => {
+    expect(i18n.electronSupportedVersions).to.be.an('array')
   })
 
   it('contains three last versions', () => {
