@@ -677,7 +677,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Als de `name` eigenschap is ingesteld, maar de `type` eigenschap is weggelaten, dan wordt het `type` verondersteld `custom` te zijn.
+**Opmerking:** Als een `JumpListCategorie` object noch het `type` noch de `name` eigenschap heeft ingesteld, dan wordt het `type` verondersteld `tasks` te zijn. Als de `name` eigenschap is ingesteld, maar de `type` eigenschap is weggelaten, dan wordt het `type` verondersteld `custom` te zijn.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
