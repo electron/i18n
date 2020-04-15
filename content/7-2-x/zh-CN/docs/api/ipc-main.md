@@ -52,7 +52,7 @@ IpcMain模块有以下方法来侦听事件：
   * `event` IpcMainEvent
   * `...args` any[]
 
-监听 `channel`，当接收到新的消息时 `listener` 会以 `listener(event, args...)` 的形式被调用。
+监听 channel, 当新消息到达，将通过 listener(event, args...) 调用 listener。
 
 ### `ipcMain.once(channel, listener)`
 
@@ -69,7 +69,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 * `listener` Function
   * `...args` any[]
 
-从监听器数组中移除监听 `channel` 的指定 `listener`。
+为特定的 channel 从监听队列中删除特定的 listener 监听者.
 
 ### `ipcMain.removeAllListeners([channel])`
 
