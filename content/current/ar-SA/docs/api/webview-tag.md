@@ -12,7 +12,7 @@ By default the `webview` tag is disabled in Electron >= 5.  You need to enable t
 
 > Display external web content in an isolated frame and process.
 
-Process: [Renderer](../glossary.md#renderer-process)
+shliilhpltfrom
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -792,7 +792,7 @@ Fired when the renderer process is crashed.
 
 Returns:
 
-* `name` سلسلة نصية
+* `الإسم`String
 * `الإصدار` String
 
 Fired when a plugin process is crashed.
