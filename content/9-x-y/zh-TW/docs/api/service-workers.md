@@ -2,11 +2,11 @@
 
 > Query and receive events from a sessions active service workers.
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
-For example:
+例如:
 
 ```javascript
 const { session } = require('electron')
