@@ -1,6 +1,6 @@
 # الكائن PrinterInfo
 
-* `name` سلسلة نصية
+* `الإسم`String
 * `الوصف`String
 * `النظام الأساسي`Number
 * `isDefault` Boolean
