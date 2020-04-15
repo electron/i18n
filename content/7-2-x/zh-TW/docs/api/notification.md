@@ -2,7 +2,7 @@
 
 > 產生作業系統桌面通知。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 ## 在畫面轉譯處理序中使用
 
@@ -12,13 +12,13 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > 產生作業系統桌面通知。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### 靜態方法
+### 靜態方法靜態方法
 
 The `Notification` class has the following static methods:
 
@@ -72,7 +72,7 @@ Emitted when the notification is closed by manual intervention from the user.
 
 This event is not guaranteed to be emitted in all cases where the notification is closed.
 
-#### Event: 'reply' _macOS_
+#### 事件: 'reply' _macOS_
 
 回傳:
 
@@ -81,7 +81,7 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
-#### Event: 'action' _macOS_
+#### 事件: 'action' _macOS_
 
 回傳:
 
