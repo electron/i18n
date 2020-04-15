@@ -26,7 +26,7 @@ Windows 控制台示例:
 
 Electron 包括对 Node 的 [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options) 的子集的支持。 除与 Chromium 使用 BoringSSL 相抵触的情况外，大多数都得到了支持。
 
-示例:
+示例：
 
 ```sh
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
@@ -66,7 +66,7 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 不附加到当前控制台会话。
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
+### ` ELECTRON_FORCE_WINDOW_MENU_BAR `_ Linux _
 
 不使用 Linux 的全局菜单栏。
 
@@ -99,7 +99,7 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 
 如果 ` crashReporter `已经启动了, 则此环境变量将不起作用。
 
-### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
+### ` ELECTRON_DEFAULT_ERROR_MODE `_ Windows _
 
 当Electron崩溃时显示 Windows 的崩溃对话框。
 
@@ -107,7 +107,7 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-当 `electron` 包运行时，该变量告知 `electron` 命令使用指定Electron的构建代替由 `npm install` 下载的构建。 用法:
+当 `electron` 包运行时，该变量告知 `electron` 命令使用指定Electron的构建代替由 `npm install` 下载的构建。 用法：
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
