@@ -84,7 +84,7 @@ OSR (Off-screen rendering) can be used for loading heavy page in background and 
 
 
 
-### process
+### عملية
 
 A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
