@@ -8,4 +8,4 @@
 * ` name `字符串（可选的）--如果 `type` 是 `custom` 则必须设置, 否则应省略它。
 * ` items`JumpListItem [] (可选)-如果 ` type ` 是 ` tasks ` 或 ` custom `, 则 [` JumpListItem `](jump-list-item.md) 对象的数组, 否则应省略它。
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
+** 注意: **如果 ` JumpListCategory ` 对象既没有 ` type `, 也没有 ` name ` 属性设置, 则其 ` type ` 被假定为 ` tasks `。 如果设置了 ` name ` 属性, 但省略了 ` type ` 属性, 则假定 ` type ` 为 ` custom`。
