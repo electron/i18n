@@ -9,4 +9,4 @@
 * ` items </ 0> JumpListItem [] (اختياري) - صفيف الكائنات <a href="jump-list-item.md"><code> JumpListItem </ 1> إذا كانت <code> type </ 0> هي <code> مهمات </ 0> أو <code> custom < / 0> ، وإلا يجب حذفها.</p></li>
 </ul>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> If a <code>JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. إذا كانت خاصية `name` معينة لكن خاصية `type` يتم حذفها ويفترض أن يكون `type` `custom`.
+<p spaces-before="0"><strong x-id="1">Note:</strong> إذا كان الكائن <code>JumpListCategory` ليس لديه `type` ولا `name` تعيين الخواص `type` يفترض أن يكون `tasks`. إذا كانت خاصية `name` معينة لكن خاصية `type` يتم حذفها ويفترض أن يكون `type` `custom`.
