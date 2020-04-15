@@ -2,7 +2,7 @@
 
 > 取得系統喜好設定。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = require('electron')
@@ -13,20 +13,20 @@ console.log(systemPreferences.isDarkMode())
 
 The `systemPreferences` object emits the following events:
 
-### Event: 'accent-color-changed' _Windows_
+### 事件: 'accent-color-changed' _Windows_
 
 回傳:
 
 * `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
-### Event: 'color-changed' _Windows_
+### 事件: 'color-changed' _Windows_
 
 回傳:
 
 * `event` Event
 
-### Event: 'inverted-color-scheme-changed' _Windows_
+### 事件: 'inverted-color-scheme-changed' _Windows_
 
 回傳:
 
@@ -53,7 +53,7 @@ Returns `Boolean` - Whether the Swipe between pages setting is on.
 ### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` _macOS_
 
 * `event` String
-* `userInfo` Object
+* `userInfo` 物件
 * `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
@@ -61,14 +61,14 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `event` String
-* `userInfo` Object
+* `userInfo` 物件
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `event` String
-* `userInfo` Object
+* `userInfo` 物件
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
@@ -77,7 +77,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 * `event` String
 * `callback` Function (選用
   * `event` String
-  * `userInfo` Object
+  * `userInfo` 物件
 
 Returns `Number` - The ID of this subscription
 
@@ -97,7 +97,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 * `event` String
 * `callback` Function (選用
   * `event` String
-  * `userInfo` Object
+  * `userInfo` 物件
 
 Returns `Number` - The ID of this subscription
 
@@ -108,7 +108,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 * `event` String
 * `callback` Function (選用
   * `event` String
-  * `userInfo` Object
+  * `userInfo` 物件
 
 Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
 
