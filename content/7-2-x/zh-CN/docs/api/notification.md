@@ -30,21 +30,21 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 
 * `options` Object (optional)
   * ` title `String - 通知的标题, 将在通知窗口的顶部显示.
-  * `subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
+  * ` subtitle `String (可选) 通知的副标题, 显示在标题下面。_ macOS _
   * ` body `String 通知的正文文本, 将显示在标题或副标题下面.
   * ` silent `Boolean (可选) 在显示通知时是否发出系统提示音。
   * ` icon`(String | [ NativeImage ](native-image.md)) (可选) 用于在该通知上显示的图标。
-  * `hasReply` Boolean (optional) _macOS_ - Whether or not to add an inline reply option to the notification.
-  * `replyPlaceholder` String (optional) _macOS_ - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) _macOS_ - The name of the sound file to play when the notification is shown.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. 请阅读 `NotificationAction`文档来了解可用的操作和限制。
+  * ` hasReply `Boolean (可选) 是否在通知中添加一个答复选项。 _ macOS _
+  * ` replyPlaceholder `String (可选) 答复输入框中的占位符。_ macOS _
+  * `sound `String (可选) 显示通知时播放的声音文件的名称。_ macOS _
+  * `actions` [NotificationAction[]](structures/notification-action.md) (可选) _macOS_ - 要添加到通知中的操作 请阅读 `NotificationAction`文档来了解可用的操作和限制。
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 ### 实例事件
 
 用 `new Notification` 创建的对象触发以下事件：
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
 
 #### 事件: 'show'
 
@@ -72,7 +72,7 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 
 当通知关闭后，这个事件不能保证在所有情况下都会触发。
 
-#### Event: 'reply' _macOS_
+#### 事件: 'reply' _macOS_
 
 返回:
 
@@ -81,7 +81,7 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 
 当用户单击 ` hasReply: true ` 的通知上的 "Reply" 按钮时触发。
 
-#### Event: 'action' _macOS_
+#### 事件: 'action' _macOS_
 
 返回:
 
