@@ -34,7 +34,7 @@ Returns `Session` - 根据`partition`字符串产生的session实例。 当这�
 
 要根据`options`创建`Session`，你需要确保`Session`的`partition`在之前从未被使用。 没有办法修改一个已存在的`Session`对象的`options`。
 
-## Properties
+## 属性
 
 ` session ` 模块具有以下方法:
 
@@ -87,10 +87,10 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 #### `ses.getCacheSize(callback)`
 
 * `callback` Function
-  * `size` Integer - Cache size used in bytes.
+  * `size` Integer 缓存大小（单位：bytes）
   * `error` Integer - The error code corresponding to the failure.
 
-Callback is invoked with the session's current cache size.
+Callback会被调用，参数是session的当前缓存大小。
 
 **[即将弃用](modernization/promisification.md)**
 
@@ -100,7 +100,7 @@ Returns `Promise<Integer>` - the session's current cache size, in bytes.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done.
+* `callback` Function - 会在操作完成之后被调用。
   * `error` Integer - The error code corresponding to the failure.
 
 清除session的HTTP缓存。
@@ -119,7 +119,7 @@ Returns `Promise<void>` - resolves when the cache clear operation is complete.
   * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`方式设置。
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] - (可选项) 要清除的配额类型, 包含: `temporary`, `persistent`, `syncable`。
-* `callback` Function (optional) - Called when operation is done.
+* `callback` Function (optional) - 会在操作完成后被调用.
 
 Clears the storage data for the current session.
 
@@ -141,10 +141,10 @@ Returns `Promise<void>` - resolves when the storage data has been cleared.
 #### `ses.setProxy(config, callback)`
 
 * `config` Object
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Called when operation is done.
+  * `pacScript` String - 与 PAC 文件关联的 URL。
+  * `proxyRules` String - 表明要使用的代理规则。
+  * `proxyBypassRules` String - 表明哪些 url 应绕过代理设置的规则。
+* `callback` Function - 会在操作完成之后被调用。
 
 代理设置
 
@@ -176,7 +176,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
    与 HOSTNAME_PATTERN 模式匹配的所有主机名。
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   例如: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -205,9 +205,9 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 #### `ses.setProxy(config)`
 
 * `config` Object
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+  * `pacScript` String - 与 PAC 文件关联的 URL。
+  * `proxyRules` String - 表明要使用的代理规则。
+  * `proxyBypassRules` String - 表明哪些 url 应绕过代理设置的规则。
 
 Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
@@ -241,7 +241,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
    与 HOSTNAME_PATTERN 模式匹配的所有主机名。
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   例如: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -290,7 +290,7 @@ Sets download saving directory. By default, the download directory will be the `
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `offline` Boolean (optional) - Whether to emulate network outage. 默认值为 false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
@@ -398,7 +398,7 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 #### `ses.clearHostResolverCache(callback)`
 
-* `callback` Function (optional) - Called when operation is done.
+* `callback` Function (optional) - 会在操作完成后被调用.
 
 清除主机解析程序的缓存。
 
@@ -444,7 +444,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 * `identifier` String - 有效的 UUID.
 * `callback` Function
-  * `result` Buffer - Blob data.
+  * `result` Buffer - Blob 数据.
 
 **[即将弃用](modernization/promisification.md)**
 
@@ -462,8 +462,8 @@ Returns `Promise<Buffer>` - resolves with blob data.
   * `mimeType` String (可选)
   * `offset` Integer - 下载的开始范围.
   * `length` Integer - 下载的总长度。
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
+  * `lastModified` String - 上次修改的标头值。
+  * `eTag` String - ETag 标头值。
   * `startTime` Double (optional) - 下载的时间是从 UNIX 时代以来的秒数开始的。
 
 允许从上一个 `Session` 恢复 ` cancelled ` 或 ` interrupted ` 下载。 该 API 将生成一个 [ DownloadItem ](download-item.md), 可使用 [ will-download ](#event-will-download) 事件进行访问。 [ DownloadItem ](download-item.md) 将不具有与之关联的任何 ` WebContents `, 并且初始状态将为 ` interrupted `。 只有在 [ DownloadItem ](download-item.md) 上调用 ` resume ` API 时, 才会启动下载。
@@ -471,9 +471,9 @@ Returns `Promise<Buffer>` - resolves with blob data.
 #### `ses.clearAuthCache(options, callback)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function - Called when operation is done.
+* `callback` Function - 会在操作完成之后被调用。
 
-Clears the session’s HTTP authentication cache.
+清除会话的 HTTP 身份验证缓存。
 
 **[即将弃用](modernization/promisification.md)**
 
@@ -503,15 +503,15 @@ Adds scripts that will be executed on ALL web contents that are associated with 
 
 <h4 spaces-before="0"><code>ses.cookies`</h4>
 
-A [Cookies](cookies.md) object for this session.
+此会话的 [ cookie ](cookies.md) 对象。
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+此会话的 [WebRequest](web-request.md) 对象。
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+此会话的 [ 协议 ](protocol.md) 对象。
 
 ```javascript
 const { app, session } = require('electron')
