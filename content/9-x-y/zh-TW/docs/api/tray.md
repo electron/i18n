@@ -159,7 +159,7 @@ Note: This will not be emitted if you have set a context menu for your Tray usin
 
 Emitted when the mouse clicks the tray icon.
 
-#### Event: 'mouse-enter' _macOS_
+#### 事件: 'mouse-enter' _macOS_
 
 回傳:
 
@@ -168,7 +168,7 @@ Emitted when the mouse clicks the tray icon.
 
 Emitted when the mouse enters the tray icon.
 
-#### Event: 'mouse-leave' _macOS_
+#### 事件: 'mouse-leave' _macOS_
 
 回傳:
 
