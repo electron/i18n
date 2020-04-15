@@ -1,4 +1,4 @@
-# Testing on Headless CI Systems (Travis CI, Github Actions, Jenkins)
+# 無顯示卡周邊(Headless)的CI系統上進行測試(如：Travis CI, Github Actions, Jenkins)
 
 因為 Electron 是架構在 Chromium 上的，需要顯示驅動程式才能運作。 如果Chromium 無法找到顯示驅動， Electron將會啟動失敗，無論你如何執行，Electron不會執行你程式進行測試。 在 Travis, Circle, Jenkins 或類似的系統上測試 Electron 應用程式，需要一些額外設定。 實際上，我們需要使用虛擬顯示驅動程式。
 
