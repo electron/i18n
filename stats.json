@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "65613",
-    "translated": "41369",
+    "translated": "41379",
     "approved": "12634",
     "words": "630107",
-    "words_translated": "349453",
+    "words_translated": "349599",
     "words_approved": "109202",
     "translated_progress": 55,
     "approved_progress": 17,
-    "qa_issues": 2093
+    "qa_issues": 2096
   },
   {
     "name": "German",
@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "65613",
-    "translated": "54995",
+    "translated": "55362",
     "approved": "18497",
     "words": "630107",
-    "words_translated": "514676",
+    "words_translated": "518023",
     "words_approved": "180512",
-    "translated_progress": 81,
+    "translated_progress": 82,
     "approved_progress": 28,
-    "qa_issues": 307
+    "qa_issues": 311
   },
   {
     "name": "Korean",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "65613",
-    "translated": "45795",
+    "translated": "45924",
     "approved": "18138",
     "words": "630107",
-    "words_translated": "406956",
+    "words_translated": "407750",
     "words_approved": "160703",
     "translated_progress": 64,
     "approved_progress": 25,
-    "qa_issues": 2907
+    "qa_issues": 2930
   },
   {
     "name": "Tagalog",
