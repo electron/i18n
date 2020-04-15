@@ -2,7 +2,7 @@
 
 > 取得系統喜好設定。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = require('electron')
@@ -13,14 +13,14 @@ console.log(systemPreferences.isDarkMode())
 
 The `systemPreferences` object emits the following events:
 
-### Event: 'accent-color-changed' _Windows_
+### 事件: 'accent-color-changed' _Windows_
 
 回傳:
 
 * `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
-### Event: 'color-changed' _Windows_
+### 事件: 'color-changed' _Windows_
 
 回傳:
 
