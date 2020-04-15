@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
+` webContents ` 是 [ EventEmitter ](https://nodejs.org/api/events.html#events_class_eventemitter)的实例， 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -63,7 +63,7 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. 完整的错误码列表以及含义，[请看这](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)
+这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()` 。 完整的错误码列表以及含义，[请看这](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)
 
 #### Event: 'did-frame-finish-load'
 
@@ -119,7 +119,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 * `url` String
 * `frameName` String
 * `disposition` String - 可以被设置为 `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` 及 `other`.
-* `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` Object - 用于创建新的 [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - 非标准功能(非标准功能是指这些功能不是由Chromium或Electron处理的功能)，这些功能默认指向`window.open()`.
 * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
@@ -298,7 +298,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 返回:
 
 * `event` Event
-* `name` String
+* `name` 字符串
 * `version` String
 
 当有插件进程崩溃时触发
@@ -856,7 +856,7 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `css` String
 
-Injects CSS into the current web page.
+为当前页面注入样式
 
 ```js
 contents.on('did-finish-load', function () {
@@ -904,7 +904,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` _Experimental_
+#### `contents.setIgnoreMenuShortcuts(ignore)` _实验功能_
 
 * `ignore` Boolean
 
@@ -1031,7 +1031,7 @@ Copy the image at the given position to the clipboard.
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. 默认值为 `false`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -1079,7 +1079,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 获取系统打印机列表
 
-Returns [`PrinterInfo[]`](structures/printer-info.md).
+返回 [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
@@ -1372,7 +1372,7 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 
 For keyboard events, the `event` object also have following properties:
 
-* `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
+* `keyCode` String (**required**) - The character that will be sent as the keyboard event. 在[Accelerator](accelerator.md)中只能使用有效的keyCode。
 
 For mouse events, the `event` object also have following properties:
 
@@ -1385,7 +1385,7 @@ For mouse events, the `event` object also have following properties:
 * `movementY` Integer
 * `clickCount` Integer
 
-For the `mouseWheel` event, the `event` object also have following properties:
+`mouseWheel`事件的`event`对象还有下列属性：
 
 * `deltaX` Integer
 * `deltaY` Integer
@@ -1544,4 +1544,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-A [Debugger](debugger.md) instance for this webContents.
+WebContents的 [Debugger](debugger.md)实例。
