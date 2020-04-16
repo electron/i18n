@@ -1,6 +1,6 @@
 # webContents
 
-> Contrôle et rendu des pages web.
+> Fait le rendu et contrôle des pages web.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -83,7 +83,7 @@ Cet événement est comme `did-fail-load` mais émis lorsque la charge a été a
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -493,7 +493,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `params` Object
   * `x` Integer - coordonnée x.
   * `y` Integer - coordonée y.
@@ -569,7 +569,7 @@ app.whenReady().then(() => {
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - Les données de l'image du frame entier.
 
@@ -593,7 +593,7 @@ win.loadURL('http://github.com')
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -607,7 +607,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` WebContents - Les contenus web invités qui sont utilisés par `<webview>`.
 
 Émis quand un `<webview>` a été rattaché à ce contenu web.
@@ -616,9 +616,9 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `level` Integer
-* `message` Chaîne de caractères
+* `message` String
 * `line` Integer
 * `sourceId` String
 
@@ -628,7 +628,7 @@ Emitted when the associated window logs a console message.
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `preloadPath` String
 * `error` Error
 
@@ -638,7 +638,7 @@ Emitted when the preload script `preloadPath` throws an unhandled exception `err
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `channel` String
 * `...args` any[]
 
@@ -648,7 +648,7 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `channel` String
 * `...args` any[]
 
@@ -1051,7 +1051,7 @@ Insère le `text` à l'élément ciblé.
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. par défaut, `faux`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
