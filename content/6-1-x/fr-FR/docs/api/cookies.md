@@ -85,21 +85,21 @@ Envoie une demande pour obtenir tous les cookies correspondant à `filter`, et r
   * `session` Boolean (facultatif) - filtre les session ou les cookies persistants.
 * `callback` Function
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - Un tableau d'objet de cookie.
 
-Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
+Envoie une demande pour obtenir tous les cookies correspondants à `filter`, `callback` sera appelé avec `callback(error, cookies)` à la fin.
 
 **[Deprecated Soon](modernization/promisification.md)**
 
 #### `cookies.set(détails)`
 
 * `details` Object
-  * `url` String - The url to associate the cookie with. The promise will be rejected if the url is invalid.
+  * `url` String - L'url à associer au cookie. The promise will be rejected if the url is invalid.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (facultatif) - Le nom de domaine du cookie; ce dernier sera normalisé par un point le précédent pour qu'il soit valide pour les sous-domaines. Empty by default if omitted.
   * `path` String (facultatif) - Le chemin du cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. false par défaut.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Par défaut, faux.
   * `expirationDate` Double (facultatif) - La date d'expiration du cookie en nombre de secondes depuis l'epoch UNIX. Si omis, le cookie devient alors un cookie de session et ne sera pas conservé entre deux sessions.
 
@@ -110,18 +110,18 @@ Définit un cookie avec `détails`.
 #### `cookies.set(details, callback)`
 
 * `details` Object
-  * `url` String - The url to associate the cookie with.
+  * `url` String - L'url à associer au cookie.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
+  * `domain` String (facultatif) - Le domaine du cookie. Empty by default if omitted.
   * `path` String (facultatif) - Le chemin du cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. false par défaut.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Par défaut, faux.
   * `expirationDate` Double (facultatif) - La date d'expiration du cookie en nombre de secondes depuis l'epoch UNIX. Si omis, le cookie devient alors un cookie de session et ne sera pas conservé entre deux sessions.
 * `callback` Function
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+Définit un cookie avec `details`, `callback` sera appelé avec `callback(error)` une fois fini.
 
 **[Deprecated Soon](modernization/promisification.md)**
 
@@ -140,7 +140,7 @@ Supprime les cookies correspondant à `url` et `name`
 * `name` String - Le nom du cookie à supprimer.
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+Supprime les cookies correspondant à `url` et `nom`, `rappel` seront appelé avec `callback()` complet.
 
 **[Deprecated Soon](modernization/promisification.md)**
 
