@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### Étape 1 : Empaqueter votre Application Electron
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Assurez vous de supprimer `node_modules` dont vous n'avez plus besoin dans votre application finale, puisque tout module dont vous n'avez pas besoin augmentera inutilement la taille de votre application.
+Empaquetez l’application à l’aide de [electron-packager](https://github.com/electron-userland/electron-packager) (ou d'un outil similaire). Assurez vous de supprimer `node_modules` dont vous n'avez plus besoin dans votre application finale, puisque tout module dont vous n'avez pas besoin augmentera inutilement la taille de votre application.
 
 La sortie devrait ressembler à peu près à ceci :
 
