@@ -1,4 +1,4 @@
-# pagkakahuli sa tuktok ng desk
+# desktopCapturer
 
 > Ang "access" ay impormasyon tungkol sa mga pinagmulan ng "media" na maaaring magamit upang makunan ng "audio" at "video" galing sa "desktop" gamit ang [`navigator.mediaDevices.getUserMedia`]API.
 
