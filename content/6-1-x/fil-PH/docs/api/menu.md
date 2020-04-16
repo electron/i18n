@@ -10,7 +10,7 @@ Lumilikha ng isang bagong menu.
 
 ### Mga istatikong pamamaraan
 
-The `menu` class has the following static methods:
+Ang klaseng `menu` ay mayroong mga sumusunod na mga istatikong pamamaraan:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -28,7 +28,7 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 Ibinabalik ang `Menu | null` - Ang menu ng aplikasyon, kapag naitakda, o `null` kapag hindi naitakda.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Ang mga instance na katangian ](#instance-properties) ay maaring baguhin sa dinamikong paraan.
+**Tandaan:** Ang ibinalik na instance ng `Menu` ay hindi suportado ang dinamikong pagdadagdag o pagtatanggal ng mga aytem ng menu. [Ang mga instance na katangian ](#instance-properties) ay maaring baguhin sa dinamikong paraan.
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 
@@ -48,7 +48,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga Pamamaraan ng Instance
 
 Ang `Menu` na bagay ay may sumusunod na mga pamamaraan ng instance:
 
@@ -92,25 +92,25 @@ Ipasok sa`menuItem`papunta sa posisyon ng`pos`ng menu.
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Tandaan:** Ang ilang mga kaganapan ay magagamit lamang sa partikular na mga operating system at na may label na.
 
 #### Event: 'menu-will-show'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 
 Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instance
 
 Ang mga bagay sa `menu` ay mayroon ding mga sumusunod na katangian:
 
@@ -120,13 +120,13 @@ Ang hanay ng `MenuItem[]` na naglalaman ng mag aytem ng menu.
 
 Bawat `Menu` ay binubuo ng maramihang [`MenuItem`](menu-item.md) at bawat `MenuItem` ay mayroong isang submenu.
 
-## Mga Halimbawa
+## Halimbawa
 
 Ang klase ng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo rin itong magamit sa prosesong tagabigay sa pamamagitan ng modyul ng [`remote`](remote.md).
 
 ### Pangunahing proseso
 
-Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso ay sa simpleng template ng API:
+Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso gamit ang simpleng template ng API:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -268,15 +268,15 @@ On macOS there are many system-defined standard menus, like the [`Services`](htt
 
 ### Mga Aytem na Aksyon ng Istandard na Menu
 
-ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, katulad ng `About xxx`, `Hide xxx`, at ` Hide Others`. Para itakda ang aksyon ng isang item ng menu sa isang standard na aksyon, dapat mong itakda ang katangian ng `role` ng item ng menu.
+ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, katulad ng `About xxx`, `Hide xxx`, at ` Hide Others`. Para itakda ang aksyon ng isang item ng menu sa isang istandard na aksyon, dapat mong itakda ang katangiang `role` ng item ng menu.
 
 ### Pangalan ng Pangunahing Menu
 
-Sa macOS ang tatak ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist`. Tingnan ang [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) para sa karagdagang impormasyon.
+Sa macOS ang lebel ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist` na file. Tingnan ang [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) para sa karagdagang impormasyon.
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Pagtatakda ang Menu para sa Tiyak na Browser Window ng (*Linux* *Windows*)
 
-Ang [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) ng browser windows ay kayang itakda ang menu ng tiyak na browser windows.
+Ang [`setMenu` na pamamaraan](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) ng browser windows ay kayang itakda ang menu ng isang browser windows.
 
 ## Posisyon ng Item ng Menu
 
@@ -289,7 +289,7 @@ You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupConta
 
 By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
-### Mga Halimbawa
+### Halimbawa
 
 Ang Template:
 
