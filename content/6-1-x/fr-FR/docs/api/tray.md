@@ -72,77 +72,77 @@ Le module `Tray` émet les événements suivants :
 
 Émis lorsque l’utilisateur clique sur l’icône.
 
-#### Event: 'right-click' _macOS_ _Windows_
+#### Événement : 'right-click' _macOS_ _Windows_
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
 Émis lorsque l’utilisateur fait un clique droit sur l’icône.
 
-#### Event: 'double-click' _macOS_ _Windows_
+#### Événement : 'double-click' _macOS_ _Windows_
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
 Émis lorsque l’utilisateur double clique sur l’icône.
 
-#### Event: 'balloon-show' _Windows_
+#### Événement : 'balloon-show' _Windows_
 
 Émis lorsque le ballon de la barre d’État s’affiche.
 
-#### Event: 'balloon-click' _Windows_
+#### Événement : 'balloon-click' _Windows_
 
 Émis lorsque l’utilisateur clique sur le ballon de la barre d'État.
 
-#### Event: 'balloon-closed' _Windows_
+#### Événement : 'balloon-closed' _Windows_
 
 Émis lorsque le ballon de la barre d’État est fermé en raison du délai d’attente dépassé ou de l’utilisateur le ferme manuellement.
 
-#### Event: 'drop' _macOS_
+#### Événement : 'drop' _macOS_
 
 Émis lorsque un ou des éléments sont glissés et déposés sur l’icône.
 
-#### Event: 'drop-files' _macOS_
+#### Événement : 'drop-files' _macOS_
 
 * `event` Événement
 * `files` String[] - les chemins d’accès des fichiers déposés.
 
 Émis lorsque des fichiers sont glissés et déposés sur l’icône.
 
-#### Event: 'drop-text' _macOS_
+#### Événement : 'drop-text' _macOS_
 
 * `event` Événement
 * `text` String - le texte déposé.
 
 Émis lorsqu'un texte est déposé sur l’icône.
 
-#### Event: 'drag-enter' _macOS_
+#### Événement : 'drag-enter' _macOS_
 
 Émis lorsqu’une opération glisser entre dans la zone de l’icône.
 
-#### Event: 'drag-leave' _macOS_
+#### Événement : 'drag-leave' _macOS_
 
 Émis lorsqu’une opération glisser sort de la zone de l’icône.
 
-#### Event: 'drag-end' _macOS_
+#### Événement : 'drag-end' _macOS_
 
 Émis lorsqu’une opération glisser se termine sur l'icône ou à un autre emplacement.
 
-#### Event: 'mouse-enter' _macOS_
+#### Événement : 'mouse-enter' _macOS_
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris entre dans la zone de l’icône.
 
-#### Event: 'mouse-leave' _macOS_
+#### Événement : 'mouse-leave' _macOS_
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris sort de la zone de l’icône.
 
-#### Event: 'mouse-move' _macOS_
+#### Événement : 'mouse-move' _macOS_
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
@@ -191,14 +191,14 @@ Retourne `String` - le titre affiché à côté de l'icône de la barre d'état
 
 * `mode` String - Highlight mode with one of the following values:
   * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+  * `always` - Toujours mettre en surbrillance l’icône.
+  * `never` - Jamais mettre en surbrillance l’icône.
 
-Sets when the tray's icon background becomes highlighted (in blue).
+Définit quand l'icône de la barre d'état est mis en surbrillance (en blue).
 
 **[Déprécié ](breaking-changes.md#tray)**
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Remarque :** Vous pouvez utiliser `highlightMode` avec [`BrowserWindow`](browser-window.md) en alternant les modes `'never'` et `'always'` lorsque la visibilité de la fenêtre change.
 
 ```javascript
 const { BrowserWindow, Tray } = require('electron')
@@ -232,7 +232,7 @@ Retourne un `Boolean` - Si oui ou non les événènements de double clic seront 
 #### `tray.displayBalloon(options)` _Windows_
 
 * `options` Object
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (optionnel)
   * `title` String
   * `content` String
 
