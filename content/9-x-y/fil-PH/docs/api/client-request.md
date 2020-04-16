@@ -42,7 +42,7 @@ const request = net.request({
 
 #### Event: 'response'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `response` IncomingMessage - Isang bagay na kumakatawan ng HTTP response message.
 
@@ -51,7 +51,7 @@ Pagbabalik:
 Pagbabalik:
 
 * `authInfo` Object
-  * `isProxy` Ang Boolean
+  * `isProxy` Boolean
   * `scheme` na String
   * `host` String
   * `port` Integer
@@ -96,20 +96,20 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Pangyayari: 'error'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `error` Error - isang error object na nagbibigay impormasyon tungkol sa kabiguan.
 
 Matatanggal kapag nabigo ang  `net` na module sa pag-issue ng network request. Karaniwan kapag ang  `request` object ay nagtanggal ng `error` na event, isang `close` na event na sumusubaybay at walang response na object ang ilalaan.
 
-#### Event: 'isara'
+#### Event: 'close'
 
 Tinatanggal bilang panghuling event sa HTTP request-response transaction. Ang  `close` na event ay nagsasaad na walang tatanggalin na events alinman sa `request` o `response` na mga object.
 
 
 #### Event: 'redirect'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `statusCode` Integer
 * `method` na String
@@ -118,15 +118,15 @@ Pagbabalik:
 
 Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instansya
 
 #### `request.chunkedEncoding`
 
-Ang `Boolean` ay ang pagtitiyak kung ang request ay gagamit ng HTTP chunked transfer encoding o hindi. Ang default na mali. Ang property ay nababasa at nasusulat, ngunit ito ay mai-set lamang kapag hindi pa nailagay sa wire ang first write operation bilang HTTP headers. Subukang i-set ang `chunkedEncoding` property matapos ang first write ay magiging isang error.
+Ang `Boolean` ay ang pagtitiyak kung ang request ay gagamit ng HTTP chunked transfer encoding o hindi. I-default sa false Ang property ay nababasa at nasusulat, ngunit ito ay mai-set lamang kapag hindi pa nailagay sa wire ang first write operation bilang HTTP headers. Subukang i-set ang `chunkedEncoding` property matapos ang first write ay magiging isang error.
 
 Ang paggamit ng chunked encoding ay mahalagang inirerekumenda kung kailangan mag-send ng large request body bilang data ay mai-steam sa small chunks sa halip na mag-buffer sa loob ng Electron process memory.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga pamamaraan ng pagkakataon
 
 #### `request.setHeader(name, value)`
 
@@ -135,13 +135,13 @@ Ang paggamit ng chunked encoding ay mahalagang inirerekumenda kung kailangan mag
 
 Nagdadagdag ng extra HTTP header. The header name will be issued as-is without lowercasing. Ito ay maaaring lamang tawagin bago ang first write. Ang pagtatawag ng method na ito matapos ang first write ay magiging error. KUng ang napasa na value ay hindi `String`, ang `toString()` na method ay tatawagin para kumuha ng huling value.
 
-#### `request.getHeader(name)`
+#### `request.getHeader(pangalan)`
 
 * `name` String - Tumukoy ng dugtong na pangalan ng header.
 
 Returns `String` - The value of a previously set extra header name.
 
-#### `request.removeHeader(name)`
+#### `request.removeHeader(pangalan)`
 
 * `name` String - Tumukoy ng dugtong na pangalan ng header.
 
@@ -175,7 +175,7 @@ Continues any pending redirection. Can only be called during a `'redirect'` even
 
 #### `request.getUploadProgress()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
 * `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
