@@ -1,4 +1,4 @@
-# ipcrenderer
+# ipcRenderer
 
 > Makipag-usap ng sabay-sabay mula sa prosesong tagasalin hanggang sa pangunahing proseso.
 
@@ -15,7 +15,7 @@ Ang modyul ng `ipcRenderer` ay mayroon ng mga sumusunod na pamamaraan para makin
 ### `ipcRenderer.on(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
   * `event` IpcRendererEvent
   * `...args` anuman[]
 
@@ -24,7 +24,7 @@ Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay
 ### `ipcRenderer.once(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
   * `event` IpcRendererEvent
   * `...args` anuman[]
 
@@ -33,7 +33,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcRenderer.removeListener(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
   * `...args` anuman[]
 
 Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
@@ -49,7 +49,7 @@ Tinatanggal ang lahat ng mga tagapakinig, o ang mga tinukoy sa `channel`.
 * `channel` String
 * `...args` anuman[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Magpadala ng mensahe sa pangunahing proseso ng magkahiwalay sa pamamagitan ng `channel`, maaari ka ring magpadala ng hindi makatwiran na mga argumento. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
 
 The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
 
@@ -85,11 +85,11 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 Magbabalik ng `any` - Ang halaga ay ipinadala pabalik sa pamamagitan ng tagahawak ng [`ipcMain`](ipc-main.md).
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Magpadala ng mensahe sa pangunahing proseso ng magkasabay sa pamamagitan ng `channel`, maaari ka ring magpadala ng hindi makatwiran na mga argumento. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
 The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**Note:** Ang pagpapadala ng magkasabay na mensahe ay iba-block ang buong prosesong tagabigay, maliban kung alam mo ang ginagawa mo huwag mo itong gagamitin.
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
