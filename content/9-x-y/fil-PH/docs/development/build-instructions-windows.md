@@ -25,7 +25,7 @@ Ang pagbuo ng Elektron ay nangyayari lamang sa "command-line scripts" at hindi m
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Pagbuo
+## Ang Pagbubuo
 
 See [Build Instructions: GN](build-instructions-gn.md)
 
