@@ -60,7 +60,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+Retourne `Boolean` - Si l'élément s'est bien déplacé dans la poubelle.
 
 Déplace le fichier donné dans la poubelle et retourne un booléen.
 
