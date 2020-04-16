@@ -2,7 +2,7 @@
 
 > Erstelle und kontrolliere Ansichten.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
@@ -70,7 +70,7 @@ Force closing the view, the `unload` and `beforeunload` events won't be emitted 
 
 Returns `Boolean` - Whether the view is destroyed.
 
-#### `view.setAutoResize(options)` _Experimental_
+#### `view.setAutoResize(options)` _Experimentell_
 
 * `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
@@ -78,7 +78,7 @@ Returns `Boolean` - Whether the view is destroyed.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` _Experimental_
+#### `view.setBounds(bounds)` _Experimentell_
 
 * `bounds` [Rectangle](structures/rectangle.md) Boundings des Displays
 
@@ -90,6 +90,6 @@ Returns [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` _Experimental_
+#### `view.setBackgroundColor(color)` _Experimentell_
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
