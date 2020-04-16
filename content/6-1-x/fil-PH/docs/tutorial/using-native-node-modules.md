@@ -47,7 +47,7 @@ export npm_config_arch=x64
 export npm_config_target_arch=x64
 # I-download ang mga header para sa Electron.
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# Sinasabihan ang node-pre-gyp na naglilikha tayo para sa Electron.
 export npm_config_runtime=electron
 # Sinasabihan ang node-pre-gyp to gumawa ng module mula sa pinagmulang code.
 export npm_config_build_from_source=true
