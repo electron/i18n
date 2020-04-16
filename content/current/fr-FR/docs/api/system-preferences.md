@@ -13,46 +13,46 @@ console.log(systemPreferences.isDarkMode())
 
 L'objet `systemPreferences` émet les événements suivants :
 
-### Event: 'accent-color-changed' _Windows_
+### Événement : 'accent-color-changed' _Windows_
 
 Retourne :
 
 * `event` Événement
 * `newColor` String - La nouvelle couleur RGBA que l'utilisateur à assigné à son système.
 
-### Event: 'color-changed' _Windows_
+### Événement : 'color-changed' _Windows_
 
 Retourne :
 
 * `event` Événement
 
-### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
+### Événement : 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
 Retourne :
 
 * `event` Événement
 * `invertedColorScheme` Boolean - `true` si un schéma de couleur inversé (un schéma de couleur à contraste élevé avec le texte clair et les fonds sombres) est utilisé, `faux` sinon.
 
-**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+**Déprécié :** Doit utiliser le nouvel événement [`mis à jour`](native-theme.md#event-updated) sur le module `nativeTheme`.
 
-### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
+### Événement : 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `highContrastColorScheme` Boolean - `true` si un thème à contraste élevé est utilisé, `false` sinon.
 
-**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+**Déprécié :** Doit utiliser le nouvel événement [`mis à jour`](native-theme.md#event-updated) sur le module `nativeTheme`.
 
 ## Méthodes
 
-### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
+### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _obsolète_
 
 Retourne `Boolean` - Si le système est en mode sombre.
 
-**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`.  Voir le [guide du mode sombre](../tutorial/mojave-dark-mode-guide.md) pour plus d'informations.
+**Note:** Sur macOS 10. 5 Catalina pour que cette API renvoie la valeur correcte lorsque dans le paramètre de mode sombre "automatique" vous devez avoir `NSRequiresAquaSystemAppearance=false` dans votre `Info. liste` ou être sur Electron `>=7.0.0`.  Voir le [guide du mode sombre](../tutorial/mojave-dark-mode-guide.md) pour plus d'informations.
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
+**Déprécié :** Doit utiliser le nouveau [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
 
@@ -261,7 +261,7 @@ Cette API n'est disponible que sur macOS 10.14 Mojave ou plus récent.
     * `window-frame` - Cadre de fenêtres.
     * `window-text` - Texte dans windows.
   * On **macOS**
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table. _deprecated_
+    * `alternate-selected-control-text` - Le texte sur une surface sélectionnée dans une liste ou un tableau. _deprecated_
     * `control-background` - L'arrière-plan d'un élément de grande interface, tel qu'un navigateur ou un tableau.
     * `control` - La surface d'un contrôle.
     * `control-text` -Le texte d'un contrôle qui n'est pas désactivé.
@@ -414,7 +414,7 @@ Retourne un objet avec les paramètres d'animation du système.
 
 ## Propriétés
 
-### `systemPreferences.appLevelAppearance` _macOS_
+### `systemPreferences.appLevelApparence` _macOS_
 
 Une propriété `String` qui peut être `dark`, `light` ou `unknown`. Il détermine le paramètre d'apparence macOS pour votre application. Cette correspondance aux valeurs dans: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Définir ceci remplacera la valeur par défaut du système ainsi que la valeur de `getEffectiveAppearance`.
 
