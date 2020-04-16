@@ -10,7 +10,7 @@ Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer
   * `label` String (opsyonal) - Pipinduting teksto.
   * `backgroundColor` String (opsyonal) - Ang kulay ng background ng pipindutin ay naka hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
+  * `iconPosition` String (opsyonal) - Pwedeng `kaliwa`, `kanan` o `naka-overlay`.
   * `click` Function (opsyonal) - Ang function na tatawagin kung ang napindot ang pipindutin.
 
 ### Katangian ng pagkakataon
