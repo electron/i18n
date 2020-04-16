@@ -49,7 +49,7 @@ app.on('ready', () => {
 })
 ```
 
-## Mga Paraan
+## Mga Pamamaraan
 
 Ang `protocol` na modyul ay mayroong mga sumusunod na mga pamamaraan:
 
@@ -122,7 +122,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `protocol.registerStringProtocol(scheme, handler)`
 
-* `scheme` na String
+* `scheme` na string
 * `handler` Function
   * `request` ProtocolRequest
   * `callback` na Function
