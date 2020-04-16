@@ -1,8 +1,8 @@
 ## Classe : BrowserWindowProxy
 
-> Manipuler la fenêtre de navigateur enfant
+> Manipule la fenêtre enfant
 
-Processus : [Rendu](../glossary.md#renderer-process)
+Processus : [Renderer](../glossary.md#renderer-process)
 
 L'objet `BrowserWindowProxy` est retournée par `window.open` et fournit les fonctionnalités limitées avec la fenêtre enfant.
 
@@ -12,7 +12,7 @@ L’objet `BrowserWindowProxy` dispose des méthodes d’instance suivantes :
 
 #### `win.blur()`
 
-Supprime focus à partir de la fenêtre enfant.
+Retire le focus de la fenêtre enfant.
 
 #### `win.close()`
 
@@ -34,7 +34,7 @@ Appelle la boîte de dialogue Impression sur la fenêtre enfant.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` Chaîne de caractères
+* `message` String
 * `targetOrigin` String
 
 Envoie un message à la fenêtre enfant avec l'origine spécifié ou `*` pour aucune préférence d'origine.
