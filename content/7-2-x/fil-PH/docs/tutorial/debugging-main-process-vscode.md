@@ -1,4 +1,4 @@
-# "Debugging", Pangunahing Proseso sa "VSCode"
+# "Debugging Ang pangunahing Proseso sa "VSCode"
 
 ### 1. Buksan ang proyekto ng Elektron sa VSCode.
 
