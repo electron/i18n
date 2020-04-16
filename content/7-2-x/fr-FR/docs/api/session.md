@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'preconnect' _Experimental_
+#### Événement : 'preconnect' _Experimental_
 
 Retourne :
 
@@ -158,7 +158,7 @@ Le `proxyBypassRules` est une liste de règles séparées par des virgules, comm
 
    Correspond à tous les noms d'hôte qui correspondent au pattern HOSTNAME_PATTERN.
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Exemples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -197,7 +197,7 @@ Sets download saving directory. By default, the download directory will be the `
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Par défaut, est faux.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
@@ -220,7 +220,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 * `options` Object
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
-  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. 1 par défaut.
 
 Preconnects the given number of sockets to an origin.
 
@@ -362,8 +362,8 @@ Retourne `Promise<Buffer>` - résout avec des données Blob.
   * `type` String (facultatif)
   * `offset` Integer - Portée de départ pour le téléchargement.
   * `length` Integer - Longueur totale du le téléchargement.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
+  * `lastModified` String - Valeur Last-Modified du header.
+  * `eTag` String - Valeur du ETag dans le header.
   * `startTime` Double (facultatif) - Heure du début de téléchargement, en nombre de secondes depuis la date initiale UNIX (1er janvier 1970 à 0 heure (UTC)).
 
 Autorise la reprise des téléchargements `annulés` ou `interrompus` depuis la `Session`précédente. L'API va générer un [DownloadItem](download-item.md) accessible avec l'événement [will-download](#event-will-download) . Le [DownloadItem](download-item.md) n'aura aucun `WebContents` associé et l'état initial sera `interrompu`. Le téléchargement ne démarre que lorsque l'API `resume` est appelée sur [DownloadItem](download-item.md).
