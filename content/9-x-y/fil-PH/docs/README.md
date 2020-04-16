@@ -12,9 +12,9 @@ There are questions that are asked quite often. Check this out before creating a
 
 * [Tungkol sa Electron](tutorial/about.md)
 * [Setup para sa Development Environment](tutorial/development-environment.md)
-  * [Setting ng macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting ng Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting ng Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Pagsetup ng macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Pagsetuo ng Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Pagsetup ng Linux](tutorial/development-environment.md#setting-up-linux)
   * [Pagpili ng Editor](tutorial/development-environment.md#a-good-editor)
 * [Pag gawa ng una mong aplikasyon](tutorial/first-app.md)
   * [Paginstall ng Electron](tutorial/first-app.md#installing-electron)
@@ -41,8 +41,8 @@ There are questions that are asked quite often. Check this out before creating a
   * [Pasadyang Linux Desktop na mga Aksyon](tutorial/linux-desktop-actions.md)
   * [Mga shortcut ng keyboard](tutorial/keyboard-shortcuts.md)
   * [Offline/Online Deteksyon](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [File na nagrerepresenta sa macOS BrowserWindows](tutorial/represented-file.md)
+  * [Katutubong File Drag& Drop](tutorial/native-file-drag-drop.md)
   * [Labas sa iskrin na pagproseso](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
@@ -53,7 +53,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Testing and Debugging](tutorial/application-debugging.md)
   * ["Debugging" ang Pangunahing Proseso](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
-  * [Ang Paggamit ng Selenium at WebDriver](tutorial/using-selenium-and-webdriver.md)
+  * [Paggamit ng Selenium at WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pagssuri ng sistemang Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Ekstensyon ng DevTools](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
@@ -87,10 +87,10 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
   * [Release Timelines](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md)
-  * [Pagbubuo ng mga asar na Archive](tutorial/application-packaging.md#generating-asar-archives)
+  * [Paggawa ng asar archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Paggamit ng mga Archives ng asar](tutorial/application-packaging.md#using-asar-archives)
   * [Mga limitasyon](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Pagdaragdag ng mga naka-unpack na mga file sa asar na mga Archive](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+  * [Pagdagdag ng na unpack na mga file sa asar Archive](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Paggamit ng ekstensyong Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
@@ -115,10 +115,10 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 
 ### Mga modyul para sa pangunahing proseso:
 
-* [ang app](api/app.md)
-* [autoUpdater](api/auto-updater.md)
+* [app](api/app.md)
+* [awtoUpdeyter](api/auto-updater.md)
 * [Kulayan ang kapaligiran](api/browser-view.md)
-* [Kulayan ang bintana](api/browser-window.md)
+* [Ang Browser ng Window](api/browser-window.md)
 * [pagsubaybay ng nilalaman](api/content-tracing.md)
 * [I-display ang native dialogs upang mabuksan ang naka save na files, alerting, at iba pa.](api/dialog.md)
 * [putulin ng maikli ang global](api/global-shortcut.md)
@@ -149,7 +149,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 ### Modulo para sa parehong proseso:
 
 * [iipit sa tabla](api/clipboard.md)
-* [crashReporter](api/crash-reporter.md)
+* [kalabog ng tagapagbalita](api/crash-reporter.md)
 * [gupitin ng maikli ang mga litrato](api/native-image.md)
 * [kabibi](api/shell.md)
 
