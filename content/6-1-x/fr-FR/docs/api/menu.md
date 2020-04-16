@@ -10,7 +10,7 @@ Créer un nouveau menu.
 
 ### Méthodes statiques
 
-The `menu` class has the following static methods:
+La classe `menu` dispose des méthodes statiques suivantes :
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -22,13 +22,13 @@ Aussi sous Windows et Linux, vous pouvez utiliser un `&` dans le nom de l'élém
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
-**Note:** The default menu will be created automatically if the app does not set one. Il contient des éléments standard tels que `Fichier`, `Modifier`, `Voir`, `Window` et `Aide`.
+**Note:** Le menu par défaut sera créé automatiquement si l'application ne le définit pas. Il contient des éléments standard tels que `Fichier`, `Modifier`, `Voir`, `Window` et `Aide`.
 
 #### `Menu.getApplicationMenu()`
 
 Retourne `Menu | null` - Le menu de l’application, si défini, ou `null`, si non défini.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. Les [propriétés de l’instance](#instance-properties) peuvent encore être modifiées dynamiquement.
+**Remarque :** L'instance du `Menu` retourné, ne supporte pas l'ajout ou la suppression dynamique d’éléments de menu. Les [propriétés de l’instance](#instance-properties) peuvent encore être modifiées dynamiquement.
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 
@@ -274,7 +274,7 @@ macOS a fourni des actions standard pour certains liens de menu, comme `À propo
 
 Sur macOS, l'étiquette du premier élément du menu de l'application est toujours le nom de votre application, quel que soit le libellé que vous avez défini. Pour le modifier, modifiez le fichier `Info.plist` de votre pack d'applications. Voir [À propos des fichiers de la liste de propriétés d'information](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) pour plus d'informations.
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Menu de configuration pour la fenêtre de navigation spécifique (*Linux* *Windows*)
 
 La [`setMenu` méthode](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) des fenêtres du navigateur peut définir le menu de certaines fenêtres de navigateur .
 
