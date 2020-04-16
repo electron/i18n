@@ -1,4 +1,4 @@
-# gupitin ng maikli ang mga litrato
+# nativeImage
 
 > Gumawa ng tray, dock, at aplikasyon na mga icon gamit ang PNG o JPG na mga file.
 
@@ -16,7 +16,7 @@ let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard which returns a `NativeImage`:
+O basahin ang imahe mula sa klipbord na nagbabalik ng isang `NativeImage`:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -43,13 +43,13 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
  * 64x64 (200% DPI scale)
 * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+Suriin ang *Kinakailangan sa sukat* na seksyon sa [ artikulong ito](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
 ## Imaheng may Mataas na Resolusyon
 
 Sa plataporma na may suporta sa mataas na DPI katulad ng Apple Retina na mga display, pwede kang magdagdag ng `@2x` pagkatapos ng base filename ng imahe para markahan ito bilang imaheng may mataas na resolusyon.
 
-For example if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+Halimbawa kung `icon.png` ay normal na imahe na may istandard na resolusyon, samakatuwid ang `icon@2x.png` ay tatratuhin bilang imaheng may mataas na resolusyon na mayroong dobleng DPI na density.
 
 If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. Halimbawa:
 
@@ -67,7 +67,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+Ang mga sumusunod na mga suffix ng DPI ay suportado rin:
 
 * `@1x`
 * `@1.25x`
@@ -83,11 +83,11 @@ Following suffixes for DPI are also supported:
 
 ## Template na Imahe
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template images consist of black and an alpha channel. Ang mga template na imahe ay hindi inilalaan para gamiting napag-iisang imahe at kadalasan ay inihahalo sa ibang nilalaman para bumuo ng nais na huling kaanyuan.
 
-The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
+Ang pinakakaraniwang kaso ay ang paggamit ng template na mga imahe para sa menu bar na icon upang maakma sa kapwa maliwanag at madilim na mga menu bar.
 
-**Note:** Template image is only supported on macOS.
+**Tandaan:** Ang template na imahe ay suportado lamang sa macOS.
 
 To mark an image as a template image, its filename should end with the word `Template`. Halimbawa:
 
@@ -141,7 +141,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 Nagbabalik ng `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+Gumagawa ng bagong `NativeImage` na instance mula sa `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -158,9 +158,9 @@ Gumagawa ng bagong `NativeImage` na instance mula sa `dataURL`.
 
 Nagbabalik ng `NativeImage`
 
-Gumagawa ng isang bagong `NativeImage` na instance mula sa NSImage na nagmamapa sa binigay na pangalan ng imahe. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+Gumagawa ng isang bagong `NativeImage` na instance mula sa NSImage na nagmamapa sa binigay na pangalan ng imahe. Tingnan ang [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) para sa listahan ng mga posibleng halaga.
 
-The `hslShift` is applied to the image with the following rules
+Ang `hslShift` ay inaaplay sa imahe na may sumusunod na mga patakaran
 * `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
 * `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
@@ -179,7 +179,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga Pamamaraan ng Instance
 
 Ang mga sumusunod na paraan ay magagamit sa mga pagkakataong `NativeImage` klase :
 
@@ -210,20 +210,21 @@ Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class
 
 Nagbabalik `String` - Ang data URL ng imahe.
 
-#### `image.getBitmap([options])`
+#### `image.getBitmap([options])
+ `
 
 * `options` Object (optional)
   * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
 Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng hilaw na bitmap pixel data.
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+Ang pagkakaiba ng `getBitmap()` and `toBitmap()` ay, `getBitmap()` hindi kinukopya ang bitmap data, kaya dapat gumamit ng returned Buffer agad kasalukuyang kaganapang loop tick, kunghindi ay baka magbago o mawasak ang data.
 
 #### `image.getNativeHandle()` _macOS_
 
 Nagbabalik ng `image.getNativeHandle()` [macOS](https://nodejs.org/api/buffer.html#buffer_class_buffer) na nagiimbak ng C pointer na pinagbabatayan ng native handle ng imahe. Sa macOS, ang panturo sa  `NSImage` na pagkakataon ay ibinabalik.
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you _must_ ensure that the associated `nativeImage` instance is kept around.
+Pansinin na ang mga binabalik sa panturo ay mahinang panturo sa pinagbatayang native image sa halip na isang kopya, kaya ikaw _ ay dapat _ isigurado ng ang mga kaugnayang `nativeImage` pagkakataon ay nasa paligid.
 
 #### `image.isEmpty()`
 
@@ -254,7 +255,7 @@ Nagbabalik sa`NativeImage` - Ang naka-crop na imahe.
 * `options` Object
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (optional) - Defaults to the image's height.
-  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. Ang default ay `best`. Ang mga halagan ito ay nagpapahayag ng ninais na kalidad/bilis ng tradeooff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` String (optional) - The desired quality of the resize image. Posibleng halaga ay mga `good`, `better` or `best`. Ang default ay `best`. Ang mga halagan ito ay nagpapahayag ng ninais na kalidad/bilis ng tradeooff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Nagbabalik `NativeImage` - Ang imaheng nibago ang laki.
 
@@ -264,7 +265,8 @@ Kung sana ang `height` or the `width` ay tinutukoy ang kasalukuyang ration ng as
 
 Nagbabalik `Float` - Ang ratio ng aspeto ng imahe.
 
-#### `image.addRepresentation(options)`
+#### `image.addRepresentation(options)
+`
 
 * `options` Object
   * `scaleFactor` Double - The scale factor to add the image representation for.
