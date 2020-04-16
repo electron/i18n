@@ -1,4 +1,4 @@
-# kabibi
+# "Shell"
 
 > Ayusin ang mga payl at "URLs" gamit ang kanilang "default" o ang pagpapanatili nito sa dating "applications".
 
