@@ -30,7 +30,7 @@
    )
    ```
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**ध्यान दें** इस `BrowserWindow.addDevToolsExtension` एपीआई को पहले नहीं बुलाया जा सकता है ऐप मॉड्यूल का तैयार ईवेंट उत्सर्जित होता है।
 
 The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
