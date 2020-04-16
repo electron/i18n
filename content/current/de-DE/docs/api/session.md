@@ -2,7 +2,7 @@
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -56,16 +56,16 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instanz Events
+### Instanz-Ereignisse
 
 The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-Rückgabewert:
+Returns:
 
-* `event` Event
-* `item` [DownloadItem](download-item.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
 Emitted when Electron is about to download `item` in `webContents`.
@@ -86,15 +86,15 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Rückgabewert:
 
-* `event` Event
-* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><p spaces-before="0"><code>preconnectUrl` String - The URL being requested for preconnection by the renderer.</p>
 * `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
 
 Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
 
 #### Event: 'spellcheck-dictionary-initialized'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -105,8 +105,8 @@ Emitted when a hunspell dictionary file has been successfully initialized. This 
 
 Rückgabewert:
 
-* `event` Event
-* `languageCode` String - The language code of the dictionary file
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file starts downloading
 
@@ -114,8 +114,8 @@ Emitted when a hunspell dictionary file starts downloading
 
 Rückgabewert:
 
-* `event` Event
-* `languageCode` String - The language code of the dictionary file
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully downloaded
 
@@ -123,12 +123,12 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 
 Rückgabewert:
 
-* `event` Event
-* `languageCode` String - The language code of the dictionary file
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-### Instanz Methoden
+### Beispiel Methoden
 
 The following methods are available on instances of `Session`:
 
@@ -256,7 +256,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 * `options` Object
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
-  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Der Standardwert ist 1.
 
 Preconnects the given number of sockets to an origin.
 
@@ -392,7 +392,7 @@ Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.downloadURL(url)`
 
-* `url` String
+* `URL` Zeichenfolge
 
 Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
 
