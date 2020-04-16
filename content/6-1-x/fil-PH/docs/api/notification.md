@@ -14,7 +14,7 @@ Kung gusto mong ipakita ang mga Paunawa mula sa proseso ng tagasalin kailangan m
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+Ang `Notification` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 Ito ay lumilikha ng isang bagong `Notification` na may sinaunang mga katangian na itinakda sa pamamagitan ng `options`.
 
@@ -26,7 +26,7 @@ Ang klase ng `Notification` ay may mga sumusunod na mga istatikong pamamaraan:
 
 Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusuportahan sa kasalukuyang sistema
 
-### `new Notification([options])` _Experimental_
+### Ang `new Notification([options])` ay _Experimental_
 
 * `options` Object
   * Ang `title` String - Ang isang pamagat sa mga paunawa, kung saan ay ipinakita sa ibabaw ng window ng paunawa kung saan ito ipinakita.
@@ -40,55 +40,55 @@ Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusupor
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
-### Halimbawa ng mga Event
+### Mga Instance na Kaganapan
 
 Ang mga bagay na nilikha na may `new Notification` ay naglalabas ng mga sumusunod na mga event:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Tandaan:** Ang ilang mga kaganapan ay magagamit lamang sa partikular na mga operating system at na may label na.
 
 #### Event: 'ipakita'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` na Kaganapan
 
 Ay lalabas kapag ang paunawa ay ipinakita sa mga gumagamit, tandaan na ito ay ititira ng maraming beses bilang isang paunawa na maaaring ipakita ng maraming beses sa pamamagitan ng pamamaraan ng `show()`.
 
-#### Event: 'click'
+#### Event: 'klik'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` na Pangyayari
 
 Ay lalabas kapag ang paunawa ay na-klik na ng gumagamit.
 
 #### Event: 'isara'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` kaganapan
 
 Ay lalabas kapag ang paunawa ay isinara sa pamamagitan ng manu-manong pakikialam mula sa mga gumagamit.
 
 This event is not guaranteed to be emitted in all cases where the notification is closed.
 
-#### Event: 'reply' _macOS_
+#### Event: 'sumagot' sa _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `reply` String - Ang string na ipinasok ng gumagamit sa field ng nasa linyang pagtugon.
 
 Ay lalabas kapag ang gumagamit ay na-klik ang pindutan ng "Reply" sa paunawa na may `hasReeply: true`.
 
-#### Event: 'action' _macOS_
+#### Event: 'aksyon' sa _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * Ang `index` Number - Ang indise ng mga aksyon na na-aktibeyt na.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga pamamaraan ng pagkakataon
 
 Ang mga bagay na ginawa na may `new Notification` ay may mga sumusunod na pamamaraan ng instansya:
 
@@ -106,7 +106,7 @@ Dismisses the notification.
 
 Sa macOS, maaari mong tukuyin ang pangalan ng mga tunog na gusto mong patunugin kapag ang paunawa ay ipinakita. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Maging sigurado na ang file ng tunog ay nakoya na sa ilalim ng bundle ng app (hal, `YourApp.app/Contents/Resources`), o isa sa mga sumusunod na lokasyon:
 
-* `~/Library/Sounds`
+* `-/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
