@@ -57,9 +57,9 @@ Si vous rencontrez ce problème, les articles suivants peuvent s'avérer utiles�
 Si vous voulez une solution rapide, vous pouvez mettre les variables en globale en changeant votre code comme celui-ci :
 
 ```javascript
-const { app, Tray } = require('electron')
-app.whenReady().then(() => {
-  const tray = new Tray('/path/to/icon.png')
+const { app, Tray } = require('electron')let tray = null
+app.on('ready', () => {
+  tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
@@ -67,9 +67,8 @@ app.whenReady().then(() => {
 pour cela :
 
 ```javascript
-const { app, Tray } = require('electron')
-let tray = null
-app.whenReady().then(() => {
+const { app, Tray } = require('electron')let tray = null
+app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -115,7 +114,7 @@ Lorsque vous utilisez le module intégré d'Electron, vous pouvez obtenir une er
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-It is very likely you are using the module in the wrong process. Par exemple `electron.app` peut seulement être utilisé dans le processus principal, tandis que `electron.webFrame` n'est disponible que dans les processus de rendu.
+Il est très probable que vous utilisez le module dans le mauvais processus.francais Par exemple `electron.app` peut seulement être utilisé dans le processus principal, tandis que `electron.webFrame` n'est disponible que dans les processus de rendu.
 
 ## La police semble floue, qu'est-ce et à que puis-je faire?
 
