@@ -9,7 +9,7 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
 * `options` Object
   * `label` String (facultatif) - Texte du bouton popover.
   * `icon` [NativeImage](native-image.md) (facultatif) - Icône du bouton popover.
-  * `items` [TouchBar](touch-bar.md) (optional) - Items to display in the popover.
+  * `items` [TouchBar](touch-bar.md) (facultatif) - Elements à afficher dans le popover.
   * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. La valeur par défaut est `true`.
 
 ### Propriétés d'instance
