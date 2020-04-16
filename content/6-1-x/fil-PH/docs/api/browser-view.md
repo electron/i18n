@@ -6,10 +6,10 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Ito ay katulad ng isang batang window, maliban na ito ay naka-posisyon kaugnay sa kanyang angking window. Ito ay sinadya na maging isang alternatibo ng mga tag ng `webview`.
 
-## Mga halimbawa
+## Halimbawa
 
 ```javascript
-// Ang pangunahing pag-proseso.
+// Sa mga pangunahing proseso.
 const { BrowserView, BrowserWindow } = require('electron')
 
 let win = new BrowserWindow({ width: 800, height: 600 })
@@ -36,7 +36,7 @@ Returns `BrowserView[]` - An array of all opened BrowserViews.
 
 #### `BrowserView.fromWebContents(webContents)`
 
-* `webContents` na [WebContents](web-contents.md)
+* `webContents` [WebContents](web-contents.md)
 
 Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
@@ -46,7 +46,7 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 Nagbabalik ang `BrowserView` - Ang pagtanaw sa ibinigay na mga `id`.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instansya
 
 Mga bagay na ginawa na may `new BrowserView`ay may mga sumusunod na katangian:
 
@@ -58,7 +58,7 @@ Ang isang [`WebContents`](web-contents.md) na bagay na pag-aari ng tanawin na it
 
 Ang isang `integer` kumakatawan sa natatanging ID ng tanawin.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga pamamaraan ng pagkakataon
 
 Mga bagay na ginawa na may `new BrowserView` ay may mga sumusunod na mga pamamaraan ng pagkakataon:
 
