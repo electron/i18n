@@ -8,6 +8,6 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
 
 * `options` Object
   * `size` String (optional) - Size of spacer, possible values are:
-    * `small` - Small space between items.
-    * `large` - Large space between items.
-    * `flexible` - Take up all available space.
+    * `small` - petit espacement entre les éléments.
+    * `large` - grand espacement entre les éléments.
+    * `flexible` - Prend tout l'espace disponible.
