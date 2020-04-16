@@ -1,4 +1,4 @@
-# gupitin ng maikli ang mga litrato
+# nativeImage
 
 > Gumawa ng tray, dock, at aplikasyon na mga icon gamit ang PNG o JPG na mga file.
 
@@ -43,7 +43,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
   * 64x64 (200% DPI scale)
   * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+Suriin ang *Kinakailangan sa sukat* na seksyon sa [ artikulong ito](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
 ## Imaheng may Mataas na Resolusyon
 
@@ -82,11 +82,11 @@ The following suffixes for DPI are also supported:
 
 ## Template na Imahe
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template images consist of black and an alpha channel. Ang mga template na imahe ay hindi inilalaan para gamiting napag-iisang imahe at kadalasan ay inihahalo sa ibang nilalaman para bumuo ng nais na huling kaanyuan.
 
 The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
 
-**Note:** Template image is only supported on macOS.
+**Tandaan:** Ang template na imahe ay suportado lamang sa macOS.
 
 To mark an image as a template image, its filename should end with the word `Template`. Halimbawa:
 
@@ -140,7 +140,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 Nagbabalik ng `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+Gumagawa ng bagong `NativeImage` na instance mula sa `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -179,7 +179,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga Pamamaraan ng Instance
 
 Ang mga sumusunod na paraan ay magagamit sa mga pagkakataong `NativeImage` klase :
 
@@ -210,7 +210,8 @@ Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class
 
 Nagbabalik `String` - Ang data URL ng imahe.
 
-#### `image.getBitmap([options])`
+#### `image.getBitmap([options])
+ `
 
 * `options` Object (optional)
   * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
@@ -223,7 +224,7 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 Nagbabalik ng `image.getNativeHandle()` [macOS](https://nodejs.org/api/buffer.html#buffer_class_buffer) na nagiimbak ng C pointer na pinagbabatayan ng native handle ng imahe. Sa macOS, ang panturo sa  `NSImage` na pagkakataon ay ibinabalik.
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you _must_ ensure that the associated `nativeImage` instance is kept around.
+Pansinin na ang mga binabalik sa panturo ay mahinang panturo sa pinagbatayang native image sa halip na isang kopya, kaya ikaw _ ay dapat _ isigurado ng ang mga kaugnayang `nativeImage` pagkakataon ay nasa paligid.
 
 #### `image.isEmpty()`
 
@@ -268,7 +269,8 @@ Kung sana ang `height` or the `width` ay tinutukoy ang kasalukuyang ration ng as
 
 Nagbabalik `Float` - Ang ratio ng aspeto ng imahe.
 
-#### `image.addRepresentation(options)`
+#### `image.addRepresentation(options)
+`
 
 * `options` Object
   * `scaleFactor` Double - The scale factor to add the image representation for.
@@ -279,7 +281,7 @@ Nagbabalik `Float` - Ang ratio ng aspeto ng imahe.
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instance
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 
