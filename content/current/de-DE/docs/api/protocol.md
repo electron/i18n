@@ -2,7 +2,7 @@
 
 > Register a custom protocol and intercept existing protocol requests.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
@@ -115,8 +115,8 @@ protocol.registerSchemesAsPrivileged([
 * `scheme` String
 * `handler` Function
   * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -140,8 +140,8 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 * `scheme` String
 * `handler` Function
   * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -173,8 +173,8 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `scheme` String
 * `handler` Function
   * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -194,15 +194,15 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `scheme` String
 * `handler` Function
   * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
     * `redirectRequest` Object
-      * `url` String
-      * `method` String (optional)
+      * ` URL </ 0>  Zeichenfolge</li>
+<li><code>method` String (optional)
       * `session` Session | null (optional)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (optional)
@@ -223,8 +223,8 @@ For POST requests the `uploadData` object must be provided.
 * `scheme` String
 * `handler` Function
   * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -299,8 +299,8 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `scheme` String
 * `handler` Function
   * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -318,8 +318,8 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `scheme` String
 * `handler` Function
   * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -337,8 +337,8 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `scheme` String
 * `handler` Function
   * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -356,15 +356,15 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `scheme` String
 * `handler` Function
   * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
     * `redirectRequest` Object
-      * `url` String
-      * `method` String (optional)
+      * ` URL </ 0>  Zeichenfolge</li>
+<li><code>method` String (optional)
       * `session` Session | null (optional)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (optional)
@@ -379,8 +379,8 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `scheme` String
 * `handler` Function
   * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
