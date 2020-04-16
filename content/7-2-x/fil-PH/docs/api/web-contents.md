@@ -43,23 +43,23 @@ Ibinabalik ang `WebContents` - Halimbawa ng WebContents na may ibinigay na ID.
 
 > Ibigay at kontrolin ang mga nilalaman na halimbawa ng BrowserWindow.
 
-Proseso:[Pangunahi](../glossary.md#main-process)
+Proseso: [pangunahin](../glossary.md#main-process)
 
 ### Halimbawa ng mga Event
 
-#### Event: 'did-finish-load'
+#### Kaganapan: 'ginawa-tapusin-dala'
 
 Binubuwag kapag ang nabigasyon ay tapos na, i.e. ang spinner ng tab ay tumigil Umiikot, at ang `onload` kaganapan ay ipinadala.
 
-#### Event: 'did-fail-load'
+#### Kaganapan: 'ginawa-mabibigo-dala'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` na Kaganapan
-* `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
-* `isMainFrame` Boolean
+* `pagkakamalingCode`kabuuan
+* `Paglalarawan ng pagkakamali`tali
+* `napatunayan sa Url`tali
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -67,13 +67,13 @@ This event is like `did-finish-load` but emitted when the load failed. Ang buong
 
 #### Event: 'did-fail-provisional-load'
 
-Pagbabalik:
+Pagbabalik ng:
 
-* `event` na Kaganapan
-* `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
-* `isMainFrame` Boolean
+* `event` na Pangyayari
+* `pagkakamalingCode`kabuuan
+* `Paglalarawan ng pagkakamali`tali
+* `napatunayan sa Url`tali
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -81,10 +81,10 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 
 #### Kaganapan: 'ginawa-frame-finish-load'
 
-Pagbabalik:
+Magbabalik ng:
 
-* `event` na Kaganapan
-* `isMainFrame` Boolean
+* `kaganapan` kaganapan
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -100,17 +100,17 @@ Tumutugma sa mga puntos ng oras kapag ang spinner ng tab ay tumigil sa pagikot.
 
 #### Kaganapan: 'dom-ready'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 
 Napalabas kapag ang dokumento na ibinigay sa frame ay na-load.
 
 #### Event: 'page-title-updated'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `title` String
 * `explicitSet` Boolean
 
@@ -118,18 +118,18 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 #### Kaganapan: 'pahina-favicon-updated'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` Event
 * `favicons` String[] - Hanay ng mga URL.
 
 Pinapalabas kapag natanggap ng pahina ang mga url ng favicon.
 
 #### Kaganapan: 'bagong-bintana'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 * `frameName` Pisi
 * `Disposisyon` String - Maaaring `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` at `iba pang`.
@@ -160,9 +160,9 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 #### Kaganapan: 'mag-navigate'
 
-Pagbabalik:
+Ibabalik:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
@@ -175,12 +175,12 @@ Ang pagtawag sa `kaganapan.preventDefault()` ay maiiwasan ang nabigasyon.
 
 #### Event: 'did-start-navigation'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `url` Tali
+* `kaganapan` Kaganapan
+* `url` Pisi
 * `isInPlace` Boolean
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -188,12 +188,12 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 #### Event: 'will-redirect'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 * `isInPlace` Boolean
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -205,12 +205,12 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-Pagbabalik:
+Ibinabalik:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 * `isInPlace` Boolean
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -220,9 +220,9 @@ This event can not be prevented, if you want to prevent redirects you should che
 
 #### Kaganapan: 'ginawa-navigate'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations
@@ -233,13 +233,13 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-frame-navigate'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations,
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -249,11 +249,11 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Kaganapan: 'ginawa-navigate-in-page'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -263,9 +263,9 @@ Kapag nangyayari ang pag-navigate sa pahina, ang pahina ng URL ay nagbabago ngun
 
 #### Kaganapan: 'will-prevent-unload'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 
 Naipalalabas kapag ang `beforeunload` ay sinusubukan ng tagahawak ng kaganapan na kanselahin ang pag-unload ng pahina.
 
@@ -292,9 +292,9 @@ manalo.webContents.on('will-prevent-unload', (kaganapan) => {
 
 #### Kaganapan: 'nag-crash'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `killed` Ang Boolean
 
 Lumalabas kapag ang proseso ng tagapag-render ay nasira o pinatay.
@@ -309,9 +309,9 @@ Ay lalabas kapag ang hindi tumutugon na pahina ng web ay tumutugon ulit.
 
 #### Kaganapan: 'plugin-nag-crash'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` Ang event
 * `name` String
 * `Bersyon` Pisi
 
@@ -323,9 +323,9 @@ Nagpapalabas kapag ang `webContents` ay nawasak.
 
 #### Kaganapan: 'bago-input-kaganapan'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `input` Object - Input properties.
   * `uri` Pisi - Alinman `keyUp` o `keyDown`.
   * `susi` Pisi - Katumbas ng [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
@@ -362,8 +362,8 @@ Ay lalabas kung ang window ay aalis na sa full-screen na estado ay na-trigger ng
 
 #### Event: 'zoom-changed'
 
-Pagbabalik:
-* `event` na Kaganapan
+Ibinabalik ang:
+* `kaganapan` Kaganapan
 * `zoomDirection` String - Can be `in` or `out`.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
@@ -382,9 +382,9 @@ Nilalabas kapag ang DevTools ay nakatuon/binuksan.
 
 #### Mga event: 'certificate-error'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 * `error` String - Ang code ng error.
 * `certificate` [Certificate](structures/certificate.md)
@@ -397,9 +397,9 @@ Ang paggamit ay pareho sa [ang kaganapan `certificate-error` ng `app` ](app.md#e
 
 #### Event: 'select-client-certificate'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `url` Ang URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` na Function
@@ -411,9 +411,9 @@ Ang paggamit ay pareho sa [ang kaganapan `piliin-client-sertipiko`ng `app`](app.
 
 #### Event: 'login'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `authenticationResponseDetails` Object
   * `url` Ang URL
 * `authInfo` Object
@@ -432,9 +432,9 @@ Ang paggamit ay pareho sa [ang kaganapan `login` ng `app`](app.md#event-login).
 
 #### Kaganapan: 'natagpuan-sa-pahina'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Posisyon ng aktibong tugma.
@@ -454,9 +454,9 @@ Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
 
 #### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan`Kaganapan
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
@@ -467,18 +467,18 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Kaganapan: 'update-target-url'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 
 Inilalabas kapag gumagalaw ang mouse sa isang link o inililipat ng keyboard ang focus sa isang link.
 
 #### Kaganapan: 'cursor-changed'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `uri` Pisi
 * `image` [NativeImage](native-image.md) (opsiyonal)
 * `scale` Lumutang (opsyonal) - scaling factor para sa mga pasadyang cursor.
@@ -491,9 +491,9 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Kaganapan: 'context-menu'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `params` Object
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
@@ -533,9 +533,9 @@ Lumabas kapag mayroong isang bagong menu ng konteksto na kailangang hawakan.
 
 #### Kaganapan: 'select-bluetooth-device'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `Mga aparato` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` na Function
   * `deviceId` String
@@ -566,9 +566,9 @@ app.on('ready', () => {
 
 #### Kaganapan: 'pintura'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `dirtyRect` [Parihaba](structures/rectangle.md)
 * `imahe` [katutubong larawan](native-image.md) - Ang datos ng imahe ng buong kuwadro.
 
@@ -590,9 +590,9 @@ Binubuwag kapag ang window ng devtools ay nagtuturo sa webContents na kargahan m
 
 #### Kaganapan: 'naisin-isama-webview'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -600,22 +600,22 @@ Emitted when a `<webview>`'s web contents is being attached to this web contents
 
 Maaaring gamitin ang kaganapang ito upang i-configure ang `webPreferences` para sa `webContents` ng isang `<webview>` bago ang load nito, at nagbibigay ng kakayahang magtakda upang itakda ang mga setting na hindi maaaring itakda sa pamamagitan ng `<webview>` mga katangian.
 
-**Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
+**Tandaan:** Ang tinutukoy na `preload` Ang opsyon ng script ay lilitaw bilang `preloadURL` (hindi `preload`) nasa `webPreferences` bagay na inilalabas sa kaganapang ito.
 
 #### Kaganapan: 'ginawa-ilakip-webview'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `WebContents` WebContents - Ang mga nilalaman ng bisita ng web na ginagamit ang `<webview>`.
 
 Naipalalabas kapag ang isang `<webview>` ay naka-attach sa mga nilalaman ng web na ito.
 
 #### Event: 'console-message'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `level` Integer
 * `message` String
 * `line` Integer
@@ -625,9 +625,9 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 #### Event: 'preload-error'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `preloadPath` String
 * `error` Error
 
@@ -635,9 +635,9 @@ Emitted when the preload script `preloadPath` throws an unhandled exception `err
 
 #### Event: 'ipc-message'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `channel` String
 * `...args` anuman[]
 
@@ -645,9 +645,9 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 #### Event: 'ipc-message-sync'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `channel` String
 * `...args` anuman[]
 
@@ -655,15 +655,15 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 #### Event: 'desktop-capturer-get-sources'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
 #### Event: 'remote-require'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` IpcMainEvent
 * `moduleName` String
@@ -672,7 +672,7 @@ Emitted when `remote.require()` is called in the renderer process. Calling `even
 
 #### Event: 'remote-get-global'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` IpcMainEvent
 * `globalName` String
@@ -681,7 +681,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Calling `ev
 
 #### Event: 'remote-get-builtin'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` IpcMainEvent
 * `moduleName` String
@@ -690,7 +690,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `e
 
 #### Event: 'remote-get-current-window'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` IpcMainEvent
 
@@ -698,7 +698,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Call
 
 #### Event: 'remote-get-current-web-contents'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` IpcMainEvent
 
@@ -706,14 +706,14 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 
 #### Event: 'remote-get-guest-web-contents'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` IpcMainEvent
 * `guestWebContents` [WebContents](web-contents.md)
 
 Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga Paraan ng Halimbawa
 
 #### `contents.loadURL(url[, mga pagpipilian])`
 
@@ -928,7 +928,7 @@ pagkatapos(resp => resp.json())', totoo)
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` _Experimental_
+#### `contents.setIgnoreMenuShortcuts(huwag pansinin)` _Eksperimento_
 
 * `huwag pansinin` Boolean
 
@@ -996,7 +996,7 @@ Itinatakda ang pinakamataas at pinakamababang antas ng pinch-sa-zoom.
 > `js
   contents.setVisualZoomLevelLimits(1, 3)`
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+#### `mga nilalaman.setVisualZoomLevelLimits (pinakamababang antas, pinakamataas na antas)`
 
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
@@ -1075,7 +1075,7 @@ Pagsingit `text` para sa nakapukos na elemento.
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. naka-default sa `false`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
 
 Ibinabalik `Integer` - Ang kahilingang id na ginagamit para sa kahilingan.
@@ -1086,8 +1086,8 @@ Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `te
 
 * `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request.
   * `clearSelection` - Tanggalin ang mga napili.
-  * `keepSelection` - Isalin ang seleksyon sa isang normal na seleksyon.
-  * `activateSelect` - Tumuon at i-click ang node ng pagpili.
+  * `keepSelection` - I-translate ang mga napili para maging normal.
+  * `activateSelection` - Ipukos at iclick ang node ng napili.
 
 Hinihinto ang `findInPage` kahilingan para sa `webContents` kasama ang ibinigay na `aksyon`.
 
@@ -1107,7 +1107,7 @@ console.log(requestId)
 
 Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Omitting `rect` will capture the whole visible page.
 
 #### `contents.isBeingCaptured()`
 
@@ -1137,7 +1137,7 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md)
   * `silent` Boolean (optional) - Don't ask user for print settings. Ang default ay `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Ang default ay `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Ng default ay `tama`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Ang Default ay `true`.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
@@ -1223,7 +1223,7 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.addWorkSpace(path)`
 
-* `path` na String
+* `path` String
 
 Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
@@ -1237,7 +1237,7 @@ manalo.webContents.on('devtools-binuksan', () = > {
 
 #### `contents.removeWorkSpace(path)`
 
-* `path` na String
+* `path` String
 
 Tinatanggal ang landas na tinutukoy mula sa DevTools workspace.
 
@@ -1343,14 +1343,14 @@ Binubuksan ang mga kasangkapan ng nag-develop para sa konteksto ng serbisyo ng m
 * `channel` String
 * `...args` anuman[]
 
-Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
 Isang halimbawa ng pagpapadala ng mga mensahe mula sa pangunahing proseso sa tagapag-render ng proseso:
 
 ```javascript
-// Ang pangunahing pag-proseso.
+// Sa mga pangunahing proseso.
 const { app, BrowserWindow } = require('electron')
 let win = null
 
@@ -1386,7 +1386,7 @@ Send an asynchronous message to a specific frame in a renderer process via `chan
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  E.g.
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Halimbawa.
 
 ```js
 // In a renderer process
@@ -1556,7 +1556,7 @@ Controls whether or not this WebContents will throttle animations and timers whe
 
 Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instance
 
 #### `contents.audioMuted`
 
