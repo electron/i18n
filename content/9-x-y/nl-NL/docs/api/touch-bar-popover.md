@@ -4,7 +4,7 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarPopover(options)` _Experimental_
+### `new TouchBarPopover(options)` _Experimenteel_
 
 * `options` Object
   * `label` String (optional) - Popover button text.
