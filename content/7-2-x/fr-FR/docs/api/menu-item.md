@@ -17,14 +17,14 @@ Voir [`Menu`](menu.md) pour des exemples.
   * `type` String (facultatif) - Peut être `normal`, `séparateur`, `sous-menu`, `checkbox` ou `radio`.
   * `label` String (optionnel)
   * `sublabel` String (optionnel)
-  * `toolTip` String (optional) _macOS_ - Hover text for this menu item.
+  * `toolTip` String (facultatif) _macOS_ - Texte de survol pour ce lien de menu.
   * `accélérateur` [Accelerator](accelerator.md) (facultatif)
   * `icon` ([NativeImage](native-image.md) | String) (facultatif)
   * `activé` Booléen (facultatif) - Si faux, l'élément de menu sera grisé et non cliquable.
-  * `acceleratorWorksWhenHidden` Boolean (optional) _macOS_ - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
+  * `acceleratorWorksWhenHidden` Boolean (facultatif) _macOS_ - la valeur par défaut est `true`, et lorsque `false` empêchera l'accélérateur de déclencher l'élément si l'élément n'est pas visible`.
   * `visible` Boolean (facultatif) - Si false, l'élément de menu sera entièrement masqué.
   * `coché` Booléen (facultatif) - Ne doit être spécifié que pour `case à cocher` ou `radio` type des liens de menu .
-  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Par défaut, true.
   * `sous-menu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (facultatif) - Doit être spécifié pour `sous-menu` type éléments de menu. Si `sous-menu` est spécifié, le `type: 'submenu'` peut être omis. Si la valeur n'est pas un [`Menu`](menu.md) alors elle sera automatiquement convertie en un en utilisant `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `avant` String[] (facultatif) - Insère cet élément avant l'élément avec le libellé spécifié. Si l'élément référencé n'existe pas, l'élément sera inséré à la fin du menu. Implique également que l'élément de menu en question doit être placé dans le même « groupe » que l'élément.
@@ -32,7 +32,7 @@ Voir [`Menu`](menu.md) pour des exemples.
   * `beforeGroupContaining` String[] (facultatif) - Fournit un moyen pour un seul menu contextuel de déclarer le placement de leur groupe contenant avant le groupe contenant l'élément avec l'étiquette spécifiée.
   * `afterGroupContaining` String[] (facultatif) - Fournit un moyen pour un seul menu contextuel de déclarer le placement de leur groupe contenant après le groupe contenant de l'élément avec l'étiquette spécifiée.
 
-**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. L'option est exposée aux utilisateurs pour leur donner la possibilité de la désactiver, car cela est possible dans le développement natif de macOS. Cette propriété n'est utilisable que sur macOS Haute Sierra 10.13 ou plus récente.
+**Remarque :** `acceleratorWorksWhenHidden` est spécifié comme étant macOS uniquement parce que les accélérateurs fonctionnent toujours lorsque des éléments sont cachés sous Windows et Linux. L'option est exposée aux utilisateurs pour leur donner la possibilité de la désactiver, car cela est possible dans le développement natif de macOS. Cette propriété n'est utilisable que sur macOS Haute Sierra 10.13 ou plus récente.
 
 ### Rôles
 
@@ -69,7 +69,7 @@ La propriété `role` peut avoir les valeurs suivantes :
 * `viewMenu` - Menu "Affichage" par défaut (Recharger, Activer/désactiver les outils de développement, etc.)
 * `windowMenu` - Menu par défaut entier "Windows" (Minimize, Zoom, etc.).
 
-The following additional roles are available on _macOS_:
+Les rôles supplémentaires suivants sont disponibles sur _macOS_:
 
 * `appMenu` - Tout le menu "App" par défaut (About, Services, etc.)
 * `about` - Mapper à l'action `orderFrontStandardAboutPanel`.
@@ -87,7 +87,7 @@ The following additional roles are available on _macOS_:
 * `moveTabToNewWindow` - Mappez à l'action `moveTabToNewWindow`.
 * `window` - Le sous-menu est un menu "Windows".
 * `help` - Le sous-menu est un menu "Aide".
-* `services` - Le sous-menu est un menu ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
+* `services` - Le sous-menu est un menu ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Ceci est uniquement destiné à être utilisé dans le menu de l'application et n'est *pas* le même que le sous-menu "Services" utilisé dans les menus contextuels des applications macOS, qui n'est pas implémentée dans Electron.
 * `recentDocuments` - Le sous-menu est un menu "Ouvrir Récents".
 * `clearRecentDocuments` - Carte à l'action `clearRecentDocuments`.
 
@@ -109,7 +109,7 @@ Une `String` indiquant l'étiquette visible de l'élément, cette propriété pe
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+Une `Function` qui est activée lorsque l'élément MenuItem reçoit un événement de clic. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
