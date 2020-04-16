@@ -1,4 +1,4 @@
-# Paggamit ng ekstensyong Pepper Flash
+# Gamit ang Pepper Flash Plugin
 
 Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
@@ -57,7 +57,7 @@ Magdagdag ng `plugins` katangian sa `<webview>`tag.
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
-## Paghahanap ng ProblemaPaghahanap ng Problema
+## Pag-aayos
 
 Maaari mo ring suriin kung Pepper Flash plugin ay karga ng pagsusuri ang `navigator.plugins` sa console ng devtools (kahit na hindi mo alam kung tama ang plugin path).
 
