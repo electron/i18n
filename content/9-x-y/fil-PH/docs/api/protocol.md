@@ -53,7 +53,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Mga Paraan
+## Mga Pamamaraan
 
 Ang `protocol` na modyul ay mayroong mga sumusunod na mga pamamaraan:
 
@@ -120,7 +120,7 @@ protocol.registerSchemesAsPrivileged([
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
 * `completion` Function (optional)
   * `error` Error
@@ -143,7 +143,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsyonal)
 * `completion` Function (optional)
   * `error` Error
@@ -166,18 +166,18 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `protocol.regiterStringProtocol(panukala, tagahwak[, pagkumpleto])`
 
-* `scheme` na String
+* `scheme` na string
 * `handler` Function
   * `request` Object
-    * `url` Tali
+    * `url` na String
     * `headers` Record<String, String>
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (optional)
-  * `error` Error
+  * `error` na Kamalian
 
 Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang `String` bilang isang tugon.
 
@@ -193,7 +193,7 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `redirectRequest` Object
       * `url` Tali
       * `method` String (optional)
@@ -292,7 +292,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `filePath` String
 * `completion` Function (optional)
   * `error` Error
@@ -309,7 +309,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (optional)
   * `error` Error
@@ -326,7 +326,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `buffer` Buffer (optional)
 * `completion` Function (optional)
   * `error` Error
@@ -343,7 +343,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `redirectRequest` Object
       * `url` Tali
       * `method` String (optional)
