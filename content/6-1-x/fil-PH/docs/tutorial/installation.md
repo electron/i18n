@@ -32,7 +32,7 @@ npm install --platform=win32 electron
 
 ## Proxies
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+Kung kailangan mong gumamit ng HTTP proxy maaari mong [ itakda ang mga variable ng kapaligiran ](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
 ## Custom Mirrors and Caches
 During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. Magagawa ito sa pamamagitan ng pakikipag-ugnay sa GitHub release ang pahina ng pag-download (` https://github.com/electron/electron/releases/tag/v$VERSION `, kung saan ` $VERSION ` ay ang eksaktong bersyon ng Electron).
@@ -40,20 +40,20 @@ During installation, the `electron` module will call out to [`electron-download`
 Kung hindi mo ma-access ang GitHub o kailangan mong magbigay ng custom build, ay maaaring gawin mo ito sa alinman sa pagbibigay ng salamin o isang umiiral na direktoryo ng cache.
 
 #### Mirror
-Maaari mong gamitin ang mga variable ng kapaligiran upang i-override ang base URL, ang landas kung saan hahanapin ang mga binary ng Electron, at ang binary filename. The url used by `electron-download` is composed as follows:
+Maaari mong gamitin ang mga variable ng kapaligiran upang i-override ang base URL, ang landas kung saan hahanapin ang mga binary ng Electron, at ang binary filename. Ang url na ginamit ng ` electron-download ` ay binubuo ng mga sumusunod:
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+Halimbawa, gamitin ang mirror ng China:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
 #### Cache
-Bilang kahalili, maaari mong i-override ang cache ng lokal. `electron-download` will cache downloaded binaries in a local directory to not stress your network. Pwede mong gamitin ang folder ng cache upang magbigay ng custom builds ng Electron o upang maiwasan ang paggawa ng contact kasama ang network sa lahat.
+Bilang kahalili, maaari mong i-override ang cache ng lokal. Ang ` electron-download ` ay mag-cache download ng mga binary sa isang lokal na direktoryo upang hindi ma-stress ang iyong network. Pwede mong gamitin ang folder ng cache upang magbigay ng custom builds ng Electron o upang maiwasan ang paggawa ng contact kasama ang network sa lahat.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
@@ -61,7 +61,7 @@ Bilang kahalili, maaari mong i-override ang cache ng lokal. `electron-download` 
 
 Sa mga kapaligiran na gumagamit ng mga mas lumang bersyon ng Electron, maaari mong makita ang cache din sa ` ~/.electron `.
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+Maaari mo ring i-override ang lokal na lokasyon ng cache sa pamamagitan ng pagbibigay ng ` ELECTRON_CACHE `.
 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
@@ -83,12 +83,12 @@ When installing the `electron` NPM package, it automatically downloads the elect
 
 This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. Halimbawa.:
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
 
-## Paghahanap ng ProblemaPaghahanap ng Problema
+## "Troubleshooting"
 
 Habang pinatatakbo and `npm install electron`, ang ibang user ay kadalasang nakakasalubong ng error sa pag-install.
 
