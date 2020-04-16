@@ -1,8 +1,8 @@
 # Instructions de compilation (Linux)
 
-Suivez les indications ci-dessous pour compiler Electron sur Linux.
+Suivez les indications ci-dessous pour compiler Electron sur Windows.
 
-## Prérequis
+## Prerequisites
 
 * Au moins 25GB d'espace disque et 8 Go de RAM.
 * Python 2.7.x. Certaines distributions comme CentOS 6.x utilisent encore Python 2.6.x, vous devrez peut-être vérifier votre version de Python avec `python -V`.
