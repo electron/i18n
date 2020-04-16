@@ -6,7 +6,7 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 May ilang pagkakataon na ang `Cookies` class ay mapupuntahan gamit ang `cookies` na katangian ng `Session`.
 
-Halimbawa:
+Halimbawa ng:
 
 ```javascript
 const { session } = kinakailangan ng ('electron')
@@ -38,13 +38,13 @@ session.defaultSession.cookies.set(cookie)
   })
 ```
 
-### Halimbawa ng mga Event
+### Mga Halimbawa ng "Events"
 
 Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
 
 #### Kaganapan: 'nagbago'
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `cookie` [Cookie](structures/cookie.md) - Ang "cookie" na binago.
 * `cause` String - The cause of the change with one of the following values:
   * `explicit` - Ang cookie ay direktang nagbago sa pamamagitan ng pagkilos ng isang mamimili.
@@ -56,7 +56,7 @@ Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
 
 Napalabas kapag ang cookie ay nagbago dahil ito'y idinagdag, inedit, natanggal, o napaso.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga Pamamaraan ng Instance
 
 Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
 
@@ -82,8 +82,8 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
   * `path` na String (opsyonal) - Ang path ng mga cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Ang default na mali.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Mga default sa false.
+  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. I-default sa false
   * `expirationDate` Double (opsyunal) - Ang expiration na petsa ng isang cookie ng bilang ng segundo dahil sa UNIX epoch. Kung ito ay tatanggalin ang cookie ay magiging isang sesyon cookie at hindi na ito mananatili sa pagitan ng mga sesyon.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been set
