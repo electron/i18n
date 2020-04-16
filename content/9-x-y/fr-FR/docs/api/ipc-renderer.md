@@ -2,7 +2,7 @@
 
 > Communiquer de manière asynchrone depuis le processus renderer au processus main.
 
-Processus : [Rendu](../glossary.md#renderer-process)
+Processus : [Renderer](../glossary.md#renderer-process)
 
 Le module `ipcRender` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Il fournit quelques méthodes pour pouvoir envoyer des messages synchrones et asynchrones depuis le processus render (page web) pour le processus main. Vous pouvez également recevoir des réponses du processus main.
 
