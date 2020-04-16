@@ -99,14 +99,14 @@ Emitted kapag ang anumang dragged na mga items ay ibinagsak sa tray icon.
 
 #### Event: 'drop-files' _macOS_
 
-* `event` na Kaganapan
+* `event` Event
 * `files` String[] -Ang mga landas ng mga binitiwang mga file.
 
 Emitted kapag ang dragged na mga file ay ibinagsak sa tray icon.
 
 #### Event: 'drop-text' _macOS_
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `text` String -ang mga binitiwang text string.
 
 Emitted kapag ang dragged text ay ibinagsak sa tray icon.
@@ -144,7 +144,7 @@ Emitted kapag ang mouse ay lumalabas sa tray icon.
 
 Emitted when the mouse moves in the tray icon.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga Pamamaraan ng Instance
 
 Ang 0>Tray</code>class ay may mga sumusunod na mga pamamaraan:
 
@@ -186,20 +186,20 @@ Returns `String` - the title displayed next to the tray icon in the status bar
 
 * `mode` String - Highlight mode with one of the following values:
   * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+  * `palagi` - Palaging ihighlight ang tray icon.
+  * `hindikailanman` - Hindi kailanman ihighlight ang tray icon.
 
-Sets when the tray's icon background becomes highlighted (in blue).
+Nagseset kapang ang tray's icon background ay nagiging highlighted(sa asul).
 
 **[Deprecated](breaking-changes.md#tray)**
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Note:**Maari mong gamitin ang`highlightMode`sa isang [`BrowserWindow`](browser-window.md)sa pamamagitan ng toggling sa pagitan `'never'` and `'always'` modes kapag ang window visibility ay nagbago.
 
 ```javascript
-const { BrowserWindow, Tray } = require('electron')
+const { BrowserWindow, Tray } = nangangailanganng('electron')
 
-const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/path/to/my/icon')
+const win = bagong BrowserWindow({ width: 800, height: 600 })
+const tray = bagong Tray('/path/to/my/icon')
 
 tray.on('click', () => {
   win.isVisible() ? win.hide() : win.show()
@@ -227,7 +227,7 @@ Returns `Boolean` - Whether double click events will be ignored.
 #### `tray.displayBalloon(options)` _Windows_
 
 * `options` Object
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (opsyonal) -
   * `title` String
   * `content` String
 
