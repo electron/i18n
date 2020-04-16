@@ -17,6 +17,6 @@
 
 This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
 
-**Note:** `electron --interactive` is not available on Windows.
+**नोट:** `electron --interactive` विंडोज पर उपलब्ध नहीं है |
 
 और अधिक जानकारी [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html) पर प्राप्त की जा सकती है |
