@@ -67,7 +67,7 @@ Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
 
 #### Event: 'click'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
@@ -77,7 +77,7 @@ Emitted kapag nag click ang tray icon.
 
 #### Event: 'right-click' _macOS_ _Windows_
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
@@ -86,7 +86,7 @@ Emitted kapag nai-right click ang tray icon.
 
 #### Event: 'double-click' _macOS_ _Windows_
 
-Pagbabalik:
+Pagbabalik ng:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
@@ -111,18 +111,18 @@ Emitted kapag ang anumang dragged na mga items ay ibinagsak sa tray icon.
 
 #### Event: 'drop-files' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` Event
 * `files` String[] -Ang mga landas ng mga binitiwang mga file.
 
 Emitted kapag ang dragged na mga file ay ibinagsak sa tray icon.
 
 #### Event: 'drop-text' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `text` String -ang mga binitiwang text string.
 
 Emitted kapag ang dragged text ay ibinagsak sa tray icon.
@@ -141,7 +141,7 @@ Emitted kapag ang drag operation ay nagtatapos sa tray o nagtatapos sa ibang lug
 
 #### Event: 'mouse-up' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
@@ -152,7 +152,7 @@ Note: This will not be emitted if you have set a context menu for your Tray usin
 
 #### Event: 'mouse-down' _macOS_
 
-Pagbabalik:
+Ibabalik:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
@@ -161,7 +161,7 @@ Emitted when the mouse clicks the tray icon.
 
 #### Event: 'mouse-enter' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
@@ -170,7 +170,7 @@ Emitted kapag ang mouse ay pumapasok sa tray icon.
 
 #### Event: 'mouse-leave' _macOS_
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
@@ -179,14 +179,14 @@ Emitted kapag ang mouse ay lumalabas sa tray icon.
 
 #### Event: 'mouse-move' _macOS_ _Windows_
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
 Emitted when the mouse moves in the tray icon.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga Pamamaraan ng Instance
 
 Ang 0>Tray</code>class ay may mga sumusunod na mga pamamaraan:
 
@@ -241,7 +241,7 @@ Returns `Boolean` - Whether double click events will be ignored.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Ng default ay `tama`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Ang Default ay `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
   * `noSound` Boolean (optional) - Do not play the associated sound. Ang default ay `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
   * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Ang default ay `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
 
