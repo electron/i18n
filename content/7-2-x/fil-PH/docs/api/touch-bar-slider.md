@@ -4,7 +4,7 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSlider(options)` _Experimental_
+### `bagong TouchBarSlider(opsyon)` _Eksperimento_
 
 * `options` Object
   * `pangalan` String (opsyonal) - label na teksto.
