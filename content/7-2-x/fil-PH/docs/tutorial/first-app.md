@@ -104,10 +104,10 @@ const { app, BrowserWindow } = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win
+hayaang manalo
 
-function createWindow () {
-  // Create the browser window.
+function gumawa ngWindow () {
+  // Gumawa ng browser window.
   win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -122,21 +122,19 @@ function createWindow () {
   // Open the DevTools.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
-  win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+  //Emitted kapag sarado na ang window.
+  win.on('sarado', () => {
+    // Dereference ang window object, karaniwang itago mo ang windows
+   //sa isang array kung ang iyong app ay sumusuporta sa multi windows, ito ay ang oras kung kailan mo dapat burahin ang kaukulang elemento.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// Ang paraang ito ay tinatawag kapag ang Electron ay tapos na
+// Inisyalisasyon at handa na itong gumawa ng browser windows.
 Ilang APIs ay maari lamang gamitin matapos ang pangyayaring ito ay nangyayari.
-app.on('ready', createWindow)
-
-// Quit when all windows are closed.
+app.on('humanda', lumikhangWindow)
+Tumigil kapag sarado na ang lahat ng windows.
 app.on('window-lahat-sarado', () => {
   // Sa macOS ito ay karaniwan para sa mga aplikasyon at kanilang menu bar
   //para manatiling aktibo hanggang ang gumagamit ay tahasang huminto sa Cmd+Q
@@ -145,13 +143,11 @@ app.on('window-lahat-sarado', () => {
 app.on('activate', () => {
   //Sa macOS ito ay karaniwan upang muling lumikha ng window sa app kapag ang 
   //ang dock icon ay nag-click at wla nang iba pang windows na nakabukas.
-  if (win === null) {
-    createWindow()
+  kung (win === null) {
+    lumikhangWindow()
   }
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. Maari mo rin ilagay ang mga ito sa magkakahiwalay na mga file at dito nangangailangan sila.
+//Sa file na ito pwede mong isama ang iba mo pang app's specific sa pangunahing code. Maari mo rin ilagay ang mga ito sa magkakahiwalay na mga file at dito nangangailangan sila.
 ```
 
 Sa huli ang`index.html` ay ang web page na gusto mong ipakita:
@@ -165,9 +161,9 @@ Sa huli ang`index.html` ay ang web page na gusto mong ipakita:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+    Kami ay gumagamit ng node<script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    and Electron <script>document.write(process.versions.electron)</6.
   </body>
 </html>
 ```
