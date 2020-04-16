@@ -75,7 +75,7 @@ Retourne :
 
 Émis lorsque l’utilisateur clique sur l’icône.
 
-#### Event: 'right-click' _macOS_ _Windows_
+#### Événement : 'right-click' _macOS_ _Windows_
 
 Retourne :
 
@@ -84,7 +84,7 @@ Retourne :
 
 Émis lorsque l’utilisateur fait un clique droit sur l’icône.
 
-#### Event: 'double-click' _macOS_ _Windows_
+#### Événement : 'double-click' _macOS_ _Windows_
 
 Retourne :
 
@@ -93,23 +93,23 @@ Retourne :
 
 Émis lorsque l’utilisateur double clique sur l’icône.
 
-#### Event: 'balloon-show' _Windows_
+#### Événement : 'balloon-show' _Windows_
 
 Émis lorsque le ballon de la barre d’État s’affiche.
 
-#### Event: 'balloon-click' _Windows_
+#### Événement : 'balloon-click' _Windows_
 
 Émis lorsque l’utilisateur clique sur le ballon de la barre d'État.
 
-#### Event: 'balloon-closed' _Windows_
+#### Événement : 'balloon-closed' _Windows_
 
 Émis lorsque le ballon de la barre d’État est fermé en raison du délai d’attente dépassé ou de l’utilisateur le ferme manuellement.
 
-#### Event: 'drop' _macOS_
+#### Événement : 'drop' _macOS_
 
 Émis lorsque un ou des éléments sont glissés et déposés sur l’icône.
 
-#### Event: 'drop-files' _macOS_
+#### Événement : 'drop-files' _macOS_
 
 Retourne :
 
@@ -118,7 +118,7 @@ Retourne :
 
 Émis lorsque des fichiers sont glissés et déposés sur l’icône.
 
-#### Event: 'drop-text' _macOS_
+#### Événement : 'drop-text' _macOS_
 
 Retourne :
 
@@ -127,15 +127,15 @@ Retourne :
 
 Émis lorsqu'un texte est déposé sur l’icône.
 
-#### Event: 'drag-enter' _macOS_
+#### Événement : 'drag-enter' _macOS_
 
 Émis lorsqu’une opération glisser entre dans la zone de l’icône.
 
-#### Event: 'drag-leave' _macOS_
+#### Événement : 'drag-leave' _macOS_
 
 Émis lorsqu’une opération glisser sort de la zone de l’icône.
 
-#### Event: 'drag-end' _macOS_
+#### Événement : 'drag-end' _macOS_
 
 Émis lorsqu’une opération glisser se termine sur l'icône ou à un autre emplacement.
 
@@ -159,7 +159,7 @@ Retourne :
 
 Emitted when the mouse clicks the tray icon.
 
-#### Event: 'mouse-enter' _macOS_
+#### Événement : 'mouse-enter' _macOS_
 
 Retourne :
 
@@ -168,7 +168,7 @@ Retourne :
 
 Émis lorsque la souris entre dans la zone de l’icône.
 
-#### Event: 'mouse-leave' _macOS_
+#### Événement : 'mouse-leave' _macOS_
 
 Retourne :
 
