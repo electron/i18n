@@ -2,7 +2,7 @@
 
 > Utilise les modules du processus main depuis le processus renderer.
 
-Processus : [Rendu](../glossary.md#renderer-process)
+Processus : [Renderer](../glossary.md#renderer-process)
 
 Le module `distant` fournit un moyen simple de faire une communication entre les processus d'inter-processus (IPC) entre le processus de rendu (page Web) et le processus principal.
 
@@ -14,9 +14,9 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
+**Remarque :** Pour l'inverse (accédez au processus de rendu depuis le processus principal), vous pouvez utiliser [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
-**Note:** The remote module can be disabled for security reasons in the following contexts:
+**Remarque :** Le module distant peut être désactivé pour des raisons de sécurité dans les contextes suivants :
 - [`BrowserWindow`](browser-window.md) - en définissant l'option `enableRemoteModule` à `false`.
 - [`<webview>`](webview-tag.md)`</0> - en définissant l'attribut <2>enableremotemodule</2> à <2>false</2>.</li>
 </ul>
@@ -27,9 +27,9 @@ win.loadURL('https://github.com')
 
 Dans l'exemple ci-dessus, [`BrowserWindow`](browser-window.md) et `win` étaient des objets distants et `new BrowserWindow` n'a pas créé d'objet `BrowserWindow` dans le processus de rendu . Au lieu de cela, il a créé un objet `BrowserWindow` dans le processus principal et a renvoyé l'objet distant correspondant dans le processus de rendu, soit l'objet `win`.
 
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
+**Remarque :** Seules les [propriétés énumérables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) présentes lorsque l'objet distant est référencé pour la première fois sont accessibles par télécommande.
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Les modifier dans le processus de rendu ne les modifie pas dans le processus principal et vice versa.
+**Remarque :** Les tableaux et les tampons sont copiés par IPC lorsque vous y accédez via le module `distance` . Les modifier dans le processus de rendu ne les modifie pas dans le processus principal et vice versa.
 
 ## Durée de vie de l'objet remote
 
@@ -137,7 +137,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 Retourne [`BrowserWindow`](browser-window.md) - La fenêtre à laquelle cette page web appartient.
 
-**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). L'utilisation de ceci peut supprimer tous les auditeurs [`flou`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) , désactiver les événements de clic sur les boutons de la barre tactile, et d'autres conséquences involontaires.
+**Remarque :** N'utilisez pas `removeAllListeners` sur [`BrowserWindow`](browser-window.md). L'utilisation de ceci peut supprimer tous les auditeurs [`flou`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) , désactiver les événements de clic sur les boutons de la barre tactile, et d'autres conséquences involontaires.
 
 ### `remote.getCurrentWebContents()`
 
