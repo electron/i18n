@@ -4,7 +4,7 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+Isang halimbawa ng pagpapakita ng isang dialog sa pagpili ng maraming mga file at mga direktoryo:
 
 ```javascript
 const { dialog } = require('electron')
@@ -39,7 +39,7 @@ Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
     * `promptToCreate` _Windows_ - Prompt for creation if the file path entered in the dialog does not exist. Hindi nito aktwal na nilikha ang file sa path pero pinapayagan ang mga hindi nakikitang mga path na maibalik na dapat nilikha ng aplikasyon.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
+  * `message` String (opsyonal) _macOS_ - mensaheng nagpapakita ng mga kahong pang-input sa itaas.
   * `securityScopedBookmarks` Boolean (optional) _masOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
@@ -61,7 +61,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 
 Ang mga `ekstensyon` na hanay ay dapat na naglalaman ng mga ekstensyon na walang mga wildcard o mga tuldok (halimbawa, maganda ang `'png'` pero ang `'.png'` at `'*.png'` ay hindi maganda). Upang ipakita ang lahat ng mga file, gamitin ang `'*'` na wildcard (wala nang ibang wildcard ang sinusuportahan).
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Tandaan:** Sa Windows at Linux, ang isang bukas na dialog ay hindi pwedeng sabay na tagapili ng file at tagapili ng direktoryo, upang kapag i-set mo ang `properties` sa `['openFile', 'openDirectory']` sa mga platapormang ito, ang isang tagapili ng direktoryo ay maipapakita.
 
 ```js
 dialog.showOpenDialogSync(mainWindow, {
@@ -75,7 +75,7 @@ dialog.showOpenDialogSync(mainWindow, {
 * `options` Object
   * `title` String (opsyonal)
   * `defaultPath` String (opsyonal)
-  * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa, kapag napabayaang bakante, ang default na lebel ang gagamitin.
+  * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa kompirmasyong pipindutian, na kapag naiwang walang laman, ang default na lebel ang gagamitin.
   * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
   * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
     * `openFile` - Nagpapahintulot na mapili ang mga file.
@@ -86,7 +86,7 @@ dialog.showOpenDialogSync(mainWindow, {
     * `promptToCreate` _Windows_ - Prompt for creation if the file path entered in the dialog does not exist. Hindi nito aktwal na nilikha ang file sa path pero pinapayagan ang mga hindi nakikitang mga path na maibalik na dapat nilikha ng aplikasyon.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
+  * `message` String (opsyonal) _macOS_ - mensaheng nagpapakita ng mga kahong pang-input sa itaas.
   * `securityScopedBookmarks` Boolean (optional) _masOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 * `callback` Function (opsyonal)
 
@@ -113,7 +113,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 
 Ang mga `ekstensyon` na hanay ay dapat na naglalaman ng mga ekstensyon na walang mga wildcard o mga tuldok (halimbawa, maganda ang `'png'` pero ang `'.png'` at `'*.png'` ay hindi maganda). Upang ipakita ang lahat ng mga file, gamitin ang `'*'` na wildcard (wala nang ibang wildcard ang sinusuportahan).
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Tandaan:** Sa Windows at Linux, ang isang bukas na dialog ay hindi pwedeng sabay na tagapili ng file at tagapili ng direktoryo, upang kapag i-set mo ang `properties` sa `['openFile', 'openDirectory']` sa mga platapormang ito, ang isang tagapili ng direktoryo ay maipapakita.
 
 ```js
 dialog.showOpenDialog(mainWindow, {
@@ -134,9 +134,9 @@ dialog.showOpenDialog(mainWindow, {
   * `defaultPath` String (opsyonal) - isang ganap na path ng direktoryo, ganap na path ng file, o ang pangalan ng file na gagamitin pag naka-default.
   * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa, kapag napabayaang bakante, ang default na lebel ang gagamitin.
   * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
-  * `message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
+  * `message` String (opsyonal) _macOS_ - mensaheng ipinapakita sa ibabaw ng mga tekstong field.
+  * `nameFieldLabel` String (opsyonal) _macOS_ - karaniwang lebel para sa mga tekstong ipinapakita sa harapan ng filename na tekstong field.
+  * `showsTagField` Boolean (opsyonal) _macOS_ - Nagpapakita sa mga tag na input box, nagde-default sa `true`.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
 Returns `String | undefined`, the path of the file chosen by the user; if the dialog is cancelled it returns `undefined`.
@@ -153,9 +153,9 @@ Ang `filters` ay nagtitiyak sa hanay ng mga uri ng file na maaaring maipakita, t
   * `defaultPath` String (opsyonal) - isang ganap na path ng direktoryo, ganap na path ng file, o ang pangalan ng file na gagamitin pag naka-default.
   * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa, kapag napabayaang bakante, ang default na lebel ang gagamitin.
   * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
-  * `message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
+  * `message` String (opsyonal) _macOS_ - mensaheng ipinapakita sa ibabaw ng mga tekstong field.
+  * `nameFieldLabel` String (opsyonal) _macOS_ - karaniwang lebel para sa mga tekstong ipinapakita sa harapan ng filename na tekstong field.
+  * `showsTagField` Boolean (opsyonal) _macOS_ - Nagpapakita sa mga tag na input box, nagde-default sa `true`.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
 Returns `Promise<Object>` - Resolve with an object containing the following:
@@ -182,7 +182,7 @@ Ang `filters` ay nagtitiyak sa hanay ng mga uri ng file na maaaring maipakita, t
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` ([NativeImage](native-image.md) | String) (opsyonal)
-  * `cancelId` Integer (opsyonal) - Ang index ng pipindutin na gagamitin sa pagkakansela ng dialog, gamit ang `Esc` na key. Sa default, nakatalaga ito sa unang pipindutin na may "cancel"o "no" bilang lebel. If no such labeled buttons exist and this option is not set, `0` will be used as the return value or callback response.
+  * `cancelId` Integer (opsyonal) - Ang index ng pipindutin na gagamitin sa pagkakansela ng dialog, gamit ang `Esc` na key. Sa default, nakatalaga ito sa unang pipindutin na may "cancel"o "no" bilang lebel. Kung ang mayroong mga ganyang pipinduting may lebel at ang opsyon na ito ay hindi na-set, ang `0` ay gagamitin bilang pabalik na halaga o sagot sa callback.
   * `noLink` Boolean (opsyonal) - Sa Windows, susubukang alamin ng Electron kung alin sa `buttons` ang karaniwang mga pipindutin (katulad ng "Cancel" o "Yes"), at ipinapakita ang iba bilang mga command link sa dialog. Pinapakita nito ang dialog sa istilo ng modernong mga Windows app. Kung ayaw mo ng ganitong galaw, pwede mong i-set ang `noLink` sa `true`.
   * `normalizeAccessKeys` Boolean (opsyonal) - ini-normalize ang mga key na pang-keyboard access sa mga plataporma. Ang default ay `false`. Ang pagpapagana nito ay pumapalit at ginagamit sa mga lebel ng mga pipindutin para sa paglalagay ng keyboard shortcut access key at ang mga lebel ay isasalin upang maayos silang gagana sa bawat plataporma, at ang mga karakter ay tinanggal sa macOS, isinalin sa `_` sa Linux at hindi pinakialaman sa Windows. Halimbawa, ang isang lebel ng pipindutin na `Vie&w` ay isasalin sa `Vie_w` sa Linux at `View` sa macOS at pwedeng piliin sa pamamagitan ng `Alt-W` sa Windows at Linux.
 
@@ -205,7 +205,7 @@ Ang `browserWindow` na argumento ay pinahihintulutan ang dialog na ilakip ang ka
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` [NativeImage](native-image.md) (opsyonal)
-  * `cancelId` Integer (opsyonal) - Ang index ng pipindutin na gagamitin sa pagkakansela ng dialog, gamit ang `Esc` na key. Sa default, nakatalaga ito sa unang pipindutin na may "cancel"o "no" bilang lebel. If no such labeled buttons exist and this option is not set, `0` will be used as the return value or callback response.
+  * `cancelId` Integer (opsyonal) - Ang index ng pipindutin na gagamitin sa pagkakansela ng dialog, gamit ang `Esc` na key. Sa default, nakatalaga ito sa unang pipindutin na may "cancel"o "no" bilang lebel. Kung ang mayroong mga ganyang pipinduting may lebel at ang opsyon na ito ay hindi na-set, ang `0` ay gagamitin bilang pabalik na halaga o sagot sa callback.
   * `noLink` Boolean (opsyonal) - Sa Windows, susubukang alamin ng Electron kung alin sa `buttons` ang karaniwang mga pipindutin (katulad ng "Cancel" o "Yes"), at ipinapakita ang iba bilang mga command link sa dialog. Pinapakita nito ang dialog sa istilo ng modernong mga Windows app. Kung ayaw mo ng ganitong galaw, pwede mong i-set ang `noLink` sa `true`.
   * `normalizeAccessKeys` Boolean (opsyonal) - ini-normalize ang mga key na pang-keyboard access sa mga plataporma. Ang default ay `false`. Ang pagpapagana nito ay pumapalit at ginagamit sa mga lebel ng mga pipindutin para sa paglalagay ng keyboard shortcut access key at ang mga lebel ay isasalin upang maayos silang gagana sa bawat plataporma, at ang mga karakter ay tinanggal sa macOS, isinalin sa `_` sa Linux at hindi pinakialaman sa Windows. Halimbawa, ang isang lebel ng pipindutin na `Vie&w` ay isasalin sa `Vie_w` sa Linux at `View` sa macOS at pwedeng piliin sa pamamagitan ng `Alt-W` sa Windows at Linux.
 
