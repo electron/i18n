@@ -31,23 +31,23 @@ Le module `powerMonitor` émet les événements suivants :
 
 Émis lorsque le système reprend.
 
-### Event: 'on-ac' _Windows_
+### Événement : 'on-ac' _Windows_
 
 Émis lorsque le système est branché sur prise.
 
-### Event: 'on-battery' _Windows_
+### Événement : 'on-battery' _Windows_
 
 Émis lorsque le système passe sur batterie.
 
-### Event: 'shutdown' _Linux_ _macOS_
+### Événement : 'shutdown' _Linux_ _macOS_
 
 Émis lorsque le système est sur le point de redémarrer ou d'arrêter. Si le gestionnaire d'événements appelle `e.preventDefault()`, Electron tentera de retarder l'arrêt du système dans afin que l'application se ferme proprement. Si `e.preventDefault()` est appelé, l'application devrait quitter dès que possible en appelant quelque chose comme `app.quit()`.
 
-### Event: 'lock-screen' _macOS_ _Windows_
+### Événement : 'lock-screen' _macOS_ _Windows_
 
 Émis lorsque le système est sur le point de verrouiller l'écran.
 
-### Event: 'unlock-screen' _macOS_ _Windows_
+### Événement : 'unlock-screen' _macOS_ _Windows_
 
 Émis dès que l'écran du système est déverrouillé.
 
