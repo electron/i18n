@@ -57,7 +57,7 @@ Le module `protocol` dispose des méthodes suivantes :
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
-**Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
+**Note:** Cette méthode ne peut être utilisée qu'avant l'événement `ready` du `app` est émis et ne peut être appelé qu'une seule fois.
 
 Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API. Specify a privilege with the value of `true` to enable the capability.
 
@@ -208,7 +208,7 @@ Returns `Boolean` - Whether `scheme` is already registered.
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie un fichier comme réponse.
 
 ### `protocol.interceptStringProtocol(scheme, handler)`
 
@@ -218,7 +218,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie une `String` comme réponse.
 
 ### `protocol.interceptBufferProtocol(scheme, handler)`
 
@@ -228,7 +228,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
+Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie un `Buffer` comme réponse.
 
 ### `protocol.interceptHttpProtocol(scheme, handler)`
 
@@ -238,7 +238,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `callback` Function
     * `response` ProtocolResponse
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie une nouvelle requête HTTP comme réponse.
 
 ### `protocol.interceptStreamProtocol(scheme, handler)`
 
@@ -248,13 +248,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+Identique à `protocol.registerStreamProtocol`, excepté qu'il remplace un gestionnaire de protocole existant.
 
 ### `protocol.uninterceptProtocol(scheme)`
 
 * `scheme` String
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+Retirez l'intercepteur installé pour `schéma` et restaurez son gestionnaire d'origine.
 
 ### `protocol.isProtocolIntercepted(scheme)`
 
