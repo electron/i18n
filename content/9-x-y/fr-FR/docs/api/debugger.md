@@ -37,7 +37,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `reason` String - Motif du retrait du débogueur.
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
@@ -46,7 +46,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `method` String - Nom de la méthode.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
