@@ -102,7 +102,7 @@ _Cette recommandation est le comportement par défaut d'Electron depuis la versi
 
 Il est primordial que vous n'activiez pas l'intégration de Node.js dans aucun moteur de rendu ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), ou [`<webview>`](../api/webview-tag.md)<3></2>) qui charge le contenu distant. Le but est de limiter les permissions accordées aux contenus distants, ce qui complique drastiquement la tâche pour un attaquant qui souhaiterait nuire à vos utilisateurs (si jamais cet attaquant réussissait à exécuter du javascript sur votre site).
 
-Une fois cela fait, vous pouvez accorder des permissions supplémentaires à des hôtes spécifiques. For example, if you are opening a BrowserWindow pointed at `https://example.com/", you can give that website exactly the abilities it needs, but no more.
+Une fois cela fait, vous pouvez accorder des permissions supplémentaires à des hôtes spécifiques. Par exemple, si vous ouvrez une BrowserWindow ayant `https://example.com/" pour cible, vous pouvez ne conférer à ce site que les capacités dont il a besoin pour fonctionner.
 
 ### Pourquoi ?
 
