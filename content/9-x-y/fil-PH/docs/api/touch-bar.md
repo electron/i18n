@@ -4,7 +4,7 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBar(options)` _Experimental_
+### `bagong TouchBar(pagpipilian)`_Experimental_
 
 * `options` Object
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
@@ -54,7 +54,7 @@ A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSli
 
 A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instansya
 
 Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBar`:
 
