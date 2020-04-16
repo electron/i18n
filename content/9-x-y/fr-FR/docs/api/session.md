@@ -96,7 +96,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
@@ -194,7 +194,7 @@ Le `proxyBypassRules` est une liste de règles séparées par des virgules, comm
 
    Correspond à tous les noms d'hôte qui correspondent au pattern HOSTNAME_PATTERN.
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Exemples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -233,7 +233,7 @@ Sets download saving directory. By default, the download directory will be the `
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Par défaut, est faux.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
@@ -256,7 +256,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 * `options` Object
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
-  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. 1 par défaut.
 
 Preconnects the given number of sockets to an origin.
 
