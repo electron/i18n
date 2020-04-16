@@ -65,10 +65,10 @@ Stabilization branches are always either **major** or **minor** version lines, a
 
 # बीटा रिलीज़ और बग फिक्सेस
 
-Developers want to know which releases are _safe_ to use. हानिरहित दिखने वाली सुविधायें भी जटिल एप्लीकेशनस में त्रुटियाँ ला सकती हैं | पर साथ ही, एक स्थायी संस्करण पर टिके रहना काफी ख़तरनाक हो सकता है क्योंकि आप सुरक्षा पैच और बग फिक्सेस को नज़रअंदाज़ कर रहे हैं जो आप के इस्तेमाल में आने वाले संस्करण के बाद जारी किये गये हों | हमारा लक्ष्य, `package.json` में निम्नलिखित मानक semver सीमाओं को अनुमति देने का है:
+डेवलपर्स जानना चाहते हैं कि कौन सी रिलीजिज़ इस्तेमाल करने के लिए_सुरक्षित_ हैं | हानिरहित दिखने वाली सुविधायें भी जटिल एप्लीकेशनस में त्रुटियाँ ला सकती हैं | पर साथ ही, एक स्थायी संस्करण पर टिके रहना काफी ख़तरनाक हो सकता है क्योंकि आप सुरक्षा पैच और बग फिक्सेस को नज़रअंदाज़ कर रहे हैं जो आप के इस्तेमाल में आने वाले संस्करण के बाद जारी किये गये हों | हमारा लक्ष्य, `package.json` में निम्नलिखित मानक semver सीमाओं को अनुमति देने का है:
 
 * `2.0.0` में स्थिरता या सुरक्षा सम्बंधित फिक्सेस लाने के लिए ही `~2.0.0` का इस्तेमाल करें |
-* Use `^2.0.0` to admit non-breaking _reasonably stable_ feature work as well as security and bug fixes.
+* `^2.0.0` का इस्तेमाल नॉन-ब्रेकिंग _काफी हद तक स्थिर_ सुविधाओं और साथ ही सुरक्षा और बग फिक्सेस को अनुमति देने के लिए करें |
 
 दूसरी बिंदु में जो आवश्यक बात है वह यह कि `^` को इस्तेमाल करने वाली एप्प्स भी कुछ हद तक स्थिरता की अपेक्षा रख सकें | To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
 
@@ -104,7 +104,7 @@ For each major and minor bump, you should expect to see something like the follo
 
 * A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
 * A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
+* बीटा को _सामान्यतः स्थिर_ मान जाता है और उसे दोबारा नॉन-बीटा के रूप में `2.0.0` के नीचे प्रकाशित किया जाता है | ![](../images/versioning-sketch-5.png)
 * Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 कुछ उदाहरण कि कैसे semver सीमायें नयी रिलीज़िस चुनती हैं:
@@ -116,13 +116,13 @@ For each major and minor bump, you should expect to see something like the follo
 
 भविष्य को ध्यान में रखते हुए, हम निम्नलिखित में से एक या दोनों को ला सकते हैं:
 
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in _alpha_
+* अल्फा रिलीज़िस जिनके पास बीटा से ज्यादा लचीले स्थिरता तत्व हैं; जैसे कि इस बात की अनुमति होगी कि जब एक स्थिरता चैनल _अल्फा_ में मौज़ूद हो, तब भी नयी सुविधाओं को शामिल किया जा सके |
 
 # फीचर ध्वज
-फीचर ध्वज क्रोमियम में काफी आम हैं, और वेब-डेवलपमेंट वातावरण में बहुत अच्छी तरह से स्थापित हैं | In the context of Electron, a feature flag or **soft branch** must have the following properties:
+फीचर ध्वज क्रोमियम में काफी आम हैं, और वेब-डेवलपमेंट वातावरण में बहुत अच्छी तरह से स्थापित हैं | इलेक्ट्रॉन के सन्दर्भ में, एक फीचर ध्वज या **सॉफ्ट ब्रांच** के निम्नलिखित गुण होने चाहियें:
 
 * it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature _violates_ the feature-flag contract
+* उसे नये और पुराने कोड पथों को बिल्कुल अलग रखना चाहिये; पुराने कोड को नये फीचर समर्थित के लिए बदलने से फीचर-ध्वज अनुबंध का _उल्लंघन _ होता है
 * feature flags are eventually removed after the feature is released
 
 # सिमेंटिक कम्मिट्स
@@ -130,8 +130,8 @@ For each major and minor bump, you should expect to see something like the follo
 हमारा लक्ष्य अपडेट और रिलीज़ प्रक्रिया के हर स्तर पर पारदर्शिता बढ़ाना है | `2.0.0` से शुरुआत करते हुए, हमे सभी पुल रिक्वेस्ट [कन्वेंशनल कम्मिट्स](https://conventionalcommits.org/) स्पेक का पालन करने वाली चाहिये होंगी, जिनका सारांश निम्नलिखित है:
 
 * Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* कम्मिट्स जिनका परिणाम सेमवर **लघु** बढ़त होगा, वे `feat:` से शुरू होने चाहियें |
+* कम्मिट्स जिनका परिणाम सेमवर **पैच** बढ़त होगा, वे `fix:` से शुरू होने चाहियें |
 
 * हम कम्मिट्स के स्क्वाशिंग की अनुमति देते हैं, बस स्क्वाशड सन्देश ऊपर दिए गये सन्देश फॉर्मेट का पालन करता हो |
 * It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
@@ -140,5 +140,5 @@ For each major and minor bump, you should expect to see something like the follo
 
 - The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - रिलीज़ शाखायें कभी भी वापस मास्टर शाखा में संयोजित नहीं की जाती
-- Release branches _do_ contain the correct version in their `package.json`
+- रिलीज़ शाखायें सही संस्करण को शामिल _करती_ हैं अपने `package.json` में
 - As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
