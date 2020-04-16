@@ -56,13 +56,13 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Halimbawa ng mga Event
+### Mga Instance na Kaganapan
 
 Ang sumusunod na mga kaganapan ay magagamit para sa mga instance ng `Sesyon`:
 
 #### Kaganapan: 'will-download'
 
-Pagbabalik:
+Magbabalik ng:
 
 * `event` na Kaganapan
 * `item` na [DownloadItem](download-item.md)
@@ -84,9 +84,9 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### Event: 'preconnect'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` na Pangyayari
 * `preconnectUrl` String - The URL being requested for preconnection by the renderer.
 * `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
 
@@ -94,41 +94,41 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 
 #### Event: 'spellcheck-dictionary-initialized'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` kaganapan
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
 
 #### Event: 'spellcheck-dictionary-download-begin'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file starts downloading
 
 #### Event: 'spellcheck-dictionary-download-success'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully downloaded
 
 #### Event: 'spellcheck-dictionary-download-failure'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` Event
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga pamamaraan ng pagkakataon
 
 Ang sumusunod na pamamaraan ay magagamit para sa mga instance ng `session`:
 
@@ -194,7 +194,7 @@ Ang `proxyBypassRules` ay isang listahan ng panuntunan na pinaghihiwalay ng kuwi
 
    Itugma ang lahat ng mga hostname na tumugma sa pattern ng HOSTNAME_PATTERN.
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Mga halimbawa: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -233,7 +233,7 @@ Sets download saving directory. By default, the download directory will be the `
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Ang mga default para sa false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
@@ -498,7 +498,7 @@ app.on('ready', async () => {
 
 This API does not support loading packed (.crx) extensions.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
 #### `ses.removeExtension(extensionId)`
 
@@ -506,7 +506,7 @@ This API does not support loading packed (.crx) extensions.
 
 Unloads an extension.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
 #### `ses.getExtension(extensionId)`
 
@@ -514,15 +514,15 @@ Unloads an extension.
 
 Returns `Extension` | `null` - The loaded extension with the given ID.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
 #### `ses.getAllExtensions()`
 
 Returns `Extension[]` - A list of all loaded extensions.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instance
 
 Ang mga sumusunod na katangian ay magagamit sa mga instance ng `session`:
 
