@@ -92,7 +92,7 @@ Ipasok sa`menuItem`papunta sa posisyon ng`pos`ng menu.
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Tandaan:** Ang ilang mga kaganapan ay magagamit lamang sa partikular na mga operating system at na may label na.
 
 #### Event: 'menu-will-show'
 
