@@ -2,7 +2,7 @@
 
 > Communiquer de manière asynchrone depuis le processus renderer au processus main.
 
-Processus : [Rendu](../glossary.md#renderer-process)
+Processus : [Renderer](../glossary.md#renderer-process)
 
 Le module `ipcRender` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Il fournit quelques méthodes pour pouvoir envoyer des messages synchrones et asynchrones depuis le processus render (page web) pour le processus main. Vous pouvez également recevoir des réponses du processus main.
 
@@ -49,7 +49,7 @@ Supprime tous les écouteurs, ou ceux du `channel` spécifié.
 * `channel` String
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Envoi un message au processus main de façon asynchrone via le `channel`, vous pouvez également envoyer des arguments arbitraire. Les arguments seront sérialisés en tant que JSON en interne et donc aucune fonction ou chaîne de prototype ne sera incluse.
 
 Le processus principal le gère en écoutant le `canal` avec le module [`ipcMain`](ipc-main.md).
 
@@ -60,7 +60,7 @@ Le processus principal le gère en écoutant le `canal` avec le module [`ipcMain
 
 Retourne `Promise<any>` - résout avec la réponse du processus principal.
 
-Send a message to the main process asynchronously via `channel` and expect an asynchronous result. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Envoie un message au processus principal de manière asynchrone via `canal` et attend un résultat asynchrone. Les arguments seront sérialisés en tant que JSON en interne et donc aucune fonction ou chaîne de prototype ne sera incluse.
 
 Le processus principal devrait écouter le `canal` avec [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
@@ -85,11 +85,11 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 Retourne `any` - La valeur renvoyé par l'écouteur du [`ipcMain`](ipc-main.md).
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Envoi un message au processus main de façon synchrone via le `channel`, vous pouvez également envoyer des arguments arbitraire. Les arguments seront sérialisés en JSON en interne et par conséquent aucune fonction ou chaîne de prototype ne sera inclus.
 
 Le processus principal le gère en écoutant le `canal` avec le module [`ipcMain`](ipc-main.md) , et répond en définissant `event.returnValue`.
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**Remarque :** Envoyer un message synchrone permet de bloquer le processus renderer entièrement, sauf si vous savez ce que vous faites, vous ne devez jamais l'utiliser.
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
