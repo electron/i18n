@@ -222,9 +222,10 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
 
 ### `<webview>.downloadURL(url)`
 
-* `url` String
+* ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Initiates a download of the resource at `url` without navigating.
+<p spaces-before="0">Initiates a download of the resource at <code>url` without navigating.</p>
 
 ### `<webview>.getURL()`
 
@@ -328,7 +329,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
-* `code` String
+* `code` Zeichenkette
 * `userGesture` Boolean (optional) - Default `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -520,7 +521,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `level` Number - Zoom Level.
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
@@ -574,8 +575,8 @@ The following DOM events are available to the `webview` tag:
 
 Rückgabewert:
 
-* `url` String
-* `isMainFrame` Boolean
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -686,8 +687,8 @@ console.log(requestId)
 
 Rückgabewert:
 
-* `url` String
-* `frameName` String
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
@@ -711,9 +712,11 @@ webview.addEventListener('new-window', async (e) => {
 
 Rückgabewert:
 
-* `url` String
+* ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+<p spaces-before="0">Emitted when a user or the page wants to start navigation. It can happen when
+the <code>window.location` object is changed or a user clicks a link in the page.</p>
 
 This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
@@ -725,22 +728,27 @@ Calling `event.preventDefault()` does __NOT__ have any effect.
 
 Rückgabewert:
 
-* `url` String
+* ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when a navigation is done.
+<p spaces-before="0">Emitted when a navigation is done.</p>
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+<p spaces-before="0">This event is not emitted for in-page navigations, such as clicking anchor links
+or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p>
 
 ### Event: 'did-navigate-in-page'
 
 Rückgabewert:
 
 * `isMainFrame` Boolean
-* `url` String
+* ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when an in-page navigation happened.
+<p spaces-before="0">Emitted when an in-page navigation happened.</p>
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+<p spaces-before="0">When in-page navigation happens, the page URL changes but does not cause
+navigation outside of the page. Examples of this occurring are when anchor links
+are clicked or when the DOM <code>hashchange` event is triggered.</p>
 
 ### Event: 'close'
 
@@ -825,18 +833,19 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Rückgabewert:
 
-* `url` String
+*  URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+<p spaces-before="0">Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
 
-### Event: 'devtools-opened'
+<h3 spaces-before="0">Event: 'devtools-opened'</h3>
 
-Emittiert wenn die DevTools geöffnet wurden.
+<p spaces-before="0">Emittiert wenn die DevTools geöffnet wurden.</p>
 
-### Event: 'devtools-closed'
+<h3 spaces-before="0">Event: 'devtools-closed'</h3>
 
-Emittiert wenn die DevTools geschlossen wurden.
+<p spaces-before="0">Emittiert wenn die DevTools geschlossen wurden.</p>
 
-### Event: 'devtools-focused'
+<h3 spaces-before="0">Event: 'devtools-focused'</h3>
 
-Emitted when DevTools is focused / opened.
+<p spaces-before="0">Emitted when DevTools is focused / opened.</p>
