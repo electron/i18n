@@ -1,1 +1,1 @@
-Moved to [support.md](support.md)
+Ilipat sa [support.md](support.md)
