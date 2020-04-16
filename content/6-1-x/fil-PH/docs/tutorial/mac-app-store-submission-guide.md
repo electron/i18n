@@ -128,7 +128,7 @@ Native modules used in your app also need to be signed. If using electron-osx-si
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Tandaan din na ang native na mga modyul ay maaaring may intermediate na mga file na binuo na hindi sana kabilang (na dapat rin nilagdaan). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignore those files by default.
+Tandaan din na ang native na mga modyul ay maaaring may intermediate na mga file na binuo na hindi sana kabilang (na dapat rin nilagdaan). Kung gumamit ka ng [electron-packager](https://github.com/electron-userland/electron-packager) bago ang bersyon 8.1.0, magdagdag ng `--ignore=.+\.o$` sa iyong build na hakbang para maiwasan ang mga file. Versions 8.1.0 and later ignore those files by default.
 
 ### I-upload ang iyong app
 
@@ -143,7 +143,7 @@ Matapos ang mga hakbang na ito, maaari mong [i-sumite ang iyong app para sa pags
 Upang matugunan ang pangangailangan ng app sandboxing, ang sumusunod na modyul ay hindi pinagana sa MAS build:
 
 * `crashReporter`
-* `autoUpdater`
+* `awtoUpdeyter`
 
 at ang mga sumusunod na mga paggalaw ay binago:
 
