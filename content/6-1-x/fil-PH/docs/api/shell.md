@@ -1,4 +1,4 @@
-# kabibi
+# "Shell"
 
 > Ayusin ang mga payl at "URLs" gamit ang kanilang "default" o ang pagpapanatili nito sa dating "applications".
 
@@ -32,7 +32,7 @@ Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
 
 Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
-### `shell.openExternalSync(url[, options])`
+### `shell.openExternalSync(url[, mga pagpipilian])`
 
 * `url` String - Max 2081 characters on Windows, or the function returns false.
 * `options` Object (optional)
@@ -60,7 +60,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+Pagbabalik sa `Boolean` - Kung ang aytem matagumpay na nabura.
 
 Burahin ang binigay na payl at bumalik sa posisyon nito bilang "boolean" para sa pagpapagana.
 
