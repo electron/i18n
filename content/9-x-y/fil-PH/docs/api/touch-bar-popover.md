@@ -4,13 +4,13 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarPopover(options)` _Experimental_
+### `bagong TouchBarPopover(pagpipilian)` _Pangeksperimento_
 
 * `options` Object
   * `label` Pisi (opsyonal) - Popover na pindutan ng teksto.
   * `icon` [NativeImage](native-image.md) (opsyonal) - Popover button icon.
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
-  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Ng default ay `tama`.
+  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Ang Default ay `true`.
 
 ### Katangian ng pagkakataon
 
