@@ -1,6 +1,6 @@
 # `sandbox` Ang opsyon
 
-> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
+> Create a browser window with a sandboxed renderer. Kasama ang pinaganang opsyon, ang tagabigay ay dapat makipag-ugnayan sa pamamagitan ng IPC sa mga pangunahing proseso nang sa gayon ay ma-access ang mga node ng API.
 
 Isa sa mga katangian ng susing pangseguridad ng Chromium ay ang lahat ng kodigo ng blink rendering/JavaScript ay isinagawa sa loob ng isang sandbox. Ang sandbox na ito ay gumagamit ng partikular na mga katangian ng OS para matiyak na ang pagsasamantala sa mga prosesong tagasalin ay hindi makakasira sa sistema.
 
@@ -14,7 +14,7 @@ A sandboxed renderer doesn't have a Node.js environment running and doesn't expo
 
 Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang alinman sa mga default ng mga API ng JavaScript. Consequently, some APIs such as `window.open` will work as they do in Chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
-## Mga halimbawa
+## Halimbawa
 
 To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
 
@@ -105,7 +105,7 @@ Ang `-x` na watawat ay dapat gamitin sa anumang modyul na kasalukuyang nka-ekspo
 Kasalukuyan ang `require` ng function na nakapagbibigay ng preload na saklaw na inilalantad sa mga sumusunod na mga modyul:
 
 - `electron`
-  - `crashReporter`
+  - `kalabog ng tagapagbalita`
   - `pagkakahuli sa tuktok ng desk`
   - `ipcrenderer`
   - `gupitin ng maikli ang mga litrato`
