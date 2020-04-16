@@ -9,38 +9,38 @@ const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Pangyayari
+## Mga event
 
 Ang `systemPreferences` na object ay naglalabas ng sumusunod na mga pangyayari:
 
-### Event: 'accent-color-changed' _Windows_
+### Pangyayari: 'accent-color-changed' _Windows_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `newColor` na String - Ang bagong kulay ng RGBA na itinatakda ng tagagamit bilang kanilang pansistemang accent na kulay.
 
-### Event: 'color-changed' _Windows_
+### Pangyayari: 'color-changed' _Windows_
 
-Pagbabalik:
-
-* `event` na Kaganapan
-
-### Event: 'inverted-color-scheme-changed' _Windows_
-
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` na Kaganapan
+
+### Pangyayari: 'inverted-color-scheme-changed' _Windows_
+
+Ibinabalik ang:
+
+* `event` na Pangyayari
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
 
 ### Event: 'high-contrast-color-scheme-changed' _Windows_
 
 Pagbabalik:
 
-* `event` na Kaganapan
+* `kaganapan` kaganapan
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
-## Mga Paraan
+## Mga Pamamaraan
 
 ### `systemPreferences.isDarkMode()` _macOS_
 
@@ -53,7 +53,7 @@ Ibinabalik ang `Boolean` - Kung ang Swipe sa pagitan ng settiing ng mga pahina a
 ### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` _macOS_
 
 * `event` na String
-* `userInfo` Object
+* `userInfo` na Object
 * `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
@@ -61,14 +61,14 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `event` na String
-* `userInfo` Object
+* `userInfo` na Object
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `event` na String
-* `userInfo` Object
+* `userInfo` na Object
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
@@ -77,7 +77,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 * `event` na String
 * `callback` na Function
   * `event` na String
-  * `userInfo` Object
+  * `userInfo` na Object
 
 Returns `Number` - The ID of this subscription
 
@@ -97,7 +97,7 @@ Sa ilalim ng hood, ang API na ito ay nagsa-subscribe sa `NSDistributedNotificati
 * `event` na String
 * `callback` na Function
   * `event` na String
-  * `userInfo` Object
+  * `userInfo` na Object
 
 Returns `Number` - The ID of this subscription
 
@@ -108,7 +108,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 * `event` na String
 * `callback` na Function
   * `event` na String
-  * `userInfo` Object
+  * `userInfo` na Object
 
 Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
 
@@ -381,7 +381,7 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 
 ### `systemPreferences.getAnimationSettings()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
 * `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
