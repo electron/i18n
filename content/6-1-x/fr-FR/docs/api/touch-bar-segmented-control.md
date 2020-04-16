@@ -9,19 +9,19 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
 * `options` Object
   * `segmentStyle` String (optional) - Style of the segments:
     * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
-    * `rounded` - The control is displayed using the rounded style.
-    * `textured-rounded` - The control is displayed using the textured rounded style.
-    * `round-rect` - The control is displayed using the round rect style.
-    * `textured-square` - The control is displayed using the textured square style.
-    * `capsule` - The control is displayed using the capsule style.
-    * `small-square` - The control is displayed using the small square style.
-    * `separated` - The segments in the control are displayed very close to each other but not touching.
+    * `rounded` - Le contrôle est affiché en utilisant le style arrondi.
+    * `textured-rounded` - Le contrôle est affiché en utilisant le style arrondi texturé.
+    * `round-rect` - Le contrôle est affiché en utilisant le style arrondi rect.
+    * `textured-square` - Le contrôle est affiché en utilisant le style carré texturé.
+    * `capsule` - Le contrôle s’affiche selon le style capsule.
+    * `small-square` - Le contrôle est affiché en utilisant le style petit carré.
+    * `separated` - Les segments du contrôle sont affichés très proches entre eux, mais ne se touche pas.
   * `mode` String (optional) - The selection mode of the control:
     * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
-    * `multiple` - Multiple items can be selected at a time.
-    * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
+    * `multiple` - Plusieurs éléments peuvent être sélectionnés simultanément.
+    * `buttons` - Transforme les segments en boutons, chaque segment peut être pressé et relâché, mais jamais être marqué comme actif.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Un tableau de segments à placer dans ce contrôle.
-  * `selectedIndex` Integer (facultatif) - L'index du segment actuellement sélectionné, mis automatiquement à jour avec une interaction utilisateur. When the mode is multiple it will be the last selected item.
+  * `selectedIndex` Integer (facultatif) - L'index du segment actuellement sélectionné, mis automatiquement à jour avec une interaction utilisateur. Lorsque le mode est multiple, cela sera le dernier élément sélectionné.
   * `change` Function - Called when the user selects a new segment.
     * `selectedIndex` Integer - L'index du segment que l'utilisateur a sélectionné.
     * `isSelected` Boolean - Si après la selection de l'utilisateur, le segment est selectionné ou non.
@@ -36,7 +36,7 @@ A `String` representing the controls current segment style. Updating this value 
 
 #### `touchBarSegmentedControl.segments`
 
-Un tableau de `SegmentedControlSegment[]`, qui représente les segments dans ce contrôle. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Un tableau de `SegmentedControlSegment[]`, qui représente les segments dans ce contrôle. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Changer une propriété dans le tableau **ne met pas à jour la touch bar**.
 
 #### `touchBarSegmentedControl.selectedIndex`
 
