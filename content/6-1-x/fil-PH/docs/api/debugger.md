@@ -50,10 +50,10 @@ Pagtanggal ng "debugger" galing sa `webContents`.
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
 * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-* `commandParams` Object (optional) - JSON object with request parameters.
+* `commandParams` Object (opsyunal) - "JSON object" na may hiling na parameters.
 * `callback` Function (optional) - Response
-  * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+  * `error` Object - Ang maling mensahe ay nagpapahiwatig ng pagkabigo ng "command".
+  * `result` Kahit ano - Ang pagtugon ay tinutukoy gamit ang 'returns' na may katangian na paglalarawan ng "command" sa "remote" ng sistematikong panuntunan ng "debugging".
 
 Ipadala ang binigay na "command" sa "debugging target".
 
@@ -62,7 +62,7 @@ Ipadala ang binigay na "command" sa "debugging target".
 #### `debugger.sendCommand(method[, commandParams])`
 
 * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-* `commandParams` Object (optional) - JSON object with request parameters.
+* `commandParams` Object (opsyunal) - "JSON object" na may hiling na parameters.
 
 Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
@@ -72,15 +72,15 @@ Ipadala ang binigay na "command" sa "debugging target".
 
 #### Pangyayari: 'pagtanggal'
 
-* `event` na Kaganapan
+* `kaganapan` kaganapan
 * `reason` String - Dahilan para sa pagtanggal ng "debugger".
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Pangyayari: 'mensahe'
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `method` String - Pangalan ng sistematikong paraan.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `params` Object - Ang "Event parameters" ay tinutukoy gamit ang katangian ng 'parameters' sa "remote" ng sistematikong panuntunan ng "debugging".
 
-Emitted whenever debugging target issues instrumentation event.
+Lumalabas sa tuwing ang mga isyu na pinupuntirya ng "debugging" ay ginagamit sa pangyayari.
