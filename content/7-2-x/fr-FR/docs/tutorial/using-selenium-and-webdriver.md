@@ -129,7 +129,7 @@ const options = {
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
+      binary: '/Path-to-Your-App/electron', // Chemin vers votre binaire Electron.
       args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
