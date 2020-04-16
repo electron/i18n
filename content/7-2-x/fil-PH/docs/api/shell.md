@@ -1,4 +1,4 @@
-# kabibi
+# "Shell"
 
 > Ayusin ang mga payl at "URLs" gamit ang kanilang "default" o ang pagpapanatili nito sa dating "applications".
 
@@ -47,7 +47,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+Pagbabalik sa `Boolean` - Kung ang aytem matagumpay na nabura.
 
 Burahin ang binigay na payl at bumalik sa posisyon nito bilang "boolean" para sa pagpapagana.
 
