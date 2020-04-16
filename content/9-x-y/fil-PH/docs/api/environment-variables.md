@@ -1,4 +1,4 @@
-# Nagbabago sa kapaligiran
+# Environment Variables
 
 > Kontrolin ang pagsasaayos ng application at pag-uugali nang walang pagbabago ng code.
 
@@ -113,7 +113,7 @@ Ini-print ang stack trace sa console kapag nag-crash ang Electron.
 
 Ang variable ng kapaligiran na ito ay hindi gagana kung ang ` crashReporter </ 0> ay nagsimula.</p>
 
-<h3 spaces-before="0"><code>ELECTRON_DEFAULT_ERROR_MODE` _Windows_</h3>
+<h3 spaces-before="0"><code>ELECTRON_DEFAULT_ERROR_MODE` _Windows_ </h3>
 
 Ipinapakita ang dialog ng pag-crash ng Windows kapag nag-crash ang Electron.
 
