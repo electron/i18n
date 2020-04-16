@@ -8,7 +8,7 @@ The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#ev
 
 ## Ipinadalang mga mensahe
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#contentssendchannel-args) for more information.
+Ito rin ay posibleng maipada ang mga mensaheng mula sa pangunahing proseso papunta sa proseso ng renderer, tingnan [webContents.send](web-contents.md#contentssendchannel-args) para sa karagdagang impormasyon.
 
 * Kapag nagpadala ng mensahe, ang event name ay ang `channel`.
 * Upang tumugon sa mensahe ng synchronous, maaari mong i-set ang `event.returnValue`.
@@ -41,23 +41,23 @@ ipcRenderer.on('asynchronous-reply', (event, arg) => {
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
 
-## Mga Paraan
+## Mga Pamamaraan
 
 Ang modyul ng `ipcRenderer` ay mayroong mga sumusunod na pamamaraan sa pakikinig sa mga event:
 
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
   * `event` IpcMainEvent
   * `...args` anuman[]
 
-Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay tatawagin pati ang `listener(event, args....)`.
+Makinig sa `channel`, kapag ang bagong mensaheng dumating sa `listener` ay tinawag pati ang `listener(event, args...)`.
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
   * `event` IpcMainEvent
   * `...args` anuman[]
 
@@ -66,10 +66,10 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
   * `...args` anuman[]
 
-Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
+Tatanggalin ang mga tinukoy na `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
 
 ### `ipcMain.removeAllListeners([channel])`
 
