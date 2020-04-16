@@ -11,9 +11,9 @@ Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (opsyonal) - Ang kulay ng background ng pipindutin ay naka hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
+  * `iconPosition` String (opsyonal) - Pwedeng `kaliwa`, `kanan` o `naka-overlay`. Defaults to `overlay`.
   * `click` Function (opsyonal) - Ang function na tatawagin kung ang napindot ang pipindutin.
-  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Ng default ay `tama`.
+  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Ang Default ay `true`.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
