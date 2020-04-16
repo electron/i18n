@@ -1,15 +1,15 @@
-# systemPreferences
+# systemEinstellungen
 
 > Systemeinstellungen anschauen.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Ereignisse
+## Events
 
 The `systemPreferences` object emits the following events:
 
@@ -17,21 +17,23 @@ The `systemPreferences` object emits the following events:
 
 Rückgabewert:
 
-* `event` Event
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' _Windows_
 
 Rückgabewert:
 
-* `event` Event
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
+<h3 spaces-before="0">Event: 'inverted-color-scheme-changed' <em x-id="4">Windows</em> <em x-id="4">Deprecated</em></h3>
 
-Rückgabewert:
+<p spaces-before="0">Rückgabewert:</p>
 
-* `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
+<ul>
+<li><code> Ereignis </ 0>  Ereignis</li>
+<li><code>invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
