@@ -56,13 +56,13 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Halimbawa ng mga Event
+### Mga Instance na Kaganapan
 
 Ang sumusunod na mga kaganapan ay magagamit para sa mga instance ng `Sesyon`:
 
 #### Kaganapan: 'will-download'
 
-Pagbabalik:
+Magbabalik ng:
 
 * `event` na Kaganapan
 * `item` na [DownloadItem](download-item.md)
@@ -84,15 +84,15 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### Event: 'preconnect' _Experimental_
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` na Pangyayari
 * `preconnectUrl` String - The URL being requested for preconnection by the renderer.
 * `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
 
 Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga pamamaraan ng pagkakataon
 
 Ang sumusunod na pamamaraan ay magagamit para sa mga instance ng `session`:
 
@@ -122,9 +122,9 @@ Nagsusulat ng anumang di-nakusulat na DOMStorage na datos sa disk.
 #### `ses.setProxy(config)`
 
 * `config` Object
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+  * `pacScript` na String - Ang URL na may kaugnayan sa PAC na file.
+  * `proxyRules` na String - Mga panuntunan na nagsasad kung aling mga proxy ang gagamitin.
+  * `proxyBypassRules` na String - Mga panuntunan na nagpapahiwatig kung aling mga URL ay dapat mag-bypass ang mga setting ng proxy.
 
 Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
@@ -158,7 +158,7 @@ Ang `proxyBypassRules` ay isang listahan ng panuntunan na pinaghihiwalay ng kuwi
 
    Itugma ang lahat ng mga hostname na tumugma sa pattern ng HOSTNAME_PATTERN.
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Mga halimbawa: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -197,7 +197,7 @@ Sets download saving directory. By default, the download directory will be the `
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Ang mga default para sa false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
@@ -233,7 +233,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 * `proc` Function
   * `request` Object
     * `hostname` na String
-    * `certificate` [Certificate](structures/certificate.md)
+    * `certificate` na [Sertipiko](structures/certificate.md)
     * `verificationResult` na String - Resulta ng pagpapatunay mula sa chromium.
     * `errorCode` na Integer - code ng kamalian.
   * `callback` na Function
@@ -362,8 +362,8 @@ Returns `Promise<Buffer>` - resolves with blob data.
   * `mimeType` na String (opsyonal)
   * `offset` na Integer - Pagsimulang saklaw para sa download.
   * `length` na Integer - Kabuuang haba ng download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
+  * `lastModified` na String - Last-Modified na halaga ng header.
+  * `eTag` na String - ETag na halaga ng header.
   * `startTime` na Doble (opsyonal) - Ang oras kung kailan sinimulan ang download sa segundong bilang simula sa UNIX epoch.
 
 Nagpapahintulot ng pagpapatuloy sa `nakansela` o `napahintong` mga download galing sa nakaraang `Sesyon`. Ang API ay maglilikha ng isang [DownloadItem](download-item.md) na maaring ma-access gamit ang [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` nauugnay rito at ang paunang estado ay `maaantala`. Ang download ay magsisimula kung ang `resume` na API ay tinawag sa [DownloadItem](download-item.md).
@@ -384,7 +384,7 @@ Adds scripts that will be executed on ALL web contents that are associated with 
 
 Returns `String[]` an array of paths to preload scripts that have been registered.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instance
 
 Ang mga sumusunod na katangian ay magagamit sa mga instance ng `session`:
 
