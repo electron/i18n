@@ -1,8 +1,8 @@
-# Instructions de Build (macOS)
+# Instructions de compilation (macOS)
 
 Suivez les indications ci-dessous pour compiler Electron sur macOS.
 
-## Prérequis
+## Prerequisites
 
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
