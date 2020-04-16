@@ -1,4 +1,4 @@
-# Ekstensyon ng DevTools
+# DevTools Ekstensiyon
 
 Sumusuporta ang Elektron [DevTools Ekstensiyon ng Chrome](https://developer.chrome.com/extensions/devtools), na kung saan ay maaaring gamitin upang palawakin ang mga kakayahan ng devtools sa pagdedebug ng kilalang balangkas sa web.
 
@@ -32,7 +32,7 @@ Gamit ang [React Developer Tools](https://chrome.google.com/webstore/detail/reac
 
 **Paunawa:** Ang `BrowserWindow.addDevToolsExtension` API huwag tawagan bago mahanda ang pangyayari sa app ng modyul sa paglabas.
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+Ang mga pangalan ng ekstensiyon ay ibinalik ng `BrowserWindow.addDevToolsExtension`, at ikaw ang magpapasa ng pangalan ng ekstensiyon sa `BrowserWindow.removeDevToolsExtension` API ialis ito.
 
 ## Suportado ng DevTools Ekstensiyon
 
