@@ -180,7 +180,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. La valeur par défaut est `true`.
     * `session` [Session](session.md#class-session) (facultatif) - Définit la session utilisée par la page . Au lieu de passer l'objet Session directement, vous pouvez également choisir d'utiliser l'option `partition` à la place, qui accepte une chaîne de partition. Lorsque `session` et `partition` sont fournies, `session` sera préférée. La session par défaut est celle par défaut.
     * `partition` String (facultatif) - Définit la session utilisée par la page en fonction de la chaîne de partition de la session . Si `partition` commence par `persist:`, la page utilisera une session persistante disponible pour toutes les pages de l'application avec le même `partition`. S'il n'y a pas de préfixe `persistant:`, la page utilisera une session en mémoire . En assignant la même `partition`, plusieurs pages peuvent partager la même session. La session par défaut est celle par défaut.
-    * `affinity` String (facultatif) - Lorsque spécifié, les pages web avec le même `affinity` s'exécuteront dans le même processus de rendu . Notez que en raison de la réutilisation du processus du moteur de rendu certaines options `webPreferences` seront également partagées entre les pages web, même lorsque vous avez spécifié des valeurs différentes pour elles, incluant mais non limité à `preload`, `sandbox` et `nodeIntegration`. Il est donc suggéré d'utiliser exactement la même `webPreferences` pour les pages web avec la même `affinité`. _This property is experimental_
+    * `affinity` String (facultatif) - Lorsque spécifié, les pages web avec le même `affinity` s'exécuteront dans le même processus de rendu . Notez que en raison de la réutilisation du processus du moteur de rendu certaines options `webPreferences` seront également partagées entre les pages web, même lorsque vous avez spécifié des valeurs différentes pour elles, incluant mais non limité à `preload`, `sandbox` et `nodeIntegration`. Il est donc suggéré d'utiliser exactement la même `webPreferences` pour les pages web avec la même `affinité`. _Cette propriété est expérimentale_
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. La valeur par défaut est `true`.
     * `webSecurity` Boolean (facultatif) - Lorsque `false`, il désactivera la politique de même origine (généralement en utilisant des sites de test par des personnes), et définissez `allowRunningInsecureContent` à `true` si cette option n'a pas été définie par l'utilisateur. La valeur par défaut est `true`.
@@ -626,7 +626,7 @@ A `String` property that defines an alternative title provided only to accessibi
 
 Les objets créés avec `nouveau BrowserWindow` ont les méthodes d'instance suivantes :
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Remarque :** Certaines méthodes sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
 #### `win.destroy()`
 
@@ -755,7 +755,7 @@ Ferme le panneau [Aperçu rapide](https://en.wikipedia.org/wiki/Quick_Look) actu
 * `limites` Partiel<unk> Rectangle</a>>
 * `animate` Boolean (facultatif) _macOS_
 
-Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+Redimensionne et déplace la fenêtre vers les limites fournies. Any properties that are not supplied will default to their current values.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -790,7 +790,7 @@ Retourne [`Rectangle`](structures/rectangle.md) - Les `limites` de la zone clien
 
 Retourne [`Rectangle`](structures/rectangle.md) - Contient les limites de la fenêtre de l'état normal
 
-**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. En état normal, getBounds et getNormalBounds renvoient le même [`Rectangle`](structures/rectangle.md).
+**Remarque :** quel que soit l'état actuel de la fenêtre : maximisé, minimisé ou en plein écran, retourne toujours la position et la taille de la fenêtre en état normal. En état normal, getBounds et getNormalBounds renvoient le même [`Rectangle`](structures/rectangle.md).
 
 #### `win.setEnabled(enable)`
 
@@ -988,7 +988,7 @@ Remplace le titre de la fenêtre native par `title`.
 
 Retourne `String` - le titre de la fenêtre native.
 
-**Note:** The title of the web page can be different from the title of the native window.
+**Remarque :** Le titre de la page web peut être différent du titre de la fenêtre native .
 
 #### `win.setSheetOffset(offsetY[, offsetX])` _macOS_
 
@@ -1310,13 +1310,13 @@ Retourne `Boolean` - Si la barre de menu est visible.
 
 Définit si la fenêtre doit être visible sur tous les espaces de travail.
 
-**Note:** This API does nothing on Windows.
+**Remarque :** Cette API ne fonctionne pas sous Windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
 Retourne `Boolean` - Si la fenêtre est visible sur tous les espaces de travail.
 
-**Note:** This API always returns false on Windows.
+**Remarque **: Cette API retourne toujours false sur Windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
@@ -1414,13 +1414,13 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Définit la disposition de la barre tactile pour la fenêtre actuelle. La spécification `null` ou `undefined` efface la barre de contact. Cette méthode n'a d'effet que si la machine a une barre tactile et est en cours d'exécution sur macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Remarque :** L’API TouchBar est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 
 * `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
-#### `win.getBrowserView()` _Experimental_
+#### `win.getBrowserView()` _Expérimental_
 
 Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
@@ -1434,8 +1434,8 @@ Remplacement de l'API pour setBrowserView prenant en charge le travail avec des 
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` _Experimental_
+#### `win.getBrowserViews()` _Expérimental_
 
 Retourne `BrowserView[]` - un tableau de toutes les BrowserViews qui ont été attachées avec `addBrowserView` ou `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Remarque :** L’API BrowserView est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
