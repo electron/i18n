@@ -1,4 +1,4 @@
-# putulin ng maikli ang global
+# globalShortcut
 
 > Tinutuklas ang mga pangyayari sa keyboard kung ang aplikasyon ay walang tumutuon na keyboard.
 
@@ -6,7 +6,7 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang `globalShortcut` modyul ay pwedeng irehistro/hindi-irehistro ang global keyboard shortcut na may operating system para maka customize ang operasyon sa iba-ibang shortcut.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. Hindi mo dapat gamitin ang modyul na ito hanggang ang `handa` pangyayari sa app modyul ay napalabas.
+**Tandaan:** Ang shortcut ay global: magagamit ito kahit na ang apps ay walang pagtuon ng keyboard. Hindi mo dapat gamitin ang modyul na ito hanggang ang `handa` pangyayari sa app modyul ay napalabas.
 
 ```javascript
 const { app, globalShortcut } = require('electron')
@@ -44,7 +44,7 @@ Ang `globalShortcut` na modyul ay may mga sumusunod na paraan:
 ### `globalShortcut.rehistro(aselerador, baliktawag)`
 
 * `aselerador` [Aselerador](accelerator.md)
-* `callback` na Function
+* `baliktawag` ginagawa
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
