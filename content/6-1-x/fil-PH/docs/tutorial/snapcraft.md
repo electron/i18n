@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### Unang hakbang: Package ng Iyong Application sa Electron
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+I-package ang application gamit ang [ electron-packager ](https://github.com/electron-userland/electron-packager) (o isang katulad na kasangkapan). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 Ang output ay dapat magmukhang halos katulad nito:
 
