@@ -4,7 +4,7 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)` _Experimental_
+### `bagong TouchBarLabel(options)`_Pangeksperimento _
 
 * `options` Object
   * `label` Pisi (opsyonal) - Salitang ipapakita.
