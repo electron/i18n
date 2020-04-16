@@ -87,10 +87,10 @@ Les méthodes suivantes sont disponibles pour les instances de `Session` :
 #### `ses.getCacheSize(callback)`
 
 * `callback` Function
-  * `size` Integer - Cache size used in bytes.
+  * `taille` Integer - Taille du cache utilisé en octets.
   * `error` Integer - The error code corresponding to the failure.
 
-Callback is invoked with the session's current cache size.
+Le callback est appelé avec la taille de cache actuelle de la session.
 
 **[Deprecated Soon](modernization/promisification.md)**
 
@@ -100,7 +100,7 @@ Retourne `Promise<Integer>` - la taille actuelle du cache de la session, en octe
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done.
+* `callback` Function - Appelée lorsque l’opération est effectuée.
   * `error` Integer - The error code corresponding to the failure.
 
 Efface le cache HTTP de la session.
@@ -119,7 +119,7 @@ Efface le cache HTTP de la session.
   * `origin` String (facultatif) - Doit suivre la représentation de `window.location.origin` `scheme://host:port`.
   * `storages` String[] (facultatif) - Les types de stockage à effacer, peuvent contenir : `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - Called when operation is done.
+* `callback` Function (optionnel) - Appelée quand l'opération est terminée.
 
 Clears the storage data for the current session.
 
@@ -144,7 +144,7 @@ Writes any unwritten DOMStorage data to disk.
   * `pacScript` String - The URL associated with the PAC file.
   * `proxyRules` String - Rules indicating which proxies to use.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Called when operation is done.
+* `callback` Function - Appelée lorsque l’opération est effectuée.
 
 Indique les paramètres de proxy.
 
@@ -176,7 +176,7 @@ Le `proxyBypassRules` est une liste de règles séparées par des virgules, comm
 
    Correspond à tous les noms d'hôte qui correspondent au pattern HOSTNAME_PATTERN.
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Exemples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -241,7 +241,7 @@ Le `proxyBypassRules` est une liste de règles séparées par des virgules, comm
 
    Correspond à tous les noms d'hôte qui correspondent au pattern HOSTNAME_PATTERN.
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Exemples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -290,7 +290,7 @@ Sets download saving directory. By default, the download directory will be the `
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Par défaut, est faux.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
@@ -398,7 +398,7 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 #### `ses.clearHostResolverCache(callback)`
 
-* `callback` Function (optional) - Called when operation is done.
+* `callback` Function (optionnel) - Appelée quand l'opération est terminée.
 
 Vide le cache de résolution de l'hôte.
 
@@ -445,7 +445,7 @@ Renvoie `String` - L'utilisateur de cette session.
 
 * `identifier` String - UUID valide.
 * `callback` Function
-  * `result` Buffer - Blob data.
+  * `result` Buffer - données Blob.
 
 **[Deprecated Soon](modernization/promisification.md)**
 
@@ -463,8 +463,8 @@ Retourne `Promise<Buffer>` - résout avec des données Blob.
   * `type` String (facultatif)
   * `offset` Integer - Portée de départ pour le téléchargement.
   * `length` Integer - Longueur totale du le téléchargement.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
+  * `lastModified` String - Valeur Last-Modified du header.
+  * `eTag` String - Valeur du ETag dans le header.
   * `startTime` Double (facultatif) - Heure du début de téléchargement, en nombre de secondes depuis la date initiale UNIX (1er janvier 1970 à 0 heure (UTC)).
 
 Autorise la reprise des téléchargements `annulés` ou `interrompus` depuis la `Session`précédente. L'API va générer un [DownloadItem](download-item.md) accessible avec l'événement [will-download](#event-will-download) . Le [DownloadItem](download-item.md) n'aura aucun `WebContents` associé et l'état initial sera `interrompu`. Le téléchargement ne démarre que lorsque l'API `resume` est appelée sur [DownloadItem](download-item.md).
@@ -472,9 +472,9 @@ Autorise la reprise des téléchargements `annulés` ou `interrompus` depuis la 
 #### `ses.clearAuthCache(options, callback)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function - Called when operation is done.
+* `callback` Function - Appelée lorsque l’opération est effectuée.
 
-Clears the session’s HTTP authentication cache.
+Vide le cache d'authentification HTTP de la session.
 
 **[Deprecated Soon](modernization/promisification.md)**
 
@@ -504,15 +504,15 @@ Les propriétés suivantes sont disponibles pour les instances de `Session` :
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Un objet [Cookies](cookies.md) pour cette session.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Un objet [WebRequest](web-request.md) pour cette session.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Un objet [Protocol](protocol.md) pour cette session.
 
 ```javascript
 const { app, session } = require('electron')
