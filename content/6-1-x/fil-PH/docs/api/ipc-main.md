@@ -4,7 +4,7 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. Kapag ginamit sa pangunahing proseso, pinangangasiwaan nito ang asynchronous at synchronous mga mensahe na naipadala mula sa renderer process (web page). Ipinadalang mensahe galing sa renderer ay magiging emetted sa modyul na ito.
+Ang `ipcMain` modyul ay isang halimbawa ng [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) klase. Kapag ginamit sa pangunahing proseso, pinangangasiwaan nito ang asynchronous at synchronous mga mensahe na naipadala mula sa renderer process (web page). Ipinadalang mensahe galing sa renderer ay magiging emetted sa modyul na ito.
 
 ## Ipinadalang mga mensahe
 
@@ -41,23 +41,23 @@ ipcRenderer.on('asynchronous-reply', (event, arg) => {
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
 
-## Mga Paraan
+## Mga Pamamaraan
 
 Ang modyul ng `ipcRenderer` ay mayroong mga sumusunod na pamamaraan sa pakikinig sa mga event:
 
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
   * `event` IpcMainEvent
   * `...args` anuman[]
 
-Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay tatawagin pati ang `listener(event, args....)`.
+Makinig sa `channel`, kapag ang bagong mensaheng dumating sa `listener` ay tinawag pati ang `listener(event, args...)`.
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
   * `event` IpcMainEvent
   * `...args` anuman[]
 
@@ -66,9 +66,9 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
 
-Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
+Tatanggalin ang mga tinukoy na `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
 
 ### `ipcMain.removeAllListeners([channel])`
 
