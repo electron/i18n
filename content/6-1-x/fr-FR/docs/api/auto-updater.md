@@ -8,7 +8,7 @@ Processus : [Main](../glossary.md#main-process)
 
 ## Avertissement sur les plateformes
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Pour le moment, seuls macOS et Windows sont supportés. Il n'y a aucune prise en charge de l'auto-update sur Linux, il est donc recommandé d'utiliser le gestionnaire de paquets de votre distribution afin de mettre à jour votre application.
 
 En outre, il y a quelques différences subtiles sur chaque plateforme :
 
@@ -16,7 +16,7 @@ En outre, il y a quelques différences subtiles sur chaque plateforme :
 
 Sur macOS, le module `autoUpdater` repose sur [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), ce qui signifie que vous n'avez pas besoin d'une installation spécifique pour le faire fonctionner. Pour les besoins du côté serveur, vous pouvez lire [Le support du serveur](https://github.com/Squirrel/Squirrel.Mac#server-support). Notez que l'[App Transport Securité](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) s'applique à toutes les demandes formulées dans le cadre du processus de mise à jour. Les applications qui ont besoin de désactiver l'ATS peut ajouter la clé `NSAllowsArbitraryLoads` à leur fichier plist.
 
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
+**Note:** Votre application doit-être signée pour les mises à jour automatiques sur macOS. C'est un pré-requis de `Squirrel.Mac`.
 
 ### Windows
 
@@ -46,7 +46,7 @@ Retourne :
 
 ### Événement : 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Émis lorsqu'une mise à jour est disponible. La mise à jour est téléchargée automatiquement.
 
 ### Événement : 'update-not-available'
 
@@ -82,7 +82,7 @@ L'objet `autoUpdater` dispose des méthodes suivantes :
 
 * `options` Object
   * `url` String
-  * `headers` Object (optional) _macOS_ - HTTP request headers.
+  * `headers` Objet (facultatif) _macOS_ - en-têtes de requête HTTP.
   * `serverType` String (facultatif) _macOS_ - Soit `json` ou `default`, voir le README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) pour plus d’informations.
 
 Définit l'`url` et initialise l'auto updater.
