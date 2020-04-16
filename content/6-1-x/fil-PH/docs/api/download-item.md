@@ -4,10 +4,10 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. Ito ay ginagamit sa `will-download` na nangyayari sa klase ng `Session`, at hinahayaan ang mga gumagamit na kontrolin ang "download item".
+`DownloadItem` ay isang `EventEmitter` na kumakatawan sa "download item" sa Elektron. Ito ay ginagamit sa `will-download` na nangyayari sa klase ng `Session`, at hinahayaan ang mga gumagamit na kontrolin ang "download item".
 
 ```javascript
-// Ang pangunahing pag-proseso.
+// Sa mga pangunahing proseso.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
@@ -35,13 +35,13 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Halimbawa ng mga Event
+### Mga Halimbawa ng "Events"
 
 #### Event: 'updated'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `state` String - Can be `progressing` or `interrupted`.
 
 Ito ay lumalabas kapag ang "download" ay kinakailangan baguhin at itatakda ang mga bagong impormasyon na nakapaloob dito, at kung ito ay hindi tapos.
@@ -55,7 +55,7 @@ Ang `state` ay maaaring isa sa mga sumusunod:
 
 Pagbabalik:
 
-* `event` na Kaganapan
+* `event` na Pangyayari
 * `state` String - Can be `completed`, `cancelled` or `interrupted`.
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
@@ -66,7 +66,7 @@ Ang `state` ay maaaring isa sa mga sumusunod:
 * `cancelled` - Kapag ang "download" ay inihinto.
 * `interrupted` - Kapag ang "download" ay itinigil at hindi na maaari pang ipagpatuloy.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga Pamamaraan ng Instance
 
 Ang `downloadItem` ay may mga sumusunod na paraan:
 
@@ -74,7 +74,7 @@ Ang `downloadItem` ay may mga sumusunod na paraan:
 
 * `path` String - Itakda ang lokasyon o direktoryo o tinatawag ding "path", ng pinanatiling payl ng "download item".
 
-Ang API ay ang natatanging posibleng gamitin sa sesyon ng `will-download` na maaaring muling gamitin. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+Ang API ay ang natatanging posibleng gamitin sa sesyon ng `will-download` na maaaring muling gamitin. Kung ang gumagamit ay hindi nagtakda ng "save path" sa pamamagitan ng API, ang Elektron ay gagamit ng karaniwang gawain nito upang matukoy ang "save path" (Kadalasang ginagawa sa "save dialog").
 
 #### `downloadItem.getSavePath()`
 
@@ -114,7 +114,7 @@ Paghinto ng operasyon ng "download".
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+Pagbabalik ng `String` - Ang orihinal na "url" kung saan galing ang "downloaded item".
 
 #### `downloadItem.getMimeType()`
 
@@ -152,7 +152,7 @@ Returns `String` - The current state. Can be `progressing`, `completed`, `cancel
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+Pagbabalik ng `String[]` - Ang kumpletong "url" ng aytem kasama ang kahit anong mga muling dinirekta.
 
 #### `downloadItem.getLastModifiedTime()`
 
