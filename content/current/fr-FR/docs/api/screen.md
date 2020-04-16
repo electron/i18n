@@ -61,7 +61,7 @@ Retourne :
 
 ### Événement : 'display-removed'
 
-Retourne :
+Renvoie :
 
 * `event` Événement
 * `oldDisplay` [Display](structures/display.md)
