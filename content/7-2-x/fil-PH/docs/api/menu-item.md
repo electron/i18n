@@ -24,7 +24,7 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
   * `acceleratorWorksWhenHidden` Boolean (optional) _macOS_ - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
   * `visible` Boolean (opsyonal) - Kung hindi totoo, ang aytem ng menu ay lubusang itatago.
   * `checked` Boolean (opsyonal) - Dapat lamang na tinukoy para sa uri ng `checkbox` o `radio` ng mga aytem ng menu.
-  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Ang default sa tama.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of  the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
@@ -46,14 +46,14 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 
-* `undo`
-* `redo`
-* `cut`
+* `ang ibalik sa dating ginawa`
+* `gawin-ulit`
+* `putulin`
 * `kopyahin`
-* `paste`
+* `idikit`
 * `pasteAnd MatchStyle`
 * `selectAll`
-* `delete`
+* `idilit`
 * `minimize` - Paliitin ang kasalukuyang window.
 * `close` - Isara ang kasalukuyang window.
 * `quit` - Quit the application.
@@ -95,7 +95,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 **Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instansya
 
 Ang mga sumusunod na mga katangian ay makukuha sa mga instansya ng `MenuItem`:
 
@@ -109,7 +109,7 @@ A `String` indicating the item's visible label, this property can be dynamically
 
 #### `ang menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+Ang isang `Function` na ititira kapag natanggap ng MenuItem ang isang event ng klik. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
