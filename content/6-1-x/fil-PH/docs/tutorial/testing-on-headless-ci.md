@@ -6,7 +6,7 @@ Dahil nababase ito sa Chromium, ang Electron ay nangangailangan ng isang driver 
 
 Una, i-install ang [Xvfb](https://en.wikipedia.org/wiki/Xvfb). Ito ay isang virtual na framebuffer na naglulunsad ng X11 display server protocol - ginaganap nito ang lahat ng mga grapikal na operasyon sa memorya nang hindi ng kahit ano sa screen, at ito ang ating kinakailangan.
 
-Then, create a virtual xvfb screen and export an environment variable called DISPLAY that points to it. Ang Chromium sa Electron ay awtomatikong maghahanap ng `$DISPLAY`, kaya wala nang konpigurasyon sa app na kailangan. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. On Windows or macOS, it will do nothing.
+Pagkatapos, gumawa ng isang virtual na xvfb screen at i-export sa isang environment na varyabol na tinatawag na DISPLAY na nakaturo dito. Ang Chromium sa Electron ay awtomatikong maghahanap ng `$DISPLAY`, kaya wala nang konpigurasyon sa app na kailangan. Ang hakbang na ito ay mapapadali gamit ang [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe) ni Paul Betts: I-prepend ang iyong mga utos-pagsusuri gamit ang `xvfb-maybe` at ang maliit na kasangkapan ay awtomatikong i-configure ang xvfb kung kailangan ng kasalukuyang sistema. On Windows or macOS, it will do nothing.
 
 ```sh
 ## On Windows or macOS, this invokes electron-mocha
@@ -36,7 +36,7 @@ Sa Jenkins, ang isang [Xvfb plugin ay matatagpuan](https://wiki.jenkins-ci.org/d
 
 ### Circle Cl
 
-Circle CI is awesome and has xvfb and `$DISPLAY` [already setup, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+Ang Circle Cl ay kahanga-hanga at mayroong xvfb at `$DISPLAY` [na naka-setup na kaya wala nang dagdag na konpigurasyon ang kailangan](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 
