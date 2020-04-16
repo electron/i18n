@@ -41,8 +41,8 @@ The following methods are available on instances of `WebRequest`:
 * `listener` Function | null
   * `details` Object
     * `id` Integer
-    * `url` Tali
-    * `method` na String
+    * `key` String
+    * `path` na String
     * `exitCode` Integer (opsyonal)
     * `referrer` na String
     * `referer` String
@@ -84,7 +84,7 @@ Some examples of valid `urls`:
     * `url` Tali
     * `method` na String
     * `exitCode` Integer (opsyonal)
-    * `referrer` na String
+    * `resourceType` Tali
     * `referer` String
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
@@ -107,7 +107,7 @@ The `callback` has to be called with a `response` object.
     * `url` Tali
     * `method` na String
     * `exitCode` Integer (opsyonal)
-    * `referrer` na String
+    * `resourceType` Tali
     * `referer` String
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
@@ -124,7 +124,7 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `url` Tali
     * `method` na String
     * `exitCode` Integer (opsyonal)
-    * `referrer` na String
+    * `resourceType` Tali
     * `referer` String
     * `timestamp` Double
     * `statusLine` String
@@ -151,7 +151,7 @@ The `callback` has to be called with a `response` object.
     * `url` Tali
     * `method` na String
     * `exitCode` Integer (opsyonal)
-    * `referrer` na String
+    * `resourceType` Tali
     * `referer` String
     * `timestamp` Double
     * `responseHeaders` Record<string, string[]> (optional)
@@ -171,7 +171,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `url` Tali
     * `method` na String
     * `exitCode` Integer (opsyonal)
-    * `referrer` na String
+    * `resourceType` Tali
     * `referer` String
     * `timestamp` Double
     * `redirectURL` String
@@ -193,7 +193,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `url` Tali
     * `method` na String
     * `exitCode` Integer (opsyonal)
-    * `referrer` na String
+    * `resourceType` Tali
     * `referer` String
     * `timestamp` Double
     * `responseHeaders` Record<string, string[]> (optional)
@@ -214,7 +214,7 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `url` Tali
     * `method` na String
     * `exitCode` Integer (opsyonal)
-    * `referrer` na String
+    * `resourceType` Tali
     * `referer` String
     * `timestamp` Double
     * `fromCache` Boolean
