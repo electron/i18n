@@ -1,10 +1,10 @@
 # webContents
 
-> Contrôle et rendu des pages web.
+> Fait le rendu et contrôle des pages web.
 
 Processus : [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Il est responsable du rendu et du contrôle d'une page web et est une propriété de l'objet [`BrowserWindow`](browser-window.md). Un exemple d'accès à l'objet `webContents` :
+`webContents` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Il est responsable du rendu et du contrôle d'une page web et est une propriété de l'objet [`BrowserWindow`](browser-window.md). Un exemple d'accès à l'objet `webContents` :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -63,7 +63,7 @@ Retourne :
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. La liste complète des codes d'erreur et leur signification est disponible [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Cet événement est comme `did-finish-load`, mais il est émis lorsque le chargement a échoué ou a été annulé, par exemple lorsque `window.stop()` est appelé. La liste complète des codes d'erreur et leur signification est disponible [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 #### Événement : 'did-frame-finish-load'
 
@@ -88,7 +88,7 @@ Correspond au moment où le loader de l'onglet arrête de tourner.
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Émis lorsque le document dans le frame donné est chargé.
 
@@ -419,7 +419,7 @@ Retourne :
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position du résultat actif.
   * `matches` Integer - Nombre de résultats.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `selectionArea` Object - Coordonnées de la région du premier résultat.
   * `finalUpdate` Boolean
 
 Émis lorsqu'un résultat est disponible pour la requête [`webContents.findInPage`].
@@ -473,7 +473,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `params` Object
   * `x` Integer - coordonnée x.
   * `y` Integer - coordonée y.
@@ -548,7 +548,7 @@ app.on('ready', () => {
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - Les données de l'image du frame entier.
 
@@ -572,7 +572,7 @@ win.loadURL('http://github.com')
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -586,7 +586,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` WebContents - Les contenus web invités qui sont utilisés par `<webview>`.
 
 Émis quand un `<webview>` a été rattaché à ce contenu web.
@@ -595,9 +595,9 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `level` Integer
-* `message` Chaîne de caractères
+* `message` String
 * `line` Integer
 * `sourceId` String
 
@@ -607,7 +607,7 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `preloadPath` String
 * `error` Error
 
@@ -617,7 +617,7 @@ Emitted when the preload script `preloadPath` throws an unhandled exception `err
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `channel` String
 * `...args` any[]
 
@@ -627,7 +627,7 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `channel` String
 * `...args` any[]
 
@@ -637,7 +637,7 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
@@ -645,7 +645,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `module` String
 
 Emitted when `remote.require()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
@@ -654,7 +654,7 @@ Emitted when `remote.require()` is called in the renderer process. Appeler `even
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `globalName` String
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
@@ -856,7 +856,7 @@ Returns `String` - The user agent for this web page.
 
 * `css` String
 
-Injects CSS into the current web page.
+Injecte du CSS dans la page web actuelle.
 
 ```js
 contents.on('did-finish-load', function () {
@@ -1031,7 +1031,7 @@ Insère le `text` à l'élément ciblé.
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. par défaut, `faux`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -1285,7 +1285,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Les arguments seront sérialisés en JSON en interne et par conséquent aucune fonction ou chaîne de prototype ne sera inclus.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1328,7 +1328,7 @@ Send an asynchronous message to a specific frame in a renderer process via `chan
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  E.g.
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Exemple :
 
 ```js
 // In a renderer process
@@ -1376,8 +1376,8 @@ For keyboard events, the `event` object also have following properties:
 
 For mouse events, the `event` object also have following properties:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
+* `x` Integer (**requis**)
+* `y` Integer (**requis**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`.
 * `globalX` Integer
 * `globalY` Integer
