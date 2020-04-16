@@ -7,7 +7,7 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 `DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. Ito ay ginagamit sa `will-download` na nangyayari sa klase ng `Session`, at hinahayaan ang mga gumagamit na kontrolin ang "download item".
 
 ```javascript
-// Ang pangunahing pag-proseso.
+// Sa mga pangunahing proseso.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
@@ -35,13 +35,13 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Halimbawa ng mga Event
+### Mga Halimbawa ng "Events"
 
 #### Event: 'updated'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `state` String - Can be `progressing` or `interrupted`.
 
 Ito ay lumalabas kapag ang "download" ay kinakailangan baguhin at itatakda ang mga bagong impormasyon na nakapaloob dito, at kung ito ay hindi tapos.
@@ -55,7 +55,7 @@ Ang `state` ay maaaring isa sa mga sumusunod:
 
 Pagbabalik:
 
-* `event` na Kaganapan
+* `event` na Pangyayari
 * `state` String - Can be `completed`, `cancelled` or `interrupted`.
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
@@ -66,7 +66,7 @@ Ang `state` ay maaaring isa sa mga sumusunod:
 * `cancelled` - Kapag ang "download" ay inihinto.
 * `interrupted` - Kapag ang "download" ay itinigil at hindi na maaari pang ipagpatuloy.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga Pamamaraan ng Instance
 
 Ang `downloadItem` ay may mga sumusunod na paraan:
 
@@ -166,7 +166,7 @@ Pagbabalik ng `String` - Ang halaga ng "ETag header".
 
 Pagbabalik ng `Double` - Bilang ng mga segundo simula ang "UNIX epoch" kapag ang "download" ay nag-umpisa.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instansya
 
 #### `downloadItem.savePath`
 
