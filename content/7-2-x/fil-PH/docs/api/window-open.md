@@ -1,4 +1,4 @@
-# ` bintana. buksan ` Tungkulin
+# `window.Buksan` Fuction
 
 > Magbukas ng bagong window at mag-load ng isang URL.
 
@@ -30,10 +30,10 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 * Ang javaScript ay laging hindi gagana kung bubuksan sa `bintana` kung ito ay hindi gumagana sa bintana ng magulang.
 * Hindi karaniwang mga tampok (na hindi hinahawakan ng Kromo o Elektron) na ibinigay sa `mga tampok` ay ipapasa sa anumang nakarehistro sa `webContent`'s ` bagong-window ` kaganapang handler sa ` karagdagang mga tampok ` na argumento.
 
-### `window.opener.postMessage(message, targetOrigin)`
+### `window.tagabukas.postMessage (mensahe, targetOrigin)`
 
-* `message` String
-* `targetOrigin` String
+* `mensahe` Tali
+* `targetOrigin` Tali
 
 Nagpapadala ng mensahe sa window ng magulang na may tinukoy na pinanggalingan o `*` para sa hindi Pinagmulang pinanggalingan.
 
