@@ -24,7 +24,7 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarScrub
 
 #### `touchBarScrubber.items`
 
-Un tableau de `ScrubberItem[]`représentant les éléments dans ce scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Un tableau de `ScrubberItem[]`représentant les éléments dans ce scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Changer une propriété dans le tableau **ne met pas à jour la touch bar**.
 
 #### `touchBarScrubber.selectedStyle`
 
