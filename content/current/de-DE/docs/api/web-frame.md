@@ -32,7 +32,7 @@ Gibt eine `Number` zurück - Der aktuelle Zoom Faktor.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `level` Number - Zoom Level.
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
@@ -122,7 +122,7 @@ Füge `text` in das fokusierte Element ein.
 
 ### `webFrame.executeJavaScript(code[, userGesture])`
 
-* `code` String
+* `code` Zeichenkette
 * `userGesture` Boolean (optional) - Default is `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
