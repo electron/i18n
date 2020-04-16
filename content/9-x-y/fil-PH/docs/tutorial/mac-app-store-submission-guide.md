@@ -143,7 +143,7 @@ Matapos ang mga hakbang na ito, maaari mong [i-sumite ang iyong app para sa pags
 Upang matugunan ang pangangailangan ng app sandboxing, ang sumusunod na modyul ay hindi pinagana sa MAS build:
 
 * `crashReporter`
-* `autoUpdater`
+* `awtoUpdeyter`
 
 at ang mga sumusunod na mga paggalaw ay binago:
 
