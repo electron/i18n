@@ -6,7 +6,7 @@ Processus : [Main](../glossary.md#main-process)
 
 This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Remarque :** Vous ne devriez pas utiliser ce module tant que l'événement `ready` du module de l'application n'est pas émis.
 
 ```javascript
 const { app, contentTracing } = require('electron')
@@ -19,7 +19,6 @@ app.on('ready', () => {
 
   contentTracing.startRecording(options, () => {
     console.log('Tracing started')
-
     setTimeout(() => {
       contentTracing.stopRecording('', (path) => {
         console.log('Tracing data recorded to ' + path)
