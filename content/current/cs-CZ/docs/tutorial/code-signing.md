@@ -27,7 +27,7 @@ To start the process, ensure that you fulfill the requirements for signing and n
 
 Electron's ecosystem favors configuration and freedom, so there are multiple ways to get your application signed and notarized.
 
-## `electron-forge`
+## `elektronová kovárna`
 
 If you're using Electron's favorite build tool, getting your application signed and notarized requires a few additions to your configuration. [Forge](https://electronforge.io) is a collection of the official Electron tools, using [`electron-packager`], [`electron-osx-sign`], and [`electron-notarize`] under the hood.
 
