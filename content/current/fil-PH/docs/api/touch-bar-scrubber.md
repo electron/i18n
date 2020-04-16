@@ -24,11 +24,11 @@ Ang sumusunod na mga katangian ay makikita sa mga instance ng `TouchBarScrubber`
 
 #### `touchBarScrubber.items`
 
-Ang isang hanay ng `ScrubberItem[]` na kumakatawan sa mga aytem sa scrubber na ito. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Ang isang hanay ng `ScrubberItem[]` na kumakatawan sa mga aytem sa scrubber na ito. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar. Ang pag-update sa mga malalalim na katangian sa loob ng hanay na ito ay **hindi nag-a-update sa touch bar**.
 
 #### `touchBarScrubber.selectedStyle`
 
-Ang isang `String` na kumakatawan sa istilo na dapat meron ang napiling mga aytem sa scrubber. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar. Posibleng mga halaga:
+Ang isang `String` na kumakatawan sa istilo na dapat meron ang napiling mga aytem sa scrubber. Ang agad na pagaupdate ng value na ito ay nagupdate sa control na nasa touch bar. Posibleng halaga:
 
 * `background` -nagma-map sa `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Nagma-map sa `[NSScrubberSelectionStyle outlineOverlayStyle]`.
@@ -48,7 +48,7 @@ A `Boolean` representing whether to show the left / right selection arrows in th
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar. Posibleng mga halaga:
+A `String` representing the mode of this scrubber. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar. Posibleng halaga:
 
 * `fixed` - Nagma-map sa `NSScrubberModeFixed`.
 * `free` - Nagma-map sa `NSScrubberModeFree`.
