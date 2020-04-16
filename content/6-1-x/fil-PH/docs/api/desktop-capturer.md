@@ -1,4 +1,4 @@
-# pagkakahuli sa tuktok ng desk
+# desktopCapturer
 
 > Ang "access" ay impormasyon tungkol sa mga pinagmulan ng "media" na maaaring magamit upang makunan ng "audio" at "video" galing sa "desktop" gamit ang [`navigator.mediaDevices.getUserMedia`]API.
 
@@ -76,13 +76,13 @@ Ang modyul sa `desktopCapturer` ay mayroong mga sumusunod na paraan:
   * `types` String[] - Ang array ng "Strings" na naglilista ng iba't-ibang uri ng mga "source" ng "desktop" na kukunin, ang mga maaaring gamitin na uri ay `screen` at `window`.
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
   * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
-* `callback` na Function
+* `baliktawag` ginagawa
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
-Starts gathering information about all available desktop media sources, and calls `callback(error, sources)` when finished.
+Simulan pangalap ng impormasyon tungkol sa lahat ng magagamit na desktop media sources, at tawag `callback(error, sources)` kapag tapos na.
 
-`sources` is an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+Ang `sources` ay isang "array" ng [`DesktopCapturerSource`](structures/desktop-capturer-source.md) "object", ang bawat `DesktopCapturerSource` ay kumakatawan sa "screen" o sa indibidwal na "window" na maaaring makuha.
 
 **[Deprecated Soon](modernization/promisification.md)**
 
