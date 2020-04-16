@@ -1,4 +1,4 @@
-# Instructions de Build (Windows)
+# Instructions de compilation (Windows)
 
 Suivez les indications ci-dessous pour compiler Electron sur Windows.
 
