@@ -14,14 +14,14 @@ Context | Request Context
 * `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
+  * `session` Object (opsyonal) - Ang [`Session`](session.md) halimbawa kung saan nauugnay ang request.
   * `partition` String (opsyonal) - Ang pangalan ng [`partition`](session.md) kung saan nauunay ang request. Defaults ng mga walang laman na string. Ang `session` opsyon na mananaig sa `partition`. Kaya kung ang isang `session` ay maliwanag na tinutukoy, ang `partition` ay binabalewala.
   * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `hostname` String (opsyonal) - Ang host name ng server.
   * `port` Integer (opsyonal) - Ang listening port number ng server.
   * `path` String (opsyonal) - Ang path na parte sa request URL.
-  * `redirect` String (opsyonal) - Ang redirect mode para sa request na ito. Nararapat na isa sa `follow`, `error` o `manual`. Ang defaults sa `follow`. Kapag mode ay `error`, anumang redirection ay mauudlot. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `redirect` String (opsyonal) - Ang redirect mode para sa request na ito. Nararapat na isa sa `follow`, `error` o `manual`. Ang defaults sa `follow`. Kapag mode ay `error`, anumang redirection ay mauudlot. Kapag mode ay  `manual` ang redirection ay ipinagpaliban hanggang [`request.followRedirect`](#requestfollowredirect) ay mapakiusapan. Pakinggan ang [`redirect`](#event-redirect) na event sa mode na ito upang makakakuha ng nmga detalye tungkol sa redirect na request.
 
 `options` properties gaya ng `protocol`, `host`, `hostname`, `port` at `path` mahigpit na sundan ang Node.js na model gaya ng inilarawan sa [URL](https://nodejs.org/api/url.html) module.
 
@@ -41,7 +41,7 @@ const request = net.request({
 
 #### Event: 'response'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `response` IncomingMessage - Isang bagay na kumakatawan ng HTTP response message.
 
@@ -50,7 +50,7 @@ Pagbabalik:
 Pagbabalik:
 
 * `authInfo` Object
-  * `isProxy` Ang Boolean
+  * `isProxy` Boolean
   * `scheme` na String
   * `host` String
   * `port` Integer
@@ -95,20 +95,20 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Pangyayari: 'error'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `error` Error - isang error object na nagbibigay impormasyon tungkol sa kabiguan.
 
 Matatanggal kapag nabigo ang  `net` na module sa pag-issue ng network request. Karaniwan kapag ang  `request` object ay nagtanggal ng `error` na event, isang `close` na event na sumusubaybay at walang response na object ang ilalaan.
 
-#### Event: 'isara'
+#### Event: 'close'
 
 Tinatanggal bilang panghuling event sa HTTP request-response transaction. Ang  `close` na event ay nagsasaad na walang tatanggalin na events alinman sa `request` o `response` na mga object.
 
 
 #### Event: 'redirect'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `statusCode` Integer
 * `method` na String
@@ -117,30 +117,30 @@ Pagbabalik:
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instansya
 
 #### `request.chunkedEncoding`
 
-Ang `Boolean` ay ang pagtitiyak kung ang request ay gagamit ng HTTP chunked transfer encoding o hindi. Ang default na mali. Ang property ay nababasa at nasusulat, ngunit ito ay mai-set lamang kapag hindi pa nailagay sa wire ang first write operation bilang HTTP headers. Subukang i-set ang `chunkedEncoding` property matapos ang first write ay magiging isang error.
+Ang `Boolean` ay ang pagtitiyak kung ang request ay gagamit ng HTTP chunked transfer encoding o hindi. I-default sa false Ang property ay nababasa at nasusulat, ngunit ito ay mai-set lamang kapag hindi pa nailagay sa wire ang first write operation bilang HTTP headers. Subukang i-set ang `chunkedEncoding` property matapos ang first write ay magiging isang error.
 
 Ang paggamit ng chunked encoding ay mahalagang inirerekumenda kung kailangan mag-send ng large request body bilang data ay mai-steam sa small chunks sa halip na mag-buffer sa loob ng Electron process memory.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga pamamaraan ng pagkakataon
 
 #### `request.setHeader(name, value)`
 
 * `name` String - Isang extra na HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `value` Object - Isang extra na HTTP header value.
 
-Nagdadagdag ng extra HTTP header. The header name will issued as it is without lowercasing. Ito ay maaaring lamang tawagin bago ang first write. Ang pagtatawag ng method na ito matapos ang first write ay magiging error. KUng ang napasa na value ay hindi `String`, ang `toString()` na method ay tatawagin para kumuha ng huling value.
+Nagdadagdag ng extra HTTP header. Ang header name ay iniisyu na parang walang lowercasing. Ito ay maaaring lamang tawagin bago ang first write. Ang pagtatawag ng method na ito matapos ang first write ay magiging error. KUng ang napasa na value ay hindi `String`, ang `toString()` na method ay tatawagin para kumuha ng huling value.
 
-#### `request.getHeader(name)`
+#### `request.getHeader(pangalan)`
 
 * `name` String - Tumukoy ng dugtong na pangalan ng header.
 
-Returns `Object` - The value of a previously set extra header name.
+Returns `Object` - Ang value ng nauunang dugtong na pangalan ng header.
 
-#### `request.removeHeader(name)`
+#### `request.removeHeader(pangalan)`
 
 * `name` String - Tumukoy ng dugtong na pangalan ng header.
 
@@ -170,11 +170,11 @@ Nagkakansela ng isang patuloy na HTTP na transaksyon. Kung ang request ay nagtan
 
 #### `request.followRedirect()`
 
-Continues any deferred redirection request when the redirection mode is `manual`.
+Pinapatuloy ang alinmang pinapaliban na redirection request kung ang redirection mode ay 0>manual</code>.
 
 #### `request.getUploadProgress()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
 * `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
