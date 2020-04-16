@@ -1,4 +1,4 @@
-# crashReporter
+# bumagsakReporter
 
 > Isumite ang mga ulat ng pag bagsak sa isang remote server.
 
@@ -39,14 +39,14 @@ Ang `crashReporter`module ay merong sumusunod na paraan:
   * `companyName` String
   * `sumbitURL` String-- URL na magpapadala sa mga bagsak na ulat na naka POST.
   * `productName` String (optional) - Defaults to `app.name`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Ng default ay `tama`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Ang Default ay `true`.
   * `ignoreSystemCrashHandler`Boolean (optional) - ang default ay `false`.
   * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Ang katangian lang ng string ang maipasa ng wasto. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
   * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 Ikaw ay kailangan na tumawag sa mga pamaraan bago mag gamit ng ibang `crashReporter` APIs at bawas proseso (main/renderer) kung saan ka mangolekta ng mga bagsak na ulat. Puwede kang mag pasa ng iba't-ibang opsyon sa `crashReporter.start`kung tumawag sa iba't-ibang proseso.
 
-**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Samakatuwid, para makakolekta ng mga bagsak na ulat mula sa kanila, gamitin ang `process.crashReporter.start`sa halip. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.
+**Tala**Magkakaron ng mga proseso sa mga bata gamit ang `child_process`modyul ay hindi maka access sa elektron modyul. Samakatuwid, para makakolekta ng mga bagsak na ulat mula sa kanila, gamitin ang `process.crashReporter.start`sa halip. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.
 
 **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
