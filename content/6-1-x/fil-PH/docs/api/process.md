@@ -25,7 +25,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 - `arch`
 - `platform`
 - `sandboxed`
-- `uri`
+- `ang uri`
 - `version`
 - `versions`
 - `mas`
@@ -51,7 +51,7 @@ process.once('loaded', () => {
 
 ## Mga Katangian
 
-### `process.defaultApp`
+### `proseso.defaultApp`
 
 A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
@@ -59,7 +59,7 @@ A `Boolean`. When app is started by being passed as parameter to the default app
 
 A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas`
+### `proseso.mas`
 
 A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
@@ -75,7 +75,7 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
-### `process.resourcesPath`
+### `proseso.pinagkukunanPath`
 
 Ang `String` nag representa ng landas patungo sa pangunahing panuto.
 
@@ -94,19 +94,19 @@ Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stder
 ### `proseso.bakasProsesoBabala`
 Ang `Boolean` na nagkontrol kung o hindi na ang mga babalang proseso ay nakalimbag sa `stderr` isama sa isinalansan na bakas. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
-### `process.type`
+### `proseso.uri`
 
 A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
-### `process.versions.chrome`
+### `proseso.bersyon.chrome`
 
 Ang `String` nagrepresenta sa bersyon ng Chrome string.
 
-### `process.versions.electron`
+### `proseso.bersyon.electron`
 
 Ang `String` nag representang bersyon ng Electron string.
 
-### `process.windowsStore`
+### `proseso.windowsStore`
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
@@ -128,13 +128,13 @@ Indicates the creation time of the application. The time is represented as numbe
 
 Pagbabalik [` CPUUsage `](structures/cpu-usage.md)
 
-### `process.getIOCounters()` _Windows_ _Linux_
+### ` proseso.kuhaIOCounter()`_Windows__Linux_
 
 Pagbabalik [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `totalHeapSize` Integer
 * `totalHeapSizeExecutable` Integer
@@ -158,7 +158,7 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 ### `proseso.getSystemMemoryInfo()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `kabuuan` Integer - Ang kabuuang halaga ng pisikal na memorya sa Kilobytes na maggagamit sa sistema.
 * `libre` Integer - Ang kabuuang halaga ng memorya na hindi nagagamit sa aplikasyon o disk cache.
