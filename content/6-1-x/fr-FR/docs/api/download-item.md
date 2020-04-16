@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. Il est utilisé dans l'événement `will-download` de la classe `Session`, et permet aux utilisateurs de gérer les fichiers en cours de téléchargement.
+`DownloadItem` est un `EventEmitter` qui représente un élément en cours de téléchargement dans Electron. Il est utilisé dans l'événement `will-download` de la classe `Session`, et permet aux utilisateurs de gérer les fichiers en cours de téléchargement.
 
 ```javascript
 // Dans le processus main.
@@ -41,7 +41,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `state` Chaîne de caratères - Peut être `progressing` ou `interrupted`.
 
 Émis lorsque le téléchargement a été mis à jour et n'est pas fini.
@@ -55,7 +55,7 @@ Le `state` peut être un de ces cas :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `state` Chaîne de caratères - Peut être `completed`, `cancelled` ou `interrupted`.
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
@@ -74,7 +74,7 @@ L'objet `downloadItem` dispose des méthodes suivantes :
 
 * `path` String - Définit le chemin d'accès pour le téléchargement.
 
-Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session. Si l'utilisateur ne définit pas de chemin d'accès via l'API, Electron utilisera la routine originale pour déterminer le chemin d'accès (Affiche généralement une boîte de dialogue de sauvegarde).
 
 #### `downloadItem.getSavePath()`
 
@@ -114,7 +114,7 @@ Annule le téléchargement.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+Retourne `String` - L'url d'origine d'où le fichier téléchargé provient.
 
 #### `downloadItem.getMimeType()`
 
@@ -152,7 +152,7 @@ Returns `String` - The current state. Can be `progressing`, `completed`, `cancel
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+Retourne `String[]` - La chaîne d'url complète du téléchargement, y compris les redirections.
 
 #### `downloadItem.getLastModifiedTime()`
 
