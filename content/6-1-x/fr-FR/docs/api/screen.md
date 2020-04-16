@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Vous ne pouvez pas inclure ou utiliser ce module avant que l'événement `ready` du module `app` soit émis.
 
 `screen` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -64,7 +64,7 @@ Retourne :
 
 ### Événement : 'display-removed'
 
-Retourne :
+Renvoie :
 
 * `event` Événement
 * `oldDisplay` [Display](structures/display.md)
