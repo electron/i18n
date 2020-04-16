@@ -1,6 +1,6 @@
 # `sandbox` Ang opsyon
 
-> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
+> Create a browser window with a sandboxed renderer. Kasama ang pinaganang opsyon, ang tagabigay ay dapat makipag-ugnayan sa pamamagitan ng IPC sa mga pangunahing proseso nang sa gayon ay ma-access ang mga node ng API.
 
 Isa sa mga katangian ng susing pangseguridad ng Chromium ay ang lahat ng kodigo ng blink rendering/JavaScript ay isinagawa sa loob ng isang sandbox. Ang sandbox na ito ay gumagamit ng partikular na mga katangian ng OS para matiyak na ang pagsasamantala sa mga prosesong tagasalin ay hindi makakasira sa sistema.
 
@@ -14,7 +14,7 @@ A sandboxed renderer doesn't have a Node.js environment running and doesn't expo
 
 Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang alinman sa mga default ng mga API ng JavaScript. Consequently, some APIs such as `window.open` will work as they do in Chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
-## Mga halimbawa
+## Halimbawa
 
 To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
 
@@ -90,7 +90,7 @@ Mahahalagang bagay na mapapansin sa preload script:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
 - Ang preload script ay maaaring ma-akses na hindi direkta ang lahat na APIs na mula sa pangunahing proseso sa pamamagitan ng `remote` at `ipcRenderer` na mga modyul.
-- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like browserify, as explained below. In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
+- Ang preload script ay dapat nakapaloob sa isang iskrip, pero ito din ay posible na magkaroon ng mga kumplikado na preload na kodigo na binubuo ng maramihang mga modyul sa parang kasangkapan na browserify, na naipaliwanag sa ibaba. In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
 
 Sa paglikha ng isang bungkos ng browserify at gamitin ito bilang isang preload na iskrip, ang sumusunod ay dapat gamitin:
 
@@ -105,7 +105,7 @@ Ang `-x` na watawat ay dapat gamitin sa anumang modyul na kasalukuyang nka-ekspo
 Kasalukuyan ang `require` ng function na nakapagbibigay ng preload na saklaw na inilalantad sa mga sumusunod na mga modyul:
 
 - `electron`
-  - `crashReporter`
+  - `kalabog ng tagapagbalita`
   - `pagkakahuli sa tuktok ng desk`
   - `ipcrenderer`
   - `gupitin ng maikli ang mga litrato`
@@ -126,4 +126,4 @@ Pakiusap na gamitin ang `sandbox` na opsyun na may pangangalaga, katulad pa rin 
 
 Since rendering untrusted content in Electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of Electron APIs, and may have breaking changes to fix security issues.
 
-One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
+Isang planadong paghuhusay na dapat may malaking dagdag sa seguridad ay para maharangan ang mensahe ng IPC galing sa sandboxed renderers sa pamamagitan ng default, nagpapahintulot na ang pangunahing proseso sa tahasang pagtutukoy sa isang itinakdang mensahe sa renderer ay mapayagan na maipadala.
