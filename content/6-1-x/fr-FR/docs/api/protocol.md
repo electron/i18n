@@ -120,7 +120,7 @@ protocol.registerSchemesAsPrivileged([
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `filePath` String (optional)
+    * `filePath` String (facultatif)
 * `completion` Function (optional)
   * `error` Error
 
@@ -172,7 +172,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `data` String (optional)
+    * `data` String (facultatif)
 * `completion` Function (optional)
   * `error` Error
 
@@ -194,7 +194,7 @@ L'utilisation est la même avec `registerFileProtocol`, excepté que le `callbac
     * `redirectRequest` Object
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (facultatif)
       * `uploadData` Object (optional)
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
@@ -305,7 +305,7 @@ Retourne `Promise<Boolean>` - rempli avec un booléen qui indique s'il y a déj�
 * `completion` Function (optional)
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie un fichier comme réponse.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -317,11 +317,11 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `data` String (optional)
+    * `data` String (facultatif)
 * `completion` Function (optional)
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie une `String` comme réponse.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
@@ -337,7 +337,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (optional)
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
+Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie un `Buffer` comme réponse.
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
@@ -353,14 +353,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `redirectRequest` Object
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (facultatif)
       * `uploadData` Object (optional)
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional)
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie une nouvelle requête HTTP comme réponse.
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
@@ -377,7 +377,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (optional)
   * `error` Error
 
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+Identique à `protocol.registerStreamProtocol`, excepté qu'il remplace un gestionnaire de protocole existant.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
@@ -385,4 +385,4 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 * `completion` Function (optional)
   * `error` Error
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+Retirez l'intercepteur installé pour `schéma` et restaurez son gestionnaire d'origine.
