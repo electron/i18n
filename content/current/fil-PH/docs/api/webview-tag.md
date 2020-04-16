@@ -1,4 +1,4 @@
-# `<webview>` Pananda
+# `<webview>` Tag
 
 ## Warning
 
@@ -16,9 +16,9 @@ Mga proseso: [Renderer](../glossary.md#renderer-process)
 
 Gumamit ng `webview` tag sa embed na 'panauhin' nilalaman(tulad ng pahina sa web) sa iyong Electron app. Ang nilalaman ng panauhin ay may nakalagay sa loob ng container na `webview`. Ang naka-embed na pahina sa loob ng iyong app kontrol kung paano ang nilalaman ng panauhin ay nailatag at naibigay.
 
-Hindi tulad ng `iframe`, ang `webview` ay tumatakbo sa hiwalay na proseso kaysa ginagamit mong app. Ito ay walang parehang pahintulot tulad ng web na pahina at ang lahat ng mga interaskyon pagitan sa iyong app ang naka-embed na nilalaman ay magiging asinkrunos. Ito ay pinapanatili ang iyong app na ligtas sa mga naka-embed na nilalaman. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
+Hindi tulad ng `iframe`, ang `webview` ay tumatakbo sa hiwalay na proseso kaysa ginagamit mong app. Ito ay walang parehang pahintulot tulad ng web na pahina at ang lahat ng mga interaskyon pagitan sa iyong app ang naka-embed na nilalaman ay magiging asinkrunos. Ito ay pinapanatili ang iyong app na ligtas sa mga naka-embed na nilalaman. **Paalala:** Lahat ng paraan ay tinatawag sa webview galing sa unang pahina na nangangailangan a asinkrunos na tawag papunta sa pangunahing proseso.
 
-## Mga halimbawa
+## Halimbawa
 
 Para i-embed ang pahina ng web sa iyong app, Idagdag ang `webview` tag sa iyong app's na taga-embed na pahina (Ito ang app na pahina na makikita sa panauhin na nilalaman). Sa kanyang pinakasimpleng porma, ang `webview` tag kasama ang `src` sa pahina ng web at css na estilo na ikontrol ang itsura ng `webview` container:
 
@@ -195,9 +195,9 @@ A `String` which is a list of strings which specifies the blink features to be d
 
 Nag `webview` na tag ay may mga susmusunod na pamamaraan:
 
-**Note:** The webview element must be loaded before using the methods.
+**Paalala:** Ang webview na elemento ay dapat makarga bago gamitin ang mga pamamaraan.
 
-**Mga halimbawa**
+**Halimbawa**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -443,7 +443,7 @@ Pagsingit `text` para sa nakapukos na elemento.
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. naka-default sa `false`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
 
 Ibinabalik `Integer` - Ang kahilingang id na ginagamit para sa kahilingan.
@@ -454,8 +454,8 @@ Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `te
 
 * `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request.
   * `clearSelection` - Tanggalin ang mga napili.
-  * `keepSelection` - Isalin ang seleksyon sa isang normal na seleksyon.
-  * `activateSelect` - Tumuon at i-click ang node ng pagpili.
+  * `keepSelection` - I-translate ang mga napili para maging normal.
+  * `activateSelection` - Ipukos at iclick ang node ng napili.
 
 Itigil ang anumang `findInPage` na hinihiling para sa `webview` na may kaukulang `aksyon`.
 
@@ -489,7 +489,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
 Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Omitting `rect` will capture the whole visible page.
 
 ### `<webview>.send(channel, ...args)`
 
@@ -552,7 +552,7 @@ Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi v
 
 **Deprecated:** This API is no longer supported by Chromium.
 
-### `<webview>.showDefinitionForSelection()` _macOS_
+### `.showDefinitionForSelection()` _macOS_
 
 Pinapakita ang pop-up na diksyonaryo na naghahanap ng mga napiling salita sa page.
 
@@ -572,33 +572,33 @@ Ang mga sumusunod na event ng DOM ay nasa tanda ng `webview`:
 
 ### Event: 'load-commit'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `url` Tali
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Event: 'did-finish-load'
+### Kaganapan: 'ginawa-tapusin-dala'
 
 Itigil kapag natapos na ang nabigasyon, i.e. ang taga-ikot ng tab ay huminto sa pag-ikot, at ang event na `onload` ay na-dispatch.
 
-### Event: 'did-fail-load'
+### Kaganapan: 'ginawa-mabibigo-dala'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
-* `isMainFrame` Boolean
+* `pagkakamalingCode`kabuuan
+* `Paglalarawan ng pagkakamali`tali
+* `napatunayan sa Url`tali
+* `ay pangunahing kuwadro` Boolean
 
 Ang event na ito ay tulad ng `did-finish-load`, pero natigil nung nag-fail ang load o nakansela, e.g. `window.stop()` ay na-invoke.
 
 ### Kaganapan: 'ginawa-frame-finish-load'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 
 Itigil kapag natapos na ang nabigasyon ng frame.
 
@@ -616,7 +616,7 @@ Itigil kapag ang dokumento ng sinasabing frame ay na-load.
 
 ### Event: 'page-title-updated'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `title` String
 * `explicitSet` Boolean
@@ -625,7 +625,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Kaganapan: 'pahina-favicon-updated'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `favicons` String[] - Hanay ng mga URL.
 
@@ -641,10 +641,10 @@ Itigil kapag ang page ay hindi na naka-fullscreen na dulot ng HTML API.
 
 ### Event: 'console-message'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `level` Integer
-* `message` String
+* `mensahe` Tali
 * `line` Integer
 * `sourceId` String
 
@@ -661,7 +661,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Kaganapan: 'natagpuan-sa-pahina'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `result` Object
   * `requestId` Integer
@@ -684,7 +684,7 @@ console.log(requestId)
 
 ### Kaganapan: 'bagong-bintana'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `url` Tali
 * `frameName` Pisi
@@ -709,7 +709,7 @@ webview.addEventListener('new-window', async (e) => {
 
 ### Kaganapan: 'mag-navigate'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `url` Tali
 
@@ -719,11 +719,11 @@ Itong event na ito ay hindi ilalabas kapag ang nabigasyon ay na-istart na ang ga
 
 It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Calling `event.preventDefault()` does __NOT__ have any effect.
+Tinatawag ang `event.preventDefault()` na may __NOT__ mga epekto.
 
 ### Kaganapan: 'ginawa-navigate'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `url` Tali
 
@@ -733,16 +733,16 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Kaganapan: 'ginawa-navigate-in-page'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 * `url` Tali
 
 Inilalabas kapag nangyari ang pag-navigate sa pahina.
 
 Kapag nangyayari ang pag-navigate sa pahina, ang pahina ng URL ay nagbabago ngunit hindi ito magiging dahilan ng nabigasyon sa labas ng pahina. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
 
-### Event: 'isara'
+### Event: 'close'
 
 Itigil kung ang guest page ay sinubukang isara ang sarili.
 
@@ -757,7 +757,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `channel` String
 * `args` any[]
@@ -790,7 +790,7 @@ Itigil kapag ang nag-crash ang proseso na nagsumite.
 
 ### Kaganapan: 'plugin-nag-crash'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `name` String
 * `Bersyon` Pisi
@@ -811,7 +811,7 @@ Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
 
 ### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `themeColor` String
 
@@ -823,7 +823,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Kaganapan: 'update-target-url'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `url` Tali
 
