@@ -47,11 +47,11 @@ Le module `crashReporter` dispose des méthodes suivantes :
 
 Vous devez appeler cette méthode avant d'utiliser toute autre API `crashReporter` et dans chaque processus (principal/renderer) dont vous souhaitez recueillir les rapports d'accident. Vous pouvez passer différentes options à `crashReporter.start` lors d'un appel de différents processus.
 
-**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Par conséquent, pour collecter les rapports de plantage, utilisez `process.crashReporter.start` à la place. Passez les mêmes options que celles ci-dessus avec une autre appelée `crashesDirectory` qui devrait pointer vers un répertoire pour stocker temporairement le crash . Vous pouvez tester cela en appelant `process.crash()` pour faire planter le processus fils.
+**Note** Les processus enfants créés via le module `child_process` n'auront pas accès aux modules Electron. Par conséquent, pour collecter les rapports de plantage, utilisez `process.crashReporter.start` à la place. Passez les mêmes options que celles ci-dessus avec une autre appelée `crashesDirectory` qui devrait pointer vers un répertoire pour stocker temporairement le crash . Vous pouvez tester cela en appelant `process.crash()` pour faire planter le processus fils.
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**Remarque :** Si vous avez besoin d'envoyer des paramètres supplémentaires ou mis à jour `extra` après votre premier appel `démarrer` vous pouvez appeler `addExtraParameter` sur macOS ou appeler à nouveau `start` avec les paramètres `extra` mis à jour sur Linux et Windows.
 
-**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. Si vous voulez activer le rapport de plantage, initialisant `crashpad` depuis le processus principal en utilisant `crashReporter. tart` est requis quel que soit le processus à partir duquel vous voulez collecter des plantages. Une fois initialisé de cette façon, le gestionnaire de crashpad collecte plantages de tous les processus. Vous devez toujours appeler `crashReporter. tart` depuis le rendu ou le processus fils, sinon les plantages de d'eux seront signalés sans `companyName`, `productName` ou n'importe quelle information `extra`.
+**Remarque :** Sur macOS et Windows, Electron utilise un nouveau client `crashpad` pour la collecte et le reporting des plantages. Si vous voulez activer le rapport de plantage, initialisant `crashpad` depuis le processus principal en utilisant `crashReporter. tart` est requis quel que soit le processus à partir duquel vous voulez collecter des plantages. Une fois initialisé de cette façon, le gestionnaire de crashpad collecte plantages de tous les processus. Vous devez toujours appeler `crashReporter. tart` depuis le rendu ou le processus fils, sinon les plantages de d'eux seront signalés sans `companyName`, `productName` ou n'importe quelle information `extra`.
 
 ### `crashReporter.getLastCrashReport()`
 
@@ -69,15 +69,15 @@ Returns all uploaded crash reports. Each report contains the date and uploaded I
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Note:** This API can only be called from the main process.
+**Note:** Cette API ne peut être appelée que depuis le processus principal.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean _macOS_ - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean _macOS_ - Si les rapports doivent être soumis au serveur.
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Note:** This API can only be called from the main process.
+**Note:** Cette API ne peut être appelée que depuis le processus principal.
 
 ### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
 
