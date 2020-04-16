@@ -30,14 +30,14 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
 
 * `options` Object (optional)
   * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'elle est affichée.
-  * `subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
+  * `sous-titre` String (facultatif) _macOS_ - Un sous-titre pour la notification, qui sera affiché sous le titre.
   * `body` String - Le corps de texte de la notification, qui s'affichera sous le titre ou le sous-titre.
   * `silencieux` Booléen (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
   * `icône` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.
-  * `hasReply` Boolean (optional) _macOS_ - Whether or not to add an inline reply option to the notification.
+  * `hasReply` Boolean (facultatif) _macOS_ - Ajout ou non d'une option de réponse en ligne à la notification.
   * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
-  * `replyPlaceholder` String (optional) _macOS_ - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) _macOS_ - The name of the sound file to play when the notification is shown.
+  * `replyPlaceholder` String (facultatif) _macOS_ - L'espace réservé à écrire dans le champ de saisie de réponse en ligne.
+  * `sound` String (facultatif) _macOS_ - Le nom du fichier audio à jouer lorsque la notification est affichée.
   * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
@@ -50,7 +50,7 @@ Les objets créés avec `new Notification` émettent les événements suivants :
 
 #### Événement : 'show'
 
-Retourne :
+Renvoie :
 
 * `event` Événement
 
@@ -68,13 +68,13 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Émis lorsque la notification est fermée manuellement par l'utilisateur.
 
 Cet événement ne garantit pas d'être émis dans tous les cas de fermeture de la notification.
 
-#### Event: 'reply' _macOS_
+#### Événement : 'reply' _macOS_
 
 Retourne :
 
@@ -83,7 +83,7 @@ Retourne :
 
 Émis lorsque l'utilisateur clique sur le bouton "Reply" sur une notification avec `hasReply: true`.
 
-#### Event: 'action' _macOS_
+#### Événement : 'action' _macOS_
 
 Retourne :
 
