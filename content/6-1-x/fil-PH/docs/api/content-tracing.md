@@ -1,15 +1,15 @@
-# pagsubaybay ng nilalaman
+# contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> Pagkolekta ng tracing data galing sa Chromium's content modyul para paghanap ng pagganap bottlenecks at mahinang operasyon.
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+Ang modyul na ito ay hindi kinabibilangan ng isang web interface kaya kailangan mong buksan ang `chrome://tracing/` sa Chrome browser at i-load ang nabuong file to makita ang resulta.
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Note:** Hindi mo dapat gamitin ang modyul na ito hanggang sa ` kaganapan ng mga app
+modulo ay napalabas.</p>
 
-```javascript
-const { app, contentTracing } = require('electron')
+<pre><code class="javascript">const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
   const options = {
@@ -27,7 +27,7 @@ app.on('ready', () => {
     }, 5000)
   })
 })
-```
+`</pre>
 
 ## Mga Paraan
 
@@ -59,7 +59,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Simulan ang pagtatala ng lahat ng mga proseso.
 
-Ang pagrerekord ay nagsisimula kaagad sa local at asynchronously sa child processes sa oras na matanggap nila ang kahilingan ng EnableRecording. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+Ang pagrerekord ay nagsisimula kaagad sa local at asynchronously sa child processes sa oras na matanggap nila ang kahilingan ng EnableRecording. Ang `callback` ay tatawagan kapag kinilala ng lahat ng child processes ang kahilingan ng`startRecording`.
 
 **[Deprecated Soon](modernization/promisification.md)**
 
@@ -81,9 +81,9 @@ Ang pagrerekord ay nagsisimula kaagad sa local at asynchronously sa child proces
 
 Itigil ang pagtatala ng mga proseso.
 
-Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. Tumutulong ito upang mabawasan ang runtime overhead ng pagtukoy  dahil mahal na operasyon ang pag padala nga trace data gamit ang IPC. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. Tumutulong ito upang mabawasan ang runtime overhead ng pagtukoy  dahil mahal na operasyon ang pag padala nga trace data gamit ang IPC. Kaya, para tigilan ang pagsunod, kailangang i-asynchronously ang pagtanong sa child processes para ipantay ang anumang nakabinbin na bakas.
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+Kapag kinilala ng child processes ang `stopRecording` request, `callback`  ay tatawagan gamit ang file na naglalaman ng traced data.
 
 Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
 
@@ -97,7 +97,7 @@ Returns `Promise<String>` - resolves with a file that contains the traced data o
 
 Itigil ang pagtatala ng mga proseso.
 
-Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. Tumutulong ito upang mabawasan ang runtime overhead ng pagtukoy  dahil mahal na operasyon ang pag padala nga trace data gamit ang IPC. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. Tumutulong ito upang mabawasan ang runtime overhead ng pagtukoy  dahil mahal na operasyon ang pag padala nga trace data gamit ang IPC. Kaya, para tigilan ang pagsunod, kailangang i-asynchronously ang pagtanong sa child processes para ipantay ang anumang nakabinbin na bakas.
 
 Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
 
