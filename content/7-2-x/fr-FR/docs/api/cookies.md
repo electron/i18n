@@ -82,7 +82,7 @@ Envoie une demande pour obtenir tous les cookies correspondant à `filter`, et r
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (facultatif) - Le nom de domaine du cookie; ce dernier sera normalisé par un point le précédent pour qu'il soit valide pour les sous-domaines. Empty by default if omitted.
   * `path` String (facultatif) - Le chemin du cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. false par défaut.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Par défaut, faux.
   * `expirationDate` Double (facultatif) - La date d'expiration du cookie en nombre de secondes depuis l'epoch UNIX. Si omis, le cookie devient alors un cookie de session et ne sera pas conservé entre deux sessions.
 
