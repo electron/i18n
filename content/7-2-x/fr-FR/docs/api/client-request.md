@@ -113,7 +113,7 @@ Retourne :
 * `redirectUrl` String
 * `En-têtes` de réponse<String, String[]>
 
-Émis lorsque le serveur renvoie une réponse de redirection (par exemple 301 Déplacé de manière permanente). Appeler [`request.followRedirect`](#requestfollowredirect) va continuer avec la redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Émis lorsque le serveur renvoie une réponse de redirection (par exemple 301 Déplacé de manière permanente). Appeler [`request.followRedirect`](#requestfollowredirect) va continuer avec la redirection.  Si cet événement est géré, [`request.followRedirect`](#requestfollowredirect) doit être appelé **synchrones**, sinon la requête sera annulée.
 
 ### Propriétés d'instance
 
