@@ -9,8 +9,8 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
 * `options` Object
   * `label` String (facultatif) - Texte du bouton.
   * `backgroundColor` String (facultatif) - Couleur de fond hexadécimal du bouton, c.-à-d. `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
+  * `icon` [NativeImage](native-image.md) (facultatif) - Icône du bouton.
+  * `iconPosition` String (facultatif) -Peut être `left`, `right` ou `overlay`.
   * `click` Function (facultatif) - Fonction à appeler lorsque le bouton est cliqué.
 
 ### Propriétés d'instance
