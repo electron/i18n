@@ -1,4 +1,4 @@
-# Rendu Offscreen
+# Rendu hors de l'écran
 
 Le Rendu hors de l'écran vous permet d’obtenir le contenu d’une fenêtre de navigateur dans un fichier bitmap, donc il peut être restitué n’importe où, par exemple une texture dans une scène 3D. Le rendu hors écran d'Electron utilise une approche similaire au projet [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
 
@@ -10,7 +10,7 @@ Deux modes de rendu peuvent être utilisés et la zone sale est passée à l’�
 
 ### Accélération GPU
 
-Le rendu par l'acceleration GPU signifie que le GPU est utilisé pour la composition. Puisque cette fenêtre doit être copiée depuis le GPU, cela require plus de performances. Donc ce mode est légèrement plus lent que l'autre. The benefit of this mode that WebGL and 3D CSS animations are supported.
+Le rendu par l'acceleration GPU signifie que le GPU est utilisé pour la composition. Puisque cette fenêtre doit être copiée depuis le GPU, cela require plus de performances. Donc ce mode est légèrement plus lent que l'autre. L’avantage de ce mode est que WebGL et les animations CSS 3D sont prises en charge.
 
 ### Logiciel de périphérique sortant
 
