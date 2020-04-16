@@ -41,7 +41,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `state` Chaîne de caratères - Peut être `progressing` ou `interrupted`.
 
 Émis lorsque le téléchargement a été mis à jour et n'est pas fini.
@@ -55,7 +55,7 @@ Le `state` peut être un de ces cas :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `state` Chaîne de caratères - Peut être `completed`, `cancelled` ou `interrupted`.
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
@@ -106,7 +106,7 @@ Retourne `Boolean` - Si le téléchargement est en pause.
 
 Reprend le téléchargement qui a été mis en pause.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Sinon `resume()` va rejeter les octets reçus précédemment et redémarrer le téléchargement depuis le début.
+**Remarque :** Pour permettre la reprise des téléchargements, le serveur sur lequel vous téléchargez doit supporter les requêtes de plage (range requests) et doit fournir les en-têtes `Last-Modified` et `ETag`. Sinon `resume()` va rejeter les octets reçus précédemment et redémarrer le téléchargement depuis le début.
 
 #### `downloadItem.canResume()`
 
