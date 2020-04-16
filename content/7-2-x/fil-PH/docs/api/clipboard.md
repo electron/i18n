@@ -1,4 +1,4 @@
-# iipit sa tabla
+# clipboard
 
 > Magsagawa ng mga kopya at idikit ang mga operasyon sa clipboard ng system.
 
@@ -17,11 +17,9 @@ console.log(clipboard.readText('selection'))
 
 Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Note:** Eksperimental na APIs ay minarkahan bilang tulad at pwedeng maalis sa hinaharap.
 
-### `clipboard.readText([i-type])
-
-`
+### `clipboard.readText([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
@@ -37,9 +35,7 @@ console.log(text)
 // hello i am a bit of text!'
 ```
 
-### `clipboard.writeText(text[ ,i-type])
-
-`
+### `clipboard.writeText(teksto[, i-type])`
 
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -53,7 +49,9 @@ const text = 'hello i am a bit of text!'
 clipboard.writeText(text)
 ```
 
-### `clipboard.readHTML([i-type])`
+### `clipboard.readHTML([i-type])
+
+`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
@@ -69,9 +67,7 @@ console.log(html)
 // <meta charset='utf-8'><b>Hi</b>
 ```
 
-### `clipboard.writeHTML(markup[ ,i-type])
-
-`
+### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -84,26 +80,20 @@ const { clipboard } = require('electron')
 clipboard.writeHTML('<b>Hi</b')
 ```
 
-### `clipboard.readImage([i-type])
-
-`
+### `clipboard.readImage([i-type]`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Nagbabalik ang [`NativeImage`](native-image.md)  ang nilalaman ng larawan sa klipbord.
 
-### `clipboard.writeImage(image[ ,i-type])
-
-`
+### `klipboard.writeImage(image[,i-type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Pagsulat `image` sa klipboard.
 
-### `clipboard.readRTF([i-type])
-
-`
+### `clipboard.readRTF([i-type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
@@ -119,7 +109,9 @@ console.log(rtf)
 // {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}
 ```
 
-### `clipboard.writeRTF(text[, type])`
+### `clipboard.writeRTF(text[ ,i-type])
+
+`
 
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -135,7 +127,7 @@ clipboard.writeRTF(rtf)
 
 ### `clipboard.readBookmark()` _macOS_ _Windows_
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `title` String
 * `url` Tali
@@ -145,12 +137,12 @@ Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa 
 ### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
 * `title` String
-* `url` Tali
+* `url` Pisi
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Pagsulat ng `title` and `url` sa klipbord bilang bookmark.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Note:** Karamihan ng apps sa Windows ay hindi sumusuporta sa pasting bookmarks para sa kanila kaya pwede kang gumamit ng `clipboard.write` para sumulat ng kapwa bookmark at fallback na texsto sa klipboard.
 
 ```js
 const { clipboard } = require('electron')
@@ -174,6 +166,7 @@ This method uses synchronous IPC when called from the renderer process. The cach
 Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
 
 ### `clipboard.clear([i-type])
+ 
 
 `
 
@@ -181,9 +174,7 @@ Writes the `text` into the find pasteboard (the pasteboard that holds informatio
 
 Nililimas ang mga nilalaman ng klipboard.
 
-### `clipboard.availableFormats([i-type])
-
-`
+### `clipboard.availableFormats([i-type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
@@ -251,7 +242,8 @@ const buffer = Buffer.from('writeBuffer', 'utf8')
 clipboard.writeBuffer('public.utf8-plain-text', buffer)
 ```
 
-### `clipboard.write(data[ ,i-type])
+### `clipboard.write(data[, type])
+ 
 
 `
 
