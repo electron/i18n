@@ -1,4 +1,4 @@
-# Ekstensyon ng DevTools
+# DevTools Ekstensiyon
 
 Sumusuporta ang Elektron [DevTools Ekstensiyon ng Chrome](https://developer.chrome.com/extensions/devtools), na kung saan ay maaaring gamitin upang palawakin ang mga kakayahan ng devtools sa pagdedebug ng kilalang balangkas sa web.
 
