@@ -92,7 +92,7 @@ Füre das `menuItem` an der `pos` Position im Menü ein.
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Hinweis:** Manche Methoden sind nur auf spezifischen Betriebssystemen verfügbar und sind dementsprechend gekennzeichnet.
 
 #### Event: 'menu-will-show'
 
