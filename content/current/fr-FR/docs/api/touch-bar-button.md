@@ -11,7 +11,7 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (facultatif) - Couleur de fond hexadécimal du bouton, c.-à-d. `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String(facultatif) - Icône du bouton.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
+  * `iconPosition` String (facultatif) -Peut être `left`, `right` ou `overlay`. Defaults to `overlay`.
   * `click` Function (facultatif) - Fonction à appeler lorsque le bouton est cliqué.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
