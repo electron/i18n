@@ -1,4 +1,4 @@
-# kamuntik
+# ang remote
 
 > Gamitin ang mga modyul ng pangunahing proseso mula sa proseso ng tagabigay.
 
@@ -26,9 +26,9 @@ Bawat bagay (kasama ang mga punsyon) ay nagbabalik dahil ang modyul ng `remote` 
 
 In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Sa halip, ito ay gumawa ng isang bagay ng `BrowserWindow` sa pangunahing proseso at ibinalik ang nararapat na remote na bagay sa prosesong tagabigay, kagaya ng bagay sa `win`.
 
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
+**Note:** Ang [enurable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) lamang na kung saan ay naroroon nang ang remote na bagay ay unang isinangguni na mapupuntahan sa pamamagitan ng remote.
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Ang pagbabago sa kanila sa prosesong tagabigay ay hindi magpapabago sa kanila sa pangunahing proseso at kahit sa kabaligtaran.
+**Note:** Ang mga hanay at mga Buffer ay kinopya sa ibabaw ng IPC kapag na-access sa pamamagitan ng modyul ng `remote`. Ang pagbabago sa kanila sa prosesong tagabigay ay hindi magpapabago sa kanila sa pangunahing proseso at kahit sa kabaligtaran.
 
 ## Ang tagal ng buhay ng mga Remote na Bagay
 
@@ -118,7 +118,7 @@ proyekto/
 
 ```js
 // main process: main/index.js
-const { app } = require('electron')
+const { app } = kailangan('electron')
 app.on('ready', () => { /* ... */ })
 ```
 
@@ -142,7 +142,7 @@ Nagbabalik ang [`BrowserWindow`](browser-window.md) - Ang window na kung saan na
 
 Nagbabalik ang [`WebContents`](web-contents.md) - Ang mga laman ng web ng pahina ng web na ito.
 
-### `remote.getGlobal(name)`
+### `remote.getGlobal(pangalan)`
 
 * `name` String
 
