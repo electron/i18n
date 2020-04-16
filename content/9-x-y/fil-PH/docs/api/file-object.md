@@ -1,4 +1,4 @@
-# `Kikil ` Bagay
+# `Kikilin` Bagay
 
 > Gamitin ang HTML5 `Kikilin` API para magawa ng maayos sa mga bagay na nasa sa sistema.
 
