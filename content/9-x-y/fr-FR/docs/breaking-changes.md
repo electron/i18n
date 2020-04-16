@@ -6,7 +6,7 @@ Les changements cassants seront documentés ici, et des avertissements de dépr�
 
 La string `FIXME` est utilisée en commentaires codes afin de noter les choses qui devraient être fixées dans les prochaines versions. Voir [https://github.com/electron/electron/search?q=fixme](https://github.com/electron/electron/search?q=fixme)
 
-## Planned Breaking API Changes (9.0)
+## Changements majeurs prévus de l'API (9.0)
 
 ### `<webview>.getWebContents()`
 
