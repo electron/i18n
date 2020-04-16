@@ -42,9 +42,9 @@ The `net` API can be used only after the application emits the `ready` event. Tr
 
 Ang modyul ng `net` ay mayroong mga sumusunod na mga pamamaraan:
 
-### `net.request(options)`
+### `ang net.request(mga opsyon)`
 
-* `options` (Object | String) - The `ClientRequest` constructor options.
+* `options` (Object | String) - Ang mga opsyon ng tagapagbuo ng `ClientRequest`.
 
 Ang nagbabalik na [`ClientRequest`](./client-request.md)
 
