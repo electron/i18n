@@ -1,4 +1,4 @@
-# pagsubaybay ng nilalaman
+# contentTracing
 
 > Collect tracing data from Chromium to find performance bottlenecks and slow operations.
 
@@ -6,10 +6,10 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Note:** Hindi mo dapat gamitin ang modyul na ito hanggang sa ` kaganapan ng mga app
+modulo ay napalabas.</p>
 
-```javascript
-const { app, contentTracing } = require('electron')
+<pre><code class="javascript">const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
   (async () => {
@@ -22,7 +22,7 @@ app.on('ready', () => {
     console.log('Tracing data recorded to ' + path)
   })()
 })
-```
+`</pre>
 
 ## Mga Paraan
 
