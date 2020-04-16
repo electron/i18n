@@ -66,7 +66,7 @@ Ensuite, vous devez préparer les trois fichiers suivant.
 </plist>
 ```
 
-`loginhelper.plist` :
+`loginhelper.plist`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -125,7 +125,7 @@ Au lieu de signer manuellement votre application, vous pouvez également choisir
 Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
 ```sh
-electron-osx-sign VotreApp.app VotreApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
+electron-osx-sign VotreApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
 Remarquez que les modules natifs peuvent avoir des fichiers intermédiaires générés qui ne doivent pas être inclus (car ils devront aussi être signée). Si vous utilisez [electron-packager](https://github.com/electron/electron-packager) avant la version 8.1.0, ajoutez `--ignore=.+\.o$` à vos étapes de compilation pour ignorer ces fichiers. Les versions 8.1.0 et plus tard ignorent ces fichiers par défaut.
