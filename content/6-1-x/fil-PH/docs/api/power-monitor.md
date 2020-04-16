@@ -4,12 +4,12 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready` ng modyul ng `app` ay lumabas.
 
-Halimbawa:
+Halimbawa ng:
 
 ```javascript
-const electron = require('electron')
+const electron = kailangan('electron')
 const { app } = electron
 
 app.on('ready', () => {
@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Pangyayari
+## Mga event
 
 Ang modyul ng `powerMonitor` ay maglalabas ng mga sumusunod na event:
 
@@ -31,11 +31,11 @@ Ay lalabas kapag ang sistema ay sususpindihin.
 
 Ay lalabas kapag ang sistema ay nagpapatuloy.
 
-### Event: 'on-ac' _Windows_
+### Event: 'on-ac' sa _Windows_
 
 Ay lalabas kapag ang sistema ay nagbago sa AC power.
 
-### Event: 'on-battery' _Windows_
+### Event: 'on-battery' sa _Windows_
 
 Ay lalabas kapag ang sistema ay nagbago sa power ng baterya.
 
@@ -51,7 +51,7 @@ Emitted when the system is about to lock the screen.
 
 Emitted as soon as the systems screen is unlocked.
 
-## Mga Paraan
+## Mga Pamamaraan
 
 The `powerMonitor` module has the following methods:
 
