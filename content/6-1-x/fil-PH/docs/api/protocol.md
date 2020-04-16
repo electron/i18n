@@ -53,7 +53,7 @@ app.on('ready', () => {
 })
 ```
 
-## Mga Paraan
+## Mga Pamamaraan
 
 Ang `protocol` na modyul ay mayroong mga sumusunod na mga pamamaraan:
 
@@ -119,8 +119,8 @@ protocol.registerSchemesAsPrivileged([
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
-    * `filePath` String (optional)
+  * `baliktawag` ginagawa
+    * `filePath` na String (opsyonal)
 * `completion` Function (optional)
   * `error` Error
 
@@ -141,7 +141,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsyonal)
 * `completion` Function (optional)
   * `error` Error
@@ -164,17 +164,17 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `protocol.regiterStringProtocol(panukala, tagahwak[, pagkumpleto])`
 
-* `scheme` na String
+* `scheme` na string
 * `handler` Function
   * `request` Object
-    * `url` Tali
-    * `referer` String
+    * `url` na String
+    * `referrer` na String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
-    * `data` String (optional)
+  * `baliktawag` ginagawa
+    * `data` na String (opsyonal)
 * `completion` Function (optional)
-  * `error` Error
+  * `error` na Kamalian
 
 Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang `String` bilang isang tugon.
 
@@ -186,18 +186,18 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
 * `handler` Function
   * `request` Object
     * `url` Tali
-    * `headers` Object
+    * `header` Bagay
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `redirectRequest` Object
       * `url` Tali
       * `method` na String
-      * `session` Object (optional)
+      * `session` Bagay (opsyonal)
       * `uploadData` Object (optional)
         * `contentType` String - Ang uri ng MIME ng mga nilalaman.
-        * `data` String - Content to be sent.
+        * `data` String - Mga nilalaman na ipapadala.
 * `completion` Function (optional)
   * `error` Error
 
@@ -215,7 +215,7 @@ For POST requests the `uploadData` object must be provided.
 * `handler` Function
   * `request` Object
     * `url` Tali
-    * `headers` Object
+    * `header` Bagay
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -278,7 +278,7 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme,callback)`
 
 * `scheme` na String
-* `callback` na Function
+* `baliktawag` ginagawa
   * `handled` Boolean
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -300,7 +300,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `filePath` String
 * `completion` Function (optional)
   * `error` Error
@@ -316,8 +316,8 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
-    * `data` String (optional)
+  * `baliktawag` ginagawa
+    * `data` na String (opsyonal)
 * `completion` Function (optional)
   * `error` Error
 
@@ -332,7 +332,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `buffer` Buffer (optional)
 * `completion` Function (optional)
   * `error` Error
@@ -345,18 +345,18 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `handler` Function
   * `request` Object
     * `url` Tali
-    * `headers` Object
+    * `header` Bagay
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` na Function
+  * `baliktawag` ginagawa
     * `redirectRequest` Object
       * `url` Tali
       * `method` na String
-      * `session` Object (optional)
+      * `session` Bagay (opsyonal)
       * `uploadData` Object (optional)
         * `contentType` String - Ang uri ng MIME ng mga nilalaman.
-        * `data` String - Content to be sent.
+        * `data` String - Mga nilalaman na ipapadala.
 * `completion` Function (optional)
   * `error` Error
 
@@ -368,7 +368,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `handler` Function
   * `request` Object
     * `url` Tali
-    * `headers` Object
+    * `header` Bagay
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
