@@ -1,4 +1,4 @@
-# Labas sa iskrin na pagproseso
+# Offscreen Rendering
 
 Ang offscreen rendering ay nagpapahintulot sa iyo na kumuha ng nilalaman ng isang browser window sa bitmap, kaya ito ay nai-render kahit saan, halimbawa sa isang texture ng 3D scene. Ang offscreen rendering sa electron ay gumagamit ng katulad na pamamaraan kaysa sa[Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) na proyekto.
 
@@ -10,7 +10,7 @@ May dalawang mode ng rendering na pwedeng magamit at ang maruming lugar lamang a
 
 ### Pinabilis na GPU
 
-Pinabilis na GPU rendering na ang ibig sabihin ay ginagamit ang GPU para sa komposisyon. Dahil sa ang frame ay may kinopya sa GPU na nangangailangan ng karagdagang performance, kaya ang mode na ito ay lubos na mas mabagal kaysa sa isa. The benefit of this mode that WebGL and 3D CSS animations are supported.
+Pinabilis na GPU rendering na ang ibig sabihin ay ginagamit ang GPU para sa komposisyon. Dahil sa ang frame ay may kinopya sa GPU na nangangailangan ng karagdagang performance, kaya ang mode na ito ay lubos na mas mabagal kaysa sa isa. Ang mga benepisyo nitong mode na WebGL at 3D CSS animations ay suportado.
 
 ### Software output device
 
