@@ -15,7 +15,7 @@ app.on('ready', async function () {
 })
 ```
 
-See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log network events throughout the app's lifecycle.
+Voir [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) pour log les évènement réseau à travers le cycle de vie de l'application.
 
 **Note :** Toutes les méthodes si non spécifiées ne peuvent être utilisées qu'après que l'évènement `ready` de l' `app` ne soit émis.
 
@@ -30,7 +30,7 @@ Commence d'enregistrer les évènements de réseau dans `path` .
 ### `netLog.stopLogging([callback])`
 
 * `callback` Function (facultatif)
-  * `path` String - File path to which network logs were recorded.
+  * `path` String - Chemin vers lequel le log a été enregistré.
 
 Arrête d'enregistrer les évènements réseau. Si elle n'est pas appelée, elle sera automatiquement arrêtée quand l'application s'arrêtera.
 
