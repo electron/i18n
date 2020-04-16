@@ -12,7 +12,7 @@ By default the `webview` tag is disabled in Electron >= 5.  You need to enable t
 
 > Display external web content in an isolated frame and process.
 
-Processus : [Rendu](../glossary.md#renderer-process)
+Processus : [Renderer](../glossary.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -444,7 +444,7 @@ Insère le `text` à l'élément ciblé.
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. par défaut, `faux`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -581,7 +581,7 @@ It depends on the [`remote`](remote.md) module, it is therefore not available wh
 
 Returns `Number` - The WebContents ID of this `webview`.
 
-## DOM events
+## Événements DOM
 
 The following DOM events are available to the `webview` tag:
 
@@ -659,7 +659,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 Retourne :
 
 * `level` Integer
-* `message` Chaîne de caractères
+* `message` String
 * `line` Integer
 * `sourceId` String
 
@@ -682,7 +682,7 @@ Retourne :
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position du résultat actif.
   * `matches` Integer - Nombre de résultats.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `selectionArea` Object - Coordonnées de la région du premier résultat.
   * `finalUpdate` Boolean
 
 Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
