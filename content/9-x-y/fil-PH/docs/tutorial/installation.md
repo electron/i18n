@@ -49,7 +49,7 @@ Maaari mong gamitin ang mga variable ng kapaligiran upang i-override ang base UR
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+Halimbawa, gamitin ang mirror ng China:
 
 ```plaintext
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
@@ -101,7 +101,7 @@ To prevent the binary from being downloaded when you install all npm dependencie
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
 
-## Paghahanap ng ProblemaPaghahanap ng Problema
+## "Troubleshooting"
 
 Habang pinatatakbo and `npm install electron`, ang ibang user ay kadalasang nakakasalubong ng error sa pag-install.
 
