@@ -1,4 +1,4 @@
-# Utiliser Modules Natifs de Node
+# Utiliser des Modules Natifs de Node
 
 Les modules natifs de Node sont pris en charge par Electron, mais étant donné qu'Electron est très susceptible d'utiliser une version V8 différente du binaire Node installée sur votre système, les modules que vous utiliserez devront être recompilés pour Electron. Sinon, vous obtiendrez l'erreur de classe suivante lorsque vous essaierez d'exécuter votre application :
 
@@ -48,7 +48,7 @@ export npm_config_arch=x64
 export npm_config_target_arch=x64
 # Télécharge les en-têtes pour Electron.
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# Indique à node-pre-gyp que l'on compile pour Electron.
 export npm_config_runtime=electron
 # Indique à node-pre-gyp de compiler les modules depuis leur code source.
 export npm_config_build_from_source=true
