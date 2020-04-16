@@ -13,20 +13,20 @@ console.log(systemPreferences.isDarkMode())
 
 L'objet `systemPreferences` émet les événements suivants :
 
-### Event: 'accent-color-changed' _Windows_
+### Événement : 'accent-color-changed' _Windows_
 
 Retourne :
 
 * `event` Événement
 * `newColor` String - La nouvelle couleur RGBA que l'utilisateur à assigné à son système.
 
-### Event: 'color-changed' _Windows_
+### Événement : 'color-changed' _Windows_
 
 Retourne :
 
 * `event` Événement
 
-### Event: 'inverted-color-scheme-changed' _Windows_
+### Événement : 'inverted-color-scheme-changed' _Windows_
 
 Retourne :
 
@@ -37,7 +37,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `highContrastColorScheme` Boolean - `true` si un thème à contraste élevé est utilisé, `false` sinon.
 
 ## Méthodes
@@ -250,7 +250,7 @@ Cette API n'est disponible que sur macOS 10.14 Mojave ou plus récent.
     * `window-frame` - Cadre de fenêtres.
     * `window-text` - Texte dans windows.
   * On **macOS**
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
+    * `alternate-selected-control-text` - Le texte sur une surface sélectionnée dans une liste ou un tableau.
     * `control-background` - L'arrière-plan d'un élément de grande interface, tel qu'un navigateur ou un tableau.
     * `control` - La surface d'un contrôle.
     * `control-text` -Le texte d'un contrôle qui n'est pas désactivé.
@@ -269,7 +269,7 @@ Cette API n'est disponible que sur macOS 10.14 Mojave ou plus récent.
     * `selected-content-background` - L'arrière-plan du contenu sélectionné dans une fenêtre ou une vue clé.
     * `selected-control` - La surface d'une commande sélectionnée.
     * `selected-control-text` - Le texte d'une commande sélectionnée.
-    * `selected-menu-item` - The text of a selected menu.
+    * `selected-menu-item` - Le texte d'un menu sélectionné.
     * `selected-text-background` - L'arrière-plan du texte sélectionné.
     * `texte sélectionné` - Texte sélectionné.
     * `Séparateur` - Un séparateur entre différentes sections de contenu.
@@ -315,7 +315,7 @@ Returns `String` - Can be `dark`, `light` or `unknown`.
 
 Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`.  If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`.  See the [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
+Veuillez noter que jusqu'à ce qu'Electron soit compilé en ciblant le SDK 10.14, votre application `effectiveAppearance` sera par défaut à 'light' et n'héritera pas de la préférence de l'OS. Dans l'intervalle pour que votre application hérite de la préférence de l'OS, vous devez définir la touche `NSRequiresAquaSystemAppearance` dans vos applications `Info. liste` à `faux`.  Si vous utilisez `electron-packager` ou `electron-forge` il vous suffit de définir l'option `enableDarwinDarkMode` à `true`.  Voir l'API [Electron Packager](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) pour plus de détails.
 
 ### `systemPreferences.getAppLevelAppearance()` _macOS_
 
