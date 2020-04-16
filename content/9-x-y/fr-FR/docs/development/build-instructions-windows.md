@@ -1,8 +1,8 @@
-# Instructions de Build (Windows)
+# Instructions de compilation (Windows)
 
 Suivez les indications ci-dessous pour compiler Electron sur Windows.
 
-## Prérequis
+## Prerequisites
 
 * Windows 10 / Server 2012 R2 ou supérieur
 * Visual Studio 2017 15.7.2 ou plus - [télécharger VS 2019 Community Edition gratuitement](https://www.visualstudio.com/vs/)
