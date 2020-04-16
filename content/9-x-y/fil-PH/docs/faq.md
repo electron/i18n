@@ -29,7 +29,7 @@ Para magbahagi ng mga datos sa pagitan ng pahina ng web ( ang nagbabahagi ay nag
 O maaari mo ring gamitin ang IPC system, na partikular na sa Electron, upang itabi ang mga bagay sa pangunahing proseso bilang isang pandaigdigang variable, at pagkatapos para ma access ang mga ito mula sa mga renderers sa pamamagitan ng `remote`property `electron`module:
 
 ```javascript
-// Ang pangunahing pag-proseso.
+// Sa mga pangunahing proseso.
 global.sharedObject = {
   someProperty: 'default value'
 }
@@ -82,7 +82,7 @@ Dahil sa pagsasama ng Node.js ng Electron, mayroong ilang dagdag na simbolo ipin
 Upang malutas ito, maaari mong i-off ang pagsasama ng node sa Electron:
 
 ```javascript
-// Ang pangunahing pag-proseso.
+// Sa mga pangunahing proseso.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
