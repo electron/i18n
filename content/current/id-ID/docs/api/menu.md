@@ -111,7 +111,7 @@ Sisipkan `menuItem` ke posisi `pos` pada menu.
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+** Catatan: </ 0> Beberapa acara hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p> 
 
 
 
