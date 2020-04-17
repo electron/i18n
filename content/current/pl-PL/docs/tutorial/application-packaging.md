@@ -26,7 +26,7 @@ $ asar pack your-app app.asar
 
 In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
-### Node API
+### API Node
 
 With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
 
@@ -148,3 +148,4 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+
