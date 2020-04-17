@@ -22,7 +22,7 @@ The `shell` modul memiliki metode berikut:
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openItem(fullPath)`
+### `shell.openItem (fullPath)`
 
 * `fullPath` String
 
@@ -54,7 +54,7 @@ Pindahkan file yang diberikan ke sampah dan mengembalikan status boolean untuk p
 
 Bermain suara bip.
 
-### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
+### `shell.writeShortcutLink (shortcutPath [, operasi], pilihan)` _Windows_
 
 * `shortcutPath` String
 * `operation` String (optional) - Default is `create`, can be one of following:
