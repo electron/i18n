@@ -92,7 +92,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 `new Menu`로 생성되거나 `Menu.buildFromTemplate`의 결과로 반환된 객체들은 다음과 같은 이벤트들을 발생시킵니다
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**참고:** 몇몇 이벤트는 표기된 특정 운영체제에서만 사용할 수 있습니다.
 
 #### 이벤트: 'menu-will-show'
 
