@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Kejadian
 
 Modul`powerMonitor` memancarkan peristiwa berikut:
 
@@ -35,7 +35,7 @@ Emitted saat sistem dilanjutkan.
 
 Emitted saat sistem berubah menjadi AC power.
 
-### Event: 'on-battery' _Windows_
+### Acara: 'di-baterai' _Windows_
 
 Emitted saat sistem berubah menjadi daya baterai.
 
@@ -51,7 +51,7 @@ Emitted when the system is about to lock the screen.
 
 Emitted as soon as the systems screen is unlocked.
 
-## Methods
+## Metode
 
 The `powerMonitor` module has the following methods:
 
