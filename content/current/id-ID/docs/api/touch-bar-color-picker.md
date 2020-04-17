@@ -4,7 +4,7 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarColorPicker(options)` _Experimental_
+### `TouchBarColorPicker baru (pilihan)`_Eksperimental_
 
 * `options` Object
   * `tersediaWarna`String[](opsional) - Array string warna hex ke muncul sebagai warna yang mungkin dipilih.
@@ -12,7 +12,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
   * `change` Function (optional) - Function to call when a color is selected.
     * `warna` String - Warna yang dipilih pengguna dari pemetik.
 
-### Instance Properties
+### Contoh properti
 
 Properti berikut tersedia pada contoh `TouchBarColorPicker`:
 
