@@ -1,13 +1,13 @@
 # Debug del Processo Principale in VSCode
 
-### 1. Open an Electron project in VSCode.
+### 1. Apri un progetto Electron in VsCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. Aggiungi un file `.vscode/launch.json` con la configurazione seguente:
 
 ```json
 {
