@@ -4,7 +4,7 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarScrubber(options)` _Experimental_
+### `TouchBarScrubberbaru(pilihan) ` _ Eksperimental _
 
 * `options` Object
   * `item` [ScrubberItem[] ](structures/scrubber-item.md) - Kumpulan item yang akan ditempatkan di scrubber ini.
@@ -18,13 +18,13 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
   * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
-### Instance Properties
+### Contoh properti
 
 Properti berikut tersedia pada contoh-contoh dari `TouchBarScrubber`:
 
 #### `touchBarScrubber.items`
 
-`[ScrubberItem]` array yang mewakili item dalam scrubber ini. Segera memperbarui nilai ini update kontrol di bar sentuhan. Updating deep properties inside this array **does not update the touch bar**.
+`[ScrubberItem]` array yang mewakili item dalam scrubber ini. Segera memperbarui nilai ini update kontrol di bar sentuhan. Memperbarui sifat-sifat yang mendalam dalam array ini **tidak memperbarui bar sentuhan**.
 
 #### `touchBarScrubber.selectedStyle`
 
