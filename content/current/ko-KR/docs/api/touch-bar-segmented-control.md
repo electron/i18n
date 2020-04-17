@@ -26,7 +26,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
     * `selectedIndex` Integer - The index of the segment the user selected.
     * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 The following properties are available on instances of `TouchBarSegmentedControl`:
 
