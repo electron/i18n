@@ -8,15 +8,10 @@ URL server simbol resmi untuk Elektron adalah https: // electron -symbols.github
 
 <h2 spaces-before="0">Menggunakan Symbol Server di Windbg</h2>
 
-<p spaces-before="0">Jalur simbol Windbg dikonfigurasi dengan nilai string yang dibatasi dengan karakter tanda bintang. To use only the Electron symbol server, add the following entry to
-your symbol path (<strong x-id="1">Note:</strong> you can replace <code>c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
+<p spaces-before="0">Jalur simbol Windbg dikonfigurasi dengan nilai string yang dibatasi dengan karakter tanda bintang. Untuk hanya menggunakan server simbol Elektron , tambahkan entri berikut ke jalur simbol Anda ( <strong x-id="1"> Catatan: </ 0> Anda dapat mengganti <code> c: \ code \ symbols </ 1> dengan direktori yang dapat ditulis di komputer Anda, jika Anda lebih memilih lokasi yang berbeda untuk simbol yang diunduh):</p>
 
-
-
-```powershell
-SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
-```
-
+<pre><code class="powershell">SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+`</pre> 
 
 Tetapkan string ini sebagai ` _NT_SYMBOL_PATH </ 0> di lingkungan, dengan menggunakan menu Windbg, atau dengan mengetikkan perintah <code> .sympath </ 0> . Jika Anda ingin mendapatkan simbol dari server simbol Microsoft juga, Anda harus mencantumkannya terlebih dulu:</p>
 
