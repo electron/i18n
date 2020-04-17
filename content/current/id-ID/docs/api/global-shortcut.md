@@ -6,8 +6,7 @@ Proses: [Main](../glossary.md#main-process)
 
 The ` globalShortcut </ 0> modul dapat mendaftarkan / unregister shortcut keyboard global dengan sistem operasi sehingga Anda dapat menyesuaikan operasi untuk berbagai cara pintas.</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> The shortcut is global; it will work even if the app does
-not have the keyboard focus. Anda tidak boleh menggunakan modul ini sampai event <code> ready </ 0>
+<p spaces-before="0"><strong x-id="1"> Catatan: </ 0> Jalan pintas bersifat global; itu akan bekerja bahkan jika aplikasi tidak memiliki fokus keyboard. Anda tidak boleh menggunakan modul ini sampai event <code> ready </ 0>
  dari modul aplikasi dipancarkan.</p>
 
 <pre><code class="javascript">const { app, globalShortcut } = memerlukan ('elektron') app.on ('siap', () = & gt; {
@@ -39,8 +38,8 @@ Modul ` globalShortcut ` memiliki metode berikut:
 
 ### `globalShortcut.register (akselerator, callback)`
 
-* ` akselerator </ 0>  <a href="accelerator.md"> Akselerator </ 1></li>
-<li><code>callback ` Fungsi
+* ` akselerator ` [ Accelerator ](accelerator.md)
+* `callback ` Fungsi
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
@@ -73,19 +72,17 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 ### `globalShortcut.isRegistered (akselerator)`
 
-* ` akselerator </ 0>  <a href="accelerator.md"> Akselerator </ 1></li>
-</ul>
+* ` akselerator ` [ Accelerator ](accelerator.md)
 
-<p spaces-before="0">Mengembalikan <code> Boolean </ 0> - Apakah aplikasi ini telah terdaftar <code> akselerator </ 0> .</p>
+Mengembalikan ` Boolean </ 0> - Apakah aplikasi ini telah terdaftar <code> akselerator </ 0> .</p>
 
 <p spaces-before="0">Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini tetap akan kembali <code> salah</ 0> . Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
 
 <h3 spaces-before="0"><code>globalShortcut.unregister (akselerator)`</h3>
 
-* ` akselerator </ 0>  <a href="accelerator.md"> Akselerator </ 1></li>
-</ul>
+* ` akselerator ` [ Accelerator ](accelerator.md)
 
-<p spaces-before="0">Unregisters jalan pintas global <code> akselerator </ 0> .</p>
+Unregisters jalan pintas global ` akselerator </ 0> .</p>
 
 <h3 spaces-before="0"><code>globalShortcut.unregisterAll ()`</h3>
 
