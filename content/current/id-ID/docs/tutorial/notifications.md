@@ -2,7 +2,7 @@
 
 Ketiga sistem operasi tersebut menyediakan sarana bagi aplikasi untuk mengirim pemberitahuan ke pengguna. Elektron memudahkan pengembang untuk mengirim notifikasi dengan [HTML5 Notification API](https://notifications.spec.whatwg.org/), menggunakan API pemberitahuan asli sistem operasi yang sedang berjalan untuk menampilkannya.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. Jika Anda ingin menampilkan Notifikasi dalam proses utama, periksa modul [Notification](../api/notification.md).
+**Catatan:** Karena ini adalah API HTML5, ini hanya tersedia dalam proses renderer. Jika Anda ingin menampilkan Notifikasi dalam proses utama, periksa modul [Notification](../api/notification.md).
 
 ```javascript
 biarkan myNotification = baru pemberitahuan ('Title', {
