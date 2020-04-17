@@ -72,19 +72,15 @@ Mulai proses sebagai proses Node.js normal.
 
 
 
-### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
+### ` ELECTRON_tidak_melapirkan_menghibur </ 0>  <em x-id="4"> jendela</ 1></h3>
 
-Jangan lampirkan sesi konsol saat ini.
+<p spaces-before="0">Jangan lampirkan sesi konsol saat ini.</p>
 
+<h3 spaces-before="0"><code> ELECTRON_memaksa_jendela_MENU_BAR </ 0>  <em x-id="4"> Linux </ 1></h3>
 
+<p spaces-before="0">Jangan gunakan menu bar global di Linux.</p>
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
-
-Jangan gunakan menu bar global di Linux.
-
-
-
-### `ELECTRON_TRASH` _Linux_
+<h3 spaces-before="0"><code>ELECTRON_TRASH` _Linux_
 
 Set the trash implementation on Linux. Default is `gio`.
 
@@ -122,11 +118,11 @@ Mencetak tumpukan jejak ke konsol saat Electron crash.
 
 Variabel lingkungan ini tidak akan bekerja jika ` crashReporter </ 0> dimulai.</p>
 
-<h3 spaces-before="0"><code>ELECTRON_DEFAULT_ERROR_MODE` _Windows_</h3> 
+<h3 spaces-before="0"><code> ELECTRON_DEFAULT_kesalahan_mode </ 0>  <em x-id="4"> jendela </ 1></h3>
 
-Menunjukkan dialog crash Windows saat Electron crash.
+<p spaces-before="0">Menunjukkan dialog crash Windows saat Electron crash.</p>
 
-Variabel lingkungan ini tidak akan bekerja jika ` crashReporter </ 0> dimulai.</p>
+<p spaces-before="0">Variabel lingkungan ini tidak akan bekerja jika <code> crashReporter </ 0> dimulai.</p>
 
 <h3 spaces-before="0"><code>ELECTRON_OVERRIDE_DIST_PATH`</h3> 
 
