@@ -493,7 +493,7 @@ tray.setHighlightMode (salah)
 tray.setHighlightMode ('off')
 ```
 
-### `konten web`
+### `kontenWeb`
 
 ```js
 // Deprecated
@@ -586,7 +586,7 @@ nativeImage.toJPEG()
 
 * `proses.versi.electron` dan `proses.versi.chrome` akan dibuat properti hanya baca untuk konsistensi dengan proses `proses.versi` properti yang ditetapkan oleh Node.
 
-### `konten web`
+### `kontenWeb`
 
 ```js
 // Removed
