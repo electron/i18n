@@ -4,7 +4,7 @@ Il rendering fuori schermo permette di ottenere il contenuto di una finestra bro
 
 Due metodi di rendering possono essere usati e solo l'area sporca è passata nell'evento `'disegna'` per essere più efficiente. Il rendering può essere fermato, continuato e il frame rate è impostabile. Il frame rate specificato è un valore limite massimo quando non succede nulla su una pagina web, nessun fram è generato. The maximum frame rate is 60, because above that there is no benefit, only performance loss.
 
-**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+**Nota:** Una finestra fuori schermo è sempre creata come [Finestra Senza Frame](../api/frameless-window.md).
 
 
 
