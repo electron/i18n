@@ -2,7 +2,7 @@
 
 > Chromium 기본 네트워킹 라이브러리를 사용하여 HTTP/HTTPS 요청을 만듭니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 `net` 모듈은 HTTP(S) 요청을 만들기 위한 클라이언트 측 API입니다. Node.js의 [HTTP](https://nodejs.org/api/http.html), [HTTPS](https://nodejs.org/api/https.html) 모듈과 유사하지만 Node.js의 구현 대신 웹 프록시를 더 잘 지원하는 Chromium 기본 네트워킹 라이브러리를 사용합니다.
 
@@ -38,7 +38,7 @@ app.on('ready', () => {
 
 The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
-## 메소드
+## 메서드
 
 다음은 `net` 객체에서 사용할 수 있는 메서드입니다.
 
