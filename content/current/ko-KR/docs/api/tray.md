@@ -2,7 +2,7 @@
 
 > 시스템의 알림 영역에 아이콘 및 컨텍스트 메뉴를 추가합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 `Tray`는 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)이다.
 
@@ -66,7 +66,7 @@ The `Tray` module emits the following events:
 
 #### Event: 'click'
 
-반환:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -76,7 +76,7 @@ Emitted when the tray icon is clicked.
 
 #### Event: 'right-click' _macOS_ _Windows_
 
-반환:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -85,7 +85,7 @@ Emitted when the tray icon is right clicked.
 
 #### Event: 'double-click' _macOS_ _Windows_
 
-반환:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -110,7 +110,7 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `files` String[] - The paths of the dropped files.
@@ -119,7 +119,7 @@ Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `text` String - the dropped text string.
@@ -140,7 +140,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Event: 'mouse-enter' _macOS_
 
-반환:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -149,7 +149,7 @@ Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' _macOS_
 
-반환:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -158,14 +158,14 @@ Emitted when the mouse exits the tray icon.
 
 #### Event: 'mouse-move' _macOS_ _Windows_
 
-반환:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the mouse moves in the tray icon.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 The `Tray` class has the following methods:
 
