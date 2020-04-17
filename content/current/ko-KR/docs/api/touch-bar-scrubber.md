@@ -18,7 +18,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
   * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 The following properties are available on instances of `TouchBarScrubber`:
 
