@@ -26,7 +26,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 - `arch`
 - `platform`
 - `sandboxed`
-- `mengetik`
+- `type`
 - `version`
 - `versions`
 - `mas`
@@ -50,7 +50,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properti/peralatan
+## properti
 
 ### `process.defaultApp` _Readonly_
 
@@ -111,7 +111,7 @@ A `String` mewakili string versi Elektron.
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
-## Methods
+## Metode
 
 Objek `proses` memiliki metode berikut:
 
