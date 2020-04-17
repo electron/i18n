@@ -150,43 +150,43 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
-Deprecated: https://atom.io/download/electron
+Przestarzałe: https://atom.io/download/electron
 
-Replace with: https://electronjs.org/headers
+Zamień z: https://electronjs.org/headers
 
 ### API Changed: `session.clearAuthCache()` no longer accepts options
 
 The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-// Deprecated
+// Przestarzałe
 session.clearAuthCache({ type: 'password' })
-// Replace with
+// Zamień z
 session.clearAuthCache()
 ```
 
 ### API Changed: `powerMonitor.querySystemIdleState` is now `powerMonitor.getSystemIdleState`
 
 ```js
-// Removed in Electron 7.0
+// Usunięte w Electron 7.0
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// Zamień na synchroniczne API
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
 ### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleState`
 
 ```js
-// Removed in Electron 7.0
+// Usunięte w Electron 7.0
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// Zamień na synchroniczne API
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
 ### API Changed: `webFrame.setIsolatedWorldInfo` replaces separate methods
 
 ```js
-// Removed in Electron 7.0
+// Usunięto w Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
@@ -210,12 +210,12 @@ The `webkitdirectory` property on HTML file inputs allows them to select folders
 
 As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
-As an illustration, take a folder with this structure:
+Jako ilustrację, zobacz folder z tą strukturą:
 ```console
 folder
-├── file1
-├── file2
-└── file3
+├── plik1
+├── plik2
+└── plik3
 ```
 
 In Electron <=6, this would return a `FileList` with a `File` object for:
@@ -223,7 +223,7 @@ In Electron <=6, this would return a `FileList` with a `File` object for:
 path/to/folder
 ```
 
-In Electron 7, this now returns a `FileList` with a `File` object for:
+W Electron 7, teraz zwraca `FileList` z obiektem `File` dla:
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
