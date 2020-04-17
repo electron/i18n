@@ -49,13 +49,13 @@ Kamu bisa membuat sebuah `Sesi` objek di `sesi` modul:
 const { session } = require('electron') const ses = session.fromPartition('persist:name') console.log(ses.getUserAgent())
 ```
 
-### Contoh peristiwa
+### Perihal contoh
 
 Peristiwa berikut tersedia pada contoh `Sesi`:
 
 #### Perihan: 'akan-terunduh'
 
-Mengembalikan:
+Pengembalian:
 
 * `event` Sinyal
 * `barang` [unduhbarang](download-item.md)
@@ -71,9 +71,9 @@ const { session } = require('electron') session.defaultSession.on (' akan-downlo
 
 #### Event: 'preconnect'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `peristiwa` Peristiwa
 * `preconnectUrl` String - The URL being requested for preconnection by the renderer.
 * `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
 
@@ -81,41 +81,41 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 
 #### Event: 'spellcheck-dictionary-initialized'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
-* `languageCode` String - The language code of the dictionary file
+* `event</ 0> Acara</li>
+<li><code>languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
 
 #### Event: 'spellcheck-dictionary-download-begin'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file starts downloading
 
 #### Event: 'spellcheck-dictionary-download-success'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully downloaded
 
 #### Event: 'spellcheck-dictionary-download-failure'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `event` Acara
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-### Методы экземпляра
+### Metode Contoh
 
 Metode berikut tersedia pada contoh `Sesi`:
 
@@ -357,10 +357,9 @@ Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.downloadURL(url)`
 
-* ` url </ 0> String</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Initiates a download of the resource at <code>url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.</p>
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
 
 **Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
 
@@ -426,7 +425,7 @@ Returns `Boolean` - Whether the word was successfully written to the custom dict
 
 **Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
 
-### Instance Properties
+### Contoh properti
 
 Properti berikut tersedia pada contoh-contoh dari `sesi`:
 
