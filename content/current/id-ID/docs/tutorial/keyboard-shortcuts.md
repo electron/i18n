@@ -1,4 +1,4 @@
-# Cara pintas keyboard
+# Keyboard Shortcuts
 
 > Configure local and global keyboard shortcuts
 
