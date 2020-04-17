@@ -430,6 +430,8 @@ The following app commands are explicitly supported on Linux:
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
+The method underlying this event is built to handle older macOS-style trackpad swiping, where the content on the screen doesn't move with the swipe. Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
+
 #### Event: 'rotate-gesture' _macOS_
 
 返回:
@@ -1415,7 +1417,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 设置窗口的触摸条布局 设置为 `null` 或`undefined`将清除触摸条. 此方法只有在macOS 10.12.1+且设备支持触摸条TouchBar时可用.
 
-**注意:** TouchBar API目前为实验性质，以后的Electron版本可能会更改或删除。
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _实验_
 
