@@ -49,7 +49,7 @@ app.on('ready', () => {
 })
 ```
 
-## Methods
+## Metode
 
 Modul ` protocol ` memiliki beberapa metode berikut:
 
