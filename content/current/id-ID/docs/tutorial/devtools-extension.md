@@ -30,7 +30,7 @@ Menggunakan [Alat-alat pengembang React](https://chrome.google.com/webstore/deta
    )
    ```
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**Catatan:** `BrowserWindow.addDevToolsExtension` API tidak disebut sebelum event siap saat modul app dibunyikan.
 
 The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
