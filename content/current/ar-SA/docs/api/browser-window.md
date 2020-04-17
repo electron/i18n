@@ -431,46 +431,48 @@ Returns:
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-The method underlying this event is built to handle older macOS-style trackpad swiping, where the content on the screen doesn't move with the swipe. Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
+تم إنشاء الطريقة التي يقوم عليها هذا الحدث للتعامل مع لوحة التتبع القديمة على غرار نظام التشغيل mac Os حيث لا يتحرك المحتوى على الشاشة مع السحب. معظم لوحات التتبع macOS ليست تكوين للسماح لهذا النوع من الضرب بعد الآن ، وذلك من أجل أن تنبعث بشكل صحيح تفضيل "السحب بين الصفحات" في `تفضيلات النظام > Trackpad > `يجب أن يكون المزيد من الإيماءات تعيين إلى 'انتقاد مع اثنين أو ثلاثة أصابع'.
 
 #### Event: 'rotate-gesture' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `rotation` Float
 
-Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
+المنبعث/ـة على إيماءة دوران لوحة التتبع. تنبعث باستمرار حتى لفتة التناوب انتهت. قيمة كل انبعاث هي الزاوية بدرجات دوارة منذ الانبعاثات الأخيرة. الحدث الأخير المنبعث على إيماءة التناوب سيكون دائما من قيمة `0/0> . قيم الدوران المعاكسة في اتجاه عقارب الساعة موجبة، في حين أن قيم عقارب الساعة هي السلبيه.</p>
 
-#### Event: 'sheet-begin' _macOS_
+<h4 spaces-before="0">Event: 'sheet-begin' <em x-id="4">macOS</em></h4>
 
-Emitted when the window opens a sheet.
+<p spaces-before="0">تنبعث عندما تفتح النافذة ورقة.</p>
 
-#### Event: 'sheet-end' _macOS_
+<h4 spaces-before="0">Event: 'sheet-end' <em x-id="4">macOS</em></h4>
 
-Emitted when the window has closed a sheet.
+<p spaces-before="0">تنبعث عندما تكون النافذة قد أغلقت ورقة.</p>
 
-#### Event: 'new-window-for-tab' _macOS_
+<h4 spaces-before="0">Event: 'new-window-for-tab' <em x-id="4">macOS</em></h4>
 
-Emitted when the native new tab button is clicked.
+<p spaces-before="0">تنبعث عند النقر فوق زر علامة التبويب الجديدة الأصلية.
+</p>
 
-### Static Methods
+<h3 spaces-before="0">Static Methods</h3>
 
-The `BrowserWindow` class has the following static methods:
+<p spaces-before="0">تحتوي فئة BrowserWindow على الأساليب الثابتة التالية:
+</p>
 
-#### `BrowserWindow.getAllWindows()`
+<h4 spaces-before="0"><code>BrowserWindow.getAllWindows()`</h4>
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+إرجاع `المتصفح ويندوز[]` - مجموعة من جميع نوافذ المتصفح المفتوحة.
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow | null` - The window that is focused in this application, otherwise returns `null`.
+إرجاع `BrowserWindow | فارغة` - الإطار الذي يركز في هذا التطبيق، وإلا إرجاع `فارغة`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
+إرجاع `BrowserWindow | فارغة` - النافذة التي تمتلك `webContents معين` أو `فارغة` إذا لم تكن المحتويات مملوكة من قبل إطار.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
