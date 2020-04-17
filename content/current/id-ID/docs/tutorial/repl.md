@@ -17,6 +17,6 @@ Modul `repl` menyediakan implementasi REPL yang dapat diakses menggunakan:
 
 This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
 
-**Note:** `electron --interactive` is not available on Windows.
+**Catatan:** `electron--interactive` tidak tersedia pada Windows.
 
 Informasi lebih lanjut dapat ditemukan di [Dokumentasi Node.js REPL](https://nodejs.org/dist/latest/docs/api/repl.html).
