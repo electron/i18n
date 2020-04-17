@@ -18,9 +18,9 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### Acara : 'diperbarui'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `event` Event
 * `state` String - Can be `progressing` or `interrupted`.
 
 Emitted saat download telah di perbarui dan belum selesai.
@@ -37,7 +37,7 @@ Emitted saat download telah di perbarui dan belum selesai.
 <p spaces-before="0">Mengembalikan:</p>
 
 <ul>
-<li><code>event` Sinyal</li>
+<li><code>peristiwa` Peristiwa</li>
 * `state` String - Can be `completed`, `cancelled` or `interrupted`.</ul>
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
@@ -50,7 +50,7 @@ Emitted when the download is in a terminal state. This includes a completed down
 <li><code> terputus </ 0> - Unduhan telah terganggu dan tidak dapat dilanjutkan.</li>
 </ul>
 
-<h3 spaces-before="0">Методы экземпляра</h3>
+<h3 spaces-before="0">Metode Instance</h3>
 
 <p spaces-before="0"><code> download Item </ 0> objek memiliki metode berikut:</p>
 
@@ -158,7 +158,7 @@ Mengembalikan ` String </ 0> - nilai header ETag.</p>
 
 Mengembalikan ` Ganda </ 0> - Jumlah detik sejak zaman UNIX saat unduhan dimulai.</p>
 
-<h3 spaces-before="0">Instance Properties</h3>
+<h3 spaces-before="0">Contoh properti</h3>
 
 <h4 spaces-before="0"><code>downloadItem.savePath`</h4>
 
