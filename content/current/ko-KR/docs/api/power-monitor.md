@@ -2,7 +2,7 @@
 
 > Monitor power state changes.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## 이벤트
 
 The `powerMonitor` module emits the following events:
 
