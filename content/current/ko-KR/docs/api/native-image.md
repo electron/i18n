@@ -2,7 +2,7 @@
 
 > PNG 또는 JPG파일을 사용하여 트레이, 도크, 응용프로그램 아이콘으로 생성할 수 있다.
 
-프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
 In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
@@ -177,9 +177,9 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 > Natively wrap images such as tray, dock, and application icons.
 
-프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 The following methods are available on instances of the `NativeImage` class:
 
@@ -279,7 +279,7 @@ Returns `Float` - The image's aspect ratio.
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 
