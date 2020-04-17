@@ -134,8 +134,8 @@ Secara default, jendela tanpa bingkai tidak dapat ditarik. Aplikasi harus menent
 <p spaces-before="0">Untuk membuat seluruh jendela menjadi seret, Anda dapat menambahkan gaya <code> -webkit-app-region: drag </ 0> sebagai
  <code> body </ 0> :</p>
 
-<pre><code class="html"><body style="-webkit-app-region: drag">
-</body>
+<pre><code class="html"><body style="-webkit-app-region: drag"> 
+</ 0>
 `</pre> 
 
 Dan perhatikan bahwa jika Anda telah membuat keseluruhan jendela draggable, Anda juga harus menandai tombol sebagai non-draggable, jika tidak, tidak mungkin bagi pengguna untuk mengekliknya:
