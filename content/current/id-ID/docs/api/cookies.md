@@ -42,7 +42,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 <h4 spaces-before="0">Acara: 'berubah'</h4>
 
 <ul>
-<li><code>event` Sinyal</li>
+<li><code>event` Event</li>
 * `cookie`[ Cookie ](structures/cookie.md) - Cookie yang telah diubah.
 * `cause` String - The cause of the change with one of the following values:
   * ` eksplisit </ 0> - Cookie diubah secara langsung oleh tindakan konsumen.</li>
@@ -56,7 +56,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 
 <p spaces-before="0">Emitted ketika cookie diubah karena ditambahkan, diedit, dihapus, atau kadaluarsa.</p>
 
-<h3 spaces-before="0">Методы экземпляра</h3>
+<h3 spaces-before="0">Metode Instance</h3>
 
 <p spaces-before="0">Metode berikut tersedia pada contoh <code> Cookies </ 0> :</p>
 
@@ -82,7 +82,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (pilihan) - Domain cookie; ini akan dinormalisasi dengan titik sebelumnya sehingga juga berlaku untuk subdomain. Empty by default if omitted.
   * `jejak` String (pilihan) - Jejak dari sebuah cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Default ke false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Default ke false.
   * ` kadaluarsaDate </ 0>  Double (opsional) - Tanggal kadaluarsa cookie sebagai jumlah detik sejak zaman UNIX. Jika dihilangkan maka cookie menjadi cookie sesi dan tidak akan disimpan di antara sesi.</li>
 </ul></li>
