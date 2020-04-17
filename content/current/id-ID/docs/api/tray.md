@@ -38,7 +38,7 @@ Modul `Tray` memancarkan peristiwa berikut:
 
 #### Acara : 'klik'
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
@@ -46,63 +46,63 @@ Mengembalikan:
 
 Emitted saat ikon baki diklik.
 
-#### Event: 'right-click' _macOS_ _Windows_
+#### Event: klik 'kanan' _macOS_ _Windows_
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
 
 Dibunyikan ketika ikon tray benar diklik.
 
-#### Event: 'double-click' _macOS_ _Windows_
+#### Event: 'Klik dua kali' _macOS_ _Windows_
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
 
 Dipancarkan saat ikon baki diklik dua kali.
 
-#### Event: 'balloon-show' _Windows_
+#### Event: 'balon-show' _Windows_
 
 Emitted saat balon baki menunjukkan.
 
-#### Event: 'balloon-click' _Windows_
+#### Event: 'klik-balloon' _Windows_
 
 Emitted saat balon nampan diklik.
 
-#### Event: 'balloon-closed' _Windows_
+#### Event: 'balon-tertutup' _Windows_
 
 Dipancarkan ketika balon nampan ditutup karena timeout atau pengguna secara manual menutup itu.
 
-#### Event: 'drop' _macOS_
+#### Event: 'turun' _macOS_
 
 Emitted bila ada item yang diseret dijatuhkan pada ikon baki.
 
-#### Event: 'drop-files' _macOS_
+#### Event: 'drop-file' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `event` Acara
 * `file` String [] - path file menjatuhkan.
 
 Disuarakan saat file terseret dijatuhkan di ikon baki.
 
-#### Event: 'drop-text' _macOS_
+#### Event: 'drop-teks' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `teks` String - string teks menjatuhkan.
 
 Dibunyikan apabila menyeret teks jatuh dalam ikon tray.
 
-#### Event: 'drag-enter' _macOS_
+#### Event: 'Masukkan tarik' _macOS_
 
 Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
-#### Event: 'drag-leave' _macOS_
+#### Event: 'drag-meninggalkan' _macOS_
 
 Dibunyikan apabila operasi tarik keluar ikon tray.
 
@@ -110,18 +110,18 @@ Dibunyikan apabila operasi tarik keluar ikon tray.
 
 Dipancarkan ketika operasi drag yang berakhir di baki atau berakhir di lokasi lain.
 
-#### Event: 'mouse-enter' _macOS_
+#### Event: 'masuk mouse' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
 
 Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
-#### Event: 'mouse-leave' _macOS_
+#### Acara: 'pindah' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
@@ -130,14 +130,14 @@ Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
 #### Event: 'mouse-move' _macOS_ _Windows_
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
 
 Emitted when the mouse moves in the tray icon.
 
-### Методы экземпляра
+### Metode Instance
 
 Itu `net` modul memiliki metode berikut:
 
@@ -151,7 +151,7 @@ Segera hancurkan ikon baki.
 
 Mengatur `gambar` yang terkait dengan ikon baki ini.
 
-#### `tray.setPressedImage(image)` _macOS_
+#### `tray.setPressedImage(gambar) ` _macos_
 
 * `gambar` ([NativeImage](native-image.md) | String)
 
@@ -163,18 +163,18 @@ Mengatur ` gambar ` yang terkait dengan ikon baki ini saat ditekan pada macOS.
 
 Menyetel teks hover untuk ikon baki ini.
 
-#### `tray.setTitle(title)` _macOS_
+#### `tray.setTitle(judul) ` _macos_
 
-* ` judul</ 0>  String</li>
+* ` judul </ 0> String</li>
 </ul>
 
 <p spaces-before="0">Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).</p>
 
-<h4 spaces-before="0"><code>tray.getTitle()` _macOS_</h4>
+<h4 spaces-before="0"><code> tray.getTitle () </ 0>  <em x-id="4"> macos </ 1></h4>
 
-Returns `String` - the title displayed next to the tray icon in the status bar
+<p spaces-before="0">Returns <code>String` - the title displayed next to the tray icon in the status bar</p>
 
-#### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
+#### `tray.setIgnoreDoubleClickEvents(ignore)` Linux _macOS_
 
 * `mengabaikan` Boolean
 
@@ -182,16 +182,16 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 
 This value is set to false by default.
 
-#### `tray.getIgnoreDoubleClickEvents()` _macOS_
+#### ` tray.getIgnoreDoubleClickEvents () </ 0>  <em x-id="4"> macos </ 1></h4>
 
-Returns `Boolean` - Whether double click events will be ignored.
+<p spaces-before="0">Returns <code>Boolean` - Whether double click events will be ignored.</p>
 
 #### `tray.displayBalloon(options)` _Windows_
 
 * `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
-  * ` judul</ 0>  String</li>
+  * ` judul </ 0> String</li>
 <li><code>content` String
   * `largeIcon` Boolean (optional) - The large version of the icon should be used. Defaultnya adalah `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
   * `noSound` Boolean (optional) - Do not play the associated sound. Defaultnya adalah ` false </ 0> . Maps to <a href="https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010"><code>NIIF_NOSOUND`</a>.
@@ -218,11 +218,11 @@ Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
 
 #### `tray.setContextMenu (menu)`
 
-* `menu` Menu | null
+* `menu` Menu | batal
 
 Menetapkan menu konteks untuk ikon ini.
 
-#### `tray.getBounds()` _macOS_ _Windows_
+#### `tray.getBounds()` _macOS _ _ Windows_
 
 Kembali [`Rectangle`](structures/rectangle.md)
 
