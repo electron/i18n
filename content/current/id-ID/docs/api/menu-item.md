@@ -95,7 +95,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 **Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
-### Instance Properties
+### Contoh properti
 
 Properti berikut tersedia pada contoh-contoh dari `MenuItem`:
 
@@ -109,7 +109,7 @@ A `String` indicating the item's visible label, this property can be dynamically
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+`Fungsi` yang dipecat ketika MenuItem menerima event klik. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
