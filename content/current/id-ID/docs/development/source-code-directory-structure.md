@@ -1,4 +1,4 @@
-# Struktur direktori sumber kode
+# Struktur Direktori Sumber Kode
 
 Kode sumber dari electron dipisahkan menjadi beberapa bagian, sebagian besar mengikuti Chromium pada konvensi pemisahan.
 
@@ -78,12 +78,12 @@ Electron
 
 * **.circleci** - Config file for CI with CircleCI.
 * **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
+* **dist** - Direktori sementara dibuat oleh skrip `script/create-dist.py` saat membuat distribusi.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
-* **node_modules** - Third party node modules used for building.
+* **node_modules** - Modul simpul pihak ketiga digunakan untuk bangunan.
 * **npm** - Logic for installation of Electron via npm.
-* **out** - Temporary output directory of `ninja`.
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
+* **keluar** - Direktori keluaran sementara `ninja`.
+* **skrip** - Skrip yang digunakan untuk tujuan pembangunan seperti bangunan, kemasan, pengujian, dll.
 ```diff
 script/ - The set of all scripts Electron runs for a variety of purposes.
 ├── codesign/ - Fakes codesigning for Electron apps; used for testing.
