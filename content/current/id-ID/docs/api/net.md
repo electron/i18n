@@ -46,7 +46,7 @@ The `net` API can be used only after the application emits the `ready` event. Tr
 
 Itu ` net </ 0> modul memiliki metode berikut:</p>
 
-<h3 spaces-before="0"><code>net.request(options)`</h3>
+<h3 spaces-before="0"><code>net.pilihan (pilihan)`</h3>
 
 * `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
 
