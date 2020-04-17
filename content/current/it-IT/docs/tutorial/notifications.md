@@ -2,7 +2,7 @@
 
 I tre sistemi operativi menzionati nel titolo forniscono alle applicazioni gli strumenti per inviare notifiche agli utenti. Electron consente agli sviluppatori di inviare notifiche in maniera semplice impiegando l'[API Notifiche HTML5](https://notifications.spec.whatwg.org/), che sfrutta, per la visualizzazione, l'API notifiche nativa del sistema operativo in uso.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. Se vuoi visualizzare le notifiche per mezzo del processo principale controlla la documentazione del modulo [Notification](../api/notification.md).
+**Nota:** Essendo questa una API HTML5 è disponibile nel solo processo di rendering. Se vuoi visualizzare le notifiche per mezzo del processo principale controlla la documentazione del modulo [Notification](../api/notification.md).
 
 ```javascript
 let myNotification = new Notification('Title', {
