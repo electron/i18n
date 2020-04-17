@@ -3,13 +3,13 @@
 * `icon` [NativeImage](../native-image.md) - Wyświetlana miniatura w pasku narzędzi.
 * `click` Function
 * `tooltip` String (opcjonalnie) - Tekst etykiety przycisku.
-* `flags` String[] (opcjonalnie) - Kontroluje określone stany oraz zachowania przycisku. Domyślnie jest ustawione na `['enabled']`.
+* `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
 `flags` jest tablicą, która może zawierać następujące `Stringi`:
 
 * `enabled` - przycisk jest aktywny i dostępny dla użytkownika.
-* `disabled` - przycisk jest wyłączony. Jest wyświetlany, ale ma wizualny stan wskazujący, że nie będzie reagować na działania użytkownika.
+* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
 * `dismissonclick` - po kliknięciu przycisku miniatury okno zamyka się natychmiast.
 * `nobackground` - nie rysuj obramowania przycisku, należy użyć tylko obrazka.
 * `hidden` - przycisk nie jest widoczny dla użytkownika.
-* `noninteractive` - przycisk jest włączony, ale nie interaktywnie; stan przyciśnięcia nie jest rysowany. Wartość ta jest przeznaczona dla wystąpienia, gdzie przycisk jest używany w powiadomieniu.
+* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
