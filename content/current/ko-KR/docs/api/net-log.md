@@ -2,7 +2,7 @@
 
 > Logging network events for a session.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 ```javascript
 const { netLog } = require('electron')
@@ -19,7 +19,7 @@ See [`--log-net-log`](command-line-switches.md#--log-net-logpath) to log network
 
 **Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
 
-## 메소드
+## 메서드
 
 ### `netLog.startLogging(path[, options])`
 
