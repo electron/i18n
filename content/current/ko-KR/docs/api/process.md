@@ -2,7 +2,7 @@
 
 > process object의 확장.
 
-프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
 Electron의 `process` object는 [Node.js `process` object](https://nodejs.org/api/process.html)의 확장입니다. 이것은 다음 이벤트, 속성, 그리고 메서드를 추가합니다.
 
@@ -52,15 +52,15 @@ process.once('loaded', () => {
 
 ## 속성
 
-### `process.defaultApp` _Readonly_
+### `process.defaultApp` _읽기전용_
 
 A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
-### `process.isMainFrame` _Readonly_
+### `process.isMainFrame` _읽기전용_
 
 A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas` _Readonly_
+### `process.mas` _읽기전용_
 
 A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
@@ -76,11 +76,11 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
-### `process.resourcesPath` _Readonly_
+### `process.resourcesPath` _읽기전용_
 
 A `String` representing the path to the resources directory.
 
-### `process.sandboxed` _Readonly_
+### `process.sandboxed` _읽기전용_
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
@@ -95,19 +95,19 @@ A `Boolean` that controls whether or not deprecations printed to `stderr` includ
 ### `process.traceProcessWarnings`
 A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
-### `process.type` _Readonly_
+### `process.type` _읽기전용_
 
 A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
-### `process.versions.chrome` _Readonly_
+### `process.versions.chrome` _읽기전용_
 
 A `String` representing Chrome's version string.
 
-### `process.versions.electron` _Readonly_
+### `process.versions.electron` _읽기전용_
 
 A `String` representing Electron's version string.
 
-### `process.windowsStore` _Readonly_
+### `process.windowsStore` _읽기전용_
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
