@@ -8,7 +8,7 @@ L'URL server symbol ufficiale per Electron è https://electron-symbols.githubapp
 
 ## Usare il Server Symbol in Windbg
 
-Il percorso symbol Windbg è configurato con un valore stringa delimitato con caratteri asterisco. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
+Il percorso symbol Windbg è configurato con un valore stringa delimitato con caratteri asterisco. Per usare solo il server symbol di Electron, aggiungi la voce seguente al tuo percorso symbol (**Nota:** puoi rimpiazzare `c:\code\symbols` con qualsiasi directory scrivibile sul tuo computere, se preferisci aggiungere una posizione differente per i symbols scaricati):
 
 ```powershell
 SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
