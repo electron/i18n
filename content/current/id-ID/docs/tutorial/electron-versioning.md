@@ -65,10 +65,10 @@ Baris yang lebih tua tidak akan didukung oleh GitHub, namun kelompok lain dapat 
 
 # Rilis Beta dan Perbaikan Bug
 
-Developers want to know which releases are _safe_ to use. Bahkan fitur yang tampaknya tidak berdosa bisa mengenalkan regresi dalam aplikasi yang kompleks. Pada saat bersamaan, penguncian ke versi tetap berbahaya karena anda mengabaikan tambalan keamanan dan perbaikan bug yang mungkin keluar sejak versi anda. Tujuan kami adalah membiarkan rangkaian standar berikut masuk `package.json` :
+Pengembang ingin mengetahui rilis mana yang _aman_ untuk digunakan. Bahkan fitur yang tampaknya tidak berdosa bisa mengenalkan regresi dalam aplikasi yang kompleks. Pada saat bersamaan, penguncian ke versi tetap berbahaya karena anda mengabaikan tambalan keamanan dan perbaikan bug yang mungkin keluar sejak versi anda. Tujuan kami adalah membiarkan rangkaian standar berikut masuk `package.json` :
 
 * Gunakan ` ~ 2.0.0 </ 0> untuk mengakui hanya perbaikan stabilitas atau keamanan terkait rilis Anda <code> 2.0.0 </ 0>.</li>
-<li>Use <code>^2.0.0` to admit non-breaking _reasonably stable_ feature work as well as security and bug fixes.
+<li>Gunakan <code>^ 2.0.0` untuk mengakui fitur pekerjaan yang tidak melanggar _ cukup stabil _ serta perbaikan keamanan dan bug.
 
 Yang penting dari poin kedua adalah aplikasi yang menggunakan ` ^` tetap dapat mengharapkan tingkat stabilitas yang masuk akal. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
 
@@ -104,7 +104,7 @@ Contoh siklus hidup dalam gambar:
 
 * A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
 * A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
+* Beta dianggap _umumnya stabil_ dan diterbitkan lagi sebagai non-beta di bawah `2.0.0`. ![](../images/versioning-sketch-5.png)
 * Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 Beberapa contoh bagaimana berbagai rentang semver akan mengambil rilis baru:
@@ -116,13 +116,13 @@ Strategi kami memiliki beberapa pengorbanan, yang untuk saat ini kami merasa ses
 
 Sebagai pertimbangan di masa depan, kami dapat memperkenalkan satu atau kedua hal berikut:
 
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in _alpha_
+* rilis alpha yang memiliki batasan stabilitas yang lebih longgar pada beta; misalnya akan diizinkan untuk mengakui fitur baru saat saluran stabilitas masuk _alpha_
 
 # Bendera fitur
-Bendera fitur adalah praktik umum di Chromium, dan mapan di ekosistem pengembangan web. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+Bendera fitur adalah praktik umum di Chromium, dan mapan di ekosistem pengembangan web. Dalam konteks Elektron, bendera fitur atau **soft branch** harus memiliki sifat berikut:
 
 * it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature _violates_ the feature-flag contract
+* itu benar-benar segmen jalur kode baru dan lama; refactoring kode lama untuk mendukung fitur baru _violates_ kontrak bendera fitur
 * feature flags are eventually removed after the feature is released
 
 # Semantic Commits
@@ -130,8 +130,8 @@ Bendera fitur adalah praktik umum di Chromium, dan mapan di ekosistem pengembang
 Kami berusaha untuk meningkatkan kejelasan di semua tingkat proses update dan release. Dimulai dengan `2.0.0` kami akan meminta permintaan tarik sesuai dengan spesifikasi [Konvensional ](https://conventionalcommits.org/), yang dapat diringkas sebagai berikut:
 
 * Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* Komitmen yang akan menghasilkan titik semintang **minor** harus dimulai dengan `feat:`.
+* Perintah yang akan menghasilkan tambatan semver **patch** harus dimulai dengan `fix:`.
 
 * Kami mengizinkan meremas commit, asalkan berpegang pesan terjepit di atas format pesan.
 * It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
@@ -140,5 +140,5 @@ Kami berusaha untuk meningkatkan kejelasan di semua tingkat proses update dan re
 
 - The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Rilis Cabang-cabang tidak pernah digabung kembali ke master
-- Release branches _do_ contain the correct version in their `package.json`
+- Rilis cabang _Apakah_ mengandung versi yang benar di mereka `package.json`
 - As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
