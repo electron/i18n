@@ -9,7 +9,7 @@ const { systemPreferences } = require ('electron')
 console.log (systemPreferences.isDarkMode ())
 ```
 
-## Events
+## Kejadian
 
 Objek 
 
@@ -17,42 +17,41 @@ Objek
   SystemPreferences </ 0> memancarkan peristiwa berikut:</p>
 
 <h3 spaces-before="0">
-  Event: 'accent-color-changed' <em x-id="4">Windows</em>
-</h3>
-
-<p spaces-before="0">
-  Mengembalikan:
-</p>
-
-<ul>
-  <li>
-    <code>event</code> Sinyal
-  </li>
-  <li>
-    <code> newColor &lt;/ 0> String - Warna RGBA baru yang ditugaskan pengguna untuk menjadi sistem mereka
+  Acara: 'aksen-berubah warna' <em x-id="4"> Windows </ 0></h3> 
+  
+  <p spaces-before="0">
+    Pengembalian:
+  </p>
+  
+  <ul>
+    <li>
+      <code>event</code> Event
+    </li>
+    <li>
+      <code> newColor &lt;/ 0> String - Warna RGBA baru yang ditugaskan pengguna untuk menjadi sistem mereka
 Aksen warna.&lt;/li>
 &lt;/ul>
 
-&lt;h3 spaces-before="0" line-breaks-before="2">Event: 'color-changed' &lt;em x-id="4">Windows&lt;/em>&lt;/h3>
+&lt;h3 spaces-before="0" line-breaks-before="2">Event: 'color-changed' &lt;em x-id="4"> Windows &lt;/ 0>&lt;/h3>
 
-&lt;p spaces-before="0" line-breaks-before="2">Mengembalikan:&lt;/p>
+&lt;p spaces-before="0" line-breaks-before="2">Pengembalian:&lt;/p>
 
 &lt;ul spaces="0" level="0" marker="*">
 &lt;li marker="*" level="0" spaces="0" line-breaks-before="3" spaces-after-marker="0">&lt;code>event</code> Sinyal
-  </li>
-</ul>
+    </li>
+  </ul>
 
 <h3 spaces-before="0">
   Event: 'inverted-color-scheme-changed' <em x-id="4">Windows</em> <em x-id="4">Deprecated</em>
 </h3>
 
 <p spaces-before="0">
-  Mengembalikan:
+  Pengembalian:
 </p>
 
 <ul>
   <li>
-    <code>event</code> Sinyal
+    <code>peristiwa</code> Peristiwa
   </li>
   <li>
     <code>invertedColorScheme</code> Boolean - <code>true</code> if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, <code>false</code> otherwise.
@@ -68,15 +67,13 @@ Aksen warna.&lt;/li>
 </h3>
 
 <p spaces-before="0">
-  Mengembalikan:
+  Pengembalian:
 </p>
 
 <ul>
   <li>
-    <code>event</code> Sinyal
-  </li>
-  <li>
-    <code>highContrastColorScheme</code> Boolean - <code>true</code> if a high contrast theme is being used, <code>false</code> otherwise.
+    <code>event&lt;/ 0> Acara&lt;/li>
+&lt;li marker="*" level="0" spaces="0" line-breaks-before="2" spaces-after-marker="0">&lt;code>highContrastColorScheme</code> Boolean - <code>true</code> if a high contrast theme is being used, <code>false</code> otherwise.
   </li>
 </ul>
 
@@ -85,7 +82,7 @@ Aksen warna.&lt;/li>
 </p>
 
 <h2 spaces-before="0">
-  Methods
+  Metode
 </h2>
 
 <h3 spaces-before="0">
@@ -103,30 +100,11 @@ Aksen warna.&lt;/li>
 </p>
 
 <h3 spaces-before="0">
-  <code>systemPreferences.isSwipeTrackingFromScrollEventsEnabled()</code> <em x-id="4">macOS</em>
-</h3>
+  <code> systemPreferences.isSwipeTrackingFromScrollEventsEnabled () &lt;/ 0> &lt;em x-id="4"> macOS &lt;/ 1>&lt;/h3>
 
-<p spaces-before="0">
-  Mengembalikan <code> Boolean &lt;/ 0> - Apakah Gesek di antara pengaturan halaman sudah aktif.&lt;/p>
+&lt;p spaces-before="0" line-breaks-before="2">Mengembalikan &lt;code> Boolean &lt;/ 0> - Apakah Gesek di antara pengaturan halaman sudah aktif.&lt;/p>
 
-&lt;h3 spaces-before="0" line-breaks-before="2">&lt;code>systemPreferences.postNotification(event, userInfo[, deliverImmediately])</code> <em x-id="4">macOS</em></h3> 
-  
-  <ul>
-    <li>
-      <code> event &lt;/ 0> String&lt;/li>
-&lt;li marker="*" level="0" spaces="0" line-breaks-before="2" spaces-after-marker="0">&lt;code>userInfo</code> Record<String, any>
-    </li>
-    <li>
-      <code>deliverImmediately</code> Boolean (optional) - <code>true</code> to post notifications immediately even when the subscribing app is inactive.
-    </li>
-  </ul>
-  
-  <p spaces-before="0">
-    Posts <code>event</code> as native notifications of macOS. The <code>userInfo</code> is an Object that contains the user information dictionary sent along with the notification.
-  </p>
-
-<h3 spaces-before="0">
-  <code>systemPreferences.postLocalNotification(event, userInfo)</code> <em x-id="4">macOS</em>
+&lt;h3 spaces-before="0" line-breaks-before="2">&lt;code>systemPreferences.postNotification(event, userInfo[, deliverImmediately])</code> <em x-id="4">macOS</em>
 </h3>
 
 <ul>
@@ -134,11 +112,25 @@ Aksen warna.&lt;/li>
     <code> event &lt;/ 0> String&lt;/li>
 &lt;li marker="*" level="0" spaces="0" line-breaks-before="2" spaces-after-marker="0">&lt;code>userInfo</code> Record<String, any>
   </li>
+  <li>
+    <code>deliverImmediately</code> Boolean (optional) - <code>true</code> to post notifications immediately even when the subscribing app is inactive.
+  </li>
 </ul>
 
 <p spaces-before="0">
   Posts <code>event</code> as native notifications of macOS. The <code>userInfo</code> is an Object that contains the user information dictionary sent along with the notification.
 </p>
+
+<h3 spaces-before="0">
+  <code> systemPreferences.postLocalNotification (event, userInfo) &lt;/ 0> &lt;em x-id="4"> macos &lt;/ 1>&lt;/h3>
+
+&lt;ul spaces="0" level="0" marker="*">
+&lt;li marker="*" level="0" spaces="0" line-breaks-before="3" spaces-after-marker="0">&lt;code> event &lt;/ 0> String&lt;/li>
+&lt;li marker="*" level="0" spaces="0" line-breaks-before="2" spaces-after-marker="0">&lt;code>userInfo</code> Record<String, any></li> </ul> 
+  
+  <p spaces-before="0">
+    Posts <code>event</code> as native notifications of macOS. The <code>userInfo</code> is an Object that contains the user information dictionary sent along with the notification.
+  </p>
 
 <h3 spaces-before="0">
   <code>systemPreferences.postWorkspaceNotification(event, userInfo)</code> <em x-id="4">macOS</em>
@@ -156,58 +148,56 @@ Aksen warna.&lt;/li>
 </p>
 
 <h3 spaces-before="0">
-  <code>systemPreferences.subscribeNotification(event, callback)</code> <em x-id="4">macOS</em>
-</h3>
+  <code> systemPreferences.subscribeNotification (event, callback) &lt;/ 0> &lt;em x-id="4"> macos &lt;/ 1>&lt;/h3>
 
-<ul>
-  <li>
-    <code> event &lt;/ 0> String&lt;/li>
-&lt;li marker="*" level="0" spaces="0" line-breaks-before="2" spaces-after-marker="0">&lt;code>callback </code> Fungsi <ul>
-      <li>
-        <code> event &lt;/ 0> String&lt;/li>
+&lt;ul spaces="2" level="0" marker="*">
+&lt;li marker="*" level="0" spaces="0" line-breaks-before="3" spaces-after-marker="0">&lt;code> event &lt;/ 0> String&lt;/li>
+&lt;li marker="*" level="0" spaces="0" line-breaks-before="2" spaces-after-marker="0">&lt;code>callback </code> Fungsi 
+  
+  <ul>
+    <li>
+      <code> event &lt;/ 0> String&lt;/li>
 &lt;li marker="*" level="1" spaces="2" line-breaks-before="2" spaces-after-marker="0">&lt;code>userInfo</code> Record<String, unknown>
-      </li>
-      <li>
-        <code>object</code> String
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p spaces-before="0">
-  Returns <code>Number</code> - The ID of this subscription
-</p>
-
-<p spaces-before="0">
-  Berlangganan pemberitahuan asli macOS, <code> callback &lt;/ 0> akan dipanggil
+    </li>
+    <li>
+      <code>object</code> String
+    </li>
+  </ul></li> </ul> 
+  
+  <p spaces-before="0">
+    Returns <code>Number</code> - The ID of this subscription
+  </p>
+  
+  <p spaces-before="0">
+    Berlangganan pemberitahuan asli macOS, <code> callback &lt;/ 0> akan dipanggil
 &lt;code> callback (event, userInfo) &lt;/ 0> saat event &lt;code> sesuai &lt;/ 0> terjadi. Itu
 &lt;code> userInfo &lt;/ 0> adalah Objek yang berisi kamus informasi pengguna yang dikirim
 bersama dengan notifikasi. The &lt;code>object</code> is the sender of the notification, and only supports <code>NSString</code> values for now.
-</p>
-
-<p spaces-before="0">
-  Pelanggan <code> id &lt;/ 0> dikembalikan, yang dapat digunakan untuk menghentikan langganan
+  </p>
+  
+  <p spaces-before="0">
+    Pelanggan <code> id &lt;/ 0> dikembalikan, yang dapat digunakan untuk menghentikan langganan
 &lt;code> acara &lt;/ 0>.&lt;/p>
 
 &lt;p spaces-before="0" line-breaks-before="2">Di bawah tenda, API ini mengikuti &lt;code> NSDistributedNotificationCenter &lt;/ 0> , contoh nilai &lt;code> event &lt;/ 0> adalah:&lt;/p>
 
 &lt;ul spaces="0" level="0" marker="*">
 &lt;li marker="*" level="0" spaces="0" line-breaks-before="3" spaces-after-marker="0">&lt;code>Pemberitahuan Antarmuka Tema Apple Berubah</code></li> 
-  
-  <li>
-    <code>Variasi Warna Apple Aqua Berubah</code>
-  </li>
-  
-  <li>
-    <code>Pemberitahuan Perubahan Preferensi Warna Apple</code>
-  </li>
-  
-  <li>
-    <code>Pengaturan Bilah Gulir Tampilkan Apple Berubah</code>
-  </li></ul>
+    
+    <li>
+      <code>Variasi Warna Apple Aqua Berubah</code>
+    </li>
+    
+    <li>
+      <code>Pemberitahuan Perubahan Preferensi Warna Apple</code>
+    </li>
+    
+    <li>
+      <code>Pengaturan Bilah Gulir Tampilkan Apple Berubah</code>
+    </li></ul>
 
 <h3 spaces-before="0">
-  <code>systemPreferences.subscribeLocalNotification(event, callback)</code> <em x-id="4">macOS</em>
+  <code>systemPreferences.subscribePemberitahuan (acara, telepon kembali)</code> <em x-id="4">macOS</em>
 </h3>
 
 <ul>
@@ -257,7 +247,7 @@ bersama dengan notifikasi. The &lt;code>object</code> is the sender of the notif
 </p>
 
 <h3 spaces-before="0">
-  <code>systemPreferences.unsubscribeNotification(id)</code> <em x-id="4">macOS</em>
+  <code>systemPreferences.unsubscribePrmberitahuan(id)</code> <em x-id="4">macOS</em>
 </h3>
 
 <ul>
@@ -271,7 +261,7 @@ bersama dengan notifikasi. The &lt;code>object</code> is the sender of the notif
 </p>
 
 <h3 spaces-before="0">
-  <code>systemPreferences.unsubscribeLocalNotification(id)</code> <em x-id="4">macOS</em>
+  <code>System Preferences.unsubscribe Local Pemberitahuan (id)</code> <em x-id="4">macOS</em>
 </h3>
 
 <ul>
@@ -313,7 +303,7 @@ bersama dengan notifikasi. The &lt;code>object</code> is the sender of the notif
 </p>
 
 <h3 spaces-before="0">
-  <code>systemPreferences.getUserDefault(key, type)</code> <em x-id="4">macOS</em>
+  <code>systempreferences.get userdefault (kunci, jenis) </code> <em x-id="4">macOS</em>
 </h3>
 
 <ul>
@@ -358,7 +348,7 @@ bersama dengan notifikasi. The &lt;code>object</code> is the sender of the notif
 </ul>
 
 <h3 spaces-before="0">
-  <code>systemPreferences.setUserDefault(key, type, value)</code> <em x-id="4">macOS</em>
+  <code>systemPreferences.setUserDefault (kunci, jenis, nilai) </code> <em x-id="4"> macOS</em>
 </h3>
 
 <ul>
@@ -945,7 +935,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 </p>
 
 <h2 spaces-before="0">
-  Properti/peralatan
+  properti
 </h2>
 
 <h3 spaces-before="0">
