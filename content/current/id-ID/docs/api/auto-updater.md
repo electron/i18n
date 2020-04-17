@@ -1,4 +1,4 @@
-# autoUpdater
+# pembaruan otomatis
 
 > Aktifkan aplikasi untuk memperbarui dirinya secara otomatis.
 
@@ -40,34 +40,39 @@ Objek `autoUpdater` memancarkan peristiwa berikut:
 
 
 
-### Acara: 'kesalahan'
+### Sinyal: 'Error'
 
-Mengembalikan:
+Pengembalian:
 
-* ` error </ 0> Kesalahan</li>
-</ul>
+* Kesalahan `kesalahan`
 
-<p spaces-before="0">Emitted saat ada error saat mengupdate.</p>
+Emitted saat ada error saat mengupdate.
 
-<h3 spaces-before="0">Sinyal: 'check-for-update'</h3>
 
-<p spaces-before="0">Emitted saat memeriksa apakah update telah dimulai.</p>
 
-<h3 spaces-before="0">Sinyal: 'update-available'</h3>
+### Sinyal: 'check-for-update'
 
-<p spaces-before="0">Emitted when there is an available update. The update is downloaded
-automatically.</p>
+Emitted saat memeriksa apakah update telah dimulai.
 
-<h3 spaces-before="0">Sinyal: 'update-not-available'</h3>
 
-<p spaces-before="0">Emitted saat tidak ada update yang tersedia.</p>
 
-<h3 spaces-before="0">Sinyal: 'update-download'</h3>
+### Sinyal: 'update-available'
 
-<p spaces-before="0">Mengembalikan:</p>
+Emitted when there is an available update. The update is downloaded automatically.
 
-<ul>
-<li><code>event` Sinyal
+
+
+### Sinyal: 'update-not-available'
+
+Emitted saat tidak ada update yang tersedia.
+
+
+
+### Sinyal: 'update-download'
+
+Pengembalian:
+
+* `event` Sinyal
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Tanggal
@@ -89,7 +94,7 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 
 
-## Methods
+## Metode
 
 Objek `autoUpdater` memiliki metode berikut:
 
@@ -98,8 +103,8 @@ Objek `autoUpdater` memiliki metode berikut:
 ### `autoUpdater.setFeedURL(options)`
 
 * `options` Object 
-    * ` url </ 0> String</li>
-<li><code>headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+    * `url` String
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
   * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Menetapkan `url` dan menginisialisasi updater otomatis.
