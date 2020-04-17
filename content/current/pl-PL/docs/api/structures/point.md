@@ -3,4 +3,4 @@
 * `x` Number
 * `y` Number
 
-**Uwaga:** Zarówno `x` jak i `y` muszą być liczbami całkowitymi, przy przekazywaniu obiektu `point` do Electron API, wartości `x` oraz `y` zostaną zaokrąglone do najbliższej liczby całkowitej.
+**Note:** Both `x` and `y` must be whole integers, when providing a point object as input to an Electron API we will automatically round your `x` and `y` values to the nearest whole integer.
