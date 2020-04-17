@@ -4,13 +4,13 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarScrubber(options)` *Experimental*
+### `new TouchBarScrubber(options)` _Experimental_
 
-* `options` شئ 
+* `options` Object
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.
-  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item. 
+  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
     * `selectedIndex` Integer - The index of the item the user selected.
-  * `highlight` Function (optional) - Called when the user taps any item. 
+  * `highlight` Function (optional) - Called when the user taps any item.
     * `highlightedIndex` Integer - The index of the item the user touched.
   * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
   * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
@@ -36,7 +36,7 @@ A `String` representing the style that selected items in the scrubber should hav
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. مقادیر ممکن:
+A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Possible values:
 
 * `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
