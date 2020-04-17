@@ -4,9 +4,9 @@ Before we can dive into Electron's APIs, we need to discuss the two process type
 
 ## Main and Renderer Processes
 
-In Electron, the process that runs `package.json`'s `main` script is called __the main process__. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+Dalam elektron, proses yang menjalankan script `utama` `package.json` disebut __proses utama__. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
 
-Sejak elektron menggunakan Kromium untuk menampilkan halaman web, Kromium di multi proses arsitektur juga digunakan. Each web page in Electron runs in its own process, which is called __the renderer process__.
+Sejak elektron menggunakan Kromium untuk menampilkan halaman web, Kromium di multi proses arsitektur juga digunakan. Setiap halaman web di elektron berjalan dalam proses sendiri, yang disebut __proses renderer__.
 
 Di normal browser, halaman web biasanya menjalankan dalam lingkungan sandboxed dan tidak diperbolehkan akses ke sumber daya yang asli. Pengguna Elektron, namun, memiliki kekuatan untuk menggunakan api Node.js di halaman web yang memungkinkan interaksi tingkat sistem operasi yang lebih rendah.
 
