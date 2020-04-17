@@ -1,0 +1,11 @@
+# 쿠키 개체
+
+* `이름` String - 쿠키의 이름
+* `값` String - 쿠키 값
+* `도메인` String (옵션) - 쿠키의 도메인; 앞의 점으로 정규화 되어 서브도메인에도 유효합니다.
+* `호스트 전용` Boolean (옵션) - 호스트 전용 쿠키인지 여부; 도메인이 전달되지 않은 경우에만 `true` 가 됩니다.
+* `경로` String(옵션) - 쿠키의 경로
+* `보안` Boolean(옵션) - 쿠키 안전 표시 여부
+* `HTTP전용` Boolean (옵션) - 쿠키의 HTTP전용 표시 여부
+* `세션` Boolean (옵션) - 쿠키가 세션 쿠키인지 아니면 만료일이  있는 영구 쿠키인지
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
