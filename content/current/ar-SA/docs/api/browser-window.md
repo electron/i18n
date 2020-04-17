@@ -478,63 +478,63 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+إرجاع نافذة المتصفح | فارغة - النافذة التي تمتلك عرض المستعرض المعطى. إذا لم يتم إرفاق طريقة العرض المعطاة بأي إطار، إرجاع `فارغة`.
 
 #### `BrowserWindow.fromId(id)`
 
 * </code>
 
-Returns `BrowserWindow` - The window with the given `id`.
+إرجاع نافذة المتصفح | فارغة - النافذة التي تمتلك عرض المستعرض المعطى.
 
 #### `BrowserWindow.addExtension(path)`
 
 * `path` String
 
-Adds Chrome extension located at `path`, and returns extension's name.
+يضيف ملحق Chrome الموجود في `المسار`، ويعيد اسم الإضافة.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+لن يتم إرجاع الأسلوب أيضاً إذا كان بيان الملحق مفقوداً أو غير مكتمل.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
 
 #### `BrowserWindow.removeExtension(name)`
 
 * `الإسم`String
 
-Remove a Chrome extension by name.
+إزالة ملحق كروم بالاسم.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+إرجاع `تسجيل<String, ExtensionInfo>` - المفاتيح هي أسماء الملحقات وكل قيمة هي كائن يحتوي على `اسم` و `إصدار ` خواص.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+يضيف ملحق DevTools الموجود في `المسار`، وإرجاع اسم الملحق.
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+سيتم تذكر التمديد لذلك تحتاج فقط إلى استدعاء هذا API مرة واحدة، وهذا واجهة برمجة التطبيقات ليست للاستخدام البرمجي. إذا حاولت إضافة ملحق يحتوي بالفعل تم تحميل، لن ترجع هذه الطريقة وبدلاً من ذلك تسجيل تحذير إلى وحده التحكم.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+لن يتم إرجاع الأسلوب أيضاً إذا كان بيان الملحق مفقوداً أو غير مكتمل.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
 * `الإسم`String
 
-Remove a DevTools extension by name.
+إزالة ملحق DevTools بالاسم.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+إرجاع تسجيل المفاتيح هي أسماء الملحقات وكل قيمة هي كائن يحتوي على اسم و إصدار خواص.
 
-To check if a DevTools extension is installed you can run the following:
+للتحقق مما إذا تم تثبيت ملحق DevTools يمكنك تشغيل ما يلي:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -543,11 +543,11 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
 
 ### Instance Properties
 
-Objects created with `new BrowserWindow` have the following properties:
+الكائنات التي تم إنشاؤها مع متصفح جديد لها الخصائص التالية:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -558,55 +558,55 @@ win.loadURL('https://github.com')
 
 #### `win.webContents` _Readonly_
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+كائن المحتويات يملكه هذا النافذة. جميع الأحداث المتعلقة بصفحة الويب و سيتم إجراء العمليات عبرذلك.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+راجع وثائق محتويات الويب للاطلاع على الأساليب و الأحداث.
 
 #### `win.id` _Readonly_
 
-A `Integer` property representing the unique ID of the window.
+خاصية عدد صحيح تمثل المعرف الفريد للإطار.
 
 #### `win.autoHideMenuBar`
 
-A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
+خاصية منطقية تحدد ما إذا كان يجب أن يخفي شريط قائمة الإطار نفسه تلقائيًا. بمجرد الضبط، سيظهر شريط القائمة فقط عند الضغط على مفتاح `Alt` واحد.
 
-If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+إذا كان شريط القائمة مرئيًا بالفعل، فلن يؤدي تعيين هذه الخاصية إلى `صواب` إخفائه على الفور.
 
 #### `win.minimizable`
 
-A `Boolean` property that determines whether the window can be manually minimized by user.
+خاصية منطقية تحدد ما إذا كان يجب أن يخفي شريط قائمة الإطار نفسه تلقائيًا.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+على لينوكس، واضع هو "لا" عملية, على الرغم من أن المصراع يعود صحيحاً.
 
 #### `win.maximizable`
 
-A `Boolean` property that determines whether the window can be manually maximized by user.
+خاصية منطقية تحدد ما إذا كان يجب أن يخفي شريط قائمة الإطار نفسه تلقائيًا.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+على لينوكس، واضع هو "لا" عملية, على الرغم من أن المصراع يعود صحيحاً.
 
 #### `win.fullScreenable`
 
-A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+خاصية منطقية تحدد ما إذا كان زر نافذة التكبير /التصغير الأقصى تبديل وضع ملء الشاشة أو يزيد من النافذة.
 
 #### `win.resizable`
 
-A `Boolean` property that determines whether the window can be manually resized by user.
+خاصية منطقية تحدد ما إذا كان يمكن تغيير حجم الإطار يدويًا بواسطة المستخدم.
 
 #### `win.closable`
 
-A `Boolean` property that determines whether the window can be manually closed by user.
+خاصية منطقية تحدد ما إذا كان يمكن إغلاق الإطار يدويًا من قبل المستخدم.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+على لينوكس، واضع هو "لا" عملية, على الرغم من أن المصراع يعود صحيحاً.
 
 #### `win.movable`
 
-A `Boolean` property that determines Whether the window can be moved by user.
+خاصية منطقية تحدد ما إذا كان يمكن إغلاق الإطار يدويًا من قبل المستخدم.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+على لينوكس، واضع هو "لا" عملية, على الرغم من أن المصراع يعود صحيحاً.
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+خاصية منطقية تحدد ما إذا كان الإطار مستبعدًا من قائمة Windows للتطبيق. كاذبة بشكل افتراضي.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -625,21 +625,21 @@ Menu.setApplicationMenu(menu)
 
 #### `win.accessibleTitle`
 
-A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+خاصية سلسلة تحدد عنوانًا بديلًا يتم توفيره فقط لأدوات إمكانية الوصول مثل قارئات الشاشة. هذه السلسلة غير مرئية مباشرة للمستخدمين.
 
 ### Instance Methods
 
-Objects created with `new BrowserWindow` have the following instance methods:
+الكائنات التي تم إنشاؤها مع متصفح جديد لها الخصائص التالية:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+ملاحظة: تتوفر بعض الطرق فقط على أنظمة تشغيل محددة ويتم تصنيفها على هذا النحو.
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+فرض إغلاق النافذة، لن يتم إصدار الحدث إلغاء التحميل وقبل إلغاء التفريغ لصفحة الويب، ولن يتم أيضًا إصدار حدث الإغلاق لهذه النافذة، ولكنه يضمن أن الحدث المغلق سيتم انبعاثه.
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+حاول إغلاق النافذة. التطبيق هذا هو وحدة الإلكترون وينبغي عادة لا تترجم هذا له نفس التأثير كمستخدم النقر يدويا على زر إغلاق النافذة. The web page may cancel the close though. See the [close event](#event-close).
 
 #### `win.focus()`
 
@@ -760,7 +760,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
 * `animate` Boolean (optional) _macOS_
 
-Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+تغيير حجم الإطار وتحريكه إلى الحدود التي تم توفيرها. سيتم افتراضياً أي خصائص التي لم يتم توفيرها إلى قيمها الحالية.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -778,34 +778,34 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
+إرجاع المستطيل حدود الإطار ككائن.
 
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (optional) _macOS_
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+تغيير حجم منطقة عميل النافذة ونقلها (مثل صفحة الويب) إلى الحدود المتوفرة.
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
+إرجاع المستطيل حدود الإطار ككائن.
 
 #### `win.getNormalBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+إرجاع المستطيل - يحتوي على حدود الإطار للحالة العادية
 
-**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
+ملاحظة: مهما كانت الحالة الحالية للإطار: تكبير أو تصغير أو في ملء الشاشة، تقوم هذه الوظيفة دائمًا بإرجاع موضع وحجم الإطار في الحالة العادية. في الحالة العادية، الحصول على حدود والحصول على حدود عادي إرجاع نفس المستطيل.
 
 #### `win.setEnabled(enable)`
 
 * `enable` Boolean
 
-Disable or enable the window.
+تعطيل أو تمكين النافذة.
 
 #### `win.isEnabled()`
 
-Returns Boolean - whether the window is enabled.
+إرجاع منطقي - ما إذا كانت النافذة مفعلة.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -813,11 +813,11 @@ Returns Boolean - whether the window is enabled.
 * `height` Integer
 * `animate` Boolean (optional) _macOS_
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+تغيير حجم الإطار إلى العرض والارتفاع. إذا كان العرض أو الارتفاع أقل من أي قيود حجم الحد الأدنى مجموعة النافذة سوف تنجذب إلى حجمها الأدنى.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+إرجاع [عدد صحيح] - يحتوي على عرض الإطار وارتفاعه.
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -825,41 +825,41 @@ Returns `Integer[]` - Contains the window's width and height.
 * `height` Integer
 * `animate` Boolean (optional) _macOS_
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+تغيير حجم منطقة عميل الإطار (مثل صفحة الويب) إلى العرض والارتفاع.
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+إرجاع [عدد صحيح] - يحتوي على عرض الإطار وارتفاعه.
 
 #### `win.setMinimumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+تعيين الحد الأدنى لحجم الإطار إلى العرض والارتفاع.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+[إرجاع عدد صحيح] : يحتوي على الحد الأدنى لعرض الإطار وارتفاعه.
 
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+تعيين الحد الأدنى لحجم الإطار إلى العرض والارتفاع.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+إرجاع ` عدد صحيح []` - يحتوي على أقصى عرض وطول للنوافذ.
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+يحدد ما إذا كان يمكن تغيير حجم النافذة يدوياً بواسطة المستخدم.
 
-**[Deprecated](modernization/property-updates.md)**
+**[اهمالها](modernization/property-updates.md)**
 
 #### `win.isResizable()`
 
