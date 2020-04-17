@@ -1,8 +1,8 @@
-# Accessibility
+# دسترسی
 
 Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
 
-* * *
+---
 
 Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
 
@@ -32,7 +32,7 @@ Both of these tools are using the [Accessibility Developer Tools](https://github
 
 If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
 
-## Enabling Accessibility
+## فعال کردن قابلیت
 
 Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 
