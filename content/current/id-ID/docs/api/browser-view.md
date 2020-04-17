@@ -23,7 +23,7 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` _Experimental_
+### `baru lihat browser([options])` _Eksperimental_
 
 * `options` Object (optional)
   * `refrensi web` Objek (contoh) - Lihat [jendela Browser](browser-window.md).
@@ -46,19 +46,19 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 Kembali `lihat Browser` - Tampilan dengan `id` yang diberikan.
 
-### Instance Properties
+### Contoh properti
 
 Objek yang dibuat dengan `lihat Browser baru` memiliki properti berikut:
 
-#### `view.webContents` _Experimental_
+#### `baru lihat browser` _Eksperimental_
 
 Sebuah [`isi Web`](web-contents.md) objek yang dimiliki oleh pandangan ini.
 
-#### `view.id` _Experimental_
+#### `lihat.id` _Eksperimental_
 
 A `bilangan bulat` mewakili ID unik dari tampilan.
 
-### Методы экземпляра
+### Metode Instance
 
 Objek yang dibuat dengan `lihat Browser baru` memiliki metode contoh berikut:
 
@@ -70,7 +70,7 @@ Force closing the view, the `unload` and `beforeunload` events won't be emitted 
 
 Returns `Boolean` - Whether the view is destroyed.
 
-#### `view.setAutoResize(options)` _Experimental_
+#### `lihat.set otomatis ubah ukuran (pilihan)` _Eksperimental_
 
 * `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
@@ -78,7 +78,7 @@ Returns `Boolean` - Whether the view is destroyed.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` _Experimental_
+#### `lihat.set batas (batas)` _Eksperimental_
 
 * `batas` [Empat persegi panjang](structures/rectangle.md)
 
@@ -90,6 +90,6 @@ Kembali [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` _Experimental_
+#### `lihat.set latar belakang warna(warna)` _Eksperimental_
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
