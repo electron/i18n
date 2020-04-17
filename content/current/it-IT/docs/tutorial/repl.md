@@ -17,6 +17,6 @@ Il modulo `repl` fornisce un'implementazione REPL accessibile usando:
 
 This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
 
-**Note:** `electron --interactive` is not available on Windows.
+**Nota:** `electron --interactive` non è disponibile su Windows.
 
 Può informazioni nei [documenti REPL Node.js](https://nodejs.org/dist/latest/docs/api/repl.html).
