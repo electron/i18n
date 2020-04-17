@@ -1,0 +1,7 @@
+# UploadFile Object
+
+* `type` String - `file`.
+* `filePath` String - 업로드할 파일의 경로입니다.
+* `offset` Integer - 기본값은 `0`입니다.
+* `length` Integer - Number of bytes to read from `offset`. Defaults to `0`.
+* `modificationTime` Double - UNIX 시간으로 된 마지막 수정 시간
