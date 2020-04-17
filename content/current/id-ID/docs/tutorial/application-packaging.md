@@ -14,7 +14,7 @@ Sebuah
 
 Langkah-langkah untuk mengemas aplikasi Anda ke arsip ` asar </ 0> :</p>
 
-<h3 spaces-before="0">1. Install the asar Utility</h3>
+<h3 spaces-before="0">1. Instal Asar Utility</h3>
 
 <pre><code class="sh">$ npm install -g asar
 `</pre> 
@@ -89,12 +89,10 @@ In a web page, files in an archive can be requested with the `file:` protocol. L
 
 Misalnya, untuk mendapatkan file dengan ` $ .get </ 0> :</p>
 
-<pre><code class="html"><script>
-let $ = require('./jquery.min.js')
-$.get('file:///path/to/example.asar/file.txt', (data) => {
-  console.log(data)
-})
-</script>
+<pre><code class="html"><script> 
+biarkan $ = memerlukan ('./ jquery.min.js') $ .get ('file: ///path/to/example.asar/file.txt', (data) = & gt; {
+   console. log (data)})
+ </ 0>
 `</pre> 
 
 
