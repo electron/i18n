@@ -141,7 +141,7 @@ Disarankan agar Anda menghentikan sementara operasi mahal saat keadaan visibilit
 
 
 
-> Create and control browser windows.
+> Buat dan kendalikan jendela peramban.
 
 Proses: [Main](../glossary.md#main-process)
 
@@ -195,7 +195,7 @@ Ini menciptakan `BrowserWindow` baru dengan sifat asli yang ditetapkan oleh `opt
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Defaultnya adalah ` false </ 0> .</li>
 <li><code>transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Defaultnya adalah ` false </ 0> . On Windows, does not work unless the window is frameless.</li>
 <li><code>type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are:
+  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Nilai yang mungkin adalah:
     
         * `default` - Hasil dalam judul Mac buram abu-abu standar.
 
@@ -203,7 +203,7 @@ Ini menciptakan `BrowserWindow` baru dengan sifat asli yang ditetapkan oleh `opt
 
     * `hiddenInset` - Hasil di bar judul tersembunyi dengan tampilan alternatif dimana tombol lampu lalu lintas sedikit lebih tertutup dari tepi jendela.
 
-    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
+    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Catatan:** Pilihan ini saat ini sedang eksperimental.
 
   * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
 
@@ -275,8 +275,8 @@ Anda dapat mengakses konteks ini di alat dev dengan memilih entri ' Elektron Iso
 <li><p spaces-before="0"><code>nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Default ke ` false </ 0>. Child windows will always have node
 integration disabled unless <code>nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
 
-    * ` webviewTag ` Boolean (opsional) - Apakah untuk mengaktifkan[`<webview>`tag](webview-tag.md). Default ke ` false </ 0>. <strong x-id="1">Note:</strong> The
-<code>preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. Anda dapat menggunakan `akan melampirkan tampilan web` acara di [webContents](web-contents.md) untuk mengupas dengan` preload` naskah dan untuk memvalidasi atau mengubah `<webview>` 's pengaturan awal.
+    * ` webviewTag ` Boolean (opsional) - Apakah untuk mengaktifkan[`<webview>`tag](webview-tag.md). Default ke ` false </ 0>. <strong x-id="1"> Catatan: </strong>
+ <code> preload ` Script dikonfigurasi untuk `<webview>` akan memiliki simpul integrasi diaktifkan ketika dieksekusi sehingga Anda harus memastikan remote / konten yang tidak dipercaya tidak mampu menciptakan `<webview>` tag dengan mungkin ` preload ` script. Anda dapat menggunakan `akan melampirkan tampilan web` acara di [webContents](web-contents.md) untuk mengupas dengan` preload` naskah dan untuk memvalidasi atau mengubah `<webview>` 's pengaturan awal.
 
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
 
@@ -298,7 +298,7 @@ integration disabled unless <code>nodeIntegrationInSubFrames` is true. **Note:**
 
 <p spaces-before="0">When setting minimum or maximum window size with <code>minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. Ini tidak akan mencegah Anda melewati ukuran yang tidak mengikuti batasan ukuran pada ` setBounds `/`setSize` atau ke konstruktor `BrowserWindow`.
       
-      The possible values and behaviors of the `type` option are platform dependent. Possible values are:
+      The possible values and behaviors of the `type` option are platform dependent. Nilai yang mungkin adalah:
       
       * Di Linux, jenis yang mungkin adalah `desktop`, `dermaga`, `toolbar`, `splash`, `notifikasi`.
 
@@ -313,16 +313,15 @@ integration disabled unless <code>nodeIntegrationInSubFrames` is true. **Note:**
 
 <p spaces-before="0">Objek yang dibuat dengan <code> BrowserWindow baru </ 0> memancarkan acara berikut:</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> Some events are only available on specific operating systems and are
-labeled as such.</p>
+<p spaces-before="0"><strong x-id="1"> Catatan: </ 0> Beberapa acara hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p>
 
 <h4 spaces-before="0">Acara : 'halaman-judul-diperbarui'</h4>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Pengembalian:</p>
 
 <ul>
-<li><code>event` Sinyal
-* ` judul</ 0>  String</li>
+<li><code>acara` Acara
+* ` title </ 0>  String</li>
 <li><code>explicitSet` Boolean
 Emitted ketika dokumen tersebut mengubah namanya, memanggil ` event.preventDefault () </ 0> 
 akan mencegah perubahan dari jendela asli.
@@ -332,9 +331,9 @@ akan mencegah perubahan dari jendela asli.
 
 #### Acara : 'dekat'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 Emitted saat jendela akan ditutup. Ini dipancarkan sebelum `` beforeunload </ 0> dan <code> membongkar </ 0>  acara DOM. Memanggil <code> event.preventDefault () </ 0> 
 akan membatalkan penutupan.</p>
 
@@ -357,11 +356,11 @@ _**Note**: There is a subtle difference between the behaviors of `window.onbefor
 
 #### Acara : 'ditutup'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Emitted saat jendela tertutup. After you have received this event you should remove the reference to the window and avoid using it any more.
 
 
 
-#### Event: 'session-end' _Windows_
+#### Event : 'session-end' _ Windows </ 0></h4> 
 
 Emitted saat window session akan berakhir karena force shutdown atau restart mesin atau session log off.
 
@@ -391,7 +390,7 @@ Emitted saat window gain fokus.
 
 
 
-#### Acara : 'show'
+#### Acara: 'show'
 
 Emitted saat jendela ditunjukkan.
 
@@ -437,9 +436,9 @@ Emitted saat jendela dipulihkan dari keadaan diminimalkan.
 
 #### Event: 'will-resize' _macOS_ _Windows_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `event` Acara
 * `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
 
 Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
@@ -456,9 +455,9 @@ Emitted after the window has been resized.
 
 #### Event: 'will-move' _macOS_ _Windows_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
 Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
@@ -475,7 +474,7 @@ __Note__: On macOS this event is an alias of `moved`.
 
 
 
-#### Event: 'moved' _macOS_
+#### Acara : 'pindah' _ macOS </ 0></h4> 
 
 Emitted sekali saat jendela dipindahkan ke posisi baru.
 
@@ -507,9 +506,9 @@ Emitted saat jendela meninggalkan status layar-penuh yang dipicu oleh HTML API.
 
 #### Event: 'always-on-top-changed'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `isAlwaysOnTop` Boolean
 
 Emitted when the window is set or unset to show always on top of other windows.
@@ -518,9 +517,9 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * ` perintah </ 0>  String</li>
 </ul>
 
@@ -543,51 +542,54 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
 * `browser-forward`
 
 
-#### Event: 'scroll-touch-begin' _macOS_
+#### Acara : 'gulir-sentuh-mulai' _ macOS </ 0></h4> 
 
 Emitted saat scroll wheel event phase sudah dimulai.
 
 
 
-#### Event: 'scroll-touch-end' _macOS_
+#### Acara : 'gulir-sentuh-akhir' _ macOS </ 0></h4> 
 
 Emitted saat scroll wheel event phase sudah berakhir.
 
 
 
-#### Event: 'scroll-touch-edge' _macOS_
+#### Acara : 'gulir-sentuh-tepi' _ macos </ 0></h4> 
 
 Emitted saat menggulirkan event wheel drive yang diajukan saat mencapai tepi elemen.
 
 
 
-#### Event: 'swipe' _macOS_
+#### Acara : 'gesek' _ macOS </ 0></h4> 
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * ` arah </ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Emitted on 3-finger swipe. Possible directions are <code>up`, `right`, `down`, `left`.</p> 
+  The method underlying this event is built to handle older macOS-style trackpad swiping, where the content on the screen doesn't move with the swipe. Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
+  
+  
 
 #### Event: 'rotate-gesture' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `rotation` Float
 Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
 
 
-#### Event: 'sheet-begin' _macOS_
+#### Acara: 'sheet-begin' _ macOS _
 
 Emitted saat jendela membuka selembar kertas.
 
 
 
-#### Event: 'sheet-end' _macOS_
+#### Acara : 'sheet-end' _ macOS </ 0></h4> 
 
 Emitted ketika jendela telah ditutup lembar.
 
@@ -620,6 +622,7 @@ Returns `BrowserWindow | null` - The window that is focused in this application,
 #### `BrowserWindow.fromWebContents (webContents)`
 
 * `webContents` [WebContents](web-contents.md)
+
 Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 
@@ -627,6 +630,7 @@ Returns `BrowserWindow | null` - The window that owns the given `webContents` or
 #### `BrowserWindow.fromBrowserView(browserView)`
 
 * `browserView` [BrowserView](browser-view.md)
+
 Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
 
 
@@ -634,59 +638,62 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 #### `BrowserWindow.fromId (id)`
 
 * `identitas` Integer
+
 Kembali ` BrowserWindow ` - Jendela dengan ` id ` yang diberikan.
 
 
 
 #### `BrowserWindow.addExtension (jalur)`
 
-* `path` String
-Menambahkan ekstensi Chrome yang terletak di ` path `, dan mengembalikan nama ekstensi.
+* ` path </ 0>  String</li>
+</ul>
 
-Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
-
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-
-
+<p spaces-before="0">Menambahkan ekstensi Chrome yang terletak di <code> path `, dan mengembalikan nama ekstensi.</p> 
+  Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
+  
+  ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
+  
+  
 
 #### `BrowserWindow.removeExtension(name)`
 
-* ` nama </ 0>  Deretan</li>
+* ` nama </ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Hapus ekstensi Chrome dengan nama.</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> This API cannot be called before the <code>ready` event of the `app` module is emitted.</p> 
+<p spaces-before="0"><strong x-id="1"> Catatan: </strong> API ini tidak dapat dipanggil sebelum event <code> ready ` dari modul ` app ` dipancarkan.</p> 
 
 #### `BrowserWindow.getExtensions ()`
 
 Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
 
 
 
 #### `BrowserWindow.addDevToolsExtension (jalur)`
 
-* `path` String
-Menambahkan ekstensi DevTools yang terletak di ` path`, dan mengembalikan nama ekstensi.
+* ` path </ 0>  String</li>
+</ul>
 
-Ekstensi akan diingat sehingga Anda hanya perlu memanggil API ini sekali, API ini bukan untuk penggunaan pemrograman. Jika Anda mencoba menambahkan ekstensi yang telah dimuat, metode ini tidak akan kembali dan sebaliknya log peringatan ke konsol.
-
-Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
-
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-
-
+<p spaces-before="0">Menambahkan ekstensi DevTools yang terletak di <code> path`, dan mengembalikan nama ekstensi.</p> 
+  Ekstensi akan diingat sehingga Anda hanya perlu memanggil API ini sekali, API ini bukan untuk penggunaan pemrograman. Jika Anda mencoba menambahkan ekstensi yang telah dimuat, metode ini tidak akan kembali dan sebaliknya log peringatan ke konsol.
+  
+  Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
+  
+  ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
+  
+  
 
 #### `BrowserWindow.removeDevToolsExtension (nama)`
 
-* ` nama </ 0>  Deretan</li>
+* ` nama </ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Hapus ekstensi DevTools dengan nama.</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> This API cannot be called before the <code>ready` event of the `app` module is emitted.</p> 
+<p spaces-before="0"><strong x-id="1"> Catatan: </strong> API ini tidak dapat dipanggil sebelum event <code> ready ` dari modul ` app ` dipancarkan.</p> 
 
 #### `BrowserWindow.getDevToolsExtensions ()`
 
@@ -702,11 +709,11 @@ console.log (terpasang)
 ```
 
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
 
 
 
-### Instance Properties
+### Contoh properti
 
 Objek yang dibuat dengan`BrowserWindow baru ` memiliki properti berikut:
 
@@ -818,12 +825,11 @@ A `String` property that defines an alternative title provided only to accessibi
 
 
 
-### Методы экземпляра
+### Metode Instance
 
 Objek yang dibuat dengan ` BrowserWindow baru </ 0> memiliki metode contoh berikut:</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> Some methods are only available on specific operating systems and are
-labeled as such.</p>
+<p spaces-before="0"><strong x-id="1">Catatan:</strong> Beberapa metode hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p>
 
 <h4 spaces-before="0"><code>win.destroy()`</h4> 
 
@@ -925,7 +931,7 @@ Menetapkan apakah jendela harus dalam mode fullscreen.
 
 Mengembalikan ` Boolean </ 0> - Apakah jendela dalam mode layar penuh.</p>
 
-<h4 spaces-before="0"><code>win.setSimpleFullScreen(flag)` _macOS_</h4> 
+<h4 spaces-before="0"><code>win.setSimpleFullScreen(flag)` Linux _macOS_</h4> 
 
 * `bendera` Boolean
 
@@ -935,9 +941,9 @@ Simple fullscreen mode emulates the native fullscreen behavior found in versions
 
 
 
-#### `win.isSimpleFullScreen()` _macOS_
+#### ` win.isSimpleFullScreen () </ 0>  <em x-id="4"> macos </ 1></h4>
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+<p spaces-before="0">Returns <code>Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.</p> 
 
 
 
@@ -947,10 +953,11 @@ Returns `Boolean` - Whether the window is in normal state (not maximized, not mi
 
 
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_
+#### ` win.setAspectRatio (aspectRatio [, extraSize]) </ 0>  <em x-id="4"> macos </ 1></h4>
 
-* ` aspectRatio </ 0> Float - Rasio aspek untuk mempertahankan sebagian dari tampilan konten.</p></li>
-<li><p spaces-before="0"><code>extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
+<ul>
+<li><p spaces-before="0"><code> aspectRatio </ 0> Float - Rasio aspek untuk mempertahankan sebagian dari tampilan konten.</p></li>
+<li><p spaces-before="0"><code>extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.</p></li> </ul> 
 
 Ini akan membuat jendela menjaga rasio aspek. Ukuran ekstra memungkinkan pengembang memiliki ruang, ditentukan dalam piksel, tidak termasuk dalam perhitungan rasio aspek. API ini sudah memperhitungkan perbedaan antara ukuran jendela dan ukuran isinya.
 
@@ -968,26 +975,25 @@ Sets the background color of the window. See [Setting `backgroundColor`](#settin
 
 
 
-#### `win.previewFile(path[, displayName])` _macOS_
+#### ` win.previewFile (path [, displayName]) </ 0>  <em x-id="4"> macos </ 1></h4>
 
-* ` path </ 0>  String - Path absolut ke file untuk dipratinjau dengan QuickLook. Hal ini penting karena Quick Look menggunakan nama file dan ekstensi file pada path untuk menentukan jenis konten file yang akan dibuka.</p></li>
+<ul>
+<li><p spaces-before="0"><code> path </ 0>  String - Path absolut ke file untuk dipratinjau dengan QuickLook. Hal ini penting karena Quick Look menggunakan nama file dan ekstensi file pada path untuk menentukan jenis konten file yang akan dibuka.</p></li>
 <li><p spaces-before="0"><code> displayName </ 0>  String (opsional) - Nama file yang akan ditampilkan pada tampilan modal Quick Look. Ini murni visual dan tidak mempengaruhi jenis konten file. Default ke <code> path </ 0> .</p></li>
 </ul>
 
 <p spaces-before="0">Menggunakan <a href="https://en.wikipedia.org/wiki/Quick_Look"> Quick Look </ 0> untuk melihat pratinjau file di jalur tertentu.</p>
 
-<h4 spaces-before="0"><code>win.closeFilePreview()` _macOS_</h4> 
-  
-  Menutup panel  Quick Look </ 0> yang sedang terbuka .</p> 
-  
-  
+<h4 spaces-before="0"><code> win.closeFilePreview () </ 0>  <em x-id="4"> macos </ 1></h4>
 
-#### `win.setBounds (batas [, bernyawa])`
+<p spaces-before="0">Menutup panel <a href="https://en.wikipedia.org/wiki/Quick_Look"> Quick Look </ 0> yang sedang terbuka .</p>
+
+<h4 spaces-before="0"><code>win.setBounds (batas [, bernyawa])`
 
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
 * `animate` Boolean (optional) _macOS_
 
-Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+Mengubah ukuran dan memindahkan jendela ke batas yang tersedia. Any properties that are not supplied will default to their current values.
 
 
 
@@ -1057,7 +1063,7 @@ Returns Boolean - whether the window is enabled.
 <li><code> tinggi </ 0>  Integer</li>
 <li><code>animate` Boolean (optional) _macOS_
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+Mengubah ukuran jendela menjadi ` width </ 0> dan <code> height </ 0> . If <code>width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
 
 
@@ -1118,9 +1124,10 @@ Mengembalikan ` Integer [] </ 0> - Berisi lebar dan tinggi maksimum jendela.</p>
 
 <p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
 
-<h4 spaces-before="0"><code>win.setMovable(movable)` _macOS_ _Windows_</h4> 
-  
-  * ` bergerak </ 0>  Boolean</li>
+<h4 spaces-before="0"><code> win.setMovable (dapat dipindahkan) </ 0>  <em x-id="4"> macOS </ 1>  <em x-id="4"> Windows </ 1></h4>
+
+<ul>
+<li><code> bergerak </ 0>  Boolean</li>
 </ul>
 
 <p spaces-before="0">Sets whether the window can be moved by user. On Linux does nothing.</p>
@@ -1128,15 +1135,17 @@ Mengembalikan ` Integer [] </ 0> - Berisi lebar dan tinggi maksimum jendela.</p>
 <p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
 
 <h4 spaces-before="0"><code>win.isMovable()` _macOS_ _Windows_</h4> 
+  
   Mengembalikan ` Boolean </ 0> - Apakah jendela dapat dipindahkan oleh pengguna.</p>
 
 <p spaces-before="0">Di Linux selalu kembali <code> true </ 0> .</p>
 
 <p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
 
-<h4 spaces-before="0"><code>win.setMinimizable(minimizable)` _macOS_ _Windows_</h4> 
-  
-  * ` diminimalkan </ 0>  Boolean</li>
+<h4 spaces-before="0"><code> win.setMinimizable (minimizable) </ 0>  <em x-id="4"> macOS </ 1>  <em x-id="4"> Windows </ 1></h4>
+
+<ul>
+<li><code> diminimalkan </ 0>  Boolean</li>
 </ul>
 
 <p spaces-before="0">Sets whether the window can be manually minimized by user. On Linux does
@@ -1144,8 +1153,9 @@ nothing.</p>
 
 <p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
 
-<h4 spaces-before="0"><code>win.isMinimizable()` _macOS_ _Windows_</h4> 
-  Mengembalikan ` Boolean </ 0> - Apakah jendela dapat diminimalkan secara manual oleh pengguna</p>
+<h4 spaces-before="0"><code> win.isMinimizable () </ 0>  <em x-id="4"> macos </ 1>  <em x-id="4"> Windows </ 1></h4>
+
+<p spaces-before="0">Mengembalikan <code> Boolean </ 0> - Apakah jendela dapat diminimalkan secara manual oleh pengguna</p>
 
 <p spaces-before="0">Di Linux selalu kembali <code> true </ 0> .</p>
 
@@ -1207,7 +1217,7 @@ Di Linux selalu kembali ` true </ 0> .</p>
 * `bendera` Boolean
 * `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
 
-* `relativeLevel` Integer (optional) _macOS_ - The number of layers higher to set this window relative to the given `level`. Default adalah `0`. Perhatikan bahwa Apple menghambat pengaturan tingkat lebih tinggi dari 1 di atas `layar-saver`.
+* `relativeLevel` Bulat (opsional) _macOS_ - jumlah lapisan yang lebih tinggi untuk mengatur jendela ini relatif terhadap `tingkat`. Default adalah `0`. Perhatikan bahwa Apple menghambat pengaturan tingkat lebih tinggi dari 1 di atas `layar-saver`.
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 
@@ -1257,7 +1267,7 @@ Mengembalikan `Integer []` - berisi jendela posisi saat ini.
 
 #### `win.setTitle(title)`
 
-* ` judul</ 0>  String</li>
+* ` judul </ 0> String</li>
 </ul>
 
 <p spaces-before="0">Perubahan judul jendela asli <code>judul`.</p> 
@@ -1270,7 +1280,7 @@ Mengembalikan `String` - judul jendela asli.
 
 
 
-#### `win.setSheetOffset(offsetY[, offsetX])` _macOS_
+#### `win.setSheetOffset (offsetY [, offsetX])` _macOS_
 
 * `offsetY` Mengambang
 * `offsetX` Mengambang (opsional)
@@ -1332,7 +1342,7 @@ Jenis pegangan yang asli adalah `HWND` pada Windows, `NSView *` pada `jendela` (
 
 
 
-#### `win.hookWindowMessage(message, callback)` _Windows_
+#### `win.hookWindowMessage (pesan, callback)` _Windows_
 
 * ` pesan </ 0> Integer</li>
 <li><code>callback ` Fungsi
@@ -1340,39 +1350,43 @@ Hooks a windows message. The `callback` is called when the message is received i
 
 
 
-#### `win.isWindowMessageHooked(message)` _Windows_
+#### ` win.isWindowMessageHooked (pesan) </ 0>  <em x-id="4"> Windows </ 1></h4>
 
-* ` pesan </ 0> Integer</li>
+<ul>
+<li><code> pesan </ 0> Integer</li>
 </ul>
 
 <p spaces-before="0">Mengembalikan <code>Boolean` - `true` atau `false` tergantung pada apakah pesan itu ketagihan.</p> 
 
-#### `win.unhookWindowMessage(message)` _Windows_
 
-* ` pesan </ 0> Integer</li>
+
+#### ` win.unhookWindowMessage (pesan) </ 0>  <em x-id="4"> Windows </ 1></h4>
+
+<ul>
+<li><code> pesan </ 0> Integer</li>
 </ul>
 
 <p spaces-before="0">Hapus kembali pesan jendela</p>
 
-<h4 spaces-before="0"><code>win.unhookAllWindowMessages()` _Windows_</h4> 
-  Lepaskan semua pesan di jendela.
-  
-  
+<h4 spaces-before="0"><code> win.unhookAllWindowMessages () </ 0>  <em x-id="4"> Windows </ 1></h4>
 
-#### `win.setRepresentedFilename(filename)` _macOS_
+<p spaces-before="0">Lepaskan semua pesan di jendela.</p>
+
+<h4 spaces-before="0"><code>win.setRepresentedFilename (filename)` _macos_
 
 * `filename` String
+
 Menetapkan nama path dari file yang diwakili jendela, dan ikon file akan muncul di bilah judul jendela.
 
 
 
-#### `win.getRepresentedFilename()` _macOS_
+#### `win.getRepresentedFilename()` _macos_
 
 Mengembalikan ` String ` - Pathname dari file yang diwakili jendela.
 
 
 
-#### `win.setDocumentEdited(edited)` _macOS_
+#### `win.setDocumentEdited(diedit)` _macos_
 
 * ` diedit </ 0> Boolean</li>
 </ul>
@@ -1380,7 +1394,7 @@ Mengembalikan ` String ` - Pathname dari file yang diwakili jendela.
 <p spaces-before="0">Specifies whether the window’s document has been edited, and the icon in title
 bar will become gray when set to <code>true`.</p> 
 
-#### `win.isDocumentEdited()` _macOS_
+#### `win.isDocumentEdited()` _macos_
 
 Mengembalikan `Boolean` - Apakah dokumen jendela telah diedit.
 
@@ -1400,14 +1414,14 @@ Mengembalikan `Boolean` - Apakah dokumen jendela telah diedit.
 </ul>
 
 <p spaces-before="0">Returns <code>Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)</p> 
-  Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+  Menangkap sebuah snapshot dari halaman dalam `rect`. Omitting `rect` will capture the whole visible page.
   
   
 
 #### `win.loadURL (url [, options])`
 
-* ` url </ 0> String</li>
-<li><code>options` Object (optional) 
+* `url` String
+* `options` Object (optional) 
     * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (opsional) - agen pengguna berasal permintaan.
   * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
@@ -1463,7 +1477,7 @@ Sama seperti ` webContents.reload </ 0> .</p>
 
 <h4 spaces-before="0"><code>win.setMenu(menu)` _Linux_ _Windows_</h4> 
 
-* `menu` Menu | null
+* `menu` Menu | batal
 
 Sets the `menu` as the window's menu bar.
 
@@ -1491,7 +1505,7 @@ Pada Windows , mode bisa dilewati. Nilai yang diterima adalah `none`, `normal`, 
 
 
 
-#### `win.setOverlayIcon(overlay, description)` _Windows_
+#### `win.setOverlayIcon (overlay, deskripsi)` _Windows_
 
 * `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
 
@@ -1537,7 +1551,7 @@ Setting a window shape determines the area within the window where the system pe
 
 
 
-#### `win.setThumbarButtons(buttons)` _Windows_
+#### `win.setThumbarButtons (tombol)` _Windows_
 
 * `tombol` [ThumbarButton[]](structures/thumbar-button.md)
 
@@ -1568,7 +1582,7 @@ The ` bendera </ 0> adalah array yang yang dapat mencakup berikut <code> String 
   
   
 
-#### `win.setThumbnailClip(region)` _Windows_
+#### `win.setThumbnailClip (wilayah)` _Windows_
 
 * `wilayah` [Rectangle](structures/rectangle.md) - Wilayah jendela
 
@@ -1613,7 +1627,7 @@ Ubah ikon jendela.
 
 
 
-#### `win.setWindowButtonVisibility(visible)` _macOS_
+#### `win.setWindowButtonVisibility(visible)` Linux _macOS_
 
 * `terlihat` Boolean
 
@@ -1665,7 +1679,7 @@ Kembali `Boolean` - Apakah menu bar terlihat.
 
 Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
 
-**Note:** This API does nothing on Windows.
+**Catatan:** API ini tidak apa-apa pada Windows.
 
 
 
@@ -1673,7 +1687,7 @@ Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
 
 Kembali `Boolean` - Apakah jendela terlihat pada semua workspace.
 
-**Note:** This API always returns false on Windows.
+**Catatan:** API ini selalu kembali palsu pada Windows.
 
 
 
@@ -1737,37 +1751,32 @@ Mengontrol apakah akan menyembunyikan kursor saat mengetik.
 
 
 
-#### `win.selectPreviousTab()` _macOS_
+#### ` win.selectPreviousTab () </ 0>  <em x-id="4"> macos </ 1></h4>
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+<p spaces-before="0">Selects the previous tab when native tabs are enabled and there are other
+tabs in the window.</p>
 
+<h4 spaces-before="0"><code> win.selectNextTab () </ 0>  <em x-id="4"> macos </ 1></h4>
 
+<p spaces-before="0">Selects the next tab when native tabs are enabled and there are other
+tabs in the window.</p>
 
-#### `win.selectNextTab()` _macOS_
+<h4 spaces-before="0"><code> win.mergeAllWindows () </ 0>  <em x-id="4"> macos </ 1></h4>
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+<p spaces-before="0">Merges all windows into one window with multiple tabs when native tabs
+are enabled and there is more than one open window.</p>
 
+<h4 spaces-before="0"><code> win.moveTabToNewWindow () </ 0>  <em x-id="4"> macos </ 1></h4>
 
+<p spaces-before="0">Moves the current tab into a new window if native tabs are enabled and
+there is more than one tab in the current window.</p>
 
-#### `win.mergeAllWindows()` _macOS_
+<h4 spaces-before="0"><code> win.toggleTabBar () </ 0>  <em x-id="4"> macos </ 1></h4>
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+<p spaces-before="0">Toggles the visibility of the tab bar if native tabs are enabled and
+there is only one tab in the current window.</p>
 
-
-
-#### `win.moveTabToNewWindow()` _macOS_
-
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
-
-
-
-#### `win.toggleTabBar()` _macOS_
-
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
-
-
-
-#### `win.addTabbedWindow(browserWindow)` _macOS_
+<h4 spaces-before="0"><code>win.addTabbedWindow(browserWindow)` Linux _macOS_
 
 * `browserWindow` BrowserWindow
 
@@ -1785,7 +1794,7 @@ Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` 
 
 
 
-#### `win.setTrafficLightPosition(position)` _macOS_
+#### `win.setTrafficLightPosition(position)` Linux _macOS_
 
 * `position` [Point](structures/point.md)
 
@@ -1793,23 +1802,23 @@ Set a custom position for the traffic light buttons. Can only be used with `titl
 
 
 
-#### `win.getTrafficLightPosition()` _macOS_
+#### ` win.getTrafficLightPosition () </ 0>  <em x-id="4"> macos </ 1></h4>
 
-Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+<p spaces-before="0">Returns <code>Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.</p> 
 
 
 
-#### `win.setTouchBar(touchBar)` _macOS_ _Experimental_
+#### `win.setTouchBar(touchBar)` _macOS_ _Linux_
 
 * `touchBar` TouchBar | null
 
 Mengatur tata letak touchBar untuk jendela aktif. Menentukan `null` atau `undefined` membersihkan bar sentuhan. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
 
 
 
-#### `win.setBrowserView(browserView)` _Experimental_
+#### `win.setBrowserView (browserView)` _Eksperimental_
 
 * `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
@@ -1839,4 +1848,4 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Catatan:** lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.
