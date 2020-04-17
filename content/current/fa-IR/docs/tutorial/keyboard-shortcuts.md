@@ -1,4 +1,4 @@
-# میانبرهای صفحه کلید
+# میانبر های صفحه کلید
 
 > Configure local and global keyboard shortcuts
 
