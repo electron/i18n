@@ -2,7 +2,7 @@
 
 > 브라우저 세션, 쿠키, 캐시, 프록시 설정 등을 관리합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -18,7 +18,7 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## 메소드
+## 메서드
 
 The `session` module has the following methods:
 
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -62,7 +62,7 @@ The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-반환:
+Returns:
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
@@ -84,7 +84,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### Event: 'preconnect'
 
-반환:
+Returns:
 
 * `event` Event
 * `preconnectUrl` String - The URL being requested for preconnection by the renderer.
@@ -103,7 +103,7 @@ Emitted when a hunspell dictionary file has been successfully initialized. This 
 
 #### Event: 'spellcheck-dictionary-download-begin'
 
-반환:
+Returns:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -112,7 +112,7 @@ Emitted when a hunspell dictionary file starts downloading
 
 #### Event: 'spellcheck-dictionary-download-success'
 
-반환:
+Returns:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -121,14 +121,14 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 
 #### Event: 'spellcheck-dictionary-download-failure'
 
-반환:
+Returns:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 The following methods are available on instances of `Session`:
 
@@ -460,23 +460,23 @@ Returns `Boolean` - Whether the word was successfully written to the custom dict
 
 **Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 The following properties are available on instances of `Session`:
 
-#### `ses.availableSpellCheckerLanguages` _Readonly_
+#### `ses.availableSpellCheckerLanguages` _읽기전용_
 
 A `String[]` array which consists of all the known available spell checker languages.  Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
-#### `ses.cookies` _Readonly_
+#### `ses.cookies` _읽기전용_
 
 A [`Cookies`](cookies.md) object for this session.
 
-#### `ses.webRequest` _Readonly_
+#### `ses.webRequest` _읽기전용_
 
 A [`WebRequest`](web-request.md) object for this session.
 
-#### `ses.protocol` _Readonly_
+#### `ses.protocol` _읽기전용_
 
 A [`Protocol`](protocol.md) object for this session.
 
@@ -495,7 +495,7 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog` _Readonly_
+#### `ses.netLog` _읽기전용_
 
 A [`NetLog`](net-log.md) object for this session.
 
