@@ -1,4 +1,4 @@
-# Represented File for macOS BrowserWindows
+# File yang direpresentasikan untuk BrowserWindows macOS
 
 Pada macOS, sebuah jendela dapat mengatur file yang diwakilinya, sehingga ikon file dapat ditampilkan judul bar dan saat pengguna Command-Click atau Control-Click pada judul path popup akan muncul.
 
