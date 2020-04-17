@@ -2,7 +2,7 @@
 
 > Sesuaikan render halaman web saat ini.
 
-Proses: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizador](../glossary.md#renderer-process)
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
@@ -54,8 +54,8 @@ Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
 
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
 
-* `minimalLevel` Nomor
-* `maksimalLevel` Nomor
+* `minimumLevel` Nomor
+* `minimumLevel` Nomor
 
 Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
 
@@ -116,13 +116,14 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 ### `webFrame.insertText(text)`
 
-* `teks` String
+* ` teks </ 0>  String</li>
+</ul>
 
-Sisipan `teks` ke elemen yang terfokus.
+<p spaces-before="0">Sisipan <code>teks` ke elemen yang terfokus.</p>
 
 ### `webFrame.executeJavaScript(code[, userGesture])`
 
-* `code` String
+* `id` String
 * `userGesture` Boolean (opsional) - Default adalah `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -198,7 +199,7 @@ Returns `WebFrame` - The frame element in `webFrame's` document selected by `sel
 
 ### `webFrame.findFrameByName(name)`
 
-* ` nama </ 0>  Deretan</li>
+* ` nama </ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Returns <code>WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.</p>
