@@ -2,7 +2,7 @@
 
 > Register a custom protocol and intercept existing protocol requests.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
@@ -129,7 +129,7 @@ Registers a protocol of `scheme` that will send the file as a response. The `han
 
 To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`. The object may also have a `headers` property which gives a map of headers to values for the response headers, e.g. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
 
-When `callback` is called with nothing, a number, or an object that has an `error` property, the `request` will fail with the `error` number you specified. For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+When `callback` is called with nothing, a number, or an object that has an `error` property, the `request` will fail with the `error` number you specified. 사용할 수 있는 유효한 오류 번호는 [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)를 참조하세요.
 
 By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`.
 
