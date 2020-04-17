@@ -1,6 +1,6 @@
 # Pilihan `sandbox`
 
-> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
+> Create a browser window with a sandboxed renderer. Dengan opsi ini diaktifkan, perender harus berkomunikasi melalui IPC ke proses utama untuk mengakses simpul API.
 
 Salah satu fitur keamanan Chromium adalah bahwa semua kode rendering / JavaScript yang berkedip dijalankan di dalam sandbox. Sanbox (Kotak pasir) ini menggunakan fitur khusus OS untuk memastikan bahwa eksploitasi di dalam proses perender tidak dapat membahayakan sistem.
 
@@ -44,7 +44,7 @@ app.on('ready', () => {
 })
 ```
 
-## Preload
+## Pemuatan Awal
 
 An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
