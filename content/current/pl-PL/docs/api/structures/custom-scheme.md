@@ -1,7 +1,7 @@
 # Obiekt CustomScheme
 
 * `schemat` String - Niestandardowe schematy do zarejestrowania wraz z opcjami.
-* `privileges` Object (opcjonalne) 
+* `privileges` Object (optional)
   * `standard` Boolean (opcjonalnie) - domyślnie false.
   * `secure` Boolean (opcjonalnie) - domyślnie false.
   * `bypassCSP` Boolean (opcjonalnie) - domyślnie false.
