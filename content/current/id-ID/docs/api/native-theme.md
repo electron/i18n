@@ -4,7 +4,7 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-## Events
+## Kejadian
 
 The `nativeTheme` module emits the following events:
 
