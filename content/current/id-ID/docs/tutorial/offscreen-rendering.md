@@ -8,7 +8,7 @@ Dua mode rendering dapat digunakan dan hanya daerah kotor dilewatkan dalam ` 'ca
 maximum frame rate is 60, because above that there is no benefit, only
 performance loss.</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> An offscreen window is always created as a <a href="../api/frameless-window.md">Frameless Window</a>.</p>
+<p spaces-before="0"><strong x-id="1"> Catatan: </ 0> Sebuah jendela offscreen selalu dibuat sebagai <a href="../api/frameless-window.md"> Frameless Jendela </ 1> .</p>
 
 <h2 spaces-before="0">Rendering Modes</h2>
 
