@@ -12,7 +12,7 @@ Tingkat modularitas dan kemampuan menyerap sedemikian rupa memastikan bahwa semu
 
 A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. Mereka biasanya datang dalam bentuk sebuah repositori Anda dapat mengkloning dan menyesuaikan untuk isi hati Anda.
 
-Sebuah alat baris perintah di sisi lain terus mendukung Anda selama pengembangan dan pelepasan. Mereka lebih membantu dan mendukung namun menerapkan panduan tentang bagaimana kode Anda harus terstruktur dan dibangun. *Especially for beginners, using a command line tool is likely to be helpful*.
+Sebuah alat baris perintah di sisi lain terus mendukung Anda selama pengembangan dan pelepasan. Mereka lebih membantu dan mendukung namun menerapkan panduan tentang bagaimana kode Anda harus terstruktur dan dibangun. * Khusus untuk pemula, menggunakan sebuah alat baris perintah mungkin akan membantu </ 0> .</p> 
 
 
 
@@ -33,7 +33,7 @@ perubahan yang dilakukan oleh pengelola Elektron (seperti Slack) menguntungkan p
 
 <p spaces-before="0">Anda dapat menemukan lebih banyak informasi dan dokumentasi di <a href="https://github.com/electron-userland/electron-builder"> repositori </ 0> .</p>
 
-<h2 spaces-before="0">electron-react-boilerplate</h2>
+<h2 spaces-before="0">elektron-bereaksi-boilerplate</h2>
 
 <p spaces-before="0">If you don't want any tools but only a solid boilerplate to build from,
 CT Lin's <a href="https://github.com/chentsulin/electron-react-boilerplate"><code>electron-react-boilerplate`](https://github.com/electron/electron-packager) might be worth a look. Ini cukup populer di masyarakat dan menggunakan  pembangun elektron </ 0> secara 
