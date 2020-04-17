@@ -46,7 +46,7 @@ The following events are available on instances of `Cookies`:
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
-* `cause` String - The cause of the change with one of the following values: 
+* `cause` String - The cause of the change with one of the following values:
   * `explicit` - The cookie was changed directly by a consumer's action.
   * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
   * `expired` - The cookie was automatically removed as it expired.
@@ -62,7 +62,7 @@ The following methods are available on instances of `Cookies`:
 
 #### `cookies.get(filter)`
 
-* `filter` شئ 
+* `filter` Object
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * `name` String (optional) - Filters cookies by name.
   * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
@@ -76,7 +76,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 #### `cookies.set(details)`
 
-* `details` شئ 
+* `details` Object
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
