@@ -2,7 +2,7 @@
 
 > 기본 애플리케이션을 이용해 파일과 URL을 관리합니다.
 
-프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
 ` shell` 모듈은 데스크톱 통합과 연관된 함수를 제공합니다.
 
@@ -14,7 +14,7 @@ const { shell } = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-## 메소드
+## 메서드
 
 `shell` 모듈은 아래의 메서드를 가지고 있습니다 :
 
