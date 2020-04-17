@@ -57,7 +57,7 @@ In base alle tue necessità, puoi scegliere da una di queste:
 
 Una volta depositato il tuo server di aggiornamento, continua ad importare i moduli richiesti nel tuo codice. Il codice seguente potrevve variare per differenti server di softwarw, ma funziona come descritto usando [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. Puoi usare [electron-è-dev](https://github.com/sindresorhus/electron-is-dev) per controllare l'ambiente.
+**Importante:** Assicurati che il codice sotto sia eseguito solo nella tua app impacchettata e non in sviluppo. Puoi usare [electron-è-dev](https://github.com/sindresorhus/electron-is-dev) per controllare l'ambiente.
 
 
 
