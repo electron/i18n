@@ -1,4 +1,4 @@
-# layar
+# screen
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
@@ -46,22 +46,22 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Kejadian
 
 The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `event` Event
 * `newDisplay` [Display](structures/display.md)
 
 Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Mengembalikan:
+Returns:
 
 * `event` Sinyal
 * `oldDisplay` [Display](structures/display.md)
@@ -70,15 +70,15 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Mengembalikan:
+Mengirimkan:
 
-* `event` Sinyal
+* `peristiwa` Peristiwa
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
 Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
-## Methods
+## Metode
 
 The `screen` module has the following methods:
 
