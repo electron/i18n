@@ -23,11 +23,9 @@ snap install snapcraft - kelas
 ```
 
 
-While it _is possible_ to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+Sementara _ mungkin </ em> untuk menginstal ` snapcraft </ code> di macos menggunakan Homebrew, itu tidak bisa membangun paket <code> snap </ code> dan berfokus pada pengelolaan paket di toko.</p>
 
-
-
-## Menggunakan ` electron-installer-snap </ code></h2>
+<h2 spaces-before="0">Menggunakan <code> electron-installer-snap </ code></h2>
 
 <p spaces-before="0">Modul ini bekerja seperti <a href="https://github.com/electron/windows-installer"> <code> electron-winstaller </ code> </a> dan serupa modul dalam lingkup yang terbatas pada bangunan paket snap. Anda bisa menginstal dengan:</p>
 
