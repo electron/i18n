@@ -11,7 +11,7 @@ antarmuka <a href="https://nodejs.org/api/stream.html#stream_readable_streams"> 
 
 <h4 spaces-before="0">Acara : 'data'</h4>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Pengembalian:</p>
 
 <ul>
 <li><code> bingkai</ 0>  penyangga- Sejumlah data dari respon tubuh.</li>
@@ -29,14 +29,14 @@ antarmuka <a href="https://nodejs.org/api/stream.html#stream_readable_streams"> 
 
 <h4 spaces-before="0">Acara: 'kesalahan'</h4>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Pengembalian:</p>
 
 <p spaces-before="0">Kesalahan <code> kesalahan </ 0> - Biasanya memegang string kesalahan yang mengidentifikasi penyebab kegagalan akar.</p>
 
 <p spaces-before="0">Emitted saat terjadi kesalahan saat streaming data respon acara. Misalnya, jika server menutup yang mendasari sementara respon masih streaming, sebuah event <code> kesalahan</ 0>  akan dipancarkan pada objek respon dan acara <code> tutup </ 0> selanjutnya akan mengikuti permintaan. objek.
 </p>
 
-<h3 spaces-before="0">Instance Properties</h3>
+<h3 spaces-before="0">Contoh properti</h3>
 
 <p spaces-before="0">Contoh <code> datang pesan </ 0> memiliki properti yang mudah dibaca berikut ini:</p>
 
