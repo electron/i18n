@@ -1,73 +1,73 @@
 # راهنمای رسمی
 
-Please make sure that you use the documents that match your Electron version. شماره نسخه باید بخشی از URL صفحه باشد. اگر اینطور نمی باشد، شما احتمالا از مستندات گروه توسعه که حاوی تغییرات API است و سازگار با نسخه ای الکترونی شما نیست استفاده میکنید. برای دیدن قدیمی تر نسخه های اسناد، شما می توانید [ مرور بر اساس برچسب ](https://github.com/electron/electron/tree/v1.4.0) در GitHub با باز کردن 'منوی شاخه ها / برچسب ها' کشویی و انتخاب برچسبی که مطابق نسخه شما است.
+Please make sure that you use the documents that match your Electron version. شماره نسخه باید بخشی از URL صفحه باشد. اگر اینطور نمی باشد، شما احتمالا از مستندات گروه توسعه که حاوی تغییرات API است و سازگار با نسخه ای الکترونی شما نیست استفاده میکنید. برای مشاهده قدیمی تر نسخه های اسناد ، شما می توانید [کاوش بنا بر برچسب](https://github.com/electron/electron/tree/v1.4.0) در GitHub با باز کردن "تغییر شعب/برچسب ها" کشویی و انتخاب برچسب که با نسخه شما منطبق است.
 
 ## اجازه دادن به
 
-سوالاتی وجود دارد که از اغلب آنها خواسته می شود. قبل از ایجاد یک مسئله آن را بررسی کنید:
+There are questions that are asked quite often. Check this out before creating an issue:
 
-* [سوالات متداول الکترون](faq.md)
+* [Electron FAQ](faq.md)
 
-## راهنماها و آموزشها
+## راهنماهای و آموزش
 
-* [راه اندازی محیط توسعه](tutorial/development-environment.md) 
+* [راه اندازی محیط توسعه](tutorial/development-environment.md)
   * [راه اندازی macOS](tutorial/development-environment.md#setting-up-macos)
   * [راه اندازی ویندوز](tutorial/development-environment.md#setting-up-windows)
   * [راه اندازی لینوکس](tutorial/development-environment.md#setting-up-linux)
   * [انتخاب یک ویرایشگر](tutorial/development-environment.md#a-good-editor)
-* [ایجاد اولین برنامه شما](tutorial/first-app.md) 
+* [ایجاد اولین برنامه شما](tutorial/first-app.md)
   * [نصب الکترون Electron](tutorial/first-app.md#installing-electron)
   * [توسعه الکترون به طور کلی](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [app در حال اجرای خود را](tutorial/first-app.md#running-your-app)
-* [Boilerplates و همچنین CLIs ](tutorial/boilerplates-and-clis.md) 
+* [Boilerplates   و همچنین CLIs ](tutorial/boilerplates-and-clis.md)
   * [Boilerplate در مقابل CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [Aliakbar](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [سایر ابزارها و Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [معماری برنامه](tutorial/application-architecture.md) 
+* [معماری برنامه](tutorial/application-architecture.md)
   * [فرآیندهای اصلی و رندرینگ](tutorial/application-architecture.md#main-and-renderer-processes)
   * [استفاده از API های الکترونی](tutorial/application-architecture.md#using-electron-apis)
   * [استفاده از API های Node.js](tutorial/application-architecture.md#using-nodejs-apis)
-  * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
+  * [راه اندازی لینوکس](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-* اضافه کردن ویژگی ها به برنامه شما 
-  * [اطلاعیه](tutorial/notifications.md)
+* اضافه کردن ویژگی ها به برنامه شما
+  * [Notifications](tutorial/notifications.md)
   * [اسناد اخیر](tutorial/recent-documents.md)
   * [پیشرفت برنامه](tutorial/progress-bar.md)
   * [منوی داک سفارشی](tutorial/macos-dock.md)
   * [وظیفه سفارشی سازی ویندوز](tutorial/windows-taskbar.md)
   * [عملیات سفارشی لینوکس دسکتاپ](tutorial/linux-desktop-actions.md)
   * [میانبرهای صفحه کلید](tutorial/keyboard-shortcuts.md)
-  * [ تشخیص آفلاین / آنلاین](tutorial/online-offline-events.md)
-  * [نمایه فایل برای macOS BrowserWindows](tutorial/represented-file.md)
+  * [ تشخیص  آفلاین / آنلاین](tutorial/online-offline-events.md)
+  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
-* [دسترسی](tutorial/accessibility.md) 
+* [Accessibility](tutorial/accessibility.md)
   * [اسپکترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [فعال کردن قابلیت](tutorial/accessibility.md#enabling-accessibility)
-* [تست و اشکال زدایی](tutorial/application-debugging.md) 
-  * [اشکال زدایی فرآیند اصلی ](tutorial/debugging-main-process.md)
+  * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
+* [تست و اشکال زدایی](tutorial/application-debugging.md)
+  * [Debugging the Main Process](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [استفاده از Selenium و WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [تست سیستم های CI (Travis، Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [تست سیستم های  CI (Travis، Jenkins)](tutorial/testing-on-headless-ci.md)
   * [افزونه DevTools](tutorial/devtools-extension.md)
   * [تست خودکار با یک درایور سفارشی](tutorial/automated-testing-with-a-custom-driver.md)
-* [توضیع](tutorial/application-distribution.md) 
+* [توضیع](tutorial/application-distribution.md)
   * [Supported Platforms](tutorial/support.md#supported-platforms)
   * [Code Signing](tutorial/code-signing.md)
   * [فروشگاه Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [فروشگاه ویندوز](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [امنیت](tutorial/security.md) 
+* [امنیت](tutorial/security.md)
   * [گزارش مشکلات امنیتی](tutorial/security.md#reporting-security-issues)
   * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [هشدار امنیتی الکترون](tutorial/security.md#electron-security-warnings)
   * [چک لیست امنیتی](tutorial/security.md#checklist-security-recommendations)
-* [به روزرسانی ها](tutorial/updates.md) 
+* [به روزرسانی ها](tutorial/updates.md)
   * [استقرار یک سرور به روز رسانی](tutorial/updates.md#deploying-an-update-server)
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [اعمال بروزرسانی](tutorial/updates.md#applying-updates)
@@ -77,15 +77,15 @@ Please make sure that you use the documents that match your Electron version. ش
 
 These individual tutorials expand on topics discussed in the guide above.
 
-* [نصب الکترون Electron](tutorial/installation.md) 
+* [نصب الکترون Electron](tutorial/installation.md)
   * [پروکسی ها](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [عیب یابی](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
+* Electron Releases & Developer Feedback
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* [Packaging App Source Code with asar](tutorial/application-packaging.md)
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [محدودیت ها](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -93,7 +93,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [Glossary of Terms](glossary.md)
 
@@ -155,4 +155,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## توسعه
 
-See <development/README.md>
+See [development/README.md](development/README.md)
