@@ -2,7 +2,7 @@
 
 > 운영체제의 알림을 생성합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 ## 렌더러 프로세스에서 사용하기
 
@@ -12,7 +12,7 @@
 
 > 운영체제의 알림을 생성합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -26,18 +26,18 @@ It creates a new `Notification` with native properties as set by the `options`.
 
 `Boolean` 값을 반환합니다 - 현재 시스템에서 알림을 지원하는지 여부를 반환합니다.
 
-### `new Notification([options])` _Experimental_
+### `new Notification([options])` _실험적_
 
 * `options` Object (optional)
   * `title` String - 알림 윈도우가 표시될 때 상단에 나타나는, 알림의 타이틀입니다.
-  * `subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
+  * `subtitle` String (옵션) _macOS_ - 알림의 부제목으로써, 타이틀의 아래에 표시됩니다.
   * `body` String - 알림의 body에 표시되는 문자열로서, title 혹은 subtitle의 아래에 표시됩니다.
   * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
   * `icon` (String | [NativeImage](native-image.md)) (옵션) - 알림에 사용할 아이콘.
   * `hasReply` Boolean (optional) _macOS_ - Whether or not to add an inline reply option to the notification.
   * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
   * `replyPlaceholder` String (optional) _macOS_ - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) _macOS_ - The name of the sound file to play when the notification is shown.
+  * `sound` String (optional) _macOS_ - 알림이 표시될 때 재생될 음악파일의 이름.
   * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
@@ -46,11 +46,11 @@ It creates a new `Notification` with native properties as set by the `options`.
 
 Objects created with `new Notification` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**참고:** 몇몇 이벤트는 표기된 특정 운영체제에서만 사용할 수 있습니다.
 
 #### Event: 'show'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -58,7 +58,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 #### Event: 'click'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -66,7 +66,7 @@ Emitted when the notification is clicked by the user.
 
 #### 이벤트: 'close'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -76,7 +76,7 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 #### Event: 'reply' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `reply` String - The string the user entered into the inline reply field.
@@ -85,12 +85,12 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 #### Event: 'action' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `index` Number - The index of the action that was activated.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 Objects created with `new Notification` have the following instance methods:
 
@@ -104,7 +104,7 @@ If the notification has been shown before, this method will dismiss the previous
 
 알림창을 닫습니다.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 #### `notification.title`
 
