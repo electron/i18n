@@ -8,13 +8,13 @@ Se stai cercando un aiuto di programmazione o vuoi partecipare ad una discussion
 - Categoria [`electron`](https://discuss.atom.io/c/electron) sui forum Atom
 - Canale `#atom-shell` su Freenode
 - `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-- [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-- [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-- [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
+- [`electron-ru`](https://telegram.me/electron_ru) *(Russo)*
+- [`electron-br`](https://electron-br.slack.com) *(Brasiliano Portoghese)*
+- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Coreano)*
+- [`electron-jp`](https://electron-jp.slack.com) *(Giapponese)*
+- [`electron-tr`](https://electron-tr.herokuapp.com) *(Turco)*
 - [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-- [`electron-pl`](https://electronpl.github.io) *(Poland)*
+- [`electron-pl`](https://electronpl.github.io) *(Polonia)*
 
 If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
