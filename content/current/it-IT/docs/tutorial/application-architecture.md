@@ -4,9 +4,9 @@ Prima di immergersi nelle API di Electron, bisogna discutere di due tipi di proc
 
 ## Principali Processi e di Rendering
 
-In Electron, the process that runs `package.json`'s `main` script is called __the main process__. Lo script che viene eseguito nel processo principale può visualizzare una GUI tramite la creazione di pagine web. Una applicazione Electron ha sempre un processo principale, ma mai più di uno.
+In Electron, il processo chiamato `main` che esegue lo script indicato nel file `package.json` è chiamato __processo principale__. Lo script che viene eseguito nel processo principale può visualizzare una GUI tramite la creazione di pagine web. Una applicazione Electron ha sempre un processo principale, ma mai più di uno.
 
-Poiché Electron utilizza Chromium per la visualizzazione di pagine web, viene utilizzata anche l'architettura multi-processo di Chromium. Each web page in Electron runs in its own process, which is called __the renderer process__.
+Poiché Electron utilizza Chromium per la visualizzazione di pagine web, viene utilizzata anche l'architettura multi-processo di Chromium. Ogni pagina web in Electron viene eseguita nel proprio processo, che si chiama __il processo di rendering__.
 
 Nei browser normali, le pagine web vengono eseguite in un ambiente circoscritto nel quale non è consentito l'accesso alle risorse native. Gli utenti di Electron, tuttavia, hanno il potere di usare le API di Node.js nelle pagine web consentendo interazioni di sistema operativo di livello inferiore.
 
