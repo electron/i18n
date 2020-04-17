@@ -4,7 +4,7 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)` _Experimental_
+### `TouchBarLabel baru (pilihan)` _Eksperimental_
 
 * `options` Object
   * `label` String (opsional) - Teks untuk ditampilkan.
@@ -13,7 +13,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
-### Instance Properties
+### Contoh properti
 
 Properti berikut tersedia pada contoh `TouchBarLabel`:
 
