@@ -539,7 +539,7 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* `نام` رشته
+* PrinterInfo Object
 * `path` String
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
@@ -562,7 +562,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.setName(name)`
 
-* `نام` رشته
+* PrinterInfo Object
 
 Overrides the current application's name.
 
@@ -677,7 +677,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. اگر خاصیتِ `نام` تنظیم شده باشد ولی `نوع` خاصیت نه، `نوع` به صورت `مشخص شده` فرض خواهد شد.
+**نکته:** اگر شی یک `دسته بندیِ لیست پرشی` نه `نوع` و نه `نام` مشخص شده داشته باشد، `نوع` آن، `وظایف` فرض خواهد شد. اگر خاصیتِ `نام` تنظیم شده باشد ولی `نوع` خاصیت نه، `نوع` به صورت `مشخص شده` فرض خواهد شد.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
