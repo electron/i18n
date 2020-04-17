@@ -4,7 +4,7 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSlider(options)` _Experimental_
+### `baru TouchBarSlider(options)` _Experimental_
 
 * `options` Object
   * `label` String (opsional) - Label teks.
@@ -14,7 +14,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
   * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Nomor - nilai yang dipilih pengguna pada Panel geser Slider.
 
-### Instance Properties
+### Contoh properti
 
 Properti berikut tersedia pada contoh-contoh dari `TouchBarSlider`:
 
