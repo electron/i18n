@@ -32,10 +32,12 @@ Ini menciptakan baru ` Pemberitahuan </ 0> dengan sifat asli yang ditetapkan ole
 
 Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada sistem saat ini atau tidak</p>
 
-<h3 spaces-before="0"><code>new Notification([options])` _Experimental_</h3> 
+<h3 spaces-before="0"><code> Pemberitahuan baru ( [pilihan] ) </ 0>  <em x-id="4"> Eksperimental </ 1></h3>
 
-* `options` Object (optional) 
-    * ` judul </ 0>  String - Judul untuk pemberitahuan, yang akan ditampilkan di bagian atas jendela pemberitahuan saat ditampilkan.</li>
+<ul>
+<li><code>options` Object (optional) 
+
+  * ` judul </ 0>  String - Judul untuk pemberitahuan, yang akan ditampilkan di bagian atas jendela pemberitahuan saat ditampilkan.</li>
 <li><code>subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
   * ` tubuh </ 0> String - bahasa teks visual, yang akan ditampilkan di bawah judul atau subjudul.</li>
 <li><code>silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
@@ -46,20 +48,19 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
   * `sound` String (optional) _macOS_ - The name of the sound file to play when the notification is shown.
   * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.</li> </ul> 
 
 
 
-### Contoh peristiwa
+### Perihal contoh
 
 Objek yang dibuat dengan ` Pemberitahuan baru </ 0> memancarkan peristiwa berikut:</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> Some events are only available on specific operating systems and are
-labeled as such.</p>
+<p spaces-before="0"><strong x-id="1"> Catatan: </ 0> Beberapa acara hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p>
 
 <h4 spaces-before="0">Acara : 'show'</h4>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Returns:</p>
 
 <ul>
 <li><code>event` Sinyal</li> </ul> 
@@ -68,10 +69,10 @@ Emitted saat pemberitahuan ditunjukkan kepada pengguna, perhatikan bahwa ini dap
 
 <h4 spaces-before="0">Acara : 'klik'</h4>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Mengirimkan:</p>
 
 <ul>
-<li><code>event` Sinyal</li> </ul> 
+<li><code>peristiwa` Peristiwa</li> </ul> 
 
 Emitted saat notifikasi diklik oleh pengguna.
 
@@ -79,36 +80,37 @@ Emitted saat notifikasi diklik oleh pengguna.
 
 #### Acara : 'dekat'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `event</ 0> Acara</li>
+</ul>
 
-Emitted saat notifikasi ditutup dengan intervensi manual dari pengguna.
+<p spaces-before="0">Emitted saat notifikasi ditutup dengan intervensi manual dari pengguna.</p>
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+<p spaces-before="0">This event is not guaranteed to be emitted in all cases where the notification
+is closed.</p>
 
+<h4 spaces-before="0">Acara : 'balas' <em x-id="4"> macos </ 0></h4>
 
+<p spaces-before="0">Pengembalian:</p>
 
-#### Event: 'reply' _macOS_
-
-Mengembalikan:
-
-* `event` Sinyal
+<ul>
+<li><code>acara` Acara
 * ` balasan</ 0>  String - String yang dimasukkan pengguna ke kolom dibarisan balasan.</li>
 </ul>
 
 <p spaces-before="0">Emitted saat pengguna mengklik tombol "Balas" pada notifikasi dengan <code> telah di balas: benar </ 0> .</p>
 
-<h4 spaces-before="0">Event: 'action' <em x-id="4">macOS</em></h4>
+<h4 spaces-before="0">Acara: 'aktifkan' <em x-id="4"> macOS </ 0></h4>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Pengembalian:</p>
 
 <ul>
-<li><code>event` Sinyal
+<li><code>acara` Acara
 * ` masukkan </ 0>  Nomor - Indeks tindakan yang diaktifkan.</li>
 </ul>
 
-<h3 spaces-before="0">Методы экземпляра</h3>
+<h3 spaces-before="0">Metode Contoh</h3>
 
 <p spaces-before="0">Objek yang dibuat dengan <code> Notifikasi baru </ 0> memiliki metode contoh berikut:</p>
 
@@ -125,7 +127,7 @@ Dismisses the notification.
 
 
 
-### Instance Properties
+### Contoh properti
 
 
 
