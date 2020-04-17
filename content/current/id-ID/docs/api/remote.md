@@ -2,7 +2,7 @@
 
 > Gunakan modul proses utama dari proses renderer.
 
-Proses: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizador](../glossary.md#renderer-process)
 
 The `remote` Modul menyediakan cara sederhana untuk melakukan komunikasi antar proses (IPC) antara proses renderer (halaman web) dan proses utama.
 
@@ -26,9 +26,9 @@ Setiap objek (termasuk fungsi) dikembalikan oleh `remote` modul mewakili sebuah 
 
 In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Sebagai gantinya, ia menciptakan `BrowserWindow` objek dalam proses utama dan mengembalikan objek remote yang sesuai dalam proses renderer, yaitu `menang` objek.
 
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
+**Catatan:** Hanya [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) yang ada Bila objek remote pertama direferensikan bisa diakses via remote.
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Mengubahnya dalam proses renderer tidak mengubahnya menjadi yang utama proses dan sebaliknya.
+**Catatan:** Array dan Buffer disalin melalui IPC saat diakses melalui `remote` modul. Mengubahnya dalam proses renderer tidak mengubahnya menjadi yang utama proses dan sebaliknya.
 
 ## Lifetime dari Remote Objects
 
@@ -94,7 +94,7 @@ const app = require ('elektron'). remote.app
 console.log (app)
 ```
 
-## Methods
+## Metode
 
 Itu `jarak jauh` modul memiliki metode berikut:
 
@@ -142,14 +142,14 @@ Mengembalikan [`BrowserWindow`](browser-window.md) - Jendela tempat halaman web 
 
 Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
 
-### `remote.getGlobal(name)`
+### `remote.getGlobal (nama)`
 
-* ` nama </ 0>  Deretan</li>
+* ` nama </ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Mengembalikan <code>sembarang` - Variabel global`nama` (misalnya `global[name]`) di utama proses.</p>
 
-## Properti/peralatan
+## properti
 
 ### `remote.process` _Readonly_
 
