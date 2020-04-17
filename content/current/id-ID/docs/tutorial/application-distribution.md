@@ -3,7 +3,7 @@
 To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
 
 * [elektron-penempa](https://github.com/electron-userland/electron-forge)
-* [pembangun elektron](https://github.com/electron-userland/electron-builder)
+* [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron/electron-packager)
 
 These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
@@ -122,7 +122,7 @@ Anda perlu Fork electron ketika anda memiliki kustom kode C++ yang telah anda pa
   * `SURF_TEMP` - atur ke `C:\Temp` pada Windows untuk mencegah masalah terlalu panjang jalan
   * `TARGET_ARCH` - atur ke `ia32` atau `x64`
 
-4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+4. Di `script/upload.py`, anda _harus_ mengatur `ELECTRON_REPO` ke Fork anda (`MYORG/electron`), terutama jika anda adalah seorang kontributor ke elektron yang tepat.
 
 5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
