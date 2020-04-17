@@ -1,4 +1,4 @@
 # Oggetto BluetoothDevice
 
-* `deviceName` Stringa
+* `space_name` {string}
 * `deviceId` Stringa
