@@ -4,7 +4,7 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarGroup(options)` _Experimental_
+### `baru TouchBarGroup(options)` _Experimental_
 
 * `options` Object
   * `item` [TouchBar](touch-bar.md) - item untuk menampilkan sebagai sebuah kelompok.
