@@ -16,7 +16,7 @@ In all cases, you will need to have the `snapcraft` tool installed. We recommend
 snap install snapcraft --classic
 ```
 
-While it _is possible_ to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+Mentre _è possibile_ installare `snapcraft` su macOS usando Homebrew, non è possibile costruire pacchetti `snap` ed è focalizzato su pacchetti gestionali nel negozio.
 
 ## Usando `electron-installatore-snap`
 
