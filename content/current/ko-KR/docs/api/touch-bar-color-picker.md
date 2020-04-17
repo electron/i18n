@@ -12,7 +12,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
   * `change` Function (optional) - Function to call when a color is selected.
     * `color` String - The color that the user selected from the picker.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 The following properties are available on instances of `TouchBarColorPicker`:
 
