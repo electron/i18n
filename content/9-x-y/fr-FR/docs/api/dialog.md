@@ -160,16 +160,16 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
   * `defaultPath` String (facultatif) - Chemin d'accès absolu, le chemin d'accès absolu du fichier, ou le nom du fichier à utiliser par défaut.
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
-  * `message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
+  * `message` String (facultatif) _macOS_ - Message à afficher au-dessus des champs de texte.
+  * `nameFieldLabel` String (facultatif) _macOS_ - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
-    * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `createDirectory` _macOS_ - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
+    * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
     * `showOverwriteConfirmation` _Linux_ - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
     * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
-  * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. Si cette option est activée et que le fichier n'existe pas encore, un fichier vide sera créé dans le chemin choisi.
+  * `securityScopedBookmarks` Boolean (facultatif) _macOS_ _mas_ - Créez un marque-page à portée de sécurité</a> lorsque empaqueté pour le Mac App Store. Si cette option est activée et que le fichier n'existe pas encore, un fichier vide sera créé dans le chemin choisi.
 
 Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments suivants :
   * `annulé` Booléen - que la boîte de dialogue ait été annulée ou non.
@@ -180,7 +180,7 @@ L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-m�
 
 Les `filters` spécifie un tableau de types de fichiers qui peuvent être affichés, allez voir `dialog.showOpenDialog` pour un exemple.
 
-**Note:** On macOS, using the asynchronous version is recommended to avoid issues when expanding and collapsing the dialog.
+**Remarque :** Sur macOS, l'utilisation de la version asynchrone est recommandée pour éviter les problèmes lorsque étend et réduit la boîte de dialogue.
 
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
@@ -203,7 +203,7 @@ Retourne `Integer` - l'index du bouton cliqué.
 
 Affiche une boîte de message, elle bloque le processus jusqu'à ce que la boîte de message soit fermée. It returns the index of the clicked button.
 
-L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
+L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale. If `browserWindow` is not shown dialog will not be attached to it. In such case It will be displayed as independed window.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
