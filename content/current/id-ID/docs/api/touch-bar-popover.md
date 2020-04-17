@@ -4,7 +4,7 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarPopover(options)` _Experimental_
+### ` TouchBarPopover(pilihan) baru` _Eksperimental_
 
 * `options` Object
   * `label` String (tidak wajib diisi) - tombol teks Popover.
@@ -12,7 +12,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
   * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Defaultnya adalah `true`.
 
-### Instance Properties
+### Contoh properti
 
 Properti berikut ini tersedia dalam kejadian `TouchBarPopover`:
 
