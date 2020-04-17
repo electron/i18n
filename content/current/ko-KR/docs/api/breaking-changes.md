@@ -320,7 +320,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ## 중단될 예정 API (4.0)
 
-The following list includes the breaking API changes made in Electron 4.0.
+다음 리스트는 Electron 4.0에서의 중대한 API 변화를 포함합니다.
 
 ### `app.makeSingleInstance`
 
@@ -439,7 +439,7 @@ crashReporter.start({
 })
 ```
 
-### `기본이미지`
+### `nativeImage`
 
 ```js
 // 중단예정
@@ -466,7 +466,7 @@ screen.getMenuBarHeight()
 screen.getPrimaryDisplay().workArea
 ```
 
-### `세션`
+### `session`
 
 ```js
 // 중단예정
@@ -568,7 +568,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-### `기본이미지`
+### `nativeImage`
 
 ```js
 // 제거됨
