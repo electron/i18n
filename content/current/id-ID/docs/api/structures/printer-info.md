@@ -1,6 +1,6 @@
 # PrinterInfo Object
 
-* ` nama </ 0>  Deretan</li>
+* ` nama </ 0>  String</li>
 <li><code> deskripsi </ 0>  String</li>
 <li><code> status </ 0>  nomor</li>
 <li><code> isDefault </ 0>  Boolean</li>
