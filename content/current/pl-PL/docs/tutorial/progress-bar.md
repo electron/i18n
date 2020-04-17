@@ -6,7 +6,7 @@ W systemie MacOS pasek postępu będzie wyświetlany jako część ikony dock'a.
 
 The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
 
-**Pasek postępu na pasku zadań:**
+__Pasek postępu na pasku zadań:__
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
