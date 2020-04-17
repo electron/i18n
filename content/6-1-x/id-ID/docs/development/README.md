@@ -1,0 +1,26 @@
+# Developing Electron
+
+These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+
+* [Kode etik](../../CODE_OF_CONDUCT.md)
+* [berkontribusi ke electron](../../CONTRIBUTING.md)
+* [Isu](issues.md)
+* [Ajukan Permintaan](pull-requests.md)
+* [Dokumentasi Styleguide](coding-style.md#documentation)
+* [Struktur direktori sumber kode](source-code-directory-structure.md)
+* [Model coding](coding-style.md)
+* [Menggunakan dentang-format pada kode C++ Code](clang-format.md)
+* [Membangun sistem Tinjauan](build-system-overview.md)
+* [Membangun petunjuk (macOS)](build-instructions-macos.md)
+* [Membangun petunjuk (Windows)](build-instructions-windows.md)
+* [Membangun petunjuk (Linux)](build-instructions-linux.md)
+* [Kromium pengembangan](chromium-development.md)
+* [Pengembangan V8](v8-development.md)
+* [Pengujian](testing.md)
+* [Debugging pada Windows](debug-instructions-windows.md)
+* [Debugging on macOS](debugging-instructions-macos.md)
+* [Menyiapkan Symbol Server di Debugger](setting-up-symbol-server.md)
+* [Mengupgrade Chromium](upgrading-chromium.md)
+* [Upgrade Crashpad](upgrading-crashpad.md)
+* [Upgrade Node](upgrading-node.md)
+* [Melepaskan](releasing.md)
