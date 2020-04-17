@@ -42,9 +42,9 @@ To run only specific tests matching a pattern, run `npm run test --
 #### Caratteri mancanti
 Alcune macchine Windows 10<0> vengono distribuite prive del font Meiryo; questa circostanza potrebbe causare il fallimento di uno o più test sulla sostituzione dei font. Per installare Meiryo:</p> 
 
-1. Push the Windows key and search for _Manage optional features_.
-2. Click _Add a feature_.
-3. Select _Japanese Supplemental Fonts_ and click _Install_.
+1. Premere il tasto Windows e cercare _Gestisci funzionalità opzionali_.
+2. Clicca _Aggiungi una funzione_.
+3. Seleziona _Caratteri aggiuntivi giapponesi_ e clicca _Installa_.
 
 
 
@@ -54,5 +54,5 @@ Alcuni test che si basano su dimensioni precise dei pixel potrebbero non funzion
 
 To configure display scaling:
 
-1. Push the Windows key and search for _Display settings_.
+1. Premi il tasto Windows e cerca _Impostazioni di visualizzazione_.
 2. Under _Scale and layout_, make sure that the device is set to 100%.
