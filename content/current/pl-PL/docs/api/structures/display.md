@@ -6,7 +6,7 @@
 * `touchSupport` String - może przyjmować wartości `available`, `unavailable`, `unknown`.
 * `monochrome` - określa czy wyświetlacz jest wyświetlaczem monochromatycznym.
 * `accelerometerSupport` String - może przyjmować wartości `available`, `unavailable`, `unknown`.
-* `colorSpace` String - reprezentuje przestrzeń kolorów (trójwymiarowy obiekt, który zawiera wszystkie możliwe kombinacje kolorów) na potrzeby konwersji kolorów
+* `colorSpace` String -  reprezentuje przestrzeń kolorów (trójwymiarowy obiekt, który zawiera wszystkie możliwe kombinacje kolorów) na potrzeby konwersji kolorów
 * `colorDepth` Number - Liczba bitów na piksel.
 * `depthPerComponent` Liczba - Liczba bitów na komponent koloru.
 * `bounds` [Rectangle](rectangle.md)
