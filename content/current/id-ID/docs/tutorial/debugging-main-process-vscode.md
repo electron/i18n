@@ -1,15 +1,14 @@
 # Debugging Proses Utama di VSCode
 
-### 1. Open an Electron project in VSCode.
+### 1. Buka proyek Elektron di VSCode.
 
 ```sh
 $ git clone git@github.com:electron / $ elektron-cepat-start.git kode elektron-cepat-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. Tambahkan file ` .vscode / launch.json </ 0> dengan konfigurasi berikut:</h3>
 
-```json
-{
+<pre><code class="json">{
   "version": "0.2.0",
   "configurations": [
     {
@@ -26,7 +25,7 @@ $ git clone git@github.com:electron / $ elektron-cepat-start.git kode elektron-c
     }
   ]
 }
-```
+`</pre>
 
 
 ### 3. Debugging
