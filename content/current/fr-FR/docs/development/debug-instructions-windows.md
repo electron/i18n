@@ -1,6 +1,6 @@
 # Débogage sur Windows
 
-Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez qu'il ne viennent pas de votre app JavaScript, mais plutôt d'Electron lui-même, alors le débogage peut être un peu difficile, surtout pour les développeurs peu expérimentés pour le débogage natif/C++. Cependant, en utilisant Visual Studio, le serveur Symbol d'Electron hébergé sur Github et le code source d'Electron, vous pouvez activer le débogage étape par étape avec des points d'arrêts à l'intérieur du code source d'Electron.
+Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez qu'il ne viennent pas de votre app JavaScript, mais plutôt d'Electron lui-même, alors le débogage peut être un peu difficile, surtout pour les développeurs peu expérimentés pour le débogage natif/C++. However, using Visual Studio, Electron's hosted Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
 
 **Voir aussi** : Il y a une richesse d'information sur le débogage de Chronium, la plupart s'appliquant aussi pour Electron, sur le site developpeur de Chronium : [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
@@ -8,7 +8,7 @@ Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez 
 
 * **Un debug build d'Electron** : le moyen le plus simple est généralement de le compiler vous-même, en utilisant les outils et prérequis énumérées dans les [instructions de compilation pour Windows](build-instructions-windows.md). Tandis que vous pouvez facilement déboguer Electron puisque vous pouvez le télécharger directement, vous trouverez qu’il est fortement optimisé, ce qui rend le débogage sensiblement plus difficile : le débogueur ne sera pas en mesure de vous montrer le contenu de toutes les variables et le chemin d’exécution peut sembler étrange à cause de l’inlining, liste des appels qui s’enchaînent et d'autres optimisations du compilateur.
 
-* **Outils Visual Studio C++** : les éditions de la communauté gratuite de Visual Studio 2013 et Visual Studio 2015 fonctionnent tous les deux. Une fois installé, [configurer Visual Studio pour utiliser le serveur GitHub symbolique d'Electron](setting-up-symbol-server.md). Il permettra à Visual Studio d’acquérir une meilleure compréhension de ce qui se passe à l’intérieur d'Electron, rendant plus facile l'affichage des variables dans un format lisible par l’homme.
+* **Outils Visual Studio C++** : les éditions de la communauté gratuite de Visual Studio 2013 et Visual Studio 2015 fonctionnent tous les deux. Once installed, [configure Visual Studio to use Electron's Symbol server](setting-up-symbol-server.md). Il permettra à Visual Studio d’acquérir une meilleure compréhension de ce qui se passe à l’intérieur d'Electron, rendant plus facile l'affichage des variables dans un format lisible par l’homme.
 
 * **ProcMon** : l'[outil gratuit de SysInternals](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) vous permet d’inspecter un paramètres de processus, gère les fichiers et les opérations de registre.
 
@@ -24,7 +24,7 @@ $ ./out/Testing/electron.exe ~/my-electron-app/
 
 Vous pouvez ouvrir Visual Studio. Electron n’est pas compilé avec Visual Studio et par conséquent ne contient pas de fichier de projet - vous pouvez cependant ouvrir les fichiers de code source « Comme fichier », ce qui signifie que Visual Studio va les ouvrir par eux-mêmes. Vous pouvez quand même définir des points d’arrêt - Visual Studio cherchera automatiquement le code source correspond au code qui s’exécute dans le processus attaché et le stopper en conséquence.
 
-Relevant code files can be found in `./shell/`.
+Les fichiers de code pertinents peuvent être trouvés dans `./shell/`.
 
 ### Attacher
 
