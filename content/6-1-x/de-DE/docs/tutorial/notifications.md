@@ -1,8 +1,8 @@
 # Notifications (Windows, Linux, macOS)
 
-All three operating systems provide means for applications to send notifications to the user. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Alle drei Betriebssysteme bieten Möglichkeiten für Anwendungen, um notifications an den Benutzer zu senden. Electron ermöglicht Entwicklern das Senden von notifications mit der [HTML5 Notification-API](https://notifications.spec.whatwg.org/), durch die Verwendung der nativen notification APIs des laufenden Betriebssystems.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**Hinweis:** Da es sich um eine HTML5-API handelt, ist sie nur im renderer prozess verfügbar. Wenn Sie Benachrichtigungen im main process anzeigen möchten, schauen Sie sich bitte das Modul [Notification](../api/notification.md) an.
 
 ```javascript
 let myNotification = new Notification('Title', {
@@ -14,7 +14,7 @@ myNotification.onclick = () => {
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+Während Code und Benutzererfahrung innerhalb der Betriebssysteme ähnlich sind, gibt es leichte Unterschiede.
 
 ## Windows
 * On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
