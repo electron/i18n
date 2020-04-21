@@ -368,8 +368,8 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 #### Event: 'zoom-changed'
 
 Rückgabewert:
-* `event` Event
-* `zoomDirection` String - Can be `in` or `out`.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>zoomDirection` String - Can be `in` or `out`.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
@@ -389,9 +389,9 @@ Emitted when DevTools is focused / opened.
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
-* `error` String - Der error code.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+<li><code>error` String - Der error code.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -404,8 +404,8 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 Rückgabewert:
 
-* `event` Event
-* `url` URL
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
@@ -418,8 +418,8 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 Rückgabewert:
 
-* `event` Event
-* `authenticationResponseDetails` Object
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
   * `isProxy` Boolean
@@ -439,8 +439,8 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Rückgabewert:
 
-* `event` Event
-* `result` Object
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -461,8 +461,8 @@ Emitted when media is paused or done playing.
 
 Rückgabewert:
 
-* `event` Event
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
@@ -474,17 +474,19 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+<p spaces-before="0">Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
 
-#### Event: 'cursor-changed'
+<h4 spaces-before="0">Event: 'cursor-changed'</h4>
 
-Rückgabewert:
+<p spaces-before="0">Rückgabewert:</p>
 
-* `event` Event
-* `type` String
+<ul>
+<li><code> Ereignis </ 0>  Ereignis</li>
+<li><code>type` String
 * `image` [NativeImage](native-image.md) (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor.
 * `size` [Size](structures/size.md) (optional) - Die Größe des`Bildes`.
@@ -498,8 +500,8 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Rückgabewert:
 
-* `event` Event
-* `params` Object
+* ` Ereignis </ 0>  Ereignis</li>
+<li><p spaces-before="0"><code>params` Object</p>
   * `x` Integer - x Koordinate.
   * `y` Integer - y Koordinate.
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -541,8 +543,8 @@ Emitted when there is a new context menu that needs to be handled.
 
 Rückgabewert:
 
-* `event` Event
-* `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function
   * `deviceId` String
 
@@ -574,8 +576,8 @@ app.whenReady().then(() => {
 
 Rückgabewert:
 
-* `event` Event
-* `dirtyRect` [Rectangle](structures/rectangle.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
 Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
@@ -598,8 +600,8 @@ Emitted when the devtools window instructs the webContents to reload
 
 Rückgabewert:
 
-* `event` Event
-* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><p spaces-before="0"><code>webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.</p>
 * `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
 Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
@@ -612,8 +614,8 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
 Emitted when a `<webview>` has been attached to this web contents.
 
@@ -621,8 +623,8 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Rückgabewert:
 
-* `event` Event
-* `level` Integer
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>level` Integer
 * `message` String
 * `line` Integer
 * `sourceId` String
@@ -633,8 +635,8 @@ Emitted when the associated window logs a console message.
 
 Rückgabewert:
 
-* `event` Event
-* `preloadPath` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>preloadPath` String
 * ` Fehler </ 0> Fehler</li>
 </ul>
 
@@ -644,8 +646,8 @@ Rückgabewert:
 
 Rückgabewert:
 
-* `event` Event
-* `channel` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>channel` String
 * `...args` any[]
 
 Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
@@ -654,8 +656,8 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 Rückgabewert:
 
-* `event` Event
-* `channel` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>channel` String
 * `...args` any[]
 
 Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
@@ -1616,7 +1618,7 @@ A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
 #### `contents.devToolsWebContents` _Readonly_
 
-A `WebContents` of DevTools for this `WebContents`.
+A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
 
 **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
