@@ -4,7 +4,6 @@ import got from 'got'
 import { Octokit } from '@octokit/rest'
 import * as path from 'path'
 import { promisify } from 'util'
-import { ProxyStream } from 'got/dist/source/as-stream'
 import * as stream from 'stream'
 import { tmpdir } from 'os'
 
@@ -18,7 +17,7 @@ const github = new Octokit({
 })
 
 const downloadArchive = async (url: string, writeStream: fs.WriteStream) => {
-  const downloadStream: ProxyStream<any> = got.stream(url, {
+  const downloadStream = got.stream(url, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
