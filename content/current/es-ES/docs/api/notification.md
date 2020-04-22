@@ -2,7 +2,7 @@
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ## Utilizando el proceso de renderizado
 
@@ -12,7 +12,7 @@ Si quieres mostrar notificaciones desde un proceso de renderizado se debe utiliz
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -26,21 +26,21 @@ La clase `Notification` tiene los siguientes métodos estáticos:
 
 Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en el sistema actual
 
-### `new Notification([options])` *Experimental*
+### `new Notification([options])` _Experimental_
 
-* `opciones` Objecto (opcional) 
+* `options` Object (opcional)
   * `title` String - Un título para la notificación, el cual será mostrado en la parte superior de la ventana de notificación.
-  * `subtitle` String (opcional) *macOS* - Un subtítulo para la notificación, la cual aparecerá debajo del título.
+  * `subtitle` String (opcional) _macOS_ - Un subtítulo para la notificación, la cual aparecerá debajo del título.
   * `body` String - El cuerpo del texto de la notificación, el cual aparecerá debajo del título o subtítulo.
   * `silent` Boolean (opcional) - Si se emite o no un sonido de notificación del sistema operativo cuando aparece la notificación.
   * `icon` (String | [NativeImage](native-image.md)) (opcional) - Icono para usar en la notificación.
-  * `hasReply` Boolean (opcional) *macOS* - Si se agrega o no una opción de respuesta insertada en la notificación.
-  * `timeoutType` String (optional) *Linux* *Windows* - The timeout duration of the notification. Can be 'default' or 'never'.
-  * `replyPlaceholder` String (opcional) *macOS* - El marcador de posición para escribir en el campo insertado de entrada de respuesta.
-  * `sound` String (opcional) *macOS* - El nombre del archivo de sonido que se reproduce cuando se muestra la notificación.
-  * `urgency` String (optional) *Linux* - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (opcional) *macOS* - Las acciones que se añaden a la notificación. Por favor lea las acciones disponibles y limitaciones en la documentación de `NotificationAction`.
-  * `closeButtonText` String (opcional) *macOS* - Un título personalizado para el botón de cerrar de una alerta. Una cadena vacía causará que se use el texto localizado predeterminado.
+  * `hasReply` Boolean (opcional) _macOS_ - Si se agrega o no una opción de respuesta insertada en la notificación.
+  * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
+  * `replyPlaceholder` String (opcional) _macOS_ - El marcador de posición para escribir en el campo insertado de entrada de respuesta.
+  * `sound` String (opcional) _macOS_ - El nombre del archivo de sonido que se reproduce cuando se muestra la notificación.
+  * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (opcional) _macOS_ - Las acciones que se añaden a la notificación. Por favor lea las acciones disponibles y limitaciones en la documentación de `NotificationAction`.
+  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 ### Eventos de Instancia
 
@@ -64,26 +64,26 @@ Devuelve:
 
 Se emite cuando el usuario hace clic en la notificación.
 
-#### Evento: 'close'
+#### Evento: "close"
 
 Devuelve:
 
-* `event` Event
+* `event` Evento
 
 Se emite cuando se cierra la notificación por medio de la intervención manual del usuario.
 
 No se garantiza que este evento se emita en todos los casos donde se cierre la notificación.
 
-#### Evento: "reply" *macOS*
+#### Evento: "reply" _macOS_
 
 Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `reply` String - La cadena que ingreso el usuario dentro del campo de respuesta insertado.
 
 Se emite cuando el usuario hace clic en el botón "Reply" en una notificación con `hasReply: true`.
 
-#### Evento: "action" *macOS*
+#### Evento: "action" _macOS_
 
 Devuelve:
 
@@ -138,13 +138,13 @@ A `Boolean` property representing whether the notification is silent.
 
 A `Boolean` property representing whether the notification has a reply action.
 
-#### `notification.urgency` *Linux*
+#### `notification.urgency` _Linux_
 
 A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
 
 Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
 
-#### `notification.timeoutType` *Linux* *Windows*
+#### `notification.timeoutType` _Linux_ _Windows_
 
 A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
 
@@ -156,7 +156,7 @@ A [`NotificationAction[]`](structures/notification-action.md) property represent
 
 ### Reproducción de Sonidos
 
-En macOS, se puede especificar el nombre del sonido que se desee reproducir cuando se muestre la notificación. Cualquier sonido por defecto, además de los archivos de sonido personalizados, (en Preferencias del sistema > Sonido) puede ser utilizados. Asegúrese de que el archivo de sonido sea copiado en el paquete de la aplicación (por ejemplo, `YourApp.app/Contents/Resources`), o uno de los siguientes direcciones:
+En macOS, se puede especificar el nombre del sonido que se desee reproducir cuando se muestre la notificación. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Asegúrese de que el archivo de sonido sea copiado en el paquete de la aplicación (por ejemplo, `YourApp.app/Contents/Resources`), o uno de los siguientes direcciones:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
