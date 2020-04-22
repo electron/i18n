@@ -36,11 +36,11 @@ The `crashReporter` module has the following methods:
 
 ### `crashReporter.start(options)`
 
-* `opțiuni` Obiect 
+* `options` Object
   * `companyName` String
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.name`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Modul implicit este `true-adevărat`.
   * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
   * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
   * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
@@ -73,20 +73,20 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean _macOS_ - Whether reports should be submitted to the server.
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
 **Note:** This API can only be called from the main process.
 
-### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
+### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
 
 * `key` String - Parameter key, must be less than 64 characters long.
 * `value` String - Parameter value, must be less than 64 characters long.
 
 Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
 
-### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
+### `crashReporter.removeExtraParameter(key)` _macOS_ _Windows_
 
 * `key` String - Parameter key, must be less than 64 characters long.
 
