@@ -75,7 +75,7 @@ ipcRenderer.invoke('some-name', someArgument).then((result) => {
   // ...
 })
 
-// Main process
+// 메인 프로세스
 ipcMain.handle('some-name', async (event, someArgument) => {
   const result = await doSomeWork(someArgument)
   return result
