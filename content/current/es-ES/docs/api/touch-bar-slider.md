@@ -4,14 +4,14 @@
 
 Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `nuevo TouchBarSlider(options)` *Experimental*
+### `nuevo TouchBarSlider(options)` _Experimental_
 
-* `opciones` Object 
+* `options` Object
   * `label` String (opcional) - Texto de etiqueta.
   * `value` Integer (opcional) - Valor seleccionado.
   * `minValue` Integer (opcional) - Valor mínimo.
   * `maxValue` Integer (opcional) - Valor máximo.
-  * `change` Función (opcional) - Function para llamar cuando se cambie el control deslizante. 
+  * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Number - El valor que el usuario seleccionó en el control deslizante.
 
 ### Propiedades de Instancia
@@ -20,16 +20,16 @@ Las siguientes propiedades está disponibles en instancias de `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
-Un `String` que representa el texto actual del control deslizante. Cambiar este valor actualiza inmediatamente el control deslizante en la barra táctil.
+A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.value`
 
-Un `Number` que representa el valor actual del control deslizante. Cambiar este valor actualiza inmediatamente el control deslizante en la barra táctil.
+A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.minValue`
 
-Un `Number` que representa el valor mínimo actual del control deslizante. Cambiar este valor actualiza inmediatamente el control deslizante en la barra táctil.
+A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.maxValue`
 
-Un `Number` que representa el valor máximo actual del control deslizante. Cambiar este valor actualiza inmediatamente el control deslizante en la barra táctil.
+A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
