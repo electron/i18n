@@ -8,7 +8,7 @@ Electron の公式シンボルサーバの URL は https://electron-symbols.gith
 
 ## Windbg でシンボルサーバを使用する
 
-Windbg シンボルパスは、アスタリスク文字で区切られた文字列値で構成されています。 To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
+Windbg シンボルパスは、アスタリスク文字で区切られた文字列値で構成されています。 Electron シンボルサーバーのみを使用するには、以下のシンボルパスに次のエントリを追加します (**注意:** `c:\code\symbols` をコンピュータ上の書き込み可能なディレクトリに置き換えてください)。
 
 ```powershell
 SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
