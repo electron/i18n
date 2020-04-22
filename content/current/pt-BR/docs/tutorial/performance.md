@@ -33,44 +33,44 @@ Seu aplicativo pode ser um pouco mais enxuto, rápido e geralmente menos faminto
 
 ## 1) Descuido ao incluir módulos
 
-Before adding a Node.js module to your application, examine said module. How many dependencies does that module include? What kind of resources does it need to simply be called in a `require()` statement? You might find that the module with the most downloads on the NPM package registry or the most stars on GitHub is not in fact the leanest or smallest one available.
+Before adding a Node.js module to your application, examine said module. Quantas dependências esse módulo inclui ? Que tipo de recursos são necessários para ele simplesmente ser chamado em um `require()` ? Você pode descobrir que o módulo com mais downloads nos pacotes NPM registrados ou com mais estrelas no GitHub, não é de fato o mais enxuto ou menor disponível.
 
 ### Por que?
 
-The reasoning behind this recommendation is best illustrated with a real-world example. During the early days of Electron, reliable detection of network connectivity was a problem, resulting many apps to use a module that exposed a simple `isOnline()` method.
+A razão por trás dessa recomendação é melhor ilustrada com um exemplo do mundo real. Durante os primórdios do Electron, garantir a descoberta de conexão de rede era um problema, resultando em muitas aplicações usando um módulo apenas para usar o método ` isOnline()`.
 
-That module detected your network connectivity by attempting to reach out to a number of well-known endpoints. For the list of those endpoints, it depended on a different module, which also contained a list of well-known ports. This dependency itself relied on a module containing information about ports, which came in the form of a JSON file with more than 100,000 lines of content. Whenever the module was loaded (usually in a `require('module')` statement), it would load all its dependencies and eventually read and parse this JSON file. Parsing many thousands lines of JSON is a very expensive operation. On a slow machine it can take up whole seconds of time.
+O módulo detecta sua conexão tentando chegar a um número conhecido de pontos de extremidade. Para a lista destes pontos, depende de um módulo diferente, que também continha uma lista de portas já conhecidas. Essa dependência por si mesma depende de um módulo contendo informações sobre portas, que vem em forma de um arquivo JSON com mais de 100.000 linhas de conteúdo. Sempre que o módulo é carregado (normalmente em um ` require('módulo) `), isto vai carregar todas as suas dependências e eventualmente ler e transformar esse arquivo JSON. Interpretar milhares de linhas de um JSON é uma operação muito cara. Em uma máquina lenta isso pode levar vários segundos.
 
-In many server contexts, startup time is virtually irrelevant. A Node.js server that requires information about all ports is likely actually "more performant" if it loads all required information into memory whenever the server boots at the benefit of serving requests faster. The module discussed in this example is not a "bad" module. Electron apps, however, should not be loading, parsing, and storing in memory information that it does not actually need.
+Em ambientes de servidores, tempo de inicialização é irrelevante virtualmente. Um servidor Node.js que requer informações sobre todas as portas é provavelmente na verdade "mais rápido" se ele carregar todas as informações necessárias em memória sempre que o servidor iniciar para o ter o beneficio de atender às requisições mais rapidamente. O módulo discutido neste exemplo não é um módulo "ruim". Aplicativos Electron, contudo, não devem estar carregando, interpretando, e armazenando na memória informações que ele na verdade não precisa.
 
-In short, a seemingly excellent module written primarily for Node.js servers running Linux might be bad news for your app's performance. In this particular example, the correct solution was to use no module at all, and to instead use connectivity checks included in later versions of Chromium.
+Em suma, um módulo aparentemente ótimo escrito primordialmente para servidores Node.js rodando em Linux pode ser uma má noticia para a performance da sua aplicação. Nesse exemplo em particular, a solução correta era não usar o módulo no final das contas, e ao invés disso usar verificadores de conexão incluídos em versões posteriores do Chromium.
 
 ### Como?
 
-When considering a module, we recommend that you check:
+Quando considerar um módulo, nos recomendados que você verifique:
 
-1. the size of dependencies included 2) the resources required to load (`require()`) it
-3. the resources required to perform the action you're interested in
+1. o tamanho das dependências inclusas. 2) Os recursos necessários para fazer um (`require()`)
+3. os recursos requeridos para realizar a ação que você está interessado
 
-Generating a CPU profile and a heap memory profile for loading a module can be done with a single command on the command line. In the example below, we're looking at the popular module `request`.
+Gerar um perfil de consumo de CPU e de memória para carregar um módulo pode ser feito com um simples comando no terminal. No exemplo abaixo, nós estamos observando o popular módulo `request`.
 
 ```sh
 node --cpu-prof --heap-prof -e "require('request')"
 ```
 
-Executing this command results in a `.cpuprofile` file and a `.heapprofile` file in the directory you executed it in. Both files can be analyzed using the Chrome Developer Tools, using the `Performance` and `Memory` tabs respectively.
+Executando esse comando temos um arquivo `.cpuprofile` e um arquivo `.heapprofile` no diretório em que você executou. Ambos os arquivos podem ser analisados usando a Ferramenta de Desenvolvedor do Chrome, usando as seções `Performance` e `Memory` respectivamente.
 
 ![performance-cpu-prof](../images/performance-cpu-prof.png)
 
 ![performance-heap-prof](../images/performance-heap-prof.png)
 
-In this example, on the author's machine, we saw that loading `request` took almost half a second, whereas `node-fetch` took dramatically less memory and less than 50ms.
+Nesse exemplo, na máquina do autor, nós vimos que o `request` levou quase meio segundo, enquanto o `node-fetch` levou drasticamente menos memória e menos que 50ms.
 
-## 2) Loading and running code too soon
+## 2) Carregar e rodar o código muito cedo
 
-If you have expensive setup operations, consider deferring those. Inspect all the work being executed right after the application starts. Instead of firing off all operations right away, consider staggering them in a sequence more closely aligned with the user's journey.
+Se você tem operações de configurações gastonas, considere adiar elas. Inspecione todo o trabalho executado logo após o início da aplicação. Ao invés de disparar todas as funções imediatamente, considere escalona-las em uma sequencia mais ligada ao caminho do usuário.
 
-In traditional Node.js development, we're used to putting all our `require()` statements at the top. If you're currently writing your Electron application using the same strategy _and_ are using sizable modules that you do not immediately need, apply the same strategy and defer loading to a more opportune time.
+Em um desenvolvimento tradicional de Node.js, nós estamos acostumados a colocar todos as declarações `require()` no início. Se você atualmente desenvolve sua aplicação Electron usando a mesma estratégia _e_ usando módulos consideráveis que você não precisa imediatamente, aplique a mesma estratégia e adie o carregamento para um momento mais oportuno.
 
 ### Por que?
 
