@@ -4,7 +4,7 @@ Lo sviluppo Electron è essenzialmente lo sviluppo Node.js. Per variare il tuo s
 
 ## Configurazione su macOS
 
-> Electron supports macOS 10.10 (Yosemite) and up. Apple Non consente l'esecuzione di macOS in macchine virtuali a meno che il computer ospitante sia già un computer apple, così se ti trovi in bisogno di un Mac, considera di usare un servizio cloud che noleggi accessi ai Mac (come [MacInCloud](https://www.macincloud.com/) o [xcloud](https://xcloud.me)).
+> Electron supporta macOS 10.10 (Yosemite) e superiori. Apple Non consente l'esecuzione di macOS in macchine virtuali a meno che il computer ospitante sia già un computer apple, così se ti trovi in bisogno di un Mac, considera di usare un servizio cloud che noleggi accessi ai Mac (come [MacInCloud](https://www.macincloud.com/) o [xcloud](https://xcloud.me)).
 
 Primo, installa una versione recente di Node.js. Ti raccomandiamo do installare almeno l'ultima `LTS` o `Corrente` versione disponibile. Visita la [pagina di download di Node.js](https://nodejs.org/en/download/) e seleziona l'`Installatore macOS`. Mentre Homebrew è un'opzione offerta, ma raccomandiamo di non usarla, degli strumenti saranno incompatibili con il metodo di installazione di Node.js da Homebrew.
 
@@ -30,7 +30,7 @@ Primo, installa una versione recente di Node.js. Ti raccomandiamo do installare 
 
 Sulla schermata che ti permette di configuare l'installazione, assicurati di selezionare le opzioni `esegui Node.js`, `gestione pacchetto npm` e `Aggiungi al PERCORSO`.
 
-Una volta installato, conferma che tutto lavori come aspettato. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Apri `PowerShell` o un'altra linea di comando del client a tua scelta e conferma che sia `node` che `npm` siano disponibili:
+Una volta installato, conferma che tutto lavori come aspettato. Trova Windows PowerShell aprendo il menu Start e digitando `PowerShell`. Apri `PowerShell` o un'altra linea di comando del client a tua scelta e conferma che sia `node` che `npm` siano disponibili:
 
 ```powershell
 # Questo comando dovrebbe stampare la versione di Node.js
