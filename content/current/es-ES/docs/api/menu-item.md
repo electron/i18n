@@ -2,14 +2,14 @@
 
 > Agregue elementos a los menús y menús de contexto de la aplicación nativa.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Vea [`Menú`](menu.md) para obtener ejemplos.
 
 ### `new MenuItem(options)`
 
-* `opciones` Object 
-  * `click` Function (opcional) - Será llamada con `click(menuItem, browserWindow, event)` cuando se hace click en el elemento del menú. 
+* `options` Object
+  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` [KeyboardEvent](structures/keyboard-event.md)
@@ -17,18 +17,18 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
   * `type` String (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
   * `label` String (opcional)
   * `sublabel` String (opcional)
-  * `toolTip` String (optional) *macOS* - Hover text for this menu item.
+  * `toolTip` String (optional) _macOS_ - Hover text for this menu item.
   * `accelerator` [Accelerator](accelerator.md) (opcional)
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `enabled` Boolean (opcional) - Si es falso, el elemento de menú será gris y no se podrá hacer click en él.
-  * `acceleratorWorksWhenHidden` Boolean (optional) *macOS* - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
+  * `acceleratorWorksWhenHidden` Boolean (optional) _macOS_ - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
   * `visible` Boolean (opcional) - Si es falso, el elemento del menú será totalmente invisible.
   * `checked` Boolean (opcional) - Solo debe especificarse para elementos del menú tipo `checkbox` o `radio`.
-  * `registerAccelerator` Boolean (optional) *Linux* *Windows* - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Por defecto es true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (opcional) - Debería especificarse para los items del tipo `submenu`. Si `submenu` es especificado, el `type: 'submenu'` puede ser omitido. Si el valor no es un [`Menu`](menu.md) entonces automáticamente será convertido a uno usando `Menu.buildFromTemplate`.
-  * `id` String (opcional) - Único dentro de un menú concreto. Si se define, entonces puede usarse como referencia a este elemento mediante el atributo de posición.
+  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (opcional) - Inserta este ítem antes que el ítem con la etiqueta especificada. Si el ítem referenciado no existe el ítem sera insertado al final del menu. También implica que el ítem del menu en cuestión debería colocarse in el mismo “group” como el ítem.
-  * `after` String[] (opcional) - Inserta este ítem después de ítem con la etiqueta especificada. Si el ítem referenciado no existe el ítem sera insertado al final del menu.
+  * `after` String[] (optional) - Inserts this item after the item with the specified label. Si el ítem referenciado no existe se insertara al final del menú.
   * `beforeGroupContaining` String[] (opcional) - Proporciona una manera para que un único menú contextual declare la ubicación de su grupo contenedor antes del grupo contenedor del artículo con la etiqueta especificada.
   * `afterGroupContaining` String[] (opcional) - Proporciona una manera para que un único menú contextual declare la ubicación de su grupo contenedor después del grupo contenedor del artículo con la etiqueta especificada.
 
@@ -46,14 +46,14 @@ Cada elemento del menu deve tener un `role`, `label`, o en el caso de un separad
 
 La propiedad `role` puede tener los siguientes valores:
 
-* `undo`
-* `redo`
-* `cut`
-* `copy`
-* `paste`
+* `deshacer`
+* `rehacer`
+* `cortar`
+* `copiar`
+* `pegar`
 * `pasteAndMatchStyle`
 * `selectAll`
-* `delete`
+* `eliminar`
 * `minimize` - Minimizar la venta actual.
 * `close` - Cerrar la ventana actual.
 * `quit` - Salir de la aplicación.
@@ -69,7 +69,7 @@ La propiedad `role` puede tener los siguientes valores:
 * `viewMenu` - Todo el menú "Vista" por defecto (Recargar, Activar Herramientas del Desarrollador, etc.)
 * `windowMenu` - Todo el menú "Ventana" por defecto (Minimizar, Zoom, etc.).
 
-Los siguientes roles adicionales están disponibles en *macOS*:
+Los siguientes roles adicionales están disponibles en _macOS_:
 
 * `appMenu` - Todo el menú "App" por defecto (Acerca de, Servicios, etc.)
 * `about` - Enlace a la acción `orderFrontStandardAboutPanel`.
@@ -93,7 +93,7 @@ Los siguientes roles adicionales están disponibles en *macOS*:
 
 Al especificar un `role` en macOS, `label` y `accelerator` son las únicas opciones que afectarán el elemento del menú. Todas las demás opciones serán ignoradas. Los `role` en minúscula, por ejemplo, `toggledevtools`, todavía son soportados.
 
-**Nota Bene:** Las propiedades `enabled` y `visibility` no estan disponibles para el los elementos de menu de nivel superior en la bandeja en macOS.
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
 ### Propiedades de la instancia
 
@@ -109,8 +109,7 @@ Un `String` indicando la etiqueta visible del elemento, esta propiedad puede ser
 
 #### `menuItem.click`
 
-Un `Función` que se activa cuando el MenuItem recibe un evento de clic. Puede ser llamado con `menuItem.click(event, focusedWindow, focusedWebContents)`.
-
+Una `función` que se desencadena cuando los elementos del menú reciben un evento click. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
@@ -121,7 +120,7 @@ Un `Menú` (opcional) que contiene el submenú del menú elemento, si está pres
 
 #### `menuItem.type`
 
-A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
+Un `String` indicando el tipo del elemento. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
 
 #### `menuItem.role`
 
@@ -139,7 +138,7 @@ Una `NativeImage | String` (opcional) indicando el icono del elemento, si estuvi
 
 Una `String` indicando la subetiqueta del artículo, esta propiedad puede ser cambiada dinámicamente.
 
-#### `menuItem.toolTip` *macOS*
+#### `menuItem.toolTip` _macOS_
 
 A `String` indicating the item's hover text.
 
