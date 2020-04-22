@@ -31,7 +31,7 @@ npm size basit bir `package.json` dosyası oluşturacaktır. `main` bölümünü
 }
 ```
 
-**Not**: Eğer `main` alanı `package.json` dosyası içinde mevcut değilse, Electron bir `index.js` yüklemeye çalışacaktır (Node.js'de olduğu gibi). Bu aslında basit bir Node uylamasıysa, `node`'a geçerli paketi yürütmesini bildiren bir `start` komut dosyası eklersiniz:
+__Not__: Eğer `main` alanı `package.json` dosyası içinde mevcut değilse, Electron bir `index.js` yüklemeye çalışacaktır (Node.js'de olduğu gibi). Bu aslında basit bir Node uylamasıysa, `node`'a geçerli paketi yürütmesini bildiren bir `start` komut dosyası eklersiniz:
 
 ```json
 {
@@ -173,7 +173,7 @@ Kesin olarak göstermek istediğiniz web sayfası `index.html`:
 
 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) deposunu (repository) klonlayın ve bu eğitimdeki kodu kullanarak çalıştırın.
 
-**Not**: Bunu çalıştırmak [Git](https://git-scm.com) ve [npm](https://www.npmjs.com/) gerektirir.
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Depoyı klonla
