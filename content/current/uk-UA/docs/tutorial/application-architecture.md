@@ -4,9 +4,9 @@
 
 ## Main та Renderer Processes
 
-В Electron, процес що запускає `package.json`'s `main` скрипт що називається **the main process**. Скрипт, що запускає main process, може демонструвати GUI за допомогою створення веб сторінок. Застосунок Electron завжди має main process, і нічого більше.
+В Electron, процес що запускає `package.json`'s `main` скрипт що називається __the main process__. Скрипт, що запускає main process, може демонструвати GUI за допомогою створення веб сторінок. Застосунок Electron завжди має main process, і нічого більше.
 
-Відтоді як Electron використовує Chromium для відображення веб-сторінок, багато процесна архітектураChromium також використовується. Кожна веб-сторінка в Electron запускається в процесі що стосується тільки її, що називається **the renderer process**.
+Відтоді як Electron використовує Chromium для відображення веб-сторінок, багато процесна архітектураChromium також використовується. Кожна веб-сторінка в Electron запускається в процесі що стосується тільки її, що називається __the renderer process__.
 
 У нормальних браузерах, веб-сторінки зазвичай виконуються в тестових середовищах і не мають доступу до нативних ресурсів. Користувачі Electron, однак, мають змогу використовувати Node.js API на веб-сторінках, дозволяючи низькорівневу взаємодію з операційною системою.
 
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650,000 modules are native. Проте якщо вам необхідні native modules, будь ласка гляньте [цей гайд про те як рекомпілювати їх для Electron](./using-native-node-modules.md).
+The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. Проте якщо вам необхідні native modules, будь ласка гляньте [цей гайд про те як рекомпілювати їх для Electron](./using-native-node-modules.md).
