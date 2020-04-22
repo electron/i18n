@@ -122,7 +122,7 @@ Electron のカスタムフォークを作成することは、"製品レベル"
   * `SURF_TEMP` - パスが長すぎる問題を防ぐために、Windowsでは `C:\Temp` に設定してください
   * `TARGET_ARCH` - `ia32` か `x64` に設定します。
 
-4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+4. `script/upload.py` で、特にあなたが Electron proper のコントリビュータである場合、`ELECTRON_REPO` をあなたのフォーク (`MYORG/electron`) に設定_しなければなりません_。
 
 5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
