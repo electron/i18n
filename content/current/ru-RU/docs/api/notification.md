@@ -2,7 +2,7 @@
 
 > Создание уведомлений на рабочем столе ОС
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 ## Использование в Рендерер-процессе
 
@@ -12,7 +12,7 @@ Process: [Main](../glossary.md#main-process)
 
 > Создание уведомлений на рабочем столе ОС
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 `Notification` является [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -26,21 +26,21 @@ Process: [Main](../glossary.md#main-process)
 
 Возвращает `Boolean` - Поддерживаются ли уведомления рабочего стола в текущей системе
 
-### `new Notification([options])` *Экспериментально*
+### `new Notification([options])` _Экспериментально_
 
-* `options` Object (опционально) 
+* `options` Object (optional)
   * `title` String - Заголовок для уведомления, который будет отображаться в верхней части окна уведомления, когда он будет показан.
-  * `subtitle` String (опционально) *macOS* - Подзаголовок для уведомления, который будет отображаться под заголовком.
+  * `subtitle` String (опционально) _macOS_ - Подзаголовок для уведомления, который будет отображаться под заголовком.
   * `body` String - Текст уведомления, который будет отображаться под заголовком или подзаголовком.
   * `silent` Boolean (опционально) - Использовать ли звук уведомления ОС при отображении уведомления.
   * `icon` (String | [NativeImage](native-image.md)) (опционально) - Значок для отображения в уведомлении.
-  * `hasReply` Boolean (опционально) *macOS* - Нужно ли добавлять встроенный ответ к уведомлению.
-  * `timeoutType` String (optional) *Linux* *Windows* - The timeout duration of the notification. Can be 'default' or 'never'.
-  * `replyPlaceholder` String (опционально) *macOS* - Заполнитель для записи в поле ввода встроенного ответа.
-  * `sound` String (опционально) *macOS* - Имя звукового файла, воспроизводимого при отображении уведомления.
-  * `urgency` String (optional) *Linux* - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (опционально) *macOS* - Действия для добавления к уведомлению. Пожалуйста, прочитайте доступные действия и ограничения в документации `NotificationAction`.
-  * `closeButtonText` String (опционально) *macOS* - Пользовательское название для кнопки закрытия оповещения. Пустая строка приведет к использованию локализованного текста по умолчанию.
+  * `hasReply` Boolean (опционально) _macOS_ - Нужно ли добавлять встроенный ответ к уведомлению.
+  * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
+  * `replyPlaceholder` String (опционально) _macOS_ - Заполнитель для записи в поле ввода встроенного ответа.
+  * `sound` String (опционально) _macOS_ - Имя звукового файла, воспроизводимого при отображении уведомления.
+  * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (опционально) _macOS_ - Действия для добавления к уведомлению. Пожалуйста, прочитайте доступные действия и ограничения в документации `NotificationAction`.
+  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 ### События экземпляра
 
@@ -74,7 +74,7 @@ Process: [Main](../glossary.md#main-process)
 
 Не гарантируется, что это событие будет отправлено во всех случаях, когда уведомление закрыто.
 
-#### Событие: 'reply' *macOS*
+#### Событие: 'reply' _macOS_
 
 Возвращает:
 
@@ -83,7 +83,7 @@ Process: [Main](../glossary.md#main-process)
 
 Возникает при нажатии пользователем кнопки "Ответить" в уведомлении с `hasReply: true`.
 
-#### Событие: 'action' *macOS*
+#### Событие: 'action' _macOS_
 
 Возвращает:
 
@@ -104,7 +104,7 @@ Process: [Main](../glossary.md#main-process)
 
 Отклоняет уведомление.
 
-### Свойства экземпляра
+### Instance Properties
 
 #### `notification.title`
 
@@ -138,13 +138,13 @@ Process: [Main](../glossary.md#main-process)
 
 Свойство `Boolean`, представляющее, есть ли в уведомлении действие для ответа.
 
-#### `notification.urgency` *Linux*
+#### `notification.urgency` _Linux_
 
 A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
 
 Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
 
-#### `notification.timeoutType` *Linux* *Windows*
+#### `notification.timeoutType` _Linux_ _Windows_
 
 A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
 
@@ -156,7 +156,7 @@ A [`NotificationAction[]`](structures/notification-action.md) свойство, 
 
 ### Воспроизведение звуков
 
-В macOS вы можете указать название звука, который вы хотели бы воспроизвести, когда отображается уведомление. В дополнение к пользовательским звуковым файлам можно использовать любой из звуков по умолчанию (в разделе Системные настройки > Звук). Убедитесь, что звуковой файл скопирован в папку пакета приложений (например, `YourApp.app/Contents/Resources`), или в одно из следующих мест:
+В macOS вы можете указать название звука, который вы хотели бы воспроизвести, когда отображается уведомление. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Убедитесь, что звуковой файл скопирован в папку пакета приложений (например, `YourApp.app/Contents/Resources`), или в одно из следующих мест:
 
 * `~/Library/Sounds (~/Библиотека/Звуки)`
 * `/Library/Sounds (/Библиотека/Звуки)`
