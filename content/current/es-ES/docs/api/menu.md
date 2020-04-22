@@ -2,7 +2,7 @@
 
 > Crea menús de aplicaciones nativas y menús contextuales.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -16,21 +16,21 @@ The `Menu` class has the following static methods:
 
 * `menu` Menu | null
 
-Configura el `menu` como el menú de la aplicación en macOS. En Windows y Linux, el `menu` se configurará como menú superior de cada ventana.
+Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
 Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel superior para indicar que letra debe obtener un acelerador generado. Por ejemplo, usando `&File` para el menú resultaría en un acelerador generado `Alt-F` que abre el menú asociado. El carácter indicado en la etiqueta del botón obtiene un subrayado. El carácter `&` no es mostrado en la etiqueta del botón.
 
-Pasar `null` eliminará el menú por defecto. En Windows y Linux, esto tiene el efecto adicional de quitar la barra de menú de la ventana.
+Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
-**Note:** El menú por defecto será creado automáticamente si la aplicación no establece uno. Esto contiene los ítems estándares como `File`, `Edit`, `View`, `Window` y `Help`.
+**Note:** The default menu will be created automatically if the app does not set one. Esto contiene los ítems estándares como `File`, `Edit`, `View`, `Window` y `Help`.
 
 #### `Menu.getApplicationMenu()`
 
 Devuelve `Menu | null` - El menú de aplicación, si se creó, o `null` en caso contrario.
 
-**Nota:** La instancia devuelta `Menu` no soporta adiciones dinámicas o la eliminación de elementos del menú. [Instance properties](#instance-properties) todavía puede ser modificada dinámicamente.
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) todavía puede ser modificada dinámicamente.
 
-#### `Menu.sendActionToFirstResponder(action)` *macOS*
+#### `Menu.sendActionToFirstResponder(action)` _macOS_
 
 * `action` String
 
@@ -44,7 +44,7 @@ Consulte la [macOS Cocoa Event Handling Guide](https://developer.apple.com/libra
 
 Devuelve `Menu`
 
-Generalmente, el `template` es un arreglo de `options` para construir un [MenuItem](menu-item.md). El uso puede ser referenciado más arriba.
+Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 Usted puede además adjuntar otros campos al elemento del `template` y se convierten en propiedades de los items del menú construido.
 
@@ -54,11 +54,11 @@ El objeto`menu` tiene los siguientes métodos de instancia:
 
 #### `menu.popup([options])`
 
-* `opciones` Objecto (opcional) 
+* `options` Object (opcional)
   * `window` [BrowserWindow](browser-window.md) (opcional) - Por defecto es la ventana seleccionada.
-  * `x` Number (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` es declarada.
-  * `y` Number (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` es declarada.
-  * `positioningItem` Number (opcional) *macOS* - El índice del elemento de menú para posicionar por debajo del cursor del ratón en las coordenadas específicas. Por defecto es -1.
+  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Function (opcional) - Llamada cuando se cierra el menu.
 
 Este menú aparece como un menú contextual en el [`BrowserWindow`](browser-window.md).
@@ -258,7 +258,7 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Notas sobre el menú de la aplicación en macOS
 
-macOS tiene un estilo de menú de aplicaciones completamente diferente de Windows y Linux. Aquí hay algunas notas sobre cómo hacer que el menú de su aplicación sea más parecido a un nativo.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
 ### Menús Estándar
 
@@ -276,7 +276,7 @@ macOS ha proporcionado acciones estándares para algunos elementos del menú, co
 
 En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es su nombre de aplicación, sin importar la etiqueta que establezca. Para cambiarlo, modifique el archivo `Info.plist` file del conjunto de la app. Para mayor información, ver[About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html).
 
-## Menú de configuración para la ventana del navegador específico (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
 El [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) de las ventanas del navegador pueden configurar el menú de ciertas ventanas del navegador.
 
@@ -307,7 +307,7 @@ Plantilla:
 Menú:
 
 ```sh
-<br />- 1
+- 1
 - 2
 - 3
 - 4
@@ -329,7 +329,7 @@ Plantilla:
 Menú:
 
 ```sh
-<br />- 3
+- 3
 - 4
 - ---
 - 1
@@ -350,7 +350,7 @@ Plantilla:
 Menú:
 
 ```sh
-<br />- ---
+- ---
 - 3
 - 2
 - 1
