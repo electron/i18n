@@ -10,13 +10,13 @@ Windows上の長いパス名の周りの [問題](https://github.com/joyent/node
 
 以下はアプリを `asar` アーカイブにパッケージする手順です。
 
-### 1. Install the asar Utility
+### 1. asar ユーティリティをインストール
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. `asar pack`でパッケージ化
 
 ```sh
 $ asar pack your-app app.asar
