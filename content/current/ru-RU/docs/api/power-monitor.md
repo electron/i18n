@@ -2,7 +2,8 @@
 
 > Отслеживает изменения состояния питания устройства.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
+
 
 Этот модуль нельзя использовать до тех пор, пока событие `ready` в `app` не будет готово к использованию.
 
@@ -30,23 +31,23 @@ app.on('ready', () => {
 
 Возникает при возобновлении работы системы.
 
-### Событие: 'on-ac' *Windows*
+### Событие: 'on-ac' _Windows_
 
 Используется при переключении системы на питание от переменного тока (блока питания).
 
-### Событие: 'on-battery' *Windows*
+### Событие: 'on-battery' _Windows_
 
 Используется при переключении системы на питание от батареи.
 
-### Событие: 'shutdown' *Linux* *macOS*
+### Событие: 'shutdown' _Linux_ _macOS_
 
 Возникает, когда система собирается перезагрузиться или выключиться. Если обработчик события вызывает `e.preventDefault()`, Electron попытается отложить завершение работы системы, чтобы приложение корректно завершило работу. Если вызывается `e.preventDefault()`, приложение должно выйти как можно скорее, вызвав что-то вроде `app.quit()`.
 
-### Событие: 'lock-screen' *macOS* *Windows*
+### Событие: 'lock-screen' _macOS_ _Windows_
 
 Возникает, когда система собирается заблокировать экран.
 
-### Событие: 'unlock-screen' *macOS* *Windows*
+### Событие: 'unlock-screen' _macOS_ _Windows_
 
 Возникает, как только система разблокирует экран.
 
@@ -58,9 +59,9 @@ app.on('ready', () => {
 
 * `idleThreshold` Integer
 
-Возвращает `String` - текущее состояние системы. Может быть `active`, `idle`, `locked` или `unknown`.
+Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-Расчет состояния простоя системы. `idleThreshold` - это количество времени (в секундах) до того, как считать его простаивающим. `locked` доступен только на поддерживаемых системах.
+Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
 
 ### `powerMonitor.getSystemIdleTime()`
 
