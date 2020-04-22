@@ -10,7 +10,7 @@ Devtron과 Spectron 기능을 통해 Electron 앱에서 검증 도구를 사용�
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. 예시:
+테스팅 프레임워크인 Spectron에서는 애플리케이션 안에 있는 각각의 window와 `<webview>` 태그를 검증할 수 있습니다. 예시:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
