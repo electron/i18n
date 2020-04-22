@@ -8,13 +8,13 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `new ClientRequest(opções)`
 
-* `opções` (Object | String) - Se `opções` for uma String, ela é interpretada como a URL da requisição. Caso seja um objeto, é esperado que ela especifique totalmente a requisição HTTP através das seguintes propriedades: 
-  * `method` String (opcional) - O método de requisição HTTP, sendo GET o método padrão.
-  * `url` String (opcional) - A URL da requisição. Precisa ser informada na forma absoluta com protocolo http ou https especificado.
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (opcional) - O nome da [`partição`](session.md) com a qual a requisição está associada. O padrão é uma string vazia. A opção `sessão` prevalece sobre a `partição`. Assim, se a `sessão` é explicitamente especificada, a `partição` é ignorada.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Por padrão é `false`.
-  * `protocol` String (opcional) - O esquema do protocolo, na forma 'scheme:'. O valores atualmente suportados são 'http:' ou 'https:', sendo 'http:' o padrão.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Por padrão é `false`.
+  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (opcional) - O servidor, definido como a concatenação do nome com a porta: 'nome:porta'.
   * `hostname` String (opcional) - O nome do servidor.
   * `port` Integer (opcional) - O número da porta do servidor.
@@ -47,13 +47,13 @@ Retorna:
 
 Retorna:
 
-* `authInfo` Object 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Function
   * `username` String (optional)
   * `password` String (optional)
 
@@ -69,7 +69,6 @@ request.on('login', (authInfo, callback) => {
   callback('username', 'password')
 })
 ```
-
 Informar credenciais vazias irá cancelar a requisição e reportar um erro de autenticação no objeto de resposta:
 
 ```JavaScript
@@ -90,7 +89,7 @@ Emitido logo após o último pedaço dos dados de `request` for escrito no objet
 
 #### Evento: 'abort'
 
-Emitido quando `request` é abortado. O evento `abort` não vai ser disparado se `request` já estiver fechado.
+Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### Evento: 'error'
 
@@ -104,6 +103,7 @@ Emitido quando o módulo `net` falha ao emitir uma requisição de rede. Normalm
 
 Emitido como último evento na transação HTTP de requisição-resposta. O evento `close` indica que nenhum outro evento será emitido no objeto `request` e nem no objeto `response`.
 
+
 #### Evento: 'redirect'
 
 Retorna:
@@ -113,9 +113,9 @@ Retorna:
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Propriedades da Instância
+### Propriedades de Instância
 
 #### `request.chunkedEncoding`
 
