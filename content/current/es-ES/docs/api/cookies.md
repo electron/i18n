@@ -2,7 +2,7 @@
 
 > Busca y modifica las cookies de la sesión.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Las instancias de la clase `Cookies` son accedidas utilizado la propiedad `cookies` de una `Session`.
 
@@ -46,7 +46,7 @@ Los siguientes eventos están disponibles en las instancias de `Cookies`:
 
 * `event`
 * `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado.
-* `cause` Cadena - La causa del cambio con uno de los siguientes valores: 
+* `cause` String - The cause of the change with one of the following values:
   * `explicit` - La cookie se cambió directamente por la acción de un consumidor.
   * `overwrite` - La cookie se eliminó automáticamente debido a una operación insertada que la sobreescribió.
   * `expired` - La cookie se eliminó automáticamente debido a que expiró.
@@ -62,7 +62,7 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
 
 #### `cookies.get(filter)`
 
-* `filter` Objecto 
+* `filter` Object
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * `name` Cadena (opcional) - Filtra las cookies por nombre.
   * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`.
@@ -76,14 +76,14 @@ Envía una solicitud para obtener todas las cookies que coincidan con `filter`, 
 
 #### `cookies.set(details)`
 
-* `details` Objeto 
+* `details` Object
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
-  * `name` Cadena (opcional) - El nombre de la cookie. Por defecto estará vacío si se omite.
-  * `value` Cadena (opcional) - El valor de la cookie. Por defecto estará vacío si se omite.
-  * `domain` String (opcional) - El dominio de la cookie; esto se normalizara con un punto anterior para que también sean validos para subdominios. Vacío por defecto si se omite.
-  * `path` Cadena (opcional) - La ruta de la cookie. Por defecto estará vacío si se omite.
-  * `secure` Booleano (opcional) - Si la cookie debe ser marcada como Secure. Por defecto es false.
-  * `httpOnly` Booleano (opcional) - Si la cookie debe ser marcada como HTTP solamente. Por defecto es false.
+  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
+  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
+  * `domain` String (optional) - El dominio de la cookie; este será normalizado por precediéndolo con un punto para que también sea valido para el uso de subdominios. Empty by default if omitted.
+  * `path` String (opcional) - La ruta de la cookie. Empty by default if omitted.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Por defecto a false.
+  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Por defecto es falso.
   * `expirationDate` Doble (opcional) - La fecha de vencimiento de la cookie como el número de segundos desde la época UNIX. Si se omite, entonces la cookie cambia a una cookie de sesión y no se conservará entre sesiones.
 
 Returns `Promise<void>` - Una promesa que resuelve cuando la cookie ha sido establecida
