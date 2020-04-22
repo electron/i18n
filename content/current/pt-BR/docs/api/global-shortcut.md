@@ -45,7 +45,7 @@ O módulo `globalShortcut` tem os seguintes métodos:
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
-Registra um atalho global de `accelerator`. O ` callback` é chamado quando o atalho registrado é pressionado pelo utilizador.
+Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
 Quando o acelerador já está sendo utilizado por outras aplicações, esta chamada falhará silenciosamente. Este comportamento é pretendido pelos sistemas operacionais, uma vez que eles não querem que os aplicativos lutem por atalhos globais.
 
