@@ -16,7 +16,7 @@
 
 Возможные значения:
 
-* `disabled_software` - только программная обработка. Аппаратное ускорение отключено (желтый)
+* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - отключено (красный)
 * `disabled_off_ok` - отключено (желтый)
 * `unavailable_software` - только программная обработка, аппаратное ускорение недоступно (желтый)
