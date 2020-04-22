@@ -2,7 +2,7 @@
 
 > Wartości języków zwracane przez `app.getLocale()`.
 
-Electron korzysta z biblioteki Chromium `l10n_util`, aby pobierać języki. Możliwe wartości są wymienione poniżej:
+Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
 
 | Kod języka | Nazwa języka                        |
 | ---------- | ----------------------------------- |
@@ -88,12 +88,12 @@ Electron korzysta z biblioteki Chromium `l10n_util`, aby pobierać języki. Moż
 | mt         | Maltański                           |
 | nb         | Norweski (Bokmal)                   |
 | ne         | Nepalski                            |
-| nl         | Duński                              |
+| nl         | Holenderski                         |
 | nn         | Norweski (Nynorsk)                  |
 | no         | Norweski                            |
 | oc         | Prowansalski                        |
 | om         | Oromski                             |
-| or         | Język orija                         |
+| lub        | Język orija                         |
 | pa         | Pendżabski                          |
 | pl         | Polski                              |
 | ps         | Paszto                              |
