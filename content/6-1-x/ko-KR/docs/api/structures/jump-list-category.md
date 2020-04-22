@@ -1,6 +1,6 @@
 # JumpListCategory Object
 
-* `type` String (optional) - One of the following:
+* `type` String (옵션) - 아래 값들 중 하나입니다:
   * `tasks` - 이 카테고리의 항목은 표준 `Tasks` 카테고리에 위치할 것입니다. 이 카테고리는 하나만 존재하며 항상 점프 목록의 하단에 보여집니다.
   * `frequent` - 앱에 의해 자주 열린 파일의 목록을 보여줍니다. 카테고리의 이름과 항목들은 윈도우에 의해 설정 됩니다.
   * `recent` - 앱에 의해 최근에 열린 파일의 목록을 보여줍니다. 카테고리의 이름과 항목들은 윈도우에 의해 설정 됩니다.  `app.addRecentDocument(path)`을 사용하면 간접적으로 이 카테고리에 항목이 추가될 것 입니다.
