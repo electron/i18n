@@ -78,12 +78,12 @@ Electron
 
 * **.circleci** - Config file for CI with CircleCI.
 * **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
+* **dist** - 배포용 바이너리를 빌드할 때 사용하는 script/create-dist.py 스크립트로부터 만들어지는 임시 디렉터리.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
-* **node_modules** - Third party node modules used for building.
+* **node_modules** - 빌드에 사용되는 node 서드파티 모듈.
 * **npm** - Logic for installation of Electron via npm.
-* **out** - Temporary output directory of `ninja`.
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
+* **out** - ninja의 임시 출력 디렉터리.
+* **script** - 개발목적으로 사용되는 빌드, 패키징, 테스트, 기타등을 실행하는 스크립트.
 ```diff
 script/ - The set of all scripts Electron runs for a variety of purposes.
 ├── codesign/ - Fakes codesigning for Electron apps; used for testing.
@@ -118,5 +118,5 @@ git submodule update --init --recursive
 
 ```sh
 [alias]
-    su = submodule update --init --recursive
+	su = submodule update --init --recursive
 ```
