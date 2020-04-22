@@ -63,7 +63,7 @@ Sets the maximum and minimum pinch-to-zoom level.
 
 Sets a provider for spell checking in input fields and text areas.
 
-If you want to use this method you must disable the builtin spellchecker when you construct the window.
+이 메서드를 사용하려면 창을 구성할 때 내장 맞춤법 검사기를 비활성화해야 합니다.
 
 ```js
 const mainWindow = new BrowserWindow({
