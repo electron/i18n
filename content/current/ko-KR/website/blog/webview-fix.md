@@ -21,7 +21,7 @@ An application is affected if *all* of the following are true:
 
 Although this appears to be a minority of Electron applicatons, we encourage all applications to be upgraded as a precaution.
 
-## Mitigation
+## 대처법
 
 This vulnerability is fixed in today's [1.7.13](https://github.com/electron/electron/releases/tag/v1.7.13), [1.8.4](https://github.com/electron/electron/releases/tag/v1.8.4), and [2.0.0-beta.5](https://github.com/electron/electron/releases/tag/v2.0.0-beta.5) releases.
 
@@ -48,11 +48,11 @@ app.on('web-contents-created', (event, win) => {
 })
 ```
 
-## Further Information
+## 추가 정보
 
 This vulnerability was found and reported responsibly to the Electron project by Brendan Scarvell of [Trustwave SpiderLabs](https://www.trustwave.com/Company/SpiderLabs/).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Electron 애플리케이션의 보안을 안전하게 유지하는 법을 알아보시려면 [보안 자습서](https://electronjs.org/docs/tutorial/security)를 읽어보세요.
 
 To report a vulnerability in Electron, please email security@electronjs.org.
 
