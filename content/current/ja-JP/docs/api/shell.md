@@ -2,7 +2,7 @@
 
 > デフォルトのアプリケーションを使用してファイルと URL を管理します。
 
-プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 `shell` モジュールは、デスクトップの統合に関する機能を提供します。
 
@@ -35,9 +35,9 @@ Show the given file in a file manager. If possible, select the file.
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Windows では最大2081文字です。
-* `options` Object (optional)
+* `options` Object (任意)
   * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
-  * `workingDirectory` String (optional) _Windows_ - The working directory.
+  * `workingDirectory` String (任意) _Windows_ - 作業ディレクトリ。
 
 戻り値 `Promise<void>`
 
