@@ -3,13 +3,13 @@
 * `icon` [NativeImage](../native-image.md) - Піктограма для показу на палені мініатюр.
 * `click` Function
 * `tooltip` String (опціонально) - Текст для підказки кнопки.
-* `flags` String[] (опціонально) - Контроль станів та поведінки кнопки. За замовчуванням `['enabled']`.
+* `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
 `flags` це масив, що може містити наступні `String`:
 
 * `enabled` - Кнопка активна та доступна юзеру.
-* `disabled` - Кнопка відключена. Врна присутня, але має вигляд, такої, що не буде реагувати на дії користувача.
+* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
 * `dismissonclick` - Коли на кнопку натискають, панель мініатюр негайно закривається.
 * `nobackground` - Не малювати границі кнопки, використовувати тільки зображення.
 * `hidden` - Кнопка не відображається користувачу.
-* `noninteractive` - Кнопка увумкнена але не інтерактивна; при натисканні вигляд не міняється. Це значення для кнопок в сповіщеннях.
+* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
