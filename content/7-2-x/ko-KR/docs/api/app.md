@@ -43,7 +43,7 @@ Returns:
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Emitted before the application starts closing its windows. `event.preventDefault()`를 호출하면 기본 동작의 수행 (애플리케이션 종료) 을 막습니다.
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
@@ -162,7 +162,7 @@ Returns:
 
 * `event` Event
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+사용자가 macOS 기본 새 탭 버튼을 클릭했을 때 발생합니다. 현재 `BrowserWindow`에 `tabbingIdentifier`가 있을 때만 새 탭 버튼이 보입니다.
 
 ### 이벤트 'browser-window-blur'
 
@@ -356,7 +356,7 @@ Returns:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+`webContents`의 렌더러 프로세스에서 `desktopCapturer.getSources()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 호출하면 빈 소스를 반환합니다.
 
 ### 이벤트: 'remote-require'
 
@@ -432,7 +432,7 @@ Returns:
 
 * `exitCode` Integer (optional)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+`exitCode`와 함께 프로그램을 즉시 종료한다. `exitCode`의 기본값은 0이다.
 
 사용자에게 묻지 않고 모든 창이 즉시 닫히고, `before-quit` 이벤트와 `will-quit` 이벤트가 발생하지 않습니다.
 
@@ -477,7 +477,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.show()` _macOS_
 
-Shows application windows after they were hidden. Does not automatically focus them.
+창이 숨겨졌으면 보이게 합니다. 자동으로 창을 활성화시키지는 않습니다.
 
 ### `app.setAppLogsPath([path])`
 
@@ -524,7 +524,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
   * `size` String
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on _Linux_, 32x32 on _Windows_, unsupported on _macOS_.
+    * `large` - _Linux_에서는 48x48, _Windows_에서는 32x32, _macOS_에서는 지원하지 않습니다.
 
 `Promise<NativeImage>` 반환 - [NativeImage](native-image.md) 형태의 앱 아이콘
 
@@ -564,7 +564,7 @@ Returns `String` - The current application's name, which is the name in the appl
 
 * PrinterInfo Object
 
-Overrides the current application's name.
+현재 애플리케이션의 이름을 덮어씁니다.
 
 **[더이상 사용하지 않음](modernization/property-updates.md)**
 
@@ -588,7 +588,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 * `path` String
 
-Adds `path` to the recent documents list.
+최근 열어본 문서 목록에 `path`를 추가합니다.
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
@@ -679,52 +679,52 @@ const { app } = require('electron')
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Recent Projects',
+    name: '최근 프로젝트',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
+  { // 이름이 있으니 `type` 값은 "custom" 으로 간주됩니다.
+    name: '도구',
     items: [
       {
         type: 'task',
-        title: 'Tool A',
+        title: '도구 A',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
+        description: '도구 A 실행'
       },
       {
         type: 'task',
-        title: 'Tool B',
+        title: '도구 B',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool B'
+        description: '도구 B 실행'
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // 이름과 타입이 없으니 `type` 값은 "tasks" 로 간주됩니다.
     items: [
       {
         type: 'task',
-        title: 'New Project',
+        title: '새 프로젝트',
         program: process.execPath,
         args: '--new-project',
-        description: 'Create a new project.'
+        description: '새 프로젝트를 생성합니다.'
       },
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Recover Project',
+        title: '프로젝트 복구',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recover Project'
+        description: '프로젝트 복구'
       }
     ]
   }
