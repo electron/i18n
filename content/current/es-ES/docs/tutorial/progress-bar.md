@@ -6,7 +6,7 @@ En macOS la barra de progreso será mostrada como una parte del ícono del dock.
 
 El Unity DE también tiene una función similar que le permite especificar la barra de progreso en el laucher.
 
-**Barra de progreso en el botón de la barra de tareas:**
+__Barra de progreso en el botón de la barra de tareas:__
 
 ![Barra de progreso de la barra de tareas](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
