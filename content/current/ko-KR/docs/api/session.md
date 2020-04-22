@@ -315,7 +315,7 @@ Sets the handler which can be used to respond to permission requests for the `se
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
+    return callback(false) // 거부됨.
   }
 
   callback(true)
@@ -340,7 +340,7 @@ Sets the handler which can be used to respond to permission checks for the `sess
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return false // denied
+    return false // 거부됨.
   }
 
   return true
@@ -505,8 +505,8 @@ const { app, session } = require('electron')
 app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // 네트워크 이벤트 후
   const path = await netLog.stopLogging()
-  console.log('Net-logs written to', path)
+  console.log('넷 로그가', path, '에 작성되었습니다.')
 })
 ```
