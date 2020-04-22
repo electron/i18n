@@ -32,7 +32,7 @@ Retorna:
 
 Emitido quando ocorreu um erro ao transmitir eventos de dados de resposta. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
-### Propriedades da Instância
+### Propriedades de Instância
 
 An `IncomingMessage` instance has the following readable properties:
 
