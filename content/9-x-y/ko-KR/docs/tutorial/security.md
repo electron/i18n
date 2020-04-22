@@ -53,12 +53,12 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
 9 [`enableBlinkFeatures`을 사용하지 마세요.](#9-do-not-use-enableblinkfeatures)
 10 [`<webview>`: `allowpopups`을 사용하지 마세요.](#10-do-not-use-allowpopups)
 11 [`<webview>`: 옵션 및 매개변수 확인](#11-verify-webview-options-before-creation)
-12 [Disable or limit navigation](#12-disable-or-limit-navigation)
+12 [탐색을 제한하거나 비활성화](#12-disable-or-limit-navigation)
 13 [새로운 창 생성을 제한하거나 비활성화하세요.](#13-disable-or-limit-creation-of-new-windows)
-14 [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
-15 [Disable the `remote` module](#15-disable-the-remote-module)
+14 [신뢰되지 않은 내용으로 `openExternal` 사용하지 않기](#14-do-not-use-openexternal-with-untrusted-content)
+15 [`remote` 모듈 비활성화](#15-disable-the-remote-module)
 16 [Filter the `remote` module](#16-filter-the-remote-module)
-17 [Use a current version of Electron](#17-use-a-current-version-of-electron)</ol> 
+17 [현재 버전의 Electron 사용](#17-use-a-current-version-of-electron)</ol> 
 
 To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -107,7 +107,7 @@ browserWindow.loadURL('https://example.com')
 
 
 
-## 2) Do not enable Node.js Integration for Remote Content
+## 2) 원격 콘텐츠에 Node.js 통합을 활성화하지 않기
 
 _This recommendation is the default behavior in Electron since 5.0.0._
 
@@ -128,7 +128,7 @@ It is paramount that you do not enable Node.js integration in any renderer ([`Br
 
 
 ```js
-// Bad
+// 나쁜 예
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: true,
@@ -143,7 +143,7 @@ mainWindow.loadURL('https://example.com')
 
 
 ```js
-// Good
+// 좋은 예
 const mainWindow = new BrowserWindow({
   webPreferences: {
     preload: path.join(app.getAppPath(), 'preload.js')
@@ -209,7 +209,7 @@ At the same time, preload scripts still have access to the  `document` and `wind
 
 
 ```js
-// Main process
+// 메인 프로세스
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
@@ -272,13 +272,13 @@ session
     const url = webContents.getURL()
 
     if (permission === 'notifications') {
-      // Approves the permissions request
+      // 권한 요청 수락
       callback(true)
     }
 
     // Verify URL
     if (!url.startsWith('https://example.com/')) {
-      // Denies the permissions request
+      // 권한 요청 거절
       return callback(false)
     }
   })
@@ -347,7 +347,7 @@ const mainWindow = new BrowserWindow()
 
 ### 왜냐구요?
 
-CSP는 서버가 콘텐츠를 제한적이고 웹페이지의 리소스를 제어하는 것을 허용하도록 합니다, 또한 Electron은 주어진 그 페이지를 로드 할 수 있습니다. `https://evil.attacker.com`에서는 실행되지 않아야 하고, `https://example.com`에서는 정의한 스크립트가 로드 되게 해야 합니다. Defining a CSP is an easy way to improve your application's security.
+CSP는 서버가 콘텐츠를 제한적이고 웹페이지의 리소스를 제어하는 것을 허용하도록 합니다, 또한 Electron은 주어진 그 페이지를 로드 할 수 있습니다. `https://evil.attacker.com`에서는 실행되지 않아야 하고, `https://example.com`에서는 정의한 스크립트가 로드 되게 해야 합니다. CSP를 정의하면 쉽게 애플리케이션 보안을 향상할 수 있습니다.
 
 다음 CSP는 Electron이 현재 웹사이트와 `apis.example.com`에서만 스크립트를 실행하게 허용합니다.
 
@@ -364,7 +364,7 @@ Content-Security-Policy: script-src 'self' https://apis.example.com
 
 
 
-### CSP HTTP Header
+### CSP HTTP 헤더
 
 Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
 
@@ -386,7 +386,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 
 
-### CSP Meta Tag
+### CSP 메타 태그
 
 CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
 
@@ -500,7 +500,7 @@ Blink는 Chromium의 렌더링 엔진 이름입니다. `experimentalFeatures`와
 
 
 ```js
-// Bad
+// 나쁜 예
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: 'ExecCommandInJavaScript'
@@ -560,7 +560,7 @@ It is a good idea to control the creation of new [`<webview>`](../api/webview-ta
 
 ### 왜냐구요?
 
-Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+`<webview>`가 DOM에 종속되어 있기 때문에, Node.js 통합이 비활성화된 경우에도 웹 사이트에서 실행할 수 있는 스크립트로 만들 수 있습니다.
 
 Electron는 개발자가 렌더러 프로세스를 제어하는 다양한 보안 기능을 비활성화 할 수 있도록 합니다. 대부분의 경우, 개발자는 이러한 기능을 비활성화 할 필요가 없으므로 - 새롭게 만든 [`<webview>`](../api/webview-tag.md) 태그에 대해 별도의 구성을 허용해서는 안됩니다.
 
@@ -659,8 +659,8 @@ const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
   contents.on('new-window', async (event, navigationUrl) => {
-    // In this example, we'll ask the operating system
-    // to open this event's url in the default browser.
+    // 이 예제에서는 운영 체제에게 기본 브라우저에서
+    // 이벤트의 url을 열어달라고 요청합니다.
     event.preventDefault()
 
     await shell.openExternal(navigationUrl)
@@ -688,7 +688,7 @@ Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-ca
 
 
 ```js
-//  Bad
+//  나쁜 예
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
@@ -696,7 +696,7 @@ shell.openExternal(USER_CONTROLLED_DATA_HERE)
 
 
 ```js
-//  Good
+//  좋은 예
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
@@ -704,19 +704,19 @@ shell.openExternal('https://example.com/index.html')
 
 
 
-## 15) Disable the `remote` module
+## 15) `remote` 모듈 비활성화
 
 The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. If your desktop application does not run untrusted content, this can be a useful way to have your renderer processes access and work with modules that are only available to the main process, such as GUI-related modules (dialogs, menus, etc.).
 
-However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Therefore, it should be disabled in such circumstances.
+However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. 따라서, 해당 상황에서는 비활성화해야 합니다.
 
 
 
 ### 왜냐구요?
 
-`remote` uses an internal IPC channel to communicate with the main process. "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+`remote`는 메인 프로세스와 통신하기 위해 내부 IPC 채널을 사용합니다. "프로토타입 오염" 공격은 `remote` IPC 메시지로 위장해 샌드박스를 탈출하고 더 높은 권한의 메인 프로세스 모듈에 접근하는 데 사용할 수 있는 내부 IPC 채널에서 악성 코드를 실행할 수 있게 합니다.
 
-Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
+또한, 샌드박스 안의 렌더러에서 모듈을 유출하는 스크립트를 preload 하는 일도 가능합니다. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
 
 Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
 
@@ -727,7 +727,7 @@ Disabling the `remote` module eliminates these attack vectors. Enabling context 
 
 
 ```js
-// Bad if the renderer can run untrusted content
+// 렌더러가 신뢰되지 않은 내용을 실행할 수 있으면 나쁜 예입니다.
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -735,7 +735,7 @@ const mainWindow = new BrowserWindow({})
 
 
 ```js
-// Good
+// 좋은 예
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableRemoteModule: false
@@ -776,7 +776,7 @@ Note that the safest option is to [fully disable the remote module](#15-disable-
 
 
 ```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+const readOnlyFsProxy = require(/* ... */) // 파일 읽기 기능만 드러냄
 
 const allowedModules = new Set(['crypto'])
 const proxiedModules = new Map(['fs', readOnlyFsProxy])
@@ -816,7 +816,7 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 
 
-## 17) Use a current version of Electron
+## 17) 현재 버전의 Electron 사용
 
 You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
 
