@@ -2,7 +2,7 @@
 
 > 브라우저 윈도우를 생성하고 제어합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 ```javascript
 // 메인 프로세스에서.
@@ -112,7 +112,7 @@ child.once('ready-to-show', () => {
 
 > 브라우저 윈도우를 생성하고 제어합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 `BrowserWindow`는 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)이다.
 
@@ -234,11 +234,11 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 `new BrowserWindow`으로 생성된 오브젝트에서는 다음의 이벤트가 발생합니다:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**참고:** 몇몇 이벤트는 표기된 특정 운영체제에서만 사용할 수 있습니다.
 
 #### 이벤트: 'page-title-updated'
 
-반환:
+Returns:
 
 * `event` Event
 * `title` String
@@ -248,7 +248,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 #### 이벤트: 'close'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -266,7 +266,7 @@ window.onbeforeunload = (e) => {
   e.returnValue = false // `return false` 와 같으나 추천하지 않음
 }
 ```
-_**Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. 전자가보다 일관되게 일렉트론 내에서 작동하므로 항상 값을 반환하는 대신 `event.returnValue`를 명시 적으로 설정하는 것이 좋습니다._
+_**참고**: `window.onbeforeunload = handler` 와 `window.addEventListener('beforeunload', handler)`의 동작에는 약간의 차이가 있습니다. 전자가보다 일관되게 일렉트론 내에서 작동하므로 항상 값을 반환하는 대신 `event.returnValue`를 명시 적으로 설정하는 것이 좋습니다._
 
 #### Event: 'closed'
 
@@ -324,7 +324,7 @@ Emitted when the window is restored from a minimized state.
 
 #### Event: 'will-resize' _macOS_ _Windows_
 
-반환:
+Returns:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
@@ -339,7 +339,7 @@ Emitted after the window has been resized.
 
 #### Event: 'will-move' _macOS_ _Windows_
 
-반환:
+Returns:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
@@ -376,7 +376,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'always-on-top-changed'
 
-반환:
+Returns:
 
 * `event` Event
 * `isAlwaysOnTop` Boolean
@@ -385,7 +385,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-반환:
+Returns:
 
 * `event` Event
 * `command` String
@@ -398,7 +398,7 @@ Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMM
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // 사용자가 마우스 뒤로 가기 버튼을 누르면 뒤로 돌아갑니다.
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -424,16 +424,18 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
+The method underlying this event is built to handle older macOS-style trackpad swiping, where the content on the screen doesn't move with the swipe. Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
+
 #### Event: 'rotate-gesture' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `rotation` Float
@@ -448,7 +450,7 @@ Emitted when the window opens a sheet.
 
 Emitted when the window has closed a sheet.
 
-#### Event: 'new-window-for-tab' _macOS_
+#### 이벤트: 'new-window-for-tab' _macOS_
 
 Emitted when the native new tab button is clicked.
 
@@ -494,7 +496,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` String
+* PrinterInfo Object
 
 Remove a Chrome extension by name.
 
@@ -520,7 +522,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` String
+* PrinterInfo Object
 
 Remove a DevTools extension by name.
 
@@ -541,24 +543,24 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 Objects created with `new BrowserWindow` have the following properties:
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// In this example `win` is our instance
+// 이 예제에서는 `win`이 인스턴스입니다.
 let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-#### `win.webContents` _Readonly_
+#### `win.webContents` _읽기전용_
 
 A `WebContents` object this window owns. All web page related events and operations will be done via it.
 
 See the [`webContents` documentation](web-contents.md) for its methods and events.
 
-#### `win.id` _Readonly_
+#### `win.id` _읽기전용_
 
 A `Integer` property representing the unique ID of the window.
 
@@ -623,11 +625,11 @@ Menu.setApplicationMenu(menu)
 
 A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**참고:** 몇몇 메서드는 특정 운영체제에서만 사용할 수 있습니다.
 
 #### `win.destroy()`
 
@@ -762,10 +764,10 @@ Resizes and moves the window to the supplied bounds. Any properties that are not
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 
-// set all bounds properties
+// 모든 경계 속성 지정
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
 
-// set a single bounds property
+// 단일 경계 속성 지정
 win.setBounds({ width: 100 })
 
 // { x: 440, y: 225, width: 100, height: 600 }
@@ -1416,13 +1418,13 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Note:** TouchBar API는 현재 시험 단계에 있으며 향후 전자 릴리스에서 변경되거나 제거 될 수 있습니다.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 
 * `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
-#### `win.getBrowserView()` _Experimental_
+#### `win.getBrowserView()` _실험적_
 
 Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
@@ -1436,8 +1438,8 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` _Experimental_
+#### `win.getBrowserViews()` _실험적_
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**참고:** BrowserView API는 현재 실험 단계이며,  차후 일렉트론이 릴리즈 되면 변경되거나 제거될 수 있습니다.
