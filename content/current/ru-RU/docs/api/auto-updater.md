@@ -2,7 +2,7 @@
 
 > Позвольте приложениям автоматически обновляться.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 **См. также: [Подробное руководство о том, как внедрять обновления в Ваше приложение](../tutorial/updates.md).**
 
@@ -10,7 +10,7 @@
 
 ## Платформа заметок
 
-На текущий момент поддерживается только macOS и Windows. Не существует встроенной поддержки для автоматического обновления на Linux, поэтому рекомендуется использовать менеджер пакетов дистрибутива, для обновления Вашего приложения.
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
 Кроме того есть некоторые тонкие различия на каждой платформе:
 
@@ -18,7 +18,7 @@
 
 На macOS модуль `autoUpdater` построен на [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), что означает, что Вам не нужно делать каких-либо специальных настроек, чтобы заставить его работать. Для серверных условий, Вы можете прочитать [Поддержку сервера](https://github.com/Squirrel/Squirrel.Mac#server-support). Заметьте, что [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) применяется ко всем запросам, сделанным как часть процесса обновления. Приложению, у которого требуется отключить ATS, можно добавить ключ `NSAllowsArbitraryLoads` в список свойств приложения (plist).
 
-**Примечание:** Ваше приложение должно быть подписано для автоматического обновления на macOS. Это требование `Squirrel.Mac`.
+**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
 ### Windows
 
@@ -48,7 +48,7 @@
 
 ### Событие: 'update-available'
 
-Возникает при наличии доступных обновлений. Обновление загружается автоматически.
+Emitted when there is an available update. The update is downloaded automatically.
 
 ### Событие: 'update-not-available'
 
@@ -68,7 +68,7 @@
 
 На Windows доступен только `releaseName`.
 
-**Примечание:** Не обязательно обрабатывать это событие. Успешно загруженное обновление будет применено в следующий раз, когда приложение запустится.
+**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
 
 ### Событие: 'before-quit-for-update'
 
@@ -82,10 +82,10 @@
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Object 
+* `options` Object
   * `url` String
-  * `headers` Record<String, String> (опционально) *macOS* - заголовки HTTP-запроса.
-  * `serverType` String (опционально) *macOS* - либо `json`, либо `default`, смотрите README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), для подробной информации.
+  * `headers` Record<String, String> (опционально) _macOS_ - заголовки HTTP-запроса.
+  * `serverType` String (опционально) _macOS_ - либо `json`, либо `default`, смотрите README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), для подробной информации.
 
 Задает `url` и инициализирует автоматическое обновление.
 
@@ -95,11 +95,11 @@
 
 ### `autoUpdater.checkForUpdates()`
 
-Запрашивает сервер на наличие обновлений. Перед использованием этого API-интерфейса, необходимо вызвать `setFeedURL`.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Перезапускает приложение и устанавливает обновления после того как скачает. Должен вызываться только после того, как возникнет событие `update-downloaded`.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 Внутри, вызов `autoUpdater.quitAndInstall()` сначала закроет все окна приложения, и автоматически вызовет `app.quit()`, после того, как все окна будут закрыты.
 
