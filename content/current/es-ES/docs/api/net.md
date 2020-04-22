@@ -2,7 +2,7 @@
 
 > Emitir solicitudes HTTP/HTTPS usando la biblioteca de red nativa de Chromium
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 El módulo `net` es un lado del cliente API para tratar pedidos HTTP(S). Si es similar a los módulos [HTTP](https://nodejs.org/api/http.html) y [HTTPS](https://nodejs.org/api/https.html) de Node.js pero usa la biblioteca de la red nativa de Chromium en vez de las aplicaciones Node.js, ofreciendo un mejor soporte a los proxies de la web.
 
@@ -36,7 +36,7 @@ app.on('ready', () => {
 })
 ```
 
-La API `net` puede ser usada solo después de que la aplicación emite el evento `ready`. Tratar de usar el módulo antes del evento `ready` arrojará un error.
+The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
 ## Métodos
 
