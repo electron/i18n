@@ -58,7 +58,7 @@ exports.withLocalCallback = () => {
 ```
 
 ```javascript
-// renderer process
+// 렌더러 프로세스
 const mapNumbers = require('electron').remote.require('./mapNumbers')
 const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
 const withLocalCb = mapNumbers.withLocalCallback()
@@ -128,7 +128,7 @@ module.exports = 'bar'
 ```
 
 ```js
-// renderer process: renderer/index.js
+// 렌더러 프로세스: renderer/index.js
 const foo = require('electron').remote.require('./foo') // bar
 ```
 
