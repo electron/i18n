@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-No Electron, para as API's que levam imagens, você pode passar tanto caminhos de arquivos ou instâncias `NativeImage`. Uma imagem vazia será usada quando `null` é passado.
+In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
 Por exemplo, quando for criar uma bandeija ou designar um ícone para uma janela, você pode passar um caminho de arquivo de imagem com a `String`:
 
@@ -27,16 +27,16 @@ console.log(appIcon)
 
 ## Formatos Suportados
 
-Atualmente os formatos de imagem `PNG` e `JPEG` são suportados. `PNG` são recomendados pelo seu suporte a transparência e compressão sem perda de qualidade.
+Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
-* Ícone pequeno 
+* Ícone pequeno
   * 16x16 (com escala de DPI com 100%)
   * 20x20 (com escala de DPI com 125%)
   * 24x24 (com escala de DPI com 150%)
   * 32x32 (com escala de DPI com 200%)
-* Ícone grande 
+* Ícone grande
   * 32x32 (com escala de DPI com 100%)
   * 40x40 (com escala de DPI com 150%)
   * 48x48 (com escala de DPI com 150%)
@@ -51,7 +51,7 @@ Em plataformas que possuem suporte para high-DPI como a tela Retina da Apple, vo
 
 For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
-Se você deseja ter o suporte para telas com diferentes densidades de DPI ao mesmo tempo, você pode colocar imagens de diferentes tamanhos na mesma pasta e usar o nome do arquivo sem os sufixos de DPI. Como por exemplo:
+If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. Como por exemplo:
 
 ```plaintext
 images/
@@ -82,13 +82,13 @@ The following suffixes for DPI are also supported:
 
 ## Modelo de Imagem
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template images consist of black and an alpha channel. Imagens padrão não são destinadas a serem usadas sozinhas, e geralmente são acompanhadas por outros conteúdos para criar a aparência final desejada.
 
 The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
 
 **Nota:** Imagens padrão são suportadas somente no macOS.
 
-Para marcar uma imagem como imagem padrão, o nome do arquivo deverá terminar com a palavra `Template`. Como por exemplo:
+To mark an image as a template image, its filename should end with the word `Template`. Como por exemplo:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
@@ -121,7 +121,7 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object 
+* `options` Object
   * `width` Integer
   * `height` Integer
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
@@ -133,14 +133,14 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Objeto (opcional) 
+* `options` Object (optional)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (opicional) - Necessário para buffers de bitmap.
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+Cria uma nova instância `NativeImage` a partir do `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -150,7 +150,7 @@ Retorna `NativeImage`
 
 Cria uma nova instância `NativeImage` a partir do `dataURL`.
 
-### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
+### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` String
 * `hslShift` Number[] (optional)
@@ -185,7 +185,7 @@ Os seguintes métodos estão disponíveis nas instâncias da classe `NativeImage
 
 #### `image.toPNG([options])`
 
-* `options` Objeto (opcional) 
+* `options` Object (optional)
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados codificados de `PNG` da imagem.
@@ -198,32 +198,32 @@ Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_b
 
 #### `image.toBitmap([options])`
 
-* `options` Objeto (opcional) 
+* `options` Object (optional)
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém uma copia dos dados de bitmap crus (sem alterações) da imagem.
 
 #### `image.toDataURL([options])`
 
-* `options` Objeto (opcional) 
+* `options` Object (optional)
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `String` - Os dados de URL da imagem.
 
 #### `image.getBitmap([options])`
 
-* `options` Objeto (opcional) 
+* `options` Object (optional)
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados de bitmap crus (sem alterações) da imagem.
 
 The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
-#### `image.getNativeHandle()` no *macOS*
+#### `image.getNativeHandle()` no _macOS_
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
 
-Perceba que o ponteiro retornado é um ponteiro fraco para a imagem nativa subjacente invés de uma cópia, então você *deve* se certificar de que a instância `nativeImage` esteja próxima.
+Perceba que o ponteiro retornado é um ponteiro fraco para a imagem nativa subjacente invés de uma cópia, então você _deve_ se certificar de que a instância `nativeImage` esteja próxima.
 
 #### `image.isEmpty()`
 
@@ -255,7 +255,7 @@ Retorna `NativeImage` - A imagem cortada.
 
 #### `image.resize(options)`
 
-* `options` Object 
+* `options` Object
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (optional) - Defaults to the image's height.
   * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. O padrão é `best`. Esses valores apresentam a qualidade/velocidade de troca desejada. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
@@ -270,18 +270,18 @@ Retorna `Float` - A proporção de tela da imagem.
 
 #### `image.addRepresentation(options)`
 
-* `options` Object 
+* `options` Object
   * `scaleFactor` Double - The scale factor to add the image representation for.
-  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
-  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `width` Integer (optional) - Padrão sendo 0. Required if a bitmap buffer is specified as `buffer`.
+  * `height` Integer (opcional) - Padrão sendo 0. Required if a bitmap buffer is specified as `buffer`.
   * `buffer` Buffer (opcional) - O buffer contendo os dados crus (sem alteração) da imagem.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
-Adiciona uma imagem de representação para um específico fator de escala. Esse pode ser usado para adicionar explicitamente representações de fatores de escala diferentes para uma imagem. Isso pode ser chamado em imagens vazias.
+Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
 ### Propriedades de Instância
 
-#### `nativeImage.isMacTemplateImage` *macOS*
+#### `nativeImage.isMacTemplateImage` _macOS_
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
