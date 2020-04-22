@@ -1,8 +1,8 @@
-# globalShortcut
+# evrenselKısayol
 
 > Uygulamanın klavye odağı olmadığı zaman klavye etkinliklerini algılar.
 
-Süreç: [Main](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `globalShortcut` modülü bir evrensel kısayolu işletim sistemi ile kaydedebilir/kaydetmeyebilir bu sayede çeşitli kısayollar için işlemleri özelleştirebilirsiniz.
 
@@ -41,11 +41,11 @@ app.on('will-quit', () => {
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Fonksiyon
+* `callback` Function
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
-`accelerator`'ün bir evrensel kısayolunu kaydeder. `callback` kaydedilen kısayol kullanıcı tarafından tıklandığı zaman çağırılır.
+Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
 Hızlandırıcı zaten diğer uygulamalar tarafından alınmışsa, bu çağrı sessizce başarısız olacaktır. Bu davranış işletim sistemleri tarafından seçilmiştir, uygulamaların evrensel kısayollarla uğraşmasını istemedikleri için.
 
