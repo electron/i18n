@@ -162,7 +162,7 @@ blog:
   feedback: มีความคิดเห็นเกี่ยวกับโพสต์นี้หรือไม่? แจ้งให้ <a href="https://twitter.com/electronjs"> @electronjs </a> ทราบบน Twitter
   help: ต้องการความช่วยเหลือหรือพบข้อบกพร่อง? <a href="/contact"> ติดต่อเรา </a>
 clipboard:
-  copy: Copy
+  copy: คัดลอก
   copy_to_clipboard: คัดลอกไปยังคลิปบอร์ด
   copied: คัดลอกแล้ว
 fiddle_launch_button:
@@ -215,7 +215,7 @@ pages:
     title: Electron Fiddle
     description: วิธีที่ง่ายที่สุดในการเริ่มต้นกับ Electron
   '/governance':
-    title: การกำกับดูแล Electron 
+    title: การกำกับดูแล Electron
     description: ระบบการกำกับดูแล Electron ประกอบด้วยคณะทำงานที่ดูแลด้านต่าง ๆ ของระบบนิเวศของอิเล็กตรอนและคณะทำงานด้านการบริหารที่ทำหน้าที่แก้ไขความขัดแย้งระหว่างกัน
   '/donors':
     title: ผู้บริจาค
@@ -234,7 +234,7 @@ landing:
     easy_start: เริ่มด้วย Fiddle ต่อไปทุกที่
     easy_start_desc: ซอไม่ได้เป็น IDE - แต่มันเป็นจุดเริ่มต้นที่ยอดเยี่ยม เมื่อซอของคุณโตขึ้นให้ส่งออกเป็นโปรเจ็กต์ที่มีหรือไม่มี <a href="https://electronforge.io/"> อิเล็กตรอน - ฟอร์จ </a> จากนั้นใช้โปรแกรมแก้ไขที่คุณชื่นชอบและทำในโลกนี้!
 governance:
-  title: การกำกับดูแล Electron 
+  title: การกำกับดูแล Electron
   description: ระบบการกำกับดูแล Electron ประกอบด้วยคณะทำงานที่ดูแลด้านต่าง ๆ ของระบบนิเวศของอิเล็กตรอนและคณะทำงานด้านการบริหารที่ทำหน้าที่แก้ไขความขัดแย้งระหว่างกัน
   wgs: คณะทำงาน
   ecosystem:
@@ -242,7 +242,7 @@ governance:
     description: ดูแลโครงการที่ทำให้การพัฒนาแอพ Electron ง่ายขึ้น
   outreach:
     title: "ยื่นออกไป\n"
-    description: เติบโตชุมชน Electron 
+    description: เติบโตชุมชน Electron
   releases:
     title: การเผยแพร่
     description: ดูแลทุกสาขาที่วางจำหน่ายและเครื่องมือในการสนับสนุนการเปิดตัว
