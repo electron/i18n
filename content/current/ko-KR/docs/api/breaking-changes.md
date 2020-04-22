@@ -51,7 +51,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 However, it is recommended to avoid using the `remote` module altogether.
 
 ```js
-// main
+// 메인
 const { ipcMain, webContents } = require('electron')
 
 const getGuestForWebContents = function (webContentsId, contents) {
@@ -70,7 +70,7 @@ ipcMain.handle('openDevTools', (event, webContentsId) => {
   guest.openDevTools()
 })
 
-// renderer
+// 렌더러
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
