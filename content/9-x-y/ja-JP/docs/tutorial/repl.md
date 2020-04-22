@@ -15,7 +15,7 @@ Read-Eval-Print-Loop (REPL, レプル) は、単一のユーザー入力 (すな
   electron --interactive
   ```
 
-This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+これはメインプロセス向けの REPL を作成するだけです。 デベロッパー ツールの Console タブを使用すれば、レンダラープロセスの REPL ができます。
 
 **Note:** `electron --interactive` はWindowsでは利用できません。
 
