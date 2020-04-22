@@ -395,7 +395,7 @@ Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMM
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // 사용자가 마우스 뒤로 가기 버튼을 누르면 뒤로 돌아갑니다.
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -558,7 +558,7 @@ Objects created with `new BrowserWindow` have the following properties:
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// In this example `win` is our instance
+// 이 예제에서는 `win`이 인스턴스입니다.
 let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
@@ -772,10 +772,10 @@ Resizes and moves the window to the supplied bounds. Any properties that are not
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 
-// set all bounds properties
+// 모든 경계 속성 지정
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
 
-// set a single bounds property
+// 단일 경계 속성 지정
 win.setBounds({ width: 100 })
 
 // { x: 440, y: 225, width: 100, height: 600 }
