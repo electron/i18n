@@ -2,7 +2,7 @@
 
 > Control de descargas de archivos desde fuentes remotas.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. Se utiliza en el evento `will-download` de la clase `Session`, y permite a los usuarios controlar el elemento descargado.
 
@@ -53,12 +53,12 @@ El `state` puede ser uno de los siguientes:
 
 #### Evento: "done"
 
-Retorna:
+Devuelve:
 
 * `event` Event
 * `state` String - Puede ser `completado`, `cancelado` o `interrumpido`.
 
-Aparece cuando la descarga está en un estado terminal. Esto incluye una descarga completa, una descarga cancelada (a través de `downloadItem.cancel()`), y una descarga interrumpida que no puede ser reanudada.
+Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
 El `state` puede ser uno de los siguientes:
 
@@ -80,7 +80,7 @@ La API solo está disponible en la función callback `will-download` de la sesi�
 
 #### `downloadItem.getSavePath()`
 
-Devuelve `String` - La ruta de guardado del elemento descargado. Este puede ser tanto la ruta configurada a través de `downloadItem.setSavePath(path)` o la ruta seleccionada desde el cuadro de dialogo de guardado mostrado.
+Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
 
 **[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
@@ -88,7 +88,7 @@ Devuelve `String` - La ruta de guardado del elemento descargado. Este puede ser 
 
 * `options` SaveDialogOptions - Establece las opciones del diálogo de guardar archivos. Este objeto tiene la misma propiedad como el parámetro `options` de [`dialog.showSaveDialog()`](dialog.md).
 
-Esta API permite al usuario establecer opciones personalizadas para el diálogo de guardado que abre para el elemento de descarga por defecto. Esta API solo esta disponible en la función callback `will-download` de la sesión.
+This API allows the user to set custom options for the save dialog that opens for the download item by default. La API solo está disponible en la función callback `will-download` de la sesión.
 
 #### `downloadItem.getSaveDialogOptions()`
 
@@ -106,7 +106,7 @@ Devuelve `Boolean` - Si la ventana esta pausada o no.
 
 Reanuda la descarga que ha sido pausada.
 
-**Nota:** Para habilitar las descargas reanudables, el servidor desde donde se descarga debe soportar las solicitudes de rango y proporcionar los valores de cabecera `Last-Modified` y `ETag`. De lo contrario, `resume()` descartará los bytes recibidos anteriormente y reiniciará la descarga desde el principio.
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. De lo contrario, `resume()` descartará los bytes recibidos anteriormente y reiniciará la descarga desde el principio.
 
 #### `downloadItem.canResume()`
 
@@ -132,7 +132,7 @@ Devuelve `Boolean` - Si la descarga tiene o no gestos de usuario.
 
 Devuelve `String` - El nombre de archivo del elemento descargado.
 
-**Nota:** El nombre del archivo no siempre es el mismo que el que está guardado en el disco local. Si el usuario cambia el nombre del archivo en el cuadro de diálogo de guardado de la descarga, el nombre actual del archivo guardado será diferente.
+**Note:** The file name is not always the same as the actual one saved in local disk. Si el usuario cambia el nombre del archivo en el cuadro de diálogo de guardado de la descarga, el nombre actual del archivo guardado será diferente.
 
 #### `downloadItem.getTotalBytes()`
 
@@ -150,9 +150,9 @@ Devuelve `String` - El campo Content-Disposition desde la cabecera de respuesta.
 
 #### `downloadItem.getState()`
 
-Devuelve `String` - El estado actual. Puede ser `en progreso`, `completado`, `cancelado` o `interrumpido.`.
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**Nota:** Los siguientes métodos son útiles específicamente para reanudar un elemento `cancelled` cuando se reinicia la sesión.
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
