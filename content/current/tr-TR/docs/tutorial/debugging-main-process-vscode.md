@@ -1,13 +1,13 @@
 # VSCode da ki Ana Sürecin Hata Ayıklaması
 
-### VSCode içinde bir Electron projesi aç.
+### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### Takip edilen ayarları uygulayarak `.vscode/launch.json` bir dosya ekle:
+### 2. Add a file `.vscode/launch.json` with the following configuration:
 
 ```json
 {
@@ -29,8 +29,9 @@ $ code electron-quick-start
 }
 ```
 
+
 ### 3. Hata Ayıklama
 
-Bazı kesme noktaları ayarla `main.js`, ve hata ayıklamaya başla [Hata Ayıklama Görünümü](https://code.visualstudio.com/docs/editor/debugging) Kesme noktalarına tıklayabilirsiniz.
+Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 
 VsCode'da daha önceden yapılandırılmış indirilebilir ve hata ayıklanabilir bir proje: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
