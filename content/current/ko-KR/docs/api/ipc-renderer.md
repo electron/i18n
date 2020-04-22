@@ -8,7 +8,7 @@ The `ipcRenderer` module is an  [EventEmitter](https://nodejs.org/api/events.htm
 
 [ipcMain](ipc-main.md)의 코드 예제를 보세요.
 
-## 메소드
+## 메서드
 
 `ipcRenderer` 모듈은 이벤트를 처리하고 메시지를 보내기 위해 다음의 메소드를 가집니다:
 
@@ -75,7 +75,7 @@ ipcRenderer.invoke('some-name', someArgument).then((result) => {
   // ...
 })
 
-// Main process
+// 메인 프로세스
 ipcMain.handle('some-name', async (event, someArgument) => {
   const result = await doSomeWork(someArgument)
   return result
