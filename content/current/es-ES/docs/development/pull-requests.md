@@ -1,18 +1,18 @@
 # Pull Requests
 
-* [Configurando tu entorno local](#setting-up-your-local-environment) 
+* [Configurando tu entorno local](#setting-up-your-local-environment)
   * [Paso 1: Fork](#step-1-fork)
   * [Paso 2: Compilado](#step-2-build)
   * [Paso 3: Rama](#step-3-branch)
-* [Haciendo Cambios](#making-changes) 
+* [Haciendo Cambios](#making-changes)
   * [Paso 4: Código](#step-4-code)
-  * [Paso 5: Commit](#step-5-commit) 
+  * [Paso 5: Commit](#step-5-commit)
     * [Directrices de mensaje commit](#commit-message-guidelines)
   * [Paso 6: Reorganizar](#step-6-rebase)
   * [Paso 7: Prueba](#step-7-test)
   * [Paso 8: Push](#step-8-push)
-  * [Paso 9: Abriendo la Solicitud de Retiro](#step-9-opening-the-pull-request)
-  * [Paso 10: Analizar y actualizar](#step-10-discuss-and-update) 
+  * [Paso 9: Abriendo el Pull Request](#step-9-opening-the-pull-request)
+  * [Paso 10: Analizar y actualizar](#step-10-discuss-and-update)
     * [Aprobación y Solicitud de Cambios de Workflow](#approval-and-request-changes-workflow)
   * [Paso 11: Ejecutado](#step-11-landing)
   * [Prueba de Integración Continua](#continuous-integration-testing)
@@ -33,7 +33,6 @@ $ git fetch upstream
 ### Paso 2: Compilado
 
 Pasos de compilado y dependencias difieren ligeramente dependiendo de su sistema operativo. Ver estas guías detalladas en compilacion local de Electron:
-
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Compilado en Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Compilado en Windows](https://electronjs.org/docs/development/build-instructions-windows)
@@ -73,33 +72,32 @@ Tenga en cuenta que multiples commits a menudo colisionan cuando son ejecutadas.
 
 Un buen mensaje de commit debe describir que ha cambiado y por qué. El proyecto Electron usa [semantic commit messages](https://conventionalcommits.org/) para racionalizar el proceso de lanzamiento.
 
-Antes de que una solicitud de pull pueda ser fusionada, **debe** tener un título de pull request con un prefijo semántico.
+Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
 
 Ejemplos de mensajes de confirmación con prefijos semánticos:
 
-* `fix: no sobrescribir prevent_default si no se evitado el valor predeterminado`
-* `feat: agregar método app.isPackaged()`
-* `docs: app.isDefaultProtocolClient está disponible en Linux`
+- `fix: no sobrescribir prevent_default si no se evitado el valor predeterminado`
+- `feat: agregar método app.isPackaged()`
+- `docs: app.isDefaultProtocolClient está disponible en Linux`
 
 Prefijos usuales:
 
-    - fix: Una corrección de error
-    - feat: Una nueva característica 
-    - docs: Cambios en la documentación
-    - test: Añadir nuevas pruebas o corregir pruebas existentes
-    - build: Cambios que afectan el sistema de construcción
-    - ci: Cambios en nuestros archivos de configuración y scripts de CI
-    - perf: Un cambio en el código que mejora el rendimiento 
-    - refactor: Un cambio de código que no corrige un error ni añade una característica
-    - style: Cambios que no afectan al significado del código(linting)
-    - vendor: Eliminar una dependencia como contenido de libchromium o nodo
-    
+  - fix: A bug fix
+  - feat: A new feature
+  - docs: Documentation changes
+  - test: Adding missing tests or correcting existing tests
+  - build: Changes that affect the build system
+  - ci: Changes to our CI configuration files and scripts
+  - perf: A code change that improves performance
+  - refactor: A code change that neither fixes a bug nor adds a feature
+  - style: Changes that do not affect the meaning of the code (linting)
+  - vendor: Bumping a dependency like libchromiumcontent or node
 
 Otras cosas para tener en mente cuando se escribe un mensaje de commit:
 
-1. La primera linea debe: 
-  * contener una breve descripción del cambio (preferiblemente 50 caracteres o menos, y no mas de 72 caracteres)
-  * estar completamente en minúsculas con la excepción de nombres propios, acrónimos, y las palabras que refieren a un código, como nombres de función/variables
+1. La primera linea debe:
+   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   - estar completamente en minúsculas con la excepción de nombres propios, acrónimos, y las palabras que refieren a un código, como nombres de función/variables
 2. Mantén la segunda linea vacía.
 3. Ajuste todas las otras linea en 72 columnas.
 
@@ -198,3 +196,4 @@ Cada pull request se prueva en el sistema de Integracion Continua (CI) para conf
 Idealmente, el pull request pasara("ser verde") en todas las plataformas de CI. Esto quiere decir que pasa todas las pruebas y no hay errores linting. Sin embargo, no es infrecuente para la infraestructura de CI el fallar en plataformas específicas o como son llamadas pruebas "escamosas" a fallar ("be red"). Cada falla de CI debe ser inspeccionada manualmente para determinar la causa.
 
 CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
+
