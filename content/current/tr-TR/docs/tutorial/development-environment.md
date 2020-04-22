@@ -1,35 +1,35 @@
 # Sunucu ortamı
 
-Electron geliştirme esasen Node.js geliştirmedir. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Electron geliştirmesi esasen Node.js geliştirmesidir. İşletim sisteminizi, Electron ile masaüstü uygulamaları inşa etme yetenekli bir ortama çevirmek için, sadece Nodejs, npm, bir kod düzenleme tercihinize ve basit bir işletim sisteminizin komut satırı istemci bilgisine ihtiyacınız olacak.
 
 ## MacOS İçin Kurulum
 
-> Electron, macOS 10.10 (Yosemite) ve üstünü destekler. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Electron, macOS 10.10 (Yosemite) ve üstünü destekler. Apple, ev sahibi bilgisayar bir Apple bilgisayarı değilse sanal makinelerde macOS çalıştırılmasına izin vermez, bu yüzden bir Mac ihtiyacınız olursa, Macs ([MacInCloud](https://www.macincloud.com/) veya [xcloud](https://xcloud.me) gibi) Mac'lere erişimi kiralayan bir bulut hizmeti kullanmayı düşünün.
 
-İlk olarak, Node.js'in son sürümünü yükleyin. `LTS` veya `Mevcut` sürümünü indirmenizi tavsiye ederiz. [Node.js indirme sayfas](https://nodejs.org/en/download/)ını ziyaret et ve `macOS kurucusu`nu seç. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+İlk olarak, Node.js'in son sürümünü yükleyin. `LTS` veya `Mevcut` sürümünü indirmenizi tavsiye ederiz. [Node.js indirme sayfas](https://nodejs.org/en/download/)ını ziyaret edin ve `macOS kurucusu`nu seçin. Homebrew sunulan bir seçenek olsa da, reddetmenizi öneririz - çoğu araç Homebrew'in Node.js'i yükleme biçimiyle uyumsuzluk gösterecektir.
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+İndirildiğinde, kurucuyu çalıştırın ve kurulum sihirbazının kurulum boyunca size rehberlik etmesine izin verin.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Yüklenince, her şeyin beklendiği gibi çalıştığını onaylayın. `/Applications/Utilities` dizininizdeki (veya Spotlight'da `Terminal` sözcüğünü aratarak) macOs `Terminal` uygulamasını bulun. `Terminal`'i veya diğer bir komut satırı istemci tercihinizi açın ve `node` ve `npm`'nin kullanılabilir olup olmadığını kontrol edin:
 
 ```sh
-#Bu komut Node.js versiyonunu yazdırır  
+#Bu komut Node.js sürümünü yazdırır 
 node -v
-#Bu komut npm versiyonunu yazdırır 
+#Bu komut npm sürümünü yazdırır 
 npm -v
 ```
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## Windows İçin Kurulum
+## Linux İçin Kurulum
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron Wndows 7 ve sonraki sürümlerini destekler - Windows'un önceki sürümlerinde Electron uygulaması geliştirmeyi denemek işe yaramayacaktır. Microsoft geliştiriciler için [Windows 10'lu sanal makine örnekleri](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) sağlar.
 
-İlk olarak, Node.js'in son sürümünü yükleyin. `LTS` veya `Mevcut` sürümünü indirmenizi tavsiye ederiz. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+İlk olarak, Node.js'in son sürümünü yükleyin. `LTS` veya `Mevcut` sürümünü indirmenizi tavsiye ederiz. [Node.js indirme sayfasını](https://nodejs.org/en/download/) ziyaret edin ve `Windows Installers`'ı seçin. İndirildiğinde, kurucuyu çalıştırın ve kurulum sihirbazının kurulum boyunca size rehberlik etmesine izin verin.
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Yüklenince, her şeyin beklendiği gibi çalıştığını onaylayın. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
 #Bu komut Node.js versiyonunu yazdırır  
@@ -49,16 +49,16 @@ If both commands printed a version number, you are all set! Before you get start
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
-#Bu komut Node.js versiyonunu yazdırır  
+#Bu komut Node.js sürümünü yazdırır 
 node -v
-#Bu komut npm versiyonunu yazdırır 
+#Bu komut npm sürümünü yazdırır 
 npm -v
 ```
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## A Good Editor
+## İyi Bir Düzenleyici
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+Electron'da yerleşik iki ücretsiz popüler editör önerebiliriz: [GitHub'S Atom](https://atom.io/) ve Microsoft'un [Visual Studio Code](https://code.visualstudio.com/). Her ikisi de mükemmel JavaScript desteğine sahiptir.
 
 If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
