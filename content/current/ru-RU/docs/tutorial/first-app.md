@@ -31,7 +31,7 @@ npm будет вести вас на протяжении создания ба
 }
 ```
 
-**Примечание**: Если в `package.json` отсутствует поле `main`, тогда Electron сделает попытку загрузить `index.js` (так же, как и Node.js). Если это было простое Node приложение, вам нужно добавить `start` скрипт, который будет "говорить" `node` выполнить текущий пакет:
+__Примечание__: Если в `package.json` отсутствует поле `main`, тогда Electron сделает попытку загрузить `index.js` (так же, как и Node.js). Если это было простое Node приложение, вам нужно добавить `start` скрипт, который будет "говорить" `node` выполнить текущий пакет:
 
 ```json
 {
@@ -152,15 +152,15 @@ app.on('activate', () => {
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Привет мир!</title>
+    <title>Hello World!</title>
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
   </head>
   <body>
-    <h1>Привет мир!</h1>
-    Мы используем node <script>document.write(process.versions.node)</script>,
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    и Electron <script>document.write(process.versions.electron)</script>.
+    and Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
@@ -173,7 +173,7 @@ app.on('activate', () => {
 
 Склонируйте и запустите код, приведенный в данном обучающем посте, из [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) репозитория.
 
-**Заметка**: Для запуска требуется [Git](https://git-scm.com) и [npm](https://www.npmjs.com/).
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Клонируем репозиторий
