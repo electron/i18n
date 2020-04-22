@@ -6,17 +6,16 @@ Postępuj zgodnie z wytycznymi poniżej do zbudowania Electrona dla Linuxa.
 
 * Co najmniej 25GB pamięci dyskowej i 8GB pamięci RAM.
 * Python 2.7.x. Niektóre dystrybucje jak CentOS 6.x nadal używają Python 2.6.x, więc może trzeba sprawdzić wersję Pythona przez `python -V`.
-    
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
-    
-    ```sh
-    $ npx @electron/check-python-tls
-    ```
-    
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+
+  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+
+  ```sh
+  $ npx @electron/check-python-tls
+  ```
+
+  If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
 
 * Node.js. Istnieją różne sposoby instalacji Node. Możesz pobrać kod źródłowy z [nodejs.org](https://nodejs.org) i go skompilować. Ten sposób pozwala na instalowanie Node na swój własny katalog domowy jako użytkownik standardowy. Lub spróbuj repozytoriów takich jak [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-
 * [clang](https://clang.llvm.org/get_started.html) 3.4 lub nowszy.
 * Development headers of GTK 3 and libnotify.
 
@@ -48,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Inne dystrybucje mogą oferować podobne paczki instalacji przez managery paczek takie jak pacman. Można też kompilować z kodu źródłowego.
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
 ### Kompilacja międzyplatformowa
 
@@ -80,7 +79,7 @@ See [Instrukcje Budowania (Ogólne)](build-instructions-gn.md)
 
 ### Wystąpił błąd podczas ładowania biblioteki współdzielenia: libtinfo.so.5
 
-Prekompilowany `clang` będzie próbował powiązać z `libtinfo.so.5`. W zależności od architektury hosta, dowiązanie symboliczne do odpowiednich `libncurses`:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -88,7 +87,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Zaawansowane tematy
 
-Domyślne tworzenie konfiguracji jest celem dla głównej dystrybucji pulpitu Linux. Aby zbudować dla konkretnej dystrybucji lub urządzenia, następujące informacje mogą ci pomóc.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### Using system `clang` instead of downloaded `clang` binaries
 
