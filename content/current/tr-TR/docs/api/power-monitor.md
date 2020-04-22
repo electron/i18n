@@ -4,6 +4,7 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
+
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
 Örneğin:
@@ -30,23 +31,23 @@ Sistem askıya alındığında yayıldı.
 
 Sistem devam ettiğinde yayılan.
 
-### Etinlik: 'on-ac' *Windows*
+### Etinlik: 'on-ac' _Windows_
 
 Sistem AC güç değiştiğinde yayılan.
 
-### Olay: 'pilde' *Windows*
+### Olay: 'pilde' _Windows_
 
 Sistem pil gücü değiştiğinde yayılan.
 
-### Olay: 'Kapat' *Linux* *macOS*
+### Olay: 'Kapat' _Linux_ _macOS_
 
 Sistem yeniden başlatılmak veya kapatılmak üzereyken çıkar. Eğer olay işleyicisi `e.preventDefault()` kodunu çalıştırıyorsa, Electron uygulamanın düzgün kapanması açısından sistemi kapatmayı ertelemeye çalışacak. Eğer `e.preventDefault()` kodu çalıştırıldıysa, uygulama `app.quit()` gibi bir kodu çalıştırarak olabildiğince hızlı bir şekilde kendini kapatmaya çalışacak.
 
-### Event: 'lock-screen' *macOS* *Windows*
+### Event: 'lock-screen' _macOS_ _Windows_
 
 Emitted when the system is about to lock the screen.
 
-### Event: 'unlock-screen' *macOS* *Windows*
+### Event: 'unlock-screen' _macOS_ _Windows_
 
 Emitted as soon as the systems screen is unlocked.
 
@@ -60,7 +61,7 @@ The `powerMonitor` module has the following methods:
 
 Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `locked` is available on supported systems only.
+Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
 
 ### `powerMonitor.getSystemIdleTime()`
 
