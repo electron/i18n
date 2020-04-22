@@ -16,7 +16,7 @@
 
 Можливі значення:
 
-* `disabled_software` - Тільки програмна обробка. Апаратне прискорення вимкнене (жовтий)
+* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - Вимкнено (червоний)
 * `disabled_off_ok` - Вимкнено (жовтий)
 * `unavailable_software` - Тільки програмна обробка. Апаратне прискорення вимкнене (жовтий)
