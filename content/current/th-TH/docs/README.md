@@ -4,34 +4,34 @@ Please make sure that you use the documents that match your Electron version. �
 
 ## คำถามที่พบบ่อย
 
-มีหลายคำถามที่ถูกถามบ่อยครั้ง กรุณาค้นหาที่นี่ก่อนที่จะตั้ง issue:
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [คำถามที่พบบ่อยของ Electron](faq.md)
 
 ## แนะนำและบทความสอน
 
-* [วิธีการติดตั้งสำหรับการพัฒนา](tutorial/development-environment.md) 
+* [วิธีการติดตั้งสำหรับการพัฒนา](tutorial/development-environment.md)
   * [การติดตั้งบน macOS](tutorial/development-environment.md#setting-up-macos)
   * [การติดตั้งบน Windows](tutorial/development-environment.md#setting-up-windows)
   * [การติดตั้งบน Linux](tutorial/development-environment.md#setting-up-linux)
   * [วิธีการเลือกเครื่องมือที่ใช้พัฒนา](tutorial/development-environment.md#a-good-editor)
-* [สร้างแอพแรกของคุณ](tutorial/first-app.md) 
+* [สร้างแอพแรกของคุณ](tutorial/first-app.md)
   * [วิธีการติดตั้ง Electron](tutorial/first-app.md#installing-electron)
   * [ทำความรู้จักการพัฒนา Electron](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [เริ่มต้นแอพของคุณ](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
+* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-ลืม](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-สร้าง](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-สำเร็จรูป](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [เครื่องมือและแผ่นข้อมูลอื่น ๆ](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [โครงสร้างของแอพพลิเคชั่น](tutorial/application-architecture.md) 
+* [โครงสร้างของแอพพลิเคชั่น](tutorial/application-architecture.md)
   * [ขั้นตอนหลักและขั้นตอนการเรนเดอร์](tutorial/application-architecture.md#main-and-renderer-processes)
   * [วิธีการใช้อินเตอร์เฟสของ Electron](tutorial/application-architecture.md#using-electron-apis)
   * [วิธีการใช้อินเตอร์เฟสของ Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [วิธีการใช้เนทีฟโมดูลของ Node.js](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-* การเพิ่มฟีสเจอร์บนแอพของคุณ 
+* การเพิ่มฟีสเจอร์บนแอพของคุณ
   * [การแจ้งเตือน](tutorial/notifications.md)
   * [บทความปัจจุบัน](tutorial/recent-documents.md)
   * [ความคืบหน้าการแปลภาษา](tutorial/progress-bar.md)
@@ -41,33 +41,33 @@ Please make sure that you use the documents that match your Electron version. �
   * [ปุ่มลัดแป้นพิมพ์](tutorial/keyboard-shortcuts.md)
   * [ออฟไลน์ / ออนไลน์ ตรวจสอบ](tutorial/online-offline-events.md)
   * [ไฟล์ที่แสดงสำหรับ macOS Browser Windows](tutorial/represented-file.md)
-  * [เนทิฟไฟล์ ลาก&และ; วาง](tutorial/native-file-drag-drop.md)
+  * [เนทิฟไฟล์  ลาก&และ; วาง](tutorial/native-file-drag-drop.md)
   * [การเรนเดอร์แบบ Offscreen](tutorial/offscreen-rendering.md)
   * [O](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
-* [การเข้าถึง](tutorial/accessibility.md) 
+* [การเข้าถึง](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [เปิดใช้งานการเข้าถึง](tutorial/accessibility.md#enabling-accessibility)
-* [การทดสอบและการดีบัก](tutorial/application-debugging.md) 
+* [การทดสอบและการดีบัก](tutorial/application-debugging.md)
   * [การดีบักกระบวนการหลัก](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Codeo](tutorial/debugging-main-process-vscode.md)
   * [การใช้ Selenium และ WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [การทดสอบบนระบบ Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [ส่วนขยายของ DevTools](tutorial/devtools-extension.md)
   * [การทดสอบอัตโนมัติด้วยไดรเวอร์ที่กำหนดเอง](tutorial/automated-testing-with-a-custom-driver.md)
-* [การกระจาย](tutorial/application-distribution.md) 
+* [การกระจาย](tutorial/application-distribution.md)
   * [แพลตฟอร์มที่รองรับ](tutorial/support.md#supported-platforms)
-  * [การเซ็นรหัส](tutorial/code-signing.md)
+  * [Code Signing](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [ความปลอดภัย](tutorial/security.md) 
+* [ความปลอดภัย](tutorial/security.md)
   * [รายงานปัญหาด้านความปลอดภัย](tutorial/security.md#reporting-security-issues)
   * [รายงานปัญหาด้านความปลอดภัยของ Chromium และการอัพเกรต](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [การแจ้งเตือนความปลอดภัยสำหรับ Electron](tutorial/security.md#electron-security-warnings)
   * [รายการความปลอดภัย](tutorial/security.md#checklist-security-recommendations)
-* [อัพเดต](tutorial/updates.md) 
+* [อัพเดต](tutorial/updates.md)
   * [การติดตั้งบนเซิร์ฟเวอร์ที่มีการอัพเดต](tutorial/updates.md#deploying-an-update-server)
   * [วิธีการอัพเดตแอพของคุณ](tutorial/updates.md#implementing-updates-in-your-app)
   * [ใช้การอัพเดต](tutorial/updates.md#applying-updates)
@@ -77,15 +77,15 @@ Please make sure that you use the documents that match your Electron version. �
 
 บทความสอนแต่ละบทจะขยายความจากหัวข้อคำแนะนำข้างบน
 
-* [วิธีการติดตั้ง Electron](tutorial/installation.md) 
+* [วิธีการติดตั้ง Electron](tutorial/installation.md)
   * [ผู้รับมอบฉันทะ](tutorial/installation.md#proxies)
   * [กระจกและแคชที่กำหนดเอง](tutorial/installation.md#custom-mirrors-and-caches)
   * [วิธีแก้ปัญหาเบื้องต้น](tutorial/installation.md#troubleshooting)
-* Versiones Electron & Comentarios de desarrollador 
+* Versiones Electron & Comentarios de desarrollador
   * [Versiebeleidid](tutorial/electron-versioning.md)
   * [Calendrier de release9996](tutorial/electron-timelines.md)
   * [525678310522769](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* [Packaging App Source Code with asar](tutorial/application-packaging.md)
   * [การสร้างคลังเก็บอาซาร์](tutorial/application-packaging.md#generating-asar-archives)
   * [การใช้ asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [ข้อจำกัด](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -93,7 +93,7 @@ Please make sure that you use the documents that match your Electron version. �
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [การใช้ปลั้กอิน Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [อภิธานศัพท์](glossary.md)
 
@@ -155,4 +155,4 @@ Please make sure that you use the documents that match your Electron version. �
 
 ## การพัฒนา
 
-ดู <development/README.md>
+ดู [development/README.md](development/README.md)
