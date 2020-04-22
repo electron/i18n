@@ -4,11 +4,11 @@ Different operating systems provide different features for integrating desktop a
 
 This guide explains how to integrate your application into those desktop environments with Electron APIs.
 
-## Notifications
+## Các thông báo
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## Tài liệu gần đây
 
 See [Recent Documents documentation](recent-documents.md).
 
