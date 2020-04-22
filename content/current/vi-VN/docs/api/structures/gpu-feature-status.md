@@ -16,7 +16,7 @@
 
 Giá trị khả thi:
 
-* `disabled_software` - Chỉ phần mềm. Tăng tốc phần cứng đã bị vô hiệu hóa (yellow)
+* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - Đã vô hiệu hóa (red)
 * `disabled_off_ok` - Đã vô hiệu hóa (yellow)
 * `unavailable_software` - Chỉ phần mềm, tăng tốc phần cứng không có sẵn (yellow)
