@@ -6,7 +6,7 @@
 
 このモジュールにはウェブインターフェイスが付属していません。 記録したトレースを見るには、[トレースビュアー](https://github.com/catapult-project/catapult/blob/master/tracing) を使用します。Chrome では `chrome://tracing` で利用できます。
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**注:** アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
 
 ```javascript
 const { app, contentTracing } = require('electron')
