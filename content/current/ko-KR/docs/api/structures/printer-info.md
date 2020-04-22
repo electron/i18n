@@ -1,11 +1,11 @@
 # PrinterInfo 개체
 
-* `name` String
+* PrinterInfo Object
 * `description` String
 * `status` Number
 * `isDefault` Boolean
 
-## Example
+## 예시
 
 다음은 각 플랫폼마다 다를수 있는 몇가지 추가 옵션의 예입니다.
 
