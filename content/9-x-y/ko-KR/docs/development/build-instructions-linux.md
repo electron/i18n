@@ -7,7 +7,7 @@
 * 최소한 25GB 이상의 디스크 공간과 8GB 램이 필요합니다.
 * Python 2.7.x. 몇몇 CentOS 6.x와 같은 배포판들은 아직도 Python 2.6.x 버전을 사용합니다. 그래서 먼저 `python -V`를 통해 버전을 확인할 필요가 있습니다.
 
-  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+  시스템과 Python 버전이 TLS 1.2를 지원해야 합니다. 테스트해보려면 아래 스크립트를 실행하세요.
 
   ```sh
   $ npx @electron/check-python-tls
