@@ -2,7 +2,7 @@
 
 > Çökme raporlarını uzak sunucuya gönderin.
 
-İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Aşağıda bir çökme durumunun otomatik olarak uzak sunucuya gönderilmesinin bir örneği var:
 
@@ -30,24 +30,24 @@ Or use a 3rd party hosted solution:
 
 Çökme raporları uygulamaya özel bir geçici dizinde kaydedilir. `isminizin` `ürünü` için çökme raporları `İsminiz Crashes` dizinimde /temp dizini altında tutulacaktır. Bu geçici dizinin yolunu `app.setPath('temp', '/my/custom/temp')` şeklinde kendinize göre ayarlayabilirsiniz.
 
-## Yöntemler
+## Metodlar
 
 `crashReporter` modülü aşağıdaki metodlara sahiptir:
 
 ### `crashReporter.start(options)`
 
-* `seçenekler` Obje 
+* `options` Object
   * `companyName` String
   * `submitURL` Katar - Çökme raporlarının POST olarak yollanacağı URL.
   * `productName` String (optional) - Defaults to `app.name`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Varsayılanı `true`.
   * `ignoreSystemCrashHandler` Boolean (opsiyonel) - Varsayılan değeri `false`.
   * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Sadece katar tipinde özellikler düzgün şekilde yollanır. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
   * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 `crashReporter` API'lerini kullanmak için ve süreçlerin çökme raporlarını almak için her süreçte (main/renderer) bu metodu çağırmalısınız. Farklı süreçlerden farklı opsiyonları `crashReporter.start`'a geçebilirsiniz.
 
-**Not** `child_process` tarafından yaratılmış çocuk süreçlerin Electron modüllerine erişimi olmaz. Bu yüzden, çocuk süreçlere ait raporları toplamak için `process.crashReporter.start` kullanın. Çökme raporlarını geçici olarak tutan dizini işaret eden `crashesDirectory` ile birlikte aynı opsiyonları geçin. `process.crash()` ile çocuk süreci çökerterek bunu test edebilirsiniz.
+**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Bu yüzden, çocuk süreçlere ait raporları toplamak için `process.crashReporter.start` kullanın. Çökme raporlarını geçici olarak tutan dizini işaret eden `crashesDirectory` ile birlikte aynı opsiyonları geçin. `process.crash()` ile çocuk süreci çökerterek bunu test edebilirsiniz.
 
 **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
@@ -64,30 +64,30 @@ Returns the date and ID of the last crash report. Only crash reports that have b
 
 [`CrashReport[]`](structures/crash-report.md) döndürür:
 
-Tüm yüklenmiş çökme raporlarını döndürür. Her rapor ilgili tarih ve numarayı da içerir.
+Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
 ### `crashReporter.getUploadToServer()`
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Not:** Bu API sadece ana süreç tarafından çağrılabilir.
+**Note:** This API can only be called from the main process.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean *macOS* - Raporlar sunucuya gönderilsin mi.
+* `uploadToServer` Boolean _macOS_ - Whether reports should be submitted to the server.
 
-Normalda bu kullanıcı seçeneklerinden kontrol edilir. Eğer daha önce `start` çağrılmışsa herhangi bir etkisi yoktur.
+This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Not:** Bu API sadece ana süreç tarafından çağrılabilir.
+**Note:** This API can only be called from the main process.
 
-### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
+### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
 
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
 * `key` Dizge - Parametre anahtarı, 64 karakterden az olmak zorundadır.
 
 Çökme raporu ile birlikte gönderilmesi için bir ek parametre girin. Burada belirtilen değerler, `start` çağrıldığında `extra` seçeneği ile belirlenen değerlere ek olarak gönderilir. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
 
-### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
+### `crashReporter.removeExtraParameter(key)` _macOS_ _Windows_
 
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
 
@@ -111,7 +111,7 @@ Returns `String` - The directory where crashes are temporarily stored before bei
 * `guid` Katar - örneğin. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
 * `_version` Katar - `package.json` içerisindeki versiyon.
 * `_productName` Katar - `crashReporter` `options` objesi içerisindeki ürün ismi.
-* `prod` Katar - Arkadaki temel ürünün ismi. Bu durum için Electron.
+* `prod` String - Name of the underlying product. In this case Electron.
 * `_companyName` Katar - `crashReporter` `options` objesi içerisindeki şirket ismi.
 * `upload_file_minidump` Dosya - `minidump` formatında çökme raporu.
 * `crashReporter``options` objesi içerisindeki `extra`'nın tüm birinci seviye özellikleri.
