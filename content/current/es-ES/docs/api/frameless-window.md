@@ -8,6 +8,7 @@ Una ventana sin bordes es una ventana que no tiene [chrome](https://developer.mo
 
 Para crear una ventana sin marco, necesitas establecer `frame` a `false` en las `options` de [BrowserWindow](browser-window.md):
 
+
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ width: 800, height: 600, frame: false })
@@ -61,7 +62,7 @@ win.show()
 ### Limitaciones
 
 * No se puede hacer clic a través del área transparente. Vamos a introducir una API para configurar la forma de la ventana para solucionar esto. Consulte [our issue](https://github.com/electron/electron/issues/1335) para mas detalles.
-* Las ventanas transparentes no son redimensionables. Configurar `resizable` a `true` puede hacer que una ventana transparente deje de funcionar en algunas plataformas.
+* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * El filtro `blur` solo aplica a la página web, por lo que no hay manera de aplicar el efecto blur al contenido debajo de la ventana (por ejemplo, otras aplicaciones abiertas en el sistema del usuario).
 * En los sistemas operativos Windows, las ventanas transparentes no funcionarán cuando DWM está deshabilitado.
 * En Linux, los usuarios tienen que poner `--enable-transparent-visuals --disable-gpu` en la línea de comandos para deshabilitar el GPU y permitir ARGB para hacer transparente la ventana, esto es causado por un bug ascendente donde [el canal alfa no funciona en algunos controladores NVidia](https://code.google.com/p/chromium/issues/detail?id=369209) en Linux.
