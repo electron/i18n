@@ -451,7 +451,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `process`
+### `プロセス`
 
 ```js
 // 非推奨
@@ -583,7 +583,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `process`
+### `プロセス`
 
 * `process.versions.electron` と `process.version.chrome` は、Node によって定められた他の `process.versions` プロパティと一貫性を持つために読み取り専用プロパティになりました。
 
