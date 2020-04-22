@@ -2,7 +2,7 @@
 
 > process オブジェクトの拡張です。
 
-プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 Electron の `process` オブジェクトは、[Node.js `process` object](https://nodejs.org/api/process.html) から拡張されています。 以下のイベント、プロパティ、メソッドが追加されます。
 
@@ -52,15 +52,15 @@ process.once('loaded', () => {
 
 ## プロパティ
 
-### `process.defaultApp` _Readonly_
+### `process.defaultApp` _読み出し専用_
 
 `Boolean`。 When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
-### `process.isMainFrame` _Readonly_
+### `process.isMainFrame` _読み出し専用_
 
 A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas` _Readonly_
+### `process.mas` _読み出し専用_
 
 `Boolean`。 For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
@@ -76,11 +76,11 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 非推奨の警告を `stderr` に出力するかどうかを制御する `Boolean`。 Promise に変換された以前のコールバックベースの API は、コールバックを使用して呼び出されます。 これを `true` に設定すると非推奨警告が有効になります。
 
-### `process.resourcesPath` _Readonly_
+### `process.resourcesPath` _読み出し専用_
 
 リソースディレクトリのパスを表す `String`。
 
-### `process.sandboxed` _Readonly_
+### `process.sandboxed` _読み出し専用_
 
 `Boolean`。 When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
@@ -95,19 +95,19 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 ### `process.traceProcessWarnings`
 `stderr` に出力されるプロセスの警告にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定するとプロセスの (非推奨を含む) 警告のスタックトレースが出力されます。 `--trace-warnings` コマンドラインフラグの代わりにこのプロパティを使用します。
 
-### `process.type` _Readonly_
+### `process.type` _読み出し専用_
 
 現在のプロセスの種類を表す `String` で、 `"browser"` (すなわちメインプロセス)、`"renderer"` または `"worker"` (すなわち web worker) の値をとります。
 
-### `process.versions.chrome` _Readonly_
+### `process.versions.chrome` _読み出し専用_
 
 Chrome のバージョン文字列を表す `String`。
 
-### `process.versions.electron` _Readonly_
+### `process.versions.electron` _読み出し専用_
 
 Electron のバージョン文字列を表す `String`。
 
-### `process.windowsStore` _Readonly_
+### `process.windowsStore` _読み出し専用_
 
 `Boolean`。 If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
@@ -192,7 +192,7 @@ console.log(version)
 // Linux -> '4.15.0-45-generic'
 ```
 
-**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
+**注釈:** `os.release()` とは異なり、macOS ではカーネルバージョンではなく実際のオペレーティングシステムのバージョンを返します。
 
 ### `process.takeHeapSnapshot(filePath)`
 
