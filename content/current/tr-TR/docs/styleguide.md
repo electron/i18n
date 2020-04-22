@@ -13,27 +13,27 @@ Electron belgeleri yazmak için rehberler.
 Örnek olarak `Hızlı Başlangıç`:
 
 ```markdown
-# Hızlı Başlangıç
+# Quick Start
 
 ...
 
-## Ana Süreç
+## Main process
 
 ...
 
-## Renderer Süreç
+## Renderer process
 
 ...
 
-## Uygulamanızı başlatın
+## Run your app
 
 ...
 
-### Dağıtım olarak başlatın
+### Run as a distribution
 
 ...
 
-### El ile indirilmiş Electron binary'si
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -95,10 +95,10 @@ Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Methods` 
 * Kurucular `###` düzeyinde başlıklarla listelenmelidir.
 * [tatic Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) `### Static Methods` bölümünün altında listelenmelidir.
 * [nstance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) bir `### Instance Methods` bölümünün altında listelenmelidir.
-* Bir getiri değeri olan tüm yöntemlerin açıklamalarını "getiriler ile başlatması gerekir `[TYPE]` -Getiri tanımı" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * Eğer yöntem `Nesne`'ye dönerse, yapısı iki noktadan sonra bir satır sonu karakteriyle, ardından da işlev parametreleriyle aynı tarzda sırasız bir özellik listesi kullanarak belirlenebilir.
 * Örnek Olayları `### Instance Events` bölümünün altında listelenmelidir.
-* Örnek Özellikler aşağısında listelenmelidir `### Örnek Özellikler` bölüm. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Örnek özellikleri "Bir [Özellik Türü]..." ile başlamalıdır
 
 Örnek olarak `Session` ve `Cookies` sınıflarını kullanmak:
@@ -142,15 +142,15 @@ Metodların bölümü aşağıdaki formda olmak zorundadır:
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - Parametre açıklaması
-* `optional` Integer (isteğe bağlı) - Başka bir parametre açıklaması
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```
 
 Bir modülün veya bir sınıfın bir metodu olup olmadığına bağlı olarak başlık `###` veya `####` olabilir.
 
-Modüller için `nesneİsmi` modülün adıdır. Sınıflar için, sınıf örneğinin adı olmalı ve modül adı ile aynı olmamalıdır.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Örneğin, `Session`modülü altındaki `session` oturum sınıfının yöntemleri `objectName` olarak `ses` kullanmalıdır.
 
@@ -160,13 +160,13 @@ Modüller için `nesneİsmi` modülün adıdır. Sınıflar için, sınıf örne
 gerekli[, isteğe bağlı]
 ```
 
-Yöntemin altında her değişken hakkında daha ayrıntılı bilgi var. Bağımsız değişken türü, ortak türlerle belirtilir:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
-* [`Dizgi`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Dize`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Sayı`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Nesne`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Dizi`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* [`Boole değeri`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Ya da Electron'un [`WebContent`](api/web-contents.md) gibi özel bir tür
 
 Bir bağımsız değişken veya yöntem belirli platformlara özgü ise, bu platformalar veri türünün ardında boşlukla sınırlanmış italikleşmiş bir liste kullanılarak ifade edilir. Değer `macOS`, `Windows` veya `Linux` olabilir.
@@ -179,7 +179,7 @@ Bir bağımsız değişken veya yöntem belirli platformlara özgü ise, bu plat
 
 `Function` tür bağımsız değişkenleri için açıklamanın, nasıl çağrılabileceğini açıklığa kavuşturması ve ona iletilecek parametrelerin türlerini listelemesi gerekir.
 
-### Events
+### Olaylar
 
 Olaylar bölümü aşşağıdaki form da olmak zorundadır:
 
