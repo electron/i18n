@@ -2,7 +2,7 @@
 
 > Позволяет использовать модули главного процесса из рендер-процесса.
 
-Процесс: [Renderer](../glossary.md#renderer-process)
+Процесс: [Графический](../glossary.md#renderer-process)
 
 Модуль `remote` обеспечивает простой способ для межпроцессного взаимодействия (IPC) между процессом рендеринга (веб-страницы) и основного процесса.
 
@@ -17,9 +17,8 @@ win.loadURL('https://github.com')
 **Примечание:** Для обратной связи (доступа к рендер-процессу из основного процесса), вы можете использовать [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Примечание:** Модуль remote можно отключить по соображениям безопасности в следующих контекстах:
-
-* [`BrowserWindow`](browser-window.md) - установкой опции `enableRemoteModule` в `false`.
-* [`<webview>`](webview-tag.md)<webview></0> - установкой атрибута `enableremotemodule` в `false`.
+- [`BrowserWindow`](browser-window.md) - установкой опции `enableRemoteModule` в `false`.
+- [`<webview>`](webview-tag.md)<webview></0> - установкой атрибута `enableremotemodule` в `false`.
 
 ## Удаленные объекты
 
@@ -43,7 +42,7 @@ Electron следит за тем, что пока удаленный объек
 
 Код основного процесса может принимать колбэки рендер-процесса (например, модуль `remote`), но вы должны использовать эту особенность в предельной осторожностью.
 
-Во первых, во избежание взаимных блокировок, колбэки, передаваемые в основной процесс, вызываются асинхронно. Вы не должны ожидать, что основной процесс получит возвращаемые значения переданных колбэков.
+First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
 
 Например, вы не можете использовать функцию из рендер-процесса в `Array.map`, вызываемой в основном процессе:
 
@@ -72,11 +71,11 @@ console.log(withRendererCb, withLocalCb)
 
 Во вторых, колбэки, передаваемые в основной процесс будут сохраняться до сборки мусора основным процессом.
 
-К примеру, следующий код на первый взгляд кажется невинным. Он устанавливает колбэк для события `close` на удаленном объекте:
+For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // Окно было закрыто...
+  // window was closed...
 })
 ```
 
@@ -151,6 +150,6 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ## Свойства
 
-### `remote.process` *Только чтение*
+### `remote.process` _Только чтение_
 
-Объект `NodeJS.Process`. Объект `process` в основном процессе. является тем же самым, что и `remote.getGlobal('process')` но кэшируется.
+A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
