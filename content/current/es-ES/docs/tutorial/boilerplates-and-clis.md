@@ -4,7 +4,7 @@ El desarrollo con Electron es libre de opiniones, y no hay una "única manera" d
 
 Ese nivel de modularidad y extensibilidad asegura que todos los desarrolladores que trabajan con Electron, ambos equipos grandes y pequeños, nunca estén restringidos en que pueden o no puedan hacer en cualquier momento durante sus ciclos de vida del desarrollo. Sin embargo, para muchos desarrolladores, uno de los boilerplates comunitarios o herramientas de línea de comandos podría facilitar dramáticamente el compilar, empacar y liberar una aplicación.
 
-## Plantillas vs CLI
+## Plantilla vs CLI
 
 Un boilerplate es sólo un punto de partida -un lienzo en blanco, por así decirlo- a partir del cual construir su aplicación. Generalmente vienen en la forma de un repositorio, que se puede clonar y personalizar a gusto.
 
