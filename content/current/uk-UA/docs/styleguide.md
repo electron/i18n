@@ -13,27 +13,27 @@
 Для прикладу `Швидкий старт`:
 
 ```markdown
-# Швидкий Старт
+# Quick Start
 
 ...
 
-## Загальний процес
+## Main process
 
 ...
 
-## Процес візуалізації
+## Renderer process
 
 ...
 
-## Запуск додатку
+## Run your app
 
 ...
 
-### Запустити як дистрибутив
+### Run as a distribution
 
 ...
 
-### Завантажити вручну бібліотеку Electron
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -95,10 +95,10 @@
 * Конструктори, повинні бути перераховані на `###` рівні.
 * [Статичні методи](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) мають бути перераховані в розділі `### Статичні Методи`.
 * [Методи об'єкта класу](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) повинні бути перераховані в главі `### Методи Екземпляру`.
-* Опис всіх методів, що повертають значення, повинен починатися з "Повертає `[TYPE]` - Опис повернення" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * Якщо метод повертає `Object`, його структура може бути визначена з використанням двокрапки потім з нового рядка невпорядкований список властивостей у стилі параметрів функції.
 * Події об'єкта класу повинні бути перераховані в розділі `### Події Еекземпляру`.
-* Властивості об'єкта класу повинні бути перераховані в `### Властивості Екземпляра` розділі. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Власстивості об'єкта класу мають починатися з "A [тип властивості] ..."
 
 Для прикладу `Session` та `Cookies` класи:
@@ -142,15 +142,15 @@
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - Опис параметру.
-* `optional` Integer (optional) - Інший опис параметру.
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```
 
 Заголовок може мати рівні `###` чи `####` в залежності від того, чи це метод модуля чи класу.
 
-Для модулів, `objectName` це ім'я модуля. Для класів це повинно бути ім'я екземпляру класу і не повинне бути таким ж як і ім'я модуля.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Наприклад, методи класу `Session` у модулі `session` повинні використовувати `ses` як `objectName`.
 
@@ -160,11 +160,11 @@
 required[, optional]
 ```
 
-Нижче методу оголошується більш детальна інформація про кожний аргумент. Тип аргументу має бути зазначеним із загальних типів:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Об'єкт`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Чи нестандартний тип як Electron's [`WebContent`](api/web-contents.md)
