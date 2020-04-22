@@ -15,7 +15,7 @@ You are impacted if:
 1. You embed _any_ remote user content, even in a sandbox
 2. You accept user input with any XSS vulnerabilities
 
-_Details_
+_Szczegóły_
 
 You are impacted if any user code runs inside an `iframe` / can create an `iframe`. Given the possibility of an XSS vulnerability it can be assumed that most apps are vulnerable to this case.
 
