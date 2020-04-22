@@ -4,9 +4,9 @@ Before we can dive into Electron's APIs, we need to discuss the two process type
 
 ## Ana ve Oluşturucu İşlemleri
 
-Electron'da `package.json` 'ın `ana` komut dosyasını çalıştıran süreç **ana süreç** olarak adlandırılır. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+Electron'da `package.json` 'ın `ana` komut dosyasını çalıştıran süreç __ana süreç__ olarak adlandırılır. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
 
-Electron, web sayfalarını görüntülemek için Chromium kullandığından Chromium'un çoklu işlem mimarisi de kullanılır. Electron'daki her web sayfası **oluşturucu işlemi** olarak adlandırılan kendi işlemini çalıştırır.
+Electron, web sayfalarını görüntülemek için Chromium kullandığından Chromium'un çoklu işlem mimarisi de kullanılır. Electron'daki her web sayfası __oluşturucu işlemi__ olarak adlandırılan kendi işlemini çalıştırır.
 
 Normal tarayıcılarda, web sayfaları genellikle korumalı bir ortamda çalışır ve yerel kaynaklara erişilmesine izin verilmez. Bununla birlikte, Electron kullanıcıları, daha düşük seviyedeki işletim sistemi etkileşimlerine izin veren web sayfalarında Node.js API'lerini kullanma gücüne sahiptir.
 
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
+The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
