@@ -2,9 +2,9 @@
 
 > Comunica de forma assíncrona de um processo de renderização para o processo principal.
 
-Processo: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizador](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ele fornece alguns métodos para que você possa enviar mensagens síncronas e assíncronas do processo de renderização (página da web) para o processo principal. Você também pode receber respostas do processo principal.
+The `ipcRenderer` module is an  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ele fornece alguns métodos para que você possa enviar mensagens síncronas e assíncronas do processo de renderização (página da web) para o processo principal. Você também pode receber respostas do processo principal.
 
 Veja [ipcMain](ipc-main.md) para exemplos de código.
 
@@ -15,7 +15,7 @@ O módulo `ipcRenderer` possui o seguinte método para ouvir eventos e enviar me
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -24,7 +24,7 @@ Ouve o `channel`, quando uma mensagem chega, o `listener` deve ser chamado com `
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -33,7 +33,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `...args` any[]
 
 Removes the specified `listener` from the listener array for the specified `channel`.
@@ -69,7 +69,6 @@ Send a message to the main process via `channel` and expect a result asynchronou
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 Como por exemplo:
-
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
