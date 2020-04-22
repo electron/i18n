@@ -8,6 +8,7 @@ Uma janela 'frameless' é uma janela que não possui [chrome](https://developer.
 
 Para criar uma frameless window, você precisa definir `frame` como `false` nas `options` da [BrowserWindow](browser-window.md):
 
+
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ width: 800, height: 600, frame: false })
@@ -61,7 +62,7 @@ win.show()
 ### Limitações
 
 * Você não pode clicar através da área transparente. Nós iremos introduzir uma API para definir a forma da janela para solucionar isto, veja [nosso issue no Github](https://github.com/electron/electron/issues/1335) para mais detalhes.
-* Janelas transparentes não são redimensionáveis. Definindo `resizable` para `true` pode fazer a janela transparente parar de funcionar em algumas plataformas.
+* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * O filtro `blur` apenas se aplica a página web, logo, não há uma maneira de aplicar o efeito de borrado ao conteúdo abaixo da janela (ou seja, outras aplicações abertas no sistema do usuário).
 * On Windows operating systems, transparent windows will not work when DWM is disabled.
 * On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
