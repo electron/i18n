@@ -1,4 +1,4 @@
-# DevTools 확장
+# 개발자 도구 확장 기능
 
 Electron은 유명한 웹 프레임워크를 디버깅하기 위해 사용할 수 있는 개발자 도구 확장 기능을 사용할 수 있도록 [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools)(크롬 개발자 도구 확장 기능)을 지원합니다.
 
@@ -30,11 +30,11 @@ Electron에 확장 기능을 로드하려면, Chrome 브라우저에서 다운�
    )
    ```
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**참고:** `BrowserWindow.addDevToolsExtension` API는 app 모듈의 ready 이벤트가 발생하기 전까지 사용할 수 없습니다.
 
 The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
-### How to remove a DevTools Extension
+### 개발자 도구 제거 방법
 
 You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
 
