@@ -13,46 +13,46 @@ console.log(systemPreferences.isDarkMode())
 
 `systemPreferences` オブジェクトは以下のイベントを発生させます。
 
-### Event: 'accent-color-changed' _Windows_
+### イベント: 'accent-color-changed' _Windows_
 
 戻り値:
 
 * `event` Event
 * `newColor` String - ユーザがシステムのアクセントカラーに割り当てる新しいRGBAカラー。
 
-### Event: 'color-changed' _Windows_
+### イベント: 'color-changed' _Windows_
 
 戻り値:
 
 * `event` Event
 
-### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
+### イベント: 'inverted-color-scheme-changed' _Windows_ _非推奨_
 
 戻り値:
 
 * `event` Event
 * `invertedColorScheme` Boolean - 反転配色 (明るいテキストと暗い背景のハイコントラスト配色) が使用されている場合は `true`、それ以外の場合は `false` です。
 
-**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+**非推奨:** 新しく `nativeTheme` モジュールの [`updated`](native-theme.md#event-updated) イベントを使用する必要があります。
 
-### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
+### イベント: 'high-contrast-color-scheme-changed' _Windows_ _非推奨_
 
 戻り値:
 
 * `event` Event
 * `highContrastColorScheme` Boolean - ハイコントラストテーマが使用されている場合は `true`、そうでない場合は `false` です。
 
-**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+**非推奨:** 新しく `nativeTheme` モジュールの [`updated`](native-theme.md#event-updated) イベントを使用する必要があります。
 
 ## メソッド
 
-### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
+### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _非推奨_
 
 戻り値 `Boolean` - システムがダークモードかどうか。
 
-**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`.  より詳しい情報については、[ダークモードガイド](../tutorial/mojave-dark-mode-guide.md) を参照してください。
+**注:** macOS 10.15 Catalina で "自動" ダークモード設定のときにこの API が正しい値を返すためには、`Info.plist` に `NSRequiresAquaSystemAppearance=false` があるか、Electron `>=7.0.0` である必要があります。  より詳しい情報については、[ダークモードガイド](../tutorial/mojave-dark-mode-guide.md) を参照してください。
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
+**非推奨:** 新しく [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API を使用する必要があります。
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
 
@@ -261,7 +261,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `window-frame` - ウインドウフレームの色。
     * `window-text` - ウインドウ内のテキスト色。
   * On **macOS**
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table. _deprecated_
+    * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。 _deprecated_
     * `control-background` - ブラウザやテーブルなど、大きなインターフェイス要素の背景。
     * `control` - コントロールの表面。
     * `control-text` - 無効にされていないコントロールのテキスト。
@@ -316,17 +316,17 @@ const alpha = color.substr(6, 2) // "dd"
 
 「コントラストを上げる」や「透明度を下げる」など、鮮やかさやアクセシビリティ設定の変更に自動的に適応する標準のシステムカラーの1つを返します。 詳しくは、[Apple のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors)をご覧ください。
 
-### `systemPreferences.isInvertedColorScheme()` _Windows_ _Deprecated_
+### `systemPreferences.isInvertedColorScheme()` _Windows_ _非推奨_
 
 戻り値 `Boolean` - 反転配色 (明るいテキストと暗い背景のハイコントラスト配色) がアクティブの場合は `true`、それ以外の場合は `false` です。
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API.
+**非推奨:** 新しく [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API を使用する必要があります。
 
 ### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _Deprecated_
 
 戻り値 `Boolean` - ハイコントラストテーマがアクティブの場合は `true`、それ以外の場合は `false` です。
 
-**Depreacted:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
+**非推奨:** 新しく [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API を使用する必要があります。
 
 ### `systemPreferences.getEffectiveAppearance()` _macOS_
 
@@ -336,7 +336,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 **[非推奨](modernization/property-updates.md)**
 
-### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
+### `systemPreferences.getAppLevelAppearance()` _macOS_ _非推奨_
 
 戻り値 `String` | `null` - `dark`、`light` か `unknown` になります。
 
@@ -344,7 +344,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 **[非推奨](modernization/property-updates.md)**
 
-### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _Deprecated_
+### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _非推奨_
 
 * `appearance` String | null - `dark` か `light` にできます
 
@@ -356,7 +356,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 戻り値 `Boolean` - このデバイスが Touch ID を使用できるかどうか。
 
-**NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
+**注意:** この API は Sierra 10.12.2 より古い macOS システムでは `false` を返します。
 
 ### `systemPreferences.promptTouchID(reason)` _macOS_
 
@@ -376,7 +376,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 この API 自体はあなたのユーザーデータを保護しません。むしろ、あなたがそうしてもよいようにするメカニズムです。 ネイティブアプリでは、キーチェーンエントリに [アクセスコントロール定数](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) を、[`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) のように設定する必要があります。これを読み取ると、Touch ID の生体認証に自動的に同意するようになります。 これは `node-keytar` で暗号化キーを保存し、`promptTouchID()` の場合にのみそれを取得するように、[`node-keytar`](https://github.com/atom/node-keytar) を使用して実行されます。
 
-**NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
+**注意:** この API は Sierra 10.12.2 より古い macOS システムでは拒否された Promise になります。
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` _macOS_
 
@@ -396,9 +396,9 @@ macOS 10.13 High Sierra 以前では、このユーザーの同意は必要な�
 
 * `mediaType` String - 要求されるメディアのタイプで、`microphone`、`camera` にできます。
 
-戻り値 `Promise<Boolean>` - 許可された場合は `true` で、拒否された場合は `false` で解決する Promise。 無効な `mediaType` を渡した場合、Promise は reject されます。 アクセス要求が拒否されて後でシステム環境設定パネルを通して変更した場合、新しい権限の効果を得るためにアプリの再起動が必要です。 If access has already been requested and denied, it _must_ be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
+戻り値 `Promise<Boolean>` - 許可された場合は `true` で、拒否された場合は `false` で解決する Promise。 無効な `mediaType` を渡した場合、Promise は reject されます。 アクセス要求が拒否されて後でシステム環境設定パネルを通して変更した場合、新しい権限の効果を得るためにアプリの再起動が必要です。 すでにアクセスを要求して拒否された場合、設定パネルを通して変更_しなければなりません_。警告はポップアップせずに Promise は現在のアクセス状態で解決します。
 
-**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. これらのキーの値は許可ダイアログに使用され、許可要求の目的についてユーザーに適切に通知されます。 Electron のコンテキスト内でどのようにこれらを設定するのかについての更なる情報は、[Electron アプリケーション頒布](https://electronjs.org/docs/tutorial/application-distribution#macos) を参照してください。
+**重要:** この API を正しく活用するには、アプリの `Info.plist` ファイルに `NSMicrophoneUsageDescription` と `NSCameraUsageDescription` の文字列を[設定する必要があります](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc)。 これらのキーの値は許可ダイアログに使用され、許可要求の目的についてユーザーに適切に通知されます。 Electron のコンテキスト内でどのようにこれらを設定するのかについての更なる情報は、[Electron アプリケーション頒布](https://electronjs.org/docs/tutorial/application-distribution#macos) を参照してください。
 
 このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `true` を返します。
 
@@ -422,7 +422,7 @@ macOS 10.13 High Sierra 以前では、このユーザーの同意は必要な�
 
 このプロパティは macOS 10.14 Mojave 以降でのみ利用可能です。
 
-### `systemPreferences.effectiveAppearance` _macOS_ _Readonly_
+### `systemPreferences.effectiveAppearance` _macOS_ _読み出し専用_
 
 `String` 型のプロパティです。`dark`、`light` か `unknown` にできます。
 
