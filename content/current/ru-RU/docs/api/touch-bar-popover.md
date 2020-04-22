@@ -4,15 +4,15 @@
 
 Процесс: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarPopover(options)` *Experimental*
+### `new TouchBarPopover(options)` _Experimental_
 
-* `options` Object 
+* `options` Object
   * `label` String (optional) - Popover button text.
   * `icon` [NativeImage](native-image.md) (optional) - Popover button icon.
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
-  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Default is `true`.
+  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. По умолчанию - `true`.
 
-### Свойства экземпляра
+### Instance Properties
 
 The following properties are available on instances of `TouchBarPopover`:
 
