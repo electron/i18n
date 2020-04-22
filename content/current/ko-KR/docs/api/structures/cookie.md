@@ -8,4 +8,4 @@
 * `보안` Boolean(옵션) - 쿠키 안전 표시 여부
 * `HTTP전용` Boolean (옵션) - 쿠키의 HTTP전용 표시 여부
 * `세션` Boolean (옵션) - 쿠키가 세션 쿠키인지 아니면 만료일이  있는 영구 쿠키인지
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `유효 기간` Double (옵션) - 쿠키 만료일은 유닉스 시간을 몇초로 나타낸 것입니다. 세션 쿠키에는 제공되지 않습니다.
