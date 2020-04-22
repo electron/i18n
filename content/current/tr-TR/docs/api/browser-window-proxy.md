@@ -41,7 +41,7 @@ Belirtilen başlangıç noktası ile alt pencereye bir mesaj gönderir veya `*` 
 
 Bu metodlara ek olarak, alt pencere seçeneksiz ve tek bir metod ile `window.opener` nesnesini implement eder.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 `BrowserWindowProxy` nesnesi aşağıdaki örnek özelliklere sahiptir:
 
