@@ -22,7 +22,7 @@ ninja -C out/Testing electron -j 200
 
 If you're using `build-tools`, appropriate `-j` values will automatically be used for you.
 
-## Monitoring Goma
+## Monitorowanie Goma
 
 If you access [http://localhost:8088](http://localhost:8088) on your local machine you can monitor compile jobs as they flow through the goma system.
 
