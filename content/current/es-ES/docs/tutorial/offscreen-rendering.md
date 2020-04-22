@@ -20,7 +20,7 @@ Para habilitar este modo, la aceleración de la GPU debe desactivarse llamando l
 
 ## Uso
 
-```javascript
+``` javascript
 const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
