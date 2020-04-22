@@ -8,3 +8,4 @@ Burada daha önce bulunan eski "Hızlı Başlangıç" dokümanı iki parçaya ay
 * Süreç mimarisini gözden geçirmek için: [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
 
 Electron hakkında daha fazla bilgi edinmek için: [official guides](../).
+
