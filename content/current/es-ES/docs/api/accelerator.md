@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 En Linux y Windows, la clave `Command` no tiene ningún efecto, así que se utilizar `CommandOrControl` que representa `Command` para macOS y `Control` para Linux y Windows para definir algunos Aceleradores.
 
-Usa `Alt` en vez de `Option`. La clave `Option` solo existe en macOS, mientras la clave `Alt` esta disponible en todas las plataformas.
+Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
 La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` para macOS.
 
@@ -64,7 +64,7 @@ La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` p
 * `VolumeUp`, `VolumeDown` y `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` y `MediaPlayPause`
 * `PrintScreen`
-* Teclas del teclado numérico 
+* Teclas del teclado numérico
   * `num0` - `num9`
   * `numdec` - clave decimal
   * `numadd` - teclado numérico tecla `+`
