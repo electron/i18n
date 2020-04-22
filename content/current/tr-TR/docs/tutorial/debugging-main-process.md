@@ -8,10 +8,11 @@ Ana hata ayıklamasını etkinleştirmek için aşağıdaki komut satırı anaht
 
 ### `--inspect=[port]`
 
-Elektron, belirtilen ` port </ 0> V8 denetçi protokolü mesajlarını dinleyecek, harici bir hata ayıklayıcı bu porta bağlanmalıdır. Varsayılan <code> port</ 0><code> 5858 </ 0>.</p>
+Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
 
-<pre><code class="shell">electron --inspect=5858 uygu/laman
-`</pre> 
+```shell
+electron --inspect=5858 uygu/laman
+```
 
 ### `--inspect-brk=[port]`
 
