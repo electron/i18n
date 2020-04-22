@@ -17,7 +17,6 @@ myNotification.onclick = () => {
 Code và cả trải nghiệm của người dùng là như nhau trong cả ba hệ điều hành, không có sự khác biệt một các tinh tế.
 
 ## Windows
-
 * On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
 * On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Lưu ý, Tuy nhiên, nó không cần phải được ghim vào màn hình Start.
 * Trên Windows 7, thông báo làm việc thông qua thực hiện một tùy chỉnh trực quan tương tự như trên các hệ thống mới hơn.
