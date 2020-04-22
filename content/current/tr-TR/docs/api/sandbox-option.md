@@ -1,6 +1,6 @@
 # `sandbox` Seçeneği
 
-> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
+> Create a browser window with a sandboxed renderer. Bu seçenek etkinleştirmesi ile, oluşturucunun API nodullerine erişim için IPC yoluyla ana yöntemle iletişim kurması gerekir.
 
 Chromium'un en önemli güvenlik özelliklerinden biri, parlayan tüm JavaScript kod/oluşturmanın bir sanal alan içerisinde gerçekleşmesidir. Bu sanal alan, oluşturma işlemi sırasındaki kullanmaların sisteme zarar vermediklerinden emin olmak için OS'e özgü özellikler kullanır.
 
@@ -46,7 +46,7 @@ app.on('ready', () => {
 
 ## Önyükleme
 
-Bir uygulama sandbox 'lanmış oluşturucuları, önyükleme komut dosyası kullanarak özelleştirme yapabilir. Örnek olarak:
+An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
 ```js
 let win
@@ -104,7 +104,7 @@ Bir tarayıcı paketini oluşturmak ve bir ön yükleme komut dosyası olarak ku
 
 Şu anda, önyükleme aşamasından sağlanan `require` fonksiyonu aşağıdaki modülleri göstermektedir:
 
-- `electron` 
+- `electron`
   - `crashReporter`
   - `desktopCapturer`
   - `ipcRenderer`
