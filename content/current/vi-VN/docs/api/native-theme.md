@@ -2,7 +2,7 @@
 
 > Read and respond to changes in Chromium's native color theme.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ## Các sự kiện
 
