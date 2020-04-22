@@ -23,9 +23,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Експериментальний*
+### `new BrowserView([options])` _Експериментальний_
 
-* `options` Object (опціонально) 
+* `options` Object (optional)
   * `webPreferences` Object (опціонально) - Дивись [BrowserWindow](browser-window.md).
 
 ### Статичні Методи
@@ -50,11 +50,11 @@ view.webContents.loadURL('https://electronjs.org')
 
 Об'єкт створений за допомогою `new BrowserView` має наступні властивості:
 
-#### `view.webContents` *Експериментальна*
+#### `view.webContents` _Експериментальна_
 
 Об'єкт [`WebContents`](web-contents.md), яким володіє цей вигляд.
 
-#### `view.id` *Експериментальна*
+#### `view.id` _Експериментальна_
 
 `Integer`, яке представляє унікальний ID вигляду.
 
@@ -70,26 +70,26 @@ view.webContents.loadURL('https://electronjs.org')
 
 Повертає тип`Boolean`-Чи view закрито (True/False).
 
-#### `view.setAutoResize(options)` *Експериментальний*
+#### `view.setAutoResize(options)` _Експериментальний_
 
-* `options` Object 
+* `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Експериментальний*
+#### `view.setBounds(bounds)` _Експериментальний_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Змінює розмір і рухає вигляд до переданої межі відносно вікна.
 
-#### `view.getBounds()` *Експериментальний*
+#### `view.getBounds()` _Експериментальний_
 
 Повертає [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *Експериментальний*
+#### `view.setBackgroundColor(color)` _Експериментальний_
 
-* `color` String - Колір у `#aarrggbb` чи `#argb` формі. Альфа канал є опціональним.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
