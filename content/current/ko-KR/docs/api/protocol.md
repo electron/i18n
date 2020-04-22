@@ -160,7 +160,7 @@ const { protocol } = require('electron')
 protocol.registerBufferProtocol('atom', (request, callback) => {
   callback({ mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>') })
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('프로토콜 등록 실패.')
 })
 ```
 
@@ -251,7 +251,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     data: createStream('<h5>Response</h5>')
   })
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('프로토콜 등록 실패.')
 })
 ```
 
@@ -264,7 +264,7 @@ const fs = require('fs')
 protocol.registerStreamProtocol('atom', (request, callback) => {
   callback(fs.createReadStream('index.html'))
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('프로토콜 등록 실패.')
 })
 ```
 
