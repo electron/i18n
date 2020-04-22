@@ -60,7 +60,7 @@ Use a specified proxy server, which overrides the system setting. This switch on
 
 Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
-Por exemplo:
+Como por exemplo:
 
 ```javascript
 const { app } = require('electron')
@@ -83,10 +83,10 @@ A comma-separated list of `rules` that control how hostnames are mapped.
 
 Por exemplo:
 
-- `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
-- `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
-- `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-- `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
+* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
 
 These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
@@ -98,7 +98,7 @@ Like `--host-rules` but these `rules` only apply to the host resolver.
 
 A comma-separated list of servers for which integrated authentication is enabled.
 
-Por exemplo:
+Como por exemplo:
 
 ```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
@@ -155,7 +155,6 @@ This switch only works when `--enable-logging` is also passed.
 ## --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
-
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`
