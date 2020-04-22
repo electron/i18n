@@ -3,4 +3,4 @@
 * `x` Number
 * `y` Number
 
-**Nota:** Los dos `x` y `y` tienen que ser los números enteros, al proporcionar un objeto point como entrada a un API de Electron redondearemos automáticamente tus valores de `x` y `y` al número entero más cercano.
+**Note:** Both `x` and `y` must be whole integers, when providing a point object as input to an Electron API we will automatically round your `x` and `y` values to the nearest whole integer.
