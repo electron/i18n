@@ -52,14 +52,14 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 > `js
   webFrame.setVisualZoomLevelLimits(1, 3)`
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _非推奨_
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
-**Deprecated:** This API is no longer supported by Chromium.
+**非推奨:** この API は Chromium がサポートしなくなりました。
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -210,26 +210,26 @@ console.log(webFrame.getResourceUsage())
 
 ## プロパティ
 
-### `webFrame.top` _Readonly_
+### `webFrame.top` _読み出し専用_
 
 `webFrame` が属するフレーム階層内のトップフレームを表す `WebFrame | null`。トップフレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.opener` _Readonly_
+### `webFrame.opener` _読み出し専用_
 
 `webFrame` が開かれたフレームを表す `WebFrame | null`。開いたフレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.parent` _Readonly_
+### `webFrame.parent` _読み出し専用_
 
 `webFrame` の親フレームを表す `WebFrame | null`。`webFrame` がトップフレームか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.firstChild` _Readonly_
+### `webFrame.firstChild` _読み出し専用_
 
 `webFrame` の最初の子フレームを表す `WebFrame | null`。`webFrame` に子フレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.nextSibling` _Readonly_
+### `webFrame.nextSibling` _読み出し専用_
 
 次の兄弟フレームを表す `WebFrame | null`。`webFrame` がその親の最後の子フレームか、次の兄弟フレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.routingId` _Readonly_
+### `webFrame.routingId` _読み出し専用_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
