@@ -4,7 +4,7 @@ La detección de [eventos en linea y fuera de ella](https://developer.mozilla.or
 
 Ejemplo:
 
-*main.js*
+_main.js_
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -17,7 +17,7 @@ app.whenReady().then(() => {
 })
 ```
 
-*online-status.html*
+_online-status.html_
 
 ```html
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ app.whenReady().then(() => {
 
 Puede haber casos en los que desee responder a estos eventos en el proceso principal también. Sin embargo, el proceso principal no tiene un objeto `navigator`, y por lo tanto no puede detectar estos eventos directamente. Usando utilidades de comunicación entre procesos del Electron, los acontecimientos pueden remitió al proceso principal y manejados según sea necesario, como se muestra en el ejemplo siguiente.
 
-*main.js*
+_main.js_
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
@@ -55,7 +55,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-*online-status.html*
+_online-status.html_
 
 ```html
 <!DOCTYPE html>
