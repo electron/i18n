@@ -24,29 +24,20 @@ To submit a bug report:
 
 When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
-```markdown
-<!--
+```markdown<!--
 Obrigado por abrir um problema! Algumas coisas para levar em consideração:
 
 - O rastreador de problemas é apenas para bugs e requisição de novas funcionalidades.
 - Antes de reportar um bug, por favor, tente reproduzir o problema com a versão mais recente do Electron.
 - Se você precisa de uma ajuda em geral, entre no nosso Slack: http://atom-slack.herokuapp.com
--->
-
-* Versão do Electron:
+-->* Versão do Electron:
 * Sistema Operacional:
 
-### Comportamento Esperado
-
-<!-- O que você acha que deveria acontecer? -->
-
-### Comportamento Atual
+### Comportamento Esperado<!-- O que você acha que deveria acontecer? -->### Comportamento Atual
 
 <-- O que realmente acontece? -->
 
-### Como reproduzir
-
-<!--
+### Como reproduzir<!--
 
 A sua melhor chance de ter esse bug verificado rapidamente é provendo um REPOSITÓRIO que possa ser clonado e executado.
 
@@ -58,8 +49,7 @@ Se você prover uma URL, por favor liste os comandos necessários para clonar/in
   $ npm install
   $ npm start || electron .
 
--->
-```
+-->```
 
 Se você acredita ter encontrado um bug no Electron, por favor preencha este formulário da melhor forma que você conseguir.
 
