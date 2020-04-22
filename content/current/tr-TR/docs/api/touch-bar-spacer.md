@@ -4,10 +4,10 @@
 
 İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSpacer(seçenekler)` *Deneysel*
+### `new TouchBarSpacer(seçenekler)` _Deneysel_
 
-* `seçenekler` Nesnesi 
-  * `boyut` Dizge (isteğe bağlı) - Aralayıcı boyutu, olası değerler şunlardır: 
-    * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
-    * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
-    * `flexible` - Take up all available space. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
+* `options` Object
+  * `size` String (optional) - Size of spacer, possible values are:
+    * `small` Maddeler arasında küçük aralayıcı. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
+    * `büyük` Maddeler arasında geniş aralayıcı. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
+    * `flexible` - Bütün aralayıcıları kısalt. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
