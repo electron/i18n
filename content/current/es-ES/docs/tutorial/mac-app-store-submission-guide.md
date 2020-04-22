@@ -1,6 +1,6 @@
 # Guía de publicación en la Mac App Store
 
-Desde su V0.34.0, Electron permite introducir paquetes de aplicaciones a la Mac App Store (MAS). Esta guía provee información de: Como presentar tu aplicación y las limitaciones de la estructura del MAS.
+Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
 
 **Note:** Para enviar un aplicación a la App Store de Mac es necesario inscribirse en el [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), el cual cuesta dinero.
 
@@ -122,7 +122,7 @@ Además de firmar la aplicación manualmente, también puede elegir usar el mód
 
 #### Firmar módulos nativos
 
-Módulos nativos utilizados en su aplicación también necesitan la firma. Si usa el Electron-osx-signo, asegúrese de incluir la ruta a los binarios construidos en la lista de argumentos:
+Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
 ```sh
 Electron-osx-signo YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
