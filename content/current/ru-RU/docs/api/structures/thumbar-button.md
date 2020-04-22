@@ -3,13 +3,13 @@
 * `icon` [NativeImage](../native-image.md) - иконка, отображаемая в миниатюре на панели инструментов.
 * `click` Function
 * `tooltip` String (опционально) - текст всплывающей подсказки на кнопке.
-* `flags` String[] (опционально) - контроль определенных состояний и поведений кнопки. По умолчанию `['enabled']`.
+* `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
 `flags` — это массив, который может включать следующие `строки`:
 
 * `enabled` - кнопка активна и доступна пользователю.
-* `disabled` - кнопка отключена. Она присутствует, но имеет неактивное визуальное состояние и не будет реагировать на действия пользователя.
+* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
 * `dismissonclick` - когда кнопка нажата, окно миниатюры закрывается немедленно.
 * `nobackground` - не рисует границы кнопок, использует только изображение.
 * `hidden` - кнопка не отображается пользователю.
-* `noninteractive` - кнопка включена, но не интерактивная; рисуется не нажимаемое состояние кнопки. Это значение предназначено для экземпляров, где кнопка используется в уведомлении.
+* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
