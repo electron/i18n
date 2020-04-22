@@ -12,7 +12,7 @@ Se a instalação via `npm` falhar, você também pode tentar baixar o Electron 
 
 A versão do Chrome usada no Electron é geralmente disponibilizada dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é garantida, depende da quantidade de trabalho envolvido na atualização.
 
-Apenas a versão estável do Chrome é usado. Se uma correção importante estiver disponível nas versões Beta ou Dev, vamos portá-la.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 Para mais informações, consulte a [introdução de segurança](tutorial/security.md).
 
@@ -29,19 +29,19 @@ Para compartilhar dados entre páginas web (os processos de renderização) a ma
 Ou você pode usar o sistema IPC, que é específico para o Electron, para armazenar objetos no processo principal como uma variável global e depois acessar os representantes através da propriedade `remote` do módulo do `electron`:
 
 ```javascript
-// No processo principal.
+// No processo main.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// Na página 1.
+// In page 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// Na página 2.
+// In page 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -82,7 +82,7 @@ Devido à integração de Node.js do Electron, existem alguns símbolos extras i
 Para resolver isso, você pode desativar a integração com node no Electron:
 
 ```javascript
-// No processo principal
+// No processo main.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -115,32 +115,11 @@ Quando usar o módulo built-in do Electron você pode encontrar um erro como est
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-Isto é porque você tem o [módulo npm do `electron`](https://www.npmjs.com/package/electron) instalado localmente ou globalmente, que substitui o módulo interno do Electron.
-
-Para verificar que se você estiver usando o módulo interno correto, você pode imprimir o caminho do módulo `electron`:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-e, em seguida, verifique se é do seguinte formulário:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-Se é algo parecido com `node_modules/electron/index.js`, então você tem que remover o módulo de `electron` npm ou renomeá-lo.
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-No entanto, se você estiver usando o módulo built-in mas ainda recebendo este erro, é muito provável você esteja usando o módulo no processo errado. Por exemplo, `electron.app` pode apenas ser usado pelo processo principal, enquanto `electron.webFrame` está apenas disponível no processo de renderização.
+It is very likely you are using the module in the wrong process. Por exemplo, `electron.app` pode apenas ser usado pelo processo principal, enquanto `electron.webFrame` está apenas disponível no processo de renderização.
 
 ## A fonte parece borrada, o que é isso e o que eu posso fazer?
 
-Se a [anti-aliasing de sub-pixel](http://alienryderflex.com/sub_pixel/) estiver desativada, então os textos nas telas LCD podem aparecer embaçados. Exemplo:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemplo:
 
 ![Exemplo de renderização do subpixel](images/subpixel-rendering-screenshot.gif)
 
@@ -155,6 +134,6 @@ let win = new BrowserWindow({
 })
 ```
 
-O efeito é visível apenas em (algumas?) telas LCD. Mesmo que você não veja uma diferença, alguns usuários irão. É melhor definir sempre o background desta forma, a não ser que você tenha razões para não fazer.
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 Aviso que apenas definir o background no CSS não tem o mesmo efeito desejado.
