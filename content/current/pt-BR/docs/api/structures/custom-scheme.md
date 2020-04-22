@@ -1,7 +1,7 @@
 # Objeto `CustomScheme`
 
 * `scheme` String - Esquemas personalizados que serão registrados com opções.
-* `privilégios` Objeto (opcional) 
+* `privileges` Object (optional)
   * `standard` Boolean (opcional) - por padrão é `false`.
   * `secure` Boolean (opcional) - por padrão é `false`.
   * `bypassCSP` Boolean (opcional) - por padrão é `false`.
