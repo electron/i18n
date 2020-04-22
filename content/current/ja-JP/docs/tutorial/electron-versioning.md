@@ -57,7 +57,7 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 ![](../images/versioning-sketch-1.png)
 
-安定化ブランチは、常に **major** または **minor** のバージョンラインのいずれかであり、テンプレート `$MAJOR-$MINOR-x` に従って `2-0-x` のように命名されます。
+Since Electron 8, stabilization branches are always **major** version lines, and named against the following template `$MAJOR-x-y` e.g. `8-x-y`.  Prior to that we used **minor** version lines and named them as `$MAJOR-$MINOR-x` e.g. `2-0-x`
 
 複数の安定化ブランチを同時に存在させることができます。また、必要に応じてセキュリティ修正を後方移植しながら、少なくとも2つのサポートを常に並行してサポートする予定です。 ![](../images/versioning-sketch-2.png)
 
@@ -80,14 +80,14 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
     1. 変更は API に後方互換性がある (非推奨は構いません)
     2. 安定版のスケジュールを守るリスクが低くなければならない。
 2. リリースがベータ版になった後に許可された変更を加える必要がある場合は、それらが適用され、例として `2.0.0-beta.2` のようにプレリリースタグが増分されます。
-3. If a particular beta release is _generally regarded_ as stable, it will be re-released as a stable build, changing only the version information. 例として、`2.0.0` のようになります。 最初の安定版以降は、すべての変更は後方互換性のあるバグまたはセキュリティ修正でなければなりません。
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the _patch_ version is incremented e.g. `2.0.1`.
+3. 特定のベータリリースが _一般的に安定している_ と見なされている場合、バージョン情報のみを変更して、安定したビルドとして再リリースされます。 例として、`2.0.0` のようになります。 最初の安定版以降は、すべての変更は後方互換性のあるバグまたはセキュリティ修正でなければなりません。
+4. リリースが安定した後に将来のバグ修正やセキュリティパッチを作成する必要がある場合は、それらを適用して、例として `2.0.1` のように、_patch_ のバージョンを増やします。
 
 具体的に言うと、以下が上記の意味です。
 
 1. たとえそれらの変更が中程度の副作用を引き起こす可能性があるとしても、ベータサイクルの 3 週間前の段階で非破壊的な API の変更を承認することは問題ありません。
-2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
-3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
+2. ベータサイクルのほとんどの時点で、既存のコードパスを変更しない、機能フラグの変更を認めることは問題ありません。 ユーザーは自分のアプリでこれらのフラグを明示的に有効にできます。
+3. ベータサイクル第 3 週以降での新機能の採択は、よほどの理由がない限り 👎 です。
 
 メジャーとマイナーのバージョン上げのそれぞれにおいて、以下のようなものが見えるはずです。
 
@@ -102,10 +102,10 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 以下は絵に描いたライフサイクルの例です。
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* 最新の一連の機能を含む新しいリリースブランチが作成されます。 これは `2.0.0-beta.1` として公開されます。 ![](../images/versioning-sketch-3.png)
+* リリースブランチにバックポートできるバグ修正がマスターに入ります。 このパッチは適用され、新しいベータ `2.0.0-beta.2` として公開されます。 ![](../images/versioning-sketch-4.png)
+* このベータ版は _一般的に安定している_ と見なされています。そして `2.0.0` の下に非ベータ版として再度公開されます。 ![](../images/versioning-sketch-5.png)
+* その後、ゼロデイのエクスプロイトが発覚し、マスターに修正が適用されます。 修正を `2-0-x` のラインにバックポートし、`2.0.1` をリリースします。 ![](../images/versioning-sketch-6.png)
 
 以下は、さまざまな semver 範囲の新しいリリースの拾い方のいくつかの例です。
 
@@ -116,22 +116,22 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 今後の検討事項として、以下のうちの一方または両方を紹介する可能性があります。
 
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in _alpha_
+* ベータ版に対する安定性の制約が緩いアルファリリース。 例えば、安定チャネルが _alpha_ の間に新しい特徴を認めることが許容される。
 
 # 機能フラグ
-機能フラグは Chromium で一般的な方法であり、Web 開発エコシステムではよく確立されています。 In the context of Electron, a feature flag or **soft branch** must have the following properties:
+機能フラグは Chromium で一般的な方法であり、Web 開発エコシステムではよく確立されています。 Electron のコンテキストでは、機能フラグまたは **ソフトブランチ** には次のプロパティが必要です。
 
 * 実行時またはビルド時に有効/無効になるもの。リクエストスコープ付き機能フラグの概念はサポートしていない
-* it completely segments new and old code paths; refactoring old code to support a new feature _violates_ the feature-flag contract
+* 新旧のコードパスを完全に断片化するもの。 新しい機能をサポートするために古いコードをリファクタリングすると機能フラグ規約に _違反する_
 * 機能のリリース後、機能フラグは最終的に削除される
 
 # セマンティックなコミット
 
 私達は更新およびリリースプロセスのすべてのレベルで明快さを増すよう努めます。 `2.0.0` 以降、プルリクエストは [従来のコミット](https://conventionalcommits.org/) の仕様に準拠する必要があります。これは以下のようにまとめることができます。
 
-* Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* **major** バージョン上げをするコミットは `BREAKING CHANGE:` の本文で始まる必要があります。
+* **minor** バージョン上げをするコミットは `feat:` で始まる必要があります。
+* **patch** バージョン上げをするコミットは `fix:` で始まる必要があります。
 
 * squash されたメッセージも上記のメッセージフォーマットを遵守するという条件で、我々はコミットの squash を許します。
 * プルリクエストのタイトルが意味のある包括的なセマンティックメッセージを含むのであれば、プルリクエストにおけるいくつかのコミットがセマンティックプレフィックスを含まないことは許容できます。
@@ -140,5 +140,5 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 - `master` ブランチは、常に `package.json` に次のメジャーバージョンの `X.0.0-nightly.DATE` を含みます。
 - リリースブランチが master にマージし戻されることはありません。
-- Release branches _do_ contain the correct version in their `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+- リリースブランチは `package.json` 内に正しいバージョンを含んで _います_
+- リリースブランチがメジャーのためにカットされるとすぐに、master は次のメジャーにバージョン上げされる必要があります。  すなわち、`master` は常に理論上次のリリースブランチとしてバージョン管理されます
