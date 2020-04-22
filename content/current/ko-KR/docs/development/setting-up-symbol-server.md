@@ -8,7 +8,7 @@
 
 ## Windbg에서 심볼 서버 사용하기
 
-Windbg 심볼 경로는 구분자와 * 문자로 설정되어 있습니다. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
+Windbg 심볼 경로는 구분자와 * 문자로 설정되어 있습니다. Electron 심볼 서버만 사용하려면 심볼 경로의 엔트리를 추가해야 합니다. (**참고:** `c:\code\symbols` 디렉터리 경로를 Pc가 원하는 경로로 수정할 수 있습니다):
 
 ```powershell
 SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
