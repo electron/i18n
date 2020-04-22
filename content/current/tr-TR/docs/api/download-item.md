@@ -39,9 +39,9 @@ Kaydetme yolunu ayarlayın ve Electron'un bir kaydetme istememesi için yol gös
 
 #### Event: 'updated'
 
-Döndürür:
+Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `state` String - Can be `progressing` or `interrupted`.
 
 İndirme güncellendiğinde ve bitmediğinde yayınlanır.
@@ -58,7 +58,7 @@ Dönüşler:
 * `event` Event
 * `state` String - Can be `completed`, `cancelled` or `interrupted`.
 
-İndirme işlemi terminal durumundayken yayınlanır. Bu, bitmiş bir indirme, (`downloadItem.cancel()`) ile iptal edilmiş bir indirme ve devam edilemeyen kesintiye uğramış indirme içerir.
+Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
 `Durum` aşağıdakilerden biri olabilir:
 
@@ -66,7 +66,7 @@ Dönüşler:
 * `cancelled` - İndirme iptal edildi.
 * `interrupted` - İndirme kesintiye uğradı ve devam edemez.
 
-### Örnek Metodlar
+### Örnek yöntemler
 
 `downloadItem` nesnesi aşağıdaki yöntemleri içerir:
 
@@ -80,7 +80,7 @@ API, yalnızca oturumun `will-download` geri arama işlevinde kullanılabilir. I
 
 #### `downloadItem.getSavePath()`
 
-İndirilen öğenin kaydedilecek yolunu `String` olarak döndürür. Bu ya `downloadItem.setSavePath(path)` ile ayarlanmış yol olacak yada kaydetme diyaloğunda görünen seçilmiş yol olacak.
+Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
 
 **[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
@@ -88,7 +88,7 @@ API, yalnızca oturumun `will-download` geri arama işlevinde kullanılabilir. I
 
 * `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+This API allows the user to set custom options for the save dialog that opens for the download item by default. API, yalnızca oturumun `will-download` geri arama işlevinde kullanılabilir.
 
 #### `downloadItem.getSaveDialogOptions()`
 
@@ -106,7 +106,7 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 Durdurulmuş indirmeyi devam ettirir.
 
-**Not:** Devamlı indirmeleri etkinleştirmek için, indirdiğiniz sunucunun aralık isteklerini desteklemesi gerekir ve `Last-Modified` ve `ETag` başlık değerlerinin ikisini de sağlamalıdir. Aksi takdirde, `resume()`, daha önce alınan baytları atlayacak ve indirmeyi baştan başlatacaktır.
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Aksi takdirde, `resume()`, daha önce alınan baytları atlayacak ve indirmeyi baştan başlatacaktır.
 
 #### `downloadItem.canResume()`
 
@@ -132,7 +132,7 @@ Dosyaların Mime türünü `String` olarak döndürür.
 
 İndirilen öğenin ismini `String` olarak döndürür.
 
-**Not:** Dosya adı her zaman yerel diskte kaydedilen dosya adıyla aynı değildir. Kullanıcı, istenen bir indirme kaydetme iletişim kutusunda dosya adını değiştirirse, kaydedilen dosyanın gerçek adı farklı olacaktır.
+**Note:** The file name is not always the same as the actual one saved in local disk. Kullanıcı, istenen bir indirme kaydetme iletişim kutusunda dosya adını değiştirirse, kaydedilen dosyanın gerçek adı farklı olacaktır.
 
 #### `downloadItem.getTotalBytes()`
 
@@ -152,7 +152,7 @@ Cevabın başlığından İçerik-Hazırlama alanını `String` türünde dönd�
 
 Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**Not:** Aşağıdaki metodlar oturum yeniden başlatıldığı zaman bir `cancelled` öğenin devamı için oldukça kullanışlıdır.
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
