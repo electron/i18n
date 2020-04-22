@@ -2,7 +2,7 @@
 
 Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
 
-**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**주의:** Mac App Store에 앱을 제출하려면 [애플 개발자 프로그램](https://developer.apple.com/support/compare-memberships/)에 등록해야 하며, 이는 비용이 발생합니다.
 
 ## 앱 제출 방법
 
