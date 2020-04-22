@@ -28,11 +28,11 @@ Returns `String` - 일반 텍스트 형식의 클립보드의 내용.
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeText('hello i am a bit of text!')
+clipboard.writeText('저는 텍스트 쪼가리입니다!')
 
 const text = clipboard.readText()
 console.log(text)
-// hello i am a bit of text!'
+// 저는 텍스트 쪼가리입니다!
 ```
 
 ### `clipboard.writeText(text[, type])`
@@ -45,7 +45,7 @@ console.log(text)
 ```js
 const { clipboard } = require('electron')
 
-const text = 'hello i am a bit of text!'
+const text = '저는 텍스트 쪼가리입니다!'
 clipboard.writeText(text)
 ```
 
@@ -58,11 +58,11 @@ Returns `String` - 마크업 형식의 클립보드의 내용.
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeHTML('<b>Hi</b>')
+clipboard.writeHTML('<b>안녕하세요</b>')
 const html = clipboard.readHTML()
 
 console.log(html)
-// <meta charset='utf-8'><b>Hi</b>
+// <meta charset='utf-8'><b>안녕하세요</b>
 ```
 
 ### `clipboard.writeHTML(markup[, type])`
@@ -75,7 +75,7 @@ console.log(html)
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeHTML('<b>Hi</b')
+clipboard.writeHTML('<b>안녕하세요</b')
 ```
 
 ### `clipboard.readImage([type])`
@@ -100,11 +100,11 @@ Returns `String` - RTF 형식의 클립보드 내용.
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}')
+clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\n이 텍스트는 {\\b 볼드}체 입니다.\\par\n}')
 
 const rtf = clipboard.readRTF()
 console.log(rtf)
-// {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}
+// {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\n이 텍스트는 {\\b 볼드}체 입니다.\\par\n}
 ```
 
 ### `clipboard.writeRTF(text[, type])`
@@ -117,7 +117,7 @@ console.log(rtf)
 ```js
 const { clipboard } = require('electron')
 
-const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}'
+const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\n이 텍스트는 {\\b 볼드}체 입니다.\\par\n}'
 clipboard.writeRTF(rtf)
 ```
 
@@ -145,7 +145,7 @@ const { clipboard } = require('electron')
 
 clipboard.writeBookmark({
   text: 'https://electronjs.org',
-  bookmark: 'Electron Homepage'
+  bookmark: 'Electron 홈페이지'
 })
 ```
 
@@ -193,7 +193,7 @@ const { clipboard } = require('electron')
 
 const hasFormat = clipboard.has('<p>selection</p>')
 console.log(hasFormat)
-// 'true' or 'false
+// 'true' 나 'false
 ```
 
 ### `clipboard.read(format)` _Experimental_
@@ -252,20 +252,20 @@ const { clipboard } = require('electron')
 
 clipboard.write({
   text: 'test',
-  html: '<b>Hi</b>',
+  html: '<b>안녕하세요</b>',
   rtf: '{\\rtf1\\utf8 text}',
-  bookmark: 'a title'
+  bookmark: '제목'
 })
 
 console.log(clipboard.readText())
 // 'test'
 
 console.log(clipboard.readHTML())
-// <meta charset='utf-8'><b>Hi</b>
+// <meta charset='utf-8'><b>안녕하세요</b>
 
 console.log(clipboard.readRTF())
 // '{\\rtf1\\utf8 text}'
 
 console.log(clipboard.readBookmark())
-// { title: 'a title', url: 'test' }
+// { title: '제목', url: 'test' }
 ```
