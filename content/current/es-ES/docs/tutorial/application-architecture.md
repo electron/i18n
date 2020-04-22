@@ -4,9 +4,9 @@ Antes de que podamos entrar a fondo en las APIs de Electron, necesitamos discuti
 
 ## Proceso Principal y Proceso Visualizador
 
-En Electron, el proceso que ejecuta el script `main` del archivo `package.json` es llamado **el proceso principal**. El script que corre en el proceso principal puede mostrar una GUI (Interfaz Gráfica de Usuario) creando páginas web. Una aplicación Electron siempre tiene un proceso principal, pero nunca más de uno.
+En Electron, el proceso que ejecuta el script `main` del archivo `package.json` es llamado __el proceso principal__. El script que corre en el proceso principal puede mostrar una GUI (Interfaz Gráfica de Usuario) creando páginas web. Una aplicación Electron siempre tiene un proceso principal, pero nunca más de uno.
 
-Debido a que Electron usa Chromium para mostrar páginas web, la arquitectura multi-proceso de Chromium es también usada. Cada página web en Electron corre en su propio proceso, el cual es llamado **el proceso renderizador**.
+Debido a que Electron usa Chromium para mostrar páginas web, la arquitectura multi-proceso de Chromium es también usada. Cada página web en Electron corre en su propio proceso, el cual es llamado __el proceso renderizador__.
 
 En los navegadores normales, las páginas web generalmente se ejecutan en espacio aislado y no se les permite el acceso a recursos nativos. Los usuarios de la Electron, sin embargo, tienen el poder de utilizar Node.js APIs en las páginas web permitiendo interacciones inferiores de nivel de sistema operativo.
 
@@ -87,4 +87,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 Hay un aviso importante: los módulos Node.Js originales (eso es, los módulos que requieren compilación del código original antes de que puedan ser usados) necesitarán ser reunidos para ser usados con Electron.
 
-La gran mayoría de módulos Node.js son *no* nativos. Solo 400 de los 650,000 módulos son nativos. Sin embargo, si no necesita Módulos nativos, consulte [esta guía sobre cómo recompilarlos para Electron](./using-native-node-modules.md).
+La gran mayoría de módulos Node.js son _no_ nativos. Solo 400 de los 650,000 módulos son nativos. Sin embargo, si no necesita Módulos nativos, consulte [esta guía sobre cómo recompilarlos para Electron](./using-native-node-modules.md).
