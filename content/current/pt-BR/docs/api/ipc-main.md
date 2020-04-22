@@ -12,7 +12,7 @@ Também é possível enviar mensagens do processo principal para o processo de r
 
 * Ao enviar uma mensagem, o nome do evento é o `channel`.
 * Para responder a uma mensagem síncrona, você precisa de configurar `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 Um exemplo de enviar e manipular mensagens entre os processos de renderização e principais:
 
@@ -48,7 +48,7 @@ O módulo `ipcMain` possui o seguinte método para ouvir eventos:
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,7 +57,7 @@ Ouve o `channel`, quando uma mensagem chega, o `listener` deve ser chamado com `
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -66,7 +66,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `...args` any[]
 
 Removes the specified `listener` from the listener array for the specified `channel`.
@@ -80,7 +80,7 @@ Removes listeners of the specified `channel`.
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -107,7 +107,7 @@ The `event` that is passed as the first argument to the handler is the same as t
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
