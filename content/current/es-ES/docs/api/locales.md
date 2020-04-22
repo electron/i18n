@@ -2,7 +2,7 @@
 
 > Valores locales devueltos por `app.getLocale()`.
 
-Electron usa la librería `l10n_util` de Chromium para conseguir el local. Los posibles valores se listan abajo:
+Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
 
 | Código del idioma | Nombre del idioma       |
 | ----------------- | ----------------------- |
