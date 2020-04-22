@@ -162,7 +162,7 @@ blog:
   feedback: Bu yayına geri bildiriminiz mi var? Twitter'da <a href="https://twitter.com/electronjs"> @electronjs </a> adresini bilgilendirin.
   help: Yardıma mı ihtiyacınız var ya da bir hata mı buldunuz? <a href="/contact"> Bize ulaşın </a>.
 clipboard:
-  copy: Copy
+  copy: Kopyala
   copy_to_clipboard: Panoya Kopyala
   copied: Kopyalandı
 fiddle_launch_button:
