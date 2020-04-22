@@ -9,29 +9,28 @@
 ## Песочница
 
 В песочнице графический объект `process` содержит только подмножество API:
-
-* `crash() - Падение`
-* `hang() - Зависание`
-* `getCreationTime() - Время создания`
-* `getHeapStatistics() - Статистика кучи (распределяемой памяти)`
-* `getBlinkMemoryInfo() - Информация о памяти Blink`
-* `getProcessMemoryInfo() - Сведения о памяти процесса`
-* `getSystemMemoryInfo() - Информация о системной памяти`
-* `getSystemVersion() - Версия системы`
-* `getCPUUsage() - Использование процессора`
-* `getIOCounters() - Счетчики IO`
-* `argv`
-* `execPath`
-* `env`
-* `pid`
-* `arch`
-* `platform`
-* `sandboxed - Запущена ли песочница`
-* `тип`
-* `версия`
-* `versions - Список с версиями и их зависимостями`
-* `mas - Является ли сборкой Mac App Store`
-* `windowsStore - Является ли приложением Windows Store (appx)`
+- `crash() - Падение`
+- `hang() - Зависание`
+- `getCreationTime() - Время создания`
+- `getHeapStatistics() - Статистика кучи (распределяемой памяти)`
+- `getBlinkMemoryInfo() - Информация о памяти Blink`
+- `getProcessMemoryInfo() - Сведения о памяти процесса`
+- `getSystemMemoryInfo() - Информация о системной памяти`
+- `getSystemVersion() - Версия системы`
+- `getCPUUsage() - Использование процессора`
+- `getIOCounters() - Счетчики IO`
+- `argv`
+- `execPath`
+- `env`
+- `pid`
+- `arch`
+- `platform`
+- `sandboxed - Запущена ли песочница`
+- `тип`
+- `версия`
+- `versions - Список с версиями и их зависимостями`
+- `mas - Является ли сборкой Mac App Store`
+- `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
 
@@ -53,21 +52,21 @@ process.once('loaded', () => {
 
 ## Свойства
 
-### `process.defaultApp` *Только чтение*
+### `process.defaultApp` _Только чтение_
 
-`Boolean`. Когда app запущено, будучи переданным в качестве параметра в default app, это свойство принимает значение `true` в main process, иначе `undefined`.
+A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
-### `process.isMainFrame` *Только чтение*
+### `process.isMainFrame` _Только чтение_
 
-`Boolean`, `true`, когда текущий рендерер является рендерером основного "main" фрейма. Если вам нужен идентификатор текущего фрейма, используйте `webFrame.routingId`.
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas` *Только чтение*
+### `process.mas` _Только чтение_
 
-`Boolean`. Для Mac App Store сборки это свойство `true`, для остальных сборок `undefined`.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
-`Boolean`. Управляет поддержкой ASAR внутри вашего приложения. Установка данного параметра в `true` отключит поддержку архивов `asar` во встроенных модулях Node.
+A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
 ### `process.noDeprecation`
 
@@ -77,13 +76,13 @@ process.once('loaded', () => {
 
 `Boolean`, управляет тем, выводятся ли уведомления об устаревании в `stderr`, когда прежние API, основанные на обратном вызове, преобразованные в Promises, вызывались с использованием обратных вызовов. Установка значения `true` включит предупреждения о устаревании.
 
-### `process.resourcesPath` *Только чтение*
+### `process.resourcesPath` _Только чтение_
 
 `String`. Представляет из себя путь до каталога с ресурсами.
 
-### `process.sandboxed` *Только чтение*
+### `process.sandboxed` _Только чтение_
 
-`Boolean`. Когда renderer process добавлен в sandbox это свойство принимает значение `true`, иначе `undefined`.
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `process.throwDeprecation`
 
@@ -94,24 +93,23 @@ process.once('loaded', () => {
 `Boolean`, определяет, будут ли сообщения об устаревании выдаваемые в `stderr`, включать трассировку стека. Установка значения `true` напечатает трассировку стека при устаревании. Это свойство вместо флага командной строки `--trace-deprecation`.
 
 ### `process.traceProcessWarnings`
-
 `Boolean`, определяет, будут ли предупреждения процесса, выдаваемые в `stderr`, включать трассировку стека. Установка значения `true` напечатает трассировку стека для предупреждений процесса (включая устаревания). Это свойство вместо флага командной строки `--trace-warnings`.
 
-### `process.type` *Только чтение*
+### `process.type` _Только чтение_
 
 `String`, представляющая тип текущего процесса, может быть `"browser"` (основной процесс), `"renderer"`, или `"worker"` (т.е. веб-работник).
 
-### `process.versions.chrome` *Только чтение*
+### `process.versions.chrome` _Только чтение_
 
 `String`, представляющая строку версии Chrome.
 
-### `process.versions.electron` *Только чтение*
+### `process.versions.electron` _Только чтение_
 
 `String`, представляющая строку версии Electron.
 
-### `process.windowsStore` *Только чтение*
+### `process.windowsStore` _Только чтение_
 
-`Boolean`. Когда приложение запущено как приложение Windows Store (appx), это свойство принимает значение `true`, иначе `undefined`.
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## Методы
 
@@ -125,13 +123,13 @@ process.once('loaded', () => {
 
 Возвращает `Number | null` - Количество миллисекунд с начала эпохи, или `null`, если информация недоступна
 
-Показывает время создания приложения. Время представлено как количество миллисекунд с начала эпохи. Возвращает null, если не получается получить время создания процесса.
+Indicates the creation time of the application. Время представлено как количество миллисекунд с начала эпохи. It returns null if it is unable to get the process creation time.
 
 ### `process.getCPUUsage()`
 
 Возвращает [`CPUUsage`](structures/cpu-usage.md)
 
-### `process.getIOCounters()` *Windows* *Linux*
+### `process.getIOCounters()` _Windows_ _Linux_
 
 Возвращает [`IOCounters`](structures/io-counters.md)
 
@@ -149,7 +147,7 @@ process.once('loaded', () => {
 * `peakMallocedMemory` Integer - Пиковый объем памяти, полученный через malloc
 * `doesZapGarbage` Boolean - Включена ли опция --zap_code_space
 
-Возвращает объект со статистикой кучи V8. Обратите внимание, что вся статистика отображается в Килобайтах.
+Returns an object with V8 heap statistics. Обратите внимание, что вся статистика предоставляется ​​в Килобайтах.
 
 ### `process.getBlinkMemoryInfo()`
 
@@ -159,13 +157,13 @@ process.once('loaded', () => {
 * `marked` Integer - Размер всех отмеченных объектов в Килобайтах.
 * `total` Integer - Всего выделено места в Килобайтах.
 
-Возвращает объект с информацией о памяти Blink. Он может быть полезен для отладки проблем с памятью, связанной с рендерингом / DOM. Обратите внимание, что все значения указываются в килобайтах.
+Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
 
 ### `process.getProcessMemoryInfo()`
 
 Возвращает `Promise<ProcessMemoryInfo>` - Разрешается с [ProcessMemoryInfo](structures/process-memory-info.md)
 
-Возвращает объект, содержащий статистику использования памяти о текущем процессе. Заметьте, что вся статистика представлена в Килобайтах. Это API необходимо вызывать только после готовности приложения.
+Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
 
 Chromium не предоставляет значение `residentSet` для macOS. Это связано с тем, что MacOS сжимает в памяти страницы, которые в последнее время не использовались. В результате значение размера резидентного набора не соответствует ожидаемому. `private` память является более репрезентативной для фактического использования перед сжатием памяти процесса в MacOS.
 
@@ -173,12 +171,12 @@ Chromium не предоставляет значение `residentSet` для m
 
 Возвращает `Object`:
 
-* `total` Integer - Общий объем физической памяти в килобайтах, доступный системе.
-* `free` Integer - Общий объем памяти, не используемый приложениями или дисковым кэшем.
-* `swapTotal` Integer *Windows* *Linux* - Общий объем памяти подкачки в килобайтах, доступной системе.
-* `swapFree` Integer *Windows* *Linux* - Свободный объем памяти подкачки в килобайтах, доступный системе.
+* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
+* `free` Integer - The total amount of memory not being used by applications or disk cache.
+* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
 
-Возвращает объект, дающий статистику использования памяти по всей системе. Обратите внимание, что вся статистика выдается в килобайтах.
+Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
 ### `process.getSystemVersion()`
 
@@ -208,7 +206,7 @@ console.log(version)
 
 Вызывает зависание основного потока текущего процесса.
 
-### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
+### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
 * `maxDescriptors` Integer
 
