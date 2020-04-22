@@ -601,7 +601,7 @@ Emitted when a `<webview>`'s web contents is being attached to this web contents
 
 このイベントは、 `webContents` の `<webview>` が読み込まれる前に `webPreferences` を設定するのに使用でき、`<webview>` の属性を通して設定できない設定を、設定する機能を提供します。
 
-**Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
+**注釈:** 指定された `preload` スクリプトオプションは、このイベントが発行された `webPreferences` オブジェクト内の、`preloadURL` (`preload` ではない) として現れます。
 
 #### イベント: 'did-attach-webview'
 
@@ -660,7 +660,7 @@ Emitted when a `<webview>`'s web contents is being attached to this web contents
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. `event.preventDefault()` を呼び出すと、空のソースを返します。
 
 #### イベント: 'remote-require'
 
@@ -719,7 +719,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional)
+* `options` Object (任意)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー。
@@ -739,7 +739,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (optional)
+* `options` Object (任意)
   * `search` Record&lt;String, String&gt; (任意) - `url.format()` に渡されます。
   * `search` String (任意) - `url.format()` に渡されます。
   * `hash` String (任意) - `url.format()` に渡されます。
@@ -880,7 +880,7 @@ console.log(currentURL)
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
-* `options` Object (optional)
+* `options` Object (任意)
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
 戻り値 `Promise<String>` - 挿入された CSS のキーで解決される promise。後で `contents.removeInsertedCSS(key)` を使用して CSS を削除するために使用できます。
@@ -938,7 +938,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 `executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` _Experimental_
+#### `contents.setIgnoreMenuShortcuts(ignore)` _実験的_
 
 * `ignore` Boolean
 
@@ -1006,7 +1006,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 > `js
   contents.setVisualZoomLevelLimits(1, 3)`
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _非推奨_
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -1015,7 +1015,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
-**Deprecated:** This API is no longer supported by Chromium.
+**非推奨:** この API は Chromium がサポートしなくなりました。
 
 #### `contents.undo()`
 
@@ -1083,11 +1083,11 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 #### `contents.findInPage(text[, options])`
 
 * `text` String - 検索するコンテンツ。空にしてはいけません。
-* `options` Object (optional)
+* `options` Object (任意)
   * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
   * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
   * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. 省略値は `false` 。
   * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
@@ -1119,7 +1119,7 @@ console.log(requestId)
 
 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+`rect` 内のページのスナップショットをキャプチャします。 `rect` を省略すると、表示されているページ全体をキャプチャします。
 
 #### `contents.isBeingCaptured()`
 
@@ -1148,7 +1148,7 @@ Returns `Boolean` - Whether this page is being captured. It returns true when th
 
 #### `contents.print([options], [callback])`
 
-* `options` Object (optional)
+* `options` Object (任意)
   * `silent` Boolean (optional) - Don't ask user for print settings. 省略値は、`false` です。
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. 省略値は、`false` です。
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
@@ -1316,7 +1316,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional)
+* `options` Object (任意)
   * `mode` String - 指定したドック状態で開発者向けツールを開く。`right`、`bottom`、`undocked`、`detach` にできる。 省略値は最後に使用したときのドック状態。 `undocked` モードではドックを後ろにやれる。 `detach` モードではできない。
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
@@ -1372,7 +1372,7 @@ ID に基づいて共有ワーカーのインスペクターを起動します�
 
 引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
-> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
+> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
 
 レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
@@ -1413,11 +1413,11 @@ app.on('ready', () => {
 
 引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
-> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
+> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
 
 レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
-If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  E.g.
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  以下は例です。
 
 ```js
 // レンダラープロセス内
@@ -1455,7 +1455,7 @@ ipcMain.on('ping', (event) => {
 
 * `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-入力 `event` をページに送ります。 **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
+入力 `event` をページに送ります。 **注釈:** `sendInputEvent()` が動くには、そのコンテツを含む [`BrowserWindow`](browser-window.md) がフォーカスされている必要があります。
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
@@ -1513,19 +1513,19 @@ win.webContents.on('did-finish-load', async () => {
 
 #### `contents.isOffscreen()`
 
-Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+戻り値 `Boolean` - *オフスクリーンレンダリング* が有効にされているかどうかを示す。
 
 #### `contents.startPainting()`
 
-If *offscreen rendering* is enabled and not painting, start painting.
+もし *オフスクリーンレンダリング* が有効かつ描画中でなければ、描画を開始します。
 
 #### `contents.stopPainting()`
 
-If *offscreen rendering* is enabled and painting, stop painting.
+もし *オフスクリーンレンダリング* が有効かつ描画中であれば、描画を終了します。
 
 #### `contents.isPainting()`
 
-Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+戻り値 `Boolean` - もし *オフスクリーンレンダリング* が有効であれば、現在描画中かどうかを返します。
 
 #### `contents.setFrameRate(fps)`
 
@@ -1537,7 +1537,7 @@ If *offscreen rendering* is enabled sets the frame rate to the specified number.
 
 #### `contents.getFrameRate()`
 
-Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+戻り値 `Boolean` - もし *オフスクリーンレンダリング* が有効であれば、現在のフレームレートを返します。
 
 **[非推奨](modernization/property-updates.md)**
 
@@ -1545,7 +1545,7 @@ Returns `Integer` - If *offscreen rendering* is enabled returns the current fram
 
 このウェブコンテンツが入っているウインドウの完全な再描画をスケジュールします。
 
-If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+もし *オフスクリーンレンダリング* が有効であれば、フレームを無効にし、`'paint'` を通して新しいフレームを生成します。
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
@@ -1575,7 +1575,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 戻り値 `Promise<void>` - スナップショットの作成が成功したかどうかを示します。
 
-V8 ヒープのスナップショットを撮り、それを `filePath` に保存します。
+V8ヒープを取得して、`filePath`にそれを保存します。
 
 #### `contents.setBackgroundThrottling(allowed)`
 
@@ -1613,26 +1613,26 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 60 are accepted.
 
-Only applicable if *offscreen rendering* is enabled.
+*オフスクリーンレンダリング* が有効な場合にのみ適用されます。
 
-#### `contents.id` _Readonly_
+#### `contents.id` _読み出し専用_
 
 この WebContents の一意のIDを表す `Integer`。
 
-#### `contents.session` _Readonly_
+#### `contents.session` _読み出し専用_
 
 この webContents で使われる [`Session`](session.md)。
 
-#### `contents.hostWebContents` _Readonly_
+#### `contents.hostWebContents` _読み出し専用_
 
 この `WebContents` を所有するかもしれない [`WebContents`](web-contents.md) インスタンス。
 
-#### `contents.devToolsWebContents` _Readonly_
+#### `contents.devToolsWebContents` _読み出し専用_
 
 この `WebContents` の開発者向けツールの `WebContents` インスタンス。
 
-**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+**注釈:** 開発者向けツールが閉じられたときに `null` になる可能性があるので、このオブジェクトは決して格納しないで下さい。
 
-#### `contents.debugger` _Readonly_
+#### `contents.debugger` _読み出し専用_
 
 この webContents の [`Debugger`](debugger.md) インスタンス。
