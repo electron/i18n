@@ -20,7 +20,7 @@ Like gears that don't quite mesh, there was friction between using the two build
 
 To address this, the Electron team has been working on moving everything to GN. Today, the [commit](https://github.com/electron/electron/pull/14097) to remove the last of the GYP code from Electron was landed in master.
 
-# What this means for you
+# Co to oznacza dla ciebie
 
 If you're contributing to Electron itself, the process of checking out and building Electron from `master` or 4.0.0 is very different than it was in 3.0.0 and earlier. See the [GN build instructions](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) for details.
 
