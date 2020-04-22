@@ -1,6 +1,6 @@
 # Распространение приложений
 
-Чтобы распространять ваше приложение с Electron, вам нужно упаковать и сделать его ребрендинг. Самый простой способ сделать это - использовать один из следующих инструментов упаковки:
+To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
@@ -9,8 +9,7 @@
 Эти инструменты позаботятся обо всех шагах, которые вам нужно предпринять для того, чтобы в конечном итоге получить готовое к распространению приложения Electron, такие как упаковка вашего приложения, ребрендинг исполняемого файла, установка правильных значков и создание инсталляторов.
 
 ## Ручное распространение
-
-Вы также можете вручную подготовить ваше приложение к распространению. Ниже перечислены шаги, необходимые для выполнения этой задачи.
+You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
 
 Для распространения вашего приложения с Electron, вам нужно скачать [предварительно собранные двоичные файлы](https://github.com/electron/electron/releases) Electron. Далее папку, содержащую ваше приложение следует назвать `app` и поместить в каталог ресурсов Electron, как показано в следующих примерах. Обратите внимание, что расположение двоичных файлов Electron в приведенных ниже примерах обозначается как `electron/`.
 
@@ -62,7 +61,7 @@ electron/resources/
 
 ### Windows
 
-Вы можете сменить имя файла `electron.exe` на любое понравившееся, отредактировать его значок и другую информацию такими инструментами, как [rcedit](https://github.com/atom/rcedit).
+Вы можете сменить имя файла `electron.exe` на любое понравившееся, отредактировать его значок и другую информацию такими инструментами, как [rcedit](https://github.com/electron/rcedit).
 
 ### macOS
 
@@ -106,7 +105,7 @@ MyApp.app/Contents
 1. Установить [Surf](https://github.com/surf-build/surf), через npm: `npm install -g surf-build@latest`
 
 2. Создайте новый S3 bucket и создайте следующую структуру пустых каталогов:
-    
+
     ```sh
     - electron/
       - symbols/
@@ -115,16 +114,16 @@ MyApp.app/Contents
 
 3. Установите следующие переменные среды:
 
-* `ELECTRON_GITHUB_TOKEN` - токен, который может создавать релизы на GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - место, куда вы будете отправлять node.js заголовки, а также символы
-* `ELECTRON_RELEASE` - установите `true` и отправьте часть выполняться, оставить без изменений, `surf-build` просто будет делать проверки CI-типа, необходимо запускать для каждого pull request'а.
-* `CI` - установите в `true` или иначе произойдет сбой
-* `GITHUB_TOKEN` - установите его так же, как `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - установите в `C:\Temp` на Windows для предотвращения проблем слишком длинного пути
-* `TARGET_ARCH` - установить в `ia32` или `x64`
+  * `ELECTRON_GITHUB_TOKEN` - токен, который может создавать релизы на GitHub
+  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - место, куда вы будете отправлять node.js заголовки, а также символы
+  * `ELECTRON_RELEASE` - установите `true` и отправьте часть выполняться, оставить без изменений, `surf-build` просто будет делать проверки CI-типа, необходимо запускать для каждого pull request'а.
+  * `CI` - установите в `true` или иначе произойдет сбой
+  * `GITHUB_TOKEN` - установите его так же, как `ELECTRON_GITHUB_TOKEN`
+  * `SURF_TEMP` - установите в `C:\Temp` на Windows для предотвращения проблем слишком длинного пути
+  * `TARGET_ARCH` - установить в `ia32` или `x64`
 
-1. В `script/upload.py`, вы *должны* установить `ELECTRON_REPO` к вашему форку (`MYORG/electron`), особенно если вы участник сопровождающий Electron.
+4. В `script/upload.py`, вы _должны_ установить `ELECTRON_REPO` к вашему форку (`MYORG/electron`), особенно если вы участник сопровождающий Electron.
 
-2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Очень, очень долго ждать завершения сборки.
+6. Очень, очень долго ждать завершения сборки.
