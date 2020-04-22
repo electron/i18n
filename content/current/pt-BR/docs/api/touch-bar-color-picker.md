@@ -2,14 +2,14 @@
 
 > Create a color picker in the touch bar for native macOS applications
 
-Processo: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Processo: <3>Main</7><9>
 
-### `new TouchBarColorPicker(options)` *Experimental*
+### `new TouchBarColorPicker(options)` _Experimental_
 
-* `opções` Object 
+* `options` Object
   * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
   * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
-  * `change` Function (optional) - Function to call when a color is selected. 
+  * `change` Function (optional) - Function to call when a color is selected.
     * `color` String - The color that the user selected from the picker.
 
 ### Propriedades de Instância
