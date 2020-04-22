@@ -2,7 +2,7 @@
 
 > tray や Dock やアプリケーションのアイコンを PNG や JPG ファイルで作成します。
 
-プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
@@ -43,7 +43,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
   * 64x64 (DPI スケール 200%)
   * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+[この記事](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx) 内の *サイズ要件* の章を確認して下さい。
 
 ## 高解像度の画像
 
@@ -82,11 +82,11 @@ console.log(appIcon)
 
 ## テンプレート画像
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template images consist of black and an alpha channel. テンプレート画像は単体の画像として使用するものではなく、通常、最終的にさせたい見た目を作成するため、他のコンテンツと混合されます。
 
 最も一般的なケースは、メニューバーのアイコンに使用することです。これは明るいメニューバーと暗いメニューバーの両方に適応できます。
 
-**Note:** Template image is only supported on macOS.
+**注釈:** テンプレート画像は macOS でのみサポートされています。
 
 To mark an image as a template image, its filename should end with the word `Template`. 例:
 
@@ -133,14 +133,14 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional)
+* `options` Object (任意)
   * `width` Integer (任意) - ビットマップバッファに必要。
   * `height` Integer (任意) - ビットマップバッファに必要。
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+`buffer` から `NativeImage` の新しいインスタンスを作成します。 Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -177,7 +177,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 > tray や Dock やアプリケーションアイコンのような画像を、ネイティブにラップします。
 
-プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 ### インスタンスメソッド
 
@@ -185,7 +185,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional)
+* `options` Object (任意)
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `Buffer` - `PNG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
@@ -198,21 +198,21 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (任意)
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `Buffer` - 生のビットマップ画像のピクセルデータのコピーを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional)
+* `options` Object (任意)
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `String` - 画像のデータURL。
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (任意)
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `Buffer` - 生のビットマップ画像のピクセルデータを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
@@ -223,7 +223,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 戻り値 `Buffer` - 画像の元になるネイティブハンドルへの C ポインタを格納する [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。 macOS では、`NSImage` のインスタンスのポインタが返されます。
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you _must_ ensure that the associated `nativeImage` instance is kept around.
+返されるポインタは、コピーではなく、元のネイティブな画像へのウィークポインタであることに注意して下さい。関連する `nativeImage` インスタンスが確実に_保持されなければなりません_。
 
 #### `image.isEmpty()`
 
