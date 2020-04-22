@@ -10,7 +10,7 @@ Processo: [Main](../glossary.md#main-process)
 
 ## Avisos de plataforma
 
-Atualmente, apenas macOS e Windows são suportados. Não existe suporte interno para atualização automática no Linux, portanto, é recomendado utilizar um gerenciador de pacotes para atualizar sua aplicação.
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
 Além disso, existem algumas diferenças sutis em cada plataforma:
 
@@ -18,7 +18,7 @@ Além disso, existem algumas diferenças sutis em cada plataforma:
 
 No macOS, o módulo `autoUpdater` é construído em cima do [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), ou seja, você não precisa de nenhuma configuração especial para que funcione. Para os requisitos do lado do servidor, você pode ler o [Suporte do servidor](https://github.com/Squirrel/Squirrel.Mac#server-support). Observe que o [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) aplica-se a todas as solicitações feitas como parte do processo de atualização. Aplicações que precisam desativar o ATS podem adicionar a chave `NSAllowsArbitraryLoads` no plist de sua aplicação.
 
-**Nota:** Seu aplicativo deve ser assinado para atualizações automáticas no macOS. Este é um requisito do `Squirrel.Mac`.
+**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
 ### Windows
 
@@ -48,7 +48,7 @@ Emitido ao verificar se uma atualização começou.
 
 ### Evento: 'update-available'
 
-Emitido quando há uma atualização disponível. A atualização é baixada automaticamente.
+Emitted when there is an available update. The update is downloaded automatically.
 
 ### Evento: 'update-not-available'
 
@@ -82,10 +82,10 @@ O objeto `autoUpdater` possui os seguintes métodos:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Object 
+* `options` Object
   * String `url`
-  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Define a `url` e inicializa a atualização automática.
 
@@ -99,7 +99,7 @@ Asks the server whether there is an update. You must call `setFeedURL` before us
 
 ### `autoUpdater.quitAndInstall()`
 
-Reinicia o aplicativo e instala a atualização depois de ter sido baixada. Isto só deve ser chamado após `update-downloaded ` ter sido emitido.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
