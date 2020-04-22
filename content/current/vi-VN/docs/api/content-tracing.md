@@ -1,8 +1,8 @@
 # contentTracing
 
-> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
+> Thu thập dữ liệu theo dõi từ Crom để tìm tắc nghẽn hiệu suất và hoạt động chậm.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
 
