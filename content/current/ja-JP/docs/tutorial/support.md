@@ -8,13 +8,13 @@
 - Atom フォーラムの [`electron`](https://discuss.atom.io/c/electron) カテゴリ
 - Freenode の `#atom-shell` チャンネル
 - [Atom の Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406) の `#electron` チャンネル
-- [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-- [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-- [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-- [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-- [`electron-pl`](https://electronpl.github.io) *(Poland)*
+- [`electron-ru`](https://telegram.me/electron_ru) *(ロシア)*
+- [`electron-br`](https://electron-br.slack.com) *(ブラジルポルトガル語)*
+- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韓国語)*
+- [`electron-jp`](https://electron-jp.slack.com) *(日本語)*
+- [`electron-tr`](https://electron-tr.herokuapp.com) *(トルコ語)*
+- [`electron-id`](https://electron-id.slack.com) *(インドネシア語)*
+- [`electron-pl`](https://electronpl.github.io) *(ポーランド語)*
 
 Electron にコントリビュートしたい場合は、[コントリビュートドキュメント](https://github.com/electron/electron/blob/master/CONTRIBUTING.md) をご参照ください。
 
@@ -24,7 +24,7 @@ Electron の [サポートしているバージョン](#supported-versions) に�
 
 ## サポートされているバージョン
 
-The latest three *stable* major versions are supported by the Electron team. たとえば、最新のリリースが 6.1.x の場合、5.0.x と 4.2.x 系列がサポートされます。  安定リリース系列ごとに最新のマイナーリリースのみをサポートしています。  つまり、セキュリティ修正の場合 6.1.x は修正を受けますが、6.0.x の新しいバージョンはリリースしません。
+最新の 3 つの *安定した* メジャーバージョンは Electron チームによってサポートされます。 たとえば、最新のリリースが 6.1.x の場合、5.0.x と 4.2.x 系列がサポートされます。  安定リリース系列ごとに最新のマイナーリリースのみをサポートしています。  つまり、セキュリティ修正の場合 6.1.x は修正を受けますが、6.0.x の新しいバージョンはリリースしません。
 
 最新の安定版リリースは一方的に `master` からすべての修正を受け取り、それ以前のバージョンは時間と容量が許すようなこれら修正の大部分を受けています。 サポートされている最も古いリリースラインには、セキュリティ修正のみが直接送られます。
 
