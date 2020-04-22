@@ -2,7 +2,7 @@
 
 > Crear y controlar vistas.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Se puede utilizar un `BrowserView` para incrustar contenido web adicional dentro de un [`BrowserWindow`](browser-window.md). Es como una ventana hija, excepto que su posición es relativa a la de su ventana propietaria. Se puede considerar como una alternativa al tag `webview`.
 
@@ -23,9 +23,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` _Experimental_
 
-* `options` Object (opcional) 
+* `options` Object (opcional)
   * `webPreferences` Object (opcional) - Vea [BrowserWindow](browser-window.md).
 
 ### Métodos Estáticos
@@ -36,13 +36,13 @@ Devuelve `BrowserView[]` - Un array con todas las BrowserViews abiertas.
 
 #### `BrowserView.fromWebContents(webContents)`
 
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 
 Devuelve `BrowserView | null` - La BrowserView propietaria del `webContents` indicado o `null` si la BrowserView no es la propietaria del contenido.
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` Íntegro
 
 Devuelve `BrowserView` - La vista con el proveido `id`.
 
@@ -50,11 +50,11 @@ Devuelve `BrowserView` - La vista con el proveido `id`.
 
 Los objetos creados con `new BrowserView` tienen las siguientes propiedades:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` _Experimental_
 
 Un objeto [`WebContents`](web-contents.md), que pertenece a esta vista.
 
-#### `view.id` *Experimental*
+#### `view.id` _Experimental_
 
 Un `Integer` representa el id único de la vista.
 
@@ -70,26 +70,26 @@ Forzar el cierre de la vista, provocará que los eventos `unload` and `beforeunl
 
 Devuelve `Boolean` - Si la vista ha sido destruida.
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` _Experimental_
 
-* `options` Object 
+* `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` _Experimental_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Redimensiona y mueve la vista a los limites proporcionados en relación a la ventana.
 
-#### `view.getBounds()` *Experimental*
+#### `view.getBounds()` _Experimental_
 
 Devuelve [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` _Experimental_
 
-* `color` String - Color en forma `#aarrggbb` o `#argb`. El canal alfa es opcional.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
