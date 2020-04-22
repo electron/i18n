@@ -2,7 +2,7 @@
 
 > Detecta los eventos del teclado cuando la aplicación no tiene el enfoque en el teclado.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 El módulo `globalShortcut` puede registrar o quitar un atajo del teclado global con el sistema operativo para que se puedan personalizar las operaciones para varios atajos.
 
@@ -45,7 +45,7 @@ El módulo `globalShortcut` tiene los siguientes métodos:
 
 Devuelve `Boolean` - Si el acceso fue registrado con éxito.
 
-Registra un atajo global de`accelerator`. El `callback` es llamado cuando el atajo registrado es presionado por el usuario.
+Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
 Cuando el acelerador ha sido tomado por otras aplicaciones, esta llamada fallará silenciosamente. Este comportamiento está diseñado por los sistemas operativos, debido a que no desean que las aplicaciones tengan conflictos por los atajos globales.
 
@@ -61,7 +61,7 @@ Los siguientes aceleradores no serán registrados con correctamente en macOS 10.
 * `accelerators` String[] - un array de [Accelerator](accelerator.md)s.
 * `callback` Función
 
-Registra un acceso rápido global de todos los ítems `accelerator` presentes en `accelerators`. La función `callback` es llamada cuando alguno de los accesos rápidos registrados es presionado por el usuario.
+Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
 Cuando el acelerador ya ha sido tomado por otras aplicaciones, esta llamada fallará silenciosamente. Este comportamiento está diseñado por los sistemas operativos, debido a que no desean que las aplicaciones tengan conflictos por los atajos globales.
 
@@ -70,7 +70,7 @@ Los siguientes aceleradores no serán registrados con correctamente en macOS 10.
 * "Media Play/Pause"
 * "Media Next Track"
 * "Media Previous Track"
-* "Detener medio"
+* "Media Stop"
 
 ### `globalShortcut.isRegistered(accelerator)`
 
