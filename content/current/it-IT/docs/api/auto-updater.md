@@ -38,7 +38,7 @@ L'oggetto `autoAggiornatore` emette i seguenti eventi:
 
 Restituisce:
 
-* `error` Error
+* `errore` Errore
 
 Emesso quando avviene un errore in aggiornamento.
 
@@ -85,7 +85,7 @@ L'oggetto `autoAggiornatore` ha i seguenti metodi:
 * `options` Object
   * `url` Stringa
   * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
-  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `serverType` Stringa (opzionale) _macOS_ - Uno tra `json` o `default`, Vedi anche [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README per più informazioni.
 
 Imposta l'`url` e inizializza l'auto aggiornatore.
 
