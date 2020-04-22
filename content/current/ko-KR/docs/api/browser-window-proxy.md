@@ -41,7 +41,7 @@ unload 이벤트를 호출하지 않고, 자식 윈도우를 강제로 종료합
 
 이 메소드들 외에도 자식 윈도우는 속성이 없는 단일 메소드가 있는 `window.opener` 객체를 구현합니다.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 `BrowserWindowProxy` 객체는 다음과 같은 인스턴스 속성을 가집니다.
 
