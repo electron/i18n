@@ -6,14 +6,14 @@ La mayoría de los usuarios obtendran estas características de manera gratuita,
 
 ## Generando archivos `asar`
 
-Un archivo [asar](https://github.com/electron/asar) es un formato simple similar a un alquitrán que concatena archivos en un solo archivo. Electron puede leer archivos arbitrarios sin desempaquetar todo el archivo. 
+Un archivo [asar](https://github.com/electron/asar) es un formato simple similar a un alquitrán que concatena archivos en un solo archivo. Electron puede leer archivos arbitrarios sin desempaquetar todo el archivo.
 
 Pasos para empaquetar su aplicación en un archivo `asar< 0>:</p>
 
-<h3>1. Instalar la utilidad de Asar</h3>
+<h3 spaces-before="0">1. Instalar la utilidad de Asar</h3>
 
 <pre><code class="sh">$ npm install -g asar
-`</pre> 
+`</pre>
 
 ### 2. Empaquetar con `Paquete de asar`
 
@@ -23,7 +23,7 @@ $ asar pack your-app app.asar
 
 ## Usando archivos `asar`
 
-En Electron hay dos conjuntos de API: API de nodo proporcionadas por Node.js y API Web proporcionadas por Chromium. Ambas API admiten la lectura de archivos de `asar`.
+In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
 ### Nodo de API
 
@@ -38,7 +38,7 @@ Por ejemplo, supongamos que tenemos un archivo `ejemplo.asar` en `/ruta/a</ 0>:<
 /static/index.html
 /static/main.css
 /static/jquery.min.js
-`</pre> 
+`</pre>
 
 Lea una ficha en el archivo `asar`:
 
@@ -71,7 +71,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-En una página web, las fichas en un archivo pueden solicitarse con el protocolo `file:`. Al igual que la API del nodo, los archivos `asar` se tratan como directorios.
+In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
 Por ejemplo, para obtener un fichero con `$,obtenga`:
 
@@ -137,12 +137,13 @@ Esto es debido a que `exec` y `spawn` acepta `command` en vez de `file` como ent
 
 ## Añadiendo archivos desempaquetados a ficheros `asar`
 
-Como se indicó anteriormente, algunos APIs Node desempaquetaran el archivo al sistema de archivos cuando es llamado. Aparte de los inconvenientes de rendimiento, varios escaner anti-virus pueden ser activados por este comportamiento.
+As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
-Como solución, se pueden dejar varios archivos desempaquetados usando la opción `--unpack`. En el siguiente ejemplo, las librerías compartidas de módulos nativos de Node.js no serán empaquetadas:
+As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
 Después de ejecutar el comando, notará que una carpeta llamada `app.asar.unpacked` fue creada en conjunto con el archivo `app.asar`. Este contiene los archivos desempaquetados y debe ser enviado en conjunto con el archivo `app.asar`.
+
