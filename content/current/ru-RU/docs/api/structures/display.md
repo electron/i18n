@@ -6,7 +6,7 @@
 * `touchSupport` String - может быть `available`, `unavailable`, `unknown`.
 * `monochrome` Boolean - монохромный дисплей или нет.
 * `accelerometerSupport` String - может быть `available`, `unavailable` или `unknown`.
-* `colorSpace` String - представляет пространство цвета (трехмерный объект, который содержит все реализуемые цветовые комбинации) с целью преобразования цвета
+* `colorSpace` String -  представляет пространство цвета (трехмерный объект, который содержит все реализуемые цветовые комбинации) с целью преобразования цвета
 * `colorDepth` Number - количество битов на пиксель.
 * `depthPerComponent` Number - количество битов на цветовой компонент.
 * `bounds` [Rectangle](rectangle.md)
