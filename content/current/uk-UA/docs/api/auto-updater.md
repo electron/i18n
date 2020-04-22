@@ -10,7 +10,7 @@
 
 ## Зауваження
 
-Наразі, підтримуються тільки macOS та Windows. Немає вбудованої підтримки для автооновлення на Linux, тому рекомендовано використовувати наданий пакетний менеджер для оновлення вашого застосунку.
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
 Крім того, є деякі тонкі відмінності на кожноій платформі:
 
@@ -18,7 +18,7 @@
 
 На macOS, модуль `autoUpdater` вбудований в [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), мається на увазі, що не потрібно додаткових налаштувань для його роботи. Щоб дізнатися потреби серверної частини, можете прочитати [Підтримку Серверу](https://github.com/Squirrel/Squirrel.Mac#server-support). Зауважте що [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) застосовується для всіх запитів зроблених при процесі оновлення. Застосунки, яким потрібно вимкнути ATS можуть додати ключ `NSAllowsArbitraryLoads` до свого plist.
 
-**Примітка:** Ваш застосунок має бути підписаний на автоматичні оновлення на macOS. Це вимога `Squirrel.Mac`.
+**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
 ### Windows
 
@@ -48,7 +48,7 @@
 
 ### Подія: 'update-available'
 
-Відбуваєтсья коли доступне оновлення. Воно завантажується автоматично.
+Emitted when there is an available update. The update is downloaded automatically.
 
 ### Подія: 'update-not-available'
 
@@ -68,7 +68,7 @@
 
 На Windows доступне тільки `releaseName`.
 
-**Примітка:** Не є сильно обов'язковою обробка цієї події. Успішно завантажене оновлення всерівно буде застосоване при наступному старті застосунку.
+**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
 
 ### Подія: 'before-quit-for-update'
 
@@ -82,10 +82,10 @@
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Object 
+* `options` Object
   * `url` String
-  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
-  * `serverType` String (опціонально) *macOS* - `json` чи `default`, дивись [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README для детальнішої інформації.
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `serverType` String (опціонально) _macOS_ - `json` чи `default`, дивись [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README для детальнішої інформації.
 
 Встановлює `url` та ініціалізує автоновлення.
 
@@ -95,11 +95,11 @@
 
 ### `autoUpdater.checkForUpdates()`
 
-Запитує сервер чи доступні оновлення. Потрібно викликати `setFeedURL` перед використанням цього API.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Перезавантажує застосунок та встановлює оновлення після їх завантаження. Має викликатися тільки після події `update-downloaded`.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 Під капотом виклик `autoUpdater.quitAndInstall()` спочатку закриє всі вікна застосунку та автоматично викличе `app.quit()` після закриття всіх вікон.
 
