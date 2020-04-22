@@ -2,11 +2,11 @@
 
 > Create a label in the touch bar for native macOS applications
 
-Processo: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Processo: <3>Main</7><9>
 
-### `new TouchBarLabel(options)` *Experimental*
+### `new TouchBarLabel(options)` _Experimental_
 
-* `opções` Object 
+* `options` Object
   * `label` String (optional) - Text to display.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
