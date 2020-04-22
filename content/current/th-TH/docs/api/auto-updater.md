@@ -2,7 +2,7 @@
 
 > Enable apps to automatically update themselves.
 
-Messages
+Messages </a>
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
@@ -82,10 +82,10 @@ The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Object 
+* `options` Object
   * `url` String
-  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Sets the `url` and initialize the auto updater.
 
