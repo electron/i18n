@@ -1,4 +1,4 @@
-# Ham Veri Nesnesini Yükle
+# Объект UploadRawData
 
-* `tür` Dize - `Ham Veri`.
-* `bayt` Arabellek - veri karşıya yüklenecek.
+* `type` String - `rawData`.
+* `bytes` Buffer - данные для отправки.
