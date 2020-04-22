@@ -17,6 +17,6 @@ Read-Eval-Print-Loop (REPL, レプル) は、単一のユーザー入力 (すな
 
 This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
 
-**Note:** `electron --interactive` is not available on Windows.
+**Note:** `electron --interactive` はWindowsでは利用できません。
 
 詳細については、 [Node.js の REPL ドキュメント](https://nodejs.org/dist/latest/docs/api/repl.html)をご覧ください。
