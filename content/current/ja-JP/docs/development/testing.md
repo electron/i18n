@@ -41,14 +41,14 @@ There is not a lot of Python in this repository, but it too is governed by codin
 #### フォントの欠落
 
 [一部の Windows 10 デバイス](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) はメイリオフォントがインストールされていない状態で出荷されるため、フォントフォールバックテストが失敗する可能性があります。 メイリオをインストールするには以下のようにします。
-1. Push the Windows key and search for _Manage optional features_.
-2. Click _Add a feature_.
-3. Select _Japanese Supplemental Fonts_ and click _Install_.
+1. Windows キーを押して _オプション機能の管理_ と検索します。
+2. _機能の追加_ をクリックします。
+3. _日本語追加フォント_ を選択して _インストール_ をクリックします。
 
 #### ピクセル測定
 
 正確なピクセル測定値に依存するようなテストは、浮動小数点精度の誤差のために Hi-DPI 画面設定のデバイスでは正しく動作しない場合があります。 これらのテストを正常に実行するには、そのデバイスが倍率 100% に設定されていることを確認してください。
 
 ディスプレイ倍率を設定するには、
-1. Push the Windows key and search for _Display settings_.
-2. Under _Scale and layout_, make sure that the device is set to 100%.
+1. Windows キーを押して _ディスプレイの設定_ と検索します。
+2. _スケールとレイアウト_ で、そのデバイスが 100% に設定されていることを確認します。
