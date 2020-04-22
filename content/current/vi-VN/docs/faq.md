@@ -10,9 +10,9 @@ Bạn cũng có thể tải Electron trực tiếp từ [electron/electron/relea
 
 ## Khi nào Chrome được cập nhật phiên bản mới nhất vào Electron?
 
-Phiên bản của Chrome trong Electron thường được cài đặt vào trong khoảng một hoặc hai tuần sau khi phiên bản ổn định mới nhất đó được phát hành. Ước tính này không được đảm bảo và phụ thuộc vào công việc tham gia nâng cấp.
+Phiên bản của Chrome trong Electron thường được cài đặt vào trong khoảng một hoặc hai tuần sau khi phiên bản ổn định mới nhất đó được phát hành. Ước tính này không được bảo đảm và phụ thuộc vào số lượng công việc liên quan đến nâng cấp.
 
-Chỉ có các luồn phiên bản ổn định của Chrome mới được cập nhật. Nếu có một sửa lỗi quan trọng từ Chrome nằm ở phiên bản beta hoặc dev, chúng tôi sẽ sử dụng nó.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 Để biết thêm thông tin, vui lòng xem [thông tin bảo mật](tutorial/security.md).
 
@@ -29,19 +29,19 @@ Các đơn giản nhất để chia sẻ dữ liệu giữa các trang web (tron
 Hoặc bạn có thể sử dụng hệ thống IPC của Electron, để lưu trữ các đối tượng trong main process như là một biến toàn cầu, và sau đó truy cập chúng từ các renderer thông qua các property `điều khiển (remote)` của module `electron`:
 
 ```javascript
-// Trong main process.
+// Trong tiến trình main.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// Trong trang 1.
+// In page 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// Trong trang 2.
+// In page 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -64,7 +64,7 @@ app.whenReady().then(() => {
 })
 ```
 
-thành:
+đến điều này:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -77,12 +77,12 @@ app.whenReady().then(() => {
 
 ## Tại sao tôi không thể sử dụng jQuery/RequireJS/Meteor/AngularJS trong Electron.
 
-Do Node.js được tích hợp trong Electron, do đó có một số symbol bổ sung được chèn vào DOM như `module`, `exports`, `require`. Điều này gây ra vấn đề cho một số thư viện khi họ muốn chèn các symbols với cùng một tên.
+Do Node.js được tích hợp trong Electron, do đó có một số symbol bổ sung được chèn vào DOM như `module`, `exports`, `require`. Điều này gây ra vấn đề cho một số thư viện khi họ muốn chèn các ký hiệu cùng với một tên.
 
 Để giải quyết vấn đề này, bạn có thể tắt tích hợp Node trong Electron:
 
 ```javascript
-// Trong main process.
+// Trong tiến trình main.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -108,39 +108,18 @@ delete window.module;
 
 ## `require('electron').xxx` bị undefined.
 
-Khi sử dụng các module được build sẵn trong Electron, bạn có thể gặp phải các lỗi như sau:
+Khi sử dụng các mô đun được xây dựng sẵn trong Electron, bạn có thể gặp lỗi như sau:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-Điều này xảy ra bởi vì bạn có một phiên bản khác của [npm của module của `electron`](https://www.npmjs.com/package/electron) được cài đặt tại thư mục hiện tại hoặc trên global, nó đã ghi đè vào các module được xây dựng sẵn bên trong Electron.
-
-Để chắc chắn, cho dù bạn đang sử dụng chính xác module được xây dựng sẳn đó, hãy xem thử đường dẫn của module `electron` đó nằm, ở đâu:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-và sau đó kiểm tra nếu nó có kiểu giống dưới đây:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-Nếu nó là một cái gì đó như `node_modules/electron/index.js`, thì bạn phải loại bỏ các module npm `electron`, hoặc đổi tên nó.
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-Tuy nhiên nếu bạn đang sử dụng các module được xây dựng sẵn nhưng vẫn nhận được lỗi này, rất có thể bạn đang sử dụng module của process khác. Ví dụ `electron.app` chỉ có thể sử dụng trong main process, giống như `electron.webFrame` chỉ có thể sử dụng trong các renderer process.
+It is very likely you are using the module in the wrong process. Ví dụ `electron.app` chỉ có thể sử dụng trong main process, giống như `electron.webFrame` chỉ có thể sử dụng trong các renderer process.
 
 ## Các ký tự rất mờ, tại sao và tôi phải làm gì ?
 
-Nếu [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) bị tắt, thì font chữ trên màn hình LCD có thể bị mờ. Ví dụ:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Ví dụ:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
@@ -155,6 +134,6 @@ let win = new BrowserWindow({
 })
 ```
 
-Hiệu ứng chỉ hiển thị trên một số màn hình LCD. Ngay cả khi bạn không thấy sự khác biệt, một số người dùng khác của bạn có thể thấy rõ. Tốt nhất là bạn luôn đặt nền theo cách này, trừ khi bạn có lý do để không làm như vậy.
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 Lưu ý rằng chỉ thiết lập nền trong CSS sẽ không có hiệu ứng mong muốn.
