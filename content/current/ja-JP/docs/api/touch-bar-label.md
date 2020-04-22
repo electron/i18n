@@ -4,7 +4,7 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)` _Experimental_
+### `new TouchBarLabel(options)` _実験的_
 
 * `options` Object
   * `label` String (任意) - 表示するテキスト。
