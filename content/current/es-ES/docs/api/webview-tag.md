@@ -6,7 +6,7 @@ La etiqueta `webview` de Electron está basada en [Chromium's `webview`](https:/
 
 ## Activando
 
-Por defecto la etiqueta `webview` está deshabilitada en Elctron >= 5. Usted necesita habilitar la etiqueta estableciendo la opción `webviewTag` de webPreferences cuando se construye su `BrowserWindow`. Para más información vea el [BrowserWindow constructor docs](browser-window.md).
+By default the `webview` tag is disabled in Electron >= 5.  Usted necesita habilitar la etiqueta estableciendo la opción `webviewTag` de webPreferences cuando se construye su `BrowserWindow`. Para más información vea el [BrowserWindow constructor docs](browser-window.md).
 
 ## Descripción general
 
@@ -17,7 +17,7 @@ Proceso: [Renderer](../glossary.md#renderer-process)
 Usa el etiqueta de `webview` para incrustar contenido (tales como páginas web) en tu aplicación de Electron. El contenido de invitados se encuentra dentro del contenedor `webview<\0>.
 Una página incrustada dentro de los controles de tu aplicación como el contenido de invitado es dispuesto y renderizado.</p>
 
-<p>A diferencia de <code>iframe`, el `webview` se ejecuta en un proceso distinto al de tu aplicación. No tiene los mismos permisos que tu página web y todas las interacciones entre tu aplicación y el contenido incrustado será asincrónico. Esto mantiene a tu aplicación a salvo del contenido incrustado. **Note:** Muchos de los métodos en la vista web de la página anfitriona requieren una llamada sincrónica al proceso principal.
+<p spaces-before="0">A diferencia de <code>iframe`, el `webview` se ejecuta en un proceso distinto al de tu aplicación. No tiene los mismos permisos que tu página web y todas las interacciones entre tu aplicación y el contenido incrustado será asincrónico. Esto mantiene a tu aplicación a salvo del contenido incrustado. **Note:** Muchos de los métodos en la vista web de la página anfitriona requieren una llamada sincrónica al proceso principal.
 
 ## Ejemplo
 
@@ -156,7 +156,7 @@ A `Boolean`. When this attribute is present the guest page will have web securit
 
 A `String` that sets the session used by the page. Si `partition` empieza con `persist:`, la página usará una sesión persistente disponible para todas las páginas en la aplicación con la misma `partition`. si no hay un prefijo `persist:`, la página usará una sesión en memoria. Por asignar el mismo `partition`, múltiples páginas podrán compartir la misma sesión. Si la `partition` no se establece entonces la sesión por defecto de la aplicación será usada.
 
-Este valor solo puede ser modificado antes que la primera navegación, ya que la sesión de un proceso de renderizado activo no puede cambiar. Intentos subsecuentes de modificar el valor fallarán con la excepción de DOM.
+This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
 ### `allowpopups`
 
@@ -210,7 +210,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `opciones` Object (opcional) 
+* `options` Object (opcional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una url HTTP de referencia.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
@@ -440,11 +440,11 @@ Inserta `texto` en el elemento enfocado.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - El contenido para ser buscado, no debe quedar en blanco.
-* `opciones` Objecto (opcional) 
+* `options` Object (opcional)
   * `forward` Boolean (opcional) - Ya sea para buscar hacia adelante o hacia atrás, el valor predeterminado es `true`.
   * `findNext` Boolean (opcional) - Si la operación es la primera solicitud o un seguimiento, por defecto a `false`.
   * `matchCase` Boolean (opcional) - Si la busqueda debe ser sensible a mayúsculas, por defecto es `false`.
-  * `wordStart` Boolean (opcional) - Si sólo se mira al inicio de las palabras. por defecto a `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. por defecto es `false`.
   * `medialCapitalAsWordStart` Boolean (opcional) - Cuando se combina con `wordStart`, acepta emparejar en el medio de una palabra si el emparejado comienza con un una letra mayúscula seguida por una minúscula o no letra. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
 Devuelve `Integer` - El id de la solicitud usado para la solicitud.
@@ -453,7 +453,7 @@ Empieza una solicitud para encontrar todas las coincidencias para el `text` en l
 
 ### `<webview>.stopFindInPage(action)`
 
-* `acción` Cadena - Especifica la acción que tendrá lugar al finalizar [`<webview>.findInPage`](#webviewfindinpagetext-options) pedido. 
+* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request.
   * `clearSelection` - Borrar la selección.
   * `keepSelection` - Traduce la selección en una selección normal.
   * `activateSelection` - Enfoca y hace clic en el nodo de selección.
@@ -462,19 +462,19 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
 
 ### `<webview>.print([options])`
 
-* `opciones` Objecto (opcional) 
-  * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
-  * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
-  * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
+* `options` Object (opcional)
+  * `silent` Boolean (optional) - Don't ask user for print settings. Por defecto es `false`.
+  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Por defecto es `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 
 Devuelve `Promise<void>`
 
-Imprime la página web de `webview`. Al igual que `webContents.print([options])`.
+Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(opciones)`
 
-* `opciones` Object 
-  * `marginsType` Integer (opcional) - Especifica los tipos de margenes a usar. Usa 0 para el margen por defecto, 1 para no margen, y dos para el margen máximo.
+* `options` Object
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
   * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
   * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
@@ -490,7 +490,7 @@ Imprime la página web de `webview` como PDF, Igual como `webContents.printToPDF
 
 Devuelve `Promise<NativeImage>` - Resuelve con el un [NativeImage](native-image.md)
 
-Captura una instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible.
+Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible.
 
 ### `<webview>.send(channel, ...args)`
 
@@ -505,7 +505,7 @@ Ver [webContents.send](web-contents.md#contentssendchannel-args) para ejemplos.
 
 ### `<webview>.sendInputEvent(event)`
 
-* `event` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
+* `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
 Devuelve `Promise<void>`
 
@@ -517,7 +517,7 @@ Ver [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputeven
 
 * `factor` Number - Zoom factor.
 
-Cambia el factor de zoom al factor especificado. El factor de zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
@@ -542,7 +542,7 @@ Devuelve `Promise<void>`
 
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
 
 * `minimumLevel` Número
 * `maximumLevel` Número
@@ -553,11 +553,11 @@ Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no 
 
 **Deprecated:** This API is no longer supported by Chromium.
 
-### `<webview>.showDefinitionForSelection()` *macOS*
+### `<webview>.showDefinitionForSelection()` _macOS_
 
 Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
 
-### `<webview>.getWebContents()` *Deprecated*
+### `<webview>.getWebContents()` _Deprecated_
 
 Devuelve [`WebContents`](web-contents.md) - Los contenidos web asociados con esto `webview`.
 
@@ -578,7 +578,7 @@ Devuelve:
 * `url` String
 * `isMainFrame` Boolean
 
-Disparado cuando una carga ha sido cometida, Esto incluye navegaciones dentro del documento actual así como cargas de documentos de bajo nivel, pero no incluye fuentes asincrónicas de cargas.
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
 ### Evento: 'did-finish-load'
 
@@ -622,7 +622,7 @@ Devuelve:
 * `title` Cadena
 * `explicitSet` Boolen
 
-Disparado cuando el título de la página es establecido durante la navegación. `explicitSet` es falso cuando el título es sintetizado del archivo url.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### Evento: 'page-favicon-updated'
 
@@ -664,7 +664,7 @@ webview.addEventListener('console-message', (e) => {
 
 Devuelve:
 
-* `resultado` Object 
+* `result` Object
   * `requestId` Íntegro
   * `activeMatchOrdinal` Integer - Posición de la coincidencia activa.
   * `matches` Integer - Número de coincidencias.
@@ -714,13 +714,13 @@ Devuelve:
 
 * `url` String
 
-Emitido cuando un usuario o la página quiere iniciar la navegación. Puede suceder cuando el objeto `window.location` es cambiado o un usuario hace click en un link de la página.
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
 Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `<webview>.loadURL` y `<webview>.back`.
 
-Tampoco es emitido durante la navegación en la página, como hacerle click a links o actualizando el `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Llamar a `event.preventDefault()`, **NO** tiene ningún efecto.
+Llamar a `event.preventDefault()`, __NO__ tiene ningún efecto.
 
 ### Evento: 'did-navigate'
 
@@ -730,7 +730,7 @@ Devuelve:
 
 Emitido cuando la navegación es finalizada.
 
-Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 ### Evento: 'did-navigate-in-page'
 
@@ -778,7 +778,7 @@ webview.send('ping')
 ```
 
 ```javascript
-// En la página de invitado.
+// In guest page.
 const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
@@ -816,7 +816,7 @@ Devuelve:
 
 * `themeColor` Cadena
 
-Emitido cuando el color de tema de una página cambia. Esto usualmente se debe a encontrar una etiqueta meta:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
