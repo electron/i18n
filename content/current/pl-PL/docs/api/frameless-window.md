@@ -8,6 +8,7 @@ A frameless window is a window that has no [chrome](https://developer.mozilla.or
 
 Aby utworzyć bezramowe okno, należy ustawić `frame` na `false` w [BrowserWindow](browser-window.md) `options`:
 
+
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ width: 800, height: 600, frame: false })
