@@ -4,9 +4,9 @@
 
 Processo: <3>Main</7><9>
 
-### `new TouchBarButton(options)` *Experimental*
+### `new TouchBarButton(options)` _Experimental_
 
-* `opções` Object 
+* `options` Object
   * `label` String (optional) - Button text.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
