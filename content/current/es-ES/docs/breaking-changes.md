@@ -12,7 +12,7 @@ This document uses the following convention to categorize breaking changes:
 - **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
 - **Removed:** An API or feature was removed, and is no longer supported by Electron.
 
-## Planned Breaking API Changes (10.0)
+## Cambios planeados en la API(10.0)
 
 ### Removed: Browser Window Affinity
 
@@ -34,7 +34,7 @@ const w = new BrowserWindow({
 
 We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
-## Planned Breaking API Changes (9.0)
+## Cambios planeados en la API(9.0)
 
 ### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
 
@@ -511,7 +511,7 @@ crashReporter.start({
 })
 ```
 
-### `nativeImage`
+### `NativeImage`
 
 ```js
 // Obsoleto
@@ -538,7 +538,7 @@ screen.getMenuBarHeight()
 screen.getPrimaryDisplay().workArea
 ```
 
-### `session`
+### `Sesión`
 
 ```js
 // Deprecado
@@ -640,7 +640,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-### `nativeImage`
+### `NativeImage`
 
 ```js
 // Obsoleto
