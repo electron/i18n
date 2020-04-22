@@ -2,7 +2,7 @@
 
 > Control file downloads from remote sources.
 
-Messages 
+Messages </a>
 
 `DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
