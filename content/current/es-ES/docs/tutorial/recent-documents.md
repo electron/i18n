@@ -2,11 +2,11 @@
 
 Windows y macOS proveen acceso a una lista de documentos recientes abierto por la aplicación a través de JumpList or dock menu, respectivamente.
 
-**JumpList:**
+__JumpList:__
 
 ![Archivos Recientes de JumpList](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Menú de Aplicaciones:**
+__Menú de Aplicaciones:__
 
 ![Menu macOS Dock](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
