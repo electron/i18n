@@ -16,7 +16,7 @@ By default the `webview` tag is disabled in Electron >= 5.  タグを有効に�
 
 `webview`タグを使用して、Electron アプリに 'ゲスト' コンテンツ (ウェブページなど) を埋め込むことができます。ゲストコンテンツは `webview` コンテナに含まれています。 アプリ内の埋め込みページは、ゲストコンテンツのレイアウトとレンダリングの方法を制御します。
 
-`iframe` とは異なり、`webview` はアプリとは別のプロセスで実行されます。 それはウェブページと同じ権限を持っておらず、アプリと組み込みコンテンツの間のすべてのやりとりは非同期になります。 これにより、埋め込みコンテンツからアプリが保護されます。 **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
+`iframe` とは異なり、`webview` はアプリとは別のプロセスで実行されます。 それはウェブページと同じ権限を持っておらず、アプリと組み込みコンテンツの間のすべてのやりとりは非同期になります。 これにより、埋め込みコンテンツからアプリが保護されます。 **注釈:** ホストページから webview 上で呼び出されるほとんどのメソッドは、メインプロセスへの同期呼び出しを必要とします。
 
 ## サンプル
 
@@ -35,7 +35,7 @@ By default the `webview` tag is disabled in Electron >= 5.  タグを有効に�
     const indicator = document.querySelector('.indicator')
 
     const loadstart = () => {
-      indicator.innerText = 'loading...'
+      indicator.innerText = 'ロード中...'
     }
 
     const loadstop = () => {
@@ -120,7 +120,7 @@ A `String` representing the visible URL. Writing to this attribute initiates top
 
 ゲストページに Node Integration がない場合、このスクリプトはすべての Node APIにアクセスできますが、Node によって挿入されたグローバルオブジェクトはこのスクリプトの実行が終了した後に削除されます。
 
-**Note:** This option will appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
+**注:** このオプションは、`will-attach-webview` イベントに指定された `webPreferences` に `preloadURL` (`preload` ではない) として表示されます。
 
 ### `httpreferrer`
 
@@ -195,7 +195,7 @@ webview に設定するウェブ設定を指定する文字列のコンマ区切
 
 `webview` タグには以下のメソッドがあります。
 
-**Note:** The webview element must be loaded before using the methods.
+**注釈:** メソッドを使用する前に webview 要素をロードする必要があります。
 
 **サンプル**
 
@@ -209,7 +209,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (optional)
+* `options` Object (任意)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
@@ -439,11 +439,11 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - 検索するコンテンツ。空にしてはいけません。
-* `options` Object (optional)
+* `options` Object (任意)
   * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
   * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
   * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. 省略値は `false` 。
   * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
@@ -461,7 +461,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 ### `<webview>.print([options])`
 
-* `options` Object (optional)
+* `options` Object (任意)
   * `silent` Boolean (optional) - Don't ask user for print settings. 省略値は、`false` です。
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. 省略値は、`false` です。
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -489,7 +489,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+`rect` 内のページのスナップショットをキャプチャします。 `rect` を省略すると、表示されているページ全体をキャプチャします。
 
 ### `<webview>.send(channel, ...args)`
 
@@ -541,7 +541,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _非推奨_
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -550,13 +550,13 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
-**Deprecated:** This API is no longer supported by Chromium.
+**非推奨:** この API は Chromium がサポートしなくなりました。
 
 ### `<webview>.showDefinitionForSelection()` _macOS_
 
 ページ上の選択された単語を検索するポップアップ辞書を表示します。
 
-### `<webview>.getWebContents()` _Deprecated_
+### `<webview>.getWebContents()` _非推奨_
 
 戻り値 [`WebContents`](web-contents.md) - この `webview` に関連付けられた webContents。
 
@@ -719,7 +719,7 @@ Emitted when a user or the page wants to start navigation. It can happen when th
 
 It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Calling `event.preventDefault()` does __NOT__ have any effect.
+`event.preventDefault()` を呼んでも効果は __ありません__。
 
 ### イベント: 'did-navigate'
 
