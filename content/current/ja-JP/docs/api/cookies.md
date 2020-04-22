@@ -82,8 +82,8 @@ session.defaultSession.cookies.set(cookie)
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (任意) - Cookie のドメインです。これはサブドメインでも有効になるように最初のドットで正規化されます。 Empty by default if omitted.
   * `path` String (optional) - Cookie のパス。 Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. 省略値は false 。
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. 省略値は false です。
+  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. 省略値は、false です。
   * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 省略した場合、クッキーはセッションクッキーになり、セッション間では保持されなくなります。
 
 戻り値 `Promise<void>` - cookie が設定されたときに解決される Promise。
