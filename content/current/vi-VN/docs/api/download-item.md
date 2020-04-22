@@ -2,7 +2,7 @@
 
 > Kiểm soát các tập tin tải về từ một nguồn từ xa.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
