@@ -1,6 +1,6 @@
 # net
 
-> Відправити HTTP/HTTPS запити, використовуючи власну мережеву бібліотеку Chromium
+> Дати HTTP/HTTPS запит, використовуючи власну мережеву бібліотеку Chromium
 
 Процес: [Main](../glossary.md#main-process)
 
@@ -38,7 +38,7 @@ app.on('ready', () => {
 
 The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
-## Методи
+## Методиa
 
 Модуль `net` має наступні методи:
 
