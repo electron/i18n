@@ -2,7 +2,7 @@
 
 > Ermöglichen Sie es Apps, sich automatisch zu aktualisieren.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
@@ -10,7 +10,7 @@ Quá trình: [Main](../glossary.md#main-process)
 
 ## Platform Notices
 
-Hiện tại, chỉ macOS và Windows được hỗ trợ. Chưa có bản built-in hỗ trợ auto-updater trên Linux, nên chỉ có khuyến cáo sử dụng các distribution's package manager để cập nhật ứng dụng của bạn.
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
 In addition, there are some subtle differences on each platform:
 
@@ -82,10 +82,10 @@ The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Object 
+* `options` Object
   * `url` String
-  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Sets the `url` and initialize the auto updater.
 
