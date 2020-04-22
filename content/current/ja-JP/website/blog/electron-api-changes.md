@@ -8,7 +8,7 @@ Electron が始まって以来、以前の Atom-Shell と呼ばれていた頃�
 
 ---
 
-Electron は 1.0 リリースに向けて準備を進めていますが、この機会を利用して、最後の問題となっていた API の詳細を記述したいと考えています。 The changes described below are included in **0.35.x**, with the old APIs reporting deprecation warnings so you can get up to date for the future 1.0 release. Electron 1.0 は数ヶ月先になりますので、これらの変更が破壊的になるまでの猶予があります。
+Electron は 1.0 リリースに向けて準備を進めていますが、この機会を利用して、最後の問題となっていた API の詳細を記述したいと考えています。 以下で述べる変更点は **0.35.x** のものです。古い API の利用に対する非推奨の警告を発するので、将来の 1.0 リリースに備えてアップデートしてもよいでしょう。 Electron 1.0 は数ヶ月先になりますので、これらの変更が破壊的になるまでの猶予があります。
 
 ## 非推奨の警告
 
@@ -62,7 +62,7 @@ var ipcMain = require('electron').ipcMain
 var ipcRenderer = require('electron').ipcRenderer
 ```
 
-And for the `ipcRenderer` module, an extra `event` object has been added when receiving messages, to match how messages are handled in `ipcMain` modules:
+また、`ipcRenderer` モジュールでメッセージを受け取る際に `event` オブジェクトが追加されました。これは `ipcMain` モジュールでメッセージがどのように処理されるかを併せています。
 
 ```javascript
 ipcRenderer.on('message', function (event) {
@@ -70,28 +70,28 @@ ipcRenderer.on('message', function (event) {
 })
 ```
 
-## Standardizing `BrowserWindow` options
+## `BrowserWindow` オプションの標準化
 
-The `BrowserWindow` options had different styles based on the options of other APIs, and were a bit hard to use in JavaScript because of the `-` in the names. They are now standardized to the traditional JavaScript names:
+`BrowserWindow` のオプションは、他 API のオプションとスタイルが異なっていたり、名前に `-` が入っていたりしていたため、JavaScript では少し扱いづらかったようです。 これらは、従来の JavaScript の名前に標準化されました。
 
 ```javascript
 new BrowserWindow({ minWidth: 800, minHeight: 600 })
 ```
 
-## Following DOM's conventions for API names
+## DOM の API 名の規約に準拠
 
-The API names in Electron used to prefer camelCase for all API names, like `Url` to `URL`, but the DOM has its own conventions, and they prefer `URL` to `Url`, while using `Id` instead of `ID`. We have done the following API renames to match the DOM's styles:
+Electron の API 名は、以前は `URL`ではなく `Url` のように、すべての API 名で camelCase を使用していましたが、DOM には独自の規約があり、`ID` ではなく `Id` を使いつつも、`Url` ではなく `URL` を使用しています。 DOM のスタイルに合わせて、以下の API の名称変更を行いました。
 
-* `Url` is renamed to `URL`
-* `Csp` is renamed to `CSP`
+* `Url` を `URL` に名称変更しました。
+* `Csp` を `CSP` に名称変更しました。
 
-You will notice lots of deprecations when using Electron v0.35.0 for your app because of these changes. An easy way to fix them is to replace all instances of `Url` with `URL`.
+これらの変更によって、アプリで Electron v0.35.0 を使用していると非推奨の通知が多く出てくると思われます。 これは簡単な方法で修正できます。すべての `Url` の記述を `URL` に置換するだけです。
 
-## Changes to `Tray`'s event names
+## `Tray` のイベント名の変更
 
-The style of `Tray` event names was a bit different from other modules so a rename has been done to make it match the others.
+`Tray` のイベント名のスタイルが他のモジュールと少し異なっていたため、他のモジュールと一致するように名前を変更しました。
 
-* `clicked` is renamed to `click`
-* `double-clicked` is renamed to `double-click`
-* `right-clicked` is renamed to `right-click`
+* `clicked` を `click` に名称変更しました。
+* `double-clicked` を `double-click` に名称変更しました。
+* `right-clicked` を `right-click` に名称変更しました。
 
