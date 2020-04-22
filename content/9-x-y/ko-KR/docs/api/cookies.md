@@ -11,7 +11,7 @@
 ```javascript
 const { session } = require('electron')
 
-// Query all cookies.
+// 모든 쿠키 쿼리.
 session.defaultSession.cookies.get({})
   .then((cookies) => {
     console.log(cookies)
@@ -32,7 +32,7 @@ session.defaultSession.cookies.get({ url: 'http://www.github.com' })
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie)
   .then(() => {
-    // success
+    // 성공
   }, (error) => {
     console.error(error)
   })
