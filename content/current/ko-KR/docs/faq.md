@@ -115,7 +115,7 @@ Electron의 빌트인 모듈을 사용할 때, 다음과 같은 오류가 발생
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-It is very likely you are using the module in the wrong process. 예를 들어 `electron.app` 는 주 프로세스에서만 사용할 수 있고, `electron.webFrame` 은 렌더러 프로세스에서만 사용 가능합니다.
+잘못된 프로세스에서 모듈을 사용하고 있을 가능성이 높습니다. 예를 들어 `electron.app` 는 주 프로세스에서만 사용할 수 있고, `electron.webFrame` 은 렌더러 프로세스에서만 사용 가능합니다.
 
 ## 서체가 흐릿해 보입니다, 이것은 무엇이고 어떻게 해결할 수 있나요?
 
