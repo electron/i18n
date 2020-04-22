@@ -8,7 +8,7 @@ La actualización del nodo es mucho más fácil que actualizar Chromium, así qu
 
 Electron tiene su propio [Node fork](https://github.com/electron/node) con modificaciones para los detalles de construcción del V8 mencionados anteriormente y para exponer el API necesitado por Electron. Una vez que se elija la liberación del nodo ascendente, es colocado en una ramificación en la bifurcación del Nodo de Electron y cualquier parche del Nodo del Electron son colocados ahí.
 
-Otro factor es que el proyecto del Node arregla su versión V8. Como es mencionado anteriormente, Electron construye todo con una sola copia de V8, así que los parches V8 de Node deben ser presentados a esa copia.
+Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
 
 Una vez que todas las dependencias de Electron están construyendo y usando la misma copia V8, el siguiente paso es arreglar cualquier problema de código de Electron causado por la actualización del Nodo.
 
@@ -24,17 +24,18 @@ En resumidas cuentas, los principales pasos son:
 ## Actualizando la [bifurcación](https://github.com/electron/node) del Nodo del Electrón
 
 1. Asegúrate que el `maestro` en `electron/nodo` ha actualizado las etiquetas de liberación de `nodejs/nodo`
-2. Crea una ramificación en https://github.com/electron/node: `electron-node-vX.X.X` la base en la que está ramificando es la etiqueta para la actualización deseada 
+2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update
   - `vX.X.X` Debe usar una versión de Node compatible con nuestra actual versión de Chromium
-3. Re aplicar nuestras confirmaciones desde la versión anterior de Node que nosotros estábamos usando (`vY.Y.Y`) to `v.X.X.X` 
+3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X`
   - Revise la etiqueta de liberación y selecciona el rango de encomendares que necesitamos para volver a aplicar
-  - Escoger el rango de encomendares: 
+  - Escoger el rango de encomendares:
     1. Revisa los `vY.Y.Y` & `v.X.X.X`
     2. `escoge FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - Resuelve los conflictos de fusión en cada una de las filas encontradas, entonces: 
+  - Resuelve los conflictos de fusión en cada una de las filas encontradas, entonces:
     1. `git agrega <conflict-file>`
     2. `git elige --continuar`
     3. Repite hasta haber terminado
+
 
 ## Actualizando Parches [V8](https://github.com/electron/node/src/V8)
 
@@ -69,16 +70,16 @@ Actualizar el archivo `DEPS` en la raíz de [electron/electron](https://github.c
 
 ## Notas
 
-- Los nodos mantiene su propia bifurcación de V8 
+- Los nodos mantiene su propia bifurcación de V8
   - Ellos le hacen backport a una pequeña cantidad de cosas, cuanto sean necesitadas
   - Documentación en Node acerca de como [they work with V8](https://nodejs.org/api/v8.html)
-- Nosotros actualizamos el código de tal forma que sólo usamos una copia de V8 en todo Electron 
+- Nosotros actualizamos el código de tal forma que sólo usamos una copia de V8 en todo Electron
   - P.ej.: Electron, Chromium y Node.js
-- No rastreamos el stream ascendente debido a logística: 
-  - Upstream usa múltiples repositorios y por tanto si se fusionara en un solo repositorio daría como resultado la perdida de historia. Por lo tanto, sólo actualizamos cuando estamos planeando un bump de versión de Node en Electron.
-- Chromium es grande y requiere mucho tiempo para actualizar, así que normalmente elegimos la versión del Node basada en la cual de sus versiones tiene una versión de V8 que está más cerca de la versión en Chromium que estamos usando. 
+- No rastreamos el stream ascendente debido a logística:
+   - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
+- Chromium es grande y requiere mucho tiempo para actualizar, así que normalmente elegimos la versión del Node basada en la cual de sus versiones tiene una versión de V8 que está más cerca de la versión en Chromium que estamos usando.
   - A veces tenemos que esperar la próxima versión periódica de Node porque sincronizará más estrechamente con la versión de V8 en el nuevo Chromium
-  - Electron mantiene todos sus parches en el repositorio porque es más sencillo que mantener diferentes repositorios para parches por cada proyecto superior. 
-    - Crashpad, Node.js, Chromium, Skia, etc. todos los parches se guardan en el mismo lugar
-  - Construcción de Node: 
-    - Mantenemos nuestros propios archivos de compilación GN para Node.js para hacer más fácil asegurar que todos se construye con las mismas banderas de compilador. Esto quiere decir que cada vez que actualizamos Node.js necesitamos hacer una modesta cantidad de trabajo para sincronizar los archivos GN con los archivos GYP upstream.
+ - Electron mantiene todos sus parches en el repositorio porque es más sencillo que mantener diferentes repositorios para parches por cada proyecto superior.
+   - Crashpad, Node.js, Chromium, Skia etc. patches are all kept in the same place
+ - Construcción de Node:
+   - Mantenemos nuestros propios archivos de compilación GN para Node.js para hacer más fácil asegurar que todos se construye con las mismas banderas de compilador. Esto quiere decir que cada vez que actualizamos Node.js necesitamos hacer una modesta cantidad de trabajo para sincronizar los archivos GN con los archivos GYP upstream.
