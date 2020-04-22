@@ -9,7 +9,7 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 ### Örnek
 
 ```javascript
-// Ana işlem içinde.
+// Ana süreçte.
 const { BrowserView, BrowserWindow } = require('electron')
 
 let win = new BrowserWindow({ width: 800, height: 600 })
@@ -23,9 +23,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Deneysel*
+### `new BrowserView([options])` _Deneysel_
 
-* `seçenekler` Nesne (isteğe bağlı) 
+* `options` Object (optional)
   * `webPreferences` Obje (opsiyonel) - [BrowserWindow](browser-window.md)'a bakın.
 
 ### Statik Metodlar
@@ -50,11 +50,11 @@ Dönüt `BrowserView | null`-BrowserView içeriği tarafından bir BrowserView a
 
 `new BrowserView` şeklinde yaratılan objeler, aşağıdaki özelliklere sahiptir:
 
-#### `view.webContents` *Deneysel*
+#### `view.webContents` _Deneysel_
 
 Bu view tarafından sahip olunan bir [`WebContents`](web-contents.md).
 
-#### `view.id` *Deneysel*
+#### `view.id` _Deneysel_
 
 View'in eşsiz ID'sini temsil eden bir `Tamsayı`.
 
@@ -70,26 +70,26 @@ Force closing the view, the `unload` and `beforeunload` events won't be emitted 
 
 `Boolean` Döndürür - Görünümün yok olup olmadığını.
 
-#### `view.setAutoResize(options)` *Deneysel*
+#### `view.setAutoResize(options)` _Deneysel_
 
-* `seçenekler` Nesne 
+* `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Deneysel*
+#### `view.setBounds(bounds)` _Deneysel_
 
 * `bounds` [Dikdörtgen](structures/rectangle.md)
 
 Verilen sınırlarla görünümü göreceli olarak yeniden şekillendirir ve taşır.
 
-#### `view.getBounds()` *Experimental*
+#### `view.getBounds()` _Experimental_
 
 [`Rectangle`](structures/rectangle.md) döndürür
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *Deneysel*
+#### `view.setBackgroundColor(color)` _Deneysel_
 
-* `color` Katar - `#aarrggbb` ya da `#argb` formunda renk kodu. Alfa kanalı opsiyonel.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
