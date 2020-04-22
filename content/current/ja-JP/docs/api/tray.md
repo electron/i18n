@@ -74,7 +74,7 @@ app.on('ready', () => {
 
 tray アイコンがクリックされたときに発行されます。
 
-#### Event: 'right-click' _macOS_ _Windows_
+#### イベント: 'right-click' _macOS_ _Windows_
 
 戻り値:
 
@@ -83,7 +83,7 @@ tray アイコンがクリックされたときに発行されます。
 
 tray アイコンが右クリックされたときに発行されます。
 
-#### Event: 'double-click' _macOS_ _Windows_
+#### イベント: 'double-click' _macOS_ _Windows_
 
 戻り値:
 
@@ -92,23 +92,23 @@ tray アイコンが右クリックされたときに発行されます。
 
 tray アイコンがダブルクリックされたときに発行されます。
 
-#### Event: 'balloon-show' _Windows_
+#### イベント: 'balloon-show' _Windows_
 
 tray バルーンを表示するときに発行されます。
 
-#### Event: 'balloon-click' _Windows_
+#### イベント: 'balloon-click' _Windows_
 
 tray バルーンがクリックされたときに発行されます。
 
-#### Event: 'balloon-closed' _Windows_
+#### イベント: 'balloon-closed' _Windows_
 
 tray バルーンが、タイムアウトかユーザの手動で、閉じられたときに発行されます。
 
-#### Event: 'drop' _macOS_
+#### イベント: 'drop' _macOS_
 
 tray アイコン上に何かのドラッグされたアイテムがドロップされたときに発行されます。
 
-#### Event: 'drop-files' _macOS_
+#### イベント: 'drop-files' _macOS_
 
 戻り値:
 
@@ -117,7 +117,7 @@ tray アイコン上に何かのドラッグされたアイテムがドロップ
 
 tray アイコン上にドラッグされたファイルがドロップされたときに発行されます。
 
-#### Event: 'drop-text' _macOS_
+#### イベント: 'drop-text' _macOS_
 
 戻り値:
 
@@ -126,19 +126,19 @@ tray アイコン上にドラッグされたファイルがドロップされた
 
 tray アイコン上にドラッグされたテキストがドロップされたときに発行されます。
 
-#### Event: 'drag-enter' _macOS_
+#### イベント: 'drag-enter' _macOS_
 
 ドラッグ操作が tray アイコン内に入ったときに発行されます。
 
-#### Event: 'drag-leave' _macOS_
+#### イベント: 'drag-leave' _macOS_
 
 ドラッグ操作が tray アイコン内から出たときに発行されます。
 
-#### Event: 'drag-end' _macOS_
+#### イベント: 'drag-end' _macOS_
 
 ドラッグ操作が、tray 上か他の場所で終了したときに発行されます。
 
-#### Event: 'mouse-enter' _macOS_
+#### イベント: 'mouse-enter' _macOS_
 
 戻り値:
 
@@ -147,7 +147,7 @@ tray アイコン上にドラッグされたテキストがドロップされた
 
 マウスが tray アイコン内に入ったときに発行されます。
 
-#### Event: 'mouse-leave' _macOS_
+#### イベント: 'mouse-leave' _macOS_
 
 戻り値:
 
@@ -156,7 +156,7 @@ tray アイコン上にドラッグされたテキストがドロップされた
 
 マウスが tray アイコン内から出たときに発行されます。
 
-#### Event: 'mouse-move' _macOS_ _Windows_
+#### イベント: 'mouse-move' _macOS_ _Windows_
 
 戻り値:
 
