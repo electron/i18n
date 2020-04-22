@@ -25,7 +25,7 @@ macOS アプリをリリースに向けて適切に準備するには、2 つの
 2. [Xcode](https://developer.apple.com/xcode) をダウンロードしてインストールする - これは macOS を実行しているコンピュータに必要です
 3. [署名証明書](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates) を生成、ダウンロードして、インストールする
 
-Electron's ecosystem favors configuration and freedom, so there are multiple ways to get your application signed and notarized.
+Electron のエコシステムでは構成とその自由度を重視しているため、アプリケーションの署名と公証の取得には複数の方法が用意されています。
 
 ## `electron-forge`
 
