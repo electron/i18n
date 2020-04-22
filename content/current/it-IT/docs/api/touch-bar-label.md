@@ -4,7 +4,7 @@
 
 Processo: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)` _Experimental_
+### `nuovo EtichettaBarraTocco(opzioni)` _Sperimentale_
 
 * `options` Object
   * `etichetta` Stringa(opzionale) - Testo da mostrare.
