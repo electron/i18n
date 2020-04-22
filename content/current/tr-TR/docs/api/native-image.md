@@ -4,7 +4,7 @@
 
 İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Resim çeken API'ler için Electron'da dosya yollarını veya `NativeImage` örneklerini geçirebilirsiniz. `null` geçirilirse boş resim kullanılacaktır.
+In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
 Örnek olarak, bir tepsi oluştururken veya pencere simgesi ayarlarken, görüntü dosyasının yolunu `String` olarak geçirebilirsiniz:
 
@@ -27,16 +27,16 @@ console.log(appIcon)
 
 ## Desteklenen formatlar
 
-Şu an için `PNG` ve `JPEG` görüntü biçimleri desteklenmektedir. `PNG`, şeffaflığı ve kayıpsız sıkıştırmayı desteklediği için önerilir.
+Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
-* Küçük simge 
+* Küçük simge
   * 16x16 (100% DPI ölçeği)
   * 20x20 (125% DPI ölçeği)
   * 24x24 (150% DPI ölçeği)
   * 32x32 (200% DPI ölçeği)
-* Büyük simge 
+* Büyük simge
   * 32x32 (100% DPI ölçeği)
   * 40x40 (125% DPI ölçeği)
   * 48x48 (150% DPI ölçeği)
@@ -51,7 +51,7 @@ Apple Retina ekranları gibi yüksek DPI desteğine sahip platformlarda, yüksek
 
 For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
-Aynı anda farklı DPI yoğunluklarına sahip görüntüleri desteklemek istiyorsanız, farklı boyutlardaki görüntüleri aynı dizine koyun ve dosya isimlerini DPI son ekleri olmadan kullanın. Örneğin:
+If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. Örneğin:
 
 ```plaintext
 images/
@@ -82,13 +82,13 @@ The following suffixes for DPI are also supported:
 
 ## Şablon resmi
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template images consist of black and an alpha channel. Şablon görüntüleri bağımsız görüntüler olarak kullanılacak şekilde tasarlanmamıştır ve genellikle istenilen nihai görünüş oluşturmak için diğer içeriklerle karıştırılır.
 
 The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
 
 **Not:** Şablon görüntüsü sadece macOS'ta desteklenmektedir.
 
-Bir görüntüyü şablon görüntüsü olarak işaretmek için, dosya ismi `Template` ile bitmelidir. Örneğin:
+To mark an image as a template image, its filename should end with the word `Template`. Örneğin:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
@@ -99,7 +99,7 @@ Bir görüntüyü şablon görüntüsü olarak işaretmek için, dosya ismi `Tem
 
 ### `nativeImage.createEmpty()`
 
-`NativeImage` Çevir
+`NativeImage` döndürür
 
 Boş bir `NativeImage` örneği oluşturur.
 
@@ -121,7 +121,7 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `arabellek` [Arabellek](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `seçenekler` Nesne 
+* `options` Object
   * `width` Tamsayı
   * `height` Tamsayı
   * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
@@ -133,14 +133,14 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `arabellek` [Arabellek](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `seçenekler` Obje (opsiyonel) 
+* `options` Object (optional)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` tamsayı (isteğe bağlı) - Bitmap tamponları için gereklidir.
   * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `NativeImage` döndürür
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+`buffer`'dan yeni bir `NativeImage` örneği oluşturur. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -150,7 +150,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 `dataURL`'den yeni bir `NativeImage` örneği oluşturur.
 
-### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
+### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` Dizge
 * `hslShift` Number[] (optional)
@@ -185,7 +185,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toPNG([options])`
 
-* `seçenekler` Obje (opsiyonel) 
+* `options` Object (optional)
   * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `PNG` kodlanmış verisini içeririr.
@@ -198,32 +198,32 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toBitmap([options])`
 
-* `seçenekler` Obje (opsiyonel) 
+* `options` Object (optional)
   * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisinin kopyasını içeririr.
 
 #### `image.toDataURL([options])`
 
-* `seçenekler` Obje (opsiyonel) 
+* `options` Object (optional)
   * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `String` döndürür - Görüntünün veri URL'si.
 
 #### `image.getBitmap([options])`
 
-* `seçenekler` Obje (opsiyonel) 
+* `options` Object (optional)
   * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisini içeririr.
 
 The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
-#### `image.getNativeHandle()` *macOS*
+#### `image.getNativeHandle()` _macOS_
 
 `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün temel yerel işaretçisine C işaretçisini saklar. MacOS' ta `NSImage` örneğine bir işaretçi iade edilecektir.
 
-İşaretlenen işaretçinin, bir kopyanın yerine alttaki yerel görüntünün zayıf bir işaretçi olduğuna dikket edin, böylelikle *must* nin `nativeImage` etrafında tutulmasını sağlıyorsunuz.
+İşaretlenen işaretçinin, bir kopyanın yerine alttaki yerel görüntünün zayıf bir işaretçi olduğuna dikket edin, böylelikle _must_ nin `nativeImage` etrafında tutulmasını sağlıyorsunuz.
 
 #### `image.isEmpty()`
 
@@ -255,7 +255,7 @@ Returns `NativeImage` - Kırpılan resim.
 
 #### `image.resize(options)`
 
-* `seçenekler` Nesne 
+* `options` Object
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (optional) - Defaults to the image's height.
   * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. Varsayılan değer `best`. Bu değerler elde edilmek istenen kalite/hız dengesini ifade eder. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
@@ -270,18 +270,18 @@ Sadece `height` veya `width` belirtilirse yeniden boyutlandırılmış resimde m
 
 #### `image.addRepresentation(options)`
 
-* `seçenekler` Nesne 
+* `options` Object
   * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `buffer` Arabellek (isteğe bağlı) - Ham resim verilerini içeren arabelleği ifade eder.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
-Belirli ölçek faktörü için bir görüntü gösterimi ekleyin. Bu kullanılabilir görüntüye açıkca farklı ölçek faktörü gösterimleri eklemek için kullanılabilir. Bu boş görüntülerde çağrılabilir.
+Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
 ### Örnek Özellikleri
 
-#### `nativeImage.isMacTemplateImage` *macOS*
+#### `nativeImage.isMacTemplateImage` _macOS_
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
