@@ -2,7 +2,7 @@
 
 > Выполнение HTTP/HTTPS запросов с использованием родной сетевой библиотеки Chromium
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Модуль `net` представляет собой клиентский API для выдачи HTTP(S) запросов. Он похож на модули [HTTP](https://nodejs.org/api/http.html) и [HTTPS](https://nodejs.org/api/https.html) в Node.js, но использует собственную сетевую библиотеку Chromium вместо реализации Node.js, обеспечивая лучшую поддержку веб-прокси.
 
@@ -36,7 +36,7 @@ app.on('ready', () => {
 })
 ```
 
-API `net` можно использовать только после того, как приложение выдаст событие `ready`. Попытка использовать модуль до события `ready` вызовет ошибку.
+The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
 ## Методы
 
