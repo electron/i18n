@@ -4,7 +4,7 @@ author: jlord
 date: '2016-07-26'
 ---
 
-Looking for an introduction to Electron? Two new podcasts have just been released that give a great overview of what it is, why it was built, and how it is being used.
+Szukasz wprowadzenia do Electron? Two new podcasts have just been released that give a great overview of what it is, why it was built, and how it is being used.
 
 ---
 
