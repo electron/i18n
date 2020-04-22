@@ -2,7 +2,7 @@
 
 > Маніпулюйте дочірнім вікном браузера
 
-Процес: [Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)okok yes ie ui azt
 
 Об'єкт `BrowserWindowProxy` повертається з `window.open` і надає обмежений функціонал керування дочірнім вікном.
 
