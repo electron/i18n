@@ -163,7 +163,7 @@ const { protocol } = require('electron')
 const { PassThrough } = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough() // PassThrough is also a Readable stream
+  const rv = new PassThrough() // PassThrough 또한 Readable 스트림입니다.
   rv.push(text)
   rv.push(null)
   return rv
