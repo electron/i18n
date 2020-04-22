@@ -1,6 +1,6 @@
 # JumpListItem Object
 
-* `type` String (optional) - Một trong các loại sau: 
+* `type` String (optional) - One of the following:
   * `task` - A task will launch an app with specific arguments.
   * `separator` - Can be used to separate items in the standard `Tasks` category.
   * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
