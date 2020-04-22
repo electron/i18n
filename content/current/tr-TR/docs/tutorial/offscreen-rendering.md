@@ -20,7 +20,7 @@ Bu modu etkinleştirmek için [`app.disableHardwareAcceleration()`](../api/app.m
 
 ## Kullanım
 
-```javascript
+``` javascript
 const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
