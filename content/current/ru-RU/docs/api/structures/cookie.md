@@ -8,4 +8,4 @@
 * `secure` Boolean (опционально) - помечена ли cookie как безопасная.
 * `httpOnly` Boolean (опционально) - помечена ли cookie как http-only.
 * `session` Boolean (опционально) - является ли cookie только для сессии или постоянной с датой истечения срока действия.
-* `expirationDate` Double (опционально) - дата истечения срока действия cookie, в виде количества секунд эпохи UNIX. Не предоставляется для сессионных cookie.
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
