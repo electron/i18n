@@ -1,6 +1,6 @@
 # Опция `sandbox`
 
-> Создает окно браузера с рендерером в песочнице. При включенной опции рендерер должен взаимодействовать с основным процессом через IPC, чтобы получить доступ к API узла.
+> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 
 Одна из основных особенностей безопасности Chromium заключается в том, что весь рендеринг/JavaScript-код выполняется внутри песочницы. В этой песочнице используются специфичные для ОС функции, для гарантии того, что эксплойты в процессе рендеринга не смогли повредить систему.
 
@@ -38,7 +38,7 @@ app.on('ready', () => {
 let win
 app.enableSandbox()
 app.on('ready', () => {
-  // нет необходимости передавать `sandbox: true`, так как был вызван `app.enableSandbox ()`.
+  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
@@ -46,7 +46,7 @@ app.on('ready', () => {
 
 ## Предварительная загрузка
 
-Приложение может вносить изменения в рендереры в песочницей, используя скрипт предварительной загрузки. Вот пример:
+An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
 ```js
 let win
@@ -90,7 +90,7 @@ window.open = customWindowOpen
 Важные вещи, на которые следует обратить внимание в скрипте предварительной загрузки:
 
 - Несмотря на то, что в песочнице не запущен Node.js, он все равно имеет доступ к ограниченной node-подобной среде: `Buffer`, `process`, `setImmediate`, `clearImmediate` и `require` доступны.
-- Скрипт предварительной загрузки может косвенно получить доступ ко всем API из основного процесса через модули `remote` и `ipcRenderer`.
+- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules.
 - Скрипт для предварительной загрузки должен содержаться в одном скрипте, но может иметь сложный код для предварительной загрузки, состоящий из нескольких модулей, используя такие инструменты, как webpack или browserify. Ниже приведен пример использования browserify.
 
 Чтобы создать пакет browserify пакета и использовать его в качестве скрипта предварительной загрузки, можно сделать что-то вроде этого:
@@ -105,7 +105,7 @@ window.open = customWindowOpen
 
 В настоящее время функция `require`, представленная в области предварительной загрузки, раскрывает следующие модули:
 
-- `electron` 
+- `electron`
   - `crashReporter`
   - `desktopCapturer`
   - `ipcRenderer`
@@ -123,6 +123,6 @@ window.open = customWindowOpen
 Пожалуйста, пользуйтесь опцией `sandbox` с осторожностью, это все еще экспериментальная возможность. Мы до сих пор не знаем о последствиях безопасности для предоставления некоторых API рендерера Electron скрипту предварительной загрузки, но вот некоторые вещи, которые нужно рассмотреть перед рендерингом недоверенного содержимого:
 
 - Скрипт предварительной загрузки может случайно привести к утечке привилегированных API в ненадежный код, если только не включен [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content).
-- Ошибка в движке V8 может позволить вредоносному коду получить доступ к API предварительной загрузки рендерера, фактически предоставляя полный доступ к системе через модуль `remote`. Поэтому настоятельно рекомендуется [отключить `remote` модуль](../tutorial/security.md#15-disable-the-remote-module). Если отключение невозможно, следует выборочно [фильтровать `remote` модуль](../tutorial/security.md#16-filter-the-remote-module).
+- Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module. Поэтому настоятельно рекомендуется [отключить `remote` модуль](../tutorial/security.md#15-disable-the-remote-module). Если отключение невозможно, следует выборочно [фильтровать `remote` модуль](../tutorial/security.md#16-filter-the-remote-module).
 
 Поскольку рендеринг недоверенного контента в Electron все еще остается неисследованной территорией, API, применяемые в сценарии предварительной загрузки песочницы, должны считаться более нестабильными, чем остальные Electron API, и могут потребовать серьезных изменений, чтобы исправить проблемы безопасности.
