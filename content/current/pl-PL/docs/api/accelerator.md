@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 Na systemach Linux oraz Windows klawisz `Command` nie ma żadnego wpływu, więc należy używać `CommandOrControl`, który reprezentuje `command` na systemie macOS i `control` na systemach Linux oraz Windows, aby zdefiniować niektóre akceleratory.
 
-Używaj `Alt` zamiast `Option`. Klawisz `Option` istnieje tylko w systemie macOS, mając na uwadze, że klawisz `Alt` jest dostępny na wszystkich systemach.
+Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
 Klawisz `Super` jest mapowany do klawisza`Windows` w systemach Windows i Linux oraz jako `Cmd` na macOS.
 
@@ -64,7 +64,7 @@ Klawisz `Super` jest mapowany do klawisza`Windows` w systemach Windows i Linux o
 * `VolumeUp`, `VolumeDown` i `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` i `MediaPlayPause`
 * `PrintScreen`
-* Klawisze numeryczne 
+* Klawisze numeryczne
   * `num0` - `num9`
   * `numdec` - klawisz cyfry
   * `numadd` - klawisz `+`
