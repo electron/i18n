@@ -47,7 +47,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provee un paquete de nodos para probar con el driver de la web, lo usaremos como ejemplo.
 
-### 1. Inicie ChromeDriver
+### 1. Start ChromeDriver
 
 Primero usted necesita descargar el `chromedriver` binario, y ejecutarlo:
 
@@ -60,13 +60,13 @@ Solo conexiones locales permitidas.
 
 Recuerde el puerto número `9515`, que usaremos más adelante
 
-### 2. instalar WebDriverJS
+### 2. Install WebDriverJS
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. Conecte a ChromeDriver
+### 3. Connect to ChromeDriver
 
 El uso de `selenium-webdriver` con Electron es el mismo con upstream, excepto que usted tiene que especificar manualmente como conectar chrome driver y donde se encuentra el binario de Electron:
 
@@ -101,7 +101,7 @@ driver.quit()
 
 [WebDriverIO](http://webdriver.io/) provee un paquete de nodos para probar con el driver de la web.
 
-### 1. Inicie ChromeDriver
+### 1. Start ChromeDriver
 
 Primero usted necesita descargar el `chromedriver` binario, y ejecutarlo:
 
@@ -114,13 +114,13 @@ Solo conexiones locales son permitidas.
 
 Recuerde el puerto número `9515`, que usaremos más adelante
 
-### 2. instalar WebDriverIO
+### 2. Install WebdriverIO
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Conecte al Driver de Chrome
+### 3. Connect to chrome driver
 
 ```javascript
 const webdriverio = require('webdriverio')
@@ -153,4 +153,4 @@ client
 
 Para probar su aplicación sin reconstruir Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) el fuente de su aplicación en el directorio de recursos de Electron.
 
-Alternativamente, pasa un argumento para ejecutar con su binario de Electron que apunta a la carpeta de tu aplicación. Esto elimina la necesidad de copiar-pegar tu aplicación en el directorio de recursos de Electron.
+Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
