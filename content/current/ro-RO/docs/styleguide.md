@@ -17,23 +17,23 @@ Folosirea `Inițierii rapide` ca exemplu:
 
 ...
 
-## Proces principal
+## Main process
 
 ...
 
-## Proces de randare
+## Renderer process
 
 ...
 
-## Rulează aplicația ta
+## Run your app
 
 ...
 
-### Rulează ca o distribuție
+### Run as a distribution
 
 ...
 
-### Descărcare Electron binar manuală
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -94,10 +94,10 @@ Exemplu de utilizare a `autoUpdater`:
 * Constructorii trebuie să fie enumerați cu titluri de nivel ` ### `.
 * [ Static Methods-Metode statice ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) trebuie listate la un capitol ` ### Static Methods-Metode statice `.
 * [Instance Methods- Metode de instanță ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) trebuie listate la un capitol ` ### Instance Methods-Metode de instanță `.
-* Toate metodele care au o valoare returnată trebuie să înceapă descrierea lor cu „Returnări `[TYPE]` - Return description-Întoarcere descriere" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * Dacă metoda returnează un ` Object-Obiect `, structura sa poate fi specificată folosind o colonă urmată de o linie nouă, atunci o listă de proprietăți neordonate în același stil ca și parametrii funcției.
 * Instance Events- Evenimentele de Instanță trebuie să fie listate sub un capitol ca `### Instance Events`.
-* Instance Properties- Propietăți de Instanță trebuie să fie listate sub un `### Instance Properties - Propietăți de Instanță` capitol. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Propietățile de instanță trebuie să înceapă cu "A[Property Type]..."
 
 Exemplu de utilizare a claselor `Session` și `Cookies`:
@@ -128,13 +128,16 @@ Metodele capitolului trebuie să fie sub următoarea formă:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
-* `required` String -Descriere a parametrului.
-* `optional` Integer (optional) - Altă descriere a parametrului...
+
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
+
+...
 ```
 
 Titlul poate fi la nivelul `###` sau ` ####` depinzând dacă este o metodă a unui modul sau o clasă.
 
-Pentru module, `objectName-Obiectul Numelui` este numele modulului. Pentru clase, poate fi numele instanței sau a clasei și nu poate fi la fel ca și numele modului.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 De exemplu, metodele clasei ` Session` sub modulul de `session` trebuie să utilizeze `ses` ca și `objectName-Numele Obiectului`.
 
@@ -144,7 +147,7 @@ Argumentele opționale sunt notate sub paranteze pătrate `[]` ce înconjoară a
 required[, optional]
 ```
 
-Mai jos de metodă este mai multă informație detaliată a fiecărui argument. Tipul argumentului este notat prin tipurile comune:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`String- Șir`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number -Număr`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
