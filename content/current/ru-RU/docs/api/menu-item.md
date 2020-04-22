@@ -2,33 +2,33 @@
 
 > Добавляет элементы в основное меню и контекстное меню приложения.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Просмотрите [`Menu`](menu.md) для примеров использования.
 
 ### `new MenuItem(options)`
 
-* `options` Object 
-  * `click` Function (опционально) - будет вызван `click(menuItem, browserWindow, event)` при нажатии на пункт меню. 
+* `options` Object
+  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
     * `menuItem` MenuItem
-    * `browserWindow` [BrowserWindow](browser-window.md)
-    * `event` [KeyboardEvent](structures/keyboard-event.md)
+    * ` browserWindow </ 0> <a href="browser-window.md"> BrowserWindow </ 1>Line</li>
+<li><code>event` [KeyboardEvent](structures/keyboard-event.md)
   * `role` String (опционально) - Может быть `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` или `windowMenu` - Определенное действие элемента меню, если указано, свойство `click` будет игнорироваться. Смотрите [роли](#roles).
   * `type` String (опционально) - Может быть `normal`, `separator`, `submenu`, `checkbox` или `radio`.
   * `label` String (опционально)
   * `sublabel` String (опционально)
-  * `toolTip` String (опционально) *macOS* - Текст при наведении на этот пункт меню.
+  * `toolTip` String (опционально) _macOS_ - Текст при наведении на этот пункт меню.
   * `accelerator` [Accelerator](accelerator.md) (опционально)
   * `icon` ([NativeImage](native-image.md) | String) (опционально)
   * `enabled` Boolean (опционально) - Если false, пункт меню выделится серым цветом и не будет нажимться.
-  * `acceleratorWorksWhenHidden` Boolean (опционально) *macOS* - по умолчанию `true`, когда `false`, accelerator не допустит активации элемента, если элемент не отображается.
+  * `acceleratorWorksWhenHidden` Boolean (опционально) _macOS_ - по умолчанию `true`, когда `false`, accelerator не допустит активации элемента, если элемент не отображается.
   * `visible` Boolean (опционально) - Если false, пункт меню будет полностью скрыт.
   * `checked` Boolean (опционально) - Должно быть указано только для `checkbox` или `radio` типов элементов меню.
-  * `registerAccelerator` Boolean (опционально) *Linux* *Windows* - Если false, accelerator не будет зарегистрирован в системе, но он будет по-прежнему отображаться. По умолчанию true.
+  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (опционально) - Необходимо указать для `submenu` типы элементов меню. Если `submenu` указано, то `type: 'submenu'` может быть опущен. Если значение не является [`Menu`](menu.md) то оно будет автоматически преобразовано в значение `Menu.buildFromTemplate`.
-  * `id` String (опционально) - Уникальное в каждом меню. Если определено, то он может быть использован в качестве ссылки на этот элемент по атрибуту позиции.
+  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (опционально) - Вставляет этот элемент перед элементом с указанным названием. Если указанный элемент не существует, то элемент будет вставлен в конец меню. Кроме того, подразумевается, что рассматриваемый элемент меню размещен в той же "группе", что и сам элемент.
-  * `after` String[] (опционально) - Вставляет этот элемент после элемента с указанной меткой. Если указанный элемент не существует, он будет вставлен в конец меню.
+  * `after` String[] (optional) - Inserts this item after the item with the specified label. Если ссылаемый элемент не существует, тогда элемент будет вставлен в конец меню.
   * `beforeGroupContaining` String[] (опционально) - Предоставляет возможность в одном контекстном меню объявить размещение группы, содержащей элемент, перед группой, содержащей элемент с указанной меткой.
   * `afterGroupContaining` String[] (опционально) - Предоставляет возможность в одном контекстном меню объявить размещение группы, содержащей элемент, после группы, содержащей элемент с указанной меткой.
 
@@ -69,7 +69,7 @@ Process: [Main](../glossary.md#main-process)
 * `viewMenu` - Полное меню "Вид" по умолчанию (перезагрузка, переключение инструментов разработчика и т. д.)
 * `windowMenu` - Полное меню "Окно" по умолчанию (Свернуть, масштаб и т. д.).
 
-На *macOS* доступны следующие дополнительные роли:
+The following additional roles are available on _macOS_:
 
 * `appMenu` - Полное меню "App" по умолчанию (О программе, службах и т. д.)
 * `about` - Сопоставляется с `orderFrontStandardAboutPanel`.
@@ -93,9 +93,9 @@ Process: [Main](../glossary.md#main-process)
 
 При задании `role` на macOS, `label` и `accelerator` являются единственными параметрами, которые влияют на пункт меню. Все остальные параметры будут проигнорированы. Нижний регистр `role`, например `toggledevtools`, все еще поддерживается.
 
-**Обратите внимание:** Параметры `enabled` и `visibility` не доступны для элементов верхнего уровня меню на MacOS.
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
-### Свойства экземпляра
+### Instance Properties
 
 Для экземпляров `MenuItem` доступны следующие свойства:
 
@@ -109,8 +109,7 @@ Process: [Main](../glossary.md#main-process)
 
 #### `menuItem.click`
 
-`Функция` которая выполняется, когда MenuItem получает событие щелчка. Она может быть вызвана с `menuItem.click(event, focusedWindow, focusedWebContents)`.
-
+A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
@@ -121,11 +120,11 @@ Process: [Main](../glossary.md#main-process)
 
 #### `menuItem.type`
 
-`Строка`с указанием типа предмета. Может быть `normal`, `separator`, `submenu`, `checkbox` или `radio`.
+`Строка` с указанием типа элемента. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
 
 #### `menuItem.role`
 
-`String` (опционально) с указанием роли элемента, если установлено. Может быть `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` или `windowMenu`
+`Строка` (опционально) с указанием роли элемента, если установлено. Может быть `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` или `windowMenu`
 
 #### `menuItem.accelerator`
 
@@ -139,7 +138,7 @@ Process: [Main](../glossary.md#main-process)
 
 `Строка` с указанием подписи элемента, это свойство может быть динамически изменено.
 
-#### `menuItem.toolTip` *macOS*
+#### `menuItem.toolTip` _macOS_
 
 `String` с указанием текста, который появляется при наведении курсора на элемент.
 
@@ -157,7 +156,7 @@ Process: [Main](../glossary.md#main-process)
 
 Элемент меню `checkbox` будет включать и выключать свойство `checked` при его выборе.
 
-`Radio` пункт меню включит его свойство `checked` при нажатии, и отключит это свойство для всех смежных пунктов в том же меню.
+A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
 
 Вы можете добавить функцию `click` для дополнительного поведения.
 
