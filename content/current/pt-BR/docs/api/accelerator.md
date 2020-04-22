@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 No Linux e no Windows, a tecla `Command` não tem nenhum efeito, então, para definir alguns aceleradores é recomendado utilizar `CommandOrControl` que representa `Command` no macOS e `Control` no Linux e no Windows.
 
-Utilize `Alt` ao invés de `Option`. A tecla `Option` só existe no macOS, em compensação, a tecla `Alt` está disponível em todas as plataformas.
+Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
 A tecla `Super` é mapeada para a tecla `Windows` no Windows e no Linux e para a tecla `Cmd` no macOS.
 
@@ -64,7 +64,7 @@ A tecla `Super` é mapeada para a tecla `Windows` no Windows e no Linux e para a
 * `VolumeUp`, `VolumeDown` e `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` e `MediaPlayPause`
 * `PrintScreen`
-* Teclas numéricas 
+* Teclas numéricas
   * `num0` - `num9`
   * `numdec` - tecla decimal
   * `numadd` - tecla `+`
