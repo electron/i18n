@@ -38,15 +38,15 @@ session.defaultSession.cookies.set(cookie)
   })
 ```
 
-### Sınıf Örneği Olayları
+### Örnek olayları
 
 Aşağıdaki olaylar `Cookies` sınıfından türeyen objelerde mevcuttur:
 
 #### Olay: 'changed'
 
-* `event` Event
+* `event` Olay
 * `cookie` [Çerez](structures/cookie.md) - Değişen çerez.
-* `cause` Katar - Olan değışimin nedeni (Aşağıdaki değerlerle): 
+* `cause` String - The cause of the change with one of the following values:
   * `explicit` - Çerez direkt olarak kullanıcının bir aksiyonu tarafından değiştirildi.
   * `overwrite` - Çerez, aynı isimde yeni bir çerez eklendiği için silindi.
   * `expired` - Çerez, süresi dolduğu için otomatik olarak silindi.
@@ -62,7 +62,7 @@ Aşağıdaki metodlar `Cookies` sınıfının örneklerinde mevcut:
 
 #### `cookies.get(filter)`
 
-* `Filtre` Object 
+* `filter` Object
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * `name` Katar (opsiyonel) - Çerezleri isme göre filtrele.
   * `domain` Katar (opsiyonel) - `domains` ile eşleşen domain'lerin çerezlerini çeker.
@@ -76,14 +76,14 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 #### `cookies.set(details)`
 
-* `details` Obje 
+* `details` Object
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
-  * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
-  * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
-  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
-  * `path` Katar (opsiyonel) - Çerezin geçerli olduğu dizin. Değer girilmezse boş atanır.
-  * `secure` Katar (opsiyonel) - Çerez güvenli olarak işaretlensin mi? Varsayılan değeri False.
-  * `httpOnly` Boolean (opsiyonel) - Çerez httpOnly olarak işaretlensin mi? Varsayılan değeri False.
+  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
+  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
+  * `domain` Karakter (opsiyonel) - Çerezin alan adı; bu, önceki bir nokta ile normalleştirilir, böylece alt alanlar için de geçerlidir. Empty by default if omitted.
+  * `path` Dize (opsiyonel) - Çerezin yolu. Empty by default if omitted.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Varsayılan olarak değer false.
+  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Varsayılan yanlış.
   * `expirationDate` Double (opsiyonel) - UNIX epoch başlangıcından itibaren saniyeler cinsinden çerezin geçerliliğini yitirme süresi. Eğer boş geçilirse, çerez bir oturum çerezi olarak algılanır ve farklı oturumlar arasında kalıcı olmaz.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been set
