@@ -4,14 +4,14 @@
 
 Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `nuevo botón en la barra tactil(opciones)` *Experimental*
+### `nuevo botón en la barra tactil(opciones)` _Experimental_
 
-* `opciones` Object 
+* `options` Object
   * `Etiqueta` cadena (opcional) - Texto del fondo.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `Color del fondo` Cadena (opcional) - Color del fondo en formato hex, ejemplo: `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
+  * `posición del ícono` Cadena (opcional) - Puede ser `izquierda`, `derecha` o `superpuesto`. Defaults to `overlay`.
   * `click` Función (opcional) - Función a llamar cuando se hace click en el fondo.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
@@ -26,12 +26,12 @@ A `String` representing the description of the button to be read by a screen rea
 
 #### `touchBarButton.label`
 
-Una `String` que representa el texto actual del botón. Cambiar este valor actualiza el botón en la barra táctil.
+A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.backgroundColor`
 
-Un código hex `String` que representa el color de fondo actual del botón. Cambiar este valor actualiza inmediatamente el botón en la barra táctil.
+A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.icon`
 
-Un `NativeImage` que representa el icono actual del botón. Cambiar este valor actualiza inmediatamente el botón en la barra táctil.
+A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
