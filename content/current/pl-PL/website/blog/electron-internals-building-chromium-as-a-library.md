@@ -8,7 +8,7 @@ Electron is based on Google's open-source Chromium, a project that is not necess
 
 ---
 
-## Using CEF
+## Używanie CEF
 
 The Chromium Embedded Framework (CEF) is a project that turns Chromium into a library, and provides stable APIs based on Chromium's codebase. Very early versions of Atom editor and NW.js used CEF.
 
@@ -78,7 +78,7 @@ The first try to solve this was to [patch `gn` to generate static library files]
 
 The second try was made by [@alespergl](https://github.com/alespergl) to [produce custom static libraries from the list of object files](https://github.com/electron/libchromiumcontent/pull/249). It used a trick to first run a dummy build to collect a list of generated object files, and then actually build the static libraries by feeding `gn` with the list. It only made minimal changes to Chromium's source code, and kept Electron's building architecture still.
 
-## Summary
+## Podsumowanie
 
 As you can see, compared to building Electron as part of Chromium, building Chromium as a library takes greater efforts and requires continuous maintenance. However the latter removes the requirement of powerful hardware to build Electron, thus enabling a much larger range of developers to build and contribute to Electron. The effort is totally worth it.
 
