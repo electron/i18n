@@ -10,7 +10,7 @@ Windows позволяет приложениям определять наст�
 > 
 > Настоятельно рекомендуется, чтобы список задач был статическим. Он должен оставаться неизменным независимо от состояния или статуса приложения. Хотя можно динамически изменять список, вы должны учитывать, что это может смутить пользователя, который не ожидает изменения этой части списка адресатов.
 
-**Задачи Internet Explorer:**
+__Задачи Internet Explorer:__
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
@@ -41,6 +41,7 @@ app.setUserTasks([])
 
 Задачи пользователя будут отображаться даже после закрытия приложения, поэтому значок и путь программы, указанный для задачи, должен существовать до тех пор, пока приложение не будет удалено.
 
+
 ## Thumbnail Toolbars
 
 В Windows можно добавить панель эскизов с требуемыми кнопками на панели задач окна приложения. Она предоставляет пользователям доступ к команда конкретного окна без восстановления или активации окна.
@@ -51,7 +52,7 @@ From MSDN, it's illustrated:
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
-**Thumbnail toolbar of Windows Media Player:**
+__Thumbnail toolbar of Windows Media Player:__
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
@@ -86,13 +87,14 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
+
 ## Icon Overlays in Taskbar
 
 В Windows кнопка панели задач может использовать небольшое наложение для отображения состояния приложения, как указано в MSDN:
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
-**Overlay on taskbar button:**
+__Overlay on taskbar button:__
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
@@ -103,6 +105,7 @@ const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
+
 
 ## Flash Frame
 
