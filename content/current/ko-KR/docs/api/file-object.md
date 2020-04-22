@@ -8,7 +8,7 @@ The DOM's File interface provides abstraction around native files in order to le
 
 ```html
 <div id="holder">
-  Drag your file here
+  여기에 파일을 끌어다 두세요.
 </div>
 
 <script>
@@ -17,7 +17,7 @@ The DOM's File interface provides abstraction around native files in order to le
     e.stopPropagation();
 
     for (const f of e.dataTransfer.files) {
-      console.log('File(s) you dragged here: ', f.path)
+      console.log('여기에 끌어다 둔 파일: ', f.path)
     }
   });
   document.addEventListener('dragover', (e) => {
