@@ -4,34 +4,34 @@ Lütfen, Electron sürümünüzle eşleşen belgeleri kullandığınızdan, emin
 
 ## SSS
 
-Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
+Çok sık sorulan sorular var. Bir konu yaratmadan önce bir göz atın:
 
 * [Electron SSS](faq.md)
 
 ## 1 whan to business in online application
 
-* [Geliştirme Ortamını Kurmak](tutorial/development-environment.md) 
+* [Geliştirme Ortamını Kurmak](tutorial/development-environment.md)
   * [MacOS İçin Kurulum](tutorial/development-environment.md#setting-up-macos)
   * [Windows İçin Kurulum](tutorial/development-environment.md#setting-up-windows)
   * [Linux İçin Kurulum](tutorial/development-environment.md#setting-up-linux)
   * [Bir Editör Seçme](tutorial/development-environment.md#a-good-editor)
-* [İlk Uygulamanızı Oluşturma](tutorial/first-app.md) 
+* [İlk Uygulamanızı Oluşturma](tutorial/first-app.md)
   * [Electron'u Yükleme](tutorial/first-app.md#installing-electron)
   * [Kabukta Electron Geliştirme](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Uygulamanızı Çalıştırma](tutorial/first-app.md#running-your-app)
-* [Demirbaşlar ve KSA'lar](tutorial/boilerplates-and-clis.md) 
+* [Demirbaşlar ve KSA'lar](tutorial/boilerplates-and-clis.md)
   * [Demirbaş KSA'a Karşı](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Diğer Araçlar ve Demirbaşlar](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Uygulama Mimarisi](tutorial/application-architecture.md) 
+* [Uygulama Mimarisi](tutorial/application-architecture.md)
   * [Ana ve Oluşturucu İşlemleri](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron API'lerini Kullanma](tutorial/application-architecture.md#using-electron-apis)
   * [Node.js API'lerini Kullanma](tutorial/application-architecture.md#using-nodejs-apis)
   * [Yerli Node.js Modüllerini Kullanma](tutorial/using-native-node-modules.md)
   * [Performans Stratejileri](tutorial/performance.md)
-* Uygulamanıza Özellikler Ekleme 
+* Uygulamanıza Özellikler Ekleme
   * [Bildirimler](tutorial/notifications.md)
   * [Son Günlerdeki Dokümanlar](tutorial/recent-documents.md)
   * [Uygulama İlerleyişi](tutorial/progress-bar.md)
@@ -45,29 +45,29 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Ekran Dışı İşleme](tutorial/offscreen-rendering.md)
   * [MacOS'da karanlık mod destekletmek](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
-* [Erişilebilirlik](tutorial/accessibility.md) 
+* [Erişilebilirlik](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Erişilebilirliği Etkinleştirmek](tutorial/accessibility.md#enabling-accessibility)
-* [Test ve Hata Ayıklama](tutorial/application-debugging.md) 
+* [Test ve Hata Ayıklama](tutorial/application-debugging.md)
   * [Ana İşlem Hata Ayıklama](tutorial/debugging-main-process.md)
   * [Ana işlemi Visual Studio Code ile debuglamak](tutorial/debugging-main-process-vscode.md)
   * [Selenyum ve WebDriver Kullanma](tutorial/using-selenium-and-webdriver.md)
   * [Headless CI Sistemlerinde (Travis, Jenkins) Test Etme](tutorial/testing-on-headless-ci.md)
   * [DevTools Eklentisi](tutorial/devtools-extension.md)
   * [Özel Bir Sürücü ile Otomatik Test](tutorial/automated-testing-with-a-custom-driver.md)
-* [Yayınlama](tutorial/application-distribution.md) 
+* [Yayınlama](tutorial/application-distribution.md)
   * [Desteklenen Platformlar](tutorial/support.md#supported-platforms)
   * [Kod İmzalama](tutorial/code-signing.md)
   * [Mac Uygulama Mağazası](tutorial/mac-app-store-submission-guide.md)
   * [Windows Mağaza](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Güvenlik](tutorial/security.md) 
+* [Güvenlik](tutorial/security.md)
   * [Güvenlik sorunlarını raporlama](tutorial/security.md#reporting-security-issues)
   * [Chromium Güvenlik Sorunları ve Yükseltmeleri](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron Güvenlik Uyarıları](tutorial/security.md#electron-security-warnings)
   * [Güvenlik Kontrol Listesi](tutorial/security.md#checklist-security-recommendations)
-* [Güncellemeler](tutorial/updates.md) 
+* [Güncellemeler](tutorial/updates.md)
   * [Güncelleme Sunucusunu Dağıtma](tutorial/updates.md#deploying-an-update-server)
   * [Uygulama içerisinde güncellemeleri yapmak](tutorial/updates.md#implementing-updates-in-your-app)
   * [Güncellemeleri Uygulama](tutorial/updates.md#applying-updates)
@@ -77,15 +77,15 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda genişler.
 
-* [Electron'u Yükleme](tutorial/installation.md) 
+* [Electron'u Yükleyin](tutorial/installation.md)
   * [Vekil Sunucular](tutorial/installation.md#proxies)
   * [Özel Aynalar ve Önbellekler](tutorial/installation.md#custom-mirrors-and-caches)
   * [Arıza giderme](tutorial/installation.md#troubleshooting)
-* Electron Sürümleri & Geliştirici geri bildirimi 
+* Electron Sürümleri & Geliştirici geri bildirimi
   * [Sürüm oluşturma ilkesi](tutorial/electron-versioning.md)
   * [Sürüm zaman çizelgeleri](tutorial/electron-timelines.md)
   * [Uygulama Geri Bildirim Programı](tutorial/app-feedback-program.md)
-* [Asar ile kaynak kodu paketlemek](tutorial/application-packaging.md) 
+* [Asar ile kaynak kodu paketlemek](tutorial/application-packaging.md)
   * [asar Arşivleri Üretmek](tutorial/application-packaging.md#generating-asar-archives)
   * [Arşivleri asar kullanma](tutorial/application-packaging.md#using-asar-archives)
   * [Kısıtlamalar](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -93,7 +93,7 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * [Widevine CDM’inin Test Edilmesi](tutorial/testing-widevine-cdm.md)
 * [Pepper Flash Eklentisini Kullanma](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [Terimler Sözlüğü](glossary.md)
 
@@ -126,7 +126,7 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
-* [net](api/net.md)
+* [ağ](api/net.md)
 * [netLog](api/net-log.md)
 * [Bildirim](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
@@ -155,4 +155,4 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 
 ## Geliştirme
 
-Bakınız <development/README.md>
+Bakınız [development/README.md](development/README.md)
