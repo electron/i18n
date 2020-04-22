@@ -5,16 +5,15 @@ Read-Eval-Print-Loop (REPL) - это простая интерактивная �
 Модуль `repl` предоставляет реализацию REPL, к которой можно получить доступ, используя:
 
 * Если у вас есть `electron` или `electron-prebuilt` установлен как локальный проект зависимость:
-    
-    ```sh
-    ./node_modules/.bin/electron --interactive
-    ```
 
+  ```sh
+  ./node_modules/.bin/electron --interactive
+  ```
 * Если у вас `electron` или `electron-prebuilt` установлен глобально:
-    
-    ```sh
-    electron --interactive
-    ```
+
+  ```sh
+  electron --interactive
+  ```
 
 This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
 
