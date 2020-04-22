@@ -47,7 +47,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) は、Web Driver でテストするための Node パッケージを提供します。ここでは例として使用します。
 
-### 1. Start ChromeDriver
+### 1. ChromeDriver の開始
 
 最初に、`chromedriver` バイナリをダウンロードして実行する必要があります。
 
@@ -60,13 +60,13 @@ Only local connections are allowed.
 
 後で使用されるポート番号 `9515` を覚えておいてください。
 
-### 2. Install WebDriverJS
+### 2. WebDriverJS のインストール
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. ChromeDriver へ接続
 
 Electron での `selenium-webdriver` の使用方法は、手動で chrome driver の接続方法と Electron のバイナリの検索場所を指定する必要があることを除いて、upstream と同じです。
 
@@ -101,7 +101,7 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) は、Web Driver でテストするための Node パッケージを提供します。
 
-### 1. Start ChromeDriver
+### 1. ChromeDriver の開始
 
 最初に、`chromedriver` バイナリをダウンロードして実行する必要があります。
 
@@ -114,13 +114,13 @@ Only local connections are allowed.
 
 後で使用されるポート番号 `9515` を覚えておいてください。
 
-### 2. Install WebdriverIO
+### 2. WebdriverIO のインストール
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. ChromeDriver へ接続
 
 ```javascript
 const webdriverio = require('webdriverio')
@@ -153,4 +153,4 @@ client
 
 Electron を再構築せずにアプリケーションをテストするには、アプリケーションソースを Electron のリソースディレクトリに[配置します](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md)。
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Electron バイナリに引数を渡すことでも、実行するアプリのフォルダを指定できます。 こうすれば、アプリを Electron のリソースディレクトリにコピーペーストする必要はありません。
