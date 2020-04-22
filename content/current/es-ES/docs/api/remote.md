@@ -17,9 +17,8 @@ win.loadURL('https://github.com')
 **Note:** Para lo contrario (acceder al renderer process desde el main process), puede usar [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Note:** El módulo remote puede ser deshabilitado por razones de seguridad en los siguientes contextos:
-
-* [`BrowserWindow`](browser-window.md) - estableciendo la opción `enableRemoteModule` a `false`.
-* [`<webview>`](webview-tag.md) - estableciendo el atributo `enableremotemodule` a `false`.
+- [`BrowserWindow`](browser-window.md) - estableciendo la opción `enableRemoteModule` a `false`.
+- [`<webview>`](webview-tag.md) - estableciendo el atributo `enableremotemodule` a `false`.
 
 ## Objetos Remotos
 
@@ -43,7 +42,7 @@ Los tipos de valor primario como cadenas y números, sin embargo, son enviados p
 
 El código en el proceso principal puede aceptar callbacks desde el renderizador, por ejemplo el módulo `remote`, pero hay que extremo cuidado cuando se usa esta característica.
 
-Primero, para evitar interbloqueos, los callbacks pasados al proceso principal se llaman asincrónicamente. No hay que esperar a que el proceso principal obtenga el valor devuelto de los callbacks pasados.
+First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
 
 Por ejemplo, no se puede utilizar una función del proceso de renderizado en un `Array.map` llamado en el proceso principal:
 
@@ -72,11 +71,11 @@ Como puede observarse, el valor devuelto sincrónico del callback renderizador n
 
 Segundo, los callbacks pasados al proceso principal persistirán hasta que los desechos del proceso principal los recopile.
 
-Por ejemplo, el siguiente código parece inocente a primera vista. Instala un callback para el evento `close` en un objeto remoto:
+For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // la ventana se cerró...
+  // window was closed...
 })
 ```
 
@@ -151,6 +150,6 @@ Devuelve `any` - La variable global de `name` (por ejemplo `global[name]`) en el
 
 ## Propiedades
 
-### `remote.process` *Readonly*
+### `remote.process` _Readonly_
 
-A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
