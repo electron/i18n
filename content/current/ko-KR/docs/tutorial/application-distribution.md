@@ -123,7 +123,7 @@ Electron의 커스텀 포크를 만드는 것은 거의 확실히 앱을 만드�
   * `SURF_TEMP` - Windows에서는 `C:\Temp`로 설정하면 긴 경로 문제를 해결할 수 있습니다.
   * `TARGET_ARCH` - `ia32` 또는 `x64`를 지정.
 
-4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+4. Electron에 기여를 하는 기여자라면, _반드시_ `script/upload.py`에서 포크를 위해 `ELECTRON_REPO`를 설정해야 합니다. (`MYORG/electron`)
 
 5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
