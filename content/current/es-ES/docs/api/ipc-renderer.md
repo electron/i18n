@@ -4,7 +4,7 @@
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Proporciona un par de métodos para enviar mensajes sincrónicos y asincrónicos desde el proceso de renderizado (página web) al proceso principal. También puede recibir respuestas del proceso principal.
+The `ipcRenderer` module is an  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Proporciona un par de métodos para enviar mensajes sincrónicos y asincrónicos desde el proceso de renderizado (página web) al proceso principal. También puede recibir respuestas del proceso principal.
 
 Ver [ipcMain](ipc-main.md) para ejemplos de códigos.
 
@@ -15,7 +15,7 @@ El módulo `ipcRenderer` tiene los siguientes métodos para escuchar los eventos
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function 
+* `listener` Función
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -24,19 +24,19 @@ Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `l
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function 
+* `listener` Función
   * `event` IpcRendererEvent
   * `...args` any[]
 
-Agrega una función `listener` para el evento. Este `listener` es invocado solo la próxima vez que se envía un mensaje a `channel`, después que se elimina.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function 
+* `listener` Función
   * `...args` any[]
 
-Elimina el `listener` especificado del arreglo listener para el `channel` especificado.
+Elimina el `listener` especificado del arreglo del oyente para el `channel` especificado.
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
@@ -58,7 +58,7 @@ The main process handles it by listening for `channel` with the [`ipcMain`](ipc-
 ### `ipcRenderer.invoke(channel, ...args)`
 
 * `channel` Cadena
-* `...args` cualquiera[]
+* `...args` any[]
 
 Returns `Promise<any>` - Resolves with the response from the main process.
 
@@ -69,7 +69,6 @@ Send a message to the main process via `channel` and expect a result asynchronou
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 Por ejemplo:
-
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
