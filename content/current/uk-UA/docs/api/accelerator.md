@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 На Linux і Windows, клавіша `Command` не має ніякого впливу, тому використовуйте `CommandOrControl`, який являє собою `Command` на macOS та `Control` на Linux і Windows, для визначення акселераторів.
 
-Використовуйте `Alt` замість `Option`. Клавіша `Option` існує тільки на macOS, тоді як клавіша `Alt` доступна на всіх платформах.
+Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
 Клавіша `Super` відповідає клавіші `Windows` на Windows та Linux і `Cmd` на macOS.
 
@@ -64,7 +64,7 @@ app.on('ready', () => {
 * `VolumeUp`, `VolumeDown` та `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` та `MediaPlayPause`
 * `PrintScreen`
-* Клавіші цифрової клавіатури 
+* Клавіші цифрової клавіатури
   * `num0` - `num9`
   * `numdec` - десяткова клавіша
   * `numadd` - клавіша `+` на цифровій клавіатурі
