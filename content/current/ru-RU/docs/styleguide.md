@@ -13,27 +13,27 @@
 Используйте `Быстрый старт` как пример:
 
 ```markdown
-# Быстрый старт (Quick Start)
+# Quick Start
 
-... 
+...
 
-## Главный процесс (Main process)
+## Main process
 
-... 
+...
 
-## Процесс отображения (Renderer process)
+## Renderer process
 
-... 
+...
 
-## Запуск вашего приложения (Run your app)
+## Run your app
 
-... 
+...
 
-### Запуск в качестве дистрибутива (Run as a distribution)
+### Run as a distribution
 
-... 
+...
 
-### Ручная загрузка бинарных файлов Electron
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -95,10 +95,10 @@
 * Конструкторы должны быть перечислены с `###`-уровнем названия.
 * [Статические методы](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) должны быть перечислены под главой `### Статические методы`.
 * [Методы экземпляра](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) должны быть перечислены под главой `### Методы экземпляра`.
-* Все методы, которые возвращают значение должно начинаться с описания "Возвращает `[ТИП]` - описание возвращаемого" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * Если метод возвращает `Object`, его структуру можно указать с помощью двоеточия, следующие строки в виде неупорядоченного списка свойств в том же стиле параметров функции.
 * События экземпляров, должны быть перечислены под главой `### События экземпляра`.
-* Свойства экземпляра должны быть перечислены под главой `### Свойства экземпляра` . 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Свойства экземпляра должно начинаться с "[Тип Свойства] ..."
 
 Используйте классы `Session` и `Cookies` в качестве примера:
@@ -142,14 +142,15 @@
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - описание параметра. 
-* `optional` Integer (опционально) - еще одно описание параметра.
-  ...
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
+
+...
 ```
 
 Название может быть`###` или`####`-уровня в зависимости от того, является ли этот метод модуля или класса.
 
-Для модулей, `objectName` это имя модуля. Для классов это должны быть имена экземпляров класса и не должны быть таким же, как имя модулей.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Например, методы класса `Session` под модулем `session` должны использовать `ses` как `objectName`.
 
@@ -159,7 +160,7 @@
 required[, optional]
 ```
 
-Методы ниже объявляют более подробную информацию о каждом из аргументов. Тип аргумента нотируется из общих типов:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
