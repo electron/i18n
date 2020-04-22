@@ -23,9 +23,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Đang thử nghiệm*
+### `new BrowserView([options])` _Đang thử nghiệm_
 
-* `options` Object (không bắt buộc) 
+* `options` Object (optional)
   * `webPreferences` Object (không bắt buộc) - Xem [BrowserWindow](browser-window.md).
 
 ### Các phương thức chung
@@ -50,11 +50,11 @@ Trả về `BrowserView` với `id` đã cho.
 
 Object được tạo bằng `new BrowserView` có các thuộc tính sau đây:
 
-#### `view.webContents` *Đang thử nghiệm*
+#### `view.webContents` _Đang thử nghiệm_
 
 [`WebContents`](web-contents.md) object sở hữu bởi view này.
 
-#### `view.id` *Đang thử nghiệm*
+#### `view.id` _Đang thử nghiệm_
 
 Một `số thực` đại diện cho ID độc nhất của View đó.
 
@@ -70,26 +70,26 @@ Force closing the view, the `unload` and `beforeunload` events won't be emitted 
 
 Returns `Boolean` - Whether the view is destroyed.
 
-#### `view.setAutoResize(options)` *Đang thử nghiệm*
+#### `view.setAutoResize(options)` _Đang thử nghiệm_
 
-* `options` Object 
+* `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Đang thử nghiệm*
+#### `view.setBounds(bounds)` _Đang thử nghiệm_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Điều chỉnh kích cỡ và di chuyển view.
 
-#### `view.getBounds()` *Experimental*
+#### `view.getBounds()` _Experimental_
 
 Returns [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *Đang thử nghiệm*
+#### `view.setBackgroundColor(color)` _Đang thử nghiệm_
 
-* `color` Chuỗi - Màu dưới định dạng `#aarrggbb` hoặc `#argb`. Kênh alpha không bắt buộc.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
