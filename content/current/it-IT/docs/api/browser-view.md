@@ -23,7 +23,7 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` _Experimental_
+### `nuova BrowserView([options])` _Sperimentale_
 
 * `options` Object (optional)
   * `webPreferences` Object (opzionale) - Vedi [BrowserWindow](browser-window.md).
@@ -50,11 +50,11 @@ Restituisce `VistaBrowser` - La vista con l'`id` dato.
 
 Oggetti creato con `nuova VistaBrowser` hanno le seguenti proprietà:
 
-#### `view.webContents` _Experimental_
+#### `vista.Contenutiweb` _Sperimentale_
 
 Un oggetto [`ContenutiWeb`](web-contents.md) da questa vista.
 
-#### `view.id` _Experimental_
+#### `vista.id` _Sperimentale_
 
 Un numero `Intero` rappresentante l'unico ID di visualizzazione.
 
@@ -70,7 +70,7 @@ Forza la chiusura della vista, gli enventi `unload` e `beforeunload` non verrann
 
 Restituisce `Boolean` - Se la vista viene distrutta.
 
-#### `view.setAutoResize(options)` _Experimental_
+#### `vedi.impostaRidimensionaAutomaticamente(opzioni` _Sperimentale_
 
 * `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
@@ -78,7 +78,7 @@ Restituisce `Boolean` - Se la vista viene distrutta.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` _Experimental_
+#### `vista.impostaLimiti(limiti)` _Sperimentale_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
@@ -86,10 +86,10 @@ Ridimensiona e muovi la vista ai limiti forniti relativamente alla finestra.
 
 #### `view.getBounds()` _Experimental_
 
-Ritorna [`Rectangle`](structures/rectangle.md)
+Restituisce [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` _Experimental_
+#### `vista.impostaColoreSfondo(colore)` _Sperimentale_
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
