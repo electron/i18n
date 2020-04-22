@@ -2,19 +2,19 @@
 
 > HTTP/HTTPS isteklerini yap.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 `ClientRequest` [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface'ini implement eder, bu yüzden de o bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'dır.
 
 ### `new ClientRequest(options)`
 
-* `seçenekler` (Object | String) - Eğer `seçenekler` bir String ise o, bir istek URL olarak yorumlanır. Eğer bir object ise bir HTTP isteğini aşağıdaki özellikler ile tam olarak belirtmesi beklenir: 
-  * `method` String (isteğe bağlı) - HTTP istek metodu. Varsayılan GET metodudur.
-  * `url` String (isteğe bağlı) - İstek URL'si. Belirtilen http veya https protokol şeması ile mutlak formunda kesinlikle sağlanmalıdır.
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (isteğe bağlı) - İlişkili olduğu istek ile [`partition`](session.md)'nın ismi. Varsayılan boş string. `session` seçeneği `partition`'da hakimdir. Böylelikle `session` açıkça belirtilmedikçe, `partition` yoksayılır.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Varsayılan `false`'dur.
-  * `protocol` String (isteğe bağlı) - 'scheme:' formunda protokol şeması. Şu anda desteklenen değerler 'http:' veya 'https:'dir. Varsayılan 'http:'.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Varsayılanı `false`.
+  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `hostname` String (isteğe bağlı) - Sunucu ana bilgisayar adı.
   * `port` Integer (isteğe bağlı) - Sunucunun dinlenen port numarası.
@@ -39,7 +39,7 @@ const request = net.request({
 
 #### Etkinlik: 'tepki'
 
-Returns:
+Dönüşler:
 
 * `response` IncomingMessage - HTTP yanıt mesajını temsil eden bir nesne.
 
@@ -47,13 +47,13 @@ Returns:
 
 Dönüşler:
 
-* `authInfo` Obje 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` Dizi
   * `host` Dizi
   * `port` Tamsayı
   * `realm` Dizi
-* `geri aramak` Fonksiyon 
+* `callback` Fonksiyon
   * `username` String (optional)
   * `password` String (optional)
 
@@ -69,7 +69,6 @@ request.on('login', (authInfo, callback) => {
   callback('username', 'password')
 })
 ```
-
 Boş kimlik bilgileri sağlanması isteği iptal eder ve yanıt nesnesinde bir kimlik doğrulama hatası rapor eder:
 
 ```JavaScript
@@ -90,7 +89,7 @@ request.on('login', (authInfo, callback) => {
 
 #### Etkinlik: 'iptal etmek'
 
-`request` iptal edildiğinde yayınlanır. Eğer `request` zaten kapatıldıysa `abort` etkinliği tetiklenmeyecektir.
+Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### Event: 'error'
 
@@ -104,6 +103,7 @@ Dönüşler:
 
 HTTP istek-cevap hareketindeki son olay olarak yayınlanır. `close` olayı, `request` ve `response` nesneleri üzerinde daha fazla olay yayınlanmayacağını belirtir.
 
+
 #### Etkinlik: 'yönlendirme'
 
 Dönüşler:
@@ -113,9 +113,9 @@ Dönüşler:
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Örnek Özellikleri
+### Örnek özellikleri
 
 #### `request.chunkedEncoding`
 
@@ -123,7 +123,7 @@ Bir `Boolean` isteğin HTTP yığınlı aktarım kodlamasını kullanıp kullanm
 
 Eğer büyük bir istek parçası göndermeniz gerekiyorsa veri, Electron işlem belleği içerisinde dahili olarak ara belleğe yazdırmak yerine küçük yığınlar içinde akar bu yüzden parçalanmış kodlamanın şiddetle kullanılması önerilir.
 
-### Sınıf örneği metodları
+### Örnek yöntemleri
 
 #### `request.setHeader(name, value)`
 
@@ -140,14 +140,14 @@ Returns `String` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 
-* `name` String - İlave bir başık adını belirtir.
+* `name` Dize - İlave bir başlık adı belirtin.
 
-Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnızca ilk yazma işleminden önce yapılabilir. İlk yazma işleminden sonra yapmaya çalışmak bir hata meydana getirecektir.
+Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - istek gövdesinin verisinin bir parçası. Eğer bir string ise belirtilen kodlama kullanılarak bir Buffer içerisine dönüştürülür.
-* `encoding` String (isteğe bağlı) - String parçalarını Buffer nesneleri içine dönüştürmek için kullanılır. Varsayılan 'utf-8'.
+* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
+* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
 * `callback` Fonksiyon (opsiyonel) - Yazma işlemi bittikten sonra çağırılır.
 
 `callback` aslında Node.js API ile benzerliğin korunması amacıyla sahte fonksiyon olarak tanıtılır. `chunk` içeriği Chromium ağ katmanına teslim edildikten sonra bir sonraki onay işareti içerisinde asenkron olarak çağırılır. Node.js uygulamasının aksine `callback` çağırılmadan önce `chunk` içeriğinin hat üzerinde hızla akacağının garantisi yoktur.
@@ -160,7 +160,7 @@ Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnız
 * `encoding` String (isteğe bağlı)
 * `callback` Fonksiyonu (opsiyonel)
 
-İstek verisinin son parçasını gönderir. Ardından gelebilecek olan yazma ve bitirme işlemlerine izin verilmemektedir. İşlem bittikten hemen sonra `finish` olayı yayılır.
+Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
 #### `request.abort()`
 
