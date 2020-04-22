@@ -316,7 +316,7 @@ Sets the handler which can be used to respond to permission requests for the `se
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
+    return callback(false) // 거부됨.
   }
 
   callback(true)
@@ -341,7 +341,7 @@ Sets the handler which can be used to respond to permission checks for the `sess
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return false // denied
+    return false // 거부됨.
   }
 
   return true
