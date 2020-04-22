@@ -2,7 +2,7 @@
 
 > Customize the rendering of the current web page.
 
-Processo: [Renderizzatore](../glossary.md#renderer-process)
+Processo: [Renderer](../glossary.md#renderer-process)
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
@@ -67,7 +67,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 * `provider` Object
   * `spellCheck` Function
     * `words` String[]
-    * `callback` Function
+    * `callback` Funzione
       * `misspeltWords` String[]
 
 Sets a provider for spell checking in input fields and text areas.
@@ -122,7 +122,7 @@ Inserts `text` to the focused element.
 
 ### `webFrame.executeJavaScript(code[, userGesture])`
 
-* `codice` Stringa
+* `code` Stringa
 * `userGesture` Boolean (optional) - Default is `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -152,7 +152,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
