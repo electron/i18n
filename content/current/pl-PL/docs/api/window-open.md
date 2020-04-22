@@ -4,9 +4,9 @@
 
 Kiedy `window.open` jest wywołane do utworzenia nowego okna na stronie internetowej, nowa instancja [`BrowserWindow`](browser-window.md) zostanie utworzona dla `url`, a proxy zostanie zwrócone do `window.open`, aby strona miała nad nim ograniczoną kontrolę.
 
-Proxy posiada ograniczoną standardową funkcjonalność, kompatybilną z tradycyjnymi stronami internetowymi. Aby uzyskać pełną kontrolę nad nowym oknem powinieneś utworzyć `BrowserWindow` bezpośrednio.
+The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
 
-Nowo utworzony obiekt `BrowserWindow` domyślnie dziedziczy opcje okna nadrzędnego. Aby zastąpić dziedziczone opcje, można je ustawić za pomocą `funkcji` typu String.
+The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
 
 ### `window.open(url[, frameName][, features])`
 
@@ -19,7 +19,6 @@ Zwraca [`BrowserWindowProxy`](browser-window-proxy.md) - tworzy nowe okno i zwra
 Ciąg znaków `features` odpowiada formatowi standardowej przeglądarki, ale każda funkcja musi być kluczem opcji `BrowserWindow`. Oto funkcje, które można ustawić za pomocą `features`: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 Na przykład:
-
 ```js
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
