@@ -4,9 +4,9 @@ Electron の API に入る前に、Electron で利用可能な2つのプロセ�
 
 ## メインプロセスとレンダラープロセス
 
-In Electron, the process that runs `package.json`'s `main` script is called __the main process__. メインプロセスで実行されるスクリプトは、ウェブページを生成することで GUI を表示できます。 Electron アプリには常に1つのメインプロセスがありますが、これ以上はありません。
+Electronにおいて、`package.json` の `main` で指定されたスクリプトを実行するプロセスを __メインプロセス__ (main process) と呼びます。 メインプロセスで実行されるスクリプトは、ウェブページを生成することで GUI を表示できます。 Electron アプリには常に1つのメインプロセスがありますが、これ以上はありません。
 
-Electron はウェブページを表示するために Chromium を使用しているため、 Chromium のマルチプロセスアーキテクチャも使用されます。 Each web page in Electron runs in its own process, which is called __the renderer process__.
+Electron はウェブページを表示するために Chromium を使用しているため、 Chromium のマルチプロセスアーキテクチャも使用されます。 Electronにおける各 Web ページはそれぞれのプロセスとして動作します。これを__レンダラプロセス__ (renderer process) と呼びます。
 
 通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electron を使用している場合は、Node.js API をウェブページ内で使用して、OS へ作用できるローレベル API を使用することが出来ます。
 
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 重要な注意点が1つあります。ネイティブな Node.js モジュール (ネイティブコードのコンパイルが必要なモジュール) は、Electron と一緒に使用するためにコンパイルする必要があります。
 
-The vast majority of Node.js modules are _not_ native. ~650,000のモジュールのうち400個だけがネイティブです。 しかし、どうしてもネイティブモジュールが必要な場合は、[Electron を再コンパイルする方法についてのこのガイド](./using-native-node-modules.md) を参照してください。
+Node.js モジュールの大部分はネイティブでは _ありません_。 ~650,000のモジュールのうち400個だけがネイティブです。 しかし、どうしてもネイティブモジュールが必要な場合は、[Electron を再コンパイルする方法についてのこのガイド](./using-native-node-modules.md) を参照してください。
