@@ -57,7 +57,7 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 ![](../images/versioning-sketch-1.png)
 
-Since Electron 8, stabilization branches are always **major** version lines, and named against the following template `$MAJOR-x-y` e.g. `8-x-y`.  Prior to that we used **minor** version lines and named them as `$MAJOR-$MINOR-x` e.g. `2-0-x`
+Electron 8 以降、安定化ブランチは常に **major** のバージョンラインであり、テンプレート `$MAJOR-x-y` に沿って `8-x-y` のように名前を付けます。  以前は **minor** のバージョンラインを使用しており、`$MAJOR-$MINOR-x` に沿って `2-0-x` のような名前にしていました。
 
 複数の安定化ブランチを同時に存在させることができます。また、必要に応じてセキュリティ修正を後方移植しながら、少なくとも2つのサポートを常に並行してサポートする予定です。 ![](../images/versioning-sketch-2.png)
 
