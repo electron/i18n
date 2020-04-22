@@ -24,7 +24,7 @@ $ asar pack your-app app.asar
 
 ## Usando arquivos `asar`
 
-No Electron existem dois tipos de APIs: APIs Node vinda do Node.js e APIs Web vindas do Chromium. Ambas possuem suporte para leitura de pacotes `asar`.
+In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
 ### API Node
 
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### API Web
 
-Em uma página web, arquivos em um pacote pode ser requisitados com o protocolo `file:`. Como o API Node, pacotes `asar` são tratados como diretórios.
+In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
 Por exemplo, para obter um arquivo com `$.get`:
 
@@ -148,3 +148,4 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+
