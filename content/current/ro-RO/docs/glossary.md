@@ -6,7 +6,7 @@ Această pagină definește câtva din terminologia folosită în dezvoltarea El
 
 ASAR vine de la Atom Shell Archive Format(Format Arhivă în Coajă de Atom). O arhivă \[asar\](https://github. com/electron/asar), este defapt un format simplu de fișier `tar` care concateneaza fișierele într-un singur fișier. Electron poate citi fișierele arbitrare din acesta fără a despacheta întregul fișier.
 
-Formatul ASAR a fost creat în principiu pentru a îmbunătăți performanțele în Windows... TODO
+The ASAR format was created primarily to improve performance on Windows... TODO
 
 ### CRT
 
@@ -22,11 +22,11 @@ Editor metodă de intrare(Ime, în engleză). Un program care permite utilizator
 
 ### IDL
 
-Limbajul descrierii interfeței(Idl, în engleză). Scrie semnături funcționale și tipuri de date într-un format care poate fi utilizat pentru a genera interfețe în Java, C ++, JavaScript etc.
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
 
 ### IPC
 
-IPC reprezintă o Comunicare inter-proces. Electron utilizează IPC pentru a trimite mesaje JSON serializate între procesele[ [main-principal] ](#main-process) și [[renderer]](#renderer-process).
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
@@ -38,15 +38,15 @@ O împărtășire a bibliotecii care include [[Chromium Content module]](https:/
 
 Procesul principal, de obicei un fișier numit `` `main.js` ``, este punctul de intrare în fiecare aplicație Electron. Acesta controlează durata de viață a aplicației, de la deschis la închis. De asemenea, gestionează elemente autohtone, cum ar fi Meniul, Bara de meniu, Dock, Tava, etc. Procesul principal este responsabil pentru crearea fiecărui proces de redare din aplicație. API-ul complet al nodului este încorporat.
 
-Fișierul principal de proces al fiecărei aplicații este specificat în proprietatea `` `main-principal` `` din `` `pachet-package.json` ``. Acesta este modul în care `` `electron` `` știe ce fișier trebuie executat la pornire.
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-În Chromium, acest proces este denumit `browser-process-proces browser`. Este redenumit în Electron pentru a evita confuziile cu procesele de randare.
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
 Vezi de asemenea: [[process]](#process),[ [renderer-process]](#renderer-process)
 
 ### MAS
 
-Acronim pentru Apple App Store Mac. Pentru detalii despre trimiterea aplicației la MAS, consultați [[Mac App Store Submission Guide-Ghidul de trimitere a App App pentru Mac]](tutorial/mac-app-store-submission-guide.md).
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
@@ -68,7 +68,7 @@ Nullsoft Scriptable Install System este un instrument creat de un Instalator de 
 
 ### OSR
 
-OSR (interpretare în afara ecranului) poate fi utilizat pentru încărcarea paginii grele în fundal și apoi afișarea ei după (va fi mult mai rapid). Permite să redați pagina fără a o afișa pe ecran.
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
 ### proces
 
@@ -80,7 +80,7 @@ Vezi: [[main process]](#main-process),[ [renderer process]](#renderer-process)
 
 ### proces de redare
 
-Procesul de redare este o fereastră de browser din aplicația dvs. Spre deosebire de procesul principal, pot exista mai multe dintre acestea și fiecare este rulat într-un proces separat. Ele pot fi, de asemenea, ascunse.
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 În browserele normale, paginile web rulează de obicei într-un mediu al cutiilor cu nisip și nu li se permite accesul la resurse native. Utilizatorii Electron au, însă, puterea de a utiliza API-urile Node.js în paginile web care permit interacțiuni cu un sistem de operare de nivel inferior.
 
@@ -98,11 +98,11 @@ La fel ca Node, Electron este concentrat pe faptul că are un set mic de API-uri
 
 ### V8
 
-V8 este sursa deschisă a motorului JavaScript din Google. Este scris în C ++ și este utilizat în Google Chrome. V8 poate rula autonom sau poate fi încorporat în orice aplicație C++.
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
 Electron construiește V8 ca parte a Chromium și apoi indică Node către acel V8 atunci când îl construiește.
 
-Numărul de versiuni V8 corespund întotdeauna celor ale Google Chrome. Chrome 59 include V8 5.9, Chrome 58 include V8 5.8 etc.
+V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
 - [- [developers.google.com/v8]](https://developers.google.com/v8)
 - [- [nodejs.org/api/v8.html]](https://nodejs.org/api/v8.html)
