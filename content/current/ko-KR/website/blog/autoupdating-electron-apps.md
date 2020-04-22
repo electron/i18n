@@ -1,31 +1,31 @@
 ---
-title: Easier AutoUpdating for Open-Source Apps
+title: 오픈소스 앱의 더 간편한 AutoUpdating
 author: zeke
 date: '2018-05-01'
 ---
 
-Today we're releasing a free, open-source, hosted [updates webservice](https://github.com/electron/update.electronjs.org) and companion [npm package](https://github.com/electron/update-electron-app) to enable easy automatic updates for open-source Electron apps. This is a step toward empowering app developers to think less about deployment and more about developing high-quality experiences for their users.
+오늘 저희는 오픈 소스 Electron 앱의 간편한 자동 업데이트를 위해 무료이자 오픈 소스인 [업데이트 웹서비스](https://github.com/electron/update.electronjs.org)와 [npm 패키지](https://github.com/electron/update-electron-app)를 공개합니다. 이는 개발자가 배포에 들이는 시간을 줄이고, 앱 품질 향상을 위해 개발하는 시간을 더해드리기 위한 결정입니다.
 
 ---
 
 <figure>
   <a href="https://github.com/electron/update-electron-app" style="display: block; text-align: center;">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/39480716-e9990910-4d1d-11e8-8901-9549c6ff6050.png" alt="Updater Screenshot">
-    <figcaption>The new updater module in action</figcaption>
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/39480716-e9990910-4d1d-11e8-8901-9549c6ff6050.png" alt="업데이터 스크린샷">
+    <figcaption>새로운 updater 모듈의 모습</figcaption>
   </a>
 </figure>
 
-## Making life easier
+## 간편하게 살자
 
-Electron has an [autoUpdater](https://electronjs.org/docs/tutorial/updates) API that gives apps the ability to consume metadata from a remote endpoint to check for updates, download them in the background, and install them automatically.
+Electron에는 원격 endpoint에서 메타데이터를 가져와 업데이트를 확인하거나 백그라운드에서 다운로드하고, 자동으로 설치할 수 있도록 해주는 [autoUpdater](https://electronjs.org/docs/tutorial/updates) API 가 있습니다.
 
-Enabling these updates has been a cumbersome step in the deployment process for many Electron app developers because it requires a web server to be deployed and maintained just to serve app version history metadata.
+이를 사용하려면 웹 서버가 필요한데, 단지 앱 버전 메타데이터를 제공하기 위해 따로 웹 서버를 배포하고 유지 보수하는 일은 상당히 성가십니다. 이 때문에 여러 Electron 앱 개발자들에게 있어 자동 업데이트는 선뜻 구현하기 어려운 일이었습니다.
 
-Today we are announcing a new drop-in solution for automatic app updates. If your Electron app is in a public GitHub repository and you're using GitHub Releases to publish builds, you can use this service to deliver continuous app updates to your users.
+이를 해결하기 위해 자동 앱 업데이트를 위한 맞춤형 해결책을 공개합니다. 만약 Electron 앱이 공개 GitHub 리포지터리에 있고 GitHub Release 기능을 통해 빌드를 제공하고 계시다면 이 서비스를 활용하여 사용자에게 지속적인 앱 업데이트를 제공할 수 있습니다.
 
-## Using the new module
+## 새 모듈 사용하기
 
-To minimize configuration on your part, we've created [update-electron-app](https://github.com/electron/update-electron-app), an npm module which integrates with the new [update.electronjs.org](https://github.com/electron/update.electronjs.org) webservice.
+여러분이 하실 구성을 최소화하기 위해 저희가 [update.electronjs.org](https://github.com/electron/update.electronjs.org) 웹 서비스와 통합되는 [update-electron-app](https://github.com/electron/update-electron-app)라는 npm 모듈을 만들었습니다.
 
 모듈 설치:
 
@@ -33,26 +33,26 @@ To minimize configuration on your part, we've created [update-electron-app](http
 npm install update-electron-app
 ```
 
-Call it from anywhere in your app's [main process](https://electronjs.org/docs/glossary#main-process):
+앱의 [main process](https://electronjs.org/docs/glossary#main-process) 중 아무 곳에서 다음 모듈을 호출하세요.
 
 ```js
 require('update-electron-app')()
 ```
 
-That's it! The module will check for updates at app startup, then every ten minutes. When an update is found it will download automically in the background, and a dialog will be displayed when the update is ready.
+간단하죠? 이 모듈은 앱 시작시와 그 후 10분마다 업데이트를 확인합니다. 업데이트를 발견하면 백그라운드에서 업데이트를 자동으로 다운로드하고, 준비가 끝나면 대화 상자를 표시합니다.
 
-## Migrating existing apps
+## 기존 앱 이전하기
 
-Apps already using Electron's autoUpdater API can use this service too. To do so, you can [customize the `update-electron-app`](https://github.com/electron/update-electron-app) module or [integrate directly with update.electronjs.org](https://github.com/electron/update.electronjs.org).
+기존에 Electron의 autoUpdater API를 사용하는 앱도 이 서비스를 사용할 수 있습니다. 사용하려면 [`update-electron-app` 모듈을 수정](https://github.com/electron/update-electron-app)하거나 [update.electronjs.org에 직접 연동](https://github.com/electron/update.electronjs.org)해서 사용할 수 있습니다.
 
-## Alternatives
+## 대안
 
-If you're using [electron-builder](https://github.com/electron-userland/electron-builder) to package your app, you can use its built-in updater. For details, see [electron.build/auto-update](https://www.electron.build/auto-update).
+[electron-builder](https://github.com/electron-userland/electron-builder)를 사용하여 앱의 패키징을 하고 있다면 electron-builder의 내장 업데이터를 사용할 수 있습니다. 자세한 내용은 [electron.build/auto-update](https://www.electron.build/auto-update)를 참조하세요.
 
-If your app is private, you may need to run your own update server. There are a number of open-source tools for this, including Zeit's [Hazel](https://github.com/zeit/hazel) and Atlassian's [Nucleus](https://github.com/atlassian/nucleus). See the [Deploying an Update Server](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server) tutorial for more info.
+앱이 비공개라면 직접 업데이트 서버를 운영해야 합니다. 이를 위해 Zeit의 [Hazel](https://github.com/zeit/hazel)과 Atlassian의 [Nucleus](https://github.com/atlassian/nucleus) 같은 다양한 오픈 소스 도구들이 있습니다. 자세한 사항은 [서버에 업데이트 배포](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server) 문서를 참조하세요.
 
-## Thanks
+## 마치며
 
-Thanks to [Julian Gruber](http://juliangruber.com/) for helping design and build this simple and scalable web service. Thanks to the folks at [Zeit](https://zeit.co) for their open-source [Hazel](https://github.com/zeit/hazel) service, from which we drew design inspiration. Thanks to [Samuel Attard](https://www.samuelattard.com/) for the code reviews. Thanks to the Electron community for helping test this service.
+이렇게 간단하고 확장 가능한 웹 서비스의 디자인과 설계를 해주신 [Julian Gruber](http://juliangruber.com/) 님에게 감사드립니다. 디자인 영감을 주신 오픈 소스 [Hazel](https://github.com/zeit/hazel) 프로젝트의 구성원인 [Zeit](https://zeit.co) 팀에게도 감사드립니다. 코드 리뷰를 도와주신 [Samuel Attard](https://www.samuelattard.com/) 님에게도 감사드립니다. 이 서비스의 테스트를 도와주신 Electron 커뮤니티에게도 감사 인사드립니다.
 
-🌲 Here's to an evergreen future for Electron apps!
+🌲 푸른 Electron 앱의 미래를 위해 노력하고 계신 여러분에게도 감사 인사를 전합니다!
