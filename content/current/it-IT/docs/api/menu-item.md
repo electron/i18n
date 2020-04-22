@@ -24,7 +24,7 @@ Vedi [`Menu`](menu.md) per degli esempi.
   * `acceleratorWorksWhenHidden` Boolean (optional) _macOS_ - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
   * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Il valore predefinito è true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of  the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
@@ -69,7 +69,7 @@ La proprietà `role` può avere i seguenti valori:
 * `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
-The following additional roles are available on _macOS_:
+I seguenti valori sono disponibili per _macOS_:
 
 * `appMenu` - Whole default "App" menu (About, Services, etc.)
 * `about` - Mappa l'azione `orderFrontStandardAboutPanel`.
@@ -95,7 +95,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 **Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
-### Proprietà Istanza
+### Proprietà Istanze
 
 Le seguenti proprietà sono disponibili quando si istanzia la classe `MenuItem`:
 
