@@ -8,3 +8,4 @@ A antiga página "Início Rápido" que costumava ficar aqui foi dividida em dois
 * Para ver como é a arquitetura de processos, confira [Processos Principal e de Renderização](./application-architecture.md#main-and-renderer-processes).
 
 Para aprender mais sobre o Electron, confira os [guias oficiais](../).
+
