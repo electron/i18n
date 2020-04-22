@@ -17,7 +17,7 @@ Electron inherits this build option from Chromium. In `Debug` builds, the binary
 
 ## Testler
 
-**NB** *this section is out of date and contains information that is no longer relevant to the GN-built electron.*
+**NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
 
 Değişikliklerinizin proje kodlama stiline uyumunu test etmek için kullandığı:
 
@@ -37,7 +37,9 @@ Electron kaynak kodunda ne zaman değişiklik yaparsanız, şu testten önce in�
 $ npm run build && npm test
 ```
 
-Test paketini belirli testi izole ederek veya hali hazırda kullandığınız Mocha' nın </a> özellikli  özel testlerini engelleyerek daha hızlı çalıştırabilirsiniz. Append `.only` to any `describe` or `it` function call:</p> 
+Test paketini belirli testi izole ederek veya hali hazırda kullandığınız Mocha' nın </a> özellikli özel testlerini engelleyerek daha hızlı çalıştırabilirsiniz. Append `.only` to any `describe` or `it` function call:</p> 
+
+
 
 ```js
 describe.only('some feature', () => {
@@ -45,15 +47,21 @@ describe.only('some feature', () => {
 })
 ```
 
+
 Alternatif olarak, mocha'nın `grep` seçeneğini sadece verilen normal ifade modeliyle eşleşen testleri çalıştırmak için kullanabilirsiniz:
+
+
 
 ```sh
 $ npm test -- --grep child_process
 ```
 
+
 Yerel modülleri içeren testler ( ör. `runas`) hata ayıklama yapısı ile çalıştırılamaz ( ayrıntılar için bkz. [#2558](https://github.com/electron/electron/issues/2558)), ama sürüm yapılarıyla birlikte çalışacaklardır.
 
 Sürüm yapısıyla testleri çalıştırmak için kullanacağınız:
+
+
 
 ```sh
 $ npm test -- -R
