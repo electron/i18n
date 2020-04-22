@@ -97,7 +97,7 @@ Windows에선 작업 표시줄 버튼에 애플리케이션의 상태를 표시�
 
 __작업 표시줄 버튼 위의 오버레이:__
 
-![작업 표시줄 버튼 위의 오버레이](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 윈도우에 오버레이 아이콘을 설정하려면 [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API를 사용할 수 있습니다:
 
