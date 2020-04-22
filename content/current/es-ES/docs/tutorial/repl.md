@@ -5,18 +5,17 @@ Read Evaluate Print Loop (REPL) es un simple, ambiente de programación computac
 El módulo `repl` proporciona una implementación REPL a la que se puede acceder usando:
 
 * Si tiene `electron` o `electron-prebuilt` instalado como una dependencia local del proyecto:
-    
-    ```sh
-    ./node_modules/.bin/electron --interactive
-    ```
 
+  ```sh
+  ./node_modules/.bin/electron --interactive
+  ```
 * Si tiene `electron` o `electron-prebuilt` instalados globalmente:
-    
-    ```sh
-    electron --interactive
-    ```
 
-Esto solo crea un REPL para el proceso principal. Puede usar la consola de las herramientas de desarrollador para hacer un REPL para los procesos renderizadores.
+  ```sh
+  electron --interactive
+  ```
+
+This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
 
 **Nota:** `electron --interactive` no está disponible en Windows.
 
