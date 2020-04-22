@@ -162,15 +162,15 @@ Depending on which Electron APIs your app uses, you may need to add additional e
 Enable outgoing network connections to allow your app to connect to a server:
 
 ```xml
-&lt;key&gt;com.apple.security.network.client&lt;/key&gt;
-&lt;true/&gt;
+<key>com.apple.security.network.client</key>
+<true/>
 ```
 
 Enable incoming network connections to allow your app to open a network listening socket:
 
 ```xml
-&lt;key&gt;com.apple.security.network.server&lt;/key&gt;
-&lt;true/&gt;
+<key>com.apple.security.network.server</key>
+<true/>
 ```
 
 See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
@@ -178,8 +178,8 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 #### dialog.showOpenDialog
 
 ```xml
-&lt;key&gt;com.apple.security.files.user-selected.read-only&lt;/key&gt;
-&lt;true/&gt;
+<key>com.apple.security.files.user-selected.read-only</key>
+<true/>
 ```
 
 See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
@@ -187,8 +187,8 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 #### dialog.showSaveDialog
 
 ```xml
-&lt;key&gt;com.apple.security.files.user-selected.read-write&lt;/key&gt;
-&lt;true/&gt;
+<key>com.apple.security.files.user-selected.read-write</key>
+<true/>
 ```
 
 See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
