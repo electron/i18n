@@ -12,8 +12,7 @@
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
-* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
-
+- Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 ```js
 // Previously:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
@@ -23,16 +22,14 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
-
-* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-* `BigInt` values will be correctly serialized, instead of being converted to `null`.
-* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
-* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
-* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
-* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
-
+- `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+- Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+- `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+- `BigInt` values will be correctly serialized, instead of being converted to `null`.
+- Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+- `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+- Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+- Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 ```
@@ -87,7 +84,7 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 
 ### Node Headers URL
 
-Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node. Оба будут поддерживаться в обозримом будущем, но рекомендуется переключиться.
+Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node.  Оба будут поддерживаться в обозримом будущем, но рекомендуется переключиться.
 
 Устарело: https://atom.io/download/electron
 
@@ -144,30 +141,23 @@ webFrame.setIsolatedWorldInfo(
 Это свойство было удалено в Chromium 77, и как таковое больше не доступно.
 
 ### `webkitdirectory` атрибут для `<input type="file"/>`
-
 ￼ The `webkitdirectory` property on HTML file inputs allows them to select folders. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ As an illustration, take a folder with this structure:
-
 ```console
 folder
 ├── file1
 ├── file2
 └── file3
 ```
-
 ￼ In Electron <=6, this would return a `FileList` with a `File` object for:
-
 ```console
 path/to/folder
 ```
-
 ￼ In Electron 7, this now returns a `FileList` with a `File` object for:
-
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
 /path/to/folder/file1
 ```
-
 ￼ Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## Запланированные критические изменения API (6.0)
@@ -312,9 +302,7 @@ webFrame.setIsolatedWorldInfo(
 ```
 
 ## `webFrame.setSpellCheckProvider`
-
 Параметр `spellCheck` теперь асинхронный, а параметр `autoCorrectWord` был удален.
-
 ```js
 // Устаревшее
 webFrame.setSpellCheckProvider('en-US', true, {
@@ -378,12 +366,12 @@ app.getGPUInfo('basic')
 ```js
 // Устарело
 app.getAppMemoryInfo()
-// Заменить на
+// Заменено на
 app.getAppMetrics()
 
 // Устарело
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // свойство устарело
+const { memory } = metrics[0] // Свойство устарело
 ```
 
 ### `BrowserWindow`
@@ -392,7 +380,7 @@ const { memory } = metrics[0] // свойство устарело
 // Устарело
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Заменить на
+// Заменено на
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
@@ -402,7 +390,7 @@ window.on('app-command', (e, cmd) => {
     // делаем что-нибудь
   }
 })
-// Заменить на
+// Заменено на
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // делаем что-нибудь
@@ -443,7 +431,7 @@ crashReporter.start({
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Заменить на
+// Заменено на
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -456,7 +444,7 @@ crashReporter.start({
 ```js
 // Устарело
 nativeImage.createFromBuffer(buffer, 1.0)
-// Заменить на
+// Заменено на
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -496,12 +484,12 @@ ses.setCertificateVerifyProc((request, callback) => {
 ```js
 // Устарело
 tray.setHighlightMode(true)
-// Заменить на
+// Заменено на
 tray.setHighlightMode('on')
 
 // Устарело
 tray.setHighlightMode(false)
-// Заменить на
+// Заменено на
 tray.setHighlightMode('off')
 ```
 
@@ -543,12 +531,12 @@ webview.setAttribute('disableguestresize', '')
 webview.setAttribute('guestinstance', instanceId)
 // Нет замены для этого API
 
-// Слушатели клавиатуры больше не работают в webview теге
+// Слушатели клавиатуры больше не работают в теге webview
 webview.onkeydown&nbsp;= () => { /* обработчик */ }
 webview.onkeyup&nbsp;= () => { /* обработчик */ }
 ```
 
-### Node Headers URL
+### URL заголовков Node
 
 Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node.
 
@@ -566,7 +554,7 @@ webview.onkeyup&nbsp;= () => { /* обработчик */ }
 // Устарело
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Заменить на
+// Заменено на
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -585,12 +573,12 @@ menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```js
 // Удалено
 nativeImage.toPng()
-// Заменить на
+// Заменено на
 nativeImage.toPNG()
 
 // Удалено
 nativeImage.toJpeg()
-// Заменить на
+// Заменено на
 nativeImage.toJPEG()
 ```
 
@@ -621,14 +609,14 @@ webFrame.setVisualZoomLevelLimits(1, 2)
 ```js
 // Удалено
 webview.setZoomLevelLimits(1, 2)
-// Заменить на
+// Заменено на
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-### Двойные ARM ресурсы
+### Двойные ресурсы ARM
 
 Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурс с префиксом `v7l` был добавлен, чтобы уточнить для пользователей, какую версию ARM он поддерживает, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
 
-Файл *без префикса* по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Начиная с версии 2.0, файл без префикса более не будет публиковаться.
+Файл _без префикса_ по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Начиная с версии 2.0, файл без префикса более не будет публиковаться.
 
 Для подробностей см. [6986](https://github.com/electron/electron/pull/6986) и [7189](https://github.com/electron/electron/pull/7189).
