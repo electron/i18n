@@ -6,7 +6,7 @@ Trang này định nghĩa một số thuật ngữ thường được sử dụn
 
 ASAR là viết tắt của Atom Shell Archive Format. Một tập tin [asar](https://github.com/electron/asar) đơn giản như một tập tin `tar`, nó là một định dạng nối các file lại với nhau thành một file duy nhất. Electron có thể đọc bất kể tập tin nào trong file có định dạng này mà không cần giải nén toàn bộ tập tin.
 
-Định dạng ASAR được tạo ra chủ yếu để cải thiện hiệu suất trên Windows... TODO
+The ASAR format was created primarily to improve performance on Windows... TODO
 
 ### CRT
 
@@ -26,7 +26,7 @@ Interface description language. Write function signatures and data types in a fo
 
 ### IPC
 
-IPC là viết tắt cho Inter-Process Communication. Electron sử dụng IPC để gửi các file tin nhắn JSON tuần tự giữa các [main process](#main-process) và [renderer process](#renderer-process).
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
@@ -46,7 +46,7 @@ Xem thêm: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Viết tắt của Apple's Mac App Store Để biết thêm chi tiết về cách gửi ứng dụng của bạn tới MAS, xem tại: [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
@@ -80,7 +80,7 @@ Xem thêm: [process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
-Renderer process là một cửa sổ trình duyệt trong ứng dụng của bạn. Không giống như main process, chúng ta có thể tạo ra nhiều renderer process và chạy chúng trong những process riêng biệt. Hoặc cũng có thể ẩn chúng đi.
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
@@ -98,7 +98,7 @@ Like Node, Electron is focused on having a small set of APIs that provide all th
 
 ### V8
 
-V8 là một JavaScript engine mã nguồn mở của Google. Nó được viết bằng C++ và được sử dụng trong Google Chrome. V8 có thể chạy độc lập hoặc có thể được nhúng vào bất ký ứng dụng C++ nào.
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
 Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
