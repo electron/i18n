@@ -6,8 +6,7 @@ Native Node modules are supported by Electron, but since Electron is very likely
 Error: The module '/path/to/native/module.node'
 was compiled against a different Node.js version using
 NODE_MODULE_VERSION $XYZ. This version of Node.js requires
-NODE_MODULE_VERSION $ABC. Please try re-compiling or re-installing
-the module (for instance, using `npm rebuild` or `npm install`).
+NODE_MODULE_VERSION $ABC. 모듈을 다시 컴파일하거나 다시 설치해주세요. (예를 들어, `npm rebuild` 나 `npm install` 가 있습니다.)
 ```
 
 ## 네이티브 모듈들을 설치하는 방법
