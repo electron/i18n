@@ -4,7 +4,7 @@ En macOS, una ventana puede establecer su archivo representado, de modo que el i
 
 También puede establecer el estado editado de una ventana para que el ícono del archivo pueda indicar si el documento en esta ventana ha sido modificado.
 
-**Menú emergente de archivo representado:**
+__Menú emergente de archivo representado:__
 
 ![Archivo representado](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
