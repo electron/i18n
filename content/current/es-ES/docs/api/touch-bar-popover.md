@@ -4,13 +4,13 @@
 
 Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `nueva notificación en la barra táctil(opciones)` *Experimental*
+### `nueva notificación en la barra táctil(opciones)` _Experimental_
 
-* `opciones` Object 
+* `options` Object
   * `Etiqueta` Cadena (opcional) - tecto del botón en la notificación.
   * `ícono` [imagen nativa](native-image.md) (opcional) - ícono del botón de la notificación.
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
-  * `mostrar botón de cerrado` Booleano (opcional) - `verdad` para mostrar un botón de cerrado a la izquierda de la notificación, `falso` para no mostrarlo. Por defecto es `verdad`.
+  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Por defecto es `true`.
 
 ### Propiedades de Instancia
 
@@ -18,8 +18,8 @@ Las siguiente propiedades están disponibles en instancias de `notificaciones de
 
 #### `touchBarPopover.label`
 
-Una `Cadena` representando el botón de texto actual de la notificación. Cambiar este valor actualizará inmediatamente la notificación en la barra táctil.
+A `String` representing the popover's current button text. Changing this value immediately updates the popover in the touch bar.
 
 #### `touchBarPopover.icon`
 
-Una `Imagen nativa` representando el botón de icono actual de la notificación. Cambiar esto actualizará inmediatamente la notificación en la barra táctil.
+A `NativeImage` representing the popover's current button icon. Changing this value immediately updates the popover in the touch bar.
