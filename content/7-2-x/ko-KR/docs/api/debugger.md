@@ -13,11 +13,11 @@ let win = new BrowserWindow()
 try {
   win.webContents.debugger.attach('1.1')
 } catch (err) {
-  console.log('Debugger attach failed : ', err)
+  console.log('디버거 연결 실패 : ', err)
 }
 
 win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger detached due to : ', reason)
+  console.log('디버거 해제 이유 : ', reason)
 })
 
 win.webContents.debugger.on('message', (event, method, params) => {
