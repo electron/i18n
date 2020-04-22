@@ -2,7 +2,7 @@
 
 > Control your app in the macOS dock
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 The following example shows how to bounce your icon on the dock.
 
@@ -27,7 +27,7 @@ When `informational` is passed, the dock icon will bounce for one second. Howeve
 
 #### `dock.cancelBounce(id)` _macOS_
 
-* `id` Tamsayı
+* `id` tamsayı
 
 `id` sıçramasını iptal et.
 
