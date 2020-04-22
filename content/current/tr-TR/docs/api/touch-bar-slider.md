@@ -4,14 +4,14 @@
 
 İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `yeni DokunmatikYüzeyKaydırıcı(seçenekler)` *Deneysel*
+### `yeni DokunmatikYüzeyKaydırıcı(seçenekler)` _Deneysel_
 
-* `seçenekler` Nesnesi 
+* `options` Object
   * `label` Dize (İsteğe bağlı) - Görüntülenecek metin.
   * `value` Integer (isteğe bağlı) - Seçilen değer.
   * `minValue` Integer (isteğe bağlı) - Minimum değer.
   * `maxValue` Integer (isteğe bağlı) - Maksimum değer.
-  * `change` Fonksiyon (isteğe bağlı) - Kaydırıcı değiştiğinde çağırılacak işlev. 
+  * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Sayı - Kullanıcının kaydırıcıda seçtiği değer.
 
 ### Örnek Özellikler
@@ -20,16 +20,16 @@ Aşağıdaki özelliklere sahip örneklerde `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
-Kaydırıcının geçerli metnini temsil eden bir `String`. Bu değeri değiştirmek dokunmatik bardaki kaydırıcıyı hemen günceller.
+A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.value`
 
-Kaydırıcının geçerli değerini temsil eden bir `Number`. Bu değeri değiştirmek dokunmatik bardaki kaydırıcıyı hemen günceller.
+A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.minValue`
 
-Kaydırıcının şu anki minimum değerini gösteren bir `Number`. Bu değeri değiştirmek doğrudan dokunmatik bardaki kaydırıcıyı günceller.
+A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.maxValue`
 
-Kaydırıcının şu anki maksimum değerini gösteren bir `Number`. Bu değeri değiştirmek doğrudan dokunmatik bardaki kaydırıcıyı günceller.
+A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
