@@ -95,10 +95,10 @@ Używając `autoUpdater` jako przykładu:
 * Constructors must be listed with `###`-level titles.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)muszą być wymienione pod rodzdziałem `### Statyczne Metody`.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)muszą być wymienione pod rodzdziałem `### Statyczne Metody`.
-* Wszystkie metody które mają wartość zwrotną muszą zaczynać swój opis z "Returns `[TYPE]` - Zwróć opis" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Właściwości instancji muszą być wymienione pod `### Właściwości instancji` rozdział. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Właściwości instancji muszą zaczynać się z "A [Property Type] ..."
 
 Używając klas `Session` i `Cookies` jako przykładu:
@@ -150,7 +150,7 @@ Rozdział "Metody" musi zachować podaną niżej formę:
 
 Tytuł może być `###` lub `####`-poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
 
-Dla modułów, `objectName` jest nazwą modułu. Dla klas, musi to być nazwa wystąpienia klasy oraz nie może być taka sama jak nazwa modułu.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
@@ -160,7 +160,7 @@ Opcjonalne argumenty są notowane w nawiasach `[]` otoczonych opcjonalnymi argum
 required[, optional]
 ```
 
-Metoda poniżej jest bardziej szczegółowa dla każdego argumentu. Typ argumentu jest notowany przez każdy z powszechnych typów:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
