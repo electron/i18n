@@ -1,4 +1,4 @@
-# Application Packaging
+# Đóng góp ứng dụng
 
 To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
 
@@ -10,7 +10,7 @@ An [asar](https://github.com/electron/asar) archive is a simple tar-like format 
 
 Steps to package your app into an `asar` archive:
 
-### Cài đặt bộ Utility asar
+### 1. Install the asar Utility
 
 ```sh
 $ npm install -g asar
@@ -148,3 +148,4 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+
