@@ -10,7 +10,7 @@
 
 1) [`electron-forge`](https://github.com/electron-userland/electron-forge) または [`electron-builder`](https://github.com/electron-userland/electron-builder)の使用、両方のツールは `snap`ですぐに使用できます。 これは最も簡単な選択肢です。 2) `electron-installer-snap`の使用、これは`electron-packager`のアウトプットを使用します。 3) 作成した`.deb`パッケージの使用
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
+いずれにしても、`snapcraft` ツールをインストールしている必要があります。 Ubuntu 16.04 (または現在の LTS) でのビルドを推奨します。
 
 ```sh
 snap install snapcraft --classic
@@ -77,7 +77,7 @@ Snapcraft は既存の`.deb`ファイルをもとに、`.snap` ファイルに�
 
 ### ステップ2: snapcraft.yamlファイルの作成
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+利用可能な設定オプションの詳細については、[snapcraft 構文のドキュメント](https://docs.snapcraft.io/build-snaps/syntax) を参照してください。 以下で例を見てみましょう。
 
 ```yaml
 name: myApp
@@ -122,7 +122,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
+ご覧の通り、`snapcraft.yaml` は `electron-launch` と呼ばれるファイルを起動するようにシステムに伝達しています。 この例では、以下のようにアプリのバイナリへ情報を渡します。
 
 ```sh
 #!/bin/sh
