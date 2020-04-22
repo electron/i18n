@@ -6,7 +6,7 @@ Electron's `webview` tag is based on [Chromium's `webview`](https://developer.ch
 
 ## Enabling
 
-By default the `webview` tag is disabled in Electron >= 5.  You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
+By default the `webview` tag is disabled in Electron >= 5.  You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. 자세한 사항은 [BrowserWindow constructor 문서](browser-window.md)를 참조하세요.
 
 ## 개요
 
