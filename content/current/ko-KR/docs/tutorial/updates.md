@@ -4,7 +4,7 @@ Electron 애플리케이션을 업데이트 하는 방법은 여러 가지가 �
 
 ## `update.electronjs.org` 사용
 
-GitHub의 Electron 팀은 Electron apps가 자체 업데이트에 사용할 수있는 무료 오픈 소스 웹 서비스 인 [update.electronjs.org](https://github.com/electron/update.electronjs.org)를 관리합니다. 이 서비스는 다음 기준을 충족하는 Electron 앱을 위해 설계되었습니다:
+The Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. 이 서비스는 다음 기준을 충족하는 Electron 앱을 위해 설계되었습니다:
 
 - MacOS 또는 Windows에서 실행되는 앱
 - App 이 public GitHub 저장소를 가지고 있음
@@ -44,7 +44,7 @@ require('update-electron-app')()
 
 업데이트 서버를 배포했으면 코드에 필요한 모듈을 가져옵니다. 다음 코드는 서버 소프트웨어마다 다를 수 있지만 [Hazel](https://github.com/zeit/hazel)을 사용할 때처럼 작동합니다.
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. [electron-is-dev](https://github.com/sindresorhus/electron-is-dev)를 사용하여 환경을 확인할 수 있습니다.
+**중요 : ** 아래 코드는 패키지 된 앱에서만 실행해야합니다. (개발중이 아니라) [electron-is-dev](https://github.com/sindresorhus/electron-is-dev)를 사용하여 환경을 확인할 수 있습니다.
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
