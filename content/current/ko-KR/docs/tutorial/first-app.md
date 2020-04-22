@@ -1,10 +1,10 @@
 # 첫 번째 Electron 앱 만들기
 
-Electron은 풍부한 네이티브(운영 체제) API를 가진 런타임을 제공하기 때문에 순수 JavaScript를 사용해 데스크탑 앱을 만들 수 있습니다. 웹 서버 대신 데스크탑 애플리케이션에 초점을 맞춘 Node.js 런타임의 변종이라고 생각하시면 됩니다.
+Electron은 풍부한 네이티브(운영 체제) API를 가진 런타임을 제공하기 때문에 순수 JavaScript를 사용해 데스크탑 앱을 만들 수 있습니다. 웹 서버보다는 데스크탑 애플리케이션에 초점을 맞춘 Node.js 런타임의 변종이라고 생각하시면 됩니다.
 
 그렇다고 해서, Electron이 그래픽 사용자 인터페이스(GUI) 라이브러리와 관련된 자바스크립트라는 의미는 아닙니다. Electron은 웹 페이지를 GUI로 사용하기 때문에, 자바스크립트로 제어되는 Chromium 브라우저에서도 작업 결과를 볼 수 있습니다.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**참고**: 예제 섹션에서 제공하는 저장소에서 예제를 [내려받아 바로 실행](#예제)할 수 있습니다.
 
 개발과 관련해서 Electron 애플리케이션은 근본적으로 Node.js 애플리케이션이라고 할 수 있습니다. Node.js 모듈과 마찬가지로 시작점은 `package.json` 입니다. 기본적으로 Electron 앱 대부분은 다음과 같은 폴더 구조를 가지고 있습니다:
 
@@ -31,7 +31,7 @@ npm은 기본적인 `package.json`파일을 생성하여 여러분에게 정보�
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). 이것은 간단한 Node 애플리케이션이지만, 현재 패키지를 실행하기 위한 `node` 명령어를 담은 `start` 스크립트를 추가할 수도 있습니다.
+__주의__: `package.json`에 `main` 필드에 값이 설정되어 있지 않으면, Electron은 `index.js`를 로드하려고 할 것입니다. (Node.js 동작방식과 유사하게) 이것은 간단한 Node 애플리케이션이지만, 현재 패키지를 실행하기 위한 `node` 명령어를 담은 `start` 스크립트를 추가할 수도 있습니다.
 
 ```json
 {
