@@ -9,7 +9,7 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 ### Przykład
 
 ```javascript
-// W procesie głównym.
+//W głównym procesie.
 const { BrowserView, BrowserWindow } = require('electron')
 
 let win = new BrowserWindow({ width: 800, height: 600 })
@@ -23,9 +23,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Eksperymentalne*
+### `new BrowserView([options])` _Eksperymentalne_
 
-* `options` Obiekt (opcjonalne) 
+* `options` Object (optional)
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
 ### Metody statyczne
@@ -50,11 +50,11 @@ Returns `BrowserView` - The view with the given `id`.
 
 Obiekt utworzony za pomocą `new BrowserView` posiada następujące właściwości:
 
-#### `view.webContents` *Eksperymentalny*
+#### `view.webContents` _Eksperymentalny_
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` *Eksperymentalny*
+#### `view.id` _Eksperymentalny_
 
 A `Integer` representing the unique ID of the view.
 
@@ -70,26 +70,26 @@ Force closing the view, the `unload` and `beforeunload` events won't be emitted 
 
 Returns `Boolean` - Whether the view is destroyed.
 
-#### `view.setAutoResize(options)` *Eksperymentalne*
+#### `view.setAutoResize(options)` _Eksperymentalne_
 
-* `options` Object 
+* `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Eksperymentalne*
+#### `view.setBounds(bounds)` _Eksperymentalne_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.getBounds()` *Eksperymentalne*
+#### `view.getBounds()` _Eksperymentalne_
 
 Zwraca [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *Eksperymentalne*
+#### `view.setBackgroundColor(color)` _Eksperymentalne_
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
