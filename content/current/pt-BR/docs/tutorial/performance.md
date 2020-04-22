@@ -2,36 +2,36 @@
 
 Desenvolvedores frequentemente perguntam sobre formas de otimizar a performance de aplicações Electron. Engenheiros de software, consumidores e desenvolvedores de frameworks nem sempre estão de acordo com uma simples definição de a "performance" acontece. Esse documento demonstra algumas práticas favoritas dos mantenedores do Electron, com a finalidade de reduzir consumo de memória, CPU e recursos de disco, enquanto garante que o APP seja responsivo a entrada do usuário e complete as operações da forma mais rápida possível. Além disso, nós queremos todas os meios de performance para manter um alto padrão para a segurança dos Apps.
 
-Wisdom and information about how to build performant websites with JavaScript generally applies to Electron apps, too. To a certain extent, resources discussing how to build performant Node.js applications also apply, but be careful to understand that the term "performance" means different things for a Node.js backend than it does for an application running on a client.
+Conhecimento e informação sobre como construir websites de performance com JavaScript geralmente também se aplicam à aplicativos Electron. Até certo ponto,recursos discutidos para performance de aplicações Node.js também se aplicam,porém fique atento que o termo "performance" no backend Node.js tem um significado diferente do de uma aplicação cliente.
 
-This list is provided for your convenience – and is, much like our [security checklist](./security.md) – not meant to exhaustive. It is probably possible to build a slow Electron app that follows all the steps outlined below. Electron is a powerful development platform that enables you, the developer, to do more or less whatever you want. All that freedom means that performance is largely your responsibility.
+Esta lista é providenciada para sua conveniência - e é muito parecida com nossa [ checklist de segurança ](./security.md) - não pretende ser cansativa. Provavelmente é possível construir uma aplicação Electron lenta seguindo todos os passos listados abaixo. Electron é uma poderosa plataforma de desenvolvimento que deixa você, o desenvolvedor, fazer mais ou menos o que você quiser. Toda essa liberdade significa que a performance é amplamente sua responsabilidade.
 
-## Measure, Measure, Measure
+## Diminuir, diminuir, diminuir
 
-The list below contains a number of steps that are fairly straightforward and easy to implement. However, building the most performant version of your app will require you to go beyond a number of steps. Instead, you will have to closely examine all the code running in your app by carefully profiling and measuring. Where are the bottlenecks? When the user clicks a button, what operations take up the brunt of the time? While the app is simply idling, which objects take up the most memory?
+A lista abaixo contém um número de passos razoavelmente diretos e fáceis de implementar. Entretanto, construir a melhor versão da sua aplicação vai exigir que você vá além de uma série de etapas. Ao invés disso, você deve examinar de perto todo o código rodando em sua aplicação sendo cuidadoso, meticuloso e observador. Onde estão os gargalos ? Quando o usuário clica em um botão, quais operações gastam mais tempo de processamento ? Enquanto a aplicação está ociosa, quais objetos gastam mais memória ?
 
-Time and time again, we have seen that the most successful strategy for building a performant Electron app is to profile the running code, find the most resource-hungry piece of it, and to optimize it. Repeating this seemingly laborious process over and over again will dramatically increase your app's performance. Experience from working with major apps like Visual Studio Code or Slack has shown that this practice is by far the most reliable strategy to improve performance.
+Dia após dia nós temos visto que a estratégia mais bem sucedida para construir aplicações Electron com bom desempenho é analisar o código rodando, encontrar a parte que mais precisa de recursos e otimizá-la. Repetir esse processo incansavelmente, de novo e de novo vai aumentar drasticamente a performance da sua aplicação. Experiências trabalhando com aplicativos maiores como o Visual Studio Code ou o Slack tem mostrado que essa prática é de longe a estratégia mais confiável para aumentar a performance.
 
-To learn more about how to profile your app's code, familiarize yourself with the Chrome Developer Tools. For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing] tool.
+Para aprender mais sobre como analisar o código da sua aplicação se familiarize com as Ferramentas de Desenvolvedor do Chrome. Para análises profundas procurando por processos múltiplos de uma vez só considere a ferramenta [Chrome Tracing].
 
-### Recommended Reading
+### Leituras Recomendadas
 
- * [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Talk: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+ * [Começando na análise de performance em tempo de execução](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+ * [Palestra:  "O primeiro segundo - Visual Studio Code"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
-## Checklist
+## Sumário
 
-Chances are that your app could be a little leaner, faster, and generally less resource-hungry if you attempt these steps.
+Seu aplicativo pode ser um pouco mais enxuto, rápido e geralmente menos faminto por recursos se você se atentar a esses passos.
 
-1. [Carelessly including modules](#1-carelessly-including-modules)
-2. [Loading and running code too soon](#2-loading-and-running-code-too-soon)
-3. [Blocking the main process](#3-blocking-the-main-process)
-4. [Blocking the renderer process](#4-blocking-the-renderer-process)
-5. [Unnecessary polyfills](#5-unnecessary-polyfills)
-6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
-7. [Bundle your code](#7-bundle-your-code)
+1. [Descuido ao incluir módulos](#1-carelessly-including-modules)
+2. [Carregando e rodando o código muito cedo](#2-loading-and-running-code-too-soon)
+3. [Bloqueando o processo principal](#3-blocking-the-main-process)
+4. [Bloqueando o processo de renderização](#4-blocking-the-renderer-process)
+5. [Sobrecargas desnecessárias](#5-unnecessary-polyfills)
+6. [Requisições desnecessárias ou bloqueadoras](#6-unnecessary-or-blocking-network-requests)
+7. [Empacote seu código](#7-bundle-your-code)
 
-## 1) Carelessly including modules
+## 1) Descuido ao incluir módulos
 
 Before adding a Node.js module to your application, examine said module. How many dependencies does that module include? What kind of resources does it need to simply be called in a `require()` statement? You might find that the module with the most downloads on the NPM package registry or the most stars on GitHub is not in fact the leanest or smallest one available.
 
