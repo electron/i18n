@@ -233,7 +233,7 @@ Sets download saving directory. By default, the download directory will be the `
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Il valore predefinito è false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
@@ -269,10 +269,10 @@ Disables any network emulation already active for the `session`. Resets to the o
 * `proc` Function | null
   * `request` Object
     * `hostname` String
-    * `certificate` [Certificato](structures/certificate.md)
+    * `certificato` [Certificato](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
     * `errorCode` Integer - Error code.
-  * `callback` Function
+  * `callback` Funzione
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
       * `0` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Indicates failure.
@@ -301,7 +301,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `handler` Function | null
   * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function
+  * `callback` Funzione
     * `permissionGranted` Boolean - Allow or deny the permission.
   * `details` Object - Some properties are only available on certain permission types.
     * `externalURL` String (optional) - The url of the `openExternal` request.
