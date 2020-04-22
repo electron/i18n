@@ -9,10 +9,9 @@ Eğer Electron'da JavaScriptten kaynaklanmadığını düşündüğünüz Electr
 * **Xcode**: Xcode'a ek olarak, ayrıca Xcode'un komut satırı araçlarını da yükler. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
-    
-    ```text
-    command script import ~/electron/src/tools/lldb/lldbinit.py
-    ```
+   ```text
+   command script import ~/electron/src/tools/lldb/lldbinit.py
+   ```
 
 ## Electron'da ekleme yapma ve hata ayıklama
 
@@ -94,7 +93,6 @@ Bu noktada hata ayıklamayı bitirmek için `process continue` komutunu çalış
 Ardından, Electron'un geliştirici araçlarını açar ve `setName` komutunu çağırırsanız, yine kırılma noktasına ulaşacaksınız.
 
 ### Daha fazla bilgi
-
 LLDB harika bir dokümantasyona sahip güçlü bir araçtır. Bunun hakkında daha fazla bilgi edinmek için Apple'ın debug dökümantasyonuna göz atmayı düşünün, mesela [LLDB Komut Dizilimi Referansı](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) veya [LLDB'yi başlı başına debugger olarak kullanma](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
 Aynı zamanda LLDB'nin fantastik ve daha komplex debug senaryolarını içeren [rehberlerine ve kılavuzlarına](http://lldb.llvm.org/tutorial.html) göz atabilirsiniz.
