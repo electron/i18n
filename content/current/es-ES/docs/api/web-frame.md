@@ -20,7 +20,7 @@ La clase `WebFrame` tiene los siguientes métodos de instancia:
 
 * `factor` Double - Zoom factor; default is 1.0.
 
-Cambia el factor de zoom al factor especificado. El factor de zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 The factor must be greater than 0.0.
 
@@ -45,13 +45,12 @@ Devuelve `Número` - El nivel de zoom actual.
 
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
-> **NOTA**: El zoom visual está desactivado por defecto en Electron. Para volverlo a activar, llame:
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> ```js
-webFrame.setVisualZoomLevelLimits(1, 3)
-```
+> `js
+  webFrame.setVisualZoomLevelLimits(1, 3)`
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
 
 * `minimumLevel` Número
 * `maximumLevel` Número
@@ -63,11 +62,10 @@ Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `idioma` Cadena
-* `proveedor` Object 
-  * `Corrector Ortográfico
-` Function 
+* `provider` Object
+  * `spellCheck` Function
     * `words` String[]
-    * `callback` Function 
+    * `callback` Función
       * `misspeltWords` String[]
 
 Establece un proveedor para la corrección ortográfica en campos de entrada y áreas de texto.
@@ -133,7 +131,7 @@ En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pued
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
-* `worldId` Integer - El ID de la palabra para correr javascript en, `0` es el mundo por defecto, `999` es el mundo usado por la característica de Electron `contextIsolation`. Puede aquí suministrar cualquier entero.
+* `worldId` Integer - El ID de la palabra para correr javascript en, `0` es el mundo por defecto, `999` es el mundo usado por la característica de Electron `contextIsolation`.  Puede aquí suministrar cualquier entero.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 
@@ -142,14 +140,13 @@ Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecuc
 Funciona como `executeJavaScript` pero evaluá `scripts` en un contexto aislado.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
-
 * `worldId` Integer - El ID de la palabra para correr javascript en, `0` es el mundo por defecto, `999` es el mundo usado por la característica de Electron `contextIsolation`. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Aquí puede suministrar cualquier entero.
-* `información` Object 
+* `info` Object
   * `securityOrigin` String (opcional) - Origen de seguridad para el mundo aislado.
   * `csp` String (opcional) - Política de Seguridad de Contenido para el mundo aislado.
-  * `name` String (opcional) - Nombre para el mundo aislado. Útil en devtools.
+  * `name` String (optional) - Name for isolated world. Useful in devtools.
 
-Establecer el origen de seguridad, la política de seguridad de contenido y el nombre del mundo aislado. Nota: Si se especifica el `csp` entonces el `securityOrigin` también debe ser especificado.
+Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
 
 ### `webFrame.getResourceUsage()`
 
@@ -211,26 +208,26 @@ Devuelve `WebFrame` - que tiene el `routingId` proporcionado, `null` si no se en
 
 ## Propiedades
 
-### `webFrame.top` *Readonly*
+### `webFrame.top` _Readonly_
 
 A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
 
-### `webFrame.opener` *Readonly*
+### `webFrame.opener` _Readonly_
 
 A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
 
-### `webFrame.parent` *Readonly*
+### `webFrame.parent` _Readonly_
 
 A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
 
-### `webFrame.firstChild` *Readonly*
+### `webFrame.firstChild` _Readonly_
 
 A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
 
-### `webFrame.nextSibling` *Readonly*
+### `webFrame.nextSibling` _Readonly_
 
 A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
 
-### `webFrame.routingId` *Readonly*
+### `webFrame.routingId` _Readonly_
 
-Un `Integer` que representa el id único del frame en el proceso renderizador actual. Distintas instancias WebFrame que refieren al mismo frame subyacente tendrán el mismo `routingId`.
+An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
