@@ -1,4 +1,4 @@
-# remote
+# uzak
 
 > Oluşturucu işlemindeki ana işlem modüllerini kullanın.
 
@@ -17,9 +17,8 @@ win.loadURL('https://github.com')
 **Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Note:** The remote module can be disabled for security reasons in the following contexts:
-
-* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
-* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
+- [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
+- [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
 
 ## Uzak nesneler
 
@@ -43,7 +42,7 @@ Birincil değer türleri dizeler ve satırlar gibidir oysa metin halinde gönder
 
 Ana süreçteki kod, oluşturucudan geri bildirimleri kabul edebilir - örneğin ` remote ` modülü - ancak bu özelliği kullanırken son derece dikkatli olmalısınız.
 
-İlk olarak, kilitlenmelerden kaçınmak için, ana işleme iletilen geridönüşler eşzamansız olarak çağrılır. Ana süreçten, geçen geridönüşlerin dönüş değerini öğrenmesini bekleyemezsiniz.
+First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
 
 Örneğin ana işlemde `Array.map` olarak adlandırılan bir fonksiyonu işlev işleyici işleminde kullanamazsınız:
 
@@ -72,11 +71,11 @@ Gördüğünüz gibi, işleyici geri aramanın eş zamanlı dönüş değeri bek
 
 İkinci olarak, ana işleme atanmış geri çağrılar, ana süreç çöp toplayana kadar devam edecektir.
 
-Örneğin aşağıdaki kod ilk başta masum gibi görünüyor. Uzaktan bir nesne üzerinden `close` olayı için bir geri çağırma yükler:
+For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // pencere kapatıldı...
+  // window was closed...
 })
 ```
 
@@ -92,7 +91,7 @@ Ana işlemdeki konulmuş modüller `remote` içinde alıcı olarak bulunur, bu s
 
 <pre><code class="javascript">const app = require('electron').remote.app
 console.log(app)
-`</pre> 
+`</pre>
 
 ## Metodlar
 
@@ -150,6 +149,6 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ## Özellikler
 
-### `remote.process` *Readonly*
+### `remote.process` _Readonly_
 
-A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
