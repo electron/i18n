@@ -17,7 +17,6 @@ myNotification.onclick = () => {
 Enquanto o código e a experiência do usuário em sistemas operacionais sejam semelhantes, há algumas diferenças.
 
 ## Windows
-
 * No Windows 10, um atalho para seu aplicativo com um [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) deve ser instalado no Menu Iniciar. Isso pode ser desnecessário durante o desenvolvimento, então adicionar `node_modules\electron\dist\electron.exe` ao Menu Iniciar também funciona. Navegue até o arquivo no Explorer, clique com o botão direito e "Fixar em Iniciar". Você vai precisar adicionar a linha `app.setAppUserModelId(process.execPath)` ao seu processo principal parar ver as notificações.
 * No Windows 8.1 e Windows 8, um atalho para o seu aplicativo, com um, [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) deve ser instalado na tela inicial. No entanto, ele não precisa ser fixado na a tela iniciar.
 * No Windows 7, notificações funcionam através de uma implementação personalizada que visualmente se assemelha aos sistemas mais novos.
