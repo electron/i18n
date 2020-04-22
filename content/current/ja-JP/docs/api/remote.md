@@ -14,9 +14,9 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
+**注:** 逆 (メインプロセスからレンダラープロセスにアクセスする) の場合は、 [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture) が使用できます。
 
-**Note:** The remote module can be disabled for security reasons in the following contexts:
+**注意:** セキュリティ上の理由からリモートモジュールを無効にするには以下のようにしてできます。
 - [`BrowserWindow`](browser-window.md) - `enableRemoteModule` オプションを `false` にセットする。
 - [`<webview>`](webview-tag.md) - `enableremotemodule` 属性を `false` にセットする。
 
@@ -26,9 +26,9 @@ win.loadURL('https://github.com')
 
 上記のサンプルでは、[`BrowserWindow`](browser-window.md) と `win` の両方がリモートオブジェクトで、レンダラープロセス内の `new BrowserWindow` では、`BrowserWindow` オブジェクトは作成されていません。 代わりに、`BrowserWindow` オブジェクトはメインプロセス内で作成され、レンダラープロセス内の対応するリモートオブジェクト、すなわち `win` オブジェクトを返しました。
 
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
+**注釈:** リモートオブジェクトが最初に参照された時に存在する、[列挙可能なプロパティ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)だけが、remote を経由してアクセスできます。
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. それらをレンダラープロセス内で変更しても、メインプロセス内のものは変更されません。
+**注釈:** `remote` を経由してアクセスしたとき、配列とバッファは IPC でコピーされます。 それらをレンダラープロセス内で変更しても、メインプロセス内のものは変更されません。
 
 ## リモートオブジェクトの有効期間
 
@@ -117,7 +117,7 @@ project/
 ```
 
 ```js
-// main process: main/index.js
+// メインプロセス: main/index.js
 const { app } = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
@@ -136,7 +136,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 戻り値 [`BrowserWindow`](browser-window.md) - このウェブページが属するウインドウ。
 
-**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). これを使用すると、すべての [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) リスナの削除、Touch Bar ボタン上のクリックイベントの無効化、その他意図しない結果が起こりえます。
+**注:** [`BrowserWindow`](browser-window.md) 上で `removeAllListeners` を使用しないでください。 これを使用すると、すべての [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) リスナの削除、Touch Bar ボタン上のクリックイベントの無効化、その他意図しない結果が起こりえます。
 
 ### `remote.getCurrentWebContents()`
 
@@ -150,6 +150,6 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ## プロパティ
 
-### `remote.process` _Readonly_
+### `remote.process` _読み出し専用_
 
 A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
