@@ -95,10 +95,10 @@ Ví dụ như `autoUpdater` là một ví dụ:
 * Constructors must be listed with `###`-level titles.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) phải được liệt kê trong phần `### Static Methods`.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* Tất cả phương thức có trả về giá trị phải được bắt đầu bằng đoạn mô tả: "Returns `[TYPE]` - Return description" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Các Thuộc Tính` chapter. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Instance properties must start with "A [Property Type] ..."
 
 Sử dụng tài liệu của các class `Session` và `Cookies` làm ví dụ:
