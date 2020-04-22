@@ -31,7 +31,7 @@ npm vai guiá-lo para criação de um arquivo básico o `package.json`. O script
 }
 ```
 
-**Nota**: Se o campo `main` não se encontra em `package.json`, Electron tentará carregar um `index.js` (assim como Node.js faz). Se isso fosse realmente um simples aplicativo em Node, você adicionaria um script `start`, para instruir o `node` para executar o pacote atual:
+__Nota__: Se o campo `main` não se encontra em `package.json`, Electron tentará carregar um `index.js` (assim como Node.js faz). Se isso fosse realmente um simples aplicativo em Node, você adicionaria um script `start`, para instruir o `node` para executar o pacote atual:
 
 ```json
 {
@@ -173,7 +173,7 @@ Depois de criar seus arquivos iniciais `main.js`,`index.html` e `package.json`, 
 
 Clone e execute o código nesse tutorial utilizando o repositório [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Nota**: Executando as dependências [Git](https://git-scm.com) e [npm](https://www.npmjs.com/).
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Clone o repositório
