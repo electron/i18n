@@ -1,8 +1,8 @@
 # app
 
-> 애플리케이션의 이벤트 생명 주기를 제어합니다.
+> application의 이벤트 생명주기를 제어합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 다음은 마지막 윈도우를 닫을 때 애플리케이션도 종료하는 예시입니다.
 
@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## 이벤트
 
 app 객체는 다음과 같은 이벤트를 가지고 있습니다:
 
@@ -25,7 +25,7 @@ app 객체는 다음과 같은 이벤트를 가지고 있습니다:
 
 ### 이벤트: 'ready'
 
-반환:
+Returns:
 
 * `launchInfo` unknown _macOS_
 
@@ -39,19 +39,19 @@ Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. macOS에
 
 ### 이벤트: 'before-quit'
 
-반환:
+Returns:
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Emitted before the application starts closing its windows. `event.preventDefault()`를 호출하면 기본 동작의 수행 (애플리케이션 종료) 을 막습니다.
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**참고**: Window 운영체제에서는 시스템 종료, 재시작 또는 로그아웃으로 앱이 종료되는 경우 해당 이벤트가 발생하지 않습니다.
 
 ### 이벤트: 'will-quit'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -59,7 +59,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 `will-quit` 와 `window-all-closed` 이벤트들의 차이점에 대해서는 `window-all-closed`이벤트 설명을 참조하세요.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**참고**: Window 운영체제에서는 시스템 종료, 재시작 또는 로그아웃으로 앱이 종료되는 경우 해당 이벤트가 발생하지 않습니다.
 
 ### 이벤트: 'quit'
 
@@ -70,11 +70,11 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 어플리케이션을 종료할 때 발생된다.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**참고**: Window 운영체제에서는 시스템 종료, 재시작 또는 로그아웃으로 앱이 종료되는 경우 해당 이벤트가 발생하지 않습니다.
 
-### Event: 'open-file' _macOS_
+### 이벤트: 'open-file' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `path` String
@@ -87,7 +87,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 ### Event: 'open-url' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -96,18 +96,18 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 이 이벤트를 처리하려면 `event.preventDefault()`를 호출해야 합니다.
 
-### Event: 'activate' _macOS_
+### 이벤트: 'activate' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
 
 애플리케이션이 활성화될 때 발생합니다. 여러 가지 행동이 이 이벤트를 발생시킬 수 있습니다. 예를 들어, 처음 애플리케이션을 실행할 때, 애플리케이션을 실행 중이지만 또 다시 실행할 때, 또는 애플리케이션의 독이나 작업표시줄 아이콘을 클릭할 때 등이 있습니다.
 
-### Event: 'continue-activity' _macOS_
+### 이벤트: 'continue-activity' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
@@ -117,18 +117,18 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 사용자 행동이 애플리케이션에서 이어지기 위해서는 반드시 행동 소스 앱과 같은 개발팀 ID를 가지고 있어야 하고, 해당 행동 타입을 지원하고 있어야 합니다. 지원되는 행동 타입은 앱의 `Info.plist` 내부의 `NSUserActivityTypes` 키에서 확인할 수 있습니다.
 
-### Event: 'will-continue-activity' _macOS_
+### 이벤트: 'will-continue-activity' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)중 다른 디바이스로부터 액티비티를 계속하려고 하기 직전에 발생합니다. 이 이벤트를 핸들링하려면 `event.preventDefault()`를 반드시 호출해야합니다.
 
-### Event: 'continue-activity-error' _macOS_
+### 이벤트: 'continue-activity-error' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
@@ -136,9 +136,9 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 도중에 다른 장치의 작업을 다시 시작할 수 없을 때 발생합니다.
 
-### Event: 'activity-was-continued' _macOS_
+### 이벤트: 'activity-was-continued' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
@@ -146,9 +146,9 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)중인 디바이스의 액티비티를, 다른 디바이스에서 계속하는 데 성공한 뒤 발생합니다.
 
-### Event: 'update-activity-state' _macOS_
+### 이벤트: 'update-activity-state' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
@@ -156,17 +156,17 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)가 다른 기기에서 재시작될 때 발생합니다. 송신된 정보를 업데이트할 필요가 있다면, 즉시 `event.preventDefault()`를 호출해주십시오. 그리고, 새 `userInfo` 딕셔너리를 구성하여, `app.updateCurrentActivity()`를 시의적절하게 호출해주십시오. 그렇지 않으면 명령이 실패하여, `continue-activity-error` 가 호출됩니다.
 
-### Event: 'new-window-for-tab' _macOS_
+### 이벤트: 'new-window-for-tab' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+사용자가 macOS 기본 새 탭 버튼을 클릭했을 때 발생합니다. 현재 `BrowserWindow`에 `tabbingIdentifier`가 있을 때만 새 탭 버튼이 보입니다.
 
 ### 이벤트 'browser-window-blur'
 
-반환:
+Returns:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -175,7 +175,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### 이벤트: 'browser-window-focus'
 
-반환:
+Returns:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -184,7 +184,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### 이벤트: 'browser-window-created'
 
-반환:
+Returns:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -193,7 +193,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### 이벤트: 'web-contents-created'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -202,7 +202,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### 이벤트: 'certificate-error'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -230,7 +230,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### 이벤트: 'select-client-certificate'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -252,9 +252,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### 이벤트: 'login'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -291,7 +291,7 @@ GPU 정보 업데이트가 있을 때마다 발생합니다.
 
 ### 이벤트: 'gpu-process-crashed'
 
-반환:
+Returns:
 
 * `event` Event
 * `killed` Boolean
@@ -300,7 +300,7 @@ GPU 프로세스가 충돌하거나 종료될 때 발생합니다.
 
 ### 이벤트: 'renderer-process-crashed'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -308,9 +308,9 @@ GPU 프로세스가 충돌하거나 종료될 때 발생합니다.
 
 `webContents`의 렌더러 프로세스가 충돌하거나 종료될 때 발생합니다.
 
-### Event: 'accessibility-support-changed' _macOS_ _Windows_
+### 이벤트: 'accessibility-support-changed' _macOS_ _Windows_
 
-반환:
+Returns:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - Chrome의 접근성 지원이 활성화 됐을 땐 `true`, `false`는 그 이외.
@@ -319,7 +319,7 @@ Chrome의 accessibility 가 변경되면 발생합니다. 이 이벤트는 스�
 
 ### 이벤트: 'session-created'
 
-반환:
+Returns:
 
 * `session` [Session](session.md)
 
@@ -335,7 +335,7 @@ app.on('session-created', (session) => {
 
 ### 이벤트: 'second-instance'
 
-반환:
+Returns:
 
 * `event` Event
 * `argv` String[] - 두 번째 instance의 명령줄 매개 변수의 Array입니다.
@@ -347,20 +347,20 @@ app.on('session-created', (session) => {
 
 이 이벤트는 `앱`의 `준비`이벤트가 생성된 후에 생성됩니다.
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**참고:** 추가 명령 줄 인수는 `-original-process-start-time`과 같은 Chromium에 의해 추가 될 수 있습니다.
 
 ### 이벤트: 'desktop-capturer-get-sources'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+`webContents`의 렌더러 프로세스에서 `desktopCapturer.getSources()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 호출하면 빈 소스를 반환합니다.
 
 ### 이벤트: 'remote-require'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -370,7 +370,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 ### 이벤트: 'remote-get-global'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -380,7 +380,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 ### 이벤트 'remote-get-builtin'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -390,7 +390,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 ### 이벤트: 'remote-get-current-window'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -399,7 +399,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 ### 이벤트: 'remote-get-current-web-contents'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -408,7 +408,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 ### 이벤트: 'remote-get-guest-web-contents'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -420,7 +420,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 `app` 객체에서 사용할 수 있는 메서드입니다:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**참고:** 몇몇 메서드는 특정 운영체제에서만 사용할 수 있습니다.
 
 ### `app.quit()`
 
@@ -432,7 +432,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 * `exitCode` Integer (optional)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+`exitCode`로 즉시 종료합니다. `exitCode`의 기본 값은 0입니다.
 
 사용자에게 묻지 않고 모든 창이 즉시 닫히고, `before-quit` 이벤트와 `will-quit` 이벤트가 발생하지 않습니다.
 
@@ -477,7 +477,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.show()` _macOS_
 
-Shows application windows after they were hidden. Does not automatically focus them.
+창이 숨겨졌으면 보이게 합니다. 자동으로 창을 활성화시키지는 않습니다.
 
 ### `app.setAppLogsPath([path])`
 
@@ -524,22 +524,22 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
   * `size` String
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on _Linux_, 32x32 on _Windows_, unsupported on _macOS_.
+    * `large` - _Linux_에서는 48x48, _Windows_에서는 32x32, _macOS_에서는 지원하지 않습니다.
 
 `Promise<NativeImage>` 반환 - [NativeImage](native-image.md) 형태의 앱 아이콘
 
 Path와 관련된 아이콘을 가져옵니다.
 
-On _Windows_, there a 2 kinds of icons:
+_Windows_에는 2종류의 아이콘이 있습니다:
 
 * `.mp3`, `.png`등과 같이 특정 파일 확장명과 관련된 아이콘
 * `.exe`, `.dll`, `.ico`와 같이 파일 안에 있는 아이콘.
 
-On _Linux_ and _macOS_, icons depend on the application associated with file mime type.
+_Linux_와 _macOS_에서 아이콘은 mime type과 관련된 어플리케이션에 따라 다릅니다.
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* PrinterInfo Object
 * `path` String
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
@@ -562,9 +562,9 @@ Returns `String` - The current application's name, which is the name in the appl
 
 ### `app.setName(name)`
 
-* `name` String
+* PrinterInfo Object
 
-Overrides the current application's name.
+현재 애플리케이션의 이름을 덮어씁니다.
 
 **Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
 
@@ -574,7 +574,7 @@ Overrides the current application's name.
 
 Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
+로케일을 설정하려면, [여기](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md)에 쓰여있는 대로 앱 시작 시에 명령줄 switch를 사용하는 것이 좋습니다.
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
@@ -590,7 +590,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 * `path` String
 
-Adds `path` to the recent documents list.
+최근 열어본 문서 목록에 `path`를 추가합니다.
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
@@ -677,7 +677,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. `name` 속성이 설정되었지만 `type` 속성이 생략된 경우, `type`은 `custom`으로 가정합니다.
+**참고:** `JumpListCategory` 객체가 `type`, `name` 속성 둘 다 없다면, `type`은 `tasks`로 가정합니다.  `name` 속성이 설정되었지만 `type` 속성이 생략된 경우, `type`은 `custom`으로 가정합니다.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
@@ -689,52 +689,52 @@ const { app } = require('electron')
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Recent Projects',
+    name: '최근 프로젝트',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
+  { // 이름이 있으니 `type` 값은 "custom" 으로 간주됩니다.
+    name: '도구',
     items: [
       {
         type: 'task',
-        title: 'Tool A',
+        title: '도구 A',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
+        description: '도구 A 실행'
       },
       {
         type: 'task',
-        title: 'Tool B',
+        title: '도구 B',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool B'
+        description: '도구 B 실행'
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // 이름과 타입이 없으니 `type` 값은 "tasks" 로 간주됩니다.
     items: [
       {
         type: 'task',
-        title: 'New Project',
+        title: '새 프로젝트',
         program: process.execPath,
         args: '--new-project',
-        description: 'Create a new project.'
+        description: '새 프로젝트를 생성합니다.'
       },
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Recover Project',
+        title: '프로젝트 복구',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recover Project'
+        description: '프로젝트 복구'
       }
     ]
   }
@@ -855,7 +855,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `infoType` String - `basic` 또는 `complete`.
 
-Returns `Promise<unknown>`
+`Promise<unknown>`를 반환합니다.
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
@@ -895,7 +895,7 @@ machineModelVersion: '11.5' }
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
 **[더이상 사용하지 않음](modernization/property-updates.md)**
 
@@ -966,7 +966,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 이 API는 `ready` 이벤트가 발생한 후에 호출해야 합니다.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**주의:** 접근성 트리를 렌더링하는 것은 당신앱의 성능에 중대한 영향을 줄 수 있습니다. 기본으로 활성화하지 마세요.
 
 **[더이상 사용하지 않음](modernization/property-updates.md)**
 
@@ -1015,7 +1015,7 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.enableSandbox()` _Experimental_
+### `app.enableSandbox()` _실험적_
 
 Enables full sandbox mode on the app.
 
@@ -1068,7 +1068,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 이 API는 `ready` 이벤트가 발생한 후에 호출해야 합니다.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**주의:** 접근성 트리를 렌더링하는 것은 당신앱의 성능에 중대한 영향을 줄 수 있습니다. 기본으로 활성화하지 마세요.
 
 ### `app.applicationMenu`
 
@@ -1080,7 +1080,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
 ### `app.commandLine` _Readonly_
 
