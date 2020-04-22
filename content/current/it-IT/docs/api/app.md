@@ -47,7 +47,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** In Windows, questo evento non verrà emesso se l'applicazione viene chiusa a causa di a un arresto/riavvio del sistema oppure del logout da parte dell'utente.
 
 ### Evento: 'will-quit'
 
@@ -59,7 +59,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 Vedi la descrizione dell'evento `window-all-closed` per le differenze tra gli eventi `will-quit` e `window-all-closed`.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** In Windows, questo evento non verrà emesso se l'applicazione viene chiusa a causa di a un arresto/riavvio del sistema oppure del logout da parte dell'utente.
 
 ### Evento: 'quit'
 
@@ -70,9 +70,9 @@ Restituisce:
 
 Emesso quando l'applicazione è in uscita.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** In Windows, questo evento non verrà emesso se l'applicazione viene chiusa a causa di a un arresto/riavvio del sistema oppure del logout da parte dell'utente.
 
-### Event: 'open-file' _macOS_
+### Evento: 'open-file' _macOS_
 
 Restituisce:
 
@@ -85,7 +85,7 @@ Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
 Su Windows, devi analizzare `process.argv` (nel processo principale) per ottenere il percorso del file.
 
-### Event: 'open-url' _macOS_
+### Evento: 'open-url' _macOS_
 
 Restituisce:
 
@@ -96,7 +96,7 @@ Emesso quando l'utente vuole aprire un URL con l'l'applicazione. Your applicatio
 
 Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
-### Event: 'activate' _macOS_
+### Evento: 'activate' _macOS_
 
 Restituisce:
 
@@ -105,58 +105,58 @@ Restituisce:
 
 Emesso quando l'applicazione è attivata. Varie azioni possono generare questo evento, come il lancio dell'applicazione per la prima volta, provare a rilanciarla quando è già aperta o cliccare sul dock dell'applicazione o sull'icona della taskbar.
 
-### Event: 'continue-activity' _macOS_
+### Evento: 'continue-activity' _macOS_
 
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
 Un'attività dell'utente può essere continuata solo in un app con lo stesso developer Team ID come l'attività dell'app di riferimento e che supporti il tipo di attività. I tipi di attività supportati sono specificati nell'`Info.plist` dell'applicazione sotto la chiave `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' _macOS_
+### Evento: 'will-continue-activity' _macOS_
 
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` Stringa - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), prima che un'attività da un dispositivo differente richieda di essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
+Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), prima che un'attività da un dispositivo differente richieda di essere ripristinata. Se vuoi gestire questo evento dovresti chiamare `event.preventDefault()`.
 
-### Event: 'continue-activity-error' _macOS_
+### Evento: 'continue-activity-error' _macOS_
 
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `error` String - Una stringa contenente la descrizione localizzata dell'errore.
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un dispositivo diverso fallisce nel ripristino.
 
-### Event: 'activity-was-continued' _macOS_
+### Evento: 'activity-was-continued' _macOS_
 
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) dopo che un'attività da questo dispositivo è stata ripristinata con successo su un altro.
 
-### Event: 'update-activity-state' _macOS_
+### Evento: 'update-activity-state' _macOS_
 
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. Se necessiti di aggiornare lo stato da trasferire, devi chiamare subito `event.preventDefault()`, costruisci un nuovo dizionario `userInfo` e chiama tempestivamente `app.updateCurrentActiviy()`. Altrimenti l'operazione fallirà e verrà chiamato `continue-activity-error`.
 
-### Event: 'new-window-for-tab' _macOS_
+### Evento: 'nuova-finestra-per-scheda' _macOS_
 
 Restituisce:
 
@@ -206,10 +206,10 @@ Restituisce:
 
 * `event` Event
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
-* `url` Stringa
+* `url` String
 * `error` String - Il codice d'errore
 * `certificate` [Certificato](structures/certificate.md)
-* `callback` Function
+* `callback` Funzione
   * `isTrusted` Boolean - Se considerare il certificato come verificato
 
 Emesso quando fallisce la verifica del`certificato` per`url`, per verificare il certificato puoi prevenire il comportamento predefinito con `evento.previeniDefault()` e chiamare `callback(vero)`.
@@ -237,7 +237,7 @@ Restituisce:
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function
+* `callback` Funzione
   * `certificate` [Certificate](structures/certificate.md) (opzionale)
 
 Emesso quando un certificato client è richiesto.
@@ -253,7 +253,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Evento: 'accedi'
+### Evento: 'login'
 
 Restituisce:
 
@@ -262,12 +262,12 @@ Restituisce:
 * `authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
-  * `èProxy` Booleano
-  * `schema` Stringa
-  * `ospite` Stringa
-  * `porta` Numero Intero
-  * `regno` Stringa
-* `callback` Function
+  * `isProxy` Boolean
+  * `scheme` String
+  * `host` String
+  * `port` Integer
+  * `realm` String
+* `callback` Funzione
   * `username` String (opzionale)
   * `password` String (opzionale)
 
@@ -305,11 +305,11 @@ Restituisce:
 
 * `event` Event
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
-* `killed` Boolean
+* `ucciso` Booleano
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
-### Event: 'accessibility-support-changed' _macOS_ _Windows_
+### Evento: 'accessibilità-supporto-cambiata' _macOS_ _Windows_
 
 Restituisce:
 
@@ -421,7 +421,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process of `
 
 L'oggetto `app` ha i seguenti metodi:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Nota:** Alcuni metodi sono disponibili solo su sistemi operativi specifici e sono etichettati come tali.
 
 ### `app.esci()`
 
@@ -472,11 +472,11 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. Può essere us
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
 
-### `app.hide()` _macOS_
+### `app.nascondi()` _macOS_
 
 Nasconde tutte le finestre dell'applicazione senza minimizzarle.
 
-### `app.show()` _macOS_
+### `app.mostra()` _macOS_
 
 Shows application windows after they were hidden. Does not automatically focus them.
 
@@ -531,7 +531,7 @@ Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [Nati
 
 Recupera un'icona associata al percorso.
 
-On _Windows_, there a 2 kinds of icons:
+Su _Windows_ esistono 2 tipi di icone:
 
 * Icone associate con certe estensioni di file come `.mp3`, `.png`, etc.
 * Icone interne allo stesso file come `.exe`, `.dll`, `.ico`.
@@ -577,7 +577,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 Per impostare il locale, vorrai usare una linea di comando spostata alla startup dell'app, che si trova [qui](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**Note:** Quando distribuisci il tuo pacchetto app, devi anche navigare nelle cartelle `locali`.
 
 **Note:** On Windows, you have to call it after the `ready` events gets emitted.
 
@@ -587,7 +587,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 **Note:** When unable to detect locale country code, it returns empty string.
 
-### `app.addRecentDocument(path)` _macOS_ _Windows_
+### `app.aggoimgoRecenteDocumento(percorso)` _macOS_ _Windows_
 
 * `path` String
 
@@ -595,7 +595,7 @@ Aggiungi `percorso` alla lista documenti recenti.
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
-### `app.clearRecentDocuments()` _macOS_ _Windows_
+### `app,pulisciRecentiDocumenti` _macOS_ _Windows_
 
 Pulisce la lista documenti recenti.
 
@@ -615,11 +615,11 @@ Sets the current executable as the default handler for a protocol (aka URI schem
 
 The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
 
-### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
+### `app.rimuoviComeProtocolloClientDefault(protocollo[, percorso, arg])` _macOS_ _Windows_
 
 * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `percorso` Stringa (opzionale) _Windows_ - Di default a `process.eseguiPercorso`
+* `arg` Stringa[] (opzionale) _Windows_ - Di default ad un insieme vuoto
 
 Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
@@ -628,12 +628,12 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `percorso` Stringa (opzionale) _Windows_ - Di default a `process.eseguiPercorso`
+* `arg` Stringa[] (opzionale) _Windows_ - Di default ad un insieme vuoto
 
 Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. Puoi anche verificarlo controllando `~/Libreria/Preferenze/com.apple.LanciaServizi.plist` su computer macOS. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) per i dettagli.
+**Nota:** Su macOS puoi usare questo metodo per controllare se l'app è stata registrata come gestionale di protocolli di default per un protocollo. Puoi anche verificarlo controllando `~/Libreria/Preferenze/com.apple.LanciaServizi.plist` su computer macOS. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) per i dettagli.
 
 The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
 
@@ -645,7 +645,7 @@ Returns `String` - Name of the application handling the protocol, or an empty st
 
 This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
 
-### `app.setUserTasks(tasks)` _Windows_
+### `app.impostaTaskUtente(task)` _Windows_
 
 * `task` [Task[]](structures/task.md) - Insieme di oggetti `Task`
 
@@ -655,16 +655,16 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 
 Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+**Nota:** Se ti piacerebbe modificare la Jump List ecco altri usi, invece, `app.impostaJumpList(categorie)`.
 
-### `app.getJumpListSettings()` _Windows_
+### `app.ottieniImpostazioniJumpList` _Windows_
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `miniElementi` Numero intero - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **prossima** chiamata a `app.impostaJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
 
-### `app.setJumpList(categories)` _Windows_
+### `app.impostaJumpList(categorie)` _Windows_
 
 * `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
 
@@ -678,7 +678,7 @@ Imposta o rimuovi una JumpList personalizzata per l'app, e restituisci una delle
 
 Se le `categories` sono `null` la precedentemente impostata Jump List (se esistente) sarà rimpiazzata dalla Jump List standard per l'app (gestita da Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Se la proprietà `name` è impostata ma la proprietà `type` é omessa, il `type` sarà considerato `custom`.
+**Note:** Se un oggetto `JumpListCategory` non ha nè `type` nè `name` impostati, il suo `type` diventa `tasks`. Se la proprietà `name` è impostata ma la proprietà `type` é omessa, il `type` sarà considerato `custom`.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Qualsiasi tentativo di aggiunta di un elemento rimosso ad una categoria personalizzata prima che questo risulterà nell'intera categoria personalizzata sarà omesso dalla Jump List. La lista degli elementi rimossi può essere ottenuta usando `app.ottieniImpostazioniJumpList()`.
 
@@ -790,7 +790,7 @@ Questo metodo restituisce se o meno questa istanza della tua app è al momento t
 
 Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
 
-### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
+### `app.impostaUtenteAttività(tipo, userInfo[, Urlpaginaweb])` _macOS_
 
 * `tipo` Stringa - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` any - App-specific state to store for use by another device.
@@ -798,7 +798,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 Crea un'`NSAttivitàUtente` e la imposta come attività corrente. L'attività è eleggibile per [Passarlo](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ad un altro dispositivo poi.
 
-### `app.getCurrentActivityType()` _macOS_
+### `app.ottieniTipoAttivitàCorrente()` _macOS_
 
 Restituisce `Stringa` - Il tipo di attività al momento in esecuzione.
 
@@ -817,7 +817,7 @@ Marks the current [Handoff](https://developer.apple.com/library/ios/documentatio
 
 Aggiorna l'attività corrente se il suo tipo corrisponde al `type`, fondendo le voci da `userInfo` nel suo dizionario corrente `userInfo`.
 
-### `app.setAppUserModelId(id)` _Windows_
+### `app.impostaModelloIdAppUtente(id)` _Windows_
 
 * `id` Stringa
 
@@ -828,7 +828,7 @@ Cambia il [Modello Id Applicazione Utente](https://msdn.microsoft.com/en-us/libr
 * `options` Object
   * `certificato` Stringa - Percorso per il file pkcs12.
   * `password` Stringa - Frase d'accesso per il certificato.
-* `callback` Function
+* `callback` Funzione
   * `risultato` Numero intero - Risultato dell'importo.
 
 Importa il certificato in formato pkcs12 nel magazzino del certificato della piattaforma. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -899,7 +899,7 @@ Imposta il contatore badge per l'app attuale. Impostare il conto a `0` nasconder
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Nota:** Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per ulteriori informazioni leggere [Desktop Integrazione Ambiente](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 **[Deprecato](modernization/property-updates.md)**
 
@@ -921,19 +921,19 @@ Restituisce `Booleano` - Se l'attuale ambiente desktop è il launcher Unity.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `apriAdAccesso` Booleano - `true` se l'app è impostata a aperta all'accesso.
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Questo indica che l'app potrebbe non aprire alcuna finestra all'avvio. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean _macOS_ - `true` se l'app è impostata per aprirsi come nascosta al login. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` se l'app era stata aperta automaticamente al login. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` se l'app era stata aperta come un oggetto login nascosto. Questo indica che l'app potrebbe non aprire alcuna finestra all'avvio. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean _macOS_ - `true` se l'app era stata aperta come un oggetto login che dovrebbe ripristinare lo stato della sessione precedente. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Il valore predefinito è `false`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Di default `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (optional) _macOS_ - `true` per aprirew l'app come nascosta. Di default `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
@@ -970,7 +970,7 @@ Abilita manualmente il supporto accessibilità di Chrome permettendo di esporre 
 
 This API must be called after the `ready` event is emitted.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
 
 **[Deprecato](modernization/property-updates.md)**
 
@@ -1006,7 +1006,7 @@ Show the platform's native emoji picker.
 
 * `bookmarkData` Stringa - Sicurezza codificata in base64 mirata ai dati dei segnalibri restituiti dai metodi `dialog.showOpenDialog` o `dialog.showSaveDialog`.
 
-Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. Se non ti ricordi di fermare l'accesso ai segnalibri, [Le risorse del kernel saranno perse](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) e la tua applicazione perderà completamente la capacità di raggiungere al di fuori della sandbox, finché la tua app non viene riavviata.
+Restituisce `Function` - Questa funzione **deve** essere chiamata una volta che hai finito d'accede ad un file ad ambito protetto. Se non ti ricordi di fermare l'accesso ai segnalibri, [Le risorse del kernel saranno perse](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) e la tua applicazione perderà completamente la capacità di raggiungere al di fuori della sandbox, finché la tua app non viene riavviata.
 
 ```js
 // Inizio accesso al file.
@@ -1039,7 +1039,7 @@ Returns `Boolean` - Whether the move was successful. Please note that if the mov
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Il messaggio nell'errore dovrebbe essere informativo e dirti esattamente cosa è andato storto.
+**NOTA:** Questo metodo lancia errori se ogni altro dall'utente causa un fallimento della mossa. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Il messaggio nell'errore dovrebbe essere informativo e dirti esattamente cosa è andato storto.
 
 By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
@@ -1072,7 +1072,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 This API must be called after the `ready` event is emitted.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
 
 ### `app.applicationMenu`
 
@@ -1084,7 +1084,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Nota:** Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per ulteriori informazioni leggere [Desktop Integrazione Ambiente](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.commandLine` _Readonly_
 
