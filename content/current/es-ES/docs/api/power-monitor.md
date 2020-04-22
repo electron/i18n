@@ -2,7 +2,8 @@
 
 > Monitorea los cambios de estado de energía.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
+
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
@@ -30,23 +31,23 @@ Se emite cuando se suspende el sistema.
 
 Se emite cuando se reanuda el sistema.
 
-### Evento: "on-ac" *Windows*
+### Evento: "on-ac" _Windows_
 
 Se emite cuando el sistema se cambia a la corriente alterna.
 
-### Evento: "on-battery" *Windows*
+### Evento: "on-battery" _Windows_
 
 Se emite cuando el sistema se cambia a la energía de batería.
 
-### Evento: 'shutdown' *Linux* *macOS*
+### Evento: 'shutdown' _Linux_ _macOS_
 
 Se emite cuando el sistema está a punto de reiniciarse o apagarse. Si el controlador de eventos invocó `e.preventDefault()`, Electron intentará retrasar el apagado del sistema para que la aplicación salga limpiamente. Si se llama a `e.preventDefault()`, la aplicación debe salir tan pronto como sea posible llamando a algo como `app.quit()`.
 
-### Evento: 'lock-screen' *macOS* *Windows*
+### Evento: 'lock-screen' _macOS_ _Windows_
 
 Emitido cuando el sistema está a punto de bloquear la pantalla.
 
-### Evento: 'unlock-screen' *macOS* *Windows*
+### Evento: 'unlock-screen' _macOS_ _Windows_
 
 Emitido tan pronto como el sistema desbloquea la pantalla.
 
@@ -58,9 +59,9 @@ El modulo `powerMonitor` tiene los siguientes métodos:
 
 * `idleThreshold` Integer
 
-Devuelve `String` - El estado actual del sistema. Puede ser `active`, `idle`, `locked` o `unknown`.
+Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-Calcular el estado inactivo del sistema. `idleThreshold` es la cantidad de tiempo (en segundos) antes de considerar inactivo. `locked` esta habilitado en sistemas soportados unicamente.
+Calcule el estado de reposo del sistema. `idleThreshold` es la cantidad de tiempo (en segundos) antes de considerar inactivo.  `locked` is available on supported systems only.
 
 ### `powerMonitor.getSystemIdleTime()`
 
