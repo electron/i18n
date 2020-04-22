@@ -3,13 +3,13 @@
 * `simgesi` [NativeImage](../native-image.md) - Küçük resimde gösterilen simge araç çubuğu.
 * `tıklama`fonksiyonu
 * `ipucu` Dize (isteğe bağlı) - Düğmenin araç ipucu metni.
-* `bayraklar` String [] (isteğe bağlı) - Belirli durumları ve davranışlarını denetler buton. Varsayılan olarak, `['etkinleştirilmiş']`.
+* `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
 `bayrakları` aşağıdaki Dizelerini takip eden bir `dizidir`:
 
 * `etkinleştirilmiş` - Düğme etkin ve kullanıcı tarafından kullanılabilir.
-* `devre dışı` - Düğme devre dışı. Var, ancak görsel bir durumu var ise kullanıcının eylemine yanıt vermeyeceğini belirtir.
+* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
 * `kapatmaya tıkla` - Düğmeye tıklandığında küçük resim penceresi kapanır hemen.
 * `arka plan yok` - Bir düğme kenarlığı çizmeyin, yalnızca resmi kullanın.
 * `gizli` - Düğme kullanıcıya gösterilmez.
-* `etkileşimli olmayan` - Düğme etkin ancak etkileşimli değil; basılan yok düğme durumu çizilir. Bu değer, düğmenin bir bildirimde kullanılır.
+* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
