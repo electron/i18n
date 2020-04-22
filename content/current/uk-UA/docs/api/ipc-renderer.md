@@ -2,9 +2,9 @@
 
 > Спілкуйтеся асинхронно від процесу візуалізатора до основного процесу.
 
-Процес: [Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)okok yes ie ui azt
 
-The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Він надає кілька методів, тому ви можете надсилати синхронні та асинхронні повідомлення з процесу рендеринга (веб-сторінки) у основний процес. Ви також можете отримувати відповіді від основного процесу.
+The `ipcRenderer` module is an  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Він надає кілька методів, тому ви можете надсилати синхронні та асинхронні повідомлення з процесу рендеринга (веб-сторінки) у основний процес. Ви також можете отримувати відповіді від основного процесу.
 
 See [ipcMain](ipc-main.md) for code examples.
 
@@ -15,7 +15,7 @@ The `ipcRenderer` module has the following method to listen for events and send 
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -24,7 +24,7 @@ Listens to `channel`, when a new message arrives `listener` would be called with
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -33,7 +33,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `...args` any[]
 
 Removes the specified `listener` from the listener array for the specified `channel`.
@@ -69,7 +69,6 @@ Send a message to the main process via `channel` and expect a result asynchronou
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 Наприклад:
-
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
