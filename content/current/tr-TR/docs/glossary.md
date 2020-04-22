@@ -6,7 +6,7 @@ Bu sayfa Electron gelişiminde yaygın olarak kullanılan bazı terminolojileri 
 
 ASAR, Atom Shell Arşiv Formatı anlamına gelmektedir. Bir [ asar ](https://github.com/electron/asar) arşivi basittir ` tar ` benzeri bir format, dosyaları tek bir dosyaya bağlar. Electron bütün dosyayı arşivden çıkarmadan rasgele dosyaları okuyabilir.
 
-ASAR biçimi öncelikle Windows'daki performansı artırmak için oluşturuldu... TODO
+The ASAR format was created primarily to improve performance on Windows... TODO
 
 ### CRT
 
@@ -22,11 +22,11 @@ Giriş yöntemi editörü. Kullanıcıların klavyelerinde bulunmayan karakterle
 
 ### IDL
 
-Arayüz açıklama dili. Fonksiyon tanımlamalarını ve veri tiplerini bir formatta yazın. Bu format Java, C++, JavaScript vb. gibi dillerde arabirimler oluşturmak için kullanılabilir. 
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
 
 ### IPC
 
-IPC, Süreçlararası İletişim anlamına gelir. Elektron, [ana](#main-process) ve [oluşturucu](#renderer-process) işlemleri arasındaki seri hale getirilmiş JSON iletileri göndermek için IPC kullanır.
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
@@ -38,15 +38,15 @@ IPC, Süreçlararası İletişim anlamına gelir. Elektron, [ana](#main-process)
 
 Ana işlem, yaygın olarak `main.js` adlı bir dosya, her Electron uygulamasına giriş noktasıdır. Uygulama açıkken kapansa da ömrünü kontrol eder. Ayrıca Menü, Menü Bar, Yuva, Tepsi gibi yerel ögeleri de yönetir. Ana işlem, uygulamada her yeni işleyici sürecini oluşturmaktan sorumludur. Tam Düğüm API'si yerleştirilmiştir.
 
-Her uygulamanın ana işlem dosyası `package.json` 'daki `ana` özelliğinde belirtilir. `electron .` başlangıçta hangi dosyanın nasıl yürütüleceğini bilir.
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-Chromium'da bu işleme "tarayıcı süreci" denir. İşleyici süreçleriyle karıştırılmamak için Electron'da yeniden adlandırılır.
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
 Ayrıca bkz: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Apple'ın Mac App Store'un kısaltması. Uygulamanızı, MAS'a gönderme ile ilgili ayrıntılar için, [ Mac App Store Gönderme Kılavuzu](tutorial/mac-app-store-submission-guide.md) 'na bakın.
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
@@ -68,7 +68,7 @@ Nullsoft Scriptable Install System, Microsoft Windows için komut dosyası çal�
 
 ### OSR
 
-OSR (Ekran dışı görüntü işleme) ağır sayfayı arka planda yüklemek ve sonra görüntülerken kullanabilir (çok daha hızlı olacaktır). Ekrandaki sayfayı göstermeden sayfayı oluşturmanıza izin verir.
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
 ### işlem
 
@@ -80,7 +80,7 @@ Ayrıca bkz: [main process](#main-process), [renderer process](#renderer-process
 
 ### oluşturma süreci
 
-İşleyici süreç uygulamanızda bir tarayıcı penceresidir. Ana işlemin aksine bunlar çoklu olabilir ve her biri ayrı bir süreçte çalıştırılır. Ayrıca gizli olabilirler.
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 Normal tarayıcılarda, web sayfaları genellikle korumalı bir ortamda çalışır ve yerel kaynaklara erişilmesine izin verilmez. Bununla birlikte, Electron kullanıcıları, daha düşük seviyedeki işletim sistemi etkileşimlerine izin veren web sayfalarında Node.js API'lerini kullanma gücüne sahiptir.
 
@@ -98,14 +98,14 @@ Like Node, Electron çoklu platform masaüstü uygulamaları geliştirmek için 
 
 ### V8
 
-V8 Google'ın açık kaynak kodlu JavaScript motorudur. C++'da yazılmış ve Google Chrome'da kullanılmıştır. V8 tek başına çalışabilir veya herhangi bir C++ uygulamasına eklenebilir.
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
 Electron V8'i Chromium'un bir parçası olarak oluşturur ve arkasından devreyi oluştururken V8'i işaret eder.
 
-V8'in sürüm numaraları her zaman Google Chrome'un sürüm numaralarına karşılık gelir. Chrome 59'un V8'i 5.9'u, Chrome 58'in V8'i 5.8'i vb. içerir.
+V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
-- [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
+- [modejs.org/api/v8.htm](https://nodejs.org/api/v8.html)
 - [docs/development/v8-devolopment.md](development/v8-development.md)
 
 ### web görünümü
