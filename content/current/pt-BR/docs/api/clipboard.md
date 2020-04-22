@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-No Linux, há também uma área de transferência `selection`. Para manipulá-la você precisa passar `selection` para cada método:
+On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -17,7 +17,7 @@ console.log(clipboard.readText('selection'))
 
 O módulo `clipboard` possui os seguintes métodos:
 
-**Nota:** APIs experimentais são marcadas como tal e podem ser removidas no futuro.
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([type])`
 
@@ -121,7 +121,7 @@ const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is 
 clipboard.writeRTF(rtf)
 ```
 
-### `clipboard.readBookmark()` *macOS* *Windows*
+### `clipboard.readBookmark()` _macOS_ _Windows_
 
 Retorna `Object`:
 
@@ -130,7 +130,7 @@ Retorna `Object`:
 
 Retorna um Objeto que contém as chaves `title` e `url` representando o bookmark na área de transferência. Os valores de `title` e `url` serão strings vazias quando o bookmark estiver indisponível.
 
-### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
+### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
 * `title` String
 * String `url`
@@ -149,13 +149,13 @@ clipboard.writeBookmark({
 })
 ```
 
-### `clipboard.readFindText()` no *macOS*
+### `clipboard.readFindText()` _macOS_
 
 Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
 
 This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
-### `clipboard.writeFindText(text)` no *macOS*
+### `clipboard.writeFindText(text)` _macOS_
 
 * `text` String
 
@@ -181,7 +181,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` _Experimental_
 
 * `format` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` *Experimental*
+### `clipboard.read(format)` _Experimental_
 
 * `format` String
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(format)` _Experimental_
 
 * `format` String
 
@@ -220,7 +220,7 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
 
 * `format` String
 * `buffer` Buffer
@@ -237,7 +237,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object 
+* `data` Object
   * `text` String (optional)
   * `html` String (optional)
   * `image` [NativeImage](native-image.md) (optional)
