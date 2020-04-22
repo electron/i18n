@@ -6,17 +6,16 @@ Electron'u linux üzerinde inşaa etmek için aşağıdaki yönlendirmeleri taki
 
 * En az 25GB disk alanı ve 8GB hafıza.
 * Python 2.7.x. CentOS gibi bazı dağıtımlar hala Python 2.6.x kullanmakta, dolayısıyla Python versiyonunuzu `python -V` komutu ile ile kontrol edin.
-    
-    Lütfen sisteminizin ve Python sürümünün en az TLS 1.2'yi desteklediğinden emin olun. Hızlı bir test için aşağıdaki komut dosyasını çalıştırın:
-    
-    ```sh
-    $ npx @electron/check-python-tls
-    ```
-    
-    Komut dosyası yapılandırmanızın eski bir güvenlik protokolu kullandığını döndürürse, Python'u 2.7.x sürümünün en son versiyonuna güncelleştirmek için sisteminizin paket yöneticisini kullanın. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+
+  Lütfen sisteminizin ve Python sürümünün en az TLS 1.2'yi desteklediğinden emin olun. Hızlı bir test için aşağıdaki komut dosyasını çalıştırın:
+
+  ```sh
+  $ npx @electron/check-python-tls
+  ```
+
+  Komut dosyası yapılandırmanızın eski bir güvenlik protokolu kullandığını döndürürse, Python'u 2.7.x sürümünün en son versiyonuna güncelleştirmek için sisteminizin paket yöneticisini kullanın. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
 
 * Node.js. Node'u kurmanın birden fazla yolu var. [nodejs.org](https://nodejs.org)'tan indirip derleyebilirsiniz. Bu şekilde Node'u kullanıcı dizinine standart bir şekilde kurabilirsiniz. Ya da [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) gibi depoları deneyebilirsiniz.
-
 * [clang](https://clang.llvm.org/get_started.html) 3.4 veya sonrası.
 * Development headers of GTK 3 and libnotify.
 
@@ -48,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Diğer linux dağıtımları pacman gibi paket yöneticileri üzerinden benzer paketler sunuyor olabilir. Ya da kaynak kodtan derleyebilirsiniz.
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
 ### Başka sistemler için derleme
 
@@ -80,7 +79,7 @@ Bakmak [Derleme Komutları: GN](build-instructions-gn.md)
 
 ### Hata mesajı: Error While Loading Shared Libraries: libtinfo.so.5
 
-Önceden inşaa edilmiş `clang` `libtinfo.so.5` bağlantısını yapmaya çalışacak. Makinanın mimarisine göre, uygun `libncurses`'e smylink yapın:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -88,7 +87,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## İleri düzey başlıklar
 
-Varsayılan inşaa konfigurasyon'u belli başlı Linux masaüstü dağıtımları içindir. Özel bir dağıtım veya cihaz için, aşağıdaki bilgiler işinize yarayabilir.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### İndirdiğıniz `clang` yerine sistem `clang`'ini kullanmak
 
