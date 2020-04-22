@@ -16,10 +16,10 @@ app.on('ready', () => {
     await contentTracing.startRecording({
       include_categories: ['*']
     })
-    console.log('Tracing started')
+    console.log('추적 시작 됨')
     await new Promise(resolve => setTimeout(resolve, 5000))
     const path = await contentTracing.stopRecording()
-    console.log('Tracing data recorded to ' + path)
+    console.log('추적 데이터가 ' + path + ' 에 저장되었습니다.')
   })()
 })
 ```
