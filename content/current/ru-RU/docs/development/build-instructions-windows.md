@@ -5,17 +5,17 @@
 ## Требования
 
 * Windows 10 / Server 2012 R2 или выше
-* Visual Studio 2017 15.7.2 или выше - [загрузить VS 2019 Community Edition бесплатно](https://www.visualstudio.com/vs/) 
+* Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
   * Смотрите [документацию по сборке Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) для получения более подробной информации о том, какие компоненты Visual Studio необходимы.
-  * Если ваша Visual Studio установлена в каталог, отличающийся от стандартного, вам нужно установить несколько переменных среды, чтобы указать инструментам на путь установки. 
+  * Если ваша Visual Studio установлена в каталог, отличающийся от стандартного, вам нужно установить несколько переменных среды, чтобы указать инструментам на путь установки.
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Often, this will be `C:`.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Often, this will be `C:`.
-* [Python 2.7.10 или выше](http://www.python.org/download/releases/2.7/) 
+* [Python 2.7.10 или выше](http://www.python.org/download/releases/2.7/)
   * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). Для этого убедитесь, что в **PATH**, ваш локально установленный Python находиться перед папкой `depot_tools`. Сейчас `depot_tools` все еще поставляется с Python 2.7.6, что приведёт к ошибке команды `gclient` (см. https://crbug.com/868864).
   * [Дополнения Python для Windows (pywin32)](https://pypi.org/project/pywin32/#files) также нужны для запуска процесса сборки.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* Инструменты отладки для Windows из Windows SDK 10.0.15063.468, если вы планируете создавать полный дистрибутив, учитывая что `symstore.exe` используется для создания хранилища символов из `.pdb` файлов. 
+* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
   * Различные версии SDK могут быть установлены бок о бок. To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
   * Также необходимо установить инструменты отладки SDK. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
 
@@ -23,7 +23,7 @@
 
 Сборка Electron осуществляется исключительно через скрипты командной строки, и не может быть осуществлена в Visual Studio. Вы можете разрабатывать Electron в любом редакторе, но в будущем будет поддержка сборки в Visual Studio.
 
-**Примечание:** Даже если Visual Studio не используется для сборки, он всё ещё **требуется**, потому что нам нужны средства сборки, которые он предоставляет.
+**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
 ## Сборка
 
