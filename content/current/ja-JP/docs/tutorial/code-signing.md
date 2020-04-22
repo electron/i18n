@@ -4,9 +4,9 @@
 
 macOS システムでは、その変更が誤りか悪意のあるコードによって導入されたのかにかかわらず、アプリに対する変更を検出できます。
 
-On Windows, the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low, will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+Windows では、コード署名証明書に信頼レベルが割り当てられています。そうでない場合や、信頼レベルが低いと、ユーザがアプリケーションを使用しようとしたときにセキュリティダイアログが表示されます。  信頼レベルは時間とともに上昇するので、できるだけ早くコード署名し始めることを推奨します。
 
-未署名のアプリを配布することは可能ですが、非推奨です。 Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+未署名のアプリを配布することは可能ですが、非推奨です。 Windows と macOS の両方は、デフォルトで未署名のアプリケーションのダウンロードや実行を阻害します。 macOS Catalina (バージョン 10.15) 以降では、ユーザーが署名されていないアプリケーションを開くには、複数ある手動の手順を実行する必要があります。
 
 ![macOS Catalina Gatekeeper warning: The app cannot be opened because the
 developer cannot be verified](../images/gatekeeper.png)
@@ -15,14 +15,14 @@ developer cannot be verified](../images/gatekeeper.png)
 
 パッケージ化して配布する予定の Electron アプリケーションを作成している場合は、コード署名されている必要があります。
 
-# Signing & notarizing macOS builds
+# macOS ビルドへの署名 & 公証
 
-Properly preparing macOS applications for release requires two steps: First, the app needs to be code-signed. Then, the app needs to be uploaded to Apple for a process called "notarization", where automated systems will further verify that your app isn't doing anything to endanger its users.
+macOS アプリをリリースに向けて適切に準備するには、2 つのステップが必要です。まず、アプリをコード署名する必要があります。 そして、"公証" と呼ばれるプロセスのためにアプリを Apple にアップロードする必要があります。自動化されたシステムによって、アプリがユーザーを危険にさらすようなことをしていないかどうか、さらに確認します。
 
-To start the process, ensure that you fulfill the requirements for signing and notarizing your app:
+このプロセスを開始するには、以下に示すアプリへの署名と公証の要件を満たしていることを確認してください。
 
 1. [Apple Developer Program](https://developer.apple.com/programs/) に登録する (年会費が必要)
-2. Download and install [Xcode](https://developer.apple.com/xcode) - this requires a computer running macOS
+2. [Xcode](https://developer.apple.com/xcode) をダウンロードしてインストールする - これは macOS を実行しているコンピュータに必要です
 3. [署名証明書](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates) を生成、ダウンロードして、インストールする
 
 Electron's ecosystem favors configuration and freedom, so there are multiple ways to get your application signed and notarized.
