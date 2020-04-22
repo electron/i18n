@@ -61,26 +61,25 @@ For instructions on how to acquire a Google API key, visit [this page](https://d
 
 ### `ELECTRON_NO_ASAR`
 
-ASAR desteğini iptal eder. Bu değişken sadece `ELECTRON_RUN_AS_NODE`'u kullanan çoklanmış alt (çocuk) süreçlerde veya yavrulayan çocuk süreçlerde desteklenir.
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
 Süreçi normal bir Node.js süreci olarak başlat.
 
-### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
+### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 O anki konsol oturumuna kendini bağlama.
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
 
 Linux'taki global menu bar'ını kullanma.
 
-### `ELECTRON_TRASH` *Linux*
+### `ELECTRON_TRASH` _Linux_
 
 Set the trash implementation on Linux. Default is `gio`.
 
 Options:
-
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -90,13 +89,14 @@ Options:
 
 Aşağıdaki ortam değişkenleri birincil olarak geliştirme ve hata ayıklama niyetiyle kullanılır.
 
+
 ### `ELECTRON_ENABLE_LOGGING`
 
 Chrome'un kendi içindeki kayıtlarını konsola basar.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-Electron ASAR dosyasından okuduğunda, okunanları `tmpdir` altına kaydeder. Ortaya çıkan dosya ASAR modülüne optimizasyon için sağlanabilir.
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
@@ -104,7 +104,7 @@ Electron çöktüğünde yığıt izlerini konsola basar.
 
 Bu ortam değişkeni `crashReporter` başlamış durumdaysa çalışmaz.
 
-### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
+### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
 
 Electron çöktüğünde windows'un çökme diyaloğunu gösterir.
 
