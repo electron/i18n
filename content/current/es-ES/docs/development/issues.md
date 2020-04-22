@@ -14,7 +14,7 @@ Para cualquier problema, existen fundamentalmente tres maneras en las que un ind
 2. Ayudando en el seguimiento del problema: Puedes hacerlo proporcionando detalles asistivos (un caso de prueba reproducible que demuestra el fallo) o proporcionando sugerencias para abordar el problema.
 3. Ayudando a resolver el problema: Esto se puede hacer demostrando que el problema no es un fallo o fue arreglado; Pero mas a menudo, abriendo un pull request que cambia el código fuente de `electron/electron` de una manera concreta y susceptible de revisión.
 
-## Pedir ayuda general
+## Pidiendo ayuda general
 
 ["Finding Support"](../tutorial/support.md#finding-support) tiene una lista de recursos para obtener ayuda de programación, reportar problemas de seguridad, contribuir y más. ¡Por favor, use el gestor de incidencias solo para errores!
 
@@ -41,11 +41,7 @@ Thanks for opening an issue! A few things to keep in mind:
 
 <!-- What do you think should happen? -->
 
-### Actual comportamiento
-
-<!-- ¿Qué está ocurriendo? -->
-
-### How to reproduce
+### Actual comportamiento<!-- ¿Qué está ocurriendo? -->### How to reproduce
 
 <!--
 
