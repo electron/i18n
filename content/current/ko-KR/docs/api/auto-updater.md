@@ -2,7 +2,7 @@
 
 > 애플리케이션이 자동으로 업데이트를 진행할 수 있도록 기능을 활성화합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 **참고 자료: [애플리케이션에 업데이트를 구현하는 방법에 대한 자세한 가이드](../tutorial/updates.md).**
 
@@ -34,9 +34,9 @@ Squirrel.Mac과 다르게, Windows는 S3 또는 다른 static file host에서 ho
 
 `autoUpdater` 객체는 다음과 같은 이벤트를 발생시킵니다:
 
-### 이벤트: 'error'
+### Event: 'error'
 
-반환:
+Returns:
 
 * `error` Error
 
@@ -84,8 +84,8 @@ Windows에서는 `releaseName`만 사용이 가능합니다.
 
 * `options` Object
   * `url` String
-  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
-  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP 요청 헤더.
+  * `serverType` String (optional) _macOS_ - `json` 또는 `default`, 더 자세한 내용은 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 의 README를 참조하세요.
 
 `url`을 설정하고 자동 업데이터를 초기화합니다.
 
@@ -103,4 +103,4 @@ Restarts the app and installs the update after it has been downloaded. It should
 
 `autoUpdater.quitAndInstall()`를 호출하면 모든 windows를 먼저 닫고 모든 window를 닫기 전에 자동으로 `app.quit()`를 호출합니다.
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**주의:** 다음에 응용 프로그램을 시작할 때 성공적으로 다운로드된 업데이트가 항상 적용되므로 업데이트를 적용하기 위해 이 함수를 반드시 호출할 필요는 없습니다.
