@@ -13,27 +13,27 @@ Estas são as diretrizes para escrever a documentação do Electron.
 Usado o `Inicio Rápido` como exemplo:
 
 ```markdown
-# Início Rápido
+# Quick Start
 
 ...
 
-## Processo principal
+## Main process
 
 ...
 
-## Processo de renderização 
+## Renderer process
 
 ...
 
-## Execute seu aplicativo
+## Run your app
 
 ...
 
-### Executar como uma distribuição
+### Run as a distribution
 
 ...
 
-### Baixando manualmente o binário do Electron
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -95,10 +95,10 @@ Using `autoUpdater` as an example:
 * Constructors must be listed with `###`-level titles.
 * [Métodos estáticos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) devem ser listados sob um capítulo `### Métodos estáticos`.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Descrição da devolução" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Los Eventos de Instancia deben aparecer listados bajo un capítulo de `### Eventos de Instancia`.
-* Propriedades da instância devem ser listadas em um `### Propriedades da Instância` capítulo. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Propriedades da instância devem começar com "A [Tipo de Propriedade]..."
 
 Usando as classes `Session` e `Cookies` como exemplo:
@@ -140,15 +140,17 @@ Usando as classes `Session` e `Cookies` como exemplo:
 O capítulo de métodos deve estar no seguinte formato:
 
 ```markdown
-### `objectName.Metodo(required[, optional]))`
+### `objectName.methodName(required[, optional]))`
 
-* `required` String - Uma descrição de parâmetro.
-* `optional` Integer (optional) - Outra descrição de parâmetro...
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
+
+...
 ```
 
 O título pode ser `###` ou `###`-levels dependendo do caso de ser um método de um módulo ou de uma classe.
 
-Para módulos, o `objectName` é o nome do módulo. Para classes, será o nome da instância da classe, e não pode ter o mesmo nome do módulo.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Por exemplo, os métodos da classe `Session` sob o módulo `session` usa `ses` como `objectName`.
 
@@ -161,10 +163,10 @@ required[, optional]
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`Número`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* [`Booleano`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Or a custom type like Electron's [`WebContent`](api/web-contents.md)
 
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
