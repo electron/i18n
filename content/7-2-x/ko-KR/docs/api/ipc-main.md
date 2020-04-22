@@ -89,13 +89,13 @@ Adds a handler for an `invoke`able IPC. This handler will be called whenever a r
 If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
 
 ```js
-// Main process
+// 메인 프로세스
 ipcMain.handle('my-invokable-ipc', async (event, ...args) => {
   const result = await somePromise(...args)
   return result
 })
 
-// Renderer process
+// 렌더러 프로세스
 async () => {
   const result = await ipcRenderer.invoke('my-invokable-ipc', arg1, arg2)
   // ...
