@@ -72,7 +72,7 @@ El módulo `desktopCapturer` tiene los siguientes métodos:
 
 ### `desktopCapturer.getSources(options)`
 
-* `opciones` Object 
+* `options` Object
   * `types` String[] - Un arreglo de cadenas que crea una lista de los tipos de fuentes de escritorio para ser capturadas. Los tipos disponibles son `screen` y `window`.
   * `thumbnailSize` [Size](structures/size.md) (opcional) - El tamaño de la miniatura de la fuente al cual deber ser escalado. Por defecto es `150` x `150`. Establecer ancho o alto a 0 cuando no necesitas las miniaturas. Esto guardara el tiempo de procesamiento requerido para capturar el contenido de cada ventana y pantalla.
   * `fetchWindowIcons` Boolean (opcional) - Establece a true para activar la obtención de los iconos de ventana. El valor por defecto es falso. Cuando es false la propiedad appIcon de las fuentes devuelve null. Mismo si una fuente tiene el tipo pantalla.
