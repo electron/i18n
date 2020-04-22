@@ -2,11 +2,11 @@
 
 > 애플리케이션이 키보드 포커스를 받고 있지 않고 있을 때 키보드 이벤트를 감지합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. 앱 모듈의 `ready` 이벤트가 발생하기 전에 이 모듈을 사용하면 안 됩니다.
+**주의:** 단축키는 전역입니다; 앱이 키보드 포커스를 받고 있지 않을 때도 작동합니다. 앱 모듈의 `ready` 이벤트가 발생하기 전에 이 모듈을 사용하면 안 됩니다.
 
 ```javascript
 const { app, globalShortcut } = require('electron')
@@ -34,7 +34,7 @@ app.on('will-quit', () => {
 })
 ```
 
-## 메소드
+## 메서드
 
 `globalShortcut` 모듈은 다음 매서드를 가지고 있습니다:
 
