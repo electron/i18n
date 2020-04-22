@@ -9,29 +9,28 @@ Elektron'un `process` nesnesi [Node.js `process` object](https://nodejs.org/api/
 ## Sandbox
 
 In sandboxed renderers the `process` object contains only a subset of the APIs:
-
-* `crash()`
-* `hang()`
-* `getCreationTime()`
-* `getHeapStatistics()`
-* `getBlinkMemoryInfo()`
-* `getProcessMemoryInfo()`
-* `getSystemMemoryInfo()`
-* `getSystemVersion()`
-* `getCPUUsage()`
-* `getIOCounters()`
-* `argv`
-* `execPath`
-* `env`
-* `pid`
-* `arch`
-* `platform`
-* `sandboxed`
-* `tip`
-* `version`
-* `versions`
-* `mas`
-* `windowsStore`
+- `crash()`
+- `hang()`
+- `getCreationTime()`
+- `getHeapStatistics()`
+- `getBlinkMemoryInfo()`
+- `getProcessMemoryInfo()`
+- `getSystemMemoryInfo()`
+- `getSystemVersion()`
+- `getCPUUsage()`
+- `getIOCounters()`
+- `argv`
+- `execPath`
+- `env`
+- `pid`
+- `arch`
+- `platform`
+- `sandboxed`
+- `tip`
+- `version`
+- `versions`
+- `mas`
+- `windowsStore`
 
 ## Events
 
@@ -53,21 +52,21 @@ process.once('loaded', () => {
 
 ## Özellikler
 
-### `process.defaultApp` *Readonly*
+### `process.defaultApp` _Readonly_
 
-Bir `Boolean`. Uygulama varsayılan uygulamaya parametre olarak geçirilip başlatıldığında, bu özellik ana işlemde `true` olur, aksi takdirde `undefined` olur.
+A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
-### `process.isMainFrame` *Readonly*
+### `process.isMainFrame` _Readonly_
 
 A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas` *Readonly*
+### `process.mas` _Readonly_
 
-Bir `Boolean`. Mac App Store kurmak için, bu özellik `true` olur, diğer kurulumlar için `undefined` olur.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
-Uygulamanızın içindeki ASAR desteğini kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak düğümün dahili modüllerindeki `asar` arşivleri için olan desteği devre dışı bırakacaktır.
+A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
 ### `process.noDeprecation`
 
@@ -77,11 +76,11 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
-### `process.resourcesPath` *Readonly*
+### `process.resourcesPath` _Readonly_
 
 Kaynaklar dizininin yolunu temsil eden bir `String`.
 
-### `process.sandboxed` *Readonly*
+### `process.sandboxed` _Readonly_
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
@@ -94,24 +93,23 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 İtirazların yığın izini içeren `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`. Setting this to `true` will print stack traces for deprecations. Bu özellik `--trace-deprecation` komut satırı etiketi yerine kullanılır.
 
 ### `process.traceProcessWarnings`
-
 İşlem uyarılarının yığın izini içeren `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
-### `process.type` *Readonly*
+### `process.type` _Readonly_
 
 A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
-### `process.versions.chrome` *Readonly*
+### `process.versions.chrome` _Readonly_
 
 Chrome versiyonu dizesini temsil eden bir `String`.
 
-### `process.versions.electron` *Readonly*
+### `process.versions.electron` _Readonly_
 
 Elektron versiyonu dizesini temsil eden bir `String`.
 
-### `process.windowsStore` *Readonly*
+### `process.windowsStore` _Readonly_
 
-Bir `Boolean`. Eğer uygulama bir Windows Store uygulaması (appx) olarak çalışıyorsa, bu özellik `true` olur, aksi takdirde `undefined` olur.
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## Metodlar
 
@@ -131,7 +129,7 @@ Indicates the creation time of the application. The time is represented as numbe
 
 [`CPUUsage`](structures/cpu-usage.md)'a döner
 
-### `process.getIOCounters()` *Windows* *Linux*
+### `process.getIOCounters()` _Windows_ _Linux_
 
 [`IOCounters`](structures/io-counters.md)'a döner
 
@@ -149,7 +147,7 @@ Indicates the creation time of the application. The time is represented as numbe
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+Returns an object with V8 heap statistics. Tüm istatistikleri kilobayt cinsinden raporlanır dikkat edin.
 
 ### `process.getBlinkMemoryInfo()`
 
@@ -175,10 +173,10 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 * `total` Tamsayı - Sistemde kullanılabilir durumda olan fiziksel belleğin Kilobayt olarak toplam miktarı.
 * `free` Tamsayı - Uygulamalar ve disk önbelleği tarafından kullanılmayan belleğin toplam miktarı.
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
 
-Tüm sistem hakkında bellek kullanımı istatistiklerini veren bir nesneye döner. Tüm nesnelerin Kilobayt olarak raporlandığına dikkat edin.
+Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
 ### `process.getSystemVersion()`
 
@@ -208,7 +206,7 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 
 Geçerli işlemin ana iş parçacığının askıda kalmasına neden olur.
 
-### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
+### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
 * `maxDescriptors` Tamsayı
 
