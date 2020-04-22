@@ -4,9 +4,9 @@ Before we can dive into Electron's APIs, we need to discuss the two process type
 
 ## ขั้นตอนหลักและขั้นตอนการเรนเดอร์
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+In Electron, the process that runs `package.json`'s `main` script is called __the main process__. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called __the renderer process__.
 
 ในเบราว์เซอร์ปกติเว็บเพจมักจะทำงานในสภาพแวดล้อมแบบ sandbox และไม่ใช่ อนุญาตให้เข้าถึงทรัพยากรดั้งเดิม อย่างไรก็ตามผู้ใช้อิเล็กตรอนมีอำนาจในการ ใช้ Node.js API ในหน้าเว็บที่ช่วยให้ระบบปฏิบัติการระดับล่าง ปฏิสัมพันธ์
 
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
+The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
