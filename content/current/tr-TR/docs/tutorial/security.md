@@ -24,6 +24,7 @@ It is important to remember that the security of your Electron application is th
 
 * **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
 
+
 ## Isolation For Untrusted Content
 
 A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
@@ -81,18 +82,19 @@ browserWindow.loadURL('https://example.com')
 ```
 
 ```html
-<!-- Yanlış -->
+<!-- Bad -->
 <script crossorigin src="http://example.com/react.js"></script>
 <link rel="stylesheet" href="http://example.com/style.css">
 
-<!-- Doğru -->
+<!-- Good -->
 <script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
+
 ## 2) Do not enable Node.js Integration for Remote Content
 
-*This recommendation is the default behavior in Electron since 5.0.0.*
+_This recommendation is the default behavior in Electron since 5.0.0._
 
 It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. Burada amaç uzak içeriğe verilen yetkileri sınırlayarak, bir saldırganın sitenizde JavaScript çalıştırabilmesini olabildiğince zor hale getirmektir.
 
@@ -128,10 +130,10 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```html
-<!-- İyi-->
+<!-- Bad -->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- Kötü-->
+<!-- Good -->
 <webview src="page.html"></webview>
 ```
 
@@ -145,15 +147,20 @@ window.readConfig = function () {
   const data = readFileSync('./config.json')
   return data
 }
-`</pre> 
+`</pre>
+
 
 ## 3) Enable Context Isolation for Remote Content
 
 Bağlam izolasyonu, geliştiricilerin önceden yüklenmiş komut dosyalarında ve Electron API'lerinde özel bir JavaScript bağlamında kod çalıştırmasına olanak sağlayan bir Elektron özelliğidir. Pratikte, `Array.prototype.push` veya `JSON.parse` gibi genel nesnelerin, oluşturucu işleminde çalışan komutlarla değiştirilemediği anlamına gelir.
 
-Elektron, Chromium'un Bu davranışı etkinleştirmek için. İçerik Komut Dosyaları </ 0> ile aynı teknolojiyi kullanıyor </p> 
+Elektron, Chromium'un
+
+Bu davranışı etkinleştirmek için. İçerik Komut Dosyaları </ 0> ile aynı teknolojiyi kullanıyor </p> 
 
 Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+
+
 
 ### Neden?
 
@@ -161,19 +168,26 @@ Context isolation allows each of the scripts running in the renderer to make cha
 
 While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
 
-Aynı zamanda, önyükleme komut dosyaları hala ` belgesine </ 0> erişebilir ve
-<code> pencere </ 0> nesneleri. Başka bir deyişle, büyük olasılıkla çok küçük bir yatırımla iyi bir getiri elde edersiniz.</p>
+At the same time, preload scripts still have access to the  `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
 
-<h3>Nasıl?</h3>
 
-<pre><code class="js">// Main process
+
+### Nasıl?
+
+
+
+```js
+// Main process
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
     preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
-`</pre> 
+```
+
+
+
 
 ```js
 // Preload script
@@ -195,17 +209,27 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
+
+
+
+
 ## 4) Handle Session Permission Requests From Remote Content
 
 Chrome kullanırken izin istemlerini görmüş olabilirsiniz: Bir web sitesi bir özelliği kullanmak istediğinde kullanıcının onaylaması için ortaya çıkarlar (bildirimlere benzer).
 
 API,  Chromium izinleri API'sı </ 0> 'na dayanmaktadır ve aynı izin türlerini uygular.</p> 
 
+
+
 ### Neden?
 
 Bir geliştirici manuel bir düzenleme yapmadığı takdirde Electron varsayılan olarak bütün izin istemlerini otomatik olarak onaylayacaktır. Varsayılan bu iken, güvenliğe önem veren geliştiriciler bunun tam tersini isteyebilir.
 
+
+
 ### Nasıl?
+
+
 
 ```js
 const { session } = require('electron')
@@ -228,19 +252,28 @@ session
   })
 ```
 
+
+
+
+
 ## 5) Do Not Disable WebSecurity
 
-*Tavsiye edilen ayar Electron'da varsayılandır*
+_Tavsiye edilen ayar Electron'da varsayılandır_
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
 
 Üretim uygulamalarında `webSecurity` 'yi etkisiz hale getirmeyin.
 
+
+
 ### Neden?
 
 Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
 
+
+
 ### Nasıl?
+
 
 ```js
 // Bad
@@ -251,22 +284,34 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
+
+
+
 ```js
 // Doğru 
 const mainWindow = new BrowserWindow()
 ```
 
+
+
+
 ```html
-<!-- İyi-->
+<!-- Bad -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- Kötü-->
+<!-- Good -->
 <webview src="page.html"></webview>
 ```
+
+
+
+
 
 ## 6) Define a Content Security Policy
 
 İçerik Güvenliği İlkesi (Content Security Policy, CSP) cross-site-scripting ve veri aşılama saldırılarına karşı koruyucu bir katmandır. Electron'a yüklediğiniz her sitede bulunmasını tavsiye ederiz.
+
+
 
 ### Neden?
 
@@ -281,9 +326,13 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.example.com
 `</pre> 
 
+
+
 ### CSP HTTP Header
 
 Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+
+
 
 ```javascript
 const { session } = require('electron')
@@ -298,27 +347,42 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 })
 ```
 
+
+
+
 ### CSP Meta Tag
 
 CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
+
+
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
+
+
+
+
 ## 7) Do Not Set `allowRunningInsecureContent` to `true`
 
-*Tavsiye edilen ayar Electron'da varsayılandır*
+_Tavsiye edilen ayar Electron'da varsayılandır_
 
 By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). `allowRunningInsecureContent` i `true` a ayarlamak bu korumayı engeller.
 
 Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
 
+
+
 ### Neden?
 
 Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. Detaylı bilgi için [Sadece güvenli içeriği yükleyin](#1-only-load-secure-content) bölümüne bakabilirsiniz.
 
+
+
 ### Nasıl?
+
+
 
 ```js
 // Yanlış
@@ -329,16 +393,25 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
+
+
+
 ```js
 // Doğru
 const mainWindow = new BrowserWindow ({})
 ```
 
+
+
+
+
 ## 8) Do Not Enable Experimental Features
 
-*Tavsiye edilen ayar Electron'da varsayılandır*
+_Tavsiye edilen ayar Electron'da varsayılandır_
 
 Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` property.
+
+
 
 ### Neden?
 
@@ -346,7 +419,11 @@ Experimental features are, as the name suggests, experimental and have not been 
 
 Geçerli kullanım senaryoları mevcut olmakla birlikte ne yaptığınızdan emin değilseniz bu özelliği açmanız önerilmez.
 
+
+
 ### Nasıl?
+
+
 
 ```js
 // Yanlış
@@ -357,22 +434,34 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
+
+
+
 ```js
 // Doğru
 const mainWindow = new BrowserWindow ({})
 ```
 
+
+
+
+
 ## 9) Do Not Use `enableBlinkFeatures`
 
-*Tavsiye edilen ayar Electron'da varsayılandır*
+_Tavsiye edilen ayar Electron'da varsayılandır_
 
 Blink Chromium'un işleyici motorunun isminden gelir. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
+
+
 
 ### Neden?
 
 Genel olarak, bir özellik varsayılan olarak açık değilse ardıında bazı sebepler vardır. Belirli özelliklerin geçerli kullanım senaryoları mecvuttur. Bir geliştirici olarak, bir özelliği neden açmanız gerektiğini, sonuçlarını ve bunların uygulamanızın güvenliğini nasıl etkilediğinizi tam olarak bilmeniz gerekmektedir. Bu özellikleri keyfi bir şekilde kesinlikle açmamalısınız.
 
+
+
 ### Nasıl?
+
 
 ```js
 // Bad
@@ -383,16 +472,25 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
+
+
+
 ```js
 // Doğru 
 const mainWindow = new BrowserWindow()
 ```
 
+
+
+
+
 ## 10) Do Not Use `allowpopups`
 
-*Tavsiye edilen ayar Electron'da varsayılandır*
+_Tavsiye edilen ayar Electron'da varsayılandır_
 
 If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
+
+
 
 ### Neden?
 
@@ -400,20 +498,26 @@ op-up'a ihtiyacınız yoksa, dosyanın oluşturulmasına izin vermeyin. varsayı
 of minimally required access: Don't let a website create new popups unless
 you know it needs that feature.</p>
 
-<h3>Nasıl?</h3>
+<h3 spaces-before="0">Nasıl?</h3>
 
-<pre><code class="html"><!-- İyi-->
+<pre><code class="html">
+<!-- Bad -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Kötü-->
+<!-- Good -->
 <webview src="page.html"></webview>
 `</pre> 
+
+
+
 
 ## 11) Verify WebView Options Before Creation
 
 Node.js entegrasyonuna sahip olmayan bir oluşturucu işleminde oluşturulan bir WebView etkinleştirildiğinde entegrasyonu etkinleştirmeyecektir. Bununla birlikte, bir WebView kendi ` webPreferences </ 0> ile her zaman bağımsız bir oluşturucu işlemi oluşturun.</p>
 
-<p>It is a good idea to control the creation of new <a href="../api/webview-tag.md"><code><webview>`</a> tags from the main process and to verify that their webPreferences do not disable security features.
+<p spaces-before="0">It is a good idea to control the creation of new <a href="../api/webview-tag.md"><code><webview>`</a> tags from the main process and to verify that their webPreferences do not disable security features.
+
+
 
 ### Neden?
 
@@ -421,9 +525,13 @@ Since `<webview>` live in the DOM, they can be created by a script running on yo
 
 Elektron, geliştiricilerin çeşitli güvenlik özelliklerini devre dışı bırakmasını sağlar. bir oluşturucu işlemi. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
 
+
+
 ### Nasıl?
 
 Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+
+
 
 ```js
 app.on('web-contents-created', (event, contents) => {
@@ -443,11 +551,16 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Yine, bu liste yalnızca riski en aza indirir, kaldırmaz. Amacınız bir web sitesini görüntülemek ise, tarayıcı daha güvenli bir seçenek olacaktır .
+
+Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+
+
 
 ## 12) Disable or limit navigation
 
 If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
+
+
 
 ### Neden?
 
@@ -455,11 +568,15 @@ Navigation is a common attack vector. If an attacker can convince your app to na
 
 A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
 
+
+
 ### Nasıl?
 
 If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents.md#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
 
 We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
+
+
 
 ```js
 const URL = require('url').URL
@@ -475,9 +592,14 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
+
+
+
 ## 13) Disable or limit creation of new windows
 
 If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
+
+
 
 ### Neden?
 
@@ -485,9 +607,13 @@ Much like navigation, the creation of new `webContents` is a common attack vecto
 
 If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
 
+
+
 ### Nasıl?
 
 [`webContents`](../api/web-contents.md) will emit the [`new-window`](../api/web-contents.md#event-new-window) event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
+
+
 
 ```js
 const { shell } = require('electron')
@@ -503,15 +629,24 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
+
+
+
 ## 14) Do not use `openExternal` with untrusted content
 
 Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+
+
 
 ### Neden?
 
 Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
 
+
+
 ### Nasıl?
+
+
 
 ```js
 //  Bad
@@ -519,17 +654,24 @@ const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
 
+
+
 ```js
 //  Good
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
+
+
+
 ## 15) Disable the `remote` module
 
 The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. If your desktop application does not run untrusted content, this can be a useful way to have your renderer processes access and work with modules that are only available to the main process, such as GUI-related modules (dialogs, menus, etc.).
 
 However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Therefore, it should be disabled in such circumstances.
+
+
 
 ### Neden?
 
@@ -539,12 +681,19 @@ Additionally, it's possible for preload scripts to accidentally leak modules to 
 
 Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
 
+
+
 ### Nasıl?
+
+
 
 ```js
 // Bad if the renderer can run untrusted content
 const mainWindow = new BrowserWindow({})
 ```
+
+
+
 
 ```js
 // Good
@@ -555,6 +704,9 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
+
+
+
 ```html
 <!-- Bad if the renderer can run untrusted content  -->
 <webview src="page.html"></webview>
@@ -563,9 +715,14 @@ const mainWindow = new BrowserWindow({
 <webview enableremotemodule="false" src="page.html"></webview>
 ```
 
+
+
+
 ## 16) Filter the `remote` module
 
 If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
+
+
 
 ### Neden?
 
@@ -573,7 +730,11 @@ Due to the system access privileges of the main process, functionality provided 
 
 Note that the safest option is to [fully disable the remote module](#15-disable-the-remote-module). If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
 
+
+
 ### Nasıl?
+
+
 
 ```js
 const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
@@ -613,9 +774,14 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 })
 ```
 
+
+
+
 ## 17) Use a current version of Electron
 
 You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+
+
 
 ### Neden?
 
