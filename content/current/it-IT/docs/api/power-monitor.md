@@ -31,11 +31,11 @@ Emesso quando il sistema è in sospensione.
 
 Emesso quando il sistema sta ripartendo.
 
-### Event: 'on-ac' _Windows_
+### Evento: 'on-ac' _Windows_
 
 Emesso quando il sistema cambia potenza AC.
 
-### Event: 'on-battery' _Windows_
+### Evento: 'su-batteria' _Windows_
 
 Emesso quando il sistema cambia a potenza batteria.
 
