@@ -1,4 +1,4 @@
-# `sandbox` Option
+# Opcja `sandbox`
 
 > Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 
@@ -46,7 +46,7 @@ app.on('ready', () => {
 
 ## Preload
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+An app can make customizations to sandboxed renderers using a preload script. Oto przykład:
 
 ```js
 let win
@@ -105,7 +105,7 @@ The `-x` flag should be used with any required module that is already exposed in
 
 Currently the `require` function provided in the preload scope exposes the following modules:
 
-- `electron` 
+- `electron`
   - `crashReporter`
   - `desktopCapturer`
   - `ipcRenderer`
