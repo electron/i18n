@@ -4,7 +4,7 @@ No macOS, uma janela pode definir a representação do arquivo para mostra na ba
 
 Você também pode definir o estado de editado de uma janela para que o ícone do arquivo possa indicar se o documento nesta janela foi modificado.
 
-**Representação de arquivo em popup menu:**
+__Representação de arquivo em popup menu:__
 
 ![Representação de Arquivo](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
