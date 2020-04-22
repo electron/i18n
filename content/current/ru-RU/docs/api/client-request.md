@@ -8,13 +8,13 @@
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) – Если `options` это строка, она интерпретируется как URL-адрес запроса. Если объект, то подразумевается, что он полностью определяет HTTP запрос, используя следующие свойства: 
-  * `method` String (опционально) – метод HTTP запроса. По умолчанию GET.
-  * `url` String (опционально) – URL запроса. Должен быть предоставлен в абсолютной форме, с указанной схемой протокола http или https.
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (опционально) – экземпляр [`Session`](session.md), с которым ассоциирован данный запрос.
   * `partition` String (опционально) – название [`раздела`](session.md), с которым ассоциирован данный запрос. По умолчанию является пустой строкой. Параметр `session` преобладает над параметром `partition`. Поэтому, если параметр `session` явно указан, то `partition` игнорируется.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. По умолчанию - `false`.
-  * `protocol` String (опционально) – схема протокола в виде 'схема:'. На текущий момент поддерживаются следующие значения: 'http:' или 'https:'. По умолчанию 'http:'.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. По умолчанию - `false`.
+  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (опционально) - объединенное с номером порта доменное имя сервера 'доменное_имя:порт'.
   * `hostname` String (опционально) – доменное имя сервера.
   * `port` Integer (опционально) – номер порта сервера.
@@ -47,13 +47,13 @@ const request = net.request({
 
 Возвращает:
 
-* `authInfo` Object 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Function
   * `username` String (опционально)
   * `password` String (опционально)
 
@@ -69,7 +69,6 @@ request.on('login', (authInfo, callback) => {
   callback('username', 'password')
 })
 ```
-
 Предоставление пустых учетных данных отменит запрос и сообщит об ошибке проверки подлинности в объекте ответа:
 
 ```JavaScript
@@ -90,7 +89,7 @@ request.on('login', (authInfo, callback) => {
 
 #### Событие: 'abort'
 
-Происходит, когда `запрос` был отменен. Событие `abort` не произойдет, если `запрос` уже закрыт.
+Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### Событие: 'error'
 
@@ -104,6 +103,7 @@ request.on('login', (authInfo, callback) => {
 
 Происходит как последнее событие в транзакции HTTP запроса-ответа. Событие `close` указывает, что больше события не будут происходить ни на `request`, ни на `response` объектах.
 
+
 #### Событие: 'redirect'
 
 Возвращает:
@@ -113,7 +113,7 @@ request.on('login', (authInfo, callback) => {
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Используется при возврате сервером перенаправленного ответа (например, 301 Перемещено навсегда). Вызов [`request.followRedirect`](#requestfollowredirect) продолжится с перенаправлением. Если событие обработано, [`request.followRedirect`](#requestfollowredirect) должен вызываться **синхронно**, в противном случае запрос будет отменен.
+Используется при возврате сервером перенаправленного ответа (например, 301 Перемещено навсегда). Вызов [`request.followRedirect`](#requestfollowredirect) продолжится с перенаправлением.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### Свойства экземпляра
 
@@ -142,12 +142,12 @@ request.on('login', (authInfo, callback) => {
 
 * `name` String - укажите имя дополнительного заголовка.
 
-Удаляет ранее установленный дополнительный заголовок. Этот метод может быть вызван только до первой записи. Попытка вызвать после первой записи вызовет ошибку.
+Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - часть данных содержимого запроса. Если это строка, то она будет конвертирована в Buffer, используя определенное шифрование.
-* `encoding` String (опционально) - используется для конвертирования строковые части в объект Buffer. По умолчанию - 'utf-8'.
+* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
+* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
 * `callback` Function (опционально) - вызывается после того, как закончится операция записи.
 
 `callback` является по существу фиктивной функцией, представленной в целях сохранения схожести с API Node.JS. Вызывается асинхронно в следующем такте, после содержимое `chunk` будет отправлено в сетевой слой Chromium. В отличие от реализации Node.JS, не гарантировано, что содержимое `chunk` будет отправлено до вызова `callback`.
@@ -160,7 +160,7 @@ request.on('login', (authInfo, callback) => {
 * `encoding` String (опционально)
 * `callback` Function (опционально)
 
-Отправляет последнюю часть данных запроса. Последующие операции записи или завершения недопустимы. Событие `finish` произойдет прямо после операции завершения.
+Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
 #### `request.abort()`
 
@@ -168,14 +168,14 @@ request.on('login', (authInfo, callback) => {
 
 #### `request.followRedirect()`
 
-Продолжает любое ожидаемое перенаправление. Может быть вызван только во время события `'redirect'`.
+Continues any pending redirection. Can only be called during a `'redirect'` event.
 
 #### `request.getUploadProgress()`
 
 Возвращает `Object`:
 
-* `active` Boolean - активен ли текущий запрос. Если false, никакое другое свойство не будет установлено
-* `started` Boolean - началась ли загрузка. Если false, оба свойства `current` и `total` будут установлены в значение 0.
+* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
+* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
 * `current` Integer - количество байтов, которые были загружены
 * `total` Integer - количество байтов, которые будут загружены в этом запросе
 
