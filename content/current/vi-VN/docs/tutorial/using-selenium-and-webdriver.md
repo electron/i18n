@@ -47,7 +47,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
 
-### 1. Bắt đầu ChromeDriver
+### 1. Start ChromeDriver
 
 First you need to download the `chromedriver` binary, and run it:
 
@@ -101,7 +101,7 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
 
-### 1. Bắt đầu ChromeDriver
+### 1. Start ChromeDriver
 
 First you need to download the `chromedriver` binary, and run it:
 
