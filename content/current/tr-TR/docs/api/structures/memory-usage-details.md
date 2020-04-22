@@ -1,4 +1,4 @@
-# Bellek Kullanımı Ayrıntıları Nesnesi
+# Bellek Kullanımı Ayrıntıları  Nesnesi
 
 * `count` numara
 * `size` Numara
