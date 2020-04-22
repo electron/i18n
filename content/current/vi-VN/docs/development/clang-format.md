@@ -16,12 +16,12 @@ Quy trình làm việc để format lại code thay đổi của bạn:
 4. Chạy `git add your_changed_file.cc`, và commit thay đổi của bạn.
 5. Bây giờ branch đó đã sẳn sàng để tạo ra một pull request.
 
-Nếu bạn muốn định dạng các code đã thay đổi của bạn trên git commit (HEAD), bạn có thể chạy lệnh `git-clang-format HEAD~1`. Chạy lệnh `git-clang-format -h` để xem thêm chi tiết.
+If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
 ## Tích hợp và trình soạn thảo
 
-Bạn có thể tích hợp `clang-format` vào các trình soạn thảo yêu thích của bạn. Để biết thông các thông tin về việc tích hợp, xem các trang sau:
+You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
-- [Atom](https://atom.io/packages/clang-format)
-- [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
-- [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
+  * [Atom](https://atom.io/packages/clang-format)
+  * [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
+  * [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
