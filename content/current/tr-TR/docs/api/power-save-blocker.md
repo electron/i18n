@@ -2,7 +2,7 @@
 
 > Sistemin düşük güç (uyku) moduna girmesini engelleyin.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 Örneğin:
 
@@ -15,21 +15,21 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## Yöntemler
+## Metodlar
 
 `powerSaveBlocker` modülü aşağıdaki yöntemleri içerir:
 
 ### `powerSaveBlocker.start(type)`
 
-* `türü` String - Güç tasarruf engelleyici tür. 
+* `type` String - Power save blocker type.
   * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
 `Integer` Döndürür - Güç engelleyiciye atanan engelleyici kimliği.
 
-Sistemin daha düşük güç moduna girmesini önler. Güç tasarrufu bloklarını tanımlayan bir tam sayı döndürür.
+Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
 
-**Not:** `prevent-display-sleep`, `prevent-app-suspension`'dan daha önceliklidir. Yalnızca en baskın öncelik türü etkili olabilir. Başka bir deyişle, `prevent-display-sleep` her zaman `prevent-app-suspension`' dan önceliklidir.
+**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Yalnızca en baskın öncelik türü etkili olabilir. Başka bir deyişle, `prevent-display-sleep` her zaman `prevent-app-suspension`' dan önceliklidir.
 
 Örnek olarak, `prevent-app-suspension` için A isteklerini çağıran bir API ve `prevent-display-sleep` için B isteklerini çağıran bir başka API. `prevent-display-sleep` B isteği durdurulana kadar kullanılır. Bundan sonra `prevent-app-suspension` kullanılır.
 
