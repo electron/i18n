@@ -22,7 +22,7 @@ O módulo `shell` tem os seguintes métodos:
 
 * `fullPath` String
 
-Mostra o arquivo especificado em um gerenciador de arquivos. Se possível, seleciona o arquivo.
+Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openItem(fullPath)`
 
@@ -35,9 +35,9 @@ Abre o arquivo fornecido na maneira padrão da área de trabalho.
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Max 2081 characters on windows.
-* `options` Objeto (opcional) 
-  * `activate` Boolean (optional) *macOS* - `true` to bring the opened application to the foreground. The default is `true`.
-  * `workingDirectory` String (optional) *Windows* - The working directory.
+* `options` Object (optional)
+  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
+  * `workingDirectory` String (optional) _Windows_ - The working directory.
 
 Returns `Promise<void>`
 
@@ -46,7 +46,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. *macOS*
+* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
 
 Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
 
@@ -56,10 +56,10 @@ Move o arquivo fornecido para o lixo e retorna um boolean para o operação.
 
 Toca o sinal sonoro.
 
-### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
+### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
+* `operation` String (optional) - Default is `create`, can be one of following:
   * `create` - Cria um novo atalho, sobrescrevendo se necessário.
   * `update` - Atualiza propriedades especificadas apenas em um atalho existente.
   * `replace` - Sobrescreve um atalho existente, falha se o atalho não existir.
@@ -69,7 +69,7 @@ Returns `Boolean` - Whether the shortcut was created successfully.
 
 Creates or updates a shortcut link at `shortcutPath`.
 
-### `shell.readShortcutLink(shortcutPath)` *Windows*
+### `shell.readShortcutLink(shortcutPath)` _Windows_
 
 * `shortcutPath` String
 
