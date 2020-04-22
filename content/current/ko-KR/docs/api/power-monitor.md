@@ -14,7 +14,7 @@ const { app, powerMonitor } = require('electron')
 
 app.on('ready', () => {
   powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
+    console.log('시스템이 sleep 상태로 전환됩니다.')
   })
 })
 ```
