@@ -1,4 +1,4 @@
-# Versionnement d'Electron
+# La gestion de versions d'Electron
 
 > Un descriptif de la politique de gestion de version et d'implémentation.
 
@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## Version 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Bien que pratique pour les développeurs qui fusionnent des fonctionnalités, cela crée des problèmes pour les développeurs d'applications côté client. Les cycles de tests QA d'applications majeures comme Slack, Stride, Teams, Skype, VS Code, Atom et Desktop peuvent être longs et la stabilité est un résultat très attendu. Il y a un grand risque d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
+Version d'Electron *< 2. * n'est pas conforme à la spécification [semver](http://semver.org) : les versions principales correspondent aux changements de l'API de l'utilisateur final, les versions mineures correspondaient aux versions majeures de Chromium, et les versions de correctifs correspondaient aux nouvelles fonctionnalités et aux corrections de bogues. Bien que pratique pour les développeurs qui fusionnent des fonctionnalités, cela crée des problèmes pour les développeurs d'applications côté client. Les cycles de tests QA d'applications majeures comme Slack, Stride, Teams, Skype, VS Code, Atom et Desktop peuvent être longs et la stabilité est un résultat très attendu. Il y a un grand risque d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
 
 Voici un exemple de la stratégie 1.x :
 
@@ -57,7 +57,7 @@ Stabilization branches are branches that run parallel to master, taking in only 
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+Since Electron 8, stabilization branches are always **major** version lines, and named against the following template `$MAJOR-x-y` e.g. `8-x-y`.  Prior to that we used **minor** version lines and named them as `$MAJOR-$MINOR-x` e.g. `2-0-x`
 
 Nous permettons à plusieurs branches de stabilisation d'exister simultanément, et ont l'intention de supporter au moins deux en parallèle en tout temps, en rétroportant les correctifs de sécurité si nécessaire. ![](../images/versioning-sketch-2.png)
 
@@ -65,10 +65,10 @@ Les anciennes lignes ne seront pas supportées par GitHub, mais d'autres groupes
 
 # Versions bêta et corrections de bugs
 
-Developers want to know which releases are _safe_ to use. Même des fonctionnalités apparemment innocentes peuvent introduire des régressions dans des applications complexes. En même temps, verrouiller une version corrigée est dangereux parce que vous ignorez les correctifs de sécurité et les corrections de bogues qui sont peut-être apparues depuis votre version. Notre objectif est d'autoriser les plages de semver standards suivantes dans `package.json` :
+Les développeurs veulent savoir quelles versions sont fiables (_safe_). Même des fonctionnalités apparemment innocentes peuvent introduire des régressions dans des applications complexes. En même temps, verrouiller une version corrigée est dangereux parce que vous ignorez les correctifs de sécurité et les corrections de bogues qui sont peut-être apparues depuis votre version. Notre objectif est d'autoriser les plages de semver standards suivantes dans `package.json` :
 
 * Utilisez `~2.0.0` pour admettre que les corrections liées à la stabilité ou à la sécurité dans votre version `2.0.0`.
-* Use `^2.0.0` to admit non-breaking _reasonably stable_ feature work as well as security and bug fixes.
+* Utilisez `^2.0.0` pour admettre que la fonctionnalité _raisonnablement stable_ ne soit pas cassée, ainsi que la sécurité et les corrections de bogues.
 
 Ce qui est important dans le deuxième point, c'est que les applications utilisant `^` devraient quand même pouvoir s'attendre à un niveau raisonnable de stabilité. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
 
@@ -80,8 +80,8 @@ Le processus est le suivant:
     1. Le changement est compatible avec l'API ascendante (les dépréciations sont autorisées)
     2. Le risque de respect de notre calendrier de stabilité doit être faible.
 2. Si les modifications autorisées doivent être apportées une fois qu'une version est bêta, elles sont appliquées et la balise de prélocation est incrémentée, par exemple `2.0.0-beta.2`.
-3. If a particular beta release is _generally regarded_ as stable, it will be re-released as a stable build, changing only the version information. par exemple `2.0.0`. Après la première stable, tous les changements doivent être des bogues rétrocompatibles ou des corrections de sécurité.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the _patch_ version is incremented e.g. `2.0.1`.
+3. Si une version bêta particulière est _généralement considérée_ comme stable, elle sera relancée comme une version stable, ne changeant que les informations de version. par exemple `2.0.0`. Après la première stable, tous les changements doivent être des bogues rétrocompatibles ou des corrections de sécurité.
+4. Si de futures corrections de bogues ou de correctifs de sécurité doivent être faites une fois qu'une version est stable, elles sont appliquées et la version _patch_ est incrémentée e. . `2.0.1`.
 
 Plus précisément, ce qui précède signifie :
 
@@ -104,7 +104,7 @@ Un exemple de cycle de vie dans les images :
 
 * A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
 * A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
+* La bêta est considérée comme _généralement stable_ et est à nouveau publiée comme non-bêta sous `2.0.0`. ![](../images/versioning-sketch-5.png)
 * Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 Quelques exemples de la façon dont différentes gammes de semver vont ramasser les nouvelles versions:
@@ -116,22 +116,22 @@ Notre stratégie comporte quelques compromis qui, pour l'instant, nous semblent 
 
 À l'avenir, nous pourrions introduire l'un ou l'autre des éléments suivants:
 
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in _alpha_
+* les versions alpha qui ont des contraintes de stabilité plus lâches aux bêta; par exemple, il serait permis d'admettre de nouvelles fonctionnalités alors qu'un canal de stabilité est en _alpha_
 
 # Indicateurs de fonctionnalités
-Les drapeaux de fonctionnalités sont une pratique courante dans Chromium, et sont bien établis dans l'écosystème de développement Web. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+Les drapeaux de fonctionnalités sont une pratique courante dans Chromium, et sont bien établis dans l'écosystème de développement Web. Dans le contexte d'Electron, une fonctionnalité ou une **branche soft** doit avoir les propriétés suivantes :
 
 * il est activé/désactivé soit au moment de l'exécution, soit au moment de la construction ; nous ne prenons pas en charge le concept d'une fonctionnalité à portée de requête
-* it completely segments new and old code paths; refactoring old code to support a new feature _violates_ the feature-flag contract
+* il segmente complètement les chemins de code nouveaux et anciens; refactoring l'ancien code pour supporter une nouvelle fonctionnalité _violation_ le contrat de trait-flag
 * les drapeaux de fonctionnalités sont éventuellement supprimés après la publication de la fonctionnalité
 
 # Commits sémantiques
 
 Nous cherchons à accroître la clarté à tous les niveaux du processus de mise à jour et de publication. À partir de `2.0.0` nous aurons besoin que les demandes de fusion adhèrent à la spécification [Engagements conventionnels](https://conventionalcommits.org/), qui peut être résumée comme suit :
 
-* Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* Les commits qui entraîneraient un bump **majeur** doivent commencer leur corps avec `CHANGEMENT DE RÉCUPÉRATION :`.
+* Les commits qui entraîneraient un bump **mineur** doivent commencer par `feat:`.
+* Les commits qui entraîneraient un bump de type **patch** doivent commencer par `correctif :`.
 
 * Nous autorisons le écrasement des livres, à condition que le message écrasé adhère au format de message ci-dessus.
 * Il est acceptable pour certains commits dans une pull request de ne pas inclure un préfixe sémantique, aussi longtemps que le titre de la demande d'ajout contient un message sémantique significatif.
