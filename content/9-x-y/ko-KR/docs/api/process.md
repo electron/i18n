@@ -183,9 +183,9 @@ Returns `String` - The version of the host operating system.
 ```js
 const version = process.getSystemVersion()
 console.log(version)
-// On macOS -> '10.13.6'
-// On Windows -> '10.0.17763'
-// On Linux -> '4.15.0-45-generic'
+// macOS의 경우 -> '10.13.6'
+// Windows의 경우 -> '10.0.17763'
+// Linux의 경우 -> '4.15.0-45-generic'
 ```
 
 **Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
