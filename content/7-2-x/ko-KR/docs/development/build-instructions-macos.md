@@ -27,7 +27,7 @@ If you are using Python as provided by Homebrew, you also need to install the fo
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+`pip`를 사용하여 설치할 수 있습니다:
 
 ```sh
 $ pip install pyobjc
@@ -39,6 +39,6 @@ If you're developing Electron and don't plan to redistribute your custom Electro
 
 공식 Electron은 [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip) 및 MacOS 10.13 SDK로 빌드됩니다.  Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
 
-## Building Electron
+## Electron 빌드하기
 
 See [Build Instructions: GN](build-instructions-gn.md).
