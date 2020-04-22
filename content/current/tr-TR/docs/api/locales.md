@@ -2,7 +2,7 @@
 
 > Yerel ayar değerleri `app.getLocale()` tarafından döndürüldü.
 
-Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtimal dahilindeki değerler aşağıdadır:
+Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
 
 | Kod dili | İsim dili                       |
 | -------- | ------------------------------- |
@@ -93,7 +93,7 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | no       | Norveç                          |
 | oc       | Oksitanca                       |
 | om       | Oromo dili                      |
-| veya     | Oriya dili                      |
+| ya da    | Oriya dili                      |
 | pa       | Pencapça                        |
 | pl       | Polonyalı                       |
 | ps       | Peştuca                         |
