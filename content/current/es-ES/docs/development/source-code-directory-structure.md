@@ -80,7 +80,6 @@ Electron
 * **npm** - Lógica para la instalación de Electron via npm.
 * **afuera** - temporalmente afuera del directorio de `ninja`.
 * **Código** - Los códigos usados con propósitos de desarrollo como compilar, empacar, probar, etc.
-
 ```diff
 script/ - El conjunto de todo los scripts que Electron ejecuta para una variedad de propósitos.
 ├── codesign/ - Falsifica la firma de código para aplicaciones Electron; usado para pruebas.
@@ -89,8 +88,7 @@ script/ - El conjunto de todo los scripts que Electron ejecuta para una variedad
     ├── notes/ - Genera notas de lanzamiento para las nuevas versiones de Electron.
     └── uploaders/ - Sube varios archivos relacionados con la nueva versión durante el lanzamiento.
 ```
-
-* **herramientas** - Scripts de ayuda usados por los archivos GN. 
+* **tools** - Helper scripts used by GN files.
   * Los Scripts puestos aquí nunca deberían ser invocados directamente por los usuarios, a diferencia de los de `script`.
 * **typings** - Tipos de TypeScript para el código interno de Electron.
 * **vendor** - Código fuente para algunas dependencias de terceros incluyendo `boto` y `requests`.
@@ -102,8 +100,8 @@ El repositorio Electronico tiene unas dependencias vendored, encontradas en el d
 ```sh
 $ git status
 
-  modified:   vendor/depot_tools (nuevos commits)
-  modified:   vendor/boto (nuevos commits)
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 Para actualizar estas dependencias independientes, ejecute el siguiente comando:
@@ -116,5 +114,5 @@ Si te descubre ejecutando este comando frecuentemente, puedes crea un alias para
 
 ```sh
 [alias]
-  su = submodule update --init --recursive
+    su = submodule update --init --recursive
 ```
