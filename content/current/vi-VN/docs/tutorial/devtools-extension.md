@@ -11,26 +11,24 @@ Tài liệu này mô tả quá trình nạp một phần mở rộng (extension)
 Ví dụ như [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi):
 
 1. Cài đặt nó trên trình duyệt Chrome.
-2. Điều hướng đến `chrome://extensions`, và tìm thấy ID của phần mở rộng đó, là một chuỗi băm giống như `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Tìm đường dẫn file được Chrome sử dụng để lưu các phần mở rộng: 
-    * trên Windows nó là `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * trên Linux nó sẽ là: 
-        * `~/.config/google-chrome/Default/Extensions/`
-        * `~/.config/google-chrome-beta/Default/Extensions/`
-        * `~/.config/google-chrome-canary/Default/Extensions/`
-        * `~/.config/chromium/Default/Extensions/`
-    * trên macOS thì nó là `~/Library/Application Support/Google/Chrome/Default/Extensions`.
+1. Điều hướng đến `chrome://extensions`, và tìm thấy ID của phần mở rộng đó, là một chuỗi băm giống như `fmkadmapgofadopljbjfkapdkoienihi`.
+1. Tìm đường dẫn file được Chrome sử dụng để lưu các phần mở rộng:
+   * trên Windows nó là `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+   * trên Linux nó sẽ là:
+     * `~/.config/google-chrome/Default/Extensions/`
+     * `~/.config/google-chrome-beta/Default/Extensions/`
+     * `~/.config/google-chrome-canary/Default/Extensions/`
+     * `~/.config/chromium/Default/Extensions/`
+   * trên macOS thì nó là `~/Library/Application Support/Google/Chrome/Default/Extensions`.
+1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+   ```javascript
+   const path = require('path')
+   const os = require('os')
 
-4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
-    
-    ```javascript
-    const path = require('path')
-    const os = require('os')
-    
-    BrowserWindow.addDevToolsExtension(
+   BrowserWindow.addDevToolsExtension(
       path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-    )
-    ```
+   )
+   ```
 
 **Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
 
