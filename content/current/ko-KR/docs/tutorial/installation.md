@@ -43,7 +43,7 @@ During installation, the `electron` module will call out to [`@electron/get`](ht
 GitHub에 액세스 할 수 없거나 사용자 정의 빌드를 제공해야하는 경우 미러 또는 기존 캐시 디렉토리를 제공해야합니다.
 
 #### 미러(Mirror)
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The URL used by `@electron/get` is composed as follows:
+환경 변수를 사용하여 기본 URL, Electron binaries가 위치한 경로, 그 binary의 filename을 대체할 수 있습니다. The URL used by `@electron/get` is composed as follows:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -112,11 +112,11 @@ ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 
 ## 문제 해결
 
-`npm install electron`을 실행하면 일부 사용자는 설치 오류가 발생할 수 있습니다.
+`npm install electron`을 실행할 때, 어떤 사용자에게는 가끔 설치 오류가 발생합니다.
 
-거의 모든 경우, 이러한 오류들은 네트워크 문제의 결과이고 `electron` npm package의 문제가 아닙니다. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` 및 `ETIMEDOUT`과 같은 오류는 모두 네트워크 문제를 나타냅니다. 가장 좋은 해결책은 네트워크를 전환하거나, 잠시 기다렸다가 다시 설치하는 것입니다.
+대부분의 경우에는, 이 오류는 네트웍 문제로 인한 것이고 `electron` npm 패키지 자체의 오류는 아닙니다. `ELIFECYCLE`나 `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` 같은 오류는 이런 네트웍 문제임을 나타냅니다. 최선의 방법은 네트웍을 전환하거나 잠시 기다린 후에 다시 설치를 시도하는 것입니다.
 
-`npm`을 통한 설치가 실패 할 경우[electron/electron/releases](https://github.com/electron/electron/releases)에서 Electron을 직접 다운로드 할 수도 있습니다.
+`npm`을 통해 설치하는 것에 실패한다면 Electron을 [electron/electron/releases](https://github.com/electron/electron/releases)로부터 직접 다운로드할 수 있습니다.
 
 `EACCESS` 오류로 설치가 실패한 경우 [여러분의 npm 권한을 수정하십시오](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
