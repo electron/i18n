@@ -2,11 +2,11 @@
 
 Windows и macOS предоставляют легкий доступ к списку последних документов открытых приложением через JumpList или dock меню, соответственно.
 
-**JumpList:**
+__JumpList:__
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Dock меню приложения:**
+__Dock меню приложения:__
 
 ![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
