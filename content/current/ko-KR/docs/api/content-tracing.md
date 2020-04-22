@@ -2,7 +2,7 @@
 
 > Collect tracing data from Chromium to find performance bottlenecks and slow operations.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
 
@@ -16,15 +16,15 @@ app.on('ready', () => {
     await contentTracing.startRecording({
       include_categories: ['*']
     })
-    console.log('Tracing started')
+    console.log('추적 시작 됨')
     await new Promise(resolve => setTimeout(resolve, 5000))
     const path = await contentTracing.stopRecording()
-    console.log('Tracing data recorded to ' + path)
+    console.log('추적 데이터가 ' + path + ' 에 저장되었습니다.')
   })()
 })
 ```
 
-## 메소드
+## 메서드
 
 The `contentTracing` module has the following methods:
 
