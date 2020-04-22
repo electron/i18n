@@ -2,9 +2,9 @@
 
 > Mac App Store의 인앱 결제입니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
-## Events
+## 이벤트
 
 `inAppPurchase` 모듈은 다음 이벤트를 발생시킵니다:
 
@@ -12,7 +12,7 @@
 
 하나 이상의 트랜잭션이 업데이트됐을 때 발생합니다.
 
-반환:
+Returns:
 
 * `event` Event
 * `transactions` Transaction[] - [`Transaction`](structures/transaction.md) 객체의 Array.
