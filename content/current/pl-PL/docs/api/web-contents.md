@@ -197,7 +197,7 @@ Zwraca:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted as a server side redirect occurs during navigation. For example a 302 redirect.
+Emitted as a server side redirect occurs during navigation.  For example a 302 redirect.
 
 This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
 
@@ -214,7 +214,7 @@ Zwraca:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted after a server side redirect occurs during navigation. For example a 302 redirect.
+Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
 
 This event can not be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
 
@@ -326,7 +326,7 @@ Emitted when `webContents` is destroyed.
 Zwraca:
 
 * `event` Event
-* `input` Object - Input properties. 
+* `input` Object - Input properties.
   * `type` String - Either `keyUp` or `keyDown`.
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
   * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
@@ -363,7 +363,6 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 #### Event: 'zoom-changed'
 
 Zwraca:
-
 * `event` Event
 * `zoomDirection` String - Can be `in` or `out`.
 
@@ -389,7 +388,7 @@ Zwraca:
 * `url` String
 * `error` String - The error code.
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Funkcja 
+* `callback` Function
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
 Emitted when failed to verify the `certificate` for `url`.
@@ -403,7 +402,7 @@ Zwraca:
 * `event` Event
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Funkcja 
+* `callback` Function
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 Emitowane, kiedy certyfikat klienta jest wymagany.
@@ -415,15 +414,15 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Zwraca:
 
 * `event` Event
-* `authenticationResponseDetails` Object 
+* `authenticationResponseDetails` Object
   * `url` URL
-* `authInfo` Object 
+* `authInfo` Object
   * `isProxy` Boolean
   * `schemat` String
   * `host` String
   * `port` Integer
   * `dziedzina` String
-* `callback` Funkcja 
+* `callback` Function
   * `username` String (opcjonalne)
   * `password` String (opcjonalne)
 
@@ -436,7 +435,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Zwraca:
 
 * `event` Event
-* `wynik` Object 
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -495,7 +494,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 Zwraca:
 
 * `event` Event
-* `params` Object 
+* `params` Object
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -509,11 +508,11 @@ Zwraca:
   * `selectionText` String - Text of the selection that the context menu was invoked on.
   * `titleText` String - Title or alt text of the selection that the context was invoked on.
   * `misspelledWord` String - The misspelled word under the cursor, if any.
-  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`. Only available if there is a misspelled word and spellchecker is enabled.
+  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`.  Only available if there is a misspelled word and spellchecker is enabled.
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
   * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
+  * `mediaFlags` Object - The flags for the media element the context menu was invoked on.
     * `inError` Boolean - Whether the media element has crashed.
     * `isPaused` Boolean - Whether the media element is paused.
     * `isMuted` Boolean - Whether the media element is muted.
@@ -522,7 +521,7 @@ Zwraca:
     * `isControlsVisible` Boolean - Whether the media element's controls are visible.
     * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
     * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
+  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
     * `canUndo` Boolean - Whether the renderer believes it can undo.
     * `canRedo` Boolean - Whether the renderer believes it can redo.
     * `canCut` Boolean - Whether the renderer believes it can cut.
@@ -539,7 +538,7 @@ Zwraca:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Funkcja 
+* `callback` Function
   * `deviceId` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -645,7 +644,7 @@ Zwraca:
 
 Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
 
-#### Event: 'ipc-message-sync'
+#### Zdarzenie: 'ipc-message-sync'
 
 Zwraca:
 
@@ -720,7 +719,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. Cal
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Obiekt (opcjonalne) 
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -740,14 +739,14 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Obiekt (opcjonalne) 
+* `options` Object (optional)
   * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
+Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application.  For instance an app structure like this:
 
 ```sh
 | root
@@ -870,18 +869,18 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 Overrides the user agent for this web page.
 
-**[Deprecated](modernization/property-updates.md)**
+**[Przestarzałe](modernization/property-updates.md)**
 
 #### `contents.getUserAgent()`
 
 Returns `String` - The user agent for this web page.
 
-**[Deprecated](modernization/property-updates.md)**
+**[Przestarzałe](modernization/property-updates.md)**
 
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
-* `options` Obiekt (opcjonalne) 
+* `options` Object (optional)
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
@@ -931,7 +930,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 #### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature.  You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (optional) - Default is `false`.
 
@@ -939,7 +938,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Eksperymentalne*
+#### `contents.setIgnoreMenuShortcuts(ignore)` _Eksperymentalne_
 
 * `ignore` Boolean
 
@@ -951,13 +950,13 @@ Ignore application menu shortcuts while this web contents is focused.
 
 Wycisza audio na obecnej stronie internetowej.
 
-**[Deprecated](modernization/property-updates.md)**
+**[Przestarzałe](modernization/property-updates.md)**
 
 #### `contents.isAudioMuted()`
 
 Returns `Boolean` - Whether this page has been muted.
 
-**[Deprecated](modernization/property-updates.md)**
+**[Przestarzałe](modernization/property-updates.md)**
 
 #### `contents.isCurrentlyAudible()`
 
@@ -971,13 +970,13 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 The factor must be greater than 0.0.
 
-**[Deprecated](modernization/property-updates.md)**
+**[Przestarzałe](modernization/property-updates.md)**
 
 #### `contents.getZoomFactor()`
 
 Returns `Number` - the current zoom factor.
 
-**[Deprecated](modernization/property-updates.md)**
+**[Przestarzałe](modernization/property-updates.md)**
 
 #### `contents.setZoomLevel(level)`
 
@@ -985,35 +984,34 @@ Returns `Number` - the current zoom factor.
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
-**[Deprecated](modernization/property-updates.md)**
+**[Przestarzałe](modernization/property-updates.md)**
 
 #### `contents.getZoomLevel()`
 
 Returns `Number` - the current zoom level.
 
-**[Deprecated](modernization/property-updates.md)**
+**[Przestarzałe](modernization/property-updates.md)**
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+Zwraca `Promise<void>`
 
 Ustawia maksymalny i minimalny poziom pinch-to-zoom.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> ```js
-contents.setVisualZoomLevelLimits(1, 3)
-```
+> `js
+  contents.setVisualZoomLevelLimits(1, 3)`
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+Zwraca `Promise<void>`
 
 Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
@@ -1078,14 +1076,14 @@ Executes the editing command `replaceMisspelling` in web page.
 
 * `text` String
 
-Returns `Promise<void>`
+Zwraca `Promise<void>`
 
 Inserts `text` to the focused element.
 
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Obiekt (opcjonalne) 
+* `options` Object (optional)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1098,7 +1096,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 #### `contents.stopFindInPage(action)`
 
-* `czynność` String - Specifies the action to take place when ending [`webContents.findInPage`] żądanie. 
+* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request.
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -1130,7 +1128,7 @@ Returns `Boolean` - Whether this page is being captured. It returns true when th
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
 * `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
-* `stayHidden` Boolean (optional) - Keep the page hidden instead of visible.
+* `stayHidden` Boolean (optional) -  Keep the page hidden instead of visible.
 
 Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
 
@@ -1138,7 +1136,7 @@ This also affects the Page Visibility API.
 
 #### `contents.decrementCapturerCount([stayHidden])`
 
-* `stayHidden` Boolean (optional) - Keep the page in hidden state instead of visible.
+* `stayHidden` Boolean (optional) -  Keep the page in hidden state instead of visible.
 
 Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
 
@@ -1150,30 +1148,30 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
-* `options` Obiekt (opcjonalne) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
+* `options` Object (optional)
+  * `silent` Boolean (optional) - Don't ask user for print settings. Domyślnie jest `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Domyślnie jest `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
-  * `margins` Obiekt (opcjonalne) 
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Domyślnie jest `true`.
+  * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
     * `left` Number (optional) - The left margin of the printed web page, in pixels.
     * `right` Number (optional) - The right margin of the printed web page, in pixels.
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Default is `false`.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Domyślnie jest `false`.
   * `scaleFactor` Number (optional) - The scale factor of the web page.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
   * `pageRanges` Record<string, number> (optional) - The page range to print. Should have two keys: `from` and `to`.
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
-  * `dpi` Obiekt (opcjonalne) 
+  * `dpi` Object (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
   * `header` String (optional) - String to be printed as page header.
   * `footer` String (optional) - String to be printed as page footer.
-* `callback` Funkcja (opcjonalne) 
+* `callback` Function (optional)
   * `success` Boolean - Indicates success of the print call.
   * `failureReason` String - Error description called back if the print fails.
 
@@ -1181,7 +1179,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Use `page-break-before: always;` CSS style to force to print to a new page.
 
-Example usage:
+Przykładowe użycie:
 
 ```js
 const options = { silent: true, deviceName: 'My-Printer' }
@@ -1192,7 +1190,7 @@ win.webContents.print(options, (success, errorType) => {
 
 #### `contents.printToPDF(options)`
 
-* `options` Object 
+* `options` Object
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -1278,7 +1276,6 @@ An example of showing devtools in a `<webview>` tag:
 <html>
 <head>
   <style type="text/css">
-
     * { margin: 0; }
     #browser { height: 70%; }
     #devtools { height: 30%; }
@@ -1319,9 +1316,9 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `options` Obiekt (opcjonalne) 
+* `options` Object (optional)
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
-  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. Domyślnie jest `true`.
 
 Opens the devtools.
 
@@ -1420,7 +1417,7 @@ Send an asynchronous message to a specific frame in a renderer process via `chan
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value. E.g.
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Np.
 
 ```js
 // In a renderer process
@@ -1438,8 +1435,8 @@ ipcMain.on('ping', (event) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parametry` Object 
-  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`): 
+* `parameters` Object
+  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
   * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
@@ -1463,7 +1460,7 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Funkcja 
+* `callback` Function
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1479,7 +1476,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `produkt` Object 
+* `item` Object
   * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
@@ -1488,7 +1485,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
 #### `contents.savePage(fullPath, saveType)`
 
 * `fullPath` String - The full file path.
-* `saveType` String - Specify the save type. 
+* `saveType` String - Specify the save type.
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
@@ -1510,7 +1507,7 @@ win.webContents.on('did-finish-load', async () => {
 })
 ```
 
-#### `contents.showDefinitionForSelection()` *macOS*
+#### `contents.showDefinitionForSelection()` _macOS_
 
 Shows pop-up dictionary that searches the selected word on the page.
 
@@ -1536,13 +1533,13 @@ Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is cu
 
 If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
 
-**[Deprecated](modernization/property-updates.md)**
+**[Przestarzałe](modernization/property-updates.md)**
 
 #### `contents.getFrameRate()`
 
 Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
 
-**[Deprecated](modernization/property-updates.md)**
+**[Przestarzałe](modernization/property-updates.md)**
 
 #### `contents.invalidate()`
 
@@ -1556,7 +1553,7 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `polityka` String - Specify the WebRTC IP Handling Policy. 
+* `policy` String - Specify the WebRTC IP Handling Policy.
   * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
   * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. To nie odkrywa żadnych lokalnych adresów.
   * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
@@ -1618,24 +1615,24 @@ An `Integer` property that sets the frame rate of the web contents to the specif
 
 Only applicable if *offscreen rendering* is enabled.
 
-#### `contents.id` *Readonly*
+#### `contents.id` _Readonly_
 
 A `Integer` representing the unique ID of this WebContents.
 
-#### `contents.session` *Readonly*
+#### `contents.session` _Readonly_
 
 A [`Session`](session.md) used by this webContents.
 
-#### `contents.hostWebContents` *Readonly*
+#### `contents.hostWebContents` _Readonly_
 
 A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
-#### `contents.devToolsWebContents` *Readonly*
+#### `contents.devToolsWebContents` _Readonly_
 
 A `WebContents` of DevTools for this `WebContents`.
 
 **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
-#### `contents.debugger` *Readonly*
+#### `contents.debugger` _Readonly_
 
 A [`Debugger`](debugger.md) instance for this webContents.
