@@ -61,26 +61,25 @@ Para instrucciones sobre cómo adquirir una clave de Google API, visite [this pa
 
 ### `ELECTRON_NO_ASAR`
 
-Deshabilita el soporte ASAR. Esta variable solo es compatible en procesos secundarios bifurcados y procesos secundarios creados que establecen `ELECTRON_RUN_AS_NODE`.
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
 Inicia el proceso como un proceso normal de Node.js.
 
-### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
+### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 No se adjunta a la sesión de la consola actual.
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
 
 No utilizar la barra de menú global en Linux.
 
-### `ELECTRON_TRASH` *Linux*
+### `ELECTRON_TRASH` _Linux_
 
-Establecer la implementación trash en Linux. Por defecto es `gio`.
+Set the trash implementation on Linux. Default is `gio`.
 
 Options:
-
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -90,13 +89,14 @@ Options:
 
 Las siguientes variables de entorno están principalmente diseñadas para propósitos de desarrollo y depuración.
 
+
 ### `ELECTRON_ENABLE_LOGGING`
 
 Imprime el registro interno de Chrome a la consola.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-Cuando Electron lee desde un archivo ASAR, registra la lectura offset y la ruta del archivo al sistema `tmpdir`. El archivo resultante puede ser proporcionado al módulo ASAr para optimizar la organización de los archivos.
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
@@ -104,7 +104,7 @@ Imprime el rastro de la pila a la consola cuando Electron falla.
 
 Esta variable de entorno no funcionará si se inicia el `crashReporter`.
 
-### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
+### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
 
 Muestra el cuadro de dialogo del fallo de Windows cuando falla Electron.
 
