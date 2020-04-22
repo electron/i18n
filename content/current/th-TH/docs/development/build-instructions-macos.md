@@ -11,7 +11,7 @@
 
 ## Python
 
-โปรดตรวจสอบให้แน่ใจว่าระบบและรุ่น Python ของคุณรองรับอย่างน้อย TLS 1.2 ขึ้นอยู่กับทั้ง macOS และ Python เวอร์ชันของคุณ สำหรับการทดสอบอย่างรวดเร็วให้เรียกใช้:
+Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
 
 ```sh
 $ npx @electron/check-python-tls
@@ -37,7 +37,7 @@ $ pip install pyobjc
 
 หากคุณกำลังพัฒนาอิเล็กตรอนและไม่วางแผนที่จะแจกจ่ายต่อ การสร้างอิเล็กตรอนแบบกำหนดเองคุณสามารถข้ามส่วนนี้ได้
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK. การสร้างด้วย SDK ที่ใหม่กว่าก็ใช้งานได้เช่นกัน แต่รุ่นปัจจุบันใช้ 10.13 SDK
+Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK.  การสร้างด้วย SDK ที่ใหม่กว่าก็ใช้งานได้เช่นกัน แต่รุ่นปัจจุบันใช้ 10.13 SDK
 
 ## สร้าง Electron
 
