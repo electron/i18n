@@ -4,7 +4,7 @@
 
 İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarGroup(options)` *Experimental*
+### `new TouchBarGroup(options)` _Experimental_
 
-* `seçenekler` Nesnesi 
+* `options` Object
   * `items` [TouchBar](touch-bar.md) - Grup halinde görüntülenecek öğeler.
