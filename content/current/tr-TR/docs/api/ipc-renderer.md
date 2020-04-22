@@ -4,7 +4,7 @@
 
 İşlem: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). İşleme sürecinden (web sayfası) senkron ve asenkron mesajlar gönderebilmeniz için birkaç yöntem sağlar. Ayrıca ana kesimden gelen cevapları alabilirsiniz.
+The `ipcRenderer` module is an  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). İşleme sürecinden (web sayfası) senkron ve asenkron mesajlar gönderebilmeniz için birkaç yöntem sağlar. Ayrıca ana kesimden gelen cevapları alabilirsiniz.
 
 Kod örnekleri için [ipcMain](ipc-main.md)' e bakın.
 
@@ -15,7 +15,7 @@ Kod örnekleri için [ipcMain](ipc-main.md)' e bakın.
 ### `ipcRenderer.on(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function 
+* `listener` fonksiyon
   * `event` IpcRendererEvent
   * `...args` herhangi[]
 
@@ -24,19 +24,19 @@ Kod örnekleri için [ipcMain](ipc-main.md)' e bakın.
 ### `ipcRenderer.once(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Fonksyion 
+* `listener` fonksiyon
   * `event` IpcRendererEvent
   * `...args` herhangi[]
 
-Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir mesajın `channel` adresine gönderilmesinden sonra kaldırılır.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcRenderer.removeListener(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Fonksiyon 
+* `listener` fonksiyon
   * `...args` herhangi[]
 
-Belirtilen `listener` öğesini `channel` öğesi için kaldırır.
+Belirtilen `channel` öğesini belirtilen `listener` dizisinden kaldırır.
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
@@ -47,7 +47,7 @@ Tüm dinleyicileri kaldırır veya `channel` dizesini kaldırır.
 ### `ipcRenderer.send(channel, ...args)`
 
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 Send an asynchronous message to the main process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
@@ -69,7 +69,6 @@ Send a message to the main process via `channel` and expect a result asynchronou
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 Örneğin:
-
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
