@@ -89,6 +89,6 @@ This can happen during build, when Debugging Tools for Windows has been installe
 
 `pywin32`이 설치되었는지 `pip install pywin32` 명령으로 확인해 보십시오.
 
-### Build Scripts Hang Until Keypress
+### 키 입력 전까지 빌드 스크립트가 멈춤
 
-This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+이 버그는 Windows 명령 프롬프트의 "기능"입니다. 이는 명령 프롬프트에서 `빠른 편집 모드`를 활성화하고 창 안을 클릭할 때, 출력 결과물을 쉽게 선택하고 복사할 수 있도록 하기 위해 발생합니다. 실수로 창 안을 클릭하면 빌드 과정 전체가 멈추기 때문에, 이를 원하지 않으면 명령 프롬프트의 속성에서 기능을 비활성화할 수 있습니다.
