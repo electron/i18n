@@ -2,7 +2,7 @@
 
 > Регистрация пользовательского протокола и перехват существующих запросов протокола.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Пример реализации протокола, имеющего тот же эффект, что и протокол `file://`:
 
@@ -61,11 +61,12 @@ app.on('ready', () => {
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
+
 **Примечание:** Этот метод можно использовать только до отправки события `ready` модуля `app` и может быть вызван только один раз.
 
 Регистрирует `scheme` как стандартную, безопасную, обходит политику безопасности контента для ресурсов, позволяет регистрировать ServiceWorker и поддерживает получение API.
 
-Укажите привилегию со значением `true` чтобы включить эту возможность. Пример регистрации привилегированной схемы, которая обходит Политику безопасности контента:
+Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
 
 ```javascript
 const { protocol } = require('electron')
@@ -92,8 +93,7 @@ protocol.registerSchemesAsPrivileged([
 
 `protocol.registerSchemesAsPrivileged` может быть использован для копирования функциональности предыдущих функций, таких как `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` и `protocol.registerServiceWorkerSchemes`, существовавших до Electron 5.0.0, например:
 
-**до (<= v4.x)**
-
+**before (<= v4.x)**
 ```javascript
 // Main
 protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
@@ -102,8 +102,7 @@ webFrame.registerURLSchemeAsPrivileged('scheme1', { secure: true })
 webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
 ```
 
-**после (>= v5.x)**
-
+**after (>= v5.x)**
 ```javascript
 protocol.registerSchemesAsPrivileged([
   { scheme: 'scheme1', privileges: { standard: true, secure: true } },
@@ -114,16 +113,16 @@ protocol.registerSchemesAsPrivileged([
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (опционально)
-* `completion` Function (опционально) 
+* `completion` Function (optional)
   * `error` Error
 
 Регистрирует протокол `scheme`, который отправит файл в качестве ответа. Обработчик `handler` будет вызван с помощью `handler(request, callback)`, когда запрос `request` будет создан с помощью схемы `scheme`. `completion` будет вызван с `completion(null)` когда `scheme` будет успешно зарегистрирована или с `completion(error)` при неудаче.
@@ -137,16 +136,16 @@ protocol.registerSchemesAsPrivileged([
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (опционально)
-* `completion` Function (опционально) 
+* `completion` Function (optional)
   * `error` Error
 
 Регистрирует протокол `scheme`, который отправит `Buffer` в качестве ответа.
@@ -168,16 +167,16 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (опционально)
-* `completion` Function (опционально) 
+* `completion` Function (optional)
   * `error` Error
 
 Регистрирует протокол `scheme`, который отправит `String` в качестве ответа.
@@ -187,43 +186,43 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `redirectRequest` Object 
+  * `callback` Function
+    * `redirectRequest` Object
       * `url` String
       * `method` String (опционально)
       * `session` Session | null (опционально)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (опционально)
-* `completion` Function (опционально) 
+* `completion` Function (optional)
   * `error` Error
 
 Регистрирует протокол `scheme`, который отправит HTTP-запрос в качестве ответа.
 
 Использование аналогично `registerFileProtocol`, за исключением того, что `callback` должен вызываться с объектом `redirectRequest`, имеющим свойства `url`, `method`, `referrer`, `uploadData` и `session`.
 
-По умолчанию запрос HTTP будет повторно использовать текущий сеанс. Если вы хотите, чтобы запрос имел другой сеанс, вы должны установить `session` в `null`.
+By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
 Для POST-запросов должен быть предоставлен объект `uploadData`.
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (опционально)
-* `completion` Function (опционально) 
+* `completion` Function (optional)
   * `error` Error
 
 Регистрирует протокол `scheme`, который отправит `Readable` в качестве ответа.
@@ -272,7 +271,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (опционально) 
+* `completion` Function (optional)
   * `error` Error
 
 Отменяет регистрацию пользовательского протокола `scheme`.
@@ -286,16 +285,16 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `filePath` String
-* `completion` Function (опционально) 
+* `completion` Function (optional)
   * `error` Error
 
 Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет файл в качестве ответа.
@@ -303,16 +302,16 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (опционально)
-* `completion` Function (опционально) 
+* `completion` Function (optional)
   * `error` Error
 
 Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет `String` в качестве ответа.
@@ -320,16 +319,16 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `buffer` Buffer (опционально)
-* `completion` Function (опционально) 
+* `completion` Function (optional)
   * `error` Error
 
 Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет `Buffer` в качестве ответа.
@@ -337,20 +336,20 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `redirectRequest` Object 
+  * `callback` Function
+    * `redirectRequest` Object
       * `url` String
       * `method` String (опционально)
       * `session` Session | null (опционально)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (опционально)
-* `completion` Function (опционально) 
+* `completion` Function (optional)
   * `error` Error
 
 Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет новый HTTP-запрос в качестве ответа.
@@ -358,16 +357,16 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` Function
+  * `request` Object
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `completion` Function (опционально) 
+* `completion` Function (optional)
   * `error` Error
 
 То же самое, что и `protocol.registerStreamProtocol`, за исключением того, что он заменяет существующий обработчик протокола.
@@ -375,7 +374,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (опционально) 
+* `completion` Function (optional)
   * `error` Error
 
 Удаляет перехватчик, установленный для `scheme` и восстанавливает его оригинальный обработчик.
