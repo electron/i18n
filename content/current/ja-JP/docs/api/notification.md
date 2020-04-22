@@ -1,6 +1,6 @@
 # 通知
 
-> OSのデスクトップ通知を作成します。
+> デスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -26,27 +26,27 @@
 
 戻り値 `Boolean` - 現在のシステムでデスクトップ通知がサポートされているかどうか。
 
-### `new Notification([options])` _Experimental_
+### `new Notification([options])` _実験的_
 
-* `options` Object (optional)
+* `options` Object (任意)
   * `title` String - 通知ウィンドウの上部に表示される通知のタイトル.
-  * `subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
+  * `subtitle` String (任意) _macOS_ - タイトルの下に表示される、通知のサブタイトル。
   * `body` String - タイトルやサブタイトルの下に表示さる、通知の本文。
   * `silent` Boolean (任意) - 通知を表示するときにOSが通知音を鳴らすかどうか。
   * `icon` (String | [NativeImage](native-image.md)) (任意) - 通知に使用されるアイコン。
-  * `hasReply` Boolean (optional) _macOS_ - Whether or not to add an inline reply option to the notification.
+  * `hasReply` Boolean (任意) _macOS_ - 通知に埋め込み返信オプションを追加するかどうか。
   * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
-  * `replyPlaceholder` String (optional) _macOS_ - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) _macOS_ - The name of the sound file to play when the notification is shown.
+  * `replyPlaceholder` String (任意) _macOS_ - 埋め込み返信入力フィールド内に書かれるプレースホルダ。
+  * `sound` String (任意) _macOS_ - 通知が表示されるときに再生される音声ファイルの名前。
   * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。
+  * `actions` [NotificationAction[]](structures/notification-action.md) (任意) _macOS_ - 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 ### インスタンスイベント
 
 `new Notification` で作成されたオブジェクトでは以下のイベントが発生します。
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
 #### イベント: 'show'
 
@@ -74,7 +74,7 @@
 
 このイベントは、通知が閉じられたすべての状況で発行されることは保証されていません。
 
-#### Event: 'reply' _macOS_
+#### イベント: 'reply' _macOS_
 
 戻り値:
 
@@ -83,7 +83,7 @@
 
 `hasReply: true` の通知上で、ユーザが "返信" ボタンをクリックしたときに発行されます。
 
-#### Event: 'action' _macOS_
+#### イベント: 'action' _macOS_
 
 戻り値:
 
