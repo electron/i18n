@@ -79,18 +79,18 @@ require('electron').remote.require('path')
 ## `powerMonitor.querySystemIdleState`
 
 ```js
-// Deprecated
+// 더 이상 사용하지 않음
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// 동기 API로 대체됨
 const idleState = getSystemIdleState(threshold)
 ```
 
 ## `powerMonitor.querySystemIdleTime`
 
 ```js
-// Deprecated
+// 더 이상 사용하지 않음
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// 동기 API로 대체됨
 const idleTime = getSystemIdleTime()
 ```
 
