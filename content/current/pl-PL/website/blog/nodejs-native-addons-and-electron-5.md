@@ -1,5 +1,5 @@
 ---
-title: Node.js Native Addons and Electron 5.0
+title: Node.js Native Addons oraz Electron 5.0
 author: BinaryMuse
 date: '2019-02-01'
 ---
