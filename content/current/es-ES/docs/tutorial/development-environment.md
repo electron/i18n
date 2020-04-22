@@ -2,7 +2,7 @@
 
 El desarrollo en Electron es esencialmente un desarrollo de Node.js. Para convertir su sistema operativo en un entorno capaz de construir aplicaciones para escritorio con Electron, simplemente necesita Node.js, npm, un editor de códigos de su elección, y un entendimiento rudimentario de su cliente de linea de comando del sistema operativo.
 
-## Configurar macOS
+## Configurando macOS
 
 > Electron es compatible con macOS 10.10 (Yosemite) y posteriores. Apple no permite la ejecución de macOS en máquinas virtuales a menos que la máquina anfitrión sea un ordenador Apple, así que si necesita un Mac, considere el uso de un servicio de alquiler de acceso a Macs (como [MacInCloud](https://www.macincloud.com/) o [xcloud](https://xcloud.me)).
 
@@ -24,9 +24,9 @@ Si ambos comandos imprimieron un número de versión, ¡Ya está todo listo! Ant
 
 ## Configurar Windows
 
-> Electron soporta Windows 7 y versiones posteriores - intentar desarrollar aplicaciones Electron con versiones anteriores de Windows no va a funcionar. Microsoft provee [imágenes de maquinas virtuales con Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) gratuitas para desarrolladores.
+> Electron soporta Windows 7 y versiones posteriores -  intentar desarrollar aplicaciones Electron con versiones anteriores de Windows no va a funcionar. Microsoft provee [imágenes de maquinas virtuales con Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) gratuitas para desarrolladores.
 
-Lo primero, instale una versión reciente de Node.js. Recomendamos que instale bien la `LTS` más actual, bien la `Current` versión disponible. Visite [la página de descarga de Node.js](https://nodejs.org/en/download/) y seleccione `Windows Installer`. Una vez descargado, ejecutar el instalador y dejar que el asistente de instalación le guíe durante el proceso.
+Lo primero, instale una versión reciente de Node.js. Recomendamos que instale ya sea la versión `LTS` ó la versión `Current` disponible. Visite [la página de descarga de Node.js](https://nodejs.org/en/download/) y seleccione `Windows Installer`. Una vez descargado, ejecutar el instalador y dejar que el asistente de instalación le guíe durante el proceso.
 
 En la pantalla que le permite configurar la instalación, asegúrese de seleccionar las opciones `Node.js runtime`, `npm package manager`, y `Add to PATH`.
 
