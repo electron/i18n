@@ -54,7 +54,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 #### `menu.popup([options])`
 
-* `options` Object (optional)
+* `options` Object (任意)
   * `window` [BrowserWindow](browser-window.md) (任意) - 省略値はフォーカスされたウインドウです。
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
@@ -92,7 +92,7 @@ menu の `pos` の位置に `menuItem` を挿入します。
 
 `new Menu` で作成されたオブジェクトまたは `Menu.buildFromTemplate` によって返されたオブジェクトは、以下のイベントが発生します。
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
 #### イベント: 'menu-will-show'
 
