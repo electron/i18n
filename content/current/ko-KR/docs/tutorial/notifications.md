@@ -1,8 +1,8 @@
-# Notifications (Windows, Linux, macOS)
+# 알림 (Windows, Linux, macOS)
 
 세 가지 운영체제 모두 애플리케이션이 유저에게 알림(notification) 을 보낼 수 있도록 제공하고 있습니다. Electron은 개발자가 간단히 [HTML5 Notification API](https://notifications.spec.whatwg.org/)를 사용하여 알림을 보내고, 해당 운영 체제의 내장(native) notification API를 사용하여 화면에 표시 할 수 있도록 제공합니다.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. 만약 메인 프로세스에 notification을 표시하려면 [Notification](../api/notification.md) 모듈을 확인하십시오.
+**Note:** HTML5 API 이므로 오직 렌더러 프로세스에서만 사용이 가능합니다. 만약 메인 프로세스에 notification을 표시하려면 [Notification](../api/notification.md) 모듈을 확인하십시오.
 
 ```javascript
 let myNotification = new Notification('Title', {
