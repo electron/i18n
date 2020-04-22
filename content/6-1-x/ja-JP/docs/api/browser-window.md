@@ -320,9 +320,9 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 * `event` Event
 * `newBounds` [`Rectangle`](structures/rectangle.md) - ウインドウがリサイズされようとしているサイズ。
 
-ウィンドウがリサイズされる前に発生します。 Calling `event.preventDefault()` will prevent the window from being resized.
+ウィンドウがリサイズされる前に発生します。 `event.preventDefault()`を呼び出すことで、ウィンドウがリサイズされるのを阻止できます。
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+このイベントは、ウィンドウが手動でリサイズされようとしているときにしか発生しません。 ウィンドウを、`setBounds`や`setSize` でリサイズする時には、このイベントは発生しません。
 
 #### イベント: 'resize'
 
@@ -335,9 +335,9 @@ Note that this is only emitted when the window is being resized manually. Resizi
 * `event` Event
 * `newBounds` [`Rectangle`](structures/rectangle.md) - ウインドウが移動されようとしている位置。
 
-Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+ウィンドウが移動される前に発生します。 `event.preventDefault()`を呼び出すことで、ウィンドウが移動されるのを阻止できます。
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+このイベントは、ウィンドウが手動でリサイズされようとしているときにしか発生しません。 ウィンドウを、`setBounds`や`setSize` でリサイズする時には、このイベントは発生しません。
 
 #### イベント: 'move'
 
@@ -420,7 +420,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 * `event` Event
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+3 本指でのスワイプ時に発火されます。 方向は `up`、`right`、`down`、`left` のいずれかになります。
 
 #### イベント: 'sheet-begin' _macOS_
 
@@ -456,7 +456,7 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+戻り値 `BrowserWindow` - 指定された `browserView` を所有するウインドウ。 指定されたビューがどのウィンドウにもアタッチされていない場合は、 `null`を返します。
 
 #### `BrowserWindow.fromId(id)`
 
@@ -536,7 +536,7 @@ win.loadURL('https://github.com')
 
 #### `win.webContents`
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+このウィンドウが所有する `WebContents` オブジェクト。 すべての Web ページ関連のイベントおよび操作は、これを介して行われます。
 
 [`webContents` ドキュメント](web-contents.md) でメソッドやイベントについて参照してください。
 
@@ -556,7 +556,7 @@ A `WebContents` object this window owns. All web page related events and operati
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+ウインドウを閉じようとします。 これは、ユーザーが手動でウィンドウの閉じるボタンをクリックした場合と同じ効果があります。 ただし、 Web ページはウィンドウが閉じようとするのををキャンセルすることができます。 [close イベント](#event-close) を参照してください。
 
 #### `win.focus()`
 
@@ -596,7 +596,7 @@ Try to close the window. This has the same effect as a user manually clicking th
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+ウィンドウを最大化します。 ウインドウがまだ表示されていない場合、併せてウインドウを表示 (ただし、フォーカスは当たりません) します。
 
 #### `win.unmaximize()`
 
@@ -608,7 +608,7 @@ Maximizes the window. This will also show (but not focus) the window if it isn't
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+ウィンドウを最小化します。 一部のプラットフォームでは、最小化されたウィンドウが Dock に表示されます。
 
 #### `win.restore()`
 
@@ -659,7 +659,7 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 
 * `backgroundColor` String - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にすればアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
 
-Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+ウィンドウの背景色を設定します。 [`backgroundColor` 設定](#setting-backgroundcolor) を参照してください。
 
 #### `win.previewFile(path[, displayName])` _macOS_
 
@@ -677,7 +677,7 @@ Sets the background color of the window. See [Setting `backgroundColor`](#settin
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (optional) _macOS_
 
-Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+指定した境界までウインドウのサイズを変更して移動します。 指定されていないプロパティは、既定で現在の値になります。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -726,7 +726,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 * `height` Integer
 * `animate` Boolean (optional) _macOS_
 
-ウインドウのサイズを `width` と `height` に変更します。 If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+ウインドウのサイズを `width` と `height` に変更します。 `width` または `height` が最小サイズ制約の設定値より低い場合、ウィンドウはその最小サイズにスナップします。
 
 #### `win.getSize()`
 
@@ -780,7 +780,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+ウインドウがユーザーによって手動で移動できるかどうかを設定します。 Linux では何もしません。
 
 #### `win.isMovable()` _macOS_ _Windows_
 
@@ -792,7 +792,7 @@ Linuxでは常に `true` を返します。
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+ウインドウがユーザーによって手動で最小化できるかどうかを設定します。 Linux では何もしません。
 
 #### `win.isMinimizable()` _macOS_ _Windows_
 
@@ -804,7 +804,7 @@ Linuxでは常に `true` を返します。
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+ウインドウがユーザーによって手動で最大化できるかどうかを設定します。 Linux では何もしません。
 
 #### `win.isMaximizable()` _macOS_ _Windows_
 
@@ -826,7 +826,7 @@ Linuxでは常に `true` を返します。
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+ウインドウがユーザーによって手動で閉じられるかどうかを設定します。 Linux では何もしません。
 
 #### `win.isClosable()` _macOS_ _Windows_
 
@@ -840,7 +840,7 @@ Linuxでは常に `true` を返します。
 * `level` String (任意) _macOS_ - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 省略値は、`floating` です。 詳細については、[macOSのドキュメント](https://developer.apple.com/documentation/appkit/nswindow/level) を参照してください。
 * `relativeLevel` Integer (任意) _macOS_ - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`0` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+ウィンドウを常に他のウィンドウの上に表示するかどうかを設定します。 この設定を行った後でも、ウィンドウはまだ通常のものであり、フォーカスが当てられないツールボックスウィンドウではありません。
 
 #### `win.isAlwaysOnTop()`
 
@@ -883,7 +883,7 @@ Sets whether the window should show always on top of other windows. After settin
 * `offsetY` Float
 * `offsetX` Float (optional)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. 例:
+macOS においてシートを設置する位置を変更します。 既定では、シートはウィンドウフレームのすぐ下に設置されますが、 HTML で表示されたツールバーの下に表示することもできます。 例:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -926,7 +926,7 @@ win.setSheetOffset(toolbarRect.height)
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+ウィンドウメッセージをフックします。 メッセージが WndProc で受信されると、 `callback` が呼び出されます。
 
 #### `win.isWindowMessageHooked(message)` _Windows_
 
@@ -1036,7 +1036,7 @@ win.loadURL('http://localhost:8000/post', {
 
 戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application.  See the `webContents` docs for more information.
+`webContents.loadFile` と同じく、 `filePath` はアプリケーションのルートからの HTML ファイルへの相対パスである必要があります。  詳しくは、 `webContents` ドキュメントを参照してください。
 
 #### `win.reload()`
 
@@ -1056,9 +1056,9 @@ Same as `webContents.loadFile`, `filePath` should be a path to an HTML file rela
 
 * `progress` Double
 * `options` Object (任意)
-  * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+  * `mode` String _Windows_ - プログレスバーのモード。 `none` 、 `normal` 、 `indeterminate` 、 `error` 、 `paused` のいずれかが使用できます。
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+プログレスバーの進捗を設定します。 有効な範囲は [0, 1.0] です。
 
 進捗 < 0 の場合、プログレスバーは削除されます。進捗 > 1 の場合、不確定モードに変更します。
 
@@ -1087,7 +1087,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 * `opacity` Number - 0.0 (完全に透明) と 1.0 (完全に不透明) の間
 
-Sets the opacity of the window. On Linux does nothing.
+ウィンドウの不透明度を設定します。 Linux では何もしません。
 
 #### `win.getOpacity()` _Windows_ _macOS_
 
@@ -1095,7 +1095,7 @@ Sets the opacity of the window. On Linux does nothing.
 
 #### `win.setShape(rects)` _Windows_ _Linux_ _実験的_
 
-* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+* `rects` [Rectangle[]](structures/rectangle.md) - ウィンドウの形。 空のリストを渡すと、ウィンドウが四角形に戻ります。
 
 ウィンドウの形を設定すると、システム内で描画とユーザ操作が許可されているウィンドウ内の領域が決まります。 与えられた領域の外側のピクセルでは描画されず、マウスイベントも登録されません。 領域外のマウスイベントはそのウィンドウでは受信されませんが、ウィンドウの後ろにあるものにそのイベントがフォールスルーします。
 
@@ -1143,13 +1143,13 @@ Sets the opacity of the window. On Linux does nothing.
 * `options` Object
   * `appId` String (任意) - ウインドウの[アプリユーザーモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx)。 設定されないと、他のオプションは無効です。
   * `appIconPath` String (任意) - ウインドウの[再起動アイコン](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx)。
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. 省略値は `0` です。
+  * `appIconIndex` Integer (任意) - `appIconPath` でのアイコンのインデックス。 `appIconPath` が設定されていない場合は無視されます。 既定値は `0` です。
   * `relaunchCommand` String (任意) - ウインドウの[再起動コマンド](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx)。
   * `relaunchDisplayName` String (任意) - ウインドウの[再起動表示名](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx)。
 
 ウインドウのタスクバーボタンのプロパティを設定します。
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**注:** `relaunchCommand` と `relaunchDisplayName` は一緒に設定する必要があります。 いずれかが設定されていない場合、どちらも使用されません。
 
 #### `win.showDefinitionForSelection()` _macOS_
 
@@ -1173,7 +1173,7 @@ Sets the opacity of the window. On Linux does nothing.
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+ウィンドウのメニューバーを自動的に非表示にするかどうかを設定します。 一度設定されると、メニューバーはユーザが単独で `Alt` キーを押したときのみに表示されます。
 
 メニューバーが既に表示されている場合、`setAutoHideMenuBar(true)` を呼び出してもすぐに非表示にはなりません。
 
@@ -1185,7 +1185,7 @@ Sets whether the window menu bar should hide itself automatically. Once set the 
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+メニューバーを表示するかどうかを設定します。 メニューバーが自動的に非表示にされている場合でも、ユーザは単独で `Alt` キーを押下することで、依然としてメニューバーを表示させることができます。
 
 #### `win.isMenuBarVisible()`
 
@@ -1211,7 +1211,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 * `ignore` Boolean
 * `options` Object (任意)
-  * `forward` Boolean (optional) _macOS_ _Windows_ - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. `ignore` がtrueのときだけ使用されます。 `ignore` がfalseの場合、この値に関わらず、転送は常に無効です。
+  * `forward` Boolean (任意) _macOS_ _Windows_ - true の場合、マウスの移動メッセージが Chromium に転送され、`mouseleave` のようなマウス関連のイベントが有効になります。 `ignore` がtrueのときだけ使用されます。 `ignore` がfalseの場合、この値に関わらず、転送は常に無効です。
 
 ウインドウがすべてのマウスイベントを無視するようにします。
 
@@ -1223,7 +1223,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 他のアプリによってウインドウのコンテンツがキャプチャされるのを防止します。
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+macOS では、NSWindow の共有タイプを NSWindowSharingNone に設定します。 Windows では、 SetWindowDisplayAffinity を `WDA_MONITOR` で呼び出します。
 
 #### `win.setFocusable(focusable)` _Windows_
 
@@ -1281,7 +1281,7 @@ On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows i
 
 * `type` String - `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light` または `ultra-dark` にすることができます。 詳細については、[macOSのドキュメント](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) を参照してください。
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+ブラウザウィンドウにバイブレンシーエフェクトを追加します。 `null` または空の文字列を渡すと、ウィンドウのバイブレンシーエフェクトを削除します。
 
 #### `win.setTouchBar(touchBar)` _macOS_ _Experimental_
 
@@ -1293,13 +1293,13 @@ Adds a vibrancy effect to the browser window. Passing `null` or an empty string 
 
 #### `win.setBrowserView(browserView)` _Experimental_
 
-* `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md). win に browserView を割り当てます。 他の BrowserView がアタッチされている場合、それはこのウィンドウから削除されます。
 
 #### `win.getBrowserView()` _実験的_
 
-Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+戻り値 `BrowserView | null<0> - 割り当てられた BrowserView 。 何も割り当てられていない場合、 <code>null<0> を返します。 複数の BrowserView がアタッチされている場合、エラーをスローします。</p>
 
-#### `win.addBrowserView(browserView)` _実験的_
+<h4 spaces-before="0"><code>win.addBrowserView(browserView)` _実験的_</h4>
 
 * `browserView` [BrowserView](browser-view.md)
 
@@ -1319,7 +1319,7 @@ addBrowserView や setBrowserView でアタッチされた `BrowserView` の配�
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. 省略値は `false` です。
+ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 既定値は `false` です。
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
