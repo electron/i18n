@@ -15,9 +15,9 @@ Dado que Chromium es un proyecto bastante grande, la etapa final de enlace puede
 
 Electron hereda esta opción de construcción de Chromium. En versiones `Debug` se enlazará al binario con una versión de biblioteca compartida de los componentes de Chromium para lograr un tiempo de enlace rápido; para versiones `Release`, el binario estará vinculado a las versiones estáticas de la biblioteca, de modo que podemos tener el mejor tamaño de binario posible y rendimiento.
 
-## Pruebas
+## Verificación
 
-**NB** * esta sección esta desactualizada y contiene información que ya no es relevante para el GN-built de elctron.*
+**NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
 
 Pruebe sus cambios conforme al estilo de codificación del proyecto usando:
 
@@ -40,8 +40,8 @@ $ npm run build && npm test
 Puede hacer que la prueba en suite corra más rápido al aislar la prueba específica o bloquear su trabajo actual en la característica [prueba exclusiva](https://mochajs.org/#exclusive-tests) de Mocha. Agregar `.only` a cualquier `describe` o `it` función llama:
 
 ```js
-describe.only('alguna característica', () => {
-  // ... solo pruebas se ejecutarán en este bloque
+describe.only('some feature', () => {
+  // ... only tests in this block will be run
 })
 ```
 
