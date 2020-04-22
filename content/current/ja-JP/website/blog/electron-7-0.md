@@ -6,57 +6,57 @@ author:
 date: '2019-10-22'
 ---
 
-Electron 7.0.0 has been released! It includes upgrades to Chromium 78, V8 7.8, and Node.js 12.8.1. We've added a Window on Arm 64 release, faster IPC methods, a new `nativeTheme` API, and much more!
+Electron 7.0.0 がリリースされました! これには Chromium 78、V8 7.8、Node.js 12.8.1 へのアップグレードが入っています。Arm 64 版 Windows リリース、より高速な IPC メソッド、新しい `nativeTheme` API などを追加しました。
 
 ---
 
-The Electron team is excited to announce the release of Electron 7.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Electron チームは、Electron 7.0.0 のリリース発表にワクワクしています! `npm install electron@latest` から npm でインストールするか、[リリースウェブサイト](https://electronjs.org/releases/stable) からダウンロードできます。 このリリースには、アップグレード、修正、新機能が入っています。 新機能たちと共に何を作るのか、楽しみにしています! このリリースの詳細については下に続きます。是非ご意見をお聞かせください!
 
-## Notable Changes
- * Stack Upgrades:
+## 変更の目玉
+ * 累積的更新:
 
-   | Stack    | Version in Electron 6 | Version in Electron 7 | 新機能                                                                                                                                                                                                                                                                       |
-   |:-------- |:--------------------- |:--------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | Chromium | 76.0.3809.146         | **78.0.3905.1**       | [77](https://developers.google.com/web/updates/2019/09/nic77), [78](https://developers.google.com/web/updates/2019/10/nic78)                                                                                                                                              |
-   | V8       | 7.6                   | **7.8**               | [7.7](https://v8.dev/blog/v8-release-77), [7.8](https://v8.dev/blog/v8-release-78)                                                                                                                                                                                        |
-   | Node.js  | 12.4.0                | **12.8.1**            | [12.5](https://nodejs.org/en/blog/release/v12.5.0/), [12.6](https://nodejs.org/en/blog/release/v12.6.0/), [12.7](https://nodejs.org/en/blog/release/v12.7.0/), [12.8](https://nodejs.org/en/blog/release/v12.8.0/), [12.8.1](https://nodejs.org/en/blog/release/v12.8.1/) |
- * Added Windows on Arm (64 bit) release. [#18591](https://github.com/electron/electron/pull/18591), [#20112](https://github.com/electron/electron/pull/20112)
- * Added `ipcRenderer.invoke()` and `ipcMain.handle()` for asynchronous request/response-style IPC. These are strongly recommended over the `remote` module. See this "[Electron’s ‘remote’ module considered harmful](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)" blog post for more information. [#18449](https://github.com/electron/electron/pull/18449)
- * Added `nativeTheme` API to read and respond to changes in the OS's theme and color scheme. [#19758](https://github.com/electron/electron/pull/19758), [#20486](https://github.com/electron/electron/pull/20486)
- * Switched to a new TypeScript Definitions [generator](https://github.com/electron/docs-parser). The resulting definitions are more precise; so if your TypeScript build fails, this is the likely cause. [#18103](https://github.com/electron/electron/pull/18103)
+   | 累積       | Electron 6 でのバージョン | Electron 7 でのバージョン | 新機能                                                                                                                                                                                                                                                                       |
+   |:-------- |:------------------ |:------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | Chromium | 76.0.3809.146      | **78.0.3905.1**    | [77](https://developers.google.com/web/updates/2019/09/nic77), [78](https://developers.google.com/web/updates/2019/10/nic78)                                                                                                                                              |
+   | V8       | 7.6                | **7.8**            | [7.7](https://v8.dev/blog/v8-release-77), [7.8](https://v8.dev/blog/v8-release-78)                                                                                                                                                                                        |
+   | Node.js  | 12.4.0             | **12.8.1**         | [12.5](https://nodejs.org/en/blog/release/v12.5.0/), [12.6](https://nodejs.org/en/blog/release/v12.6.0/), [12.7](https://nodejs.org/en/blog/release/v12.7.0/), [12.8](https://nodejs.org/en/blog/release/v12.8.0/), [12.8.1](https://nodejs.org/en/blog/release/v12.8.1/) |
+ * Arm (64 bit) 版 Windows リリースを追加しました。 [#18591](https://github.com/electron/electron/pull/18591)、[#20112](https://github.com/electron/electron/pull/20112)
+ * リクエスト/レスポンス式の非同期 IPC 向けに `ipcRenderer.invoke()` と `ipcMain.handle()` を追加しました。 これらは `remote` モジュールよりも強く推奨されます。 詳細はこちらの "[Electron の 'remote' モジュールは有害と考えられる](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)" ブログ記事を参照してください。 [#18449](https://github.com/electron/electron/pull/18449)
+ * OS のテーマや配色の変更を読み取って対応する `nativeTheme` API を追加しました。 [#19758](https://github.com/electron/electron/pull/19758)、[#20486](https://github.com/electron/electron/pull/20486)
+ * 新しい TypeScript 定義ファイル [ジェネレータ](https://github.com/electron/docs-parser) に移行ました。 出力結果の定義ファイルがより正確になりました。TypeScript でのビルドに失敗するようになった場合は、これが原因である可能性が高いです。 [#18103](https://github.com/electron/electron/pull/18103)
 
-See the [7.0.0 release notes](https://github.com/electron/electron/releases/tag/v7.0.0) for a longer list of changes.
+変更の完全なリストは、[7.0.0 リリースノート](https://github.com/electron/electron/releases/tag/v7.0.0) を参照してください。
 
 ## 破壊的変更
 
-More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md) page.
+これらの変更と将来の変更の詳細については、[予定されている破壊的変更](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md) のページを参照してください。
 
- * Removed deprecated APIs:
-     * Callback-based versions of functions that now use Promises. [#17907](https://github.com/electron/electron/pull/17907)
-     * `Tray.setHighlightMode()` (macOS). [#18981](https://github.com/electron/electron/pull/18981)
+ * 非推奨だった API の削除:
+     * Promise を使用するようになった関数のコールバックベース版。 [#17907](https://github.com/electron/electron/pull/17907)
+     * `Tray.setHighlightMode()` (macOS)。 [#18981](https://github.com/electron/electron/pull/18981)
      * `app.enableMixedSandbox()` [#17894](https://github.com/electron/electron/pull/17894)
-     * `app.getApplicationMenu()`,
-     * `app.setApplicationMenu()`,
-     * `powerMonitor.querySystemIdleState()`,
-     * `powerMonitor.querySystemIdleTime()`,
-     * `webFrame.setIsolatedWorldContentSecurityPolicy()`,
-     * `webFrame.setIsolatedWorldHumanReadableName()`,
+     * `app.getApplicationMenu()`、
+     * `app.setApplicationMenu()`、
+     * `powerMonitor.querySystemIdleState()`、
+     * `powerMonitor.querySystemIdleTime()`、
+     * `webFrame.setIsolatedWorldContentSecurityPolicy()`、
+     * `webFrame.setIsolatedWorldHumanReadableName()`、
      * `webFrame.setIsolatedWorldSecurityOrigin()` [#18159](https://github.com/electron/electron/pull/18159)
- * `Session.clearAuthCache()` no longer allows filtering the cleared cache entries. [#17970](https://github.com/electron/electron/pull/17970)
- * Native interfaces on macOS (menus, dialogs, etc.) now automatically match the dark mode setting on the user's machine. [#19226](https://github.com/electron/electron/pull/19226)
- * Updated the `electron` module to use `@electron/get`.  The minimum supported node version is now Node 8. [#18413](https://github.com/electron/electron/pull/18413)
- * The file `electron.asar` no longer exists. Any packaging scripts that depend on its existence should be updated. [#18577](https://github.com/electron/electron/pull/18577)
+ * `Session.clearAuthCache()` はクリアしたキャッシュエントリをフィルタリングできなくなりました。 [#17970](https://github.com/electron/electron/pull/17970)
+ * macOS のネイティブインターフェース (メニュー、ダイアログなど) が、ユーザーのマシンのダークモード設定に自動で合わせるようになりました。 [#19226](https://github.com/electron/electron/pull/19226)
+ * `electron` モジュールが `@electron/get` を使用するように更新しました。  Node の最小対応バージョンが Node 8 になりました。 [#18413](https://github.com/electron/electron/pull/18413)
+ * ファイル `electron.asar` は無くなりました。 このファイルが存在することに依存しているすべてのパッケージスクリプトは更新する必要があります。 [#18577](https://github.com/electron/electron/pull/18577)
 
-## End of Support for 4.x.y
+## 4.x.y サポートの終了
 
-Electron 4.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
+Electron 4.x.y はプロジェクトの [サポートポリシー](https://electronjs.org/docs/tutorial/support#supported-versions) に則りサポート終了となりました。 開発者はアプリケーションを新しいバージョンの Electron にアップグレードすることを推奨します。
 
 ## App のフィードバックプログラム
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+テストには引き続き [アプリフィードバックプログラム](https://electronjs.org/blog/app-feedback-program) を使用します。 このプログラムに参加するプロジェクトは、そのアプリで Electron ベータ版をテストします。見返りとして、発見した新しいバグは安定版リリースのために優先します。 参加や詳細については、[プログラムに関するブログ記事を確認してください](https://electronjs.org/blog/app-feedback-program)。
 
 ## 次回予告
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 8.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 8 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+短期的には、Chromium、Node、V8 といった Electron を構成する主要コンポーネントの開発に遅れないように、チームが注力し続けるでしょう。 リリース日について約束しないように注意していますが、予定では約四半期ごとに新しいメジャーバージョンの Electron を、各コンポーネントの新しいバージョンに対してリリースします。 [仮 8.0.0 スケジュール](https://electronjs.org/docs/tutorial/electron-timelines) では、Electron 8 開発ライフサイクルの主要な日付を示してあります。 また、Electron のバージョン管理の詳細については [バージョン管理のドキュメントを参照](https://electronjs.org/docs/tutorial/electron-versioning) してください。
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+今後のバージョンの Electron で予定されている破壊的変更の詳細は、[予定されている破壊的変更のドキュメントを参照してください](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md)。
