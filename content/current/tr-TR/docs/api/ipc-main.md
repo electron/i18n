@@ -2,7 +2,7 @@
 
 > Ana süreçten işleyici süreçlerine zaman uyumsuz olarak iletişim kurun.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ana işlem tarafından kullanıldığında eş zamansız işlemleri gerçekleştirir ve işleme sürecinden (web sayfası) senkronizasyon bilgisi alır. Bir işleyiciden gönderilecek mesajlar bu modüle yayılacaktır.
 
@@ -12,7 +12,7 @@ Ana işlemden yan işleme mesaj göndermek mümkündür, daha fazla bilgi için 
 
 * Bir mesaj gönderirken, etkinlik adı `channel`.
 * Eşzamanlı bir mesaja cevap vermek için, `event.returnValue`yi ayarlamak gereklidir.
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 İşleyici ve ana işlemler arasında mesaj gönderme ve işleme ilişkin bir örneği:
 
@@ -48,26 +48,26 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.on(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Fonksyion 
+* `listener` Function
   * `event` IpcMainEvent
-  * `...args` herhangi[]
+  * `...args` any[]
 
 `listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
 ### `ipcMain.once(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Fonksiyon 
+* `listener` Function
   * `event` IpcMainEvent
-  * `...args` herhangi[]
+  * `...args` any[]
 
-Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir mesajın `channel` adresine gönderilmesinden sonra kaldırılır.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcMain.removeListener(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function 
-  * `...args` herhangi[]
+* `listener` Function
+  * `...args` any[]
 
 Belirtilen `channel` öğesini belirtilen `listener` dizisinden kaldırır.
 
@@ -80,9 +80,9 @@ Belirtilen `kanalın` dinleyicilerini kaldırır.
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` Dizesi
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
-  * `...args` herhangi[]
+  * `...args` any[]
 
 Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
 
@@ -107,9 +107,9 @@ The `event` that is passed as the first argument to the handler is the same as t
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` Dizesi
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
-  * `...args` herhangi[]
+  * `...args` any[]
 
 Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
 
