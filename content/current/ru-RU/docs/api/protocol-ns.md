@@ -51,7 +51,7 @@ app.on('ready', () => {
 
 ## Методы
 
-Модуль `protocol` имеет следующие методы:
+The `protocol` module has the following methods:
 
 ### `protocol.registerSchemesAsPrivileged(customSchemes)`
 
@@ -70,11 +70,11 @@ protocol.registerSchemesAsPrivileged([
 ])
 ```
 
-Стандартная схема соответствует вызовам RFC 3986 [универсальный синтаксис URI ](https://tools.ietf.org/html/rfc3986#section-3). Например, `http` и `https` являются стандартными схемами, в то время как `file` не является.
+Стандартная схема соответствует вызовам RFC 3986 [универсальный синтаксис URI ](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
 
-Регистрация схемы в качестве стандартной позволяет правильно разрешать относительные и абсолютные ресурсы при обслуживании. В противном случае схема будет вести себя как протокол `file`, но без возможности разрешения относительных URL-адресов.
+Регистрация схемы в качестве стандартной позволяет правильно разрешать относительные и абсолютные ресурсы при обслуживании. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
 
-Например, когда вы загружаете следующую страницу с помощью пользовательского протокола, не регистрируя его как стандартную схему, изображение не будет загружено, потому что нестандартные схемы не могут распознать относительные URL-адреса:
+For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
 
 ```html
 <body>
@@ -82,7 +82,7 @@ protocol.registerSchemesAsPrivileged([
 </body>
 ```
 
-Регистрация схемы в качестве стандарта позволит получить доступ к файлам через [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). В противном случае программа для схемы выдаст ошибку безопасности.
+Регистрация схемы в качестве стандарта позволит получить доступ к файлам через [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
 
 По умолчанию веб-хранилище Apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) отключено для нестандартных схем. Поэтому в общем случае, если вы хотите зарегистрировать пользовательский протокол для замены протокола `http`, необходимо зарегистрировать его как стандартную схему.
 
