@@ -1,4 +1,4 @@
-# raportAwarii
+# crashReporter
 
 > Zgłoś raport wypadku zdalnemu serwerowi.
 
@@ -36,7 +36,7 @@ The `crashReporter` module has the following methods:
 
 ### `crashReporter.start(options)`
 
-* `options` Obiekt 
+* `options` Object
   * `companyName` String
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.name`.
@@ -73,20 +73,20 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean _macOS_ - Whether reports should be submitted to the server.
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
 **Note:** This API can only be called from the main process.
 
-### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
+### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
 
 * `key` String - Parameter key, must be less than 64 characters long.
 * `value` String - Parameter value, must be less than 64 characters long.
 
 Ustawia dodatkowy parametr do wysłania z raportem awarii. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
 
-### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
+### `crashReporter.removeExtraParameter(key)` _macOS_ _Windows_
 
 * `key` String - Parameter key, must be less than 64 characters long.
 
@@ -110,7 +110,7 @@ The crash reporter will send the following data to the `submitURL` as a `multipa
 * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
 * `_version` String - The version in `package.json`.
 * `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
+* `prod` String - Name of the underlying product. W tym przypadku Electron.
 * `_companyName` String - The company name in the `crashReporter` `options` object.
 * `upload_file_minidump` File - The crash report in the format of `minidump`.
 * All level one properties of the `extra` object in the `crashReporter` `options` object.
