@@ -5,18 +5,17 @@ Read-Eval-Print-Loop (REPL) basit, etkileşimli bilgisayar programlama ortamı t
 `repl` modülü, aşağıdakileri kullanarak REPL uygulamasına erişilmesini sağlar:
 
 * Yerel proje bağımlılığı olarak `electron` veya `electron-prebuilt` yüklendiği varsayılır:
-    
-    ```sh
-    ./node_modules/.bin/electron --interactive
-    ```
 
+  ```sh
+  ./node_modules/.bin/electron --interactive
+  ```
 * Global olarak `electron` veya `electron-prebuilt` yüklendiği varsayılır:
-    
-    ```sh
-    electron --interactive
-    ```
 
-Bu sadece ana işlem için REPL oluşturur. İşlem süreçleri için REPL oluşturmak için Geliştirici Araçları'nın Konsol sekmesini kullanabilirsiniz.
+  ```sh
+  electron --interactive
+  ```
+
+This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
 
 **Not:** `electron --interactive` Windows üzerinde kullanılabilir değildir.
 
