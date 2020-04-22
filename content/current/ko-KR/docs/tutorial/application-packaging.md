@@ -1,4 +1,4 @@
-# 응용 프로그램 패키징
+# 애플리케이션 패키징
 
 Windows에서 일어나는 긴 경로 이름에 대한 [issues](https://github.com/joyent/node/issues/6960)를 완화하고 `require` 속도를 약간 빠르게 하며 애플리케이션의 리소스와 소스 코드를 좋지 않은 사용자로부터 보호하기 위해 애플리케이션을 [asar](https://github.com/electron/asar) 아카이브로 패키징 할 수 있습니다.
 
@@ -10,13 +10,13 @@ Windows에서 일어나는 긴 경로 이름에 대한 [issues](https://github.c
 
 간단한 작업을 통해 애플리케이션을 `asar` 아카이브로 압축할 수 있습니다:
 
-### 1. Install the asar Utility
+### 1. asar 유틸리티 설치
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. `asar pack` 커맨드로 앱 패키징
 
 ```sh
 $ asar pack your-app app.asar
