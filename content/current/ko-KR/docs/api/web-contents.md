@@ -346,8 +346,8 @@ const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+  // 예를 들면, Ctrl/Cmd 키가 눌렸을 때만 애플리케이션
+  // 메뉴 단축키를 활성화 합니다.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
@@ -660,7 +660,7 @@ Returns:
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. `event.preventDefault()`를 호출하면 빈 소스를 반환합니다.
 
 #### 이벤트: 'remote-require'
 
@@ -1226,11 +1226,11 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
-  // Use default printing options
+  // 기본 프린팅 옵션 사용
   win.webContents.printToPDF({}).then(data => {
     fs.writeFile('/tmp/print.pdf', data, (error) => {
       if (error) throw error
-      console.log('Write PDF successfully.')
+      console.log('성공적으로 PDF를 작성했습니다.')
     })
   }).catch(error => {
     console.log(error)
@@ -1500,7 +1500,7 @@ win.loadURL('https://github.com')
 
 win.webContents.on('did-finish-load', async () => {
   win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
-    console.log('Page was saved successfully.')
+    console.log('페이지를 성공적으로 저장했습니다.')
   }).catch(err => {
     console.log(err)
   })
