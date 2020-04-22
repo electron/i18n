@@ -600,7 +600,7 @@ Linux ではセッターは何もしませんが、ゲッターは `true` を返
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. 省略値は `false` です。
+ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 省略値は `false` です。
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -629,7 +629,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.close()`
 
-ウインドウを閉じようとします。 This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+ウインドウを閉じようとします。 これは、ユーザーが手動でウィンドウの閉じるボタンをクリックした場合と同じ効果があります。 ただし、 Web ページはウィンドウが閉じようとするのををキャンセルすることができます。 [close イベント](#event-close) を参照してください。
 
 #### `win.focus()`
 
@@ -669,7 +669,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+ウィンドウを最大化します。 ウインドウがまだ表示されていない場合、併せてウインドウを表示 (ただし、フォーカスは当たりません) します。
 
 #### `win.unmaximize()`
 
@@ -681,7 +681,7 @@ Maximizes the window. This will also show (but not focus) the window if it isn't
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+ウィンドウを最小化します。 一部のプラットフォームでは、最小化されたウィンドウが Dock に表示されます。
 
 #### `win.restore()`
 
@@ -732,7 +732,7 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 
 * `backgroundColor` String - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にすればアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
 
-Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+ウィンドウの背景色を設定します。 [`backgroundColor` 設定](#setting-backgroundcolor) を参照してください。
 
 #### `win.previewFile(path[, displayName])` _macOS_
 
@@ -750,7 +750,7 @@ Sets the background color of the window. See [Setting `backgroundColor`](#settin
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
 * `animate` Boolean (optional) _macOS_
 
-Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+指定した境界までウインドウのサイズを変更して移動します。 指定されていないプロパティは、既定で現在の値になります。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -803,7 +803,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 * `height` Integer
 * `animate` Boolean (optional) _macOS_
 
-ウインドウのサイズを `width` と `height` に変更します。 If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+ウインドウのサイズを `width` と `height` に変更します。 `width` または `height` が最小サイズ制約の設定値より低い場合、ウィンドウはその最小サイズにスナップします。
 
 #### `win.getSize()`
 
@@ -861,7 +861,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+ウインドウがユーザーによって手動で移動できるかどうかを設定します。 Linux では何もしません。
 
 **[非推奨](modernization/property-updates.md)**
 
@@ -877,7 +877,7 @@ Linuxでは常に `true` を返します。
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+ウインドウがユーザーによって手動で最小化できるかどうかを設定します。 Linux では何もしません。
 
 **[非推奨](modernization/property-updates.md)**
 
@@ -893,7 +893,7 @@ Linuxでは常に `true` を返します。
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+ウインドウがユーザーによって手動で最大化できるかどうかを設定します。 Linux では何もしません。
 
 **[非推奨](modernization/property-updates.md)**
 
@@ -923,7 +923,7 @@ Linuxでは常に `true` を返します。
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+ウインドウがユーザーによって手動で閉じられるかどうかを設定します。 Linux では何もしません。
 
 **[非推奨](modernization/property-updates.md)**
 
@@ -941,7 +941,7 @@ Linuxでは常に `true` を返します。
 * `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). `flag` が true の場合、省略値は `floating` です。 flag が false の場合、`level` は `normal` にリセットされます。 `floating` から `status` までに含まれているものにおいて、ウィンドウは macOS では Dock の下に、Windows ではタスクバーの下に配置されることをことに注意してください。 `pop-up-menu` 以降は、macOS では Dock の上に、Windows ではタスクバーの上に表示されます。 詳細については、[macOS のドキュメント](https://developer.apple.com/documentation/appkit/nswindow/level) を参照してください。
 * `relativeLevel` Integer (任意) _macOS_ - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`0` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+ウィンドウを常に他のウィンドウの上に表示するかどうかを設定します。 この設定を行った後でも、ウィンドウはまだ通常のものであり、フォーカスが当てられないツールボックスウィンドウではありません。
 
 #### `win.isAlwaysOnTop()`
 
@@ -984,7 +984,7 @@ Sets whether the window should show always on top of other windows. After settin
 * `offsetY` Float
 * `offsetX` Float (optional)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. 例:
+macOS においてシートを設置する位置を変更します。 既定では、シートはウィンドウフレームのすぐ下に設置されますが、 HTML で表示されたツールバーの下に表示することもできます。 例:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1027,7 +1027,7 @@ win.setSheetOffset(toolbarRect.height)
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+ウィンドウメッセージをフックします。 メッセージが WndProc で受信されると、 `callback` が呼び出されます。
 
 #### `win.isWindowMessageHooked(message)` _Windows_
 
@@ -1127,7 +1127,7 @@ win.loadURL('http://localhost:8000/post', {
 
 戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application.  See the `webContents` docs for more information.
+`webContents.loadFile` と同じく、 `filePath` はアプリケーションのルートからの HTML ファイルへの相対パスである必要があります。  詳しくは、 `webContents` ドキュメントを参照してください。
 
 #### `win.reload()`
 
@@ -1149,7 +1149,7 @@ Same as `webContents.loadFile`, `filePath` should be a path to an HTML file rela
 * `options` Object (任意)
   * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+プログレスバーの進捗を設定します。 有効な範囲は [0, 1.0] です。
 
 進捗 < 0 の場合、プログレスバーは削除されます。進捗 > 1 の場合、不確定モードに変更します。
 
@@ -1178,7 +1178,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 * `opacity` Number - 0.0 (完全に透明) と 1.0 (完全に不透明) の間
 
-Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
+ウィンドウの不透明度を設定します。 On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
 
 #### `win.getOpacity()`
 
@@ -1240,7 +1240,7 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
 
 ウインドウのタスクバーボタンのプロパティを設定します。
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**注:** `relaunchCommand` と `relaunchDisplayName` は一緒に設定する必要があります。 いずれかが設定されていない場合、どちらも使用されません。
 
 #### `win.showDefinitionForSelection()` _macOS_
 
@@ -1264,7 +1264,7 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+ウィンドウのメニューバーを自動的に非表示にするかどうかを設定します。 一度設定されると、メニューバーはユーザが単独で `Alt` キーを押したときのみに表示されます。
 
 メニューバーが既に表示されている場合、`setAutoHideMenuBar(true)` を呼び出してもすぐに非表示にはなりません。
 
@@ -1280,7 +1280,7 @@ Sets whether the window menu bar should hide itself automatically. Once set the 
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+メニューバーを表示するかどうかを設定します。 メニューバーが自動的に非表示にされている場合でも、ユーザは単独で `Alt` キーを押下することで、依然としてメニューバーを表示させることができます。
 
 #### `win.isMenuBarVisible()`
 
@@ -1318,7 +1318,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 他のアプリによってウインドウのコンテンツがキャプチャされるのを防止します。
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+macOS では、NSWindow の共有タイプを NSWindowSharingNone に設定します。 Windows では、 SetWindowDisplayAffinity を `WDA_MONITOR` で呼び出します。
 
 #### `win.setFocusable(focusable)` _macOS_ _Windows_
 
@@ -1378,7 +1378,7 @@ macOS ではウィンドウからフォーカスは除去されません。
 
 * `type` String | null - `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。 詳細については、[macOSのドキュメント](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) を参照してください。
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+ブラウザウィンドウにバイブレンシーエフェクトを追加します。 `null` または空の文字列を渡すと、ウィンドウのバイブレンシーエフェクトを削除します。
 
 注意として、`appearance-based`、`light`、`dark`、`medium-light` と `ultra-dark` は非推奨であり、macOS の今後のバージョンで削除されます。
 
@@ -1392,13 +1392,13 @@ Adds a vibrancy effect to the browser window. Passing `null` or an empty string 
 
 #### `win.setBrowserView(browserView)` _Experimental_
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. 他の BrowserView がアタッチされている場合、それはこのウィンドウから削除されます。
 
 #### `win.getBrowserView()` _実験的_
 
-Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+戻り値 `BrowserView | null<0> - 割り当てられた BrowserView 。 何も割り当てられていない場合、 <code>null<0> を返します。 複数の BrowserView がアタッチされている場合、エラーをスローします。</p>
 
-#### `win.addBrowserView(browserView)` _実験的_
+<h4 spaces-before="0"><code>win.addBrowserView(browserView)` _実験的_</h4>
 
 * `browserView` [BrowserView](browser-view.md)
 
