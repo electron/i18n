@@ -2,7 +2,7 @@
 
 > İsteğin içeriğini, ömrünün çeşitli aşamalarında kesip değiştirin.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 `WebRequest` sınıfının örneklerine `Session`'nın `webRequest` özelliği kullanılarak erişilir.
 
@@ -36,20 +36,20 @@ Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `Filtre` Obje (opsiyonel) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` İşlev | boş 
-  * `details` Nesne 
+* `listener` Function | null
+  * `details` Object
     * `id` tamsayı
-    * `url` Dize
+    * `url` String
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Function 
-    * `cevap` Nesne 
+  * `callback` Fonksiyon
+    * `response` Object
       * `cancel` Boolean (isteğe bağlı)
       * `redirectURL` String (isteğe bağlı) - Orijinal istek gönderilmesinden veya tamamlanmasına engel olunur ve bunun yerine belirtilen URL'ye yönlendirilir.
 
@@ -76,20 +76,20 @@ Some examples of valid `urls`:
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `Filtre` Obje (opsiyonel) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` İşlev | boş 
-  * `details` Nesne 
-    * `kOD` Sayı
-    * `path` {string}
+* `listener` Function | null
+  * `details` Object
+    * `id` tamsayı
+    * `url` String
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
-  * `geri aramak` Function 
-    * `beforeSendResponse` Nesne 
+  * `callback` Fonksiyon
+    * `beforeSendResponse` Object
       * `cancel` Boolean (isteğe bağlı)
       * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
@@ -99,13 +99,13 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `Filtre` Obje (opsiyonel) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` İşlev | boş 
-  * `details` Nesne 
+* `listener` Function | null
+  * `details` Object
     * `id` tamsayı
-    * `url` Dize
-    * `method` String
+    * `url` String
+    * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `referrer` Dize
@@ -116,23 +116,23 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `Filtre` Obje (opsiyonel) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` İşlev | boş 
-  * `details` Nesne 
+* `listener` Function | null
+  * `details` Object
     * `id` tamsayı
-    * `url` Dize
+    * `url` String
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
     * `statusLine` String
-    * `statusCode` Tamsayı
+    * `statusCode` Integer
     * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (optional)
-  * `geri aramak` Function 
-    * `headersReceivedResponse` Nesne 
+  * `callback` Fonksiyon
+    * `headersReceivedResponse` Object
       * `cancel` Boolean (isteğe bağlı)
       * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - `responseHeaders`'ı geçersiz kılarak başlık durumunu değiştirmeye çalıştığımızda değerler sağlanmalıdır aksi taktirde orjinal yanıt başlığının durumu kullanılır.
@@ -143,12 +143,12 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `Filtre` Obje (opsiyonel) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` İşlev | boş 
-  * `details` Nesne 
+* `listener` Function | null
+  * `details` Object
     * `id` tamsayı
-    * `url` Dize
+    * `url` String
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
@@ -156,26 +156,26 @@ The `callback` has to be called with a `response` object.
     * `timestamp` Double
     * `responseHeaders` Record<string, string[]> (optional)
     * `fromCache` Boolean - Yanıtın disk önbelleğinden getirilip getirilmediğini gösterir.
-    * `statusCode` Tamsayı
+    * `statusCode` Integer
     * `statusLine` String
 
 Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` ile birlikte çağırılacaktır. HTTP istekleri için bu, durum satırı ve yanıt başlıklarının mevcut olduğu anlamına gelmektedir.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `Filtre` Obje (opsiyonel) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` İşlev | boş 
-  * `details` Nesne 
+* `listener` Function | null
+  * `details` Object
     * `id` tamsayı
-    * `url` Dize
-    * `method` String
+    * `url` String
+    * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
     * `redirectURL` String
-    * `statusCode` Tamsayı
+    * `statusCode` Integer
     * `statusLine` String
     * `ip` String (isteğe bağlı) - Gönderilen isteğin olduğu sunucu IP adresi.
     * `fromCache` Boolean
@@ -185,12 +185,12 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `Filtre` Obje (opsiyonel) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` İşlev | boş 
-  * `details` Nesne 
+* `listener` Function | null
+  * `details` Object
     * `id` tamsayı
-    * `url` Dize
+    * `url` String
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
@@ -198,7 +198,7 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
     * `timestamp` Double
     * `responseHeaders` Record<string, string[]> (optional)
     * `fromCache` Boolean
-    * `statusCode` Tamsayı
+    * `statusCode` Integer
     * `statusLine` String
     * `error` String
 
@@ -206,12 +206,12 @@ Bir istek tamamlandığında `listener` `listener(details)` ile birlikte çağı
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `Filtre` Obje (opsiyonel) 
+* `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` İşlev | boş 
-  * `details` Nesne 
+* `listener` Function | null
+  * `details` Object
     * `id` tamsayı
-    * `url` Dize
+    * `url` String
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
