@@ -16,7 +16,7 @@ Such apps can be affected regardless of how the protocol is registered, e.g. usi
 
 macOS and Linux are **not vulnerable** to this issue.
 
-## Mitigation
+## 대처법
 
 We've published new versions of Electron which include fixes for this vulnerability: [`1.8.2-beta.5`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5), [`1.7.12`](https://github.com/electron/electron/releases/tag/v1.7.12), and [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17). We urge all Electron developers to update their apps to the latest stable version immediately.
 
