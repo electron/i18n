@@ -2,7 +2,7 @@
 
 > Registrar eventos de red para una sesión.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ```javascript
 const { netLog } = require('electron')
@@ -24,7 +24,7 @@ Vea [`--log-net-log`](command-line-switches.md#--log-net-logpath) para registrar
 ### `netLog.startLogging(path[, options])`
 
 * `path` String - Ruta de archivo para guardar los registros de red.
-* `opciones` Objecto (opcional) 
+* `options` Object (opcional)
   * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
   * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
 
@@ -40,10 +40,10 @@ Detener la grabación de los eventos de red. Si no se llama, la grabación de lo
 
 ## Propiedades
 
-### `netLog.currentlyLogging` *Readonly*
+### `netLog.currentlyLogging` _Readonly_
 
 Un propiedad `Boolean` que indica si los registros de red están configurados o no.
 
-### `netLog.currentlyLoggingPath` *Readonly* *Deprecated*
+### `netLog.currentlyLoggingPath` _Readonly_ _Deprecated_
 
 Un propiedad `String` que devuelve la ruta del archivo de registro actual.
