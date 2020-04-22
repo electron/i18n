@@ -120,10 +120,10 @@ protocol.registerSchemesAsPrivileged([
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function
+  * `callback` Funzione
     * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
 * `completion` Function (optional)
-  * `error` Error
+  * `errore` Errore
 
 Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
 
@@ -143,10 +143,10 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function
+  * `callback` Funzione
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `completion` Function (optional)
-  * `error` Error
+  * `errore` Errore
 
 Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
@@ -174,10 +174,10 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function
+  * `callback` Funzione
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (optional)
-  * `error` Error
+  * `errore` Errore
 
 Registers a protocol of `scheme` that will send a `String` as a response.
 
@@ -193,14 +193,14 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function
+  * `callback` Funzione
     * `redirectRequest` Object
       * `url` Stringa
       * `method` String (optional)
       * `session` Session | null (optional)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (optional)
-  * `error` Error
+  * `errore` Errore
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
 
@@ -220,10 +220,10 @@ For POST requests the `uploadData` object must be provided.
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function
+  * `callback` Funzione
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (optional)
-  * `error` Error
+  * `errore` Errore
 
 Registers a protocol of `scheme` that will send a `Readable` as a response.
 
@@ -272,7 +272,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `schema` Stringa
 * `completion` Function (optional)
-  * `error` Error
+  * `errore` Errore
 
 Unregisters the custom protocol of `scheme`.
 
@@ -292,10 +292,10 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function
+  * `callback` Funzione
     * `Percorsofile` Stringa
 * `completion` Function (optional)
-  * `error` Error
+  * `errore` Errore
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
@@ -309,10 +309,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function
+  * `callback` Funzione
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (optional)
-  * `error` Error
+  * `errore` Errore
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
 
@@ -326,10 +326,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function
+  * `callback` Funzione
     * `buffer` Buffer (optional)
 * `completion` Function (optional)
-  * `error` Error
+  * `errore` Errore
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
 
@@ -343,14 +343,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function
+  * `callback` Funzione
     * `redirectRequest` Object
       * `url` Stringa
       * `method` String (optional)
       * `session` Session | null (optional)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (optional)
-  * `error` Error
+  * `errore` Errore
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
@@ -364,10 +364,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function
+  * `callback` Funzione
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (optional)
-  * `error` Error
+  * `errore` Errore
 
 Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
@@ -375,6 +375,6 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 
 * `schema` Stringa
 * `completion` Function (optional)
-  * `error` Error
+  * `errore` Errore
 
 Remove the interceptor installed for `scheme` and restore its original handler.
