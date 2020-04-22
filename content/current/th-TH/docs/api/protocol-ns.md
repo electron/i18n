@@ -8,7 +8,7 @@ The content of this document should be moved to `protocol.md` after we have enab
 
 > Register a custom protocol and intercept existing protocol requests.
 
-Messages
+Messages </a>
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
