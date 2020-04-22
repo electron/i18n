@@ -8,6 +8,7 @@
 
 Щоб створити безрамкове вікно, вам потрібно властивості `frame` присвоїти значення `false` у [BrowserWindow](browser-window.md)'их `options`:
 
+
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ width: 800, height: 600, frame: false })
