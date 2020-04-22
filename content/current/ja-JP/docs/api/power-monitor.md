@@ -31,23 +31,23 @@ app.on('ready', () => {
 
 システムが再開するときに発生します。
 
-### Event: 'on-ac' _Windows_
+### イベント: 'on-ac' _Windows_
 
 システムが AC 電源に切り替わったときに発生します。
 
-### Event: 'on-battery' _Windows_
+### イベント: 'on-battery' _Windows_
 
 システムがバッテリー電源に切り替わったときに発生します。
 
-### Event: 'shutdown' _Linux_ _macOS_
+### イベント: 'shutdown' _Linux_ _macOS_
 
 システムが再起動またはシャットダウンしようとしているときに発生します。 イベントハンドラが `e.preventDefault()` を呼び出した場合、Electron は正常にアプリを終了するためにシステムのシャットダウンの遅延を試みます。 `e.preventDefault()` が呼ばれた場合、出来る限り `app.quit()` のようなものを呼ぶのと同じようにアプリを終了します。
 
-### Event: 'lock-screen' _macOS_ _Windows_
+### イベント: 'lock-screen' _macOS_ _Windows_
 
 システムがスクリーンをロックしようとしているときに発生します。
 
-### Event: 'unlock-screen' _macOS_ _Windows_
+### イベント: 'unlock-screen' _macOS_ _Windows_
 
 システムスクリーンがアンロックされたときに発行されます。
 
@@ -61,7 +61,7 @@ app.on('ready', () => {
 
 Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
+システムのアイドル状態を計算します。 `idleThreshold` は、アイドルとみなされるまでの時間 (秒) です。  `locked` is available on supported systems only.
 
 ### `powerMonitor.getSystemIdleTime()`
 
