@@ -12,7 +12,7 @@ Eğer `npm` ile yükleme başarısız oluyorsa, Electron'u doğrudan [electron/e
 
 Electron Chrome sürümü genellikle, Chrome'un yeni kararlı sürümü çıktıktan 1 veya 2 hafta sonrasında dahil edilmiş olunuyor. Bu değer tahminidir, garanti edilemez ve yükseltme ile ilgili çalışma miktarına bağlıdır.
 
-Sadece istikrarlı Chrome kanalı kullanılır. Eğer beta veya geliştirme kanalında önemli bir hata düzeltmesi varsa, biz arka bağlantı noktası olacağız.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 Daha fazla bilgi için lütfen [güvenlik giriş](tutorial/security.md)'ine bakınız.
 
@@ -29,19 +29,19 @@ Web sayfaları arasında veri paylaşımının (işleyici işlemleri) en kolay y
 Veya ana süreçte nesneleri global bir değişken olarak depolamak için Electron'a özgü IPC sistemini kullanabilirsiniz ve daha sonra bunlara oluşturuculardan `electron` modülünün `uzak` özelliği ile erişmek için:
 
 ```javascript
-// Ana süreç içerisinde.
+// Ana süreçte.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// Sayfa 1'de.
+// In page 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// Sayfa 2'de.
+// In page 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -82,7 +82,7 @@ Electron'un Node.js entegrasyonu nedeniyle bazı fazladan semboller `modül`, `d
 Bunu çözmek için Electron'daki node entegrasyonunu kapatabilirsiniz:
 
 ```javascript
-// Ana süreç içerisinde.
+// Ana süreçte.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -115,32 +115,11 @@ Electron'un yerleşik modülünü kullanırken böyle bir hatayla karşılaşabi
 Yakalanmamış TipHatası: Geçersiz 'setZoomLevel' değeri okunamıyor
 ```
 
-Bunun nedeni, daha önceden Electron'un yerleşik modülünü geçersiz kılan [npm`electron`modül](https://www.npmjs.com/package/electron)'ünün yerleşik veya global olarak daha önceden yüklemiş olmanızdır.
-
-Doğru yerleşik modülü kullanıp kullanmadığınızı doğrulamak için, ` electron ` modülünün yolunu yazdırabilirsiniz:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-ve sonra aşağıdaki biçimde olup olmadığını kontrol edin:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-Eğer `node_modules/electron/index.js` gibi birşey ise, npm`electron` modülünü ya kaldırmalı ya da yeniden isimlendirmelisiniz.
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-Bununla birlikte, yerleşik modülü kullanıyorsanız ancak yine de bu hatayı alıyorsanız büyük bir ihtimalle modülü yanlış süreç ile kullanıyorsunuzdur. Örneğin ` electron.app ` yalnızca ana süreçte kullanılabilirken, ` electron.webFrame ` yalnızca oluşturucu süreçlerinde kullanılabilir.
+Büyük ihtimalle modülü yanlış proseste kullanıyorsunuz. Örneğin ` electron.app ` yalnızca ana süreçte kullanılabilirken, ` electron.webFrame ` yalnızca oluşturucu süreçlerinde kullanılabilir.
 
 ## Yazı tipi bulanık görünüyor, bu nedir ve ne yapabilirim?
 
-Eğer [ alt piksel kenar yumuşatmayı ](http://alienryderflex.com/sub_pixel/) devre dışı bırakırsa, LCD ekranlardaki yazı tipleri bulanık görünebilir. Örnek:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Örneğin:
 
 ![alt piksel oluşturma örneği](images/subpixel-rendering-screenshot.gif)
 
@@ -155,6 +134,6 @@ let win = new BrowserWindow({
 })
 ```
 
-Efekt sadece (bazı?) LCD ekranlarda görülür. Bir fark görmese bile, kullanıcılarınızın bazıları görebilir. Yapmamak için nedenleriniz yoksa, arka planı daima bu şekilde ayarlamak en iyisidir.
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 Sadece CSS arka plan ayarının, istenen etkiye sahip olmadığını unutmayın.
