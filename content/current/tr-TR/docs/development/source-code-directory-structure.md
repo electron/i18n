@@ -84,7 +84,6 @@ Electron
 * **npm** - Logic for installation of Electron via npm.
 * **dışarı** - Geçici çıktı dizini `ninja`.
 * **komut dosyası** - komut bina, ambalaj, test, vb gibi geliştirme amaç için kullanılır.
-
 ```diff
 script/ - The set of all scripts Electron runs for a variety of purposes.
 ├── codesign/ - Fakes codesigning for Electron apps; used for testing.
@@ -93,8 +92,7 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
     ├── notes/ - Generates release notes for new Electron versions.
     └── uploaders/ - Uploads various release-related files during release.
 ```
-
-* **araçlar** - Helper scripts used by GN files. 
+* **tools** - Helper scripts used by GN files.
   * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
 * **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
@@ -106,8 +104,8 @@ Electron deposunda birkaç satıcı bağımlılığı vardır. [/satıcı](https
 ```sh
 $ git status
 
-  modified:   vendor/depot_tools (new commits)
-  modified:   vendor/boto (new commits)
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 Bu satılan bağımlılıkları güncellemek için aşağıdaki komutu çalıştırın:
@@ -119,6 +117,6 @@ git submodule güncelleme --init - tekrar başlatma
 Kendinizi bu komutu sık sık çalıştırıyorsa, onun için bir takma ad oluşturabilirsiniz senin içinde `~/.gitconfig` dosya:
 
 ```sh
-[alias]
-  su = submodule update --init --recursive
+[takma ad]
+su = alt modül güncelleme - init - tekrar başlatma
 ```
