@@ -8,6 +8,7 @@ A frameless window is a window that has no [chrome](https://developer.mozilla.or
 
 To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
 
+
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ width: 800, height: 600, frame: false })
@@ -58,7 +59,7 @@ let win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
-### Limitations
+### ข้อจำกัด
 
 * You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
