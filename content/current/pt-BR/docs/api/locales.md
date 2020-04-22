@@ -2,7 +2,7 @@
 
 > Valores de localização são retornados por `app.getLocale()`.
 
-Electron usa biblioteca `l10n_util` do Chromium para buscar a localização. Possíveis valores estão listados abaixo:
+Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
 
 | Código do Idioma | Nome do Idioma          |
 | ---------------- | ----------------------- |
