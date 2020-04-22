@@ -1,6 +1,6 @@
 # Breaking changes (NetworkService) (Draft)
 
-This document describes changes to Electron APIs after migrating network code to NetworkService API.
+Bu belge ağ kodunu NetworkService API'ye taşıdıktan sonraki Electron API değişikliklerini tanımlar.
 
 We don't currently have an estimate of when we will enable `NetworkService` by default in Electron, but as Chromium is already removing non-`NetworkService` code, we might switch before Electron 10.
 
@@ -11,7 +11,7 @@ The content of this document should be moved to `breaking-changes.md` once we ha
 ### `protocol.unregisterProtocol`
 ### `protocol.uninterceptProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+API'ler artık eşzamanlılar ve seçime bağlı geriçağrı artık gerekmiyor.
 
 ```javascript
 // Deprecated
@@ -40,7 +40,7 @@ protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
 protocol.registerFileProtocol(scheme, handler)
 ```
 
-The registered or intercepted protocol does not have effect on current page until navigation happens.
+Kaydedilmiş veya kesilmiş protokolün gezinme gerçekleşene dek varolan sayfa üzerinde etkisi yoktur.
 
 ### `protocol.isProtocolHandled`
 
