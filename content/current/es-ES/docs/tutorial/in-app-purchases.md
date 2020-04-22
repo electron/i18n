@@ -3,13 +3,11 @@
 ## Preparando
 
 ### Acuerdo de Aplicaciones de Pago
-
 Si no lo has hecho todavia, tienes que firmar el Acuerdo de Aplicaciones de Pago y configurar tus dados bancarios y fiscales en iTunes Connect.
 
 [Ayuda al desarrollador de iTunes Connect: Resumen de acuerdos, impuestos y bancos](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Crea tus compras dentro de la App
-
 Después, debes configurar tus compras dentro de la App en iTunes Connect, e incluir detalles como nombre, precio, y un descriptivo que destaque las características y funcionalidades de tu compra dentro de la aplicación.
 
 [Ayuda al desarrollador de iTunes Connect: Crear una compra dentro de la App](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
