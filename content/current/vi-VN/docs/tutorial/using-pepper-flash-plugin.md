@@ -1,6 +1,6 @@
 # Việc sử dụng Pepper Flash Plugin
 
-OK 
+Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
 ## Préparer une copie du Plugin Flash
 
@@ -63,6 +63,6 @@ You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins
 
 The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+On Windows the path passed to `--ppapi-flash-path` has to use `\` as path delimiter, using POSIX-style paths will not work.
 
 For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
