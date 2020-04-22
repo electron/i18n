@@ -1,7 +1,7 @@
 # Об'єкт CustomScheme
 
 * `scheme` String - Налаштовувана схема для реєстрації з опціями.
-* `privileges` Object (опціонально) 
+* `privileges` Object (optional)
   * `standard` Boolean (опціонально) - За замовчуванням false.
   * `secure` Boolean (опціонально) - За замовчуванням false.
   * `bypassCSP` Boolean (опціонально) - За замовчуванням false.
