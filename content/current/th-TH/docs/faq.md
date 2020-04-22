@@ -12,7 +12,7 @@
 
 เวอร์ชั่นของ Chrome ใน Electron นั้นจะถูกอัพเกรดภายในหนึ่งถึงสองสัปดาห์หลังจากที่มีการปล่อย Chrome รุ่นที่เสถียรออกมา การประเมินที่เป็นแค่การคาดเดาและขึ้นอยู่กับจำนวนของงานที่เกี่ยวข้องในการอัพเดรด
 
-เฉพาะช่องที่เสถียรของ Chrome ทีจะถูกใช้ หากมีการแก้ไขที่สำคัญที่ช่องเบต้าหรือช่องพัฒนา เราจะนำมันเข้ามาในเวอร์ชั่นที่ใช้อยู่
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 สำหรับข้อมูลเพิ่มเติม โปรดดู[บทนำความปลอดภัย](tutorial/security.md)
 
@@ -29,19 +29,19 @@
 หรือคุณสามารถใช้ระบบ IPC ซึ่งมีเฉพาะ Electron เท่านั้น ในการจัดเก็บวัตถุในกระบวนการหลักเป็นตัวแปรส่วนกลาง และจะเข้าถึงพวกมันจากตัวเรนเดอร์ผ่านคุณสมบัติ `remote` ของ `electron` โมดูล:
 
 ```javascript
-// ในกระบวนการหลัก
+// In the main process.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// ในหน้า 1
+// In page 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// ในหน้า 2
+// In page 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -82,6 +82,7 @@ app.whenReady().then(() => {
 ในการแก้ไขปัญหานี้ คุณสามารถปิดการทำงานร่วมกันของ node ใน Electron
 
 ```javascript
+// In the main process.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -114,32 +115,11 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-นี่เป็นเพราะคุณได้ติดตั้ง [npm `electron` module](https://www.npmjs.com/package/electron) ไม่ว่าจะเป็นในประเทศหรือทั่วโลกซึ่งจะแทนที่โมดูลในตัวของอิเล็กตรอน
-
-หากต้องการตรวจสอบว่าคุณกำลังใช้โมดูลในตัวที่ถูกต้องคุณสามารถพิมพ์ เส้นทางของโมดูล `electron` module:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-จากนั้นตรวจสอบว่าอยู่ในรูปแบบต่อไปนี้หรือไม่:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-หากเป็นเช่น `node_modules/electron/index.js`, คุณต้องทำ อาจลบโมดูล npm `electron` หรือเปลี่ยนชื่อ
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-อย่างไรก็ตามหากคุณกำลังใช้โมดูลในตัว แต่ยังคงได้รับข้อผิดพลาดนี้อยู่ มีโอกาสมากที่คุณกำลังใช้โมดูลในกระบวนการที่ไม่ถูกต้อง ตัวอย่างเช่น `electron.app` สามารถใช้ได้ในกระบวนการหลักเท่านั้นในขณะที่ </code> ใช้ได้เฉพาะในกระบวนการตัวแสดงภาพเท่านั้น
+It is very likely you are using the module in the wrong process. ตัวอย่างเช่น `electron.app` สามารถใช้ได้ในกระบวนการหลักเท่านั้นในขณะที่ </code> ใช้ได้เฉพาะในกระบวนการตัวแสดงภาพเท่านั้น
 
 ## The font looks blurry, what is this and what can I do?
 
-หาก [ การลบรอยหยักย่อยพิกเซล ](http://alienryderflex.com/sub_pixel/) ถูกปิดการใช้งานตัวอักษรบนหน้าจอ LCD อาจดูไม่ชัด ตัวอย่าง:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
 
 ! [ ตัวอย่างการแสดงผลพิกเซลย่อย ](images/subpixel-rendering-screenshot.gif)
 
