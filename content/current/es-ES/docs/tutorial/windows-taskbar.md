@@ -10,7 +10,7 @@ Windows permite a las aplicaciones definir un menú contextual personalizado que
 > 
 > Se recomienda encarecidamente que la lista de tareas sea estática. Debería permanecer igual independientemente del estatus o estado de la aplicación. Si bien es posible variar la lista de forma dinámicamente, debe considerar que esto podría confundir al usuario que no espera que esa parte de la lista de destinos cambie.
 
-**Tareas de Internet Explorer:**
+__Tareas de Internet Explorer:__
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
@@ -41,6 +41,7 @@ app.setUserTasks([])
 
 Las tareas del usuario aún se mostrará después de que la aplicación se cierre, de esta manera el ícono y ruta del programa especificado para su tarea exista aún así la aplicación haya sido desinstalada.
 
+
 ## Barra de tareas de Thumbnail
 
 En Windoes usted puede añadir una barra de tareas thumbnail con botones específicos en un diseñador de barras de tareas de una ventana de un aplicación. Le da a los usuarios una manera de acceder a una comando de ventana en particular sin tener que restaurar o activar la ventana.
@@ -51,7 +52,7 @@ Para MSDN, está ilustrado:
 > 
 > Por ejemplo, el reproductor de Windows ofrece regularmente controles de transporte como play, pausa, silenciar y detener.
 
-**Barra de herramientas del reproductor de media de Windows:**
+__Barra de herramientas del reproductor de media de Windows:__
 
 ![intérprete](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
@@ -86,13 +87,14 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
+
 ## Encubrimiento de íconos en la barra de tareas
 
 En Windows un botón de la barra de tareas puede usar un pequeño encubrimiento para mostrar el estatus de la aplicación, como es mencionado por la MSDN:
 
 > El encubrimiento de íconos sirve como una notificación contextual del estatus, y tiene la intención de negar la necesidad de separar el ícono de la notificación del estatus del ícono para comunicar la información al usuario. Por ejemplo, el nuevo estatus de correos en Microsoft Outlook, actualmente se muestra en el área de notificaciones, ahora puede ser indicado a través de un encubrimiento en el botón de la barra de tareas. De nuevo, debes decidir durante su ciclo de desarrollo cual método es el mejor para su aplicación. El encubrimiento de íconos tiene la intención de dar información importante, estatus de larga duración o notificaciones así como estado de la red o de mensajería, o nuevos correos. El usuario no debe ser presentado con cambios constantes en el encubrimiento o animaciones.
 
-**Encubrimiento en botones de la barra de tareas:**
+__Encubrimiento en botones de la barra de tareas:__
 
 ![Encubrimiento en botones de la barra de tareas](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
@@ -103,6 +105,7 @@ const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Descripción del overlay')
 ```
+
 
 ## Flash Frame
 
