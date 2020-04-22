@@ -10,7 +10,7 @@ Proces: [Main](../glossary.md#main-process)
 
 ## Uwagi do platform
 
-Obecnie, tylko na platformach macOS i Windows jest to wspierane. Nie ma wbudowanego wsparcia dla automatycznego aktualizowania na systemie Linux, rekomendowane jest użycie dystrybutora paczek do aktualizowania Twojej aplikacji.
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
 Ponadto istnieją pewne subtelne różnice na każdej platformie:
 
@@ -82,10 +82,10 @@ Objekt `autoUpdater` ma następujące metody:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Obiekt 
+* `options` Object
   * `url` String
-  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Ustawia `url` i inicjalizuje auto-updater.
 
@@ -95,7 +95,7 @@ Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Pyta serwera czy istnieje aktualizacja. Należy wywołać `setFeedURL` przed użyciem tego API.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
