@@ -10,7 +10,7 @@
 
 ## Platform Bildirimleri
 
-Şu an için sadece macOS ve Windows desteklenmektedir. Linux'ta otomatik güncelleyici için yerleşik bir destek yok, bu yüzden uygulamanızı güncellemek için dağıtımın paket yöneticisini kullanmanız önerilir.
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
 Buna ek olarak, bu platformlarda bazı ufak farklar vardır:
 
@@ -18,7 +18,7 @@ Buna ek olarak, bu platformlarda bazı ufak farklar vardır:
 
 MacOS'ta, `autoUpdater` modulü [Squirrel](https://github.com/Squirrel/Squirrel.Mac) üzerine kurulmuştur. Mac'in anlamı onu çalışabilir yapmak için herhangi bir özel kuruma ihtiyacınız yok demektir. Sunucu tarafı gereksinimleri için [Sunucu desteği](https://github.com/Squirrel/Squirrel.Mac#server-support) okuyabilirsiniz. [Uygulama Aktarım Katmanı Güvenliği](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)'nin (ATS) güncelleştirme işleminin bir parçası olarak yapılan tüm istekler için geçerli olduğunu unutmayın. Uygulamalar plist'lerine `NSAllowsArbitraryLoads` anahtarını ekleyerek ATS'nin devre dışı kalmasını sağlamalıdır.
 
-**Not:** macOS'ta uygulamanız otomatik güncelleştirmeler için onaylı olmalıdır. Bu `Squirrel.Mac`'nin bir gereksinimidir.
+**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
 ### Windows
 
@@ -48,7 +48,7 @@ Bir güncellemenin başlatılıp başlatılmadığını kontrol ederken ortaya �
 
 ### Event: 'update-available'
 
-Kullanılabilir bir güncelleştirme olduğunda ortaya çıkan. Güncelleştirme otomatik olarak karşıdan yüklenir.
+Emitted when there is an available update. The update is downloaded automatically.
 
 ### Olay: 'update-not-available'
 
@@ -68,7 +68,7 @@ Bir güncelleme indirildiğinde ortaya çıkan.
 
 Windows üzerinde yalnızca `releaseName` kullanılabilir.
 
-** Not: ** Bu olayı ele almak kesinlikle gerekli değildir. Başarıyla İndirilen güncelleme, uygulamanın bir sonraki başlatılışında yine de uygulanacaktır.
+**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
 
 ### Event: 'before-quit-for-update'
 
@@ -82,10 +82,10 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ### `autoUpdater.setFeedURL(seçenekler)`
 
-* `options` Obje 
+* `options` Object
   * `url` Dize
-  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 `url`'i belirler ve otomatik güncelleyici başlar.
 
@@ -95,11 +95,11 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ### `autoUpdater.checkForUpdates()`
 
-Sunucuya bir güncelleştirme olup olmadığını sorar. Bu API'yi kullanmadan önce `setFeedURL`'i çağırmalısınız.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Uygulamayı yeniden başlatır ve indirmeler bittikten sonra güncellemeyi yükler. O yalnızca `update-downloaded` ortaya çıktıktan sonra çağırılmış olmalıdır.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
