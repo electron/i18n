@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Object (optional)
+* `options` Object (任意)
   * `cache` Boolean - キャッシュを有効にするかどうか。
 
 戻り値 `Session` - `partition` 文字列からの Session のインスタンス。 同じ `partition` を持つ既存の `session` が存在する場合は、それが返されます。 それ以外の場合は、`options` で新しい `session` インスタンスが作成されます。
@@ -144,7 +144,7 @@ Emitted when a hunspell dictionary file download fails.  For details on the fail
 
 #### `ses.clearStorageData([options])`
 
-* `options` Object (optional)
+* `options` Object (任意)
   * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
   * `storages` String[] (任意) - クリアするストレージの種類。`appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage` を含めることができます。
   * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。
@@ -194,7 +194,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
    HOSTNAME_PATTERN パターンに一致するすべてのホスト名のマッチ。
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -233,7 +233,7 @@ Sets download saving directory. By default, the download directory will be the `
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `offline` Boolean (optional) - Whether to emulate network outage. 省略値は、false です。
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
@@ -256,7 +256,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 * `options` Object
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
-  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. デフォルトは 1.
 
 指定された数のソケットをオリジンに事前接続します。
 
@@ -396,7 +396,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 `url` にあるリソースのダウンロードを初期化します。 この API は、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。
 
-**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+**注釈:** これは [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl) と異なり、ページのオリジンに関連するセキュリティチェックを実行しません。
 
 #### `ses.createInterruptedDownload(options)`
 
@@ -446,7 +446,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 * `url` String - Electron が hunspell 辞書をダウンロードする基底 URL。
 
-デフォルトでは、Electron は Chromium CDN から hunspell 辞書をダウンロードします。  この動作をオーバーライドする場合は、この API を使用して、独自ホスト版の hunspell 辞書を辞書ダウンローダーが指すようにすることができます。  We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
+デフォルトでは、Electron は Chromium CDN から hunspell 辞書をダウンロードします。  この動作をオーバーライドする場合は、この API を使用して、独自ホスト版の hunspell 辞書を辞書ダウンローダーが指すようにすることができます。  ホストする必要があるファイルのリリースごとに `hunspell_dictionaries.zip` ファイルをファイルサーバーで公開します。ファイルサーバーは **大文字と小文字を区別しない** ようにして、元通りの大文字小文字のファイルが入った ZIP ファイルと、全て小文字のファイル名にしたものの二通りを用意する必要があります。
 
 `hunspell_dictionaries.zip` が `https://example.com/dictionaries/language-code.bdic` に存在して利用できる場合、`ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')` を呼び出すことになります。  末尾のスラッシュに注意してください。  辞書への URL は、`${url}${filename}` の形式になります。
 
@@ -458,25 +458,25 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 戻り値 `Boolean` - 単語がカスタム辞書に正常に書き込まれたかどうか。
 
-**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+**注釈:** macOS と Windows 10 では、この単語は OS カスタム辞書にも書き込まれます
 
 ### インスタンスプロパティ
 
 `Session` のインスタンスには以下のプロパティがあります。
 
-#### `ses.availableSpellCheckerLanguages` _Readonly_
+#### `ses.availableSpellCheckerLanguages` _読み出し専用_
 
 この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。  この配列にない言語コードを `setSpellCheckerLanaguages` API に提供すると、エラーが発生します。
 
-#### `ses.cookies` _Readonly_
+#### `ses.cookies` _読み出し専用_
 
 このセッションの [`Cookies`](cookies.md) オブジェクト。
 
-#### `ses.webRequest` _Readonly_
+#### `ses.webRequest` _読み出し専用_
 
 このセッションの [`WebRequest`](web-request.md) オブジェクト。
 
-#### `ses.protocol` _Readonly_
+#### `ses.protocol` _読み出し専用_
 
 このセッションの [`Protocol`](protocol.md) オブジェクト。
 
@@ -495,7 +495,7 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog` _Readonly_
+#### `ses.netLog` _読み出し専用_
 
 このセッションの [`NetLog`](net-log.md) オブジェクト。
 
