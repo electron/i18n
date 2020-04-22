@@ -2,7 +2,7 @@
 
 > Собирает данные трассировки из содержимого модуля Chromium для поиска узких мест производительности и медленных операций.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Этот модуль не содержит веб-интерфейса. Для просмотра записанных треков, используйте [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), доступного по адресу `chrome://tracing` в Chrome.
 
