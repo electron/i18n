@@ -9,29 +9,28 @@ El objeto `process` de Electron es heredado del [objeto `process` de Node.js](ht
 ## Sandbox
 
 En el procesor renderer en sandbox el objeto `process` sólo contiene un subconjunto de las APIs:
-
-* `crash()`
-* `hang()`
-* `getCreationTime()`
-* `getHeapStatistics()`
-* `getBlinkMemoryInfo()`
-* `getProcessMemoryInfo()`
-* `getSystemMemoryInfo()`
-* `getSystemVersion()`
-* `getCPUUsage()`
-* `getIOCounters()`
-* `argv`
-* `execPath`
-* `env`
-* `pid`
-* `arch`
-* `platform`
-* `sandboxed`
-* `type`
-* `version`
-* `versions`
-* `mas`
-* `windowsStore`
+- `crash()`
+- `hang()`
+- `getCreationTime()`
+- `getHeapStatistics()`
+- `getBlinkMemoryInfo()`
+- `getProcessMemoryInfo()`
+- `getSystemMemoryInfo()`
+- `getSystemVersion()`
+- `getCPUUsage()`
+- `getIOCounters()`
+- `argv`
+- `execPath`
+- `env`
+- `pid`
+- `arch`
+- `platform`
+- `sandboxed`
+- `type`
+- `version`
+- `versions`
+- `mas`
+- `windowsStore`
 
 ## Eventos
 
@@ -53,65 +52,64 @@ process.once('loaded', () => {
 
 ## Propiedades
 
-### `process.defaultApp` *Readonly*
+### `process.defaultApp` _Readonly_
 
-Un `Boolean`. Cuando la aplicación empieza siendo pasada como un parámetro a la aplicación por defecto, esta propiedad es `true` en el proceso principal, en el caso contrario es `undefined`.
+A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
-### `process.isMainFrame` *Readonly*
+### `process.isMainFrame` _Readonly_
 
-Un `Boolean`, `true` cuando el contexto actual del render es el frame "main" renderer. Si usted quiere el ID del frame actual debería usar `webFrame.routingId`.
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas` *Readonly*
+### `process.mas` _Readonly_
 
-Un `Booleano`. Para el edificio de la Mac App Store, esta propiedad es `verdad`, para otros edificios está `indefinidad`.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `proceso.noAsar`
 
-Un `Booleano` que controla el apoyo ASAR dentro de tu aplicación. Ajustando este a `verdad` se deshabilitará el apoyo por parte de archivos `asar` en modulos integrados del nodo.
+A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
 ### `process.noDeprecation`
 
-Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no a `stderr`. Establecer esto en `true` silenciará las advertencias de obsolescencia. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
+Un `Boolean` que controla si las advertencias de deprecación se imprimen o no a `stderr`. Modificar esta propiedad a `true` silenciará las advertencias de depreciación. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
 
 ### `process.enablePromiseAPIs`
 
 Un `Boolean` que controla si las advertencias de deprecación son mostrados en `stderr` o no cuando las APIs anteriores basadas en callback convertidas a Promises son invocadas usando callbacks. Configurando esto en `true` se habilitaran las advertencias de deprecación.
 
-### `process.resourcesPath` *Readonly*
+### `process.resourcesPath` _Readonly_
 
 Una `cadena` que representa la ruta de acceso al directorio de recursos.
 
-### `process.sandboxed` *Readonly*
+### `process.sandboxed` _Readonly_
 
-Un `Boolean`. Cuando el proceso de renderer se ejecuta en modo sandbox esta propiedad es `true`, de lo contrario es `undefined`.
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `proceso.desechoDegradación`
 
-Un `Booleano` que controla si las advertencias de degradación son consideradas como excepción. Ajustando este como `verdad` se producirán errores por degradación. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
+Un `Boolean` que controla si las advertencias de depreciación serán lanzadas como excepciones. Modificar esta propiedad a `true` lanzará errores para las depreciaciones. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
 
 ### `proceso.ubicarDegradación`
 
 Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `true` se enviarán ubicaciones de pila por degradaciones. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
 
 ### `proceso.ubicarAdvertenciasdeProcesos`
-
 Un `Booleano` que controla si las advertencias de procesos son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `verdad` se enviarán ubicaciones de pila para advertencias de procesos (incluyendo degradaciones). Esta propiedad es en vez de la línea de comando `--trace-warnings`.
 
-### `process.type` *Readonly*
+### `process.type` _Readonly_
 
 Un `String` representando el tipo actual del proceso, puede ser `"browser"` (ejemplo main processl), `"renderer"`, o `"worker"` (ejemplo web worker).
 
-### `process.versions.chrome` *Readonly*
+### `process.versions.chrome` _Readonly_
 
 Una `cadena` representando la versión de cadena de Chrome.
 
-### `process.versions.electron` *Readonly*
+### `process.versions.electron` _Readonly_
 
 Una `cadena` representando la versión de cadena de Electron.
 
-### `process.windowsStore` *Readonly*
+### `process.windowsStore` _Readonly_
 
-Un `Booleano`. si la aplicación está siendo ejecutada como una aplicación de la tienda Windows (appx), esta propiedad es `verdad`, de otra manera es `indefinida`.
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## Métodos
 
@@ -125,13 +123,13 @@ Hace que el hilo principal del proceso actual se detenga.
 
 Devuelve `Number | null` - El numero de mili-segundos desde la época o `null` si la información no esta disponible
 
-Indica el tiempo de creación de la aplicación. El tiempo es representado como números de mili-segundos desde la época. Retorna nulo si no es capaz de obtener el tiempo de creación del proceso.
+Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
 
 ### `process.getCPUUsage()`
 
 Devuelve [`CPUUsage`](structures/cpu-usage.md)
 
-### `process.getIOCounters()` *Windows* *Linux*
+### `process.getIOCounters()` _Windows_ _Linux_
 
 Devuelve [`IOCounters`](structures/io-counters.md)
 
@@ -149,7 +147,7 @@ Devuelve `Objeto`:
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Devuelve un objeto con estadísticas de pila V8. Tenga en cuenta que todas las estadísticas se reportan en Kilobytes.
+Returns an object with V8 heap statistics. Toma en cuenta que todas las estadísticas son reportadas en Kilobytes.
 
 ### `process.getBlinkMemoryInfo()`
 
@@ -165,7 +163,7 @@ Returns an object with Blink memory information. It can be useful for debugging 
 
 Devuelve `Promise<ProcessMemoryInfo>` - Resuelve con un [ProcessMemoryInfo](structures/process-memory-info.md)
 
-Devuelve un objeto conteniendo las estadísticas de uso de la memoria del proceso actual. Tenga en cuenta que todas las estadísticas son reportadas en Kilobytes. Esta Api debería ser llamada después que la aplicación este lista.
+Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
 
 Chromium no provee el valor `residentSet` para macOS. Esto es porque macOS realiza compresión en memoria que no han sido utilizadas recientemente. Como resultado, el valor del tamaño del conjunto de residentes no es lo que uno esperaría. Memoria `private` es más representativo del uso real de la memoria de precompresión del proceso en macOS.
 
@@ -175,10 +173,10 @@ Devuelve `Objeto`:
 
 * `total` Entero - La cantidad total de memoria física en kilobytes de la que dispone el sistema.
 * `libre` entero - La cantidad de memoria que no está siendo usada por aplicaciones o caché de disco.
-* `swapTotal` Integer *Windows* *Linux* - La cantidad total de memoria de swap en Kilobytes disponible para el sistema.
-* `swapFree` Integer *Windows* *Linux* - La cantidad libre de memoria de swap en Kilobytes disponible para el sistema.
+* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
 
-Devuelve un objeto que contiene las estadísticas de la memoria usada por el sistema completo. Note que todas las estadísticas están reportadas en kilobytes.
+Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
 ### `process.getSystemVersion()`
 
@@ -208,7 +206,7 @@ Toma una instantánea de la pila V8 y la guarda en `filePath`.
 
 Hace que el hilo principal del proceso actual se caiga.
 
-### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
+### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
 * `maxDescriptors` Entero
 
