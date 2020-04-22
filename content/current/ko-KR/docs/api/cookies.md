@@ -2,7 +2,7 @@
 
 > 세션 쿠키를 가져오거나 수정합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 `Cookies` 클래스는 `Session` 의`cookies` 속성을 이용해 접근합니다.
 
@@ -11,7 +11,7 @@
 ```javascript
 const { session } = require('electron')
 
-// Query all cookies.
+// 모든 쿠키 쿼리.
 session.defaultSession.cookies.get({})
   .then((cookies) => {
     console.log(cookies)
@@ -32,7 +32,7 @@ session.defaultSession.cookies.get({ url: 'http://www.github.com' })
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie)
   .then(() => {
-    // success
+    // 성공
   }, (error) => {
     console.error(error)
   })
@@ -56,7 +56,7 @@ session.defaultSession.cookies.set(cookie)
 
 Cookie가 추가, 수정, 삭제, 만료로 인해 변경된 경우 호출된다.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 `Cookies` 인스턴스는 다음의 메서드를 사용할 수 있다.
 
