@@ -6,7 +6,7 @@ Electron's `webview` tag is based on [Chromium's `webview`](https://developer.ch
 
 ## Enabling
 
-By default the `webview` tag is disabled in Electron >= 5. You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
+By default the `webview` tag is disabled in Electron >= 5.  You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
 
 ## Genel Bakış
 
@@ -155,7 +155,7 @@ A `Boolean`. When this attribute is present the guest page will have web securit
 
 A `String` that sets the session used by the page. `partition` starts with `persist:`ile başlıyorsa, sayfa, uygulamanın aynı `partition` bölümüne sahip tüm sayfalar için kalıcı bir oturum kullanacaktır. `persist:` öneki yoksa, sayfa bir bellek içi oturum kullanacaktır. Aynı `partition` bölümü atayarak, aynı oturumda birden çok sayfa paylaşabilir. `partition` ayıklanırsa, uygulamanın varsayılan oturumu kullanılır.
 
-Bu değer yalnızca ilk gezinmeden önce değiştirilebilir, çünkü oturum aktif bir oluşturucu sürecindeyken değiştiremezsiniz. Ardından, değeri bir DOM hatası ile başarısız olur.
+This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
 ### `pop up'lara izin ver`
 
@@ -209,12 +209,12 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `seçenekler` Obje (opsiyonel) 
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
   * `extraHeaders` Dizgi (isteğe bağlı) - "\n" ile ayrılan ek sayfa başlıkları
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Bu, yalnızca belirtilen `url` veri url'si ve diğer dosyaları yüklemek gerekiyorsa gereklidir.
+  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
 
 Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
 
@@ -418,7 +418,7 @@ Sayfada düzenleme komutu olan `unselect`'i yerine getirir.
 
 ### `<webview>.replace(text)`
 
-* `text` Dizi
+* `text` String
 
 Sayfada düzenleme komutu olan `replace`'i yerine getirir.
 
@@ -439,11 +439,11 @@ Odaklanmış öğeye `metin` ekler.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` Dizgi - Araştırılacak içerik, boş bırakılmaması zorunludur.
-* `seçenekler` Obje (opsiyonel) 
+* `options` Object (optional)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. varsayılan değer `false`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer birtakım kelime-içi eşleşmeyi kabul eder, `false` varsayılan olur.
 
 `Integer` döndürür - İstek için kullanılan istek kimliği.
@@ -452,7 +452,7 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 ### `<webview>.stopFindInPage(action)`
 
-* `hareket` String - Bitişte, yerini alacak olayı belirtir [`<webview>.findInPage`](#webviewfindinpagetext-options) istek. 
+* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request.
   * `clearSelection` - Seçimi silin.
   * `keepSelection` - Seçimi normal bir seçime çevirir.
   * `activateSelection` - Odaklanır ve seçim ağına (node'a) tıklar.
@@ -461,18 +461,18 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 ### `<webview>.print([options])`
 
-* `seçenekler` Obje (opsiyonel) 
-  * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
-  * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
-  * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
+* `options` Object (optional)
+  * `silent` Boolean (optional) - Don't ask user for print settings. Varsayılan `false`'dur.
+  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Varsayılan `false`'dur.
+  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 
 Returns `Promise<void>`
 
-`webview`'ün web sayfasını yazdırır. Tıpkı `webContents.print([options])` gibi.
+Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options)`
 
-* `seçenekler` Nesne 
+* `options` Object
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ya da micron olarak `height` ve `width` içeren bir nesne olabilir.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -489,7 +489,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
 Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+`rect` içerisinde kalan sayfanın anlık görüntüsünü yakalar. Omitting `rect` will capture the whole visible page.
 
 ### `<webview>.send(channel, ...args)`
 
@@ -504,7 +504,7 @@ Returns `Promise<void>`
 
 ### `<webview>.sendInputEvent(event)`
 
-* `event` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
+* `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
 Returns `Promise<void>`
 
@@ -516,7 +516,7 @@ Returns `Promise<void>`
 
 * `factor` Number - Yakınlaştırma faktörü.
 
-Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
@@ -541,7 +541,7 @@ Returns `Promise<void>`
 
 Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -552,11 +552,11 @@ Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düz
 
 **Deprecated:** This API is no longer supported by Chromium.
 
-### `<webview>.showDefinitionForSelection()` *macOS*
+### `<webview>.showDefinitionForSelection()` _macOS_
 
 Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
 
-### `<webview>.getWebContents()` *Deprecated*
+### `<webview>.getWebContents()` _Deprecated_
 
 Returns [`WebContents`](web-contents.md) - Web içerikleri `webview` ile ilişkilendirilmiştir.
 
@@ -577,7 +577,7 @@ Dönüşler:
 * `url` Dize
 * `isMainFrame` Boolean
 
-Bir yükleme işlendiğinde tetiklenir. Bu, subframe belge düzeyi yüklemeleri içinde olduğu kadar, mevcut belge içinde de gezinmeyi içerir, ancak eş zamanlı olmayan kaynak yüklemelerini içermez.
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
 ### Olay: 'did-finish-load'
 
@@ -621,7 +621,7 @@ Dönüşler:
 * `title` String
 * `explicitSet` Boolean
 
-Gezinme sırasında sayfa başlığı ayarlanırsa tetiklenir. Başlık dosya url'inden sentezlenmişse `explicitSet` yanlıştır.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### Olay: 'page-favicon-updated'
 
@@ -663,7 +663,7 @@ webview.addEventListener('console-message', (e) => {
 
 Dönüşler:
 
-* `sonuç` Nesne 
+* `result` Object
   * `requestId` Tamsayı
   * `activeMatchOrdinal` Tamsayı - Etkin eşleşmenin konumu.
   * `matches` Tamsayı - Numaraların eşleştirilmesi.
@@ -713,13 +713,13 @@ Dönüşler:
 
 * `url` Dize
 
-Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
 Bu olay navigasyon programlı bir şekilde `<webview>.loadURL` ve `<webview>.back` API gibi başlatıldığında sinyal yaymaz.
 
-Sayfa içi navigasyon sırasında, çapa linklere tıklama ya da `window.location.hash` güncellendiğindede sinyal yaymaz. `did*navigate-in-page` olayını bu amaçla kullanınız.
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-`event.preventDefault()` öğesinin çağırılmasının herhangi bir etkisi **yoktur**.
+`event.preventDefault()` öğesinin çağırılmasının herhangi bir etkisi __yoktur__.
 
 ### Olay: 'did-navigate'
 
@@ -729,7 +729,7 @@ Dönüşler:
 
 Bir gezinme yapıldığında ortaya çıkar.
 
-Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `did-navigate-in-page` etkinliğini kullanın.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 ### Olay: 'did-navigate-in-page'
 
@@ -815,7 +815,7 @@ Dönüşler:
 
 * `themeColor` String
 
-Sayfanın tema rengi değiştiğinde belirtilir. Bu, genellikle bir meta etiketi ile karşılaşılmasından dolayıdır:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
