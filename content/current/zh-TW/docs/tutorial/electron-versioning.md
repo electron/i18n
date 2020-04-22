@@ -57,7 +57,7 @@ Stabilization branches are branches that run parallel to master, taking in only 
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+自電子 8 以來，穩定分支始終 **主要** 版本行，並針對以下範本命名 `$MAJOR-x-y` 例如。 `8-x-y`.  在此之前，我們使用 **小** 版本行，並命名為 `$MAJOR-$次要-x` 例如。 `2-0-x`
 
 We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
 
