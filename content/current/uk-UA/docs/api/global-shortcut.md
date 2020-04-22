@@ -45,7 +45,7 @@ app.on('will-quit', () => {
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
-Реєструє глобальне сполучення клавіш `accelerator`. `callback` буде викликаний коли зареєстроване сполучення клавіш буде натиснуте користувачем.
+Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
 Коли акселератор вже зайнятий іншою програмою, виклик просто не вдасться. Така поведінка призначена операційними системами, оскільки вони не хочуть, щоб програми конфліктували через глобальні комбінації клавіш.
 
