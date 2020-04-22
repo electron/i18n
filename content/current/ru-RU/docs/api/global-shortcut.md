@@ -2,7 +2,7 @@
 
 > Отслеживает действия на клавиатуре, когда она не сфокусирована на приложении.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Модуль `globalShortcut` может регистрировать/отменять регистрацию глобальных сочетаний клавиш, так что вы можете настраивать задачи для различных сочетаний клавиш.
 
@@ -45,7 +45,7 @@ app.on('will-quit', () => {
 
 Возвращает `Boolean` - было ли сочетание клавиш успешно зарегистрировано.
 
-Регистрирует глобальное сочетание клавиш `accelerator`. `callback` вызывается, когда зарегистрированное сочетание нажато пользователем.
+Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
 Когда accelerator уже занят другими приложениями, этот вызов будет молча завершаться ошибкой. Такое поведение назначается операционными системами, поскольку они не хотят, чтобы приложения боролись за глобальные сочетания клавиш.
 
@@ -61,7 +61,7 @@ app.on('will-quit', () => {
 * `accelerators` String[] - массив [Accelerator](accelerator.md).
 * `callback` Function
 
-Регистрирует глобальные сочетания всех элементов `accelerator` в `accelerators`. `callback` вызывается при нажатии пользователем любого из зарегистрированного сочетания клавиш.
+Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
 Когда определенный accelerator уже занят другими приложениями, этот вызов будет молча завершаться ошибкой. Такое поведение назначается операционными системами, поскольку они не хотят, чтобы приложения боролись за глобальные сочетания клавиш.
 
