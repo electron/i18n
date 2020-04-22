@@ -194,7 +194,7 @@ An example of using it to determine if you should create a transparent window or
 const { BrowserWindow, systemPreferences } = require('electron')
 let browserOptions = { width: 1000, height: 800 }
 
-// Make the window transparent only if the platform supports it.
+// 플랫폼이 지원하는 경우에만 창을 투명하게 만듭니다.
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
