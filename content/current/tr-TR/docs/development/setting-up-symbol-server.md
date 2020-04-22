@@ -22,7 +22,8 @@ SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\sym
 
 ## Sembol sunucusunu Visual Studio'da kullanma
 
-<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
+<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' />
+<img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
 ## Sorun giderme: Semboller yüklenmeyecektir
 
