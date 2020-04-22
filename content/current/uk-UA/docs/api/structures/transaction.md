@@ -6,6 +6,6 @@
 * `transactionState` String - Стан транзакції, може бути `purchasing`, `purchased`, `failed`, `restored` або `deferred`.
 * `errorCode` Integer - Код помилки, якщо під час обробки транзакції сталася помилка.
 * `errorMessage` String - Повідомлення про помилку, якщо під час обробки транзакції сталася помилка.
-* `payment` Об'єкт 
+* `payment` Object
   * `productIdentifier` String - Ідентифікатор придбаного продукту.
-  * `quantity` Integer - Кількість придбаного.
+  * `quantity` Integer  - Кількість придбаного.
