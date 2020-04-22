@@ -2,7 +2,7 @@
 
 Udostępnianie dostępnych aplikacji jest dla nas ważne i jesteśmy szczęśliwi, że możemy przedstawić nowe funkcjonalności w [Devtron](https://electronjs.org/devtron) oraz [Spectron](https://electronjs.org/spectron), które dają developerom możliwości tworzyć lepsze applikacje.
 
-* * *
+---
 
 Obawy ułatwień dostępu w aplikacjach Electron'a są podobne do tych z stron internetowych, ponieważ są one tak samo ostatecznie w HTML'u. Aplikacje Electron'a jednak nie mogą używać zasobów online dla audytów dostępności, ponieważ Twoja aplikacja nie ma adresu URL, który by wskazywał dla biegłych rewidendów.
 
@@ -10,7 +10,7 @@ Te nowe funkcjonalności dostarczają narzędzia do badania twojej aplikacji. Mo
 
 ## Spectron
 
-Framework Spectron umożliwia badanie każdego okna i `<webview>` tagu w Twojej aplikacji. Na przykład:
+In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Na przykład:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
