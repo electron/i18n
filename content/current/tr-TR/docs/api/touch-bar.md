@@ -4,17 +4,17 @@
 
 İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBar(seçenekler)` *Experimental*
+### `new TouchBar(seçenekler)` _Experimental_
 
-* `seçenekler` Nesnesi 
+* `options` Object
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (isteğe bağlı)
 
 Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
 
-**Not:** TouchBar API şu anda deneyseldir ve gelecekteki Electron sürümlerinde değişebilir veya kaldırılabilir.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-**İpucu:** Eğer MacBook'unuzda Touch Bar yoksa, uygulamanızda Touch Bar kullanımını test etmek için [Touch Bar Simülatör](https://github.com/sindresorhus/touch-bar-simulator)'ünü kullanabilirsiniz.
+**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
 
 ### Static Properties
 
