@@ -10,7 +10,7 @@ Windows allows apps to define a custom context menu that shows up when users rig
 > 
 > Görev listesinin statik olması şiddetle önerilir. Bu durumun veya uygulamanın durumunun ne olursa olsun aynı kalması gerekmektedir. Görev listesini dinamik olarak değiştirebilirsiniz, ancak bazı kullanıcıların beklenmedik görev listesi değişiklikleriyle karıştırılabileceğini düşünmelisiniz.
 
-**Internet Explorer'ın görevi:**
+__Internet Explorer'ın görevi:__
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
@@ -41,6 +41,7 @@ app.setUserTasks([])
 
 Kullanıcı görevleri, uygulamanız kapandıktan sonra bile gösterilir, bu nedenle simge ve bir görev için belirtilen program yolu, uygulamanız bitene kadar var olmalıdır. kaldırıldı.
 
+
 ## Küçük resim araç çubukları
 
 Windows'ta bir görev çubuğunda belirtilen butonlarla küçük resim araç çubuğu ekleyebilirsiniz bir uygulama penceresinin düzeni. Kullanıcılara, pencereyi geri yüklemeden veya etkinleştirmeden belirli bir pencerenin komutuna erişmenin yolunu sağlar.
@@ -51,7 +52,7 @@ MSDN'den örneklendirilmiştir:
 > 
 > Örneğin, Windows Media Player, play, pause, mute ve stop gibi standart ortam taşıma denetimleri sunabilir.
 
-**Windows Media Player'ın küçük resim araç çubuğu:**
+__Windows Media Player'ın küçük resim araç çubuğu:__
 
 ![oynatıcı](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
@@ -86,13 +87,14 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
+
 ## Icon Overlays in Taskbar
 
 Windows'ta bir görev çubuğu düğmesi, MSDN'den aktarıldığı gibi uygulama durumunu görüntülemek için küçük bir yer paylaşımında kullanılabilir:
 
 > Simge ve yer paylaşımları durumu bağlamsal bir bildirim olarak hizmet ve kullanıcıya bu bilgileri iletişim kurmak için ayrı bir bildirim durumu simgesi gereksinimini ortadan kaldırmak için tasarlanmıştır. Örneğin, bildirim alanında gösterilen Microsoft Outlook'ta yeni posta durumu artık görev çubuğu düğmesindeki bir kaplama ile gösterilebilir. Tekrardan, hangi metodun uygulamanız iyi olduğuna geliştirme döneminde karar vermeniz gerekmektedir. Yer paylaşımı simgeleri, ağ durumu, mesajlaşma durumu veya yeni posta gibi önemli, uzun süreli durum veya bildirimleri sağlamak için tasarlanmıştır. Kullanıcı sürekli değişen yer paylaşımları veya animasyonlar ile ortaya konmamalıdır.
 
-**Arayüzü görev çubuğuna al:**
+__Arayüzü görev çubuğuna al:__
 
 ![Arayüzü görev çubuğuna al](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
@@ -104,13 +106,18 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Overlay için açıklama')
 ```
 
+
 ## Flash Frame
 
 On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
 
 > Genellikle, kullanıcıya pencerenin dikkat gerektirdiğini ancak şu anda klavye odağına sahip olmadığını kullanıcıya belirten bir pencere görünür.
 
-BrowserWindow görev çubuğu düğmesine basmak için, BrowserWindow.flashFrame </ 0> API:</p> 
+BrowserWindow görev çubuğu düğmesine basmak için,
+
+ BrowserWindow.flashFrame </ 0> API:</p> 
+
+
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -118,5 +125,6 @@ let win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
+
 
 Flash'ı devre dışı bırakmak için `false` ile `flashFrame` metodunu çağırmayı unutmayın. Yukarıdaki örnekte, pencere odak noktasına geldiğinde çağrılır, ancak pencreyi devre dışı bırakmak için bir zaman aşımı veya başka bir olay kullanmanız mümkündür.
