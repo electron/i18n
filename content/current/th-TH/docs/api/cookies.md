@@ -2,7 +2,7 @@
 
 > Query and modify a session's cookies.
 
-Messages
+Messages </a>
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
@@ -46,7 +46,7 @@ The following events are available on instances of `Cookies`:
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
-* `cause` String - The cause of the change with one of the following values: 
+* `cause` String - The cause of the change with one of the following values:
   * `explicit` - The cookie was changed directly by a consumer's action.
   * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
   * `expired` - The cookie was automatically removed as it expired.
@@ -62,7 +62,7 @@ The following methods are available on instances of `Cookies`:
 
 #### `cookies.get(filter)`
 
-* `filter` Object 
+* `filter` Object
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * `name` String (optional) - Filters cookies by name.
   * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
@@ -76,12 +76,12 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 #### `cookies.set(details)`
 
-* `details` Object 
+* `details` Object
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
+  * `domain` String (optional) - โดเมนของคุกกี้ สิ่งนี้จะถูกทำให้เป็นมาตรฐานด้วยจุดก่อนหน้าเพื่อให้สามารถใช้กับโดเมนย่อยได้เช่นกัน. Empty by default if omitted.
+  * `path` String (optional) - เส้นทางของคุกกี้. Empty by default if omitted.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
