@@ -2,7 +2,7 @@
 
 > Добавить иконки и контекстные меню в системную область уведомлений.
 
-Процесс: [Main](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 `Tray` является [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'ом.
 
@@ -23,13 +23,13 @@ app.on('ready', () => {
 })
 ```
 
-**Ограничения платформ:**
+__Ограничения платформ:__
 
 * В Linux индикатор приложения будет использован, если он поддерживается, иначе будет использован `GtkStatusIcon`.
 * В дистрибутивах Linux, которые поддерживают только индикаторы приложений, вы должны установите `libappindicator1`, чтобы значок в трее заработал.
 * Индикатор приложения будет отображаться только при наличии контекстного меню.
 * Когда индикатор приложения используется в Linux, событие `click` игнорируется.
-* На Linux, чтобы изменения, внесенные в отдельные элементы `MenuItem`, вступили в силу, Вы должны снова вызвать `setContextMenu`. Например:
+* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Например:
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -49,10 +49,10 @@ app.on('ready', () => {
   con.setContextMenu(contextMenu)
 })
 ```
-
 * В Windows рекомендуется использовать значки `ICO` для получения лучших визуальных эффектов.
 
 Если вы хотите сохранить одинаковое поведение на всех платформах, вам не следует полагаться на событие `click` и всегда прикреплять контекстное меню к значку в трее.
+
 
 ### `new Tray(image)`
 
@@ -74,7 +74,7 @@ app.on('ready', () => {
 
 Вызывается при двойном клике на иконке в трее.
 
-#### Событие: 'right-click' *macOS* *Windows*
+#### Событие: 'right-click' _macOS_ _Windows_
 
 Возвращает:
 
@@ -83,7 +83,7 @@ app.on('ready', () => {
 
 Возникает при правом клике на иконке в трее.
 
-#### Событие: 'double-click' *macOS* *Windows*
+#### Событие: 'double-click' _macOS_ _Windows_
 
 Возвращает:
 
@@ -92,23 +92,23 @@ app.on('ready', () => {
 
 Вызывается при двойном нажатии на иконку в трее.
 
-#### Событие: 'balloon-show' *Windows*
+#### Событие: 'balloon-show' _Windows_
 
 Возникает при всплывающем сообщении в трее.
 
-#### Событие: 'balloon-click' *Windows*
+#### Событие: 'balloon-click' _Windows_
 
 Вызывается при клике на всплывающем сообщении в трее.
 
-#### Событие: 'balloon-closed' *Windows*
+#### Событие: 'balloon-closed' _Windows_
 
 Возникает, когда всплывающее сообщение в трее закрыто из-за тайм-аута или вручную пользователем.
 
-#### Событие: 'drop' *macOS*
+#### Событие: 'drop' _macOS_
 
 Возникает при перетаскивании элементов на значок в трее.
 
-#### Событие: 'drop-files' *macOS*
+#### Событие: 'drop-files' _macOS_
 
 Возвращает:
 
@@ -117,7 +117,7 @@ app.on('ready', () => {
 
 Возникает при перетаскивании файлов на значок в трее.
 
-#### Событие: 'drop-text' *macOS*
+#### Событие: 'drop-text' _macOS_
 
 Возвращает:
 
@@ -126,19 +126,19 @@ app.on('ready', () => {
 
 Возникает при перетаскивании строки на значок в трее.
 
-#### Событие: 'drag-enter' *macOS*
+#### Событие: 'drag-enter' _macOS_
 
 Возникает, когда операция перетаскивания происходит на иконке в трее.
 
-#### Событие: 'drag-leave' *macOS*
+#### Событие: 'drag-leave' _macOS_
 
 Возникает, когда операция перетаскивания завершилась на иконке в трее.
 
-#### Событие: 'drag-end' *macOS*
+#### Событие: 'drag-end' _macOS_
 
 Возникает, когда операция перетаскивания заканчивается в трее или заканчивается в другом месте.
 
-#### Событие: 'mouse-enter' *macOS*
+#### Событие: 'mouse-enter' _macOS_
 
 Возвращает:
 
@@ -147,7 +147,7 @@ app.on('ready', () => {
 
 Возникает при входе курсора мыши на иконку в трее.
 
-#### Событие: 'mouse-leave' *macOS*
+#### Событие: 'mouse-leave' _macOS_
 
 Возвращает:
 
@@ -156,7 +156,7 @@ app.on('ready', () => {
 
 Возникает при выходе курсора мыши с иконки в трее.
 
-#### Событие: 'mouse-move' *macOS* *Windows*
+#### Событие: 'mouse-move' _macOS_ _Windows_
 
 Возвращает:
 
@@ -179,7 +179,7 @@ app.on('ready', () => {
 
 Устанавливает `image` ассоциированный с значком в трее.
 
-#### `tray.setPressedImage(image)` *macOS*
+#### `tray.setPressedImage(image)` _macOS_
 
 * `image` ([NativeImage](native-image.md) | String)
 
@@ -191,31 +191,31 @@ app.on('ready', () => {
 
 Устанавливает текст отображаемый при наведении на значок в трее.
 
-#### `tray.setTitle(title)` *macOS*
+#### `tray.setTitle(title)` _macOS_
 
 * `title` String
 
 Устанавливает заголовок, отображаемый рядом со значком в строке состояния (поддержка ANSI цветов).
 
-#### `tray.getTitle()` *macOS*
+#### `tray.getTitle()` _macOS_
 
 Возвращает `String` - заголовок, отображаемый рядом со значком в области уведомлений в строке состояния
 
-#### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
+#### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 
-Устанавливает опцию игнорирования событий двойного щелчка. Игнорирование этих событий позволяет вам обнаруживать каждый отдельный щелчок по иконке в трее.
+Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
 Значение по умолчанию установлено в значение false.
 
-#### `tray.getIgnoreDoubleClickEvents()` *macOS*
+#### `tray.getIgnoreDoubleClickEvents()` _macOS_
 
 Возвращает `Boolean` - будет ли игнорироваться события двойного щелчка.
 
-#### `tray.displayBalloon(options)` *Windows*
+#### `tray.displayBalloon(options)` _Windows_
 
-* `options` Object 
+* `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
@@ -226,20 +226,20 @@ app.on('ready', () => {
 
 Отображает всплывающее сообщение в трее.
 
-#### `tray.removeBalloon()` *Windows*
+#### `tray.removeBalloon()` _Windows_
 
 Removes a tray balloon.
 
-#### `tray.focus()` *Windows*
+#### `tray.focus()` _Windows_
 
 Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
 
-#### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+#### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
 * `menu` Menu (optional)
 * `position` [Point](structures/point.md) (optional) - позиция всплывающего сообщения.
 
-Контекстное меню всплывает вверх со значка в трее. Когда `menu` передается, `menu` будет отображаться вместо контекстного меню иконки в трее.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
 `position` доступна только для Windows, и это (0, 0) по умолчанию.
 
@@ -249,7 +249,7 @@ Returns focus to the taskbar notification area. Notification area icons should u
 
 Устанавливает контекстное меню для этого значка.
 
-#### `tray.getBounds()` *macOS* *Windows*
+#### `tray.getBounds()` _macOS_ _Windows_
 
 Возвращает [`Rectangle`](structures/rectangle.md)
 
