@@ -17,14 +17,14 @@
   * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。
   * `label` String (任意)
   * `sublabel` String (任意)
-  * `toolTip` String (optional) _macOS_ - Hover text for this menu item.
+  * `toolTip` String (任意) _macOS_ - このメニューアイテムに浮かび上がるテキスト。
   * `accelerator` [Accelerator](accelerator.md) (任意)
   * `icon` ([NativeImage](native-image.md) | String) (任意)
   * `enabled` Boolean (任意) - もし false なら、メニューアイテムはグレーっぽくなってクリックできない。
-  * `acceleratorWorksWhenHidden` Boolean (optional) _macOS_ - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
+  * `acceleratorWorksWhenHidden` Boolean (任意) _macOS_ - 省略値は `true` です。`false` のときは、アイテムが表示されていない場合にアクセラレータがアイテムをトリガーするのを防ぎます。
   * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなる。
   * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要がある。
-  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. 省略値は true です。
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (任意) - `submenu` 型メニューアイテムを指定する必要があります。 もし `submenu` を指定した場合、`type: 'submenu'` は省略できます。 値が [`Menu`](menu.md) でない場合は、`Menu.buildFromTemplate` を用いて自動的に変換されます。
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (任意) - 指定したラベルの前にこのアイテムを挿入します。 参照された項目が存在しない場合、アイテムはメニューの最後に挿入されます。 また、与えられたメニューアイテムをそのアイテムと同じ「グループ」に配置する必要があることを意味します。
@@ -32,7 +32,7 @@
   * `beforeGroupContaining` String[] (任意) - 単一のコンテキストメニューで、指定されたラベルのアイテムを含むグループの前に、そのグループの配置を宣言する手段を提供します。
   * ` afterGroupContaining ` String[] (任意) - 単一のコンテキストメニューで、指定されたラベルのアイテムを含むグループの後に、そのグループの配置を宣言する手段を提供します。
 
-**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. これはネイティブの macOS 開発では可能なので、オプションを無効にするオプションをユーザーに提供するためにユーザーに公開されます。 このプロパティは macOS High Sierra 10.13 以降でのみ利用可能です。
+**注釈:** アクセラレータは、Windows と Linux でアイテムが非表示になっている場合は常に機能するため、`acceleratorWorksWhenHidden` は macOS 専用として指定されています。 これはネイティブの macOS 開発では可能なので、オプションを無効にするオプションをユーザーに提供するためにユーザーに公開されます。 このプロパティは macOS High Sierra 10.13 以降でのみ利用可能です。
 
 ### 役割 (roles)
 
@@ -46,8 +46,8 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 
 `role` プロパティは、以下の値を持つことができます。
 
-* `元に戻します`
-* `やり直します`
+* `undo`
+* `redo`
 * `cut`
 * `copy`
 * `paste`
@@ -69,7 +69,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `viewMenu` - デフォルトの"表示"メニュー全体 (リロード、開発ツールON/OFF等)
 * `windowMenu` - デフォルトの"ウインドウ"メニュー全体 (最小化、ズーム等)。
 
-The following additional roles are available on _macOS_:
+以下は _macOS_ で有効な追加の role です。
 
 * `appMenu` - デフォルトの"App"メニュー全体 (Electronについて、サービス等)
 * `about` - `orderFrontStandardAboutPanel` アクションに割り当てる。
@@ -87,7 +87,7 @@ The following additional roles are available on _macOS_:
 * `moveTabToNewWindow` - `moveTabToNewWindow` アクションに割り当てる。
 * `window` - "ウインドウ"サブメニュー。
 * `help` - "ヘルプ"サブメニュー。
-* `services` - ["サービス"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) メニューのサブメニュー。 This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
+* `services` - ["サービス"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) メニューのサブメニュー。 これはこのアプリケーションのメニューにのみ使うことを意図しており、macOSアプリのコンテキストメニューで使用される "サービス"サブメニューと同じでは*ありません*。この"サービス"サブメニューはElectronでは実装しません。
 * `recentDocuments` - "最近使った項目を開く"サブメニュー。
 * `clearRecentDocuments` - `clearRecentDocuments` アクションに割り当てる。
 
@@ -109,7 +109,7 @@ macOS の `role` を指定するとき、`label` と `accelerator` がメニュ�
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+MenuItem がクリックイベントを受け取った時に発火される `Function`。 It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
@@ -120,7 +120,7 @@ A `Function` that is fired when the MenuItem receives a click event. It can be c
 
 #### `menuItem.type`
 
-A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
+そのアイテムの種類を示す `String`。 Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
 
 #### `menuItem.role`
 
