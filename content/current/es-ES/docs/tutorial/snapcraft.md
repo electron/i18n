@@ -8,15 +8,15 @@ Juntos con las amplia comunidad de Linux, Canonical busca arreglar algunos de lo
 
 Hay tres maneras de crear un archivo `.snap`:
 
-1) Usando [`electron-forge`](https://github.com/electron-userland/electron-forge) o [`electron-builder`](https://github.com/electron-userland/electron-builder), ambas herramientas que vienen con soporte para `snap` incluido. Esta es la opción más fácil. 2) Usando `electron-installer-snap`, que toma el resultado de `electron-packager`. 3) Usando un paquete `.deb` ya creado.
+1) Usando [`electron-forge`](https://github.com/electron-userland/electron-forge) o  [`electron-builder`](https://github.com/electron-userland/electron-builder), ambas herramientas que vienen con soporte para `snap` incluido. Esta es la opción más fácil. 2) Usando `electron-installer-snap`, que toma el resultado de `electron-packager`. 3) Usando un paquete `.deb` ya creado.
 
-En todos los casos. deberás de tener la herramienta `snapcraft` instalada. Te recomendamos desarrollar en Ubuntu 16.04 (o el actual LTS).
+In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
 ```sh
 snap install snapcraft --classic
 ```
 
-Mientras que *is possible* instalar `snapcraft` en macOS usando Homebrew, no es posible construir paquetes `snap` y esta enfocado en administrar paquetes de la tienda.
+Mientras que _is possible_ instalar `snapcraft` en macOS usando Homebrew, no es posible construir paquetes `snap` y esta enfocado en administrar paquetes de la tienda.
 
 ## Usando `electron-installer-snap`
 
@@ -76,7 +76,7 @@ Si aún no tienes listo un paquete `.deb`, usando `electron-installer-snap` podr
 
 ### Paso 2: Creando un snapcraft.yaml
 
-Para más información sobre las opciones de configuraciones disponibles, vea la [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Veamos un ejemplo:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 name: myApp
@@ -86,15 +86,15 @@ description: |
  ¿Sábes qué? ¡Esta aplicación es asombrosa! Hace todas las cosas
  por vos. Algunos dicen que te mantiene joven, tal vez incluso feliz.
 
-grade: estable
-confinement: clásico
+grade: stable
+confinement: classic
+
 parts:
   slack:
     plugin: dump
     source: my-deb.deb
     source-type: deb
     after:
-
       - desktop-gtk3
     stage-packages:
       - libasound2
@@ -115,13 +115,13 @@ apps:
   myApp:
     command: bin/electron-launch $SNAP/usr/lib/myApp/myApp
     desktop: usr/share/applications/myApp.desktop
-    # Corrija la ruta TMPDIR para el Framework Chromium/Electron para asegurarse que
-    # libappindicator tengas recursos legibles.
+    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+    # libappindicator has readable resources.
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-Como puedes ver, el `snapcraft.yaml` le indica al sistema que lance un archivo llamado `electron-launch`. En este ejemplo, pasa la información al binario de la aplicación:
+As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
 
 ```sh
 #!/bin/sh
