@@ -4,14 +4,14 @@
 
 İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarButton(options)` *Deneysel*
+### `new TouchBarButton(options)` _Deneysel_
 
-* `seçenekler` Nesnesi 
+* `options` Object
   * `label` String (İsteğe bağlı) - Görüntülenecek metin.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (isteğe bağlı) - Düğme arkaplan rengi hex formatında, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
+  * `iconPosition` String (isteğe bağlı) - `left`, `right` yada `overlay` olabilir. Defaults to `overlay`.
   * `click` Fonksiyon (isteğe bağlı) - Tuşa tıklandığında aranan fonksiyon.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
@@ -26,12 +26,12 @@ A `String` representing the description of the button to be read by a screen rea
 
 #### `touchBarButton.label`
 
-Bir `String` düğmenin mevcut metnini temsil eder. Bu değeri değiştirmek hemen düğmeyi günceller Dokunmatik kaydırıcıda.
+A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.backgroundColor`
 
-Düğmenin geçerli arka plan rengini temsil eden `String` hex kodu. Bu değeri değiştirmek dokunmatik bardaki butonu hemen günceller.
+A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.icon`
 
-`NativeImage`, düğmenin geçerli simgesini temsil eder. Bu değeri değiştirmek dokunma çubuğundaki düğmeyi hemen günceller.
+A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
