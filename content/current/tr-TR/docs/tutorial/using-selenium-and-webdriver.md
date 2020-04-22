@@ -47,7 +47,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) Web driver kullanarak test yapmanıza yarayan bir Node paketidir, biz de örnek olarak kullanacağız.
 
-### 1. ChromeDriver'ı başlatın
+### 1. Start ChromeDriver
 
 Öncelikle `chromedriver`'ı indirin ve başlatın:
 
@@ -60,13 +60,13 @@ Only local connections are allowed.
 
 `9515` port numarasını unutmayın, daha sonra kullanacağız
 
-### 2. WebDriverJS'yi kurun
+### 2. Install WebDriverJS
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. ChromeDriver'a bağlanma
+### 3. Connect to ChromeDriver
 
 The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
 
@@ -103,7 +103,7 @@ Context | Request Context
 
 [WebdriverIO](http://webdriver.io/), web sürücüsü ile test etmek için bir Node paketi sağlar.
 
-### 1. ChromeDriver'ı başlatın
+### 1. Start ChromeDriver
 
 Öncelikle `chromedriver`'ı indirin ve başlatın:
 
@@ -116,13 +116,13 @@ Only local connections are allowed.
 
 `9515` port numarasını unutmayın, daha sonra kullanacağız
 
-### 2. WebdriverIO'yu kurun
+### 2. Install WebdriverIO
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Chrome driver'a bağlanın
+### 3. Connect to chrome driver
 
 ```javascript
 const webdriverio = require('webdriverio')
