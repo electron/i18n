@@ -71,10 +71,10 @@ The coolest thing built with WebTorrent, hands down, is probably [Gaia 3D Star M
 You can read about how this was made in [Torrenting The Galaxy](https://medium.com/@flimshaw/torrenting-the-galaxy-extracting-2-million-3d-stars-from-180gb-of-csvs-457ff70c0f93), a blog post where the author, Charlie Hoey, explains how he built the star map with WebGL and WebTorrent.
 
 <a href="https://brave.com/">
-  <img alt="brave logo" src="https://cloud.githubusercontent.com/assets/2289/23912147/1542ad4a-089c-11e7-8106-15c8e34298a9.png" width="150" align="left">
+  <img alt="logo brave" src="https://cloud.githubusercontent.com/assets/2289/23912147/1542ad4a-089c-11e7-8106-15c8e34298a9.png" width="150" align="left">
 </a>
 
-We're also huge fans of [Brave](https://brave.com/). Brave is a browser that automatically blocks ads and trackers to make the web faster and safer. Brave recently added torrent support, so you can [view traditional torrents without using a separate app](https://torrentfreak.com/brave-a-privacy-focused-browser-with-built-in-torrent-streaming-170219/). That feature is powered by WebTorrent.
+We're also huge fans of [Brave](https://brave.com/). Brave to przeglądarka, która automatycznie blokuje reklamy i trackery w celu szybszego i bezpieczniejszego korzystania z Internetu. Brave recently added torrent support, so you can [view traditional torrents without using a separate app](https://torrentfreak.com/brave-a-privacy-focused-browser-with-built-in-torrent-streaming-170219/). That feature is powered by WebTorrent.
 
 So, just like how most browsers can render PDF files, Brave can render magnet links and torrent files. They're just another type of content that the browser natively supports.
 
