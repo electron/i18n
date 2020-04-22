@@ -10,7 +10,7 @@
 
 #### Olay: 'data'
 
-Döndürür:
+Dönüşler:
 
 * `chunk` Tampon - Cevap içeriğınin bir kısmı.
 
@@ -32,7 +32,7 @@ Döndürür:
 
 Dönen cevabın veri olaylarını işlerken hata gelirse işleme girer. Örnek olarak, sunucu cevabı hala akıştayken eğer sunucu kapatılırsa, yanıt nesnesinde bir `hata` olayı yayınlanır ve istek nesnesinde bir `kapat` olayı takip edilir.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 Bir `IncomingMessage` örneğinde aşağıdaki okunabilir özellikler bulunur:
 
