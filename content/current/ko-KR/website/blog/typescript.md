@@ -69,7 +69,7 @@ There's also a [handbook](https://www.typescriptlang.org/docs/handbook/basic-typ
 
 Because TypeScript is a superset of JavaScript, your existing JavaScript code is already valid TypeScript. This means you can gradually transition an existing JavaScript project to TypeScript, sprinkling in new language features as needed.
 
-## Thanks
+## 마치며
 
 This project would not have been possible without the help of Electron's community of open-source maintainers. Thanks to [Samuel Attard](https://github.com/MarshallOfSound), [Felix Rieseberg](https://github.com/felixrieseberg), [Birunthan Mohanathas](https://github.com/poiru), [Milan Burda](https://github.com/miniak), [Brendan Forster](https://github.com/shiftkey), and many others for their bug fixes, documentation improvements, and technical guidance.
 
