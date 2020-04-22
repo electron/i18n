@@ -1,6 +1,6 @@
 # Opción `sandbox`
 
-> Crea un ventana de navegador con un renderizador en modo sandbox. Con esta opción habilitada, el renderer debe comunicarse a través de IPC con el proceso principal para acceder a las APIs de node.
+> Create a browser window with a sandboxed renderer. Con esta opción activada, la renderización debe comunicarse vía IPC al procesador principal para poder acceder a los nodos API.
 
 Una de las características clave de la seguridad de Chromium es que toda la renderización y el código de JavaScript es ejecutado dentro d una caja de arena. Esta caja de area usa características específicas para cada OS para asegurar que un explosivo en el proceso de renderización no pueda lastimar al sistema.
 
@@ -38,15 +38,15 @@ En el código anterior el [`BrowserWindow`](browser-window.md) que fue creado ti
 let win
 app.enableSandbox()
 app.on('ready', () => {
-  // no se necesita pasar  `sandbox: true` ya que  `app.enableSandbox()` fue llamado.
+  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
 ```
 
-## Precarga
+## Precargado
 
-Una aplicación puede hacer personalizaciones a los renderizadores de las cajas de arena usando un script precargado. Aquí hay un ejemplo:
+An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
 ```js
 let win
@@ -105,7 +105,7 @@ La bandera `-x`debe ser usada con cualquier modulo requerido que ya está expues
 
 Actualmente la function `require` proveída en el ambiente de precargado expone los siguiente módulos:
 
-- `electron` 
+- `electron`
   - `crashReporter`
   - `desktopCapturer`
   - `ipcRenderer`
