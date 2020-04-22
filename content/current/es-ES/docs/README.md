@@ -4,34 +4,34 @@ Por favor, asegúrese de utilizar los documentos que correspondan con la versió
 
 ## Preguntas más frecuentes
 
-Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una consulta:
+There are questions that are asked quite often. Check this out before creating an issue:
 
-* [Preguntas Frecuentes sobre Electron](faq.md)
+* [Preguntas más frecuentes sobre Electron](faq.md)
 
 ## Guías y tutoriales
 
-* [Configurar el entorno de desarrollo](tutorial/development-environment.md) 
+* [Configurar el entorno de desarrollo](tutorial/development-environment.md)
   * [Configurar macOS](tutorial/development-environment.md#setting-up-macos)
   * [Configurar Windows](tutorial/development-environment.md#setting-up-windows)
   * [Configurar Linux](tutorial/development-environment.md#setting-up-linux)
   * [Elegir un editor](tutorial/development-environment.md#a-good-editor)
-* [Crear su primera aplicación](tutorial/first-app.md) 
+* [Crear su primera aplicación](tutorial/first-app.md)
   * [Instalar Electron](tutorial/first-app.md#installing-electron)
   * [Desarrollo de Electron en pocas palabras](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Ejecutar su aplicación](tutorial/first-app.md#running-your-app)
-* [Plantillas y CLIs](tutorial/boilerplates-and-clis.md) 
+* [Plantillas y CLIs](tutorial/boilerplates-and-clis.md)
   * [Plantillas vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [Electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Otras Herramientas y Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Arquitectura de la aplicación](tutorial/application-architecture.md) 
+* [Arquitectura de la aplicación](tutorial/application-architecture.md)
   * [Proceso Principal y Proceso Visualizador](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Uso de APIs de Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Uso de APIs de Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Uso de Módulos Nativos de Node.js](tutorial/using-native-node-modules.md)
   * [Estrategias de rendimiento](tutorial/performance.md)
-* Agregar características a su aplicación 
+* Agregar características a su aplicación
   * [Notificaciones](tutorial/notifications.md)
   * [Documentos recientes](tutorial/recent-documents.md)
   * [Progreso de la aplicación](tutorial/progress-bar.md)
@@ -45,29 +45,29 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
   * [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
   * [Soporte para Modo Oscuro macOS](tutorial/mojave-dark-mode-guide.md)
   * [Página web embebida en Electron](tutorial/web-embeds.md)
-* [Accesibilidad](tutorial/accessibility.md) 
+* [Accesibilidad](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Habilitar la accesibilidad](tutorial/accessibility.md#enabling-accessibility)
-* [Pruebas y depuración](tutorial/application-debugging.md) 
+* [Pruebas y depuración](tutorial/application-debugging.md)
   * [Depuración del proceso principal](tutorial/debugging-main-process.md)
   * [Depuración del proceso principal con el Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Uso de Selenium y WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pruebas de sistemas de CI sin cabeceras (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensión de herramientas de desarrollo](tutorial/devtools-extension.md)
   * [Prueba Automática con un controlador personalizado](tutorial/automated-testing-with-a-custom-driver.md)
-* [Distribución](tutorial/application-distribution.md) 
+* [Distribución](tutorial/application-distribution.md)
   * [Plataformas soportadas](tutorial/support.md#supported-platforms)
   * [Firma de código](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Seguridad](tutorial/security.md) 
+* [Seguridad](tutorial/security.md)
   * [Reportando problemas de seguridad](tutorial/security.md#reporting-security-issues)
   * [Actualizaciones y problemas de seguridad Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Advertencias de seguridad de Electron](tutorial/security.md#electron-security-warnings)
   * [Lista de verificación de seguridad](tutorial/security.md#checklist-security-recommendations)
-* [Actualizaciones](tutorial/updates.md) 
+* [Actualizaciones](tutorial/updates.md)
   * [Implementar un servidor de actualización](tutorial/updates.md#deploying-an-update-server)
   * [Implementación de actualizaciones en su aplicación](tutorial/updates.md#implementing-updates-in-your-app)
   * [Aplicar actualizaciones](tutorial/updates.md#applying-updates)
@@ -77,23 +77,23 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 
 Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 
-* [Instalando Electron](tutorial/installation.md) 
+* [Instalando Electron](tutorial/installation.md)
   * [Proxies](tutorial/installation.md#proxies)
   * [Espejos y cachés personalizados](tutorial/installation.md#custom-mirrors-and-caches)
   * [Problemas](tutorial/installation.md#troubleshooting)
-* Versiones Electron & Comentarios de desarrollador 
+* Versiones Electron & Comentarios de desarrollador
   * [Política de versiones](tutorial/electron-versioning.md)
   * [Tiempos de Lanzamientos](tutorial/electron-timelines.md)
   * [Programa de retroalimentación](tutorial/app-feedback-program.md)
-* [Empaquetando el código fuente con asar](tutorial/application-packaging.md) 
-  * [Generando archivos asar](tutorial/application-packaging.md#generating-asar-archives)
+* [Empaquetando el código fuente con asar](tutorial/application-packaging.md)
+  * [Generar archivos asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Usando archivos asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitaciones](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Añadiendo archivos desempaquetados a ficheros asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Probando Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Uso del Plugin de Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [Glosario de términos](glossary.md)
 
@@ -155,4 +155,4 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 
 ## Desarrollo
 
-Ver <development/README.md>
+Ver [development/README.md](development/README.md)
