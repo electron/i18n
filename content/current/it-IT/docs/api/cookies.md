@@ -82,7 +82,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` Stringa (opzionale) - Il dominio del cookie; Sarà normalizzato precedendolo con un punto in modo da essere valido anche per sottodomini. Empty by default if omitted.
   * `path` Stringa (opzionale) - Il percorso del cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Di default false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Il valore predefinito è false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 
