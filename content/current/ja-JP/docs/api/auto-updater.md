@@ -84,8 +84,8 @@ Windowsでは `releaseName` のみ利用可能です。
 
 * `options` Object
   * `url` String
-  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
-  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Record&lt;String, String&gt; (任意) _macOS_ - HTTP リクエストのヘッダ。
+  * `serverType` String (任意) _macOS_ - `json` または `default` のいずれかの詳細については、[Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README を参照してください。
 
 `url` を設定して自動更新を初期化します。
 
@@ -103,4 +103,4 @@ Restarts the app and installs the update after it has been downloaded. It should
 
 `autoUpdater.quitAndInstall()` を呼ぶと、この中では最初にすべてのアプリケーションウィンドウを閉じ、すべてのウィンドウが閉じられた後に自動的に `app.quit()` を呼び出します。
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**注意:** アップデートを適用するために必ずこの関数を呼ぶ必要はなく、ダウンロードに成功したアップデートは次回のアプリケーション起動時に必ず適用されます。
