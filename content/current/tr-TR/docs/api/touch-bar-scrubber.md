@@ -4,13 +4,13 @@
 
 İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `yeni DokunmatikYüzeyKaydırıcı(seçenekler)` *Deneysel*
+### `yeni DokunmatikYüzeyKaydırıcı(seçenekler)` _Deneysel_
 
-* `seçenekler` Nesnesi 
+* `options` Object
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - Bu kaydırıcıya yerleştirilecek bir dizi madde.
-  * `seç` Function (optional) - Called when the user taps an item that was not the last tapped item. 
+  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
     * `selectedIndex` Integer - Kullanıcının seçtiği öğenin dizini.
-  * `vurgulamak` Function (optional) - Called when the user taps any item. 
+  * `highlight` Function (optional) - Called when the user taps any item.
     * `highlightedIndex` Integer - Kullanıcının dokunduğu maddenin endeksi.
   * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
   * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
@@ -24,11 +24,11 @@ Aşağıdaki özelliklere, `TouchBarScrubber` örnekleri üzerinde erişilebilir
 
 #### `touchBarScrubber.items`
 
-Bir `ScrubberItem[]` array bu kaydırıcıdaki öğeleri temsil eder. Bu değeri değiştirmek dokunmatik bardaki denetimi hemen güncelleştirir. **does not update the touch bar** bu dizideki derin özellikleri güncelleştirir.
+Bir `ScrubberItem[]` array bu kaydırıcıdaki öğeleri temsil eder. Bu değeri güncellemek dokunmatik bardaki kontrolü hemen günceller. İçindeki derin özellkleri güncelleme array **dokunmatik barı güncellemez**.
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
+Sepet içindeki seçili öğelerin stilini temsil eden bir `String` olmalıdır. Bu değeri değiştirmek dokunmatik bardaki denetimi hemen güncelleştirir. Olası değerler:
 
 * `background` - Haritaları `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Haritaları `[NSScrubberSelectionStyle outlineOverlayStyle]`.
@@ -44,15 +44,15 @@ Sepet içindeki seçili öğelerin stilini temsil eden bir `String` olmalıdır.
 
 #### `touchBarScrubber.showArrowButtons`
 
-Bu tarayıcıda sol / sağ seçim oklarının gösterilip gösterilmeyeceğini gösteren bir `Boolean`. Bu değeri güncellemek dokunmatik bardaki kontrolü hemen günceller.
+A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
 
 #### `touchBarScrubber.mode`
 
-Bu kaydırıcı modunu temsil eden bir `String`. Bu değeri hemen güncelleme dokunmatik bardaki kontrolü günceller. Olası değerler:
+A `String` representing the mode of this scrubber. Bu değeri güncellemek dokunmatik bardaki kontrolü hemen günceller. Olası değerler:
 
 * `fixed` - Haritaları `NSScrubberModeFixed`.
 * `fixed` - Haritaları `NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 
-`Boolean` bu scrubber'ın sürekli olup olmadığını gösterir. Bu değeri güncellemek dokunmatik çubuktaki kontrolü hemen günceller.
+A `Boolean` representing whether this scrubber is continuous or not. Bu değeri güncellemek dokunmatik bardaki kontrolü hemen günceller.
