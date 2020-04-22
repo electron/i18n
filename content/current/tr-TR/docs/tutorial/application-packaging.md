@@ -24,7 +24,7 @@ $ asar pack your-app app.asar
 
 ## Arşivleri `asar` kullanma
 
-Electron'da iki API seti vardır: Node.js ve Web tarafından sağlanan buton API'leri Chromium tarafından sağlanan API'ler. Her iki API, `asar` arşivlerinden dosyaları okumayı desteklemektedir.
+In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
 ### Node API
 
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-Bir web sayfasında, arşivdeki dosyalar `file:` protokolü ile istenebilir. Buton API'sı gibi, `asar` arşivleri de dizin olarak değerlendirilir.
+In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
 Örneğin, bir dosyayı almak için `$.get`:
 
@@ -101,7 +101,7 @@ Ayrıca ` process.noAsar </ 0> 'ı <code> true </ 0> olarak ayarlayarak da <code
 <pre><code class="javascript">const fs = require('fs')
 process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
-`</pre> 
+`</pre>
 
 ## Node API'nin Limitleri
 
@@ -128,24 +128,26 @@ Ek paketten çıkarmayı gerektiren API'ler şunlardır:
 * ` process.dlopen </ 0> - Yerel modüller için <code> require </ 0> tarafından kullanılır</li>
 </ul>
 
-<h3>Sahte Stat Bilgileri <code>fs.stat`</h3> 
-    ` fs.stat </ 0> tarafından gönderilen <code>Stats </ 0> nesnesi ve arkadaşları <code> asar </ 0> arşivler tahmin ederek oluşturulur, çünkü bu dosyalar dosya sisteminde bulunmuyor. Bu nedenle, dosya alma haricinde<code>Stats` nesnesine güvenmemelisiniz boyutunu ve dosya türünü denetle.
-    
-    ### `asar` Arşivinde İkili Yürütme
-    
-    `child_process.exec` gibi ikili dosyaları çalıştırabilen düğüm API'leri var, `child_process.spawn` ve `child_process.execFile `, ancak yalnızca `execFile` `asar` arşivindeki ikili dosyaları çalıştırmak için desteklenmektedir.
-    
-    Bunun nedeni, giriş olarak ` file <code> exec </ 0> ve <code> spawn </ 0> <code> komutunu </ 0> kabul etmesi, ve <code> command </ 0> 'ların kabuk altında yürütülmesi. Belirlemek için güvenilir bir yol yok.
+<h3 spaces-before="0">Sahte Stat Bilgileri <code>fs.stat`</h3>
+
+` fs.stat </ 0> tarafından gönderilen <code>Stats </ 0> nesnesi ve arkadaşları <code> asar </ 0> arşivler tahmin ederek oluşturulur, çünkü bu dosyalar dosya sisteminde bulunmuyor. Bu nedenle, dosya alma haricinde<code>Stats` nesnesine güvenmemelisiniz boyutunu ve dosya türünü denetle.
+
+### `asar` Arşivinde İkili Yürütme
+
+`child_process.exec` gibi ikili dosyaları çalıştırabilen düğüm API'leri var, `child_process.spawn` ve `child_process.execFile `, ancak yalnızca `execFile` `asar` arşivindeki ikili dosyaları çalıştırmak için desteklenmektedir.
+
+Bunun nedeni, giriş olarak ` file <code> exec </ 0> ve <code> spawn </ 0> <code> komutunu </ 0> kabul etmesi, ve <code> command </ 0> 'ların kabuk altında yürütülmesi. Belirlemek için güvenilir bir yol yok.
 bir komutun asar arşivinde bir dosya kullanıp kullanmadığı belirlemek için güvenilir bir yol yoktur, yan etkileri olmadan komuta yolunu değiştirip değiştiremeyeceğimizden emin olamayız.</p>
 
-<h2>Adding Unpacked Files to <code>asar` Archives</h2> 
-    
-    As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
-    
-    As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
-    
-    ```sh
-    $ asar pack app app.asar --unpack *.node
-    ```
-    
-    After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+<h2 spaces-before="0">Adding Unpacked Files to <code>asar` Archives</h2>
+
+As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+
+As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+
+```sh
+$ asar pack app app.asar --unpack *.node
+```
+
+After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+
