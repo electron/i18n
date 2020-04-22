@@ -4,7 +4,7 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSlider(options)` _Experimental_
+### `new TouchBarSlider(options)` _実験的_
 
 * `options` Object
   * `label` String (任意) - ラベルのテキスト。
