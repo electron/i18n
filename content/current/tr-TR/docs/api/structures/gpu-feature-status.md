@@ -5,7 +5,7 @@
 * `flash_stage3d` Dize - Flash Stage3D.
 * `flash_stage3d_baseline` Dize - Flash Stage3D temel profil.
 * `gpu_compositing` Dize - kompozisyon.
-* `multiple_raster_threads` Dize - Raster konuları.
+* `multiple_raster_threads` Dize -  Raster konuları.
 * `native_gpu_memory_buffers` Dize - Yerli GPU Bellek Tamponları.
 * `rasterleştirme` Dize - pikselleştirme.
 * `video_encode` Dize - Video kodlama.
@@ -16,7 +16,7 @@
 
 Olası değerler:
 
-* `disabled_software` - Yalnızca yazılım. Donanım ivmesi devre dışı (sarı)
+* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - Devre dışı (kırmızı)
 * `disabled_off_ok` - Devre dışı (sarı)
 * `unavailable_software` - Yalnızca yazılım, donanım ivmesi mevcut değil (sarı)
