@@ -2,7 +2,7 @@
 
 > Асинхронное взаимодействие между процессом визуализации и основным процессом.
 
-Процесс: [Renderer](../glossary.md#renderer-process)
+Процесс: [Графический](../glossary.md#renderer-process)
 
 Модуль `ipcRenderer` представляет собой [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Он предоставляет несколько методов, чтобы вы могли отправлять синхронные и асинхронные сообщения из процесса визуализации (веб-страницы) в основной процесс. Вы также можете получать ответы от главного процесса.
 
@@ -15,7 +15,7 @@
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function 
+* `listener` Function (Функция)
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -24,16 +24,16 @@
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function 
+* `listener` Function (Функция)
   * `event` IpcRendererEvent
   * `...args` any[]
 
-Добавляет функцию `listener` для события. При этом `listener` вызывается только тогда, когда сообщение отправляется в `channel`, после чего оно удаляется.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function 
+* `listener` Function (Функция)
   * `...args` any[]
 
 Удаляет указанный `listener` из массива слушателей конкретного `channel`.
@@ -69,7 +69,6 @@ Send a message to the main process via `channel` and expect a result asynchronou
 Основной процесс должен прослушивать `channel` с [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 Например:
-
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
