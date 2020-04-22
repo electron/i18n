@@ -4,9 +4,9 @@
 
 Процес: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)` *Експериментальний*
+### `new TouchBarLabel(options)` _Експериментальний_
 
-* `options` Об'єкт 
+* `options` Object
   * `label` String (опціонально) - Текст для відображення.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `textColor` String (опціонально) - Шістнадцятковий код кольору, наприклад `#ABCDEF`.
@@ -19,7 +19,7 @@ When defining `accessibilityLabel`, ensure you have considered macOS [best pract
 
 #### `touchBarLabel.label`
 
-`String` представляє поточний текст напису. Зміна цього значення миттєво змінює напис в панель дотику.
+A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
 
 #### `touchBarLabel.accessibilityLabel`
 
@@ -27,4 +27,4 @@ A `String` representing the description of the label to be read by a screen read
 
 #### `touchBarLabel.textColor`
 
-`String` представляє поточний колір напису в шістнадцятковому вигляді. Зміна цього значення миттєво змінює напис в панель дотику.
+A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
