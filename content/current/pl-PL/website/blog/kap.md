@@ -37,7 +37,7 @@ There were a number of reasons:
 * It opens the door for more people to contribute
 * Electron itself is open-source
 * The power and easily maintainable modularity of `node_modules`
-* Cross-platform possibilities
+* Możliwości międzyplatformowe
 
 We think the future of apps are in the browser, but we're not quite there yet. Electron is an important step in the journey towards that future. It not only makes the apps themselves more accessible, but also the code they're built with. An interesting thought is imagining a future where the OS is a browser, and the tabs are essentially Electron apps.
 
@@ -75,7 +75,7 @@ We are also huge fans of the team building it, their dedication and support, and
 
 The next step for us is to review the app in preparation for our 2.0.0 milestone, which includes a React re-write in addition to support for plugins, allowing developers to extend the functionality of Kap! We invite everyone to follow to project and contribute on our [GitHub repository](https://github.com/wulkano/kap). We're listening and want to hear from as many of you as possible, [let us know how we can make Kap the best possible tool it can be for you](https://wulkano.typeform.com/to/BIvJKz)!
 
-## What is Wulkano?
+## Czym jest Wulkano?
 
 [Wulkano](https://wulkano.com) is a design studio and digital collective, a team of remote technologists who love working together on both client gigs and our own projects. We're a distributed but tight knit group of people from different places and backgrounds, sharing knowledge, ideas, experiences, but most importantly silly GIFs and memes, in our virtual office (which happens to be the Electron based Slack!).
 
