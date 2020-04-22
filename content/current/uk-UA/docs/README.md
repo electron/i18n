@@ -4,34 +4,34 @@
 
 ## FAQ
 
-Є питання, які часто задають. Перевірте їх перед створенням нового:
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [FAQ Electron](faq.md)
 
 ## Посібники та Підручники
 
-* [Налаштовування Середовища Розробки](tutorial/development-environment.md) 
+* [Налаштовування Середовища Розробки](tutorial/development-environment.md)
   * [Налаштовування macOS](tutorial/development-environment.md#setting-up-macos)
   * [Налаштовування Windows](tutorial/development-environment.md#setting-up-windows)
   * [Налаштовування Linux](tutorial/development-environment.md#setting-up-linux)
   * [Вибір Редактора](tutorial/development-environment.md#a-good-editor)
-* [Створення вашого першого застосунку](tutorial/first-app.md) 
+* [Створення вашого першого застосунку](tutorial/first-app.md)
   * [Встановлення Electron](tutorial/first-app.md#installing-electron)
   * [Розробка на Electron в Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Запуск Вашого Застосунку](tutorial/first-app.md#running-your-app)
-* [Шаблони Коду та CLI](tutorial/boilerplates-and-clis.md) 
+* [Шаблони Коду та CLI](tutorial/boilerplates-and-clis.md)
   * [Шаблони Коду vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Інші Інструменти та Шаблони Коду](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Архітектура Застосунків](tutorial/application-architecture.md) 
+* [Архітектура Застосунків](tutorial/application-architecture.md)
   * [Головний та Процес Рендерингу](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Використання API Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Використання API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Використання Нативних Модулів Node.js](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-* Додавання Функцій до Вашого Застосунку 
+* Додавання Функцій до Вашого Застосунку
   * [Сповіщення](tutorial/notifications.md)
   * [Останні Документи](tutorial/recent-documents.md)
   * [Прогрес Перекладу](tutorial/progress-bar.md)
@@ -45,29 +45,29 @@
   * [Закадровий Рендеринг](tutorial/offscreen-rendering.md)
   * [Підтримка темної теми macOS](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
-* [Доступність](tutorial/accessibility.md) 
+* [Доступність](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Увімкнення Спеціальних Можливостей](tutorial/accessibility.md#enabling-accessibility)
-* [Тестування та відлагодження](tutorial/application-debugging.md) 
+* [Тестування та відлагодження](tutorial/application-debugging.md)
   * [Відлагодження Головного Процесу](tutorial/debugging-main-process.md)
   * [Відладка Головного Процесу з Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Використання Selenium і WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Тестування на віддалених CI системах (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Розширення DevTools](tutorial/devtools-extension.md)
   * [Автоматичне тестування за допомогою користувацького драйвера](tutorial/automated-testing-with-a-custom-driver.md)
-* [Розповсюдження](tutorial/application-distribution.md) 
+* [Розповсюдження](tutorial/application-distribution.md)
   * [Підтримувані Платформи](tutorial/support.md#supported-platforms)
   * [Підпис коду](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Безпека](tutorial/security.md) 
+* [Безпека](tutorial/security.md)
   * [Повідомити про Проблему Безпеки](tutorial/security.md#reporting-security-issues)
   * [Проблеми з Безпекою Chromium та Вдосконалення](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Попередження про Безпеку Electron](tutorial/security.md#electron-security-warnings)
   * [Контрольний Список Безпеки](tutorial/security.md#checklist-security-recommendations)
-* [Оновлення](tutorial/updates.md) 
+* [Оновлення](tutorial/updates.md)
   * [Розгортання на Сервері для Оновлень](tutorial/updates.md#deploying-an-update-server)
   * [Реалізація Оновлення в Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
   * [Застосування Оновлень](tutorial/updates.md#applying-updates)
@@ -77,15 +77,15 @@
 
 Ці окремі підручники розширюють теми, що обговорюються в Путівнику вище.
 
-* [Встановлення Electron](tutorial/installation.md) 
+* [Встановлення Electron](tutorial/installation.md)
   * [Проксі](tutorial/installation.md#proxies)
   * [Користувацькі Дзеркала та Кеш](tutorial/installation.md#custom-mirrors-and-caches)
   * [Виправлення Неполадок](tutorial/installation.md#troubleshooting)
-* Випуски Electron & відгуки розробників 
+* Випуски Electron & відгуки розробників
   * [Політика версійності](tutorial/electron-versioning.md)
   * [Історія та план версій](tutorial/electron-timelines.md)
   * [Програма зворотнього зв’язку](tutorial/app-feedback-program.md)
-* [Пакування Коду Застосунку з asar](tutorial/application-packaging.md) 
+* [Пакування Коду Застосунку з asar](tutorial/application-packaging.md)
   * [Генерація asar Архівів](tutorial/application-packaging.md#generating-asar-archives)
   * [Використання asar Архівів](tutorial/application-packaging.md#using-asar-archives)
   * [Обмеження](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -93,7 +93,7 @@
 * [Тестування Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Використання Плагіну Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [Словник Термінів](glossary.md)
 
@@ -155,4 +155,4 @@
 
 ## Розробка
 
-Дивіться <development/README.md>
+Дивіться [development/README.md](development/README.md)
