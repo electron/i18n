@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` Dizgi
-* `seçenekler` Obje (opsiyonel) 
+* `options` Object (optional)
   * `cache` Mantıksal - Önbelleği etkinleştirip etkinleştirmeyeceğini belirtir.
 
 `Oturum` Döndürür - `bölümden` bir oturum örneği metini. Aynı `partition`'a sahip olan `Session` varsa, döndürülecektir; aksi taktirde `Session` örneği `options` ile yaratılacaktır.
@@ -56,7 +56,7 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Örnek Events
+### Örnek Olaylar
 
 Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
@@ -126,7 +126,7 @@ Dönüşler:
 * `event` Olay
 * `languageCode` String - The language code of the dictionary file
 
-Emitted when a hunspell dictionary file download fails. For details on the failure you should collect a netlog and inspect the download request.
+Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
 ### Sınıf örneği metodları
 
@@ -144,7 +144,7 @@ Oturumun HTTP önbelleğini temizler.
 
 #### `ses.clearStorageData([options])`
 
-* `seçenekler` Obje (opsiyonel) 
+* `options` Object (optional)
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -157,7 +157,7 @@ Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
 
 #### `ses.setProxy(config)`
 
-* `konfigurasyon` Nesne 
+* `config` Object
   * `pacScript` String (optional) - The URL associated with the PAC file.
   * `proxyRules` String (optional) - Rules indicating which proxies to use.
   * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
@@ -191,32 +191,32 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 `proxyBypassRules` yapısı aşşağıda açıklanan virgülle ayrılmış kurallar listesidir:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
-  
-  HOSTNAME_PATTERN kalıbıyla eşleşen tüm ana makine adlarını eşleştirin.
-  
-  Örnekler: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
-  
-  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
-    
-    Belirli bir alanın son ekiyle eşleşir.
-    
-    Örnekler: ".google.com", ".com", "http://.google.com"
+
+   HOSTNAME_PATTERN kalıbıyla eşleşen tüm ana makine adlarını eşleştirin.
+
+   Örnekler: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+
+ * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+
+   Belirli bir alanın son ekiyle eşleşir.
+
+   Örnekler: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
-  
-  IP adresi değişmez olan URL'leri eşleştirin.
-  
-  Örnekler: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+   IP adresi değişmez olan URL'leri eşleştirin.
+
+   Örnekler:  "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
-  
-  Belirtilen aralık arasında kalan bir IP sabiti olan herhangi bir URL'yi eşleştirin. IP aralığı CIDR gösterimi kullanılarak belirtilir.
-  
-  Örnekler: "192.168.1.1/16", "fefe:13::abc/33".
+
+   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+
+   Örnekler: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
-  
-  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+
+   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
@@ -228,15 +228,15 @@ Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 * `yol` String - İndirme konumu.
 
-İndirme, kaydetme dizini ayarlar. Varsayılan olarak, karşıdan yükleme dizini `İndirilenler` uygulama klasörü altındadır.
+Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `seçenekler` Nesne 
-  * `offline` Boolean (İsteğe Bağlı) - Ağ bağlantısının kopmasını taklit eder. Varsayılan değer False.
-  * `latency` Double (İsteğe Bağlı) - RTT (ms cinsinden) Varsayılan değer 0, gecikmenin azaltılmasını devre dışı bırakır.
-  * `downloadThroughput` Double (isteğe bağlı) - Bps' de indirme hızı. Varsayılan değer 0, indirme hız sınırlamalarını devre dışı bırakır.
-  * `uploadThroughput` Double (isteğe bağlı) - Bps' de yükleme hızı. Varsayılan değer 0, yükleme sınırlamalarını devre dışı bırakır.
+* `options` Object
+  * `offline` Boolean (optional) - Whether to emulate network outage. Varsayılanı false olarak belirler.
+  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
 Emulates ağı için verilen yapılandırmayla `session`.
 
@@ -254,7 +254,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.preconnect(options)`
 
-* `seçenekler` Nesne 
+* `options` Object
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
   * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
 
@@ -262,18 +262,18 @@ Preconnects the given number of sockets to an origin.
 
 #### `ses.disableNetworkEmulation()`
 
-Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılandırmasını sıfırlar.
+Disables any network emulation already active for the `session`. Resets to the original network configuration.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` İşlev | boş 
-  * `istek` Nesne 
+* `proc` Function | null
+  * `request` Object
     * `hostname` Dizgi
     * `certificate` [sertifika](structures/certificate.md)
     * `verificationResult` Dizgi - Kromdan doğrulama sonucu.
     * `errorCode` Tamsayı - Hata kodu.
-  * `geri aramak` Function 
-    * `doğrulama Sonucu` Tamsayı: Değer sertifika hata kodlarından olabilir [buraya](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
+  * `callback` Function
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir.
       * `0` - Sonucu gösterir ve Sertifika Şeffaflığı doğrulamasını devre dışı bırakır.
       * `-2` - Arızayı gösterir.
       * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
@@ -298,12 +298,12 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `halledici` İşlev | boş 
-  * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+* `handler` Function | null
+  * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `geri aramak` Function 
+  * `callback` Function
     * `permissionGranted` Boolean - İzin verme veya reddetme.
-  * `details` Object - Some properties are only available on certain permission types. 
+  * `details` Object - Some properties are only available on certain permission types.
     * `externalURL` String (optional) - The url of the `openExternal` request.
     * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
     * `requestingUrl` String - The last URL the requesting frame loaded
@@ -324,11 +324,11 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `halledici` Function<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+* `handler` Function<Boolean> | null
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
-  * `details` Object - Some properties are only available on certain permission types. 
+  * `details` Object - Some properties are only available on certain permission types.
     * `securityOrigin` String - The security orign of the `media` check.
     * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
     * `requestingUrl` String - The last URL the requesting frame loaded
@@ -400,7 +400,7 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 
 #### `ses.createInterruptedDownload(options)`
 
-* `seçenekler` Nesne 
+* `options` Object
   * `yol` String - İndirmenin kesin yolu.
   * `urlChain` String[] - Karşıdan yükleme için tam URL zinciri.
   * `mimeType` String (isteğe bağlı)
@@ -432,25 +432,25 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 * `languages` String[] - An array of language codes to enable the spellchecker for.
 
-The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+The built in spellchecker does not automatically detect what language a user is typing in.  In order for the spell checker to correctly check their words you must call this API with an array of language codes.  You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
 
-**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
 
 #### `ses.getSpellCheckerLanguages()`
 
-Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+Returns `String[]` - An array of language codes the spellchecker is enabled for.  If this list is empty the spellchecker will fallback to using `en-US`.  By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale.  This setting is persisted across restarts.
 
-**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages.  This API is a no-op on macOS.
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
 * `url` String - A base URL for Electron to download hunspell dictionaries from.
 
-By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
+By default Electron will download hunspell dictionaries from the Chromium CDN.  If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries.  We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
 
-` hunspell_dictionaries.zip ` içerisinde mevcut olan dosyalar ` https://example.com/dictionaries/language-code.bdic ` adresinde mevcutsa bu Api'yı ` ses.setSpellCheckerDictionaryDownloadURL ('https://example.com/dictionaries/') ` ile çağırmalısınız. Lütfen sondaki eğik çizgiye dikkat edin. Sözlüklerin URL'si ` ${url} ${filename} ` olarak oluşturulur.
+` hunspell_dictionaries.zip ` içerisinde mevcut olan dosyalar ` https://example.com/dictionaries/language-code.bdic ` adresinde mevcutsa bu Api'yı ` ses.setSpellCheckerDictionaryDownloadURL ('https://example.com/dictionaries/') ` ile çağırmalısınız.  Lütfen sondaki eğik çizgiye dikkat edin.  Sözlüklerin URL'si ` ${url} ${filename} ` olarak oluşturulur.
 
-** Not: ** macOS'ta OS yazım denetleyicisi kullanılır ve bu nedenle herhangi bir sözlük dosyası indirmiyoruz. Bu API, macOS'ta bir işlemdir.
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
 
 #### `ses.addWordToSpellCheckerDictionary(word)`
 
@@ -460,23 +460,23 @@ By default Electron will download hunspell dictionaries from the Chromium CDN. I
 
 **Note:** MacOS ve Windows 10'da bu kelime OS özel sözlüğüne de yazılacak
 
-### Örnek Özellikler
+### Örnek Özellikleri
 
 Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
 
-#### `ses.availableSpellCheckerLanguages` *Readonly*
+#### `ses.availableSpellCheckerLanguages` _Readonly_
 
-Bilinen tüm yazım denetleyici dillerinden oluşan bir `String[]` dizisi. Bir dil sağlama Bu dizide olmayan `setSpellCheckerLanaguages` API'sinin kodu bir hataya neden olur.
+Bilinen tüm yazım denetleyici dillerinden oluşan bir `String[]` dizisi.  Bir dil sağlama Bu dizide olmayan `setSpellCheckerLanaguages` API'sinin kodu bir hataya neden olur.
 
-#### `ses.cookies` *Readonly*
+#### `ses.cookies` _Readonly_
 
 Bu oturum için bir [`Cookies`](cookies.md) nesnesi.
 
-#### `ses.webRequest` *Readonly*
+#### `ses.webRequest` _Readonly_
 
 Bu oturum için bir [`WebRequest`](web-request.md) nesnesi.
 
-#### `ses.protocol` *Readonly*
+#### `ses.protocol` _Readonly_
 
 Bu oturum için bir [`Protocol`](protocol.md) nesnesi.
 
@@ -495,7 +495,7 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog` *Readonly*
+#### `ses.netLog` _Readonly_
 
 Bu oturum için bir [`NetLog`](net-log.md) nesnesi.
 
