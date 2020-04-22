@@ -90,7 +90,7 @@ if (process.env.APP_TEST_DRIVER) {
 
 async function onMessage ({ msgId, cmd, args }) {
   let method = METHODS[cmd]
-  if (!method) method = () => new Error('Invalid method: ' + cmd)
+  if (!method) method = () => new Error('잘못된 메서드: ' + cmd)
   try {
     let resolve = await method(...args)
     process.send({ msgId, resolve })
@@ -106,10 +106,10 @@ async function onMessage ({ msgId, cmd, args }) {
 
 const METHODS = {
   isReady () {
-    // do any setup needed
+    // 여기서 필요한 설정하기
     return true
   }
-  // define your RPC-able methods here
+  // 여기서 RPC 가능한 메서드 정의
 }
 ```
 
