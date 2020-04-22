@@ -2,7 +2,7 @@
 
 > Контроль загрузки файлов из удаленных источников.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 `DownloadItem` это [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), который представляет элемент загрузки в Electron. Он используется в событии `will-download` класса `Session` и позволяет пользователям управлять элементом загрузки.
 
@@ -58,7 +58,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 * `event` Event
 * `state` String - может быть завершено `completed`, отменено `cancelled` или прервано `interrupted`.
 
-Возникает, когда загрузка находится в терминальном состоянии. Оно включает в себя завершенную загрузку, отмененную загрузку (через `downloadItem.cancel()`) и прерванная загрузка, которая не может быть возобновлена.
+Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
 `state` может быть одним из следующих:
 
@@ -80,7 +80,7 @@ API доступен только в сессии `will-download` функции
 
 #### `downloadItem.getSavePath()`
 
-Возвращает `String` - путь сохранения элемента загрузки. Это будет либо путь, установленный через `downloadItem.setSavePath(path)`, либо путь, выбранный из показанного диалогового окна сохранения.
+Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
 
 **[Устаревшее](modernization/property-updates.md): используйте вместо этого свойство `savePath`.**
 
@@ -88,7 +88,7 @@ API доступен только в сессии `will-download` функции
 
 * `options` SaveDialogOptions - Установите параметры диалога сохранения. Этот объект имеет те же свойства, что и параметры `options` в [`dialog.showSaveDialog()`](dialog.md).
 
-Этот API позволяет пользователю установить пользовательские параметры для диалогового окна сохранения, которое открывается для элемента загрузки по умолчанию. API доступен только в сессии `will-download` функции обратного вызова.
+This API allows the user to set custom options for the save dialog that opens for the download item by default. API доступен только в сессии `will-download` функции обратного вызова.
 
 #### `downloadItem.getSaveDialogOptions()`
 
@@ -106,7 +106,7 @@ API доступен только в сессии `will-download` функции
 
 Возобновляет загрузку, которая была приостановлена.
 
-**Примечание:** для включения возобновляемой загрузки сервер, с которого выполняется загрузка, должен поддерживать запросы диапазона и предоставлять значения заголовков `Last-Modified` и `ETag`. В противном случае `resume()` удалит ранее полученные байты и перезапустит загрузку с начала.
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. В противном случае `resume()` удалит ранее полученные байты и перезапустит загрузку с начала.
 
 #### `downloadItem.canResume()`
 
@@ -132,7 +132,7 @@ API доступен только в сессии `will-download` функции
 
 Возвращает `String` - Имя файла элемента загрузки.
 
-**Внимание:** Имя файла не всегда совпадает с именем файла, сохраненным на локальном диске. Если пользователь изменит имя файла в запрашиваемом диалоговом окне сохранения файла, то действительное имя файла будет отличаться.
+**Note:** The file name is not always the same as the actual one saved in local disk. Если пользователь изменит имя файла в запрашиваемом диалоговом окне сохранения файла, то действительное имя файла будет отличаться.
 
 #### `downloadItem.getTotalBytes()`
 
@@ -150,9 +150,9 @@ API доступен только в сессии `will-download` функции
 
 #### `downloadItem.getState()`
 
-Возвращает `String` - текущее состояние. Может быть `progressing`, `completed`, `cancelled` или `interrupted`.
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**Примечание:** Следующие методы особенно полезны для возобновления элемента `cancelled` при перезапуске сеанса.
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
