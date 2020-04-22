@@ -1,56 +1,56 @@
 ---
-title: API Changes Coming in Electron 1.0
+title: Electron 1.0 における API の変更点
 author: zcbenz
 date: '2015-11-17'
 ---
 
-Since the beginning of Electron, starting way back when it used to be called Atom-Shell, we have been experimenting with providing a nice cross-platform JavaScript API for Chromium's content module and native GUI components. The APIs started very organically, and over time we have made several changes to improve the initial designs.
+Electron が始まって以来、以前の Atom-Shell と呼ばれていた頃から、Chromium のコンテンツモジュールとネイティブ GUI コンポーネント向けに、クロスプラットフォームの JavaScript API を提供する実験を行ってきました。 この API の始まりは非常に原始的で、時間をかけて初期設計を改善するためにいくつかの変更を加えてきました。
 
 ---
 
-Now with Electron gearing up for a 1.0 release, we'd like to take the opportunity for change by addressing the last niggling API details. The changes described below are included in **0.35.x**, with the old APIs reporting deprecation warnings so you can get up to date for the future 1.0 release. An Electron 1.0 won't be out for a few months so you have some time before these changes become breaking.
+Electron は 1.0 リリースに向けて準備を進めていますが、この機会を利用して、最後の問題となっていた API の詳細を記述したいと考えています。 The changes described below are included in **0.35.x**, with the old APIs reporting deprecation warnings so you can get up to date for the future 1.0 release. Electron 1.0 は数ヶ月先になりますので、これらの変更が破壊的になるまでの猶予があります。
 
-## Deprecation warnings
+## 非推奨の警告
 
-By default, warnings will show if you are using deprecated APIs. To turn them off you can set `process.noDeprecation` to `true`. To track the sources of deprecated API usages, you can set `process.throwDeprecation` to `true` to throw exceptions instead of printing warnings, or set `process.traceDeprecation` to `true` to print the traces of the deprecations.
+デフォルトでは、非推奨 API を使用している場合に警告が表示されます。 これを無効にするには、`process.noDeprecation` を `true` にします。 非推奨の API 利用のソースをトラッキングするには、警告を表示する代わりに例外を投げるように `process.throwDeprecation` を `true` に設定したり、非推奨のトレースを表示するように `process.traceDeprecation` を `true` に設定したりすることができます。
 
-## New way of using built-in modules
+## 組み込みモジュールの新しい利用方法
 
-Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules](https://github.com/electron/electron/issues/387):
+組み込みモジュールは、独立したモジュールに分離されるのではなく 1 つのモジュールにまとめられるようになったので、[他のモジュールと競合することなく](https://github.com/electron/electron/issues/387) 使用できます。
 
 ```javascript
 var app = require('electron').app
 var BrowserWindow = require('electron').BrowserWindow
 ```
 
-The old way of `require('app')` is still supported for backward compatibility, but you can also turn if off:
+従来の `require('app')` の方法は後方互換性のためにまだサポートされますが、以下のようにして無効化もできます。
 
 ```javascript
 require('electron').hideInternalModules()
-require('app')  // throws error.
+require('app')  // エラーを送出します。
 ```
 
-## An easier way to use the `remote` module
+## `remote` モジュールの利用がより簡単に
 
-Because of the way using built-in modules has changed, we have made it easier to use main-process-side modules in renderer process. You can now just access `remote`'s attributes to use them:
+組み込みモジュールの使い方が変わったので、レンダラープロセスでメインプロセス側のモジュールを使いやすくしました。 以下のように、`remote` の属性にアクセスするだけで利用できるようになります。
 
 ```javascript
-// New way.
+// 新しい方法です。
 var app = require('electron').remote.app
 var BrowserWindow = require('electron').remote.BrowserWindow
 ```
 
-Instead of using a long require chain:
+以下のような長い require チェーンはもう不要です。
 
 ```javascript
-// Old way.
+// 古い方法です。
 var app = require('electron').remote.require('app')
 var BrowserWindow = require('electron').remote.require('BrowserWindow')
 ```
 
-## Splitting the `ipc` module
+## `ipc` モジュールの分割
 
-The `ipc` module existed on both the main process and renderer process and the API was different on each side, which is quite confusing for new users. We have renamed the module to `ipcMain` in the main process, and `ipcRenderer` in the renderer process to avoid confusion:
+`ipc` モジュールはメインプロセスとレンダラープロセスの両方に存在し、それぞれの側での API が異なっていたため、新規ユーザーは非常に混乱していました。 混乱を避けるため、メインプロセスの `ipcMain` とレンダラープロセスの `ipcRenderer` にモジュール名を変更しました。
 
 ```javascript
 // メインプロセス
@@ -58,7 +58,7 @@ var ipcMain = require('electron').ipcMain
 ```
 
 ```javascript
-// In renderer process.
+// レンダラープロセス
 var ipcRenderer = require('electron').ipcRenderer
 ```
 
