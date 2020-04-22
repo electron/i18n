@@ -66,13 +66,13 @@ const constraints = {
 }
 ```
 
-## Yöntemler
+## Metodlar
 
 `desktopCapturer` modülü aşağıdaki yöntemleri içerir:
 
 ### `desktopCapturer.getSources(options)`
 
-* `options` Nesnesi 
+* `options` Object
   * `types` Dizi[] - Yakalanacak masaüstü kaynaklarının türlerini listeleyen dizelerin bir dizisi, kullanılabilir türleri `screen` ve `window`' dir.
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
   * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
