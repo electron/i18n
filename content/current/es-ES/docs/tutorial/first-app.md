@@ -1,10 +1,10 @@
 # Escribiendo tu primera aplicación Electron
 
-Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un sistema de tiempo de ejecución con poderosas APIs nativas (sistema operativo). You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un motor en tiempo de ejecución con poderosas APIs nativas (sistema operativo). You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
 
 Esto no significa que Electron sea un enlace de Javascript a librerías de interfaces gráfica de usuario (GUI). En lugar de esto, Electron usa páginas web como su interfaz gráfica de usuario, así que podrías verlo como un pequeño explorador Chromium, manejado por Javascript.
 
-**Nota</037tulotero >: Este ejemplo también esta disponible como un repositorio que puedes [descargar y ejecutar inmediatamente](#trying-this-example)5256783105227699</p> 
+**Nota</037tulotero >: Este ejemplo también esta disponible como un repositorio que puedes [descargar y ejecutar inmediatamente](#trying-this-example)5256783105227699</p>
 
 En lo que respecta al desarrollo, una aplicación Electron es esencialmente una aplicación Node.js. Comenzaríamos con un ficherpackage.json</3,500>5256783105227699 idéntico al que se usaría en un módulo Node.js.citibanamex Una aplicación Electron más básica tendría la siguiente estructura de carpetas 5256783105227699
 
@@ -31,7 +31,7 @@ Npm te guiará a través de la creación de un fichero package.json básico. El 
 }
 ```
 
-**Nota**: Si el campo `main` no está presente en el fichero `package.json`, Electron intentará cargar un fichero `index.js` (como hace Node.js). Si ésta fuera una aplicación simple de Node, añadirías un script de inicio `start` que indicaría a `node` que ejecutase el paquete actual:
+__Nota__: Si el campo `main` no está presente en el fichero `package.json`, Electron intentará cargar un fichero `index.js` (como hace Node.js). Si ésta fuera una aplicación simple de Node, añadirías un script de inicio `start` que indicaría a `node` que ejecutase el paquete actual:
 
 ```json
 {
@@ -67,7 +67,7 @@ npm install --save-dev electron
 
 Existen otras formas de instalar Electron. Por favor, consulta la [guía de instalación](installation.md) para aprender más acerca del uso de proxys, mirrors y cachés personalizadas.
 
-## Desarrollo de Electron en pocas palabras
+## Desarrollo con Electron de un vistazo
 
 Las aplicaciones Electron se desarrollan en JavaScript usando los mismos principios y métodos utilizados en el desarrollo para Node.js. Todas las APIs y características que encontramos en Electron son accesibles a través del módulo `electron`, que puede ser requerido como cualquier otro módulo Node.js:
 
@@ -112,19 +112,19 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // y carga el index.html de la aplicación.
   win.loadFile('index.html')
 
   // Abre las herramientas de desarrollo (DevTools).
   win.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// Este método se llamará cuando Electron haya finalizado
+// la inicialización y esté preparado para crear la ventana del navegador.
 // Algunas APIs pueden usarse sólo después de que este evento ocurra.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// Finaliza cuando todas las ventanas estén cerradas.
 app.on('window-all-closed', () => {
   // En macOS es común para las aplicaciones y sus barras de menú
   // que estén activas hasta que el usuario salga explicitamente con Cmd + Q
@@ -141,8 +141,8 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. También puedes ponerlos en archivos separados y requerirlos aquí.
+// En este archivo puede incluir el resto del código del proceso principal específico
+// de su aplicación. También puedes ponerlos en archivos separados y requerirlos aquí.
 ```
 
 Finalmente el archivo `index.html` es la página web que quieres mostrar:
@@ -173,7 +173,7 @@ Una vez que hayas creado tus ficheros iniciales `main.js`, `index.html` y `packa
 
 Clona y ejecuta el código de este tutorial usando el repositorio [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Nota**: Ejecutar esto requiere [Git](https://git-scm.com) y[npm](https://www.npmjs.com/).
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Clona el repositorio
