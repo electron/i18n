@@ -3,13 +3,11 @@
 ## Hazırlık
 
 ### Ücretli Uygulamalar Sözleşmesi
-
 Henüz yapmadıysanız, Ücretli Uygulamalar Sözleşmesini imzalamanız, bankacılık ve vergi bilgilerinizi iTunes Connect'e ayarlamanız gerekir.
 
 [iTunes Connect Developer Yardımı: Anlaşmalar, vergi ve bankacılığa genel bakış](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Uygulamanızın Satınalma İşlemini oluşturun
-
 Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
 
 [iTunes Connect Developer Help: Create an in-app purchase](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
