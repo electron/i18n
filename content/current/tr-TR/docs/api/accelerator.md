@@ -21,7 +21,7 @@ const { app, globalShortcut } = require('electron') app.on('ready', () => {   //
 
 Linux ve Windows'ta `Command` tuşunun hiç bir etkisi yok, bu yüzden bazı hızlandırıcıları tanımlamak için macOS'taki `Command` tuşunu ve Linux ve Windows'taki `Control` tuşunu temsil eden `CommandOrControl`'u kullanın.
 
-`Alt` `seçeneği` yerine kullanın. `Alt` anahtar tüm platformlarda mevcut ise `seçme hakkı` anahtarı sadece macOS üzerinde bulunmaktadır.
+Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
 `Super` tuşu, Windows ve Linux'ta `Windows`, macOS'ta ise `Cmd` tuşuyla eşleştirilmiştir.
 
@@ -59,7 +59,7 @@ Linux ve Windows'ta `Command` tuşunun hiç bir etkisi yok, bu yüzden bazı hı
 * `Sesi Aç`, `Sesi Kıs` ve `Sesi Kapat`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` ve `MediaPlayPause`
 * `Ekran Görüntüsü`
-* NumPad Keys 
+* NumPad Keys
   * `num0` - `num9`
   * `numdec` - decimal key
   * `numadd` - numpad `+` key
