@@ -8,7 +8,7 @@
 
 ```html
 <div id="holder">
-  Перетягніть файли сюди
+  Drag your file here
 </div>
 
 <script>
@@ -17,7 +17,7 @@
     e.stopPropagation();
 
     for (const f of e.dataTransfer.files) {
-      console.log('Перетягнуті файл(и) тут: ', f.path)
+      console.log('File(s) you dragged here: ', f.path)
     }
   });
   document.addEventListener('dragover', (e) => {
