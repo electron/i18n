@@ -165,17 +165,17 @@ A poderosa arquitetura multi-procedural fica pronta para ajudar você com suas t
 
 ## 4) Bloqueando o processo de renderização
 
-Since Electron ships with a current version of Chrome, you can make use of the latest and greatest features the Web Platform offers to defer or offload heavy operations in a way that keeps your app smooth and responsive.
+Desde que o Electron esteja de acordo com a versão do Chrome, você pode usar os mais novos e melhores recursos que a plataforma Web oferece para adiar ou descarregar operações pesadas a fim de manter sua aplicação leve e responsiva.
 
 ### Por que?
 
-Your app probably has a lot of JavaScript to run in the renderer process. The trick is to execute operations as quickly as possible without taking away resources needed to keep scrolling smooth, respond to user input, or animations at 60fps.
+Você provavelmente tem muito JavaScript para rodar no processo de renderização. A dica é executar operações o mais rápido possível sem deixar de lado recursos necessários para continuar liso, respondendo às entradas do usuário, ou animando a 60fps.
 
-Orchestrating the flow of operations in your renderer's code is particularly useful if users complain about your app sometimes "stuttering".
+Orquestrar o fluxo de operações no código de renderização é particularmente útil se usuários reclamam que seu programa "engasga" às vezes.
 
 ### Como?
 
-Generally speaking, all advice for building performant web apps for modern browsers apply to Electron's renderers, too. The two primary tools at your disposal  are currently `requestIdleCallback()` for small operations and `Web Workers` for long-running operations.
+Geralmente, todo conselho para construir aplicativos web melhores para navegadores modernos se aplicam à renderização do Electron também. As duas ferramentas primárias à sua disposição são atualmente `requestIdleCallback()` para pequenos processos e `Web Workers` para operações demoradas.
 
 *`requestIdleCallback()`* allows developers to queue up a function to be executed as soon as the process is entering an idle period. It enables you to perform low-priority or background work without impacting the user experience. For more information about how to use it, [check out its documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
