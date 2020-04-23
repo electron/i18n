@@ -16,7 +16,7 @@ The `Menu` class has the following static methods:
 
 * `menu` Menu | null
 
-Sets `menu` sebagai menu aplikasi pada macOS. Pada Windows dan Linux, `menu` akan di set sebagai menu atas tiap-tiap window.
+Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
 Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
@@ -28,18 +28,20 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 Hasil returns `Menu | null` - menu aplikasi, jika di set, atau `null`, jika tidak di set.
 
-**Catatan:** Contoh `Menu` kembali tidak mendukung dinamis penambahan atau penghapusan item menu.  Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
 
-#### ` Menu.kirim aksi pertama ke Responder (tindakan) </ 0> <em> macos </ 1></h4>
 
-<ul>
-<li><code> aksi </ 0>  Tali</li>
+
+#### `Menu.sendActionToFirstResponder(action)` _macOS_
+
+* ` aksi </ 0>  Tali</li>
 </ul>
 
-<p>Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default. Usually you would use the
+<p spaces-before="0">Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default. Usually you would use the
 <a href="menu-item.md#roles"><code>role`</a> property of a [`MenuItem`](menu-item.md).</p> 
-
-Lihat  MacOS Kakao Acara Penanganan Panduan </ 0> untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p> 
+  Lihat  MacOS Kakao Acara Penanganan Panduan </ 0> untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p> 
+  
+  
 
 #### `Menu.membangun dari Template (template)`
 
@@ -51,20 +53,26 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
+
+
 ### Методы экземпляра
 
 The `menu` object has the following instance methods:
 
+
+
 #### `menu.popup([options])`
 
-* `pilihan` Objek (opsional) 
-  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
-  * `x` minor (options) - Default adalah posisi kursor mouse saat ini. harus dinyatakan jika `y<\0> dinyatakan.</li>
-<li><code>y` Nomor (opsional) - Default adalah posisi kursor mouse saat ini. Harus dinyatakan jika `x` dinyatakan.
-  * `positioningItem`Nomor (opsional) *macOS* - Indeks item menu ke diposisikan di bawah kursor mouse pada koordinat yang ditentukan. Default adalah -1.
+* `options` Object (optional) 
+    * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Function (optional) - Called when menu is closed.
 
 Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+
+
 
 #### `menu.closePopup([browserWindow])`
 
@@ -72,17 +80,23 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 Menutup menu konteks di `browserWindow`.
 
+
+
 #### `menu.append(menuItem) menuItem`
 
 * `menuItem` [MenuItem](menu-item.md)
 
 Appends the `menuItem` to the menu.
 
+
+
 #### `menu.getMenuItemById(id)`
 
 * `id` String
 
 Returns `MenuItem` the item with the specified `id`
+
+
 
 #### `menu.insert(pos, menuItem)`
 
@@ -91,31 +105,41 @@ Returns `MenuItem` the item with the specified `id`
 
 Sisipkan `menuItem` ke posisi `pos` pada menu.
 
-### Perihal contoh
+
+
+### Contoh peristiwa
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ** Catatan: </ 0> Beberapa acara hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p> 
 
+
+
 #### Event: 'menu-will-show'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 
 Emitted when `menu.popup()` is called.
 
+
+
 #### Event: 'menu-will-close'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Contoh properti
+
+
+### Instance Properties
 
 `menu` objek juga memiliki properti berikut:
+
+
 
 #### `menu.items`
 
@@ -123,13 +147,19 @@ A `MenuItem[]` array containing the menu's items.
 
 Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
 
+
+
 ## Contoh
 
 Kelas `Utama` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
 
+
+
 ### Proses utama
 
 Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
+
+
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -237,9 +267,14 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
+
+
+
 ### Proses renderer
 
 Dibawah ini adalah contoh membuat menu di halaman web secara dinamis (render proses) dengan menggunakan modul [`remote`](remote.md), dan menunjukkan kapan pengguna menggunakan klik kanan pada halaman:
+
+
 
 ```html
 <!-- index.html -->
@@ -259,9 +294,14 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
+
+
+
 ## Catatan pada Menu Aplikasi MacOS
 
-macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linux. Berikut adalah beberapa catatan tentang cara membuat menu aplikasi Anda lebih mirip dengan asli.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+
+
 
 ### Menu Standar
 
@@ -273,33 +313,44 @@ On macOS there are many system-defined standard menus, like the [`Services`](htt
 * `bantuan`
 * `layanan`</ul> 
 
+
+
 ### Tindakan Item Menu Standar
 
 macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tentang xxx </ 0> ,
  <code> Sembunyikan xxx </ 0> , dan <code> Sembunyikan Lainnya </ 0> . Untuk mengatur tindakan item menu ke tindakan standar, Anda harus mengatur atribut <code> role </ 0> dari item menu.</p>
 
-<h3>Nama Menu Utama</h3>
+<h3 spaces-before="0">Nama Menu Utama</h3>
 
-<p>Pada macos label item pertama menu aplikasi selalu nama aplikasi Anda, tidak peduli label apa yang Anda tetapkan. Untuk mengubahnya, modifikasi berkas <code> Info.plist < file > aplikasi Anda. Lihat <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html">Mengaktifkan dokumentasi Akses Jaringan</a> untuk lebih jelasnya.</p>
+<p spaces-before="0">Pada macos label item pertama menu aplikasi selalu nama aplikasi Anda, tidak peduli label apa yang Anda tetapkan. Untuk mengubahnya, modifikasi berkas <code> Info.plist < file > aplikasi Anda. Lihat <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html">Mengaktifkan dokumentasi Akses Jaringan</a> untuk lebih jelasnya.</p>
 
-<h2>Setting Menu untuk Jendela Peramban Tertentu (<em> Linux </em> <em> Windows </em>)</h2>
+<h2 spaces-before="0">Setting Menu for Specific Browser Window (<em x-id="3">Linux</em> <em x-id="3">Windows</em>)</h2>
 
-<p>Metode <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"><code> setMenu`metode </a> pencarian windows dapat mengatur menu tertentu Pencarian windows.
+<p spaces-before="0">Metode <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"><code> setMenu`metode </a> pencarian windows dapat mengatur menu tertentu Pencarian windows.
+
+
 
 ## Posisi Item Menu
 
 You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
 * `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+
 * `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+
 * `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+
 * `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
 By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
+
+
 ### Contoh
 
 Template:
+
+
 
 ```javascript
 [
@@ -310,16 +361,22 @@ Template:
 ]
 ```
 
+
 Menu:
 
+
+
 ```sh
-<br />- 1
+- 1
 - 2
 - 3
 - 4
 ```
 
+
 Template:
+
+
 
 ```javascript
 [
@@ -332,10 +389,13 @@ Template:
 ]
 ```
 
+
 Menu:
 
+
+
 ```sh
-<br />- 3
+- 3
 - 4
 - ---
 - 1
@@ -343,7 +403,10 @@ Menu:
 - 2
 ```
 
+
 Template:
+
+
 
 ```javascript
 [
@@ -353,10 +416,13 @@ Template:
 ]
 ```
 
+
 Menu:
 
+
+
 ```sh
-<br />- ---
+- ---
 - 3
 - 2
 - 1

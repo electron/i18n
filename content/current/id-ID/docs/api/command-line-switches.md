@@ -58,7 +58,7 @@ Menggunakan server proxy tertentu, yang menimpa pengaturan sistem. Switch ini ha
 
 ## --proxy-bypass-list =`host`
 
-Memerintahkan elektron untuk mem-bypass server proxy untuk daftar dipisahkan semi-auto-colon tertentu semesta alam. Bendera ini memiliki efek hanya jika digunakan bersamaan dengan `--proxy server`.
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
 Sebagai contoh:
 
@@ -75,7 +75,7 @@ Menggunakan PAC script ditentukan `url`.
 
 ## --no-proxy-server
 
-Jangan menggunakan proxy server dan selalu membuat koneksi langsung. Mengabaikan setiap bendera server proxy lain yang disampaikan.
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
 ## --host-aturan = `aturan`
 
@@ -83,10 +83,10 @@ Dipisahkan dengan koma daftar `aturan` yang mengontrol bagaimana hostname dipeta
 
 Sebagai contoh:
 
-- ` MAP * 127.0.0.1`Memaksa semua nama host yang akan dipetakan ke 127.0.0.1
-- `MAP *.google.com proxy ` Memaksa semua subdomain google.com untuk dipecahkan "proxy".
-- `MAP test.com [:: 1]: 77 ` Memaksa "test.com" untuk mengatasi loopback IPv6. Akan Juga paksa port dari alamat soket yang dihasilkan menjadi 77.
-- `MAP * baz, EXCLUDE www.google.com`Kembalikan semuanya ke "baz", kecuali untuk "www.google.com".
+* ` MAP * 127.0.0.1`Memaksa semua nama host yang akan dipetakan ke 127.0.0.1
+* `MAP *.google.com proxy ` Memaksa semua subdomain google.com untuk dipecahkan "proxy".
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP * baz, EXCLUDE www.google.com`Kembalikan semuanya ke "baz", kecuali untuk "www.google.com".
 
 Pemetaan ini berlaku untuk host titik akhir dalam permintaan bersih (koneksi TCP dan resolver host dalam koneksi langsung, dan ` CONNECT ` di proxy HTTP koneksi, dan host titik akhir dalam koneksi proxy ` SOCKS `).
 
@@ -140,7 +140,7 @@ Switch ini tidak dapat digunakan di `app.commandLine.appendSwitch` karena parsin
 
 ## --v = `log_level`
 
-Memberikan standar maksimal aktif V-tingkat pendataan; 0 adalah default. Nilai-nilai positif biasanya digunakan untuk tingkat V-logging.
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 Switch ini hanya bekerja ketika `--enable-logging` ini juga dilalui.
 
@@ -155,7 +155,6 @@ Switch ini hanya bekerja ketika `--enable-logging` ini juga dilalui.
 ## --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
-
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`

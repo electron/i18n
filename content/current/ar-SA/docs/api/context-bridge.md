@@ -2,7 +2,7 @@
 
 > Create a safe, bi-directional, synchronous bridge across isolated contexts
 
-shliilhpltfrom
+Process: [Renderer](../glossary.md#renderer-process)
 
 An example of exposing an API to a renderer from an isolated preload script is given below:
 
@@ -96,7 +96,7 @@ Because parameters, errors and return values are **copied** when they are sent o
 | `Array`                                                                                                        | Complex    | ✅                 | ✅                    | Same limitations as the `Object` type                                                                                                                                                                          |
 | `Error`                                                                                                        | Complex    | ✅                 | ✅                    | Errors that are thrown are also copied, this can result in the message and stack trace of the error changing slightly due to being thrown in a different context                                               |
 | `Promise`                                                                                                      | Complex    | ✅                 | ✅                    | Promises are only proxied if they are the return value or exact parameter.  Promises nested in arrays or objects will be dropped.                                                                              |
-| `دالة`                                                                                                         | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  Sending classes or constructors will not work.                                                                                                                           |
+| `Function`                                                                                                     | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  Sending classes or constructors will not work.                                                                                                                           |
 | [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Simple     | ✅                 | ✅                    | See the linked document on cloneable types                                                                                                                                                                     |
 | `Symbol`                                                                                                       | N/A        | ❌                 | ❌                    | Symbols cannot be copied across contexts so they are dropped                                                                                                                                                   |
 

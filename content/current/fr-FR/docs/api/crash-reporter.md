@@ -36,22 +36,22 @@ Le module `crashReporter` dispose des méthodes suivantes :
 
 ### `crashReporter.start(options)`
 
-* `options` Objet 
+* `options` Object
   * `companyName` String
   * `submitURL` String - URL à laquelle les rapports de plantage seront envoyés en tant que POST.
   * `productName` String (facultatif) - `app.name`.
-  * `uploadToServer` Boolean (facultatif) - Si les rapports de plantage doivent être envoyés au serveur. La valeur par défaut est `true`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. La valeur par défaut est `true`.
   * `ignoreSystemCrashHandler` Boolean (facultatif) - La valeur par défaut est `false`.
   * `extra` Enregistrement<String, String> (facultatif) - Un objet que vous pouvez définir qui sera envoyé avec le rapport . Seules les propriétés de la chaîne sont envoyées correctement. Les objets imbriqués ne sont pas supportés . Lorsque vous utilisez Windows, les noms et valeurs des propriétés doivent être inférieurs à 64 caractères.
   * `crashesDirectory` String (facultatif) - Répertoire pour stocker temporairement les rapports de plantage (uniquement utilisé lorsque le reporter de plantage est démarré via `process.crashReporter.start`).
 
 Vous devez appeler cette méthode avant d'utiliser toute autre API `crashReporter` et dans chaque processus (principal/renderer) dont vous souhaitez recueillir les rapports d'accident. Vous pouvez passer différentes options à `crashReporter.start` lors d'un appel de différents processus.
 
-**Note** Les processus enfants créés via le module `child_process` n'auront pas accès aux modules Electron. Par conséquent, pour collecter les rapports de plantage, utilisez `process.crashReporter.start` à la place. Passez les mêmes options que celles ci-dessus avec une autre appelée `crashesDirectory` qui devrait pointer vers un répertoire pour stocker temporairement le crash . Vous pouvez tester cela en appelant `process.crash()` pour faire planter le processus fils.
+**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Par conséquent, pour collecter les rapports de plantage, utilisez `process.crashReporter.start` à la place. Passez les mêmes options que celles ci-dessus avec une autre appelée `crashesDirectory` qui devrait pointer vers un répertoire pour stocker temporairement le crash . Vous pouvez tester cela en appelant `process.crash()` pour faire planter le processus fils.
 
-**Remarque :** Si vous avez besoin d'envoyer des paramètres supplémentaires ou mis à jour `extra` après votre premier appel `démarrer` vous pouvez appeler `addExtraParameter` sur macOS ou appeler à nouveau `start` avec les paramètres `extra` mis à jour sur Linux et Windows.
+**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
-**Remarque :** Sur macOS et Windows, Electron utilise un nouveau client `crashpad` pour la collecte et le reporting des plantages. Si vous voulez activer le rapport de plantage, initialisant `crashpad` depuis le processus principal en utilisant `crashReporter. tart` est requis quel que soit le processus à partir duquel vous voulez collecter des plantages. Une fois initialisé de cette façon, le gestionnaire de crashpad collecte plantages de tous les processus. Vous devez toujours appeler `crashReporter. tart` depuis le rendu ou le processus fils, sinon les plantages de d'eux seront signalés sans `companyName`, `productName` ou n'importe quelle information `extra`.
+**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. Si vous voulez activer le rapport de plantage, initialisant `crashpad` depuis le processus principal en utilisant `crashReporter. tart` est requis quel que soit le processus à partir duquel vous voulez collecter des plantages. Une fois initialisé de cette façon, le gestionnaire de crashpad collecte plantages de tous les processus. Vous devez toujours appeler `crashReporter. tart` depuis le rendu ou le processus fils, sinon les plantages de d'eux seront signalés sans `companyName`, `productName` ou n'importe quelle information `extra`.
 
 ### `crashReporter.getLastCrashReport()`
 
@@ -63,30 +63,30 @@ Renvoi la date et l'identifiant du dernier crash. Seuls les rapports de plantage
 
 Retourne [`CrashReport[]`](structures/crash-report.md) :
 
-Renvoie tous les rapports de plantage téléchargés. Chaque rapport contient la date et l'ID téléchargé.
+Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
 ### `crashReporter.getUploadToServer()`
 
-Retourne `Boolean` - Si les rapports doivent être soumis au serveur. Définissez à travers la méthode `start` ou `setUploadToServer`.
+Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Note:** Cette API ne peut être appelée que depuis le processus principal.
+**Note:** This API can only be called from the main process.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean *macOS* - Si les rapports doivent être soumis au serveur.
+* `uploadToServer` Boolean _macOS_ - Whether reports should be submitted to the server.
 
-Cela serait normalement contrôlé par les préférences de l'utilisateur. Cela n'a aucun effet si appelé avant que `start` ne soit appelé.
+This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Note:** Cette API ne peut être appelée que depuis le processus principal.
+**Note:** This API can only be called from the main process.
 
-### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
+### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
 
 * `clé` Chaîne - Le paramètre de clé, doit contenir moins de 64 caractères.
 * `valeur` Chaîne - La valeur du paramètre, doit contenir moins de 64 caractères.
 
 Définit un paramètre supplémentaire à envoyer avec le rapport de plantage. Les valeurs spécifiées ici seront envoyées en plus de toutes les valeurs définies via l'option `extra` lorsque `start` a été appelé. Cette API n'est disponible que sur macOS et windows, si vous devez ajouter/mettre à jour des paramètres supplémentaires sur Linux après votre premier appel à `start` vous pouvez appeler à nouveau `start` avec les options `extra` mises à jour.
 
-### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
+### `crashReporter.removeExtraParameter(key)` _macOS_ _Windows_
 
 * `clé` Chaîne - Le paramètre de clé, doit contenir moins de 64 caractères.
 
@@ -110,7 +110,7 @@ Le rapporteur de plantage enverra les données suivantes à `submitURL` comme un
 * `guid` String - Par exemple '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
 * `_version` String - La version dans `package.json`.
 * `_productName` String - Le nom du produit dans l'objet `options` de `crashReporter`.
-* `prod` String - Nom du produit sous-jacent. Dans ce cas Electron.
+* `prod` String - Name of the underlying product. In this case Electron.
 * `_companyName` String - Le nom de l'entreprise dans l'objet `options` de `crashReporter`.
 * `upload_file_minidump` File - Le rapport d'incident dans le format `minidump`.
 * Toutes les propriétés de niveau 1 de l'objet `extra` dans l'objet `options` de `crashReporter`.

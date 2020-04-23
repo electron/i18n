@@ -1,6 +1,6 @@
 # Veröffentlichung der Anwendung
 
-Um ihre app mit Electron zu Verteilen müssen sie sie packagen und rebranden. Der einfachste Weg dies zu tun ist eine der folgenden third party Tools zu Benutzen:
+To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
@@ -9,8 +9,7 @@ Um ihre app mit Electron zu Verteilen müssen sie sie packagen und rebranden. De
 Diese Tools werden sich um alle Schritte kümmern, die benötigt werden um am Ende eine verbreitbare Electron Anwendung zu Haben.
 
 ## Manuelle Verteilung
-
-Sie können ihre app auch manuell zur Verteilung bereit machen. Die benötigten Schritte sind unten erläutert.
+You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
 
 Um eine App mit Electron zu veröffentlichen, müssen Sie die vorgefertigten [Electron-Dateien](https://github.com/electron/electron/releases) herunterladen. Als nächstes sollte der Ordner, der die App beinhaltet, `app` genannt werden und in das Electron-Resources-Verzeichnis verschoben werden, wie in den unten stehenden Beispielen zu erkennnen ist. Achten Sie darauf, dass das Verzeichnis der vorgefertigten Electron-Dateien in den Beispielen mit `electron/` angegeben ist.
 
@@ -62,7 +61,7 @@ Nachdem Sie Ihre App in Electron gebündelt haben, sollten Sie Electron umbennen
 
 ### Windows
 
-Sie können `electron.exe` einen beliebigen Namen geben und das Icon der App bzw. weitere Metadaten mit Tools wie [rcedit](https://github.com/atom/rcedit) bearbeiten.
+Sie können `electron.exe` einen beliebigen Namen geben und das Icon der App bzw. weitere Metadaten mit Tools wie [rcedit](https://github.com/electron/rcedit) bearbeiten.
 
 ### macOS
 
@@ -106,7 +105,7 @@ Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefinier
 1. Installieren Sie [Surf](https://github.com/surf-build/surf) mit npm: `npm install -g surf-build@latest`
 
 2. Erstellen Sie einen neuen S3 bucket und nutzen Sie die folgende leere Verzeichnis-Struktur:
-    
+
     ```sh
     - electron/
       - symbols/
@@ -115,16 +114,16 @@ Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefinier
 
 3. Setzen Sie die folgenden Umgebungsvariablen:
 
-* `ELECTRON_GITHUB_TOKEN` - Ein Token das Veröffentlichungen auf GitHub erstellen kann
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - Der Ort an dem sie Node.js Header und symbols hochladen werden
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
-* `CI` - Auf `true` setzen, ansonsten erscheinen Fehler
-* `GITHUB_TOKEN` - auf das Gleiche wie `ELECTRON_GITHUB_TOKEN` setzen
-* `SURF_TEMP` - auf `C:\Temp` unter Windows setzen um zu langen Pfaden vorzubeugen
-* `TARGET_ARCH` - auf `ia32` oder `x64` setzen
+  * `ELECTRON_GITHUB_TOKEN` - Ein Token das Veröffentlichungen auf GitHub erstellen kann
+  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - Der Ort an dem sie Node.js Header und symbols hochladen werden
+  * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
+  * `CI` - Auf `true` setzen, ansonsten erscheinen Fehler
+  * `GITHUB_TOKEN` - auf das Gleiche wie `ELECTRON_GITHUB_TOKEN` setzen
+  * `SURF_TEMP` - auf `C:\Temp` unter Windows setzen um zu langen Pfaden vorzubeugen
+  * `TARGET_ARCH` - auf `ia32` oder `x64` setzen
 
-1. In der `script/upload.py` *müssen* Sie `ELECTRON_REPO` in Ihren Fork (z.B. `MYORG/electron`) ändern, vor allem, wenn sie ein Mitwirkender am Electron-Eigentum sind.
+4. In der `script/upload.py` _müssen_ Sie `ELECTRON_REPO` in Ihren Fork (z.B. `MYORG/electron`) ändern, vor allem, wenn sie ein Mitwirkender am Electron-Eigentum sind.
 
-2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Warten sie eine halbe Ewigkeit bis der Build abgeschlossen ist.
+6. Warten sie eine halbe Ewigkeit bis der Build abgeschlossen ist.

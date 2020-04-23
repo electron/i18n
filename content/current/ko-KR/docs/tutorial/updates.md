@@ -4,11 +4,11 @@ Electron 애플리케이션을 업데이트 하는 방법은 여러 가지가 �
 
 ## `update.electronjs.org` 사용
 
-GitHub의 Electron 팀은 Electron apps가 자체 업데이트에 사용할 수있는 무료 오픈 소스 웹 서비스 인 [update.electronjs.org](https://github.com/electron/update.electronjs.org)를 관리합니다. 이 서비스는 다음 기준을 충족하는 Electron 앱을 위해 설계되었습니다:
+The Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. 이 서비스는 다음 기준을 충족하는 Electron 앱을 위해 설계되었습니다:
 
 - MacOS 또는 Windows에서 실행되는 앱
 - App 이 public GitHub 저장소를 가지고 있음
-- 빌드가 GitHub 릴리즈에 게시됨.
+- 빌드가 GitHub  릴리즈에 게시됨.
 - 빌드는 코드사인 되어 있음.
 
 이 서비스를 사용하는 가장 쉬운 방법은 update.electronjs.org와 함께 사용하도록 사전 구성된 Node.js 모듈 인 [update-electron-app](https://github.com/electron/update-electron-app)을 설치하는 것입니다.
@@ -59,7 +59,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-마지막 단계로서 업데이트를 확인하십시오. 아래의 예는 매분 확인합니다 :
+As the final step, check for updates. The example below will check every minute:
 
 ```javascript
 setInterval(() => {
@@ -89,7 +89,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-에러도 [처리가 되어야](../api/auto-updater.md#event-error) 합니다. 다음은 `stderr` 로깅을 하는 예제입니다.
+Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {

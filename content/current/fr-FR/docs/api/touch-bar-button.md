@@ -4,14 +4,14 @@
 
 Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarButton(options)` *Experimental*
+### `new TouchBarButton(options)` _Experimental_
 
-* `options` Objet 
+* `options` Object
   * `label` String (facultatif) - Texte du bouton.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (facultatif) - Couleur de fond hexadécimal du bouton, c.-à-d. `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String(facultatif) - Icône du bouton.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
+  * `iconPosition` String (facultatif) -Peut être `left`, `right` ou `overlay`. Defaults to `overlay`.
   * `click` Function (facultatif) - Fonction à appeler lorsque le bouton est cliqué.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
@@ -26,12 +26,12 @@ A `String` representing the description of the button to be read by a screen rea
 
 #### `touchBarButton.label`
 
-Un `String` représentant le texte du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.
+A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.backgroundColor`
 
-Un `String` représentant la couleur du fond du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.
+A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.icon`
 
-Une `NativeImage` représentant l'icône du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.
+A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.

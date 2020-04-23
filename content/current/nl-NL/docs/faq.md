@@ -12,7 +12,7 @@ Je kunt ook Electron direct hieronder proberen [electron/electron/releases](http
 
 De Chrome-versie van Electron wordt meestal binnen een week of twee later geïmplementeerd nadat er een nieuwe stabiele versie voor Chrome is uitgebracht. Deze schatting is niet gegarandeerd en hangt af van de hoeveelheid werk die gemoeid is met upgraden.
 
-Alleen het stabiele kanaal van Chrome wordt gebruikt. Als een belangrijke oplossing in de beta of dev kanaal, zullen we het backporten.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 Raadpleeg de [beveiligingsintroductie](tutorial/security.md) voor meer informatie.
 
@@ -29,7 +29,7 @@ Om data te delen tussen webpagina's (de rendere processes) is het het gemakkelij
 Of je kunt het IPC systeem, specifiek voor Electron, gebruiken om objecten in het hoofdproces als een globale variabele op te slaan, en deze dan te kunnen gebruiken vanuit de renderers via gebruik van de `remote` property van de `electron` module:
 
 ```javascript
-// In the main process.
+// In het main proces.
 global.sharedObject = {
   someProperty: 'default value'
 }
@@ -42,7 +42,7 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 
 ```javascript
 // In page 2.
-require('electron').console.log(require('electron').remote.getGlobal('sharedObject').someProperty = 'new value)
+console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
 ## My app's tray disappeared after a few minutes.
@@ -82,7 +82,7 @@ Vanwege de Node.js integratie van Electron zijn er een aantal extra symbolen aan
 To solve this, you can turn off node integration in Electron:
 
 ```javascript
-// In the main process.
+// In het main proces.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -115,32 +115,11 @@ When using Electron's built-in module you might encounter an error like this:
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
-
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-and then check if it is in the following form:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+It is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
 
 ## The font looks blurry, what is this and what can I do?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Voorbeeld:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

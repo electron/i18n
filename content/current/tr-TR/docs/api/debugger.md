@@ -2,7 +2,7 @@
 
 > Chrome'un uzaktan hata ayıklama protokolü içın alternatif bir geçiş noktası.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 Chrome Geliştirici Araçları'nın Javascript çalışma anında sayfalarla etkileşime geçme ve yönetmek üzerine [özel bir kütüphanesi](https://chromedevtools.github.io/devtools-protocol/) var.
 
@@ -31,13 +31,13 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Örnek olayları
+### Örnek Events
 
 #### Etkinlik: 'ayırmak'
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `reason` String - Hata ayıklayıcıyı ayırma nedeniniz.
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
@@ -46,13 +46,13 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Event
 * `method` String - Yöntem adı.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever the debugging target issues an instrumentation event.
 
-### Örnek yöntemler
+### Örnek yöntemleri
 
 #### `debugger.attach([protocolVersion])`
 

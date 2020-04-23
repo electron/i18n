@@ -4,7 +4,7 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-Ang`Tray`ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+Ang`Tray`ay isang  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
 const { app, Menu, Tray } = nangangailanganng('electron')
@@ -23,13 +23,13 @@ app.on('ready', () => {
 })
 ```
 
-**Mga Limitasyon ng Plataporma:**
+__Mga Limitasyon ng Plataporma:__
 
 * Sa Linux na app indicator ay gagamitin kung ito ay sinusuportahan, kung hindi man `GtkStatusIcon`ay maaring gamitin sa halip.
 * Sa Linux distributions na mayroon lamang app indicator support, pwede kang mag-install ng `libappindicator1` para gumawa ng tray icon work.
 * Ang App indicator ay maaring maipapakita lamang kapag mayroon itong context menu.
 * Kapag ang app indicator ay ginagamit sa Linux, ang `click` event ay hindi pinansin.
-* Sa Linux para sa mga pagbabago na ginawa sa indibidwal`MenuItem`upang magkabisa, dapat mong tawagan ang`setContextMenu`muli. Halimbawa:
+* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Halimbawa:
 
 ```javascript
 const { app, Menu, Tray } = nangangaianganng('electron')
@@ -44,10 +44,10 @@ app.on('ready', () => {
   //Gumawa ng mga pagbabago sa context menu
   contextMenu.items[1].tiningnan = mali
 ```
-
 * Sa windows ito ay inirekomenda para gamitin ang mga `ICO`icons para makuha ang pinakamahusay na visual effects.
 
 Kung gusto mong panatilihin ang parehong pag-uugali sa lahat ng plataporma, dapat hindi ka umasa sa 0>click</code> event at palaging i-attach ang context menu sa tray icon.
+
 
 ### `bagong Tray(imahe)`
 
@@ -55,11 +55,11 @@ Kung gusto mong panatilihin ang parehong pag-uugali sa lahat ng plataporma, dapa
 
 Lumilikha ng isang panibagong tray icon na may kaugnayan sa mga`imahe`.
 
-### Mga Halimbawa ng Pangyayari
+### Halimbawa ng mga Event
 
 Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
 
-#### Event: 'klik'
+#### Event: 'click'
 
 Ibinabalik ang:
 
@@ -69,7 +69,7 @@ Ibinabalik ang:
 
 Emitted kapag nag click ang tray icon.
 
-#### Event: 'right-click' *macOS* *Windows*
+#### Event: 'right-click' _macOS_ _Windows_
 
 Ibinabalik ang:
 
@@ -78,7 +78,7 @@ Ibinabalik ang:
 
 Emitted kapag nai-right click ang tray icon.
 
-#### Event: 'double-click' *macOS* *Windows*
+#### Event: 'double-click' _macOS_ _Windows_
 
 Pagbabalik ng:
 
@@ -87,53 +87,53 @@ Pagbabalik ng:
 
 Emitted kapag ang tray icon ay na double-click.
 
-#### Event: 'balloon-show' *Windows*
+#### Event: 'balloon-show' _Windows_
 
 Emitted kapag ang tray balloon ay naipapakita.
 
-#### Event: 'balloon-click' *Windows*
+#### Event: 'balloon-click' _Windows_
 
 Emitted kapag ang tray balloon ay naiclick.
 
-#### Event: 'balloon-closed' *Windows*
+#### Event: 'balloon-closed' _Windows_
 
 Emitted kapag ang tray ballon ay nakasirado dahil ang timeout o ang gumagamit ng mano-mano ang nagsasara nito.
 
-#### Event: 'drop' *macOS*
+#### Event: 'drop' _macOS_
 
 Emitted kapag ang anumang dragged na mga items ay ibinagsak sa tray icon.
 
-#### Event: 'drop-files' *macOS*
+#### Event: 'drop-files' _macOS_
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` Event
 * `files` String[] -Ang mga landas ng mga binitiwang mga file.
 
 Emitted kapag ang dragged na mga file ay ibinagsak sa tray icon.
 
-#### Event: 'drop-text' *macOS*
+#### Event: 'drop-text' _macOS_
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `text` String -ang mga binitiwang text string.
 
 Emitted kapag ang dragged text ay ibinagsak sa tray icon.
 
-#### Event: 'drag-enter' *macOS*
+#### Event: 'drag-enter' _macOS_
 
 Emitted kapag ang drag operation ay pumapasok sa tray icon.
 
-#### Event: 'drag-leave' *macOS*
+#### Event: 'drag-leave' _macOS_
 
 Emitted kapag ang drag operation ay lumabas sa tray icon.
 
-#### Event: 'drag-end' *macOS*
+#### Event: 'drag-end' _macOS_
 
 Emitted kapag ang drag operation ay nagtatapos sa tray o nagtatapos sa ibang lugar.
 
-#### Event: 'mouse-enter' *macOS*
+#### Event: 'mouse-enter' _macOS_
 
 Ibinabalik ang:
 
@@ -142,7 +142,7 @@ Ibinabalik ang:
 
 Emitted kapag ang mouse ay pumapasok sa tray icon.
 
-#### Event: 'mouse-leave' *macOS*
+#### Event: 'mouse-leave' _macOS_
 
 Ibinabalik ang:
 
@@ -151,7 +151,7 @@ Ibinabalik ang:
 
 Emitted kapag ang mouse ay lumalabas sa tray icon.
 
-#### Event: 'mouse-move' *macOS* *Windows*
+#### Event: 'mouse-move' _macOS_ _Windows_
 
 Ibinabalik ang:
 
@@ -174,7 +174,7 @@ Agad na sumisira sa tray icon.
 
 Nagseset sa `image` na may kaugnayan sa tray icon na ito.
 
-#### `tray.setPressedImage(image)` *macOS*
+#### `tray.setPressedImage(image)` _macOS_
 
 * `image` [NativeImage](native-image.md) (String)
 
@@ -186,17 +186,17 @@ Nagseset sa `image`na may kaugnayan sa tray icon kapag pinindot ang macOS.
 
 Nagseset sa hover text para sa tray icon na ito.
 
-#### `tray.setTitle(title)` *macOS*
+#### `tray.setTitle(title)` _macOS_
 
 * `title` String
 
 Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
 
-#### `tray.getTitle()` *macOS* 
+#### `tray.getTitle()` _macOS_
 
 Returns `String` - the title displayed next to the tray icon in the status bar
 
-#### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
+#### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
 * `huwag pansinin` Boolean
 
@@ -204,13 +204,13 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 
 This value is set to false by default.
 
-#### `tray.getIgnoreDoubleClickEvents()` *macOS* 
+#### `tray.getIgnoreDoubleClickEvents()` _macOS_
 
 Returns `Boolean` - Whether double click events will be ignored.
 
-#### `tray.displayBalloon(options)` *Windows*
+#### `tray.displayBalloon(options)` _Windows_
 
-* `options` Bagay 
+* `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
@@ -221,20 +221,20 @@ Returns `Boolean` - Whether double click events will be ignored.
 
 Nagdidisplay ng isang tray balloon.
 
-#### `tray.removeBalloon()` *Windows*
+#### `tray.removeBalloon()` _Windows_
 
 Removes a tray balloon.
 
-#### `tray.focus()` *Windows*
+#### `tray.focus()` _Windows_
 
 Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
 
-#### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+#### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
 * `menu` Menu (optional)
 * `position` [Point](structures/point.md) (optional) - Ang posisyon ng pop up.
 
-May lilitaw na context menu sa tray icon. Kapag ang `menu`ay nakapasa, ang`menu`ay maipapakita sa halip na tray icon's context menu.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
 Ang`position` ay tanging magagamit sa Windows, at ito ay (0, 0) sa pamamagitan ng default,.
 
@@ -244,7 +244,7 @@ Ang`position` ay tanging magagamit sa Windows, at ito ay (0, 0) sa pamamagitan n
 
 Nagseset ng context menu para sa icon na ito.
 
-#### `tray.getBounds()` *macOS* *Windows*
+#### `tray.getBounds()` _macOS_ _Windows_
 
 Nagbabalik[`Rectangle`](structures/rectangle.md)
 

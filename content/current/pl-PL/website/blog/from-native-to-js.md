@@ -87,7 +87,7 @@ Object.defineProperty(App.prototype, 'myProperty', {
 })
 ```
 
-and
+i
 
 ```js
 function App {}

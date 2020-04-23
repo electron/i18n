@@ -10,7 +10,7 @@ A partir de [`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8
 
 Por [Widevine](https://www.widevine.com/):
 
-> Chrome 59 (y superiores) incluyen soporte para Verified Media Path (VMP). VMP proporciona un método para verificar la autenticidad de una plataforma de dispositivos. Para las implementaciones de navegadores, esto proporcionará una señal adicional para determinar si una implementación basada en navegador es fiable y segura.
+> Chrome 59 (y superiores) incluyen soporte para Verified Media Path (VMP). VMP  proporciona un método para verificar la autenticidad de una plataforma de dispositivos. Para las implementaciones de navegadores, esto proporcionará una señal adicional para determinar si una implementación basada en navegador es fiable y segura.
 > 
 > La guía de integración del proxy ha sido actualizada con información acerca de VMP y como y cómo emitir licencias.
 > 

@@ -18,14 +18,14 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Mga Pamamaraan
+## Mga Paraan
 
 Ang `session` na modyul ay ang mga sumusunod na pamamaraan:
 
 ### `sesyon.galingPartisyon(partisyon[, mga opsyon])`
 
 * `partisyon` na String
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Object (optional)
   * `cache` na Boolean - Kung pagaganahin ang cache.
 
 Ibinabalik ang `session` - Isang instance ng sesyon mula sa `partisyon` na string. Kapag merong umiiral sa `session` ng may kaparehong `partisyon`, ito ay ibabalik: sa kabilang banda ang isang bagong `session` na instance ay malilikha kasama ang `options`.
@@ -126,9 +126,9 @@ Ibinabalik ang:
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
 
-Emitted when a hunspell dictionary file download fails. For details on the failure you should collect a netlog and inspect the download request.
+Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-### Mga Pamamaraan ng Instance
+### Mga pamamaraan ng pagkakataon
 
 Ang sumusunod na pamamaraan ay magagamit para sa mga instance ng `session`:
 
@@ -144,7 +144,7 @@ Inaalis ang HTTP na cache ng sesyon.
 
 #### `ses.clearStorageData([options])`
 
-* `options` Na Bagay (opsyonal) 
+* `options` Object (optional)
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -157,7 +157,7 @@ Nagsusulat ng anumang di-nakusulat na DOMStorage na datos sa disk.
 
 #### `ses.setProxy(config)`
 
-* `config` Bagay 
+* `config` Object
   * `pacScript` String (optional) - The URL associated with the PAC file.
   * `proxyRules` String (optional) - Rules indicating which proxies to use.
   * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
@@ -191,32 +191,32 @@ Halimbawa:
 Ang `proxyBypassRules` ay isang listahan ng panuntunan na pinaghihiwalay ng kuwit na inilirawan sa ibaba:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
-  
-  Itugma ang lahat ng mga hostname na tumugma sa pattern ng HOSTNAME_PATTERN.
-  
-  Mga halimbawa: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
-  
-  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
-    
-    Itugma ang isang partikular na domain suffix.
-    
-    Mga halimbawa: ".google.com", ".com", "http://.google.com"
+
+   Itugma ang lahat ng mga hostname na tumugma sa pattern ng HOSTNAME_PATTERN.
+
+   Mga halimbawa: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+
+ * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+
+   Itugma ang isang partikular na domain suffix.
+
+   Mga halimbawa: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
-  
-  Itugma ang mga URL na mga IP address na literal.
-  
-  Mga halimbawa: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+   Itugma ang mga URL na mga IP address na literal.
+
+   Mga halimbawa: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
-  
-  Itugma ang anumang URL na para sa IP literal na nabibilang sa pagitan ng binigay na saklaw. Ang saklaw ng IP ay tinukoy gamit ang CIDR na notasyon.
-  
-  Mga Halimbawa: "192.168.1.1/16", "fefe:13::abc/33".
+
+   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+
+   Mga Halimbawa: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
-  
-  Itugma ang mga lokal na mga address. Ang ibig sabihin ng `<local>` ay kung ang host ay tumutugma sa isa sa: "127.0.0.1", "::1", "localhost".
+
+   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
@@ -228,15 +228,15 @@ Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 * `path` na String - Ang lokasyon ng pag-download.
 
-Nagtatakda ng download saving na direktoryo. Bilang default, ang download na direktoryo ay ang`Downloads` sa ilalim ng kaukulang app na folder.
+Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Bagay 
-  * `offline` na Boolean (opsyonal) - Kung tularan ba ang network outage. Naka-default sa false.
-  * `latency` na Doble (opsyonal) - RTT sa ms. Naka-default sa 0 na siyang magpapatigil sa latency throttling.
-  * `downloadThroughput` na Doble (opsyonal) - Bilis ng pag-download sa Bps. Naka-default sa 0 na siyang magpapatigil sa download throttling.
-  * `uploadThroughput` na Doble (opsyonal) - Bilis ng upload sa Bps. Naka-default sa 0 na siyang magpapatigil sa upload throttling.
+* `options` Object
+  * `offline` Boolean (optional) - Whether to emulate network outage. Ang mga default para sa false.
+  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
 Ginagaya ang network na may nakalaang konfigurasyon para sa `sesyon`.
 
@@ -254,7 +254,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.preconnect(options)`
 
-* `options` Bagay 
+* `options` Object
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
   * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
 
@@ -262,18 +262,18 @@ Preconnects the given number of sockets to an origin.
 
 #### `ses.disableNetworkEmulation()`
 
-Hindi pinapagana ang anumang network na pag-emulate na aktibo na para sa `sesyon`. Nagrereset para sa orihinal na konfigurasyon ng network.
+Disables any network emulation already active for the `session`. Resets to the original network configuration.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function | null 
-  * `kahilingan` Bagay 
+* `proc` Function | null
+  * `request` Object
     * `hostname` na String
     * `certificate` [Certificate](structures/certificate.md)
     * `verificationResult` na String - Resulta ng pagpapatunay mula sa chromium.
     * `errorCode` na Integer - code ng kamalian.
-  * `callback` Function 
-    * `verificationResult` Integer - Ang halaga ay maaring isa sa mga error na code ng sertipiko na mula [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Bukod sa mga error na code sa sertipiko, ang mga sumusunod na mga espesyal na code ay magagamit. 
+  * `callback` na Function
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
       * `0` - Nagpapahiwatig ng tagumpay at nagpapatigil sa pagpapatunay ng Certificate Transparency.
       * `-2` - Nagpapahiwatig sa kabiguan.
       * `-3` - Gumagamit ng resulta ng pagpapatunay galing sa chromium.
@@ -298,12 +298,12 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `tagahawak` Function | null 
-  * `webContents` na [WebContents](web-contents.md) - WebContents na naghihingi ng pahintulot. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+* `handler` Function | null
+  * `webContents` na [WebContents](web-contents.md) - WebContents na naghihingi ng pahintulot.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `pahintulot` na String - Enum ng 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function 
+  * `callback` na Function
     * `permissionGranted` na Boolean - Pagpayag o pagtanggi sa pahintulot.
-  * `ang mga detalye` Object - Some properties are only available on certain permission types. 
+  * `details` Object - Some properties are only available on certain permission types.
     * `externalURL` String (optional) - The url of the `openExternal` request.
     * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
     * `requestingUrl` String - The last URL the requesting frame loaded
@@ -324,11 +324,11 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `tagahawak` Function<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+* `handler` Function<Boolean> | null
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
-  * `ang mga detalye` Object - Some properties are only available on certain permission types. 
+  * `details` Object - Some properties are only available on certain permission types.
     * `securityOrigin` String - The security orign of the `media` check.
     * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
     * `requestingUrl` String - The last URL the requesting frame loaded
@@ -400,7 +400,7 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Bagay 
+* `options` Object
   * `path` na String - Ganap na path ng download.
   * `urlChain` na String[] - kompletong URL na chain para sa download.
   * `mimeType` na String (opsyonal)
@@ -432,25 +432,25 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 * `languages` String[] - An array of language codes to enable the spellchecker for.
 
-The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+The built in spellchecker does not automatically detect what language a user is typing in.  In order for the spell checker to correctly check their words you must call this API with an array of language codes.  You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
 
-**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
 
 #### `ses.getSpellCheckerLanguages()`
 
-Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+Returns `String[]` - An array of language codes the spellchecker is enabled for.  If this list is empty the spellchecker will fallback to using `en-US`.  By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale.  This setting is persisted across restarts.
 
-**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages.  This API is a no-op on macOS.
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
 * `url` String - A base URL for Electron to download hunspell dictionaries from.
 
-By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
+By default Electron will download hunspell dictionaries from the Chromium CDN.  If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries.  We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
 
-If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Please note the trailing slash. The URL to the dictionaries is formed as `${url}${filename}`.
+If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`.  Please note the trailing slash.  The URL to the dictionaries is formed as `${url}${filename}`.
 
-**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
 
 #### `ses.addWordToSpellCheckerDictionary(word)`
 
@@ -464,19 +464,19 @@ Returns `Boolean` - Whether the word was successfully written to the custom dict
 
 Ang mga sumusunod na katangian ay magagamit sa mga instance ng `session`:
 
-#### `ses.availableSpellCheckerLanguages` *Readonly*
+#### `ses.availableSpellCheckerLanguages` _Readonly_
 
-A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
+A `String[]` array which consists of all the known available spell checker languages.  Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
-#### `ses.cookies` *Readonly*
+#### `ses.cookies` _Readonly_
 
 A [`Cookies`](cookies.md) object for this session.
 
-#### `ses.webRequest` *Readonly*
+#### `ses.webRequest` _Readonly_
 
 A [`WebRequest`](web-request.md) object for this session.
 
-#### `ses.protocol` *Readonly*
+#### `ses.protocol` _Readonly_
 
 A [`Protocol`](protocol.md) object for this session.
 
@@ -495,7 +495,7 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog` *Readonly*
+#### `ses.netLog` _Readonly_
 
 A [`NetLog`](net-log.md) object for this session.
 

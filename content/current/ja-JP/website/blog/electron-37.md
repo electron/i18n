@@ -4,7 +4,7 @@ author: zeke
 date: '2016-03-25'
 ---
 
-Electron `0.37` was recently [released](https://github.com/electron/electron/releases) and included a major upgrade from Chrome 47 to Chrome 49 and also several new core APIs. This latest release brings in all the new features shipped in [Chrome 48](http://blog.chromium.org/2015/12/chrome-48-beta-present-to-cast-devices_91.html) and [Chrome 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html). This includes CSS custom properties, increased [ES6](http://www.ecma-international.org/ecma-262/6.0/) support, `KeyboardEvent` improvements, `Promise` improvements, and many other new features now available in your Electron app.
+Electron `0.37` が先日 [リリースされました](https://github.com/electron/electron/releases)。Chrome 47 から Chrome 49 へのメジャーアップグレードと、いくつかの新しいコア API が入っています。 この最新リリースでは、[Chrome 48](http://blog.chromium.org/2015/12/chrome-48-beta-present-to-cast-devices_91.html) と [Chrome 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html) に搭載されているすべての新機能が搭載されています。 これにより、CSS カスタムプロパティ、[ES6](http://www.ecma-international.org/ecma-262/6.0/) サポートの強化、`KeyboardEvent` の改善、`Promise` の改善、その他多くの新機能が Electron アプリで利用可能になります。
 
 ---
 
@@ -12,15 +12,15 @@ Electron `0.37` was recently [released](https://github.com/electron/electron/rel
 
 ### CSS カスタムプロパティ
 
-If you've used preprocessed languages like Sass and Less, you're probably familiar with *variables*, which allow you to define reusable values for things like color schemes and layouts. Variables help keep your stylesheets DRY and more maintainable.
+Sass や Less のようなプリプロセス言語を使用したことがある方は *変数* に慣れていると思いますが、これを用いてカラースキームやレイアウトなどの再利用可能な値を定義できます。 変数は、スタイルシートを DRY に保ちメンテナンス性を高めるのに役立ちます。
 
-CSS custom properties are similar to preprocessed variables in that they are reusable, but they also have a unique quality that makes them even more powerful and flexible: **they can be manipulated with JavaScript**. This subtle but powerful feature allows for dynamic changes to visual interfaces while still benefitting from [CSS's hardware acceleration](https://developer.mozilla.org/en-US/Apps/Fundamentals/Performance/Performance_fundamentals#Use_CSS_animations_and_transitions), and reduced code duplication between your frontend code and stylesheets.
+CSS カスタムプロパティは、再利用可能という点ではプリプロセスでの変数に似ていますが、**JavaScript で操作できる** という更に強力で柔軟性の高い独自性があります。 この小さいながらも強力な機能により、[ CSS ハードウェアアクセラレーション](https://developer.mozilla.org/en-US/Apps/Fundamentals/Performance/Performance_fundamentals#Use_CSS_animations_and_transitions) の恩恵を受けながら、ビジュアルインターフェイスに動的な変更を加えられ、フロントエンドコードとスタイルシートとの間でコードの重複を減らせます。
 
-For more info on CSS custom properties, see the [MDN article](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) and the [Google Chrome demo](https://googlechrome.github.io/samples/css-custom-properties/).
+CSS カスタムプロパティの詳細は、[MDN の記事](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) や [Google Chrome のデモ](https://googlechrome.github.io/samples/css-custom-properties/) を参照してください。
 
-#### CSS Variables In Action
+#### CSS 変数の動作
 
-Let's walk through a simple variable example that can be tweaked live in your app.
+シンプルな変数の例として、アプリ内での実行時の変更を見ていきましょう。
 
 ```css
 :root {
@@ -32,25 +32,25 @@ body {
 }
 ```
 
-The variable value can be retrieved and changed directly in JavaScript:
+変数の値は直接 JavaScript で取得や変更ができます。
 
 ```js
-// Get the variable value ' #A5ECFA'
+// 変数の値 '#A5ECFA' を取得
 let color = window.getComputedStyle(document.body).getPropertyValue('--awesome-color')
 
-// Set the variable value to 'orange'
+// 変数の値を 'orange' に変更
 document.body.style.setProperty('--awesome-color', 'orange')
 ```
 
-The variable values can be also edited from the **Styles** section of the development tools for quick feedback and tweaks:
+変数の値は、デベロッパー ツールの **Styles** セクションからも編集でき、素早いフィードバックと微調整ができます。
 
-![CSS properties in Styles tab](https://cloud.githubusercontent.com/assets/671378/13991612/1d10eb9c-f0d6-11e5-877b-c4dbc59f1209.gif){: .screenshot }
+![Styles タブの CSS プロパティ](https://cloud.githubusercontent.com/assets/671378/13991612/1d10eb9c-f0d6-11e5-877b-c4dbc59f1209.gif){: .screenshot }
 
-### `KeyboardEvent.code` Property
+### `KeyboardEvent.code` プロパティ
 
-Chrome 48 added the new `code` property available on `KeyboardEvent` events that will be the physical key pressed independent of the operating system keyboard layout.
+Chrome 48 では、新しい `code` プロパティが `KeyboardEvent` イベントで利用できるようになりました。これは、オペレーティングシステムのキーボードレイアウトとは独立した、押された物理キーです。
 
-This should make implementing custom keyboard shortcuts in your Electron app more accurate and consistent across machines and configurations.
+これにより、Electron アプリにカスタムキーボードショートカットを実装する際に、マシンや構成の違いに影響されずに正確で一貫性のあるキーボードショートカットを実装できるようになります。
 
 ```js
 window.addEventListener('keydown', function(event) {
@@ -58,11 +58,11 @@ window.addEventListener('keydown', function(event) {
 })
 ```
 
-Check out [this example](https://googlechrome.github.io/samples/keyboardevent-code-attribute/) to see it in action.
+[こちらのサンプル](https://googlechrome.github.io/samples/keyboardevent-code-attribute/) で実際にどうなるのか確認できます。
 
-### Promise Rejection Events
+### Promise 拒否イベント
 
-Chrome 49 added two new `window` events that allow you to be notified when an rejected [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) goes unhandled.
+Chrome 49 では、拒否された [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) が処理されなかった場合に通知される `window` のイベントを 2 つ追加しました。
 
 ```js
 window.addEventListener('unhandledrejection', function (event) {
@@ -74,13 +74,13 @@ window.addEventListener('rejectionhandled', function (event) {
 })
 ```
 
-Check out [this example](https://googlechrome.github.io/samples/promise-rejection-events/index.html) to see it in action.
+[こちらのサンプル](https://googlechrome.github.io/samples/promise-rejection-events/index.html) で実際にどうなるのか確認できます。
 
-### ES2015 Updates in V8
+### V8 での ES2015 アップデート
 
-The version of V8 now in Electron incorporates [91% of ES2015](https://kangax.github.io/compat-table/es6/#chrome49). Here are a few interesting additions you can use out of the box—without flags or pre-compilers:
+現在、Electron に入っている V8 のバージョンでは、[ES2015 の 91%](https://kangax.github.io/compat-table/es6/#chrome49) を取り入れています。 ここでは、フラグやプリコンパイラ要らずですぐに使える面白い追加機能をいくつか紹介します。
 
-#### Default parameters
+#### デフォルト引数
 
 ```js
 function multiply(x, y = 1) {
@@ -92,29 +92,29 @@ multiply(5) // 5
 
 #### 分割代入
 
-Chrome 49 added [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make assigning variables and function parameters much easier.
+Chrome 49 で [分割代入](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) が追加され、変数や関数パラメータの代入が非常に簡単になりました。
 
-This makes Electron requires cleaner and more compact to assign now:
+これにより、Electron の require はより簡潔でコンパクトな代入になりました。
 
-##### Browser Process Requires
+##### ブラウザプロセスの Require
 
 ```js
 const {app, BrowserWindow, Menu} = require('electron')
 ```
 
-##### Renderer Process Requires
+##### レンダラープロセスの Require
 
 ```js
 const {dialog, Tray} = require('electron').remote
 ```
 
-##### Other Examples
+##### その他の例
 
 ```js
-// Destructuring an array and skipping the second element
+// 配列を分割して 2 つ目の要素を飛ばす
 const [first, , last] = findAll()
 
-// Destructuring function parameters
+// 関数の引数の分割
 function whois({displayName: displayName, fullName: {firstName: name}}){
   console.log(`${displayName} is ${name}`)
 }
@@ -128,17 +128,17 @@ let user = {
 }
 whois(user) // "jdoe is John"
 
-// Destructuring an object
+// オブジェクトの分割代入
 let {name, avatar} = getUser()
 ```
 
-## New Electron APIs
+## 新しい Electron API
 
-A few of the new Electron APIs are below, you can see each new API in the release notes for [Electron releases](https://github.com/electron/electron/releases).
+以下にいくつかの新しい Electron API を示します。それぞれの新しい API は、[Electron リリース](https://github.com/electron/electron/releases) のリリースノートで確認できます。
 
-#### `show` and `hide` events on `BrowserWindow`
+#### `BrowserWindow` の `show` イベントと `hide` イベント
 
-These events are emitted when the window is either shown or hidden.
+これらのイベントは、ウインドウが表示や非表示になったときにそれぞれ発生します。
 
 ```js
 const {BrowserWindow} = require('electron')
@@ -148,9 +148,9 @@ window.on('show', function () { console.log('Window was shown') })
 window.on('hide', function () { console.log('Window was hidden') })
 ```
 
-#### `platform-theme-changed` on `app` for `OS X`
+#### `OS X` 向けに `app` の `platform-theme-changed`
 
-This event is emitted when the system’s [Dark Mode](https://discussions.apple.com/thread/6661740) theme is toggled.
+このイベントは、システムの [ダークモード](https://discussions.apple.com/thread/6661740) テーマが切り替えられたときに発生します。
 
 ```js
 const {app} = require('electron')
@@ -160,13 +160,13 @@ app.on('platform-theme-changed', function () {
 })
 ```
 
-#### `app.isDarkMode()` for `OS X`
+#### `OS X` 向けに `app.isDarkMode()`
 
-This method returns `true` if the system is in Dark Mode, and `false` otherwise.
+このメソッドは、システムがダークモードの場合は `true` を返し、それ以外では `false` を返します。
 
-#### `scroll-touch-begin` and `scroll-touch-end` events to BrowserWindow for `OS X`
+#### `OS X` 向けに BrowserWindow の `scroll-touch-begin` イベントと `scroll-touch-end` イベント
 
-These events are emitted when the scroll wheel event phase has begun or has ended.
+これらのイベントは、スクロールホイールイベントフェイズの開始や終了でそれぞれ発生します。
 
 ```js
 const {BrowserWindow} = require('electron')

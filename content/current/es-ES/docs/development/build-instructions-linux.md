@@ -6,21 +6,20 @@ Siga las indicaciones a continuación para construir Electron en Linux. vm
 
 * Al menos 25GB de espacio de disco y 8GB de RAM.
 * Python 2.7.x. Algunas distribuciones como CentOS 6.x. aún usan Python 2.6.x, así que quizá necesitarás revisar tu versión de Python con `python -V`.
-    
-    Por favor, verifica que tu sistema y la versión de Python soportan al menos TLS 1.2. Para una prueba rápida, haz correr el siguiente script:
-    
-    ```sh
-    $ npx @electron/check-python-tls
-    ```
-    
-    Si el script devuelve que tu configuración utiliza un protocolo de seguridad obsoletos, utilizar gestor de paquetes del sistema para actualizar Python con la última versión de la rama 2.7. Como alternativa, visita https://www.python.org/downloads/ para obtener instrucciones detalladas.
+
+  Por favor, verifica que tu sistema y la versión de Python soportan al menos TLS 1.2. Para una prueba rápida, haz correr el siguiente script:
+
+  ```sh
+  $ npx @electron/check-python-tls
+  ```
+
+  Si el script devuelve que tu configuración utiliza un protocolo de seguridad obsoletos, utilizar gestor de paquetes del sistema para actualizar Python con la última versión de la rama 2.7. Como alternativa, visita https://www.python.org/downloads/ para obtener instrucciones detalladas.
 
 * Node.js. Existen muchas maneras de instalar Node. Puedes descargar el código de fuente de [nodejs.org](https://nodejs.org) y compilarlo. Hacerlo permite instalar Node en el directorio de tu propia casa como un usuario estándar. O intenta repositorios como [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-
 * [clang](https://clang.llvm.org/get_started.html) 3.4 o luego.
 * Development headers of GTK 3 and libnotify.
 
-En Ubuntu, instala las siguientes librerías: 
+En Ubuntu, instala las siguientes librerías:
 
 ```sh
 sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
@@ -48,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Otras distribuciones pueden ofrecer paquetes similares para instalación a través de gestores de paquetes como pacman. O uno puede compilar desde el código fuente.
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
 ### Compilación cruzada
 
@@ -80,7 +79,7 @@ Ver [Build Instructions: GN](build-instructions-gn.md)
 
 ### Error al cargar las bibliotecas compartidas: libtinfo.so.5
 
-El precompilado `clang` tratará enlazar a `libtinfo.so.5`. Dependiendo de la arquitectura centrar, habrá un enlace simbólico apropiado a `libncurses`:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -88,7 +87,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Tópicos Avanzados
 
-La configuración por defecto de la compilación es dirigida a las principales distribuidoras de linux de escritorio. Para compilar una distribución en específico o dispositivo, la siguiente información puede ayudarte.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### Usando el sistema `clang` en vez del binario descarado `clang`
 

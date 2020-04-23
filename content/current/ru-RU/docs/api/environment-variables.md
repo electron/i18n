@@ -61,26 +61,25 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ### `ELECTRON_NO_ASAR`
 
-Отключает поддержку ASAR. Данная переменная поддерживается только в дочерних процессах, которые установили переменную окружения `ELECTRON_RUN_AS_NODE`.
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
 Начинает процесс как Node.js процесс.
 
-### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
+### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 Не присоединяться к текущей сессии терминала.
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
 
 Не использовать глобальное меню в Linux.
 
-### `ELECTRON_TRASH` *Linux*
+### `ELECTRON_TRASH` _Linux_
 
-Установите реализацию корзины в Linux. По умолчанию `gio`.
+Set the trash implementation on Linux. Default is `gio`.
 
 Параметры:
-
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -90,13 +89,14 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 Следующие переменные окружения предназначены для использования в среде выполнения приложения Electron во время разработки и отладки.
 
+
 ### `ELECTRON_ENABLE_LOGGING`
 
 Выводит логи Chrome в консоль.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-Когда Electron читает ASAR файл, логирует путь к файлу и смещение чтения (read offset) в системную временную папку `tmpdir`. Результирующий файл может быть предоставлен модулю ASAR, чтобы оптимизировать порядок файлов.
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
@@ -104,7 +104,7 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 Данная переменная окружения не будет работать, если `crashReporter` запущен.
 
-### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
+### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
 
 Показывает диалог сбоя Windows при сбое Electron приложения.
 
@@ -112,7 +112,7 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-При запуске из `electron` пакета, эта переменная дает команду `electron` использовать указанную сборку Electron вместо загруженной по `npm install`. Использование:
+При запуске из `electron` пакета, эта переменная дает команду `electron` использовать указанную сборку Electron вместо загруженной по `npm install`. Usage:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug

@@ -1,6 +1,6 @@
 # Distribuição de Aplicativos
 
-Para distribuir sua aplicação com Electron, você precisa empacotá-la e convertê-la. O jeito mais fácil de fazer isso é utilizando uma das ferramentas externas de empacotamento a seguir:
+To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
@@ -9,8 +9,7 @@ Para distribuir sua aplicação com Electron, você precisa empacotá-la e conve
 Essas ferramentas cuidarão de todos os passos que você precisa tomar para obter aplicações Electron distribuíveis; como empacotar a aplicação, converter o executável, configurar os ícones corretos e, opcionalmente, criar instaladores.
 
 ## Distribuição manual
-
-Você também pode escolher manualmente obter seu aplicativo pronto para distribuição. Os passos necessários para fazer isso são definidos abaixo.
+You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
 
 Para distribuir seu aplicativo com Electron, você precisa baixar os [binários pré-compilados](https://github.com/electron/electron/releases) do Electron. Depois disso, a pasta contendo seu aplicativo deve ser renomeada para `app` e colocada dentro do diretório de recursos (resources) do Electron como mostrado nos seguintes exemplos. Note que a localização dos binários pré-compilados do Electron está indicada com `electron/` nos exemplos abaixo.
 
@@ -62,7 +61,7 @@ Após deixar seu app Electron pronto para usar, você pode querer personalizar o
 
 ### Windows
 
-Você pode renomear o `electron.exe` para qualquer nome que você quiser, além de editar seu ícone e outras informações com ferramentas como o [rcedit](https://github.com/atom/rcedit).
+Você pode renomear o `electron.exe` para qualquer nome que você quiser, além de editar seu ícone e outras informações com ferramentas como o [rcedit](https://github.com/electron/rcedit).
 
 ### macOS
 
@@ -106,7 +105,7 @@ Você vai precisar criar um fork do Electron caso você tenha código C++ person
 1. Instale [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
 2. Crie um novo repositório de armazenamento na nuvem do tipo S3 bucket e, em seguida, crie a estrutura de diretórios conforme abaixo:
-    
+
     ```sh
     - electron/
       - symbols/
@@ -115,16 +114,16 @@ Você vai precisar criar um fork do Electron caso você tenha código C++ person
 
 3. Defina as seguintes Variáveis de Ambiente:
 
-* `ELECTRON_GITHUB_TOKEN` - token com permissão para criar distribuições no GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - definem a chave, o repositório e a chave secreta, respectivamente, para onde os arquivos serão carregados
-* `ELECTRON_RELEASE` - Definido como `true` para definir se o valor será atualizado durante o upload. Deixe sem definir para que o `surf-build` faça a checagem CI-type a cada pull request.
-* `CI` - definer como `true` ou então ele vai falhar
-* `GITHUB_TOKEN` - configure com o mesmo valor do `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - definido como `C:\Temp` no Windows para evitar problemas de caminho muito longo
-* `TARGET_ARCH` - escolha `ie32` ou `x64`
+  * `ELECTRON_GITHUB_TOKEN` - token com permissão para criar distribuições no GitHub
+  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - definem a chave, o repositório e a chave secreta, respectivamente, para onde os arquivos serão carregados
+  * `ELECTRON_RELEASE` - Definido como `true` para definir se o valor será atualizado durante o upload. Deixe sem definir para que o `surf-build` faça a checagem CI-type a cada pull request.
+  * `CI` - definer como `true` ou então ele vai falhar
+  * `GITHUB_TOKEN` - configure com o mesmo valor do `ELECTRON_GITHUB_TOKEN`
+  * `SURF_TEMP` - definido como `C:\Temp` no Windows para evitar problemas de caminho muito longo
+  * `TARGET_ARCH` - escolha `ie32` ou `x64`
 
-1. Em `script/upload.py`, você *deve* definir `ELECTRON_REPO` para o seu fork (`MYORG/electron`), especialmente se você é um contribuinte para o Electro apropriado.
+4. Em `script/upload.py`, você _deve_ definir `ELECTRON_REPO` para o seu fork (`MYORG/electron`), especialmente se você é um contribuinte para o Electro apropriado.
 
-2. `surf-build -r https://github.com/MYORG/electron -s SEU_COMMIT -n 'surf-PLATFORM-ARCH'`
+5. `surf-build -r https://github.com/MYORG/electron -s SEU_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Aguarde um tempo muito, muito longo para a compilação completar.
+6. Aguarde um tempo muito, muito longo para a compilação completar.

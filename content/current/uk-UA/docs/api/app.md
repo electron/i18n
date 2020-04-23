@@ -27,7 +27,7 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `launchInfo` unknown *macOS*
+* `launchInfo` unknown _macOS_
 
 Відбувається коли Electron завершує ініціалізацію. На macOS, `launchInfo` тримає `userInfo` `NSUserNotification`, яка використовувалася для відкриття застосунку, якщо він був запущений з Центру Сповіщень. Ви можете викликати `app.isReady()` щоб перевірити чи відбулася дана подія.
 
@@ -43,9 +43,9 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Відбувається перед закриттям вікон. Виклик `event.preventDefault()` запобігає поведінці за замовчуванням: завершенню роботи застосунку.
+Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
-**Примітка:** Якщо вихід з застосунку був ініційований `autoUpdater.quitAndInstall()`, тоді `before-quit` відбувається *після* події `close` на всіх вікнах і закриває їх.
+**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
 **Примітка:** На Windows, ця подія не буде викликана якщо застосунок закритий через вимкнення/перезавантаження системи чи вилогінювання користувача.
 
@@ -55,7 +55,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Відбувається коли всі вікна закрилися і застосунок припинить свою роботу. Виклик `event.preventDefault()` запобігає поведінці за замовчуванням: завершенню роботи застосунку.
+Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
 Дивіться опис події `window-all-closed` для різниці між рлжіями `will-quit` і `window-all-closed`.
 
@@ -72,7 +72,7 @@ app.on('window-all-closed', () => {
 
 **Примітка:** На Windows, ця подія не буде викликана якщо застосунок закритий через вимкнення/перезавантаження системи чи вилогінювання користувача.
 
-### Подія: 'open-file' *macOS*
+### Подія: 'open-file' _macOS_
 
 Повертає:
 
@@ -85,7 +85,7 @@ app.on('window-all-closed', () => {
 
 На Windows, ви маєте витягувати шлях до файлу з `process.argv` (в головному процесі).
 
-### Подія: 'open-url' *macOS*
+### Подія: 'open-url' _macOS_
 
 Повертає:
 
@@ -96,7 +96,7 @@ app.on('window-all-closed', () => {
 
 Слід викликати `event.preventDefault()`, якщо ви хочете обробляти цю подію.
 
-### Подія: 'activate' *macOS*
+### Подія: 'activate' _macOS_
 
 Повертає:
 
@@ -105,7 +105,7 @@ app.on('window-all-closed', () => {
 
 Відбувається при активації застосунку. Різні дії можуть викликати цю подію, такі як перший запуск застосунку, спроба перезапустити застосунок коли він працює, чи натискання на панель застосунку чи на піктограму на панель задач.
 
-### Подія: 'continue-activity' *macOS*
+### Подія: 'continue-activity' _macOS_
 
 Повертає:
 
@@ -117,7 +117,7 @@ app.on('window-all-closed', () => {
 
 Діяльність користувача може бути продовжена тільки в застосунку, що має такий самий ідентифікатор групи розробників, як і застосунок-джерело і який підтримує тип діяльності. Підтримувані типу діяльності визначені в `Info.plist` під ключем `NSUserActivityTypes`.
 
-### Подія: 'will-continue-activity' *macOS*
+### Подія: 'will-continue-activity' _macOS_
 
 Повертає:
 
@@ -126,7 +126,7 @@ app.on('window-all-closed', () => {
 
 Відбувається під час [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), перед продовженням діяльності з іншого пристрою. Потрібно викликати `event.preventDefault()`, якщо ви хочете обробляти цю подію.
 
-### Подія: 'continue-activity-error' *macOS*
+### Подія: 'continue-activity-error' _macOS_
 
 Повертає:
 
@@ -136,7 +136,7 @@ app.on('window-all-closed', () => {
 
 Відбувається під час [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), коли діяльність з іншого пристрою не буде продовжена.
 
-### Подія: 'activity-was-continued' *macOS*
+### Подія: 'activity-was-continued' _macOS_
 
 Повертає:
 
@@ -146,7 +146,7 @@ app.on('window-all-closed', () => {
 
 Відбувається під час [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), після того як діяльність з цього пристрою була успішно продовжена на іншому.
 
-### Подія: 'update-activity-state' *macOS*
+### Подія: 'update-activity-state' _macOS_
 
 Повертає:
 
@@ -156,13 +156,13 @@ app.on('window-all-closed', () => {
 
 Відбувається коли [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) має бути відновлена на іншому пристрої. Якщо вам потрібно оновити статус для передачі, потрібно викликати `event.preventDefault()` негайно, сформувати новий `userInfo` словник та викликати `app.updateCurrentActivity()` в потрібний момент. В іншому випадку операція не виконається і буде викликано `continue-activity-error`.
 
-### Подія: 'new-window-for-tab' *macOS*
+### Подія: 'new-window-for-tab' _macOS_
 
 Повертає:
 
 * `event` Event
 
-Відбувається коли користувач натискає на нативні macOS кнопки створення нових вкладок. Кнопка створення нової вкладки видима тільки якщо якщо поточне `BrowserWindow` має `tabbingIdentifier`
+Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
 ### Подія: 'browser-window-blur'
 
@@ -209,7 +209,7 @@ app.on('window-all-closed', () => {
 * `url` String
 * `error` String - Код помилки
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` Function
   * `isTrusted` Boolean - Враховувати сетрифікат як надійний
 
 Відбуваєтся коли не вдалося перевірити `certificate` для `url`, щоб довіряти сертифікату потрібно запобігти поведінці за замовчуванням за допомогою `event.preventDefault()` та викликати `callback(true)`.
@@ -236,7 +236,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Function
   * `certificate` [Certificate](structures/certificate.md) (опціонально)
 
 Відбувається коли запитується сертифікат клієнта.
@@ -258,15 +258,15 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `authenticationResponseDetails` Object 
+* `authenticationResponseDetails` Object
   * `url` URL
-* `authInfo` Object 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Function
   * `username` String (optional)
   * `password` String (optional)
 
@@ -308,7 +308,7 @@ Emitted when the GPU process crashes or is killed.
 
 Викликається коли рендер процес `webContents` ламається чи зупиняється примусово.
 
-### Подія: 'accessibility-support-changed' *macOS* *Windows*
+### Подія: 'accessibility-support-changed' _macOS_ _Windows_
 
 Повертає:
 
@@ -356,7 +356,7 @@ app.on('session-created', (session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Виконується коли викликається `desktopCapturer.getSources()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` примусить повернути пусті джерела.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
 ### Подія: 'remote-require'
 
@@ -432,13 +432,13 @@ app.on('session-created', (session) => {
 
 * `exitCode` Integer (опціонально)
 
-Негайно виходить з `exitCode`. `exitCode` за замовчуванням 0.
+Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
 Всі вікна будуть закриті негайно без перепитування користувача, всі події `before-quit` та `will-quit` не будуть викликатися.
 
 ### `app.relaunch([options])`
 
-* `options` Object (опціонально) 
+* `options` Object (optional)
   * `args` String[] (опціонально)
   * `execPath` String (опціонально)
 
@@ -469,23 +469,23 @@ app.exit(0)
 
 ### `app.focus()`
 
-На Linux, фокусується на першому видимому вікні. На macOS, робить застосунок активним. На Windows, фокусується на пешому вікні застосунку.
+On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
 
-### `app.hide()` *macOS*
+### `app.hide()` _macOS_
 
 Ховає всі вікна застосунку без згортання їх.
 
-### `app.show()` *macOS*
+### `app.show()` _macOS_
 
-Показує всі вікна застосунку після того як вони були сховані. Не фокусується на них автоматично.
+Shows application windows after they were hidden. Does not automatically focus them.
 
 ### `app.setAppLogsPath([path])`
 
-* `path` String (shared) - Користувацький шлях для ваших логів. Мусить бути абсолютним.
+* `path` String (optional) - A custom path for your logs. Must be absolute.
 
 Встановлює чи створює папку ваших логів, якою в подальшому можна маніпулювати за допомогою `app.getPath()` чи `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on _macOS_, and inside the `userData` directory on _Linux_ and _Windows_.
 
 ### `app.getAppPath()`
 
@@ -493,9 +493,9 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(name)`
 
-* `name` String - You can request the following paths by the name: 
+* `name` String - You can request the following paths by the name:
   * `home` Домашня директорія користувача.
-  * `appData` Директорія даних застосунку, яка за замовчуванням вказує на: 
+  * `appData` Per-user application data directory, which by default points to:
     * `%APPDATA%` на Windows
     * `$XDG_CONFIG_HOME` чи `~/.config` на Linux
     * `~/Library/Application Support` на macOS
@@ -513,29 +513,29 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
   * `logs` Директорія для логів вашого застосунку.
   * `pepperFlashSystemPlugin` Повний шлях до системної версії плагіну Pepper Flash.
 
-Повертає `String` - Шлях до спеціальної директорії чи файлу, що відповідає `name`. При невдачі викидається `Error`.
+Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
 If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` Object (опціонально) 
-  * `size` String 
+* `options` Object (optional)
+  * `size` String
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не підтримується на *macOS*.
+    * `large` - 48x48 on _Linux_, 32x32 on _Windows_, unsupported on _macOS_.
 
 Повертає `Promise<NativeImage>` - заповнюється піктограмою застосунку, яка є [NativeImage](native-image.md).
 
 Витягує піктограму, що відповідає шляху.
 
-На *Windows*, є 2 види піктограм:
+На _Windows_, є 2 види піктограм:
 
 * Піктограми, що відповідають певним розширенням файлів, такими як `.mp3`, `.png`, тощо.
 * Піктограми всередині самих файлів, таких як `.exe`, `.dll`, `.ico`.
 
-На *Linux* та *macOS*, піктограми залежать від застосунку, що відповідає mime типу файлу.
+На _Linux_ та _macOS_, піктограми залежать від застосунку, що відповідає mime типу файлу.
 
 ### `app.setPath(name, path)`
 
@@ -572,7 +572,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.getLocale()`
 
-Повертає `String` - Поточна локаль застосунку. Можливі значення задокументовані [тут](locales.md).
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
 
 Щоб встановити локаль, вам потрібно використати перемикач в командному рядку при старті застосунку, який можна знайти [тут](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
@@ -586,23 +586,23 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 **Примітка:** Коли неможливо визначити код локалі, повертається пуста стрічка.
 
-### `app.addRecentDocument(path)` *macOS* *Windows*
+### `app.addRecentDocument(path)` _macOS_ _Windows_
 
 * `path` String
 
 Додає `path` до списку недавніх документів.
 
-Цей список керується ОС. На Windows ви можете перглянути список з панелі завдань, а на macOS ви можете переглянути його з dock меню.
+This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
-### `app.clearRecentDocuments()` *macOS* *Windows*
+### `app.clearRecentDocuments()` _macOS_ _Windows_
 
 Очищує список останніх документів.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - Назва вашого протоколу, без `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - The path to the Electron executable. Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Arguments passed to the executable. Defaults to an empty array
+* `path` String (optional) _Windows_ - The path to the Electron executable. Defaults to `process.execPath`
+* `args` String[] (optional) _Windows_ - Arguments passed to the executable. Defaults to an empty array
 
 Повертає `Boolean` - Чи виклик закінчився успішно.
 
@@ -610,25 +610,25 @@ Sets the current executable as the default handler for a protocol (aka URI schem
 
 **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge](https://www.electronforge.io/), [Electron Packager](https://github.com/electron/electron-packager), or by editing `info.plist` with a text editor. Перегляньте [документацію Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) для деталей.
 
-**Примітка:** В Windows Store середовищі (коли запаковано як `appx`) цей API поверне `true` для всіх викликів, але ключ регістру, який він встановлює не буде доступний іншим застосункам. Для реєстрації вашого Windows Store застосунку як обробника протоколу за замовчуванням, ви маєте [оголосити протокол у вашому маніфесті](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
+**Примітка:** В Windows Store середовищі (коли запаковано як `appx`) цей API поверне `true` для всіх викликів, але ключ регістру, який він встановлює не буде доступний іншим застосункам.  Для реєстрації вашого Windows Store застосунку як обробника протоколу за замовчуванням, ви маєте [оголосити протокол у вашому маніфесті](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
 The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
 
-### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
 * `protocol` String - Назва вашого протоколу, без `://`.
-* `path` String (опціонально) *Windows* - За замовчуванням `process.execPath`
-* `args` String[] (опціонально) *Windows* - За замовчуванням пустий масив
+* `path` String (опціонально) _Windows_ - За замовчуванням `process.execPath`
+* `args` String[] (опціонально) _Windows_ - За замовчуванням пустий масив
 
 Повертає `Boolean` - Чи виклик закінчився успішно.
 
-Цей метод перевіряє чи поточний виконуваний файл є обробником для протоколу (він же URI схема). Якщо так, він видалить застосунок як обробник за замовчуванням.
+This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - Назва вашого протоколу, без `://`.
-* `path` String (опціонально) *Windows* - За замовчуванням `process.execPath`
-* `args` String[] (опціонально) *Windows* - За замовчуванням пустий масив
+* `path` String (опціонально) _Windows_ - За замовчуванням `process.execPath`
+* `args` String[] (опціонально) _Windows_ - За замовчуванням пустий масив
 
 Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
@@ -644,7 +644,7 @@ Returns `String` - Name of the application handling the protocol, or an empty st
 
 This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
 
-### `app.setUserTasks(tasks)` *Windows*
+### `app.setUserTasks(tasks)` _Windows_
 
 * `tasks` [Task[]](structures/task.md) - Масив об'єктів `Task`
 
@@ -656,14 +656,14 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 
 **Примітка:** Якщо ви хочете налаштувати Jump List ще сильшіне, використовуйте `app.setJumpList(categories)` натомість.
 
-### `app.getJumpListSettings()` *Windows*
+### `app.getJumpListSettings()` _Windows_
 
 Повертає `Object`:
 
 * `minItems` Integer - Мінімальна кількість елементів, які будуть показані в Jump List (для детальнішої інформації про це значення перегляньте [документацію MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Ці елементи не повинні повторно додаватисядо Jump List при **наступному** виклику `app.setJumpList()`, Windows не покаже ніякої налаштовуваної категорії, яка будь-який видалений елемент.
 
-### `app.setJumpList(categories)` *Windows*
+### `app.setJumpList(categories)` _Windows_
 
 * `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
 
@@ -671,7 +671,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 
 * `ok` - Все пройшло добре.
 * `error` - Сталася одна чи більше помилка, ввімкніть логування, щоб встановити причину.
-* `invalidSeparatorError` - Була зроблена спроба додати розділювач до налаштовуваних категорій в Jump List. Розділювач дозволений тільки в стандартних категорії `Tasks`.
+* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
 * `fileTypeRegistrationError` - Була зроблена спроба додати посилання на файл до Jump List для типу файлів, що не обробляються застосунком.
 * `customCategoryAccessDeniedError` - Налаштовувані категорії не можуть бути додані до Jump List через приватність користувача чи політику налаштування груп.
 
@@ -679,7 +679,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 
 **Примітка:** Якщо `JumpListCategory` об'єкт не має ні `type` ні `name` властивостей, то його `type` вважаєтсья `tasks`. Якщо встановлена властивість `name` але властивість `type` пропущено, то `type` вважається `custom`.
 
-**Примітка:** Користувачі можуть видаляти елементи з налаштовуваних категорій, і Windows не дозволить видаленим елементам додатися назад в категорії **до** наступного успішного виклику `app.setJumpList(categories)`. Буль-яка спроба повторно додати видалений елемент до налаштовуваних категорій буде ігноруватися Jump List. Список видалених елементів може бути отриманий за допомогою `app.getJumpListSettings()`.
+**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Буль-яка спроба повторно додати видалений елемент до налаштовуваних категорій буде ігноруватися Jump List. Список видалених елементів може бути отриманий за допомогою `app.getJumpListSettings()`.
 
 Ось дуже простий приклад створення налаштовуваного Jump List:
 
@@ -745,9 +745,9 @@ app.setJumpList([
 
 Повертає `Boolean`
 
-Повернене значення цього методу вказує на те, чи цей екземпляр вашої програми успішно отримав блокування. Якщо не вдалося отримати блокування, ви можете припустити, що інший екземпляр вашої програми вже працює з блокуванням і негайно завершується.
+Повернене значення цього методу вказує на те, чи цей екземпляр вашої програми успішно отримав блокування.  Якщо не вдалося отримати блокування, ви можете припустити, що інший екземпляр вашої програми вже працює з блокуванням і негайно завершується.
 
-Тобто. Цей метод повертає `true` якщо ваш процес є основним екземпляром вашої програми, і ваш додаток має продовжувати завантаження. Він повертає `false`, якщо ваш процес слід негайно припинити, оскільки він надіслав свої параметри іншому екземпляру, який вже отримав блокування.
+Тобто. Цей метод повертає `true` якщо ваш процес є основним екземпляром вашої програми, і ваш додаток має продовжувати завантаження.  Він повертає `false`, якщо ваш процес слід негайно припинити, оскільки він надіслав свої параметри іншому екземпляру, який вже отримав блокування.
 
 На macOS система застосовує єдиний екземпляр автоматично, коли користувач намагається відкрити інший екземпляр вашого застосунку в Finder, і події `open-file` та `open-url` викличуться для цього. Однак коли користувач запускає ваш застосунок з командного рядка система уникне механізму єдиного екземпляру і вам доведеться використовувати цей метод для його забезпечення.
 
@@ -780,51 +780,51 @@ if (!gotTheLock) {
 
 Повертає `Boolean`
 
-Цей метод повертає чи поточний екземпляр вашого застосунку заблоковано як єдиний. Ви можете застосувати блокування за допомогою `app.requestSingleInstanceLock()` та зняти за допомогою `app.releaseSingleInstanceLock()`
+Цей метод повертає чи поточний екземпляр вашого застосунку заблоковано як єдиний.  Ви можете застосувати блокування за допомогою `app.requestSingleInstanceLock()` та зняти за допомогою `app.releaseSingleInstanceLock()`
 
 ### `app.releaseSingleInstanceLock()`
 
-Знімає всі блокування, які були створені за допомогою `requestSingleInstanceLock`. Це дозволить знову створювати багато еземплярів вашого застосунку.
+Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
 
-### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
+### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
 * `type` String - Унікально визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` any - App-specific state to store for use by another device.
-* `webpageURL` String (опціонально) - Веб-сторінка для завантаження у вашому браузері, якщо не встановлено відповідного застосунку на пристрої. Схема має бути `http` чи `https`.
+* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
 Створює `NSUserActivity` і встановлює її як поточну діяльність. Діяльність має право на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) на інший пристрій.
 
-### `app.getCurrentActivityType()` *macOS*
+### `app.getCurrentActivityType()` _macOS_
 
 Повертає `String` - Тип поточної діяльності.
 
-### `app.invalidateCurrentActivity()` *macOS*
+### `app.invalidateCurrentActivity()` _macOS_
 
 Розриває поточну [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) діяльність користувача.
 
-### `app.resignCurrentActivity()` *macOS*
+### `app.resignCurrentActivity()` _macOS_
 
 Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
 
-### `app.updateCurrentActivity(type, userInfo)` *macOS*
+### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
 * `type` String - Унікально визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` any - App-specific state to store for use by another device.
 
 Оновлює потточну діяльність якщо її тип збігається з `type`, об'єднує записи з `userInfo` в поточний `userInfo` словник.
 
-### `app.setAppUserModelId(id)` *Windows*
+### `app.setAppUserModelId(id)` _Windows_
 
 * `id` String
 
 Змінює [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) на `id`.
 
-### `app.importCertificate(options, callback)` *Linux*
+### `app.importCertificate(options, callback)` _Linux_
 
-* `options` Object 
+* `options` Object
   * `certificate` String - Шлях до файлу pkcs12.
   * `password` String - Пароль для сертифікату.
-* `callback` Function 
+* `callback` Function
   * `result` Integer - Результат імпорту.
 
 Імпортує сертифікат у форматі pkcs12 сховище сертифікатів платформи. `callback` викликається з `result` операції імпорту, значення `0` показує успіх, тоді як будь-яке інше позначає невдачу згідно Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -837,7 +837,7 @@ Marks the current [Handoff](https://developer.apple.com/library/ios/documentatio
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-За замовчуванням, Chromium вимикає 3D APIs (наприклад WebGL) до презавантаження на основі домену, якщо GPU процеси ламаються занадто часто. Ця функція вимикає цю поведінку.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
 Цей метод може викликатися лише до готовності застосунку.
 
@@ -860,7 +860,6 @@ Returns `Promise<unknown>`
 Для `infoType` що дорівнює `complete`: Promise заповнюється `Object`, який містить всю GPU Інформацію у вигляді [об'єкту chromium GPUInfo](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Він включає версію та інформацію про драйвера, які показуються на сторінці `chrome://gpu`.
 
 Для `infoType` що дорівнює `basic`: Promise заповнюється `Object`, який містить менше атрибутів ніж виклик з `complete`. Ось приклад базової відповіді:
-
 ```js
 { auxAttributes:
    { amdSwitchable: true,
@@ -886,7 +885,7 @@ machineModelVersion: '11.5' }
 
 `basic` використовується коли потрібна базова інформація, така як `vendorId` чи `driverId`.
 
-### `app.setBadgeCount(count)` *Linux* *macOS*
+### `app.setBadgeCount(count)` _Linux_ _macOS_
 
 * `count` Integer
 
@@ -894,51 +893,51 @@ machineModelVersion: '11.5' }
 
 Встановлює бейдж лічильника для поточного застосунку. Встановлення count в `0` приховає бейдж.
 
-На macOS показує на піктограмі в панелі задач. На Linux працює тільки для Unity.
+On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Примітка:** Unity вимагає існування файлу `.desktop` для роботи, для детальнішої інформації прочитайте [Інтеграція в Середовище Робочого Столу](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 **[Припиняється підтримка](modernization/property-updates.md)**
 
-### `app.getBadgeCount()` *Linux* *macOS*
+### `app.getBadgeCount()` _Linux_ _macOS_
 
 Повертає `Integer` - Поточне значення, відображене на бейджі лічильника.
 
 **[Припиняється підтримка](modernization/property-updates.md)**
 
-### `app.isUnityRunning()` *Linux*
+### `app.isUnityRunning()` _Linux_
 
 Повертає `Boolean` - Чи поточне середовище робочого столу є Unity.
 
-### `app.getLoginItemSettings([options])` *macOS* *Windows*
+### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
-* `options` Object (опціонально) 
-  * `path` String (опціонально) *Windows* - Виконуваний шлях для порівняння. За замовчуванням `process.execPath`.
-  * `args` String[] (optional) *Windows* - Аргументи командного рядка для порівняння. За замовчуванням пустий масив.
+* `options` Object (optional)
+  * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
 
 Якщо ви передали параметри `path` та `args` в `app.setLoginItemSettings`, тоді вам потрібно надати такі самі параметри сюди, щоб `openAtLogin` встановились коректно.
 
 Повертає `Object`:
 
 * `openAtLogin` Boolean - `true` якщо застосунок налаштовано на відкиття при вході в систему.
-* `openAsHidden` Boolean *macOS* - `true` якщо застосунок буде відкритий як прихований при логіні. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean *macOS* - `true` якщо застосунок був відкритий автоматично при логіні. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean *macOS* - `true` якщо застосунок було відкрито приховано при вході в систему. Це показує, що застосунок не має відкривати ніяких вікон під час запуску. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean *macOS* - `true` якщо було відкрито при вході в систему, як такий що має відновити стан з минулої сесії. Це показує, що застосунок має відновити ті вікна, які були відкриті минулого разу. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean _macOS_ - `true` якщо застосунок буде відкритий як прихований при логіні. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` якщо застосунок був відкритий автоматично при логіні. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` якщо застосунок було відкрито приховано при вході в систему. Це показує, що застосунок не має відкривати ніяких вікон під час запуску. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean _macOS_ - `true` якщо було відкрито при вході в систему, як такий що має відновити стан з минулої сесії. Це показує, що застосунок має відновити ті вікна, які були відкриті минулого разу. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
 
-### `app.setLoginItemSettings(settings)` *macOS* *Windows*
+### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
-* `settings` Object 
-  * `openAtLogin` Boolean (опціонально) - `true` щоб відкрити застосунок при вході в систему, `false` для видалення його з автозавантаження. За замовчуванням `false`.
-  * `openAsHidden` Boolean (опціонально) *macOS* - `true` щоб відкрити застосунок як прихований. За замовчуванням `false`. Користувач може редагувати це значення з Налаштувань Системи, тому `app.getLoginItemSettings().wasOpenedAsHidden` має перевірятися коли застосунок відкрито, щоб знати поточне значення. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
-  * `path` String (опціонально) *Windows* - Виконуваний файл для запуску при вході в систему. За замовчуванням `process.execPath`.
-  * `args` String[] (опціонально) *Windows* - Аргументи командного рядка, для запуску виконуваного файлу. За замовчуванням пустий масив. Оберніть шляхи в лапки.
+* `settings` Object
+  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. За замовчуванням `false`.
+  * `openAsHidden` Boolean (опціонально) _macOS_ - `true` щоб відкрити застосунок як прихований. За замовчуванням `false`. Користувач може редагувати це значення з Налаштувань Системи, тому `app.getLoginItemSettings().wasOpenedAsHidden` має перевірятися коли застосунок відкрито, щоб знати поточне значення. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
+  * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
 Встановлює налаштування застосунку при вході в систему.
 
 Для роботи з `autoUpdater` Electron'у на Windows, який використовує [Squirrel](https://github.com/Squirrel/Squirrel.Windows), ви маєте встановити шлаях до Update.exe, та передати аргументи, що визначають назву вашого застосунку. Наприклад:
 
-```javascript
+``` javascript
 const appFolder = path.dirname(process.execPath)
 const updateExe = path.resolve(appFolder, '..', 'Update.exe')
 const exeName = path.basename(process.execPath)
@@ -953,13 +952,13 @@ app.setLoginItemSettings({
 })
 ```
 
-### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
+### `app.isAccessibilitySupportEnabled()` _macOS_ _Windows_
 
 Повертає `Boolean` - `true` якщо спеціальні можливості Chrome увімкнені, `false` в іншому випадку. Це API поверне `true` якщо було виялено використання спеціальних можливостей, наприклад, читач екрану. Дивись https://www.chromium.org/developers/design-documents/accessibility для детвльної інформації.
 
 **[Припиняється підтримка](modernization/property-updates.md)**
 
-### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
+### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
 
 * `enabled` Boolean - Вмикає чи вимикає рендеринг [дерева спеціальних можливостей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
@@ -973,19 +972,19 @@ app.setLoginItemSettings({
 
 ### `app.showAboutPanel()`
 
-Показує опції панелі застосунку. Ці опції можуть бути перевизначені за допомогою `app.setAboutPanelOptions(options)`.
+Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
 ### `app.setAboutPanelOptions(options)`
 
-* `options` Object 
+* `options` Object
   * `applicationName` String (опціонально) - Назва застосунку.
   * `applicationVersion` String (опціонально) - Версія застосунку.
   * `copyright` String (опціонально) - Інформація про авторські права.
-  * `version` String (optional) *macOS* - The app's build version number.
-  * `credits` String (optional) *macOS* *Windows* - Credit information.
-  * `authors` String[] (optional) *Linux* - List of app authors.
-  * `website` String (optional) *Linux* - The app's website.
-  * `iconPath` String (optional) *Linux* *Windows* - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
+  * `version` String (optional) _macOS_ - The app's build version number.
+  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
+  * `authors` String[] (optional) _Linux_ - List of app authors.
+  * `website` String (optional) _Linux_ - The app's website.
+  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
 Встановлює інформацію про застосунок. This will override the values defined in the app's `.plist` file on MacOS. Дивіться [документацію Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для деталей. На Linux, значення мають бути встановлені, щоб їх показувати; значення за замовчуванням відсутні.
 
@@ -995,11 +994,11 @@ If you do not set `credits` but still wish to surface them in your app, AppKit w
 
 Повертає `Boolean` - чи поточна версія ОС підтримує нативні селектори емоджі.
 
-### `app.showEmojiPanel()` *macOS* *Windows*
+### `app.showEmojiPanel()` _macOS_ _Windows_
 
 Показує нативні селектори емоджі платформи.
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` *mas*
+### `app.startAccessingSecurityScopedResource(bookmarkData)` _mas_
 
 * `bookmarkData` String - Декодована в форматі base64 захищеній bookmark data що повернена методами `dialog.showOpenDialog` або `dialog.showSaveDialog`.
 
@@ -1008,35 +1007,37 @@ If you do not set `credits` but still wish to surface them in your app, AppKit w
 ```js
 //Отримати доступ до файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
+// You can now access the file outside of the sandbox 🎉
+
+// Remember to stop accessing the file once you've finished with it.
 stopAccessingSecurityScopedResource()
 ```
 
 Start accessing a security scoped resource. За допомогою цієї функції застосунки Electron, що зроблені для Mac App Store, можуть отримувати доступ поза їх пісочницею для доступу до файлів обраних користувачем. Дивіться [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) для опису того як ця система працює.
 
-### `app.enableSandbox()` *Експериментальний*
+### `app.enableSandbox()` _Експериментальний_
 
 Вмикає повний режим пісочниці для app.
 
 Цей метод може викликатися лише до готовності застосунку.
 
-### `app.isInApplicationsFolder()` *macOS*
+### `app.isInApplicationsFolder()` _macOS_
 
-Повертає `Boolean` - Показує чи застосунок запущено з системної директої Застосунки. Використовуйте в крмбінації з `app.moveToApplicationsFolder()`
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
-### `app.moveToApplicationsFolder([options])` *macOS*
+### `app.moveToApplicationsFolder([options])` _macOS_
 
-* `options` Object (опціонально) 
-  * `conflictHandler` Function<boolean> (optional) - A handler for potential conflict in move failure. 
+* `options` Object (optional)
+  * `conflictHandler` Function<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
-Повертає `Boolean` - Показує чи переміщення було успішним. Буль ласка, майте на увазі, що якщо переміщення було успішним, ваш застосунок зупиниться та перезапуститься.
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
 
-За замовчуванням, діалогу пітвердження не буде показано. Якщо ви хочете дозволити користувачу підтверджувати операцію, потрібно буде використати [`dialog`](dialog.md) API.
+No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
 **Примітка:** Цей метод викидає помилку, якщо щось окрім користувача спричиняє невдачу переміщення. Якщо користувач скасовує переміщення, метод поверне false. Якщо нам не вдалося копіювання, тоді метод викине помилку. Повідомлення в помилці має бути інформативним і точно пояснити, що пішло не так.
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
+By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
 Наприклад:
 
@@ -1059,11 +1060,11 @@ Would mean that if an app already exists in the user directory, if the user choo
 
 ## Властивості (Properties)
 
-### `app.accessibilitySupportEnabled` *macOS* *Windows*
+### `app.accessibilitySupportEnabled` _macOS_ _Windows_
 
 Властивість типу `Boolean`, яка є `true` якщо увімкнено спеціальні можливості Chrome, `false` в іншому випадку. Ця властивість буде `true` якщо виявлено використання спеціальних можливостей, наприклад, читач екрану. Встановлення цієї властивості в `true` вручну увімкне спеціальні можливості Chrome, дозволяючи розробникам показати перемикачі спеціальних можливостей в налаштуваннях застосунку.
 
-Дивись [спеціальні можливості Chromium](https://www.chromium.org/developers/design-documents/accessibility) для деталей. Вимкнено за замовчуванням.
+See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Стандартно вимкнено.
 
 Цей API має викликатися після виклику події `ready`.
 
@@ -1073,7 +1074,7 @@ Would mean that if an app already exists in the user directory, if the user choo
 
 A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
 
-### `app.badgeCount` *Linux* *macOS*
+### `app.badgeCount` _Linux_ _macOS_
 
 An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
 
@@ -1081,17 +1082,17 @@ On macOS, setting this with any nonzero integer shows on the dock icon. On Linux
 
 **Примітка:** Unity вимагає існування файлу `.desktop` для роботи, для детальнішої інформації прочитайте [Інтеграція в Середовище Робочого Столу](../tutorial/desktop-environment-integration.md#unity-launcher).
 
-### `app.commandLine` *Readonly*
+### `app.commandLine` _Readonly_
 
 A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
 
-### `app.dock` *macOS* *Readonly*
+### `app.dock` _macOS_ _Readonly_
 
 A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
 
-### `app.isPackaged` *Readonly*
+### `app.isPackaged` _Readonly_
 
-`Boolean` властивість повертає `true` якщо застосунок запаковано, та `false` в іншому випадку. Для багатьох застосунків ця властивість може бути використана щоб відрізняти середовище розробки від виробничого.
+`Boolean` властивість повертає  `true` якщо застосунок запаковано, та `false` в іншому випадку. Для багатьох застосунків ця властивість може бути використана щоб відрізняти середовище розробки від виробничого.
 
 ### `app.name`
 
@@ -1103,10 +1104,10 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 `String`, яка містить агент користувача, який Electron буде використовувати за замовчуванням.
 
-Цей агент користувача буде використовуватися, якщо інший не встановлено на рівні `webContents` чи `session`. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
+Цей агент користувача буде використовуватися, якщо інший не встановлено на рівні `webContents` чи `session`.  It is useful for ensuring that your entire app has the same user agent.  Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
 
 ### `app.allowRendererProcessReuse`
 
-`Boolean` значення, яке при встановленні в `true` унеможливлює перевизначення, які має Electron, щоб впевнитися що рендер процес перезапускається при кожному переході. Поточним значенням за замовчуванням є `false`.
+`Boolean` значення, яке при встановленні в `true` унеможливлює перевизначення, які має Electron, щоб впевнитися що рендер процес перезапускається при кожному переході.  Поточним значенням за замовчуванням є `false`.
 
-Призначення цих перевизначень бути вимкненими за замовчуванням і в подальшому ця властивість буде усунута. Ця властивість визначає, які нативні модулі ви можете використовувати в рендер процесі. Для детальнішої інформації куди рухається Electron з перезавантаженням рендер процесу та використанням нативних модулів у рендер процесі, буль ласка, перегляньте це [відстежуване питання](https://github.com/electron/electron/issues/18397).
+Призначення цих перевизначень бути вимкненими за замовчуванням і в подальшому ця властивість буде усунута.  Ця властивість визначає, які нативні модулі ви можете використовувати в рендер процесі.  Для детальнішої інформації куди рухається Electron з перезавантаженням рендер процесу та використанням нативних модулів у рендер процесі, буль ласка, перегляньте це [відстежуване питання](https://github.com/electron/electron/issues/18397).

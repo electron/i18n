@@ -24,7 +24,7 @@ See [`--log-net-log`](command-line-switches.md#--log-net-logpath) to log network
 ### `netLog.startLogging(path[, options])`
 
 * `path` String - Dateipfad zu den Netzwerk Logfiles.
-* `options` Objekt (optional) 
+* `options` Object (optional)
   * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
   * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
 
@@ -40,10 +40,10 @@ Beendet die Aufzeichnung der Netzwerk Events. Wenn nicht aufgerufen, dann beende
 
 ## Eigenschaften
 
-### `netLog.currentlyLogging` *Readonly*
+### `netLog.currentlyLogging` _Readonly_
 
 Eine `Boolean` Eigenschaft die anzeigt ob Netzwerk Logs aufgezeichnet werden.
 
-### `netLog.currentlyLoggingPath` *Readonly* *Deprecated*
+### `netLog.currentlyLoggingPath` _Readonly_ _Deprecated_
 
 Eine `String` Eigenschaft welche den Pfad zur aktuellen Log Datei zurückgibt.

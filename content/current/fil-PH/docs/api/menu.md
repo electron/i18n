@@ -2,7 +2,7 @@
 
 > Lumikha ng natibong mga menu ng aplikasyon at mga menu ng konteksto.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -16,7 +16,7 @@ The `Menu` class has the following static methods:
 
 * `menu` Menu | null
 
-Nagtatakda ng `menu` bilang aplikasyon ng menu sa macOS. Sa Windows at Linux, ang `menu` ay itatakda sa ibabaw ng menu ng bawat window.
+Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
 Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
@@ -28,9 +28,9 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 Ibinabalik ang `Menu | null` - Ang menu ng aplikasyon, kapag naitakda, o `null` kapag hindi naitakda.
 
-**Tandaan:** Ang ibinalik na instance ng `Menu` ay hindi suportado ang dinamikong pagdadagdag o pagtatanggal ng mga aytem ng menu. [Ang mga instance na katangian ](#instance-properties) ay maaring baguhin sa dinamikong paraan.
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Ang mga instance na katangian ](#instance-properties) ay maaring baguhin sa dinamikong paraan.
 
-#### `Menu.sendActionToFirstResponder(action)` *macOS*
+#### `Menu.sendActionToFirstResponder(action)` _macOS_
 
 * `action` na String
 
@@ -48,17 +48,17 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Mga Pamamaraan ng Instance
+### Mga Halimbawa ng Sistematikong Paraan
 
 Ang `Menu` na bagay ay may sumusunod na mga pamamaraan ng instance:
 
 #### `menu.popup([options])`
 
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Object (optional)
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
-  * `x` na numero (opsyonal) - Ang default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ideklara kung ang `y` ay naideklara na.
-  * `y` na numero (opsyonal) - ang default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ideklara kung `x` ay naideklara na.
-  * `positioningItem` na numero (opsyonal) *macOS* - Ang index ng aytem ng menu na ipoposisyon sa ilalim ng cursor ng mouse sa tinukoy na mga coordinate. Ang default ay -1.
+  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Function (optional) - Called when menu is closed.
 
 Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
@@ -88,7 +88,7 @@ Ibinabalik ang `MenuItem` ang aytem na may tiyak na `id`
 
 Ipasok sa`menuItem`papunta sa posisyon ng`pos`ng menu.
 
-### Halimbawa ng Mga Kaganapan
+### Halimbawa ng mga Event
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
@@ -96,21 +96,21 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 #### Event: 'menu-will-show'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` Kaganapan
+* `event` na Kaganapan
 
 Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` Kaganapan
+* `event` na Kaganapan
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Mga Katangian ng Instance
+### Katangian ng pagkakataon
 
 Ang mga bagay sa `menu` ay mayroon ding mga sumusunod na katangian:
 
@@ -258,7 +258,7 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Ang mga tala sa Menu ng Aplikasyon ng macOS
 
-ang macOS ay may kompletong naiibang istilo ng aplikasyon ng menu mula saWindows at Linux. Narito ang ilang mga tala kung paanong ang menu ng iyong app ay maging mas natural.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
 ### Mga Istandard na Menu
 
@@ -276,7 +276,7 @@ ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, 
 
 Sa macOS ang tatak ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist`. Tingnan ang [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) para sa karagdagang impormasyon.
 
-## Pagtatakda ang Menu para sa Tiyak na Browser Window ng (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
 Ang [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) ng browser windows ay kayang itakda ang menu ng tiyak na browser windows.
 
@@ -291,7 +291,7 @@ You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupConta
 
 By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
-### Halimbawa
+### Mga Halimbawa
 
 Ang Template:
 
@@ -307,7 +307,7 @@ Ang Template:
 Ang Menu:
 
 ```sh
-<br />- 1
+- 1
 - 2
 - 3
 - 4
@@ -329,7 +329,7 @@ Ang Template:
 Ang Menu:
 
 ```sh
-<br />- 3
+- 3
 - 4
 - ---
 - 1
@@ -350,7 +350,7 @@ Ang Template:
 Ang Menu:
 
 ```sh
-<br />- ---
+- ---
 - 3
 - 2
 - 1

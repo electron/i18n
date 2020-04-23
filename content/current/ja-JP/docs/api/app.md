@@ -25,9 +25,9 @@ app.on('window-all-closed', () => {
 
 ### イベント: 'ready'
 
-戻り値:
+戻り値：
 
-* `launchInfo` unknown *macOS*
+* `launchInfo` unknown _macOS_
 
 Electronが初期化処理を完了したときに発生します。 macOS では、通知センターから起動された場合、`launchInfo` はアプリケーションを開くのに使用された `NSUserNotification` の `userInfo` を保持しています。 `app.isReady()` を呼び出すことで、このイベントが既に発生しているかを確認することができます。
 
@@ -43,7 +43,7 @@ Electronが初期化処理を完了したときに発生します。 macOS で�
 
 * `event` Event
 
-アプリケーションがウインドウを閉じようとする前に発生します。`event.preventDefault()` を呼び出すことで、アプリケーションが終了する既定の動作をキャンセルすることができます。
+アプリケーションがウィンドウを閉じ始める前に発生します。 `event.preventDefault()` を呼び出すことで、アプリケーションが終了する既定の動作を阻害できます。
 
 **注:** アプリケーションの終了が `autoUpdater.quitAndInstall()` によって開始された場合、全てのウインドウで `close` イベントを発生させ、それらが閉じた*後* に `before-quit` が発生します。
 
@@ -55,7 +55,7 @@ Electronが初期化処理を完了したときに発生します。 macOS で�
 
 * `event` Event
 
-全てのウインドウが閉じられ、アプリケーションが終了しようとしたときに発生します。`event.preventDefault()` を呼び出すことで、アプリケーションが終了する既定の動作をキャンセルすることができます。
+すべてのウィンドウが閉じられ、アプリが終了しようとしているときに発生します。 `event.preventDefault()` を呼び出すことで、アプリケーションが終了する既定の動作を阻害できます。
 
 `will-quit` と `window-all-closed` イベントの差異を確認するためには、`window-all-closed` イベントの説明もお読みください。
 
@@ -70,9 +70,9 @@ Electronが初期化処理を完了したときに発生します。 macOS で�
 
 アプリケーションが終了するときに発生します。
 
-**注釈:** Windows では、このイベントはシステムのシャットダウン/再起動やユーザーのログアウトでアプリケーションが閉じられている場合には発生しません。
+**注釈:** Windows では、このイベントはシステムのシャットダウン/再起動やユーザーのログアウトでアプリケーションが閉じられようとしている場合には発生しません。
 
-### イベント: 'open-file' *macOS*
+### イベント: 'open-file' _macOS_
 
 戻り値:
 
@@ -85,7 +85,7 @@ Electronが初期化処理を完了したときに発生します。 macOS で�
 
 Windows では、ファイルパスを取得するために (メインプロセスの) `process.argv` をパースしなければなりません。
 
-### イベント: 'open-url' *macOS*
+### イベント: 'open-url' _macOS_
 
 戻り値:
 
@@ -96,7 +96,7 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 
 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
-### イベント: 'activate' *macOS*
+### イベント: 'activate' _macOS_
 
 戻り値:
 
@@ -105,7 +105,7 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 
 アプリケーションがアクティブになったときに発生します。 アプリケーションが最初に起動される、既に実行中のときにアプリケーションを再起動しようとする、アプリケーションの Dock やタスクバーのアイコンをクリックするなど、いろいろなアクションがこのイベントの引き金となり得ます。
 
-### イベント: 'continue-activity' *macOS*
+### イベント: 'continue-activity' _macOS_
 
 戻り値:
 
@@ -117,7 +117,7 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 
 ユーザのアクティビティはアクティビティ元のアプリと同一の開発者チームIDを持ち、アクティビティタイプをサポートするアプリでしか継続させることができません。 サポートされるアクティビティタイプは、アプリの `Info.plist` の `NSUserActivityTypes` キーで指定されています。
 
-### イベント: 'will-continue-activity' *macOS*
+### イベント: 'will-continue-activity' _macOS_
 
 戻り値:
 
@@ -126,7 +126,7 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 
 [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中に別のデバイスからのアクティビティを継続しようとする前に発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
-### イベント: 'continue-activity-error' *macOS*
+### イベント: 'continue-activity-error' _macOS_
 
 戻り値:
 
@@ -136,7 +136,7 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 
 [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中に別のデバイスからのアクティビティを継続できなかったときに発生します。
 
-### イベント: 'activity-was-continued' *macOS*
+### イベント: 'activity-was-continued' _macOS_
 
 戻り値:
 
@@ -146,7 +146,7 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 
 [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中にこのデバイスからのアクティビティを他のデバイスで継続させることに成功した後で発生します。
 
-### イベント: 'update-activity-state' *macOS*
+### イベント: 'update-activity-state' _macOS_
 
 戻り値:
 
@@ -156,13 +156,13 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 
 [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
-### イベント: 'new-window-for-tab' *macOS*
+### イベント: 'new-window-for-tab' _macOS_
 
 戻り値:
 
 * `event` Event
 
-ユーザがmacOS標準の新規タブボタンをクリックしたときに発生します。新規タブボタンは現在の `BrowserWindow` に `tabbingIdentifier` が設定されている場合にだけ表示されます。
+ユーザーが macOS ネイティブの新規タブボタンをクリックすると発生します。 新規タブボタンは現在の `BrowserWindow` に `tabbingIdentifier` が設定されている場合にだけ表示されます。
 
 ### イベント: 'browser-window-blur'
 
@@ -209,7 +209,7 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 * `url` String
 * `error` String - エラーコード
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` Function
   * `isTrusted` Boolean - 証明書を信頼できるものと見なすかどうか
 
 `url` に対する `certificate` の検証に失敗したときに発生します。証明書を信頼するためには、`event.preventDefault()` で既定の動作をキャンセルして、`callback(true)` を呼び出すようにしてください。
@@ -236,7 +236,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Function
   * `certificate` [Certificate](structures/certificate.md) (任意)
 
 クライアント証明書が要求されたときに発生します。
@@ -258,15 +258,15 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `authenticationResponseDetails` Object 
+* `authenticationResponseDetails` Object
   * `url` URL
-* `authInfo` Object 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Function
   * `username` String (任意)
   * `password` String (任意)
 
@@ -308,7 +308,7 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 
 `webContents` のレンダラープロセスがクラッシュ、または強制終了されたときに発行されます。
 
-### イベント: 'accessibility-support-changed' *macOS* *Windows*
+### イベント: 'accessibility-support-changed' _macOS_ _Windows_
 
 戻り値:
 
@@ -356,7 +356,7 @@ app.on('session-created', (session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-`webContents` のレンダラプロセスで `desktopCapturer.getSources()` が呼び出されたときに発生します。 `event.preventDefault()` を呼び出すと、空のソースが返されます。
+`webContents` のレンダラープロセス内で `desktopCapture.getSources()` が呼ばれたときに発生します。 `event.preventDefault()` を呼び出すと、空のソースを返します。
 
 ### イベント: 'remote-require'
 
@@ -432,13 +432,13 @@ app.on('session-created', (session) => {
 
 * `exitCode` Integer (optional)
 
-`exitCode` ですぐに終了します。`exitCode` の省略値は0です。
+`exitCode` ですぐに終了します。 `exitCode` の省略値は 0 です。
 
 ユーザに確認することなくすべてのウインドウがすぐに閉じられ、`before-quit` および `will-quit` イベントは発生しません。
 
 ### `app.relaunch([options])`
 
-* `options` Object (任意) 
+* `options` Object (任意)
   * `args` String[] (任意)
   * `execPath` String (optional)
 
@@ -469,23 +469,23 @@ Returns `Promise<void>` - Electron が初期化されるときに実行される
 
 ### `app.focus()`
 
-Linuxでは、最初の可視ウインドウにフォーカスを当てます。macOSではアプリケーションをアクティブなアプリにします。Windowsでは、アプリケーションの最初のウインドウにフォーカスを当てます。
+Linux では、最初の表示ウィンドウにフォーカスします。 macOS ではアプリケーションをアクティブなアプリにします。Windows では、アプリケーションの最初のウインドウにフォーカスを当てます。
 
-### `app.hide()` *macOS*
+### `app.hide()` _macOS_
 
 最小化することなくアプリケーションのすべてのウインドウを非表示にします。
 
-### `app.show()` *macOS*
+### `app.show()` _macOS_
 
-非表示にされたアプリケーションのウインドウを表示します。自動的にフォーカスは当たりません。
+非表示にされたアプリケーションのウインドウを表示します。 自動的にフォーカスしません。
 
 ### `app.setAppLogsPath([path])`
 
-* `path` String (任意) - ログのカスタムパス。絶対パスでなければなりません。
+* `path` String (任意) - ログのカスタムパス。 絶対パスでなければなりません。
 
 アプリがロギングするディレクトリを設定または作成します。これは `app.getPath()` や `app.setPath(pathName, newPath)` で操作できます。
 
-`path` 引数なしで `app.setAppLogsPath()` を呼び出すと、このディレクトリは、*macOS* では `~/Library/Logs/アプリ名` に、*Linux* と *Windows* では `userData` ディレクトリ内に設定されます。
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on _macOS_, and inside the `userData` directory on _Linux_ and _Windows_.
 
 ### `app.getAppPath()`
 
@@ -493,9 +493,9 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.getPath(name)`
 
-* `name` String - 以下のパスを名前で要求することができます。 
+* `name` String - You can request the following paths by the name:
   * `home` ユーザのホームディレクトリ。
-  * `appData` 既定のユーザ毎のアプリケーションデータディレクトリ。 
+  * `appData` - 既定のユーザ毎のアプリケーションデータディレクトリ。
     * Windowsの場合、`%APPDATA%`
     * Linuxの場合、`$XDG_CONFIG_HOME` もしくは `~/.config`
     * macOSの場合、`~/Library/Application Support`
@@ -513,29 +513,29 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
   * `logs` アプリのログフォルダのディレクトリ。
   * `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
 
-戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。失敗した場合、`Error` がスローされます。
+戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。 失敗した場合、`Error` が送出されます。
 
 `app.setAppLogsPath()` を呼び出すよりも先に `app.getPath('logs')` が呼び出された場合、`path` 引数なしで `app.setAppLogsPath()` を呼び出すのに等しい、デフォルトのログディレクトリが作成されます。
 
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` Object (任意) 
-  * `size` String 
+* `options` Object (任意)
+  * `size` String
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - *Linux* の場合、48x48、*Windows*の場合、32x32、macOSの場合はサポートされていません。
+    * `large` - _Linux_ の場合は 48x48、_Windows_の場合は 32x32、_macOS_ の場合はサポートされていません。
 
 `Promise<NativeImage>`を返す - [NativeImage](native-image.md)でアプリのアイコンを埋めます。
 
 パスに関連付けられているアイコンを取得します。
 
-*Windows* の場合、2種類のアイコンがあります。
+_Windows_ の場合、2種類のアイコンがあります。
 
 * `.mp3`、`.png` など、特定のファイル拡張子に関連付けられたアイコン。
 * `.exe`、`.dll`、`.ico` のような、ファイル自体に含まれるアイコン。
 
-*Linux* と *macOS* の場合、アイコンはファイルのMIMEタイプに関連付けられたアプリケーションによって決まります。
+_Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに関連付けられたアプリケーションによって決まります。
 
 ### `app.setPath(name, path)`
 
@@ -572,7 +572,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.getLocale()`
 
-戻り値 `String` - 現在のアプリケーションのロケール。とりうる戻り値は [こちら](locales.md) に記されています。
+戻り値 `String` - 現在のアプリケーションのロケール。 取りうる戻り値については [こちら](locales.md) にドキュメントがあります。
 
 ロケールを設定するには、アプリケーションの起動時にコマンドラインスイッチを使用する必要があります。これについては、[こちら](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md) を参照してください。
 
@@ -582,27 +582,27 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.getLocaleCountryCode()`
 
-戻り値 `String` - 2文字の [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) 国名コードで、ユーザーの OS のロケールを示します。この値はネィティブの OS API から取得します。
+Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. この値はネイティブの OS API から取得します。
 
 **注意:** ロケールの国コードを取得できなかった場合、これは空文字列を返します。
 
-### `app.addRecentDocument(path)` *macOS* *Windows*
+### `app.addRecentDocument(path)` _macOS_ _Windows_
 
 * `path` String
 
 `path` を最近使ったドキュメントのリストに追加します。
 
-このリストはOSによって管理されています。Windowsの場合、タスクバーからリストにアクセスすることができ、macOSの場合、ドックのメニューからリストにアクセスすることができます。
+このリストは OS が管理します。 Windows の場合はタスクバーからリストにアクセスでき、macOS の場合は Dock メニューからリストにアクセスできます。
 
-### `app.clearRecentDocuments()` *macOS* *Windows*
+### `app.clearRecentDocuments()` _macOS_ _Windows_
 
 最近使ったドキュメントのリストをクリアします。
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - `://` を除くプロトコルの名前。 例えば、アプリで `electron://` リンクを処理したい場合、引数を `electron` にしてこのメソッドを呼び出してください。
-* `path` String (任意) *Windows* - Electron 実行形式のパス。省略値は `process.execPath` です。
-* `args` String[] (任意) *Windows* - 実行形式に渡す引数。省略値は空の配列です。
+* `path` String (optional) _Windows_ - The path to the Electron executable. Defaults to `process.execPath`
+* `args` String[] (optional) _Windows_ - Arguments passed to the executable. Defaults to an empty array
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
@@ -610,25 +610,25 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 **注:** macOS の場合はアプリの `info.plist` に追加されているプロトコルしか登録できず、実行時に変更できません。 しかし、[Electron Forge](https://www.electronforge.io/) や [Electron Packager](https://github.com/electron/electron-packager) を介するかテキストエディタで `info.plist` を編集することで、ビルド時にファイルを変更できます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) を参照するようにしてください。
 
-**注釈:** Windows ストア 環境 (`appx` としてパッケージされている) 場合、この API はすべての呼び出しに `true` を返しますが、それにセットされたレジストリキーは他のアプリケーションからアクセスできません。 Windows ストア アプリケーションをデフォルトのプロトコルハンドラとして登録するには、[マニフェストでプロトコルを宣言する](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol) 必要があります。
+**注釈:** Windows ストア 環境 (`appx` としてパッケージされている) 場合、この API はすべての呼び出しに `true` を返しますが、それにセットされたレジストリキーは他のアプリケーションからアクセスできません。  Windows ストア アプリケーションをデフォルトのプロトコルハンドラとして登録するには、[マニフェストでプロトコルを宣言する](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol) 必要があります。
 
 この API は内部的に Windows レジストリ や `LSSetDefaultHandlerForURLScheme` を使用します。
 
-### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
 * `protocol` String - `://` を除くプロトコルの名前。
-* `path` String (任意) *Windows* - 省略値は `process.execPath`
-* `args` String[] (任意) *Windows* - 省略値は空の配列
+* `path` String (任意) _Windows_ - 省略値は `process.execPath`
+* `args` String[] (任意) _Windows_ - 省略値は空の配列
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
-このメソッドは現在の実行可能ファイルがプロトコル (別名URIスキーム) の既定のハンドラーであるかをチェックします。もしそうである場合、アプリを既定のハンドラから外します。
+このメソッドは、現在の実行ファイルがプロトコル (または URI スキーム) のデフォルトハンドラであるかどうかをチェックします。 その場合、既定のハンドラーからアプリを削除します。
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - `://` を除くプロトコルの名前。
-* `path` String (任意) *Windows* - 省略値は `process.execPath`
-* `args` String[] (任意) *Windows* - 省略値は空の配列
+* `path` String (任意) _Windows_ - 省略値は `process.execPath`
+* `args` String[] (任意) _Windows_ - 省略値は空の配列
 
 戻り値 `Boolean` - 現在の実行形式がプロトコル (または URI スキーム) の既定のハンドラーかどうか。
 
@@ -644,7 +644,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 このメソッドは、URL のプロトコル (別名 URI スキーム) のデフォルトハンドラーであるアプリケーション名を返します。
 
-### `app.setUserTasks(tasks)` *Windows*
+### `app.setUserTasks(tasks)` _Windows_
 
 * `tasks` [Task[]](structures/task.md) - `Task`オブジェクトの配列
 
@@ -656,14 +656,14 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 **注:** ジャンプリストをもっとカスタマイズしたい場合は、`app.setJumpList(categories)` を代わりに使用してください。
 
-### `app.getJumpListSettings()` *Windows*
+### `app.getJumpListSettings()` _Windows_
 
 戻り値 `Object`:
 
 * `minItems` Integer - ジャンプリストに表示されるアイテムの最小の数 (この値の詳細な説明は [MSDN ドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx) を参照してください) 。
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - ユーザが、ジャンプリストのカスタムカテゴリから明示的に削除したアイテムに対応した、`JumpListItem` オブジェクトの配列。 これらのアイテムを**直後の** `app.setJumpList()` の呼び出しでジャンプリストに再度追加してはいけません。Windowsは削除されたアイテムを含むいかなるカスタムカテゴリも表示することはできません。
 
-### `app.setJumpList(categories)` *Windows*
+### `app.setJumpList(categories)` _Windows_
 
 * `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - `JumpListCategory` オブジェクトの配列。
 
@@ -671,7 +671,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 * `ok` - 正常。
 * `error` - 1つ以上のエラーが発生しました。何が原因かを把握するためには、実行時ログを有効にします。
-* `invalidSeparatorError` - ジャンプリストのカスタムカテゴリに区切りを追加しようとしました。区切りは標準の `タスク` カテゴリでしか許可されません。
+* `invalidSeparatorError` - ジャンプリストのカスタムカテゴリに区切りを追加しようとしました。 区切りは標準の `タスク` カテゴリでしか使用できません。
 * `fileTypeRegistrationError` - アプリが処理できると登録されていないファイルタイプのファイルリンクをジャンプリストに追加しようとしました。
 * `customCategoryAccessDeniedError` - ユーザープライバシーもしくはグループポリシー設定のため、ジャンプリストにカスタムカテゴリを追加できません。
 
@@ -679,7 +679,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 **注:** `JumpListCategory` オブジェクトに `type` プロパティも `name` プロパティも設定されなかった場合、`type` は `tasks` と見做されます。 `name` プロパティは設定されている一方で `type` プロパティが省略された場合、`type` は `custom` と見做されます。
 
-**注:** ユーザはカスタムカテゴリからアイテムを削除できますが、Windowsは次の `app.setJumpList(categories)` の呼び出しが成功した**後**でないと、削除されたアイテムをカスタムカテゴリに追加し直すことを許可しません。 それより早くカスタムカテゴリに削除されたアイテムを再度追加しようとすると、ジャンプリストからカスタムカテゴリ全体が外れてしまいます。 削除されたアイテムのリストは、`app.getJumpListSettings()` を使って取得できます。
+**注:** ユーザはカスタムカテゴリからアイテムを削除できますが、Windows では次の `app.setJumpList(categories)` の呼び出しが成功した **後** でないと、削除されたアイテムをカスタムカテゴリに追加し直すことができません。 それより早くカスタムカテゴリに削除されたアイテムを再度追加しようとすると、ジャンプリストからカスタムカテゴリ全体が外れてしまいます。 削除されたアイテムのリストは、`app.getJumpListSettings()` を使って取得できます。
 
 カスタムジャンプリストを作成する非常に簡単な例は以下の通りです。
 
@@ -745,9 +745,9 @@ app.setJumpList([
 
 戻り値 `Boolean`
 
-このメソッドの戻り値は、アプリケーションのこのインスタンスのロックが成功したかどうかを表します。 ロック状態にできなかった場合、アプリケーションの他のインスタンスが既にロックされており、ただちに終了すると想定できます。
+このメソッドの戻り値は、アプリケーションのこのインスタンスのロックが成功したかどうかを表します。  ロック状態にできなかった場合、アプリケーションの他のインスタンスが既にロックされており、ただちに終了すると想定できます。
 
-またこのメソッドは、プロセスがアプリケーションの1つ目のインスタンスで、アプリがロード処理を続行する必要がある場合も `false` を返します。 既にロック状態にしたものとは別のインスタンスにパラメータを送信したためプロセスが直ちに終了する必要がある場合は、`false` を返します。
+またこのメソッドは、プロセスがアプリケーションの1つ目のインスタンスで、アプリがロード処理を続行する必要がある場合も `false` を返します。  既にロック状態にしたものとは別のインスタンスにパラメータを送信したためプロセスが直ちに終了する必要がある場合は、`false` を返します。
 
 macOSの場合、ユーザがFinderでアプリの2番目のインスタンスを開こうとしたとき、システムは自動的にシングルインスタンスになるようにし、`open-file` と `open-url` イベントが発生します。 ただし、ユーザがアプリをコマンドラインで開始する場合、シングルインスタンスを強制するシステムの仕組みが迂回されるため、シングルインスタンスであることを保証するには、このメソッドを使う必要があります。
 
@@ -780,51 +780,51 @@ if (!gotTheLock) {
 
 戻り値 `Boolean`
 
-このメソッドはアプリのこのインスタンスが現在シングルインスタンスロックをされているかどうかを返します。 `app.requestSingleInstanceLock()` でロックを要求し、`app.releaseSingleInstanceLock()` で解放できます。
+このメソッドはアプリのこのインスタンスが現在シングルインスタンスロックをされているかどうかを返します。  `app.requestSingleInstanceLock()` でロックを要求し、`app.releaseSingleInstanceLock()` で解放できます。
 
 ### `app.releaseSingleInstanceLock()`
 
-`requestSingleInstanceLock` によって作成されたすべてのロックを解放します。これで、並列実行するためのアプリケーションの複数インスタンスが再び許可されます。
+`requestSingleInstanceLock` によって作成されたすべてのロックを解放します。 これにより、並列実行するための複数インスタンスのアプリケーションが再び許可されます。
 
-### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
+### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
 * `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 * `userInfo` any - 別のデバイスで使用するために保存されたアプリ固有の情報。
-* `webpageURL` String (任意) - 継続されたデバイスに適切なアプリがインストールされていない場合にブラウザで読み込もうとしたウェブページ。スキームは `http` もしくは `https` でなければなりません。
+* `webpageURL` String (任意) - 継続されたデバイスに適切なアプリがインストールされていない場合にブラウザで読み込もうとしたウェブページ。 スキームは `http` もしくは `https` でなければなりません。
 
 `NSUserActivity` を作成し、現在のアクティビティとして設定します。 その後、アクティビティは、別のデバイスでの[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)に適用されます。
 
-### `app.getCurrentActivityType()` *macOS*
+### `app.getCurrentActivityType()` _macOS_
 
 戻り値 `String` - 現在実行されているアクティビティのタイプ。
 
-### `app.invalidateCurrentActivity()` *macOS*
+### `app.invalidateCurrentActivity()` _macOS_
 
 現在の[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)ユーザアクティビティを無効にします。
 
-### `app.resignCurrentActivity()` *macOS*
+### `app.resignCurrentActivity()` _macOS_
 
 現在の [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ユーザーアクティビティを、無効にせずに非アクティブにします。
 
-### `app.updateCurrentActivity(type, userInfo)` *macOS*
+### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
 * `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 * `userInfo` any - 別のデバイスで使用するために保存されたアプリ固有の情報。
 
 タイプが `type` と一致した場合、現在のアクティビティを更新し、現在の `userInfo` ディスクショナリに `userInfo` のエントリを統合します。
 
-### `app.setAppUserModelId(id)` *Windows*
+### `app.setAppUserModelId(id)` _Windows_
 
 * `id` String
 
 [アプリケーションユーザモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)を `id` に変更します。
 
-### `app.importCertificate(options, callback)` *Linux*
+### `app.importCertificate(options, callback)` _Linux_
 
-* `options` Object 
+* `options` Object
   * `certificate` String - PACS#12ファイルのパス。
   * `password` String - 証明書のパスフレーズ。
-* `callback` Function 
+* `callback` Function
   * `result` Integer - インポート結果。
 
 プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`0` という値は成功を意味しますが、その他の値はChromium の [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の通り、失敗を意味します。
@@ -837,7 +837,7 @@ if (!gotTheLock) {
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-既定では、GPUプロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで、Chromiumは3D API (例えばWebGL) を無効にします。この関数はこの振る舞いを無効にします。
+既定では、GPU プロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで Chromium は 3D API (例えばWebGL) を無効にします。 この関数はこの振る舞いを無効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
@@ -860,7 +860,6 @@ if (!gotTheLock) {
 `infoType` が `complete` に等しい場合、Promise は [Chromium の GPUInfo オブジェクト](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc) 内におけるすべてのGPU情報を含んだ `Object` で解決されます。 これには `chrome://gpu` ページ上で表示されるバージョンとドライバ情報が含まれます。
 
 `infoType` が `basic` に等しい場合、Promise は `complete` でのGPU情報より少ない属性を含んだ `Object` で解決されます。 basic の応答の例はこちらです。
-
 ```js
 { auxAttributes:
    { amdSwitchable: true,
@@ -886,7 +885,7 @@ machineModelVersion: '11.5' }
 
 `vendorId` や `driverId` のような基本的な情報だけ必要であれば、`basic` を用いることが好ましいです。
 
-### `app.setBadgeCount(count)` *Linux* *macOS*
+### `app.setBadgeCount(count)` _Linux_ _macOS_
 
 * `count` Integer
 
@@ -894,51 +893,51 @@ machineModelVersion: '11.5' }
 
 現在のアプリのカウンターバッジを設定します。count を `0` に設定すると、バッジを非表示にします。
 
-macOSでは、ドックアイコンに表示されます。Linuxでは、Unityランチャーでしか機能しません。
+macOS では Dock アイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
-**注:** Unity ランチャーで機能させるには、`.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) をお読みください。
+**注:** Unity ランチャーで動作させるには `.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) を読んでください。
 
 **[非推奨](modernization/property-updates.md)**
 
-### `app.getBadgeCount()` *Linux* *macOS*
+### `app.getBadgeCount()` _Linux_ _macOS_
 
 戻り値 `Integer` - カウンターバッジに表示されている現在の値。
 
 **[非推奨](modernization/property-updates.md)**
 
-### `app.isUnityRunning()` *Linux*
+### `app.isUnityRunning()` _Linux_
 
 戻り値 `Boolean` - 現在のデスクトップ環境がUnityランチャーであるかどうか。
 
-### `app.getLoginItemSettings([options])` *macOS* *Windows*
+### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
-* `options` Object (任意) 
-  * `path` String (任意) *Windows* - 比較する実行ファイルのパス。省略値は、`process.execPath` です。
-  * `args` String[] (任意) *Windows* - 比較するコマンドライン引数。省略値は空の配列です。
+* `options` Object (任意)
+  * `path` String (任意) _Windows_ - 比較対象となる実行パス。 省略値は `process.execPath` です。
+  * `args` String[] (任意) _Windows_ - 比較するコマンドライン引数。 省略値は空の配列です。
 
 `app.setLoginItemSettings` に `path` と `args` オプションを指定した場合、`openAtLogin` が正しく設定されるように、ここで同じ引数を引き渡す必要があります。
 
 戻り値 `Object`:
 
 * `openAtLogin` Boolean - アプリがログイン時に開くように設定されている場合、`true`。
-* `openAsHidden` Boolean *macOS* - アプリがログイン時に隠して開くように設定されている場合、`true`。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
-* `wasOpenedAtLogin` Boolean *macOS* - アプリがログイン時に自動的に開かれた場合、`true`。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
-* `wasOpenedAsHidden` Boolean *macOS* - アプリが非表示のログイン項目として開かれていた場合、`true`。 これは、アプリが起動時に何もウインドウを開いてはいけないことを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
-* `restoreState` Boolean *macOS* - 以前のセッションから状態を復元する必要があるログイン項目としてアプリを開いた場合は、`true`。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+* `openAsHidden` Boolean _macOS_ - アプリがログイン時に隠して開くように設定されている場合 `true` です。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+* `wasOpenedAtLogin` Boolean _macOS_ - アプリがログイン時に自動的に開かれた場合 `true` です。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+* `wasOpenedAsHidden` Boolean _macOS_ - アプリが非表示のログイン項目として開かれていた場合 `true` です。 これは、アプリが起動時に何もウインドウを開いてはいけないことを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+* `restoreState` Boolean _macOS_ - 以前のセッションから状態を復元する必要があるログイン項目としてアプリを開いた場合 `true` です。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
 
-### `app.setLoginItemSettings(settings)` *macOS* *Windows*
+### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
-* `settings` Object 
-  * `openAtLogin` Boolean (任意) - アプリをログイン時に開く場合、`true`、ログイン項目からアプリを外す場合、`false`。 省略値は `false` です。
-  * `openAsHidden` Boolean (任意) *macOS* - アプリを非表示で開く場合、`true`。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができるので、現在の値を取得するために `app.getLoginItemSettings().wasOpenedAsHidden` をアプリが開かれたときに確認するようにしてください。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
-  * `path` String (任意) *Windows* - ログイン時に起動する実行ファイルのパス。省略値は、`process.execPath` です。
-  * `args` String[] (任意) *Windows* - 実行ファイルに引き渡すコマンドライン引数。省略値は空の配列です。パスは引用符で囲むように注意してください。
+* `settings` Object
+  * `openAtLogin` Boolean (任意) - アプリをログイン時に開く場合は `true`、ログイン項目からアプリを外す場合は `false` にします。 省略値は `false` 。
+  * `openAsHidden` Boolean (任意) _macOS_ - アプリを非表示で開く場合 `true` にします。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができるので、現在の値を取得するために `app.getLoginItemSettings().wasOpenedAsHidden` をアプリが開かれたときに確認するようにしてください。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+  * `path` String (任意) _Windows_ - ログイン時に起動する実行形式。 省略値は `process.execPath` です。
+  * `args` String[] (任意) _Windows_ - 実行ファイルに渡すコマンドライン引数。 省略値は空の配列です。 パスはテンプレート文字列にするようにしましょう。
 
 アプリのログイン項目設定を設定します。
 
 WindowsでElectronの `autoUpdater` を [Squirrel](https://github.com/Squirrel/Squirrel.Windows) を使って動かす場合、起動パスをUpdate.exeに設定し、アプリケーション名を特定する引数を渡してください。 例:
 
-```javascript
+``` javascript
 const appFolder = path.dirname(process.execPath)
 const updateExe = path.resolve(appFolder, '..', 'Update.exe')
 const exeName = path.basename(process.execPath)
@@ -953,13 +952,13 @@ app.setLoginItemSettings({
 })
 ```
 
-### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
+### `app.isAccessibilitySupportEnabled()` _macOS_ _Windows_
 
 戻り値 `Boolean` - Chromeのユーザ補助機能が有効な場合、`true`、そうでない場合、`false`。 このAPIは、スクリーンリーダーなどの支援技術を使っていることが検出された場合、`true` を返します。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。
 
 **[非推奨](modernization/property-updates.md)**
 
-### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
+### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
 
 * `enabled` Boolean - [アクセシビリティツリー](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)レンダリングを有効もしくは無効にします。
 
@@ -973,19 +972,19 @@ app.setLoginItemSettings({
 
 ### `app.showAboutPanel()`
 
-アプリのパネルオプションを示します。このオプションは `app.setAboutPanelOptions(options)`で上書きできます。
+アプリの About パネルを表示します。 このオプションは `app.setAboutPanelOptions(options)`で上書きできます。
 
 ### `app.setAboutPanelOptions(options)`
 
-* `options` Object 
+* `options` Object
   * `applicationName` String (任意) - アプリの名前。
   * `applicationVersion` String (任意) - アプリのバージョン。
   * `copyright` String (任意) - 著作権情報。
-  * `version` String (任意) *macOS* - アプリのビルドバージョン番号。
-  * `credits` String (任意) *macOS* *Windows* - クレジット情報。
-  * `authors` String[] (任意) *Linux* - アプリの作者のリスト。
-  * `website` String (任意) *Linux* - アプリのウェブサイト。
-  * `iconPath` String (任意) *Linux* *Windows* - アプリのアイコンへのパス。縦横比を維持しつつ、64x64 ピクセルとして表示されます。
+  * `version` String (任意) _macOS_ - アプリのビルドバージョン番号。
+  * `credits` String (任意) _macOS_ _Windows_ - クレジット情報。
+  * `authors` String[] (任意) _Linux_ - アプリの作者のリスト。
+  * `website` String (任意) _Linux_ - アプリのウェブサイト。
+  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
 Aboutパネルのオプションを設定します。 MacOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
@@ -995,11 +994,11 @@ Aboutパネルのオプションを設定します。 MacOS の場合、これ�
 
 戻り値 `Boolean` - 現在の OS バージョンがネイティブの絵文字ピッカーを許可しているかどうか。
 
-### `app.showEmojiPanel()` *macOS* *Windows*
+### `app.showEmojiPanel()` _macOS_ _Windows_
 
 プラットフォームのネイティブの絵文字ピッカーを表示します。
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` *mas*
+### `app.startAccessingSecurityScopedResource(bookmarkData)` _mas_
 
 * `bookmarkData` String - `dialog.showOpenDialog` または `dialog.showSaveDialog` メソッドによって返された、base64 でエンコードされたセキュリティスコープのブックマークデータ。
 
@@ -1008,35 +1007,37 @@ Aboutパネルのオプションを設定します。 MacOS の場合、これ�
 ```js
 // ファイルアクセス開始
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
+// サンドボックス外のファイルにアクセスできるようになりました 🎉
+
+// ファイルへのアクセスが終わったらアクセス停止を忘れずに。
 stopAccessingSecurityScopedResource()
 ```
 
 セキュリティスコープ付きリソースへのアクセスを開始します。 このメソッドでは、Mac App Store 用にパッケージ化された Electron アプリケーションが、ユーザーが選択したファイルにアクセスするためにサンドボックスの外部にアクセスすることがあります。 このシステムの動作の詳細は、[Apple のドキュメント](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を参照してください。
 
-### `app.enableSandbox()` *実験的*
+### `app.enableSandbox()` _実験的_
 
 アプリで完全サンドボックスモードを有効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
-### `app.isInApplicationsFolder()` *macOS*
+### `app.isInApplicationsFolder()` _macOS_
 
-戻り値 `Boolean` - アプリケーションが現在、システムのアプリケーションフォルダから実行されているかどうか。`app.moveToApplicationsFolder()` と組み合わせて使ってください。
+戻り値 `Boolean` - アプリケーションが現在、システムのアプリケーションフォルダから実行されているかどうか。 `app.moveToApplicationsFolder()` と組み合わせて使ってください。
 
-### `app.moveToApplicationsFolder([options])` *macOS*
+### `app.moveToApplicationsFolder([options])` _macOS_
 
-* `options` Object (任意) 
-  * `conflictHandler` Function<boolean> (任意) - 移動に失敗したときの潜在的競合のハンドラ。 
+* `options` Object (任意)
+  * `conflictHandler` Function<Boolean> (任意) - 移動に失敗したときの潜在的競合のハンドラ。
     * `conflictType` String - ハンドラーが遭遇した移動で起こった競合の種類。`exists` か `existsAndRunning` になります。`exists` は同じ名前のアプリがアプリケーションディレクトリに存在し、`existsAndRunning` は存在し且つ現在実行されていることを意味します。
 
 戻り値 `Boolean` - 移動が成功したかどうか。 移動が成功した場合、アプリケーションは終了し、再起動されることに注意してください。
 
-既定では、確認ダイアログは表示されません。ユーザに操作の確認をさせたい場合は、[`dialog`](dialog.md) APIを使うと実現できます。
+デフォルトでは確認ダイアログは表示されません。 ユーザに操作の確認をさせたい場合は、[`dialog`](dialog.md) API で実現できます。
 
 **注:** このメソッドはユーザ以外が移動の失敗を引き起こした場合にもエラーをスローします。 例えば、ユーザが承認ダイアログをキャンセルした場合、このメソッドは false を返します。 コピーの実行に失敗した場合、このメソッドはエラーをスローします。 エラーのメッセージは意味の分かるものにする必要があり、何が間違っているのかを正確に知らせるようにしてください。
 
-既定では、移動するアプリと同じ名前のアプリがアプリケーションディレクトリに存在し *実行されていない* 場合、既存のアプリはゴミ箱に移動され、新たなアプリがその場所に移動します。 *実行されている* 場合、既存の実行中のアプリはフォーカスを引き継ぎ、新たなアプリは自動的に終了します。 この挙動は、オプションの競合ハンドラを提供することで変更できます。この場合、ハンドラによって返されるブール値によって、移動の競合がデフォルトの動作で解決されるかどうかを決定します。 つまり、`false` を返すとそれ以上のアクションは行われなくなります。`true` を返すとデフォルトの動作になり、メソッドが続行されます。
+既定では、移動するアプリと同じ名前のアプリがアプリケーションディレクトリに存在し _実行されていない_ 場合、既存のアプリはゴミ箱に移動され、新たなアプリがその場所に移動します。 _実行されている_ 場合、既存の実行中のアプリはフォーカスを引き継ぎ、新たなアプリは自動的に終了します。 この挙動は、オプションの競合ハンドラを提供することで変更できます。この場合、ハンドラによって返されるブール値によって、移動の競合がデフォルトの動作で解決されるかどうかを決定します。  つまり、`false` を返すとそれ以上のアクションは行われなくなります。`true` を返すとデフォルトの動作になり、メソッドが続行されます。
 
 例:
 
@@ -1059,11 +1060,11 @@ app.moveToApplicationsFolder({
 
 ## プロパティ
 
-### `app.accessibilitySupportEnabled` *macOS* *Windows*
+### `app.accessibilitySupportEnabled` _macOS_ _Windows_
 
 この `Boolean` プロパティは、Chrome のアクセシビリティサポートが有効になっている場合は `true`、それ以外の場合は `false` になります。 このプロパティは、テキスト読み上げなどのアシスト技術を使っていることが検出された場合、`true` を返します。 手動でこのプロパティを `true` にセットして Chrome のアクセシビリティサポートを有効にすると、開発者はアプリケーション設定内でユーザにアクセシビリティスイッチを出すことができます。
 
-詳細については [Chromium のアクセシビリティドキュメント](https://www.chromium.org/developers/design-documents/accessibility) を参照してください。これはデフォルトで無効化されています。
+詳細については [Chromium のアクセシビリティドキュメント](https://www.chromium.org/developers/design-documents/accessibility) を参照してください。 既定では無効です。
 
 この API は `ready` イベントが発生した後で呼ばなければいけません。
 
@@ -1073,23 +1074,23 @@ app.moveToApplicationsFolder({
 
 `Menu | null` 型のプロパティです。セットされている場合は [`Menu`](menu.md) を、それ以外は `null` を返します。 ユーザはこのプロパティに [Menu](menu.md) を渡すことができます。
 
-### `app.badgeCount` *Linux* *macOS*
+### `app.badgeCount` _Linux_ _macOS_
 
 `Integer` 型のプロパティです。現在のアプリのバッジ数を返します。カウントを `0` にセットするとバッジを非表示にします。
 
-macOS でこれをゼロ以外の整数で設定すると、Dock アイコンに表示されます。 Linux でのこのプロパティは Unity ランチャーでのみ機能します。
+On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**注:** Unity ランチャーで機能させるには、`.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) をお読みください。
+**注:** Unity ランチャーで動作させるには `.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) を読んでください。
 
-### `app.commandLine` *読み出し専用*
+### `app.commandLine` _読み出し専用_
 
 [`CommandLine`](./command-line.md) オブジェクトです。Chromium が使用するコマンドライン引数の読み取りと操作ができます。
 
-### `app.dock` *macOS* *読み出し専用*
+### `app.dock` _macOS_ _読み出し専用_
 
 [`Dock`](./dock.md) オブジェクトです。macOS のユーザーの Dock 内のアプリアイコンにおけるアクションを実行できます。
 
-### `app.isPackaged` *読み出し専用*
+### `app.isPackaged` _読み出し専用_
 
 アプリがパッケージされている場合は`true`、それ以外は `false` を返す `Boolean` プロパティ。 多くのアプリケーションでは、このプロパティを用いて開発版の環境と製品版の環境を区別できます。
 
@@ -1103,10 +1104,10 @@ macOS でこれをゼロ以外の整数で設定すると、Dock アイコンに
 
 この `String` は Electron がグローバルフォールバックとして使用するユーザーエージェント文字列です。
 
-これは、`webContents` または `session` レベルでユーザーエージェントが設定されていない場合に使用されるユーザーエージェントです。 アプリ全体が同じユーザーエージェントを持っていることを確認するのに役立ちます。 オーバーライドされた値が確実に使用されるように、アプリの初期化のできるだけ早い段階でカスタム値に設定してください。
+これは、`webContents` または `session` レベルでユーザーエージェントが設定されていない場合に使用されるユーザーエージェントです。  アプリ全体が同じユーザーエージェントを持っていることを確認するのに役立ちます。  オーバーライドされた値が確実に使用されるように、アプリの初期化のできるだけ早い段階でカスタム値に設定してください。
 
 ### `app.allowRendererProcessReuse`
 
-この `Boolean` が `true` のとき、ナビゲーションごとにレンダラープロセスが確実に再起動されるように Electron が設定している、そのオーバーライドを無効にします。 このプロパティの現在の既定値は `false` です。
+この `Boolean` が `true` のとき、ナビゲーションごとにレンダラープロセスが確実に再起動されるように Electron が設定している、そのオーバーライドを無効にします。  このプロパティの現在の既定値は `false` です。
 
-これらのオーバーライドがデフォルトで無効になることを意図しているので、将来的にはこのプロパティは削除される予定です。 このプロパティはレンダラープロセス内で使用できるネイティブモジュールに影響します。 Electron がレンダラープロセスを再起動して、レンダラープロセスでネイティブモジュールを使用する方針についての詳細は、この [Tacking Issue](https://github.com/electron/electron/issues/18397) をご覧ください。
+これらのオーバーライドがデフォルトで無効になることを意図しているので、将来的にはこのプロパティは削除される予定です。  このプロパティはレンダラープロセス内で使用できるネイティブモジュールに影響します。  Electron がレンダラープロセスを再起動して、レンダラープロセスでネイティブモジュールを使用する方針についての詳細は、この [Tacking Issue](https://github.com/electron/electron/issues/18397) をご覧ください。

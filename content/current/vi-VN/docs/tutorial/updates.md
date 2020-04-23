@@ -4,7 +4,7 @@ Có vài cách khác nhau để cập nhật một ứng dụng chạy bằng El
 
 ## Sử dụng `update.electronjs.org`
 
-GitHub's Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+The Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
 
 - App runs on macOS or Windows
 - App has a public GitHub repository

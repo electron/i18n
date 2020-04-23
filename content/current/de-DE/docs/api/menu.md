@@ -2,7 +2,7 @@
 
 > Create native application menus and context menus.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -30,7 +30,7 @@ Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
-#### `Menu.sendActionToFirstResponder(action)` *macOS*
+#### `Menu.sendActionToFirstResponder(action)` _macOS_
 
 * `action` String
 
@@ -54,11 +54,11 @@ Das `menu` Objekt hat die folgenden Instanz Methoden:
 
 #### `menu.popup([options])`
 
-* `options` Objekt (optional) 
+* `options` Object (optional)
   * `window` [BrowserWindow](browser-window.md) (optional) - Default ist das fokussierte Fenster.
-  * `x` Number (optional) - Default ist die aktuelle Mauscursor Position. Muss angegeben werden wenn `y` angegeben wurde.
-  * `y` Number (optional) - Default ist die aktuelle Mauscursor Position. Muss angegeben werden wenn `x` angegeben wurde.
-  * `positioningItem` Number (optional) *macOS* - Der Index des Menüpunktes welcher unter dem Mauscursor positioniert werden soll an spezifizierten Koordinaten. Default ist -1.
+  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Funktion (optional) - Wird aufgerufen wenn das Menü geschlossen wird.
 
 Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
@@ -307,7 +307,7 @@ Template:
 Menü:
 
 ```sh
-<br />- 1
+- 1
 - 2
 - 3
 - 4
@@ -329,7 +329,7 @@ Template:
 Menü:
 
 ```sh
-<br />- 3
+- 3
 - 4
 - ---
 - 1
@@ -350,7 +350,7 @@ Template:
 Menü:
 
 ```sh
-<br />- ---
+- ---
 - 3
 - 2
 - 1

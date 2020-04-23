@@ -4,7 +4,7 @@ Electron tiene APIs para configurar el icono de la aplicación en el Dock de mac
 
 La base de acoplamiento personalizada se utiliza habitualmente para añadir accesos directos a las tareas para las que el usuario no desea abrir toda la ventana de la aplicación.
 
-**Menú Dock de Terminal.app:**
+__Menú Dock de Terminal.app:__
 
 ![Menu Dock](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 

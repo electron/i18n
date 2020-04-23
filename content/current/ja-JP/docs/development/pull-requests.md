@@ -1,18 +1,18 @@
 # プルリクエスト
 
-* [ローカル環境のセットアップ](#setting-up-your-local-environment) 
+* [ローカル環境のセットアップ](#setting-up-your-local-environment)
   * [ステップ1: フォーク](#step-1-fork)
   * [ステップ2: ビルド](#step-2-build)
   * [ステップ3: ブランチ](#step-3-branch)
-* [変更を加える](#making-changes) 
+* [変更を加える](#making-changes)
   * [ステップ4: コーディング](#step-4-code)
-  * [ステップ5: コミット](#step-5-commit) 
+  * [ステップ5: コミット](#step-5-commit)
     * [コミットメッセージのガイドライン](#commit-message-guidelines)
   * [ステップ6: リベース](#step-6-rebase)
   * [ステップ7: テスト](#step-7-test)
   * [ステップ8: プッシュ](#step-8-push)
   * [ステップ9: プルリクエストを開く](#step-9-opening-the-pull-request)
-  * [ステップ10: 議論と更新](#step-10-discuss-and-update) 
+  * [ステップ10: 議論と更新](#step-10-discuss-and-update)
     * [承認とリクエストの変更ワークフロー](#approval-and-request-changes-workflow)
   * [ステップ11: 取り込み](#step-11-landing)
   * [継続的インテグレーションテスト](#continuous-integration-testing)
@@ -33,7 +33,6 @@ $ git fetch upstream
 ### ステップ2: ビルド
 
 ビルド手順と依存関係は、オペレーティングシステムによって若干異なります。 Electron をローカルに構築する際は、これらの詳細なガイドを参照してください。
-
 * [macOS 上でビルド](https://electronjs.org/docs/development/build-instructions-macos)
 * [Linux 上でビルド](https://electronjs.org/docs/development/build-instructions-linux)
 * [Windows 上でビルド](https://electronjs.org/docs/development/build-instructions-windows)
@@ -77,29 +76,28 @@ $ git commit
 
 意図を示すプレフィックスのあるコミットメッセージのの例です。:
 
-* `fix: don't overwrite prevent_default if default wasn't prevented`
-* `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux`
+- `fix: don't overwrite prevent_default if default wasn't prevented`
+- `feat: add app.isPackaged() method`
+- `docs: app.isDefaultProtocolClient is now available on Linux`
 
 プレフィックスの例:
 
-    - fix: バグフィックス
-    - feat: 新しい機能
-    - docs: ドキュメントの修正
-    - test: 不足していたテストの追加や、既存のテストの修正
-    - build: ビルドシステムに影響のある修正
-    - ci: CI の設定ファイルやスクリプトへの修正
-    - perf: 性能を向上させるコードの修正
-    - refactor: バグフィックスでもなく、機能追加でもないコードの修正
-    - style: コードの意味に影響しない修正 (スタイル修正)
-    - vendor: libchromiumcontent や nodeのような依存性に関係する修正
-    
+  - fix: A bug fix
+  - feat: A new feature
+  - docs: Documentation changes
+  - test: Adding missing tests or correcting existing tests
+  - build: Changes that affect the build system
+  - ci: Changes to our CI configuration files and scripts
+  - perf: A code change that improves performance
+  - refactor: A code change that neither fixes a bug nor adds a feature
+  - style: Changes that do not affect the meaning of the code (linting)
+  - vendor: Bumping a dependency like libchromiumcontent or node
 
 その他、コミットメッセージを作成するときに留意すること:
 
-1. 最初の行は、以下の通りにしてください。 
-  * 変更の簡単な説明が含まれている (50文字以下が好ましく、72文字未満である)
-  * 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
+1. 最初の行は、以下の通りにしてください。
+   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   - 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
 2. 2行目は空にしてください。
 3. 他のすべての行は72列で折り返します。
 
@@ -197,3 +195,4 @@ $ git push origin my-branch
 理想的には、プルリクエストは CI のすべてのプラットフォーム上で合格します ("青になる") 。 これは、すべてのテストが合格し、lint のエラーがないことを意味します。 しかし、CI インフラストラクチャ自体が特定のプラットフォームで失敗したり、いわゆる "flaky" テストに失敗する ("赤になる") ことは珍しいことではありません。 各 CI の失敗を手動で検査して原因を特定する必要があります。
 
 プルリクエストを開くと、CI が自動的に開始されますが、メンテナーだけが CI の実行をリスタートできます。 CI が誤検知をしていると思われる場合は、メンテナーにテストをリスタートするよう依頼してください。
+

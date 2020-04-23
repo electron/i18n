@@ -61,26 +61,25 @@ Pour savoir comment obtenir une clé API Google, vous pouvez aller [sur cette pa
 
 ### `ELECTRON_NO_ASAR`
 
-Désactive le support ASAR. Cette variable est seulement supportée par les processus enfant forké et les processus enfant qui ont `ELECTRON_RUN_AS_NODE`.
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
 Démarre le processus comme un processus normal de Node.js.
 
-### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
+### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 Ne s'attache pas la session courante de la console.
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
 
 N'utilise pas la bar de menu global sur Linux.
 
-### `ELECTRON_TRASH` *Linux*
+### `ELECTRON_TRASH` _Linux_
 
-Met en place l'implémentation de la corbeille dans Linux. Vaut par défaut `gio`.
+Set the trash implementation on Linux. Default is `gio`.
 
 Options :
-
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -90,13 +89,14 @@ Options :
 
 Les variables d'environnement suivantes sont destinés principalement pour le développement et le débogage.
 
+
 ### `ELECTRON_ENABLE_LOGGING`
 
 Affiche les logs interne de Chrome sur la console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-Lorsque Electron lit un fichier ASAR, enregistrez le décalage de lecture et le chemin d'accès du fichier dans le système `tmpdir`. Le fichier résultant peut être fourni au module ASAR pour optimiser l'ordonnancement des fichiers.
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
@@ -104,7 +104,7 @@ Affiche la stack trace sur la console lorsqu'Electron plante.
 
 Cette variable d'environnement ne fonctionnera pas si vous avez démarré `crashReporter`.
 
-### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
+### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
 
 Affiche la boite de dialogue de plantage lorsqu'Electron plante.
 

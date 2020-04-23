@@ -58,7 +58,7 @@ See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --
 
 ## --proxy-bypass-list=`hosts`
 
-指示 Electron绕过给定的分号分隔的代理服务器主机列表. 这个标志只有在与`--proxy-server`配合使用时才会生效。
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
 例如：
 
@@ -75,7 +75,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --no-proxy-server
 
-不要使用代理服务器，并始终直接连接. 覆盖传递的任何其他代理服务器标志。
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
 ## --host-rules=`rules`
 
@@ -83,10 +83,10 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 例如：
 
-- `MAP * 127.0.0.1` 强制将所有主机名映射到127.0.0.1
-- `MAP *.google.com proxy` 强制所有google.com子域名解析到"proxy".
-- `MAP test.com [::1]:77` 强制"test.com"解析为IPv6环回地址. 也将强制生成的套接字地址端口为77.
-- `MAP * baz, EXCLUDE www.google.com` 把所有地址重新映射到“baz”, 除了"www.google.com".
+* `MAP * 127.0.0.1` 强制将所有主机名映射到127.0.0.1
+* `MAP *.google.com proxy` 强制所有google.com子域名解析到"proxy".
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP * baz, EXCLUDE www.google.com` 把所有地址重新映射到“baz”, 除了"www.google.com".
 
 这些映射适用于网络请求中的端点主机. 网络请求包括TCP连接和直连的主机解析器, 以及HTTP代理连接中的`CONNECT`方式, 以及在`SOCKS`代理连接中的端点主机.
 
@@ -140,7 +140,7 @@ A comma-separated list of servers for which delegation of user credentials is re
 
 ## --v=`log_level`
 
-给定默认的最大的有效V-logging等级; 0是默认值。 通常V-logging等级为正值.
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 这个开关只有在`--enable-logging`也被传递时才起效.
 
@@ -155,7 +155,6 @@ A comma-separated list of servers for which delegation of user credentials is re
 ## --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
-
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`

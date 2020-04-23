@@ -4,7 +4,7 @@ author: zeke
 date: '2016-08-16'
 ---
 
-As of Electron version 1.3.1, you can `npm install electron --save-dev` to install the latest precompiled version of Electron in your app.
+Начиная с версии Electron 1.3.1, вы можете выполнить `npm install electron --save-dev` для установки последней скомпилированной версии Electron в ваше приложение.
 
 ---
 

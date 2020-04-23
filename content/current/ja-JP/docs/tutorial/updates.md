@@ -4,7 +4,7 @@ Electronアプリケーションを更新する方法がいくつかあります
 
 ## `update.electronjs.org`の使用
 
-GitHubのElectron チームは [update.electronjs.org](https://github.com/electron/update.electronjs.org)をメンテナンスしており、これはElectronを自己更新するための、オープンソースのWEBサービスです。 このサービスは次の条件を満すElectronアプリ用に設計されています。
+Electron チームは [update.electronjs.org](https://github.com/electron/update.electronjs.org) をメンテナンスしています。これは、Electron を自己更新するためのオープンソースウェブサービスです。 このサービスは次の条件を満すElectronアプリ用に設計されています。
 
 - macOSまたはWindowsで動作するアプリである。
 - アプリはGitHubのパブリックなリポジトリである。
@@ -59,7 +59,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-最後のステップとして、更新を確認してください。以下の例は毎分チェックします。
+最後のステップとして、更新を確認します。 以下の例では、毎分確認します。
 
 ```javascript
 setInterval(() => {
@@ -89,7 +89,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-エラーが[処理されている](../api/auto-updater.md#event-error)ことも確認してください。これらは `stderr` にログを出力するための例です:
+エラーが [処理されている](../api/auto-updater.md#event-error) ことも確認してください。 これは `stderr` にログを出力するための例です。
 
 ```javascript
 autoUpdater.on('error', message => {

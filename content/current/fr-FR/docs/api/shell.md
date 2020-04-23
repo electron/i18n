@@ -22,7 +22,7 @@ Le module `shell` dispose des méthodes suivantes :
 
 * `fullPath` String
 
-Affiche le fichier donné dans un gestionnaire de fichier. Si possible, sélectionne le fichier.
+Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openItem(fullPath)`
 
@@ -35,18 +35,18 @@ Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 ### `shell.openExternal(url[, options])`
 
 * `url` String - 2081 caractères max. sur Windows.
-* `options` Object (facultatif) 
-  * `activate` Boolean (facultatif) *macOS* - `true` pour placer l'application ouverte au premier plan. Défaut : `true`.
-  * `workingDirectory` String (optional) *Windows* - Le dossier de travail.
+* `options` Object (optional)
+  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
+  * `workingDirectory` String (optional) _Windows_ - Le dossier de travail.
 
 Retourne `Promise<void>`
 
-Ouvre l'URL externe donnée en utilisant la méthode par défaut du système, en fonction de son protocole. (Par exemple, les URLs mailto: s'ouvrent avec l'agent de messagerie par défaut).
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. *macOS*
+* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
 
 Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
 
@@ -56,10 +56,10 @@ Déplace le fichier donné dans la poubelle et retourne un booléen.
 
 Émet un signal sonore.
 
-### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
+### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
 * `shortcutPath` String
-* `operation` String (facultatif) - La valeur par défaut est `create`, peut être une des valeurs suivantes : 
+* `operation` String (optional) - Default is `create`, can be one of following:
   * `create` - Créer un nouveau raccourci, écrase si besoin.
   * `update` - Met à jour les propriétés seulement sur un raccourci existant.
   * `replace` - Remplace un raccourci existant, échoue si le raccourci n'existe pas.
@@ -69,7 +69,7 @@ Retourne `Boolean` - Si le raccourci a été créé avec succès.
 
 Créer ou met à jour un lien raccourci à `shortcutPath`.
 
-### `shell.readShortcutLink(shortcutPath)` *Windows*
+### `shell.readShortcutLink(shortcutPath)` _Windows_
 
 * `shortcutPath` String
 

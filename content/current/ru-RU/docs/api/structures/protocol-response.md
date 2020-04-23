@@ -1,6 +1,6 @@
 # Объект ProtocolResponse
 
-* `error` Integer (опционально) - Когда назначен `request` завершится ошибкой с номером `error`. For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+* `error` Integer (опционально) - Когда назначен `request` завершится ошибкой с номером `error`. Доступные номера ошибок, которые вы можете использовать, смотрите в [списке ошибок сети](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 * `statusCode` Number (опционально) - Код ответа HTTP, по умолчанию 200.
 * `charset` String (опционально) - Кодировка тела ответа, по умолчанию `"utf-8"`.
 * `mimeType` String (опционально) - Тип MIME тела ответа, по умолчанию `"text/html"`. Установка `mimeType` неявно установит `content-type` в ответе, но если `content-type` уже установлен `headers`, `mimeType` будет проигнорирован.

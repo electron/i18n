@@ -10,8 +10,8 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 
 ### `window.open(url[, frameName][, features])`
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>frameName` String (optional)
+* `url` String
+* `frameName` String (optional)
 * `features` String (optional)
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
@@ -19,7 +19,6 @@ Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window a
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 Ein Beispiel:
-
 ```js
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```

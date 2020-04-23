@@ -16,7 +16,7 @@ The `Menu` class has the following static methods:
 
 * `menu` Menu | null
 
-Define `menu` como o menu de aplicativo no macOS. No Windows e no Linux, o `menu` será definido como menu superior de cada janela.
+Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
 Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
@@ -28,9 +28,9 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 Retorna `Menu | null` - O menu do aplicativo, se definido, ou `null`, se não fora definido.
 
-**Nota:** A instancia `Menu` retornada não suporta adição dinâmica ou remoção de itens de menu. [Instance properties](#instance-properties) ainda podem ser modificadas dinamicamente.
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) ainda podem ser modificadas dinamicamente.
 
-#### `Menu.sendActionToFirstResponder(action)` *macOS*
+#### `Menu.sendActionToFirstResponder(action)` _macOS_
 
 * `action` String
 
@@ -54,11 +54,11 @@ O objeto `menu` possui os seguintes métodos de instância:
 
 #### `menu.popup([options])`
 
-* `options` Objeto (opcional) 
+* `options` Object (optional)
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Function (optional) - Called when menu is closed.
 
 Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
@@ -258,7 +258,7 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Notas sobre o Menu de aplicativo no macOS
 
-as aplicações no macOS tem um estilo de menu completamente diferente do Windows e do Linux. Aqui temos algumas nota sobre como fazer o menu do seu app mais "nativo".
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
 ### Menus Padrão
 
@@ -307,7 +307,7 @@ Modelo:
 Menu:
 
 ```sh
-<br />- 1
+- 1
 - 2
 - 3
 - 4
@@ -329,7 +329,7 @@ Modelo:
 Menu:
 
 ```sh
-<br />- 3
+- 3
 - 4
 - ---
 - 1
@@ -350,7 +350,7 @@ Modelo:
 Menu:
 
 ```sh
-<br />- ---
+- ---
 - 3
 - 2
 - 1

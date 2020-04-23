@@ -1,4 +1,4 @@
-# Windows 商店提交指南
+# Windows 商店指南
 
 在 Windows 10 中，一些不错的旧 win32 程序迎来了一个新朋友：通用 Windows 平台。 新的 `.appx` 格式不仅启用了许多新的强大的 API，如 Cortana 或推送通知，而且通过 Windows 应用商店，也同时简化了安装和更新。
 
@@ -44,8 +44,7 @@ npm install -g electron-windows-store
 │   ├── [...]
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   └── app.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
@@ -76,7 +75,6 @@ electron-windows-store `
 另一个重要的限制是编译的 AppX 包仍然包含一个 win32 可执行文件，因此不会在 Xbox，HoloLens 或 Phones 中运行。
 
 ## 可选: 使用 BackgroundTask 添加 UWP 功能
-
 您可以将 Electron 应用程序与不可见的 UWP 后台任务配对，以充分利用 Windows 10 功能，如推送通知，Cortana 集成或活动磁贴。
 
 如何使用 Electron 应用程序通过后台任务发送 Toast 通知和活动磁贴, 请[查看微软提供的案例](https://github.com/felixrieseberg/electron-uwp-background).

@@ -49,11 +49,10 @@ Sets the maximum and minimum pinch-to-zoom level.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> ```js
-webFrame.setVisualZoomLevelLimits(1, 3)
-```
+> `js
+  webFrame.setVisualZoomLevelLimits(1, 3)`
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -65,10 +64,10 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `language` String
-* `provider` Objekt 
-  * `spellCheck` Funkce 
+* `provider` Object
+  * `spellCheck` Function
     * `words` String[]
-    * `callback` Funkce 
+    * `callback` Function
       * `misspeltWords` String[]
 
 Sets a provider for spell checking in input fields and text areas.
@@ -134,7 +133,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature.  You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (optional) - Default is `false`.
 
@@ -143,9 +142,8 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
-
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
-* `info` Objekt 
+* `info` Object
   * `securityOrigin` String (optional) - Security origin for the isolated world.
   * `csp` String (optional) - Content Security Policy for the isolated world.
   * `name` String (optional) - Name for isolated world. Useful in devtools.
@@ -212,26 +210,26 @@ Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
 ## Vlastnosti
 
-### `webFrame.top` *Readonly*
+### `webFrame.top` _Readonly_
 
 A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
 
-### `webFrame.opener` *Readonly*
+### `webFrame.opener` _Readonly_
 
 A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
 
-### `webFrame.parent` *Readonly*
+### `webFrame.parent` _Readonly_
 
 A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
 
-### `webFrame.firstChild` *Readonly*
+### `webFrame.firstChild` _Readonly_
 
 A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
 
-### `webFrame.nextSibling` *Readonly*
+### `webFrame.nextSibling` _Readonly_
 
 A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
 
-### `webFrame.routingId` *Readonly*
+### `webFrame.routingId` _Readonly_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.

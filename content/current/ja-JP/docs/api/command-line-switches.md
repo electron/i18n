@@ -44,7 +44,7 @@ HTTP/2 および SPDY/3.1 プロトコルを無効にします。
 
 ## --js-flags=`flags`
 
-Node.js エンジンに渡すフラグを指定します。メインプロセスで `flags` を有効にしたい場合、Electron を開始するときに渡す必要があります。
+Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
@@ -58,7 +58,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ## --proxy-bypass-list=`hosts`
 
-指定したホストのセミコロン区切りのリストに対してプロキシサーバーをバイパスするよう、Electronに指示します。このフラグは、`--proxy-server` と併用する場合にしか効果がありません。
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
 例:
 
@@ -75,7 +75,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --no-proxy-server
 
-プロキシサーバーを使用せず、常に直接接続します。渡された他のプロキシサーバーのフラグを上書きします。
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
 ## --host-rules=`rules`
 
@@ -83,10 +83,10 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 例:
 
-- `MAP * 127.0.0.1` は、すべてのホスト名を強制的に127.0.0.1にマッピングします。
-- `MAP *.google.com proxy` は、すべてのgoogle.comのサブドメインを強制的に "proxy" で解決されるようにします。
-- `MAP test.com [::1]:77` は、"test.com" を強制的にIPv6ループバックにします。また、最終的なソケットアドレスのポートを強制的に77にします。
-- `MAP * baz, EXCLUDE www.google.com` は、"www.google.com" 以外のすべてを "baz" に再マッピングします。
+* `MAP * 127.0.0.1` は、すべてのホスト名を強制的に127.0.0.1にマッピングします。
+* `MAP *.google.com proxy` は、すべてのgoogle.comのサブドメインを強制的に "proxy" で解決されるようにします。
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP * baz, EXCLUDE www.google.com` は、"www.google.com" 以外のすべてを "baz" に再マッピングします。
 
 これらのマッピングは、ネットワークリクエストのエンドポイントのホスト (直接接続でのTCP接続とホストリゾルバー、HTTPプロキシ接続での `CONNECT`、`SOCKS` プロキシ接続でのエンドポイントホスト) に対して適用されます。
 
@@ -108,7 +108,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-ユーザーの資格情報の委任が必要となるサーバーのコンマ区切りのリストです。`*` のプリフィックスがない場合は、URL は厳密に一致する必要があります。
+A comma-separated list of servers for which delegation of user credentials is required. `*` のプリフィックスがない場合は、URL は厳密に一致する必要があります。
 
 ## --ignore-certificate-errors
 
@@ -140,7 +140,7 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 
 ## --v=`log_level`
 
-既定の最大のアクティブなVログレベルを指定します。0が省略値です。通常、正の値がVログレベルには使われます。
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
 
@@ -155,7 +155,6 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 ## --enable-api-filtering-logging
 
 以下の API の呼び出し元スタックログを有効にします (イベントのフィルタリング)。
-
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`
@@ -166,4 +165,4 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 
 ## --no-sandbox
 
-Chromium サンドボックスを無効にします。既定では有効です。テストにのみ使用するようにしてください。
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.

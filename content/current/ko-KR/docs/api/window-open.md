@@ -19,7 +19,6 @@ Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window a
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 예시:
-
 ```js
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
@@ -53,7 +52,7 @@ This option can also be set on `<webview>` tags as well:
 The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
 
 ```javascript
-// main process
+// 메인 프로세스
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -63,7 +62,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // open window as modal
+    // modal로 창을 염
     event.preventDefault()
     Object.assign(options, {
       modal: true,

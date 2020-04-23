@@ -11,13 +11,13 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 Context | Request Context
 `
 
-* `pagpipilian` (Object | String) - Kung `mga opsyon` ay isang String, nangangahulugang hiling ng URL. Kung ito ay isang object, inaasahang ganap na tumutukoy ang isang HTTP mag-request sa pamamagitan ng sumusunod na: 
-  * `method` String (opsyonal) - Paraan ng HTTP request. Mga defaults sa GET na paraan.
-  * `url` String (opsyonal) - Ang request ng URL. Dapat maibigay ang ganap na anyo ng pamamaraan ng protocol na tinutukoy bilang http or https. 
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (opsyonal) - Ang pangalan ng [`partition`](session.md) kung saan nauunay ang request. Defaults ng mga walang laman na string. Ang `session` opsyon na mananaig sa `partition`. Kaya kung ang isang `session` ay maliwanag na tinutukoy, ang `partition` ay binabalewala.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Ang default ay `false`.
-  * `protocol` String (opsyonal) - Ang pamamaraan ng protocol sa 'scheme:' form. Kasalukuyang suportadong values ay 'http:' o 'https:'. Defaults sa 'http:'.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Ang default ay `false`.
+  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `hostname` String (opsyonal) - Ang host name ng server.
   * `port` Integer (opsyonal) - Ang listening port number ng server.
@@ -42,7 +42,7 @@ const request = net.request({
 
 #### Event: 'response'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `response` IncomingMessage - Isang bagay na kumakatawan ng HTTP response message.
 
@@ -50,13 +50,13 @@ Ibinabalik ang:
 
 Pagbabalik:
 
-* `ang authInfo` Bagay 
+* `authInfo` Object
   * `isProxy` Ang Boolean
   * `scheme` na String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Punsyon 
+* `callback` na Function
   * `username` String (optional)
   * `password` String (optional)
 
@@ -72,7 +72,6 @@ request.on('login', (authInfo, callback) => {
   callback('username', 'password')
 })
 ```
-
 Ang pagbibigay ng walang laman na mga kredensyal ay maaaring magka-cancel ng request at ma-iulat ang isang authentication error sa response object:
 
 ```JavaScript
@@ -89,36 +88,37 @@ request.on('login', (authInfo, callback) => {
 
 #### Event: 'finish'
 
-Naalis pagkatapos ng huling tipak sa `request` ng mga data na isinulat para sa `request` object.
+Naalis pagkatapos ng huling tipak sa  `request` ng mga data na isinulat para sa `request` object.
 
 #### Event: 'abort'
 
-Matatanggal kapag ang `request` ay naudlot. Ang `abort` event ay hindi matitiwalag kung ang `request` ay nakasara na.
+Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### Pangyayari: 'error'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `error` Error - isang error object na nagbibigay impormasyon tungkol sa kabiguan.
 
-Matatanggal kapag nabigo ang `net` na module sa pag-issue ng network request. Karaniwan kapag ang `request` object ay nagtanggal ng `error` na event, isang `close` na event na sumusubaybay at walang response na object ang ilalaan.
+Matatanggal kapag nabigo ang  `net` na module sa pag-issue ng network request. Karaniwan kapag ang  `request` object ay nagtanggal ng `error` na event, isang `close` na event na sumusubaybay at walang response na object ang ilalaan.
 
 #### Event: 'isara'
 
-Tinatanggal bilang panghuling event sa HTTP request-response transaction. Ang `close` na event ay nagsasaad na walang tatanggalin na events alinman sa `request` o `response` na mga object.
+Tinatanggal bilang panghuling event sa HTTP request-response transaction. Ang  `close` na event ay nagsasaad na walang tatanggalin na events alinman sa `request` o `response` na mga object.
+
 
 #### Event: 'redirect'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `statusCode` Integer
 * `method` na String
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Mga Katangian ng Instansya
+### Katangian ng pagkakataon
 
 #### `request.chunkedEncoding`
 
@@ -126,7 +126,7 @@ Ang `Boolean` ay ang pagtitiyak kung ang request ay gagamit ng HTTP chunked tran
 
 Ang paggamit ng chunked encoding ay mahalagang inirerekumenda kung kailangan mag-send ng large request body bilang data ay mai-steam sa small chunks sa halip na mag-buffer sa loob ng Electron process memory.
 
-### Mga pamamaraan ng pagkakataon
+### Mga Halimbawa ng Sistematikong Paraan
 
 #### `request.setHeader(name, value)`
 
@@ -145,15 +145,15 @@ Returns `String` - The value of a previously set extra header name.
 
 * `name` String - Tumukoy ng dugtong na pangalan ng header.
 
-Nagtatanggal ng nauunang itinakda na dugtong na pangalan ng header. Ang method na ito ay matatawag lamang bago ang first write. Subukang tumawag matapos ang first write ay magiging error.
+Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - Isang tipak sa data ng katawan ng request. Kung ito ay isang string, ito ay mai-convert sa Buffer gamit ang tinutukoy na encoding.
-* `encoding` String (opsyonal) - Ginagamit para ma-convert ang mga tipak ng string sa Buffer objects. I-default sa 'utf-8'.
+* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
+* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
 * `callback` Function (opsyonal) - Tinatawag matapos magtatapos ang write operation.
 
-`callback` ay mahalagang manika na function may layuning ipinakilala upang matupad ang pagkapareho ng Node.js API. Ito ay tinatawag na asynchronous sa susunod na tik matapos maihatid ang `chunk` na nilalaman sa Chromium na networking layer. Kasalungat sa pagpapatupad ng Node.js, hindi garantisado na ang `chunk` na nilalaman ay na-flush sa wire bago itinawag ang `callback`.
+`callback` ay mahalagang manika na function may layuning ipinakilala upang matupad ang pagkapareho ng Node.js API. Ito ay tinatawag na asynchronous sa susunod na tik matapos maihatid ang `chunk` na nilalaman sa Chromium na networking layer. Kasalungat sa pagpapatupad ng Node.js, hindi garantisado na ang `chunk` na nilalaman ay na-flush sa wire bago itinawag ang  `callback`.
 
 Nagdaragdag ng tipak na data sa katawan ng request. Ang first write na operation ay maaaring maging sanhi na ma-issue sa wire ang request na mga headers. Matapos ang first write operation, hindi na pwedeng magdagdag o magalis ng custom na header.
 
@@ -163,7 +163,7 @@ Nagdaragdag ng tipak na data sa katawan ng request. Ang first write na operation
 * `encoding` String (opsyonal)
 * `callback` Function (opsyonal)
 
-Ipinapapadala ang huling tipak sa request na data. Kasunod na sulat o patapos na operations ay hindi maaari. Ang `finish` na event ay tinatanggal matapos magtapos ang operation.
+Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
 #### `request.abort()`
 

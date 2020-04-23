@@ -5,17 +5,16 @@
 セキュリティ上の相談がある場合は、[セキュリティドキュメント](https://github.com/electron/electron/tree/master/SECURITY.md) をご参照ください。
 
 プログラミングの質問とその回答を探したり、Electron を使っている他の開発者との議論に参加したりしたいのであれば、以下のロケーションのコミュニティで対話できます。
-
-* Atom フォーラムの [`electron`](https://discuss.atom.io/c/electron) カテゴリ
-* Freenode の `#atom-shell` チャンネル
-* [Atom の Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406) の `#electron` チャンネル
-* [`electron-ru`](https://telegram.me/electron_ru) *(ロシア)*
-* [`electron-br`](https://electron-br.slack.com) *(ブラジルポルトガル語)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韓国語)*
-* [`electron-jp`](https://electron-jp.slack.com) *(日本語)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(トルコ語)*
-* [`electron-id`](https://electron-id.slack.com) *(インドネシア語)*
-* [`electron-pl`](https://electronpl.github.io) *(ポーランド語)*
+- Atom フォーラムの [`electron`](https://discuss.atom.io/c/electron) カテゴリ
+- Freenode の `#atom-shell` チャンネル
+- [Atom の Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406) の `#electron` チャンネル
+- [`electron-ru`](https://telegram.me/electron_ru) *(ロシア)*
+- [`electron-br`](https://electron-br.slack.com) *(ブラジルポルトガル語)*
+- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韓国語)*
+- [`electron-jp`](https://electron-jp.slack.com) *(日本語)*
+- [`electron-tr`](https://electron-tr.herokuapp.com) *(トルコ語)*
+- [`electron-id`](https://electron-id.slack.com) *(インドネシア語)*
+- [`electron-pl`](https://electronpl.github.io) *(ポーランド語)*
 
 Electron にコントリビュートしたい場合は、[コントリビュートドキュメント](https://github.com/electron/electron/blob/master/CONTRIBUTING.md) をご参照ください。
 
@@ -25,7 +24,7 @@ Electron の [サポートしているバージョン](#supported-versions) に�
 
 ## サポートされているバージョン
 
-最新の 3 つの *安定した* メジャーバージョンは Electron チームによってサポートされます。 たとえば、最新のリリースが 6.1.x の場合、5.0.x と 4.2.x 系列がサポートされます。 安定リリース系列ごとに最新のマイナーリリースのみをサポートしています。 つまり、セキュリティ修正の場合 6.1.x は修正を受けますが、6.0.x の新しいバージョンはリリースしません。
+最新の 3 つの *安定した* メジャーバージョンは Electron チームによってサポートされます。 たとえば、最新のリリースが 6.1.x の場合、5.0.x と 4.2.x 系列がサポートされます。  安定リリース系列ごとに最新のマイナーリリースのみをサポートしています。  つまり、セキュリティ修正の場合 6.1.x は修正を受けますが、6.0.x の新しいバージョンはリリースしません。
 
 最新の安定版リリースは一方的に `master` からすべての修正を受け取り、それ以前のバージョンは時間と容量が許すようなこれら修正の大部分を受けています。 サポートされている最も古いリリースラインには、セキュリティ修正のみが直接送られます。
 
@@ -34,10 +33,9 @@ Electron の [サポートしているバージョン](#supported-versions) に�
 既存の機能を破壊するような API の変更や削除がされた場合、可能であれば、その機能は削除されるまでに最低 2 つのメジャーバージョンでサポートされます。 例えば、3 引数を取る関数が、メジャーバージョン 10 で 2 引数になった場合、3 引数版は少なくともメジャーバージョン 12 まで動作し続けます。 最低 2 つのバージョンという基準を過ぎた後は、メンテナンスの負担が大きすぎるとメンテナが感じるまで、2 つのバージョンより長く下位互換性をサポートします。
 
 ### 現在のサポート対象バージョン
-
-* 8.1.x
-* 7.1.x
-* 6.1.x
+- 8.1.x
+- 7.1.x
+- 6.1.x
 
 ### End-of-life
 

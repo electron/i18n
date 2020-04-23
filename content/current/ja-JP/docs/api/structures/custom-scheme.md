@@ -1,7 +1,7 @@
 # CustomScheme オブジェクト
 
 * `scheme` String - オプションで登録されるカスタムスキーム。
-* `privileges` Object (任意) 
+* `privileges` Object (optional)
   * `standard` Boolean (任意) - 省略値は false。
   * `secure` Boolean (任意) - 省略値は false。
   * `bypassCSP` Boolean (任意) - 省略値は false。

@@ -2,7 +2,7 @@
 
 > Communicate asynchronously from the main process to renderer processes.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
 
@@ -12,7 +12,7 @@ It is also possible to send messages from the main process to the renderer proce
 
 * When sending a message, the event name is the `channel`.
 * To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 An example of sending and handling messages between the render and main processes:
 
@@ -48,7 +48,7 @@ The `ipcMain` module has the following method to listen for events:
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Funktion 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,7 +57,7 @@ Listens to `channel`, when a new message arrives `listener` would be called with
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Funktion 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -66,7 +66,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Funktion 
+* `listener` Function
   * `...args` any[]
 
 Removes the specified `listener` from the listener array for the specified `channel`.
@@ -80,7 +80,7 @@ Removes listeners of the specified `channel`.
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` Funktion<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -107,7 +107,7 @@ The `event` that is passed as the first argument to the handler is the same as t
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Funktion<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 

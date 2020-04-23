@@ -1,0 +1,4 @@
+# TraceCategoriesAndOptions 객체
+
+* `categoryFilter` String – 추적할 카테고리 그룹을 제어하는 필터입니다. 필터는 옵션으로써, 일치하는 카테고리가 포함된 카테고리 그룹을 제외한 접두사를 가질 수 있습니다. 같은 리스트에 포함과 제외, 양쪽의 카테고리 패턴을 포함하는 것은 지원하지 않습니다. 예: `test_MyTest*`, `test_MyTest*,test_OtherStuff`, `-excluded_category1,-excluded_category2`.
+* `traceOptions` String - 어떤 종류의 추적을 할 것인지 설정하는 값이며, 다음의 옵션을 지원합니다. 여러개의 옵션을 사용할 경우, 옵션은 콤마(,)로 구분되어야 합니다: `record-until-full`, `record-continuously`, `trace-to-console`, `enable-sampling`, `enable-systrace`, 예: `'record-until-full,enable-sampling'`. 처음 3 가지이 trace recording 옵션은 상호 배타적입니다. `traceOptions`의 문자열에 한가지 이상의 추적 기록 모드를 발견한 경우, 가장 마지막 하나의 모드를 우선합니다. 어떤 추적 기록 모드도 설정되어있지 않은 경우, 기록모드는 `record-until-full`입니다. 트레이스 옵션은 처음 `traceOptions`이 파싱되어 적용되기 전까지 기본 옵션(`record_mode` 은 `record-until-full`로 설정되며, `enable_sampling` 과 `enable_systrace` 는 `false`로 설정됩니다.) 으로 리셋됩니다.

@@ -31,12 +31,12 @@ Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended bec
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
-* Petite icône 
+* Petite icône
   * 16x16 (100% DPI scale)
   * 20x20 (125% DPI scale)
   * 24x24 (150% DPI scale)
   * 32x32 (200% DPI scale)
-* Grande icône 
+* Grande icône
   * 32x32 (100% DPI scale)
   * 40x40 (125% DPI scale)
   * 48x48 (150% DPI scale)
@@ -51,7 +51,7 @@ On platforms that have high-DPI support such as Apple Retina displays, you can a
 
 For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
+If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. Par exemple :
 
 ```plaintext
 images/
@@ -88,7 +88,7 @@ The most common case is to use template images for a menu bar icon, so it can ad
 
 **Note:** Template image is only supported on macOS.
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+To mark an image as a template image, its filename should end with the word `Template`. Par exemple :
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
@@ -121,7 +121,7 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Objet 
+* `options` Object
   * `width` Integer
   * `height` Integer
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
@@ -133,7 +133,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (facultatif) 
+* `options` Object (optional)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
@@ -150,7 +150,7 @@ Retourne `NativeImage`
 
 Creates a new `NativeImage` instance from `dataURL`.
 
-### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
+### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` String
 * `hslShift` Number[] (optional)
@@ -185,7 +185,7 @@ The following methods are available on instances of the `NativeImage` class:
 
 #### `image.toPNG([options])`
 
-* `options` Object (facultatif) 
+* `options` Object (optional)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient les données encodées `PNG` de l'image.
@@ -198,32 +198,32 @@ Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_
 
 #### `image.toBitmap([options])`
 
-* `options` Object (facultatif) 
+* `options` Object (optional)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient une copie des données du pixel brut bitmap de l'image.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (facultatif) 
+* `options` Object (optional)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `String` - L'URL des données de l'image.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (facultatif) 
+* `options` Object (optional)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient les données brutes des pixels bitmap de l'image.
 
 The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
-#### `image.getNativeHandle()` *macOS*
+#### `image.getNativeHandle()` _macOS_
 
 Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui stocke le pointeur C sur la gestion native sous-jacente de l'image . Sur macOS, un pointeur vers `NSImage` serait retourné.
 
-Note que le pointeur retourné est un pointeur faible vers l'image native sous-jacente au lieu d'une copie, donc vous *devez* vous assurer que l'instance associée `nativeImage` est conservée.
+Note que le pointeur retourné est un pointeur faible vers l'image native sous-jacente au lieu d'une copie, donc vous _devez_ vous assurer que l'instance associée `nativeImage` est conservée.
 
 #### `image.isEmpty()`
 
@@ -255,7 +255,7 @@ Retourne `NativeImage` - L'image recadrée.
 
 #### `image.resize(options)`
 
-* `options` Objet 
+* `options` Object
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (facultatif) - La hauteur de l'image par défaut.
   * `Qualité` String (facultatif) - La qualité souhaitée de l'image de retaille. Possible values are `good`, `better`, or `best`. La valeur par défaut est `meilleur`. Ces valeurs expriment un compromis qualité/vitesse souhaité. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
@@ -270,18 +270,18 @@ Retourne `Float` - Le ratio d'aspect de l'image.
 
 #### `image.addRepresentation(options)`
 
-* `options` Objet 
+* `options` Object
   * `scaleFactor` Double - The scale factor to add the image representation for.
-  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
-  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `largeur` Integer (facultatif) - 0 par défaut. Required if a bitmap buffer is specified as `buffer`.
+  * `height` Integer (facultatif) - 0 par défaut. Required if a bitmap buffer is specified as `buffer`.
   * `tampon` Buffer (facultatif) - Le tampon contenant les données de l'image brute.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
-Ajouter une représentation d'image pour un facteur d'échelle spécifique. Ceci peut être utilisé pour ajouter explicitement différentes représentations de facteur d'échelle à une image. Cette peut être appelée sur des images vides.
+Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
 ### Propriétés d'instance
 
-#### `nativeImage.isMacTemplateImage` *macOS*
+#### `nativeImage.isMacTemplateImage` _macOS_
 
 Une propriété `Boolean` qui détermine si l'image est considérée comme une [image de modèle](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 

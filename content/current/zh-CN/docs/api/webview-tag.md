@@ -2,11 +2,11 @@
 
 ## 警告
 
-Electron的 `webview` 标签基于 [Chromium </code>webview </0> ](https://developer.chrome.com/apps/tags/webview)，后者正在经历巨大的架构变化。 这将影响 `webview` 的稳定性，包括呈现、导航和事件路由。 我们目前建议不使用 `webview` 标签，并考虑其他替代方案，如 `iframe` 、Electron的 `BrowserView` 或完全避免嵌入内容的体系结构。
+Electron的  `webview` 标签基于 [Chromium </code>webview </0> ](https://developer.chrome.com/apps/tags/webview)，后者正在经历巨大的架构变化。 这将影响 `webview` 的稳定性，包括呈现、导航和事件路由。 我们目前建议不使用 `webview` 标签，并考虑其他替代方案，如 `iframe` 、Electron的 `BrowserView` 或完全避免嵌入内容的体系结构。
 
 ## Enabling
 
-默认情况下，Electron >= 5禁用 `webview` 标签。 在构造 `BrowserWindow` 时，需要通过设置 `webviewTag` webPreferences选项来启用标签。 更多信息请参看 [BrowserWindows 的构造器文档](browser-window.md)。
+By default the `webview` tag is disabled in Electron >= 5.  在构造 `BrowserWindow` 时，需要通过设置 `webviewTag` webPreferences选项来启用标签。 更多信息请参看 [BrowserWindows 的构造器文档](browser-window.md)。
 
 ## 概览
 
@@ -116,7 +116,7 @@ A `Boolean`. When this attribute is present the guest page in `webview` will be 
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-A `String` that specifies a script that will be loaded before other scripts run in the guest page. 该脚本的URL的协议必须是 `file:` `asar:`二者之一，因为在访客页中，它是通过“内部”的 `require` 去加载的
+A `String` that specifies a script that will be loaded before other scripts run in the guest page. 该脚本的URL的协议必须是 `file:`  `asar:`二者之一，因为在访客页中，它是通过“内部”的 `require` 去加载的
 
 当访客页没有 node integration ，这个脚本仍然有能力去访问所有的 Node APIs, 但是当这个脚本执行执行完成之后，通过Node 注入的全局对象（global objects）将会被删除。
 
@@ -155,7 +155,7 @@ A `Boolean`. When this attribute is present the guest page will have web securit
 
 A `String` that sets the session used by the page. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 如果没有设置`partition`，app 将会使用默认的session。
 
-此值只能在第一次导航之前修改, 因为活动的渲染进程的会话无法更改。尝试修改该值将会失败, 并会出现一个 DOM 异常。
+This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
 ### `allowpopups`
 
@@ -209,7 +209,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (可选) 
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - 一个 HTTP Referrer url。
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
@@ -439,11 +439,11 @@ Returns `Promise<void>`
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - 要搜索的内容，必须非空。
-* `options` Object (可选) 
+* `options` Object (optional)
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. 默认值为 `false`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -452,7 +452,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
+* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request.
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -461,9 +461,9 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (可选) 
-  * `silent` Boolean (可选) - 不询问用户打印信息，默认为 `false`。
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
+* `options` Object (optional)
+  * `silent` Boolean (optional) - Don't ask user for print settings. 默认值为 `false`.
+  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. 默认值为 `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 
 Returns `Promise<void>`
@@ -472,7 +472,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options)`
 
-* `options` Object 
+* `options` Object
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -500,11 +500,11 @@ Returns `Promise<void>`
 
 通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-示例请进传送门： [webContents.send](web-contents.md#contentssendchannel-args) 
+示例请进传送门： [webContents.send](web-contents.md#contentssendchannel-args)
 
 ### `<webview>.sendInputEvent(event)`
 
-* `event` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
+* `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
 Returns `Promise<void>`
 
@@ -516,7 +516,7 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputeven
 
 * `factor` Number - 缩放比例
 
-更改缩放比例。缩放比例是缩放百分比除以 100，如 300% = 3.0。
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
@@ -541,7 +541,7 @@ Returns `Promise<void>`
 
 设置最大和最小缩放级别。
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -552,11 +552,11 @@ Returns `Promise<void>`
 
 **Deprecated:** This API is no longer supported by Chromium.
 
-### `<webview>.showDefinitionForSelection()` *macOS*
+### `<webview>.showDefinitionForSelection()` _macOS_
 
 Shows pop-up dictionary that searches the selected word on the page.
 
-### `<webview>.getWebContents()` *Deprecated*
+### `<webview>.getWebContents()` _Deprecated_
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
@@ -577,7 +577,7 @@ Returns `Number` - The WebContents ID of this `webview`.
 * `url` String
 * `isMainFrame` Boolean
 
-发生load 加载时触发。 这包括当前文档中的导航以及子框架文档级加载(subframe document-level loads)，但不包括异步资源加载。
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
 ### Event: 'did-finish-load'
 
@@ -592,7 +592,7 @@ Returns `Number` - The WebContents ID of this `webview`.
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()` 
+这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()`
 
 ### Event: 'did-frame-finish-load'
 
@@ -663,7 +663,7 @@ webview.addEventListener('console-message', (e) => {
 
 返回:
 
-* `result` Object 
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - 当前匹配位置。
   * `matches` Integer - 符合匹配条件的元素个数。
@@ -719,7 +719,7 @@ This event will not emit when the navigation is started programmatically with AP
 
 It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+Calling `event.preventDefault()` does __NOT__ have any effect.
 
 ### Event: 'did-navigate'
 
@@ -777,7 +777,7 @@ webview.send('ping')
 ```
 
 ```javascript
-// 在访客页。
+// In guest page.
 const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')

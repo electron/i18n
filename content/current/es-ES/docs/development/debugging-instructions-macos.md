@@ -1,6 +1,6 @@
 # Depuración en macOS
 
-Si tiene accidentes o problemas en Electron que usted crea que no son causados por la aplicación de JavaScript, pero en cambio por el Electron sí mismo, de depuración puede ser un poco difícil, especialmente para los desarrolladores no se utiliza para depuración nativo c/c ++. Sin embargo, usando lldb y el código fuente de Electron, puede habilitar la depuración paso a paso con puntos de interrupción dentro del código fuente de Electron. También puede usar [XCode for debugging](debugging-instructions-macos-xcode.md) si prefiere una interfaz gráfica.
+Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​​por la aplicación de JavaScript, sino por Electron, la depuración puede ser un poco difícil, especialmente para desarrolladores que no están acostumbrados a la depuración nativa/C++. Sin embargo, usando lldb y el código fuente de Electron, puede habilitar la depuración paso a paso con puntos de interrupción dentro del código fuente de Electron. También puede usar [XCode for debugging](debugging-instructions-macos-xcode.md) si prefiere una interfaz gráfica.
 
 ## Requisitos
 
@@ -9,10 +9,9 @@ Si tiene accidentes o problemas en Electron que usted crea que no son causados p
 * **Código X**: adicional al código X, también instala las herramientas del comando de linea de este. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
 * **.lldbinit**: Crear o editar `~/.lldbinit` para permitir que el código de Chromium sea correctamente mapeado de fuentes.
-    
-    ```text
-    importar script ~/electron/src/tools/lldb/lldbinit.py
-    ```
+   ```text
+   importar script ~/electron/src/tools/lldb/lldbinit.py
+   ```
 
 ## A y depuración Electron
 
@@ -96,7 +95,6 @@ Para finalizar la depuración en este punto, corra `continuar proceso`. También
 Ahora, si abre las herramientas para desarrolladores y llama `setName`, alcanzará de nuevo el punto de interrupción.
 
 ### Leer más
-
 LLDB es una herramienta poderosa con una gran documentación. Para aprender más acerca de ella, tome en consideración la documentación sobre la depuración de Apple, La [La documentación sobre la estructura de referencia de LLDB](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o la introducción a [usar LLDB como un depurador independiente](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
 También puede consultar el fantástico [manual y tutorial](http://lldb.llvm.org/tutorial.html) de LLDB, que explicará escenarios de depuración más complejos.

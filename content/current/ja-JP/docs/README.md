@@ -4,34 +4,34 @@
 
 ## FAQ
 
-よくある質問（FAQ）のページがありますので、issueを作成する前にこれをチェックしてください。
+ここにはよく聞かれる質問が載っています。 Issue を作成する前に、こちらを確認してください。
 
 * [Electron FAQ](faq.md)
 
 ## ガイドとチュートリアル
 
-* [開発環境のセットアップ](tutorial/development-environment.md) 
+* [開発環境のセットアップ](tutorial/development-environment.md)
   * [macOS をセット アップ](tutorial/development-environment.md#setting-up-macos)
   * [Windows をセットアップ](tutorial/development-environment.md#setting-up-windows)
   * [Linux をセットアップ](tutorial/development-environment.md#setting-up-linux)
   * [エディタの選択](tutorial/development-environment.md#a-good-editor)
-* [初めてのアプリ制作](tutorial/first-app.md) 
+* [初めてのアプリ制作](tutorial/first-app.md)
   * [Electron のインストール](tutorial/first-app.md#installing-electron)
   * [3分でわかるElectronアプリ開発](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [アプリの実行](tutorial/first-app.md#running-your-app)
-* [ボイラープレートとCLI](tutorial/boilerplates-and-clis.md) 
+* [ボイラープレートとCLI](tutorial/boilerplates-and-clis.md)
   * [ボイラープレート vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [その他のツール、ボイラープレート](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [アプリケーションアーキテクチャ](tutorial/application-architecture.md) 
+* [アプリケーションアーキテクチャ](tutorial/application-architecture.md)
   * [メインプロセスとレンダラープロセス](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron の API を使用する](tutorial/application-architecture.md#using-electron-apis)
   * [Node.js API を使用する](tutorial/application-architecture.md#using-nodejs-apis)
   * [ネイティブ Node.js モジュールを使用する](tutorial/using-native-node-modules.md)
   * [パフォーマンス戦略](tutorial/performance.md)
-* アプリに機能を追加する 
+* アプリに機能を追加する
   * [通知](tutorial/notifications.md)
   * [最近使用したドキュメント](tutorial/recent-documents.md)
   * [アプリケーションの進行状況](tutorial/progress-bar.md)
@@ -45,29 +45,29 @@
   * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
   * [macOS のダークモードのサポート](tutorial/mojave-dark-mode-guide.md)
   * [Electron でのウェブ埋め込み](tutorial/web-embeds.md)
-* [アクセシビリティ](tutorial/accessibility.md) 
+* [アクセシビリティ](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [アクセシビリティの有効化](tutorial/accessibility.md#enabling-accessibility)
-* [テストとデバッグ](tutorial/application-debugging.md) 
+* [テストとデバッグ](tutorial/application-debugging.md)
   * [メインプロセスのデバッグ](tutorial/debugging-main-process.md)
   * [VS Code におけるメインプロセスのデバッグ](tutorial/debugging-main-process-vscode.md)
   * [SeleniumとWebDriverを使用する](tutorial/using-selenium-and-webdriver.md)
   * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools エクステンション](tutorial/devtools-extension.md)
   * [カスタムドライバを使った自動テスト](tutorial/automated-testing-with-a-custom-driver.md)
-* [配布方法](tutorial/application-distribution.md) 
+* [配布方法](tutorial/application-distribution.md)
   * [サポートされているプラットフォーム](tutorial/support.md#supported-platforms)
   * [コード署名](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [セキュリティ](tutorial/security.md) 
+* [セキュリティ](tutorial/security.md)
   * [セキュリティ問題の報告](tutorial/security.md#reporting-security-issues)
   * [Chromium のセキュリティ問題とアップグレード](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron のセキュリティ警告](tutorial/security.md#electron-security-warnings)
   * [セキュリティのチェックリスト](tutorial/security.md#checklist-security-recommendations)
-* [アップデート](tutorial/updates.md) 
+* [アップデート](tutorial/updates.md)
   * [アップロードサーバーを配備](tutorial/updates.md#deploying-an-update-server)
   * [アプリケーションでの更新の実装](tutorial/updates.md#implementing-updates-in-your-app)
   * [アップデートの適用](tutorial/updates.md#applying-updates)
@@ -77,15 +77,15 @@
 
 これらの個別のチュートリアルでは、上のガイドで説明したトピックを拡張しています。
 
-* [Electronのインストール](tutorial/installation.md) 
+* [Electron のインストール](tutorial/installation.md)
   * [プロキシ環境下](tutorial/installation.md#proxies)
   * [ミラーとキャッシュのカスタマイズ](tutorial/installation.md#custom-mirrors-and-caches)
   * [トラブルシューティング](tutorial/installation.md#troubleshooting)
-* Electron のリリース & 開発者のフィードバック 
+* Electron のリリース & 開発者のフィードバック
   * [バージョンポリシー](tutorial/electron-versioning.md)
   * [リリースタイムライン](tutorial/electron-timelines.md)
   * [App のフィードバックプログラム](tutorial/app-feedback-program.md)
-* [asar でアプリソースコードのパッケージ](tutorial/application-packaging.md) 
+* [asar でアプリソースコードのパッケージ](tutorial/application-packaging.md)
   * [asar アーカイブの生成](tutorial/application-packaging.md#generating-asar-archives)
   * [asar アーカイブを使用する](tutorial/application-packaging.md#using-asar-archives)
   * [制限事項](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -93,7 +93,7 @@
 * [Widevine CDM のテスト](tutorial/testing-widevine-cdm.md)
 * [Pepper Flash プラグインを使用する](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [用語集](glossary.md)
 
@@ -106,7 +106,7 @@
 * [Chrome 拡張機能サポート](api/extensions.md)
 * [API の破壊的変更](breaking-changes.md)
 
-### カスタム DOM 要素:
+### カスタム DOM 要素
 
 * [`File`オブジェクト](api/file-object.md)
 * [`<webview>`タグ](api/webview-tag.md)
@@ -155,4 +155,4 @@
 
 ## 開発
 
-<development/README.md> を参照してください
+[development/README.md](development/README.md) を参照してください

@@ -1,6 +1,6 @@
 # Gỡ lỗi trên Windows
 
-Nếu bạn đang gặp phải lỗi hoặc có vấn đề với Electron mà bạn tin rằng lý do không phải từ ứng dụng JavaScript, mà bởi chính Electron, giải quyết lỗi có thể hơi khó khăn một chút, đặc biệt nếu như bạn không quen sử dụng tính năng debugging của native/C++. Nhưng nếu bạn đang sử dụng Visual Studio, Electron Symbol Server được hosted bởi GitHub, và với code của Electron, bạn có thể bật tính năng sửa lỗi theo từng bước với breakpoints trong Electron.
+Nếu bạn đang gặp phải lỗi hoặc có vấn đề với Electron mà bạn tin rằng lý do không phải từ ứng dụng JavaScript, mà bởi chính Electron, giải quyết lỗi có thể hơi khó khăn một chút, đặc biệt nếu như bạn không quen sử dụng tính năng debugging của native/C++. However, using Visual Studio, Electron's hosted Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
 
 **Xem thêm**: Có rất nhiều nguồn để sửa lỗi cho Chromium, đa số đều có thể ứng dụng cho Electron, xem tại website của lập trình viên Chromium: [Sửa lỗi cho Chromium trên Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
@@ -8,7 +8,7 @@ Nếu bạn đang gặp phải lỗi hoặc có vấn đề với Electron mà b
 
 * **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
-* **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Once installed, [configure Visual Studio to use GitHub's Electron Symbol server](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
+* **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Once installed, [configure Visual Studio to use Electron's Symbol server](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
 
 * **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
 

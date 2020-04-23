@@ -6,7 +6,7 @@ Electron's `webview` tag is based on [Chromium's `webview`](https://developer.ch
 
 ## Enabling
 
-By default the `webview` tag is disabled in Electron >= 5. You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
+By default the `webview` tag is disabled in Electron >= 5.  You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
 
 ## Übersicht
 
@@ -209,7 +209,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Objekt (optional) 
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -225,623 +225,627 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
 * ` URL </ 0>  Zeichenfolge</li>
 </ul>
 
-<p>Initiates a download of the resource at <code>url` without navigating.</p> 
-  ### `<webview>.getURL()`
-  
-  Returns `String` - The URL of guest page.
-  
-  ### `<webview>.getTitle()`
-  
-  Returns `String` - The title of guest page.
-  
-  ### `<webview>.isLoading()`
-  
-  Returns `Boolean` - Whether guest page is still loading resources.
-  
-  ### `<webview>.isLoadingMainFrame()`
-  
-  Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
-  
-  ### `<webview>.isWaitingForResponse()`
-  
-  Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
-  
-  ### `<webview>.stop()`
-  
-  Stops any pending navigation.
-  
-  ### `<webview>.reload()`
-  
-  Reloads the guest page.
-  
-  ### `<webview>.reloadIgnoringCache()`
-  
-  Reloads the guest page and ignores cache.
-  
-  ### `<webview>.canGoBack()`
-  
-  Returns `Boolean` - Whether the guest page can go back.
-  
-  ### `<webview>.canGoForward()`
-  
-  Returns `Boolean` - Whether the guest page can go forward.
-  
-  ### `<webview>.canGoToOffset(offset)`
-  
-  * `offset` Integer
-  
-  Returns `Boolean` - Whether the guest page can go to `offset`.
-  
-  ### `<webview>.clearHistory()`
-  
-  Clears the navigation history.
-  
-  ### `<webview>.goBack()`
-  
-  Makes the guest page go back.
-  
-  ### `<webview>.goForward()`
-  
-  Makes the guest page go forward.
-  
-  ### `<webview>.goToIndex(index)`
-  
-  * `index` Integer
-  
-  Navigates to the specified absolute index.
-  
-  ### `<webview>.goToOffset(offset)`
-  
-  * `offset` Integer
-  
-  Navigates to the specified offset from the "current entry".
-  
-  ### `<webview>.isCrashed()`
-  
-  Returns `Boolean` - Whether the renderer process has crashed.
-  
-  ### `<webview>.setUserAgent(userAgent)`
-  
-  * `userAgent` String
-  
-  Overrides the user agent for the guest page.
-  
-  ### `<webview>.getUserAgent()`
-  
-  Returns `String` - The user agent for guest page.
-  
-  ### `<webview>.insertCSS(css)`
-  
-  * `css` String
-  
-  Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `<webview>.removeInsertedCSS(key)`.
-  
-  Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
-  
-  ### `<webview>.removeInsertedCSS(key)`
-  
-  * `key` String
-  
-  Returns `Promise<void>` - Resolves if the removal was successful.
-  
-  Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
-  
-  ### `<webview>.executeJavaScript(code[, userGesture])`
-  
-  * `code` Zeichenkette
-  * `userGesture` Boolean (optional) - Default `false`.
-  
-  Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
-  
-  Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
-  
-  ### `<webview>.openDevTools()`
-  
-  Opens a DevTools window for guest page.
-  
-  ### `<webview>.closeDevTools()`
-  
-  Closes the DevTools window of guest page.
-  
-  ### `<webview>.isDevToolsOpened()`
-  
-  Returns `Boolean` - Whether guest page has a DevTools window attached.
-  
-  ### `<webview>.isDevToolsFocused()`
-  
-  Returns `Boolean` - Whether DevTools window of guest page is focused.
-  
-  ### `<webview>.inspectElement(x, y)`
-  
-  * `x` Integer
-  * `y` Integer
-  
-  Starts inspecting element at position (`x`, `y`) of guest page.
-  
-  ### `<webview>.inspectSharedWorker()`
-  
-  Opens the DevTools for the shared worker context present in the guest page.
-  
-  ### `<webview>.inspectServiceWorker()`
-  
-  Opens the DevTools for the service worker context present in the guest page.
-  
-  ### `<webview>.setAudioMuted(muted)`
-  
-  * `muted` Boolean
-  
-  Set guest page muted.
-  
-  ### `<webview>.isAudioMuted()`
-  
-  Returns `Boolean` - Whether guest page has been muted.
-  
-  ### `<webview>.isCurrentlyAudible()`
-  
-  Returns `Boolean` - Whether audio is currently playing.
-  
-  ### `<webview>.undo()`
-  
-  Executes editing command `undo` in page.
-  
-  ### `<webview>.redo()`
-  
-  Executes editing command `redo` in page.
-  
-  ### `<webview>.cut()`
-  
-  Executes editing command `cut` in page.
-  
-  ### `<webview>.copy()`
-  
-  Executes editing command `copy` in page.
-  
-  ### `<webview>.paste()`
-  
-  Executes editing command `paste` in page.
-  
-  ### `<webview>.pasteAndMatchStyle()`
-  
-  Executes editing command `pasteAndMatchStyle` in page.
-  
-  ### `<webview>.delete()`
-  
-  Executes editing command `delete` in page.
-  
-  ### `<webview>.selectAll()`
-  
-  Executes editing command `selectAll` in page.
-  
-  ### `<webview>.unselect()`
-  
-  Executes editing command `unselect` in page.
-  
-  ### `<webview>.replace(text)`
-  
-  * `text` String
-  
-  Executes editing command `replace` in page.
-  
-  ### `<webview>.replaceMisspelling(text)`
-  
-  * `text` String
-  
-  Executes editing command `replaceMisspelling` in page.
-  
-  ### `<webview>.insertText(text)`
-  
-  * `text` String
-  
-  Returns `Promise<void>`
-  
-  Füge `text` in das fokusierte Element ein.
-  
-  ### `<webview>.findInPage(text[, options])`
-  
-  * `text` String - Content to be searched, must not be empty.
-  * `options` Objekt (optional) 
-    * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
-    * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
-    * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-    * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-    * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
-  
-  Returns `Integer` - The request id used for the request.
-  
-  Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
-  
-  ### `<webview>.stopFindInPage(action)`
-  
-  * `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
-    * `clearSelection` - Clear the selection.
-    * `keepSelection` - Translate the selection into a normal selection.
-    * `activateSelection` - Focus and click the selection node.
-  
-  Stops any `findInPage` request for the `webview` with the provided `action`.
-  
-  ### `<webview>.print([options])`
-  
-  * `options` Objekt (optional) 
-    * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-    * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
-    * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
-  
-  Returns `Promise<void>`
-  
-  Prints `webview`'s web page. Same as `webContents.print([options])`.
-  
-  ### `<webview>.printToPDF(options)`
-  
-  * `options` Object 
-    * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-    * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-    * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-    * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-    * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-  
-  Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
-  
-  Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
-  
-  ### `<webview>.capturePage([rect])`
-  
-  * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
-  
-  Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
-  
-  Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
-  
-  ### `<webview>.send(channel, ...args)`
-  
-  * `channel` String
-  * `...args` any[]
-  
-  Returns `Promise<void>`
-  
-  Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
-  
-  See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
-  
-  ### `<webview>.sendInputEvent(event)`
-  
-  * `event` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
-  
-  Returns `Promise<void>`
-  
-  Sends an input `event` to the page.
-  
-  See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputevent) for detailed description of `event` object.
-  
-  ### `<webview>.setZoomFactor(factor)`
-  
-  * `factor` Number - Zoom faktor.
-  
-  Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
-  
-  ### `<webview>.setZoomLevel(level)`
-  
-  * `level` Number - Zoom Level.
-  
-  Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
-  
-  ### `<webview>.getZoomFactor()`
-  
-  Returns `Number` - the current zoom factor.
-  
-  ### `<webview>.getZoomLevel()`
-  
-  Returns `Number` - the current zoom level.
-  
-  ### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
-  
-  * `minimumLevel` Number
-  * `maximumLevel` Number
-  
-  Returns `Promise<void>`
-  
-  Setzt das Maximum und Minimum pinch-to-zoom Level.
-  
-  ### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
-  
-  * `minimumLevel` Number
-  * `maximumLevel` Number
-  
-  Returns `Promise<void>`
-  
-  Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
-  
-  **Deprecated:** This API is no longer supported by Chromium.
-  
-  ### `<webview>.showDefinitionForSelection()` *macOS*
-  
-  Shows pop-up dictionary that searches the selected word on the page.
-  
-  ### `<webview>.getWebContents()` *Deprecated*
-  
-  Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
-  
-  It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
-  
-  ### `<webview>.getWebContentsId()`
-  
-  Returns `Number` - The WebContents ID of this `webview`.
-  
-  ## DOM Events
-  
-  The following DOM events are available to the `webview` tag:
-  
-  ### Event: 'load-commit'
-  
-  Rückgabewert:
-  
-  * ` URL </ 0>  Zeichenfolge</li>
+<p spaces-before="0">Initiates a download of the resource at <code>url` without navigating.</p>
+
+### `<webview>.getURL()`
+
+Returns `String` - The URL of guest page.
+
+### `<webview>.getTitle()`
+
+Returns `String` - The title of guest page.
+
+### `<webview>.isLoading()`
+
+Returns `Boolean` - Whether guest page is still loading resources.
+
+### `<webview>.isLoadingMainFrame()`
+
+Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
+
+### `<webview>.isWaitingForResponse()`
+
+Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
+
+### `<webview>.stop()`
+
+Stops any pending navigation.
+
+### `<webview>.reload()`
+
+Reloads the guest page.
+
+### `<webview>.reloadIgnoringCache()`
+
+Reloads the guest page and ignores cache.
+
+### `<webview>.canGoBack()`
+
+Returns `Boolean` - Whether the guest page can go back.
+
+### `<webview>.canGoForward()`
+
+Returns `Boolean` - Whether the guest page can go forward.
+
+### `<webview>.canGoToOffset(offset)`
+
+* `offset` Integer
+
+Returns `Boolean` - Whether the guest page can go to `offset`.
+
+### `<webview>.clearHistory()`
+
+Clears the navigation history.
+
+### `<webview>.goBack()`
+
+Makes the guest page go back.
+
+### `<webview>.goForward()`
+
+Makes the guest page go forward.
+
+### `<webview>.goToIndex(index)`
+
+* `index` Integer
+
+Navigates to the specified absolute index.
+
+### `<webview>.goToOffset(offset)`
+
+* `offset` Integer
+
+Navigates to the specified offset from the "current entry".
+
+### `<webview>.isCrashed()`
+
+Returns `Boolean` - Whether the renderer process has crashed.
+
+### `<webview>.setUserAgent(userAgent)`
+
+* `userAgent` String
+
+Overrides the user agent for the guest page.
+
+### `<webview>.getUserAgent()`
+
+Returns `String` - The user agent for guest page.
+
+### `<webview>.insertCSS(css)`
+
+* `css` String
+
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `<webview>.removeInsertedCSS(key)`.
+
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+
+### `<webview>.removeInsertedCSS(key)`
+
+* `key` String
+
+Returns `Promise<void>` - Resolves if the removal was successful.
+
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
+
+### `<webview>.executeJavaScript(code[, userGesture])`
+
+* `code` Zeichenkette
+* `userGesture` Boolean (optional) - Default `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+
+### `<webview>.openDevTools()`
+
+Opens a DevTools window for guest page.
+
+### `<webview>.closeDevTools()`
+
+Closes the DevTools window of guest page.
+
+### `<webview>.isDevToolsOpened()`
+
+Returns `Boolean` - Whether guest page has a DevTools window attached.
+
+### `<webview>.isDevToolsFocused()`
+
+Returns `Boolean` - Whether DevTools window of guest page is focused.
+
+### `<webview>.inspectElement(x, y)`
+
+* `x` Integer
+* `y` Integer
+
+Starts inspecting element at position (`x`, `y`) of guest page.
+
+### `<webview>.inspectSharedWorker()`
+
+Opens the DevTools for the shared worker context present in the guest page.
+
+### `<webview>.inspectServiceWorker()`
+
+Opens the DevTools for the service worker context present in the guest page.
+
+### `<webview>.setAudioMuted(muted)`
+
+* `muted` Boolean
+
+Set guest page muted.
+
+### `<webview>.isAudioMuted()`
+
+Returns `Boolean` - Whether guest page has been muted.
+
+### `<webview>.isCurrentlyAudible()`
+
+Returns `Boolean` - Whether audio is currently playing.
+
+### `<webview>.undo()`
+
+Executes editing command `undo` in page.
+
+### `<webview>.redo()`
+
+Executes editing command `redo` in page.
+
+### `<webview>.cut()`
+
+Executes editing command `cut` in page.
+
+### `<webview>.copy()`
+
+Executes editing command `copy` in page.
+
+### `<webview>.paste()`
+
+Executes editing command `paste` in page.
+
+### `<webview>.pasteAndMatchStyle()`
+
+Executes editing command `pasteAndMatchStyle` in page.
+
+### `<webview>.delete()`
+
+Executes editing command `delete` in page.
+
+### `<webview>.selectAll()`
+
+Executes editing command `selectAll` in page.
+
+### `<webview>.unselect()`
+
+Executes editing command `unselect` in page.
+
+### `<webview>.replace(text)`
+
+* `text` String
+
+Executes editing command `replace` in page.
+
+### `<webview>.replaceMisspelling(text)`
+
+* `text` String
+
+Executes editing command `replaceMisspelling` in page.
+
+### `<webview>.insertText(text)`
+
+* `text` String
+
+Returns `Promise<void>`
+
+Füge `text` in das fokusierte Element ein.
+
+### `<webview>.findInPage(text[, options])`
+
+* `text` String - Content to be searched, must not be empty.
+* `options` Object (optional)
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+
+### `<webview>.stopFindInPage(action)`
+
+* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request.
+  * `clearSelection` - Clear the selection.
+  * `keepSelection` - Translate the selection into a normal selection.
+  * `activateSelection` - Focus and click the selection node.
+
+Stops any `findInPage` request for the `webview` with the provided `action`.
+
+### `<webview>.print([options])`
+
+* `options` Object (optional)
+  * `silent` Boolean (optional) - Don't ask user for print settings. Standard ist `false`.
+  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Standard ist `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+
+Returns `Promise<void>`
+
+Prints `webview`'s web page. Same as `webContents.print([options])`.
+
+### `<webview>.printToPDF(options)`
+
+* `options` Object
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+
+Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
+
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
+
+### `<webview>.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
+
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+
+### `<webview>.send(channel, ...args)`
+
+* `channel` String
+* `...args` any[]
+
+Returns `Promise<void>`
+
+Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+
+See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
+
+### `<webview>.sendInputEvent(event)`
+
+* `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
+
+Returns `Promise<void>`
+
+Sends an input `event` to the page.
+
+See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputevent) for detailed description of `event` object.
+
+### `<webview>.setZoomFactor(factor)`
+
+* `factor` Number - Zoom faktor.
+
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+
+### `<webview>.setZoomLevel(level)`
+
+* `level` Number - Zoom Level.
+
+Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
+
+### `<webview>.getZoomFactor()`
+
+Returns `Number` - the current zoom factor.
+
+### `<webview>.getZoomLevel()`
+
+Returns `Number` - the current zoom level.
+
+### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Returns `Promise<void>`
+
+Setzt das Maximum und Minimum pinch-to-zoom Level.
+
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Returns `Promise<void>`
+
+Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+
+**Deprecated:** This API is no longer supported by Chromium.
+
+### `<webview>.showDefinitionForSelection()` _macOS_
+
+Shows pop-up dictionary that searches the selected word on the page.
+
+### `<webview>.getWebContents()` _Deprecated_
+
+Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+
+It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
+### `<webview>.getWebContentsId()`
+
+Returns `Number` - The WebContents ID of this `webview`.
+
+## DOM Events
+
+The following DOM events are available to the `webview` tag:
+
+### Event: 'load-commit'
+
+Rückgabewert:
+
+* ` URL </ 0>  Zeichenfolge</li>
 <li><code>isMainFrame` Boolean
-  
-  Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
-  
-  ### Event: 'did-finish-load'
-  
-  Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
-  
-  ### Event: 'did-fail-load'
-  
-  Rückgabewert:
-  
-  * `errorCode` Integer
-  * `errorDescription` String
-  * `validatedURL` String
-  * `isMainFrame` Boolean
-  
-  This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
-  
-  ### Event: 'did-frame-finish-load'
-  
-  Rückgabewert:
-  
-  * `isMainFrame` Boolean
-  
-  Fired when a frame has done navigation.
-  
-  ### Event: 'did-start-loading'
-  
-  Corresponds to the points in time when the spinner of the tab starts spinning.
-  
-  ### Event: 'did-stop-loading'
-  
-  Corresponds to the points in time when the spinner of the tab stops spinning.
-  
-  ### Event: 'dom-ready'
-  
-  Fired when document in the given frame is loaded.
-  
-  ### Event: 'page-title-updated'
-  
-  Rückgabewert:
-  
-  * `title` String
-  * `explicitSet` Boolean
-  
-  Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
-  
-  ### Event: 'page-favicon-updated'
-  
-  Rückgabewert:
-  
-  * `favicons` String[] - Array mit URLs.
-  
-  Fired when page receives favicon urls.
-  
-  ### Event: 'enter-html-full-screen'
-  
-  Fired when page enters fullscreen triggered by HTML API.
-  
-  ### Event: 'leave-html-full-screen'
-  
-  Fired when page leaves fullscreen triggered by HTML API.
-  
-  ### Event: 'console-message'
-  
-  Rückgabewert:
-  
-  * `level` Integer
-  * `message` String
-  * `line` Integer
-  * `sourceId` String
-  
-  Fired when the guest window logs a console message.
-  
-  The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
-  
-  ```javascript
-  const webview = document.querySelector('webview')
-  webview.addEventListener('console-message', (e) => {
-    console.log('Guest page logged a message:', e.message)
-  })
-  ```
-  
-  ### Event: 'found-in-page'
-  
-  Rückgabewert:
-  
-  * `result` Object 
-    * `requestId` Integer
-    * `activeMatchOrdinal` Integer - Position of the active match.
-    * `matches` Integer - Number of Matches.
-    * `selectionArea` Rectangle - Coordinates of first match region.
-    * `finalUpdate` Boolean
-  
-  Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
-  
-  ```javascript
-  const webview = document.querySelector('webview')
-  webview.addEventListener('found-in-page', (e) => {
-    webview.stopFindInPage('keepSelection')
-  })
-  
-  const requestId = webview.findInPage('test')
-  console.log(requestId)
-  ```
-  
-  ### Event: 'new-window'
-  
-  Rückgabewert:
-  
-  * ` URL </ 0>  Zeichenfolge</li>
+
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+
+### Event: 'did-finish-load'
+
+Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+
+### Event: 'did-fail-load'
+
+Rückgabewert:
+
+* `errorCode` Integer
+* `errorDescription` String
+* `validatedURL` String
+* `isMainFrame` Boolean
+
+This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+
+### Event: 'did-frame-finish-load'
+
+Rückgabewert:
+
+* `isMainFrame` Boolean
+
+Fired when a frame has done navigation.
+
+### Event: 'did-start-loading'
+
+Corresponds to the points in time when the spinner of the tab starts spinning.
+
+### Event: 'did-stop-loading'
+
+Corresponds to the points in time when the spinner of the tab stops spinning.
+
+### Event: 'dom-ready'
+
+Fired when document in the given frame is loaded.
+
+### Event: 'page-title-updated'
+
+Rückgabewert:
+
+* `title` String
+* `explicitSet` Boolean
+
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+
+### Event: 'page-favicon-updated'
+
+Rückgabewert:
+
+* `favicons` String[] - Array mit URLs.
+
+Fired when page receives favicon urls.
+
+### Event: 'enter-html-full-screen'
+
+Fired when page enters fullscreen triggered by HTML API.
+
+### Event: 'leave-html-full-screen'
+
+Fired when page leaves fullscreen triggered by HTML API.
+
+### Event: 'console-message'
+
+Rückgabewert:
+
+* `level` Integer
+* `message` String
+* `line` Integer
+* `sourceId` String
+
+Fired when the guest window logs a console message.
+
+The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+
+```javascript
+const webview = document.querySelector('webview')
+webview.addEventListener('console-message', (e) => {
+  console.log('Guest page logged a message:', e.message)
+})
+```
+
+### Event: 'found-in-page'
+
+Rückgabewert:
+
+* `result` Object
+  * `requestId` Integer
+  * `activeMatchOrdinal` Integer - Position of the active match.
+  * `matches` Integer - Number of Matches.
+  * `selectionArea` Rectangle - Coordinates of first match region.
+  * `finalUpdate` Boolean
+
+Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
+
+```javascript
+const webview = document.querySelector('webview')
+webview.addEventListener('found-in-page', (e) => {
+  webview.stopFindInPage('keepSelection')
+})
+
+const requestId = webview.findInPage('test')
+console.log(requestId)
+```
+
+### Event: 'new-window'
+
+Rückgabewert:
+
+* ` URL </ 0>  Zeichenfolge</li>
 <li><code>frameName` String
-  * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-  * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
-  
-  Fired when the guest page attempts to open a new browser window.
-  
-  The following example code opens the new url in system's default browser.
-  
-  ```javascript
-  const { shell } = require('electron')
-  const webview = document.querySelector('webview')
-  
-  webview.addEventListener('new-window', async (e) => {
-    const protocol = require('url').parse(e.url).protocol
-    if (protocol === 'http:' || protocol === 'https:') {
-      await shell.openExternal(e.url)
-    }
-  })
-  ```
-  
-  ### Event: 'will-navigate'
-  
-  Rückgabewert:
-  
-  * ` URL </ 0>  Zeichenfolge</li>
+* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
+
+Fired when the guest page attempts to open a new browser window.
+
+The following example code opens the new url in system's default browser.
+
+```javascript
+const { shell } = require('electron')
+const webview = document.querySelector('webview')
+
+webview.addEventListener('new-window', async (e) => {
+  const protocol = require('url').parse(e.url).protocol
+  if (protocol === 'http:' || protocol === 'https:') {
+    await shell.openExternal(e.url)
+  }
+})
+```
+
+### Event: 'will-navigate'
+
+Rückgabewert:
+
+* ` URL </ 0>  Zeichenfolge</li>
 </ul>
 
-<p>Emitted when a user or the page wants to start navigation. It can happen when
-the <code>window.location` object is changed or a user clicks a link in the page.</p> 
-    This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
-    
-    It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
-    
-    Calling `event.preventDefault()` does **NOT** have any effect.
-    
-    ### Event: 'did-navigate'
-    
-    Rückgabewert:
-    
-    * ` URL </ 0>  Zeichenfolge</li>
+<p spaces-before="0">Emitted when a user or the page wants to start navigation. It can happen when
+the <code>window.location` object is changed or a user clicks a link in the page.</p>
+
+This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+
+Calling `event.preventDefault()` does __NOT__ have any effect.
+
+### Event: 'did-navigate'
+
+Rückgabewert:
+
+* ` URL </ 0>  Zeichenfolge</li>
 </ul>
 
-<p>Emitted when a navigation is done.</p>
+<p spaces-before="0">Emitted when a navigation is done.</p>
 
-<p>This event is not emitted for in-page navigations, such as clicking anchor links
-or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
-      ### Event: 'did-navigate-in-page'
-      
-      Rückgabewert:
-      
-      * `isMainFrame` Boolean
-      * ` URL </ 0>  Zeichenfolge</li>
+<p spaces-before="0">This event is not emitted for in-page navigations, such as clicking anchor links
+or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p>
+
+### Event: 'did-navigate-in-page'
+
+Rückgabewert:
+
+* `isMainFrame` Boolean
+* ` URL </ 0>  Zeichenfolge</li>
 </ul>
 
-<p>Emitted when an in-page navigation happened.</p>
+<p spaces-before="0">Emitted when an in-page navigation happened.</p>
 
-<p>When in-page navigation happens, the page URL changes but does not cause
+<p spaces-before="0">When in-page navigation happens, the page URL changes but does not cause
 navigation outside of the page. Examples of this occurring are when anchor links
-are clicked or when the DOM <code>hashchange` event is triggered.</p> 
-        ### Event: 'close'
-        
-        Fired when the guest page attempts to close itself.
-        
-        The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
-        
-        ```javascript
-        const webview = document.querySelector('webview')
-        webview.addEventListener('close', () => {
-          webview.src = 'about:blank'
-        })
-        ```
-        
-        ### Event: 'ipc-message'
-        
-        Rückgabewert:
-        
-        * `channel` String
-        * `args` any[]
-        
-        Fired when the guest page has sent an asynchronous message to embedder page.
-        
-        With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
-        
-        ```javascript
-        // In embedder page.
-        const webview = document.querySelector('webview')
-        webview.addEventListener('ipc-message', (event) => {
-          console.log(event.channel)
-          // Prints "pong"
-        })
-        webview.send('ping')
-        ```
-        
-        ```javascript
-        // In guest page.
-        const { ipcRenderer } = require('electron')
-        ipcRenderer.on('ping', () => {
-          ipcRenderer.sendToHost('pong')
-        })
-        ```
-        
-        ### Event: 'crashed'
-        
-        Fired when the renderer process is crashed.
-        
-        ### Event: 'plugin-crashed'
-        
-        Rückgabewert:
-        
-        * `name` String
-        * `version` String
-        
-        Fired when a plugin process is crashed.
-        
-        ### Event: 'destroyed'
-        
-        Fired when the WebContents is destroyed.
-        
-        ### Event: 'media-started-playing'
-        
-        Emittiert wenn ein Media Element anfängt zu spielen.
-        
-        ### Event: 'media-paused'
-        
-        Emitted when media is paused or done playing.
-        
-        ### Event: 'did-change-theme-color'
-        
-        Rückgabewert:
-        
-        * `themeColor` String
-        
-        Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
-        
-        ```html
-        <meta name='theme-color' content='#ff0000'>
-        ```
-        
-        ### Event: 'update-target-url'
-        
-        Rückgabewert:
-        
-        *  URL </ 0>  Zeichenfolge</li>
+are clicked or when the DOM <code>hashchange` event is triggered.</p>
+
+### Event: 'close'
+
+Fired when the guest page attempts to close itself.
+
+The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+
+```javascript
+const webview = document.querySelector('webview')
+webview.addEventListener('close', () => {
+  webview.src = 'about:blank'
+})
+```
+
+### Event: 'ipc-message'
+
+Rückgabewert:
+
+* `channel` String
+* `args` any[]
+
+Fired when the guest page has sent an asynchronous message to embedder page.
+
+With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
+
+```javascript
+// In embedder page.
+const webview = document.querySelector('webview')
+webview.addEventListener('ipc-message', (event) => {
+  console.log(event.channel)
+  // Prints "pong"
+})
+webview.send('ping')
+```
+
+```javascript
+// In guest page.
+const { ipcRenderer } = require('electron')
+ipcRenderer.on('ping', () => {
+  ipcRenderer.sendToHost('pong')
+})
+```
+
+### Event: 'crashed'
+
+Fired when the renderer process is crashed.
+
+### Event: 'plugin-crashed'
+
+Rückgabewert:
+
+* `name` String
+* `version` String
+
+Fired when a plugin process is crashed.
+
+### Event: 'destroyed'
+
+Fired when the WebContents is destroyed.
+
+### Event: 'media-started-playing'
+
+Emittiert wenn ein Media Element anfängt zu spielen.
+
+### Event: 'media-paused'
+
+Emitted when media is paused or done playing.
+
+### Event: 'did-change-theme-color'
+
+Rückgabewert:
+
+* `themeColor` String
+
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+
+```html
+<meta name='theme-color' content='#ff0000'>
+```
+
+### Event: 'update-target-url'
+
+Rückgabewert:
+
+*  URL </ 0>  Zeichenfolge</li>
 </ul>
 
-<p>Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
+<p spaces-before="0">Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
 
-<h3>Event: 'devtools-opened'</h3>
+<h3 spaces-before="0">Event: 'devtools-opened'</h3>
 
-<p>Emittiert wenn die DevTools geöffnet wurden.</p>
+<p spaces-before="0">Emittiert wenn die DevTools geöffnet wurden.</p>
 
-<h3>Event: 'devtools-closed'</h3>
+<h3 spaces-before="0">Event: 'devtools-closed'</h3>
 
-<p>Emittiert wenn die DevTools geschlossen wurden.</p>
+<p spaces-before="0">Emittiert wenn die DevTools geschlossen wurden.</p>
 
-<h3>Event: 'devtools-focused'</h3>
+<h3 spaces-before="0">Event: 'devtools-focused'</h3>
 
-<p>Emitted when DevTools is focused / opened.</p>
+<p spaces-before="0">Emitted when DevTools is focused / opened.</p>

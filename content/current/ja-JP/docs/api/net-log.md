@@ -24,7 +24,7 @@ app.on('ready', async () => {
 ### `netLog.startLogging(path[, options])`
 
 * `path` String - ネットワークログを記録するファイルパス。
-* `options` Object (任意) 
+* `options` Object (任意)
   * `captureMode` String (任意) - キャプチャするデータの種類。 既定では、リクエストに関するメタデータのみがキャプチャされます。 これを `includeSensitive` にすると、Cookie と認証データが含まれます。 `everything` にすると、ソケットで転送されるすべてのバイトが含まれます。 `default`、`includeSensitive` または `everything` にできます。
   * `maxFileSize` Number (任意) - ログがこのサイズを超えると、ロギングは自動的に停止します。 デフォルトでは無制限です。
 
@@ -40,10 +40,10 @@ app.on('ready', async () => {
 
 ## プロパティ
 
-### `netLog.currentlyLogging` *読み出し専用*
+### `netLog.currentlyLogging` _読み出し専用_
 
 ネットワークログが記録されていたかどうかを表す `Boolean` プロパティ。
 
-### `netLog.currentlyLoggingPath` *読み出し専用* *非推奨*
+### `netLog.currentlyLoggingPath` _読み出し専用_ _非推奨_
 
 現在のログファイルへのパスを返す `String` プロパティ。

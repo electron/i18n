@@ -1,4 +1,4 @@
-# Kulayan ang bintana
+# Ang Browser ng Window
 
 > Paglikha at pag-kontrol ng browser windows.
 
@@ -45,7 +45,7 @@ win.once('ready-to-show', () => {
 
 Ang okasyong ito ay karaniwang ibinubuga pagkatapos ng `natapos ba ang pag-kakarga` okasyon, subalit para sa mga pahina na may maraming remote na mapagkukunan, pwedi itong maipakita bago ang `natapos ba ang pag-kakarga` okasyon.
 
-Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  This event will never fire if you use `paintWhenInitiallyHidden: false`
 
 ## Ang pag-tatagpo ng `likurang kulay`
 
@@ -119,82 +119,82 @@ Ito ay gumagawa ng panibagong `BrowserWindow` na may likas na mga ari-arian na i
 
 ### `ang bagong BrowserWindow([pag-pipilian])`
 
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Object (optional)
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
   * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (optional) - The `width` and `height`ay gagamtin bilang web ang sukat ng pahina, ibig sabihin ang aktwal na sukat ng windoz ay kasama ng sukat ng window frame na medyo malaki. Ang default ay `false`.
   * `center` Boolean (optional) - Makikita ang window sa sentro ng screen.
-  * `minWidth` Integer (optional) - Ang windows na mayroong maliit ng lapad Default ay `0`.
-  * `minHeight` Integer (optional) - Ang minimum na height ng windows. Default ay `0`.
-  * `maxWidth` Integer (optional) - Ang lapad ng windows Default ay hindi limitado.
-  * `maxHeight` Integer (opsyonal) - Pinakamalakas na taas ng window. Ang default ay hindi limitado.
-  * `resizable` Boolean (opsyonal) - Kung ang window ay pweding baguhin. Ang default ay `true`.
-  * `movable` Boolean (opsyonal) - Kung ang window ay nagagalaw. Ito ay hindi inaisakatuparan sa Linux. Ang default ay `true`.
-  * `napapaliit` Boolean (opsyonal) - Kung ang window ay napapaliit. Hindi ito maisasakatuparan sa Linux. Ang default ay `true`.
-  * `maximizable` Boolean (opsyonal) - Kapag ang window ay napapalaki. Hindi ito maisasakatuparan sa Linux. Ang default ay `true`.
-  * `closable` Boolean (opsyonal) - Pwedi ring maging closable ang window. Hindi ito maisasakatuparan sa Linux. Ang default ay `true`.
+  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
+  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
+  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
+  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
+  * `resizable` Boolean (optional) - Whether window is resizable. Ang Default ay `true`.
+  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Ang Default ay `true`.
+  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Ang Default ay `true`.
+  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Ang Default ay `true`.
+  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Ang Default ay `true`.
   * `focusable` Boolean (opsyonal) - Kung ang window ay kayang mag focused. Default ay `true`. Sa Windows setting `katumbukan: mali`nag papahiwatig din ng setting`SkipTasbar: katotohanan`. Sa setting ng Linux `focusable: false </ 0> ay may kakayahang patigilin ang interaksyon sa wm, kaya ang window ay laging manatili na tuktok sa lahat ng lugar ng pinagtatrabahuhan.</li>
-<li><code>alwaysOnTop` Boolean (opsyonal) - Kapag ang window ay dapat nalaging manatili sa taas ng iba pang mga window. Ang default ay `false`.
+<li><code>alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Ang default ay `false`.
   * `fullscreen`Boolean(opsyonal)- Dapat ipakita ang window sa fullscreen. Kailan explicitly set to ` false </ 0> ang fullscreen na pintdutan ay hindi makikita o hindi pinagana
 sa macOS. Ang default ay <code>false`.
-  * `fullscreenable` Boolean (optional) -Ang Window ay pwedeng ilagay sa fullscreen mode. Sa macOS, pwede din kung ang maximize/Pag papalaki o pag papaliit na buton ay kailangang maging toggle full screen mode o mas malaking window. Ng default ay `tama`.
-  * `simpleFullscreen` Boolean (optional) - Gamitin ang pre-Lion fullscreen sa macOS. Ang default ay `false`.
-  * `skipTaskbar` Boolean (opsyonal) - o kung gustong ipakita ang window sa taskbar. Ang default ay `false`. <0>false</0>.
-  * `kiosk` Boolean (optional) - Ang kiosk mode. Ang Default ay `false`.
+  * `fullscreenable` Boolean (optional) -Ang Window ay pwedeng ilagay sa fullscreen mode. Sa macOS, pwede din kung ang maximize/Pag papalaki o pag papaliit na buton ay kailangang maging toggle full screen mode o mas malaking window. Ang Default ay `true`.
+  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Ang default ay `false`.
+  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
+  * `kiosk` Boolean (optional) - The kiosk mode. Ang default ay `false`.
   * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `icon` ([NativeImage](native-image.md) | String) (opsyonal) - Ang icon ng window. Sa windos mismo ay nirerekomenda na gamitin ang `ICO` para makakuha ng magandang mga effects ay pwede mong gawin lagyan ito ng guhit sa ilalim nang sa ganun ito ay maeexecute at ang icon ay pwede ng magamit.
-  * `show` Boolean (opsyonal) - kapag kinakailangang ipakita ang window kapag ginawa. Ang default ay `true`.
-  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created. In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`. Setting this to `false` will cause the `ready-to-show` event to not fire. Ang Default ay `true`.
-  * `frame` Boolean (opsyonal) - Tukuyin ang `false` para lumikha ng isang [Frameless Window](frameless-window.md). Ang default ay `true`.
-  * `parent` BrowserWindow (opsyonal) - Tukuyin ang pinagmulang window. Ang default ay `null`.
-  * `modal` Boolean (opsyonal) -kapag ito ay isang modal ng window. tumatakbo lamang ito kapag ang mga window ay isang window ng child. Ang default ay `mali`.
-  * `acceptFirstMouse` Boolean (opsyonal) - kapag natanggap ng web view ang nag-iisa. Mouse-down na mangyayari sa sabay na maging-aktibo ang window. Ang default ay `mali`.
-  * `disableAutoHideCursor` Boolean (opsyonal) - Kung itinago ang cursor kapag nagta-type. Ang default ay `false`.
-  * `autoHideMenuBar` Boolean (opsyonal) - Awtomatikong itago ang bar ng menu maliban kung ang teklado ng `Alt` ay pinindot. Ang default ay `false`.
+  * `show` Boolean (optional) - Whether window should be shown when created. Default ay `true`.
+  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created.  In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`.  Setting this to `false` will cause the `ready-to-show` event to not fire.  Ang Default ay `true`.
+  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Ang Default ay `true`.
+  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
+  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Ang default ay `false`.
+  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
+  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Ang default ay `false`.
+  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Ang default ay `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Ang default ay `false`.
   * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
-  * `opacity` Number (opsyonal) - Itakda ang paunang opacity sa bintana, sa gitna ng 0.0 (fully transparent) and 1.0 (fully opaque). Ito ay pinatutupad lamang sa Windows at macOS.
-  * `darkTheme` Boolean (opsyonal) - Puwersahang gumagamit ng madilim na theme para sa window, gumagana lamang sa ilang mga kapaligiran ng GTK+3 desktop. Ang default ay `false`.
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Ang Default ay `true`.
+  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Ang default ay `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Ang default ay `false`. On Windows, does not work unless the window is frameless.
-  * `type` String (opsyonal) - Ang uri ng window, ang default aynormal na window. Tingnan ang mas maraming tungkol dito sa ibaba.
-  * `ang titleBarStyle` String (opsyonal) - Ang istilo ng title bar ng window. Ang default ay `default`Ang posibleng mga halaga ay: 
+  * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are:
     * `default` - Ang mga resulta sa standard na gray opaque na title bar ng Mac.
     * `hidden` - Ang mga resulta sa isang nakatagong title bar at isang buong sukat na laman ng window, gayon pa man ang title bar ay mayroon ding mga karaniwang mga kontrol ng window (mga ilaw ng trapiko) sa kaliwang itaas.
     * `hiddenInset` - Ang mga resulta sa isang nakatagong title bar na may isang alternatibong hitsura kung saan ang mga pindutan ng ilaw ng trapiko ay bahagyang nakasingit sa gilid ng window.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** Ang opsyon na ito ay kasalukuyang eksperimental.
   * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
+  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Ang default ay `false`.
   * `thickFrame` Boolean (opsyonal) - Gamitin ang istilo ng `WS_THICKFRAME` para sa walang kaayusang windows sa Windows, kung saan nagdadagdag ng karaniwang ayos ng window. Ang tagpo nito sa `false`ay tanggalin ang window shadow at animation window. Ang Default ay `true`.
-  * `vibrancy` String (opsyonal) - Ang pag-dagdag ng isang tipo ng epekto ng vibrancy sa window, lamang sa Mac Os. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
-  * `zoomToPageWidth` Boolean (opsyonal) Ito ay may kakayahang mag control ng behavior ng macOS kapag opsyonal na pag pindot ng berdeng hintong ilaw na buton na makikita sa toolbar o pag pinindot ang Window >Zoom menu item. If `true`, ang window ay lumalaki sa sagad na lapad sa nakabukas na pahina kapag ito ay naka zoomed `false` ay magagamit kapag nais mong palakihin at palaparin ang screen. Ito rin ay makakaapekto sa behavior kung ang tawag `maximize(),/0>diretsyo. Ang default ay <code>false`.
+  * `vibrancy` String (opsyonal) - Ang pag-dagdag ng isang tipo ng epekto ng vibrancy sa window, lamang sa Mac Os. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`.  Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, ang window ay lumalaki sa sagad na lapad sa nakabukas na pahina kapag ito ay naka zoomed `false` ay magagamit kapag nais mong palakihin at palaparin ang screen. Ito rin ay makakaapekto sa behavior kung ang tawag `maximize(),/0>diretsyo. Ang default ay <code>false`.
   * `tabbingIdentifier` String (opsyonal) - Pangalan ng grupo ng tab, pinapayagang buksan ang window bilang isang natural na tab sa macOS 10.12+. Ang Windows na may magkatulad na tagakilala ng tabbing ay maaaring pagsama-samahin sa isang grupo. Magdadagdag din ito ng isang natural na bagong pindutan ng tab sa tab bar ng iyong window at pinapayagan ang iyong `app` at window para tanggapin ang kaganapan ng `new-window-for-tab`.
-  * `ang webPreferences` Mga bagay (opsyonal) - Ang mga pagtatakda ng mga katangian ng pahina ng web. 
+  * `webPreferences` Object (optional) - Settings of web page's features.
     * `devTools` Boolean (opsyonal) - Kung pinagana ang mga Dev Tool. Kung ito ay itinakda sa `false`, ay hindi maaaring gamitin ang `BrowserWindow.webContents.openDevTools()` para buksan ang mga Dev Tool. Ang Default ay `true`.
-    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
+    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Ang default ay `false`.
     * Ang `nodeIntegrationInWorker` Boolean (opsyonal) - Kung ang pagsasama ng node ay pinagana na sa mga tagagawa ng web. Ang default ay `false`. Mas maraming tungkol dito ay maaaring matagpuan sa [Multithreading](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (opsyonal) - Tinutukoy ang isang iskrip na ikakarga bago ang ibang mga iskrip ay dumaan sa mga pahina. Ang iskrip na ito ay laging mayroong access sa mga API ng node hindi mahalaga kung ang pagsasama ng node ay binuksan o isinara. Ang halaga ay ang maaring magiging tungkulin ng path file sa script. Kung naka-patay ang pagsasama ng node, pweding ipakilala ulit ang preload script Ang Node global na sagisag pabalik sa global na sakop. Tignan ang halimbawa [here](process.md#event-loaded).
     * `sandbox` Boolean (opsyonal) - Kung itinakda, ito ay isa-sandbox ang tagasalin na may kaugnayan sa window, gagawin itong katugma sa antas ng sandbox ng Chromium OS at pahihintuin ang makina ng Node.js. Ito ay hindi ang katulad ng ang `nodeIntegration` opsyon at ang mga API na magagamit sa pag-preload ng script ay mas malilimitahan. Basahin ng mabuti ang hingil sa opsyon [here](sandbox-option.md).
-    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
+    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Ang Default ay `true`.
     * `session` [Session](session.md#class-session) (opsyonal) - Mag-takda ng mga sesyon kung saan ginagamit ang pahina. Sa halip na direktang ipasa ang layon ng sesyon, pwedi ka rin pumili sa Ang pag-gamit ng `partition` opsyon imbes, na tumatanggap ng string ng partition. Kung kelan Ang parehong `sesyon` and `partition` ay naglalaan para sa, `sesyon` maaring maging ginusto. Ang default ay ang default na sesyon.
     * `partition` String (opsyonal) - Itinatakda ang sesyon na ginagamit ng mga pahina ng ayon sa mga string na partisyon ng mga sesyon. Kung ang `partition` ay nagsisimula na may `persist`, ang pahina ay gagamit ng isang paulit-ulit na sesyon na magagamit sa lahat ng mga pahina sa mga app na may kaparehas na `partition`. Kung wala ang unlaping `persist`, ang pahina ay gagamit ng isang nasa memoryang sesyon. Sa pag-aatas ng kaparihang `partition`, maramihang pahina ang pwede maibahagi sa parehang sesyon. Ang default ay ang default na sesyon.
-    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. *This property is experimental*
-    * Ang `zoomFactor` Numero (opsyonal) - Ang default na sanhi ng zoom ng mga pahina, `3.0` ay kumakatawan sa `300%`. Ang default ay `1.0`.
-    * Ang `javascript` Boolean (opsyonal) - Pinapagana ang suporta ng JavaScript. Ang default ay `true`.
+    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _This property is experimental_
+    * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
+    * `javascript` Boolean (optional) - Enables JavaScript support. Ang Default ay `true`.
     * Ang `webSecurity` Boolean (opsyonal) - Kapag `false`, ihihinto nito ang patakaran ng parehong pinagmulan (kadalasan ay ang ginagamit ang mga sinubok na website ng mga tao), at itinakda ang `allowRunningInsecureContent` sa `true` kung ang opsyon na ito ay hindi itinakda ng gumagamit. Ang Default ay `true`.
-    * Ang `allowRunningInsecureContent` Boolean (opsyonal) - Pinapayagan ang isang pahina ng https na paganahin ang JavaScript, CSS o mga plugin mula sa mga URL ng http. Ang default ay `false`.
-    * Ang `images` Boolean (opsyonal) - Pinapagana ang suporta sa imahe. Ang default ay `true`.
-    * Ang `textAreasAreResizable` Boolean (opsyonal) - Palakihin ang sukat ng mga elemento ng TextArea. Ang default ay `true`.
-    * Ang `webgl` Boolean (opsyonal) - Pinapagana ang suporta sa WebGL. Ang default ay `true`.
-    * Ang `plugins` Boolean (opsyonal) - Kung ang mga plugin ay dapat na pinagana. Ang default ay `false`.
-    * `EkspirementongMgaTampok` Boolean (optional) - Pinapatakbo ang mga na-eksperimentong tampok ng Chromium. Ang default ay `mali`.
-    * Ang `scrollBounce` Boolean (opsyonal) - Pinapagana ang pag-scroll bouce (pagra-rubber band) na epekto sa macOS. Ang default ay `false`.
+    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Ang default ay `false`.
+    * `images` Boolean (optional) - Enables image support. Ang Default ay `true`.
+    * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
+    * `webgl` Boolean (optional) - Enables WebGL support. Ang Default ay `true`.
+    * `plugins` Boolean (optional) - Whether plugins should be enabled. Ang default ay `false`.
+    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Ang default ay `false`.
+    * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Ang default ay `false`.
     * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. Ang buong listahan ng sinuportahang mga katangian ng string na maaaring matagpuan sa mga file ng [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
     * `disableBlinkFeatures` String (opsyonal) - Ang talaan ng mga tampok ng strings ay pinag-hiwalay ng `,`, katulad ng `CSSVariables,KeyboardEventKey` upang hindi mapagana. Ang kabuoang listahan ng mga sinusuportahang tampok ng strings ay mahahanap sa [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) sa file.
-    * `ang defaultFontFamily` Bagay (opsyonal) - Itinatakda ang default na font para sa pamilya ng font. 
+    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family.
       * Ang `standard` String (opsyonal) - Ang mga default para sa `Times New Roman`.
       * Ang `serif` String (opsyonal) - Ang mga default para sa `Times New Roman`.
       * Ang `sansSerif` String (opsyonal) - Ang mga default para sa `Arial`.
@@ -210,22 +210,22 @@ sa macOS. Ang default ay <code>false`.
     * `contextIsolation` Boolean (o[syonal) - Maging ang pagpapatakbo ng Electron APis at Ang pagtukoy `preload` Ang script sa magkakahiwalay na nilalaman ng JavaScript. Ang mga default para sa `false`. Ang nilalaman na iyon ang `preload` Ang script ay mayroong kabuuang access upang tumatakbo sa `dokumento` at `window` globals subalit gagamitin nito sarili nitong hilera ng pag-tatag ng JavaScript (`Array`, `Object`, `JSON`, etc.) at pinag-hihiwalay mula sa alinmang mga pagbabagong ginawa sa pandaigdigang kapaligiran sa paraan ng pag-karga ng pahina. Ang Electron API ay maaaring maging pwedi lamang sa `preload` ang script at hindi ang ikinargang pahina. Ang opsyon na ito ay kailangan magamit kapag Ang pagkakarga ng potensyal na hindi mapag-kakatiwalaan na nilalaman ng remote upang masiguro ang nilalaman ng pag-karga ay hindi pweding galawin ang `preload` Ang script at ang alinmang Electron APIs ay kasalukuyang ginagamit. Ang opsyon sa pag-gamit ng mag-katulad na estilo ay ginagamit ng [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Pwedii mong i-access ang nilalamang ito sa mga tool ng dev sa parang pagpili sa Ang ipinasok na 'Electron Isolated Context' sa kombo kaahon sa itaas ng Tab ng Console.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Naka-default sa `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
     * Ang `webviewTag` Boolean (opsyonal) - Kung pagaganahin ang [`<webview>` tag](webview-tag.md). Naka-default sa `false`. **Note:** Ang iskrip ng `preload` ay isinaayos para ang `<webview>` ay may pagsasama-sama ng node na pinagana kapag ito ay naisakatuparan kaya dapat mong siguraduhin na ang malayo/hindi mapagkakatiwalaang nilalaman ay hindi makakagawa ng isang tag`<webview>` na may isang posibleng malisyosong iskrip `preload`. Maaari mong gamitin ang kaganapan ng `will-attach-webview` sa [webContents](web-contents.md) para tanggalin ang iskrip ng `preload` at patunayan o pasubalian ang inisyal na mga pagtatakda sa `<webview>`.
-    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
-    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
+    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
+    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Ang default ay `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
-    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. Default is `false`.
-    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
+    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. Ang default ay `false`.
+    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Ang default ay `false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
     * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Ang default ay `false`.
 
 Kapag nagtatakda ng minimum o maximum na laki ng window `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, pinipigilan lamang nito ang mga gumagamit. Hindi nito mapipigilan ka pagpasa ng isang sukat na hindi sumusunod sa mga hadlang sa laki `setBounds`/`setSize` o sa tagapagbuo ng `BrowserWindow`.
 
-Ang mga posibleng halaga at pag-uugali ng pagpipiliang `type` ay nakasalalay sa platform. Ang mga posibleng halaga ay:
+The possible values and behaviors of the `type` option are platform dependent. Possible values are:
 
 * Sa Linux, posibleng mga uri `desktop`, `dock`, `toolbar`, `splash`, `notification`.
-* Sa macOS, posibleng mga uri `desktop`, `textured`. 
+* On macOS, possible types are `desktop`, `textured`.
   * Ang `textured` uri ay nagdaragdag ng gradient na anyo ng metal (`NSTexturedBackgroundWindowMask`).
   * Ang `desktop` uri ay naglalagay ng window sa antas ng desktop background ng desktop (`kCGDesktopWindowLevel - 1`). Tandaan na hindi tatanggap ang desktop window focus, keyboard o mouse event, ngunit maaari mong gamitin ang `globalShortcut` upang makatanggap mas mahaba ang input.
 * Sa Windows, ang posibleng uri ay `toolbar`.
@@ -240,13 +240,13 @@ Nilikha ang mga bagay with `new BrowserWindow` naglalabas ng mga sumusunod na pa
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `title` String
 * `explicitSet` Boolean
 
 Napalabas kapag binago ng dokumento ang pamagat nito, na nagtawag sa `event.preventDefault()` ay maiiwasan ang pamagat ng katutubong window sa pagbabago. `explicitSet` is false when title is synthesized from file URL.
 
-#### Event: 'isara'
+#### Event: 'close'
 
 Ibinabalik ang:
 
@@ -266,14 +266,13 @@ window.onbeforeunload = (e) => {
   e.returnValue = false // equivalent to `return false` pero hindi inerekomenda
 }
 ```
-
-***Tandaan**: Merong banayad na pagkakaiba sa pagitan ng pag-uugali ng `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron.*
+_**Tandaan**: Merong banayad na pagkakaiba sa pagitan ng pag-uugali ng `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron._
 
 #### Kaganapan: 'i-minimize'
 
-Ay lalabas kapag ang window ay isinara. Pagkatapos mong matanggap ang kaganapan na ito ay maaari mong tanggalin ang sanggunian sa mga window at iwasan itong gamitin ulit.
+Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Kaganapan: 'katapusan ng sesyon' ng *Windows*
+#### Kaganapan: 'katapusan ng sesyon' ng _Windows_
 
 Ay lalabas kapag ang sesyon ng window ay hihinto na dahil sa puwersahang pagpatay o pag-restart ng makina o pag-log off ng sesyon.
 
@@ -293,7 +292,7 @@ Ay lalabas kapag ang window ay nawawala sa pokus.
 
 Ay lalabas kapag ang window ay nakakuha ng pokus.
 
-#### Event: 'ipakita'
+#### Kaganapan: 'ipakita'
 
 Ay lalabas kapag ang window ay ipinakita.
 
@@ -305,7 +304,7 @@ Ay lalabas kapag ang window ay itinago.
 
 Ay lalabas kapag ang pahina ng web ay naisalin na (habang hindi pa ipinapakita) at ang window ay maaaring i-displey nang walang isang bisuwal na flash.
 
-Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  This event will never fire if you use `paintWhenInitiallyHidden: false`
 
 #### Kaganapan: 'palakihin'
 
@@ -323,7 +322,7 @@ Ay lalabas kapag ang window ay pinaliit.
 
 Ay lalabas kung ang window ay binalik galing sa pinaliit na estado.
 
-#### Event: 'will-resize' *macOS* *Windows*
+#### Event: 'will-resize' _macOS_ _Windows_
 
 Ibinabalik ang:
 
@@ -338,7 +337,7 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
-#### Event: 'will-move' *macOS* *Windows*
+#### Event: 'will-move' _macOS_ _Windows_
 
 Ibinabalik ang:
 
@@ -353,9 +352,9 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Ay lalabas kung ang window ay inilipat sa bagong posisyon.
 
-**Note**: On macOS this event is an alias of `moved`.
+__Note__: On macOS this event is an alias of `moved`.
 
-#### Kaganapan: 'inilipat' * macOS *
+#### Kaganapan: 'inilipat' _ macOS _
 
 Ay lalabas kapag ang window ay inilipat sa bagong posisyon.
 
@@ -384,7 +383,7 @@ Ibinabalik ang:
 
 Emitted when the window is set or unset to show always on top of other windows.
 
-#### Event: 'app-command' *Windows* *Linux*
+#### Event: 'app-command' _Windows_ _Linux_
 
 Ibinabalik ang:
 
@@ -411,28 +410,30 @@ The following app commands are explicitly supported on Linux:
 * `browser-backward`
 * `browser-forward`
 
-#### Kaganapan: 'scroll-touch-begin' * macOS *
+#### Kaganapan: 'scroll-touch-begin' _ macOS _
 
 Ay lalabas kung ang scroll wheel na bahagi ng kaganapan ay magsimula.
 
-#### Kaganapan: 'scroll-touch-end' * macOS *
+#### Kaganapan: 'scroll-touch-end' _ macOS _
 
 Ay lalabas kung ang scroll wheel na bahagi ng kaganapan ay natapos na.
 
-#### Kaganapan: 'scroll-touch-edge' *macOS*
+#### Kaganapan: 'scroll-touch-edge' _macOS_
 
 Ay lalabas kung ang scroll event na bahagi ng kaganapan sa pag-abot sa gilid ng elemento.
 
-#### Kaganapan: 'swipe' *macOS*
+#### Kaganapan: 'swipe' _macOS_
 
 Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `direction` String
 
-Pinapalabas sa 3-finger swipe. Ang mga posibleng direksyon ay ` up `, ` kanan `, ` pababa `, ` kaliwa `.
+Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Event: 'rotate-gesture' *macOS*
+The method underlying this event is built to handle older macOS-style trackpad swiping, where the content on the screen doesn't move with the swipe. Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
+
+#### Event: 'rotate-gesture' _macOS_
 
 Ibinabalik ang:
 
@@ -441,15 +442,15 @@ Ibinabalik ang:
 
 Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
-#### Kaganapan: 'sheet-begin' *macOS*
+#### Kaganapan: 'sheet-begin' _macOS_
 
 Napalabas kapag nagbukas ang window ng sheet.
 
-#### Kaganapan: 'sheet-end' *macOS*
+#### Kaganapan: 'sheet-end' _macOS_
 
 Ay lalabas kapag nakasara ang isang sheet ng window.
 
-#### Event: 'new-window-for-tab' *macOS*
+#### Event: 'new-window-for-tab' _macOS_
 
 Ay lalabas kung ang native ng pindutan ng bagong tab ay na-click.
 
@@ -475,7 +476,7 @@ Returns `BrowserWindow | null` - The window that owns the given `webContents` or
 
 * `browserView` [BrowserView](browser-view.md)
 
-Binabalik ang `BrowserWindow | null` - Ang window na nagmamay-ari ng ibinigay na `browserView`. Kung ang ibinigay na tanawin ay hindi nakakabit sa alinmang window, binabalik ang `null`.
+Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
 
 #### `BrowserWindow.fromId(id)`
 
@@ -489,7 +490,7 @@ Ibinabalik `BrowserWindow` - Ang window na may ibinigay na `id`.
 
 Nagdadagdag ng extension ng Chrome na matatagpuan sa `path`, at nagbalik ng pangalan ng extension.
 
-Ang pamamaraan ay hindi maaring babalik kung ang manifest ng ekstensyon ay nawawala o hindi kumpleto.
+Ang paraan ay hindi rin babalik kung ang manifest ng extension ay nawawala o hindi kumpleto.
 
 **noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
@@ -515,7 +516,7 @@ Nagdaragdag ng extension ng DevTools na matatagpuan sa `path`, at nagbalik ng pa
 
 Ang ekstensyon ay maaalala kaya kinakailangan mo lamang tumawag ng isang beses sa API na ito, ito Ang API ay hindi magagamit sa programming. Kung susubukin mong magdagdag ng ekstensyon na pweding mayroon na Na-ikarga, ang paraan na ito ay hindi mai-babalik at sa halip mag-log ng babala sa console.
 
-Ang pamamaraan ay hindi maaring babalik kung ang manifest ng ekstensyon ay nawawala o hindi kumpleto.
+Ang paraan ay hindi rin babalik kung ang manifest ng extension ay nawawala o hindi kumpleto.
 
 **noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
@@ -553,13 +554,13 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-#### `win.webContents` *Readonly*
+#### `win.webContents` _Readonly_
 
-Ang `WebContents` layunin ng amay-ari ng window na ito. Lahat ng mga koneksyon na pangyayari sa web at ang mga operasyon ay gagawin sa paraan nito.
+A `WebContents` object this window owns. All web page related events and operations will be done via it.
 
 Tignan ang [`webContents` dokomentasyon](web-contents.md) para sa pamamaraang ito at sa okasyon.
 
-#### `win.id` *Readonly*
+#### `win.id` _Readonly_
 
 A `Integer` property representing the unique ID of the window.
 
@@ -601,7 +602,7 @@ A `Boolean` property that determines Whether the window can be moved by user.
 
 On Linux the setter is a no-op, although the getter returns `true`.
 
-#### `win.excludedFromShownWindowsMenu` *macOS*
+#### `win.excludedFromShownWindowsMenu` _macOS_
 
 A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
 
@@ -636,7 +637,7 @@ Ang sapilitang pagsarado ng window, ang `unload` at `beforeunload` hindi mapapal
 
 #### `win.close()`
 
-Subukang isarado ang window. Ito ay mayroong kaparehong epekto sa gumagamitng mano-manong pag-pindut. Ang pahina ng web ay pweding kanselahin ang pag-sarado sa pamamagitan. Tingnan the [close event](#event-close).
+Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
 
 #### `win.focus()
  `
@@ -677,7 +678,7 @@ Bumalik `Boolean` - Kung ang kasalukuyang window ay isang modal window.
 
 #### `win.maximize()`
 
-Pinapalaki ang window. Ipapakita rin nito (buti not focus) sa window kung ito ay hindi na ipinapakita.
+Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
 
 #### `win.unmaximize()`
 
@@ -689,7 +690,7 @@ Binabalik ang `Boolean` - Kung ang window ay naka maximized.
 
 #### `win.minimize()`
 
-Binabawasan ang window. Sa ilang mga platform ang minimize na window ay ipapakita sa isang Dock.
+Minimizes the window. On some platforms the minimized window will be shown in the Dock.
 
 #### `win.restore()`
 
@@ -709,7 +710,7 @@ Itinatakda kung ang window ay dapat na sa fullscreen na mode.
 
 Binabalik ang `Boolean` - Kung ang window ay nasa fullscreen na mode.
 
-#### `win.setSimpleFullScreen(flag)` *macOS*
+#### `win.setSimpleFullScreen(flag)` _macOS_
 
 * `flag` Boolean
 
@@ -717,7 +718,7 @@ Pagpasok o pag-alis sa simpleng fullscreen na mode.
 
 Ang simpleng fullscreen mode ay nagpapalabas ng katutubong pag-uugali ng fullscreen na natagpuan sa mga bersyon ng Mac OS X bago ang Lion (10.7).
 
-#### `win.isSimpleFullScreen()` *macOS* 
+#### `win.isSimpleFullScreen()` _macOS_
 
 Binabalik ang `Boolean` - Kung saan ang window ay nasa simpleng(pre-Lion) na fullscreen mode.
 
@@ -725,7 +726,7 @@ Binabalik ang `Boolean` - Kung saan ang window ay nasa simpleng(pre-Lion) na ful
 
 Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
+#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_
 
 * ` aspectRatio ` Float - Ang aspect ratio upang mapanatili para sa ilang bahagi ng nilalaman ng view.
 * `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
@@ -742,23 +743,23 @@ Calling this function with a value of `0` will remove any previously set aspect 
 
 Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
-#### `win.previewFile(path[, displayName])` *macOS*
+#### `win.previewFile(path[, displayName])` _macOS_
 
 * `daan` String - Ang ganap na daan sa file upang i-ipakita gamit ang QuickLook. Ang mahalaga nito habang ginagamit ng Quick Look ang pangalan ng file at lawig ng file sa daan upang matukoy ang tipo ng nilalaman ng file upang buksan.
 * `Ang pagpakita sa pangalan` String (pag-pipilian) - Ang pangalan ng file na ipapakita sa Quick Look modal na tanaw. Ito ay ang malinis na viswal at hindi nakakaapekto sa nilalaman na uri ng file. Defaults sa `path`.
 
 Ginagamit ang [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) upang i-preview ang file sa ibinigay na landas.
 
-#### `win.closeFilePreview()` *macOS* 
+#### `win.closeFilePreview()` _macOS_
 
 Pagsara sa kasalukuyang nakabukas na [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
 
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
-* `animate` Boolean (opsyonal) *macOS*
+* `animate` Boolean (opsyonal) _macOS_
 
-Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+Pag-resize ay paglipat ng window sa hangganan na ibinibigay. Any properties that are not supplied will default to their current values.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -781,7 +782,7 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (opsyonal) *macOS*
+* `animate` Boolean (opsyonal) _macOS_
 
 Lumalawak at gumagalaw ang lugar ng kliyente ng window (e.g. the web page) ang itinustos na mga hangganan.
 
@@ -809,9 +810,10 @@ Returns Boolean - whether the window is enabled.
 
 * `lapad` Integer
 * `taas` Integer
-* `animate` Boolean (opsyonal) *macOS*
+* `animate` Boolean (opsyonal) _macOS_
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+Lumalabas ang window sa `width` at `
+height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
 #### `win.getSize()`
 
@@ -821,7 +823,7 @@ Ibinabalik `Integer[]` - Naglalaman ng lapad at taas ng window.
 
 * `lapad` Integer
 * `taas` Integer
-* `animate` Boolean (opsyonal) *macOS*
+* `animate` Boolean (opsyonal) _macOS_
 
 Lumalawak sa lugar ng kliyente ng window (e.g. the web page) to `width` and `height`.
 
@@ -865,15 +867,15 @@ Ibinabalik ` Boolean ` - Kung ang window ay maaaring manu-manong napalitan ng us
 
 **[Deprecated](modernization/property-updates.md)**
 
-#### `win.setMovable(movable)` *macOS* *Windows*
+#### `win.setMovable(movable)` _macOS_ _Windows_
 
 * `movable` Boolean
 
-Nagtatakda kung ang window ay maaaring ilipat ng gumagamit. Sa Linux ay walang ginagawa.
+Sets whether the window can be moved by user. On Linux does nothing.
 
 **[Deprecated](modernization/property-updates.md)**
 
-#### `win.isMovable()` *macOS* *Windows*
+#### `win.isMovable()` _macOS_ _Windows_
 
 Ibinabalik `Boolean` - Kung ang window ay maaring ilipat ng gumagamit.
 
@@ -881,15 +883,15 @@ Ang Linux ay palaging bumabalik `tama`.
 
 **[Deprecated](modernization/property-updates.md)**
 
-#### `win.setMinimizable(minimizable)` *macOS* *Windows*
+#### `win.setMinimizable(minimizable)` _macOS_ _Windows_
 
 * `minimizable` Boolean
 
-Nagtatakda kung ang window ay maaring mapinaliit na manu-mano ng gugamit. Sa Linux ay walang nagawa.
+Sets whether the window can be manually minimized by user. On Linux does nothing.
 
 **[Deprecated](modernization/property-updates.md)**
 
-#### `win.isMinimizable()` *macOS* *Windows*
+#### `win.isMinimizable()` _macOS_ _Windows_
 
 Ibalik ang `Boolean` - Kung manu-mano ang pinaliit na window ng taga-gamit
 
@@ -897,15 +899,15 @@ Ang Linux ay palaging bumabalik `tama`.
 
 **[Deprecated](modernization/property-updates.md)**
 
-#### `win.setMaximizable(maximizable)` *macOS* *Windows*
+#### `win.setMaximizable(maximizable)` _macOS_ _Windows_
 
 * `maximizable` Boolean
 
-Nagtatakda kung ang window ay pweding manu-manong mapakinabangan ng taga-gamit. Sa Linux ay wala.
+Sets whether the window can be manually maximized by user. On Linux does nothing.
 
 **[Deprecated](modernization/property-updates.md)**
 
-#### `win.isMaximizable()` *macOS* *Windows*
+#### `win.isMaximizable()` _macOS_ _Windows_
 
 Ibalik ang `Boolean` - Kung ang manu-manong window ay pweding manu-mano-paliitin ng taga-gamit.
 
@@ -927,15 +929,15 @@ Ang pag-balik `Boolean` - Kung ang pindutan ng Pag-papalaki/zoom window ay i-tog
 
 **[Deprecated](modernization/property-updates.md)**
 
-#### `win.setClosable(closable)` *macOS* *Windows*
+#### `win.setClosable(closable)` _macOS_ _Windows_
 
 * `closable` Boolean
 
-Nagtatakda kung ang window ay maaring isara ng gumagamit na manu-mano. Sa linux walang ginagawa.
+Sets whether the window can be manually closed by user. On Linux does nothing.
 
 **[Deprecated](modernization/property-updates.md)**
 
-#### `win.isClosable()` *macOS* *Windows*
+#### `win.isClosable()` _macOS_ _Windows_
 
 Ibinabalik ang `Boolean` - Kung saan ang windows ay maaring isara ng manu-mano ng tagagamit.
 
@@ -946,10 +948,10 @@ Ang Linux ay palaging bumabalik `tama`.
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* *Windows* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
-* `relativeLevel` Integer (optional) *macOS* - Ang dami ng suson ay mataas sa set itong window ay may kaugnayan sa ibinibigay `level`. Ang kawalan ay `0`. Tanda ng ansanas hinihikayat ang antas ng setting na mas mataas sa 1 na itataas `screen-saver`.
+* `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
+* `relativeLevel` Integer (optional) _macOS_ - Ang dami ng suson ay mataas sa set itong window ay may kaugnayan sa ibinibigay `level`. Ang kawalan ay `0`. Tanda ng ansanas hinihikayat ang antas ng setting na mas mataas sa 1 na itataas `screen-saver`.
 
-Nagtatakda kung dapat magpakita palagi ang window sa itaas ng iba pang mga bintana. Pagkatapos setting na ito, ang window ay pa rin ng normal na window, hindi isang window ng toolbox na ay hindi maaaring nakatuon sa.
+Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 
 #### `win.isAlwaysOnTop()`
 
@@ -973,7 +975,7 @@ Inililipat ang window sa gitna ng screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (opsyonal) *macOS*
+* `animate` Boolean (opsyonal) _macOS_
 
 Ilipat ang window sa `x` and `y`.
 
@@ -993,12 +995,12 @@ Bumabalik `String` - Ang pamagat ng katutubong window.
 
 **Note:** The title of the web page can be different from the title of the native window.
 
-#### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
+#### `win.setSheetOffset(offsetY[, offsetX])` _macOS_
 
 * `offsetY` Lumutang
 * `offsetX` Lumutang (optiona)
 
-Binabago ang punto ng attachment para sa mga sheet sa macOS. Bilang default, ang mga sheet ay naka-attach sa ibaba lamang ng window frame, ngunit maaaring gusto mong ipakita ang mga ito sa ilalim isang tool na nai-render na HTML. Halimbawa:
+Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. Halimbawa:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1042,46 +1044,46 @@ Ibinabalik `Buffer` - Ang hawak ng tukoy na platform sa window.
 
 Ang katutubong uri ng handle ay `HWND` sa Windows, `NSView*` sa macOS, at `Window` (`unsigned long`) sa Linux.
 
-#### `win.hookWindowMessage(message, callback)` *Windows*
+#### `win.hookWindowMessage(message, callback)` _Windows_
 
 * `mensahe` Integer
 * `callback` na Function
 
-Ang mga hook ay isang mensahe ng window. Ang ` callback ` ay tinatawag kung kailan ang mensahe ay natanggap sa WndProc.
+Hooks a windows message. The `callback` is called when the message is received in the WndProc.
 
-#### `win.isWindowMessageHooked(message)` *Windows*
+#### `win.isWindowMessageHooked(message)` _Windows_
 
 * `mensahe` Integer
 
 Ibinabalik ang ` Boolean ` - ` true ` o ` false ` depende kung ang mensahe ay naka-hook.
 
-#### `win.unhookWindowMessage(message)` *Windows*
+#### `win.unhookWindowMessage(message)` _Windows_
 
 * `mensahe` Integer
 
 I-unhook ang mensahe sa window.
 
-#### `win.unhookAllWindowMessages()` *Windows*
+#### `win.unhookAllWindowMessages()` _Windows_
 
 I-unhook ang lahat ng mensahe sa window.
 
-#### `win.setRepresentedFilename(filename)` *macOS*
+#### `win.setRepresentedFilename(filename)` _macOS_
 
 * `filename` String
 
 Nagtatakda ng pathnamesa mga file na irepresenta sa window, at ang icon ng file ay ipapakita sa title bar ng window.
 
-#### `win.getRepresentedFilename()` *macOS* 
+#### `win.getRepresentedFilename()` _macOS_
 
 Ibinibalik `String` - Ang pathname ng file na nakarepresenta sa window.
 
-#### `win.setDocumentEdited(edited)` *macOS*
+#### `win.setDocumentEdited(edited)` _macOS_
 
 * `edited` Boolean
 
 Tinutukoy kung ang dokumento ng window ay na-edit, at ang icon sa pamagat ng bar ay magiging gray kung itatakda sa `true`.
 
-#### `win.isDocumentEdited()` *macOS* 
+#### `win.isDocumentEdited()` _macOS_
 
 Ibinabalik ang `Boolean` - Kung saan ang mga dokumento ng window ay na-edit na.
 
@@ -1095,12 +1097,12 @@ Ibinabalik ang `Boolean` - Kung saan ang mga dokumento ng window ay na-edit na.
 
 Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Omitting `rect` will capture the whole visible page.
 
 #### `win.loadURL(url[, mga pagpipilian])`
 
 * `url` Tali
-* `options` Na Bagay (opsyonal) 
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
   * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n"
@@ -1139,36 +1141,36 @@ win.loadURL('http://localhost:8000/post', {
 #### `win.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Na Bagay (opsyonal) 
+* `options` Object (optional)
   * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
+Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application.  See the `webContents` docs for more information.
 
 #### `win.reload()`
 
 Tulad ng `webContents.reload`.
 
-#### `win.setMenu(menu)` *Linux* *Windows*
+#### `win.setMenu(menu)` _Linux_ _Windows_
 
 * `menu` Menu | null
 
 Sets the `menu` as the window's menu bar.
 
-#### `win.removeMenu()` *Linux* *Windows*
+#### `win.removeMenu()` _Linux_ _Windows_
 
 Remove the window's menu bar.
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Doble
-* `options` Na Bagay (opsyonal) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+* `options` Object (optional)
+  * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
-Nagtatakda ng halaga ng pag-unlad sa progress bar. Ang wastong saklaw ay [0, 1.0].
+Sets progress value in progress bar. Valid range is [0, 1.0].
 
 Alisin ang progress bar kapag umuunlad<0; Baguhin sa indeterminate mode kapag umuunlad> 1.
 
@@ -1176,7 +1178,7 @@ Sa platform ng Linux, sinusuportahan lamang ng Unity desktop na environment, kai
 
 Sa windows, ang mode ay maaring makapasa. Tinatanggap na mga balyu ay `none`, `normal`, `indeterminate`, `error`, and `paused`. Kung tumawag ka ng ` setProgressBar ` nang walang isang mode set (ngunit may halaga sa loob ng wastong hanay), ipagpalagay na ` normal `.
 
-#### `win.setOverlayIcon(overlay, description)` *Windows*
+#### `win.setOverlayIcon(overlay, description)` _Windows_
 
 * `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
 * `description` String - Ang deskripsyon na dapat maibigay pasa sa Accessibility screen readers
@@ -1193,7 +1195,7 @@ Sets whether the window should have a shadow.
 
 Ibinabalik ` Boolean` - Kung ang window ay may anino.
 
-#### `win.setOpacity(opacity)` *Windows* *macOS*
+#### `win.setOpacity(opacity)` _Windows_ _macOS_
 
 * `opacity` Number - sa gitna ng 0.0 (fully transparent) at 1.0 (fully opaque)
 
@@ -1201,15 +1203,15 @@ Sets the opacity of the window. On Linux, does nothing. Out of bound number valu
 
 #### `win.getOpacity()`
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
+Ibinabalik ang `Number` - sa gitna ng 0.0 (fully transparent) at 1.0 (fully opaque). On Linux, always returns 1.
 
-#### `win.setShape(rects)` *Windows* *Linux* *Experimental*
+#### `win.setShape(rects)` _Windows_ _Linux_ _Experimental_
 
 * `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
 
 Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
 
-#### `win.setThumbarButtons(buttons)` *Windows*
+#### `win.setThumbarButtons(buttons)` _Windows_
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
@@ -1221,57 +1223,57 @@ Ang bilang ng mga pindutan sa thumbnail toolbar ay dapat na hindi pa mas malaki 
 
 Ang `buttons` ay isang array ng `Button` objects:
 
-* `Button` Bagay 
+* `Button` Object
   * `icon` [NativeImage](native-image.md) - Ang icon na ipinapakita sa thumbnail ng toolbar.
   * `click` Function
   * `tooltip` String (opsyonal) - Ang teksto ng tooltip sa pindutan.
-  * `flags` String[] (opsyonal) - Kontrolin ang tiyak na mga estado at katangian ng mga pindutan. Sa pamamagitan ng default, ito ay `['enabled']`.
+  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
 Ang `flags` ay isang kaayusan na maaaring isama ang mga sumusunod `String`:
 
 * `enabled` - Ang pindutan ay aktibo at magagamit ng mga gumagamit.
-* `disabled` - Ang pindutan ay hindi pinagana. Ito ay kasalukuyan, subalit ito ay may nakikitang estado na nagsasabing ito ay hindi tutugon sa aksyon ng gumagamit.
+* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
 * `dismissonclick` - Kapag ang pindutan ay pinindot, ang thumbnail window ay agad-agad na magsasara.
 * `nobackground` - Huwag gumawa ng hangganan ng pindutan, gamitin lamang ang larawan.
 * `hidden` - Ang pindutan ay hindi ipinapakita sa mga gumagamit.
-* `noninteractive` - Ang pindutan ay gumagana ngunit hindi interaktibo; walang pagpindot sa estado ng pindutan ang ginawa. Ang bilang na ito ay inilaan para sa pagkakataon na kung saan ang pindutan ay ginagamit sa isang paalala.
+* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
 
-#### `win.setThumbnailClip(region)` *Windows*
+#### `win.setThumbnailClip(region)` _Windows_
 
 * `region` [Rectangle](structures/rectangle.md) - Rehiyon ng window
 
 Itinatakda ang rehiyon ng window upang ipakita kung kailan ipinapakita ang thumbnail na larawan na agaw sa window sa taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
-#### `win.setThumbnailToolTip(toolTip)` *Windows*
+#### `win.setThumbnailToolTip(toolTip)` _Windows_
 
 * `toolTip` String
 
 Itakda ang toolTip na ipinapakita habang nag-hohover higit sa window ng thumbnail sa taskbar.
 
-#### `win.setAppDetails(options)` *Windows*
+#### `win.setAppDetails(options)` _Windows_
 
-* `options` Bagay 
+* `options` Object
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Ito ay dapat na itakda, kung hindi man ay ang ibang opsyon ay walang epekto.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Ang index ng icon sa `appIconPath`. Hindi pinansin kung `appIconPath` hindi naitakda. Default ay `0`.
+  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
   * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
 Itakda ang ari-arian para sa window's taskbar na button.
 
-**Note:** `relaunchCommand` at `relaunchDisplayName` dapat na palaging itakda nang sabay. Kung ang isang ari-arian ay hindi naitakda, pagkatapos ay hindi na ito magagamit.
+**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
 
-#### `win.showDefinitionForSelection()` *macOS* 
+#### `win.showDefinitionForSelection()` _macOS_
 
 Tulad nang`webContents.showDefinitionForSelection()`.
 
-#### `win.setIcon(icon)` *Windows* *Linux*
+#### `win.setIcon(icon)` _Windows_ _Linux_
 
 * `icon` [NativeImage](native-image.md) | String
 
 Pinagbabago ang window icon.
 
-#### `win.setWindowButtonVisibility(visible)` *macOS*
+#### `win.setWindowButtonVisibility(visible)` _macOS_
 
 * `visible` Boolean
 
@@ -1283,7 +1285,7 @@ This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
 
 * `hide` Boolean
 
-Itakda kung ang window menu bar ay dapat itago ang sarili na awtomatiko. Kapag naitakda na ang menu bar ay ipapakita lamang kung ang gumagamit ay pipindutin ang single na `Alt` key.
+Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
 
 Kpag ang menu bar ay kasalukuyang makikita, ang pag-tawag `setAutoHideMenuBar(true)` hindi ito kayang itago agad.
 
@@ -1295,11 +1297,11 @@ Ang mga pagbalik `Boolean` - kung ito ay awtomatikong itinatago ng menu bar.
 
 **[Deprecated](modernization/property-updates.md)**
 
-#### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
+#### `win.setMenuBarVisibility(visible)` _Windows_ _Linux_
 
 * `visible` Boolean
 
-I-takda kung saan ang menu bar ay maaring makita. kapag ang menu bar ay kusang nagtatago sa taga-gamit pwedi pa ring ilabas ang menu bar sa paraan ng solong pagpindut `Alt` key.
+Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
 
 #### `win.isMenuBarVisible()`
 
@@ -1308,8 +1310,8 @@ Ibinabalik ang `Boolean` - Kung saan ang menu bar ay makikita.
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
-* `options` Na Bagay (opsyonal) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
+* `options` Object (optional)
+  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows _deprecated_
 
 Itakda kung ang window ay dapat na makikita sa lahat ng workspaces.
 
@@ -1324,22 +1326,22 @@ Ibinabalik ang `Boolean` - Kung saan ang window ay dapay na makikita sa lahat ng
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `huwag pansinin` Boolean
-* `options` Na Bagay (opsyonal) 
-  * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Ginagamit lamang kung ang`ignore` ay tama. Kung ang `ignore` is mali, Pagsulong ay palaging hindi-pinagana sa anumang mga balyu.
+* `options` Object (optional)
+  * `forward` Boolean (optional) _macOS_ _Windows_ - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Ginagamit lamang kung ang`ignore` ay tama. Kung ang `ignore` is mali, Pagsulong ay palaging hindi-pinagana sa anumang mga balyu.
 
 Ginagawa ang window na hindi pansinin ang lahat ng mouse na kaganapan.
 
 Lahat ng mouse na kaganapan dito sa window ay maaring dumaan para sa window sa ibaba ng window, pero kung ang window ay may focus, ito ay makakatanggap parin ng keyboard na kaganapan.
 
-#### `win.setContentProtection(enable)` *macOS* *Windows*
+#### `win.setContentProtection(enable)` _macOS_ _Windows_
 
 * `enable` Boolean
 
 Ang pag-pigil sa mga nilalaman ng window mula sa kumkuha ng iba pang apps.
 
-Sa macOS itinatakda nito ang pagbabahagi ng NSWindow sa NSWindowSharingNone. Sa Windows tinatawagan nito ang SetWindowDisplayAffinity sa `WDA_MONITOR`.
+On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
 
-#### `win.setFocusable(focusable)` *macOS* *Windows*
+#### `win.setFocusable(focusable)` _macOS_ _Windows_
 
 * `focusable` Boolean
 
@@ -1361,83 +1363,83 @@ Ibinabalik kung `BrowserWindow` - Ang magulang na window.
 
 Ibinabalik kung `BrowserWindow[]` - Lahat ay anak windows.
 
-#### `win.setAutoHideCursor(autoHide)` *macOS*
+#### `win.setAutoHideCursor(autoHide)` _macOS_
 
 * `autoHide` Boolean
 
 Kinokontrol kung ang cursor ay itatago kapag nag-type.
 
-#### `win.selectPreviousTab()` *macOS* 
+#### `win.selectPreviousTab()` _macOS_
 
 Pinipili ang nakaraang tab kung ang pinagana ang native na mga tab at may iba pa mga tab sa window.
 
-#### `win.selectNextTab()` *macOS* 
+#### `win.selectNextTab()` _macOS_
 
 Pinipili ang susunod na tab kung ang pinagana ang mga native na tab at mayroong iba pa mga tab sa window.
 
-#### `win.mergeAllWindows()` *macOS* 
+#### `win.mergeAllWindows()` _macOS_
 
 Pinagsama ang lahat ng mga window sa isang window na may maraming tab kapag ang mga native na tab ay gumagana at mayroong higit sa isang bukas na window.
 
-#### `win.moveTabToNewWindow()` *macOS* 
+#### `win.moveTabToNewWindow()` _macOS_
 
 Inililipat ang kasalukuyang tab sa isang bagong window kung pinagana ang mga native na tab at mayroong higit sa isang tab sa kasalukuyang window.
 
-#### `win.toggleTabBar()` *macOS* 
+#### `win.toggleTabBar()` _macOS_
 
 Tina-toggle ang kakayahang makita ng tab na bar kung pinagana ang mga native na tab at mayroon lamang isang tab sa kasalukuyang window.
 
-#### `win.addTabbedWindow(browserWindow)` *macOS*
+#### `win.addTabbedWindow(browserWindow)` _macOS_
 
 * `browserWindow` ang BrowserWindow
 
 Nagdagdag ng window na isang tab sa window, pagkatapos ng tab para sa window instance.
 
-#### `win.setVibrancy(type)` *macOS*
+#### `win.setVibrancy(type)` _macOS_
 
 * `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Tignan ang[macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) para sa ibang detalye.
 
-Nadagdagan ng isang epekto sa pagkalantad sa window ng browser. Pagpasa `null` o ang isang walang laman na string ay tatangalin ang epekto ng pagkalantad sa window.
+Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
 Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
 
-#### `win.setTrafficLightPosition(position)` *macOS*
+#### `win.setTrafficLightPosition(position)` _macOS_
 
 * `position` [Point](structures/point.md)
 
 Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
 
-#### `win.getTrafficLightPosition()` *macOS* 
+#### `win.getTrafficLightPosition()` _macOS_
 
 Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` _macOS_ _Experimental_
 
 * `touchBar` TouchBar | null
 
 Itakda ang layout ng touchBar para sa kasalukuyang window. Tinutukoy ang `null` or `undefined` Nililinis ang touch bar. Ang paraan na ito lamang ang may epekto sa Ang makina ay merong nahahawakang bar at napapatakbo ito sa macOS 10.12.1+.
 
-**Note:** Ang TouchBar API ay kasalukuyang eksperimental at maaring mabago o pwedeng tangalin sa panghinaharap na pag-release ng Electron. 
+**Note:** Ang TouchBar API ay kasalukuyang eksperimental at maaring mabago o pwedeng tangalin sa  panghinaharap na pag-release ng Electron.
 
-#### `win.setBrowserView(browserView)` *Experimental* 
+#### `win.setBrowserView(browserView)` _Experimental_
 
 * `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` _Experimental_
 
 Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
-#### `win.addBrowserView(browserView)` *Experimental* 
+#### `win.addBrowserView(browserView)` _Experimental_
 
 * `browserView` [BrowserView](browser-view.md)
 
 Replacement API for setBrowserView supporting work with multi browser views.
 
-#### `win.removeBrowserView(browserView)` *Experimental* 
+#### `win.removeBrowserView(browserView)` _Experimental_
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` *Experimental*
+#### `win.getBrowserViews()` _Experimental_
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 

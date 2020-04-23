@@ -4,13 +4,13 @@
 
 When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
-Proxy, geleneksel web sayfalarıyla uyumlu olması için uygulanan sınırlı standart işlevselliğe sahiptir. Yeni pencerenin tam kontrolü için doğrudan bir `BrowserWindow` oluşturmanız gerekmektedir.
+The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
 
-Yeni oluşturulan `BrowserWindow`, varsayılan olarak ana pencerenin seçeneklerini miras alır. Miras alınan seçeneklerin üstüne yazmak için `features` karakter dizisini kullanabilirsiniz.
+The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
 
 ### `window.open(url[, frameName][, features])`
 
-* `url` Dize
+* `url` String
 * `frameName` String (opsiyonel)
 * `features` String (opsiyonel)
 
@@ -19,7 +19,6 @@ Yeni oluşturulan `BrowserWindow`, varsayılan olarak ana pencerenin seçenekler
 `features` karakter dizisi standart tarayıcının biçimi izler, fakat her bir özellik `BrowserWindow` seçeneğinin bir alanı olmalıdır. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 Örneğin:
-
 ```js
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```

@@ -1,10 +1,10 @@
-# Instruções para Compilação (macOS)
+# Instruções de Compilação (macOS)
 
 Siga as instruções abaixo para compilar o Electron no macOS.
 
 ## Pré-requisitos
 
-* macOS => 10.11.6
+* macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
 * [node.js](https://nodejs.org) (externo)
 * Python 2.7 com suporte para TLS 1.2
@@ -37,7 +37,7 @@ $ pip install pyobjc
 
 Se está desenvolvendo com Electron e não planeja redistribuir sua construção personalizada, pode pular essa seção.
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK. Compilar com um SDK mais recente também funciona, mas os lançamentos atualmente usam o SDK 10.13.
+Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK.  Compilar com um SDK mais recente também funciona, mas os lançamentos atualmente usam o SDK 10.13.
 
 ## Building Electron
 

@@ -5,17 +5,16 @@
 만약 보안이 걱정되신다면 [보안 문서](https://github.com/electron/electron/tree/master/SECURITY.md)를 참고해주세요.
 
 프로그래밍 도움말, 질문에 대한 답변 또는 Electron을 사용하는 다른 개발자와 토론에 참여하려는 경우, 다음 위치에서 커뮤니티와 상호 작용할 수 있습니다.
-
-* Atom 포럼의 [`electron`](https://discuss.atom.io/c/electron) 카테고리
-* Freenode의 `#atom-shell` 채널
-* [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)의 `#electron` 채널
-* [`electron-ru`](https://telegram.me/electron_ru) *(러시아어)*
-* [`electron-br`](https://electron-br.slack.com) *(브라질 포르투갈어)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(한국어)*
-* [`electron-jp`](https://electron-jp.slack.com) *(일본어)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(터키어)*
-* [`electron-id`](https://electron-id.slack.com) *(인도네시아어)*
-* [`electron-pl`](https://electronpl.github.io) *(폴란드어)*
+- Atom 포럼의 [`electron`](https://discuss.atom.io/c/electron) 카테고리
+- Freenode의 `#atom-shell` 채널
+- [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)의 `#electron` 채널
+- [`electron-ru`](https://telegram.me/electron_ru) *(러시아어)*
+- [`electron-br`](https://electron-br.slack.com) *(브라질 포르투갈어)*
+- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(한국어)*
+- [`electron-jp`](https://electron-jp.slack.com) *(일본어)*
+- [`electron-tr`](https://electron-tr.herokuapp.com) *(터키어)*
+- [`electron-id`](https://electron-id.slack.com) *(인도네시아어)*
+- [`electron-pl`](https://electronpl.github.io) *(폴란드어)*
 
 만약 Electron에 기여하고 싶으시다면 [기여하기 문서](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)를 참고해주세요.
 
@@ -25,7 +24,7 @@
 
 ## 지원되는 버전
 
-마지막 세번의 *안정화* 주요 버전은 Electron 팀이 지원합니다. For example, if the latest release is 6.1.x, then the 5.0.x as well as the 4.2.x series are supported. We only support the latest minor release for each stable release series. This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
+마지막 세번의 *안정화* 주요 버전은 Electron 팀이 지원합니다. For example, if the latest release is 6.1.x, then the 5.0.x as well as the 4.2.x series are supported.  We only support the latest minor release for each stable release series.  This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
 
 마지막 안정화 릴리스는 `master`에서 모든 수정사항을 일방적으로 받고 있으며, 그 이전 버전은 대부분의 수정 사항을 시간 및 대역폭 보증으로 받습니다. 가장 오래된 지원 릴리스 라인은 보안 수정사항만 직접 받습니다.
 
@@ -34,10 +33,9 @@
 When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
 ### 현재 지원되는 버전
-
-* 8.1.x
-* 7.1.x
-* 6.1.x
+- 8.1.x
+- 7.1.x
+- 6.1.x
 
 ### 생애 종료
 

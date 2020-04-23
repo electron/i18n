@@ -1,18 +1,18 @@
-# 拉取请求
+# 合并请求
 
-* [设置您的本地环境](#setting-up-your-local-environment) 
+* [设置您的本地环境](#setting-up-your-local-environment)
   * [步骤1: 复制](#step-1-fork)
   * [步骤2: 构建](#step-2-build)
   * [步骤3: 分支](#step-3-branch)
-* [进行更改](#making-changes) 
+* [进行更改](#making-changes)
   * [步骤4: 编写代码](#step-4-code)
-  * [步骤5: 提交更改](#step-5-commit) 
+  * [步骤5: 提交更改](#step-5-commit)
     * [提交代码说明的指导](#commit-message-guidelines)
   * [步骤6: 合并分支](#step-6-rebase)
   * [步骤7: 测试](#step-7-test)
   * [步骤8: 推送代码](#step-8-push)
   * [步骤9: 新建一个合并代码请求](#step-9-opening-the-pull-request)
-  * [步骤10: 讨论和更新](#step-10-discuss-and-update) 
+  * [步骤10: 讨论和更新](#step-10-discuss-and-update)
     * [批准和请求更改工作流程](#approval-and-request-changes-workflow)
   * [步骤11: 执行合并](#step-11-landing)
   * [持续集成测试](#continuous-integration-testing)
@@ -33,7 +33,6 @@ $ git fetch upstream
 ### 步骤2: 构建
 
 根据您的操作系统, 项目构建步骤和依赖项稍有不同。 请参阅这些关于构建 Electron 项目的详细指南:
-
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [在 Linux 上构建](https://electronjs.org/docs/development/build-instructions-linux)
 * [在 Windows 上构建](https://electronjs.org/docs/development/build-instructions-windows)
@@ -77,29 +76,28 @@ Before a pull request can be merged, it **must** have a pull request title with 
 
 带有语义化前缀的提交信息的样例：
 
-* `fix: don't overwrite prevent_default if default wasn't prevented`
-* `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient 现在在Linux可用`
+- `fix: don't overwrite prevent_default if default wasn't prevented`
+- `feat: add app.isPackaged() method`
+- `docs: app.isDefaultProtocolClient 现在在Linux可用`
 
 常见前缀：
 
-    - fix: A bug fix
-    - feat: A new feature
-    - docs: Documentation changes
-    - test: Adding missing tests or correcting existing tests
-    - build: Changes that affect the build system
-    - ci: Changes to our CI configuration files and scripts
-    - perf: A code change that improves performance
-    - refactor: A code change that neither fixes a bug nor adds a feature
-    - style: Changes that do not affect the meaning of the code (linting)
-    - vendor: Bumping a dependency like libchromiumcontent or node
-    
+  - fix: A bug fix
+  - feat: A new feature
+  - docs: Documentation changes
+  - test: Adding missing tests or correcting existing tests
+  - build: Changes that affect the build system
+  - ci: Changes to our CI configuration files and scripts
+  - perf: A code change that improves performance
+  - refactor: A code change that neither fixes a bug nor adds a feature
+  - style: Changes that do not affect the meaning of the code (linting)
+  - vendor: Bumping a dependency like libchromiumcontent or node
 
 其他在写提交信息时需要留意的事情：
 
-1. 第一行应该: 
-  * 包含一个对代码改变的简短说明（最好少于或等于50个字符，最多不超过72个字符）
-  * 完全使用小写, 除了适当的名词, 缩写, 和引用代码的单词, 如函数/变量名
+1. 第一行应该:
+   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   - 完全使用小写, 除了适当的名词, 缩写, 和引用代码的单词, 如函数/变量名
 2. 将第二行留空。
 3. 每行文字在72列处换行。
 
@@ -198,3 +196,4 @@ All pull requests require approval from a [Code Owner](https://github.com/electr
 理想情况下, 代码合并请求将在 CI 的所有平台上通过测试 ("变成绿色")。 这意味着所有测试都通过, 并且没有 linting 错误。 然而，CI 自身的基础设施在特定的平台上或者在"不可靠"的测试下会失败("变红") 的情况并不少见。 必须手动检查每个 CI 故障以确定原因。
 
 CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
+

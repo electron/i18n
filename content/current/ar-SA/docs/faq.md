@@ -12,7 +12,7 @@ Wywołując polecenie `npm install electron`, niektórzy użytkownicy napotykaj�
 
 عادة ما يتم صدم نسخة كروم من الإلكترون في غضون أسبوع أو أسبوعين بعد يتم إصدار إصدار Chrome مستقر جديد. هذا التقدير غير مضمون و يعتمد على مقدار العمل المعني بالترقية.
 
-يتم استخدام قناة Chrome المستقرة فقط. إذا كان إصلاح مهم في بيتا أو ديف قناة، ونحن سوف يعود الميناء عليه.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 لمزيد من المعلومات، يرجى الاطلاع على [مقدمة الأمان.](tutorial/security.md).
 
@@ -115,45 +115,24 @@ When using Electron's built-in module you might encounter an error like this:
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
-
-للتحقق مما إذا كنت تستخدم الوحدة النمطية المضمنة الصحيحة ، يمكنك طباعة مسار وحدة </> الكترون </ 0>:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-ثم تحقق مما إذا كان في النموذج التالي:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-إذا كان الأمر يشبه ` node_modules / electron / index.js </ 0> ، فيجب عليك
-إما إزالة وحدة npm <code> electron </ 0> أو إعادة تسميتها.</p>
-
-<pre><code class="sh">npm uninstall electron
-npm uninstall -g electron
-`</pre> 
-
-ومع ذلك ، إذا كنت تستخدم الوحدة المضمنة ولكنك لا تزال تحصل على هذا الخطأ من المحتمل جدًا أنك تستخدم الوحدة في العملية الخاطئة. يمكن استخدام ` electron.app </ 0> فقط في العملية الرئيسية ، بينما <>> electron.webFrame </ 0>
+It is very likely you are using the module in the wrong process. يمكن استخدام ` electron.app </ 0> فقط في العملية الرئيسية ، بينما <>> electron.webFrame </ 0>
 متاح فقط في renderer processes.</p>
 
-<h2>The font looks blurry, what is this and what can I do?</h2>
+<h2 spaces-before="0">The font looks blurry, what is this and what can I do?</h2>
 
-<p>If <a href="http://alienryderflex.com/sub_pixel/">sub-pixel anti-aliasing</a> is deactivated, then fonts on LCD screens can look blurry. Example:</p>
+<p spaces-before="0">If <a href="http://alienryderflex.com/sub_pixel/">sub-pixel anti-aliasing</a> is deactivated, then fonts on LCD screens can look blurry. مثال:</p>
 
-<p>!<a href="images/subpixel-rendering-screenshot.gif">subpixel rendering example</a></p>
+<p spaces-before="0">!<a href="images/subpixel-rendering-screenshot.gif">subpixel rendering example</a></p>
 
-<p>Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See <a href="https://github.com/electron/electron/issues/6344#issuecomment-420371918">this issue</a> for more info).</p>
+<p spaces-before="0">Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See <a href="https://github.com/electron/electron/issues/6344#issuecomment-420371918">this issue</a> for more info).</p>
 
-<p>To achieve this goal, set the background in the constructor for <a href="api/browser-window.md">BrowserWindow</a>:</p>
+<p spaces-before="0">To achieve this goal, set the background in the constructor for <a href="api/browser-window.md">BrowserWindow</a>:</p>
 
 <pre><code class="javascript">const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   backgroundColor: '#fff'
 })
-`</pre> 
+`</pre>
 
 The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 

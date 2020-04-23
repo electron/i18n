@@ -2,7 +2,7 @@
 
 > Асинхронно взаимодействуйте с процессами рендеринга из главного процесса.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Модуль `ipcMain` представляет собой [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). При использовании в основном процессе он обрабатывает асинхронные и синхронные сообщения, отправленные из процесса рендеринга (веб-страницы). Сообщения, отправленные из процесса рендеринга, будут направлены в этот модуль.
 
@@ -12,7 +12,7 @@ Process: [Main](../glossary.md#main-process)
 
 * При отправке сообщения, событие именуется `channel`.
 * Чтобы ответить на синхронное сообщение, нужно задать `event.returnValue`.
-* Чтобы отправить ассинхронное сообщение назад отправителю, используйте `event.reply(...)`. Этот вспомогательный метод автоматически обрабатывает сообщения, поступающие из фреймов, которые не являются основным фреймом (например, iframe), в то время как `event.sender.send(...)` всегда будет посылать в основной фрейм.
+* Чтобы отправить ассинхронное сообщение назад отправителю, используйте `event.reply(...)`.  Этот вспомогательный метод автоматически обрабатывает сообщения, поступающие из фреймов, которые не являются основным фреймом (например, iframe), в то время как `event.sender.send(...)` всегда будет посылать в основной фрейм.
 
 Пример отправки и обработки сообщений между render и main процессами:
 
@@ -48,7 +48,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,16 +57,16 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
-Добавляет функцию `listener` для события. При этом `listener` вызывается только тогда, когда сообщение отправляется в `channel`, после чего оно удаляется.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function 
+* `listener` Function
   * `...args` any[]
 
 Удаляет указанный `listener` из массива слушателей конкретного `channel`.
@@ -80,11 +80,11 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Добавляет обработчик для `invoke` вызываемого IPC. Этот обработчик будет вызываться всякий раз, когда устройство вызовет `ipcRenderer.invoke(channel, ...args)`.
+Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
 
 Если `listener` возвращает Promise, то конечный результат Promise, будет возвращен в качестве ответа удаленному вызывающему объекту. В противном случае, возвращаемое значение слушателя будет использоваться как значение ответа.
 
@@ -107,11 +107,11 @@ async () => {
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Обрабатывает одно `invoke` вызываемое IPC сообщение, а затем удаляет слушателя. Смотрите `ipcMain.handle(channel, listener)`.
+Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
 
 ### `ipcMain.removeHandler(channel)`
 

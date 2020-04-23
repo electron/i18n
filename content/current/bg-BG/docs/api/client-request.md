@@ -8,13 +8,13 @@
 
 ### `Нова ClientRequest(options)`
 
-* `опции` (Обект | Низ) - ако `опции` е низ, се тълкува като заявка URL. Ако това е обект, се очаква да напълно Задайте HTTP заявка чрез следните свойства: 
-  * `метод` Низ (по избор) - HTTP заявка метод. По подразбиране метода GET.
-  * `URL` Низ (по избор) - заявка URL. Трябва да се предоставя в абсолютна форма зададена като http или https схемата на протокола.
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `сесия` Обект (по избор) - екземплярът на [`сесията`](session.md), с който е свързана заявката. По подразбиране е празен низ. Опцията `сесия` преобладава на `дял`. Следователно ако изрично е указано `сесия`, `дял` се игнорира.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Default is `false`.
-  * `протокол` Низ (по избор) - схемата на протокол във формата "схема:'. Поддържани в момента стойности са ' http:' или ' https:'. По подразбиране е "http:".
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Default is `false`.
+  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `име на хост` Низ (по избор) - името на хоста на сървъра.
   * `порт` Цяло число (по избор) - слушане номера на порта на сървъра.
@@ -47,13 +47,13 @@ const request = net.request({
 
 Връща:
 
-* `authInfo` Object 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Function
   * `username` String (optional)
   * `password` String (optional)
 
@@ -67,7 +67,6 @@ const request = net.request({
 ```JavaScript
 request.On ("вход", (authInfo, callback) => {обратно повикване ("потребителско име", "парола")})
 ```
-
 Предоставяне на идентификационни данни на празна ще отмени искането и доклад грешка при удостоверяване на обект на отговор:
 
 ```JavaScript
@@ -102,6 +101,7 @@ Emitted when the `net` module fails to issue a network request. Typically when t
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
+
 #### Event: 'redirect'
 
 Връща:
@@ -111,7 +111,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### Инстантни свойства
 

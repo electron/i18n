@@ -4,7 +4,7 @@ On macOS a window can set its represented file, so the file's icon can show in t
 
 You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
 
-**Represented file popup menu:**
+__Represented file popup menu:__
 
 ![Represented File](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 

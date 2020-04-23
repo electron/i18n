@@ -37,7 +37,7 @@ $ pip install pyobjc
 
 If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK. אפשר לבנות גם עם SDK עדכני יותר אך המהדורה הנוכחית משתמשת ב־SDK בגרסה 10.13.
+Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK.  אפשר לבנות גם עם SDK עדכני יותר אך המהדורה הנוכחית משתמשת ב־SDK בגרסה 10.13.
 
 ## Building Electron
 

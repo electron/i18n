@@ -4,9 +4,9 @@
 
 處理序: [主處理序](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarButton(options)` *試驗中*
+### `new TouchBarButton(options)` _試驗中_
 
-* `options` Object 
+* `options` Object
   * `label` String (optional) - Button text.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.

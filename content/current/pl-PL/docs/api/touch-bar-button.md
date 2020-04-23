@@ -4,9 +4,9 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarButton(options)` *Eksperymentalne*
+### `new TouchBarButton(options)` _Eksperymentalne_
 
-* `opcje` Object 
+* `options` Object
   * `label` String (optional) - Button text.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.

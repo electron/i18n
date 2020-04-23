@@ -45,7 +45,7 @@ win.once('ready-to-show', () => {
 
 このイベントは、通常、`did-finish-load` イベントの後に発生しますが、大量のリモートリソースがあるページでは、`did-finish-load` イベントの前に発生する可能性があります。
 
-このイベントを使用すると、`show` が false でもレンダラーが "見えている" と見なされ、描画されることに注意してください。 `paintWhenInitiallyHidden: false` を使用すると、このイベントは発生しません。
+このイベントを使用すると、`show` が false でもレンダラーが "見えている" と見なされ、描画されることに注意してください。  `paintWhenInitiallyHidden: false` を使用すると、このイベントは発生しません。
 
 ## `backgroundColor`を設定する
 
@@ -119,81 +119,81 @@ child.once('ready-to-show', () => {
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (任意) 
-  * `width` Integer (任意) - ピクセル単位でのウインドウの幅。省略値は、`800` です。
-  * `height` Integer (任意) - ピクセル単位でのウインドウの高さ。省略値は、`600` です。
-  * `x` Integer (任意) - (y が使われている場合は **必須**) 画面から左のウインドウのオフセット。省略すると、ウインドウは中央になります。
-  * `x` Integer (任意) - (x が使われている場合は **必須**) 画面から上のウインドウのオフセット。省略すると、ウインドウは中央になります。
-  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は、`false` です。
+* `options` Object (任意)
+  * `width` Integer (任意) - ピクセル単位でのウインドウの幅。 省略値は `800` です。
+  * `height` Integer (任意) - ピクセル単位でのウインドウの高さ。 省略値は `600` です。
+  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. 省略すると、ウインドウは中央に配置されます。
+  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. 省略すると、ウインドウは中央に配置されます。
+  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は `false` です。
   * `center` Boolean (任意) - ウインドウを画面中央に表示します。
-  * `minWidth` Integer (任意) - ウインドウの最小の幅。省略値は、`0` です。
-  * `minHeight` Integer (任意) - ウィンドウの最小の高さ。省略値は、`0` です。
-  * `maxWidth` Integer (任意) - ウインドウの最大の幅。省略値は、無制限です。
-  * `maxHeight` Integer (任意) - ウインドウの最大の高さ。省略値は、無制限です。
-  * `resizable` Boolean (任意) - ウインドウがリサイズ可能かどうか。省略値は、 `true` です。
-  * `movable` Boolean (任意) - ウインドウが移動可能かどうか。これはLinuxでは実装されていません。省略値は、`true` です。
-  * `minimizable` Boolean (任意) - ウインドウが最小化可能かどうか。これはLinuxでは実装されていません。省略値は、`true` です。
-  * `maximizable` Boolean (任意) - ウインドウが最大化可能かどうか。これはLinuxでは実装されていません。省略値は、`true` です。
-  * `closable` Boolean (任意) - ウインドウを閉じることができるかどうか。これはLinuxでは実装されていません。省略値は、`true` です。
+  * `minWidth` Integer (任意) - ウインドウの最小の幅。 省略値は `0` です。
+  * `minHeight` Integer (任意) - ウィンドウの最小の高さ。 省略値は `0` です。
+  * `maxWidth` Integer (任意) - ウインドウの最大の幅。 省略すると無制限です。
+  * `maxHeight` Integer (任意) - ウインドウの最大の高さ。 省略すると無制限です。
+  * `resizable` Boolean (任意) - ウインドウがリサイズ可能かどうか。 省略値は `true` です。
+  * `movable` Boolean (任意) - ウインドウが移動可能かどうか。 これは Linux では実装されていません。 省略値は `true` です。
+  * `minimizable` Boolean (任意) - ウインドウが最小化可能かどうか。 これは Linux では実装されていません。 省略値は `true` です。
+  * `maximizable` Boolean (任意) - ウインドウが最大化可能かどうか。 これは Linux では実装されていません。 省略値は `true` です。
+  * `closable` Boolean (任意) - ウインドウを閉じることができるかどうか。 これは Linux では実装されていません。 省略値は `true` です。
   * `focusable` Boolean (任意) - ウインドウにフォーカスを当てることができるかどうか。 省略値は `true` です。 Windowsでは、`focusable: false` と設定することは、`skipTaskbar: true` と設定することにもなります。 Linuxでは、`focusable: false` と設定することは、ウインドウがwmとのやり取りを停止することになるため、ウインドウがすべてのワークスペースで常に前面に表示されます。
-  * `alwaysOnTop` Boolean (任意) - ウインドウを常に他のウインドウの前面に表示させるかどうか。省略値は、`false` です。
+  * `alwaysOnTop` Boolean (任意) - ウインドウを常に他のウインドウの前面に表示させるかどうか。 省略値は、`false` です。
   * `fullscreen` Boolean (任意) - ウインドウをフルスクリーンで表示させるかどうか。 明示的に `false` と設定された場合、macOSでは、フルスクリーンボタンが非表示または無効になります。 省略値は、`false` です。
   * `fullscreenable` Boolean (任意) - ウインドウをフルスクリーンモードにすることができるかどうか。 macOSでは、さらに、最大化/ズームボタンが、フルスクリーンモードまたはウインドウ最大化に切り替わるかどうか。 省略値は `true` です。
-  * `simpleFullscreen` Boolean (任意) - macOSでLionより前のフルスクリーンを使用します。省略値は、`false` です。
-  * `skipTaskbar` Boolean (任意) - ウインドウをタスクバーに表示するかどうか。省略値は、`false` です。
-  * `kiosk` Boolean (任意) - キオスクモード。省略値は、`false` です。
+  * `simpleFullscreen` Boolean (任意) - macOS で Lion より前のフルスクリーンを使用します。 省略値は、`false` です。
+  * `skipTaskbar` Boolean (任意) - ウインドウをタスクバーに表示するかどうか。 省略値は `false` です。
+  * `kiosk` Boolean (optional) - キオスクモード。 省略値は、`false` です。
   * `title` String (任意) - デフォルトのウインドウタイトル。 省略値は `"Electron"` です。 HTML タグの `<title>` が `loadURL()` でロードされた HTML ファイル内で定義されている場合、このプロパティは無視されます。
   * `icon` ([NativeImage](native-image.md) | String) (任意) - ウインドウのアイコン。 Windowsでは、最高の視覚効果を得るためには、`ICO` アイコンを使うことを推奨します。未定義のままにすることもできますが、その場合、実行可能ファイルのアイコンが使われます。
-  * `show` Boolean (任意) - 生成時にウインドウを表示するかどうか。省略値は、`true` です。
-  * `paintWhenInitiallyHidden` Boolean (任意) - `show` が `false` で作成されたばかりのときに、レンダラーをアクティブにするかどうか。 `show: false` での `document.visibilityState` が最初のロードで正しく機能するには、これを `false` に設定する必要があります。 これを `false` に設定すると、`ready-to-show` イベントが発生しなくなります。 省略値は `true` です。
-  * `frame` Boolean (任意) - [Frameless Window](frameless-window.md) を生成する場合、`false` に指定します。省略値は、`true` です。
-  * `parent` BrowserWindow (任意) - 親ウインドウを指定します。省略値は、`null` です。
-  * `modal` Boolean (任意) - モーダルウインドウかどうか。ウインドウが子ウインドウのときだけ機能します。 省略値は、`false` です。
-  * `acceptFirstMouse` Boolean (任意) - ウインドウをアクティブにした単発のマウスダウンイベントを同時にWebビューが受け付けるかどうか。省略値は、`false` です。
-  * `disableAutoHideCursor` Boolean (任意) - 入力中にカーソルを非表示にするかどうか。 省略値は、`false` です。
-  * `autoHideMenuBar` Boolean (任意) - `Alt` キーが押されていない場合、メニューバーを自動的に非表示にします。省略値は、`false` です。
+  * `show` Boolean (任意) - 生成時にウインドウを表示するかどうか。 省略値は `true` です。
+  * `paintWhenInitiallyHidden` Boolean (任意) - `show` が `false` で作成されたばかりのときに、レンダラーをアクティブにするかどうか。  `show: false` での `document.visibilityState` が最初のロードで正しく機能するには、これを `false` に設定する必要があります。  これを `false` に設定すると、`ready-to-show` イベントが発生しなくなります。  省略値は `true` です。
+  * `frame` Boolean (任意) - `false` を指定すると [フレームレスウインドウ](frameless-window.md) を生成します。 省略値は `true` です。
+  * `parent` BrowserWindow (任意) - 親ウインドウを指定します。 省略値は `null` です。
+  * `modal` Boolean (任意) - これをモーダルウインドウにするかどうか。 これは、このウインドウが子ウインドウの場合にのみ機能します。 省略値は、`false` です。
+  * `acceptFirstMouse` Boolean (任意) - ウインドウをアクティブにした一回のマウスダウンイベントをウェブビューが同時に受け付けるかどうか。 省略値は `false` です。
+  * `disableAutoHideCursor` Boolean (任意) - タイプ中にカーソルを非表示にするかどうか。 省略値は、`false` です。
+  * `autoHideMenuBar` Boolean (任意) - `Alt` キーが押されていなければ、メニューバーを自動で非表示にします。 省略値は、`false` です。
   * `enableLargerThanScreen` Boolean (任意) - ウインドウを画面よりも大きいサイズに変更できるようにします。 他の OS はデフォルトで画面よりも大きなウィンドウを許可するため、macOS にのみ関係します。 省略値は、`false` です。
   * `backgroundColor` String (任意) - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にセットすれば #AARRGGBB 形式のアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
-  * `hasShadow` Boolean (任意) - ウインドウに影を付けるかどうか。省略値は `true` です。
-  * `opacity` Number (任意) - ウインドウの初期透明度を0.0 (完全に透明) から 1.0 (完全に不透明) の間で設定します。これはWindowsとmacOSでのみ実装されています。
-  * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマを強制的に使用します。いくつかのGTK+3デスクトップ環境でしか動作しません。省略値は、`false` です。
+  * `hasShadow` Boolean (任意) - ウインドウに影を付けるかどうか。 省略値は `true` です。
+  * `opacity` Number (任意) - ウインドウの初期透明度を 0.0 (完全に透明) から 1.0 (完全に不透明) の間で設定します。 これは Windows と macOS でのみ実装されています。
+  * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマの使用を強制します。いくつかの GTK+3 デスクトップ環境でしか動作しません。 省略値は、`false` です。
   * `transparent` Boolean (任意) - ウインドウを [透明](frameless-window.md#transparent-window) にします。 省略値は、`false` です。 Windows では、ウィンドウがフレームレスでない限り機能しません。
-  * `type` String (任意) - ウインドウのタイプで、省略値は通常のウインドウです。この詳細は以下を参照してください。
-  * `titleBarStyle` String (任意) - ウインドウのタイトルバーのスタイル。 省略値は、 `default`です。取りうる値: 
+  * `type` String (任意) - ウインドウのタイプで、省略すると通常のウインドウになります。 詳しくは後述します。
+  * `titleBarStyle` String (任意) - ウインドウタイトルバーのスタイル。 省略値は `default` です。 以下は取りうる値です。
     * `default` - 標準の灰色不透明なMacのタイトルバーになります。
     * `hidden` - タイトルバーが非表示かつフルサイズのコンテンツウインドウになりますが、タイトルバーには、まだ標準のウインドウコントロール ("信号") が左上にあります。
     * `hiddenInset` - ウインドウの端から信号ボタンが少し埋め込まれた別の見た目でタイトルバーが非表示になります。
-    * `customButtonsOnHover` Boolean (任意) - macOS フレームレスウインドウで、カスタムの閉じる、最小化ボタンを描画します。 これらのボタンはウインドウの左上にマウスカーソルを置かないと表示されません。 これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 **注:** このオプションは、現在、実験的なものです。
+    * `customButtonsOnHover` Boolean (任意) - macOS フレームレスウインドウで、カスタムの閉じる、最小化ボタンを描画します。 これらのボタンはウインドウの左上にマウスカーソルを置かないと表示されません。 これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 **注:** 現在、このオプションは実験的なものです。
   * `trafficLightPosition` [Point](structures/point.md) (任意) - 信号機ボタンのカスタム位置を設定します。 `titleBarStyle` を `hidden` にした場合のみ可能です
-  * `fullscreenWindowTitle` Boolean (任意) - macOSのフルスクリーンモードで、どの `titleBarStyle` オプションの場合でもタイトルバーにタイトルを表示します。省略値は、`false` です。
+  * `fullscreenWindowTitle` Boolean (任意) - macOS のフルスクリーンモードで、どの `titleBarStyle` オプションの場合でもタイトルバーにタイトルを表示します。 省略値は、`false` です。
   * `thickFrame` Boolean (任意) - Windowsのフレームレスウインドウに対して、標準のウインドウ枠を追加する `WS_THICKFRAME` スタイルを使用します。 `false` に設定すると、ウインドウの影とウインドウアニメーションがなくなります。 省略値は `true` です。
-  * `vibrancy` String (任意) - macOSでのみ、ウインドウに曇りガラス効果の種類を追加します。 `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。 曇り値と組み合わせて `frame: false` を使用する場合は、デフォルト以外の `titleBarStyle` も使用する必要があります。 また、`appearance-based`、`light`、`dark`、`medium-light` と `ultra-dark` は非推奨であり、macOS の今後のバージョンで削除されます。
-  * `zoomToPageWidth` Boolean (任意) - macOSで、optionキーを押下しながら緑の信号ボタンをクリックしたり、ウインドウ > ズーム のメニュー項目をクリックしたりしたときの動作を制御します。 `true` の場合、ズームしたとき、ウインドウはWebページの最適な幅に拡大されます。`false` だと、画面の幅にズームされます。 これは、`maximize()` を直接呼び出したときの動作にも影響を与えます。 省略値は、`false` です。
+  * `vibrancy` String (任意) - macOSでのみ、ウインドウに曇りガラス効果の種類を追加します。 `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。  曇り値と組み合わせて `frame: false` を使用する場合は、デフォルト以外の `titleBarStyle` も使用する必要があります。 また、`appearance-based`、`light`、`dark`、`medium-light` と `ultra-dark` は非推奨であり、macOS の今後のバージョンで削除されます。
+  * `zoomToPageWidth` Boolean (任意) - macOS で、option キーを押しながら緑の信号ボタンをクリックしたり、ウインドウ > ズーム のメニュー項目をクリックしたりしたときの動作を制御します。 `true` の場合、ズームしたとき、ウインドウはWebページの最適な幅に拡大されます。`false` だと、画面の幅にズームされます。 これは、`maximize()` を直接呼び出したときの動作にも影響を与えます。 省略値は、`false` です。
   * `tabbingIdentifier` String (任意) - タブのグループ名で、macOS 10.12以上の場合、ネイティブのタブとしてウインドウを開くことができます。 同一のタブ識別子を持つウインドウは、一緒にグループ化されます。 これはネイティブのタブボタンをウインドウのタブバーに追加し、`app` とウインドウが `new-window-for-tab` イベントを受け取ることができるようになります。
-  * `webPreferences` Object (任意) - Webページの機能設定。 
+  * `webPreferences` Object (任意) - ウェブページの機能の設定です。
     * `devTools` Boolean (任意) - デベロッパーツールを有効にするかどうか。 `false` に設定すると、`BrowserWindow.webContents.openDevTools()` を使ってデベロッパーツールを開くことはできません。 省略値は `true` です。
-    * `nodeIntegration` Boolean (任意) - Node Integration を有効にするかどうか。省略値は、`false` です。
+    * `nodeIntegration` Boolean (任意) - Node インテグレーションを有効にするかどうか。 省略値は、`false` です。
     * `nodeIntegrationInWorker` Boolean (任意) - WebワーカーでNode統合を有効にするかどうか。 省略値は、`false` です。 これについての詳細は、[マルチスレッド](../tutorial/multithreading.md) を参照してください。
     * `nodeIntegrationInSubFrames` Boolean (任意) - iframe や子ウインドウのようなサブフレーム内で Node.js サポートを有効にする実験的な機能です。 すべてのプリロードは iframe 毎にロードされます。メインフレーム内かそうでないか判断するには `process.isMainFrame` が使用できます。
     * `preload` String (任意) - 他のスクリプトがページで実行される前にロードされるスクリプトを指定します。 このスクリプトは、Node統合がオンまたはオフであるかに関係なく常にNode APIにアクセスできます。 値は、スクリプトへの絶対ファイルパスにする必要があります。 Node統合がオフのときでも、プレロードされたスクリプトは、Nodeのグローバルシンボルをグローバルスコープに再導入できます。 [ここ](process.md#event-loaded) の例を参照してください。
     * `sandbox` Boolean (任意) - 設定された場合、ウインドウと関連付けられているレンダラーをサンドボックス化します。これは、ChromiumのOSレベルのサンドボックスと互換性を持ち、Node.jsエンジンを無効化します。 これは `nodeIntegration` オプションと同じではなく、プレロードスクリプトで利用可能なAPIよりもさらに制限がかかります。 このオプションの詳細については、[ここ](sandbox-option.md) をお読みください。
-    * `enableRemoteModule` Boolean (任意) - [`remote`](remote.md) モジュールを有効にするかどうか。省略値は `true`。
+    * `enableRemoteModule` Boolean (任意) - [`remote`](remote.md) モジュールを有効にするかどうか。 省略値は `true` です。
     * `session` [Session](session.md#class-session) (任意) - ページで使用されるセッションを設定します。 Session オブジェクトを直接引き渡す代わりに、パーティション文字列を受け付ける `partition` オプションを使用することを選択することもできます。 `session` と `partition` の両方が指定されたときは、`session` が優先されます。 省略値は、既定のセッションです。
     * `partition` String (任意) - セッションのパーティション文字列に従って、ページで使用されるセッションを設定します。 `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 省略値は、既定のセッションです。
-    * `affinity` String (任意) - 指定されると、同じ `affinity` のウェブページは同じレンダラープロセス内で実行します。 レンダラープロセスを再利用することにより、`preload`、`sandbox`、`nodeIntegration` などの異なる値を指定した場合でも、特定の `webPreferences` オプションがウェブページ間で共有されることに注意してください。 したがって、同じ `affinity` を持つウェブページに対しては、全く同じ `webPreferences` を使用することをお勧めします。 *このプロパティは実験的機能です*
-    * `zoomFactor` Number (任意) - ページの既定のズーム倍率で、`3.0` は `300%` を表します。省略値は、`1.0` です。
-    * `javascript` Boolean (任意) - JavaScriptサポートを有効にします。省略値は、`true` です。
+    * `affinity` String (任意) - 指定されると、同じ `affinity` のウェブページは同じレンダラープロセス内で実行します。 レンダラープロセスを再利用することにより、`preload`、`sandbox`、`nodeIntegration` などの異なる値を指定した場合でも、特定の `webPreferences` オプションがウェブページ間で共有されることに注意してください。 したがって、同じ `affinity` を持つウェブページに対しては、全く同じ `webPreferences` を使用することをお勧めします。 _このプロパティは実験的機能です_
+    * `zoomFactor` Number (任意) - ページの既定のズーム倍率で、`3.0` は `300%` を表します。 省略値は `1.0` です。
+    * `javascript` Boolean (任意) - JavaScript サポートを有効にします。 省略値は `true` です。
     * `webSecurity` Boolean (任意) - `false` のとき、同一オリジンポリシー (通常、テスト用Webサイトを使用します) が無効になり、ユーザによって設定されない場合、`allowRunningInsecureContent` が `true` に設定されます。 省略値は `true` です。
-    * `allowRunningInsecureContent` Boolean (任意) - httpsのページでhttpのURLからのJavaScript、CSSやプラグインを実行することを許可します。省略値は、`false` です。
-    * `images` Boolean (任意) - 画像のサポートを有効にします。省略値は、`true` です。
-    * `textAreasAreResizable` Boolean (任意) - TextArea要素のサイズを変更可能にします。省略値は、`true` です。
-    * `webgl` Boolean (任意) - WebGLのサポートを有効にします。省略値は、`true` です。
-    * `plugins` Boolean (任意) - プラグインを有効にするかどうか。省略値は、`false` です。
-    * `experimentalFeatures` Boolean (任意) - Chromiumの実験的な機能を有効にします。 省略値は、`false` です。
-    * `scrollBounce` Boolean (任意) - macOSでスクロールバウンス (ラバーバンディング) 効果を有効にします。省略値は、`false` です。
+    * `allowRunningInsecureContent` Boolean (任意) - https のページで http の URL からの JavaScript、CSS やプラグインを実行することを許可します。 省略値は、`false` です。
+    * `images` Boolean (任意) - 画像のサポートを有効にします。 省略値は `true` です。
+    * `textAreasAreResizable` Boolean (任意) - TextArea 要素のサイズを変更可能にします。 省略値は `true` です。
+    * `webgl` Boolean (任意) - WebGL のサポートを有効にします。 省略値は `true` です。
+    * `plugins` Boolean (任意) - プラグインを有効にするかどうか。 省略値は、`false` です。
+    * `experimentalFeatures` Boolean (任意) - Chromium の実験的な機能を有効にします。 省略値は、`false` です。
+    * `scrollBounce` Boolean (任意) - macOS でスクロールバウンス (ラバーバンディング) 効果を有効にします。 省略値は、`false` です。
     * `enableBlinkFeatures` String (任意) - `CSSVariables,KeyboardEventKey` のように `,` で区切られた有効にする機能の文字列のリスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルで確認することができます。
     * `disableBlinkFeatures` String (任意) - `CSSVariables,KeyboardEventKey` のように `,` で区切られた無効にする機能の文字列のリスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルで確認することができます。
-    * `defaultFontFamily` Object (任意) - フォントファミリーの既定のフォントを設定します。 
+    * `defaultFontFamily` Object (任意) - 各フォントファミリーの既定フォントを設定します。
       * `standard` String (任意) - 省略値は、`Times New Roman` です。
       * `serif` String (任意) - 省略値は、`Times New Roman` です。
       * `sansSerif` String (任意) - 省略値は、`Arial` です。
@@ -210,21 +210,21 @@ child.once('ready-to-show', () => {
     * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 現在、これは実験的な機能です。
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は `false` 。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
     * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。少量のデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
-    * `safeDialogs` Boolean (任意) - ブラウザ方式の連続したダイアログからの保護を有効にするかどうか。省略値は `false`。
+    * `safeDialogs` Boolean (任意) - ブラウザによる連続ダイアログ保護を有効にするかどうか。 省略値は、`false` です。
     * `safeDialogsMessage` String (任意) - 連続したダイアログからの保護が機能したときに表示されるメッセージ。 定義されていなければデフォルトメッセージが使われますが、現在のデフォルトメッセージは英語であり、ローカライズされていないことに注意してください。
-    * `disableDialogs` Boolean (任意) - 完全に dialog を無効化するかどうか。`safeDialogs` を上書きします。省略値は `false` です。
-    * `navigateOnDragDrop` Boolean (任意) - ファイルやリンクをページにドラッグ&ドロップした際にナビゲーションするかどうか。省略値は `false`。
+    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. 省略値は、`false` です。
+    * `navigateOnDragDrop` Boolean (任意) - ファイルやリンクをページにドラッグ & ドロップした際にナビゲーションするかどうか。 省略値は、`false` です。
     * `autoplayPolicy` String (任意) - ウインドウ内のコンテンツに適用される自動再生ポリシーで、`no-user-gesture-required`、`user-gesture-required`、`document-user-activation-required` にできます。 省略値は `no-user-gesture-required` です。
-    * `disableHtmlFullscreenWindowResize` Boolean (任意) - HTML フルスクリーン入力時にウィンドウのサイズ変更を禁止するかどうか。既定値は `false` です。
-    * `accessibleTitle` String (任意) - スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトル文字列。この文字列はユーザーには直接表示されません。
-    * `spellcheck` Boolean (任意) - 組み込みスペルチェックを有効にするかどうか。省略値は `false` です。
+    * `disableHtmlFullscreenWindowResize` Boolean (任意) - HTML フルスクリーンになった時にウィンドウのサイズ変更を禁止するかどうか。 省略値は `false` です。
+    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. 省略値は、`false` です。
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
-`type` オプションに設定できる値と動作は、プラットフォーム依存です。設定できる値:
+`type` オプションに設定できる値と動作は、プラットフォーム依存です。 以下は取りうる値です。
 
 * Linuxでは、設定できる値は、`desktop`、`dock`、`toolbar`、`splash`、`notification` です。
-* macOSでは、設定できる値は、 `desktop`, `textured です。`. 
+* macOS で設定できるタイプは、`desktop`、`textured` です。
   * `textured` タイプは、メタルのグラデーションの外観 (`NSTexturedBackgroundWindowMask`) を追加します。
   * `desktop` タイプは、ウインドウをデスクトップのバックグラウンドウインドウのレベル (`kCGDesktopWindowLevel - 1`) に配置します。 デスクトップウインドウはフォーカス、キーボードやマウスイベントを受け付けようとしないことに注意してください。しかしながら、`globalShortcut` を使って、かろうじて入力を受け付けることはできます。
 * Windowsでは、設定できるタイプは、`toolbar` です。
@@ -266,14 +266,13 @@ window.onbeforeunload = (e) => {
   e.returnValue = false // `return false` と同じですが、非推奨
 }
 ```
-
-***注**: `window.onbeforeunload = handler` と `window.addEventListener('beforeunload', handler)` の動作には、微妙な違いがあります。 値のみを返すのではなく、常に明示的に `event.returnValue` を設定するようにすることを推奨します。後者の方がElectron内でより一貫性のある動作をします。*
+_**注**: `window.onbeforeunload = handler` と `window.addEventListener('beforeunload', handler)` の動作には、微妙な違いがあります。 値のみを返すのではなく、常に明示的に `event.returnValue` を設定するようにすることを推奨します。後者の方がElectron内でより一貫性のある動作をします。_
 
 #### イベント: 'closed'
 
-ウインドウがクローズされると発生します。このイベントを受け取った後は、ウインドウへの参照を削除し、これ以上、ウインドウを使用しないようにしてください。
+ウインドウが閉じられたときに発生します。 このイベントを受け取った後は、ウインドウへの参照を削除し、以降そのウインドウを使用しないようにしてください。
 
-#### イベント: 'session-end' *Windows*
+#### イベント: 'session-end' _Windows_
 
 強制的なシャットダウン、マシン再起動またはセッションのログオフによってウインドウセッションが終了されようとしたときに発生します。
 
@@ -305,7 +304,7 @@ Webページが応答しなくなるときに発生します。
 
 Webページが (まだ表示されていないが) レンダリングされ、チラつくことなくウインドウが表示できるときに発生します。
 
-このイベントを使用すると、`show` が false でもレンダラーが "見えている" と見なされ、描画されることに注意してください。 `paintWhenInitiallyHidden: false` を使用すると、このイベントは発生しません。
+このイベントを使用すると、`show` が false でもレンダラーが "見えている" と見なされ、描画されることに注意してください。  `paintWhenInitiallyHidden: false` を使用すると、このイベントは発生しません。
 
 #### イベント: 'maximize'
 
@@ -323,39 +322,39 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウが最小化状態から復元されたときに発生します。
 
-#### イベント: 'will-resize' *macOS* *Windows*
+#### イベント: 'will-resize' _macOS_ _Windows_
 
 戻り値:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - ウインドウがリサイズされようとしているサイズ。
 
-ウィンドウのサイズが変更される前に発生します。`event.preventDefault()` を呼ぶとウインドウのリサイズを阻害します。
+Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
 
-これはウインドウが手動でリサイズされているときにだけ発生することに注意してください。ウインドウを `setBounds` / `setSize` でリサイズしてもこのイベントは発生しません。
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### イベント: 'resize'
 
 ウインドウがリサイズされた後に発生します。
 
-#### イベント: 'will-move' *macOS* *Windows*
+#### イベント: 'will-move' _macOS_ _Windows_
 
 戻り値:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - ウインドウが移動されようとしている位置。
 
-ウインドウの位置が変更される前に発生します。`event.preventDefault()` を呼ぶとウインドウの移動を阻害します。
+Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
-これはウインドウが手動でリサイズされているときにだけ発生することに注意してください。ウインドウを `setBounds` / `setSize` でリサイズしてもこのイベントは発生しません。
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### イベント: 'move'
 
 ウインドウが新しい位置に移動されているときに発生します。
 
-**注**: macOSでは、このイベントは `moved` のエイリアスです。
+__注__: macOSでは、このイベントは `moved` のエイリアスです。
 
-#### イベント: 'moved' *macOS*
+#### イベント: 'moved' _macOS_
 
 ウインドウが新しい位置に移動されるときに一回だけ、発生します。
 
@@ -384,7 +383,7 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウが常に他のウインドウの手前に表示されるように設定またはそれが解除されたときに発生します。
 
-#### イベント: 'app-command' *Windows* *Linux*
+#### イベント: 'app-command' _Windows_ _Linux_
 
 戻り値:
 
@@ -411,28 +410,30 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 * `browser-backward`
 * `browser-forward`
 
-#### イベント: 'scroll-touch-begin' *macOS*
+#### イベント: 'scroll-touch-begin' _macOS_
 
 スクロールホイールイベントフェーズが開始されたときに発生します。
 
-#### イベント: 'scroll-touch-end' *macOS*
+#### イベント: 'scroll-touch-end' _macOS_
 
 スクロールホイールイベントフェーズが終了したときに発生します。
 
-#### イベント: 'scroll-touch-edge' *macOS*
+#### イベント: 'scroll-touch-edge' _macOS_
 
 スクロールイベントフェーズが要素の端に達したことを検出したときに発生します。
 
-#### イベント: 'swipe' *macOS*
+#### イベント: 'swipe' _macOS_
 
 戻り値:
 
 * `event` Event
 * `direction` String
 
-3本指でのスワイプで発生します。とりうる方向は、`up`、`right`、`down`、`left` です。
+Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### イベント: 'rotate-gesture' *macOS*
+The method underlying this event is built to handle older macOS-style trackpad swiping, where the content on the screen doesn't move with the swipe. Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
+
+#### イベント: 'rotate-gesture' _macOS_
 
 戻り値:
 
@@ -441,15 +442,15 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 トラックパッドの回転ジェスチャで発生します。 回転ジェスチャーが終了するまで継続的に発生します。 各イベントの `rotation` 値は、最後の発生から回転した角度です。 回転ジェスチャで最後に発行されたイベントは、常に `0` の値になります。 反時計回りの回転値は正であり、時計回りの回転値は負です。
 
-#### イベント: 'sheet-begin' *macOS*
+#### イベント: 'sheet-begin' _macOS_
 
 ウインドウがシートを開くときに発生します。
 
-#### イベント: 'sheet-end' *macOS*
+#### イベント: 'sheet-end' _macOS_
 
 ウインドウがシートを閉じたときに発生します。
 
-#### イベント: 'new-window-for-tab' *macOS*
+#### イベント: 'new-window-for-tab' _macOS_
 
 ネイティブの新規タブボタンがクリックされるときに発生します。
 
@@ -475,7 +476,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 * `browserView` [BrowserView](browser-view.md)
 
-戻り値 `BrowserWindow | null` - 指定された `browserView` を所有するウインドウ。指定されたビューがどのウインドウにもアタッチされていない場合、`null` を返します。
+戻り値 `BrowserWindow` - 指定された `browserView` を所有するウインドウ。 指定されたビューがどのウィンドウにもアタッチされていない場合は、 `null`を返します。
 
 #### `BrowserWindow.fromId(id)`
 
@@ -553,19 +554,19 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-#### `win.webContents` *読み出し専用*
+#### `win.webContents` _読み出し専用_
 
-このウインドウが所有している `WebContents` オブジェクト。すべてのWebページ関連のイベントと操作はこれを介して行われます。
+このウィンドウが所有する `WebContents` オブジェクト。 すべての Web ページ関連のイベントおよび操作は、これを介して行われます。
 
 [`webContents` ドキュメント](web-contents.md) でメソッドやイベントについて参照してください。
 
-#### `win.id` *読み出し専用*
+#### `win.id` _読み出し専用_
 
 `Integer` 型のプロパティです。そのウインドウの一意な ID を表します。
 
 #### `win.autoHideMenuBar`
 
-`Boolean` 型のプロパティです。ウィンドウメニューバーが自動的に非表示になるかどうかを決定します。セットされると、ユーザーが `Alt` キーを単独で押したときにのみメニューバーが表示されます。
+A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
 
 メニューバーが既に表示されている場合、このプロパティを `true` にセットしてもすぐに非表示にはなりません。
 
@@ -601,9 +602,9 @@ Linux ではセッターは何もしませんが、ゲッターは `true` を返
 
 Linux ではセッターは何もしませんが、ゲッターは `true` を返します。
 
-#### `win.excludedFromShownWindowsMenu` *macOS*
+#### `win.excludedFromShownWindowsMenu` _macOS_
 
-この `Boolena` プロパティは、ウィンドウをアプリケーションの Windows メニューから除外するかどうかを決定します。既定値は `false` です。
+ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 省略値は `false` です。
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -622,7 +623,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.accessibleTitle`
 
-スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトルを定義する `String` です。この文字列はユーザーには直接表示されません。
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
 ### インスタンスメソッド
 
@@ -636,7 +637,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.close()`
 
-ウインドウを閉じることを試みます。これはユーザーが手動でウインドウの閉じるボタンをクリックするのと同じ効果があります。しかしながら、Webページがクローズ処理をキャンセルする可能性があります。[close イベント](#event-close) を参照してください。
+ウインドウを閉じようとします。 これは、ユーザーが手動でウィンドウの閉じるボタンをクリックした場合と同じ効果があります。 ただし、 Web ページはウィンドウが閉じようとするのををキャンセルすることができます。 [close イベント](#event-close) を参照してください。
 
 #### `win.focus()`
 
@@ -676,7 +677,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.maximize()`
 
-ウインドウを最大化します。ウインドウがまだ表示されていない場合、併せてウインドウを表示 (ただし、フォーカスは当たりません) します。
+ウィンドウを最大化します。 ウインドウがまだ表示されていない場合、併せてウインドウを表示 (ただし、フォーカスは当たりません) します。
 
 #### `win.unmaximize()`
 
@@ -688,7 +689,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.minimize()`
 
-ウインドウを最小化します。幾つかのプラットフォームでは、最小化されたウインドウはドックに表示されます。
+ウィンドウを最小化します。 一部のプラットフォームでは、最小化されたウィンドウが Dock に表示されます。
 
 #### `win.restore()`
 
@@ -708,7 +709,7 @@ Menu.setApplicationMenu(menu)
 
 戻り値 `Boolean` - ウインドウがフルスクリーンモードであるかどうか。
 
-#### `win.setSimpleFullScreen(flag)` *macOS*
+#### `win.setSimpleFullScreen(flag)` _macOS_
 
 * `flag` Boolean
 
@@ -716,7 +717,7 @@ Menu.setApplicationMenu(menu)
 
 Mac OS X Lion (10.7) より前のバージョンで見られる簡易フルスクリーンモードはネイティブのフルスクリーン動作をエミュレートします。
 
-#### `win.isSimpleFullScreen()` *macOS*
+#### `win.isSimpleFullScreen()` _macOS_
 
 戻り値 `Boolean` - ウインドウが簡易 (Lionより前) フルスクリーンモードであるかどうか。
 
@@ -724,7 +725,7 @@ Mac OS X Lion (10.7) より前のバージョンで見られる簡易フルス�
 
 Returns `Boolean` - ウィンドウが通常の状態 (最大化されていない、最小化されていない、フルスクリーンモードではない) かどうか。
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
+#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_
 
 * `aspectRatio` Float - コンテンツビューの一部を維持するためのアスペクト比。
 * `extraSize` [Size](structures/size.md) (任意) - アスペクト比を維持する際に含まれない追加のサイズ。
@@ -739,25 +740,25 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 
 * `backgroundColor` String - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にすればアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
 
-ウインドウの背景色を設定します。[`backgroundColor` の設定](#setting-backgroundcolor) を参照してください。
+ウィンドウの背景色を設定します。 [`backgroundColor` 設定](#setting-backgroundcolor) を参照してください。
 
-#### `win.previewFile(path[, displayName])` *macOS*
+#### `win.previewFile(path[, displayName])` _macOS_
 
 * `path` String - Quick Lookでプレビューするファイルへの絶対パス。 ここで、Quick Lookはパスのファイル名とファイル拡張子をファイルを開くためのコンテンツタイプを決定するのに使用する点が重要です。
 * `displayName` String (任意) - Quick Lookのモーダルビューに表示するファイルの名前。 これは純粋に見た目だけのもので、ファイルのコンテンツタイプには影響しません。 省略値は、`path` です。
 
 指定したパスでファイルをプレビューするために、[Quick Look](https://en.wikipedia.org/wiki/Quick_Look) を使用します。
 
-#### `win.closeFilePreview()` *macOS*
+#### `win.closeFilePreview()` _macOS_
 
 現在開いている [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) のパネルを閉じます。
 
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (optional) _macOS_
 
-ウインドウをリサイズして指定された領域に移動します。指定されていないプロパティはデフォルトで現在の値になります。
+指定した境界までウインドウのサイズを変更して移動します。 指定されていないプロパティは、既定で現在の値になります。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -779,8 +780,8 @@ console.log(win.getBounds())
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md) 
-* `animate` Boolean (optional) *macOS*
+* `bounds` [Rectangle](structures/rectangle.md)
+* `animate` Boolean (optional) _macOS_
 
 指定した境界までウインドウのクライアント領域 (例えば、Webページ) のサイズを変更して移動します。
 
@@ -808,9 +809,9 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (optional) _macOS_
 
-ウインドウを `width` と `height` でリサイズします。`width` や `height` をウインドウ内のサイズ制約より小さい値にセットした場合は、その制約の最小値にスナップします。
+ウインドウのサイズを `width` と `height` に変更します。 `width` または `height` が最小サイズ制約の設定値より低い場合、ウィンドウはその最小サイズにスナップします。
 
 #### `win.getSize()`
 
@@ -820,7 +821,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (optional) _macOS_
 
 ウインドウのクライアント領域 (例えば、Webページ) のサイズを `width` と `height` に変更します。
 
@@ -864,15 +865,15 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 **[非推奨](modernization/property-updates.md)**
 
-#### `win.setMovable(movable)` *macOS* *Windows*
+#### `win.setMovable(movable)` _macOS_ _Windows_
 
 * `movable` Boolean
 
-ウインドウがユーザーによって移動できるかどうかを設定します。Linuxでは何もしません。
+ウインドウがユーザーによって手動で移動できるかどうかを設定します。 Linux では何もしません。
 
 **[非推奨](modernization/property-updates.md)**
 
-#### `win.isMovable()` *macOS* *Windows*
+#### `win.isMovable()` _macOS_ _Windows_
 
 戻り値 `Boolean` - ウインドウがユーザーによって移動できるかどうか。
 
@@ -880,15 +881,15 @@ Linuxでは常に `true` を返します。
 
 **[非推奨](modernization/property-updates.md)**
 
-#### `win.setMinimizable(minimizable)` *macOS* *Windows*
+#### `win.setMinimizable(minimizable)` _macOS_ _Windows_
 
 * `minimizable` Boolean
 
-ウインドウがユーザーによって手動で最小化できるかどうかを設定します。Linuxでは何もしません。
+ウインドウがユーザーによって手動で最小化できるかどうかを設定します。 Linux では何もしません。
 
 **[非推奨](modernization/property-updates.md)**
 
-#### `win.isMinimizable()` *macOS* *Windows*
+#### `win.isMinimizable()` _macOS_ _Windows_
 
 戻り値 `Boolean` - ウインドウがユーザーによって手動で最小化できるかどうか
 
@@ -896,15 +897,15 @@ Linuxでは常に `true` を返します。
 
 **[非推奨](modernization/property-updates.md)**
 
-#### `win.setMaximizable(maximizable)` *macOS* *Windows*
+#### `win.setMaximizable(maximizable)` _macOS_ _Windows_
 
 * `maximizable` Boolean
 
-ウインドウがユーザーによって手動で最大化できるかどうかを設定します。Linuxでは何もしません。
+ウインドウがユーザーによって手動で最大化できるかどうかを設定します。 Linux では何もしません。
 
 **[非推奨](modernization/property-updates.md)**
 
-#### `win.isMaximizable()` *macOS* *Windows*
+#### `win.isMaximizable()` _macOS_ _Windows_
 
 戻り値 `Boolean` - ウインドウがユーザーによって手動で最大化できるかどうか。
 
@@ -926,15 +927,15 @@ Linuxでは常に `true` を返します。
 
 **[非推奨](modernization/property-updates.md)**
 
-#### `win.setClosable(closable)` *macOS* *Windows*
+#### `win.setClosable(closable)` _macOS_ _Windows_
 
 * `closable` Boolean
 
-ウインドウをユーザーが手動で閉じられるかどうかを設定します。Linuxでは何もしません。
+ウインドウがユーザーによって手動で閉じられるかどうかを設定します。 Linux では何もしません。
 
 **[非推奨](modernization/property-updates.md)**
 
-#### `win.isClosable()` *macOS* *Windows*
+#### `win.isClosable()` _macOS_ _Windows_
 
 戻り値 `Boolean` - ウインドウをユーザーが手動で閉じられるかどうか。
 
@@ -945,10 +946,10 @@ Linuxでは常に `true` を返します。
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (任意) *macOS* *Windows* - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 `flag` が true の場合、省略値は `floating` です。 flag が false の場合、`level` は `normal` にリセットされます。 `floating` から `status` までに含まれているものにおいて、ウィンドウは macOS では Dock の下に、Windows ではタスクバーの下に配置されることをことに注意してください。 `pop-up-menu` 以降は、macOS では Dock の上に、Windows ではタスクバーの上に表示されます。 詳細については、[macOS のドキュメント](https://developer.apple.com/documentation/appkit/nswindow/level) を参照してください。
-* `relativeLevel` Integer (任意) *macOS* - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`0` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
+* `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). `flag` が true の場合、省略値は `floating` です。 flag が false の場合、`level` は `normal` にリセットされます。 `floating` から `status` までに含まれているものにおいて、ウィンドウは macOS では Dock の下に、Windows ではタスクバーの下に配置されることをことに注意してください。 `pop-up-menu` 以降は、macOS では Dock の上に、Windows ではタスクバーの上に表示されます。 詳細については、[macOS のドキュメント](https://developer.apple.com/documentation/appkit/nswindow/level) を参照してください。
+* `relativeLevel` Integer (任意) _macOS_ - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`0` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
-ウインドウが常に他のウインドウの上に表示されるかどうかを設定します。これを設定した後でも、ウインドウはフォーカスを当てられないツールボックスウインドウではなく、まだ通常のウインドウのままです。
+ウィンドウを常に他のウィンドウの上に表示するかどうかを設定します。 この設定を行った後でも、ウィンドウはまだ通常のものであり、フォーカスが当てられないツールボックスウィンドウではありません。
 
 #### `win.isAlwaysOnTop()`
 
@@ -956,9 +957,9 @@ Linuxでは常に `true` を返します。
 
 #### `win.moveAbove(mediaSourceId)`
 
-* `mediaSourceId` String - DesktopCapturerSource の ID の形式のウィンドウ ID。"window:1869:0" のようにします。
+* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
 
-z オーダーにおいて元のウィンドウの上にウィンドウを移動します。`mediaSourceId` が window タイプでない、またはウィンドウが存在しない場合、このメソッドはエラーを送出します。
+Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
 
 #### `win.moveTop()`
 
@@ -972,7 +973,7 @@ z オーダーにおいて元のウィンドウの上にウィンドウを移動
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (optional) _macOS_
 
 ウインドウを `x` と `y` に移動します。
 
@@ -992,12 +993,12 @@ z オーダーにおいて元のウィンドウの上にウィンドウを移動
 
 **注:** Web ページのタイトルはネイティブのウインドウのタイトルとは異なる可能性があります。
 
-#### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
+#### `win.setSheetOffset(offsetY[, offsetX])` _macOS_
 
 * `offsetY` Float
 * `offsetX` Float (optional)
 
-macOSでシートを表示させる場所を変更します。既定では、シートはウインドウフレームのちょうど真下に表示されますが、HTMLでレンダリングされたツールバーの下に表示したいことがあるかもしれません。例:
+macOS においてシートを設置する位置を変更します。 既定では、シートはウィンドウフレームのすぐ下に設置されますが、 HTML で表示されたツールバーの下に表示することもできます。 例:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1031,7 +1032,7 @@ win.setSheetOffset(toolbarRect.height)
 
 #### `win.getMediaSourceId()`
 
-戻り値 `String` - DesktopCapturerSource の ID の形式のウィンドウ ID。"window:1234:0" のようにします。
+Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
 
 より正確には、フォーマットは ` window:id:other_id` です。ここでの `id` は、Windows では `HWND`、macOS では `CGWindowID` (`uint64_t`)、Linux では `Window` (`unsigned long`) です。 `other_id` は、同じトップレベルウィンドウ内のウェブコンテンツ (タブ) を識別するために使用されます。
 
@@ -1041,46 +1042,46 @@ win.setSheetOffset(toolbarRect.height)
 
 ハンドルのネイティブな型は、Windowsでは `HWND`、macOSでは `NSView*`、Linuxでは `Window` (`unsigned long`) です。
 
-#### `win.hookWindowMessage(message, callback)` *Windows*
+#### `win.hookWindowMessage(message, callback)` _Windows_
 
 * `message` Integer
 * `callback` Function
 
-ウインドウメッセージをフックします。メッセージがWndProcで受信されると、`callback` が呼び出されます。
+ウィンドウメッセージをフックします。 メッセージが WndProc で受信されると、 `callback` が呼び出されます。
 
-#### `win.isWindowMessageHooked(message)` *Windows*
+#### `win.isWindowMessageHooked(message)` _Windows_
 
 * `message` Integer
 
 戻り値 `Boolean` - メッセージがフックされているかどうかによって、`true` または `false` 。
 
-#### `win.unhookWindowMessage(message)` *Windows*
+#### `win.unhookWindowMessage(message)` _Windows_
 
 * `message` Integer
 
 ウインドウメッセージのフックを解除します。
 
-#### `win.unhookAllWindowMessages()` *Windows*
+#### `win.unhookAllWindowMessages()` _Windows_
 
 すべてのウインドウメッセージのフックを解除します。
 
-#### `win.setRepresentedFilename(filename)` *macOS*
+#### `win.setRepresentedFilename(filename)` _macOS_
 
 * `filename` String
 
 ウインドウが表すファイルのパス名を設定します。ファイルのアイコンがウインドウのタイトルバーに表示されます。
 
-#### `win.getRepresentedFilename()` *macOS*
+#### `win.getRepresentedFilename()` _macOS_
 
 戻り値 `String` - ウインドウが表すファイルのパス名。
 
-#### `win.setDocumentEdited(edited)` *macOS*
+#### `win.setDocumentEdited(edited)` _macOS_
 
 * `edited` Boolean
 
 ウインドウのドキュメントが編集されたかどうかを指定します。`true` に設定すると、タイトルバーのアイコンがグレーになります。
 
-#### `win.isDocumentEdited()` *macOS*
+#### `win.isDocumentEdited()` _macOS_
 
 戻り値 `Boolean` - ウインドウのドキュメントが編集されたかどうか。
 
@@ -1094,12 +1095,12 @@ win.setSheetOffset(toolbarRect.height)
 
 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
 
-`rect` 範囲内のページのスナップショットを撮ります。`rect` を省略すると、表示されているページ全体をキャプチャします。
+`rect` 内のページのスナップショットをキャプチャします。 `rect` を省略すると、表示されているページ全体をキャプチャします。
 
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (任意) 
+* `options` Object (任意)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTP リファラの URL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
@@ -1139,36 +1140,36 @@ win.loadURL('http://localhost:8000/post', {
 #### `win.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (任意) 
+* `options` Object (任意)
   * `search` Record&lt;String, String&gt; (任意) - `url.format()` に渡されます。
   * `search` String (任意) - `url.format()` に渡されます。
   * `hash` String (任意) - `url.format()` に渡されます。
 
 戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
 
-`webContents.loadFile` と同じで、`filePath` はアプリケーションのルートからの相対パスで指す HTML でなければいけません。詳細は `webContents` ドキュメントを参照してください。
+`webContents.loadFile` と同じく、 `filePath` はアプリケーションのルートからの HTML ファイルへの相対パスである必要があります。  詳しくは、 `webContents` ドキュメントを参照してください。
 
 #### `win.reload()`
 
 `webContents.reload` と同じです。
 
-#### `win.setMenu(menu)` *Linux* *Windows*
+#### `win.setMenu(menu)` _Linux_ _Windows_
 
 * `menu` Menu | null
 
 `menu` をウインドウのメニューバーとして設定します。
 
-#### `win.removeMenu()` *Linux* *Windows*
+#### `win.removeMenu()` _Linux_ _Windows_
 
 ウインドウのメニューバーを消去します。
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (任意) 
-  * `mode` String *Windows* - プログレスバーのモード。`none`、`normal`、`indeterminate`、`error` または `paused` にすることができます。
+* `options` Object (任意)
+  * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
-プログレスバーの進捗値を設定します。有効範囲は、[0, 1.0] です。
+プログレスバーの進捗を設定します。 有効な範囲は [0, 1.0] です。
 
 進捗 < 0 の場合、プログレスバーは削除されます。進捗 > 1 の場合、不確定モードに変更します。
 
@@ -1176,7 +1177,7 @@ Linuxプラットフォームでは、Unityデスクトップ環境のみがサ�
 
 Windowsでは、モードを渡すことができます。 有効な値は、`none`、`normal`、`indeterminate`、`error` と `paused` です。 モードを設定せずに (ただし、有効範囲内の値で) `setProgressBar` を呼び出した場合、`normal` とみなされます。
 
-#### `win.setOverlayIcon(overlay, description)` *Windows*
+#### `win.setOverlayIcon(overlay, description)` _Windows_
 
 * `overlay` [NativeImage](native-image.md) | null - タスクバーアイコンの右下隅に表示されるアイコン。 この引数が `null` の場合、オーバーレイは消去されます。
 * `description` String - アクセシビリティスクリーンリーダーに提供される説明
@@ -1193,23 +1194,23 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 戻り値 `Boolean` - ウインドウに影を表示させているかどうか。
 
-#### `win.setOpacity(opacity)` *Windows* *macOS*
+#### `win.setOpacity(opacity)` _Windows_ _macOS_
 
 * `opacity` Number - 0.0 (完全に透明) と 1.0 (完全に不透明) の間
 
-ウィンドウの不透明度を設定します。Linux では何もしません。範囲外の数値は、[0, 1] の範囲に収められます。
+ウィンドウの不透明度を設定します。 On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
 
 #### `win.getOpacity()`
 
-戻り値 `Number` - 0.0 (完全に透明) と 1.0 (完全に不透明) の間です。Linux では常に 1 を返します。
+Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
 
-#### `win.setShape(rects)` *Windows* *Linux* *実験的*
+#### `win.setShape(rects)` _Windows_ _Linux_ _実験的_
 
-* `rects` [Rectangle[]](structures/rectangle.md) - ウィンドウの形を設定します。空のリストを渡すと矩形に戻ります。
+* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
 
 ウィンドウの形を設定すると、システム内で描画とユーザ操作が許可されているウィンドウ内の領域が決まります。 与えられた領域の外側のピクセルでは描画されず、マウスイベントも登録されません。 領域外のマウスイベントはそのウィンドウでは受信されませんが、ウィンドウの後ろにあるものにそのイベントがフォールスルーします。
 
-#### `win.setThumbarButtons(buttons)` *Windows*
+#### `win.setThumbarButtons(buttons)` _Windows_
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
@@ -1221,57 +1222,57 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 `buttons` は、`Button` オブジェクトの配列です。
 
-* `Button` Object 
+* `Button` Object
   * `icon` [NativeImage](native-image.md) - サムネイルツールバーで表示されるアイコン。
   * `click` Function
   * `tooltip` String (任意) - ボタンのツールチップのテキスト。
-  * `flags` String[] (任意) - ボタンの特定の状態や動作を制御します。デフォルトでは、`['enabled']` です。
+  * `flags` String[] (任意) - ボタンの特定の状態や動作を制御します。 省略値は、`['enabled']` です。
 
 `flags` は、以下の `String` を含めることができる配列です。
 
 * `enabled` - そのボタンはアクティブかつユーザが使用可能です。
-* `disabled` - そのボタンは無効です。存在しますが、ユーザ操作に応答しないことを示す視覚的な状態です。
+* `disabled` - そのボタンは無効化されます。 存在しますが、ユーザ操作に応答しないことを示す視覚的な状態です。
 * `dismissonclick` - そのボタンをクリックすると、サムネイルウインドウがすぐに閉じます。
 * `nobackground` - そのボタンの縁を描画しません。画像にのみ使用してください。
 * `hidden` - そのボタンはユーザに表示されません。
-* `noninteractive` - そのボタンは有効ですが、反応せず、押されたボタンの状態も描画されません。この値は、例えば通知内で使用するボタンに使用されます。
+* `noninteractive` - そのボタンは有効ですが、反応せず、押されたボタンの状態も描画されません。 この値は、例えば通知内で使用するボタンに使用されます。
 
-#### `win.setThumbnailClip(region)` *Windows*
+#### `win.setThumbnailClip(region)` _Windows_
 
 * `region` [Rectangle](structures/rectangle.md) - ウインドウの領域
 
 タスクバーのウインドウの上でホバリングするときに表示されるサムネイルイメージとして表示するウインドウの領域を設定します。 空の領域: `{ x: 0, y: 0, width: 0, height: 0 }` を指定することで、サムネイルをウインドウ全体にリセットすることができます。
 
-#### `win.setThumbnailToolTip(toolTip)` *Windows*
+#### `win.setThumbnailToolTip(toolTip)` _Windows_
 
 * `toolTip` String
 
 タスクバーのウインドウサムネイルでホバリングするときに表示されるツールチップを設定します。
 
-#### `win.setAppDetails(options)` *Windows*
+#### `win.setAppDetails(options)` _Windows_
 
-* `options` Object 
+* `options` Object
   * `appId` String (任意) - ウインドウの[アプリユーザーモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx)。 設定されないと、他のオプションは無効です。
   * `appIconPath` String (任意) - ウインドウの[再起動アイコン](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx)。
-  * `appIconIndex` Integer (任意) - `appIconPath` のアイコンのインデックス。 `appIconPath` が設定されないと無視されます。省略値は、`0` です。
+  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. 省略値は `0` です。
   * `relaunchCommand` String (任意) - ウインドウの[再起動コマンド](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx)。
   * `relaunchDisplayName` String (任意) - ウインドウの[再起動表示名](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx)。
 
 ウインドウのタスクバーボタンのプロパティを設定します。
 
-**注:** `relaunchCommand` と `relaunchDisplayName` は常に一緒に設定しなければなりません。もしこれらのプロパティの1つが設定されないと、どちらも使用されません。
+**注:** `relaunchCommand` と `relaunchDisplayName` は一緒に設定する必要があります。 いずれかが設定されていない場合、どちらも使用されません。
 
-#### `win.showDefinitionForSelection()` *macOS*
+#### `win.showDefinitionForSelection()` _macOS_
 
 `webContents.showDefinitionForSelection()` と同じです。
 
-#### `win.setIcon(icon)` *Windows* *Linux*
+#### `win.setIcon(icon)` _Windows_ _Linux_
 
 * `icon` [NativeImage](native-image.md) | String
 
 ウインドウのアイコンを変更します。
 
-#### `win.setWindowButtonVisibility(visible)` *macOS*
+#### `win.setWindowButtonVisibility(visible)` _macOS_
 
 * `visible` Boolean
 
@@ -1283,7 +1284,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 * `hide` Boolean
 
-ウインドウメニューバーを自動的に非表示にするかどうかを設定します。一度設定すると、メニューバーはユーザーが単独で `Alt` キーを押下したときだけ表示されます。
+ウィンドウのメニューバーを自動的に非表示にするかどうかを設定します。 一度設定されると、メニューバーはユーザが単独で `Alt` キーを押したときのみに表示されます。
 
 メニューバーが既に表示されている場合、`setAutoHideMenuBar(true)` を呼び出してもすぐに非表示にはなりません。
 
@@ -1295,11 +1296,11 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 **[非推奨](modernization/property-updates.md)**
 
-#### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
+#### `win.setMenuBarVisibility(visible)` _Windows_ _Linux_
 
 * `visible` Boolean
 
-メニューバーを表示するかどうかを設定します。メニューバーが自動的に非表示にされている場合でも、ユーザは単独で `Alt` キーを押下することで、依然としてメニューバーを表示させることができます。
+メニューバーを表示するかどうかを設定します。 メニューバーが自動的に非表示にされている場合でも、ユーザは単独で `Alt` キーを押下することで、依然としてメニューバーを表示させることができます。
 
 #### `win.isMenuBarVisible()`
 
@@ -1308,8 +1309,8 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
-* `options` Object (任意) 
-  * `visibleOnFullScreen` Boolean (任意) *macOS* - ウインドウをフルスクリーンウィンドウの上でも表示するかどうかを設定します *非推奨*
+* `options` Object (任意)
+  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows _deprecated_
 
 ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 
@@ -1324,22 +1325,22 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `options` Object (任意) 
-  * `forward` Boolean (任意) *macOS* *Windows* - trueの場合、マウスの移動メッセージが Chromium に転送され、`mouseleave` のようなマウス関連のイベントが有効になります。 `ignore` がtrueのときだけ使用されます。 `ignore` がfalseの場合、この値に関わらず、転送は常に無効です。
+* `options` Object (任意)
+  * `forward` Boolean (optional) _macOS_ _Windows_ - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. `ignore` がtrueのときだけ使用されます。 `ignore` がfalseの場合、この値に関わらず、転送は常に無効です。
 
 ウインドウがすべてのマウスイベントを無視するようにします。
 
 このウインドウで発生するすべてのマウスイベントは、このウインドウの下にあるウインドウに渡されますが、このウインドウにフォーカスがある場合、依然としてキーボードイベントは受信されます。
 
-#### `win.setContentProtection(enable)` *macOS* *Windows*
+#### `win.setContentProtection(enable)` _macOS_ _Windows_
 
 * `enable` Boolean
 
 他のアプリによってウインドウのコンテンツがキャプチャされるのを防止します。
 
-macOSでは、NSWindowのsharingTypeをNSWindowSharingNoneに設定します。Windowsでは、`WDA_MONITOR` でSetWindowDisplayAffinityを呼び出します。
+macOS では、NSWindow の共有タイプを NSWindowSharingNone に設定します。 Windows では、 SetWindowDisplayAffinity を `WDA_MONITOR` で呼び出します。
 
-#### `win.setFocusable(focusable)` *macOS* *Windows*
+#### `win.setFocusable(focusable)` _macOS_ _Windows_
 
 * `focusable` Boolean
 
@@ -1361,57 +1362,57 @@ macOS ではウィンドウからフォーカスは除去されません。
 
 戻り値 `BrowserWindow[]` - すべての子ウインドウ。
 
-#### `win.setAutoHideCursor(autoHide)` *macOS*
+#### `win.setAutoHideCursor(autoHide)` _macOS_
 
 * `autoHide` Boolean
 
 タイプしているときにカーソルを非表示にするかどうかを制御します。
 
-#### `win.selectPreviousTab()` *macOS*
+#### `win.selectPreviousTab()` _macOS_
 
 ネイティブのタブが有効で、ウインドウに他のタブがあるとき、一つ前のタブを選択します。
 
-#### `win.selectNextTab()` *macOS*
+#### `win.selectNextTab()` _macOS_
 
 ネイティブのタブが有効で、ウインドウに他のタブがあるとき、次のタブを選択します。
 
-#### `win.mergeAllWindows()` *macOS*
+#### `win.mergeAllWindows()` _macOS_
 
 ネイティブのタブが有効で複数の開いているウインドウがあるとき、すべてのウインドウを複数のタブで1つのウインドウにマージします。
 
-#### `win.moveTabToNewWindow()` *macOS*
+#### `win.moveTabToNewWindow()` _macOS_
 
 ネイティブのタブが有効で現在のウインドウに複数のタブがあるとき、現在のタブを新しいウインドウに移動します。
 
-#### `win.toggleTabBar()` *macOS*
+#### `win.toggleTabBar()` _macOS_
 
 ネイティブのタブが有効で現在のウインドウにタブが1つだけしかないとき、タブバーを表示するかどうかを切り替えます。
 
-#### `win.addTabbedWindow(browserWindow)` *macOS*
+#### `win.addTabbedWindow(browserWindow)` _macOS_
 
 * `browserWindow` BrowserWindow
 
 ウインドウインスタンスのタブの後ろに、このウインドウのタブとしてウインドウを追加します。
 
-#### `win.setVibrancy(type)` *macOS*
+#### `win.setVibrancy(type)` _macOS_
 
 * `type` String | null - `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。 詳細については、[macOSのドキュメント](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) を参照してください。
 
-ブラウザウィンドウに曇りガラス効果を追加します。`null` または空文字を渡すと、ウインドウの曇りガラス効果が削除されます。
+ブラウザウィンドウにバイブレンシーエフェクトを追加します。 `null` または空の文字列を渡すと、ウィンドウのバイブレンシーエフェクトを削除します。
 
 注意として、`appearance-based`、`light`、`dark`、`medium-light` と `ultra-dark` は非推奨であり、macOS の今後のバージョンで削除されます。
 
-#### `win.setTrafficLightPosition(position)` *macOS*
+#### `win.setTrafficLightPosition(position)` _macOS_
 
 * `position` [Point](structures/point.md)
 
-信号機ボタンのカスタム位置を設定します。`titleBarStyle` を `hidden` にした場合にのみ使用できます。
+Set a custom position for the traffic light buttons. `titleBarStyle` を `hidden` にした場合のみ可能です.
 
-#### `win.getTrafficLightPosition()` *macOS*
+#### `win.getTrafficLightPosition()` _macOS_
 
-戻り値 `Point` - 信号機ボタンの現在位置。`titleBarStyle` を `hidden` にした場合のみ使用できます。
+Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` _macOS_ _Experimental_
 
 * `touchBar` TouchBar | null
 
@@ -1419,25 +1420,25 @@ macOS ではウィンドウからフォーカスは除去されません。
 
 **注釈:** TouchBar API は現在実験的な機能で、将来の Electron リリースでは変更されたり削除されたりする可能性があります。
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` _Experimental_
 
 * `browserView` [BrowserView](browser-view.md) | null - `browserView` を `win` へアタッチします。 他の `BrowserView` がアタッチされている場合、それはこのウィンドウから削除されます。
 
-#### `win.getBrowserView()` *実験的*
+#### `win.getBrowserView()` _実験的_
 
 戻り値 `BrowserView | null` - `win` にアタッチされた `BrowserView`。 アタッチされていない場合は `null` を返します。 複数の `BrowserView` がアタッチされている場合、エラーを送出します。
 
-#### `win.addBrowserView(browserView)` *実験的*
+#### `win.addBrowserView(browserView)` _実験的_
 
 * `browserView` [BrowserView](browser-view.md)
 
 複数の BrowserView をサポートする setBrowserView の置換 API。
 
-#### `win.removeBrowserView(browserView)` *実験的*
+#### `win.removeBrowserView(browserView)` _実験的_
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` *実験的*
+#### `win.getBrowserViews()` _実験的_
 
 戻り値 `BrowserView[]` - `addBrowserView` または `setBrowserView` でアタッチされたすべての BrowserView の配列。
 

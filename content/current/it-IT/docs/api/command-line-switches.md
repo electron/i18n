@@ -58,7 +58,7 @@ Utilizzare un server proxy specificato, che sostituisce l'impostazione di sistem
 
 ## --proxy-bypass-list=`hosts`
 
-Indica ad Electron di "bypassare" il server proxy, per l'elenco degli host forniti separati da punto e virgola. Questo flag ha effetto solo se usato in tandem con `--proxy-server`.
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
 Ad esempio:
 
@@ -83,10 +83,10 @@ Un elenco di regole separate da virgole che controllano il modo in cui i nomi de
 
 Ad esempio:
 
-- MAP * 127.0.0.1 Forza tutti gli hostname a mappare su 127.0.0.1
-- MAP *.google.com proxy Forza tutti i sottodomini google.com da risolvere in "proxy".
-- MAP test.com [:: 1]: 77 Forza "test.com" per risolvere il loopback IPv6. Forzerà anche la porta dell'indirizzo socket risultante a 77.
-- MAP * baz, EXCLUDE www.google.com Rimappa tutto in "baz", ad eccezione di "www.google.com".
+* MAP * 127.0.0.1 Forza tutti gli hostname a mappare su 127.0.0.1
+* MAP *.google.com proxy Forza tutti i sottodomini google.com da risolvere in "proxy".
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* MAP * baz, EXCLUDE www.google.com Rimappa tutto in "baz", ad eccezione di "www.google.com".
 
 Questi mapping si applicano all'host dell'endpoint in una richiesta net (il TCP connect e il resolver host in una connessione diretta e CONNECT in una connessione proxy HTTP e l'host endpoint in una connessione proxy SOCKS).
 
@@ -140,9 +140,9 @@ Questa opzione non può essere utilizzata in `app.commandLine.appendSwitch` poic
 
 ## --v=`log_level`
 
-Fornisce il massimo livello di V-logging attivo predefinito; 0 è il valore predefinito. I valori di norma positivi vengono utilizzati per i livelli di registrazione V (*V-logging levels*).
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
-Questa opzione funziona solo quando viene passato anche `--enable-logging`.
+Questa opzione funziona solo quando viene anche eseguito il *--enable-logging*.
 
 ## --vmodule=`pattern`
 
@@ -155,7 +155,6 @@ Questa opzione funziona solo quando viene anche eseguito il *--enable-logging*.
 ## --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
-
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`

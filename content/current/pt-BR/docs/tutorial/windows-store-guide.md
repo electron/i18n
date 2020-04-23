@@ -44,8 +44,7 @@ A saída deve ser algo mais ou menos assim:
 │   ├── [...]
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   └── app.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
@@ -76,7 +75,6 @@ Ao contrário de aplicações UWP tradicionais, aplicações empacotadas deverã
 Outra limitação importante é que a aplicação AppX compilada contém um executável win32 - e, portanto, não pode ser executado no Xbox, Hololens ou smartphones.
 
 ## Opcional: Adicionar recursos UWP utilizando uma BackgroundTask
-
 Você pode parear sua aplicação Electron com um processo UWP em segundo plano, esta, pode fazer pleno uso dos recursos do Windows 10 - como notificações em push, Cortana ou Live Tiles.
 
 Para verificar como uma aplicação Electron utiliza um processo em segundo plano para enviar notificações e Live Tiles, [confira a amostra fornecida pela própria Microsoft](https://github.com/felixrieseberg/electron-uwp-background).

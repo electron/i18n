@@ -23,13 +23,13 @@ app.on('ready', () => {
 })
 ```
 
-**Limitations selon les plateformes :**
+__Limitations selon les plateformes :__
 
 * Sur Linux, l'indicateur d'application sera utilisé s'il est pris en charge, sinon `GtkStatusIcon` sera utilisé à la place.
 * Sur les distributions Linux qui ont seulement le support de l'indicateur d'application, vous devrez installer `libappindicator1` pour faire fonctionner l'icône.
 * L'indicateur d'application sera affiché seulement lorsqu'il a un menu contextuel.
 * Lorsque l'indicateur d'application est utilisé sur Linux, l'événement `click` est ignoré.
-* Sur Linux, afin que les modifications apportées à chaque `MenuItem` prennent effet, vous devrez appeler `setContextMenu` à nouveau. Par exemple :
+* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Par exemple :
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -49,10 +49,10 @@ app.on('ready', () => {
   appIcon.setContextMenu(contextMenu)
 })
 ```
-
 * Sur Windows, il est recommandé d'utiliser des icônes du type `ICO` pour obtenir les meilleurs effets visuels.
 
 Si vous souhaitez conserver les mêmes comportements sur toutes les plateformes, vous ne devriez pas vous appuyez sur l'événement `click` et toujours fixer un menu contextuel sur l'icône.
+
 
 ### `new Tray(image)`
 
@@ -74,7 +74,7 @@ Retourne :
 
 Émis lorsque l’utilisateur clique sur l’icône.
 
-#### Événement : 'right-click' *macOS* *Windows*
+#### Événement : 'right-click' _macOS_ _Windows_
 
 Retourne :
 
@@ -83,7 +83,7 @@ Retourne :
 
 Émis lorsque l’utilisateur fait un clique droit sur l’icône.
 
-#### Événement : 'double-click' *macOS* *Windows*
+#### Événement : 'double-click' _macOS_ _Windows_
 
 Retourne :
 
@@ -92,23 +92,23 @@ Retourne :
 
 Émis lorsque l’utilisateur double clique sur l’icône.
 
-#### Événement : 'balloon-show' *Windows*
+#### Événement : 'balloon-show' _Windows_
 
 Émis lorsque le ballon de la barre d’État s’affiche.
 
-#### Événement : 'balloon-click' *Windows*
+#### Événement : 'balloon-click' _Windows_
 
 Émis lorsque l’utilisateur clique sur le ballon de la barre d'État.
 
-#### Événement : 'balloon-closed' *Windows*
+#### Événement : 'balloon-closed' _Windows_
 
 Émis lorsque le ballon de la barre d’État est fermé en raison du délai d’attente dépassé ou de l’utilisateur le ferme manuellement.
 
-#### Événement : 'drop' *macOS*
+#### Événement : 'drop' _macOS_
 
 Émis lorsque un ou des éléments sont glissés et déposés sur l’icône.
 
-#### Événement : 'drop-files' *macOS*
+#### Événement : 'drop-files' _macOS_
 
 Retourne :
 
@@ -117,7 +117,7 @@ Retourne :
 
 Émis lorsque des fichiers sont glissés et déposés sur l’icône.
 
-#### Événement : 'drop-text' *macOS*
+#### Événement : 'drop-text' _macOS_
 
 Retourne :
 
@@ -126,19 +126,19 @@ Retourne :
 
 Émis lorsqu'un texte est déposé sur l’icône.
 
-#### Événement : 'drag-enter' *macOS*
+#### Événement : 'drag-enter' _macOS_
 
 Émis lorsqu’une opération glisser entre dans la zone de l’icône.
 
-#### Événement : 'drag-leave' *macOS*
+#### Événement : 'drag-leave' _macOS_
 
 Émis lorsqu’une opération glisser sort de la zone de l’icône.
 
-#### Événement : 'drag-end' *macOS*
+#### Événement : 'drag-end' _macOS_
 
 Émis lorsqu’une opération glisser se termine sur l'icône ou à un autre emplacement.
 
-#### Événement : 'mouse-enter' *macOS*
+#### Événement : 'mouse-enter' _macOS_
 
 Retourne :
 
@@ -147,7 +147,7 @@ Retourne :
 
 Émis lorsque la souris entre dans la zone de l’icône.
 
-#### Événement : 'mouse-leave' *macOS*
+#### Événement : 'mouse-leave' _macOS_
 
 Retourne :
 
@@ -156,7 +156,7 @@ Retourne :
 
 Émis lorsque la souris sort de la zone de l’icône.
 
-#### Event: 'mouse-move' *macOS* *Windows*
+#### Event: 'mouse-move' _macOS_ _Windows_
 
 Retourne :
 
@@ -179,7 +179,7 @@ Détruit l’icône immédiatement.
 
 Définit l’`image` associée à l'icône.
 
-#### `tray.setPressedImage(image)` *macOS*
+#### `tray.setPressedImage(image)` _macOS_
 
 * `image` ([NativeImage](native-image.md) | String)
 
@@ -191,31 +191,31 @@ Définit l’`image` associée à l'icône quand elle est pressée sur macOS.
 
 Définit le texte au survol pour l'icône.
 
-#### `tray.setTitle(title)` *macOS*
+#### `tray.setTitle(title)` _macOS_
 
 * `title` String
 
 Définit le titre affiché à côté de l'icône de la barre d'état dans la barre d'état (couleurs support ANSI).
 
-#### `tray.getTitle()` *macOS*
+#### `tray.getTitle()` _macOS_
 
 Retourne `String` - le titre affiché à côté de l'icône de la barre d'état
 
-#### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
+#### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
 * `ignore` Boolean
 
-Définie l'option pour ignorer les événements de double clic. Ignorer ces évènements vous permet de détecter chaque simple clic sur l’icône dans la barre des tâches.
+Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
 Cette valeur est définie à <0>false</0> par défaut.
 
-#### `tray.getIgnoreDoubleClickEvents()` *macOS*
+#### `tray.getIgnoreDoubleClickEvents()` _macOS_
 
 Retourne un `Boolean` - Si oui ou non les événènements de double clic seront ignorés.
 
-#### `tray.displayBalloon(options)` *Windows*
+#### `tray.displayBalloon(options)` _Windows_
 
-* `options` Objet 
+* `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
@@ -226,20 +226,20 @@ Retourne un `Boolean` - Si oui ou non les événènements de double clic seront 
 
 Affiche une bulle dans la barre d'État.
 
-#### `tray.removeBalloon()` *Windows*
+#### `tray.removeBalloon()` _Windows_
 
 Removes a tray balloon.
 
-#### `tray.focus()` *Windows*
+#### `tray.focus()` _Windows_
 
 Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
 
-#### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+#### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
 * `menu` Menu (facultatif)
 * `position` [Point](structures/point.md) (facultatif) - Position du menu.
 
-Ouvre le menu contextuel de l’icône. Lorsque le `menu` est passé, le `menu` s’affichera au lieu du menu contextuel de l’icône de la barre d’État.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
 La `position` n’est disponible que sur Windows, et c’est (0, 0) par défaut.
 
@@ -249,7 +249,7 @@ La `position` n’est disponible que sur Windows, et c’est (0, 0) par défaut.
 
 Définit le menu contextuel de l'icône.
 
-#### `tray.getBounds()` *macOS* *Windows*
+#### `tray.getBounds()` _macOS_ _Windows_
 
 Retourne [`Rectangle`](structures/rectangle.md)
 

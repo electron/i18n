@@ -8,13 +8,13 @@ Proses: [Main](../glossary.md#main-process)
 
 ### `baru ClientRequest(options)`
 
-* `pilihan` (Objek | String) - jika `pilihan` adalah sebuah String, hal itu ditafsirkan sebagai URL permintaan. Jika ini adalah obyek, diharapkan untuk sepenuhnya menentukan permintaan HTTP melalui sifat sebagai berikut: 
-  * `metode` String (opsional) - metode permintaan HTTP. Default untuk metode GET.
-  * `URL` String (opsional) - URL permintaan. Harus diberikan dalam bentuk mutlak dengan skema protokol ditetapkan sebagai http atau https.
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partisi` String (opsional) - nama [`partisi`](session.md) yang permintaan tersebut terkait. Default untuk string kosong. Opsi `sesi` berlaku pada `partisi`. Dengan demikian jika `sesi` secara eksplisit ditetapkan, `partisi` diabaikan.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Defaultnya adalah ` false </ 0> .</li>
-<li><code>protokol` String (opsional) - skema protokol dalam bentuk ' skema:'. Nilai-nilai yang didukung saat ini ' http:' atau ' https:'. Default ' http:'.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Defaultnya adalah ` false </ 0> .</p></li>
+<li><p spaces-before="0"><code>protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `tuan rumah` String (opsional) - server host disediakan sebagai sebuah gabungan dari nama host dan port nomor 'hostname:port'.
   * `nama host` String (opsional) - nama host server.
   * `Port` Bulat (opsional) - nomor port server mendengarkan.
@@ -33,7 +33,7 @@ permintaan Const = net.request ({metode: 'Mendapatkan', protokol: ' https:', nam
 
 #### Event: 'respon'
 
-Pengembalian:
+Mengembalikan:
 
 * `respon` IncomingMessage - sebuah objek yang mewakili pesan Respon HTTP.
 
@@ -41,13 +41,13 @@ Pengembalian:
 
 Mengembalikan:
 
-* `authInfo` Objek 
+* `authInfo` Object
   * ` isProxy </ 0>  Boolean</li>
 <li><code>skema` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Fungsi 
+* `callback ` Fungsi
   * `username` String (optional)
   * `password` String (optional)
 
@@ -61,7 +61,6 @@ Fungsi `panggilan balik` diharapkan dipanggil kembali dengan kredensial pengguna
 ```JavaScript
 request.on ('login', (authInfo, callback) = > {callback ('username', 'password')})
 ```
-
 Menyediakan kredensial kosong akan membatalkan permintaan dan laporkan kesalahan otentikasi pada objek respon:
 
 ```JavaScript
@@ -74,11 +73,11 @@ Dipancarkan hanya setelah potongan terakhir `permintaan` data telah ditulis ke d
 
 #### Event: 'membatalkan'
 
-Dibunyikan apabila `permintaan` dibatalkan. `Membatalkan` acara tidak bisa dipecat jika `permintaan` sudah ditutup.
+Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### Acara: 'kesalahan'
 
-Mengirimkan:
+Mengembalikan:
 
 * `kesalahan` Kesalahan - kesalahan objek menyediakan beberapa informasi tentang kegagalan.
 
@@ -88,18 +87,19 @@ Dibunyikan apabila modul `bersih` gagal untuk mengeluarkan permintaan jaringan. 
 
 Dipancarkan sebagai acara terakhir dalam transaksi permintaan-respon HTTP. `Menutup` acara menunjukkan bahwa lebih peristiwa akan dibunyikan pada objek `permintaan` atau `tanggapan`.
 
+
 #### Event: 'mengalihkan'
 
-Kembali:
+Mengembalikan:
 
 * `statusCode` Bilangan bulat
 * `method` String
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Contoh properti
+### Instance Properties
 
 #### `request.chunkedEncoding`
 
@@ -107,7 +107,7 @@ Emitted when the server returns a redirect response (e.g. 301 Moved Permanently)
 
 Menggunakan chunked pengkodean sangat dianjurkan jika Anda perlu mengirim permintaan besar tubuh sebagai data akan dialirkan secara potongan kecil bukannya internal buffered dalam memori proses elektron.
 
-### Metode Contoh
+### Методы экземпляра
 
 #### `request.setHeader (nama, nilai)`
 
@@ -126,12 +126,12 @@ Returns `String` - The value of a previously set extra header name.
 
 * `nama` String - menentukan nama tambahan header.
 
-Menghapus nama header tambahan yang sebelumnya ditata. Metode ini dapat disebut hanya sebelum menulis pertama. Mencoba untuk menyebutnya setelah menulis pertama akan melempar kesalahan.
+Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
 #### `request.write (potongan [, pengkodean] [, callback])`
 
-* `potongan` (String | Buffer) - sepotong tubuh permintaan data. Jika sebuah string, waktunya akan diubah ke Buffer menggunakan penyandian tertentu.
-* `pengkodean` String (opsional) - digunakan untuk mengkonversi string potongan ke Buffer objek. Default untuk 'utf-8'.
+* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
+* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
 * `callback` Fungsi (opsional) - disebut setelah operasi tulis berakhir.
 
 `callback` adalah pada dasarnya fungsi dummy diperkenalkan dalam tujuan menjaga kesamaan dengan Node.js API. Hal ini disebut asynchronously di kutu berikutnya setelah `potongan` konten sudah diserahkan ke lapisan jaringan kromium. Bertentangan dengan implementasi Node.js, itu tidak dijamin bahwa `potongan` konten telah memerah pada kabel sebelum `panggil balik` disebut.
@@ -144,7 +144,7 @@ Menambahkan sepotong data permintaan tubuh. Operasi menulis pertama dapat menyeb
 * `pengkodean` String (opsional)
 * `callback` Fungsi (opsional)
 
-Mengirim sepotong terakhir data permintaan. Operasi berikutnya menulis atau akhir tidak akan diizinkan. Acara `selesai` dibunyikan hanya setelah akhir operasi.
+Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
 #### `request.Abort()`
 

@@ -2,7 +2,7 @@
 
 > Yerel uygulama menüleri ve bağlam menüleri oluşturun.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 ### `yeni Menü()`
 
@@ -16,7 +16,7 @@ The `Menu` class has the following static methods:
 
 * `menu` Menü | boş
 
-MacOS'ta uygulama `menu` ayarlar. Windows ve Linux'ta `menu`, her pencerenin üst menüsü olarak ayarlanır.
+Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
 Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
@@ -28,9 +28,9 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 Döner `Menu | null` - Uygulama menüsü, ayarlanmışsa veya `null` ayarlanmamışsa.
 
-**Note:** Döndürülen `Menu` örneği dinamik eklemeyi veya menü öğelerinin kaldırılmasını desteklemez. [Instance properties](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
 
-#### `Menu.sendActionToFirstResponder(action)` *macOS*
+#### `Menu.sendActionToFirstResponder(action)` _macOS_
 
 * `action` Dizisi
 
@@ -48,17 +48,17 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Örnek Metodlar
+### Örnek yöntemleri
 
 `menu` nesnesi aşağıdaki örnek yöntemlerine sahiptir:
 
 #### `menu.popup([options])`
 
-* `seçenekler` Obje (opsiyonel) 
+* `options` Object (optional)
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
-  * `x` Sayı (isteğe bağlı) - Varsayılan, geçerli fare imleci konumudur. Eğer `y` bildirilmişse, bildirilmelidir.
-  * `y` Sayı (isteğe bağlı) Varsayılan geçerli fare imleci konumudur. Eğer `x` bildirilmişse, bildirilmelidir.
-  * `positioningItem` Sayı (isteğe bağlı) *macOS* - Belirtilen koordinattaki fare imlecinin altına konumlandırılacak menü öğesinin dizini. Varsayılan değer -1'dir.
+  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Function (optional) - Called when menu is closed.
 
 Bu menüyü [` BrowserWindow `](browser-window.md) 'de bir içerik menüsü olarak açar.
@@ -98,7 +98,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 
 ` menu.popup () ` çağrıldığında verilir.
 
@@ -258,7 +258,7 @@ window.addEventListener('contextmenu', (e) => {
 
 ## MacOS Uygulama Menüleri Hakkında Notlar
 
-macOS, Windows ve Linux'dan tamamen farklı bir uygulama menüsü stiline sahiptir. İşte, uygulamanızın menüsünü daha yerli yapmaya ilişkin bazı notlar.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
 ### Standart Menüler
 
@@ -276,7 +276,7 @@ macOS, `About xxx`, `Hide xxx` ve `Hide Others` gibi bazı menü öğeleri için
 
 MacOS'da hangi etiketi ayarlarsanız ayarlayın uygulama menüsünün ilk öğesinin etiketi daima uygulamanızın adıdır. Bunu değiştirmek için uygulama paketinin `Info.plist` dosyasını geliştirin. Daha fazla bilgi için [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) bakın.
 
-## Belirli Tarayıcı Penceresi için Menü Ayarlama (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
 Tarayıcı pencerelerinin [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows), belirli tarayıcı pencerelerinin menüsünü ayarlayabilir.
 
@@ -307,7 +307,7 @@ By default, items will be inserted in the order they exist in the template unles
 Menü:
 
 ```sh
-<br />- 1
+- 1
 - 2
 - 3
 - 4
@@ -329,7 +329,7 @@ Menü:
 Menü:
 
 ```sh
-<br />- 3
+- 3
 - 4
 - ---
 - 1
@@ -350,7 +350,7 @@ Menü:
 Menü:
 
 ```sh
-<br />- ---
+- ---
 - 3
 - 2
 - 1

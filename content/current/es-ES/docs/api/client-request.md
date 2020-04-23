@@ -2,19 +2,19 @@
 
 > Hace solicitudes HTTP/HTTPS.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
 `Peticiones del cliente` implementa la interfaz de [corriente de escritura](https://nodejs.org/api/stream.html#stream_writable_streams) y por lo tanto es un [emitidor de eventos](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ### `new ClientRequest(options)`
 
-* `opciones` (Objecto | Cadena) - Si `opciones` es una cadena, es interpretada como la URL de la solicitud. Si es un objeto, se espera que especifique una olicitud HTTP por medio de las siguientes propiedades: 
-  * `método` Cadena (opcional) - El método de la solicitud HTTP. por defenteto al método GET.
-  * `url` Cadena (opcional) - La URL solicitada. Debe proporcionarse en la forma absoluta con el esquema de protocolo especificado como http o https.
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. La opción `sesión` prevalece sobre `partición`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Por defecto es `false`.
-  * `protocolo` Cadena (opcional) -El esquema de protocolo en la forma "esquema": Valores soportados actualmente son 'http:' o 'https:'. Por defecto es 'http:'.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Por defecto es `false`.
+  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` Cadena (opcional) - El servidor central proporcionado como una concatenación de nombres de anfitrión y el número de puerto "nombre del host:puerto".
   * `nombre de anfitrión` Cadena (opcional) - el nombre del servidor central.
   * `Puerto` Entero (opcional) - el número de puerto listado en el servidor.
@@ -47,13 +47,13 @@ Devuelve:
 
 Devuelve:
 
-* `authInfo` Objeto 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `anfitrión` Cadena
   * `puerto` Íntegro
   * `realm` Cadena
-* `callback` Function 
+* `callback` Función
   * `username` String (opcional)
   * `password` String (opcional)
 
@@ -69,7 +69,6 @@ request.on('login', (authInfo, callback) => {
   callback('username', 'password')
 })
 ```
-
 Proporcional credenciales vacías cancelará la solicitud y reportará un error de autenticación en el objeto de respuesta:
 
 ```JavaScript
@@ -90,7 +89,7 @@ Emitido justo antes de que el último paquete de los datos de la `solicitud` hay
 
 #### Evento: "abortar"
 
-Emitido cuando la `solicitud` es abortada. El evento `abortar` no será disparado si la `solicitud` ya está cerrada.
+Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### Evento: "error"
 
@@ -104,6 +103,7 @@ Emitido cuando el módulo `net` falla en emitir una solicitud de red. Típicamen
 
 Emitido cuando el último evento en la transacción solicitud-respuesta HTTP. El evento `cerrar` indica que ningún otro evento será emitido en los objetos `solicitud` o `respuesta`.
 
+
 #### Evento: "redirigir"
 
 Devuelve:
@@ -113,9 +113,9 @@ Devuelve:
 * `Redirigir Url` Cadena
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Propiedades de la instancia
+### Propiedades de Instancia
 
 #### `request.chunkedEncoding`
 
@@ -142,12 +142,12 @@ Returns `String` - The value of a previously set extra header name.
 
 * `nombre` Cadena - Especifica el nombre del encabezado extra.
 
-Remueve un nombre extra de encabezado configurado anteriormente. Este método puede ser llamado solo antes de escribir. Tratar de llamarlo después de la primera escritura arrojará un error.
+Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `paquete` (Cadena | Almacenamiento temporal) - Un paquete del cuerpo de información de la solicitud. Si es una cadena, se convierte a en un almacenador interno usando codificación especial.
-* `Codificación` Cadena (opcional) - Usado para convertir paquetes de cadenas en objetos de almacenamiento. Por defecto es 'utf-8'.
+* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
+* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
 * `retrollamada` función (opcional) - Llamado cuando se haya realizado la operación de escritura.
 
 La `retrollamada` es esencialmente una función sencilla introducida con el propósito de mantener similitudes con el API Node.js. Es llamada asincrónicamente en el siguiente tick después de que el contenido del `paquete` haya sido entregado a la capa de red de Chromium. A diferencia de la implementación de Node.js, no está garantizado que el contenido del `paquete` haya sido entregado en el hilo antes de que sea llamada `retrollamada`.
@@ -160,7 +160,7 @@ Agrega un paquete de datos al cuerpo de la solicitud. La primera operación de e
 * `codificación` Cadena (opcional)
 * `retrocallback` Funcion (opcional)
 
-Envía el último paquete de datos solicitado. Subsecuentemente escribir o terminar operaciones no estará permitido. El evento `final` es emitido justo después de que termina la operación.
+Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
 #### `request.abort()`
 
@@ -174,8 +174,8 @@ Continues any pending redirection. Can only be called during a `'redirect'` even
 
 Devuelve `Objecto`:
 
-* `active` Boolean - Si la solicitud está activa actualmente. Si esto es falso ninguna otra propiedad será establecida
-* `started` Boolean - Si la subida ha comenzado. Si esto es falso ambos `current` y `total` se establecerán a 0.
+* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
+* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
 * `current` Integer - El número de bytes que se han subido hasta ahora
 * `total` Integer - El número de bytes que ha subido esta solicitud
 

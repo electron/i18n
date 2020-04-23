@@ -1,18 +1,18 @@
 # Pull Requests
 
-* [로컬 환경 설정](#setting-up-your-local-environment) 
+* [로컬 환경 설정](#setting-up-your-local-environment)
   * [1 단계: Fork](#step-1-fork)
   * [2 단계: 빌드](#step-2-build)
   * [3 단계: 브랜치](#step-3-branch)
-* [변경 작업 순서](#making-changes) 
+* [변경 작업 순서](#making-changes)
   * [4 단계: 코드](#step-4-code)
-  * [5 단계: 커밋](#step-5-commit) 
+  * [5 단계: 커밋](#step-5-commit)
     * [커밋 메시지 가이드라인](#commit-message-guidelines)
   * [6 단계: Rebase](#step-6-rebase)
   * [7 단계: 테스트](#step-7-test)
   * [8 단계: Push](#step-8-push)
   * [9 단계: Pull Request 생성하기](#step-9-opening-the-pull-request)
-  * [10 단계: 토론 및 업데이트](#step-10-discuss-and-update) 
+  * [10 단계: 토론 및 업데이트](#step-10-discuss-and-update)
     * [승인 및 변경 요청 작업 흐름](#approval-and-request-changes-workflow)
   * [11 단계: 랜딩](#step-11-landing)
   * [지속적인 통합 테스팅](#continuous-integration-testing)
@@ -33,7 +33,6 @@ $ git fetch upstream
 ### 2 단계: 빌드
 
 운영 체제에 따라 빌드 단계나 의존성이 약간씩 차이가 있습니다. Electron을 로컬에서 빌드하는 방법을 다룬 아래 가이드 문서를 참고하세요:
-
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [리눅스에서 빌드하기](https://electronjs.org/docs/development/build-instructions-linux)
 * [Windows에서 빌드하기](https://electronjs.org/docs/development/build-instructions-windows)
@@ -73,33 +72,32 @@ $ git commit
 
 변경 사항과 그 이유를 담고 있어야 좋은 커밋 메시지라고 할 수 있습니다. Electron 프로젝트는 릴리스 과정을 능률적으로 처리하기 위해 [시맨틱 커밋 메시지](https://conventionalcommits.org/) 를 사용합니다.
 
-Pull request는 merge하기 전에 시맨틱 접두사와 pull request 제목의 형태로 **구성해야 합니다**.
+Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
 
 시멘틱 접두사를 함께 사용한 커밋 메시지 예시:
 
-* `fix: don't overwrite prevent_default if default wasn't prevented`
-* `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux`
+- `fix: don't overwrite prevent_default if default wasn't prevented`
+- `feat: add app.isPackaged() method`
+- `docs: app.isDefaultProtocolClient is now available on Linux`
 
 자주 사용하는 접두사:
 
-    - fix: 버그 수정
-    - feat: 새로운 기능
-    - docs: 문서 변경
-    - test: 누락된 테스트 추가 또는 기존 테스트 수정
-    - build: 빌드 시스템에 영향을 주는 변경 사항
-    - ci: CI 설정 파일과 스크립트 관련 변경 사항
-    - perf: 성능 향상과 관련된 코드 변경
-    - refactor: 버그 수정이나 기능 추가 이외의 코드 변경
-    - style: 코드에 직접 영향을 주지 않는 변경 사항 (linting 같은)
-    - vendor: libchromiumcontent 또는 node 같은 의존성 버전 증가
-    
+  - fix: A bug fix
+  - feat: A new feature
+  - docs: Documentation changes
+  - test: Adding missing tests or correcting existing tests
+  - build: Changes that affect the build system
+  - ci: Changes to our CI configuration files and scripts
+  - perf: A code change that improves performance
+  - refactor: A code change that neither fixes a bug nor adds a feature
+  - style: Changes that do not affect the meaning of the code (linting)
+  - vendor: Bumping a dependency like libchromiumcontent or node
 
 그 밖의 커밋 메시지 작성 시 주의 사항은 다음과 같습니다:
 
-1. 첫 번째 라인 작성 규칙: 
-  * 변경 사항에 대한 간단한 설명 (50자 내외, 72자 이내로 작성할 것)
-  * 고유 명사, 두문자어, 함수나 변수 이름과 같은 코드와 관련된 단어를 제외하고는 소문자로 작성할 것
+1. 첫 번째 라인 작성 규칙:
+   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   - 고유 명사, 두문자어, 함수나 변수 이름과 같은 코드와 관련된 단어를 제외하고는 소문자로 작성할 것
 2. 두 번째 라인은 공백으로 남겨둘 것
 3. 72 줄 이내로 작성할 것
 
@@ -198,3 +196,4 @@ Electron에서 지원하는 모든 플랫폼에서 동작하는 것을 확인하
 Pull request가 모든 CI 플랫폼에서 통과("그린 표시") 하는 것이 가장 이상적일 것입니다. 이것은 모든 테스트를 통과했으며 linting 오류도 없다는 것을 의미합니다. 하지만, CI 인프라 자체에서 특정 플랫폼의 테스트가 실패하거나 "flaky" 테스트는 실패("레드 표시") 하는 경우가 자주 발생합니다. 각 CI의 실패 원인을 파악하려면 수동으로 점검해야 합니다.
 
 pull request를 제출하면 CI 가 자동으로 시작되고 핵심 관리자만 CI를 재시작할 수 있습니다. CI의 결과가 잘못되었다고 판단된다면 관리자에게 테스트 재시작을 요청하시길 바랍니다.
+

@@ -4,36 +4,124 @@
 
 macOS システムでは、その変更が誤りか悪意のあるコードによって導入されたのかにかかわらず、アプリに対する変更を検出できます。
 
-Windows では、コード署名証明書に信頼レベルが割り当てられています。そうでない場合や、信頼レベルが低いと、ユーザがアプリケーションを使用しようとしたときにセキュリティダイアログが表示されます。 信頼レベルは時間とともに高まるので、できるだけ早くコード署名を開始することをお勧めします。
+Windows では、コード署名証明書に信頼レベルが割り当てられています。そうでない場合や、信頼レベルが低いと、ユーザがアプリケーションを使用しようとしたときにセキュリティダイアログが表示されます。  信頼レベルは時間とともに上昇するので、できるだけ早くコード署名し始めることを推奨します。
 
-未署名のアプリを配布することは可能ですが、非推奨です。 Windows と macOS の両方は、デフォルトで、未署名のアプリケーションのダウンロードまたは実行を阻害します。 macOS Catalina (バージョン 10.15) 以降では、ユーザーが署名されていないアプリケーションを開くには、複数ある手動の手順を実行する必要があります。
+未署名のアプリを配布することは可能ですが、非推奨です。 Windows と macOS の両方は、デフォルトで未署名のアプリケーションのダウンロードや実行を阻害します。 macOS Catalina (バージョン 10.15) 以降では、ユーザーが署名されていないアプリケーションを開くには、複数ある手動の手順を実行する必要があります。
 
-![macOS Catalina Gatekeeper の警告: このアプリは、開発元が未確認のため開けません](../images/gatekeeper.png)
+![macOS Catalina Gatekeeper warning: The app cannot be opened because the
+developer cannot be verified](../images/gatekeeper.png)
 
 見かけ上、ユーザーには 2 つの選択肢があります。アプリをゴミ箱に直接移動するか、実行をキャンセルするかです。 ユーザーにそのダイアログを表示させたくはないでしょう。
 
-パッケージ化して配布する予定の Electron アプリケーションを作成している場合は、コード署名されている必要があります。 Mac と Windows の App Store では、未署名のアプリは許可されていません。
+パッケージ化して配布する予定の Electron アプリケーションを作成している場合は、コード署名されている必要があります。
 
-# macOS ビルドの署名
+# macOS ビルドへの署名 & 公証
 
-macOS ビルドに署名する前に、以下のことをしなければなりません。
+macOS アプリをリリースに向けて適切に準備するには、2 つのステップが必要です。まず、アプリをコード署名する必要があります。 そして、"公証" と呼ばれるプロセスのためにアプリを Apple にアップロードする必要があります。自動化されたシステムによって、アプリがユーザーを危険にさらすようなことをしていないかどうか、さらに確認します。
+
+このプロセスを開始するには、以下に示すアプリへの署名と公証の要件を満たしていることを確認してください。
 
 1. [Apple Developer Program](https://developer.apple.com/programs/) に登録する (年会費が必要)
-2. [Xcode](https://developer.apple.com/xcode) をダウンロードしてインストールする
+2. [Xcode](https://developer.apple.com/xcode) をダウンロードしてインストールする - これは macOS を実行しているコンピュータに必要です
 3. [署名証明書](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates) を生成、ダウンロードして、インストールする
 
-パッケージアプリケーションに署名するためのツールは以下のようにたくさんあります。
+Electron のエコシステムでは構成とその自由度を重視しているため、アプリケーションの署名と公証の取得には複数の方法が用意されています。
 
-- [`electron-osx-sign`] は macOS パッケージに署名するためのスタンドアロンツールです。
-- [`electron-packager`] は `electron-osx-sign` を同梱しています。 `electron-packager` そ使用している場合は、ビルドに署名するために `--osx-sign=true` フラグを渡してください。 
-    - [`electron-forge`] は内部で `electron-packager` を使用するので、forge コンフィグ内で `osxSign` オプションを設定できます。
-- [`electron-builder`] には組み込みのコード署名機能があります。 [electron.build/code-signing](https://www.electron.build/code-signing) を参照してください
+## `electron-forge`
 
-## 公証
+If you're using Electron's favorite build tool, getting your application signed and notarized requires a few additions to your configuration. [Forge](https://electronforge.io) is a collection of the official Electron tools, using [`electron-packager`], [`electron-osx-sign`], and [`electron-notarize`] under the hood.
 
-macOS Catalina 以降、Apple はアプリケーションの公証を要求しています。 Apple が定義する "公証" とは、ユーザーにアプリを配布する *前* に、事前に署名したアプリケーションを Apple にアップロードして追加の検証をすることを意味します。
+Let's take a look at an example configuration with all required fields. Not all of them are required: the tools will be clever enough to automatically find a suitable `identity`, for instance, but we recommend that you are explicit.
 
-この処理を自動化するには、[`electron-notarize`] モジュールが利用できます。 必ずしも作成するすべてのビルドに対してこの手順を遂行する必要はなく、ユーザーに配布する予定のビルドにだけで構いません。
+```json
+{
+  "name": "my-app",
+  "version": "0.0.1",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "osxSign": {
+          "identity": "Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)",
+          "hardened-runtime": true,
+          "entitlements": "entitlements.plist",
+          "entitlements-inherit": "entitlements.plist",
+          "signature-flags": "library"
+        },
+        "osxNotarize": {
+          "appleId": "felix@felix.fun",
+          "appleIdPassword": "my-apple-id-password",
+        }
+      }
+    }
+  }
+}
+```
+
+The `plist` file referenced here needs the following macOS-specific entitlements to assure the Apple security mechanisms that your app is doing these things without meaning any harm:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>com.apple.security.cs.allow-jit</key>
+    <true/>
+    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <true/>
+    <key>com.apple.security.cs.debugger</key>
+    <true/>
+  </dict>
+</plist>
+```
+
+To see all of this in action, check out Electron Fiddle's source code, [especially its `electron-forge` configuration file](https://github.com/electron/fiddle/blob/master/forge.config.js).
+
+
+## `electron-builder`
+
+Electron Builder comes with a custom solution for signing your application. You can find [its documentation here](https://www.electron.build/code-signing).
+
+## `electron-packager`
+
+If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`], which includes [`electron-osx-sign`] and [`electron-notarize`].
+
+If you're using Packager's API, you can pass [in configuration that both signs and notarizes your application](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
+
+```js
+const packager = require('electron-packager')
+
+packager({
+  dir: '/path/to/my/app',
+  osxSign: {
+    identity: 'Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)',
+    'hardened-runtime': true,
+    entitlements: 'entitlements.plist',
+    'entitlements-inherit': 'entitlements.plist',
+    'signature-flags': 'library'
+  },
+  osxNotarize: {
+    appleId: 'felix@felix.fun',
+    appleIdPassword: 'my-apple-id-password'
+  }
+})
+```
+
+The `plist` file referenced here needs the following macOS-specific entitlements to assure the Apple security mechanisms that your app is doing these things without meaning any harm:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>com.apple.security.cs.allow-jit</key>
+    <true/>
+    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <true/>
+    <key>com.apple.security.cs.debugger</key>
+    <true/>
+  </dict>
+</plist>
+```
 
 ## Mac App Store
 
@@ -44,19 +132,19 @@ macOS Catalina 以降、Apple はアプリケーションの公証を要求し�
 Windows ビルドに署名する前に、以下のことをしなければなりません。
 
 1. Windows Authenticode コード署名証明書を取得します (年会費が必要です)
-2. Visual Studio 2015/2017 をインストールします (署名ユーティリティを入手するため)
+2. Install Visual Studio to get the signing utility (the free [Community Edition](https://visualstudio.microsoft.com/vs/community/) is enough)
 
-多くの再販業者からコード署名証明書を入手できます。 価格はさまざまですので、買い物をする時間があるかもしれません。 人気のある再販業者は次のとおりです。
+多くの再販業者からコード署名証明書を入手できます。 Prices vary, so it may be worth your time to shop around. 人気のある再販業者は次のとおりです。
 
-- [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-- [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
-- [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-- とりわけ、あなたのニーズに合ったものを見つけるために探してみてください。Googleは友達 :)
+* [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
+* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
+* Amongst others, please shop around to find one that suits your needs, Google is your friend 😄
 
 パッケージアプリケーションに署名するためのツールは以下のようにたくさんあります。
 
-- [`electron-winstaller`] は Windows 用インストーラを生成し、それに署名します。
-- [`electron-forge`] は Squirrel.Windows または MSI ターゲットを通してそれが生成するインストーラに署名することができます。
+- [`electron-winstaller`] will generate an installer for windows and sign it for you
+- [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
 - [`electron-builder`] ではその Windows ターゲットのいくつかに署名することができます
 
 ## Windows Store

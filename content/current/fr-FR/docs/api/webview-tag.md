@@ -6,7 +6,7 @@ Electron's `webview` tag is based on [Chromium's `webview`](https://developer.ch
 
 ## Enabling
 
-By default the `webview` tag is disabled in Electron >= 5. You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
+By default the `webview` tag is disabled in Electron >= 5.  You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
 
 ## Vue d'ensemble
 
@@ -209,7 +209,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (facultatif) 
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
@@ -439,11 +439,11 @@ Insère le `text` à l'élément ciblé.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (facultatif) 
+* `options` Object (optional)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. par défaut, `faux`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -452,7 +452,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
+* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request.
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -461,9 +461,9 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (facultatif) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
+* `options` Object (optional)
+  * `silent` Boolean (optional) - Don't ask user for print settings. Par défaut la valeur est `false`.
+  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Par défaut la valeur est `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 
 Retourne `Promise<void>`
@@ -472,7 +472,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options)`
 
-* `options` Objet 
+* `options` Object
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -489,7 +489,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
 Retourne `Promise<NativeImage>` - résout avec une [NativeImage](native-image.md)
 
-Capturer une capture instantanée de la page dans `rect`. L'omission de `rect` capturera toute la page visible.
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 ### `<webview>.send(channel, ...args)`
 
@@ -504,7 +504,7 @@ See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
-* `event` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
+* `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
 Retourne `Promise<void>`
 
@@ -516,7 +516,7 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputeven
 
 * `factor` Number - Facteur de zoom.
 
-Change le facteur de zoom par le facteur spécifié. Le facteur de zoom est le pourcentage divisé par 100, donc 300% = 3.0.
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
@@ -541,7 +541,7 @@ Retourne `Promise<void>`
 
 Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -552,11 +552,11 @@ Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'es
 
 **Deprecated:** This API is no longer supported by Chromium.
 
-### `<webview>.showDefinitionForSelection()` *macOS*
+### `<webview>.showDefinitionForSelection()` _macOS_
 
 Shows pop-up dictionary that searches the selected word on the page.
 
-### `<webview>.getWebContents()` *Deprecated*
+### `<webview>.getWebContents()` _Deprecated_
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
@@ -621,7 +621,7 @@ Retourne :
 * `title` String
 * `explicitSet` Boolean
 
-Déclenché lorsque le titre de la page est défini pendant la navigation. `explicitSet` est faux lorsque le titre est synthétisé à partir de l'Url du fichier.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### Événement : 'page-favicon-updated'
 
@@ -663,7 +663,7 @@ webview.addEventListener('console-message', (e) => {
 
 Retourne :
 
-* `result` Objet 
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position du résultat actif.
   * `matches` Integer - Nombre de résultats.
@@ -713,13 +713,13 @@ Retourne :
 
 * `url` String
 
-Émis quand un utilisateur ou la page veut démarrer la navigation. Cela peut arriver quand l'objet `window.location` est modifié ou un utilisateur clique sur un lien dans la page.
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
 This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
 It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+Calling `event.preventDefault()` does __NOT__ have any effect.
 
 ### Événement : 'did-navigate'
 
@@ -729,7 +729,7 @@ Retourne :
 
 Émis lorsqu'une navigation est faite.
 
-Cet événement n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage ou la mise à jour de `window.location.hash`. Utilisez l'événement `did-navigate-in-page` pour cet usage.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 ### Événement : 'did-navigate-in-page'
 
@@ -777,7 +777,7 @@ webview.send('ping')
 ```
 
 ```javascript
-// Dans la page invité.
+// In guest page.
 const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
@@ -815,7 +815,7 @@ Retourne :
 
 * `themeColor` String
 
-Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>

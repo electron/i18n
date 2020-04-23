@@ -26,7 +26,7 @@ Windows 控制台示例:
 
 Electron 包括对 Node 的 [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options) 的子集的支持。 除与 Chromium 使用 BoringSSL 相抵触的情况外，大多数都得到了支持。
 
-示例:
+示例：
 
 ```sh
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
@@ -61,26 +61,25 @@ For instructions on how to acquire a Google API key, visit [this page](https://d
 
 ### `ELECTRON_NO_ASAR`
 
-禁用 ASAR 支持。仅在设置了 ` ELECTRON_RUN_AS_NODE `变量的fork或spawn的子进程中支持此变量。
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
 当做普通Node.js进程启动。
 
-### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
+### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 不附加到当前控制台会话。
 
-### ` ELECTRON_FORCE_WINDOW_MENU_BAR `* Linux *
+### ` ELECTRON_FORCE_WINDOW_MENU_BAR `_ Linux _
 
 不使用 Linux 的全局菜单栏。
 
-### `ELECTRON_TRASH` *Linux*
+### `ELECTRON_TRASH` _Linux_
 
-在Linux中设置回收站的实现，默认为`gio`。
+Set the trash implementation on Linux. Default is `gio`.
 
 Options:
-
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -90,13 +89,14 @@ Options:
 
 以下环境变量主要用于开发和调试目的。
 
+
 ### `ELECTRON_ENABLE_LOGGING`
 
 将 Chrome 的内部日志打印到控制台。
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-当Electron读取ASAR 文件时, 将读取偏移量和文件路径记录到系统 ` tmpdir `。生成的文件可以提供给 ASAR 模块以优化文件排序。
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
@@ -104,7 +104,7 @@ Options:
 
 如果 ` crashReporter `已经启动了, 则此环境变量将不起作用。
 
-### ` ELECTRON_DEFAULT_ERROR_MODE `* Windows *
+### ` ELECTRON_DEFAULT_ERROR_MODE `_ Windows _
 
 当Electron崩溃时显示 Windows 的崩溃对话框。
 
@@ -112,7 +112,7 @@ Options:
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-当 `electron` 包运行时，该变量告知 `electron` 命令使用指定Electron的构建代替由 `npm install` 下载的构建。 用法:
+当 `electron` 包运行时，该变量告知 `electron` 命令使用指定Electron的构建代替由 `npm install` 下载的构建。 用法：
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug

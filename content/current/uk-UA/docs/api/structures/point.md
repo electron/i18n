@@ -3,4 +3,4 @@
 * `x` Number
 * `y` Number
 
-**Примітка:** при ініціалізації значення `x` та `y` повинні бути цілими натуральними числами. Якщо для `x` та `y` будуть передані значення з плаваючою комою, Electron заокруглить їх до найближчого цілого числа.
+**Note:** Both `x` and `y` must be whole integers, when providing a point object as input to an Electron API we will automatically round your `x` and `y` values to the nearest whole integer.

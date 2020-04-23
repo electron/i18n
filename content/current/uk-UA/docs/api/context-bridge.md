@@ -2,7 +2,7 @@
 
 > Create a safe, bi-directional, synchronous bridge across isolated contexts
 
-Process: [Renderer](../glossary.md#renderer-process)okok yes ie ui azt
+Процес: [Renderer](../glossary.md#renderer-process)
 
 An example of exposing an API to a renderer from an isolated preload script is given below:
 
@@ -92,7 +92,7 @@ Because parameters, errors and return values are **copied** when they are sent o
 | `String`                                                                                                       | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |
 | `Number`                                                                                                       | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |
 | `Boolean`                                                                                                      | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |
-| `Object`                                                                                                       | Complex    | ✅                 | ✅                    | Keys must be supported using only "Simple" types in this table.  Values must be supported in this table.  Prototype modifications are dropped.  Sending custom classes will copy values but not the prototype. |
+| `Об'єкт`                                                                                                       | Complex    | ✅                 | ✅                    | Keys must be supported using only "Simple" types in this table.  Values must be supported in this table.  Prototype modifications are dropped.  Sending custom classes will copy values but not the prototype. |
 | `Array`                                                                                                        | Complex    | ✅                 | ✅                    | Same limitations as the `Object` type                                                                                                                                                                          |
 | `Error`                                                                                                        | Complex    | ✅                 | ✅                    | Errors that are thrown are also copied, this can result in the message and stack trace of the error changing slightly due to being thrown in a different context                                               |
 | `Promise`                                                                                                      | Complex    | ✅                 | ✅                    | Promises are only proxied if they are the return value or exact parameter.  Promises nested in arrays or objects will be dropped.                                                                              |

@@ -14,7 +14,7 @@ We've added a new [userland](https://electronjs.org/userland) section to the Ele
 
 Userland is where people in software communities come together to share tools and ideas. The term originated in the Unix community, where it referred to any program that ran outside of the kernel, but today it means something more. When people in today's Javascript community refer to userland, they're usually talking about the [npm package registry](http://npm.im). This is where the majority of experimentation and innovation happens, while Node and the JavaScript language (like the Unix kernel) retain a relatively small and stable set of core features.
 
-## Node and Electron
+## Node i Electron
 
 Like Node, Electron has a small set of core APIs. These provide the basic features needed for developing multi-platform desktop applications. Ta filozofia designu pozwala Electron'owi pozostać wszechstronnym narzędziem unikając zarazem nadmiernej normatywności odnośnie sposobu jego użycia.
 

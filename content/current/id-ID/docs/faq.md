@@ -1,4 +1,4 @@
-# FAQ Elektronika
+# Elektron FAQ
 
 ## Mengapa saya menemui kesulitan menginstal Electron?
 
@@ -12,7 +12,7 @@ Anda juga dapat mencoba mendownload Electron langsung dari [electron/electron/re
 
 Versi Chrome Electron biasanya terbentur dalam satu atau dua minggu setelahnya versi Chrome stabil baru akan dirilis. Perkiraan ini tidak menjamiin dan tergantung pada jumlah pekerjaan yang terlibat dalam proses upgrade.
 
-Hanya saluran stabil Chrome yang digunakan. Jika perbaikan penting ada dalam versi beta atau dev Saluran, kita akan back-port itu.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 Untuk informasi lebih lanjut, silakan lihat [pengenalan keamanan](tutorial/security.md).
 
@@ -29,7 +29,7 @@ Untuk berbagi data antara halaman web (proses renderer) cara paling sederhana ad
 Atau anda bisa menggunakan sistem IPC, yang khusus untuk Electron, untuk menyimpan objek dalam proses utama sebagai variabel global, dan kemudian mengaksesnya dari renderers melalui `remot`elemen`electron`modul:
 
 ```javascript
-// In the main process.
+// Pada proses utama.
 global.sharedObject = {
   someProperty: 'default value'
 }
@@ -82,7 +82,7 @@ Karena integrasi Electron Node.js, ada beberapa simbol tambahan dimasukkan ke da
 Untuk memecahkan masalah ini, Anda dapat menonaktifkan node integrasi dalam electron:
 
 ```javascript
-// In the main process.
+// Pada proses utama.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -115,32 +115,11 @@ Bila menggunakan built-in modul Electron anda mungkin menemukan kesalahan sepert
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-Ini karena Anda memasang modul [npm `electron` modul](https://www.npmjs.com/package/electron)terinstal baik lokal maupun global, yang menggantikan modul built-in Electron.
-
-Untuk memverifikasi apakah Anda menggunakan modul built-in yang benar, Anda dapat mencetaknya jalur `electron` modul:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-dan kemudian memeriksa apakah itu dalam bentuk sebagai berikut:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-Jika itu seperti `node_modules/electron/index.js`, maka Anda harus melakukannya lepaskan npm `electron` modul, atau ganti namanya.
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-Namun jika Anda menggunakan modul built-in tapi masih mendapatkan kesalahan ini, sangat mungkin Anda menggunakan modul dalam proses yang salah. Sebagai contoh `electron.app` hanya dapat digunakan dalam proses utama, sedangkan`electron.webFrame` hanya tersedia dalam proses renderer.
+It is very likely you are using the module in the wrong process. Sebagai contoh `electron.app` hanya dapat digunakan dalam proses utama, sedangkan`electron.webFrame` hanya tersedia dalam proses renderer.
 
 ## The font looks blurry, what is this and what can I do?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Contoh:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

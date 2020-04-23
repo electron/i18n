@@ -9,12 +9,11 @@ Jika Anda mengalami crash atau masalah di Electron yang Anda percaya tidak diseb
 * **Xcode**: Selain Xcode, juga menginstal alat baris perintah Xcode. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
-    
-    ```text
-    command script import ~/electron/src/tools/lldb/lldbinit.py
-    ```
+   ```text
+   command script import ~/electron/src/tools/lldb/lldbinit.py
+   ```
 
-## Menempelkan dan Debugging Electron
+## Melekat dan Debugging Electron
 
 To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
 
@@ -94,7 +93,6 @@ Untuk menyelesaikan debugging pada titik ini, jalankan `process continue`. Anda 
 Sekarang, jika Anda membuka alat pengembang Electron dan memanggil `setName`, Anda akan sekali lagi memukul breakpoint.
 
 ### Bacaan lebih lanjut
-
 LLDB adalah alat yang ampuh dengan dokumentasi yang bagus. Untuk mempelajari lebih lanjut tentang hal itu, mempertimbangkan Apple dokumentasi debugging, misalnya [LLDB Command Struktur Referensi](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) atau pengantar [Menggunakan LLDB sebagai Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
 Anda juga dapat memeriksa LLDB ini fantastis [manual dan tutorial](http://lldb.llvm.org/tutorial.html), yang akan menjelaskan skenario debugging lebih kompleks.

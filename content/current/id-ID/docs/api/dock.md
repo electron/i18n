@@ -27,7 +27,7 @@ When `informational` is passed, the dock icon will bounce for one second. Howeve
 
 #### `dock.cancelBounce(id)` Linux _macOS_
 
-* `id` Bilangan bulat
+* `identitas` Integer
 
 Membatalkan bouncing `id`.
 

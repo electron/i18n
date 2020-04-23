@@ -35,9 +35,9 @@ Open the given file in the desktop's default manner.
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Max 2081 characters on windows.
-* `options` Object (선택) 
-  * `activate` Boolean (optional) *macOS* - `true` to bring the opened application to the foreground. The default is `true`.
-  * `workingDirectory` String (optional) *Windows* - The working directory.
+* `options` Object (optional)
+  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
+  * `workingDirectory` String (optional) _Windows_ - The working directory.
 
 Returns `Promise<void>`
 
@@ -46,7 +46,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. *macOS*
+* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
 
 Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
 
@@ -56,10 +56,10 @@ Move the given file to trash and returns a boolean status for the operation.
 
 경고음 소리를 재생합니다.
 
-### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
+### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
 * `shortcutPath` String
-* `operation` String (선택적) - 기본값은 `create`이며, 다음 중 하나가 될 수 있습니다: 
+* `operation` String (optional) - Default is `create`, can be one of following:
   * `create` - 새로운 단축 링크를 만들며, 필요할 때 덮어씌웁니다.
   * `update` - 이미 존재하는 단축 링크에만 지정된 속성값을 수정합니다.
   * `replace` - 존재하는 단축 링크를 덮어씌우고, 단축 링크가 존재하지 않으면 실패하도록 합니다.
@@ -69,7 +69,7 @@ Move the given file to trash and returns a boolean status for the operation.
 
 Creates or updates a shortcut link at `shortcutPath`.
 
-### `shell.readShortcutLink(shortcutPath)` *Windows*
+### `shell.readShortcutLink(shortcutPath)` _Windows_
 
 * `shortcutPath` String
 

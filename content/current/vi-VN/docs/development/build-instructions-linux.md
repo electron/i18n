@@ -6,17 +6,16 @@ Làm theo hướng dẫn dưới đây để xây dựng Electron trên Linux.
 
 * Ít nhất là 25GB ổ cứng và 8GB bộ nhớ RAM.
 * Python phiên bản 2.7.x. Một số bản phân phối như CentOS 6.x vẫn sử dụng Python 2.6.x vì vậy bạn có thể cần phải kiểm tra phiên bản Python của bạn với `python -V`.
-    
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
-    
-    ```sh
-    $ npx @electron/check-python-tls
-    ```
-    
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+
+  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+
+  ```sh
+  $ npx @electron/check-python-tls
+  ```
+
+  If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
 
 * Node.js. Có rất nhiều cách khác nhau để cài đặt Node.js. Bạn có thể tải mã nguồn từ [nodejs.org](https://nodejs.org), sau đó compile. Làm như vậy cho phép cài đặt Node.js của riêng của bạn trên thư mục như một người dùng tiêu chuẩn. Hoặc thử các repository chẳng hạn như [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-
 * [clang](https://clang.llvm.org/get_started.html) 3.4 hoặc mới hơn.
 * Development headers of GTK 3 and libnotify.
 
@@ -48,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Trên các bản phân phối khác có thể cung cấp cá gói tương tự cho việc cài đặt thông qua các phần mềm quản lý gói như pacman. Hoặc cũng có thể biên dịch từ mã nguồn của các gói đó.
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
 ### Compile đa nền tảng
 
@@ -80,7 +79,7 @@ See [Build Instructions: GN](build-instructions-gn.md)
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
-Bản build sẵn của `clang` sẽ tìm cách link tới `libtinfo.so.5`. Phụ thuộc vào kiến trúc của máy chủ, symlink tới `libncurses` tương ứng:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5

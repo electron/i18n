@@ -4,7 +4,7 @@
 
 ## Using `update.electronjs.org`
 
-GitHub's Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+The Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
 
 - App runs on macOS or Windows
 - App has a public GitHub repository
@@ -60,7 +60,7 @@ const feed = `${server}/update/${process.platform}
 autoUpdater.setFeedURL(feed)
 ```
 
-अंतिम चरण में, अपडेटस के लिए जाँचें | निम्नलिखित उदाहरण हर मिनट जाँचेगा:
+As the final step, check for updates. The example below will check every minute:
 
 ```javascript
 setInterval(() => {
@@ -91,7 +91,7 @@ releaseName) => {
 })
 ```
 
-साथ ही यह भी सुनिश्चित करें कि त्रुटियाँ [संभाली जा रही है](../api/auto-updater.md#event-error) | `stderr` में उनकी लॉगिंग करने का यह एक उदाहरण है:
+Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {

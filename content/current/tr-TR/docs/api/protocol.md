@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-Not: Belirtilmedikçe tüm yöntemler yalnızca uygulama modülünün hazır durumu yayınlandıktan sonra kullanılabilir.
+**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
 
 ## Using `protocol` with a custom `partition` or `session`
 
@@ -61,6 +61,7 @@ app.on('ready', () => {
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
+
 **Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
 
 Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
@@ -93,7 +94,6 @@ Varsayılan olarak, standart olmayan şemalar için web depolama apis (localStor
 `protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
 
 **before (<= v4.x)**
-
 ```javascript
 // Main
 protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
@@ -103,7 +103,6 @@ webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
 ```
 
 **after (>= v5.x)**
-
 ```javascript
 protocol.registerSchemesAsPrivileged([
   { scheme: 'scheme1', privileges: { standard: true, secure: true } },
@@ -114,16 +113,16 @@ protocol.registerSchemesAsPrivileged([
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `halledici` Fonksyion 
-  * `istek` Nesne 
+* `handler` Function
+  * `request` Object
     * `url` Dize
     * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Function 
+  * `callback` Function
     * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
+* `completion` Function (optional)
   * `error` Error
 
 Dosyayı yanıt olarak gönderecek `şema` protokolünü kaydeder. `handler`, bir `request``scheme` ile oluşturulacağı zaman `handler(request, callback)` ile çağırılacak. `completion`, `scheme` başarılı bir şekilde kaydolduğunda `completion(null)` ile veya başarısız olduğunda `completion(error)` ile çağırılacak.
@@ -137,16 +136,16 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `halledici` Function 
-  * `istek` Nesne 
+* `handler` Function
+  * `request` Object
     * `url` Dize
     * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Function 
+  * `callback` Function
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (isteğe bağlı)
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
+* `completion` Function (optional)
   * `error` Error
 
 `Buffer`'ı yanıt olarak gönderecek `şema` protokolünü kaydeder.
@@ -168,16 +167,16 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `halledici` Function 
-  * `istek` Nesne 
+* `handler` Function
+  * `request` Object
     * `url` Dize
     * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Function 
+  * `callback` Function
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
+* `completion` Function (optional)
   * `error` Error
 
 `String`'i yanıt olarak gönderecek `şema` protokolünü kaydeder.
@@ -187,43 +186,43 @@ Kullanımı `registerFileProtocol` ile aynıdır, ancak `callback` `String` veya
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `halledici` Function 
-  * `istek` Nesne 
+* `handler` Function
+  * `request` Object
     * `url` Dize
     * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Function 
-    * `talebi yönlendir` Nesne 
+  * `callback` Function
+    * `redirectRequest` Object
       * `url` Dize
       * `method` String (optional)
       * `session` Session | null (optional)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
+* `completion` Function (optional)
   * `error` Error
 
 Yanıt olarak bir HTTP isteği göndererek `scheme` protokolünü kaydeder.
 
 `callback`, `url` olan bir `redirectRequest` nesnesi ile çağrılması dışında, `registerFileProtocol` ile kullanımı aynıdır. `method`, url ` referrer `, `uploadData` ve `session` özelliklerine sahiptir.
 
-Varsayılan olarak HTTP isteği geçerli oturumu tekrar kullanır. İsteğin farklı bir oturuma sahip olmasını isterseniz `session`' ı `null` olarak ayarlamanız gerekir.
+By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
 POST istekleri için `uploadData` nesnesi sağlanmalıdır.
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
-* `scheme` Dizi
-* `halledici` Function 
-  * `istek` Nesne 
+* `scheme` String
+* `handler` Function
+  * `request` Object
     * `url` Dize
     * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (isteğe bağlı)
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
+  * `callback` Function
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+* `completion` Function (optional)
   * `error` Error
 
 Yanıt olarak `Readable` gönderen bir `scheme` protokolünü kaydeder.
@@ -256,7 +255,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-Okunabilir akış API (emits`data`/`end`/`error` events)'ı uygulayan herhangi bir nesneyi iletmek mümkündür. Örneğin, bir dosyanın nasıl geri gönderilebileceği aşağıda açıklanmıştır:
+It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
 
 ```javascript
 const { protocol } = require('electron')
@@ -272,102 +271,102 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `scheme` Dizi
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
+* `completion` Function (optional)
   * `error` Error
 
 `şemanın` özel protokol kaydını iptal eder.
 
 ### `protocol.isProtocolHandled(scheme)`
 
-* `scheme` String
+* `scheme` Dizi
 
 Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether there is already a handler for `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` Dizi
-* `halledici` Function 
-  * `istek` Nesne 
+* `handler` Function
+  * `request` Object
     * `url` Dize
     * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Function 
+  * `callback` Function
     * `filePath` Dizi
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
+* `completion` Function (optional)
   * `error` Error
 
 `scheme` protokolünü böler ve cevap olarak bir dosya yollayan `handler`'ı protokolün yeni işleyicisi gibi kullanır.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `halledici` Function 
-  * `istek` Nesne 
+* `scheme` Dizi
+* `handler` Function
+  * `request` Object
     * `url` Dize
     * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Function 
+  * `callback` Function
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
+* `completion` Function (optional)
   * `error` Error
 
 `scheme` protokolünü böler ve cevap olarak bir `String` yollayan `handler`'ı protokolün yeni işleyicisi gibi kullanır.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `halledici` Function 
-  * `istek` Nesne 
+* `scheme` Dizi
+* `handler` Function
+  * `request` Object
     * `url` Dize
     * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Function 
+  * `callback` Function
     * `buffer` Arabellek (isteğe bağlı)
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
+* `completion` Function (optional)
   * `error` Error
 
 `scheme` protokolünü böler ve cevap olarak bir `Buffer` yollayan `handler`'ı protokolün yeni işleyicisi gibi kullanır.
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `halledici` Function 
-  * `istek` Nesne 
+* `scheme` Dizi
+* `handler` Function
+  * `request` Object
     * `url` Dize
     * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Function 
-    * `talebi yönlendir` Nesne 
+  * `callback` Function
+    * `redirectRequest` Object
       * `url` Dize
       * `method` String (optional)
       * `session` Session | null (optional)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
+* `completion` Function (optional)
   * `error` Error
 
 `scheme` protokolünü böler ve cevap olarak yeni bir HTTP isteği yollayan `handler`'ı protokolün yeni işleyicisi gibi kullanır.
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `halledici` Function 
-  * `istek` Nesne 
+* `scheme` Dizi
+* `handler` Function
+  * `request` Object
     * `url` Dize
     * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (isteğe bağlı)
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
+  * `callback` Function
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+* `completion` Function (optional)
   * `error` Error
 
 Mevcut bir protokol işlecinin yerini alması dışında, `protocol.registerStreamProtocol` ile aynı.
@@ -375,7 +374,7 @@ Mevcut bir protokol işlecinin yerini alması dışında, `protocol.registerStre
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` String
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
+* `completion` Function (optional)
   * `error` Error
 
 `Şema` için kurulmuş olan önleyiciyi kaldırın ve orijinal işleyicisini geri yükleyin.

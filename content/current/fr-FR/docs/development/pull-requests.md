@@ -1,18 +1,18 @@
-# Pull Requests
+# Proposer une Evolution: Demande de Pull
 
-* [Configurer votre environnement local](#setting-up-your-local-environment) 
+* [Configurer votre environnement local](#setting-up-your-local-environment)
   * [Étape 1 : Dupliquer un projet](#step-1-fork)
   * [Etape 2 : Construire, compiler](#step-2-build)
   * [Step 3: Branches](#step-3-branch)
-* [Apporter des changements](#making-changes) 
+* [Apporter des changements](#making-changes)
   * [Étape 4 : Code](#step-4-code)
-  * [Étape 5 : modifications](#step-5-commit) 
+  * [Étape 5 : modifications](#step-5-commit)
     * [Ecrire un messages de modification](#commit-message-guidelines)
   * [Étape 6 : Refonder - Rebase](#step-6-rebase)
   * [Étape 7 : Tester](#step-7-test)
   * [Étape 8 : Pousser](#step-8-push)
   * [Étape 9 : Ouvrir la proposition d'évolution - la demande de Pull](#step-9-opening-the-pull-request)
-  * [Étape 10 : Examiner et mettre à jour](#step-10-discuss-and-update) 
+  * [Étape 10 : Examiner et mettre à jour](#step-10-discuss-and-update)
     * [Procédure de validation et de demandes d'évolutions](#approval-and-request-changes-workflow)
   * [Étape 11 : Approbation](#step-11-landing)
   * [Tests en intégration continue](#continuous-integration-testing)
@@ -30,10 +30,9 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Etape 2 : Construire, compiler
+### Etape 2 : construire, compiler
 
 Le type de système d'exploitation peut faire varier les étapes de construction et les dépendances. Reportez vous au guide dédié pour compiler Electron:
-
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Construire sous Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Construire sous Windows](https://electronjs.org/docs/development/build-instructions-windows)
@@ -77,29 +76,28 @@ Before a pull request can be merged, it **must** have a pull request title with 
 
 Examples of commit messages with semantic prefixes:
 
-* `fix: don't overwrite prevent_default if default wasn't prevented`
-* `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux`
+- `fix: don't overwrite prevent_default if default wasn't prevented`
+- `feat: add app.isPackaged() method`
+- `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Common prefixes:
 
-    - fix: A bug fix
-    - feat: A new feature
-    - docs: Documentation changes
-    - test: Adding missing tests or correcting existing tests
-    - build: Changes that affect the build system
-    - ci: Changes to our CI configuration files and scripts
-    - perf: A code change that improves performance
-    - refactor: A code change that neither fixes a bug nor adds a feature
-    - style: Changes that do not affect the meaning of the code (linting)
-    - vendor: Bumping a dependency like libchromiumcontent or node
-    
+  - fix: A bug fix
+  - feat: A new feature
+  - docs: Documentation changes
+  - test: Adding missing tests or correcting existing tests
+  - build: Changes that affect the build system
+  - ci: Changes to our CI configuration files and scripts
+  - perf: A code change that improves performance
+  - refactor: A code change that neither fixes a bug nor adds a feature
+  - style: Changes that do not affect the meaning of the code (linting)
+  - vendor: Bumping a dependency like libchromiumcontent or node
 
 Other things to keep in mind when writing a commit message:
 
-1. La première ligne doit : 
-  * contenir une courte description de la modification (de préférence moins de 50 caractères, et pas plus de 72)
-  * être entièrement en minuscules à l’exception des noms propres, acronymes et les mots qui font référence au code, comme les noms de variable/fonction
+1. La première ligne doit :
+   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   - être entièrement en minuscules à l’exception des noms propres, acronymes et les mots qui font référence au code, comme les noms de variable/fonction
 2. Garder vide la deuxième ligne.
 3. Ne pas dépasser 72 caractères pour les lignes suivantes.
 
@@ -198,3 +196,4 @@ Every pull request is tested on the Continuous Integration (CI) system to confir
 Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
 
 CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
+

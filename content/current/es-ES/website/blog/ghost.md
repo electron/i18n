@@ -3,7 +3,7 @@ title: 'Project of the Week: Ghost'
 author:
   - felixrieseberg
   - zeke
-date: '14-02-2017'
+date: '2017-02-14'
 ---
 
 This week we chatted with [Felix Rieseberg](https://felixrieseberg.com/), desktop engineer at [Slack](https://slack.com/) and maintainer of [Ghost Desktop](https://ghost.org/downloads/), an Electron client for the [Ghost](https://ghost.org/) publishing platform.

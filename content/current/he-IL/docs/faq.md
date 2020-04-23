@@ -12,7 +12,7 @@
 
 גרסת ה-Chrome של Electron בדרך כלל מופצת שבוע או שבועיים לאחר שמופצת גרסה חדשה ויציבה של Chrome. הערכה זו אינה קבועה ותלויה בכמות העבודה שמצריך העדכון.
 
-רק ההפצה היציבה של Chrome נמצאת בשימוש ואם נמצא תיקון חשוב בגרסאת הבטא או dev אנו נשתמש גם בו.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 למידע נוסף פתח [security introduction](tutorial/security.md).
 
@@ -115,32 +115,11 @@ When using Electron's built-in module you might encounter an error like this:
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
-
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-and then check if it is in the following form:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+It is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
 
 ## The font looks blurry, what is this and what can I do?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. דוגמה:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

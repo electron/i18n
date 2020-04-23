@@ -15,7 +15,7 @@ Join us September 29th at GitHub's HQ for an Electron meetup hosted by Atom team
 - **Tom Moor** will talk about the pros and cons of building  video and screen sharing on Electron with [speak.io](https://speak.io).
 - **Ben Gotow** will preview N1: [The Nylas Mail Client](https://www.nylas.com/blog/splitting-the-atom) and talk about developing it on Electron.
 
-### Details
+### Szczegóły
 
 - **Location:** GitHub HQ, 275 Brannan Street, San Francisco, CA, 94107
 - **Date:** Tuesday, September 29th, 2015

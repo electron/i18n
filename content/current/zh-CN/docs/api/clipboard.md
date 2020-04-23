@@ -17,7 +17,7 @@ console.log(clipboard.readText('selection'))
 
 ` clipboard ` 对象具有以下方法:
 
-** 注意: **被标记为实验性的 api 将来可能被删除。
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([type])`
 
@@ -121,7 +121,7 @@ const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is 
 clipboard.writeRTF(rtf)
 ```
 
-### `clipboard.readBookmark()` *macOS* *Windows*
+### `clipboard.readBookmark()` _macOS_ _Windows_
 
 返回 ` Object `:
 
@@ -130,7 +130,7 @@ clipboard.writeRTF(rtf)
 
 返回一个对象, 其中包含表示剪贴板中书签 `title` 和 `url` 。 当书签不可用时, ` title ` 和 ` url ` 值将为空字符串。
 
-### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
+### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
 * `title` String
 * `url` String
@@ -138,7 +138,7 @@ clipboard.writeRTF(rtf)
 
 将书签的 ` title ` 和 ` url ` 写入剪贴板。
 
-**注意**：Windows上的大多数应用程序不支持粘贴书签，因此您可以使用 `clipboard.write` 将书签和后备文本写入剪贴板。
+**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
 ```js
 const { clipboard } = require('electron')
@@ -149,13 +149,13 @@ clipboard.writeBookmark({
 })
 ```
 
-### `clipboard.readFindText()` *macOS*
+### `clipboard.readFindText()` _macOS_
 
 Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
 
 This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
-### `clipboard.writeFindText(text)` *macOS*
+### `clipboard.writeFindText(text)` _macOS_
 
 * `text` String
 
@@ -181,7 +181,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` *实验功能*
+### `clipboard.has(format[, type])` _Experimental_
 
 * `format` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` *实验功能*
+### `clipboard.read(format)` _Experimental_
 
 * `format` String
 
 返回 ` String `- 从剪贴板中读取 ` format ` 类型的内容。
 
-### `clipboard.readBuffer(format)` *实验功能*
+### `clipboard.readBuffer(format)` _Experimental_
 
 * `format` String
 
@@ -220,7 +220,7 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` *实验功能*
+### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
 
 * `format` String
 * `buffer` Buffer
@@ -237,7 +237,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object 
+* `data` Object
   * ` text ` String（可选）
   * ` html ` String（可选）
   * `image` [NativeImage](native-image.md) (可选)

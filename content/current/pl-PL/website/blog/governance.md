@@ -31,7 +31,7 @@ These groups will coordinate with each other, but each has their own meeting sch
 
 This shouldn't have any direct effect on Electron's direction. If our strategy is successful, working groups will make it easier for new contributors to find topics that interest them, and make maintainers' lives simpler by moving discussion unrelated to their day-to-day work to other groups. If that happens, it may indirectly affect things by having more unblocked people working together.
 
-## Where can I learn more?
+## Gdzie można dowiedzieć się więcej?
 
  * The governance [repo](https://github.com/electron/governance/) and [charter](https://github.com/electron/governance/tree/master/charter) have information about the new governance structure.
  * Each working group has its own page: [Community](https://github.com/electron/governance/tree/master/wg-community-safety), [Docs & Tools](https://github.com/electron/governance/tree/master/wg-docs-tools), [Outreach](https://github.com/electron/governance/tree/master/wg-outreach), [Releases](https://github.com/electron/governance/tree/master/wg-releases), [Security](https://github.com/electron/governance/tree/master/wg-security), [Upgrades](https://github.com/electron/governance/tree/master/wg-upgrades), and [Website](https://github.com/electron/governance/tree/master/wg-website).

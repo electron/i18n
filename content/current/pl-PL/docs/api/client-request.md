@@ -8,12 +8,12 @@ Proces: [Main](../glossary.md#main-process)
 
 ### `nowe ClientRequest(opcje)`
 
-* `opcje` (Object | String) - If `opcje` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Default is `false`.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Default is `false`.
   * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `hostname` String (optional) - The server host name.
@@ -41,19 +41,19 @@ const request = net.request({
 
 Zwraca:
 
-* `odpowiedź` Przychodzące wiadomości - Obiekt reprezentujący komunikat odpowiedzi HTTP. 
+* `odpowiedź` Przychodzące wiadomości - Obiekt reprezentujący komunikat odpowiedzi HTTP.
 
 #### Zdarzenie: 'login'
 
 Zwraca:
 
-* `authInfo` Obiekt 
+* `authInfo` Object
   * `isProxy` Boolean
   * `schemat` String
   * `host` String
   * `port` Integer
   * `dziedzina` String
-* `callback` Funkcja 
+* `callback` Function
   * `username` String (opcjonalne)
   * `password` String (opcjonalne)
 
@@ -69,7 +69,6 @@ request.on('login', (authInfo, callback) => {
   callback('username', 'password')
 })
 ```
-
 Providing empty credentials will cancel the request and report an authentication error on the response object:
 
 ```JavaScript
@@ -104,6 +103,7 @@ Emitted when the `net` module fails to issue a network request. Typically when t
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
+
 #### Zdarzenie: 'redirect'
 
 Zwraca:
@@ -113,7 +113,7 @@ Zwraca:
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### Właściwości instancji
 

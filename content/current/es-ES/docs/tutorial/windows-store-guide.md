@@ -39,13 +39,12 @@ La salida debería verse más o menos de esta forma:
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   └── app.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
@@ -76,7 +75,6 @@ En oposición a las aplicaciones UWP tradicionales, las aplicaciones empaquetada
 Otra limitación importante es que el paquete AppX compilado todavía contiene un ejecutable Win32 - y por lo tanto, no se ejecutará en Xbox, HoloLens o teléfonos.
 
 ## Opcional: Añadir características UWP usando un BackgroundTask
-
 Puede asociar su aplicación Electron con una tarea de fondo UWP invisible que haga uso completo de las características de Windows 10, como notificaciones push, integración Cortana o Live Tiles.
 
 Para comprobar cómo una aplicación de Electron que es utilizada por una tarea en segundo plano envía notificaciones Toast y Lives Tiles, [dale una mirada al ejemplo proporcionado por Microsoft](https://github.com/felixrieseberg/electron-uwp-background).

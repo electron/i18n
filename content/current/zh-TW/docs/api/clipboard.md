@@ -121,7 +121,7 @@ const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is 
 clipboard.writeRTF(rtf)
 ```
 
-### `clipboard.readBookmark()` *macOS* *Windows*
+### `clipboard.readBookmark()` _macOS_ _Windows_
 
 回傳 `Object`:
 
@@ -130,7 +130,7 @@ clipboard.writeRTF(rtf)
 
 Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
-### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
+### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
 * `title` String
 * `url` String
@@ -149,13 +149,13 @@ clipboard.writeBookmark({
 })
 ```
 
-### `clipboard.readFindText()` *macOS*
+### `clipboard.readFindText()` _macOS_
 
 Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
 
 This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
-### `clipboard.writeFindText(text)` *macOS*
+### `clipboard.writeFindText(text)` _macOS_
 
 * `text` String
 
@@ -181,7 +181,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` *試驗中*
+### `clipboard.has(format[, type])` _Experimental_
 
 * `format` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` *試驗中*
+### `clipboard.read(format)` _Experimental_
 
 * `format` String
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` *試驗中*
+### `clipboard.readBuffer(format)` _Experimental_
 
 * `format` String
 
@@ -220,7 +220,7 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` *試驗中*
+### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
 
 * `format` String
 * `buffer` Buffer
@@ -237,7 +237,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object 
+* `data` Object
   * `text` String (optional)
   * `html` String (選用)
   * `image` [NativeImage](native-image.md) (選用)

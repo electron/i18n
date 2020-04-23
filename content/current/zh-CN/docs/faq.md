@@ -12,7 +12,7 @@
 
 通常来说，在稳定版的 Chrome 发布后一到两周内，我们会更新 Electron 内的 Chrome 版本。 这个只是个估计且不能保证，取决于与升级所涉及的工作量。
 
-我们只会使用 stable 版本的 Chrome。但如果在 beta 或 dev 版本中有一个重要的更新，我们会把补丁应用到现版本的 Chrome 上。
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 更多信息，请看[安全介绍](tutorial/security.md)
 
@@ -29,19 +29,19 @@ Node.js 的新特性通常是由新版本的 V8 带来的。由于 Electron 使�
 你还可以用 `Electron` 内的 IPC 机制实现。将数据存在主进程的某个全局变量中，然后在多个渲染进程中使用 `remote` 模块来访问它。
 
 ```javascript
-// 在主进程中
+// 在主进程中.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// 在第一个页面中
+// In page 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// 在第二个页面中
+// In page 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -82,7 +82,7 @@ app.whenReady().then(() => {
 我们可以通过禁用 Node.js 来解决这个问题，在Electron里用如下的方式：
 
 ```javascript
-// 在主进程中
+// 在主进程中.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -115,32 +115,11 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-这是因为你在项目中或者在全局中安装了[npm 上获取的 `electron` 模块](https://www.npmjs.com/package/electron)，它把 Electron 的内置模块覆写了。
-
-你可以通过以下方式输出 `electron` 模块的路径来确认你是否使用了正确的模块。
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-确认一下它是不是像下面这样的：
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-假如输出的路径类似于 `node_modules/electron/index.js`，那么你需要移除或者重命名 npm 上的 `electron` 模块。
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-如果你依然遇到了这个问题，你可能需要检查一下拼写或者是否在错误的进程中调用了这个模块。 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
+It is very likely you are using the module in the wrong process. 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
 
 ## 文字看起来很模糊，这是什么原因造成的？怎么解决这个问题呢？
 
-如果 [次级像素反锯齿](http://alienryderflex.com/sub_pixel/)已停用，那么 LCD 屏幕上的字体可能会看起来模糊。例如：
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 示例：
 
 ![次像素渲染示例](images/subpixel-rendering-screenshot.gif)
 
@@ -155,6 +134,6 @@ let win = new BrowserWindow({
 })
 ```
 
-效果仅在 (有些?) LCD 屏幕上可见。即使您看不到一个差异，您的一些用户也可能显示。最好总是以这种方式设置背景，除非您有理由不这样做。
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 注意到，仅设置 CSS 背景并不具有预期的效果。

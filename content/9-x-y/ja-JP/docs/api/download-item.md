@@ -1,0 +1,175 @@
+## クラス: DownloadItem
+
+> リモートソースからのファイルのダウンロードを制御します。
+
+プロセス: [Main](../glossary.md#main-process)
+
+`DownloadItem` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しており、Electron でのダウンロードアイテムを表します。 これは `Session` クラスの `will-download` イベントで使用されており、ユーザーがダウンロードアイテムを制御できるようにします。
+
+```javascript
+// メインプロセス
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow()
+win.webContents.session.on('will-download', (event, item, webContents) => {
+  // Electronが保存ダイアログを表示しないようにするために、保存先のパスを設定します。
+  item.setSavePath('/tmp/save.pdf')
+
+  item.on('updated', (event, state) => {
+    if (state === 'interrupted') {
+      console.log('Download is interrupted but can be resumed')
+    } else if (state === 'progressing') {
+      if (item.isPaused()) {
+        console.log('Download is paused')
+      } else {
+        console.log(`Received bytes: ${item.getReceivedBytes()}`)
+      }
+    }
+  })
+  item.once('done', (event, state) => {
+    if (state === 'completed') {
+      console.log('Download successfully')
+    } else {
+      console.log(`Download failed: ${state}`)
+    }
+  })
+})
+```
+
+### インスタンスイベント
+
+#### イベント: 'updated'
+
+戻り値:
+
+* `event` Event
+* `state` String - `progressing` か `interrupted` にできます。
+
+ダウンロードが更新され、まだ未完了であるときに発生します。
+
+`state` は、次のいずれかになります。
+
+* `progressing` - ダウンロードが進行中です。
+* `interrupted` - ダウンロードが中断されましたが、再開することができます。
+
+#### イベント: 'done'
+
+戻り値：
+
+* `event` Event
+* `state` String - `completed`、`cancelled` か `interrupted` にできます。
+
+Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+
+`state` は、次のいずれかになります。
+
+* `completed` - ダウンロードが正常に完了しました。
+* `cancelled` - ダウンロードがキャンセルされました。
+* `interrupted` - ダウンロードが中断され、再開することができません。
+
+### インスタンスメソッド
+
+`downloadItem` オブジェクトには以下のメソッドがあります
+
+#### `downloadItem.setSavePath(path)`
+
+* `path` String - ダウロードアイテムを保存するファイルパスを設定します。
+
+このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。 ユーザがこのAPIを経由して保存先のパスを設定しない場合、Electron は、保存先のパスを決定するために独自のルーチンを使用します。通常は保存ダイアログを表示します。
+
+#### `downloadItem.getSavePath()`
+
+Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+
+#### `downloadItem.setSaveDialogOptions(options)`
+
+* `options` SaveDialogOptions - ファイル保存ダイアログのオプションを設定します。 このオブジェクトは `options` パラメータ([`dialog.showSaveDialog()`](dialog.md)の)と同じプロパティを持ちます。
+
+This API allows the user to set custom options for the save dialog that opens for the download item by default. このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。
+
+#### `downloadItem.getSaveDialogOptions()`
+
+戻り値 `SaveDialogOptions` - `downloadItem.setSaveDialogOptions(options)`によってその前に設定されたオブジェクトを返す。
+
+#### `downloadItem.pause()`
+
+ダウンロードを一時停止します。
+
+#### `downloadItem.isPaused()`
+
+戻り値 `Boolean` - ダウンロードが一時停止しているかどうか。
+
+#### `downloadItem.resume()`
+
+一時停止されたダウンロードを再開します。
+
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. そうでなければ、`resume()` は、前回受信したバイト数を無視して、最初からダウンロードを再開します。
+
+#### `downloadItem.canResume()`
+
+戻り値 `Boolean` - ダウンロードを再開できるかどうか。
+
+#### `downloadItem.cancel()`
+
+ダウンロード操作をキャンセルします。
+
+#### `downloadItem.getURL()`
+
+戻り値 `String` - アイテムがダウンロードされた元の URL。
+
+#### `downloadItem.getMimeType()`
+
+戻り値 `String` - ファイルのMIMEタイプ。
+
+#### `downloadItem.hasUserGesture()`
+
+戻り値 `Boolean` - ダウンロードにユーザージェスチャがあるかどうか。
+
+#### `downloadItem.getFilename()`
+
+戻り値 `String` - ダウンロードアイテムのファイル名。
+
+**Note:** The file name is not always the same as the actual one saved in local disk. ユーザーが表示されたダウンロード保存ダイアログでファイル名を変更した場合、保存されたファイルの実際の名前は異なります。
+
+#### `downloadItem.getTotalBytes()`
+
+戻り値 `Integer` - ダウンロードアイテムのバイト単位での合計サイズ。
+
+サイズが不明な場合、0を返します。
+
+#### `downloadItem.getReceivedBytes()`
+
+戻り値 `Integer` - ダウンロードアイテムの受信したバイト数。
+
+#### `downloadItem.getContentDisposition()`
+
+戻り値 `String` - レスポンスヘッダーのContent-Dispositionフィールド。
+
+#### `downloadItem.getState()`
+
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+
+#### `downloadItem.getURLChain()`
+
+戻り値 `String[]` - すべてのリダイレクトを含むアイテムの完全な URL チェーン。
+
+#### `downloadItem.getLastModifiedTime()`
+
+戻り値 `String` - Last-Modifiedのヘッダーの値。
+
+#### `downloadItem.getETag()`
+
+戻り値 `String` - ETagのヘッダーの値。
+
+#### `downloadItem.getStartTime()`
+
+戻り値 `Double` - ダウンロードが開始されたUNIXエポックからの秒数。
+
+### インスタンスプロパティ
+
+#### `downloadItem.savePath`
+
+`String` 型のプロパティです。ダウンロードアイテムを保存するファイルパスを決定します。
+
+このプロパティは、セッションの `will-download` コールバック関数内でのみ利用可能です。 ユーザがこのプロパティを経由して保存先のパスを設定しない場合、Electron は、保存先のパスを決定するために独自のルーチンを使用します。通常は保存ダイアログを表示します。

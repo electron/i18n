@@ -13,11 +13,11 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## 메서드
+## 메소드
 
 `clipboard` 모듈은 다음과 같은 메서드를 가지고 있습니다:
 
-**참고**: Experimental 마크가 붙은 API는 실험적인 기능이며 차후 최신 버전에서 제거될 수 있습니다.
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([type])`
 
@@ -28,11 +28,11 @@ Returns `String` - 일반 텍스트 형식의 클립보드의 내용.
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeText('hello i am a bit of text!')
+clipboard.writeText('저는 텍스트 쪼가리입니다!')
 
 const text = clipboard.readText()
 console.log(text)
-// hello i am a bit of text!'
+// 저는 텍스트 쪼가리입니다!
 ```
 
 ### `clipboard.writeText(text[, type])`
@@ -45,7 +45,7 @@ console.log(text)
 ```js
 const { clipboard } = require('electron')
 
-const text = 'hello i am a bit of text!'
+const text = '저는 텍스트 쪼가리입니다!'
 clipboard.writeText(text)
 ```
 
@@ -58,11 +58,11 @@ Returns `String` - 마크업 형식의 클립보드의 내용.
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeHTML('<b>Hi</b>')
+clipboard.writeHTML('<b>안녕하세요</b>')
 const html = clipboard.readHTML()
 
 console.log(html)
-// <meta charset='utf-8'><b>Hi</b>
+// <meta charset='utf-8'><b>안녕하세요</b>
 ```
 
 ### `clipboard.writeHTML(markup[, type])`
@@ -75,7 +75,7 @@ console.log(html)
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeHTML('<b>Hi</b')
+clipboard.writeHTML('<b>안녕하세요</b')
 ```
 
 ### `clipboard.readImage([type])`
@@ -100,11 +100,11 @@ Returns `String` - RTF 형식의 클립보드 내용.
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}')
+clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\n이 텍스트는 {\\b 볼드}체 입니다.\\par\n}')
 
 const rtf = clipboard.readRTF()
 console.log(rtf)
-// {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}
+// {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\n이 텍스트는 {\\b 볼드}체 입니다.\\par\n}
 ```
 
 ### `clipboard.writeRTF(text[, type])`
@@ -117,11 +117,11 @@ console.log(rtf)
 ```js
 const { clipboard } = require('electron')
 
-const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}'
+const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\n이 텍스트는 {\\b 볼드}체 입니다.\\par\n}'
 clipboard.writeRTF(rtf)
 ```
 
-### `clipboard.readBookmark()` *macOS* *Windows*
+### `clipboard.readBookmark()` _macOS_ _Windows_
 
 Returns `Object`:
 
@@ -130,7 +130,7 @@ Returns `Object`:
 
 클립보드로부터 북마크 형식으로 표현된 `title와 <code>url` 키를 담은 객체를 반환합니다. `title`과 `url` 값들은 북마크를 사용할 수 없을 때 빈 문자열을 포함합니다.
 
-### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
+### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
 * `title` String
 * `url` String
@@ -138,24 +138,24 @@ Returns `Object`:
 
 `title`과 `url`을 클립보드에 북마크 형식으로 씁니다.
 
-**참고**: 윈도우의 대부분의 앱은 북마크 붙여넣기를 지원하지 않습니다. `clipboard.write` 를 통해 북마크와 대체 텍스트를 클립보드에 쓸 수 있습니다.
+**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
 ```js
 const { clipboard } = require('electron')
 
 clipboard.writeBookmark({
   text: 'https://electronjs.org',
-  bookmark: 'Electron Homepage'
+  bookmark: 'Electron 홈페이지'
 })
 ```
 
-### `clipboard.readFindText()` *macOS*
+### `clipboard.readFindText()` _macOS_
 
 Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
 
 This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
-### `clipboard.writeFindText(text)` *macOS*
+### `clipboard.writeFindText(text)` _macOS_
 
 * `text` String
 
@@ -181,7 +181,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` _Experimental_
 
 * `format` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -193,16 +193,16 @@ const { clipboard } = require('electron')
 
 const hasFormat = clipboard.has('<p>selection</p>')
 console.log(hasFormat)
-// 'true' or 'false
+// 'true' 나 'false
 ```
 
-### `clipboard.read(format)` *Experimental*
+### `clipboard.read(format)` _Experimental_
 
 * `format` String
 
 Returns `String` - 클립보드로부터 `format`를 읽습니다.
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(format)` _Experimental_
 
 * `format` String
 
@@ -220,7 +220,7 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
 
 * `format` String
 * `buffer` Buffer
@@ -237,7 +237,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object 
+* `data` Object
   * `text` String (optional)
   * `html` String (optional)
   * `image` [NativeImage](native-image.md) (optional)
@@ -252,20 +252,20 @@ const { clipboard } = require('electron')
 
 clipboard.write({
   text: 'test',
-  html: '<b>Hi</b>',
+  html: '<b>안녕하세요</b>',
   rtf: '{\\rtf1\\utf8 text}',
-  bookmark: 'a title'
+  bookmark: '제목'
 })
 
 console.log(clipboard.readText())
 // 'test'
 
 console.log(clipboard.readHTML())
-// <meta charset='utf-8'><b>Hi</b>
+// <meta charset='utf-8'><b>안녕하세요</b>
 
 console.log(clipboard.readRTF())
 // '{\\rtf1\\utf8 text}'
 
 console.log(clipboard.readBookmark())
-// { title: 'a title', url: 'test' }
+// { title: '제목', url: 'test' }
 ```

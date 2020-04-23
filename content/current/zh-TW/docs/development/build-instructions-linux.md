@@ -6,17 +6,16 @@ Follow the guidelines below for building Electron on Linux.
 
 * 至少 25GB 的磁碟空間及 8GB 的 RAM。
 * Python 2.7.x。某些發行版本，例如 CentOS 6.x 還是用 Python 2.6.x。所以請由 `python -V` 確認 Python 的版本。
-    
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
-    
-    ```sh
-    $ npx @electron/check-python-tls
-    ```
-    
-    如果腳本返回了你使用過時的安全協議定義的配置，可以使用系統的包管理器更新python至2.7.x分支的最新版本 或者訪問或者，https://www.python.org/downloads/以獲取詳細說明
+
+  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+
+  ```sh
+  $ npx @electron/check-python-tls
+  ```
+
+  如果腳本返回了你使用過時的安全協議定義的配置，可以使用系統的包管理器更新python至2.7.x分支的最新版本 或者訪問或者，https://www.python.org/downloads/以獲取詳細說明
 
 * Node.js。 有幾種方法安裝node 你可以從[node.org](https://nodejs.org)下載源代碼並編譯 也可以作為普通用戶在你的home目錄下安裝node 或者嘗試使用[NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)倉庫
-
 * [clang](https://clang.llvm.org/get_started.html) 3.4 或之後的版本。
 * Development headers of GTK 3 and libnotify.
 
@@ -45,7 +44,7 @@ $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    
 ```
 
-其他分發版也可能通過包管理器提供相似的包來安裝，例如pacman，或者一個可以從源代碼編譯的文件
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
 ### Cross compilation
 

@@ -12,7 +12,7 @@
 
 Обикновено можете да очаквате актуализация в рамките на до две седмици след официалното пускане на стабилна версия на Chrome. Имайте предвид, че в зависимост от количеството работа свързано с актуализацията на версията, са възможни забавяния.
 
-Само стабилната линия на Chrome е използвана. Ако важна поправка е в линиите beta или dev, ние ще го свържем.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 За повече информация моля вижте [въвеждане в сигурността](tutorial/security.md).
 
@@ -29,19 +29,19 @@
 Или можете да използвате IPC система, която е специфична за Електрон, за съхраняване на обекти в основния процес като глобални променливи, а след това да имате достъп до тях от рендерирането чрез свойството `remote` на модул `electron`:
 
 ```javascript
-// В главния процес.
+// В процеса main.
 global.sharedObject = {
-   someProperty: 'default value'
+  someProperty: 'default value'
 }
 ```
 
 ```javascript
-// В страница 1.
+// In page 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// В страница 2.
+// In page 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -82,12 +82,12 @@ app.whenReady().then(() => {
 За да решите този проблем, изключете интеграцията на node в Електрон:
 
 ```javascript
-// В главния процес.
+// В процеса main.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
-   webPreferences: {
-     nodeIntegration: false
-   }
+  webPreferences: {
+    nodeIntegration: false
+  }
 })
 win.show()
 ```
@@ -115,32 +115,11 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-Това се случва защото имате локално инсталиран [npm `electron` module](https://www.npmjs.com/package/electron) или инсталиран глобално, който замества вграден модул на Електрон.
-
-За да проверите дали използвате правилния вграден модул, можете да отпечатате пътя на `electron` модула:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-и след това проверете дали той е в следния вид:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-Ако видите нещо като `node_modules/electron/index.js`, тогава трябва да премахнете npm `electron` модула, или да го преименувате.
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-Обаче, ако използвате вградения модул но все още получавате грешка, най-вероятно получавате модула от грешния процес. На пример, `electron.app` може да бъде използван само от главния процес, докато `electron.webFrame` е достъпен само от рендериращия процес.
+It is very likely you are using the module in the wrong process. На пример, `electron.app` може да бъде използван само от главния процес, докато `electron.webFrame` е достъпен само от рендериращия процес.
 
 ## 5256783105227699
 
-5256783105227699
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Пример:
 
 5256783105227699
 
@@ -155,6 +134,6 @@ const { BrowserWindow } = require('electron')let win = new BrowserWindow({  back
 })HERNANDEZ199626HERNANDEZMEJIA@GMAIL.COM
 ```
 
-5256783105227699
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 Notice that just setting the background in the CSS does not have the desired effect.

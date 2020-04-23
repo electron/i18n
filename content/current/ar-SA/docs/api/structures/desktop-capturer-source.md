@@ -2,6 +2,6 @@
 
 * `id` سلسلة نصية - المعرف الخاص بـ window أو screen والتي يمكن إستخدامها كقيد `chromeMediaSourceId` عند إستدعاء [`navigator.webkitGetUserMedia`]. شكل المعرف سوف يكون `window:XX` أو `screen:XX`, حيث `XX` هو رقم عشوائي.
 * `name` سلسلة نصية - سيتم تسمية مصدر الشاشة إما `Entire Screen` أو `Screen <index>`, بينما إسم مصدر النافذة سيطابق عنوان النافذة.
-* `thumbnail` [NativeImage](../native-image.md) - الصورة المصغرة. **ملحوظة:** ليس هناك ما يضمن أن حجم الصورة المصغرة هو نفسه `thumbnailSize` المحدد في `options` الممرر إلى `desktopCapturer.getSources`. الحجم الفعلي يعتمد على قياس الشاشة أو النافذة.
+* `thumbnail` [NativeImage](../native-image.md) - الصورة المصغرة. **Note:** There is no guarantee that the size of the thumbnail is the same as the `thumbnailSize` specified in the `options` passed to `desktopCapturer.getSources`. الحجم الفعلي يعتمد على قياس الشاشة أو النافذة.
 * `display_id` نص- معرف فريد يتوافق مع`id` من مطابقة ال [Display](display.md) العائد من قبل [Screen API](../screen.md). على بعض المنصات, هذا يعادل جزء ال `XX` من حقل ال `id` أعلاه و يختلف على البقية. سوف يكون نص فارغ إذا لم يكن متواجد.
 * `appIcon` [NativeImage](../native-image.md) - An icon image of the application that owns the window or null if the source has a type screen. The size of the icon is not known in advance and depends on what the the application provides.

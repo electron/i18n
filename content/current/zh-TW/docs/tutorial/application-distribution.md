@@ -9,7 +9,6 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
 
 ## Manual distribution
-
 You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
 
 要用 Electron 發佈應用程式，你要先下載 Electron [預先建置好的二進位檔](https://github.com/electron/electron/releases)。 接下來，你的應用程式應要放在 Electron 的資源目錄下，並命名為 `app`，就像以下的範例。 請注意，下列範例中以 `electron/` 表示 Electron 二進位檔存放的地方。
@@ -62,7 +61,7 @@ electron/resources/
 
 ### Windows
 
-你可以將 `electron.exe` 改成任何你想要的名字，再使用 [rcedit](https://github.com/atom/rcedit) 這類工具編輯圖示及其他資訊。
+你可以將 `electron.exe` 改成任何你想要的名字，再使用 [rcedit](https://github.com/electron/rcedit) 這類工具編輯圖示及其他資訊。
 
 ### macOS
 
@@ -106,7 +105,7 @@ It is also possible to rebrand Electron by changing the product name and buildin
 1. 透過 npm 安裝 [Surf](https://github.com/surf-build/surf): `npm install -g surf-build@latest`
 
 2. 建立新的 S3 Bucket，並建立以下空目錄:
-    
+
     ```sh
     - electron/
       - symbols/
@@ -115,16 +114,16 @@ It is also possible to rebrand Electron by changing the product name and buildin
 
 3. 設定以下環境變數:
 
-* `ELECTRON_GITHUB_TOKEN` - 能在 GitHub 建立 Release 的 Token。
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
-* `CI` - 設為 `true`，否則會失敗
-* `GITHUB_TOKEN` - 設成跟 `ELECTRON_GITHUB_TOKEN` 一樣
-* `SURF_TEMP` - 在 Windows 下設為 `C:\Temp`，防止碰到路徑過長問題
-* `TARGET_ARCH` - 設為 `ia32` 或 `x64`
+  * `ELECTRON_GITHUB_TOKEN` - 能在 GitHub 建立 Release 的 Token。
+  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
+  * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
+  * `CI` - 設為 `true`，否則會失敗
+  * `GITHUB_TOKEN` - 設成跟 `ELECTRON_GITHUB_TOKEN` 一樣
+  * `SURF_TEMP` - 在 Windows 下設為 `C:\Temp`，防止碰到路徑過長問題
+  * `TARGET_ARCH` - 設為 `ia32` 或 `x64`
 
-1. 在 `script/upload.py` 中，你*必須*將 `ELECTRON_REPO` 設為你的分支 (`MYORG/electron`)，如果你同時也是原版 Electron 的貢獻者時更要特別注意。
+4. 在 `script/upload.py` 中，你_必須_將 `ELECTRON_REPO` 設為你的分支 (`MYORG/electron`)，如果你同時也是原版 Electron 的貢獻者時更要特別注意。
 
-2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. 很有耐心的等到建置完成。
+6. 很有耐心的等到建置完成。

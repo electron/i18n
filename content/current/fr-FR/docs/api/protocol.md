@@ -61,11 +61,12 @@ Le module `protocol` dispose des méthodes suivantes :
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
+
 **Note:** Cette méthode ne peut être utilisée qu'avant l'événement `ready` du `app` est émis et ne peut être appelé qu'une seule fois.
 
 Enregistre le `schéma` en standard, sécurisé, contourne la politique de sécurité du contenu pour les ressources, permet d'enregistrer ServiceWorker et supporte la récupération de l'API.
 
-Spécifiez un privilège avec la valeur de `true` pour activer la capacité. Un exemple d'enregistrement d'un schéma privilégié, avec contournement de la politique de sécurité de contenu :
+Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
 
 ```javascript
 const { protocol } = require('electron')
@@ -92,8 +93,7 @@ Par défaut apis de stockage web (localStorage, sessionStorage, webSQL, indexedD
 
 `protocol.registerSchemesAsPrivileged` peut être utilisé pour reproduire la fonctionnalité des fonctions précédentes `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` et `protocol.registerServiceWorkerSchemes` qui existaient avant Electron 5.0.0, par exemple :
 
-**avant (<= v4.x)**
-
+**before (<= v4.x)**
 ```javascript
 // Principal
 protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
@@ -102,8 +102,7 @@ webFrame.registerURLSchemeAsPrivileged('scheme1', { secure: true })
 webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
 ```
 
-**après (>= v5.x)**
-
+**after (>= v5.x)**
 ```javascript
 protocol.registerSchemesAsPrivileged([
   { scheme: 'scheme1', privileges: { standard: true, secure: true } },
@@ -114,16 +113,16 @@ protocol.registerSchemesAsPrivileged([
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Objet 
+* `handler` Function
+  * `request` Object
     * `url` String
     * Enregistrement `en-têtes`<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (facultatif)
-* `completion` Function (facultatif) 
+* `completion` Function (optional)
   * `error` Error
 
 Enregistre un protocole de `schéma` qui enverra le fichier en tant que réponse. Le `manipulateur` sera appelé avec `manipulateur(demande, rappel)` lorsqu'une `demande` est va être créé avec un schéma `. <code>completion` sera appelé avec `completion(null)` lorsque `scheme` est enregistré avec succès ou `completion(error)` en cas d'échec.
@@ -137,16 +136,16 @@ Par défaut, le `schéma` est traité comme `http:`, qui est analysé différemm
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Objet 
+* `handler` Function
+  * `request` Object
     * `url` String
     * Enregistrement `en-têtes`<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (facultatif)
-* `completion` Function (facultatif) 
+* `completion` Function (optional)
   * `error` Error
 
 Enregistre un protocole de `schéma` qui enverra un `Buffer` en tant que réponse.
@@ -168,16 +167,16 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Objet 
+* `handler` Function
+  * `request` Object
     * `url` String
     * Enregistrement `en-têtes`<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `données` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (facultatif)
-* `completion` Function (facultatif) 
+* `completion` Function (optional)
   * `error` Error
 
 Enregistre un protocole de `schéma` qui enverra une `String` en tant que réponse.
@@ -187,43 +186,43 @@ L'utilisation est la même avec `registerFileProtocol`, excepté que le `callbac
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Objet 
+* `handler` Function
+  * `request` Object
     * `url` String
     * Enregistrement `en-têtes`<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `redirectRequest` Objet 
+  * `callback` Function
+    * `redirectRequest` Object
       * `url` String
       * `méthode` String (facultatif)
       * `session` Session | null (optionnel)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (facultatif)
-* `completion` Function (facultatif) 
+* `completion` Function (optional)
   * `error` Error
 
 Enregistre un protocole de `schéma` qui enverra une requête HTTP en réponse.
 
 L'utilisation est la même avec `registerFileProtocol`, sauf que la `callback` doit être appelée avec un objet `redirectRequest` qui a l'`url`, `méthode`, `referrer`, `uploadData` et `session` propriétés.
 
-Par défaut, la requête HTTP réutilisera la session courante. Si vous voulez que la requête ait une session différente, vous devez définir `session` à `null`.
+By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
 Pour les requêtes POST, l'objet `uploadData` doit être fourni.
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Objet 
+* `handler` Function
+  * `request` Object
     * `url` String
     * Enregistrement `en-têtes`<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (facultatif)
-* `completion` Function (facultatif) 
+* `completion` Function (optional)
   * `error` Error
 
 Enregistre un protocole de `schéma` qui enverra une réponse `Lisible`.
@@ -256,7 +255,7 @@ protocole. egisterStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-Il est possible de passer n'importe quel objet qui implémente l'API de flux lisible (émet `data`/`end`/`error`). Par exemple, voici comment un fichier peut être retourné :
+It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
 
 ```javascript
 const { protocol } = require('electron')
@@ -272,7 +271,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (facultatif) 
+* `completion` Function (optional)
   * `error` Error
 
 Enregistre le protocole personnalisé de `schéma`.
@@ -286,16 +285,16 @@ Retourne `Promise<Boolean>` - rempli avec un booléen qui indique s'il y a déj�
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Objet 
+* `handler` Function
+  * `request` Object
     * `url` String
     * Enregistrement `en-têtes`<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `filePath` String
-* `completion` Function (facultatif) 
+* `completion` Function (optional)
   * `error` Error
 
 Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie un fichier comme réponse.
@@ -303,16 +302,16 @@ Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnair
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Objet 
+* `handler` Function
+  * `request` Object
     * `url` String
     * Enregistrement `en-têtes`<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `données` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (facultatif)
-* `completion` Function (facultatif) 
+* `completion` Function (optional)
   * `error` Error
 
 Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie une `String` comme réponse.
@@ -320,16 +319,16 @@ Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnair
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Objet 
+* `handler` Function
+  * `request` Object
     * `url` String
     * Enregistrement `en-têtes`<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `buffer` Buffer (facultatif)
-* `completion` Function (facultatif) 
+* `completion` Function (optional)
   * `error` Error
 
 Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie un `Buffer` comme réponse.
@@ -337,20 +336,20 @@ Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnair
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Objet 
+* `handler` Function
+  * `request` Object
     * `url` String
     * Enregistrement `en-têtes`<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `redirectRequest` Objet 
+  * `callback` Function
+    * `redirectRequest` Object
       * `url` String
       * `méthode` String (facultatif)
       * `session` Session | null (optionnel)
       * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (facultatif)
-* `completion` Function (facultatif) 
+* `completion` Function (optional)
   * `error` Error
 
 Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie une nouvelle requête HTTP comme réponse.
@@ -358,16 +357,16 @@ Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnair
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Objet 
+* `handler` Function
+  * `request` Object
     * `url` String
     * Enregistrement `en-têtes`<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (facultatif)
-* `completion` Function (facultatif) 
+* `completion` Function (optional)
   * `error` Error
 
 Identique à `protocol.registerStreamProtocol`, excepté qu'il remplace un gestionnaire de protocole existant.
@@ -375,7 +374,7 @@ Identique à `protocol.registerStreamProtocol`, excepté qu'il remplace un gesti
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (facultatif) 
+* `completion` Function (optional)
   * `error` Error
 
 Retirez l'intercepteur installé pour `schéma` et restaurez son gestionnaire d'origine.

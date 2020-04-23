@@ -4,9 +4,9 @@
 
 When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
-Прокси имеет ограниченную стандартную функциональность реализованную для совместимости с традиционными веб-страницами. Для полного контроля нового окна следует создать `BrowserWindow` напрямую.
+The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
 
-Вновь созданный `BrowserWindow` будет наследовать параметры родительского окна по умолчанию. Переопределить унаследованные параметры вы можете в строке `features`.
+The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
 
 ### `window.open(url[, frameName][, features])`
 
@@ -19,7 +19,6 @@ When `window.open` is called to create a new window in a web page, a new instanc
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 Например:
-
 ```js
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
@@ -34,7 +33,7 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ### `window.opener.postMessage(message, targetOrigin)`
 
 * Строка `message`
-* Строка `targetOrigin`
+* `targetOrigin` String
 
 Sends a message to the parent window with the specified origin or `*` for no origin preference.
 

@@ -67,20 +67,19 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 Starts the process as a normal Node.js process.
 
-### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
+### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 Don't attach to the current console session.
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
 
 Don't use the global menu bar on Linux.
 
-### `ELECTRON_TRASH` *Linux*
+### `ELECTRON_TRASH` _Linux_
 
 Set the trash implementation on Linux. Default is `gio`.
 
 Options:
-
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -89,6 +88,7 @@ Options:
 ## Development Variables
 
 The following environment variables are intended primarily for development and debugging purposes.
+
 
 ### `ELECTRON_ENABLE_LOGGING`
 
@@ -104,7 +104,7 @@ Prints the stack trace to the console when Electron crashes.
 
 This environment variable will not work if the `crashReporter` is started.
 
-### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
+### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
 
 Shows the Windows's crash dialog when Electron crashes.
 
@@ -112,7 +112,7 @@ This environment variable will not work if the `crashReporter` is started.
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Beispiel:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Nutzung:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug

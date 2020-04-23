@@ -2,7 +2,7 @@
 
 > Создавайте окна браузера и управляйте ими.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 ```javascript
 // В основном процессе.
@@ -45,7 +45,7 @@ win.once('ready-to-show', () => {
 
 Обычно это событие происходит после события `did-finish-load`. Однако, страницы, включающие в себя удаленные ресурсы, могут продолжать подгружаться после происхождения события `did-finish-load`.
 
-Пожалуйста, обратите внимание, что использование этого события означает, что рендерер будет считаться "видимым" и отрисуется, даже если `show` является false. Это событие никогда не сработает, если вы используете `paintWhenInitiallyHidden: false`
+Пожалуйста, обратите внимание, что использование этого события означает, что рендерер будет считаться "видимым" и отрисуется, даже если `show` является false.  Это событие никогда не сработает, если вы используете `paintWhenInitiallyHidden: false`
 
 ## Настройка `backgroundColor`
 
@@ -104,7 +104,7 @@ child.once('ready-to-show', () = > {
 
 * На macOS модальные окна будут отображены в виде страниц, прикрепленных к родительскому окну.
 * На macOS дочерние окна будут находиться относительно родительского окна, во время передвижения родительского окна, тем временем на Windows и Linux дочерние окна не будут двигаться.
-* На Linux тип модального окна будет поменян на `dialog`.
+* На Linux тип модального окна будет поменян в `dialog`.
 * На Linux многие среды рабочего стола не поддерживают скрытие модального окна.
 
 ## Класс: BrowserWindow
@@ -119,81 +119,81 @@ child.once('ready-to-show', () = > {
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (опционально) 
-  * `width` Integer (опционально) - ширина окна в пикселях. По умолчанию - `800`.
-  * `height` Integer (опционально) - высота окна в пикселях. По умолчанию - `600`.
-  * `x` Integer (опционально) - (**обязателен**, если используется y) отступ окна слева от экрана. Значение по умолчанию центрирует окно.
-  * `y` Integer (опционально) - (**обязателен**, если используется x) отступ окна сверху от экрана. Значение по умолчанию центрирует окно.
+* `options` Object (optional)
+  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
+  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
+  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
+  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (опционально) - `width` и `height` могут использоваться как размеры веб-страницы, это значит, что актуальный размер окна будет включать размер фрейма и будет немного крупнее. По умолчанию - `false`.
   * `center` Boolean (опционально) - показывает окно в центре экрана.
-  * `minWidth` Integer (опционально) - минимальная ширина окна. По умолчанию - `0`.
-  * `minHeight` Integer (опционально) - минимальная высота окна. По умолчанию - `0`.
-  * `maxWidth` Integer (опционально) - максимальная ширина окна. По умолчанию - без ограничений.
-  * `maxHeight` Integer (опционально) - максимальная высота окна. По умолчанию - без ограничений.
-  * `resizable` Boolean (опционально) - будет ли окно изменять размеры. По умолчанию - `true`.
-  * `movable` Boolean (опционально) - будет ли окно перемещаться. Не реализовано на Linux. По умолчанию - `true`.
-  * `minimizable` Boolean (опционально) - будет ли окно сворачиваться. Не реализовано на Linux. По умолчанию - `true`.
-  * `maximazable` Boolean (опционально) - будет ли окно разворачиваться. Не реализовано на Linux. По умолчанию - `true`.
-  * `closable` Boolean (опционально) - возможность закрывать окно. Не реализовано на Linux. По умолчанию - `true`.
+  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
+  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
+  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
+  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
+  * `resizable` Boolean (optional) - Whether window is resizable. По умолчанию - `true`.
+  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. По умолчанию - `true`.
+  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. По умолчанию - `true`.
+  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. По умолчанию - `true`.
+  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. По умолчанию - `true`.
   * `focusable` Boolean (опционально) - может ли быть окно в фокусе. По умолчанию - `true`. На Windows настройка `focusable: false` также подразумевает настройку `skipTaskbar: true`. На Linux настройка `focusable: false` прекращает взаимодействие окна с оконным менеджером, на Windows же всегда остается поверх всех рабочих областей.
-  * `alwaysOnTop` Boolean (опционально) - будет ли окно всегда оставаться поверх других окон. По умолчанию - `false`.
+  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. По умолчанию - `false`.
   * `fullscreen` Boolean (опционально) - будет ли окно показываться во весь экран. Когда явно установлено `false`, на macOS кнопка полноэкранного режима будет скрыта или отключена. По умолчанию - `false`.
   * `fullscreenable` Boolean (опционально) - может ли окно быть в полноэкранном режиме. На macOS также кнопка увеличить/зумировать должна переключить в полноэкранный режим или увеличить окно. По умолчанию - `true`.
-  * `simpleFullscreen` Boolean (опционально) - использовать полноэкранный режим на macOS в представленном до версии Lion варианте реализации. По умолчанию - `false`.
-  * `skipTaskbar` Boolean (опционально) - будет ли показано окно в панели задач. По умолчанию - `false`.
-  * `kiosk` Boolean (опционально) - режим киоска. По умолчанию - `false`.
+  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. По умолчанию - `false`.
+  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
+  * `kiosk` Boolean (optional) - The kiosk mode. По умолчанию - `false`.
   * `title` String (опционально) - заголовок окна по умолчанию. По умолчанию `"Electron"`. Если HTML-тег `<title>` определен в HTML-файле, загруженном с помощью `loadURL()`, то это свойство будет игнорироваться.
   * `icon` ([NativeImage](native-image.md) | String) (опционально) - иконка окна. На Windows рекомендуется использовать иконки `ICO`, чтобы получить лучший визуальный эффект, Вы также можете оставить неопределенным, чтобы был использован значок исполняемого файла.
-  * `show` Boolean (опционально) - будет ли показано окно, когда будет создано. По умолчанию - `true`.
-  * `paintWhenInitiallyHidden` Boolean (опционально) - Должен ли рендерер быть активным, когда `show` равен `false` и он только что создан. Для `document.visibilityState` для корректной работы при первой загрузке с `show: false` необходимо установить значение `false`. Установка этого в `false` приведёт к тому, что события `ready-to-show` не будут запускаться. По умолчанию - `true`.
-  * `frame` Boolean (опционально) - установите `false`, чтобы создать [окно без рамки](frameless-window.md). По умолчанию - `true`.
-  * `parent` BrowserWindow (опционально) - устанавливает родительское окно. По умолчанию - `null`.
-  * `modal` Boolean (опционально) - будет ли окно модальным. Работает только, когда окно является дочерним окном. По умолчанию - `false`.
-  * `acceptFirstMouse` Boolean (опционально) - будет ли веб-окно принимать событие одиночного нажатия мыши, которое сразу активирует окно. По умолчанию - `false`.
-  * `disableAutoHideCursor` Boolean (опционально) - будет ли спрятан курсор, во время печатания. По умолчанию - `false`.
-  * `autoHideMenuBar` Boolean (опционально) - автоматическое убирание полоски меню, пока клавиша `Alt` не будет нажата. По умолчанию - `false`.
+  * `show` Boolean (optional) - Whether window should be shown when created. По умолчанию - `true`.
+  * `paintWhenInitiallyHidden` Boolean (опционально) - Должен ли рендерер быть активным, когда `show` равен `false` и он только что создан.  Для `document.visibilityState` для корректной работы при первой загрузке с `show: false` необходимо установить значение `false`.  Установка этого в `false` приведёт к тому, что события `ready-to-show` не будут запускаться.  По умолчанию - `true`.
+  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). По умолчанию - `true`.
+  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
+  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. По умолчанию - `false`.
+  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
+  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. По умолчанию - `false`.
+  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. По умолчанию - `false`.
   * `enableLargerThanScreen` Boolean (опционально) - позволяет окну изменять размер больше, чем экран. Относится только к macOS, так как другие ОС по умолчанию разрешают окна больше экрана. По умолчанию - `false`.
-  * `backgroundColor` String (опционально) - фоновый цвет окна в HEX-формате, например `#66CD00`, `#FFF` или `#80FFFFFF` (альфа в формате #AARRGGBB поддерживается, если `transparent` установлено `true`). По умолчанию `#FFF` (белый).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
-  * `opacity` Number (опционально) - установить начальную прозрачность окна, между 0.0 (полная прозрачность) и 1.0 (полная видимость). Это реализовано только на Windows и macOS.
-  * `darkTheme` Boolean (опционально) - заставляет использовать темную тему для окна, работает только на некоторых GTK+3 окружениях рабочего стола. По умолчанию - `false`.
+  * `backgroundColor` String (опционально) - фоновый цвет окна в HEX-формате, например `#66CD00`, `#FFF` или `#80FFFFFF` (альфа в формате #AARRGGBB поддерживается, если `transparent` установлено `true`). По умолчанию - `#FFF` (белый).
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. По умолчанию - `true`.
+  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. По умолчанию - `false`.
   * `transparent` Boolean (опционально) - делает окно [прозрачным](frameless-window.md#transparent-window). По умолчанию - `false`. В Windows не работает до тех пор, пока окно не будет без фрейма.
-  * `type` String (опционально) - тип окна, по умолчанию - обычное окно. См. больше об этом ниже.
-  * `titleBarStyle` String (опционально) - стиль полосы заголовка окна. По умолчанию - `default`. Возможные значения: 
-    * `default` - в результате стандартный, серый, непрозрачный Mac заголовок.
-    * `hidden` - в результате скрытый заголовок и содержимое во все окно, но заголовок по-прежнему имеет стандартное окно контроля ("светофоры") сверху слева.
+  * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Возможные значения:
+    * `default` - В результате стандартный, серый, непрозрачный Mac заголовок.
+    * `hidden` - В результате скрытый заголовок и содержимое во все окно, но заголовок по-прежнему имеет стандартное окно контроля ("светофоры") сверху слева.
     * `hiddenInset` - В результате скрытый заголовок с альтернативным видом, где кнопки контролирования немного больше вставки от края окна.
     * `customButtonsOnHover` Boolean (опционально) - отобразить пользовательские кнопки закрыть и свернуть на macOS окнах без рамки. Эти кнопки будут отображены только при наведении на верхний левый угол окна. Эти пользовательские кнопки предотвращают проблемы с событиями мыши, которые случаются со стандартными кнопками панели инструментов. **Заметка:** Этот параметр в настоящее время экспериментален.
   * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
-  * `fullscreenWindowTitle` Boolean (опционально) - показывает название в заголовке в полноэкранном режиме на macOS для всех вариантов `titleBarStyle`. По умолчанию `false`.
+  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. По умолчанию - `false`.
   * `thickFrame` Boolenan (необязательно) - Использовать стиль `WS_THICKFRAME` на окнах с отсутствием рамок на Windows, добавляющий стандартные рамки окна. Установив значение `false`, тень окна и анимация окна будут удалены. По умолчанию - `true`.
-  * `vibrancy` String (опционально) - добавить тип эффекта вибрации к окну, только на macOS. Может быть `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window` или `under-page`. Обратите внимание, что использование `frame: false` в комбинации с меняющимся значением, требует так же указывать `titleBarStyle`. Также обратите внимание, что `appearance-based`, `light`, `dark`, `medium-light` и `ultra-dark` устарела и будет удалена в следующей версии macOS.
-  * `zoomToPageWidth` Boolean (опционально) - управляет поведением на macOS, при нажатии на зеленую кнопку на панели инструментов или при нажатии на пункт меню Окно > Увеличить. Если `true`, окно будет увеличиваться до предпочтительной ширины веб-страницы при увеличении, `false` приведет к увеличению масштаба до ширины экрана. Это также повлияет на поведение при вызове `maximize()` напрямую. По умолчанию - `false`.
+  * `vibrancy` String (опционально) - добавить тип эффекта вибрации к окну, только на macOS. Может быть `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window` или `under-page`.  Обратите внимание, что использование `frame: false` в комбинации с меняющимся значением, требует так же указывать `titleBarStyle`. Также обратите внимание, что `appearance-based`, `light`, `dark`, `medium-light` и `ultra-dark` устарела и будет удалена в следующей версии macOS.
+  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. Если `true`, окно будет увеличиваться до предпочтительной ширины веб-страницы при увеличении, `false` приведет к увеличению масштаба до ширины экрана. Это также повлияет на поведение при вызове `maximize()` напрямую. По умолчанию - `false`.
   * `tabbingIdentifier` String (опционально) - название группы вкладок, позволяет открывать окно как нативную вкладку в macOS 10.12+. Окна с одинаковым идентификатором вкладки будут сгруппированы вместе. Это также добавляет новую нативную кнопку вкладки в панель вкладок вашего окна и позволяет Вашему `приложению` и окну получать событие `new-window-for-tab`.
-  * `webPreferences` Object (опционально) - настройки веб-страниц. 
+  * `webPreferences` Object (optional) - Settings of web page's features.
     * `devTools` Boolean (опционально) - включает инструменты разработчика. Если значение `false`, нельзя будет использовать `BrowserWindow.webContents.openDevTools()`, чтобы открыть инструменты разработчика. По умолчанию - `true`.
-    * `nodeIntegration` Boolean (опционально) - включает интеграцию NodeJS. По умолчанию - `false`.
+    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. По умолчанию - `false`.
     * `nodeIntegrationInWorker` Boolean (опционально) - включает интеграцию NodeJS в веб-воркерах. По умолчанию - `false`. Больше об этом можно найти в [многопоточности](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (опционально) - экспериментальная опция для включения поддержки NodeJS в подфреймах, таких как iframes и дочерних окнах. Все Ваши предварительные загрузки будут загружены для каждого iframe, Вы можете использовать `process.isMainFrame`, чтобы определить в главном фрейме Вы или нет.
-    * `preload` String (опционально) - определяет скрипт, который будет загружен до того, как остальные скрипты запустятся на странице. Этот скрипт будет всегда иметь доступ к API NodeJS, вне зависимости включена или выключена интеграция NodeJS. Значение должно быть абсолютным путем к файлу скрипта. Когда интеграция NodeJS отключена, предварительно загруженный скрипт может повторно ввести глобальные символы NodeJS в глобальную область. Посмотреть пример [здесь](process.md#event-loaded).
+    * `preload` String (опционально) - определяет скрипт, который будет загружен до того, как остальные скрипты запустятся на странице. Этот скрипт будет всегда иметь доступ к API NodeJS, вне зависимости включена или выключена интеграция NodeJS. Значение должно быть абсолютным путем к файлу скрипта. Когда интеграция NodeJS отключена, предварительно загруженный скрипт может повторно ввести глобальные символы NodeJS в глобальную область. Смотрите пример [здесь](process.md#event-loaded).
     * `sandbox` Boolean (опционально) - если установлено true, то в окне будет запущена песочница, что делает ее совместимой с песочницей Chromium на уровне операционной системы, и отключает движок NodeJS. Это не тоже самое, что параметр `nodeIntegration`, доступные API для предзагруженных скриптов более ограничены. Узнать больше об этой опции можно [здесь](sandbox-option.md).
-    * `enableRemoteModule` Boolean (опционально) - включает модуль [`remote`](remote.md). По умолчанию - `true`.
+    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. По умолчанию - `true`.
     * `session` [Session](session.md#class-session) (опционально) - устанавливает сессию, которая используется страницей. Вместо передачи экземпляр Session напрямую, вместо этого Вы можете также выбрать использование опции `partition`, которая принимает строку раздела. Когда оба `session` и `partition` определены, `session` будет предпочтительней. По умолчанию используется сессия по умолчанию.
     * `partition` String (опционально) - устанавливает сессию, используемую на странице в соответствии со строкой раздела сессии. Если `partition` начинается с `persist:`, страница будет использовать постоянную сессию, которая доступна всем страницам в приложении с тем же `разделом`. Если нет префикса `persist:`, страница будет использовать сессию в памяти. При присваивании одинакового `раздела`, разные страницы могут иметь одинаковую сессию. По умолчанию используется сессия по умолчанию.
-    * `affinity` String (опционально) - когда определено, веб-страницы с одинаковым `родством` будут работать в том же графическом процессе. Обратите внимание, что из-за повторного использования графического процесса, некоторые параметры `webPreferences` также будут доступны между веб-страницами, даже если Вы указали для них разные значения, включая, но не ограничиваясь, `preload`, `sandbox` и `nodeIntegration`. Поэтому рекомендуется использовать те же `webPreferences` для веб-страниц с одинаковым `родством`. *Это экспериментальное свойство*
-    * `zoomFactor` Number (опционально) - коэффициент масштабирования на странице, `3.0` означает `300%`. По умолчанию `1.0`.
-    * `javascript` Boolean (опционально) - включает поддержку JavaScript. По умолчанию `true`.
+    * `affinity` String (опционально) - когда определено, веб-страницы с одинаковым `родством` будут работать в том же графическом процессе. Обратите внимание, что из-за повторного использования графического процесса, некоторые параметры `webPreferences` также будут доступны между веб-страницами, даже если Вы указали для них разные значения, включая, но не ограничиваясь, `preload`, `sandbox` и `nodeIntegration`. Поэтому рекомендуется использовать те же `webPreferences` для веб-страниц с одинаковым `родством`. _Это экспериментальное свойство_
+    * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
+    * `javascript` Boolean (optional) - Enables JavaScript support. По умолчанию - `true`.
     * `webSecurity` Boolean (опционально) - когда `false`, отключается политика same-origin (обычно используется при тестировании веб-сайтов людьми), и устанавливается `allowRunningInsecureContent` в `true`, если параметр не был установлен пользователем. По умолчанию - `true`.
-    * `allowRunningInsecureContent` Boolean (опционально) - Позволяет https страницам запускать JavaScript, CSS или плагины из http URLs. По умолчанию `false`.
-    * `images` Boolean (опционально) - Включает поддержку изображений. По умолчанию `true`.
-    * `textAreasAreResizable` Boolean (опционально) - Позволяет изменять размер у TextArea элементов. По умолчанию `true`.
-    * `webgl` Boolean (опционально) - Включает поддержку WebGL. По умолчанию `true`.
-    * `plugins` Boolean (опционально) - Включает поддержку плагинов. По умолчанию `false`.
-    * `experimentalFeatures` Boolean (опционально) - Включает экспериментальные возможности Chromium. По умолчанию `false`.
-    * `scrollBounce` Boolean (опционально) - Включает эффект отскока при прокрутке в macOS. По умолчанию `false`.
+    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. По умолчанию - `false`.
+    * `images` Boolean (optional) - Enables image support. По умолчанию - `true`.
+    * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
+    * `webgl` Boolean (optional) - Enables WebGL support. По умолчанию - `true`.
+    * `plugins` Boolean (optional) - Whether plugins should be enabled. По умолчанию - `false`.
+    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. По умолчанию - `false`.
+    * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. По умолчанию - `false`.
     * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. Полный список поддерживаемых возможностей можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
     * `disableBlinkFeatures` String (опционально) - Список функциональных возможностей для выключения, разделяются `','`, например `CSSVariables,KeyboardEventKey`. Полный список поддерживаемых возможностей можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
-    * `defaultFontFamily` Object (опционально) - Устанавливает шрифт по умолчанию для семейства шрифтов. 
+    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family.
       * `standard` String (опционально) - По умолчанию `Times New Roman`.
       * `serif` String (опционально) - По умолчанию `Times New Roman`.
       * `sansSerif` String (опционально) - По умолчанию `Arial`.
@@ -209,22 +209,22 @@ child.once('ready-to-show', () = > {
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Вы можете получить доступ к этому контексту в инструментах разработчика, при выборе пункта 'Изолированный Контекст Elctron' в списке на верхней части консольной вкладки.
     * `nativeWindowOpen` Boolean (опционально) - использовать нативную функцию `window.open()`. Defaults to `false`. Дочерние окна всегда будут отключены для интеграции узлов, если `nodeIntegrationInSubFrames` будет true. **Примечание:** Эта опция в настоящее время экспериментальная.
     * `webviewTag` Boolean (опционально) - включает [`<webview>`-тег](webview-tag.md). Defaults to `false`. **Примечание:** Cкрипт `предварительной загрузки`, настроенный для `<webview>`, будет иметь интеграцию NodeJS, когда будет запущен, так что Вы должны убедиться, что удаленный/непроверенный контент не может создавать тег `<webview>` с возможно вредоносным скриптом `предварительной загрузки`. Вы можете использовать событие `will-attach-webview` на [webContents](web-contents.md), чтобы снять скрипт `предварительной загрузки` и проверить или изменить начальные настройки `<webview>`.
-    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
-    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
+    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
+    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. По умолчанию - `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
-    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. Default is `false`.
-    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
+    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. По умолчанию - `false`.
+    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. По умолчанию - `false`.
     * `autoplayPolicy` String (опционально) - политика автовоспроизведения для применения к содержимому в окне, может быть `no-user-gesture-required`, `user-gesture-required` или `document-user-activation-required`. По умолчанию `no-user-gesture-required`.
-    * `disableHtmlFullscreenWindowResize` Boolean (опционально) - Следует ли запретить изменение размера окна при вводе HTML в полноэкранном режиме. По умолчанию `false`.
+    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
     * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. По умолчанию - `false`.
 
 Когда установлен минимальный или максимальный размер окна, при помощи `minWidth`/`maxWidth`/`minHeight`/`maxHeight`, это ограничивает только пользователей. Это не позволит Вам установить размер, который не будет следовать ограничениям размера, в `setBounds`/`setSize` или в конструкторе `BrowserWindow`.
 
-Возможные значения и поведения опции `type` зависят от платформы. Возможные значения:
+The possible values and behaviors of the `type` option are platform dependent. Возможные значения:
 
 * На Linux возможны типы `desktop`, `dock`, `toolbar`, `splash`, `notification`.
-* На macOS возможны типы `desktop`, `textured`. 
+* On macOS, possible types are `desktop`, `textured`.
   * Тип `textured` добавляет вид металлического градиента (`NSTexturedBackgroundWindowMask`).
   * Тип `desktop` размещает окно на уровень фонового окна рабочего стола (`kCGDesktopWindowLevel - 1`). Обратите внимание, что окно рабочего стола не будет получить события фокуса, клавиатуры или мыши, но Вы можете использовать `globalShortcut`, чтобы получать ввод.
 * На Windows возможен тип `toolbar`.
@@ -243,7 +243,7 @@ child.once('ready-to-show', () = > {
 * `title` String
 * `explicitSet` Boolean
 
-Вызывается, когда документ меняет свой заголовок, вызов `event.preventDefault()` предотвратит изменение заголовка родного окна. `explicitSet` является false, когда заголовок синтезирован из url файла.
+Происходит, когда документ меняет свой заголовок, вызов `event.preventDefault()` предотвратит изменение заголовка нативного окна. `explicitSet` является false, когда заголовок синтезирован из url файла.
 
 #### Событие: 'close'
 
@@ -266,20 +266,19 @@ window.onbeforeunload = (e) => {
   e.returnValue = false // идентично `return false`, но в использовании не рекомендуется
 }
 ```
-
-***Примечание**: Существует тонкая разница между поведением `window.onbeforeunload = handler` и `window.addEventListener('beforeunload', handler)`. Рекомендуется всегда устанавливать `event.returnValue` явно, вместо того, чтобы просто возвращать значение, поскольку первое работает более последовательно в Electron.*
+_**Примечание**: Существует тонкая разница между поведением `window.onbeforeunload = handler` и `window.addEventListener('beforeunload', handler)`. Рекомендуется всегда устанавливать `event.returnValue` явно, вместо того, чтобы просто возвращать значение, поскольку первое работает более последовательно в Electron._
 
 #### Событие: 'closed'
 
-Происходит, когда окно закрыто. После того, как Вы получили это событие, Вы должны удалить ссылку на окно и больше не использовать ее.
+Возникает, когда окно будет закрыто. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Событие: 'session-end' *Windows*
+#### Событие: 'session-end' _Windows_
 
 Происходит, когда сеанс окна заканчивается из-за выключения, перезагрузки компьютера или отключения сеанса.
 
 #### Событие: 'unresponsive'
 
-Происходит, когда страница "не отвечает".
+Вызывается, когда страница "не отвечает".
 
 #### Событие: 'responsive'
 
@@ -287,11 +286,11 @@ window.onbeforeunload = (e) => {
 
 #### Событие: 'blur'
 
-Происходит, когда окно теряет фокус.
+Вызывается, когда окно теряет фокус.
 
 #### Событие: 'focus'
 
-Происходит, когда на окне фокусируются.
+Вызывается, когда на окне фокусируются.
 
 #### Событие: 'show'
 
@@ -305,7 +304,7 @@ window.onbeforeunload = (e) => {
 
 Происходит, когда веб-страница была отрисована (пока не отображена) и окно может быть отображено без визуального мерцания.
 
-Пожалуйста, обратите внимание, что использование этого события означает, что рендерер будет считаться "видимым" и отрисуется, даже если `show` является false. Это событие никогда не сработает, если вы используете `paintWhenInitiallyHidden: false`
+Пожалуйста, обратите внимание, что использование этого события означает, что рендерер будет считаться "видимым" и отрисуется, даже если `show` является false.  Это событие никогда не сработает, если вы используете `paintWhenInitiallyHidden: false`
 
 #### Событие: 'maximize'
 
@@ -323,22 +322,22 @@ window.onbeforeunload = (e) => {
 
 Происходит, когда окно восстанавливается из свернутого состояния.
 
-#### Событие: 'will-resize' *macOS* *Windows*
+#### Событие: 'will-resize' _macOS_ _Windows_
 
 Возвращает:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Размер окна, на который будет изменено.
 
-Происходит перед изменением размера окна. Вызов `event.preventDefault()` предотвратит изменение размера окна.
+Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
 
-Обратите внимание, что это происходит, только когда размер окна будет изменяться вручную. Изменение размера окна с помощью `setBounds`/`setSize` не вызовет это событие.
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### Событие: 'resize'
 
 Происходит после того, как изменился размер окна.
 
-#### Event: 'will-move' *macOS* *Windows*
+#### Event: 'will-move' _macOS_ _Windows_
 
 Возвращает:
 
@@ -347,25 +346,25 @@ window.onbeforeunload = (e) => {
 
 Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
-Обратите внимание, что это происходит, только когда размер окна будет изменяться вручную. Изменение размера окна с помощью `setBounds`/`setSize` не вызовет это событие.
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### Событие: 'move'
 
-Вызывается, когда окно перемещено на новое место.
+Происходит, когда окно перемещено на новое место.
 
-**Примечание**: На macOS это событие является псевдонимом `moved`.
+__Примечание__: На macOS это событие является псевдонимом `moved`.
 
-#### Событие: 'moved' *macOS*
+#### Событие: 'moved' _macOS_
 
-Вызывается единожды, когда окно перемещается в новое положение.
+Происходит единожды, когда окно перемещается в новое положение.
 
 #### Событие: 'enter-full-screen'
 
-Вызывается, когда окно переходит в полноэкранный режим.
+Происходит, когда окно переходит в полноэкранный режим.
 
 #### Событие: 'leave-full-screen'
 
-Вызывается, когда окно выходит из полноэкранного режима.
+Происходит, когда окно выходит из полноэкранного режима.
 
 #### Событие: 'enter-html-full-screen'
 
@@ -384,14 +383,14 @@ Emitted before the window is moved. On Windows, calling `event.preventDefault()`
 
 Происходит, когда окно переключает режим отображения поверх всех окон.
 
-#### Событие: 'app-command' *Windows* *Linux*
+#### Событие: 'app-command' _Windows_ _Linux_
 
 Возвращает:
 
 * `event` Event
 * `command` String
 
-Вызывается, когда вызван [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). Обычно это касается клавиатурных медиа-клавиш или команд браузера, а также кнопки "Назад", встроенной в некоторые мыши на Windows.
+Происходит, когда вызывается [команда приложения](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). Обычно это касается клавиатурных медиа-клавиш или команд браузера, а также кнопки "Назад", встроенной в некоторые мыши на Windows.
 
 Команды в нижнем регистре, подчеркивание заменено на дефисы, а префикс `APPCOMMAND_` обрезан. например `APPCOMMAND_BROWSER_BACKWARD` происходит как `browser-backward`.
 
@@ -411,28 +410,30 @@ win.on('app-command', (e, cmd) => {
 * `browser-backward`
 * `browser-forward`
 
-#### Событие: 'scroll-touch-begin' *macOS*
+#### Событие: 'scroll-touch-begin' _macOS_
 
 Происходит, когда начинается прокрутка колеса.
 
-#### Событие: 'scroll-touch-end' *macOS*
+#### Событие: 'scroll-touch-end' _macOS_
 
 Происходит, когда заканчивается прокрутка колеса.
 
-#### Событие: 'scroll-touch-edge' *macOS*
+#### Событие: 'scroll-touch-edge' _macOS_
 
 Происходит, когда прокрутка колеса достигает края элемента.
 
-#### Событие: 'swipe' *macOS*
+#### Событие: 'swipe' _macOS_
 
 Возвращает:
 
 * `event` Event
 * `direction` String
 
-Происходит при свайпе тремя пальцами. Возможные направления: `up`, `right`, `down` и `left`.
+Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Событие: 'rotate-gesture' *macOS*
+Метод, лежащий в основе этого события, создан для обработки событий смахивания на устаревших трекпадах в стиле macOS, где содержимое на экране нельзя переместить смахнув. Большинство трекпадов macOS по умолчанию не настроены под этот вид смахивания, поэтому для того чтобы правильно работал 'Переход между страницами смахиванием' перейдите в `Системные настройки > Трекпад > Другие жесты ` и включите "Смахивание двумя или тремя пальцами".
+
+#### Событие: 'rotate-gesture' _macOS_
 
 Возвращает:
 
@@ -441,15 +442,15 @@ win.on('app-command', (e, cmd) => {
 
 Генерируется жестом вращения трекпада. Непрерывно генерируется до тех пор, пока жест поворота не будет завершен. Значение `rotation` при каждом выбросе - угол поворота в градусах, отсчитанный от последнего выброса. Последнее событие на жесте вращения всегда будет иметь значение `0`. Значения вращения против часовой стрелки положительные, по часовой стрелке отрицательные.
 
-#### Событие: 'sheet-begin' *macOS*
+#### Событие: 'sheet-begin' _macOS_
 
 Происходит, когда окно открывает лист.
 
-#### Событие: 'sheet-end' *macOS*
+#### Событие: 'sheet-end' _macOS_
 
 Происходит, когда окно закрыло лист.
 
-#### Событие: 'new-window-for-tab' *macOS*
+#### Событие: 'new-window-for-tab' _macOS_
 
 Происходит, когда нажимается нативная кнопка новой вкладки.
 
@@ -469,13 +470,13 @@ win.on('app-command', (e, cmd) => {
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
+Возвращает `BrowserWindow | null` - окно, которое владеет объектом `webContents`, или имеет `null` если не содержит контент.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
 * `browserView` [BrowserView](browser-view.md)
 
-Возвращает `BrowserWindow | null` - окно, которое владеет указанным `browserView`. Если данный вид не прикреплен к любому окну, возвращает `null`.
+Возвращает `BrowserWindow` - окно, которое владеет объектом `webContents`. If the given view is not attached to any window, returns `null`.
 
 #### `BrowserWindow.fromId(id)`
 
@@ -489,7 +490,7 @@ Returns `BrowserWindow | null` - The window that owns the given `webContents` or
 
 Добавляет расширение Chrome, расположенное в `path`, и возвращает имя расширения.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+Метод не возвратит имя, если манифест расширения отсутствует или неполный.
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
@@ -511,11 +512,11 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+Добавляет расширение инструмента разработчика, размещенного в `path`, и возвращает имя расширения.
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+Расширение будет запоминаться, так что Вам нужно только вызвать этот метод один раз, этот метод не используется для программирования. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+Метод не возвратит имя, если манифест расширения отсутствует или неполный.
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
@@ -523,7 +524,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Удаляет расширение DevTools с указанным именем.
+Удаляет расширение инструмента разработчика с указанным именем.
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
@@ -531,7 +532,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Возвращает `Record<string, ExtensionInfo>` - ключи это имена расширений, а каждое значение это объект, содержащий свойства `name` и `version`.
 
-To check if a DevTools extension is installed you can run the following:
+Чтобы проверить установлено ли расширение инструмента разработчика, Вы можете запустить следующее:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -553,19 +554,19 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-#### `win.webContents` *Только чтение*
+#### `win.webContents` _Только чтение_
 
 A `WebContents` object this window owns. All web page related events and operations will be done via it.
 
 See the [`webContents` documentation](web-contents.md) for its methods and events.
 
-#### `win.id` *Только чтение*
+#### `win.id` _Только чтение_
 
 Свойство `Integer` представляющее уникальный идентификатор окна.
 
 #### `win.autoHideMenuBar`
 
-Свойство `Boolean`, которое определяет, должна ли панель меню автоматически скрываться. После установки панель меню будет показываться, только когда пользователь нажмет на клавишу `Alt`.
+A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
 
 Если панель меню уже видна, установка этого свойства в `true` не будет скрывать ее немедленно.
 
@@ -601,9 +602,9 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 В Linux setter это невозможно, хотя getter возвращает `true`.
 
-#### `win.excludedFromShownWindowsMenu` *macOS*
+#### `win.excludedFromShownWindowsMenu` _macOS_
 
-Свойство `Boolean` определяет, исключено ли окно из меню Windows приложения. `false` по умолчанию.
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -640,15 +641,15 @@ Try to close the window. This has the same effect as a user manually clicking th
 
 #### `win.focus()`
 
-Focuses on the window.
+Фокусирует окно.
 
 #### `win.blur()`
 
-Убирает фокус с окна.
+Removes focus from the window.
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+Возвращает `Boolean` - сфокусировано окно или нет.
 
 #### `win.isDestroyed()`
 
@@ -656,11 +657,11 @@ Returns `Boolean` - Whether the window is focused.
 
 #### `win.show()`
 
-Показывает и фокусирует окно.
+Shows and gives focus to the window.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Показывает окно, но не фокусирует его.
 
 #### `win.hide()`
 
@@ -672,7 +673,7 @@ Shows the window but doesn't focus on it.
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+Возвращает `Boolean` - модальное текущее окно или нет.
 
 #### `win.maximize()`
 
@@ -680,7 +681,7 @@ Maximizes the window. This will also show (but not focus) the window if it isn't
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Выходит из увеличенного состояния окна.
 
 #### `win.isMaximized()`
 
@@ -708,56 +709,56 @@ Sets whether the window should be in fullscreen mode.
 
 Возвращает `Boolean` - в полноэкранном режиме окно или нет.
 
-#### `win.setSimpleFullScreen(flag)` *macOS*
+#### `win.setSimpleFullScreen(flag)` _macOS_
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Входит или покидает простой полноэкранный режим.
 
 Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
 
-#### `win.isSimpleFullScreen()` *macOS*
+#### `win.isSimpleFullScreen()` _macOS_
 
 Возвращает `Boolean` - в простом полноэкранном режиме окно или нет.
 
 #### `win.isNormal()`
 
-Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+Возвращает `Boolean` - в нормальном состоянии (не увеличено до предела, не свернуто, не в полноэкранном режиме) окно или нет.
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
+#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_
 
 * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
 * `extraSize` [Size](structures/size.md) (опционально) - дополнительный размер, который не будет включен при соотношении сторон.
 
-Это заставит окно поддерживать соотношение сторон. Дополнительный размер позволяет разработчику иметь пространство, указанное в пикселях, которое не входит в расчеты соотношения сторон. This API already takes into account the difference between a window's size and its content size.
+This will make a window maintain an aspect ratio. Дополнительный размер позволяет разработчику иметь пространство, указанное в пикселях, которое не входит в расчеты соотношения сторон. This API already takes into account the difference between a window's size and its content size.
 
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Суммируйте любые области дополнительной ширины и высоты, которые у Вас есть, в общем представлении содержимого.
+Рассмотрим нормально окно в HD видео-плеером, и связанными с ним контроллерами. Возможно, на левом крае есть 15-ти пиксельный контроллер, 25-ти пиксельный контроллер на правом крае и 50-ти пиксельный контроллер внизу плеера. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. Второй аргумент не заботится о том, где дополнительная ширина и высота находятся внутри содержимого вида, в котором они существуют. Суммируйте любые области дополнительной ширины и высоты, которые у Вас есть, в общем представлении содержимого.
 
 Calling this function with a value of `0` will remove any previously set aspect ratios.
 
 #### `win.setBackgroundColor(backgroundColor)`
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). По умолчанию `#FFF` (белый).
+* `backgroundColor` String - фоновый цвет окна в HEX-формате, например `#66CD00`, `#FFF` или `#80FFFFFF` (альфа поддерживается, если `transparent` установлено `true`). По умолчанию - `#FFF` (белый).
 
 Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
-#### `win.previewFile(path[, displayName])` *macOS*
+#### `win.previewFile(path[, displayName])` _macOS_
 
 * `path` String - абсолютный путь до файла, для предпросмотра в QuickLook. Это важно, так как QuickLook использует имя файла и расширение файла из пути, чтобы определить тип содержимого файла для открытия.
 * `displayName` String (опционально) - имя файла, для отображения в модальном виде QuickLook. Это чисто визуально и не влияет на тип содержимого файла. По умолчанию `path`.
 
 Использует [QuickLook](https://en.wikipedia.org/wiki/Quick_Look) для предпросмотра файла, по данному пути.
 
-#### `win.closeFilePreview()` *macOS*
+#### `win.closeFilePreview()` _macOS_
 
 Закрывает текущую открытую панель [QuickLook](https://en.wikipedia.org/wiki/Quick_Look).
 
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
-* `animate` Boolean (опционально) *macOS*
+* `animate` Boolean (опционально) _macOS_
 
-Изменяет размер и перемещает окно в заданные границы. Любые свойства, которые не заданы, будут установлены в их текущее значение.
+Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -780,7 +781,7 @@ console.log(win.getBounds())
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (необязательно) *macOS*
+* `animate` Boolean (опционально) _macOS_
 
 Меняет размеры и перемещает клиентскую область окна (например, веб-страницу) на заданные границы.
 
@@ -808,9 +809,9 @@ console.log(win.getBounds())
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (опционально) *macOS*
+* `animate` Boolean (опционально) _macOS_
 
-Меняет размер окна на `width` и `height`. Если `width` или `height` ниже любого ограничения минимального размера окна, будет зафиксировано на минимальном размере.
+Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
 #### `win.getSize()`
 
@@ -820,7 +821,7 @@ console.log(win.getBounds())
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (необязательно) *macOS*
+* `animate` Boolean (опционально) _macOS_
 
 Меняет размер клиентской области окна (например, веб-страница) на `width` и `height`.
 
@@ -864,15 +865,15 @@ console.log(win.getBounds())
 
 **[Устарело](modernization/property-updates.md)**
 
-#### `win.setMovable(movable)` *macOS* *Windows*
+#### `win.setMovable(movable)` _macOS_ _Windows_
 
 * `movable` Boolean
 
-Устанавливает, может ли пользователь перемещать окно. На Linux ничего не делает.
+Sets whether the window can be moved by user. On Linux does nothing.
 
 **[Устарело](modernization/property-updates.md)**
 
-#### `win.isMovable()` *macOS* *Windows*
+#### `win.isMovable()` _macOS_ _Windows_
 
 Возвращает `Boolean` - может пользователь перемещать окно или нет.
 
@@ -880,15 +881,15 @@ console.log(win.getBounds())
 
 **[Устарело](modernization/property-updates.md)**
 
-#### `win.setMinimizable(minimizable)` *macOS* *Windows*
+#### `win.setMinimizable(minimizable)` _macOS_ _Windows_
 
 * `minimizable` Boolean
 
-Устанавливает, может ли пользователь вручную сворачивать окно. На Linux ничего не делает.
+Sets whether the window can be manually minimized by user. On Linux does nothing.
 
 **[Устарело](modernization/property-updates.md)**
 
-#### `win.isMinimizable()` *macOS* *Windows*
+#### `win.isMinimizable()` _macOS_ _Windows_
 
 Возвращает `Boolean` - может пользователь вручную сворачивать окно или нет
 
@@ -896,15 +897,15 @@ console.log(win.getBounds())
 
 **[Устарело](modernization/property-updates.md)**
 
-#### `win.setMaximizable(maximizable)` *macOS* *Windows*
+#### `win.setMaximizable(maximizable)` _macOS_ _Windows_
 
 * `maximizable` Boolean
 
-Устанавливает, может ли пользователь вручную увеличивать до предела окно. На Linux ничего не делает.
+Sets whether the window can be manually maximized by user. On Linux does nothing.
 
 **[Устарело](modernization/property-updates.md)**
 
-#### `win.isMaximizable()` *macOS* *Windows*
+#### `win.isMaximizable()` _macOS_ _Windows_
 
 Возвращает `Boolean` - может пользователь вручную увеличивать до предела окно или нет.
 
@@ -926,15 +927,15 @@ console.log(win.getBounds())
 
 **[Устарело](modernization/property-updates.md)**
 
-#### `win.setClosable(closable)` *macOS* *Windows*
+#### `win.setClosable(closable)` _macOS_ _Windows_
 
 * `closable` Boolean
 
-Устанавливает, может ли пользователь вручную закрыть окно. На Linux ничего не делает.
+Sets whether the window can be manually closed by user. On Linux does nothing.
 
 **[Устарело](modernization/property-updates.md)**
 
-#### `win.isClosable()` *macOS* *Windows*
+#### `win.isClosable()` _macOS_ _Windows_
 
 Возвращает `Boolean` - может пользователь вручную закрывать окно или нет.
 
@@ -945,10 +946,10 @@ console.log(win.getBounds())
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (опционально) *macOS* *Windows* - Значения включают `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver` и ~~`dock`~~ (Устарело). По умолчанию `floating`, когда `flag` установлен true. `level` сбрасывается на `normal`, когда флаг устанавливается false. Обратите внимание, что от `floating` до `status` включительно, окно находится под Dock в macOS и под панелью задач в Windows. От `pop-up-menu` и выше отображается над Dock на macOS и выше панели задач на Windows. Смотрите [документацию macOS](https://developer.apple.com/documentation/appkit/nswindow/level) для подробностей.
-* `relativeLevel` Integer (опционально) *macOS* - количество слоев выше, чтобы установить окно относительно заданного `level`. По умолчанию - `0`. Обратите внимание, что Apple не рекомендует устанавливать уровни выше, чем 1 верхнего `screen-saver`.
+* `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). По умолчанию `floating`, когда `flag` установлен true. `level` сбрасывается на `normal`, когда флаг устанавливается false. Обратите внимание, что от `floating` до `status` включительно, окно находится под Dock в macOS и под панелью задач в Windows. От `pop-up-menu` и выше отображается над Dock на macOS и выше панели задач на Windows. Смотрите [документацию macOS](https://developer.apple.com/documentation/appkit/nswindow/level) для подробностей.
+* `relativeLevel` Integer (опционально) _macOS_ - количество слоев выше, чтобы установить окно относительно заданного `level`. По умолчанию - `0`. Обратите внимание, что Apple не рекомендует устанавливать уровни выше, чем 1 верхнего `screen-saver`.
 
-Устанавливает, должно ли окно всегда показываться поверх остальных окон. После настройки, окно все еще является нормальным, не окно панели инструментов, которое не может быть сфокусировано.
+Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 
 #### `win.isAlwaysOnTop()`
 
@@ -972,7 +973,7 @@ Moves window above the source window in the sense of z-order. If the `mediaSourc
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (опционально) *macOS*
+* `animate` Boolean (опционально) _macOS_
 
 Перемещает окно на `x` и `y`.
 
@@ -992,12 +993,12 @@ Moves window above the source window in the sense of z-order. If the `mediaSourc
 
 **Примечание:** Название веб-страницы может отличаться от названия нативного окна.
 
-#### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
+#### `win.setSheetOffset(offsetY[, offsetX])` _macOS_
 
 * `offsetY` Float
 * `offsetX` Float (опционально)
 
-Изменяет точку прикрепления для листов на macOS. По умолчанию, листы прикреплены под рамкой окна, но Вы можете отобразить их под панелью инструментов HTML. Например:
+Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. Например:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1017,7 +1018,7 @@ win.setSheetOffset(toolbarRect.height)
 
 * `skip` Boolean
 
-Не отображает окно в панели задач.
+Makes the window not show in the taskbar.
 
 #### `win.setKiosk(flag)`
 
@@ -1027,7 +1028,7 @@ win.setSheetOffset(toolbarRect.height)
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+Возвращает `Boolean` - в режиме киоска окно или нет.
 
 #### `win.getMediaSourceId()`
 
@@ -1037,52 +1038,52 @@ More precisely the format is `window:id:other_id` where `id` is `HWND` on Window
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Возвращает `Buffer` - специфичный для платформы маркер окна.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+Нативный тип маркера это `HWND` на Windows, `NSView*` на macOS и `Window` (`unsigned long`) на Linux.
 
-#### `win.hookWindowMessage(message, callback)` *Windows*
+#### `win.hookWindowMessage(message, callback)` _Windows_
 
 * `message` Integer
 * `callback` Function
 
 Hooks a windows message. The `callback` is called when the message is received in the WndProc.
 
-#### `win.isWindowMessageHooked(message)` *Windows*
+#### `win.isWindowMessageHooked(message)` _Windows_
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+Возвращает `Boolean` - `true` или `false`, в зависимости от того, какое сообщение было перехвачено.
 
-#### `win.unhookWindowMessage(message)` *Windows*
+#### `win.unhookWindowMessage(message)` _Windows_
 
 * `message` Integer
 
 Unhook the window message.
 
-#### `win.unhookAllWindowMessages()` *Windows*
+#### `win.unhookAllWindowMessages()` _Windows_
 
-Unhooks all of the window messages.
+Пропускает все сообщения окна.
 
-#### `win.setRepresentedFilename(filename)` *macOS*
+#### `win.setRepresentedFilename(filename)` _macOS_
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+Устанавливает путь до файла, который представляет окно, и иконки файла, которая будет показываться в заголовке окна.
 
-#### `win.getRepresentedFilename()` *macOS*
+#### `win.getRepresentedFilename()` _macOS_
 
-Возвращает `String` - путь до файла, который представляет окно.
+Returns `String` - The pathname of the file the window represents.
 
-#### `win.setDocumentEdited(edited)` *macOS*
+#### `win.setDocumentEdited(edited)` _macOS_
 
 * `edited` Boolean
 
 Определяет, был ли отредактирован документ окна, иконка в заголовке станет серой, когда установлено `true`.
 
-#### `win.isDocumentEdited()` *macOS*
+#### `win.isDocumentEdited()` _macOS_
 
-Returns `Boolean` - Whether the window's document has been edited.
+Возвращает `Boolean` - был ли изменен документ окна.
 
 #### `win.focusOnWebView()`
 
@@ -1099,20 +1100,20 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (опционально) 
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - HTTP Referrer.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (опционально) - дополнительные заголовки, разделенные "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `userAgent` String (опционально) - user-agent, создающий запрос.
+  * `extraHeaders` String (optional) - Extra headers separated by "\n"
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (опционально)
   * `baseURLForDataURL` String (опционально) - Базовый URL (с разделителем пути), для файлов, которые будут загружены по URL данных. Это необходимо, только если указанный `url` это URL данных и необходимо загрузить другие файлы.
 
 Возвращает `Promise<void>` - промис будет разрешен, когда страница завершит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет, если страница не удачно загрузилась (см. [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Тоже, что и [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+`url` может быть удаленным адресом (например, `http://`) или путем до локального HTML-файла, используя протокол `file://`.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Для обеспечения правильного форматирования URL файла рекомендуется использовать метод NodeJS [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject):
 
 ```javascript
 let url = require('url').format({
@@ -1139,36 +1140,36 @@ win.loadURL('http://localhost:8000/post', {
 #### `win.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (опционально) 
+* `options` Object (optional)
   * `query` Record<String, String> (опционально) - переданная в `url.format()`.
-  * `search` String (опционально) - переданная в `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `search` String (optional) - Passed to `url.format()`.
+  * `hash` String (опционально) - переданная в `url.format()`.
 
 Возвращает `Promise<void>` - промис будет разрешен, когда страница завершит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет, если страница не удачно загрузилась (см. [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
+Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application.  See the `webContents` docs for more information.
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Тоже, что и `webContents.reload`.
 
-#### `win.setMenu(menu)` *Linux* *Windows*
+#### `win.setMenu(menu)` _Linux_ _Windows_
 
 * `menu` Menu | null
 
 Устанавливает `menu` в меню окна.
 
-#### `win.removeMenu()` *Linux* *Windows*
+#### `win.removeMenu()` _Linux_ _Windows_
 
 Удаляет меню окна.
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (опционально) 
-  * `mode` String *Windows* - режим для индикатора прогресса. Может быть `none`, `normal`, `indeterminate`, `error` или `paused`.
+* `options` Object (optional)
+  * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
-Устанавливает значение прогресса в индикатор прогресса. Допустимый диапазон - [0, 1.0].
+Устанавливает значение прогресса на шкале прогресса. Valid range is [0, 1.0].
 
 Удаляет индикатор прогресса, когда прогресс меньше 0; Изменяет в режим indeterminate, когда прогресс больше 1.
 
@@ -1176,7 +1177,7 @@ Same as `webContents.reload`.
 
 На Windows режим может быть передан. Принимаемые значения: `none`, `normal`, `indeterminate`, `error` и `paused`. Если Вы вызовете `setProgressBar` без установленного режима (но со значением в пределах допустимого диапозона), будет предполагаться `normal`.
 
-#### `win.setOverlayIcon(overlay, description)` *Windows*
+#### `win.setOverlayIcon(overlay, description)` _Windows_
 
 * `overlay` [NativeImage](native-image.md) | null - иконка, которая будет отображаться в правом краю иконки на панели задач. Если параметр `null`, оверлей будет очищен
 * `description` String - описание, которое будет представлено для доступности чтения с экрана
@@ -1193,23 +1194,23 @@ Same as `webContents.reload`.
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-#### `win.setOpacity(opacity)` *Windows* *macOS*
+#### `win.setOpacity(opacity)` _Windows_ _macOS_
 
 * `opacity` Number - между 0.0 (полная прозрачность) и 1.0 (полная видимость)
 
-Устанавливает прозрачность окна. В Linux ничего не делает. Значения вне номера ограничены диапазоном [0, 1].
+Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
 
 #### `win.getOpacity()`
 
-Возвращает `Number` - между 0.0 (полная прозрачность) и 1.0 (полная видимость). В Linux всегда возвращает 1.
+Возвращает `Number` - между 0.0 (полная прозрачность) и 1.0 (полная видимость). On Linux, always returns 1.
 
-#### `win.setShape(rects)` *Windows* *Linux* *Экспериментально*
+#### `win.setShape(rects)` _Windows_ _Linux_ _Экспериментально_
 
-* `rects` [Rectangle[]](structures/rectangle.md) - устанавливает форму окна. Передача пустого списка возвращает окно к прямоугольной форме.
+* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
 
 Установка формы окна, которая определяет область в окне, где система разрешает отрисовку и взаимодействие пользователя. Вне данного региона ни один пиксель не отрисуется и ни одно событие мыши не будет зарегистрировано. Вне региона события мыши не будут получены этим окном, но будет передаваться чему-либо позади окна.
 
-#### `win.setThumbarButtons(buttons)` *Windows*
+#### `win.setThumbarButtons(buttons)` _Windows_
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
@@ -1221,57 +1222,57 @@ Same as `webContents.reload`.
 
 `buttons` является массивом объектов `Button`:
 
-* `Button` Object 
+* `Button` Object
   * `icon` [NativeImage](native-image.md) - иконка, отображаемая на панели миниатюр.
   * `click` Function
   * `tooltip` String (опционально) - текст всплывающей подсказки на кнопке.
-  * `flags` String[] (опционально) - контроль определенных состояний и поведений кнопки. По умолчанию `['enabled']`.
+  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
 `flags` — это массив, который может включать следующие `строки`:
 
 * `enabled` - кнопка активна и доступна пользователю.
-* `disabled` - кнопка отключена. Она присутствует, но имеет неактивное визуальное состояние и не будет реагировать на действия пользователя.
+* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
 * `dismissonclick` - когда кнопка нажата, окно миниатюры закрывается немедленно.
 * `nobackground` - не рисует границы кнопок, использует только изображение.
 * `hidden` - кнопка не отображается пользователю.
-* `noninteractive` - кнопка включена, но не интерактивная; рисуется не нажимаемое состояние кнопки. Это значение предназначено для экземпляров, где кнопка используется в уведомлении.
+* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
 
-#### `win.setThumbnailClip(region)` *Windows*
+#### `win.setThumbnailClip(region)` _Windows_
 
 * `region` [Rectangle](structures/rectangle.md) - Область окна
 
 Устанавливает область окна, которая будет показана в панели миниатюр, при наведении мыши на окно в панели задач. Вы можете сбросить панель миниатюры, чтобы показывалось окно полностью, указав пустую область: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
-#### `win.setThumbnailToolTip(toolTip)` *Windows*
+#### `win.setThumbnailToolTip(toolTip)` _Windows_
 
 * `toolTip` String
 
 Устанавливает всплывающую подсказку, которая будет отображена, при наведении мыши на панель миниатюры окна в панели задач.
 
-#### `win.setAppDetails(options)` *Windows*
+#### `win.setAppDetails(options)` _Windows_
 
-* `options` Object 
+* `options` Object
   * `appId` String (опционально) - [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx) окна. Это должно быть установлено, иначе остальные параметры не будут иметь никакого эффекта.
   * `appIconPath` String (опционально) - [иконка перезапуска](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx) окна.
-  * `appIconIndex` Integer (опционально) - индекс иконки в `appIconPath`. Игнорируется, когда `appIconPath` не установлено. По умолчанию - `0`.
+  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
   * `relaunchCommand` String (опционально) - [команда перезапуска](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx) окна.
   * `relaunchDisplayName` String (опционально) - [отображаемое имя перезапуска](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx) окна.
 
 Устанавливает свойства для кнопки окна на панели задач.
 
-**Примечание:** `relaunchCommand` и `relaunchDisplayName` должны быть установлены вместе. Если одно из этого свойства не будет установлено, тогда ни одно из них не будет использоваться.
+**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
 
-#### `win.showDefinitionForSelection()` *macOS*
+#### `win.showDefinitionForSelection()` _macOS_
 
 Тоже, что и `webContents.showDefinitionForSelection()`.
 
-#### `win.setIcon(icon)` *Windows* *Linux*
+#### `win.setIcon(icon)` _Windows_ _Linux_
 
 * `icon` [NativeImage](native-image.md) | String
 
 Меняет иконку окна.
 
-#### `win.setWindowButtonVisibility(visible)` *macOS*
+#### `win.setWindowButtonVisibility(visible)` _macOS_
 
 * `visible` Boolean
 
@@ -1295,7 +1296,7 @@ Sets whether the window menu bar should hide itself automatically. Once set the 
 
 **[Устарело](modernization/property-updates.md)**
 
-#### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
+#### `win.setMenuBarVisibility(visible)` _Windows_ _Linux_
 
 * `visible` Boolean
 
@@ -1308,30 +1309,30 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
-* `options` Object (опционально) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
+* `options` Object (optional)
+  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows _deprecated_
 
-Устанавливает видимость окна на всех рабочих местах.
+Sets whether the window should be visible on all workspaces.
 
-**Note:** This API does nothing on Windows.
+**Примечание:** Этот метод ничего не делает Windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+Возвращает `Boolean` - видно ли окно на всех рабочих местах.
 
 **Примечание:** Данный API всегда возвращает false в Windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Логическое значение
-* `options` Object (опционально) 
-  * `forward` Boolean (опционально) *macOS* *Windows* - Если true, перенаправляет сообщения о передвижение мыши в Chromium, включая события мыши, такие как `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+* `options` Object (optional)
+  * `forward` Boolean (optional) _macOS_ _Windows_ - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Используется, только когда `ignore` - true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
 Включает для окна игнорирование событий от мыши.
 
-Все события мыши, произошедшие в этом окне, будут переданы окну позади этого окна, но, если это окно сфокусировано, оно все еще будет получать события клавиатуры.
+All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
 
-#### `win.setContentProtection(enable)` *macOS* *Windows*
+#### `win.setContentProtection(enable)` _macOS_ _Windows_
 
 * `enable` Boolean
 
@@ -1339,11 +1340,11 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
 
-#### `win.setFocusable(focusable)` *macOS* *Windows*
+#### `win.setFocusable(focusable)` _macOS_ _Windows_
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Меняет, может ли окно быть сфокусировано.
 
 На macOS он не снимает фокус с окна.
 
@@ -1351,7 +1352,7 @@ Changes whether the window can be focused.
 
 * `parent` BrowserWindow | null
 
-Устанавливает `parent` как родителя текущего окна, передав `null` превратит текущее окно в окно верхнего уровня.
+Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
 
 #### `win.getParentWindow()`
 
@@ -1361,83 +1362,83 @@ Changes whether the window can be focused.
 
 Возвращает `BrowserWindow[]` - все дочерние окна.
 
-#### `win.setAutoHideCursor(autoHide)` *macOS*
+#### `win.setAutoHideCursor(autoHide)` _macOS_
 
 * `autoHide` Boolean
 
 Controls whether to hide cursor when typing.
 
-#### `win.selectPreviousTab()` *macOS*
+#### `win.selectPreviousTab()` _macOS_
 
 Выбирает предыдущую вкладку, когда нативные вкладки включены и в окне присутствуют другие вкладки.
 
-#### `win.selectNextTab()` *macOS*
+#### `win.selectNextTab()` _macOS_
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Выбирает следующую вкладку, когда нативные вкладки включены и в окне присутствуют другие вкладки.
 
-#### `win.mergeAllWindows()` *macOS*
+#### `win.mergeAllWindows()` _macOS_
 
-Объединяет все окна в одно окно с множественными вкладками, когда нативные вкладки включены и в присутствуют открытые окна больше, чем 1.
+Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
 
-#### `win.moveTabToNewWindow()` *macOS*
+#### `win.moveTabToNewWindow()` _macOS_
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+Перемещает текущую вкладку в новое окно, если нативные вкладки включены и присутствует больше, чем одна вкладка, в текущем окне.
 
-#### `win.toggleTabBar()` *macOS*
+#### `win.toggleTabBar()` _macOS_
 
-Переключает видимость вкладки, если включены нативные вкладки и присутствует только одна вкладка в текущем окне.
+Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
 
-#### `win.addTabbedWindow(browserWindow)` *macOS*
+#### `win.addTabbedWindow(browserWindow)` _macOS_
 
 * `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+Добавляет окно, как вкладку, в это окно, после вкладки экземпляра окна.
 
-#### `win.setVibrancy(type)` *macOS*
+#### `win.setVibrancy(type)` _macOS_
 
-* `type` String | null - Может быть `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window` и `under-page`. See the [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) for more details.
+* `type` String | null - Может быть `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window` и `under-page`. Смотрите [документацию macOS](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) для подробностей.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
 Обратите внимание, что `appearance-based`, `light`, `dark`, `medium-light` и `ultra-dark` устарела и будет удалена в следующей версии macOS.
 
-#### `win.setTrafficLightPosition(position)` *macOS*
+#### `win.setTrafficLightPosition(position)` _macOS_
 
 * `position` [Point](structures/point.md)
 
 Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
 
-#### `win.getTrafficLightPosition()` *macOS*
+#### `win.getTrafficLightPosition()` _macOS_
 
 Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Экспериментально*
+#### `win.setTouchBar(touchBar)` _macOS_ _Экспериментально_
 
 * `touchBar` TouchBar | null
 
-Sets the touchBar layout for the current window. Указав `null` или `undefined` очистит сенсорную панель. Этот метод имеет эффект только, если машина имеет сенсорную панель и запускается на macOS 10.12.1+.
+Устанавливает слой сенсорной панели для текущего окна. Specifying `null` or `undefined` clears the touch bar. Этот метод имеет эффект только, если машина имеет сенсорную панель и запускается на macOS 10.12.1+.
 
 **Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
 
-#### `win.setBrowserView(browserView)` *Экспериментально*
+#### `win.setBrowserView(browserView)` _Экспериментально_
 
 * `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` _Экспериментально_
 
 Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
-#### `win.addBrowserView(browserView)` *Экспериментально*
+#### `win.addBrowserView(browserView)` _Экспериментально_
 
 * `browserView` [BrowserView](browser-view.md)
 
 Заменяет метод setBrowserView, для поддержки работы с множественными видами браузера.
 
-#### `win.removeBrowserView(browserView)` *Экспериментально*
+#### `win.removeBrowserView(browserView)` _Экспериментально_
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` *Экспериментально*
+#### `win.getBrowserViews()` _Экспериментально_
 
 Возвращает `BrowserView[]` - массив всех BrowserViews которые были присоединены с `addBrowserView` или `setBrowserView`.
 

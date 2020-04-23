@@ -44,8 +44,7 @@ npm install -g electron-windows-store
 │   ├── [...]
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   └── app.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
@@ -76,7 +75,6 @@ electron-windows-store `
 もう一つの重要な制限は、コンパイルされたAppXパッケージはまだWin32実行形式であり、Xbox、HoloLens、Phoneでは実行できないことです。
 
 ## オプション: BackgroundTaskを使ってUWP機能を追加
-
 プッシュ通知、Cortana統合、ライブタイルなど、Windows 10機能を完全に使った非表示UWPバックグラウンドタスクとElectronアプリを組み合わせることができます。
 
 Electronアプリがバックグラウンドタスクを使って、トースト通知の送信とライブタイルを利用する方法は、[マイクロソフトが提供するサンプルをチェック](https://github.com/felixrieseberg/electron-uwp-background)してください。

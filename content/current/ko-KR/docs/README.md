@@ -4,34 +4,34 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 
 ## 자주 묻는 질문
 
-자주 묻는 질문들이 있습니다. 이슈를 생성하기 전에 자주 묻는 질문을 확인하세요:
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [Electron 자주 묻는 질문](faq.md)
 
 ## 가이드와 튜토리얼
 
-* [개발 환경 설정하기](tutorial/development-environment.md) 
+* [개발 환경 설정하기](tutorial/development-environment.md)
   * [macOS 설정](tutorial/development-environment.md#setting-up-macos)
   * [Windows 설정](tutorial/development-environment.md#setting-up-windows)
   * [Linux 설정](tutorial/development-environment.md#setting-up-linux)
   * [편집기 선정하기](tutorial/development-environment.md#a-good-editor)
-* [첫 번째 앱 만들기](tutorial/first-app.md) 
+* [첫 번째 앱 만들기](tutorial/first-app.md)
   * [Electron 설치하기](tutorial/first-app.md#installing-electron)
   * [Electron 개발 맛보기](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [앱 실행하기](tutorial/first-app.md#running-your-app)
-* [Boilerplates와 CLI](tutorial/boilerplates-and-clis.md) 
+* [Boilerplates와 CLI](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [기타 도구와 Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [애플리케이션 아키텍처](tutorial/application-architecture.md) 
+* [애플리케이션 아키텍처](tutorial/application-architecture.md)
   * [메인과 렌더러 프로세스](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron API 사용하기](tutorial/application-architecture.md#using-electron-apis)
   * [Node.js API 사용하기](tutorial/application-architecture.md#using-nodejs-apis)
   * [기본 Node.js 모듈 사용하기](tutorial/using-native-node-modules.md)
   * [성능 전략](tutorial/performance.md)
-* 여러분의 앱에 기능 추가하기 
+* 여러분의 앱에 기능 추가하기
   * [알림(Notifications)](tutorial/notifications.md)
   * [최근 문서](tutorial/recent-documents.md)
   * [애플리케이션 진행 상황](tutorial/progress-bar.md)
@@ -45,29 +45,29 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [오프 스크린 렌더링](tutorial/offscreen-rendering.md)
   * [macOS 다크 모드 지원](tutorial/mojave-dark-mode-guide.md)
   * [Electron에서의 웹 삽입](tutorial/web-embeds.md)
-* [접근성](tutorial/accessibility.md) 
+* [접근성](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [접근성 활성화](tutorial/accessibility.md#enabling-accessibility)
-* [테스팅과 디버깅](tutorial/application-debugging.md) 
+* [테스팅과 디버깅](tutorial/application-debugging.md)
   * [메인 프로세스 디버깅하기](tutorial/debugging-main-process.md)
   * [Visual Studio Code에서 메인 프로세스 디버깅하기](tutorial/debugging-main-process-vscode.md)
   * [Selenium 과 WebDriver 사용하기](tutorial/using-selenium-and-webdriver.md)
   * [헤드리스 CI 시스템 (트래비스, 젠킨스) 테스트](tutorial/testing-on-headless-ci.md)
   * [DevTools 확장](tutorial/devtools-extension.md)
   * [커스텀 드라이버를 이용한 자동화된 테스팅](tutorial/automated-testing-with-a-custom-driver.md)
-* [배포](tutorial/application-distribution.md) 
+* [배포](tutorial/application-distribution.md)
   * [지원되는 플랫폼](tutorial/support.md#supported-platforms)
   * [코드 서명(Code Signing)](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows 스토어](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [보안](tutorial/security.md) 
+* [보안](tutorial/security.md)
   * [보안 문제 제보](tutorial/security.md#reporting-security-issues)
   * [Chromium 보안 문제와 업그레이드](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron 보안 경고](tutorial/security.md#electron-security-warnings)
   * [보안 점검표](tutorial/security.md#checklist-security-recommendations)
-* [업데이트](tutorial/updates.md) 
+* [업데이트](tutorial/updates.md)
   * [서버에 업데이트 배포](tutorial/updates.md#deploying-an-update-server)
   * [앱에 업데이트 구현하기](tutorial/updates.md#implementing-updates-in-your-app)
   * [업데이트 적용](tutorial/updates.md#applying-updates)
@@ -77,23 +77,23 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 
 이 가이드는 위에서 설명된 주제의 확장입니다.
 
-* [Electron 설치하기](tutorial/installation.md) 
+* [Electron 설치하기](tutorial/installation.md)
   * [프록시](tutorial/installation.md#proxies)
   * [커스텀 미러와 캐시](tutorial/installation.md#custom-mirrors-and-caches)
   * [문제 해결](tutorial/installation.md#troubleshooting)
-* Electron 릴리즈 & 개발자 피드백 
+* Electron 릴리즈 & 개발자 피드백
   * [버저닝 정책](tutorial/electron-versioning.md)
   * [출시 일정](tutorial/electron-timelines.md)
   * [앱 피드백 프로그램](tutorial/app-feedback-program.md)
-* [asar로 앱 소스 코드 패키징](tutorial/application-packaging.md) 
-  * [asar 아카이브 생성하기](tutorial/application-packaging.md#generating-asar-archives)
+* [asar로 앱 소스 코드 패키징](tutorial/application-packaging.md)
+  * [asar 아카이브 생성](tutorial/application-packaging.md#generating-asar-archives)
   * [asar 아카이브 사용하기](tutorial/application-packaging.md#using-asar-archives)
   * [제한 사항](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [asar 아카이브에 압축 해제된 파일 추가하기](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Widevine CDM 테스트](tutorial/testing-widevine-cdm.md)
 * [Pepper Flash 플러그인 사용하기](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [용어집](glossary.md)
 

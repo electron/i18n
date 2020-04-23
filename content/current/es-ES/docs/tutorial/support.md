@@ -5,17 +5,16 @@
 If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Si busca ayuda con la programación, respuestas a preguntas o conversaciones con otros desarrolladores que usan Electron, puede interactuar con la comunidad en estos lugares:
-
-* Categoría [`electron`](https://discuss.atom.io/c/electron) en los foros de Atom
-* Canal `#atom-shell` en Freenode
-* `#electron` canal en [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-* [`electron-ru`](https://telegram.me/electron_ru) *(Ruso)*
-* [`electron-br`](https://electron-br.slack.com) *(Portugués Brasileño)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Coreano)*
-* [`electron-jp`](https://electron-jp.slack.com) *(Japonés)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turco)*
-* [`electron-id`](https://electron-id.slack.com) *(Indonesio)*
-* [`electron-pl`](https://electronpl.github.io) *(Polaco)*
+- Categoría [`electron`](https://discuss.atom.io/c/electron) en los foros de Atom
+- Canal `#atom-shell` en Freenode
+- `#electron` canal en [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
+- [`electron-ru`](https://telegram.me/electron_ru) *(Ruso)*
+- [`electron-br`](https://electron-br.slack.com) *(Portugués Brasileño)*
+- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Coreano)*
+- [`electron-jp`](https://electron-jp.slack.com) *(Japonés)*
+- [`electron-tr`](https://electron-tr.herokuapp.com) *(Turco)*
+- [`electron-id`](https://electron-id.slack.com) *(Indonesio)*
+- [`electron-pl`](https://electronpl.github.io) *(Polaco)*
 
 If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
@@ -25,7 +24,7 @@ Si has encontrado un error en una [versión soportada](#supported-versions) de E
 
 ## Versiones Soportadas
 
-Las últimas tres versiones *stable* son soportadas por el equipo Electron. Por ejemplo, si la última versión es 6.1.x, entonces la 5.0.x así como la series 4.2.x son soportadas. Solo soportamos la última versión minor por cada versión estable. Esto quiere decir que en el caso de una corrección de seguridad 6.1.x recibirá la corrección, pero no lanzaremos una nueva versión de 6.0.x.
+Las últimas tres versiones *stable* son soportadas por el equipo Electron. Por ejemplo, si la última versión es 6.1.x, entonces la 5.0.x así como la series 4.2.x son soportadas.  Solo soportamos la última versión minor por cada versión estable.  Esto quiere decir que en el caso de una corrección de seguridad 6.1.x recibirá la corrección, pero no lanzaremos una nueva versión de 6.0.x.
 
 La última versión estable recibe unilateralmente todas las correcciones de `master`, y la versión anterior recibe la gran mayoría de esas correcciones como el tiempo y el ancho de banda lo permite. Las versiones más antiguas soportadas solamente van a recibir correcciones de seguridad directamente.
 
@@ -34,10 +33,9 @@ Todas las versiones soportadas aceptarán peticiones de pull requests externas a
 When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
 ### Versiones soportadas actualmente
-
-* 8.1.x
-* 7.1.x
-* 6.1.x
+- 8.1.x
+- 7.1.x
+- 6.1.x
 
 ### Fin de vida
 

@@ -67,20 +67,19 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 일반 Node.js 프로세스에서 프로세스를 시작합니다.
 
-### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
+### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 Don't attach to the current console session.
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
 
 Don't use the global menu bar on Linux.
 
-### `ELECTRON_TRASH` *Linux*
+### `ELECTRON_TRASH` _Linux_
 
 Set the trash implementation on Linux. Default is `gio`.
 
 Options:
-
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -89,6 +88,7 @@ Options:
 ## 개발 변수
 
 다음 환경 변수들은 주로 개발이나 디버깅 목적으로 사용됩니다.
+
 
 ### `ELECTRON_ENABLE_LOGGING`
 
@@ -104,7 +104,7 @@ Prints the stack trace to the console when Electron crashes.
 
 This environment variable will not work if the `crashReporter` is started.
 
-### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
+### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
 
 Shows the Windows's crash dialog when Electron crashes.
 

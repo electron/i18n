@@ -1,6 +1,6 @@
 # Guide Windows Store
 
-Avec Windows 10, le bon vieux win32 executable a un nouveau frère: La plateforme Universelle de Windows. Le nouveau format `.appx` ne permet pas seulement d'avoir de nouvelles API puissantes comme Cortana ou Push Notifications, mais via le Windows Store, il simplifie également les installations et les mises à jour.
+Avec Windows 10, le bon vieux executable win32 a un nouveau frère: La plateforme Universelle de Windows. Le nouveau format `.appx` ne permet pas seulement d'avoir de nouvelles API puissantes comme Cortana ou Push Notifications, mais via le Windows Store, il simplifie également les installations et les mises à jour.
 
 Microsoft [à développé un outil qui compile les apps Electron en packages `.appx`](https://github.com/catalystcode/electron-windows-store), permettant aux développeurs d'utiliser une partie des goodies trouvés dans le nouveau modèle d'application. Ce guide explique comment l'utiliser - et quelles sont les capacités et les limites d'un package Electron AppX.
 
@@ -29,26 +29,25 @@ Empaquetez l’application à l’aide de [electron-packager](https://github.com
 La sortie devrait ressembler à peu près à ceci :
 
 ```plaintext
-── Ghost.exe
-── LICENSE
-── content_resources_200_percent.pak
-── content_shell.pak
-── d3dcompiler_47. l
-── ffmpeg.dll
-── icudtl.dat
-── libEGL.dll
-── libGLESv2.dll
-<unk> ─ locales
-<unk> ─ am. ak
-<unk> ── ar.pak
-<unk> ── [...]
-Ω── node.dll
-── resources
-<unk> ─ app
-<unk> <unk> <unk> ─ atom. sar
-── v8_context_snapshot.bin
-── squirrel.exe
-<unk> ─ ui_resources_200_percent.pak
+├── Ghost.exe
+├── LICENSE
+├── content_resources_200_percent.pak
+├── content_shell.pak
+├── d3dcompiler_47.dll
+├── ffmpeg.dll
+├── icudtl.dat
+├── libEGL.dll
+├── libGLESv2.dll
+├── locales
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
+├── node.dll
+├── resources
+│   └── app.asar
+├── v8_context_snapshot.bin
+├── squirrel.exe
+└── ui_resources_200_percent.pak
 ```
 
 ## Étape 2: Exécuter electron-windows-store
@@ -76,7 +75,6 @@ En opposition aux traditionelles apps UWP, actuellement les apps empaquetées do
 Une autre limitation importante est que le paquet AppX compilé contient un fichier exécutable win32 - toujours et qu’il ne fonctionnera donc pas sur Xbox, HoloLens ou téléphones.
 
 ## Facultatif : Ajouter les fonctionnalités UWP à l’aide d’un BackgroundTask
-
 Vous pouvez coupler votre app Electron avec une tâche en arrière-plan UWP invisible qui vous permet de tirer pleinement parti des fonctionnalités de Windows 10 - comme notifications push, ou les tuiles vivantes.
 
 Pour voir comment une app Electron peut utiliser une tâche de fond pour envoyer des notifications toast et tuiles vivantes, [consultez l'exemple fourni par Microsoft](https://github.com/felixrieseberg/electron-uwp-background).

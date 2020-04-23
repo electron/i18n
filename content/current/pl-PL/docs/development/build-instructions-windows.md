@@ -5,17 +5,17 @@ Postępuj zgodnie z wytycznymi poniżej do zbudowania Electrona dla Windowsa.
 ## Wymagania
 
 * Windows 10 / Server 2012 R2 lub nowszy
-* Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/) 
+* Visual Studio 2017 15.7.2 lub nowszy - [pobierz VS 2019 Community Edition za darmo](https://www.visualstudio.com/vs/)
   * See [the Chromium build documentation](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) for more details on which Visual Studio components are required.
-  * If your Visual Studio is installed in a directory other than the default, you'll need to set a few environment variables to point the toolchains to your installation path. 
+  * If your Visual Studio is installed in a directory other than the default, you'll need to set a few environment variables to point the toolchains to your installation path.
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Often, this will be `C:`.
-    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Often, this will be `C:`.
-* [Python 2.7.10 lub wyższa wersja](http://www.python.org/download/releases/2.7/) 
+    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Często, będzie `C:`.
+* [Python 2.7.10 lub wyższa wersja](http://www.python.org/download/releases/2.7/)
   * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
   * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` jest używany do tworzenia magazynu symboli z `.pdb` pliki. 
+* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
   * Obok siebie mogą być instalowane różne wersje SDK. To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
   * Narzędzia debugowania SDK również muszą być zainstalowane. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Możesz też pobrać samodzielny instalator pakietów SDK i użyć go do zainstalowania narzędzi do debugowania (Debugging Tools).
 
@@ -23,7 +23,7 @@ Jeżeli nie posiadasz aktualnie instalacji Windowsa [dev.microsoftedge.com](http
 
 Budowanie Electrona odbywa się w pełni przy użyciu skryptów wiersza poleceń i nie może zostać wykonane w Visual Studio. Możesz rozwijać Electron z każdym edytorem, ale wsparcie dla budowy z Visual Studio powstanie w przyszłości.
 
-**Uwaga:** Mimo tego, że Visual Studio nie jest używane do budowania, jest ono **potrzebne** ponieważ potrzebujemy narzędzi budowania, które dostarcza.
+**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
 ## Kompilowanie
 
@@ -75,7 +75,7 @@ Ten błąd może wystąpić, jeśli używasz Git Bash do budynku, zamiast tego n
 
 ### cannot create directory at '...': Filename too long
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
+node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). Powinno to naprawić:
 
 ```sh
 $ git config --system core.longpaths true

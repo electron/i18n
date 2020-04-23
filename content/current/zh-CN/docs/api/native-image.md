@@ -4,7 +4,7 @@
 
 进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-在Electron中, 对所有创建 images 的 api 来说, 您可以传递文件路径或 ` NativeImage ` 实例。当传递 ` null ` 时, 将创建一个空的image 对象.
+In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
 例如, 创建托盘或设置窗口图标时, 你可以传递 `String` 格式的图片路径
 
@@ -27,16 +27,16 @@ console.log(appIcon)
 
 ## 支持的格式
 
-当前支持 ` PNG ` 和 ` JPEG ` 图像格式。建议使用 ` PNG `, 因为它支持透明和无损压缩。
+Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
-* 小图标 
+* 小图标
   * 16x16 (100% DPI scale)
   * 20x20 (125% DPI scale)
   * 24x24 (150% DPI scale)
   * 32x32 (200% DPI scale)
-* 大图标 
+* 大图标
   * 32x32 (100% DPI scale)
   * 40x40 (125% DPI scale)
   * 48x48 (150% DPI scale)
@@ -51,7 +51,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
 
 For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
-如果希望同时支持不同 DPI 密度的显示器, 可以将不同大小的图像放在同一文件夹中, 并使用没有 DPI 后缀的文件名。例如:
+If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. 例如：
 
 ```plaintext
 images/
@@ -82,13 +82,13 @@ The following suffixes for DPI are also supported:
 
 ## 模板图片
 
-模板图像由黑色和清晰的颜色（和一个alpha通道）组成。模板图像不能用作独立图像，通常与其他内容混合以创建所需的最终外观。
+Template images consist of black and an alpha channel. 模板图片不是单独使用的, 它通常与其他内容混合以创建期望的最终效果
 
 The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
 
 ** 注意: **仅在 macOS 上支持Template image。
 
-若要将图像标记为Template image, 其文件名应以` Template ` 结尾。例如:
+To mark an image as a template image, its filename should end with the word `Template`. 例如：
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
@@ -121,7 +121,7 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object 
+* `options` Object
   * `width` Integer
   * `height` Integer
   * `scaleFactor` Double (optional) - Defaults to 1.0.
@@ -133,14 +133,14 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (可选) 
+* `options` Object (optional)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+从 `buffer ` 创建新的 ` NativeImage ` 实例。 Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -150,7 +150,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 从 ` dataURL ` 创建新的 ` NativeImage ` 实例。
 
-### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
+### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` String
 * `hslShift` Number[] (optional)
@@ -162,7 +162,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 使用以下规则将`hslShift`应用于图像:
 
 * `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = 保持不变。 1 = fully saturate the image.
 * `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = 保持不变。 1 = 全亮 (所有像素点设置为白色)。
 
 这意味着 `[-1, 0, 1]` 将使图像完全变白，`[-1, 1, 0]`将使图像完全变黑.
@@ -185,7 +185,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 #### `image.toPNG([options])`
 
-* `options` Object (可选) 
+* `options` Object (optional)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像 ` PNG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
@@ -198,32 +198,32 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 #### `image.toBitmap([options])`
 
-* `options` Object (可选) 
+* `options` Object (optional)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像的原始位图像素数据副本的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toDataURL([options])`
 
-* `options` Object (可选) 
+* `options` Object (optional)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` String `-图像的数据 URL。
 
 #### `image.getBitmap([options])`
 
-* `options` Object (可选) 
+* `options` Object (optional)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
-#### `image.getNativeHandle()` *macOS*
+#### `image.getNativeHandle()` _macOS_
 
 返回 ` Buffer `-一个 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer), 它将 C 指针存储在图像的基础本机句柄上。 在 macOS 上, 将返回指向 ` NSImage ` 实例的指针。
 
-请注意, 返回的指针是指向基础本机映像而不是副本的弱指针, 因此 * 必须 * 确保关联的 ` nativeImage ` 实例保留在周围。
+请注意, 返回的指针是指向基础本机映像而不是副本的弱指针, 因此 _ 必须 _ 确保关联的 ` nativeImage ` 实例保留在周围。
 
 #### `image.isEmpty()`
 
@@ -255,7 +255,7 @@ Returns [`Size`](structures/size.md)
 
 #### `image.resize(options)`
 
-* `options` Object 
+* `options` Object
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (可选) - 默认值为图片高度.
   * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
@@ -270,18 +270,18 @@ Returns [`Size`](structures/size.md)
 
 #### `image.addRepresentation(options)`
 
-* `options` Object 
+* `options` Object
   * `scaleFactor` Double - The scale factor to add the image representation for.
-  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
-  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `width` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
+  * `height` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
   * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
-添加特定比例的图像表示。这可以明确地用来向图像添加不同的比例表示。这可以在空图像上调用。
+Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
 ### 实例属性
 
-#### `nativeImage.isMacTemplateImage` *macOS*
+#### `nativeImage.isMacTemplateImage` _macOS_
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 

@@ -58,7 +58,7 @@ Usa un servidor proxy especifico, el cual sobrescribe la configuración del sist
 
 ## --proxy-bypass-list=`hosts`
 
-Indica Electron a pasar de los servidores proxy en la lista de hosts separados por punto y comas. Esta opción solo tiene efecto si es utilizada en conjunción con `--proxy-server`.
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
 Por ejemplo:
 
@@ -75,7 +75,7 @@ Usa el programa PAC en la `url` especificada.
 
 ## --no-proxy-server
 
-No usar el servidor proxy y siempre hacer conexiones directas. Sobrescribe cualquier otra opción de servidor proxy que haya sido pasada.
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
 ## --host-rules=`rules`
 
@@ -83,10 +83,10 @@ Lista de `rules` separadas por coma que controlan como los nombres de host son m
 
 Por ejemplo:
 
-- `MAP * 127.0.0.1` Fuerza todos los nombres de host a ser mapeados a 127.0.0.1
-- `MAP *.google.com proxy` Fuerza todos los subdominios google.com a ser resueltos como "proxy".
-- `MAP test.com [::1]:77` Fuerza "test.com" a resolver en circuito cerrado IPv6. También forzará el port del socket resultante a ser 77.
-- `MAP * baz, EXCLUDE www.google.com` Mapeara todo a "baz", excepto para "www.google.com".
+* `MAP * 127.0.0.1` Fuerza todos los nombres de host a ser mapeados a 127.0.0.1
+* `MAP *.google.com proxy` Fuerza todos los subdominios google.com a ser resueltos como "proxy".
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP * baz, EXCLUDE www.google.com` Mapeara todo a "baz", excepto para "www.google.com".
 
 Estos mapeados aplican al host punto final en una petición de red (la conexión TCP y el host se solventan en una conexión directa, `CONNECT` en una conexión HTTP proxy, y el host punto fila en una conexión proxy `SOCKS`).
 
@@ -140,7 +140,7 @@ Esta opción no puede ser usada en `app.commandLine.appendSwitch` ya que es proc
 
 ## --v=`log_level`
 
-Da el nivel máximo predeterminado de V-logging activo; 0 es el predeterminado. Normalmente los valores positivos se utilizan para el nivel V-logging.
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 Esta opción solo funciona cuando `--enable-logging` es también pasada.
 
@@ -155,7 +155,6 @@ Esta opción solo funciona cuando `--enable-logging` es también pasada.
 ## --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
-
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`

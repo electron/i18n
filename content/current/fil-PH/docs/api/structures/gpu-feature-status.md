@@ -16,7 +16,7 @@
 
 Posibleng mga halaga:
 
-* `disabled_software` Software lamang. Ang akselerasyon ng hardware ay hindi pinagana (dilaw)
+* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - Hindi pinagana (pula)
 * `disabled_off_ok` - Hindi pinagana (dilaw)
 * `unavailable_software` - Software lamang, ang akselerasyon ng hardware ay hindi magagamit (dilaw)

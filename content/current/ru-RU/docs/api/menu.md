@@ -2,7 +2,7 @@
 
 > Создайте меню приложения и контекстное меню.
 
-Процесс: [Main](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -16,21 +16,21 @@
 
 * `menu` Menu | null
 
-Задает `menu` в качестве меню приложения в macOS. В Windows и Linux `menu` будет задан как верхнее меню для каждого окна.
+Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
 Также на Windows и Linux, Вы можете использовать `&` в названии подменю верхнего списка, чтобы указать, какая буква должна получить сгенерированный акселератор( Accelerator ). Для примера, использование `&File` для меню файла в результате сгенерирует акселератор( Accelerator ) `Alt-F`, который открывает соответствующее меню. Указанный символ в названии кнопки будет подчеркнут. Символ `&` не отображается в названии кнопки.
 
-Передача `null` будет подавлять меню по умолчанию. На Windows и Linux, это имеет дополнительный эффект - удаление панели меню из окна.
+Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
-**Примечание:** Меню по умолчанию будет создано автоматически, если приложение не установит его. Он содержит стандартные элементы, такие как `Файл`, `Редактировать`, `Вид`, `Окно` и `Помощь`.
+**Note:** The default menu will be created automatically if the app does not set one. Он содержит стандартные элементы, такие как `Файл`, `Редактировать`, `Вид`, `Окно` и `Помощь`.
 
 #### `Menu.getApplicationMenu()`
 
 Возвращает `Menu | null` - меню приложения, если установлено, иначе `null`.
 
-**Примечание:** Возвращенный экземпляр `Menu` не поддерживает динамическое добавление или удаление пунктов меню. [Параметры экземпляра](#instance-properties) все ещё могут быть динамически изменены.
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Параметры экземпляра](#instance-properties) все ещё могут быть динамически изменены.
 
-#### `Menu.sendActionToFirstResponder(action)` *macOS*
+#### `Menu.sendActionToFirstResponder(action)` _macOS_
 
 * `action` String
 
@@ -44,7 +44,7 @@
 
 Возвращает `Menu`
 
-Обычно, `template` это массив `options` для построения [MenuItem](menu-item.md). Использование может быть указано выше.
+Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 Вы также можете прикрепить другие поля к элементу `template` и они станут свойствами элементов созданного меню.
 
@@ -54,11 +54,11 @@
 
 #### `menu.popup([options])`
 
-* `options` Object (опционально) 
+* `options` Object (optional)
   * `windows` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
-  * `x` Number (опционально) - по умолчанию это текущее положение курсора мыши. Должно быть объявлено, если `y` объявлено.
-  * `y` Number (опционально) - по умолчанию это текущее положение курсора мыши. Должно быть объявлено, если `x` объявлено.
-  * `positioningItemпункт` Number (опционально) *macOS* - индекс элемента меню, который будет размещен под курсором мыши на заданных координатах. По умолчанию -1.
+  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Функция (опционально) - вызывается, когда меню закрыто.
 
 Переключает это меню в контекстное меню в [`BrowserWindow`](browser-window.md).
@@ -258,7 +258,7 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Замечания о меню приложения в macOS
 
-macOS имеет совершено отличный от Windows и Linux стиль меню приложения. Здесь несколько заметок о создании меню приложения более похожим на нативный способ.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
 ### Стандартные меню
 
@@ -276,7 +276,7 @@ macOS представляет стандартные действия для н
 
 На macOS название первого элемента меню приложения - всегда название Вашего приложения, независимо от того, какое название элемента Вы установили. Чтобы изменить его, измените файл `Info.plist` Вашей сборки приложения. См. [О информации свойств списка файлов](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) для большей информации.
 
-## Настройка меню для конкретного окна браузера (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
 [Метод `setMenu`](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) окна браузера может установить меню определенных окон браузера.
 
@@ -307,7 +307,7 @@ macOS представляет стандартные действия для н
 Меню:
 
 ```sh
-<br />- 1
+- 1
 - 2
 - 3
 - 4
@@ -329,7 +329,7 @@ macOS представляет стандартные действия для н
 Меню:
 
 ```sh
-<br />- 3
+- 3
 - 4
 - ---
 - 1
@@ -350,7 +350,7 @@ macOS представляет стандартные действия для н
 Меню:
 
 ```sh
-<br />- ---
+- ---
 - 3
 - 2
 - 1

@@ -1,6 +1,6 @@
 # Windows におけるデバッグ
 
-JavaScriptアプリケーションによらないと思われるクラッシュや問題がElectron上で起こった場合、デバッグは少し複雑になります。ネイティブ/C++の経験がない場合には得にそうでしょう。 しかし、Visual Studio、Github にホストされている Electron のシンボルサーバーと Electron のソースコードを使用することで、Electron のソースコード内でブレークポイントを使用したデバッグを有効にできます。
+JavaScript アプリケーションに起因しないと思われるクラッシュや問題が Electron 上で起こった場合、特にネイティブ/ C++ デバッグの経験がない開発者にとって少しトリッキーなデバッグになります。 しかし、Visual Studio、Electron がホストするシンボルサーバーと Electron のソースコードを使用することで、Electron のソースコード内のブレークポイントを使ったステップスルーデバッグができます。
 
 **こちらも参照**: Chromium のデバッグに関する豊富な情報があります。その多くは Chromium 開発者サイト ([Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows)) の Electron にも適しています。
 
@@ -8,7 +8,7 @@ JavaScriptアプリケーションによらないと思われるクラッシュ�
 
 * **Electronのデバッグビルド**: 最も簡単な方法は、[ビルド手順 (Windows) ](build-instructions-windows.md)にリストされているツールと必要な環境を使って、自分でビルドをする方法です。 Electron を直接ダウンロードしてアタッチしデバッグできますが、Electron は高度に最適化されているためデバッグが困難であることに気付くでしょう。デバッガはすべての変数の内容は表示できませんし、インラインに展開されたり、末尾再帰やその他のコンパイラによる最適化により実行経路は奇妙に見えるはずです。
 
-* **Visual Studio with C++ Tools**: Visual Studio 2013 と Visual Studio 2015 の無料コミュニティ版両方が動きます。 インストール後[GithubのElectron シンボルサーバーを使うための設定を行います](setting-up-symbol-server.md)。 これによりVisual StudioがElectron内で起こっていることをより理解できるようになり、人が読める形式で現在の変数を表示することができます。
+* **Visual Studio with C++ Tools**: Visual Studio 2013 と Visual Studio 2015 の無料コミュニティ版両方が動きます。 インストール後、[Electron のシンボルサーバーを使うための設定を行います](setting-up-symbol-server.md)。 これによりVisual StudioがElectron内で起こっていることをより理解できるようになり、人が読める形式で現在の変数を表示することができます。
 
 * **ProcMon**: [無料の SysInternals ツール](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx)を使うことでプロセスパラメーター、ファイル操作、レジストリ操作を検査することができます。
 

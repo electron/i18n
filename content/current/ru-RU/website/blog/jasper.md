@@ -95,11 +95,11 @@ I will introduce what kind of conditions can be used for stream.
 
 ### Review Status
 
-| Stream                       | Вопросы                                                                          |
-| ---------------------------- | -------------------------------------------------------------------------------- |
-| `is:pr review:required`      | Issues that are required review in `cat/jump`                                    |
+| Stream                       | Вопросы                                                                                |
+| ---------------------------- | -------------------------------------------------------------------------------------- |
+| `is:pr review:required`      | Issues that are required review in `cat/jump`                                          |
 | `is:pr review-requested:cat` | Issues that are requested review by `cat`. <br/> But these are not reviewed yet. |
-| `is:pr reviewed-by:cat`      | Issues that are reviewed by `cat`                                                |
+| `is:pr reviewed-by:cat`      | Issues that are reviewed by `cat`                                                      |
 
 <br/>
 

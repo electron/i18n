@@ -16,7 +16,7 @@ The `Menu` class has the following static methods:
 
 * `menu` Menu 혹은 null
 
-`menu`를 macOS의 애플리케이션 메뉴로 설정합니다. 윈도우와 리눅스에서는, `menu`를 각 창의 상단 메뉴로 설정 합니다.
+Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
 Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
@@ -28,9 +28,9 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 `Menu 혹은 null`을 반환합니다. 애플리케이션 메뉴가 설정되어있다면 애플리케이션 메뉴를, 설정되어있지 않으면 `null`을 반환합니다.
 
-**주석:** 반환된 `Menu` 인스턴스는 동적으로 메뉴 아이템을 추가하거나 삭제하는 것을 지원하지 않습니다. [인스턴스 프로퍼티](#instance-properties)는 동적으로 수정할 수 있습니다.
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [인스턴스 프로퍼티](#instance-properties)는 동적으로 수정할 수 있습니다.
 
-#### `Menu.sendActionToFirstResponder(action)` *macOS*
+#### `Menu.sendActionToFirstResponder(action)` _macOS_
 
 * `action` String
 
@@ -44,21 +44,21 @@ macOS의 네이티브 액션에 대한 더 많은 정보는 [macOS Cocoa Event H
 
 `Menu`를 반환합니다.
 
-일반적으로, `template`은 [MenuItem](menu-item.md)을 구축하기 위한 `options`의 배열입니다. 사용법은 위의 내용을 참고해주세요.
+Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### 인스턴스 메서드
+### Instance Methods (인스턴스 메소드)
 
 `menu` 오브젝트는 다음과 같은 인스턴스 메소드를 가지고 있습니다:
 
 #### `menu.popup([options])`
 
-* `options` Object (선택) 
+* `options` Object (optional)
   * `window` [BrowserWindow](browser-window.md) (선택) - 기본 값은 포커스된 윈도우입니다.
-  * `x` Number (선택) - 기본 값은 현재 마우스 커서의 위치입니다. `y`가 정의되어있다면 반드시 정의되어야 합니다.
-  * `y` Number (선택) - 기본 값은 현재 마우스 커서의 위치입니다. `x`가 정의되어있다면 반드시 정의되어야 합니다.
-  * `positioningItem` Number (옵션) *macOS* - 마우스 커서의 위치에 배치한 메뉴 아이템의 인덱스. 기본값은 -1입니다.
+  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Function (선택) - 메뉴가 닫혔을 때 불립니다.
 
 이 메뉴는 [`BrowserWindow`](browser-window.md)에서 컨텍스트 메뉴로 팝업됩니다.
@@ -96,7 +96,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 #### 이벤트: 'menu-will-show'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -104,13 +104,13 @@ Returns:
 
 #### 이벤트: 'menu-will-close'
 
-Returns:
+반환:
 
 * `event` Event
 
 팝업창을 닫거나, `menu.closePopup()`을 호출했을 때 발생합니다.
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 `menu` 오브젝트는 다음과 같은 속성(property) 도 갖습니다:
 
@@ -258,7 +258,7 @@ window.addEventListener('contextmenu', (e) => {
 
 ## macOS 어플리케이션 메뉴에 대하여
 
-macOS는 Window나 Linux와는 완전히 다른 어플리케이션 메뉴 스타일을 가지고 있습니다. 여기서는 여러분이 만든 앱의 메뉴가, 보다 네이티브처럼 보이게 하기 위한 주의사항을 다루고 있습니다.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
 ### 표준 메뉴
 
@@ -276,7 +276,7 @@ macOS는 `About xxx`, `Hide xxx`, `Hide Others`와 같은 몇 가지 메뉴 아�
 
 macOS에서 어플리케이션 메뉴의 첫번째 아이템의 레이블은 당신이 설정한 레이블과 관계 없이 항상 앱 이름으로 설정됩니다. 첫번째 아이템의 레이블을 변경하기 위해서는, 앱 번들의 `Info.plist` 파일을 수정해야 합니다. 더 자세한 정보는 [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html)를 참조하세요.
 
-## 특정 브라우저 윈도우를 위한 설정 메뉴 (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
 브라우저 윈도우의 [`setMenu` 메서드](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows)는 특정 브라우저 윈도우의 메뉴를 설정할 수 있습니다.
 
@@ -307,7 +307,7 @@ macOS에서 어플리케이션 메뉴의 첫번째 아이템의 레이블은 당
 메뉴
 
 ```sh
-<br />- 1
+- 1
 - 2
 - 3
 - 4
@@ -329,7 +329,7 @@ macOS에서 어플리케이션 메뉴의 첫번째 아이템의 레이블은 당
 메뉴
 
 ```sh
-<br />- 3
+- 3
 - 4
 - ---
 - 1
@@ -350,7 +350,7 @@ macOS에서 어플리케이션 메뉴의 첫번째 아이템의 레이블은 당
 메뉴
 
 ```sh
-<br />- ---
+- ---
 - 3
 - 2
 - 1

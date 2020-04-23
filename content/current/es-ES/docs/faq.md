@@ -1,4 +1,4 @@
-# Preguntas Frecuentes sobre Electron
+# Preguntas más frecuentes sobre Electron
 
 ## ¿Por qué tengo problemas al instalar Electron?
 
@@ -12,7 +12,7 @@ También puede intentar descargar Electron directamente de [electron/electron/re
 
 La versión de Chrome de Electron es usualmente actualizada con una o dos semanas después de que una nueva versión estable de Chrome es publicada. Esta estimación no se garantiza y depende de la carga de trabajo que implica la actualización.
 
-Solamente el canal estable de Chrome es utilizado. Si una corrección importante se encuentra en los canales beta o dev, actualizaremos a la versión.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 Para mas información, por favor lea la [introducción de seguridad](tutorial/security.md).
 
@@ -36,12 +36,12 @@ global.sharedObject = {
 ```
 
 ```javascript
-// En la página 1.
+// In page 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// En la página 2.
+// In page 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -115,32 +115,11 @@ Cuando se utiliza el módulo de Electron puede encontrar un error como este:
 Uncaught TypeError: No se puede leer apropiadamente 'setZoomLevel' de undefined
 ```
 
-Esto es porque tienes el modulo </a>de `electron` de npm instalada localmente o globalmente, que reemplaza el módulo incorporado de Electron.</p> 
-
-Para verificar si usted está usando módulo constructor correcto, puede imprimir la ruta del módulo `electron`:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-y luego verifique si es de la siguiente forma:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-Si es algo como `node_modules/electron/index.js`, entonces tiene o que remover el módulo npm `electron`, o cambiarle el nombre.
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-Sin embargo si utilizas el módulo incorporado, pero sigue recibiendo este error, es muy probable que está utilizando el módulo en el proceso equivocado. Por ejemplo `electron.app` puede ser utilizado en el proceso principal, mientras que `electron.webFrame` sólo está disponible en los procesos de renderizado.
+It is very likely you are using the module in the wrong process. Por ejemplo `electron.app` puede ser utilizado en el proceso principal, mientras que `electron.webFrame` sólo está disponible en los procesos de renderizado.
 
 ## La fuente se ve borrosa, ¿qué es esto y qué puedo hacer?
 
-Si [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) está desactivada, entonces las fuentes en las pantallas LCD puede parecer borrosas. Ejemplo:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Ejemplo:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
@@ -155,6 +134,6 @@ let win = new BrowserWindow({
 })
 ```
 
-El efecto sólo es visible en (algunas?) pantallas LCD. Incluso si no ves una diferencia, algunos de tus usuarios si. Es mejor establecer el fondo de esta manera, a menos que tengas tus razones para no hacerlo.
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 Tenga en cuenta que sólo establecer el fondo en el CSS no tiene el efecto deseado.

@@ -2,7 +2,7 @@
 
 > Предотвращает переход системы в режим пониженного потребления питания.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Например:
 
@@ -21,15 +21,15 @@ powerSaveBlocker.stop(id)
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String -Типы блокировки функции энергосбережения. 
-  * `prevent-app-suspension` - Предотвращение приостановки приложения. Сохраняет систему активной, но позволяет отключить экран. Примеры использования: загрузка файла или воспроизведение аудио.
-  * `prevent-display-sleep` - Предотвращение переключения дисплея в спящий режим. Держит систему и экран активными. Пример использования: воспроизведение видео.
+* `type` String - Power save blocker type.
+  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
+  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
 Возвращает `Integer` - Идентификатор блокировщика, назначенный этому блокировщику питания.
 
-Начинает препятствовать работе системы в режиме пониженной мощности. Возвращает целое число, идентифицирующее блокировщик энергосбережения.
+Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
 
-**Примечание:** `prevent-display-sleep` имеет более высокий приоритет перед `prevent-app-suspension`. Вступает в силу только наиболее высокий тип приоритета. Другими словами, `prevent-display-sleep` всегда выше `prevent-app-suspension`.
+**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Вступает в силу только наиболее высокий тип приоритета. Другими словами, `prevent-display-sleep` всегда выше `prevent-app-suspension`.
 
 Например, API-интерфейс, вызывающий запросы A для `prevent-app-suspension`, и другой вызов запросов B для `prevent-display-sleep`. `prevent-display-sleep` будет использоваться до тех пор, пока B не прекратит свой запрос. После этого, будет использоваться `prevent-app-suspension`.
 

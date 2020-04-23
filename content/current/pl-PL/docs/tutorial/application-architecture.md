@@ -4,9 +4,9 @@ Zanim zagłębimy się w Electron API, musimy omówić dwa typy procesów dostę
 
 ## Proces główny i renderer
 
-W Electronie proces, który wykonuje skrypt `main` z pliku `package.json` nazywa się **procesem głównym**. Skrypt który uruchamia proces główny, wyświetla GUI przez tworzenie kolejnych stron HTML. Aplikacja korzystająca z Electrona zawsze ma tylko jeden proces główny.
+In Electron, the process that runs `package.json`'s `main` script is called __the main process__. Skrypt który uruchamia proces główny, wyświetla GUI przez tworzenie kolejnych stron HTML. Aplikacja korzystająca z Electrona zawsze ma tylko jeden proces główny.
 
-Ponieważ Electron używa Chromium do wyświetlania stron internetowych, wykorzystywana jest również wielo-procesowa architektura Chromium. Każda strona internetowa w Electronie działa w swoim własnym procesie, który nazywa się **procesem renderowania**.
+Ponieważ Electron używa Chromium do wyświetlania stron internetowych, wykorzystywana jest również wielo-procesowa architektura Chromium. Each web page in Electron runs in its own process, which is called __the renderer process__.
 
 W normalnych przeglądarkach, strony internetowe zazwyczaj są uruchamiane w tzw. sandboxie i nie posiadają dostępu do zasobów natywnych. Użytkownicy Electron mają jednak możliwość użycia interfejsów API Node.js na stronach internetowych, co pozwala na niskopoziomowe interakcje z systemem operacyjnym.
 
@@ -20,7 +20,7 @@ W aplikacji Electron wywoływanie natywnego API od GUI jest niedozwolone, poniew
 
 > #### Notatka: Komunikacja pomiędzy procesami
 > 
-> W Electronie mamy wiele możliwości komunikacji między głównym procesem a procesami renderowania, takie jak [`ipcRenderer`](../api/ipc-renderer.md) oraz moduły [`ipcMain`](../api/ipc-main.md) do wysyłania komunikatów, a również moduł [remote](../api/remote.md) do komunikacji RPC. Tutaj jest FAQ o tym [jak udostępniać zasoby między stronami internetowymi](../faq.md#how-to-share-data-between-web-pages).
+> W Electronie mamy wiele możliwości komunikacji między głównym procesem a procesami renderowania, takie jak [`ipcRenderer`](../api/ipc-renderer.md) oraz moduły  [`ipcMain`](../api/ipc-main.md) do wysyłania komunikatów, a również moduł [remote](../api/remote.md)  do komunikacji RPC. Tutaj jest FAQ o tym [jak udostępniać zasoby między stronami internetowymi](../faq.md#how-to-share-data-between-web-pages).
 
 ## Używanie Electron API
 
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 Jest jedno ważne zastrzeżenie: natywne moduły Node.js muszą zostać przekompilowane, by móc je wykorzystać w Electronie.
 
-Zdecydowana większość modułów Node.js *to nie* moduły natywne. Tylko około 400 z ~650,000 modułów to moduły natywne. Jednak jeśli potrzebujesz moduły natywne, przejrzyj [ten poradnik jak zrekompilować je dla aplikacji Electron](./using-native-node-modules.md).
+The vast majority of Node.js modules are _not_ native. Tylko około 400 z ~650,000 modułów to moduły natywne. Jednak jeśli potrzebujesz moduły natywne, przejrzyj [ten poradnik jak zrekompilować je dla aplikacji Electron](./using-native-node-modules.md).

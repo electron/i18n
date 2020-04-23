@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `选项` Object (可选) 
+* `options` Object (optional)
   * `cache` Boolean - 是否可以使用缓存.
 
 Returns `Session` - 根据`partition`字符串产生的session实例。 当这里已存在一个`Session`具有相同的`partition`, 它将被返回; 否则一个新的`Session`实例将根据`options`被创建。
@@ -70,7 +70,7 @@ console.log(ses.getUserAgent())
 
 当 Electron 刚要在`webContents`中下载`item<0>的时候触发。</p>
 
-<p>调用<code>event.preventDefault()`方法，将会停止下载，并且在进程的next tick中，`item`将不再可用。
+<p spaces-before="0">调用<code>event.preventDefault()`方法，将会停止下载，并且在进程的next tick中，`item`将不再可用。
 
 ```javascript
 const { session } = require('electron')
@@ -126,7 +126,7 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
 
-Emitted when a hunspell dictionary file download fails. For details on the failure you should collect a netlog and inspect the download request.
+Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
 ### 实例方法
 
@@ -144,7 +144,7 @@ Returns `Promise<void>` - resolves when the cache clear operation is complete.
 
 #### `ses.clearStorageData([options])`
 
-* `options` Object (可选) 
+* `options` Object (optional)
   * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`方式设置。
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] - (可选项) 要清除的配额类型, 包含: `temporary`, `persistent`, `syncable`。
@@ -157,7 +157,7 @@ Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.setProxy(config)`
 
-* `config` Object 
+* `config` Object
   * `pacScript` String (optional) - The URL associated with the PAC file.
   * `proxyRules` String (optional) - Rules indicating which proxies to use.
   * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
@@ -191,32 +191,32 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 `proxyBypassRules`是一个用逗号分隔的规则列表, 如下所述:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
-  
-  与 HOSTNAME_PATTERN 模式匹配的所有主机名。
-  
-  例如: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
-  
-  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
-    
-    匹配特定域名后缀。
-    
-    例如： ".google.com", ".com", "http://.google.com"
+
+   与 HOSTNAME_PATTERN 模式匹配的所有主机名。
+
+   例如: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+
+ * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+
+   匹配特定域名后缀。
+
+   例如： ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
-  
-  匹配 IP 地址文本的 url。
-  
-  例如: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+   匹配 IP 地址文本的 url。
+
+   例如: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
-  
-  匹配位于给定范围之间的 IP 文本的任何 URL。IP 范围是使用 CIDR 表示法指定的。
-  
-  例如: "192.168.1.1/16", "fefe:13::abc/33".
+
+   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+
+   例如: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
-  
-  匹配本地地址。local 的含义是，是否匹配其中一个: "127.0.0.1", "::1", "localhost".
+
+   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
@@ -228,15 +228,15 @@ Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 * `path` String - 下载地址.
 
-设置下载保存目录。默认情况下, 下载目录将是相应应用程序文件夹下的 `Downloads`。
+Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Object 
-  * `offline` Boolean (可选) - 是否模拟网络中断、离线。默认 否。
-  * `latency` Double (可选) - RTT时延毫秒值. 默认为0将禁用时延调节。
-  * `downloadThroughput ` Double (可选) - 指定下载Bps速率。默认为0将禁用下载限速。
-  * `uploadThroughput` Double (可选) - 指定上传Bps速率. 默认0将禁用上传速率限制。
+* `options` Object
+  * `offline` Boolean (optional) - Whether to emulate network outage. 默认值为 false.
+  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
 通过指定的配置为 `session` 模拟网络。
 
@@ -254,7 +254,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.preconnect(options)`
 
-* `options` Object 
+* `options` Object
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
   * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
 
@@ -262,18 +262,18 @@ Preconnects the given number of sockets to an origin.
 
 #### `ses.disableNetworkEmulation()`
 
-禁用所有为 `session` 模拟的已激活网络。重置为原始网络配置。
+Disables any network emulation already active for the `session`. Resets to the original network configuration.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function | null 
-  * `request` Object 
+* `proc` Function | null
+  * `request` Object
     * `hostname` String
     * `certificate` [证书](structures/certificate.md)
     * `verificationResult` String - chromium证书验证结果
     * `errorCode` Integer - 错误代码
-  * `callback` Function 
-    * `verificationResult` Integer - 证书错误代码之一，来自 [这里](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)。 除了证书错误代码外，还可以使用以下特殊代码。 
+  * `callback` Function
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
       * `-0` - 表示成功并禁用证书透明度验证
       * `-2` - 表示失败
       * `-3` - 使用chromium的验证结果
@@ -298,12 +298,12 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Function | null 
-  * `webContents` [WebContents](web-contents.md) - 请求权限的WebContents。 Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+* `handler` Function | null
+  * `webContents` [WebContents](web-contents.md) - 请求权限的WebContents。  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - 枚举 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function 
+  * `callback` Function
     * `permissionGranted` Boolean - 允许或拒绝该权限.
-  * `details` Object - 一些属性只有在某些授权状态下可用。 
+  * `details` Object - Some properties are only available on certain permission types.
     * `externalURL` String (optional) - The url of the `openExternal` request.
     * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
     * `requestingUrl` String - The last URL the requesting frame loaded
@@ -324,11 +324,11 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+* `handler` Function<Boolean> | null
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
-  * `details` Object - 一些属性只有在某些授权状态下可用。 
+  * `details` Object - Some properties are only available on certain permission types.
     * `securityOrigin` String - The security orign of the `media` check.
     * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
     * `requestingUrl` String - The last URL the requesting frame loaded
@@ -399,7 +399,7 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Object 
+* `options` Object
   * `path` String - 下载的绝对路径.
   * `urlChain` String[] - 完整的 url 下载地址.
   * `mimeType` String (可选)
@@ -431,25 +431,25 @@ Adds scripts that will be executed on ALL web contents that are associated with 
 
 * `languages` String[] - An array of language codes to enable the spellchecker for.
 
-The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+The built in spellchecker does not automatically detect what language a user is typing in.  In order for the spell checker to correctly check their words you must call this API with an array of language codes.  You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
 
-**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
 
 #### `ses.getSpellCheckerLanguages()`
 
-Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+Returns `String[]` - An array of language codes the spellchecker is enabled for.  If this list is empty the spellchecker will fallback to using `en-US`.  By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale.  This setting is persisted across restarts.
 
-**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages.  This API is a no-op on macOS.
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
 * `url` String - A base URL for Electron to download hunspell dictionaries from.
 
-By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
+By default Electron will download hunspell dictionaries from the Chromium CDN.  If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries.  We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
 
-If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Please note the trailing slash. The URL to the dictionaries is formed as `${url}${filename}`.
+If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`.  Please note the trailing slash.  The URL to the dictionaries is formed as `${url}${filename}`.
 
-**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
 
 #### `ses.addWordToSpellCheckerDictionary(word)`
 
@@ -463,19 +463,19 @@ Returns `Boolean` - Whether the word was successfully written to the custom dict
 
 以下属性在` Session </ 0>实例上可用：</p>
 
-<h4><code>ses.availableSpellCheckerLanguages` *Readonly*</h4> 
+<h4 spaces-before="0"><code>ses.availableSpellCheckerLanguages` _Readonly_</h4>
 
-A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
+A `String[]` array which consists of all the known available spell checker languages.  Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
-#### `ses.cookies` *Readonly*
+#### `ses.cookies` _Readonly_
 
 A [`Cookies`](cookies.md) object for this session.
 
-#### `ses.webRequest` *Readonly*
+#### `ses.webRequest` _Readonly_
 
 A [`WebRequest`](web-request.md) object for this session.
 
-#### `ses.protocol` *Readonly*
+#### `ses.protocol` _Readonly_
 
 A [`Protocol`](protocol.md) object for this session.
 
@@ -494,7 +494,7 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog` *Readonly*
+#### `ses.netLog` _Readonly_
 
 A [`NetLog`](net-log.md) object for this session.
 

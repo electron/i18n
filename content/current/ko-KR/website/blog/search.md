@@ -95,6 +95,6 @@ The best way to submit your feedback is by filing an issue on GitHub in the appr
 - [algolia/instantsearch.js](https://github.com/algolia/instantsearch.js) is the browser-side client that enables find-as-you-type search.
 - [algolia/algoliasearch-client-javascript](https://github.com/algolia/algoliasearch-client-javascript) is the Node.js client for uploading data to Algolia's servers.
 
-## Thanks
+## 마치며
 
 Special thanks to [Emily Jordan](https://github.com/echjordan) and [Vanessa Yuen](https://github.com/vanessayuenn) for building these new search capabilities, to [Libraries.io](https://libraries.io) for providing [SourceRank](https://docs.libraries.io/overview.html#sourcerank) scores, and to the team at Algolia for helping us get started. 🍹

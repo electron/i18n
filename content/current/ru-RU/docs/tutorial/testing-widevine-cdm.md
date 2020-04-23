@@ -22,7 +22,7 @@ To enable video playback with this new restriction, [castLabs](https://castlabs.
 
 Open `chrome://components/` in Chrome browser, find `Widevine Content Decryption Module` and make sure it is up to date, then you can find the library files from the application directory.
 
-### На Windows
+### On Windows
 
 The library file `widevinecdm.dll` will be under `Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` directory.
 

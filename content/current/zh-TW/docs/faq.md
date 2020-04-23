@@ -8,17 +8,17 @@
 
 如果用 `npm` 怎樣都裝不起來的話，你也可以直接由 [electron/electron/releases](https://github.com/electron/electron/releases) 下載 Electron。
 
-## Electron 何時會升級用 Chrome 的最新版本？
+## Electron 什麼時候會升級到最新的 Chrome?
 
-通常在 Chrome 穩定版本發佈後一至兩周內會升級， 但實際需時取決於升級 Chrome 所涉及的工作量。
+通常在新 Chrome 穩定版發佈後一到兩週內，Electron 會更新 Chrome 的版本。 但這個時間只是概估值，沒有人可以給你掛保證，全看升級時需花多少工來決定。
 
-我們只會用 Chrome 的穩定版本，但如果 dev 或 beta 管道有重要的修復程式，我們會 backport。
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
-詳情請參閱[安全簡介](tutorial/security.md)。
+詳情請參閱[安全性簡介](tutorial/security.md)。
 
-## Electron 何時會升級用 Node.js 的最新版本？
+## Electron 什麼時候會升級到最新的 Node.js?
 
-通常 Node.js 新版本發佈後，我們會等大概一個月才升級 Electron 用的 Node 版本， 以免受 Node.js 新版本中引入的 bug，這情況經常發生。
+通常 Node.js 新版本發佈後，我們會等大概一個月才升級 Electron 用的 Node 版本。 如此一來我們可以避開新版 Node.js 帶來的 bug，這種事很常發生。
 
 通常 Node.js 的新功能是來自於 V8 升版，而 Electron 是使用 Chrome 瀏覽器的 V8，通常新版 Node.js 裡的 JavaScript 新功能，在 Electron 裡早就有了。
 
@@ -36,12 +36,12 @@ global.sharedObject = {
 ```
 
 ```javascript
-// 第 1 頁裡。
+// In page 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// 第 2 頁裡。
+// In page 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -115,32 +115,11 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-這是因為你在專案內或是系統上安裝了 [npm 的 `electron` 模組](https://www.npmjs.com/package/electron)，蓋掉了 Electron 的內建模組。
-
-要驗證是否使用對了模組，可以印出 `electron` 模組的路徑:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-檢查是否像:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-如果看起來是像 `node_modules/electron/index.js`，那你就得移掉 npm `electron` 模組，或是將它改名。
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-假如你使用的確定是內建模組，但還是有狀況，很有可能是因為你在錯的處理序裡使用。 例如 `electron.app` 只能在主處理序中用，而 `electron.webFrame` 只能在畫面轉譯處理序裡用。
+It is very likely you are using the module in the wrong process. 例如 `electron.app` 只能在主處理序中用，而 `electron.webFrame` 只能在畫面轉譯處理序裡用。
 
 ## The font looks blurry, what is this and what can I do?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 範例:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

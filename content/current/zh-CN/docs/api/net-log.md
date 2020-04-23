@@ -24,7 +24,7 @@ app.on('ready', async () => {
 ### `netLog.startLogging(path[, options])`
 
 * `path` String - 记录网络日志的文件路径。
-* `options` Object (可选) 
+* `options` Object (optional)
   * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
   * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
 
@@ -40,10 +40,10 @@ Returns `Promise<String>` - resolves with a file path to which network logs were
 
 ## 属性
 
-### `netLog.currentlyLogging` *Readonly*
+### `netLog.currentlyLogging` _Readonly_
 
 `Boolean` 类型的属性，指示网络日志是否被记录。
 
-### `netLog.currentlyLoggingPath` *Readonly* *Deprecated*
+### `netLog.currentlyLoggingPath` _Readonly_ _Deprecated_
 
 `String` 类型的属性，返回当前的日志文件路径。

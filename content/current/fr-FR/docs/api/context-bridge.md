@@ -2,7 +2,7 @@
 
 > Create a safe, bi-directional, synchronous bridge across isolated contexts
 
-Processus : [Renderer](../glossary.md#renderer-process)
+Processus : [Rendu](../glossary.md#renderer-process)
 
 An example of exposing an API to a renderer from an isolated preload script is given below:
 

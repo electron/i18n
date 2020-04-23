@@ -8,13 +8,13 @@ Processus : [Main](../glossary.md#main-process)
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - Si `options` est un String, il est interprété comme une URL demandée. Si c'est un objet, il est nécessaire de spécifier une requête HTTP complètement en utilisant les propriétés suivantes: 
-  * `méthode` String (optionnel) - La méthode de requête HTTP. La méthode GET par défaut.
-  * `url` String (facultatif) - L'URL de requête. Doit être fournie sous la forme absolue avec le schéma de protocole spécifié en http ou https.
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (facultatif) - l'instance [`Session`](session.md) avec à laquelle la requête est associée.
   * `partition` String (facultatif) - Le nom de la [`partition`](session.md) avec laquelle la requête est associée. Par défaut, la chaîne vide est utilisée. L'option `session` prévaut sur `partition`. Ainsi, si une `session` est explicitement spécifiée , `partition` est ignorée.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Par défaut la valeur est `false`.
-  * `protocole` String (facultatif) - Le schéma de protocole sous la forme 'scheme:'. Les valeurs actuellement supportées sont 'http:' ou 'https:'. Par défaut, 'http:'.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Par défaut la valeur est `false`.
+  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (facultatif) - L'hôte du serveur fourni en concaténation de le nom d'hôte et le numéro de port 'hostname:port'.
   * `hostname` String (facultatif) - Le nom d'hôte du serveur.
   * `port` Integer (facultatif) - Le numéro de port d'écoute du serveur.
@@ -47,13 +47,13 @@ Retourne :
 
 Retourne :
 
-* `authInfo` Objet 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Function
   * `nom d'utilisateur` String (facultatif)
   * `mot de passe` String (facultatif)
 
@@ -69,7 +69,6 @@ request.on('login', (authInfo, callback) => {
   callback('username', 'password')
 })
 ```
-
 Fournir des identifiants vides annulera la demande et signalera une erreur d'authentification sur l'objet de réponse :
 
 ```JavaScript
@@ -90,11 +89,11 @@ request.on('login', (authInfo, callback) => {
 
 #### Événement : 'abort'
 
-Émis lorsque la `requête` est abandonnée. L'événement `avorter` ne sera pas déclenché si la `requête` est déjà fermée.
+Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### Événement : 'error'
 
-Renvoie :
+Retourne :
 
 * `error` Erreur - un objet d'erreur fournissant des informations sur l'échec.
 
@@ -103,6 +102,7 @@ Renvoie :
 #### Événement : 'close'
 
 Émis en tant que dernier événement dans la transaction de réponse de requête HTTP. L'événement `close` indique qu'aucun événement ne sera émis sur les objets `request` ou `response`.
+
 
 #### Événement : 'redirect'
 
@@ -113,9 +113,9 @@ Retourne :
 * `redirectUrl` String
 * `En-têtes` de réponse<String, String[]>
 
-Émis lorsque le serveur renvoie une réponse de redirection (par exemple 301 Déplacé de manière permanente). Appeler [`request.followRedirect`](#requestfollowredirect) va continuer avec la redirection. Si cet événement est géré, [`request.followRedirect`](#requestfollowredirect) doit être appelé **synchrones**, sinon la requête sera annulée.
+Émis lorsque le serveur renvoie une réponse de redirection (par exemple 301 Déplacé de manière permanente). Appeler [`request.followRedirect`](#requestfollowredirect) va continuer avec la redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Instance Properties
+### Propriétés d'instance
 
 #### `request.chunkedEncoding`
 
@@ -142,12 +142,12 @@ Retourne `String` - La valeur d'un nom d'en-tête supplémentaire précédemment
 
 * `name` Chaîne - Spécifie un nom d'en-tête supplémentaire.
 
-Supprime un nom d'en-tête supplémentaire précédemment défini. Cette méthode peut être appelée seulement avant d'écrire la première fois. Tenter de l'appeler après la première écriture lancera une erreur.
+Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - Un morceau des données du corps de la requête. S'il s'agit d'une chaîne , elle est convertie en tampon en utilisant l'encodage spécifié.
-* `encoding` String (facultatif) - Utilisé pour convertir des chunks de chaîne en objets Buffer. Par défaut, 'utf-8'.
+* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
+* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
 * `callback` Fonction (facultatif) - Appelée après la fin de l'opération d'écriture.
 
 `callback` est essentiellement une fonction factice introduite dans le but de conserver la similarité avec l'API Node.js. Il est appelé de manière asynchrone dans le prochain tick après que le contenu `chunk` ait été livré à la couche de réseau Chromium. Contrairement à l'implémentation de Node.js, il n'est pas garanti que le contenu `chunk` ait été vidé sur le fil avant que `callback` ne soit appelé.
@@ -160,7 +160,7 @@ Ajoute un morceau de données au corps de la requête. La première opération d
 * `encoding` String (facultatif)
 * `callback` Function (facultatif)
 
-Envoie le dernier chunk des données de la requête. Les opérations d'écriture ou de fin ultérieures ne seront pas autorisées. L'événement `finish` est émis juste après l'opération finale.
+Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
 #### `request.abort()`
 
@@ -168,14 +168,14 @@ Annule une transaction HTTP en cours. Si la requête a déjà émis l'événemen
 
 #### `request.followRedirect()`
 
-Suit toute redirection en attente. Ne peut être appelée que pendant un événement `'redirect'` .
+Continues any pending redirection. Can only be called during a `'redirect'` event.
 
 #### `request.getUploadProgress()`
 
 Retourne `Object`:
 
-* `active` Booléen - Si la requête est actuellement active. Si c'est faux aucune autre propriété ne sera définie
-* `started` Boolean - Si le téléchargement a commencé. Si c'est faux `current` et `total` seront réglés à 0.
+* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
+* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
 * `current` Integer - Le nombre d'octets qui ont été téléchargés jusqu'à présent
 * `total` Integer - Le nombre d'octets qui seront chargés dans cette requête
 

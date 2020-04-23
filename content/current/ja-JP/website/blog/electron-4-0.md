@@ -92,54 +92,54 @@ win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
 
 Chromium は macOS 10.9 (OS X Mavericks) をサポートしなくなったので、[Electron 4.0 以降でもサポートしません](https://github.com/electron/electron/pull/15357)。
 
-### Single Instance Locking
+### シングルインスタンスロック
 
-Previously, to make your app a Single Instance Application (ensuring that only one instance of your app is running at any given time), you could use the `app.makeSingleInstance()` method. Starting in Electron 4.0, you must use `app.requestSingleInstanceLock()` instead. The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
+以前は、アプリをシングルインスタンスアプリケーションに (アプリのインスタンスが常に 1 つしか実行されないように) するために、`app.makeSingleInstance()` メソッドが使用できました。 Electron 4.0 からは、代わりに `app.requestSingleInstanceLock()` を使用する必要があります。 このメソッドの戻り値は、アプリケーションのこのインスタンスのロックが成功したかどうかを表します。 ロックの取得に失敗した場合は、アプリケーションの別のインスタンスがすでにロックした上で実行していると考えられるため、直ちに終了してください。
 
-For an example of using `requestSingleInstanceLock()` and information on nuanced behavior on various platforms, [see the documentation for `app.requestSingleInstanceLock()` and related methods](https://electronjs.org/docs/api/app#apprequestsingleinstancelock) and [the `second-instance` event](https://electronjs.org/docs/api/app#event-second-instance).
+`requestSingleInstanceLock()` の使用例や、さまざまなプラットフォームでの細かい挙動については、[`app.requestSingleInstanceLock()` とその関連メソッド](https://electronjs.org/docs/api/app#apprequestsingleinstancelock) のドキュメントや [`second-instance` イベント](https://electronjs.org/docs/api/app#event-second-instance) を参照してください。
 
 ### `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. [See the native module guide](https://electronjs.org/docs/tutorial/using-native-node-modules#a-note-about-win_delay_load_hook) for more information.
+Windows でネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合、そのネイティブモジュールは Windows 上ではロードできず、`Cannot find module` のようなエラーメッセージが表示されます。 詳細は [ネイティブモジュールガイドを参照してください](https://electronjs.org/docs/tutorial/using-native-node-modules#a-note-about-win_delay_load_hook)。
 
-## Deprecations
+## 非推奨
 
-The following breaking changes are planned for Electron 5.0, and thus are deprecated in Electron 4.0.
+以下の破壊的変更が Electron 5.0 で予定されているため、Electron 4.0 で非推奨となります。
 
-### Node.js Integration Disabled for `nativeWindowOpen`-ed Windows
+### Windows で `nativeWindowOpen` された場合の Node.js インテグレーション無効化
 
-Starting in Electron 5.0, child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+Electron 5.0 からは、`nativeWindowOpen` オプションで開いた子ウィンドウでは常に Node.js インテグレーションが無効化されます。
 
-### `webPreferences` Default Values
+### `webPreferences` の既定値
 
-When creating a new `BrowserWindow` with the `webPreferences` option set, the following `webPreferences` option defaults are deprecated in favor of new defaults listed below:
+`webPreferences` オプションを指定して新しい`BrowserWindow` を作成する場合、以下のように元の `webPreferences` オプションの省略値は非推奨となり、新しい省略値が採用されます。
 
 <div class="table table-ruled table-full-width">
 
-| Property | Deprecated Default | New Default |
+| プロパティ | 非推奨になった省略値 | 新しい省略値 |
 |----------|--------------------|-------------|
 | `contextIsolation` | `false` | `true` |
 | `nodeIntegration` | `true` | `false` |
-| `webviewTag` | value of `nodeIntegration` if set, otherwise `true` | `false` |
+| `webviewTag` | `nodeIntegration` の値で、それが未設定ならば `true` | `false` |
 
 </div>
 
-Please note: there is currently [a known bug (#9736)](https://github.com/electron/electron/issues/9736) that prevents the `webview` tag from working if `contextIsolation` is on. Keep an eye on the GitHub issue for up-to-date information!
+注記: 現在 [既知のバグ (#9736)](https://github.com/electron/electron/issues/9736) があり、`contextIsolation` がオンの場合に`webview` タグが動作しません。 最新の情報は GitHub の Issue を確認してください!
 
-Learn more about context isolation, Node integration, and the `webview` tag in [the Electron security document](https://electronjs.org/docs/tutorial/security).
+コンテキストイソレーション、Node インテグレーション、`webview` タグについての詳細は、[Electron セキュリティドキュメント](https://electronjs.org/docs/tutorial/security) を参照してください。
 
-Electron 4.0 will still use the current defaults, but if you don't pass an explicit value for them, you'll see a deprecation warning. To prepare your app for Electron 5.0, use explicit values for these options. [See the `BrowserWindow` docs](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions) for details on each of these options.
+Electron 4.0 では旧来のデフォルト値を使用しますが、値を明示的に渡さない場合は非推奨の警告が表示されます。 アプリが Electron 5.0 へ対応するように準備するのであれば、これらのオプションに明示的な値を使用してください。 各オプションの詳細については [`BrowserWindow` ドキュメント](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions) を参照してください。
 
 ### `webContents.findInPage(text[, options])`
 
-The `medialCapitalAsWordStart` and `wordStart` options have been deprecated as they have been removed upstream.
+`medialCapitalAsWordStart` と `wordStart` オプションは、上流で削除されたために非推奨となりました。
 
 ## App のフィードバックプログラム
 
-The [App Feedback Program](https://electronjs.org/blog/app-feedback-program) we instituted during the development of Electron 3.0 was successful, so we've continued it during the development of 4.0 as well. We'd like to extend a massive thank you to Atlassian, Discord, MS Teams, OpenFin, Slack, Symphony, WhatsApp, and the other program members for their involvement during the 4.0 beta cycle. To learn more about the App Feedback Program and to participate in future betas, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+Electron 3.0 の開発時に実施した [アプリフィードバックプログラム](https://electronjs.org/blog/app-feedback-program) が成功したので、4.0 の開発でも継続して実施します。 Atlassian、Discord、MS Teams、OpenFin、Slack、Symphony、WhatsApp、その他プログラムメンバーの方々には、4.0 ベータサイクルに参加して頂いたことに多大な感謝の意を表します。 アプリフィードバックプログラムの詳細や今後のベータ版への参加については、[当プログラムに関するブログ記事を参照してください](https://electronjs.org/blog/app-feedback-program)。
 
 ## 次回予告
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. [See our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+短期的には、Chromium、Node、V8 といった Electron を構成する主要コンポーネントの開発に遅れないように、チームが注力し続けるでしょう。 リリース日について約束しないように注意していますが、予定では約四半期ごとに新しいメジャーバージョンの Electron を、各コンポーネントの新しいバージョンに対してリリースします。 Electron のバージョン管理の詳細については [バージョン管理のドキュメントを参照してください](https://electronjs.org/docs/tutorial/electron-versioning)。
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+今後のバージョンの Electron で予定されている破壊的変更の詳細は、[予定されている破壊的変更のドキュメントを参照してください](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md)。

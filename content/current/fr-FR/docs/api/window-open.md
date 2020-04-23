@@ -4,13 +4,13 @@
 
 Lorsque `window.open` est appelé pour créer une nouvelle fenêtre dans une page web, une nouvelle instance de `Browser Window` est créée pour l'`url` , un proxy est alors retourné à <0>window.open</0> pour que la page ai un contrôle limité sur ce dernier.
 
-Le proxy implémente des fonctionnalités standard limitées pour être compatible avec des pages web traditionnelles. Pour un contrôle complet de la nouvelle fenêtre, vous devez créer directement un `BrowserWindow`.
+The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
 
-Le nouveau `BrowserWindow` héritera des options de la fenêtre parent par défaut. Pour écraser ces options, vous pouvez les définir dans la chaîne de caractère `features`.
+The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
 
 ### `window.open(url[, frameName][, features])`
 
-* `url` Chaîne de caractères
+* `url` String
 * `frameName` String (facultatif)
 * `features` String (facultatif)
 
@@ -19,7 +19,6 @@ Retourne [`BrowserWindowProxy`](browser-window-proxy.md) - Créer une nouvelle f
 La chaîne de caractère `features` suit le format du standard navigateur, mais chaque fonctionnalité doit être un champ d'options appartenant à `BrowserWindow`. Ce sont les fonctionnalités que peuvent être définies via la chaîne de caractère `features` : `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 Par exemple :
-
 ```js
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
@@ -34,7 +33,7 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ### `window.opener.postMessage(message, targetOrigin)`
 
 * `message` Chaîne de caractères
-* `targetOrigin` Chaîne de caractères
+* `targetOrigin` String
 
 Envoie un message à la fenêtre parent avec l'origine spécifié ou `*` pour aucune préférence d'origine.
 

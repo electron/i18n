@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Object (任意) 
+* `options` Object (任意)
   * `cache` Boolean - キャッシュを有効にするかどうか。
 
 戻り値 `Session` - `partition` 文字列からの Session のインスタンス。 同じ `partition` を持つ既存の `session` が存在する場合は、それが返されます。 それ以外の場合は、`options` で新しい `session` インスタンスが作成されます。
@@ -99,7 +99,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 * `event` Event
 * `languageCode` String - 辞書ファイルの言語コード
 
-hunspell 辞書ファイルの初期化に成功したときに発生します。これはファイルのダウンロード直後にも発生します。
+Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
 
 #### イベント: 'spellcheck-dictionary-download-begin'
 
@@ -126,7 +126,7 @@ hunspell 辞書ファイルのダウンロードに成功したときに発生�
 * `event` Event
 * `languageCode` String - 辞書ファイルの言語コード
 
-hunspell 辞書ファイルのダウンロードに失敗したときに発生します。失敗の詳細は、netlog を収集してダウンロードリクエストを調べる必要があります。
+Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
 ### インスタンスメソッド
 
@@ -144,7 +144,7 @@ hunspell 辞書ファイルのダウンロードに失敗したときに発生�
 
 #### `ses.clearStorageData([options])`
 
-* `options` Object (任意) 
+* `options` Object (任意)
   * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
   * `storages` String[] (任意) - クリアするストレージの種類。`appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage` を含めることができます。
   * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。
@@ -157,7 +157,7 @@ hunspell 辞書ファイルのダウンロードに失敗したときに発生�
 
 #### `ses.setProxy(config)`
 
-* `config` Object 
+* `config` Object
   * `pacScript` String (任意) - PAC ファイルに関連付けられた URL。
   * `proxyRules` String (任意) - 使用するプロキシを示すルール。
   * `proxyBypassRules` String (任意) - プロキシ設定をバイパスする URL を示すルール。
@@ -191,32 +191,32 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 `proxyBypassRules` は以下に説明されているコンマ区切りのルールのリストです。
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
-  
-  HOSTNAME_PATTERN パターンに一致するすべてのホスト名のマッチ。
-  
-  例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
-  
-  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
-    
-    特定のドメインサフィックスのマッチ。
-    
-    例: ".google.com", ".com", "http://.google.com"
+
+   HOSTNAME_PATTERN パターンに一致するすべてのホスト名のマッチ。
+
+   例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+
+ * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+
+   特定のドメインサフィックスのマッチ。
+
+   例: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
-  
-  IP アドレスリテラルである URL のマッチ。
-  
-  例: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+   IP アドレスリテラルである URL のマッチ。
+
+   例: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
-  
-  指定された範囲内の IP リテラルに一致する URL のマッチ。IP の範囲は CIDR 表記で指定します。
-  
-  例: "192.168.1.1/16", "fefe:13::abc/33".
+
+   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+
+   例: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
-  
-  ローカルアドレスのマッチ。`<local>` の意味は、ホストが "127.0.0.1"、"::1"、"localhost" のいずれかに一致するかどうかです。
+
+   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
@@ -228,15 +228,15 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 * `path` String - ダウンロード位置.
 
-ダウンロード保存ディレクトリを設定します。 デフォルトでは、ダウンロードディレクトリはそれぞれのアプリフォルダの下の `ダウンロード(Downloads)` になります。
+Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Object 
-  * `offline` Boolean (任意) - ネットワークの停止をエミュレートするかどうか。デフォルトは false。
-  * `latency` Double (任意) - RTT 毎 ms。デフォルトは0で、これだとレイテンシの抑制が無効になります。
-  * `downloadThroughput` Double (任意) - 下りレート (Bps)。デフォルトは0で、これにより、ダウンロードの抑制が無効になります。
-  * `downloadThroughput` Double (任意) - 上りレート (Bps)。デフォルトは0で、これにより、アップロードの抑制が無効になります。
+* `options` Object
+  * `offline` Boolean (optional) - Whether to emulate network outage. 省略値は、false です。
+  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
 `session` の指定された構成でネットワークをエミュレートします。
 
@@ -254,26 +254,26 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.preconnect(options)`
 
-* `options` Object 
-  * `url` String - 事前接続の URL。ソケットを開くのに関連するのはオリジンのみです。
-  * `numSockets` Number (任意) - 事前接続するソケットの数。 1 から 6 でなければなりません。省略値は 1 です。
+* `options` Object
+  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. デフォルトは 1.
 
 指定された数のソケットをオリジンに事前接続します。
 
 #### `ses.disableNetworkEmulation()`
 
-`session` に対して既にアクティブなネットワークエミュレーションを無効にします。元のネットワーク構成にリセットします。
+Disables any network emulation already active for the `session`. Resets to the original network configuration.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function | null 
-  * `request` Object 
+* `proc` Function | null
+  * `request` Object
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Chromium からの認証結果。
     * `errorCode` Integer - エラーコード。
-  * `callback` Function 
-    * `verificationResult` Integer - 値は [ここ](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)の証明書エラーコードの1つです。 証明書エラーコードの他に、以下の特別なコードを使用することができます。 
+  * `callback` Function
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
       * `0` - 成功を示し、証明書の透明性の検証を無効にします。
       * `-2` - 失敗を示します。
       * `-3` - Chromium からの認証結果を使用します。
@@ -298,12 +298,12 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Function | null 
-  * `webContents` [WebContents](web-contents.md) - 権限を要求している WebContents。 リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
+* `handler` Function | null
+  * `webContents` [WebContents](web-contents.md) - 権限を要求している WebContents。  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
   * `permission` String - 'media'、'geolocation'、'notifications'、'midiSysex'、'pointerLock'、'fullscreen'、'openExternal' のいずれか。
-  * `callback` Function 
+  * `callback` Function
     * `permissionGranted` Boolean - 権限の許可か拒否.
-  * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
+  * `details` Object - Some properties are only available on certain permission types.
     * `externalURL` String (任意) - `openExternal` リクエストの URL。
     * `mediaTypes` String[] (任意) - 要求されている、複数のメディアアクセスのタイプ。要素は `video` か `audio` にできます
     * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
@@ -324,11 +324,11 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) - 権限を確認する WebContents。 リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
+* `handler` Function<Boolean> | null
+  * `webContents` [WebContents](web-contents.md) - 権限を確認する WebContents。  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
   * `permission` String - 'media' の列挙。
   * `requestingOrigin` String - 権限チェックのオリジン URL
-  * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
+  * `details` Object - Some properties are only available on certain permission types.
     * ` securityOrigin ` String - `media` チェックのセキュリティオリジン。
     * `mediaType` String - 要求されたメディアアクセスの型で、`video`、`audio` か `unknown` になります。
     * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
@@ -400,7 +400,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Object 
+* `options` Object
   * `path` String - ダウンロードの絶対パス。
   * `urlChain` String[] - ダウンロードの完全な URL チェーン。
   * `mimeType` String (任意)
@@ -432,25 +432,25 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 * `languages` String[] - スペルチェッカーを有効にする言語コードの配列。
 
-組み込みスペルチェッカーは、ユーザーが入力している言語を自動的に検出しません。 スペルチェッカーが単語を正しくチェックするには、言語コードの配列でこの API を呼び出す必要があります。 `ses.availableSpellCheckerLanguages` プロパティで、サポートしている言語コードのリストを取得できます。
+組み込みスペルチェッカーは、ユーザーが入力している言語を自動的に検出しません。  スペルチェッカーが単語を正しくチェックするには、言語コードの配列でこの API を呼び出す必要があります。  `ses.availableSpellCheckerLanguages` プロパティで、サポートしている言語コードのリストを取得できます。
 
-**注意:** macOS では、OS のスペルチェッカーが使用されて言語が自動的に検出されます。 この API は、macOS では何もしません。
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
 
 #### `ses.getSpellCheckerLanguages()`
 
-戻り値 `String[]` - スペルチェッカーが有効になっている言語コードの配列。 このリストが空の場合、スペルチェッカーは `en-US` の使用へフォールバックします。 この設定が空のリストである場合、Electron は起動時に既定で現在の OS ロケールをこの設定に追加しようとします。 この設定は再起動後も持続します。
+戻り値 `String[]` - スペルチェッカーが有効になっている言語コードの配列。  このリストが空の場合、スペルチェッカーは `en-US` の使用へフォールバックします。  この設定が空のリストである場合、Electron は起動時に既定で現在の OS ロケールをこの設定に追加しようとします。  この設定は再起動後も持続します。
 
-**注意:** macOS では、OS のスペルチェッカーが使用されて独自の言語リストを返します。 この API は、macOS では何もしません。
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages.  This API is a no-op on macOS.
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
 * `url` String - Electron が hunspell 辞書をダウンロードする基底 URL。
 
-デフォルトでは、Electron は Chromium CDN から hunspell 辞書をダウンロードします。 この動作をオーバーライドする場合は、この API を使用して、独自ホスト版の hunspell 辞書を辞書ダウンローダーが指すようにすることができます。 ホストする必要があるファイルのリリースごとに `hunspell_dictionaries.zip` ファイルをファイルサーバーで公開します。ファイルサーバーは **大文字と小文字を区別しない** ようにして、元通りの大文字小文字のファイルが入った ZIP ファイルと、全て小文字のファイル名にしたものの二通りを用意する必要があります。
+デフォルトでは、Electron は Chromium CDN から hunspell 辞書をダウンロードします。  この動作をオーバーライドする場合は、この API を使用して、独自ホスト版の hunspell 辞書を辞書ダウンローダーが指すようにすることができます。  ホストする必要があるファイルのリリースごとに `hunspell_dictionaries.zip` ファイルをファイルサーバーで公開します。ファイルサーバーは **大文字と小文字を区別しない** ようにして、元通りの大文字小文字のファイルが入った ZIP ファイルと、全て小文字のファイル名にしたものの二通りを用意する必要があります。
 
-`hunspell_dictionaries.zip` が `https://example.com/dictionaries/language-code.bdic` に存在して利用できる場合、`ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')` を呼び出すことになります。 末尾のスラッシュに注意してください。 辞書への URL は、`${url}${filename}` の形式になります。
+`hunspell_dictionaries.zip` が `https://example.com/dictionaries/language-code.bdic` に存在して利用できる場合、`ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')` を呼び出すことになります。  末尾のスラッシュに注意してください。  辞書への URL は、`${url}${filename}` の形式になります。
 
-**注意:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。 この API は、macOS では何もしません。
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
 
 #### `ses.addWordToSpellCheckerDictionary(word)`
 
@@ -464,19 +464,19 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 `Session` のインスタンスには以下のプロパティがあります。
 
-#### `ses.availableSpellCheckerLanguages` *読み出し専用*
+#### `ses.availableSpellCheckerLanguages` _読み出し専用_
 
-この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。 この配列にない言語コードを `setSpellCheckerLanaguages` API に提供すると、エラーが発生します。
+この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。  この配列にない言語コードを `setSpellCheckerLanaguages` API に提供すると、エラーが発生します。
 
-#### `ses.cookies` *読み出し専用*
+#### `ses.cookies` _読み出し専用_
 
 このセッションの [`Cookies`](cookies.md) オブジェクト。
 
-#### `ses.webRequest` *読み出し専用*
+#### `ses.webRequest` _読み出し専用_
 
 このセッションの [`WebRequest`](web-request.md) オブジェクト。
 
-#### `ses.protocol` *読み出し専用*
+#### `ses.protocol` _読み出し専用_
 
 このセッションの [`Protocol`](protocol.md) オブジェクト。
 
@@ -495,7 +495,7 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog` *読み出し専用*
+#### `ses.netLog` _読み出し専用_
 
 このセッションの [`NetLog`](net-log.md) オブジェクト。
 

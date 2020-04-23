@@ -58,7 +58,7 @@ Sistem ayarını geçersiz kılan belirli bir proxy sunucusu kullanın. Bu anaht
 
 ## --proxy-bypass-list=`hosts`
 
-Verilen yarı-kolonla ayrılmış ana bilgisayarların listesi için Electron talimatları proxy sunucusunu atlar. Bu bayrak yalnızca tandem içerisinde `--proxy-server` ile kullanılmışsa etki eder.
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
 Örneğin:
 
@@ -75,7 +75,7 @@ PAC komut dosyasını belirtilen `url`'de kullanır.
 
 ## --no-proxy-server
 
-Bir proxy sunucusu kullanmayın ve daima doğrudan bağlantılar kurun. Geçen proxy sunucu bayrakları diğerlerini geçersiz kılar.
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
 ## --host-rules=`rules`
 
@@ -83,10 +83,10 @@ Ana bilgisayar adlarının nasıl eşleştirileceğini denetleyen virgülle ayr�
 
 Örneğin:
 
-- `MAP * 127.0.0.1` Tüm ana makine adlarını 127.0.0.1 ile eşleşmesi için zorlar
-- `MAP *.google.com proxy` Tüm google.com alt etki alanları "proxy" çözülmesi için zorlar.
-- `MAP test.com [::1]:77` "test.com" u IPv6 loopback için çözülmesini zorlar. Elde edilen soket adresinin bağlantı noktasını da 77 olacak şekilde zorlar.
-- `MAP * baz, EXCLUDE www.google.com` "www.google.com" dışında her şeyi "baz" a yeniden eşler.
+* `MAP * 127.0.0.1` Tüm ana makine adlarını 127.0.0.1 ile eşleşmesi için zorlar
+* `MAP *.google.com proxy` Tüm google.com alt etki alanları "proxy" çözülmesi için zorlar.
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP * baz, EXCLUDE www.google.com` "www.google.com" dışında her şeyi "baz" a yeniden eşler.
 
 Bu eşlemeler, net istekli bitiş noktası sunucusu için geçerlidir (TCP bağlantısı ve ana çözümleyici doğrudan bir bağlantıda ve `CONNECT` Http proxy bağlantısında ve `SOCKS` proxy bağlantısı bitiş noktası sunucusu içerisinde).
 
@@ -140,7 +140,7 @@ Kullanıcının uygulaması yüklenene kadar bu anahtar `app.commandLine.appendS
 
 ## --v=`log_level`
 
-Varsayılan maximum aktif V-logging seviyesini verir, varsayılan 0'dır. Normalde V-logging seviyeleri için pozitif değerler kullanılır.
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
 
@@ -155,7 +155,6 @@ Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
 ## --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
-
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`

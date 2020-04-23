@@ -6,17 +6,16 @@ Di seguito sono riportate le linee guida per compilare Electron in ambiente Linu
 
 * Almeno 25 GB di spazio su disco e 8 GB di RAM.
 * Python 2.7.x. Alcune distribuzioni, come ad esempio CentOS 6.x, utilizzano ancora Python 2.6.x, quindi potrebbe rendersi necessario controllare la versione di Python installata con il comando `python -V`.
-    
-    Ti preghiamo inoltre di verificare che il tuo sistema e la versione di Python attualmente installata supportino almeno TLS 1.2. Puoi controllare rapidamente eseguendo questo script:
-    
-    ```sh
-    $ npx @electron/check-python-tls
-    ```
-    
-    Se il valore di ritorno dello script dice che la tua configurazione sta utilizzando un protocollo di sicurezza scaduto, utilizza il gestore di pacchetti del tuo sistema per aggiornare Python all'ultima versione nel ramo 2.7.x. In alternativa, visita l'indirizzo https://www.python.org/downloads/ per istruzioni dettagliate.
+
+  Ti preghiamo inoltre di verificare che il tuo sistema e la versione di Python attualmente installata supportino almeno TLS 1.2. Puoi controllare rapidamente eseguendo questo script:
+
+  ```sh
+  $ npx @electron/check-python-tls
+  ```
+
+  Se il valore di ritorno dello script dice che la tua configurazione sta utilizzando un protocollo di sicurezza scaduto, utilizza il gestore di pacchetti del tuo sistema per aggiornare Python all'ultima versione nel ramo 2.7.x. In alternativa, visita l'indirizzo https://www.python.org/downloads/ per istruzioni dettagliate.
 
 * Node.js. Ci sono diversi modi per installare Node. Puoi scaricare i sorgenti da [nodejs.org](https://nodejs.org) e compilarli. Ciò consente di installare Node nella propria home directory come utente standard. O puoi scaricarlo da un repository come ad esempio [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-
 * [clang](https://clang.llvm.org/get_started.html) 3.4 o successiva.
 * Development headers of GTK 3 and libnotify.
 
@@ -48,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Altre distribuzioni possono offrire pacchetti simili per l'installazione tramite gestori di pacchetti come pacman. In alternativa è possibile compilare dai sorgenti.
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
 ### Compilazione per altre architetture
 
@@ -80,7 +79,7 @@ Vedi [Istruzioni di Compilazione: GN](build-instructions-gn.md)
 
 ### Errore Durante il Caricamento delle Librerie Condivise: libtinfo.so.5
 
-Il compilatore `clang` predefinito proverà a collegare le librerie `libtinfo.so.5`. In base all'architettura dell'host, creare un collegamento simbolico alla versione corretta di `libncurses`:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -88,7 +87,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Impostazioni avanzate
 
-La configurazione predefinita di compilazione è destinata alle principali distribuzioni Linux desktop. Se desiderassi invece compilare per una distribuzione o un dispositivo specifico, le informazioni seguenti potrebbero esserti di aiuto.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### Usare `clang` di sistema invece dei binari `clang` scaricati
 

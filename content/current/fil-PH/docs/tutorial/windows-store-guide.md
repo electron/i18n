@@ -44,8 +44,7 @@ Ang output ay dapat magmukhang halos katulad nito:
 │   ├── [...]
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   └── app.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
@@ -76,7 +75,6 @@ Sa pagsalungat sa mga tradisyunal na apps ng UWP, ang mga naka-package na apps a
 Ang isa pang mahalagang limitasyon ay ang pinagsama-samang pakete ng AppX ay naglalaman pa rin ng isang win32 executable - at samakatuwid ay hindi tatakbo sa Xbox, HoloLens, o Phones.
 
 ## Optional: Magdagdag ng Mga Tampok ng UWP gamit ang BackgroundTask
-
 Maaari mong ipares ang iyong Electron app sa isang hindi nakikitang UWP na gawain sa background na ay nakakakuha upang lubos na gamitin ang mga tampok ng Windows 10 - tulad ng mga push notification, Pagsasama ng Cortana, o mga live na tile.
 
 Upang tingnan kung paano ang isang app ng Electron na gumagamit ng isang gawain sa background upang magpadala ng tustadong tinapay mga abiso at mga live na tile, [check Out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).

@@ -6,17 +6,16 @@ Siga as instruções abaixo para configurar o Electron no Linux.
 
 * Pelo o menos o 25GB de espaço em disco e 8GB de memória RAM.
 * Python 2.7x. Para algumas distribuições como o CentOS 6.x continue usando o Python 2.6.x, então você precisa verificar a versão do Python com o comando `python -V`.
-    
-    Por favor verifique se o seu sistema suporta no mínimo a versão do Python TLS 1.2. Para um teste rápido, execute o seguinte script:
-    
-    ```sh
-    $ npx @electron/check-python-tls
-    ```
-    
-    Se o script retornar que sua configuração está usando um protocolo de segurança desatualizado, use seu gerenciador de pacotes para atualizar o Python para a última versão no ramo 2.7.x. Alternativamente, visite https://www.python.org/downloads/ para instruções mais detalhadas.
+
+  Por favor verifique se o seu sistema suporta no mínimo a versão do Python TLS 1.2. Para um teste rápido, execute o seguinte script:
+
+  ```sh
+  $ npx @electron/check-python-tls
+  ```
+
+  Se o script retornar que sua configuração está usando um protocolo de segurança desatualizado, use seu gerenciador de pacotes para atualizar o Python para a última versão no ramo 2.7.x. Alternativamente, visite https://www.python.org/downloads/ para instruções mais detalhadas.
 
 * Node.js. Existem várias maneiras para instalar o Node. Você pode baixar o código fonte do [nodejs.org](https://nodejs.org) e compilar. Isto permite somente instalar o Node em seu próprio diretório como o usuário padrão. Ou pode tentar no repositório [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-
 * [clang](https://clang.llvm.org/get_started.html) 3.4 ou mais antigo.
 * Development headers of GTK 3 and libnotify.
 
@@ -48,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Outras distribuições podem oferecer estas bibliotecas para serem instaladas através de gerenciadores de pacote, como o pacman. Ou você pode compilar o código fonte.
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
 ### Forçar compilação
 
@@ -80,7 +79,7 @@ Veja [Instruções de build: GN](build-instructions-gn.md)
 
 ### Erro ao carregar bibliotecas compartilhadas: libtinfo.so.5
 
-Prebuilt `clang` irá atentar vincular a `libtinfo.so.5`. Dependendo da arquitetura utilizada, um link é criado para `libncurses`:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -88,7 +87,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Tópicos Avançados
 
-A configuração padrão para compilação é direcionado para as principais distribuições Linux, para compilar para uma determinada distribuição ou dispositivo, siga as seguintes informações que talvez possa ajudá-lo.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### Usando o `clang` em vez de fazer o download dos binários de `clang`
 

@@ -12,8 +12,7 @@
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
-* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
-
+- Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 ```js
 // Previously:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
@@ -23,16 +22,14 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
-
-* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-* `BigInt` values will be correctly serialized, instead of being converted to `null`.
-* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
-* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
-* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
-* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
-
+- `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+- Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+- `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+- `BigInt` values will be correctly serialized, instead of being converted to `null`.
+- Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+- `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+- Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+- Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 ```
@@ -54,7 +51,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 However, it is recommended to avoid using the `remote` module altogether.
 
 ```js
-// main
+// 메인
 const { ipcMain, webContents } = require('electron')
 
 const getGuestForWebContents = function (webContentsId, contents) {
@@ -73,7 +70,7 @@ ipcMain.handle('openDevTools', (event, webContentsId) => {
   guest.openDevTools()
 })
 
-// renderer
+// 렌더러
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
@@ -87,7 +84,7 @@ Chromium은 레이아웃 확대/축소 변경 제한에 대한 지원을 중단�
 
 ### Node Headers URL
 
-native Node 모듈을 빌드할 때 `.npmrc`파일의 `disturl`나 명령행 플래그의 `--dist-url`로 정의된 URL입니다. 두가지 모두 가까운 미래에는 지원할 예정이지만 전환하는 것이 좋습니다.
+native Node 모듈을 빌드할 때 `.npmrc`파일의 `disturl`나 명령행 플래그의 `--dist-url`로 정의된 URL입니다.  두가지 모두 가까운 미래에는 지원할 예정이지만 전환하는 것이 좋습니다.
 
 더이상 사용하지 않음: https://atom.io/download/electron
 
@@ -144,30 +141,23 @@ webFrame.setIsolatedWorldInfo(
 이 프로퍼티는 Chromium 77에서 제거되어 더이상 소용이 없습니다.
 
 ### `<input type="file"/>`의 `webkitdirectory` 속성
-
 ￼ The `webkitdirectory` property on HTML file inputs allows them to select folders. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ As an illustration, take a folder with this structure:
-
 ```console
 folder
 ├── file1
 ├── file2
 └── file3
 ```
-
 ￼ In Electron <=6, this would return a `FileList` with a `File` object for:
-
 ```console
 path/to/folder
 ```
-
 ￼ In Electron 7, this now returns a `FileList` with a `File` object for:
-
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
 /path/to/folder/file1
 ```
-
 ￼ Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## 중단될 예정 API (6.0)
@@ -312,9 +302,7 @@ webFrame.setIsolatedWorldInfo(
 ```
 
 ## `webFrame.setSpellCheckProvider`
-
 The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
-
 ```js
 // Deprecated
 webFrame.setSpellCheckProvider('en-US', true, {
@@ -332,7 +320,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ## 중단될 예정 API (4.0)
 
-The following list includes the breaking API changes made in Electron 4.0.
+다음 리스트는 Electron 4.0에서의 중대한 API 변화를 포함합니다.
 
 ### `app.makeSingleInstance`
 
@@ -629,6 +617,6 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the unprefixed file will no longer be published.
+The file _without the prefix_ is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the unprefixed file will no longer be published.
 
 For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).

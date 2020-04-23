@@ -168,18 +168,18 @@ session.clearAuthCache()
 ### API Changed: `powerMonitor.querySystemIdleState` is now `powerMonitor.getSystemIdleState`
 
 ```js
-// Removed in Electron 7.0
+// Electron 7.0 에서 제거됨
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// 동기 API로 대체됨
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
 ### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleState`
 
 ```js
-// Removed in Electron 7.0
+// Electron 7.0 에서 제거됨
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// 동기 API로 대체됨
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
@@ -292,9 +292,9 @@ require('electron').remote.require('path')
 ### Deprecated: `powerMonitor.querySystemIdleState` replaced with `powerMonitor.getSystemIdleState`
 
 ```js
-// Deprecated
+// 더 이상 사용하지 않음
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// 동기 API로 대체됨
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 

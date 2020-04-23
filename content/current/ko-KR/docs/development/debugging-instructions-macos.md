@@ -6,13 +6,12 @@
 
 * **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [macOS용 빌드 설명서 ](build-instructions-macos.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. 물론 직접 다운로드 받은 Electron 바이너리에도 디버거 연결 및 디버깅을 사용할 수 있지만, 실질적으로 디버깅이 까다롭게 고도의 최적화가 되어있음을 발견하게 될 것입니다: 인라인화, 꼬리 호출, 이외 여러 가지 생소한 최적화가 적용되어 디버거가 모든 변수와 실행 경로를 정상적으로 표시할 수 없습니다.
 
-* **Xcode**: Xcode 뿐만 아니라, Xcode 명령 줄 도구를 설치합니다. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: Xcode 뿐만 아니라, Xcode 명령 줄 도구를 설치합니다. macOS에서는 Xcode의 기본 디버거인 LLDB가 포함됩니다. 이것은 데스크톱 C, Objective-C 및 C++와 iOS 기기 및 시뮬레이터 디버깅을 지원합니다.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
-    
-    ```text
-    command script import ~/electron/src/tools/lldb/lldbinit.py
-    ```
+   ```text
+   command script import ~/electron/src/tools/lldb/lldbinit.py
+   ```
 
 ## Electron에 디버거 연결하고 디버깅하기
 
@@ -94,7 +93,6 @@ Process 25244 stopped
 이제, Electron 의 개발자 도구를 열고 `setName` 을 호출하면, 다시 중단점을 만날 것 입니다.
 
 ### 더 읽을거리
-
 LLDB 는 훌륭한 문서가 있는 강력한 도구입니다. 더 학습하기 위해, [LLDB 명령 구조 참고](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) 와 [LLDB 를 독립 실행 디버거로 사용하기](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html) 같은 애플의 디버깅 문서를 고려하세요.
 
 LLDB 의 환상적인 [설명서와 학습서](http://lldb.llvm.org/tutorial.html) 를 확인할 수 있습니다. 그것은 더 복잡한 디버깅 시나리오를 설명합니다.

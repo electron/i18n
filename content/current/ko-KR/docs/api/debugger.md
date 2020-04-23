@@ -13,11 +13,11 @@ let win = new BrowserWindow()
 try {
   win.webContents.debugger.attach('1.1')
 } catch (err) {
-  console.log('Debugger attach failed : ', err)
+  console.log('디버거 연결 실패 : ', err)
 }
 
 win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger detached due to : ', reason)
+  console.log('디버거 해제 이유 : ', reason)
 })
 
 win.webContents.debugger.on('message', (event, method, params) => {
@@ -35,7 +35,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### Event: 'detach'
 
-Returns:
+반환:
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
@@ -44,7 +44,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 #### Event: 'message'
 
-Returns:
+반환:
 
 * `event` Event
 * `method` String - Method name.
@@ -52,7 +52,7 @@ Returns:
 
 Emitted whenever the debugging target issues an instrumentation event.
 
-### 인스턴스 메서드
+### Instance Methods (인스턴스 메소드)
 
 #### `debugger.attach([protocolVersion])`
 

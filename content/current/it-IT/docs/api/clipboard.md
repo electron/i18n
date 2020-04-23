@@ -17,7 +17,7 @@ console.log(clipboard.readText('selection'))
 
 Il modulo di `Appunti` ha i seguenti metodi:
 
-**Nota:** Le API sperimentali sono contrassegnate come tali e potrebbero essere rimosse in futuro.
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([tipo])`
 
@@ -121,16 +121,16 @@ const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is 
 clipboard.writeRTF(rtf)
 ```
 
-### `clipboard.readBookmark()` *macOS* *Windows*
+### `clipboard.readBookmark()` _macOS_ _Windows_
 
-Ritorna `Object`:
+Restituisci `Oggetto`:
 
 * `Titolo` Stringa
 * `url` Stringa
 
 Restituisce un oggetto contenente `titolo` e `url` chiavi rappresentative del segnaposto negli appunti. I valori di `titolo` e `url` saranno vuoti quando i bookmark non sono disponibili.
 
-### `clipboard.writeBookmark(title, url[, tipo])` *macOS* *Windows*
+### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
 * `Titolo` Stringa
 * `url` Stringa
@@ -149,13 +149,13 @@ clipboard.writeBookmark({
 })
 ```
 
-### `clipboard.readFindText()` *macOS*
+### `clipboard.readFindText()` _macOS_
 
 Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
 
 This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
-### `clipboard.writeFindText(text)` *macOS*
+### `clipboard.writeFindText(text)` _macOS_
 
 * `testo` Stringa
 
@@ -181,7 +181,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` _Experimental_
 
 * `format` Stringa
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` *Sperimentale*
+### `clipboard.read(format)` _Experimental_
 
 * `format` Stringa
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` *Sperimentale*
+### `clipboard.readBuffer(format)` _Experimental_
 
 * `format` Stringa
 
@@ -220,7 +220,7 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
 
 * `format` Stringa
 * `buffer` Buffer
@@ -237,7 +237,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
 
 ### `clipboard.write(data[, tipo])`
 
-* `data` Oggetto 
+* `data` Object
   * `text` String (optional)
   * `html` String (optional)
   * `image` [NativeImage](native-image.md) (optional)

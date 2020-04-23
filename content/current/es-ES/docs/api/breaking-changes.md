@@ -12,8 +12,7 @@ El string `FIXME` se usa en las cadenas de código para indicar que cualquier pr
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
-* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
-
+- Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 ```js
 // Previously:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
@@ -23,16 +22,14 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
-
-* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-* `BigInt` values will be correctly serialized, instead of being converted to `null`.
-* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
-* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
-* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
-* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
-
+- `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+- Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+- `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+- `BigInt` values will be correctly serialized, instead of being converted to `null`.
+- Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+- `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+- Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+- Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 ```
@@ -87,7 +84,7 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 
 ### URL de cabecera de nodo
 
-Este es el URL especificado como `disturl` en un archivo `.npmrc` o como el comando de linea `--dist-url` al construir los módulos nativos de nodo. Both will be supported for the foreseeable future but it is recommended that you switch.
+Este es el URL especificado como `disturl` en un archivo `.npmrc` o como el comando de linea `--dist-url` al construir los módulos nativos de nodo.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
 Cambiar: https://atom.io/download/electron
 
@@ -143,31 +140,24 @@ webFrame.setIsolatedWorldInfo(
 
 This property was removed in Chromium 77, and as such is no longer available.
 
-### `webkitdirectory` attribute for `<input type="file"/>`
-
+### Atributo `webkitdirectory` para `<input type="file"/>`
 ￼ The `webkitdirectory` property on HTML file inputs allows them to select folders. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ As an illustration, take a folder with this structure:
-
 ```console
 folder
 ├── file1
 ├── file2
 └── file3
 ```
-
 ￼ In Electron <=6, this would return a `FileList` with a `File` object for:
-
 ```console
 path/to/folder
 ```
-
 ￼ In Electron 7, this now returns a `FileList` with a `File` object for:
-
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
 /path/to/folder/file1
 ```
-
 ￼ Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## Cambios planeados en la API(6.0)
@@ -312,9 +302,7 @@ webFrame.setIsolatedWorldInfo(
 ```
 
 ## `webFrame.setSpellCheckProvider`
-
 The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
-
 ```js
 // Deprecated
 webFrame.setSpellCheckProvider('en-US', true, {
@@ -629,6 +617,6 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 Cada versión de Electrón incluye dos versiones de ARM idénticas con diferentes nombres de archivo, como: `electron-v1.7.3-linux-arm.zip` y `electron-v1.7.3-linux-armv7l.zip`. Se agregó el archivo con el prefijo `v7l` para aclarar a los usuarios qué versión de ARM soporta y desambiguar los futuros archivos de armv6l y arm64 que pueden ser producidos.
 
-El archivo *sin el prefijo* todavía se está publicando para evitar romper cualquier configuración que pueda estar consumiéndolo. Starting at 2.0, the unprefixed file will no longer be published.
+El archivo _sin el prefijo_ todavía se está publicando para evitar romper cualquier configuración que pueda estar consumiéndolo. Starting at 2.0, the unprefixed file will no longer be published.
 
 Para más detalles, vea: [6986](https://github.com/electron/electron/pull/6986) y [7189](https://github.com/electron/electron/pull/7189).

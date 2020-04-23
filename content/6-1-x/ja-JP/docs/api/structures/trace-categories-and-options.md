@@ -1,0 +1,4 @@
+# TraceCategoriesAndOptions オブジェクト
+
+* `categoryFilter` String – トレースされる必要があるカテゴリグループを制御するフィルタ。 フィルタには、一致するカテゴリが含まれるカテゴリグループを除外する任意の接頭子 `-` をつけることができます。 同じリストに包含と除外の両方のカテゴリパターンを入れることはサポートされていません。 例: `test_MyTest*`、`test_MyTest*,test_OtherStuff`、`-excluded_category1,-excluded_category2`。
+* `traceOptions` String - どの種類のトレースを有効にするかを制御します。これは次の文字列群をコンマ区切りで組み合わせます。`record-until-full`、`record-continuously`、`trace-to-console`、`enable-sampling`、`enable-systrace`。例: `'record-until-full,enable-sampling'`。 最初の3つのオプションは、トレース記録モードであり、それ故に相互に排他的です。 `traceOptions` の文字列に1つ以上のトレース記録モードが見つかった場合、最後の1つが優先されます。 トレース記録モードが何も指定されない場合、記録モードは、`record-until-full` です。 トレースオプションは `traceOptions` から解析されたオプションが適用されるまで、最初にデフォルトのオプション (`record_mode` は `record-until-full` に、`enable_sampling` と `enable_systrace` は `false` にセットされる) にリセットされます。

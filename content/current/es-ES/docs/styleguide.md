@@ -13,27 +13,27 @@ Estas son las directrices para escribir documentación de Electron.
 Usando `Quick Start` como ejemplo:
 
 ```markdown
-# Inicio Rápido
+# Quick Start
 
 ...
 
-## Proceso principal
+## Main process
 
 ...
 
-## Proceso de renderizado
+## Renderer process
 
 ...
 
-## Ejecutar tu aplicación
+## Run your app
 
 ...
 
-### Ejecutar como distribución
+### Run as a distribution
 
 ...
 
-### Programa binario de Electron descargado manualmente
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -95,10 +95,10 @@ Usando `autoUpdater` como ejemplo:
 * Los constructores deben ser listrados con títulos de nivel `#`-.
 * Los [Métodos Estáticos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) deben ser listados bajo un capítulo de`### Métodos Estáticos`.
 * Los [Métodos de Instancia](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) deben ser listados bajo un capítulo de `### Métodos de Instancia`.
-* Todos los métodos que tengan un valor de retorno deben empezar su descripción con "Retornos `[TYPE]` - Descripción de retorno" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * Si el método devuelve un `Objeto`, su estructura puede ser especificada usando una coma seguida de un salto de línea y luego una lista desordenada de propiedades en el mismo estilo como parámetros de la función.
 * Los Eventos de Instancia deben aparecer listados bajo un capítulo de `### Eventos de Instancia`.
-* Las Propiedades de Instancia deben ser listados bajo un `### Propiedades de Instancia` ### Propiedades de Instancia. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Las propiedades de instancia deben empezar con "Un [Tipo de Propiedad]..."
 
 Usando las clases `Session` y `Cookies` como ejemplo:
@@ -140,17 +140,17 @@ Usando las clases `Session` y `Cookies` como ejemplo:
 El capítulo de métodos debe estar de la siguiente forma:
 
 ```markdown
-### `objectName.methodName(requiere[, opcional]))`
+### `objectName.methodName(required[, optional]))`
 
-* `requiere`Cadena de caracteres - Una descripción del parámetro. 
-*`opcional` Entero (opcional) - Otra descripción del parámetro. 
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```
 
 El título puede ser `###` o `####`-niveles dependiendo de si es un método de un módulo o una clase.
 
-Para módulos, el `objectName` es el nombre del módulo. Para clases, debe ser el nombre de la instancia de la clase y no debe ser el mismo que el nombre del módulo.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Por ejemplo, los métodos de la clase `Session` bajo el módulo `session` deben usar `ses` como el `objectName`.
 
@@ -160,7 +160,7 @@ Los argumentos opcionales son escritos por corchetes `[]` alrededor del argument
 requerido[, opcional]
 ```
 
-Debajo, el método es información detallada de cada uno de los argumentos. El tipo de argumento está anotado por cualquiera de los tipos comunes:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

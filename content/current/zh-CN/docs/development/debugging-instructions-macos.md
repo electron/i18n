@@ -9,10 +9,9 @@
 * **Xcode**: 除了 Xcode，还安装 Xcode 命令行工具. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
-    
-    ```text
-    command script import ~/electron/src/tools/lldb/lldbinit.py
-    ```
+   ```text
+   command script import ~/electron/src/tools/lldb/lldbinit.py
+   ```
 
 ## 附加并调试 Electron
 
@@ -98,7 +97,6 @@ Process 25244 stopped
 现在，如果你打开 Electron 的开发工具并调用 `setName`，你将再次命中断点。
 
 ### 进一步阅读
-
 LLDB是一个强大的工具，有一个庞大的文档。 要了解更多信息，请参考 Apple 的调试文档, 例如 [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) 或 [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
 你也可以查看LLDB的 [manual and tutorial](http://lldb.llvm.org/tutorial.html) 这将解释更复杂的调试场景.

@@ -4,7 +4,7 @@
 
 ## 使用 `update.electronjs.org`
 
-GitHub 的 Electron 团队维护 [update.electronjs.org](https://github.com/electron/update.electronjs.org)，一个免费开源的网络服务，可以让 Electron 应用使用自动更新。 这个服务是设计给那些满足以下标准的 Electron 应用：
+The Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. 这个服务是设计给那些满足以下标准的 Electron 应用：
 
 - 应用运行在 macOS 或者 Windows
 - 应用有公开的 GitHub 仓库
@@ -59,7 +59,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-最后一步, 检查更新. 下面的例子将每分钟检查一次:
+As the final step, check for updates. The example below will check every minute:
 
 ```javascript
 setInterval(() => {
@@ -89,7 +89,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-同时要确保错误被[being handled](../api/auto-updater.md#event-error). 这是一个例子它将记录到`stderr`:
+Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {

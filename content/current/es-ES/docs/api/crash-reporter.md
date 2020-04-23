@@ -36,22 +36,22 @@ El módulo `crashReporter` tiene los siguientes métodos:
 
 ### `crashReporter.start(options)`
 
-* `options` Objeto 
+* `options` Object
   * `companyName` String
   * `submitURL` String - URL a donde se enviarán los informes de errores como un POST.
   * `productName` String (optional) - Defaults to `app.name`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Booleano (opcional) - Por defecto es `false`.
   * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Solo las propiedades de la cadena son enviadas correctamente. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
   * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 Es necesario llamar este método antes de utilizar cualquier otra API `crashReporter` y en cada proceso (main/renderer) del cual se quiera recopilar los informes de fallos. Se puede pasar diferentes opciones al `crashReporter.start` al llamar desde diferentes procesos.
 
-**Nota** Los procesos secundarios creados mediante el módulo `child_process` no tendrá acceso a los módulos de Electron. Por lo tanto, para recopilar los informes de fallos de ellos, se utiliza en su lugar `process.crashReporter.start`. Pasar las mismas opciones anteriormente mencionadas con otro adicional llamado `crashesDirectory` que debe apuntar a un directorio para almacenar los informes de fallos temporalmente. Se puede probar esto llamando `process.crash()` para hacer fallar el proceso secundario.
+**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Por lo tanto, para recopilar los informes de fallos de ellos, se utiliza en su lugar `process.crashReporter.start`. Pasar las mismas opciones anteriormente mencionadas con otro adicional llamado `crashesDirectory` que debe apuntar a un directorio para almacenar los informes de fallos temporalmente. Se puede probar esto llamando `process.crash()` para hacer fallar el proceso secundario.
 
-**Nota:** Si necesita enviar parámetros adicionales o actualizados `extra` después de la primera llamada a `start` puede llamar a `addExtraParameter`, en macOS, o llamar a `start` otra vez con los parámetros nuevos o actualizados `extra`, en Linux y Windows.
+**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
-**Note:** En macOS y windows, Electron usa un nuevo cliente `crashpad` para la recolección y reporte de los fallos. Si desea habilitar el informe de fallos, se requiere inicializar `crashpad` desde el proceso principal utilizando `crashReporter.start`, independientemente del proceso del cual se desea recopilar los fallos. Una vez inicializado, el controlador de crashpad recopila los fallos de todos los procesos. Aún así hay que llamar `crashReporter.start` del renderizador o del proceso secundario, de lo contrario los fallos serán informados sin `companyName`, `productName` o cualquier información `extra`.
+**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. Si desea habilitar el informe de fallos, se requiere inicializar `crashpad` desde el proceso principal utilizando `crashReporter.start`, independientemente del proceso del cual se desea recopilar los fallos. Una vez inicializado, el controlador de crashpad recopila los fallos de todos los procesos. Aún así hay que llamar `crashReporter.start` del renderizador o del proceso secundario, de lo contrario los fallos serán informados sin `companyName`, `productName` o cualquier información `extra`.
 
 ### `crashReporter.getLastCrashReport()`
 
@@ -63,30 +63,30 @@ Devuelve la fecha y el ID del último reporte de fallo. Solo los reportes de fal
 
 Devuelve [`CrashReport []`](structures/crash-report.md):
 
-Devuelve todos los informes de fallos subidos. Cada informe contiene la fecha y el ID subido.
+Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
 ### `crashReporter.getUploadToServer()`
 
-Devuelve `Boolean` - Si los informes deben enviarse o no al servidor. Establecer a través del método `start` o `setUploadToServer`.
+Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Nota:** Esta API sólo se puede llamar desde el proceso principal.
+**Note:** This API can only be called from the main process.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean *macOS* - Si los informes deben enviarse o no al servidor.
+* `uploadToServer` Boolean _macOS_ - Whether reports should be submitted to the server.
 
-Esto es controlado normalmente por las preferencias del usuario. Esto no tiene efecto alguno si se llama antes de que se llame `start`.
+This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Nota:** Esta API sólo se puede llamar desde el proceso principal.
+**Note:** This API can only be called from the main process.
 
-### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
+### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
 
 * `key` String - La clave del parámetro, debe tener menos de 64 caracteres.
 * `value` String - Valor del parámetro, debe tener menos de 64 caracteres.
 
 Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores especificados aquí se enviarán adicionalmente a otros valores establecidos con la opción `extra` cuando se llama a `start`. Esta API solo esta disponible en macOS y en windows, Si tú necesitas agregar/actualizar parámetros adicionales en Linux después de tu primera llamada a `start` tu puedes llamar `start` otra vez con la opción `start` actualizada.
 
-### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
+### `crashReporter.removeExtraParameter(key)` _macOS_ _Windows_
 
 * `key` String - La clave del parámetro, debe tener menos de 64 caracteres.
 
@@ -110,7 +110,7 @@ El informador de fallos enviará la siguiente información al `submitURL` como u
 * `guid` String - por ejemplo, "5e1286fc-da97-479e-918b-6bfb0c3d1c72".
 * `_version` Cadena - La versión en `package.json`.
 * `_productName` String - El nombre del producto en el objeto `crashReporter` `options`.
-* `prod` Cadena- El nombre del producto subyacente. En este caso, Electron.
+* `prod` String - Name of the underlying product. In this case Electron.
 * `_companyName` Cadena - El nombre de la empresa en el objeto `crashReporter` `options`.
 * `upload_file_minidump` File - El informe de fallos en el formato de `minidump`.
 * Todas las propiedades de nivel uno del objeto `extra` en el objeto `crashReporter` `options`.

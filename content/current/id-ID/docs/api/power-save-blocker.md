@@ -15,21 +15,21 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## Metode
+## Methods
 
 Modul `powerSaveBlocker` mempunyai metods sebagai berikut:
 
 ### `powerSaveBlocker.start(type)`
 
-* `mengetik` String - jenis Power save blocker. 
+* `type` String - Power save blocker type.
   * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
 Returns `Integer` - ID bloker yang ditetapkan untuk pemblokir daya ini.
 
-Mulai mencegah sistem agar tidak memasuki mode daya-rendah. Mengembalikan sebuah integer yang mengidentifikasi pemblokir hemat daya.
+Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
 
-**Catatan:** `prevent-display-sleep` mempunyai prioritas lebih tinggi dari `prevent-app-suspension`. Hanya jenis prioritas tertinggi yang akan berpengaruh. Dengan kata lain, `prevent-display-sleep` selalu mengambil prioritas lebih tinggi dari `prevent-app-suspension`.
+**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Hanya jenis prioritas tertinggi yang akan berpengaruh. Dengan kata lain, `prevent-display-sleep` selalu mengambil prioritas lebih tinggi dari `prevent-app-suspension`.
 
 Sebagai contoh, sebuah API memanggil A untuk meminta `prevent-app-suspension`, dan yang lainnya memanggil B untuk meminta `prevent-display-sleep`. `prevent-display-sleep` akan digunakan sampai B menghentikan permintaannya. Setelah itu, `prevent-app-suspension` digunakan.
 

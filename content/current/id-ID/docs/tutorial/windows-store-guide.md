@@ -14,7 +14,7 @@ Untuk mengkompilasi aplikasi Elektron yang ada, pastikan bahwa Anda memiliki per
 
 * Windows 10 dengan Update Ulang Tahun (dirilis 2 Agustus 2016)
 * Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* Setidaknya Node 4 (untuk mengecek, jalankan `node -v`)
+* Setidaknya Node 4 (untuk mengecek, jalankan  `node -v`)
 
 Lalu, pergi dan instal `electron-windows-store` CLI:
 
@@ -44,8 +44,7 @@ Outputnya harus terlihat kira-kira seperti ini:
 │   ├── [...]
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   └── app.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
@@ -76,7 +75,6 @@ Sebagai lawan dari aplikasi UWP tradisional, aplikasi terpaket saat ini perlu me
 Keterbatasan penting lainnya adalah paket AppX yang dikompilasi masih berisi win32 executable - dan karena itu tidak akan berjalan di Xbox, HoloLens, atau Phones.
 
 ## Opsional: Tambahkan Fitur UWP menggunakan BackgroundTask
-
 Anda dapat memasangkan aplikasi Elektron Anda dengan tugas latar belakang UWP yang tak terlihat itu akan memanfaatkan sepenuhnya fitur Windows 10 - seperti pemberitahuan push, Integrasi Cortana, atau ubin hidup.
 
 Untuk mengetahui bagaimana aplikasi Elektron yang menggunakan tugas latar belakang untuk mengirim roti panggang pemberitahuan dan ubin hidup, [periksa sampel yang disediakan Microsoft](https://github.com/felixrieseberg/electron-uwp-background).

@@ -9,10 +9,9 @@
 * **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
-    
-    ```text
-    скрипт команды импортирует ~/electron/src/tools/lldb/lldbinit.py. 07gf
-    ```
+   ```text
+   скрипт команды импортирует ~/electron/src/tools/lldb/lldbinit.py. 07gf
+   ```
 
 ## Подключение к Electron для отладки
 
@@ -34,7 +33,7 @@ Let's assume that you want to debug `app.setName()`, which is defined in `browse
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
-Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
+Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
 Then, start Electron:
@@ -94,7 +93,6 @@ To finish debugging at this point, run `process continue`. You can also continue
 Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
 
 ### Дальнейшее изучение
-
 LLDB это мощный инструмент с отличной документацией. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
 You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.

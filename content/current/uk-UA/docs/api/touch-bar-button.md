@@ -4,14 +4,14 @@
 
 Процес: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarButton(options)` *Експериментальний*
+### `new TouchBarButton(options)` _Експериментальний_
 
-* `options` Об'єкт 
+* `options` Object
   * `label` String (необов'язково) - Текст кнопки.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (необов'язково) - Колір тла кнопки, тобто `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
+  * `iconPosition` String (необов'язково) - Може бути `left`, `right` або `overlay`. Defaults to `overlay`.
   * `click` Function (необов'язково) - Функція для виклику, коли кнопка натискається.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).

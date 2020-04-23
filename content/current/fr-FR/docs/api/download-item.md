@@ -7,7 +7,7 @@ Processus : [Main](../glossary.md#main-process)
 `DownloadItem` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) qui représente un élément de téléchargement dans Electron. Il est utilisé dans l'événement `will-download` de la classe `Session`, et permet aux utilisateurs de gérer les fichiers en cours de téléchargement.
 
 ```javascript
-// Dans le processus principal.
+// Dans le processus main.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
@@ -41,7 +41,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `state` Chaîne de caratères - Peut être `progressing` ou `interrupted`.
 
 Émis lorsque le téléchargement a été mis à jour et n'est pas fini.
@@ -55,10 +55,10 @@ Le `state` peut être un de ces cas :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `state` Chaîne de caratères - Peut être `completed`, `cancelled` ou `interrupted`.
 
-Émis lorsque le téléchargement est dans un état final. Cela inclus un téléchargement fini, annulé (via `downloadItem.cancel()`) et interrompu tout en ne pouvant pas pas être repris.
+Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
 Le `state` peut être un de ces cas :
 
@@ -80,7 +80,7 @@ Cet API est seulement disponible dans la fonction de rappel de `will-download` d
 
 #### `downloadItem.getSavePath()`
 
-Retourne `String` - Le chemin d'accès pour le téléchargement. Ce sera soit le chemin définit par `downloadItem.setSavePath(path)` ou le chemin indiqué par la boîte de dialogue de sauvegarde.
+Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
 
 **[Déprécié](modernization/property-updates.md) : utilisez la propriété `savePath` à la place.**
 
@@ -88,7 +88,7 @@ Retourne `String` - Le chemin d'accès pour le téléchargement. Ce sera soit le
 
 * `options` SaveDialogOptions - Définit les options de la boîte de dialogue de sauvegarde des fichiers. Cet objet a la même comme le paramètre `options` de [`dialog.showSaveDialog()`](dialog.md).
 
-Cette API permet à l'utilisateur de définir des options personnalisées pour la boîte de dialogue de sauvegarde qui ouvre pour l'élément de téléchargement par défaut. L'API n'est disponible que dans la fonction de rappel `will-download` de la session.
+This API allows the user to set custom options for the save dialog that opens for the download item by default. Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session.
 
 #### `downloadItem.getSaveDialogOptions()`
 
@@ -132,7 +132,7 @@ Retourne `Boolean` - Si le téléchargement à des gestures.
 
 Retourne `String` - le nom du fichier du téléchargement.
 
-**Remarque :** Le nom du fichier n'est pas toujours le même que celui enregistré dans le disque local. Si l'utilisateur modifie le nom du fichier dans la boîte de dialogue de sauvegarde, alors le nom actuel et le nom du fichier sauvegardé seront différent.
+**Note:** The file name is not always the same as the actual one saved in local disk. Si l'utilisateur modifie le nom du fichier dans la boîte de dialogue de sauvegarde, alors le nom actuel et le nom du fichier sauvegardé seront différent.
 
 #### `downloadItem.getTotalBytes()`
 
@@ -150,9 +150,9 @@ Retourne `String` - Le champ Content-Disposition venant de l'en-tête de la rép
 
 #### `downloadItem.getState()`
 
-Retourne `String` - L'état actuel. Peut être `progressing`, `completed`, `cancelled` ou `interrupted`.
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**Remarque :** Les méthodes suivantes sont utiles spécifiquement pour relancer un téléchargement `cancelled` au redémarrage de la session.
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 

@@ -9,7 +9,6 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
 
 ## Manual distribution
-
 You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
 
 Upang maipamahagi ang iyong app sa Electron, kailangan mong i-download ang electron [mga binary ng prebuilt](https://github.com/electron/electron/releases). Sunod, ang foloder na naglalaman ng iyong app ay dapat nakapangalan sa `app` at iniligay sa mga pinagkukunan ng Electron Ang direktoryo ay ipinapakita sa mga sumusunod na halimbawa. Tandaan na ang mga lokasyon ng mga binary sa Electron prebuilt ay ipinapahiwatig ng `electron` sa mga halimbawa sa ibaba.
@@ -62,7 +61,7 @@ Pagkatapos mong pag-bundle ng iyong app sa Elektron, gusto mong i-rebrand ang el
 
 ### Windows
 
-Maari mong palitan ang `electron.exe` sa anumang pangalan na gusto mo, at i-edit ang icon nito at iba pang impormasyong sa mga kagamitang [credit](https://github.com/atom/rcedit).
+Maari mong palitan ang `electron.exe` sa anumang pangalan na gusto mo, at i-edit ang icon nito at iba pang impormasyong sa mga kagamitang [credit](https://github.com/electron/rcedit).
 
 ### macOS
 
@@ -106,7 +105,7 @@ Kailangan mong mag fork Electron kapag ikaw ay mag pasadyang C++ na kodigo na iy
 1. I-install ang [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
 2. Gumawa ng bagong S3 bucket at gumawa ng sumusunod na walang laman na direktoryong istraktura:
-    
+
     ```sh
     - electron/
       - symbols/
@@ -115,16 +114,16 @@ Kailangan mong mag fork Electron kapag ikaw ay mag pasadyang C++ na kodigo na iy
 
 3. Itakda ang mga sumusunod na baryabol ng kapaligiran:
 
-* `ELECTRON_GITHUB_TOKEN` - ay isang token na maaring lumikha ng mga release sa GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
-* `CI` - Itakda sa `tama` o kung hindi ito ay mabibigo
-* `GITHUB_TOKEN` - itakda ito sa kaparehong `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - itakda sa `C:\Temp` sa windows upang maiwasan ang mga landas na isyu sa mahabang isyu
-* `TARGET_ARCH` - itakda sa `ia32` o `x64`
+  * `ELECTRON_GITHUB_TOKEN` - ay isang token na maaring lumikha ng mga release sa GitHub
+  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
+  * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
+  * `CI` - Itakda sa `tama` o kung hindi ito ay mabibigo
+  * `GITHUB_TOKEN` - itakda ito sa kaparehong `ELECTRON_GITHUB_TOKEN`
+  * `SURF_TEMP` - itakda sa `C:\Temp` sa windows upang maiwasan ang mga landas na isyu sa mahabang isyu
+  * `TARGET_ARCH` - itakda sa `ia32` o `x64`
 
-1. Sa `script/upload.py`, maari *kang* magtakda nf `ELECTRON_REPO` sa iyong fork (`MYORG/electron`), lalo na kung ikaw ay isang kontribyutor sa Elektron proper.
+4. Sa `script/upload.py`, maari _kang_ magtakda nf `ELECTRON_REPO` sa iyong fork (`MYORG/electron`), lalo na kung ikaw ay isang kontribyutor sa Elektron proper.
 
-2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Maghintay ng napaka, napakataas na panahon para makompleto ang build.
+6. Maghintay ng napaka, napakataas na panahon para makompleto ang build.

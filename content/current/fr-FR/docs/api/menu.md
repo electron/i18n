@@ -16,21 +16,21 @@ La classe `Menu` a les méthodes statiques suivantes :
 
 * `menu` Menu | null
 
-Définit le `menu` en tant que menu de l’application sur macOS. Sous Windows et Linux, le `menu` sera défini comme le menu principal de chaque fenêtre.
+Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
 Aussi sous Windows et Linux, vous pouvez utiliser un `&` dans le nom de l'élément de niveau supérieur pour indiquer quelle lettre doit obtenir un accélérateur généré. Par exemple, en utilisant `&Fichier` pour le menu de fichiers, l'accélérateur `Alt-F` généré qui ouvre le menu associé. Le caractère indiqué dans l'étiquette du bouton obtient un souligné . Le caractère `&` n'est pas affiché sur l'étiquette du bouton.
 
-Passer `null` supprimera le menu par défaut. Sous Windows et Linux, cela a l'effet supplémentaire de supprimer la barre de menu de la fenêtre.
+Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
-**Note:** Le menu par défaut sera créé automatiquement si l'application ne le définit pas. Il contient des éléments standard tels que `Fichier`, `Modifier`, `Voir`, `Window` et `Aide`.
+**Note:** The default menu will be created automatically if the app does not set one. Il contient des éléments standard tels que `Fichier`, `Modifier`, `Voir`, `Window` et `Aide`.
 
 #### `Menu.getApplicationMenu()`
 
 Retourne `Menu | null` - Le menu de l’application, si défini, ou `null`, si non défini.
 
-**Remarque :** L'instance du `Menu` retourné, ne supporte pas l'ajout ou la suppression dynamique d’éléments de menu. Les [propriétés de l’instance](#instance-properties) peuvent encore être modifiées dynamiquement.
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. Les [propriétés de l’instance](#instance-properties) peuvent encore être modifiées dynamiquement.
 
-#### `Menu.sendActionToFirstResponder(action)` *macOS*
+#### `Menu.sendActionToFirstResponder(action)` _macOS_
 
 * `action` String
 
@@ -44,7 +44,7 @@ Voir le [Guide de gestion des événements Cocoa de macOS](https://developer.app
 
 Retourne `Menu`
 
-Généralement, le `template` est un tableau de `options` pour construire un [MenuItem](menu-item.md). L’utilisation peut être référencée ci-dessus.
+Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 Vous pouvez également attacher d'autres champs à l'élément du `template` et ils deviendront des propriétés des éléments de menu construits.
 
@@ -54,11 +54,11 @@ L'objet `menu` a les méthodes d'instance suivantes:
 
 #### `menu.popup([options])`
 
-* `options` Object (facultatif) 
+* `options` Object (optional)
   * `window` [BrowserWindow](browser-window.md) (facultatif) - La fenêtre focalisée est par défaut.
-  * `x` Number (facultatif) - La valeur par défaut est la position actuelle du curseur de la souris. Doit être déclaré si `y` est déclaré.
-  * `y` Number (facultatif) - La valeur par défaut est la position actuelle du curseur de la souris. Doit être déclaré si `x` est déclaré.
-  * `positioningItem` Number (facultatif) *macOS* - L'index de l'élément de menu à être positionné sous le curseur de la souris aux coordonnées spécifiées. La valeur par défaut est -1.
+  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Fonction (facultatif) - Appelée lorsque le menu est fermé.
 
 Dépile ce menu sous la forme d'un menu contextuel dans la [`BrowserWindow`](browser-window.md).
@@ -98,7 +98,7 @@ Les objets créés avec `nouveau Menu` ou retournés par `Menu.buildFromTemplate
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 
 Émis lorsque `menu.popup()` est appelé.
 
@@ -106,7 +106,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 
 Émis lorsqu'un popup est fermé manuellement ou avec `menu.closePopup()`.
 
@@ -239,18 +239,18 @@ Menu.setApplicationMenu(menu)
 Ci-dessous est un exemple de création dynamique d'un menu dans une page web (processus de rendu) en utilisant le module [`distance`](remote.md) et l'afficher lorsque l'utilisateur clique droit sur la page :
 
 ```html
-<!-- index. tml -->
+<!-- index.html -->
 <script>
 const { remote } = require('electron')
 const { Menu, MenuItem } = remote
 
 const menu = new Menu()
-menu. ppend(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicd') } }))
-menu. ppend(new MenuItem({ type: 'separator' }))
+menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } }))
+menu.append(new MenuItem({ type: 'separator' }))
 menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }))
 
 window.addEventListener('contextmenu', (e) => {
-  e. reventDefault()
+  e.preventDefault()
   menu.popup({ window: remote.getCurrentWindow() })
 }, false)
 </script>
@@ -258,7 +258,7 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Notes sur le menu d'application macOS
 
-macOS a un style complètement différent du menu des applications Windows et Linux. Voici quelques notes pour rendre le menu de votre application plus natif.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
 ### Standard Menus
 
@@ -276,7 +276,7 @@ macOS a fourni des actions standard pour certains liens de menu, comme `À propo
 
 Sur macOS, l'étiquette du premier élément du menu de l'application est toujours le nom de votre application, quel que soit le libellé que vous avez défini. Pour le modifier, modifiez le fichier `Info.plist` de votre pack d'applications. Voir [À propos des fichiers de la liste de propriétés d'information](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) pour plus d'informations.
 
-## Menu de configuration pour la fenêtre de navigation spécifique (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
 La [`setMenu` méthode](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) des fenêtres du navigateur peut définir le menu de certaines fenêtres de navigateur .
 
@@ -307,7 +307,7 @@ Modèle :
 Menu :
 
 ```sh
-<br />- 1
+- 1
 - 2
 - 3
 - 4
@@ -329,7 +329,7 @@ Modèle :
 Menu :
 
 ```sh
-<br />- 3
+- 3
 - 4
 - ---
 - 1
@@ -350,7 +350,7 @@ Modèle :
 Menu :
 
 ```sh
-<br />- ---
+- ---
 - 3
 - 2
 - 1

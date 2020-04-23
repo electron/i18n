@@ -11,7 +11,7 @@ This week we met with [Aprile Elcich](https://twitter.com/aprileelcich) and [Pao
 
 ---
 
-## What is Voltra?
+## Co to jest Voltra?
 
 [Voltra](https://voltra.co/) is a music player for people who want to own their music. It’s also a store where you can discover and buy new music based on what you already own. It’s ad-free, cross-platform for desktop and mobile. It also doesn’t spy on you.
 
@@ -87,5 +87,5 @@ We would like to see Electron endorse a single packager. The packager is as impo
 
 ## What's coming next?
 
-We‘re currently developing a mobile app, and working with artists and labels to add their music to the Voltra shop. Hey! If you’re an artist or label, [sign up now](https://admin.voltra.co/signup)! We plan on opening up the shop when we reach our goal of 10 million tracks.
+We‘re currently developing a mobile app, and working with artists and labels to add their music to the Voltra shop. Hej! If you’re an artist or label, [sign up now](https://admin.voltra.co/signup)! We plan on opening up the shop when we reach our goal of 10 million tracks.
 

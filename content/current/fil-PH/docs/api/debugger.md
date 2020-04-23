@@ -31,20 +31,20 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Mga Halimbawa ng "Events"
+### Halimbawa ng mga Event
 
 #### Pangyayari: 'pagtanggal'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` Kaganapan
+* `event` na Kaganapan
 * `reason` String - Dahilan para sa pagtanggal ng "debugger".
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Pangyayari: 'mensahe'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `event` na Kaganapan
 * `method` String - Pangalan ng sistematikong paraan.
@@ -52,7 +52,7 @@ Ibinabalik ang:
 
 Emitted whenever the debugging target issues an instrumentation event.
 
-### Mga Pamamaraan ng Instance
+### Mga Halimbawa ng Sistematikong Paraan
 
 #### `debugger.attach([protocolVersion])`
 

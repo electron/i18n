@@ -1,18 +1,18 @@
 # 合併請求 (PR)
 
-* [設定本機環境](#setting-up-your-local-environment) 
+* [設定本機環境](#setting-up-your-local-environment)
   * [Step 1: Fork](#step-1-fork)
   * [Step 2: Build](#step-2-build)
   * [Step 3: Branch](#step-3-branch)
-* [進行修改](#making-changes) 
+* [進行修改](#making-changes)
   * [Step 4: Code](#step-4-code)
-  * [Step 5: Commit](#step-5-commit) 
+  * [Step 5: Commit](#step-5-commit)
     * [Commit message guidelines](#commit-message-guidelines)
   * [Step 6: Rebase](#step-6-rebase)
   * [Step 7: Test](#step-7-test)
   * [Step 8: Push](#step-8-push)
   * [Step 9: Opening the Pull Request](#step-9-opening-the-pull-request)
-  * [Step 10: Discuss and Update](#step-10-discuss-and-update) 
+  * [Step 10: Discuss and Update](#step-10-discuss-and-update)
     * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
   * [Step 11: Landing](#step-11-landing)
   * [持續整合測試](#continuous-integration-testing)
@@ -33,7 +33,6 @@ $ git fetch upstream
 ### Step 2: Build
 
 Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
-
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
@@ -77,29 +76,28 @@ Before a pull request can be merged, it **must** have a pull request title with 
 
 Examples of commit messages with semantic prefixes:
 
-* `fix: don't overwrite prevent_default if default wasn't prevented`
-* `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux`
+- `fix: don't overwrite prevent_default if default wasn't prevented`
+- `feat: add app.isPackaged() method`
+- `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Common prefixes:
 
-    - fix: A bug fix
-    - feat: A new feature
-    - docs: Documentation changes
-    - test: Adding missing tests or correcting existing tests
-    - build: Changes that affect the build system
-    - ci: Changes to our CI configuration files and scripts
-    - perf: A code change that improves performance
-    - refactor: A code change that neither fixes a bug nor adds a feature
-    - style: Changes that do not affect the meaning of the code (linting)
-    - vendor: Bumping a dependency like libchromiumcontent or node
-    
+  - fix: A bug fix
+  - feat: A new feature
+  - docs: Documentation changes
+  - test: Adding missing tests or correcting existing tests
+  - build: Changes that affect the build system
+  - ci: Changes to our CI configuration files and scripts
+  - perf: A code change that improves performance
+  - refactor: A code change that neither fixes a bug nor adds a feature
+  - style: Changes that do not affect the meaning of the code (linting)
+  - vendor: Bumping a dependency like libchromiumcontent or node
 
 Other things to keep in mind when writing a commit message:
 
-1. The first line should: 
-  * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+1. The first line should:
+   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   - be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
 2. Keep the second line blank.
 3. Wrap all other lines at 72 columns.
 
@@ -198,3 +196,4 @@ Every pull request is tested on the Continuous Integration (CI) system to confir
 Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
 
 CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
+

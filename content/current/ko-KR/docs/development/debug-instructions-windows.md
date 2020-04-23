@@ -1,6 +1,6 @@
 # Windows에서 Electron 디버깅하기
 
-만약 작성한 Javascript 애플리케이션이 아닌 Electron 자체의 크래시나 문제를 경험하고 있다면, 네이티브/C++ 디버깅에 익숙하지 않은 개발자는 디버깅이 약간 까다로울 수 있습니다. 그렇지만, Visual Studio, Github에서 호스트된 Electron Symbol Server, 그리고 Electron 소스코드를 사용한다면, Electron 소스코드 내부에 breakpoints를 추가하여 step-through debugging을 사용할 수 있습니다.
+만약 작성한 Javascript 애플리케이션이 아닌 Electron 자체의 크래시나 문제를 경험하고 있다면, 네이티브/C++ 디버깅에 익숙하지 않은 개발자는 디버깅이 약간 까다로울 수 있습니다. However, using Visual Studio, Electron's hosted Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
 
 **참조**: Chromium 개발자 사이트의 [윈도우에서의 Chromium 디버깅](https://www.chromium.org/developers/how-tos/debugging-on-windows)에 있는 Chromium 디비깅에 대한 많은 정보가 Electron에도 적용됩니다.
 
@@ -8,7 +8,7 @@
 
 * **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [Windows용 빌드 설명서](build-instructions-windows.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. 물론 직접 다운로드 받은 Electron 바이너리에도 디버거 연결 및 디버깅을 사용할 수 있지만, 실질적으로 디버깅이 까다롭게 고도의 최적화가 되어있음을 발견하게 될 것입니다: 인라인화, 꼬리 호출, 이외 여러 가지 생소한 최적화가 적용되어 디버거가 모든 변수와 실행 경로를 정상적으로 표시할 수 없습니다.
 
-* **Visual Studio와 C++ 툴**: Visual Studio 2013과 Visual Studio 2015 두 가지 커뮤니티 에디션 모두 잘 작동합니다. 설치가 완료되면, [Visual Studio가 GitHub의 Electron 심볼 서버를 사용하도록](setting-up-symbol-server.md) 설정해야 합니다. 이 작업은 Visual Studio가 Electron에서 무슨일이 일어나는지 더 잘 이해할 수 있도록 하며 변수를 사람이 읽기 좋은 포맷으로 쉽게 표현할 수 있도록 합니다.
+* **Visual Studio와 C++ 툴**: Visual Studio 2013과 Visual Studio 2015 두 가지 커뮤니티 에디션 모두 잘 작동합니다. Once installed, [configure Visual Studio to use Electron's Symbol server](setting-up-symbol-server.md). 이 작업은 Visual Studio가 Electron에서 무슨일이 일어나는지 더 잘 이해할 수 있도록 하며 변수를 사람이 읽기 좋은 포맷으로 쉽게 표현할 수 있도록 합니다.
 
 * **ProcMon**: 이 [무료 SysInternals 툴](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx)은 프로세스 인수, 파일 핸들러 그리고 레지스트리 작업을 탐색할 수 있게 도와줍니다.
 

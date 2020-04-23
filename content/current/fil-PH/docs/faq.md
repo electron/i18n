@@ -12,7 +12,7 @@ Maari mo ring subukan i download ang Electron ng direkta mula sa [electron/elect
 
 Ang Chrome version ng Electron ay kadalasang inilalabas sa loob ng isa o dalawang linggo pagkatapos mailabas ang bagong maayos na Chrome version. Ang tayang ito ay hindi garantisado at depende parin sa dami ng trabahong kailangang gawin na nakapaloob sa pag-a upgrade.
 
-Tanging ang matibay na tsanel ng Chrome ang gagamitin, kung ang importanteng pag-aayos ay nasa beta o dev channel, ito ay aming i ba back-port.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 Para sa karagdagang impormasyon, mangyaring tignan lamang ang [ security introduction](tutorial/security.md).
 
@@ -29,17 +29,20 @@ Para magbahagi ng mga datos sa pagitan ng pahina ng web ( ang nagbabahagi ay nag
 O maaari mo ring gamitin ang IPC system, na partikular na sa Electron, upang itabi ang mga bagay sa pangunahing proseso bilang isang pandaigdigang variable, at pagkatapos para ma access ang mga ito mula sa mga renderers sa pamamagitan ng `remote`property `electron`module:
 
 ```javascript
-Sa mga pangunahing proseso. global.sharedObject = {
+// Sa mga pangunahing proseso.
+global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-Sa pahina 1.require('electron').remote.getGlobal ('sharedObject').someProperty = 'bagong halaga'
+// In page 1.
+require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// Sa pahina2. console.log(require('electron').remote.getGlobal ('sharedObject').someProperty)
+// In page 2.
+console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
 ## My app's tray disappeared after a few minutes.
@@ -79,7 +82,7 @@ Dahil sa pagsasama ng Node.js ng Electron, mayroong ilang dagdag na simbolo ipin
 Upang malutas ito, maaari mong i-off ang pagsasama ng node sa Electron:
 
 ```javascript
-// Sa pangunahing proseso. 
+// Sa mga pangunahing proseso.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -94,10 +97,10 @@ Ngunit kung nais mong panatilihin ang mga kakayahan ng paggamit ng Node.js at El
 ```html
 <head>
 <script>
-window.nodeKailangan = kailangan
-Magtanggal ng window.kailangan;
-Magtanggal ng window.palabasin
-Magtanggal ng window.modyul;
+window.nodeRequire = require;
+delete window.require;
+delete window.exports;
+delete window.module;
 </script>
 <script type="text/javascript" src="jquery.js"></script>
 </head>
@@ -113,31 +116,11 @@ nangangailangan('electron').webFrame.setZoomFactor (1.0)
 Uncaught TypeError: Hindi mabasa ang 'setZoomLevel' property ng hindi natukoy
 ```
 
-Ito ay dahil mayroon ka ng [npm`electron ` module](https://www.npmjs.com/package/electron) naka-install alinman sa lokal o sa buong mundo, na pinapalitan ang built-in na module ng Electron.
-
-Upang i-verify kung ginagamit mo ang tamang built-in na module, maaari mong i-print ang path ng module ng `electron`:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-at pagkatapos ay suriin kung ito ay nasa sumusunod na form:
-
-```sh
-"/tunguhan/papunta/Elektron.app/Nilalaman/pinagkunan/atom.asar/renderer/api/lib/inilabas/elektron.js'
-```
-
-Kung ito ay tulad ng `node_modules/electron/index.js`, kailangan mo na alinman alisin ang npm`electron` module, o palitan ang pangalan nito.
-
-```sh
-npm i-tanggalin ang electron npm tanggalin ang -g electron
-```
-
-Subalit kung ikaw ay gumagamit ng mga built-in module at nakakakuha ka parin ng mga ganitong error, ito ay malamang na ang ginagamit mong module ay nasa maling proseso. Halimbawa`electron.app`ay maari lamang magamit sa pangunahing proseso, habang ang `electron.webFrame`ay tanging magagamit sa proseso ng tagasalin.
+It is very likely you are using the module in the wrong process. Halimbawa`electron.app`ay maari lamang magamit sa pangunahing proseso, habang ang `electron.webFrame`ay tanging magagamit sa proseso ng tagasalin.
 
 ## The font looks blurry, what is this and what can I do?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Halimbawa:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

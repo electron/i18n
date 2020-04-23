@@ -2,7 +2,7 @@
 
 > Administra las sesiones del navegador, cookies, cache, configuración del proxy, etc.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 El módulo `session` puede ser usado para crear nuevos objetos `session`.
 
@@ -25,7 +25,7 @@ El módulo `sesión` tiene los siguientes métodos:
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `opciones` Object (opcional) 
+* `options` Object (opcional)
   * `cache` Boolean - En el caso de activar la memoria cache.
 
 Regresa `Session` - Una instancia de session de la cadena `partition`. Cuando hay una `Session` existente con la misma `partition`, se devolverá la misma; de otra manera, una nueva instancia `Session` será creada con `options`.
@@ -46,7 +46,7 @@ Un objeto `Session`, es el objeto de session de la aplicación por defecto.
 
 > Obtener y configurar las propiedades de una sesión.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Puede crear un objeto `Session` en el módulo `session`:
 
@@ -99,7 +99,7 @@ Devuelve:
 * `event` Evento
 * `languageCode` String - El código de idioma del archivo de diccionario
 
-Emitido cuando un archivo de diccionario de hunspell se ha inicializado con éxito. Este se produce después de que el archivo se haya descargado.
+Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
 
 #### Evento: 'spellcheck-dictionary-download-begin'
 
@@ -126,7 +126,7 @@ Devuelve:
 * `event` Event
 * `languageCode` String - El código de idioma del archivo de diccionario
 
-Emitido cuando falla la descarga de un diccionario hunspell. Para detalles del fallo usted debería recoger un netlog e inspeccionar la solicitud de descarga.
+Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
 ### Métodos de Instancia
 
@@ -144,7 +144,7 @@ Borra la memoria caché del HTTP de la sesión.
 
 #### `ses.clearStorageData([options])`
 
-* `opciones` Objecto (opcional) 
+* `options` Object (opcional)
   * `origin` String (opcional) - Debe seguir la representación de `window.location.origin` `scheme://host:port`.
   * `storages` String[] (opcional) - Los tipos de almacenamientos para limpiar, puede contener: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (opcional) - El tipo de cuotas a limpiar, puede contener: `temporary`, `persistent`, `syncable`.
@@ -157,7 +157,7 @@ Escribe cualquier dato DOMStorage que no lo haya sido en disco.
 
 #### `ses.setProxy(config)`
 
-* `configuración` Object 
+* `config` Object
   * `pacScript` String (opcional) - La URL asociada con el archivo PAC.
   * `proxyRules` String (opcional) - Reglas indicando cuales proxies usar.
   * `proxyBypassRules` String (opcional) - Reglas indicando que URLs deberían ser omitidas por la configuración del proxy.
@@ -191,32 +191,32 @@ Por ejemplo:
 El `proxyBypassRules` es una lista separada por comas de las reglasa que se describen a continuación:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
-  
-  Une todos los nombres que coinciden con el patrón HOSTNAME_PATTERN.
-  
-  Ejemplos: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
-  
-  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
-    
-    Une sufijos de dominios particulares.
-    
-    Ejemplos: ".google.com", ".com", "http://.google.com"
+
+   Une todos los nombres que coinciden con el patrón HOSTNAME_PATTERN.
+
+   Ejemplos: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+
+ * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+
+   Une sufijos de dominios particulares.
+
+   Ejemplos: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
-  
-  Une URLs que son literales de dirección IP.
-  
-  Ejemplos: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+   Une URLs que son literales de dirección IP.
+
+   Ejemplos: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
-  
-  Une cualquier URL que es literal a una IP que cae en un rango determinado. El rango de IP es especificado usando la notación CIDR.
-  
-  Ejemplos: "192.168.1.1/16", "fefe:13::abc/33".
+
+   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+
+   Ejemplos: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
-  
-  Unir direcciones locales. El significado de `<local>` es el que el host determine que coincida entre: "127.0.0.1", "::1", "localhost".
+
+   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
@@ -228,15 +228,15 @@ Devuelve `Promise<String>` - Se resuelve con la información del proxy para `url
 
 * `ruta` Cadena - la ubicación de descarga.
 
-Configura el directorio de descargas. Por defecto, el directorio de descargas será `Descargas` en la carpeta respectiva de la aplicación.
+Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `opciones` Object 
-  * `fuera de linea` Booleano (opcional) - cuando la red emulada es interrumpida. por defecto es falso.
-  * `Latencia` Doble (opcional) - RTT en ms. Por defecto es 0 lo cual deshabilitará la regulación de la latencia.
-  * `downloadThroughput` Doble (opcional) - Velocidad de descarga en Bps. Por defecto es 0 que deshabilitará la regulación de descarga.
-  * `uploadThroughput` Doble (opcional) - Velocidad de subida en Bps. por defecto es 0 lo cual deshabilitará la regulación de subida.
+* `options` Object
+  * `offline` Boolean (optional) - Whether to emulate network outage. Por defecto es false.
+  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
 Emula la red con la configuración dada por la `sesión`.
 
@@ -254,26 +254,26 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.preconnect(options)`
 
-* `opciones` Object 
-  * `url` String - URL para preconexión. Solo el origen es relevante para abrir el socket.
-  * `numSockets` Number (opcional) - número de sockets para preconectar. Debe ser entre 1 y 6. Por defecto es 1.
+* `options` Object
+  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Por defecto es 1.
 
 Preconecta el número dado de sockets a un origen.
 
 #### `ses.disableNetworkEmulation()`
 
-Deshabilita cualquier emulación de red activa durante la `sesión`. Reinicia a la configuración de red original.
+Disables any network emulation already active for the `session`. Resets to the original network configuration.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function | null 
-  * `request` Object 
+* `proc` Function | null
+  * `request` Object
     * `hostname` String
     * `certificate` [certificate](structures/certificate.md)
     * `verificationResult` String - Resultado de la verificación de chromium.
     * `errorCode` Integer - Código de error.
-  * `callback` Function 
-    * `verificationResult` Integer - Valor que puede ser uno de los códigos de error certificado de [aquí](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Además de los códigos de error certificado, los siguientes códigos especiales pueden ser usados. 
+  * `callback` Función
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
       * `0` - Indica éxito y deshabilita la verificación Certificate Transparency.
       * `-2` - Indica falla.
       * `-3` - Usa el resultado de verificación de chromium.
@@ -298,12 +298,12 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `manejador` Function | null 
-  * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso. Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
+* `handler` Function | null
+  * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso.  Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
   * `permiso` cadena - Enumeración de 'medios', 'geolocalización', 'notificaciones', 'midiSysex', 'bloque de puntero', 'Pantalla completa', 'Apertura externa'.
-  * `callback` Function 
+  * `callback` Función
     * `permiso concedido` Booleano - Permiso o denegado de permiso.
-  * `details` Object - Algunas propiedades solamente están disponibles en ciertos tipos de permisos. 
+  * `details` Object - Some properties are only available on certain permission types.
     * `externalURL` String (opcional) - La url de la petición `openExternal`.
     * `mediaTypes` String[] (opcional) - Los tipos de medios que son solicitados para acceso, los elementos pueden ser `video` o `audio`
     * `requestingUrl` String - La ultima URL que el frame solicitante cargo
@@ -324,11 +324,11 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `manejador` Function<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) -WebContens comprobando el permiso. Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
+* `handler` Function<Boolean> | null
+  * `webContents` [WebContents](web-contents.md) -WebContens comprobando el permiso.  Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
   * `permission` String - Enumeración de 'media'.
   * `requestingOrigin` String - La URL de origen para la comprobación de permisos
-  * `details` Object - Algunas propiedades solamente están disponibles en ciertos tipos de permisos. 
+  * `details` Object - Some properties are only available on certain permission types.
     * `securityOrigin` String - El origen de seguridad de la comprobación `media`.
     * `mediaType` String - El tipo de acceso a los medios que se solicita, puede ser `video`, `audio` o `unknown`
     * `requestingUrl` String - La ultima URL que el frame solicitante cargo
@@ -400,7 +400,7 @@ Inicia una descargar del recurso en `url`. La API generará un [DownloadItem](do
 
 #### `ses.createInterruptedDownload(options)`
 
-* `opciones` Object 
+* `options` Object
   * `ruta` Cadena - ruta de acceso absoluta de la descarga.
   * `Cadeba URL` Cadena[] - Cadena de URL completa para la descarga.
   * `mimeType` Cadena (opcional)
@@ -432,25 +432,25 @@ Devuelve un array de rutas `String[]` para precargar guiones que han sido regist
 
 * `languages` String[] - Un array de códigos de idiomas para habilitar corrector ortográfico.
 
-El corrector ortográfico integrado no detecta automáticamente en que idioma un usuario esta escribiendo. Para que el corrector ortográfico compruebe correctamente sus palabras, usted debe llamar a esta API con un array de códigos de idiomas. Usted puede obtener la lista de los códigos de idiomas soportados con la propiedad `ses.availableSpellCheckerLanguages`.
+El corrector ortográfico integrado no detecta automáticamente en que idioma un usuario esta escribiendo.  Para que el corrector ortográfico compruebe correctamente sus palabras, usted debe llamar a esta API con un array de códigos de idiomas.  Usted puede obtener la lista de los códigos de idiomas soportados con la propiedad `ses.availableSpellCheckerLanguages`.
 
-**Note:** En macOS el corrector ortográfico del sistema operativo es usado y detectara automáticamente tu idioma. Esta API is un no-op en macOS.
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
 
 #### `ses.getSpellCheckerLanguages()`
 
-Devuelve `String[]` - Un array de códigos de idiomas para los que el corrector ortográfico esta habilitado. Si esta lista está vacía, el corrector ortográfico volverá a usar `en-US`. Por defecto al iniciar si esta lista de opción es una lista vacía Electron tratará de llenar esta opción con el locale actual del sistema operativo. Este configuración es persistente entre reinicios.
+Devuelve `String[]` - Un array de códigos de idiomas para los que el corrector ortográfico esta habilitado.  Si esta lista está vacía, el corrector ortográfico volverá a usar `en-US`.  Por defecto al iniciar si esta lista de opción es una lista vacía Electron tratará de llenar esta opción con el locale actual del sistema operativo.  Este configuración es persistente entre reinicios.
 
-**Note:** En macOS el corrector ortográfico del sistema operativo es usado y tiene su propia lista de idiomas. Esta API es una no-op en macOS.
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages.  This API is a no-op on macOS.
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
 * `url` String - Una URL base para Electron desde donde descargar los diccionarios hunspell.
 
-Por defecto Electron descargará diccionarios hunspell desde la CDN de Chromium. Si usted quiere sobrescribir este comportamiento puede usar esta API para apuntar el descargador de diccionarios a su propia versión alojada de diccionarios hunspell. Nosotros publicamos un archivo `hunspell_dictionaries.zip` con cada versión el cual contiene los archivos que necesitas para alojar aquí, el servidor de archivos debe ser **case insensitive**, debe cargar cada archivo dos veces, una como tiene este archivo ZIP y otra con el nombre del archivo todo con minúsculas.
+Por defecto Electron descargará diccionarios hunspell desde la CDN de Chromium.  Si usted quiere sobrescribir este comportamiento puede usar esta API para apuntar el descargador de diccionarios a su propia versión alojada de diccionarios hunspell.  Nosotros publicamos un archivo `hunspell_dictionaries.zip` con cada versión el cual contiene los archivos que necesitas para alojar aquí, el servidor de archivos debe ser **case insensitive**, debe cargar cada archivo dos veces, una como tiene este archivo ZIP y otra con el nombre del archivo todo con minúsculas.
 
-Si los archivos presentes en `hunspell_dictionaries.zip` están disponible en `https://example.com/dictionaries/language-code.bdic` entonces entonces debería llamar esta api con `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Por favor, tenga en cuenta la barra final. La URL a los diccionarios esta formada como `${url}${filename}`.
+Si los archivos presentes en `hunspell_dictionaries.zip` están disponible en `https://example.com/dictionaries/language-code.bdic` entonces entonces debería llamar esta api con `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`.  Por favor, tenga en cuenta la barra final.  La URL a los diccionarios esta formada como `${url}${filename}`.
 
-**Note:** En macOS the corrector ortográfico del sistema operativo es usado y por lo tanto no descargamos ningún archivo de diccionario. Esta API es una no-op en macOS.
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
 
 #### `ses.addWordToSpellCheckerDictionary(palabra)`
 
@@ -464,19 +464,19 @@ Devuelve `Boolean` - Si la palabra fue correctamente escrita al diccionario pers
 
 Las siguientes propiedades están disponibles en instancias de `Sesión`:
 
-#### `ses.availableSpellCheckerLanguages` *Readonly*
+#### `ses.availableSpellCheckerLanguages` _Readonly_
 
-Un array `String[]` que consiste en todos los idiomas conocidos disponibles para el corrector ortográfico. Proporcionar un código de lenguaje a la API `setSpellCheckerLanaguages` que no este en este array resultará en un error.
+Un array `String[]` que consiste en todos los idiomas conocidos disponibles para el corrector ortográfico.  Proporcionar un código de lenguaje a la API `setSpellCheckerLanaguages` que no este en este array resultará en un error.
 
-#### `ses.cookies` *Readonly*
+#### `ses.cookies` _Readonly_
 
 Un objeto [`Cookies`](cookies.md) para esta sesión.
 
-#### `ses.webRequest` *Readonly*
+#### `ses.webRequest` _Readonly_
 
 Un objeto [`WebRequest`](web-request.md) para esta sesión.
 
-#### `ses.protocol` *Readonly*
+#### `ses.protocol` _Readonly_
 
 Un objeto [`Protocol`](protocol.md) para esta sesión.
 
@@ -495,7 +495,7 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog` *Readonly*
+#### `ses.netLog` _Readonly_
 
 Un objeto [`NetLog`](net-log.md) para esta sesión.
 

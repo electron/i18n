@@ -2,19 +2,19 @@
 
 > Tätigen von HTTP/HTTPS anfragen.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 `ClientRequest` implementiert die [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)-Schnittstelle und ist somit ein [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - Wenn `options` ein String ist, wird dieser als die request URL interpretiert. Wenn es ein Objekt ist, wird erwartet das dieses ein HTTP anfrage komplett spezifiziert, mittels den folgenden Eigenschaften: 
-  * `method` String (optional) - Die HTTP Anfrage Methode. Standardwert ist die GET Methode.
-  * `url` String (optional) - Die angefragte URL. Muss in der absoluten Form angegeben werden, welche dem Protokoll Schema von HTTP oder HTTPS entspricht.
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (optional) - Der Name der zur Anfrage gehörenden [`partition`](session.md). Standard ist ein leerer String. Die `session` Option überwiegt `partition`. Somit, falls eine `session` explizit angegeben wird, wird `partition` ignoriert.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. This will make the `net` request's cookie behavior match a `fetch` request. Standard ist `false`.
-  * `protocol` String (optional) - Das Protokoll Schema im 'scheme:' Format. Die momentan unterstützten Werte sind 'http:' oder 'https:'. Standardwert ist 'http:'.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Standard ist `false`.
+  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (optional) - Der Server Host angegeben als eine Zusammensetzung aus Hostnamen und der Port Nummer 'hostname:port'.
   * `hostname` String (optional) - Der Server Host Name.
   * `port` Integer (optional) - Die Port Nummer des Servers.
@@ -47,13 +47,13 @@ Rückgabewert:
 
 Rückgabewert:
 
-* `authInfo` Object 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Funktion 
+* `callback` Function
   * `username` String (optional)
   * `password` String (optional)
 
@@ -69,7 +69,6 @@ request.on('login', (authInfo, callback) => {
   callback('username', 'password')
 })
 ```
-
 Das nicht Angeben von Anmeldeinformationen wird die Anfrage abbrechen und dem Response-Objekt einen Authentifizierungsfehler melden:
 
 ```JavaScript
@@ -90,7 +89,7 @@ Ausgesendet, direkt nachdem der letzte Block der `request` Daten in das `request
 
 #### Event: 'abort'
 
-Ausgesendet, wenn `request` abgebrochen wird. Das `abort` Event wird nicht ausgelöst, wenn `request` bereits geschlossen ist.
+Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### Event: 'error'
 
@@ -104,6 +103,7 @@ Ausgegeben, wenn das `net` Modul es nicht schaft eine Netzwerkanfrage zu senden.
 
 Ausgelöst als letztes Event in der HTTP request-response Interaktion. Das `close` Event gibt an, dass keine weiteren Events mehr auf die `request` oder `response` Objekte ausgelöst werden.
 
+
 #### Event: 'redirect'
 
 Rückgabewert:
@@ -113,7 +113,7 @@ Rückgabewert:
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### Instanz Eigenschaften
 
@@ -123,7 +123,7 @@ Ein `Boolean` gibt an, ob die HTTP Anfrage eine segmentierte Übertragungscodier
 
 Das Benutzen von segmentierter Codierung wird dringend empfohlen, wenn du einen großen request body senden möchtest, da die Daten in kleinen Stücken gestreamt wird, anstatt das diese intern im Electron Prozess Speicher gebufferd werden.
 
-### Beispiel Methoden
+### Instanz Methoden
 
 #### `request.setHeader(name, value)`
 
@@ -142,12 +142,12 @@ Returns `String` - The value of a previously set extra header name.
 
 * `name` String - Spezifiziert einen extra Header Namen.
 
-Entfernt den zuvor gesetzten extra Header Namen. Diese Methode kann nur vor dem ersten Schreiben aufgerufen werden. Der Versuch diese Methode danach Aufzurufen, wird einen Fehler erzeugen.
+Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - Ein Teil der Requests body Daten. Falls der wert ein String ist, wird dieser in einen Buffer konvertiert, mittels einer spezifischen Codierung.
-* `encoding` String (optional) - Wird benutzt um einen String chunk in ein Buffer Objekt zu konvertieren. Der Standardwert ist 'utf-8'.
+* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
+* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
 * `callback` Function (optional) - Wird aufgerufen, nachdem der Schreibvorgang beendet ist.
 
 `callback` ist im Wesentlichen eine dummy-Funktion die dem Zweck dient, Ähnlichkeiten mit der Node.js API beizubehalten. Es wird in den nächsten Tick asynchron aufgerufen, nachdem der `chunk` Inhalt auf der Chromium Netzwerkebene geliefert worden ist. Im Gegensatz zu der Node.js Implementierung, ist es nicht Garantiert das der `chunk` Inhalt hochgeladen worden ist, vor dem Aufrufen von `callback`.
@@ -160,7 +160,7 @@ Fügt einen Teil der Daten zum request body. Der erste Schreiboperation könnte 
 * `encoding` String (optional)
 * `callback` Funktion (optional)
 
-Sendet den letzten Teil der request Daten. Nachfolgende Schreib- oder End Vorgänge sind nicht mehr erlaubt. Das `finish` Event wird nach dem End Vorgang aufgerufen.
+Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
 #### `request.abort()`
 
@@ -174,8 +174,8 @@ Continues any pending redirection. Can only be called during a `'redirect'` even
 
 Gibt das `Object` zurück:
 
-* `active` Boolean - Ob die Anfrage gerade aktiv ist. Wenn das falsch ist, werden keine anderen Eigenschaften festgelegt
-* `started` Boolean - Ob der Upload gestartet wurde. Wenn dies falsch ist, werden `current` und `total` auf 0 gesetzt werden.
+* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
+* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
 * `current` Integer - Die Anzahl der bereits hochgeladenen Bytes
 * `total` Integer - Die Anzahl der Bytes, die für diese Anforderung hochgeladen werden
 

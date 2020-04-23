@@ -17,7 +17,7 @@ console.log(clipboard.readText('selection'))
 
 Das `clipboard` Modul besitzt die folgenden Methoden:
 
-**Notiz:** Experimentelle Schnittstellen sind mit "Experimentell" markiert und könnten in der Zukunft wegfallen.
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([type])`
 
@@ -121,151 +121,151 @@ const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is 
 clipboard.writeRTF(rtf)
 ```
 
-### `clipboard.readBookmark()` *macOS* *Windows*
+### `clipboard.readBookmark()` _macOS_ _Windows_
 
 Gibt das `Object` zurück:
 
 * `title` String
-* ` URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p>Gibt ein Objekt, dass die Keys <code>title` und `url` enthält zurück. Diese Keys repräsentieren das Lesezeichen in der Zwischenablage. Wenn das Lesezeichen nicht verfügbar ist, sind die Werte `title` und `url` leer.</p> 
-  ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
-  
-  * `title` String
-  * ` URL </ 0>  Zeichenfolge</li>
-<li><code>type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
-  
-  Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
-  
-  **Notiz:** Viele Anwendungen unter Windows unterstützen das Einfügen von Lesezeichen nicht. In diesem Fall kann man `clipboard.write` benutzen, um sowohl ein Lesezeichen, als auch Text als Fallback-Variante in die Zwischenablage zu schreiben.
-  
-  ```js
-  const { clipboard } = require('electron')
-  
-  clipboard.writeBookmark({
-    text: 'https://electronjs.org',
-    bookmark: 'Electron Homepage'
-  })
-  ```
-  
-  ### `clipboard.readFindText()` *macOS*
-  
-  Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
-  
-  This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
-  
-  ### `clipboard.writeFindText(text)` *macOS*
-  
-  * `text` String
-  
-  Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
-  
-  ### `clipboard.clear([type])`
-  
-  * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
-  
-  Löscht den Inhalt aus der Zwischenablage.
-  
-  ### `clipboard.availableFormats([type])`
-  
-  * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
-  
-  Gibt ein `String[]` zurück - Ein Array mit allen von der Zwischenablage unterstützten Formattypen `type`.
-  
-  ```js
-  const { clipboard } = require('electron')
-  
-  const formats = clipboard.availableFormats()
-  console.log(formats)
-  // [ 'text/plain', 'text/html' ]
-  ```
-  
-  ### `clipboard.has(format[, type])` *Experimentell*
-  
-  * `format` String
-  * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
-  
-  Gibt einen `Boolean` zurück - Prüft, ob die Zwischenablage das angegebene `format` unterstützt.
-  
-  ```js
-  const { clipboard } = require('electron')
-  
-  const hasFormat = clipboard.has('<p>selection</p>')
-  console.log(hasFormat)
-  // 'true' or 'false
-  ```
-  
-  ### `clipboard.read(format)` *Experimentell*
-  
-  * `format` String
-  
-  Gibt den `String` zurück - Liest den `format` Typ von der Zwischenablage.
-  
-  ### `clipboard.readBuffer(format)` *Experimentell*
-  
-  * `format` String
-  
-  Gibt den `Buffer` zurück - Liest den `format` Typ von der Zwischenablage.
-  
-  ```js
-  const { clipboard } = require('electron')
-  
-  const buffer = Buffer.from('this is binary', 'utf8')
-  clipboard.writeBuffer('public.utf8-plain-text', buffer)
-  
-  const ret = clipboard.readBuffer('public.utf8-plain-text')
-  
-  console.log(buffer.equals(out))
-  // true
-  ```
-  
-  ### `clipboard.writeBuffer(format, buffer[, type])` *Experimentell*
-  
-  * `format` String
-  * `buffer` Puffer
-  * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
-  
-  Schreibt den `buffer` mit dem angegebenen `format` in die Zwischenablage.
-  
-  ```js
-  const { clipboard } = require('electron')
-  
-  const buffer = Buffer.from('writeBuffer', 'utf8')
-  clipboard.writeBuffer('public.utf8-plain-text', buffer)
-  ```
-  
-  ### `clipboard.write(data[, type])`
-  
-  * `data` Object 
-    * `text` String (optional)
-    * `html` String (optional)
-    * `image` [NativeImage](native-image.md) (optional)
-    * `rtf` String (optional)
-    * `bookmark` String (optional) - The title of the URL at `text`.
-  * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
-  
-  Schreibt `data` in die Zwischenablage.
-  
-  ```js
-  const { clipboard } = require('electron')
-  
-  clipboard.write({
-    text: 'test',
-    html: '<b>Hi</b>',
-    rtf: '{\\rtf1\\utf8 text}',
-    bookmark: 'a title'
-  })
-  
-  console.log(clipboard.readText())
-  // 'test'
-  
-  console.log(clipboard.readHTML())
-  // <meta charset='utf-8'><b>Hi</b>
-  
-  console.log(clipboard.readRTF())
-  // '{\\rtf1\\utf8 text}'
-  
-  console.log(clipboard.readBookmark())
-  // { title: 'a title', url: 'test' }
-  ```
+Gibt ein Objekt, dass die Keys `title` und `url` enthält zurück. Diese Keys repräsentieren das Lesezeichen in der Zwischenablage. Wenn das Lesezeichen nicht verfügbar ist, sind die Werte `title` und `url` leer.
+
+### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
+
+* `title` String
+* `url` String
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
+Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
+
+**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+
+```js
+const { clipboard } = require('electron')
+
+clipboard.writeBookmark({
+  text: 'https://electronjs.org',
+  bookmark: 'Electron Homepage'
+})
+```
+
+### `clipboard.readFindText()` _macOS_
+
+Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+
+This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+
+### `clipboard.writeFindText(text)` _macOS_
+
+* `text` String
+
+Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
+
+### `clipboard.clear([type])`
+
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
+Löscht den Inhalt aus der Zwischenablage.
+
+### `clipboard.availableFormats([type])`
+
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
+Gibt ein `String[]` zurück - Ein Array mit allen von der Zwischenablage unterstützten Formattypen `type`.
+
+```js
+const { clipboard } = require('electron')
+
+const formats = clipboard.availableFormats()
+console.log(formats)
+// [ 'text/plain', 'text/html' ]
+```
+
+### `clipboard.has(format[, type])` _Experimental_
+
+* `format` String
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
+Gibt einen `Boolean` zurück - Prüft, ob die Zwischenablage das angegebene `format` unterstützt.
+
+```js
+const { clipboard } = require('electron')
+
+const hasFormat = clipboard.has('<p>selection</p>')
+console.log(hasFormat)
+// 'true' or 'false
+```
+
+### `clipboard.read(format)` _Experimental_
+
+* `format` String
+
+Gibt den `String` zurück - Liest den `format` Typ von der Zwischenablage.
+
+### `clipboard.readBuffer(format)` _Experimental_
+
+* `format` String
+
+Gibt den `Buffer` zurück - Liest den `format` Typ von der Zwischenablage.
+
+```js
+const { clipboard } = require('electron')
+
+const buffer = Buffer.from('this is binary', 'utf8')
+clipboard.writeBuffer('public.utf8-plain-text', buffer)
+
+const ret = clipboard.readBuffer('public.utf8-plain-text')
+
+console.log(buffer.equals(out))
+// true
+```
+
+### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
+
+* `format` String
+* `buffer` Puffer
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
+Schreibt den `buffer` mit dem angegebenen `format` in die Zwischenablage.
+
+```js
+const { clipboard } = require('electron')
+
+const buffer = Buffer.from('writeBuffer', 'utf8')
+clipboard.writeBuffer('public.utf8-plain-text', buffer)
+```
+
+### `clipboard.write(data[, type])`
+
+* `data` Object
+  * `text` String (optional)
+  * `html` String (optional)
+  * `image` [NativeImage](native-image.md) (optional)
+  * `rtf` String (optional)
+  * `bookmark` String (optional) - The title of the URL at `text`.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
+Schreibt `data` in die Zwischenablage.
+
+```js
+const { clipboard } = require('electron')
+
+clipboard.write({
+  text: 'test',
+  html: '<b>Hi</b>',
+  rtf: '{\\rtf1\\utf8 text}',
+  bookmark: 'a title'
+})
+
+console.log(clipboard.readText())
+// 'test'
+
+console.log(clipboard.readHTML())
+// <meta charset='utf-8'><b>Hi</b>
+
+console.log(clipboard.readRTF())
+// '{\\rtf1\\utf8 text}'
+
+console.log(clipboard.readBookmark())
+// { title: 'a title', url: 'test' }
+```

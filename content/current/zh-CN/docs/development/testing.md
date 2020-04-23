@@ -12,7 +12,7 @@
 
 要确保您的C ++代码符合Electron编码风格，请执行`npm run lint-cpp`，它将会执行`cpplint`脚本。 我们建议您使用`clang-format`并准备[一个简短的教程](clang-format.md)。
 
-这个仓库中没有太多的Python代码，但是它也受编码风格规范的约束。使用`npm run lint-py`来检查Python的编码风格规范。当然你也可以使用`pylint`。
+There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
 
 ## 单元测试
 
@@ -28,29 +28,28 @@ If you are not using [build-tools](https://github.com/electron/build-tools), ens
 #### Extra steps to run the unit test:
 
 1. Visual Studio 2019 must be installed.
-2. Node headers have to be compiled for your configuration. 
-        powershell
-        ninja -C out\Testing third_party\electron_node:headers
-
-3. The electron.lib has to be copied as node.lib. 
-        powershell
-        cd out\Testing
-        mkdir gen\node_headers\Release
-        copy electron.lib gen\node_headers\Release\node.lib
+2. Node headers have to be compiled for your configuration.
+   ```powershell
+   ninja -C out\Testing third_party\electron_node:headers
+   ```
+3. The electron.lib has to be copied as node.lib.
+   ```powershell
+   cd out\Testing
+   mkdir gen\node_headers\Release
+   copy electron.lib gen\node_headers\Release\node.lib
+   ```
 
 #### Missing fonts
 
 [一些 Windows 10 设备](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list)上没有默认安装Meriryo字体，这会导致字体回退测试的失败。 要安装Meiryo字体：
-
-1. 按下Windows key并搜索 *管理可选功能*。
-2. 单击*添加功能*
-3. 选择*Japanese Supplemental Fonts*并单击 *安装*
+1. 按下Windows key并搜索 _管理可选功能_。
+2. 单击_添加功能_
+3. 选择_Japanese Supplemental Fonts_并单击 _安装_
 
 #### Pixel measurements
 
 由于浮点数精度误差，某些依赖于精确像素测量的测试可能无法正常在Hi-DPI屏幕的设备上工作。 为了使这些测试能正常运行，请确保设备的缩放比为100%。
 
 要配置缩放比：
-
-1. 按下Windows key并搜索*显示设置*.
-2. 在*Scale and layout*下，确保缩放比为100%。
+1. 按下Windows key并搜索_显示设置_.
+2. 在_Scale and layout_下，确保缩放比为100%。

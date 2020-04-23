@@ -1,4 +1,4 @@
 # ExtensionInfo Object
 
-* ` nama </ 0>  String</li>
+* ` nama </ 0>  Deretan</li>
 <li><code>Versi` String

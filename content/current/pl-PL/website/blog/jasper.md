@@ -33,7 +33,7 @@ When people use GitHub in their job or OSS activities, they tend to receive many
 
 I was spending a lot of time and energy trying to prevent those problems, so I decided to make an issue reader for GitHub to solve these problems efficiently, and started developing Jasper.
 
-## Who's using Jasper?
+## Kto używa Jasper?
 
 Jasper is used by developers, designers, and managers in several companies that are using GitHub. Of course, some OSS developers also are using it. And it is also used by some people at GitHub!
 
@@ -41,7 +41,7 @@ Jasper is used by developers, designers, and managers in several companies that 
 
 <a href="https://twitter.com/jna_sh/status/798283937344651264"><img src="https://cloud.githubusercontent.com/assets/2289/24108649/75f4b9e0-0d4b-11e7-9701-24a0ef251ad2.png" width="500"></a>
 
-## How does Jasper work?
+## Jak działa Jasper?
 
 Once Jasper is configured, the following screen appears. From left to right, you can see "streams list", "issues list" and "issue body".
 
@@ -63,7 +63,7 @@ After creating the stream and waiting for a few seconds, you can see the issues 
 
 I will introduce what kind of conditions can be used for stream.
 
-### Users and Teams
+### Użytkownicy i zespoły
 
 | Stream                                        | Problemy                                                              |
 | --------------------------------------------- | --------------------------------------------------------------------- |
@@ -76,7 +76,7 @@ I will introduce what kind of conditions can be used for stream.
 
 `involves` means `mention`, `author`, `assignee` or `commenter`
 
-### Repositories and Organizations
+### Repozytoria i organizacje
 
 | Stream                           | Problemy                             |
 | -------------------------------- | ------------------------------------ |
@@ -95,11 +95,11 @@ I will introduce what kind of conditions can be used for stream.
 
 ### Review Status
 
-| Stream                       | Problemy                                                                         |
-| ---------------------------- | -------------------------------------------------------------------------------- |
-| `is:pr review:required`      | Issues that are required review in `cat/jump`                                    |
+| Stream                       | Problemy                                                                               |
+| ---------------------------- | -------------------------------------------------------------------------------------- |
+| `is:pr review:required`      | Issues that are required review in `cat/jump`                                          |
 | `is:pr review-requested:cat` | Issues that are requested review by `cat`. <br/> But these are not reviewed yet. |
-| `is:pr reviewed-by:cat`      | Issues that are reviewed by `cat`                                                |
+| `is:pr reviewed-by:cat`      | Issues that are reviewed by `cat`                                                      |
 
 <br/>
 

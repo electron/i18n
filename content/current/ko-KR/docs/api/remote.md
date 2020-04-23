@@ -17,9 +17,8 @@ win.loadURL('https://github.com')
 **참고:** 반대의 경우 (메인 프로세스에서 렌더러 프로세스에 접근할 경우), [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture) 를 사용하면 됩니다.
 
 **참고:** remote 모듈은 다음의 상황에서 보안상의 이유로 비활성화될 수 있습니다.
-
-* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
-* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
+- [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
+- [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
 
 ## Remote 객체
 
@@ -59,7 +58,7 @@ exports.withLocalCallback = () => {
 ```
 
 ```javascript
-// renderer process
+// 렌더러 프로세스
 const mapNumbers = require('electron').remote.require('./mapNumbers')
 const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
 const withLocalCb = mapNumbers.withLocalCallback()
@@ -118,7 +117,7 @@ project/
 ```
 
 ```js
-// main process: main/index.js
+// 메인 프로세스: main/index.js
 const { app } = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
@@ -129,7 +128,7 @@ module.exports = 'bar'
 ```
 
 ```js
-// renderer process: renderer/index.js
+// 렌더러 프로세스: renderer/index.js
 const foo = require('electron').remote.require('./foo') // bar
 ```
 
@@ -151,6 +150,6 @@ Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main 
 
 ## 속성
 
-### `remote.process` *Readonly*
+### `remote.process` _읽기전용_
 
-A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.

@@ -4,34 +4,34 @@ Please make sure that you use the documents that match your Electron version. Th
 
 ## FAQ
 
-May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bagong isyu:
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [Electron FAQ](faq.md)
 
 ## Gabay at Tutorial
 
-* [Setup para sa Development Environment](tutorial/development-environment.md) 
+* [Setup para sa Development Environment](tutorial/development-environment.md)
   * [Setting ng macOS](tutorial/development-environment.md#setting-up-macos)
   * [Setting ng Windows](tutorial/development-environment.md#setting-up-windows)
   * [Setting ng Linux](tutorial/development-environment.md#setting-up-linux)
   * [Pagpili ng Editor](tutorial/development-environment.md#a-good-editor)
-* [Pag gawa ng una mong aplikasyon](tutorial/first-app.md) 
+* [Pag gawa ng una mong aplikasyon](tutorial/first-app.md)
   * [Paginstall ng Electron](tutorial/first-app.md#installing-electron)
   * [Development ng Electron sa Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Pagpapaandar ng yong aplikasyon](tutorial/first-app.md#running-your-app)
-* [Boilerplates at CLIs](tutorial/boilerplates-and-clis.md) 
+* [Boilerplates at CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplates laban sa CLIs](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [pagpipilit ng elektron](tutorial/boilerplates-and-clis.md#electron-forge)
   * [pagbubuo ng elektron](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Ibang mga tools at boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Arkitektura ng aplikasyon](tutorial/application-architecture.md) 
+* [Arkitektura ng aplikasyon](tutorial/application-architecture.md)
   * [Pangunahin at Proseso ng Renderer](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Paggamit ng Electron APIs](tutorial/application-architecture.md#using-electron-apis)
   * [Paggamit ng Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Paggamit ng katutubong Node.js Modules](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-* Pagdagdag ng features sa iyong aplikasyon 
+* Pagdagdag ng features sa iyong aplikasyon
   * [Mga Paalala](tutorial/notifications.md)
   * [Kasalukuyang dokumento](tutorial/recent-documents.md)
   * [Kaunlaran sa Aplikasyon](tutorial/progress-bar.md)
@@ -40,52 +40,52 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
   * [Pasadyang Linux Desktop na mga Aksyon](tutorial/linux-desktop-actions.md)
   * [Mga shortcut ng keyboard](tutorial/keyboard-shortcuts.md)
   * [Offline/Online Deteksyon](tutorial/online-offline-events.md)
-  * [File na nagrerepresenta sa macOS BrowserWindows](tutorial/represented-file.md)
-  * [Katutubong File Drag& Drop](tutorial/native-file-drag-drop.md)
+  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Labas sa iskrin na pagproseso](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
-* [Aksesibilidad](tutorial/accessibility.md) 
+* [Aksesibilidad](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [DevtronDevtron](tutorial/accessibility.md#devtron)
   * [Paganahin ang aksesibilidad](tutorial/accessibility.md#enabling-accessibility)
-* [Testing and Debugging](tutorial/application-debugging.md) 
+* [Testing and Debugging](tutorial/application-debugging.md)
   * ["Debugging" ang Pangunahing Proseso](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
-  * [Paggamit ng Selenium at WebDriver](tutorial/using-selenium-and-webdriver.md)
+  * [Ang Paggamit ng Selenium at WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pagssuri ng sistemang Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Ekstensyon ng DevTools](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* [Distribution](tutorial/application-distribution.md) 
+* [Distribution](tutorial/application-distribution.md)
   * [Mga suportadong plataporma](tutorial/support.md#supported-platforms)
   * [Code Signing](tutorial/code-signing.md)
   * [App Store ng Mac](tutorial/mac-app-store-submission-guide.md)
   * [Tindahan ng Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Seguridad](tutorial/security.md) 
+* [Seguridad](tutorial/security.md)
   * [Naguulat sa mga Isyung Panseguridad](tutorial/security.md#reporting-security-issues)
   * [Mga Isyung Panseguridad at Upgrades ng Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Babala sa seguridad ng Electron](tutorial/security.md#electron-security-warnings)
   * [Listahan ng Seguridad](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
-  * [Pagbigay ng Update Server](tutorial/updates.md#deploying-an-update-server)
+* [Updates](tutorial/updates.md)
+  * [Pagde-deploy ng isang Update na Server](tutorial/updates.md#deploying-an-update-server)
   * [Pagimplementa ng update sa iyong applikasyon](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Pagapply ng mga updates](tutorial/updates.md#applying-updates)
+  * [Pag-aaplay sa mga Update](tutorial/updates.md#applying-updates)
 * [Getting Support](tutorial/support.md)
 
 ## Detalyadong Tutorials
 
 Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 
-* [Paginstall ng Electron](tutorial/installation.md) 
+* [Paginstall ng Electron](tutorial/installation.md)
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Paghahanap ng ProblemaPaghahanap ng Problema](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
+* Electron Releases & Developer Feedback
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* [Packaging App Source Code with asar](tutorial/application-packaging.md)
   * [Pagbubuo ng mga asar na Archive](tutorial/application-packaging.md#generating-asar-archives)
   * [Paggamit ng mga Archives ng asar](tutorial/application-packaging.md#using-asar-archives)
   * [Mga limitasyon](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -93,7 +93,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Paggamit ng ekstensyong Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [Glosaryo ng mga termino](glossary.md)
 
@@ -155,4 +155,4 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 
 ## Pag-unlad
 
-Tingnan sa <development/README.md>
+Tingnan sa [development/README.md](development/README.md)

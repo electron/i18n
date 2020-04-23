@@ -6,17 +6,16 @@ Sundin ang mga patnubay sa ibaba para sa pagbuo ng Electron sa Linux.
 
 * Hindi bababa sa 25GB disk space at 8GB RAM.
 * Ang ilang distribusyon ng Python 2.7.x. tulad ng CentOS 6.x ay gumagamit pa rin hanggang ngayon ng Python 2.6.x kaya naman maaaring suriin ang Python version gamit ang `python -V`.
-    
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
-    
-    ```sh
-    $ npx @electron/check-python-tls
-    ```
-    
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+
+  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+
+  ```sh
+  $ npx @electron/check-python-tls
+  ```
+
+  If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
 
 * Node.js. May iba't-ibang paraan upang i-install ang Node. Maaaring "i-download" ang "source code" galing sa [nodejs.org](https://nodejs.org) at ikompayl ito. Ang paggawa nito ay hahayaang "i-install" ang Node sa iyong "home directory" bilang "standard user". Maaari din namang subukan ang mga "repository" tulad ng [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-
 * [clang](https://clang.llvm.org/get_started.html) 3.4 o mamaya.
 * Development headers of GTK 3 and libnotify.
 
@@ -48,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Ang ibang mga distribusyon ay maaaring ipagamit ang parehong "package" para sa "installation" gamit ang "package managers" tulad ng "pacman". Pwede ring ikompayl ang isa galing sa "source code".
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
 ### "Cross Compilation"
 
@@ -80,7 +79,7 @@ See [Build Instructions: GN](build-instructions-gn.md)
 
 ### Mga Mali na Maaaring Lumabas Habang ang "Shared Libraries" ay "Loading": libtinfo.so.5
 
-Ang muling nabuo na `clang` ay susubukang "i-link" sa `libtinfo.so.5`. Depende sa "host architecture" kung ang "symlink" ay iaangkop ang `libncurses`:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -88,7 +87,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Mga Pinatiunang Paksa
 
-Ang kumpigurasyon ng "default building" ay tinatarget para sa mga pangunahing distribusyon ng "desktop Linux". Ang mga sumusunod na impormasyon ay maaaring makatulong para makabuo ng tiyak na distribusyon.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### Gamitin ang sistema ng `clang` sa halip na "downloaded `clang` binaries"
 

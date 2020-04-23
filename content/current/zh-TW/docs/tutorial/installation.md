@@ -1,6 +1,6 @@
 # 安裝
 
-可以透過 [`npm`](https://docs.npmjs.com) 安裝預先建置好的 Electron 二進位檔。建議將 Electron 安裝成你應用程式開發相依套件:
+To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
 npm install electron --save-dev
@@ -38,14 +38,12 @@ If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` v
 * [Before Node 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## 自訂鏡像及快取
-
 During installation, the `electron` module will call out to [`@electron/get`](https://github.com/electron/get) to download prebuilt binaries of Electron for your platform. 它會連到 GitHub 的發行下載頁(`https://github.com/electron/electron/releases/tag/v$VERSION`，當中的 `$VERSION` 替換成 Electron 確切的版本) 下載。
 
 如果你連不到 GitHub，或是需要使用客製化的版本，可以提供鏡像或是既有的快取目錄來安裝。
 
 #### 鏡像
-
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The URL used by `@electron/get` is composed as follows:
+你可以使用環境變數蓋掉 Electron 尋找二位檔的根 URL 及檔名。 The URL used by `@electron/get` is composed as follows:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -67,7 +65,6 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### 快取
-
 或是，你也可以蓋過本機快取。 `@electron/get` will cache downloaded binaries in a local directory to not stress your network. 你可以使用這個快取目錄來提供客製版的 Electron，或是在完全沒有網路的環境下執行。
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
@@ -78,7 +75,7 @@ The above configuration will download from URLs such as `https://npm.taobao.org/
 
 You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
-快取內容包含檔案官方的 Zip 檔及純文字檢查碼檔案，一般的快取看起來像這樣:
+The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -104,13 +101,11 @@ You can also override the local cache location by providing a `electron_config_c
 ```
 
 ## Skip binary download
-
 When installing the `electron` NPM package, it automatically downloads the electron binary.
 
 This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
 
 To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
-
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```

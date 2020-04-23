@@ -1,4 +1,4 @@
-# Nagbabago sa kapaligiran
+# Environment Variables
 
 > Kontrolin ang pagsasaayos ng application at pag-uugali nang walang pagbabago ng code.
 
@@ -11,7 +11,7 @@ $i- export  and ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Halimbawa ng Windows console: 
+Halimbawa ng Windows console:
 
 ```powershell
 > i-set and ELECTRON_ENABLE_LOGGING=true
@@ -59,27 +59,37 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Bilang default, maaaring hindi pinapayagan ang isang bagong nabuong Google API key para gumawa ng mga kahilingan sa geocoding. Upang paganahin ang mga kahilingan sa geocoding, bisitahin ang  ang pahinang ito </ 0>.</p> 
+For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Bilang default, maaaring hindi pinapayagan ang isang bagong nabuong Google API key para gumawa ng mga kahilingan sa geocoding. Upang paganahin ang mga kahilingan sa geocoding, bisitahin ang ang pahinang ito </ 0>.</p> 
+
+
 
 ### `ELECTRON_NO_ASAR
 `
 
-Hindi pinapagana ang suporta ng ASAR. Ang variable na ito ay suportado lamang sa mga proseso sa forked child at spawned child proseso na nagtatakda ng ` ELECTRON_RUN_AS_NODE </ 0>. </p>
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
-<h3><code>ELECTRON_RUN_AS_NODE
-`</h3> 
+
+
+### `ELECTRON_RUN_AS_NODE
+`
 
 Nagsisimula ang proseso bilang isang normal na proseso ng Node.js.
 
-### `ELECTRON_NO_ATTACH_CONSOLE` *Windows* 
+
+
+### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_ 
 
 Huwag ilakip sa kasalukuyang session ng console.
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux* 
+
+
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_ 
 
 Huwag gamitin ang global menu bar sa Linux.
 
-### `ELECTRON_TRASH` *Linux*
+
+
+### `ELECTRON_TRASH` _Linux_
 
 Set the trash implementation on Linux. Default is `gio`.
 
@@ -90,37 +100,47 @@ Options:
 * `kioclient5`
 * `kioclient`
 
+
+
 ## Development Variables 
 
 Ang mga sumusunod na variable ng kapaligiran ay inilaan lalo na para sa pag-unlad at mga layunin ng pag-debug.
+
+
+
 
 ### `ELECTRON_ENABLE_LOGGING
 `
 
 Ini-print ang Chrome's internal logging sa console.
 
+
+
 ### `ELECTRON_LOG_ASAR_READS
 `
 
-Kapag bumabasa ang Electron mula sa isang file ng ASAR, mag-log sa read offset at file path sa ang system ` tmpdir </ 0>. Ang resultang file ay maaaring ibigay sa module ng ASAR
-upang i-optimize ang pag-order ng file.</p>
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
-<h3><code>ELECTRON_ENABLE_STACK_DUMPING
-`</h3> 
+
+
+### `ELECTRON_ENABLE_STACK_DUMPING
+`
 
 Ini-print ang stack trace sa console kapag nag-crash ang Electron.
 
 Ang variable ng kapaligiran na ito ay hindi gagana kung ang ` crashReporter </ 0> ay nagsimula.</p>
 
-<h3><code>ELECTRON_DEFAULT_ERROR_MODE` *Windows* </h3> 
+<h3 spaces-before="0"><code>ELECTRON_DEFAULT_ERROR_MODE` _Windows_ </h3> 
 
 Ipinapakita ang dialog ng pag-crash ng Windows kapag nag-crash ang Electron.
 
 Ang variable ng kapaligiran na ito ay hindi gagana kung ang ` crashReporter </ 0> ay nagsimula.</p>
 
-<h3><code>ELECTRON_OVERRIDE_DIST_PATH`</h3> 
+<h3 spaces-before="0"><code>ELECTRON_OVERRIDE_DIST_PATH`</h3> 
 
 When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Paggamit:
+
+
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug

@@ -5,17 +5,16 @@
 如果您有安全方面的问题，请参阅 [安全文档](https://github.com/electron/electron/tree/master/SECURITY.md)
 
 如果你想获得编程方面的帮助、问题的答案亦或是想要加入Electron的开发者大家庭，您可以参考以下链接：
-
-* [`electron`](https://discuss.atom.io/c/electron) 各种 Atom 论坛
-* `#atom-shell` Freenode上的频道
-* `#electron` [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)上的频道
-* [`electron-ru`](https://telegram.me/electron_ru) *(俄语版)*
-* [`electron-br`](https://electron-br.slack.com) *(巴西葡语版)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韩语版)*
-* [`electron-jp`](https://electron-jp.slack.com) *(日语版)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(土耳其语版)*
-* [`electron-id`](https://electron-id.slack.com) *(印尼语版)*
-* [`electron-pl`](https://electronpl.github.io) *(波兰语版)*
+- [`electron`](https://discuss.atom.io/c/electron) 各种 Atom 论坛
+- `#atom-shell` Freenode上的频道
+- `#electron` [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)上的频道
+- [`electron-ru`](https://telegram.me/electron_ru) *(俄语版)*
+- [`electron-br`](https://electron-br.slack.com) *(巴西葡语版)*
+- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韩语版)*
+- [`electron-jp`](https://electron-jp.slack.com) *(日语版)*
+- [`electron-tr`](https://electron-tr.herokuapp.com) *(土耳其语版)*
+- [`electron-id`](https://electron-id.slack.com) *(印尼语版)*
+- [`electron-pl`](https://electronpl.github.io) *(波兰语版)*
 
 如果你有意为加入Electron的开发，可参阅[贡献文档](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 
@@ -25,7 +24,7 @@
 
 ## 支持版
 
-最新的 3 个*稳定的*的版本受 Electron 团队支持。 例如，如果最新版本是 6.1.x，则包括 5.0.x和 4.2.x系列的同样会被支持 We only support the latest minor release for each stable release series. This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
+最新的 3 个*稳定的*的版本受 Electron 团队支持。 例如，如果最新版本是 6.1.x，则包括 5.0.x和 4.2.x系列的同样会被支持  We only support the latest minor release for each stable release series.  This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
 
 The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
 
@@ -34,10 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
 ### 当前支持的版本
-
-* 8.1.x
-* 7.1.x
-* 6.1.x
+- 8.1.x
+- 7.1.x
+- 6.1.x
 
 ### End-of-life
 

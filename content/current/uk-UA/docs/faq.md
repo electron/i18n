@@ -12,7 +12,7 @@
 
 Chrome для Electron зазвичай випускається протягом тижня чи двох після релізу стабільної версії Chrome. Цей термін не є гарантованим і залежить від кількості роботи спричиненої оновленням.
 
-Використовуються тільки стабільні версії Chrome. Якщо важливе виправлення присутнє в beta чи dev версії, ми застосуємо їх.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 Для більш детальної інформації, перегляньте [Політику безпеки](tutorial/security.md).
 
@@ -36,12 +36,12 @@ global.sharedObject = {
 ```
 
 ```javascript
-// На сторнці 1.
+// In page 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// На сторінці 2.
+// In page 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -115,32 +115,11 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-Це стається через те, що [npm модуль `electron`](https://www.npmjs.com/package/electron) встановлений локально і глобально, що перезаписує вбудовані модулі Electron.
-
-Щоб перевірити правильність використання вбудованого модуля, ви можете вивести шлях до модуля `electron`:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-і перевірити чи він має наступний вигляд:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-Якщо він схожий на `node_modules/electron/index.js`, то ви маєте видалити модуль npm `electron`, чи перейменувати його.
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-Однак, якщо ви використовуєте вбудований модуль, але все одно отримуєте помилки, найімовірніше — ви використовуєте модуль в неправильному процесі. Наприклад `electron.app` може бути використаний тільки в головному процесі, тоді як `electron.webFrame` доступний тільки в процесі рендерингу.
+It is very likely you are using the module in the wrong process. Наприклад `electron.app` може бути використаний тільки в головному процесі, тоді як `electron.webFrame` доступний тільки в процесі рендерингу.
 
 ## The font looks blurry, what is this and what can I do?
 
-Якщо [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) деактивовано, тоді шрифти на LCD екранах можуть виглядати розмитими. Приклад:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Приклад:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

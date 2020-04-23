@@ -12,7 +12,7 @@ JavaScript が Electron コーディングスタイルに準拠しているこ�
 
 C++ が Electron コーディングスタイルに準拠していることを確認するには、`npm run lint-cpp` を実行します。これは、`cpplint` スクリプトを実行します。 `clang-format` と用意された [短いチュートリアル](clang-format.md) を使うことを推奨します。
 
-このリポジトリにはたくさんの Python はありませんが、これもコーディングスタイルの規則によって管理されています。`npm run lint-py` は、`pylint` を使ってすべての Python をチェックします。
+There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
 
 ## 単体テスト
 
@@ -27,29 +27,28 @@ C++ が Electron コーディングスタイルに準拠していることを確
 #### 単体テストを実行するための追加手順:
 
 1. Visual Studio 2019 をインストールする必要があります。
-2. Node ヘッダーは構成に合わせてコンパイルする必要があります。 
-        powershell
-        ninja -C out\Testing third_party\electron_node:headers
-
-3. electron.lib を node.lib としてコピーする必要があります。 
-        powershell
-        cd out\Testing
-        mkdir gen\node_headers\Release
-        copy electron.lib gen\node_headers\Release\node.lib
+2. Node ヘッダーは構成に合わせてコンパイルする必要があります。
+   ```powershell
+   ninja -C out\Testing third_party\electron_node:headers
+   ```
+3. electron.lib を node.lib としてコピーする必要があります。
+   ```powershell
+   cd out\Testing
+   mkdir gen\node_headers\Release
+   copy electron.lib gen\node_headers\Release\node.lib
+   ```
 
 #### フォントの欠落
 
 [一部の Windows 10 デバイス](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) はメイリオフォントがインストールされていない状態で出荷されるため、フォントフォールバックテストが失敗する可能性があります。 メイリオをインストールするには以下のようにします。
-
-1. Windows キーを押して *オプション機能の管理* と検索します。
-2. *機能の追加* をクリックします。
-3. *日本語追加フォント* を選択して *インストール* をクリックします。
+1. Windows キーを押して _オプション機能の管理_ と検索します。
+2. _機能の追加_ をクリックします。
+3. _日本語追加フォント_ を選択して _インストール_ をクリックします。
 
 #### ピクセル測定
 
 正確なピクセル測定値に依存するようなテストは、浮動小数点精度の誤差のために Hi-DPI 画面設定のデバイスでは正しく動作しない場合があります。 これらのテストを正常に実行するには、そのデバイスが倍率 100% に設定されていることを確認してください。
 
 ディスプレイ倍率を設定するには、
-
-1. Windows キーを押して *ディスプレイの設定* と検索します。
-2. *スケールとレイアウト* で、そのデバイスが 100% に設定されていることを確認します。
+1. Windows キーを押して _ディスプレイの設定_ と検索します。
+2. _スケールとレイアウト_ で、そのデバイスが 100% に設定されていることを確認します。

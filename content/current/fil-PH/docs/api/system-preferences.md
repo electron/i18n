@@ -2,7 +2,7 @@
 
 > Kuhanin ang mga kagustuhan ng sistema.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = require('electron')
@@ -13,20 +13,20 @@ console.log(systemPreferences.isDarkMode())
 
 Ang `systemPreferences` na object ay naglalabas ng sumusunod na mga pangyayari:
 
-### Pangyayari: 'accent-color-changed' *Windows*
+### Pangyayari: 'accent-color-changed' _Windows_
 
 Ibinabalik ang:
 
-* `event` na Pangyayari
+* `kaganapan` Kaganapan
 * `newColor` na String - Ang bagong kulay ng RGBA na itinatakda ng tagagamit bilang kanilang pansistemang accent na kulay.
 
-### Pangyayari: 'color-changed' *Windows*
+### Pangyayari: 'color-changed' _Windows_
 
 Ibinabalik ang:
 
-* `event` na Pangyayari
+* `event` na Kaganapan
 
-### Event: 'inverted-color-scheme-changed' *Windows* *Deprecated*
+### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
 Ibinabalik ang:
 
@@ -35,7 +35,7 @@ Ibinabalik ang:
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
-### Event: 'high-contrast-color-scheme-changed' *Windows* *Deprecated*
+### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
 
 Ibinabalik ang:
 
@@ -46,44 +46,44 @@ Ibinabalik ang:
 
 ## Mga Pamamaraan
 
-### `systemPreferences.isDarkMode()` *macOS* *Windows* *Deprecated*
+### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
 
 Ibinabalik ang `Boolean` - Kapag ang sistema ay naka-Dark Mode.
 
-**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`. See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
+**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`.  See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
 
 **Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
-### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
+### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
 
 Ibinabalik ang `Boolean` - Kung ang Swipe sa pagitan ng settiing ng mga pahina ay naka-on.
 
-### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
+### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` _macOS_
 
 * `event` na String
 * `userInfo` Record<String, any>
 * `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
-Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` ay isang object na naglalaman ng mga diksyunaryong impormasyon ng tagagamit na ipadala kasama ang paalala.
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
-
-* `event` na String
-* `userInfo` Record<String, any>
-
-Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` ay isang object na naglalaman ng mga diksyunaryong impormasyon ng tagagamit na ipadala kasama ang paalala.
-
-### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
+### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `event` na String
 * `userInfo` Record<String, any>
 
-Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` ay isang object na naglalaman ng mga diksyunaryong impormasyon ng tagagamit na ipadala kasama ang paalala.
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-### `systemPreferences.subscribeNotification(event, callback)` *macOS*
+### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `event` na String
-* `callback` Function 
+* `userInfo` Record<String, any>
+
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+
+### `systemPreferences.subscribeNotification(event, callback)` _macOS_
+
+* `event` na String
+* `callback` na Function
   * `event` na String
   * `userInfo` Record<String, unknown>
   * `object` String
@@ -101,53 +101,53 @@ Sa ilalim ng hood, ang API na ito ay nagsa-subscribe sa `NSDistributedNotificati
 * `AppleColorPreferencesChangedNotification`
 * `AppleShowScrollBarsSettingChanged`
 
-### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
+### `systemPreferences.subscribeLocalNotification(event, callback)` _macOS_
 
 * `event` na String
-* `callback` Function 
+* `callback` na Function
   * `event` na String
   * `userInfo` Record<String, unknown>
   * `object` String
 
 Returns `Number` - The ID of this subscription
 
-Kapareho ng `subscribeNotification`, pero gumagamit ng `NSNotificationCenter` para sa lokal na mga default. Kinakailangan ito para sa mga pangyayaring katulad ng `NSUserDefaultsDidChangeNotification`.
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
-### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
+### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
 * `event` na String
-* `callback` Function 
+* `callback` na Function
   * `event` na String
   * `userInfo` Record<String, unknown>
   * `object` String
 
 Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
 
-### `systemPreferences.unsubscribeNotification(id)` *macOS*
+### `systemPreferences.unsubscribeNotification(id)` _macOS_
 
 * `id` Integer
 
 Tinatanggal ang nagsa-subscribe kasama ang `id`.
 
-### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
+### `systemPreferences.unsubscribeLocalNotification(id)` _macOS_
 
 * `id` Integer
 
 Kapareho sa `unsubscribeNotification`, pero tinatanggal ang nagsa-subscribe mula sa `NSNotificationCenter`.
 
-### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
+### `systemPreferences.unsubscribeWorkspaceNotification(id)` _macOS_
 
 * `id` Integer
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
 
-### `systemPreferences.registerDefaults(defaults)` *macOS*
+### `systemPreferences.registerDefaults(defaults)` _macOS_
 
 * `defaults` Record<String, String | Boolean | Number> - a dictionary of (`key: value`) user defaults
 
 Add the specified defaults to your application's `NSUserDefaults`.
 
-### `systemPreferences.getUserDefault(key, type)` *macOS*
+### `systemPreferences.getUserDefault(key, type)` _macOS_
 
 * `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
@@ -164,7 +164,7 @@ Ang ilang mga sikat na `key` at `type` ay:
 * `NSPreferredWebServices`: `dictionary`
 * `NSUserDictionaryReplacementItems`: `array`
 
-### `systemPreferences.setUserDefault(key, type, value)` *macOS*
+### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
 * `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
@@ -172,19 +172,19 @@ Ang ilang mga sikat na `key` at `type` ay:
 
 Itakda ang halaga ng `key` sa `NSUserDefaults`.
 
-Tandaan na dapat tugma ang `type` sa akwal na uri ng `value`. Ang isang nabubukod ay ibinabato kapag hindi ito tugma.
+Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
 Ang ilang mga sikat na `key` at `type` ay:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
-### `systemPreferences.removeUserDefault(key)` *macOS*
+### `systemPreferences.removeUserDefault(key)` _macOS_
 
 * `key` String
 
-Tinatanggal ang `key` sa `NSUserDefaults`. Maaari itong gamitin sa pagbabalik ng default o pangkalahatang halaga ng isang `key` na naitakda gamit ang `setUserDefault`.
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
-### `systemPreferences.isAeroGlassEnabled()` *Windows*
+### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
 Ibinabalik ang `Boolean` - `true` kapag ang [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) ay pinagana, at ang `false` kapag hindi.
 
@@ -212,7 +212,7 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` *Windows* *macOS*
+### `systemPreferences.getAccentColor()` _Windows_ _macOS_
 
 Ibinabalik ang `String` - Ang kasulukuyang kagustuhang accent na kulay ng mga tagagamit sa buong sistema na anyong RGBA hexadecimal.
 
@@ -226,17 +226,17 @@ const alpha = color.substr(6, 2) // "dd"
 
 This API is only available on macOS 10.14 Mojave or newer.
 
-### `systemPreferences.getColor(color)` *Windows* *macOS*
+### `systemPreferences.getColor(color)` _Windows_ _macOS_
 
-* `color` Ang String - Isa sa sumusunod na mga halaga: 
-  * On **Windows**: 
+* `color` String - One of the following values:
+  * On **Windows**:
     * `3d-dark-shadow` - ang madilim na anino para sa mga tatlong dimensyonal na mga elementong pang-display.
     * `3d-face` - kulay ng mukha para sa mga tatlong dimensyonal na elementong pang-display at para sa mga background ng dialog na kahon.
     * `3d-highlight` - kulay ng highlight para sa tatlong dimensyonal na mga elementong pang-display.
     * `3d-light` - Kulay ng ilaw para sa tatlong dimensyonal na mga elementong pang-display.
     * `3d-shadow` - kulay ng anino para sa tatlong dimensyonal na mga elementong pang-display.
     * `active-border` - Aktibong border ng window.
-    * `active-caption` - Aktibong title bar ng window. Nagtatakda ng kaliwang bandang kulay sa kulay na gradient ng title bar ng isang aktibong window kapag ang gradient na epekto ay pinapagana.
+    * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
     * `active-caption-gradient` - Kanang bandang kulay sa kulay na gradient ng tile bar ng isang aktibong window.
     * `app-workspace` - Kulay ng background ng multiple document interface (MDI) na mga aplikasyon.
     * `button-text` - Teksto sa mga push button.
@@ -247,7 +247,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `highlight-text` - Teksto ng (mga) aytem na pinili sa isang kontrol.
     * `hotlight` - Kulay para sa isang hyperlink o hot-tracked na aytem.
     * `inactive-border` - Hindi aktibong border ng window.
-    * `inactive-caption` - Hindi aktibong kapsyon. Itinatakda ang kaliwang bandang kulay sa isang kulay na gradient ng title bar ng isang hindi aktibong window kapag pinapagana ang epektong gradient.
+    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
     * `inactive-caption-gradient` - Kanang bandang kulay sa kulay na gradient ng title bar ng isang hindi aktibong window.
     * `inactive-caption-text` - Kulay ng teksto sa isang hindi aktibong kapsyon.
     * `info-background` - Kulay ng background para sa mga kontrol ng tooltip.
@@ -260,8 +260,8 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window` - Background ng Window.
     * `window-frame` - Frame ng window.
     * `window-text` - Teksto sa mga window.
-  * On **macOS** 
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table. *deprecated*
+  * On **macOS**
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table. _deprecated_
     * `control-background` - The background of a large interface element, such as a browser or table.
     * `control` - The surface of a control.
     * `control-text` -The text of a control that isn’t disabled.
@@ -273,7 +273,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
     * `label` - The text of a label containing primary content.
     * `link` - A link to other content.
-    * `placeholder-text` - A placeholder string in a control or text view.
+    * `placeholder-text` -  A placeholder string in a control or text view.
     * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
     * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
     * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
@@ -287,8 +287,8 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `shadow` - The virtual shadow cast by a raised object onscreen.
     * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
     * `text-background` - Text background.
-    * `text` - The text in a document.
-    * `under-page-background` - The background behind a document's content.
+    * `text` -  The text in a document.
+    * `under-page-background` -  The background behind a document's content.
     * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
     * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
     * `unemphasized-selected-text` - Selected text in a non-key window or view.
@@ -299,9 +299,9 @@ Ibinabalik ang `String` - Ang setting ng pangsistemang kulay ay nasa anyong hexa
 
 The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 
-### `systemPreferences.getSystemColor(color)` *macOS*
+### `systemPreferences.getSystemColor(color)` _macOS_
 
-* `color` Ang String - Isa sa sumusunod na mga halaga: 
+* `color` String - One of the following values:
   * `blue`
   * `brown`
   * `gray`
@@ -314,21 +314,21 @@ The following colors are only available on macOS 10.14: `find-highlight`, `selec
 
 Returns `String` - The standard system color formatted as `#RRGGBBAA`.
 
-Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
+Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for  more details.
 
-### `systemPreferences.isInvertedColorScheme()` *Windows* *Deprecated*
+### `systemPreferences.isInvertedColorScheme()` _Windows_ _Deprecated_
 
 Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
 
 **Deprecated:** Should use the new [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API.
 
-### `systemPreferences.isHighContrastColorScheme()` *macOS* *Windows* *Deprecated*
+### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _Deprecated_
 
 Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
 **Depreacted:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
 
-### `systemPreferences.getEffectiveAppearance()` *macOS*
+### `systemPreferences.getEffectiveAppearance()` _macOS_
 
 Returns `String` - Can be `dark`, `light` or `unknown`.
 
@@ -336,7 +336,7 @@ Gets the macOS appearance setting that is currently applied to your application,
 
 **[Deprecated](modernization/property-updates.md)**
 
-### `systemPreferences.getAppLevelAppearance()` *macOS* *Deprecated*
+### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
 
 Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
 
@@ -344,7 +344,7 @@ Gets the macOS appearance setting that you have declared you want for your appli
 
 **[Deprecated](modernization/property-updates.md)**
 
-### `systemPreferences.setAppLevelAppearance(appearance)` *macOS* *Deprecated*
+### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _Deprecated_
 
 * `appearance` String | null - Can be `dark` or `light`
 
@@ -352,13 +352,13 @@ Sets the appearance setting for your application, this should override the syste
 
 **[Deprecated](modernization/property-updates.md)**
 
-### `systemPreferences.canPromptTouchID()` *macOS*
+### `systemPreferences.canPromptTouchID()` _macOS_
 
 Returns `Boolean` - whether or not this device has the ability to use Touch ID.
 
 **NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
 
-### `systemPreferences.promptTouchID(reason)` *macOS*
+### `systemPreferences.promptTouchID(reason)` _macOS_
 
 * `reason` String - The reason you are asking for Touch ID authentication
 
@@ -378,13 +378,13 @@ This API itself will not protect your user data; rather, it is a mechanism to al
 
 **NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
 
-### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
+### `systemPreferences.isTrustedAccessibilityClient(prompt)` _macOS_
 
 * `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
 
 Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
 
-### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
+### `systemPreferences.getMediaAccessStatus(mediaType)` _macOS_
 
 * `mediaType` String - Can be `microphone`, `camera` or `screen`.
 
@@ -392,11 +392,11 @@ Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or
 
 This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return `granted`. macOS 10.14 Mojave or higher requires consent for `microphone` and `camera` access. macOS 10.15 Catalina or higher requires consent for `screen` access.
 
-### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
+### `systemPreferences.askForMediaAccess(mediaType)` _macOS_
 
 * `mediaType` String - the type of media being requested; can be `microphone`, `camera`.
 
-Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it *must* be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
+Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it _must_ be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
 
 **Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
 
@@ -414,7 +414,7 @@ Returns an object with system animation settings.
 
 ## Mga Katangian
 
-### `systemPreferences.appLevelAppearance` *macOS*
+### `systemPreferences.appLevelAppearance` _macOS_
 
 A `String` property that can be `dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
 
@@ -422,7 +422,7 @@ Possible values that can be set are `dark` and `light`, and possible return valu
 
 This property is only available on macOS 10.14 Mojave or newer.
 
-### `systemPreferences.effectiveAppearance` *macOS* *Readonly*
+### `systemPreferences.effectiveAppearance` _macOS_ _Readonly_
 
 A `String` property that can be `dark`, `light` or `unknown`.
 

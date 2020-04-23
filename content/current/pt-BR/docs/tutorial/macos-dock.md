@@ -4,7 +4,7 @@ Electron possui API's para configurar ícones de aplicativos no dock do macOS. U
 
 O dock customizado é frequentemente usado para adicionar atalhos para tarefas as quais o usuário não irá querer abrir totalmente a janela do aplicativo para acessá-la.
 
-**Menu do Dock do Terminal.app:**
+__Menu do Dock do Terminal.app:__
 
 ![Menu do Dock](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 

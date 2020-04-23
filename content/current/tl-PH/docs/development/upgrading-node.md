@@ -24,17 +24,18 @@ So in short, the primary steps are:
 ## Updating Electron's Node [fork](https://github.com/electron/node)
 
 1. Ensure that `master` on `electron/node` has updated release tags from `nodejs/node`
-2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
+2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update
   - `vX.X.X` Must use a version of Node compatible with our current version of Chromium
-3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X` 
+3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X`
   - Check release tag and select the range of commits we need to re-apply
-  - Cherry-pick commit range: 
+  - Cherry-pick commit range:
     1. Checkout both `vY.Y.Y` & `v.X.X.X`
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - Resolve merge conflicts in each file encountered, then: 
+  - Resolve merge conflicts in each file encountered, then:
     1. `git add <conflict-file>`
     2. `git cherry-pick --continue`
     3. Repeat until finished
+
 
 ## Updating [V8](https://github.com/electron/node/src/V8) Patches
 
@@ -71,16 +72,16 @@ Update the `DEPS` file in the root of [electron/electron](https://github.com/ele
 
 ## Notes
 
-- Node maintains its own fork of V8 
+- Node maintains its own fork of V8
   - They backport a small amount of things as needed
   - Documentation in Node about how [they work with V8](https://nodejs.org/api/v8.html)
-- We update code such that we only use one copy of V8 across all of Electron 
+- We update code such that we only use one copy of V8 across all of Electron
   - E.g Electron, Chromium, and Node.js
-- We don’t track upstream closely due to logistics: 
-  - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
-- Chromium is large and time-consuming to update, so we typically choose the Node version based on which of its releases has a version of V8 that’s closest to the version in Chromium that we’re using. 
+- We don’t track upstream closely due to logistics:
+   - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
+- Chromium is large and time-consuming to update, so we typically choose the Node version based on which of its releases has a version of V8 that’s closest to the version in Chromium that we’re using.
   - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new Chromium
-  - Electron keeps all its patches in the repo because it’s simpler than maintaining different repos for patches for each upstream project. 
-    - Crashpad, Node.js, Chromium, Skia etc. patches are all kept in the same place
-  - Building Node: 
-    - We maintain our own GN build files for Node.js to make it easier to ensure that eevrything is built with the same compiler flags. This means that every time we upgrade Node.js we have to do a modest amount of work to synchronize the GN files with the upstream GYP files.
+ - Electron keeps all its patches in the repo because it’s simpler than maintaining different repos for patches for each upstream project.
+   - Crashpad, Node.js, Chromium, Skia etc. patches are all kept in the same place
+ - Building Node:
+   - We maintain our own GN build files for Node.js to make it easier to ensure that eevrything is built with the same compiler flags. This means that every time we upgrade Node.js we have to do a modest amount of work to synchronize the GN files with the upstream GYP files.

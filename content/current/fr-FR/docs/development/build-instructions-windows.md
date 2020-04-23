@@ -1,21 +1,21 @@
-# Instructions de Build (Windows)
+# Instructions de compilation (Windows)
 
 Suivez les indications ci-dessous pour compiler Electron sur Windows.
 
 ## Prérequis
 
 * Windows 10 / Server 2012 R2 ou supérieur
-* Visual Studio 2017 15.7.2 ou supérieur - [téléchargez VS 2019 Community Edition gratuitement](https://www.visualstudio.com/vs/) 
+* Visual Studio 2017 15.7.2 ou plus - [télécharger VS 2019 Community Edition gratuitement](https://www.visualstudio.com/vs/)
   * Voir [la documentation de construction de Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) pour plus de détails sur les composants de Visual Studio.
-  * Si votre Visual Studio est installé dans un autre répertoire que celui par défaut, vous aurez besoin de définir quelques variables d'environnement pour pointer les chaînes de compilation vers votre chemin d'installation. 
+  * Si votre Visual Studio est installé dans un autre répertoire que celui par défaut, vous aurez besoin de définir quelques variables d'environnement pour pointer les chaînes de compilation vers votre chemin d'installation.
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, remplaçant `2019` et `Communauté` par vos versions installées et remplaçant `DRIVE:` par le lecteur sur lequel Visual Studio est allumé. Souvent, ce sera `C:`.
-    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, remplaçant `DRIVE:` par le lecteur sur lequel les kits Windows sont allumés. Souvent, ce sera `C:`.
-* [Python 2.7.10 ou supérieur](http://www.python.org/download/releases/2.7/) 
+    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Souvent, ce sera `C:`.
+* [Python 2.7.10 ou supérieur](http://www.python.org/download/releases/2.7/)
   * Contrairement aux instructions de configuration `depot_tools` liées ci-dessous, vous aurez besoin de pour utiliser Python installé localement avec au moins la version 2. . 10 (avec support pour TLS 1.2). Pour ce faire, assurez-vous que dans **PATH**, votre Python installé localement arrive avant le dossier `depot_tools`. Actuellement, `depot_tools` est toujours livré avec Python 2.7.6, ce qui fera échouer la commande `gclient` (voir https://crbug.com/868864).
   * [Les extensions Python pour Windows (pywin32) ](https://pypi.org/project/pywin32/#files) sont également nécessaires pour exécuter le processus de compilation.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* Outils de débogage pour Windows de Windows SDK 10.0.15063.468 si vous prévoyez de créer une distribution complète depuis `symstore.exe` est utilisé pour créer une boutique de symbole à partir de `.pdb` fichiers. 
+* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
   * Différentes versions du SDK peuvent être installées côte à côte. Pour installer le SDK, ouvrez Visual Studio Installer, sélectionnez `Change` → `Composants individuels`, faites défiler vers le bas et sélectionnez le SDK Windows approprié à installer. Une autre option serait de regarder la [Windows SDK et l'archive émulateur](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) et de télécharger la version autonome du SDK respectivement.
   * Les outils de débogage SDK doivent également être installés. Si le SDK Windows 10 a été installé via l'installateur Visual Studio, alors ils peuvent être installés en allant à: `Panneau de configuration` → `Programmes` → `Programmes et fonctionnalités` → Sélectionnez le "Kit de développement du logiciel Windows" → `Changement` → `Changement` → Vérifiez "Outils de débogage pour Windows" → `Changement`. Ou, vous pouvez télécharger l'installateur SDK autonome et l'utiliser pour installer les outils de débogage.
 
@@ -23,7 +23,7 @@ Si vous ne disposez pas d’une installation Windows, [dev.microsoftedge.com](ht
 
 La compilation d'Electron se fait entièrement avec des scripts en ligne de commande et ne peut se faire avec Visual Studio. Vous pouvez développer Electron avec n’importe quel éditeur, mais le support de la compilation avec Visual Studio viendra dans le futur.
 
-**Remarque :** Même si Visual Studio n’est pas utilisé pour la compilation, il est toujours **nécessaire** car nous avons besoin du build toolchains qu'il fournit.
+**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
 ## Compilation
 
@@ -83,7 +83,7 @@ $ git config --system core.longpaths true
 
 ### erreur: utilisation de l'identifiant non déclaré 'DefaultDelegateCheckMode'
 
-Cela peut se produire pendant la compilation, lorsque les outils de débogage pour Windows ont été installés avec Windows Driver Kit. Désinstallez le Kit de pilotes Windows et installez les outils de débogage avec les étapes décrites ci-dessus.
+This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
 
 ### Erreur d'importation : Aucun module nommé win32file
 

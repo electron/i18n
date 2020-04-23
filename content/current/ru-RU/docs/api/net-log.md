@@ -24,7 +24,7 @@ app.on('ready', async () => {
 ### `netLog.startLogging(path[, options])`
 
 * `path` String - путь к файлу для записи сетевых журналов.
-* `options` Object (опционально) 
+* `options` Object (optional)
   * `captureMode` String (опционально) - Какие типы данных должны быть зафиксированы. По умолчанию будут записаны только метаданные о запросах. Установка этого в `includeSensitive` будет включать cookies и данные аутентификации. Установка на `everything` включит все байты, передаваемые на сокеты. Может быть `default`, `includeSensitive` или `everything`.
   * `maxFileSize` Number (опционально) - Когда журнал заполнится и станет больше этого размера, регистрация автоматически прекратится. По умолчанию неограничено.
 
@@ -40,10 +40,10 @@ app.on('ready', async () => {
 
 ## Свойства
 
-### `netLog.currentlyLogging` *Только чтение*
+### `netLog.currentlyLogging` _Только чтение_
 
 Свойство `Boolean`, указывающее на запись сетевых журналов.
 
-### `netLog.currentlyLoggingPath` *Только чтение* *Устарело*
+### `netLog.currentlyLoggingPath` _Только чтение_ _Устарело_
 
 Свойство `String`, которое возвращает путь к текущему файлу журнала.

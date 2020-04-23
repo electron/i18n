@@ -1,17 +1,17 @@
-# Membangun petunjuk (macOS)
+# Membangun petunjuk (Linux)
 
 Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 
 ## Prasyarat
 
-* macOS > = 10.11.6
+* macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
 * [node.js](https://nodejs.org) untuk Linux)
 * Python 2.7 dengan dukungan untuk TLS 1.2
 
 ## Python
 
-Harap pastikan juga bahwa sistem dan versi Python Anda mendukung setidaknya TLS 1.2. Ini tergantung pada versi macOS dan Python Anda. Untuk tes cepat, jalankan:
+Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
 
 ```sh
 $ npx @electron/check-python-tls
@@ -37,7 +37,7 @@ $ pip install pyobjc
 
 If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK. Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
+Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK.  Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
 
 ## Building Electron
 

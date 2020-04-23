@@ -23,13 +23,13 @@ app.on('ready', () => {
 })
 ```
 
-**Ograniczenia dotyczące platformy:**
+__Ograniczenia dotyczące platformy:__
 
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
 * App indicator will only be shown when it has a context menu.
 * When app indicator is used on Linux, the `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Na przykład:
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -49,10 +49,10 @@ app.on('ready', () => {
   appIcon.setContextMenu(contextMenu)
 })
 ```
-
 * W systemie Windows zalecane jest użycie ikony `ICO`, aby uzyskać najlepsze efekty wizualne.
 
 If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+
 
 ### `new Tray(image)`
 
@@ -74,7 +74,7 @@ Zwraca:
 
 Emitted when the tray icon is clicked.
 
-#### Zdarzenie: 'right-click' *macOS* *Windows*
+#### Zdarzenie: 'right-click' _macOS_ _Windows_
 
 Zwraca:
 
@@ -83,7 +83,7 @@ Zwraca:
 
 Emitted when the tray icon is right clicked.
 
-#### Zdarzenie: 'double-click' *macOS* *Windows*
+#### Zdarzenie: 'double-click' _macOS_ _Windows_
 
 Zwraca:
 
@@ -92,23 +92,23 @@ Zwraca:
 
 Emitted when the tray icon is double clicked.
 
-#### Zdarzenie: 'balloon-show'*Windows*
+#### Zdarzenie: 'balloon-show'_Windows_
 
 Emitted when the tray balloon shows.
 
-#### Zdarzenie: 'balloon-click' *Windows*
+#### Zdarzenie: 'balloon-click' _Windows_
 
 Emitted when the tray balloon is clicked.
 
-#### Zdarzenie: 'balloon-closed' *Windows*
+#### Zdarzenie: 'balloon-closed' _Windows_
 
 Emitted when the tray balloon is closed because of timeout or user manually closes it.
 
-#### Zdarzenie: 'drop' *macOS*
+#### Zdarzenie: 'drop' _macOS_
 
 Emitted when any dragged items are dropped on the tray icon.
 
-#### Zdarzenie: 'drop-files' *macOS*
+#### Zdarzenie: 'drop-files' _macOS_
 
 Zwraca:
 
@@ -117,7 +117,7 @@ Zwraca:
 
 Emitted when dragged files are dropped in the tray icon.
 
-#### Zdarzenie: 'drop-text' *macOS*
+#### Zdarzenie: 'drop-text' _macOS_
 
 Zwraca:
 
@@ -126,19 +126,19 @@ Zwraca:
 
 Emitted when dragged text is dropped in the tray icon.
 
-#### Zdarzenie: 'drag-enter' *macOS*
+#### Zdarzenie: 'drag-enter' _macOS_
 
 Emitted when a drag operation enters the tray icon.
 
-#### Zdarzenie: 'drag-leave' *macOS*
+#### Zdarzenie: 'drag-leave' _macOS_
 
 Emitted when a drag operation exits the tray icon.
 
-#### Zdarzenie: 'drag-end' *macOS*
+#### Zdarzenie: 'drag-end' _macOS_
 
 Emitted when a drag operation ends on the tray or ends at another location.
 
-#### Zdarzenie: 'mouse-enter' *macOS*
+#### Zdarzenie: 'mouse-enter' _macOS_
 
 Zwraca:
 
@@ -147,7 +147,7 @@ Zwraca:
 
 Emitted when the mouse enters the tray icon.
 
-#### Zdarzenie: 'mouse-leave' *macOS*
+#### Zdarzenie: 'mouse-leave' _macOS_
 
 Zwraca:
 
@@ -156,7 +156,7 @@ Zwraca:
 
 Emitted when the mouse exits the tray icon.
 
-#### Event: 'mouse-move' *macOS* *Windows*
+#### Event: 'mouse-move' _macOS_ _Windows_
 
 Zwraca:
 
@@ -179,7 +179,7 @@ Destroys the tray icon immediately.
 
 Sets the `image` associated with this tray icon.
 
-#### `tray.setPressedImage(image)` *macOS*
+#### `tray.setPressedImage(image)` _macOS_
 
 * `image` ([NativeImage](native-image.md) | String)
 
@@ -191,17 +191,17 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 Ustawia tekst w dymku ikony w zasobniku systemowym.
 
-#### `tray.setTitle(title)` *macOS*
+#### `tray.setTitle(title)` _macOS_
 
 * `title` String
 
 Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
 
-#### `tray.getTitle()` *macOS*
+#### `tray.getTitle()` _macOS_
 
 Returns `String` - the title displayed next to the tray icon in the status bar
 
-#### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
+#### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
 * `ignore` Boolean
 
@@ -209,32 +209,32 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 
 This value is set to false by default.
 
-#### `tray.getIgnoreDoubleClickEvents()` *macOS*
+#### `tray.getIgnoreDoubleClickEvents()` _macOS_
 
 Returns `Boolean` - Whether double click events will be ignored.
 
-#### `tray.displayBalloon(options)` *Windows*
+#### `tray.displayBalloon(options)` _Windows_
 
-* `options` Object 
+* `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Default is `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
-  * `noSound` Boolean (optional) - Do not play the associated sound. Default is `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
-  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Default is `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Domyślnie jest `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
+  * `noSound` Boolean (optional) - Do not play the associated sound. Domyślnie jest `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
+  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Domyślnie jest `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
 
 Wyświetla dymek w zasobniku systemowym.
 
-#### `tray.removeBalloon()` *Windows*
+#### `tray.removeBalloon()` _Windows_
 
 Removes a tray balloon.
 
-#### `tray.focus()` *Windows*
+#### `tray.focus()` _Windows_
 
 Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
 
-#### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+#### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
 * `menu` Menu (optional)
 * `position` [Point](structures/point.md) (optional) - The pop up position.
@@ -249,7 +249,7 @@ The `position` is only available on Windows, and it is (0, 0) by default.
 
 Sets the context menu for this icon.
 
-#### `tray.getBounds()` *macOS* *Windows*
+#### `tray.getBounds()` _macOS_ _Windows_
 
 Zwraca [`Rectangle`](structures/rectangle.md)
 

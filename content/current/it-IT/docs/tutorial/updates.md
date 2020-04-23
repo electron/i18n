@@ -4,7 +4,7 @@ Ci sono molti modi di aggiornare una app di Electron. La più facile ed ufficial
 
 ## Usando `aggiorna.electronjs.org`
 
-Il team di GitHub di Electron mantiene aggiorna.electronjs.org, un servizio web gratuito e libero che le app di Electron possono usare per auto aggiornarsi. The service is designed for Electron apps that meet the following criteria:</p> 
+The Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
 
 - App eseguite su macOS o Windows
 - App con repository di GitHub pubblica
@@ -59,7 +59,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-Come passo finale controlla per aggiornamenti. L'esempio sotto controllerà ogni minuto:
+As the final step, check for updates. The example below will check every minute:
 
 ```javascript
 setInterval(() => {
@@ -89,7 +89,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Assicurati anche che gli errori [siano controllati](../api/auto-updater.md#event-error). Qui un esempio per la loro registrazione a `stderr`:
+Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {

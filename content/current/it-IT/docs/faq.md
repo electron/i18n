@@ -12,7 +12,7 @@ Puoi anche provare a scaricare Electron direttamente da [electron/electron/relea
 
 La versione di Chrome di Electron è generalmente rilasciata entro una o due settimane dopo che viene rilasciata una nuova versione stabile di Chrome. Questa stima non è garantita e dipende dalla quantità di lavoro necessario per l'aggiornamento.
 
-Viene utilizzato solo il canale Chrome stabile. Se c'è una soluzione importante nel canale beta o dev, la supporteremo.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 Per ulteriori informazioni, consulta [ l'introduzione alla sicurezza](tutorial/security.md).
 
@@ -29,20 +29,20 @@ Per condividere i dati tra le pagine Web (i processi di rendering) il modo più 
 Oppure puoi utilizzare il sistema IPC, che è specifico per Electron, per memorizzare gli oggetti nel processo principale come variabile globale, e poi per accedervi dai processi renderer attraverso la proprietà `remote` del modulo `elettron`:
 
 ```javascript
-// Nel processo principale.
+// Nel processo principale(main).
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// Nella pagina 1.
-richiede('elettronica').remote.getGlobal('sharedObject').someProperty = 'nuovo valore'
+// In page 1.
+require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// Nella pagina 2.
-console.log(richiede('Electrn').remote.getGlobal('sharedObject').someProperty)
+// In page 2.
+console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
 ## La tray della mia app è scomparsa dopo pochi minuti.
@@ -82,7 +82,7 @@ A causa dell'integrazione di Node.js di Electron, ci sono alcuni simboli aggiunt
 Per risolvere questo problema, puoi disattivare l'integrazione di Node in Electron:
 
 ```javascript
-// Nel processo principale.
+// Nel processo principale(main).
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -115,32 +115,11 @@ Quando si utilizza il modulo integrato di Electron si potrebbe verificare un err
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-Questo accade perchè il modulo [modulo npm `electron`](https://www.npmjs.com/package/electron), istallato localmente o globalmente, sovrascrive/sostituisce il modulo integrato di Electron.
-
-Per verificare se stai utilizzando il modulo integrato corretto, è possibile stampare il percorso del modulo `elettron`:
-
-```javascript
-console.log(require.resolve('electron'))
-```
-
-e quindi controlla se è nel seguente formato:
-
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-Se è qualcosa come `node_modules/elettronica/index.js`, devi rimuovere il modulo npm `elettron` o rinominarlo.
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-Tuttavia, se si sta utilizzando il modulo integrato ma si riceve ancora questo errore, è molto probabile che si stia utilizzando il modulo nel processo sbagliato. Per esempio `elettron.app` può essere utilizzato solo nel processo principale, mentre `elettron.webFrame` è disponibile solo nei processi di rendering.
+It is very likely you are using the module in the wrong process. Per esempio `elettron.app` può essere utilizzato solo nel processo principale, mentre `elettron.webFrame` è disponibile solo nei processi di rendering.
 
 ## Il carattere sembra sfocato, che cos'è e cosa posso fare?
 
-Se [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) è disattivato, allora i font sugli schermi LCD possono sembrare sfocati. Esempio:
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Esempio:
 
 ![modello di rendering dei sottopixel](images/subpixel-rendering-screenshot.gif)
 
@@ -155,6 +134,6 @@ let win = new BrowserWindow({
 })
 ```
 
-L'effetto è visibile solo su (alcuni?) schermi LCD. Anche se non vedi una differenza, alcuni dei tuoi utenti potrebbero. Sempre meglio impostare così lo sfondo, a meno che tu non abbia ragioni di non farlo.
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 Nota che solo impostare lo sfondo nel CSS non ha l'effetto desiderato.

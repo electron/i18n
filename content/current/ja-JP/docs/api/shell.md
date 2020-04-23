@@ -22,7 +22,7 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-指定したファイルをファイルマネージャに表示します。可能であれば、ファイルを選択します。
+Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openItem(fullPath)`
 
@@ -35,18 +35,18 @@ shell.openExternal('https://github.com')
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Windows では最大2081文字です。
-* `options` Object (任意) 
-  * `activate` Boolean (任意) *macOS* - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。
-  * `workingDirectory` String (任意) *Windows* - 作業ディレクトリ。
+* `options` Object (任意)
+  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
+  * `workingDirectory` String (任意) _Windows_ - 作業ディレクトリ。
 
 戻り値 `Promise<void>`
 
-デスクトップのデフォルトの方法で、与えられた外部プロトコルの URL を開きます。(たとえば、ユーザーのデフォルトのメールエージェントの mailto: URL)。
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` String
-* `deleteOnFail` Boolean (任意) - ゴミ箱が無効、またはそのボリュームでサポートされていない場合、その項目を一方的に削除するかどうか。*macOS*
+* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
 
 戻り値 `Boolean` - その項目が正常にゴミ箱に移動されたかどうか.
 
@@ -56,10 +56,10 @@ shell.openExternal('https://github.com')
 
 通知音を再生します。
 
-### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
+### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
 * `shortcutPath` String
-* `operation` String (任意) - 省略値は `create`。以下のいずれかにできます。 
+* `operation` String (optional) - Default is `create`, can be one of following:
   * `create` - 新しいショートカットを作成し、必要であれば上書きします。
   * `update` - 既にあるショートカットのみを、指定したプロパティで更新します。
   * `replace` - 既にあるショートカットを上書きし、存在しなければ失敗します。
@@ -69,7 +69,7 @@ shell.openExternal('https://github.com')
 
 `shortcutPath` のショートカットリンクを作成か更新します。
 
-### `shell.readShortcutLink(shortcutPath)` *Windows*
+### `shell.readShortcutLink(shortcutPath)` _Windows_
 
 * `shortcutPath` String
 

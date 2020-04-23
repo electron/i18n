@@ -2,7 +2,7 @@
 
 > 从主进程到渲染进程的异步通信。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). 当在主进程中使用时，它处理从渲染器进程（网页）发送出来的异步和同步信息。 从渲染器进程发送的消息将被发送到该模块。
 
@@ -12,7 +12,7 @@ It is also possible to send messages from the main process to the renderer proce
 
 * 发送消息时，事件名称为`channel `。
 * 回复同步信息时，需要设置`event.returnValue`。
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 下面是在渲染和主进程之间发送和处理消息的一个例子：
 
@@ -48,7 +48,7 @@ IpcMain模块有以下方法来侦听事件：
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function - 回调函数 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,16 +57,16 @@ IpcMain模块有以下方法来侦听事件：
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
-添加一次性的 `listener`。当且仅当下一个消息发送到 `channel` 时 `listener` 才会被调用，随后 <0>listener</0> 会被移除。
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` Function
   * `...args` any[]
 
 从监听器数组中移除监听 `channel` 的指定 `listener`。
@@ -80,7 +80,7 @@ IpcMain模块有以下方法来侦听事件：
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -107,7 +107,7 @@ The `event` that is passed as the first argument to the handler is the same as t
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 

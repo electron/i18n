@@ -1,22 +1,21 @@
-# 构建步骤（Linux）
+# 构建步骤 (Linux)
 
 遵循下面的准则在 Linux 上创建 Electron 。
 
-## 前提条件
+## 基本要求
 
 * 至少 25GB 硬盘空间 和 8GB 内存.
 * Python 2.7.x. 一些发行版如 CentOS 6.x 仍然使用 Python 2.6.x ，所以或许需要 check 你的 Python 版本，使用 `python -V`.
-    
-    请确保您的系统和Python的版本至少支持TLS 1.2。 您可以运行下面这个脚本来测试：
-    
-    ```sh
-    $npx @emen/chect-python-tls
-    ```
-    
-    如果脚本反映你的设置使用过时的安全协议，请用系统的软件包管理器更新Python在2.7.x中的最高版本。 或者，您也可以访问ttps://www.python.org/downloads/，以获取更加详细的指导信息。
+
+  请确保您的系统和Python的版本至少支持TLS 1.2。 您可以运行下面这个脚本来测试：
+
+  ```sh
+  $ npx @electron/check-python-tls
+  ```
+
+  如果脚本反映你的设置使用过时的安全协议，请用系统的软件包管理器更新Python在2.7.x中的最高版本。 或者，您也可以访问ttps://www.python.org/downloads/，以获取更加详细的指导信息。
 
 * Node.js. 有多种方法安装 Node.js。 您可以从 [ Nodejs.org ](https://nodejs.org) 下载源代码并进行编译。 也可以作为一个标准的用户在 home 目录下安装 node. 或者尝试使用 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) 仓库
-
 * [ clang ](https://clang.llvm.org/get_started.html) 3.4 或更高版本。
 * Development headers of GTK 3 and libnotify.
 
@@ -48,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-其它版本通过包管理器也可能提供了相似的包来安装，例如 pacman. 或一个可以编译的源文件.
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
 ### 交叉编译
 
@@ -80,7 +79,7 @@ $ gn gen out/Testing --args='import(...) target_cpu="arm"'
 
 ### 加载共享库时出现错误： libtinfo.so.5
 
-预构建的 `clang` 会尝试链接到 `libtinfo.so.5`. 取决于 host 架构, 适当的使用 `libncurses`:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -88,7 +87,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## 高级提示
 
-Domyślne tworzenie konfiguracji jest celem dla głównej dystrybucji pulpitu Linux. Aby zbudować dla konkretnej dystrybucji lub urządzenia, następujące informacje mogą ci pomóc.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### 使用系统提供的 `clang` 替换下载的 `clang` 二进制文件
 

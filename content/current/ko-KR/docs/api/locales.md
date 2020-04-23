@@ -2,7 +2,7 @@
 
 > `app.getLocale()`으로 반환되는 로케일 값
 
-Electron은 크로미움의 `l10n_util` 라이브러리를 사용하여 locale을 가져옵니다. 가능한 값은 다음과 같습니다:
+Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
 
 | 언어 코드  | 언어명                     |
 | ------ | ----------------------- |

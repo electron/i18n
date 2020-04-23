@@ -44,7 +44,7 @@ app.on('ready', () => {
 
 ## --js-flags=`флаги`
 
-Указывает флаги, передаваемые движку Node.js. Обязателен при запуске Electron, если вы хотите задействовать `flags` в основном процессе.
+Specifies the flags passed to the Node.js engine. Если вы хотите включить `flags` в главном процессе, то он должен быть передан при запуске Electron.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
@@ -58,7 +58,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ## --proxy-bypass-list=`хосты`
 
-Инструктирует Electron не использовать прокси-сервер для списка хостов, разделённых точкой с запятой. Данный параметр используется в связке с `--proxy-server`.
+Указывает Electron обходить прокси-сервер для списка хостов, разделённых точкой с запятой. Этот флаг действует только в том случае, если он используется вместе с `--proxy-server`.
 
 Например:
 
@@ -75,7 +75,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --no-proxy-server
 
-Не использоваться прокси-сервер и всегда делать прямое соединение. Перезаписывает все прокси-сервера, параметры которых были переданы.
+Не использовать прокси сервер и всегда делать прямые соединения. Переопределяет все остальные флаги прокси-сервера, которые были указаны.
 
 ## --host-rules=`правила`
 
@@ -83,10 +83,10 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 Например:
 
-- `MAP * 127.0.0.1` Все имена хостов будут перенаправлены на 127.0.0.1
-- `MAP *.google.com proxy` Заставляет все поддомены google.com обращаться к "proxy".
-- `MAP test.com [::1]:77` Заставляет "test.com" обращаться к локальному IPv6. Конечным портом для адреса сокета будет 77.
-- `MAP * baz, EXCLUDE www.google.com` Перенаправляет всё на "baz", за исключением "www.google.com".
+* `MAP * 127.0.0.1` Все имена хостов будут перенаправлены на 127.0.0.1
+* `MAP *.google.com proxy` Заставляет все поддомены google.com обращаться к "proxy".
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Также принудительно выставит порт получаемого адреса сокета, равный 77.
+* `MAP * baz, EXCLUDE www.google.com` Перенаправляет всё на "baz", за исключением "www.google.com".
 
 Эти перенаправления применяются к хосту конечной точки в сетевом запросе (TCP соединения и резолвер хоста в прямых соединениях, `CONNECT` в HTTP прокси-соединениях и хост конечной точки в `SOCKS` прокси-соединений).
 
@@ -108,7 +108,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --auth-negotiate-delegate-whitelist=`ссылка`
 
-Список серверов, разделенных запятыми, для которых требуется делегирование полномочий пользователя. Без `*` префикс URL должен совпадать точно.
+A comma-separated list of servers for which delegation of user credentials is required. Без префикса `*`, ссылка будет полностью соответствовать.
 
 ## --ignore-certificate-errors
 
@@ -140,7 +140,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --v=`уровень_логирования`
 
-Дает максимально активный уровень V-логированию по умолчанию; по умолчанию - 0. Обычно используются позитивные значения для уровней V-логирования.
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 Этот параметр работает только когда `--enable-logging` также указан.
 
@@ -155,7 +155,6 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 ## --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
-
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`
@@ -166,4 +165,4 @@ Enables caller stack logging for the following APIs (filtering events):
 
 ## --no-sandbox
 
-Отключает песочницу Chromium, которая теперь включена по умолчанию. Используется только для тестирования.
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.

@@ -14,7 +14,7 @@ Electron アプリケーションのアクセシビリティに関する懸念�
 
 ### Spectron
 
-Spectron テストフレームワークで、アプリケーション内の各ウィンドウと `<webview>` タグを監視できます。 以下に例を示します。
+Spectron テストフレームワークで、アプリケーション内の各ウィンドウと `<webview>` タグを監視できます。 例:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -30,7 +30,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 Devtronでは新機能のアクセシビリティタブが利用できます。このタブでは、アプリケーション内の監視結果をソートしたり、フィルタによって絞り込んだりできます。
 
-![devtron スクリーンショット](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
 いずれのツールも Google が Chrome 向けに開発した [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) ライブラリを利用しています。 このライブラリが使用しているアクセシビリティ監査のルールに関する詳細は、[リポジトリの wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) に記載されています。
 

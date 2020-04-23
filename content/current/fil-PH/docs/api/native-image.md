@@ -1,10 +1,10 @@
-# gupitin ng maikli ang mga litrato
+# nativeImage
 
 > Gumawa ng tray, dock, at aplikasyon na mga icon gamit ang PNG o JPG na mga file.
 
 Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Sa Electron, para sa APIs na kumukuha ng imahe, pwede mong ipasa alinman sa file paths o `NativeImage` na mga instance. Ang walang laman na imahe ay gagamitin kung ang `null` ay maipasa.
+In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
 Halimbawa, kung gagawa ng tray o setting sa icon ng window, pwede mong ipasa ang file path ng imahe bilang isang `String`:
 
@@ -27,16 +27,16 @@ console.log(appIcon)
 
 ## Suportadong mga Pormat
 
-Sa kasalukuyan ang `PNG` at `JPEG` na mga pormat ng imahe ay suportado. Ang `PNG` ay inirerekomenda dahil ito ay sumusuporta sa malinis at walang pagkawalang kompresyon.
+Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
-* Maliit na icon 
+* Maliit na icon
   * 16x16 (100% DPI scale)
   * 20x20 (125% DPI scale)
   * 24x24 (150% DPI scale)
   * 32x32 (200% DPI scale)
-* Malaking Icon 
+* Malaking Icon
   * 32x32 (100% DPI scale)
   * 40x40 (125% DPI scale)
   * 48x48 (150% DPI scale)
@@ -51,7 +51,7 @@ Sa plataporma na may suporta sa mataas na DPI katulad ng Apple Retina na mga dis
 
 For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
-Kung gusto mong suportahan ang mga display na nayy magkaibang mga DPI na density ng sabayan, pwede kang maglagay ng imahe na may iba-ibang sukat sa parehong folder at gamitin ang filename nang walang mga DPI suffix. Halimbawa:
+If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. Halimbawa:
 
 ```plaintext
 imahe/
@@ -82,13 +82,13 @@ The following suffixes for DPI are also supported:
 
 ## Template na Imahe
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template images consist of black and an alpha channel. Ang mga template na imahe ay hindi inilalaan para gamiting napag-iisang imahe at kadalasan ay inihahalo sa ibang nilalaman para bumuo ng nais na huling kaanyuan.
 
 The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
 
 **Tandaan:** Ang template na imahe ay suportado lamang sa macOS.
 
-Para markahan ang imahe bilang template na imahe, ang filename ay dapat magtatapos sa salitang `Template`. Halimbawa:
+To mark an image as a template image, its filename should end with the word `Template`. Halimbawa:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
@@ -105,7 +105,7 @@ Gumawa ng bakanteng `NativeImage` na instance.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` String
+* `path` na String
 
 Nagbabalik ng `NativeImage`
 
@@ -121,7 +121,7 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Bagay 
+* `options` Object
   * `lapad` Integer
   * `taas` Integer
   * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
@@ -133,14 +133,14 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `ativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Na Bagay (opsyonal) 
+* `options` Object (optional)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` na Integer (opsyonal) - Kinakailangan para sa mga bitmap na buffer.
   * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
 Nagbabalik ng `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+Gumagawa ng bagong `NativeImage` na instance mula sa `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -150,7 +150,7 @@ Nagbabalik ng `NativeImage`
 
 Gumagawa ng bagong `NativeImage` na instance mula sa `dataURL`.
 
-### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
+### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` na String
 * `hslShift` Number[] (optional)
@@ -175,17 +175,17 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 ## Class: NativeImage
 
-> Bumabalot ng imahe katulad ng trey, pantala, ang aplikasyon na icon. 
+> Bumabalot ng imahe katulad ng trey, pantala, ang aplikasyon na icon.
 
 Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### Mga Pamamaraan ng Instance
 
-Ang mga sumusunod na paraan ay magagamit sa mga pagkakataong `NativeImage` klase : 
+Ang mga sumusunod na paraan ay magagamit sa mga pagkakataong `NativeImage` klase :
 
 #### `image.toPNG([options])`
 
-* `options` Na Bagay (opsyonal) 
+* `options` Object (optional)
   * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
 Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng mga imaheng `PNG` encoded data.
@@ -198,32 +198,33 @@ Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class
 
 #### `image.toBitmap([options])`
 
-* `options` Na Bagay (opsyonal) 
+* `options` Object (optional)
   * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
-Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng kopya ng mga imaheng hilaw na bitmap pixel data. 
+Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng kopya ng mga imaheng hilaw na bitmap pixel data.
 
 #### `image.toDataURL([options])`
 
-* `options` Na Bagay (opsyonal) 
+* `options` Object (optional)
   * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
 Nagbabalik `String` - Ang data URL ng imahe.
 
-#### `image.getBitmap([options])`
+#### `image.getBitmap([options])
+ `
 
-* `options` Na Bagay (opsyonal) 
+* `options` Object (optional)
   * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
 Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng hilaw na bitmap pixel data.
 
 The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
-#### `image.getNativeHandle()` *macOS* 
+#### `image.getNativeHandle()` _macOS_
 
-Nagbabalik ng `image.getNativeHandle()` [macOS](https://nodejs.org/api/buffer.html#buffer_class_buffer) na nagiimbak ng C pointer na pinagbabatayan ng native handle ng imahe. Sa macOS, ang panturo sa `NSImage` na pagkakataon ay ibinabalik. 
+Nagbabalik ng `image.getNativeHandle()` [macOS](https://nodejs.org/api/buffer.html#buffer_class_buffer) na nagiimbak ng C pointer na pinagbabatayan ng native handle ng imahe. Sa macOS, ang panturo sa  `NSImage` na pagkakataon ay ibinabalik.
 
-Pansinin na ang mga binabalik sa panturo ay mahinang panturo sa pinagbatayang native image sa halip na isang kopya, kaya ikaw * ay dapat * isigurado ng ang mga kaugnayang `nativeImage` pagkakataon ay nasa paligid. 
+Pansinin na ang mga binabalik sa panturo ay mahinang panturo sa pinagbatayang native image sa halip na isang kopya, kaya ikaw _ ay dapat _ isigurado ng ang mga kaugnayang `nativeImage` pagkakataon ay nasa paligid.
 
 #### `image.isEmpty()`
 
@@ -231,19 +232,19 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-Nagbabalik [`Size`](structures/size.md) 
+Nagbabalik [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
 * `option` Boolean
 
-Nagmamarka ng imahe bilang template image. 
+Nagmamarka ng imahe bilang template image.
 
 **[Deprecated](modernization/property-updates.md)**
 
 #### `image.isTemplateImage()`
 
-Nagbabalik `Boolean` - Kung ang imahe ay isang template image. 
+Nagbabalik `Boolean` - Kung ang imahe ay isang template image.
 
 **[Deprecated](modernization/property-updates.md)**
 
@@ -255,7 +256,7 @@ Nagbabalik sa`NativeImage` - Ang naka-crop na imahe.
 
 #### `image.resize(options)`
 
-* `options` Bagay 
+* `options` Object
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (optional) - Defaults to the image's height.
   * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. Ang default ay `best`. Ang mga halagan ito ay nagpapahayag ng ninais na kalidad/bilis ng tradeooff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
@@ -268,20 +269,21 @@ Kung sana ang `height` or the `width` ay tinutukoy ang kasalukuyang ration ng as
 
 Nagbabalik `Float` - Ang ratio ng aspeto ng imahe.
 
-#### `image.addRepresentation(options)`
+#### `image.addRepresentation(options)
+`
 
-* `options` Bagay 
+* `options` Object
   * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `buffer` Buffer (optional) - Ang buffer ay naglalaman ng mga hilaw na datos ng larawan.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
-Magdagdag ng naka presentang larawan para sa tinutukoy na scale factor. Pwede rin itong gamitin para magdagdag ng ibang representasyong scale factor sa isang imahe. Pwede itong tawaging imaheng walang laman.
+Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
 ### Mga Katangian ng Instance
 
-#### `nativeImage.isMacTemplateImage` *macOS*
+#### `nativeImage.isMacTemplateImage` _macOS_
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 

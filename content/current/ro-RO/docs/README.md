@@ -4,34 +4,34 @@ Te rog asigură-te că folosești documente care se potrivesc cu versiunea ta de
 
 ## Întrebări frecvente
 
-Există întrebări care sunt solicitate destul de des. Verifică acest lucru înainte de a crea o problemă:
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [Întrebări și răspunsuri Electron](faq.md)
 
 ## Ghiduri și tutoriale
 
-* [Configurarea mediului de dezvoltare](tutorial/development-environment.md) 
+* [Configurarea mediului de dezvoltare](tutorial/development-environment.md)
   * [Configurarea macOS](tutorial/development-environment.md#setting-up-macos)
   * [Configurarea Windows](tutorial/development-environment.md#setting-up-windows)
   * [Configurarea Linux](tutorial/development-environment.md#setting-up-linux)
   * [Alegerea unui editor](tutorial/development-environment.md#a-good-editor)
-* [Crearea primei tale aplicații](tutorial/first-app.md) 
+* [Crearea primei tale aplicații](tutorial/first-app.md)
   * [Instalarea Electron](tutorial/first-app.md#installing-electron)
   * [Dezvoltarea Electron într-un Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Rularea primei tale aplicații](tutorial/first-app.md#running-your-app)
-* [Boilerplates și CLI-uri](tutorial/boilerplates-and-clis.md) 
+* [Boilerplates și CLI-uri](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Alte instrumente și Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Arhitectură aplicație](tutorial/application-architecture.md) 
+* [Arhitectură aplicație](tutorial/application-architecture.md)
   * [Procese principale și de redare](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Utilizarea API-ului Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Utilizarea API-ului Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Utilizarea modulelor native Node.js](tutorial/using-native-node-modules.md)
   * [Strategii de Performanță](tutorial/performance.md)
-* Adăugarea funcționalităților în aplicația ta 
+* Adăugarea funcționalităților în aplicația ta
   * [Notificări](tutorial/notifications.md)
   * [Documente recente](tutorial/recent-documents.md)
   * [Progresul aplicației](tutorial/progress-bar.md)
@@ -45,29 +45,29 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
   * [Randare în afara ecranului](tutorial/offscreen-rendering.md)
   * [Suportarea modului negru macOS](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
-* [Accesibilitate](tutorial/accessibility.md) 
+* [Accesibilitate](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Activarea accesibilității](tutorial/accessibility.md#enabling-accessibility)
-* [Testare și depanare](tutorial/application-debugging.md) 
+* [Testare și depanare](tutorial/application-debugging.md)
   * [Depanarea procesului principal](tutorial/debugging-main-process.md)
   * [Debugarea procesului principal cu Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Utilizarea Selenium și WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testarea pe sistemele Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensia DevTools](tutorial/devtools-extension.md)
   * [Testare automată cu un driver personalizat](tutorial/automated-testing-with-a-custom-driver.md)
-* [Distribuţie](tutorial/application-distribution.md) 
+* [Distribuţie](tutorial/application-distribution.md)
   * [Platforme Suportate](tutorial/support.md#supported-platforms)
   * [Semnarea codului](tutorial/code-signing.md)
   * [Magazin de aplicații Mac](tutorial/mac-app-store-submission-guide.md)
   * [Magazin Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Securitate](tutorial/security.md) 
+* [Securitate](tutorial/security.md)
   * [Raportarea problemelor de securitate](tutorial/security.md#reporting-security-issues)
   * [Probleme de securitate Chromium și actualizări](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Avertismente de securitate Electron](tutorial/security.md#electron-security-warnings)
   * [Lista de verificare a securității](tutorial/security.md#checklist-security-recommendations)
-* [Actualizări](tutorial/updates.md) 
+* [Actualizări](tutorial/updates.md)
   * [Implementarea unui server de actualizare](tutorial/updates.md#deploying-an-update-server)
   * [Implementarea actualizărilor în aplicația ta](tutorial/updates.md#implementing-updates-in-your-app)
   * [Aplicarea actualizărilor](tutorial/updates.md#applying-updates)
@@ -77,15 +77,15 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
 
 Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul de mai sus.
 
-* [Instalarea Electron](tutorial/installation.md) 
+* [Instalarea Electron](tutorial/installation.md)
   * [Proxiuri](tutorial/installation.md#proxies)
   * [Oglinzi și cacheuri personalizate](tutorial/installation.md#custom-mirrors-and-caches)
   * [Depanare](tutorial/installation.md#troubleshooting)
-* Eliberări Electron & FeedBack Dezvoltător 
+* Eliberări Electron & FeedBack Dezvoltător
   * [Poliță de Versiuni](tutorial/electron-versioning.md)
   * [Elliberări de cronologii](tutorial/electron-timelines.md)
   * [Program de FeedBack a Aplicațiilor](tutorial/app-feedback-program.md)
-* [Împachetarea Codului Sursă a Aplicațiilor cu asar](tutorial/application-packaging.md) 
+* [Împachetarea Codului Sursă a Aplicațiilor cu asar](tutorial/application-packaging.md)
   * [Generarea arhivelor asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Utilizarea arhivelor asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitări](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -93,7 +93,7 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [Testarea Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Utilizarea pluginului Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [Glosar de termeni](glossary.md)
 
@@ -155,4 +155,4 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 
 ## Dezvoltare
 
-Vezi <development/README.md>
+Vezi [development/README.md](development/README.md)

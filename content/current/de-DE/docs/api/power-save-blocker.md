@@ -2,7 +2,7 @@
 
 > Verhindere, dass das System in den Stromspar-/Schlafmodus geht.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 Ein Beispiel:
 
@@ -21,9 +21,9 @@ Das `powerSaveBlocker`-Modul hat folgende Methoden:
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String - Power Save Blocker Typ. 
-  * `prevent-app-suspension` - Verhindert, dass die Anwendung unterbrochen wird. Hält das System aktiv, aber erlaubt es den Bildschirm abzuschalten. Anwendungsbeispiele: Eine Datei herunterladen, oder Audio abspielen.
-  * `prevent-display-sleep` - Verhindert, dass der Bildschirm einschläft. Hält sowohl System als auch Bildschirm aktiv. Anwendungsbeispiel: Videowiedergabe.
+* `type` String - Power save blocker type.
+  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
+  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
 Gibt `Integer` zurück - Die Blocker-ID, die diesem Power-Blocker zugeordnet ist.
 

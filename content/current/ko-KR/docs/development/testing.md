@@ -28,29 +28,28 @@ To run only specific tests matching a pattern, run `npm run test --
 #### 단위 테스트를 실행하기 위한 추가 단계:
 
 1. Visual Studio 2019가 설치되어 있어야 합니다.
-2. 구성을 위해 노드 헤더를 컴파일해야합니다. 
-        powershell
-        ninja -C out\Testing third_party\electron_node:headers
-
-3. electron.lib는 node.lib로 복사해야 합니다. 
-        powershell
-        cd out\Testing
-        mkdir gen\node_headers\Release
-        copy electron.lib gen\node_headers\Release\node.lib
+2. 구성을 위해 노드 헤더를 컴파일해야합니다.
+   ```powershell
+   ninja -C out\Testing third_party\electron_node:headers
+   ```
+3. electron.lib는 node.lib로 복사해야 합니다.
+   ```powershell
+   cd out\Testing
+   mkdir gen\node_headers\Release
+   copy electron.lib gen\node_headers\Release\node.lib
+   ```
 
 #### 누락된 글꼴
 
 [Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. To install Meiryo:
-
-1. Windows 키를 누르고 *옵션 기능 관리*를 검색하십시오.
-2. *기능 추가*를 클릭하십시오.
-3. *일본어 보조 글꼴*을 선택하고 *설치*를 클릭하십시오.
+1. Windows 키를 누르고 _옵션 기능 관리_를 검색하십시오.
+2. _기능 추가_를 클릭하십시오.
+3. _일본어 보조 글꼴_을 선택하고 _설치_를 클릭하십시오.
 
 #### 픽셀 측정
 
 Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
 
 To configure display scaling:
-
-1. Windows 키를 누르고 *디스플레이 설정*을 검색하십시오.
-2. *스케일 및 레이아웃*에서 장치가 100%로 설정되어 있는지 확인하십시오.
+1. Windows 키를 누르고 _디스플레이 설정_을 검색하십시오.
+2. _스케일 및 레이아웃_에서 장치가 100%로 설정되어 있는지 확인하십시오.

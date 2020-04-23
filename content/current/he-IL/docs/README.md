@@ -4,34 +4,34 @@
 
 ## שאלות נפוצות
 
-ישן שאלות שנשאלות לעיתים די קרובות. חפש כאן לפני פתיחת issue:
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [Electron שאלות נפוצות](faq.md)
 
 ## מדריכים וערכות לימוד
 
-* [הגדרת סביבת הפיתוח](tutorial/development-environment.md) 
+* [הגדרת סביבת הפיתוח](tutorial/development-environment.md)
   * [הגדרת macOS](tutorial/development-environment.md#setting-up-macos)
   * [הגדרת Windows](tutorial/development-environment.md#setting-up-windows)
   * [הגדרת לינוקס](tutorial/development-environment.md#setting-up-linux)
   * [בחירת העורך](tutorial/development-environment.md#a-good-editor)
-* [יצירת האפליקציה הראשונה שלך](tutorial/first-app.md) 
+* [יצירת האפליקציה הראשונה שלך](tutorial/first-app.md)
   * [התקנת Electron](tutorial/first-app.md#installing-electron)
   * [פיתוח ב-Electron בקצרה](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [הפעלת האפליקציה שלך](tutorial/first-app.md#running-your-app)
-* [תבניות וממשקי שורת הפקודות (CLI)](tutorial/boilerplates-and-clis.md) 
+* [תבניות וממשקי שורת הפקודות (CLI)](tutorial/boilerplates-and-clis.md)
   * [השוואה בין תבניות ובין ממשקי שורת הפקודות](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [כלים ותבניות נוספים](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [ארכיטקטורת יישום](tutorial/application-architecture.md) 
+* [ארכיטקטורת יישום](tutorial/application-architecture.md)
   * [התהליך הראשי ותהליך הייצוג](tutorial/application-architecture.md#main-and-renderer-processes)
   * [שימוש בפעולות ה־API של Electron](tutorial/application-architecture.md#using-electron-apis)
   * [שימוש בפעולות ה־API של Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [שימוש במודולים טבעיים של Node.js](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-* הוספת תכונות לאפליקציה שלך 
+* הוספת תכונות לאפליקציה שלך
   * [התראות](tutorial/notifications.md)
   * [מסמכים אחרונים](tutorial/recent-documents.md)
   * [התקדמות התרגום](tutorial/progress-bar.md)
@@ -45,29 +45,29 @@
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [תמיכה במצב כהה של macOS](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
-* [נגישות](tutorial/accessibility.md) 
+* [נגישות](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [איפשור נגישות](tutorial/accessibility.md#enabling-accessibility)
-* [בדיקה ואיתור באגים](tutorial/application-debugging.md) 
+* [בדיקה ואיתור באגים](tutorial/application-debugging.md)
   * [איתור באגים בתהליך העיקרי](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [שימוש ב-Selenium ו-WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Extension](tutorial/devtools-extension.md)
   * [בדיקות אוטומטיות עם Driver מותאם אישית](tutorial/automated-testing-with-a-custom-driver.md)
-* [הפצה](tutorial/application-distribution.md) 
+* [הפצה](tutorial/application-distribution.md)
   * [Supported Platforms](tutorial/support.md#supported-platforms)
   * [חתימה על קוד](tutorial/code-signing.md)
   * [חנות היישומים של Mac](tutorial/mac-app-store-submission-guide.md)
   * [חנות Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [אבטחה](tutorial/security.md) 
+* [אבטחה](tutorial/security.md)
   * [דיווח על פרצות אבטחה](tutorial/security.md#reporting-security-issues)
   * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [אזהרות אבטחה של Electron](tutorial/security.md#electron-security-warnings)
   * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
-* [עדכונים](tutorial/updates.md) 
+* [עדכונים](tutorial/updates.md)
   * [הטמעת שרת עדכונים](tutorial/updates.md#deploying-an-update-server)
   * [הטמעת עדכונים ביישום שלך](tutorial/updates.md#implementing-updates-in-your-app)
   * [החלת עדכונים](tutorial/updates.md#applying-updates)
@@ -77,15 +77,15 @@
 
 אלו מדריכים פרטניים שנועדים לפרט על נושאים שנדונו בקווים המנחים שלהלן.
 
-* [התקנת Electron](tutorial/installation.md) 
+* [התקנת Electron](tutorial/installation.md)
   * [מתווכים](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [פתרון בעיות](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
+* Electron Releases & Developer Feedback
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [ציר זמן הוצאות לאור](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* [Packaging App Source Code with asar](tutorial/application-packaging.md)
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -93,7 +93,7 @@
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
-* * *
+---
 
 * [Glossary of Terms](glossary.md)
 
@@ -155,4 +155,4 @@
 
 ## פיתוח
 
-See <development/README.md>
+See [development/README.md](development/README.md)

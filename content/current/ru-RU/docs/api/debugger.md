@@ -2,7 +2,7 @@
 
 > Альтернативный транспорт для удаленной отладки протокола Chrome.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Инструменты разработчика Chrome имеют [специальную привязку](https://chromedevtools.github.io/devtools-protocol/) доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и управлять ими.
 
@@ -37,10 +37,10 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Возвращает:
 
-* Событие типа `event`
+* `event` Event
 * `reason` String - причина отсоединения отладчика.
 
-Возникает при завершении сеанса отладки. Это происходит либо когда `webContents` закрыт или devtools вызывается для присоединения к `webContents`.
+Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Событие: 'message'
 
@@ -70,7 +70,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.sendCommand(method[, commandParams])`
 
-* `method` String - имя метода, должно быть одним из методов, определенных [удаленным протоколом отладки](https://chromedevtools.github.io/devtools-protocol/).
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` any (опционально) - JSON объект с параметрами запроса.
 
 Возвращает `Promise<any>` - Promise, которое разрешается с ответом, определенным атрибутом 'returns' описания команды в протоколе удаленной отладки, или отклоняется, указывая на сбой команды.

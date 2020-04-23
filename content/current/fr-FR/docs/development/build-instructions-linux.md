@@ -6,19 +6,18 @@ Suivez les indications ci-dessous pour compiler Electron sur Linux.
 
 * Au moins 25GB d'espace disque et 8 Go de RAM.
 * Python 2.7.x. Certaines distributions comme CentOS 6.x utilisent encore Python 2.6.x, vous devrez peut-être vérifier votre version de Python avec `python -V`.
-    
-    Veuillez vérifier que votre système et votre version de Python supporte au moins le TLS 1.2 ou une version supérieure. Pour un test rapide, exécutez le script suivant:
-    
-    ```sh
-    $ npx @electron/check-python-tls
-    ```
-    
-    Si le script renvoie que votre configuration utilise un protocole de sécurité obsolète, utilisez le Gestionnaire de paquets de votre système afin de mettre à jour vers la dernière version dans la branche 2.7.x de Python. Vous pouvez également visiter https://www.python.org/downloads/ pour plus de détails.
+
+  Veuillez vérifier que votre système et votre version de Python supporte au moins le TLS 1.2 ou une version supérieure. Pour un test rapide, exécutez le script suivant:
+
+  ```sh
+  $ npx @electron/check-python-tls
+  ```
+
+  Si le script renvoie que votre configuration utilise un protocole de sécurité obsolète, utilisez le Gestionnaire de paquets de votre système afin de mettre à jour vers la dernière version dans la branche 2.7.x de Python. Vous pouvez également visiter https://www.python.org/downloads/ pour plus de détails.
 
 * Node.js. Il y a différentes façons d’installer Node. Vous pouvez télécharger le code source depuis [nodejs.org](https://nodejs.org) et le compiler vous-même. Cela permet l’installation de Node sur votre propre répertoire comme un utilisateur standard. Ou essayez les dépôts tels que [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-
 * [clang](https://clang.llvm.org/get_started.html) 3.4 ou plus.
-* Development headers of GTK 3 and libnotify.
+* En-têtes de développement de GTK+ et libnotify.
 
 Sur Ubuntu, installez les bibliothèques suivantes :
 
@@ -48,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Les autres distributions peuvent offrir des packages similaires pour l’installation via les gestionnaires de paquets tels que pacman. Ou l'un pouvant compiler depuis les codes sources.
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
 ### Multi-compilation
 
@@ -80,7 +79,7 @@ Voir les [Instructions de compilation : GN](build-instructions-gn.md)
 
 ### Erreur lors du chargement Shared Libraries : libtinfo.so.5
 
-Pré-compiler `clang` va permettre d'essayer de faire un lien vers `libtinfo.so.5`. Selon l'architecture de l'hôte, avoir `libncurses` comme lien symbolique est plus approprié :
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -88,7 +87,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Sujets Avancés
 
-La configuration par défaut de compilation cible la majorité des distributions bureau Linux. Pour compiler sur une distribution ou un appareil spécifique, les informations suivantes peuvent vous aider.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### Utiliser le système `clang` au lieu des fichiers binaires téléchargés `clang`
 

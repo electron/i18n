@@ -8,7 +8,7 @@
 
 Windows 10 "Anniversary Update"는 가상화 된 파일 시스템 및 레지스트리와 함께 실행하여 win32 ` .exe </ 0> 바이너리를 실행할 수 있습니다. 둘 다 Windows 컨테이너에 app과 installer에 의해 컴파일하는 동안 만들어 지므로 Windows가 설치 중에 운영 체제 변경 사항을 정확히 식별 할 수 있습니다. 실행 파일을 가상 파일 시스템 및 가상 레지스트리와 페어링하면 Windows에서 한 번 클릭으로 설치 및 제거 할 수 있습니다.</p>
 
-<p>또한 exe는 appx 모델 내에서 실행됩니다. 즉, Universal Windows Platform에서 사용할 수있는 많은 API를 사용할 수 있습니다.  더 많은 기능을 사용하기 위해, Electron 애플리케이션은 백그라운드로 실행된 UWP 앱과 페어링 하여  <code>exe`와 같이 실행할 수 있습니다 - 이렇게 헬퍼와 비슷하게 실행되고 작업을 실행하기 위해 백그라운드에서 작동하며, 푸시 알림을 받거나, 다른 UWP 애플리케이션과 통신하는 역할을 합니다.
+<p spaces-before="0">또한 exe는 appx 모델 내에서 실행됩니다. 즉, Universal Windows Platform에서 사용할 수있는 많은 API를 사용할 수 있습니다.  더 많은 기능을 사용하기 위해, Electron 애플리케이션은 백그라운드로 실행된 UWP 앱과 페어링 하여  <code>exe`와 같이 실행할 수 있습니다 - 이렇게 헬퍼와 비슷하게 실행되고 작업을 실행하기 위해 백그라운드에서 작동하며, 푸시 알림을 받거나, 다른 UWP 애플리케이션과 통신하는 역할을 합니다.
 
 현재 존재하는 Electron 애플리케이션을 컴파일 하려면, 다음 요구 사항을 충족해야 합니다:
 
@@ -22,11 +22,11 @@ Windows 10 "Anniversary Update"는 가상화 된 파일 시스템 및 레지스�
 npm install -g electron-windows-store
 ```
 
-## Step 1: Electron 애플리케이션 패키지.
+## 1 단계 : Electron  응용 프로그램 패키지
 
 [electron-packager](https://github.com/electron/electron-packager) (또는 이와 유사한 도구)를 사용하여 응용 프로그램을 패키지화합니다. 실제로 필요하지 않은 모듈은 응용 프로그램의 크기를 증가시킬 것이므로 마지막 응용 프로그램에서 필요하지 않은 `node_modules`을 제거하십시오.
 
-결과물은 대략 아래와 같이 보일것 입니다:
+출력된 파일은 대략 다음과 같이 보입니다.
 
 ```plaintext
 ├── Ghost.exe
@@ -44,8 +44,7 @@ npm install -g electron-windows-store
 │   ├── [...]
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   └── app.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
@@ -76,14 +75,13 @@ electron-windows-store `
 또 다른 중요한 한계는 컴파일 된 AppX 패키지에 여전히 win32 실행 파일이 포함되어 있으므로 Xbox, HoloLens 또는 Phones에서 실행되지 않습니다.
 
 ## Optional : BackgroundTask를 사용하여 UWP 기능 추가
-
 Electron 앱을 푸시 알림, Cortana 통합 또는 라이브 타일과 같은 Windows 10 기능을 최대한 활용하는 보이지 않는 UWP 백그라운드 작업과 페어링 할 수 있습니다.
 
 백그라운드 작업을 사용하여 토스트 알림 및 라이브 타일을 보내는 Electron 앱을 확인하려면 [Microsoft 제공 샘플](https://github.com/felixrieseberg/electron-uwp-background)을 확인하십시오.
 
 ## Optional : 컨테이너 가상화를 사용하여 변환
 
-AppX 패키지를 생성하기 위해 `electron-windows-store` CLI는 대부분의 Electron 응용 프로그램에서 작동 할 템플릿을 사용합니다. 그러나 사용자 정의 설치 프로그램을 사용하거나 생성 된 패키지에 문제가 발생하는 경우 Windows 컨테이너가 포함 된 컴파일을 사용하여 패키지를 만들 수 있습니다.이 모드에서는 CLI가 빈 Windows에 응용 프로그램을 설치하고 실행합니다 컨테이너를 사용하여 응용 프로그램이 운영 체제에서 수행중인 수정 작업을 정확하게 확인할 수 있습니다.
+AppX 패키지를 생성하기 위해 `electron-windows-store` CLI는 대부분의 Electron  응용 프로그램에서 작동 할 템플릿을 사용합니다. 그러나 사용자 정의 설치 프로그램을 사용하거나 생성 된 패키지에 문제가 발생하는 경우 Windows 컨테이너가 포함 된 컴파일을 사용하여 패키지를 만들 수 있습니다.이 모드에서는 CLI가 빈 Windows에 응용 프로그램을 설치하고 실행합니다 컨테이너를 사용하여 응용 프로그램이 운영 체제에서 수행중인 수정 작업을 정확하게 확인할 수 있습니다.
 
 CLI를 처음 실행하기 전에 "Windows Desktop App Converter"를 설치해야합니다. 이 작업은 몇 분이 걸리지 만 걱정하지 마십시오. 한 번만 수행하면됩니다. Desktop App Converter 는 [여기](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter)에서 다운로드 합니다. `DesktopAppConverter.zip` 와 `BaseImage-14316.wim` 두 파일을 모두 받아야 합니다.
 

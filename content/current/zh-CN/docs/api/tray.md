@@ -23,13 +23,13 @@ app.on('ready', () => {
 })
 ```
 
-**平台限制：**
+__平台限制：__
 
 * 在Linux上，如果支持，就使用应用程序指示器，否则将使用` GtkStatusIcon `。
 * 在仅支持应用程序指标的Linux发行版中，必须安装` libappindicator1 `才能使任务栏图标正常工作。
 * 应用程序指标只有当它有一个上下文菜单时才会显示。
 * 当在Linux上使用应用程序指标时，它的 `click`事件将被忽略
-* 在Linux上，为了改变单独的` MenuItem `，你必须再次调用` setContextMenu `。 例如：
+* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. 例如：
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -49,10 +49,10 @@ app.on('ready', () => {
   appIcon.setContextMenu(contextMenu)
 })
 ```
-
 * 在 Windows 上, 建议使用 ` ICO ` 图标来获得最佳视觉效果。
 
 如果要在所有平台上保持完全相同的行为, 则不应依赖 ` click ` 事件, 并且始终将上下文菜单附加到任务栏图标。
+
 
 ### `new Tray(image)`
 
@@ -74,7 +74,7 @@ app.on('ready', () => {
 
 当该图标被点击时触发。
 
-#### Event: 'right-click' *macOS* *Windows*
+#### Event: 'right-click' _macOS_ _Windows_
 
 返回:
 
@@ -83,7 +83,7 @@ app.on('ready', () => {
 
 当该图标被右击时触发。
 
-#### Event: 'double-click' *macOS* *Windows*
+#### Event: 'double-click' _macOS_ _Windows_
 
 返回:
 
@@ -92,23 +92,23 @@ app.on('ready', () => {
 
 当该图标被双击时触发。
 
-#### Event: 'balloon-show' *Windows*
+#### Event: 'balloon-show' _Windows_
 
 当系统托盘图标气泡显示时，触发该事件。
 
-#### Event: 'balloon-click' *Windows*
+#### Event: 'balloon-click' _Windows_
 
 当系统托盘气泡被点击时，触发该事件。
 
-#### Event: 'balloon-closed' *Windows*
+#### Event: 'balloon-closed' _Windows_
 
 当系统托盘气泡因为超时被关闭或者用户手动关闭时，触发该事件。
 
-#### Event: 'drop' *macOS*
+#### Event: 'drop' _macOS_
 
 当有任何拖动项拖到该任务栏图标上时，触发该事件。
 
-#### Event: 'drop-files' *macOS*
+#### Event: 'drop-files' _macOS_
 
 返回:
 
@@ -117,7 +117,7 @@ app.on('ready', () => {
 
 当有任何文件被拖到该任务栏图标上时，触发该事件。
 
-#### Event: 'drop-text' *macOS*
+#### Event: 'drop-text' _macOS_
 
 返回:
 
@@ -126,19 +126,19 @@ app.on('ready', () => {
 
 当有任何文字被拖到该任务栏图标上时，触发该事件。
 
-#### Event: 'drag-enter' *macOS*
+#### Event: 'drag-enter' _macOS_
 
 当有任何拖动操作进入（拖动未结束）该任务栏图标时，触发该事件。
 
-#### Event: 'drag-leave' *macOS*
+#### Event: 'drag-leave' _macOS_
 
 当有任何拖动操作离开该任务栏图标时，触发该事件。
 
-#### Event: 'drag-end' *macOS*
+#### Event: 'drag-end' _macOS_
 
 当有任何拖动操作在托盘或其他地方结束时，触发该事件。
 
-#### Event: 'mouse-enter' *macOS*
+#### Event: 'mouse-enter' _macOS_
 
 返回:
 
@@ -147,7 +147,7 @@ app.on('ready', () => {
 
 当鼠标进入该任务栏图标时，触发该事件。
 
-#### Event: 'mouse-leave' *macOS*
+#### Event: 'mouse-leave' _macOS_
 
 返回:
 
@@ -156,7 +156,7 @@ app.on('ready', () => {
 
 当鼠标离开该任务栏图标时，触发该事件。
 
-#### Event: 'mouse-move' *macOS* *Windows*
+#### Event: 'mouse-move' _macOS_ _Windows_
 
 返回:
 
@@ -179,7 +179,7 @@ app.on('ready', () => {
 
 设置`image`作为托盘中显示的图标
 
-#### `tray.setPressedImage(image)` *macOS*
+#### `tray.setPressedImage(image)` _macOS_
 
 * `image` ([NativeImage](native-image.md) | String)
 
@@ -191,17 +191,17 @@ app.on('ready', () => {
 
 设置鼠标指针在托盘图标上悬停时显示的文本
 
-#### `tray.setTitle(title)` *macOS*
+#### `tray.setTitle(title)` _macOS_
 
 * `title` String
 
 Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
 
-#### `tray.getTitle()` *macOS*
+#### `tray.getTitle()` _macOS_
 
 Returns `String` - the title displayed next to the tray icon in the status bar
 
-#### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
+#### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
 * `ignore` Boolean
 
@@ -209,13 +209,13 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 
 This value is set to false by default.
 
-#### `tray.getIgnoreDoubleClickEvents()` *macOS*
+#### `tray.getIgnoreDoubleClickEvents()` _macOS_
 
 Returns `Boolean` - Whether double click events will be ignored.
 
-#### `tray.displayBalloon(options)` *Windows*
+#### `tray.displayBalloon(options)` _Windows_
 
-* `options` Object 
+* `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
@@ -226,20 +226,20 @@ Returns `Boolean` - Whether double click events will be ignored.
 
 显示一个托盘气球通知.
 
-#### `tray.removeBalloon()` *Windows*
+#### `tray.removeBalloon()` _Windows_
 
 Removes a tray balloon.
 
-#### `tray.focus()` *Windows*
+#### `tray.focus()` _Windows_
 
 Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
 
-#### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+#### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
 * `menu` Menu (可选)
 * `position` [Point](structures/point.md) (可选) - 菜单弹出的位置.
 
-弹出托盘图标的上下文菜单。如果传入了 `menu` 参数，将会弹出 `menu` 而不是托盘图标的上下文菜单
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
 参数 `position` 只在 Windows 上可用， 并拥有默认值 (0, 0)。
 
@@ -249,7 +249,7 @@ Returns focus to the taskbar notification area. Notification area icons should u
 
 设置这个图标的内容菜单
 
-#### `tray.getBounds()` *macOS* *Windows*
+#### `tray.getBounds()` _macOS_ _Windows_
 
 返回 [`Rectangle`](structures/rectangle.md)
 

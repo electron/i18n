@@ -16,7 +16,7 @@
 
 取りうる値:
 
-* `disabled_software` - ソフトウェアのみ。ハードウェアアクセラレーションは無効 (黄色)
+* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - 無効 (赤)
 * `disabled_off_ok` - 無効 (黄色)
 * `unavailable_software` - ソフトウェアのみ。ハードウェアアクセラレーションは使用不可 (黄色)

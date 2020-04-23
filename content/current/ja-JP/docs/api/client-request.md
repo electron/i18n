@@ -8,13 +8,13 @@
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - もし `options` が String の場合、リクエストURLとして解釈されます。もし Object の場合、以下のプロパティによるHTTPリクエストとして完全に指定されていることが期待されます。 
-  * `method` String (任意) - HTTPリクエストメソッド。省略値は、GETメソッドです。
-  * `url` String (任意) - リクエストURL。httpまたはhttpsとして指定されているプロトコルスキームを伴う完全な形式で指定しなければなりません。
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (任意) - リクエストが関連付けられている [`Session`](session.md) のインスタンス。
   * `partition` String (任意) - リクエストが関連付けられている [`partition`](session.md) の名前。 省略値は、空の文字列です。 `session` オプションは、`partition` よりも優先されます。 そのため、`session` が明示的に指定されている場合、`partition` は無視されます。
-  * `useSessionCookies` Boolean (任意) - 指定のセッションからこのリクエストで Cookie を送るかどうか。 これは `net` リクエストの Cookie の動作を `fetch` リクエストと同じにします。 省略値は、`false` です。
-  * `protocol` String (任意) - 'scheme:' という形式のプロトコルスキーム。 現在サポートされている値は、'http:' または 'https:' です。省略値は、'http:' です。
+  * `useSessionCookies` Boolean (任意) - 指定のセッションからこのリクエストで Cookie を送るかどうか。  これは `net` リクエストの Cookie の動作を `fetch` リクエストと同じにします。 省略値は、`false` です。
+  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (任意) - ホスト名とポート番号を連結した 'hostname:port' として指定されたサーバーホスト。
   * `hostname` String (任意) - サーバーホスト名。
   * `port` Integer (任意) - サーバーのリスニングポート番号。
@@ -47,13 +47,13 @@ const request = net.request({
 
 戻り値:
 
-* `authInfo` Object 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Function
   * `username` String (任意)
   * `password` String (任意)
 
@@ -69,7 +69,6 @@ request.on('login', (authInfo, callback) => {
   callback('username', 'password')
 })
 ```
-
 空の資格情報を指定すると、リクエストがキャンセルされ、レスポンスオブジェクトで認証エラーが返ります。
 
 ```JavaScript
@@ -90,7 +89,7 @@ request.on('login', (authInfo, callback) => {
 
 #### イベント: 'abort'
 
-`request` が中止されたときに発生します。`request` が既に終了している場合、`abort` イベントは発生しません。
+Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### イベント: 'error'
 
@@ -104,6 +103,7 @@ request.on('login', (authInfo, callback) => {
 
 HTTPのリクエストからレスポンスまでのやり取りの最後のイベントして発生します。 `close` イベントは、`request` または `response` オブジェクトのいずれでもこれ以上のイベントが発生しないことを示します。
 
+
 #### イベント: 'redirect'
 
 戻り値:
@@ -113,7 +113,7 @@ HTTPのリクエストからレスポンスまでのやり取りの最後のイ�
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-サーバーがリダイレクトのレスポンス (301 Moved Permanently など) を返すときに生成されます。 [`request.followRedirect`](#requestfollowredirect) を呼び出すと、リダイレクトが続行されます。 このイベントを処理する場合、[`request.followRedirect`](#requestfollowredirect) を **同期的に** で呼び出す必要があります。でなければ、リクエストはキャンセルされます。
+サーバーがリダイレクトのレスポンス (301 Moved Permanently など) を返すときに生成されます。 [`request.followRedirect`](#requestfollowredirect) を呼び出すと、リダイレクトが続行されます。  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### インスタンスプロパティ
 
@@ -142,12 +142,12 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 
 * `name` String - 追加したヘッダーの名前を指定します。
 
-先に設定した追加したヘッダーの名前を削除します。このメソッドは、最初の書き込み前のみ呼び出すことができます。最初の書き込み後に呼び出そうとするとエラーがスローされます。
+Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - リクエストボディのデータのチャンク。文字列の場合、指定されたエンコーディングを使用して Buffer に変換されます。
-* `encoding` String (任意) - 文字列のチャンクをBufferオブジェクトに変換するために使用します。省略値は、'utf-8' です。
+* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
+* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
 * `callback` Function (任意) - 書き込み操作の終了後に呼び出されます。
 
 `callback` は、Node.jsのAPIとの類似性を維持する目的で導入された本質的にはダミーのファンクションです。 `chunk` コンテンツがChromiumのネットワークレイヤーに到達した後、すぐに非同期で呼び出されます。 Node.jsの実装とは違って、`callback` が呼び出される前に `chunk` コンテンツが書き込まれていることは保証されません。
@@ -160,7 +160,7 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 * `encoding` String (任意)
 * `callback` Function (任意)
 
-リクエストデータの最後のチャックを送信します。これ以上の書き込みや終了操作をすることはできません。`finish` イベントが終了操作の直後に発生します。
+Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
 #### `request.abort()`
 
@@ -168,14 +168,14 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 
 #### `request.followRedirect()`
 
-保留中のリダイレクトを続行します。`'redirect'` イベント中にのみ呼び出すことができます。
+Continues any pending redirection. Can only be called during a `'redirect'` event.
 
 #### `request.getUploadProgress()`
 
 戻り値 `Object`:
 
-* `active` Boolean - そのリクエストが現在アクティブかどうか。これが false の場合は他のプロパティにはセットされません。
-* `started` Boolean - アップロードが始まったかどうか。これが false の場合は `current` と `total` には 0 がセットされます。
+* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
+* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
 * `current` Integer - どのくらいアップロードしたかのバイト数。
 * `total` Integer - このリクエストでアップロードされるバイト数。
 

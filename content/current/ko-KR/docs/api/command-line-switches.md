@@ -10,7 +10,7 @@ app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // Your code here
+  // 여기에 코드 작성
 })
 ```
 
@@ -54,7 +54,7 @@ See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --
 
 ## --proxy-server=`address:port`
 
-시스템 설정의 프록시 서버를 무시하고 지정한 서버로 연결합니다. HTTP와 HTTPS 요청에만 적용됩니다. 시스템 프록시 서버 설정을 무시하고 지정한 서버로 연결합니다. 이 스위치는 HTTP와 HTTPS 그리고 WebSocket 요청에만 적용됩니다. 그리고 모든 프록시 서버가 HTTPS가 WebSocket 요청을 지원하지 않고 있을 수 있으므로 사용시 주의해야 합니다. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
+시스템 설정의 프록시 서버를 무시하고 지정한 서버로 연결합니다. HTTP와 HTTPS 요청에만 적용됩니다. 시스템 프록시 서버 설정을 무시하고 지정한 서버로 연결합니다. 이 스위치는 HTTP와 HTTPS 그리고 WebSocket 요청에만 적용됩니다. 그리고 모든 프록시 서버가 HTTPS가 WebSocket 요청을 지원하지 않고 있을 수 있으므로 사용시 주의해야 합니다.   The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ## --proxy-bypass-list=`hosts`
 
@@ -75,7 +75,7 @@ Will use the proxy server for all hosts except for local addresses (`localhost`,
 
 ## --no-proxy-server
 
-프록시 서버를 사용하지 않습니다. 다른 프록시 서버 플래그 및 설정을 무시하고 언제나 직접 연결을 사용합니다.
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
 ## --host-rules=`rules`
 
@@ -83,10 +83,10 @@ A comma-separated list of `rules` that control how hostnames are mapped.
 
 예시:
 
-- `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
-- `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
-- `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-- `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
+* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
 
 These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
@@ -155,7 +155,6 @@ This switch only works when `--enable-logging` is also passed.
 ## --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
-
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`

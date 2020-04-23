@@ -1,5 +1,5 @@
 ---
-title: Suche
+title: Suchen
 author:
   - echjordan
   - vanessayuenn
