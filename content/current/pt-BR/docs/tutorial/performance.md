@@ -33,7 +33,7 @@ Seu aplicativo pode ser um pouco mais enxuto, rápido e geralmente menos faminto
 
 ## 1) Descuido ao incluir módulos
 
-Before adding a Node.js module to your application, examine said module. Quantas dependências esse módulo inclui ? Que tipo de recursos são necessários para ele simplesmente ser chamado em um `require()` ? Você pode descobrir que o módulo com mais downloads nos pacotes NPM registrados ou com mais estrelas no GitHub, não é de fato o mais enxuto ou menor disponível.
+Antes de adicionar um módulo Node.js em sua aplicação,examine-o primeiro. Quantas dependências esse módulo inclui ? Que tipo de recursos são necessários para ele simplesmente ser chamado em um `require()` ? Você pode descobrir que o módulo com mais downloads nos pacotes NPM registrados ou com mais estrelas no GitHub, não é de fato o mais enxuto ou menor disponível.
 
 ### Por que?
 
@@ -74,15 +74,15 @@ Em um desenvolvimento tradicional de Node.js, nós estamos acostumados a colocar
 
 ### Por que?
 
-Loading modules is a surprisingly expensive operation, especially on Windows. When your app starts, it should not make users wait for operations that are currently not necessary.
+Carregar módulos é surpreendentemente uma operação cara, especialmente no Windows. Quando sua aplicação inicia, não deve fazer seus usuários aguardarem por coisas que eles não precisam agora.
 
-This might seem obvious, but many applications tend to do a large amount of work immediately after the app has launched - like checking for updates, downloading content used in a later flow, or performing heavy disk I/O operations.
+Isto pode parecer óbvio, mas a maioria das aplicações tendem a fazer muitas operações imediatamente após o programa ser aberto - como checar atualizações, baixar conteúdo usado em uma sessão anterior, ou fazer operações I/O pesadas no disco.
 
-Let's consider Visual Studio Code as an example. When you open a file, it will immediately display the file to you without any code highlighting, prioritizing your ability to interact with the text. Once it has done that work, it will move on to code highlighting.
+Vamos tomar o Visual Studio Code como exemplo. Quando você abre um arquivo, ele vai imediatamente aparecer para você sem nenhum destaque, priorizando sua capacidade de interagir com o texto. Uma vez que está funcionando, aí sim ele vai destacar o código.
 
 ### Como?
 
-Let's consider an example and assume that your application is parsing files in the fictitious `.foo` format. In order to do that, it relies on the equally fictitious `foo-parser` module. In traditional Node.js development, you might write code that eagerly loads dependencies:
+Vamos considerar um exemplo e assumir que sua aplicação está interpretando arquivos em um formato fictício `.foo`. Para fazer isso, ele depende do módulo igualmente fictício `foo-parser`. Em um desenvolvimento tradicional em Node.js, você provavelmente vai escrever um código que vai avidamente carregar dependências:
 
 ```js
 const fs = require('fs')
@@ -103,28 +103,28 @@ const parser = new Parser()
 module.exports = { parser }
 ```
 
-In the above example, we're doing a lot of work that's being executed as soon as the file is loaded. Do we need to get parsed files right away? Could we do this work a little later, when `getParsedFiles()` is actually called?
+No exemplo acima, nós estamos fazendo muita coisa assim que o arquivo é carregado. Nós precisamos interpretar os arquivos imediatamente ? Nós podemos fazer isso um pouco mais tarde, quando o `getParsedFiles()` é realmente utilizado ?
 
 ```js
-// "fs" is likely already being loaded, so the `require()` call is cheap
+// "fs" já está sendo carregado, então o `require()` é "barato"
 const fs = require('fs')
 
 class Parser {
   async getFiles () {
-    // Touch the disk as soon as `getFiles` is called, not sooner.
-    // Also, ensure that we're not blocking other operations by using
-    // the asynchronous version.
+    // Acesse o disco logo que o `getFiles` é chamado, não antes.
+    // Além disso, assegure-se que nós não estamos bloqueando outras operações usando
+// a versão assíncrona.
     this.files = this.files || await fs.readdir('.')
 
     return this.files
   }
 
   async getParsedFiles () {
-    // Our fictitious foo-parser is a big and expensive module to load, so
-    // defer that work until we actually need to parse files.
-    // Since `require()` comes with a module cache, the `require()` call
-    // will only be expensive once - subsequent calls of `getParsedFiles()`
-    // will be faster.
+    // Nosso módulo fictício foo-parser é grande e requer muito para ser carregado,então
+// adie esse trabalho até nos realmente precisarmos interpretar os arquivos.
+    // Já que `require()` vem com um módulo em cache, o `require()` 
+    // vai sair caro apenas uma vez - as chamadas seguintes de `getParsedFiles()`
+    // vão ser mais rápidas.
     const fooParser = require('foo-parser')
     const files = await this.getFiles()
 
@@ -132,38 +132,38 @@ class Parser {
   }
 }
 
-// This operation is now a lot cheaper than in our previous example
+// Essa operação agora é muito mais barata que nosso exemplo anterior
 const parser = new Parser()
 
 module.exports = { parser }
 ```
 
-In short, allocate resources "just in time" rather than allocating them all when your app starts.
+Em suma, aloque recursos quando precisar em vez de alocar todos eles quando sua aplicação iniciar.
 
-## 3) Blocking the main process
+## 3) Bloqueando o processo principal
 
-Electron's main process (sometimes called "browser process") is special: It is the parent process to all your app's other processes and the primary process the operating system interacts with. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
+O processo principal do Electron (algumas vezes chamado de "browser process") é especial: é o processo pai de todos os outros na sua aplicação e o primeiro processo com quem o sistema operacional interage. Ele lida com janelas, interações, e comunicação entre vários componente dentro do seu programa. Ele também abriga a thread da UI.
 
-Under no circumstances should you block this process and the UI thread with long-running operations. Blocking the UI thread means that your entire app will freeze until the main process is ready to continue processing.
+Sob nenhuma circunstância você deve bloquear este processo e a thread da UI com operações longas. Bloquear a thread da UI significa que todo o seu programa vai travar até o processo principal estar pronto para continuar.
 
 ### Por que?
 
-The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. If your window is rendering a buttery-smooth animation, it'll need to talk to the GPU process about that – once again going through the main process.
+O processo principal e sua thread UI são essencialmente a torre de controle para operações maiores em seu programa. Quando o sistema operacional informa o programa sobre um click do mouse, ele vai passar através do processo principal antes de chegar à sua janela. Se sua janela está renderizando uma animação suave, ela vai precisar conversar com o processo da GPU sobre isso - mais uma vez passando pelo processo principal.
 
-Electron and Chromium are careful to put heavy disk I/O and CPU-bound operations onto new threads to avoid blocking the UI thread. You should do the same.
+Electron e Chromium são cuidadosos ao colocar tarefas pesadas de I/P e operações pesadas em CPU dentro de novas threads para evitar o bloqueio da thread da UI. Você deve fazer o mesmo.
 
 ### Como?
 
-Electron's powerful multi-process architecture stands ready to assist you with your long-running tasks, but also includes a small number of performance traps.
+A poderosa arquitetura multi-procedural fica pronta para ajudar você com suas tarefas demoradas, mas também inclue um pequeno número de armadilhas de performance.
 
-1) For long running CPU-heavy tasks, make use of [worker threads](https://nodejs.org/api/worker_threads.html), consider moving them to the BrowserWindow, or (as a last resort) spawn a dedicated process.
+1) Para longas e pesadas tarefas na CPU, faça uso de [worker threads](https://nodejs.org/api/worker_threads.html), considere move-las para a BrowserWindow ou (como último recurso) cria um processo dedicado.
 
-2) Avoid using the synchronous IPC and the `remote` module as much as possible. While there are legitimate use cases, it is far too easy to unknowingly block the UI thread using the `remote` module.
+2) Evite usar o IPC síncrono e o módulo `remote` o máximo possível. Enquanto há casos legítimos de uso, é de longe muito fácil bloquear a thread da UI sem saber usando o módulo `remote`.
 
-3) Avoid using blocking I/O operations in the main process. In short, whenever core Node.js modules (like `fs` or `child_process`) offer a synchronous or an asynchronous version, you should prefer the asynchronous and non-blocking variant.
+3) Evite usar operações que bloqueiam I/O no processo principal. Em suma, sempre que um módulo Node.js (como `fs` ou `child_process`) oferecer uma versão assíncrona ou síncrona, você deve dar preferência a versão assíncrona e não-bloqueadora.
 
 
-## 4) Blocking the renderer process
+## 4) Bloqueando o processo de renderização
 
 Since Electron ships with a current version of Chrome, you can make use of the latest and greatest features the Web Platform offers to defer or offload heavy operations in a way that keeps your app smooth and responsive.
 
