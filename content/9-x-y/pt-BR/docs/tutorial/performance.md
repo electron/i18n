@@ -177,9 +177,9 @@ Orquestrar o fluxo de operações no código de renderização é particularment
 
 Geralmente, todo conselho para construir aplicativos web melhores para navegadores modernos se aplicam à renderização do Electron também. As duas ferramentas primárias à sua disposição são atualmente `requestIdleCallback()` para pequenos processos e `Web Workers` para operações demoradas.
 
-*`requestIdleCallback()`* allows developers to queue up a function to be executed as soon as the process is entering an idle period. It enables you to perform low-priority or background work without impacting the user experience. For more information about how to use it, [check out its documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
+*`requestIdleCallback()`* permite ao desenvolvedor enfileirar uma função para ser executada assim que o processo estiver entrando em um período ocioso. Ela permite você fazer tarefas de baixa prioridade ou de fundo sem impactar a experiência do usuário. Para mais informações sobre como usar isso, cheque a sua documentação no [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
-*Web Workers* are a powerful tool to run code on a separate thread. There are some caveats to consider – consult Electron's [multithreading documentation](./multithreading.md) and the [MDN documentation for Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). They're an ideal solution for any operation that requires a lot of CPU power for an extended period of time.
+*Web Workers* são uma ferramenta poderosa para rodar um código em uma thread separada. Há algumas ressalvas - consulte a [documentação de multi-thread do Electron](./multithreading.md) e a [documentação do MDN para Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Elas são a solução ideal para qualquer operação que precise de muito poder de CPU por um longo período de tempo.
 
 
 ## 5) Unnecessary polyfills
