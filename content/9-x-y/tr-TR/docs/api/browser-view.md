@@ -1,76 +1,73 @@
-## Клас: BrowserView
+## Sınıf: BrowserView
 
-> Створюйте та керуйте виглядами.
+> Görünüm yaratın ve kontrol edin.
 
-Процес: [Main](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
-`BrowserView` Може бути використаний для вставки додаткового веб контенту у [`BrowserWindow`](browser-window.md). По cуті він є дочірнім вікном, за винятком того, що позиціонується відносно батьківського вікна. Він покликаний бути альтернативою тегу `webview`.
+A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Çocuk pencere gibidir ama sahibi pencereye göre göreceli konumlandırılır. `webview` etiketine bir alternatif olarak düşünülebilir.
 
-### Приклад
+### Örnek
 
 ```javascript
-// В головному процесі.
+// Ana süreçte.
 const { BrowserView, BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
-win.on('closed', () => {
-  win = null
-})
+const win = new BrowserWindow({ width: 800, height: 600 })
 
-let view = new BrowserView()
+const view = new BrowserView()
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` _Експериментальний_
+### `new BrowserView([options])` _Deneysel_
 
 * `options` Object (optional)
-  * `webPreferences` Object (опціонально) - Дивись [BrowserWindow](browser-window.md).
+  * `webPreferences` Obje (opsiyonel) - [BrowserWindow](browser-window.md)'a bakın.
 
-### Статичні Методи
+### Statik Metodlar
 
 #### `BrowserView.getAllViews()`
 
-Повертає `BrowserView[]` - Масив всіх відкритих BrowserViews.
+`BrowserView[]` - açılan tüm BrowserViews dizisinin değerini gönderir.
 
-#### `BrowserView.fromWebContents(webContents)`
+#### `BrowserWiew.fromWebContents(webContents)`
 
-* `webContents` [WebContents](web-contents.md)
+* `webContents` [webİçerikleri](web-contents.md)
 
-Повертає `BrowserView | null` - BrowserView, який володіє переданим `webContents` чи `null`, якщо контент не належить BrowserView.
+Dönüt `BrowserView | null`-BrowserView içeriği tarafından bir BrowserView ait sahip olmayan, verilen `webContents` veya `null` sahip.
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` tamsayı
 
-Повертає `BrowserView` - Вигляд з отриманим `id`.
+`BrowserView` döner - `id` ile birlikte girilen view.
 
-### Властивості Екземпляра
+### Örnek Özellikleri
 
-Об'єкт створений за допомогою `new BrowserView` має наступні властивості:
+`new BrowserView` şeklinde yaratılan objeler, aşağıdaki özelliklere sahiptir:
 
-#### `view.webContents` _Експериментальна_
+#### `view.webContents` _Deneysel_
 
-Об'єкт [`WebContents`](web-contents.md), яким володіє цей вигляд.
+Bu view tarafından sahip olunan bir [`WebContents`](web-contents.md).
 
-#### `view.id` _Експериментальна_
+#### `view.id` _Deneysel_
 
-`Integer`, яке представляє унікальний ID вигляду.
+View'in eşsiz ID'sini temsil eden bir `Tamsayı`.
 
-### Методи Екземпляра
+### Örnek Metodlar
 
-Об'єкт створений за допомогою `new BrowserView` має наступні методи:
+`new BrowserView` ile yaratılan objeler aşağıdaki metodlara sahiptir:
 
 #### `view.destroy()`
 
-Після примусового закриття view, події `unload` та `beforeunload` не будуть викликані. Після того як ви закінчили з view, викличіть функцію для того щоб звільнити пам'ять і інші ресурси тоді коли це стане можливим.
+Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
 
 #### `view.isDestroyed()`
 
-Повертає тип`Boolean`-Чи view закрито (True/False).
+`Boolean` Döndürür - Görünümün yok olup olmadığını.
 
-#### `view.setAutoResize(options)` _Експериментальний_
+#### `view.setAutoResize(options)` _Deneysel_
 
 * `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
@@ -78,18 +75,18 @@ view.webContents.loadURL('https://electronjs.org')
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
   * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` _Експериментальний_
+#### `view.setBounds(bounds)` _Deneysel_
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` [Dikdörtgen](structures/rectangle.md)
 
-Змінює розмір і рухає вигляд до переданої межі відносно вікна.
+Verilen sınırlarla görünümü göreceli olarak yeniden şekillendirir ve taşır.
 
-#### `view.getBounds()` _Експериментальний_
+#### `view.getBounds()` _Experimental_
 
-Повертає [`Rectangle`](structures/rectangle.md)
+[`Rectangle`](structures/rectangle.md) döndürür
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` _Експериментальний_
+#### `view.setBackgroundColor(color)` _Deneysel_
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
