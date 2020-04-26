@@ -8,7 +8,7 @@
 
 `WebRequest` のメソッドは、任意の `filter` と `listener` を受け取ります。 `listener` は、リクエストが終了したときに `listener(details)` で呼ばれます。 `details` オブジェクトはリクエストについて記述します。
 
-⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
+⚠️ 最後にアタッチされた `listener` のみが使用されます。 `null` を `listener` として渡すと、イベントの監視が解除されます。
 
 `filter` オブジェクトには、`urls` プロパティがあります。これは、URL パターンと一致しないリクエストをフィルタリングするために使用される URL パターンの配列です。 `filter` を省略するとすべてのリクエストがマッチします。
 
@@ -36,7 +36,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Object (任意)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function | null
   * `details` Object
@@ -76,7 +76,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Object (任意)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function | null
   * `details` Object
@@ -99,7 +99,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Object (任意)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function | null
   * `details` Object
@@ -116,7 +116,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Object (任意)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function | null
   * `details` Object
@@ -142,7 +142,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Object (任意)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function | null
   * `details` Object
@@ -162,7 +162,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Object (任意)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function | null
   * `details` Object
@@ -183,7 +183,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Object (任意)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function | null
   * `details` Object
@@ -203,7 +203,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Object (任意)
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function | null
   * `details` Object
