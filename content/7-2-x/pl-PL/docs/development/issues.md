@@ -2,7 +2,7 @@
 
 * [Jak wnieść swój wkład w issues](#how-to-contribute-in-issues)
 * [Prośba o pomoc ogólną](#asking-for-general-help)
-* [Submitting a Bug Report](#submitting-a-bug-report)
+* [Zgłaszanie raportu o błędzie](#submitting-a-bug-report)
 * [Triaging a Bug Report](#triaging-a-bug-report)
 * [Resolving a Bug Report](#resolving-a-bug-report)
 
