@@ -1,10 +1,10 @@
-# Débogage de l’application
+# Application Debugging
 
-Chaque fois que votre application Electron ne se comporte pas comme vous le souhaitez, un panel d'outils de débogage peut vous aider à trouver des erreurs de code, des goulots d’étranglement ou possibilités d’optimisation.
+Whenever your Electron application is not behaving the way you wanted it to, an array of debugging tools might help you find coding errors, performance bottlenecks, or optimization opportunities.
 
-## Processus de rendu (renderer process)
+## Renderer Process
 
-L’outil le plus complet pour déboguer les processus individuels de rendu est le Chromium Developer Toolset. Il est disponible pour tous les processus de rendu, y compris les instances de `BrowserWindow`, `BrowserView` et `WebView`. Vous pouvez les ouvrir en appelant l'API `openDevTools()` sur le `webContents` de l’instance :
+The most comprehensive tool to debug individual renderer processes is the Chromium Developer Toolset. It is available for all renderer processes, including instances of `BrowserWindow`, `BrowserView`, and `WebView`. You can open them programmatically by calling the `openDevTools()` API on the `webContents` of the instance:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -13,20 +13,10 @@ let win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google offre [une excellente documentation pour leurs outils de développement](https://developer.chrome.com/devtools). Nous vous recommandons que vous vous familiariser avec eux - ils sont généralement un des utilitaires plus puissants dans le panel d’outil à disposition des développeur Electron.
+Google offers [excellent documentation for their developer tools](https://developer.chrome.com/devtools). We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
 
-## Processus principal
+## Main Process
 
-Déboguer le processus principal est un peu plus compliqué, car vous ne pouvez pas ouvrir les outils de développement. Le Chromium Developer Tool peut [être utilisé pour déboguer le processus principal d'Electron](https://nodejs.org/en/docs/inspector/) grâce à une collaboration plus étroite entre Google / Chrome et Node.js, mais vous risquez de rencontrer des étrangetés comme `require` n’étant pas présent dans la console.
+Debugging the main process is a bit trickier, since you cannot open developer tools for them. The Chromium Developer Tools can [be used to debug Electron's main process](https://nodejs.org/en/docs/inspector/) thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
 
-Pour plus d'informations, voir la [documentation sur le Débogage du processus principal](./debugging-main-process.md).
-
-## V8 Crashes
-
-If the V8 context crashes, the DevTools will display this message.
-
-`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
-
-Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
-
-Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+For more information, see the [Debugging the Main Process documentation](./debugging-main-process.md).
