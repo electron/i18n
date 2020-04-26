@@ -1,4 +1,4 @@
-# Dystrybuowanie Aplikacji
+# Распространение приложений
 
 To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
 
@@ -6,14 +6,14 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron/electron-packager)
 
-These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+Эти инструменты позаботятся обо всех шагах, которые вам нужно предпринять для того, чтобы в конечном итоге получить готовое к распространению приложения Electron, такие как упаковка вашего приложения, ребрендинг исполняемого файла, установка правильных значков и создание инсталляторов.
 
-## Ręczna dystrybucja
+## Ручное распространение
 You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Для распространения вашего приложения с Electron, вам нужно скачать [предварительно собранные двоичные файлы](https://github.com/electron/electron/releases) Electron. Далее папку, содержащую ваше приложение следует назвать `app` и поместить в каталог ресурсов Electron, как показано в следующих примерах. Обратите внимание, что расположение двоичных файлов Electron в приведенных ниже примерах обозначается как `electron/`.
 
-Na macOS:
+На macOS:
 
 ```plaintext
 electron/Electron.app/Contents/Resources/app/
@@ -22,7 +22,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+На Windows и Linux:
 
 ```plaintext
 electron/resources/app
@@ -31,80 +31,80 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+Затем необходимо выполнить `Electron.app` (или `electron` на Linux, `electron.exe` на Windows), и Electron запустится в качестве приложения. Каталог `Electron` станет вашим дистрибутивом для доставки конечным пользователям.
 
-## Pakowanie Aplikacji do Pliku
+## Упаковка приложения в файл
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+Помимо доставки приложения путем копирования всех его исходных файлов, его также можно упаковать в архив ["asar"](https://github.com/electron/asar), что позволит не раскрывать пользователям исходный код.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Чтобы использовать архив `asar` для замены каталога `app`, необходимо переименовать архив в `app.asar` и положить его в каталог ресурсов Electron, как показано ниже, и Electron будет пытаться прочитать архив и начать с него.
 
-Na macOS:
+На macOS:
 
 ```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+На Windows и Linux:
 
 ```plaintext
 electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Более подробную информацию можно найти в разделе [Упаковка приложения](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## Ребрендинг скачанных бинарных файлов
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+После построения вашего приложения в Electron и перед распространением вам следует провести его ребрендинг.
 
 ### Windows
 
-Możesz zmienić nazwę `electron.exe` na dowolną nazwę, którą chcesz, i edytować jej ikonę i inne informacje za pomocą narzędzi takich jak [rcedit](https://github.com/atom/rcedit).
+Вы можете сменить имя файла `electron.exe` на любое понравившееся, отредактировать его значок и другую информацию такими инструментами, как [rcedit](https://github.com/atom/rcedit).
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+Вы можете переименовать `Electron.app`, а также вы должны переименовать поля `CFBundleDisplayName`, `CFBundleIdentifier` и `CFBundleName` в следующих файлах:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+Вы также можете переименовать helper приложения, чтобы избежать показа `Electron Helper` в Activity Monitor, но убедитесь, что вы переименовали имя исполняемого файла helper приложения.
 
-The structure of a renamed app would be like:
+Структура переименования app будет такая:
 
 ```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+`Electron` исполняемый файл можно переименовать на любое имя, которое вам нравится.
 
-## Rebranding by Rebuilding Electron from Source
+## Проведите ребрендинг, пересобрав Electron из исходных кодов
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+Можно изменить бренд Electron путем изменения имени продукта и сборки его из исходных кодов. Для этого вам надо установить аргумент, отвечающий за имя продукта (`electron_product_name = "YourProductName"`) в файле `args.gn` и пересобрать Electron.
 
-### Creating a Custom Electron Fork
+### Создание пользовательских Electron форков
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Создание пользовательского форка Electron это почти наверняка не то, что вам будет нужно сделать для того, чтобы построить приложение даже уровня "Production Level". Использование такого инструмента как `electron-packager` или `electron-forge` позволит вам совершить "Ребрендинг" Electron без необходимости делать эти шаги.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Вам нужно форкнуть Electron, когда у вас имеется собственный код C++, который вы примените в виде патча непосредственно в Electron, который не может быть upstreamed или были отклонения от официальной версии. Как сопровождающие Electron, мы очень многое хотели сделать по вашему сценарию работы, так что пожалуйста попробуйте как сложность и вы сможете получить ваши изменения в официальной версии Electron, это будет намного легче на вас, и мы оценим вашу помощь.
 
-#### Creating a Custom Release with surf-build
+#### Создание surf-build пользовательского релиза
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Установить [Surf](https://github.com/surf-build/surf), через npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Создайте новый S3 bucket и создайте следующую структуру пустых каталогов:
 
     ```sh
     - electron/
@@ -112,18 +112,18 @@ You need to fork Electron when you have custom C++ code that you have patched di
       - dist/
     ```
 
-3. Set the following Environment Variables:
+3. Установите следующие переменные среды:
 
-  * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
-  * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
-  * `CI` - Set to `true` or else it will fail
-  * `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-  * `TARGET_ARCH` - set to `ia32` or `x64`
+  * `ELECTRON_GITHUB_TOKEN` - токен, который может создавать релизы на GitHub
+  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - место, куда вы будете отправлять node.js заголовки, а также символы
+  * `ELECTRON_RELEASE` - установите `true` и отправьте часть выполняться, оставить без изменений, `surf-build` просто будет делать проверки CI-типа, необходимо запускать для каждого pull request'а.
+  * `CI` - установите в `true` или иначе произойдет сбой
+  * `GITHUB_TOKEN` - установите его так же, как `ELECTRON_GITHUB_TOKEN`
+  * `SURF_TEMP` - установите в `C:\Temp` на Windows для предотвращения проблем слишком длинного пути
+  * `TARGET_ARCH` - установить в `ia32` или `x64`
 
-4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+4. В `script/upload.py`, вы _должны_ установить `ELECTRON_REPO` к вашему форку (`MYORG/electron`), особенно если вы участник сопровождающий Electron.
 
 5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-6. Poczekaj bardzo bardzo dużo czasu dla tej kompilacji do zakończenia.
+6. Очень, очень долго ждать завершения сборки.
