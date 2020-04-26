@@ -1,5 +1,5 @@
 ---
-title: Electron Documentation
+title: Документация Electron
 author: jlord
 date: '2015-06-04'
 ---
