@@ -1,4 +1,4 @@
-## Class: TouchBar
+## 클래스: 터치바
 
 > Create TouchBar layouts for native macOS applications
 
