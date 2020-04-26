@@ -1,5 +1,5 @@
-# Objeto MemoryUsageDetails
+# شئ MemoryUsageDetails
 
-* `count` Number
-* `size` Number
-* `liveSize` Number
+* `count` عدد
+* `size` عدد
+* `liveSize` عدد
