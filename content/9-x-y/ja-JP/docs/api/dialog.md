@@ -11,7 +11,7 @@ const { dialog } = require('electron')
 console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+ダイアログは Electron のメインスレッドから開かれます。 レンダラプロセスからダイアログオブジェクトを使いたい場合は、リモートを使ってアクセスすることを忘れないでください。
 
 ```javascript
 const { dialog } = require('electron').remote
@@ -30,14 +30,14 @@ console.log(dialog)
   * `defaultPath` String (任意)
   * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、既定のラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[] (任意) - ダイアログが使うべきでない機能を含む。 以下の値がサポートされています:
     * `openFile` - ファイルを選択するのを許可します。
     * `openDirectory` - ディレクトリを選択するのを許可します。
     * `multiSelections` - 複数のパスを選択するのを許可します。
     * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
     * `createDirectory` _macOS_ - ダイアログでディレクトリを作成するのを許可します。
     * `promptToCreate` _Windows_ - ダイアログで存在しないファイルパスを入力した場合に、作成を促します。 これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。
-    * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `noResolveAliases` _macOS_ - 自動的なエイリアス (シンボリックリンク) によるパス解決を無効にします。 選択されたエイリアスは、ターゲットパスの代わりにエイリアスパスを返します。
     * `treatPackageAsDirectory` _macOS_ - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
     * `dontAddToRecent` _Windows_ - 開いているアイテムを最近開いた書類リストに追加しないようにします。
   * `message` String (任意) _macOS_ - 入力ボックスの上に表示するメッセージ。
@@ -47,7 +47,7 @@ console.log(dialog)
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. 例:
+特定の種類だけにユーザーを制限したいとき、`filters` には、表示または選択できるファイルの種類の配列を指定します。 例:
 
 ```javascript
 {
@@ -78,14 +78,14 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` String (任意)
   * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、既定のラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[] (任意) - ダイアログが使うべきでない機能を含む。 以下の値がサポートされています:
     * `openFile` - ファイルを選択するのを許可します。
     * `openDirectory` - ディレクトリを選択するのを許可します。
     * `multiSelections` - 複数のパスを選択するのを許可します。
     * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
     * `createDirectory` _macOS_ - ダイアログでディレクトリを作成するのを許可します。
     * `promptToCreate` _Windows_ - ダイアログで存在しないファイルパスを入力した場合に、作成を促します。 これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。
-    * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `noResolveAliases` _macOS_ - 自動的なエイリアス (シンボリックリンク) によるパス解決を無効にします。 選択されたエイリアスは、ターゲットパスの代わりにエイリアスパスを返します。
     * `treatPackageAsDirectory` _macOS_ - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
     * `dontAddToRecent` _Windows_ - 開いているアイテムを最近開いた書類リストに追加しないようにします。
   * `message` String (任意) _macOS_ - 入力ボックスの上に表示するメッセージ。
@@ -94,12 +94,12 @@ dialog.showOpenDialogSync(mainWindow, {
 戻り値 `Promise<Object>` - 以下を含むオブジェクトで実行されます。
 
 * `canceled` Boolean - dialog がキャンセルされたかそうでないか。
-* `filePaths` String[] - ユーザーによって選択されたファイルパスの配列. If the dialog is cancelled this will be an empty array.
-* `bookmarks` String[] (optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. データを取り込むために `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
+* `filePaths` String[] - ユーザーによって選択されたファイルパスの配列. ダイアログがキャンセルされた場合、これは空の配列になります。
+* `bookmarks` String[] (任意)_macOS_ _mas_ - セキュリティスコープ付きブックマークを含む base64 エンコードされた `filePaths` 配列にマッチする配列。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. 例:
+特定の種類だけにユーザーを制限したいとき、`filters` には、表示または選択できるファイルの種類の配列を指定します。 例:
 
 ```javascript
 {
@@ -138,7 +138,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (任意) _macOS_ - テキストフィールドの上に表示するメッセージ。
   * `nameFieldLabel` String (任意) _macOS_ - ファイル名のテキストフィールドの前に表示されるテキストのカスタムラベル。
   * `showsTagField` Boolean (任意) _macOS_ - タグの入力ボックスを表示します。省略値は、`true` です。
-  * `properties` String[] (optional)
+  * `properties` String[] (任意)
     * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
     * `createDirectory` _macOS_ - ダイアログでディレクトリを作成するのを許可します。
     * `treatPackageAsDirectory` _macOS_ - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
@@ -163,7 +163,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (任意) _macOS_ - テキストフィールドの上に表示するメッセージ。
   * `nameFieldLabel` String (任意) _macOS_ - ファイル名のテキストフィールドの前に表示されるテキストのカスタムラベル。
   * `showsTagField` Boolean (任意) _macOS_ - タグの入力ボックスを表示します。省略値は、`true` です。
-  * `properties` String[] (optional)
+  * `properties` String[] (任意)
     * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
     * `createDirectory` _macOS_ - ダイアログでディレクトリを作成するのを許可します。
     * `treatPackageAsDirectory` _macOS_ - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
@@ -173,8 +173,8 @@ dialog.showOpenDialog(mainWindow, {
 
 戻り値 `Promise<Object>` - 以下を含むオブジェクトで実行されます。
   * `canceled` Boolean - dialog がキャンセルされたかそうでないか。
-  * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-  * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. 出力するために `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
+  * `filePath` String (任意) - ダイアログがキャンセルされると、これは `undefined` になります。
+  * `bookmark` String (任意)_macOS_ _mas_ - 保存されたファイルのセキュリティスコープのブックマークデータを含む Base64 エンコードされた文字列。 出力するために `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
@@ -187,13 +187,13 @@ dialog.showOpenDialog(mainWindow, {
 * `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object
   * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"` にすることができます。 Windowsでは、`"icon"` のオプションを使用してアイコンを設定しない場合、`"question"` は、`"info"` と同じアイコンを表示します。 macOSでは、`"warning"` と `"error"` の両方で同じ警告アイコンを表示します。
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String[] (任意) - ボタン用テキストの配列。 Windows では、空の配列は 1 つの "OK" ボタンになります。
   * `defaultId` Integer (任意) - メッセージボックスを開いたとき、既定で選択されるボタンの配列の中のボタンのインデックス。
   * `title` String (任意) - メッセージボックスのタイトル。いくつかのプラットフォームでは表示されません。
   * `message` String - メッセージボックスの内容。
   * `detail` String (任意) - メッセージの追加情報。
   * `checkboxLabel` String (任意) - 指定した場合、メッセージボックスには、指定したラベルを持つチェックボックスが含まれます。
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. 省略値は `false` です。
+  * `checkboxChecked` Boolean (任意) - チェックボックスの初期のチェック状態。 省略値は `false` です。
   * `icon` ([NativeImage](native-image.md) | String) (任意)
   * `cancelId` Integer (任意) - `Esc` キー経由でダイアログをキャンセルするのに使用されるボタンのインデックス。 既定では、これはラベルとして "cancel" または "no" の付いた最初のボタンに割り当てられます。 そのようにラベル付けされたボタンがなく、このオプションが設定されていない場合、`0` が戻り値として使用されます。
   * `noLink` Boolean (任意) - WindowsでElectronはどの `buttons` が ("Cancel" や "Yes" のような) 一般的なボタンかを把握し、その他をダイアログでコマンドリンクとして表示しようとします。 これにより、モダンなWindowsアプリのスタイルでダイアログを表示させることができます。 この動作が気に入らない場合、`noLink` を `true` に設定することができます。
@@ -201,7 +201,7 @@ dialog.showOpenDialog(mainWindow, {
 
 戻り値 `Integer` - クリックされたボタンのインデックス。
 
-メッセージボックスを表示し、メッセージボックスが閉じられるまでプロセスをブロックします。 It returns the index of the clicked button.
+メッセージボックスを表示し、メッセージボックスが閉じられるまでプロセスをブロックします。 クリックされたボタンのインデックスを返します。
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。 `browserWindow` が表示されていない場合、dialog はアタッチされません。 この場合は独立したウインドウとして表示されます。
 
@@ -210,21 +210,21 @@ dialog.showOpenDialog(mainWindow, {
 * `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object
   * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"` にすることができます。 Windowsでは、`"icon"` のオプションを使用してアイコンを設定しない場合、`"question"` は、`"info"` と同じアイコンを表示します。 macOSでは、`"warning"` と `"error"` の両方で同じ警告アイコンを表示します。
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String[] (任意) - ボタン用テキストの配列。 Windows では、空の配列は 1 つの "OK" ボタンになります。
   * `defaultId` Integer (任意) - メッセージボックスを開いたとき、既定で選択されるボタンの配列の中のボタンのインデックス。
   * `title` String (任意) - メッセージボックスのタイトル。いくつかのプラットフォームでは表示されません。
   * `message` String - メッセージボックスの内容。
   * `detail` String (任意) - メッセージの追加情報。
   * `checkboxLabel` String (任意) - 指定した場合、メッセージボックスには、指定したラベルを持つチェックボックスが含まれます。
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. 省略値は `false` です。
+  * `checkboxChecked` Boolean (任意) - チェックボックスの初期のチェック状態。 省略値は `false` です。
   * `icon` [NativeImage](native-image.md) (任意)
   * `cancelId` Integer (任意) - `Esc` キー経由でダイアログをキャンセルするのに使用されるボタンのインデックス。 既定では、これはラベルとして "cancel" または "no" の付いた最初のボタンに割り当てられます。 そのようにラベル付けされたボタンがなく、このオプションが設定されていない場合、`0` が戻り値として使用されます。
   * `noLink` Boolean (任意) - WindowsでElectronはどの `buttons` が ("Cancel" や "Yes" のような) 一般的なボタンかを把握し、その他をダイアログでコマンドリンクとして表示しようとします。 これにより、モダンなWindowsアプリのスタイルでダイアログを表示させることができます。 この動作が気に入らない場合、`noLink` を `true` に設定することができます。
   * `normalizeAccessKeys` Boolean (任意) - プラットフォーム間でキーボードのアクセスキーを正規化します。 省略値は、`false` です。 これを有効にすると、`&` が、ボタンのラベルでキーボードショートカットアクセスキーの位置として使用されているとみなされ、各プラットフォームで正常に動作するようにラベルが変換されます。macOSでは、`&` の文字は削除され、Linuxでは、`_` に変換され、Windowsでは、そのままにされます。 例えば、`Vie&w` というボタンラベルは、Linuxでは、`Vie_w`、macOSでは、`View` に変換され、WindowsとLinuxでは、`Alt-W` 経由で選択できます。
 
 戻り値 `Promise<Object>` - 以下のプロパティを含む Promise で解決されます。
-  * `response` Number - The index of the clicked button.
-  * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+  * `response` Number - クリックされたボタンのインデックス。
+  * `checkboxChecked` Boolean - `checkboxLabel` が設定された場合、チェックボックスのチェック状態。 そうでない場合は `false` になります。
 
 メッセージボックスを表示し、メッセージボックスが閉じられるまでプロセスをブロックします。
 
