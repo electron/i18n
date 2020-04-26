@@ -1,25 +1,25 @@
 ---
-title: Node.js Native Addons and Electron 5.0
+title: Node.js ネイティブアドオンと Electron 5.0
 author: BinaryMuse
 date: '2019-02-01'
 ---
 
-If you're having trouble using a native Node.js addon with Electron 5.0, there's a chance it needs to be updated to work with the most recent version of V8.
+Electron 5.0 でネイティブな Node.js アドオンを使用しようとして問題が発生している場合、 V8 の最新バージョンで動作するように更新する必要があるかもしれません。
 
 ---
 
-## Goodbye `v8::Handle`, Hello `v8::Local`
+## さようなら `v8::Handle</0> 、こんにちは <code>v8::Local`
 
-In 2014, the V8 team deprecated `v8::Handle` in favor of `v8::Local` for local handles. Electron 5.0 includes a version of V8 that has finally removed `v8::Handle` for good, and native Node.js addons that still use it will need to be updated before they can be used with Electron 5.0.
+2014 年、 V8 チームはローカルハンドルを `v8::Local` に置き換え、 `v8::Handle` を非推奨にしました。 Electron 5.0 は `v8::Handle` が削除されたバージョンの V8 を含んでいるため、それを使用しているネイティブ Node.js アドオンは Electron 5.0 で使用される前に更新する必要があります。
 
-The required code change is minimal, but *every* native Node module that still uses `v8::Handle` will fail to build with Electron 5.0 and will need to be modified. The good news is that Node.js v12 will also include this V8 change, so any modules that use `v8::Handle` will need to be updated *anyway* to work with the upcoming version of Node.
+必要なコード変更は最小限ですが、未だ `v8::Handle` を使用している *すべての* ネイティブ Node モジュールは Electron 5.0 でのビルドに失敗するため、変更されなければなりません。 Node.js v12 はこの V8 の変更を含んでいるため、 `v8::Handle` を使用しているモジュールは次のバージョンの Node で動作するために *どのみち* 更新される必要があるでしょう。
 
-## I maintain a native addon, how can I help?
+## 私はネイティブアドオンをメンテナンスしていますが、どうすればいいですか？
 
-If you maintain a native addon for Node.js, ensure you replace all occurrences of `v8::Handle` with `v8::Local`. The former was just an alias of the latter, so no other changes need to be made to address this specific issue.
+あなたが Node.js 用のネイティブアドオンをメンテナンスしている場合、 `v8::Handle` が使われている場所がすべて `v8::Local` に置き換わっていることを確認してください。 前者は後者の別名に過ぎなかったので、この問題に対処するために他の変更を加える必要はありません。
 
-You may also be interested in looking into [N-API](https://nodejs.org/api/n-api.html), which is maintained separately from V8 as a part of Node.js itself, and aims to insulate native addons from changes in the underlying JavaScript engine. You can find more information [in the N-API documentation on the Node.js website](https://nodejs.org/api/n-api.html#n_api_n_api).
+また、 [N-API](https://nodejs.org/api/n-api.html) は、Node.js の一部として V8 とは別に管理され、基になる JavaScript エンジンの変更からネイティブアドオンを分離することを目的としています。 詳細については [Node.js ウェブサイト内の N-API ドキュメント](https://nodejs.org/api/n-api.html#n_api_n_api) を参照してください。
 
-## ヘルプ! I use a native addon in my app and it won't work!
+## ヘルプ! ネイティブアドオンを使用している私のアプリが動作しません!
 
-If you're consuming a native addon for Node.js in your app and the native addon will not build because of this issue, check with the author of the addon to see if they've released a new version that fixes the problem. If not, reaching out to the author (or [opening a Pull Request!](https://help.github.com/articles/about-pull-requests/)) is probably your best bet.
+アプリで Node.js 用のネイティブアドオンを使用していて、この問題のためにネイティブアドオンがビルドされない場合は、アドオンの作成者に問い合わせて、問題を解決する新しいバージョンがリリースされているかどうかを確認してください。 もしそうでなければ、著者に連絡を取る (または [プルリクエストを開く!](https://help.github.com/articles/about-pull-requests/) )  とよいでしょう。
