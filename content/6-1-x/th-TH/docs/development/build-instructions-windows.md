@@ -1,8 +1,8 @@
-# Build Instructions (Windows)
+# คำแนะนำการสร้าง (Windows)
 
 Follow the guidelines below for building Electron on Windows.
 
-## Prerequisites
+## ข้อกำหนดเบื้องต้น
 
 * Windows 10 / Server 2012 R2 or higher
 * Visual Studio 2017 15.7.2 or higher - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
@@ -21,7 +21,7 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Building
+## สิ่งก่อสร้าง
 
 See [Build Instructions: GN](build-instructions-gn.md)
 
@@ -43,7 +43,7 @@ To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter t
 $ gn gen out/Debug --ide=vs2017
 ```
 
-## عیب یابی
+## วิธีแก้ปัญหาเบื้องต้น
 
 ### Command xxxx not found
 
