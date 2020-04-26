@@ -1,53 +1,53 @@
 # ipcRenderer
 
-> Спілкуйтеся асинхронно від процесу візуалізатора до основного процесу.
+> Zaman uyumsuz bir biçimde bir işleyici işleminden ana işlemle iletişim kurun.
 
-Process: [Renderer](../glossary.md#renderer-process)okok yes ie ui azt
+İşlem: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Він надає кілька методів, тому ви можете надсилати синхронні та асинхронні повідомлення з процесу рендеринга (веб-сторінки) у основний процес. Ви також можете отримувати відповіді від основного процесу.
+The `ipcRenderer` module is an  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). İşleme sürecinden (web sayfası) senkron ve asenkron mesajlar gönderebilmeniz için birkaç yöntem sağlar. Ayrıca ana kesimden gelen cevapları alabilirsiniz.
 
-See [ipcMain](ipc-main.md) for code examples.
+Kod örnekleri için [ipcMain](ipc-main.md)' e bakın.
 
-## Методиa
+## Yöntemler
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+`ipcRenderer` modülü olayları dinlemek ve mesaj göndermek için aşağıdaki yöntemi içerir:
 
-### `ipcRenderer.on(channel, listener)`
+### `ipcRenderer.on(kanal, dinleyici)`
 
-* `channel` String
-* `listener` Function
+* `channel` Dizesi
+* `listener` fonksiyon
   * `event` IpcRendererEvent
-  * `...args` any[]
+  * `...args` herhangi[]
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+`listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
-### `ipcRenderer.once(channel, listener)`
+### `ipcRenderer.once(kanal, dinleyici)`
 
-* `channel` String
-* `listener` Function
+* `channel` Dizesi
+* `listener` fonksiyon
   * `event` IpcRendererEvent
-  * `...args` any[]
+  * `...args` herhangi[]
 
 Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
-### `ipcRenderer.removeListener(channel, listener)`
+### `ipcRenderer.removeListener(kanal, dinleyici)`
 
-* `channel` String
-* `listener` Function
-  * `...args` any[]
+* `channel` Dizesi
+* `listener` fonksiyon
+  * `...args` herhangi[]
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Belirtilen `channel` öğesini belirtilen `listener` dizisinden kaldırır.
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` String
+* `channel` Dizesi
 
-Removes all listeners, or those of the specified `channel`.
+Tüm dinleyicileri kaldırır veya `channel` dizesini kaldırır.
 
 ### `ipcRenderer.send(channel, ...args)`
 
-* `channel` String
-* `...args` any[]
+* `channel` Dizesi
+* `...args` herhangi[]
 
 Send an asynchronous message to the main process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
@@ -57,8 +57,8 @@ The main process handles it by listening for `channel` with the [`ipcMain`](ipc-
 
 ### `ipcRenderer.invoke(channel, ...args)`
 
-* `channel` String
-* `...args` any[]
+* `channel` Dizesi
+* `...args` herhangi[]
 
 Returns `Promise<any>` - Resolves with the response from the main process.
 
@@ -68,7 +68,7 @@ Send a message to the main process via `channel` and expect a result asynchronou
 
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
-Наприклад:
+Örneğin:
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
@@ -84,10 +84,10 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 ### `ipcRenderer.sendSync(channel, ...args)`
 
-* `channel` String
+* `channel` Dizesi
 * `...args` any[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+`any` - [`ipcMain`](ipc-main.md) İşleyicisi tarafından geri gönderilen değeri gösterir.
 
 Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
@@ -100,18 +100,18 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
 * `webContentsId` Number
-* `channel` String
-* `...args` any[]
+* `channel` Dizesi
+* `...args` herhangi[]
 
 Sends a message to a window with `webContentsId` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel, ...args)`
 
-* `channel` String
-* `...args` any[]
+* `channel` Dizesi
+* `...args` herhangi[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+`ipcRenderer.send` gibi ancak olay ana işlem yerine ana sayfadaki `<webview>` öğesine gönderilecektir.
 
-## Event object
+## Etkinlik objesi
 
 The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
