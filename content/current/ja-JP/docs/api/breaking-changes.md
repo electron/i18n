@@ -148,7 +148,7 @@ folder
 ├── file2
 └── file3
 ```
-￼ In Electron <=6, this would return a `FileList` with a `File` object for:
+Electron <= 6 では、以下のような `File` オブジェクトが 1 つ入った `FileList` を返します。
 ```console
 path/to/folder
 ```
