@@ -4,21 +4,21 @@ author: zcbenz
 date: '2017-03-03'
 ---
 
-Electron は、Google のオープンソースプロジェクト Chromium をベースにしています。このプロジェクトは、他のプロジェクトで使用することを想定していません。 この記事では、Electron のライブラリとしての Chromium がどのように構築されているのか、またビルドシステムがどのように進化してきたのかを紹介します。
+Electron is based on Google's open-source Chromium, a project that is not necessarily designed to be used by other projects. This post introduces how Chromium is built as a library for Electron's use, and how the build system has evolved over the years.
 
 ---
 
-## CEF の利用
+## Using CEF
 
-Chromium Embedded Framework (CEF) は、Chromium をライブラリ化し、Chromium のコードベースに基づいて安定した API を提供するプロジェクトです。 黎明期の Atom エディタや NW.js では CEF を使用していました。
+The Chromium Embedded Framework (CEF) is a project that turns Chromium into a library, and provides stable APIs based on Chromium's codebase. Very early versions of Atom editor and NW.js used CEF.
 
-安定した API を維持するために、CEF は Chromium の詳細をすべて隠蔽し、独自のインターフェースで Chromium の API をラップします。 そのため、Node.js をウェブページに統合するような、内部の Chromium API にアクセスする必要があったとき、CEF の利点が障害になりました。
+To maintain a stable API, CEF hides all the details of Chromium and wraps Chromium's APIs with its own interface. So when we needed to access underlying Chromium APIs, like integrating Node.js into web pages, the advantages of CEF became blockers.
 
-そのため、結局 Electron も NW.js も Chromium の API を直接使うように切り替えました。
+So in the end both Electron and NW.js switched to using Chromium's APIs directly.
 
-## Chromium を部品としてビルドする
+## Building as part of Chromium
 
-Chromium は公式には外部プロジェクトをサポートしていませんが、コードベースはモジュール化されており、Chromium をベースに小さなブラウザを簡単に構築できます。 ブラウザインターフェイスを提供するコアモジュールは、コンテンツモジュールと呼ばれています。
+Even though Chromium does not officially support outside projects, the codebase is modular and it is easy to build a minimal browser based on Chromium. The core module providing the browser interface is called Content Module.
 
 To develop a project with Content Module, the easiest way is to build the project as part of Chromium. This can be done by first checking out Chromium's source code, and then adding the project to Chromium's `DEPS` file.
 
@@ -78,7 +78,7 @@ The first try to solve this was to [patch `gn` to generate static library files]
 
 The second try was made by [@alespergl](https://github.com/alespergl) to [produce custom static libraries from the list of object files](https://github.com/electron/libchromiumcontent/pull/249). It used a trick to first run a dummy build to collect a list of generated object files, and then actually build the static libraries by feeding `gn` with the list. It only made minimal changes to Chromium's source code, and kept Electron's building architecture still.
 
-## 概要
+## Summary
 
 As you can see, compared to building Electron as part of Chromium, building Chromium as a library takes greater efforts and requires continuous maintenance. However the latter removes the requirement of powerful hardware to build Electron, thus enabling a much larger range of developers to build and contribute to Electron. The effort is totally worth it.
 
