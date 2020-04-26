@@ -59,9 +59,9 @@ app.whenReady().then(() => {
 
 * `idleThreshold` Integer
 
-Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
+戻り値 `String` - 現在のシステムの状態。 `active` 、 `idle` 、 `locked` 、 `unknown` のいずれか。
 
-システムのアイドル状態を計算します。 `idleThreshold` は、アイドルとみなされるまでの時間 (秒) です。  `locked` is available on supported systems only.
+システムのアイドル状態を計算します。 `idleThreshold` は、アイドルとみなされるまでの時間 (秒) です。  `locked` はサポートされたシステムでのみ利用可能です。
 
 ### `powerMonitor.getSystemIdleTime()`
 
