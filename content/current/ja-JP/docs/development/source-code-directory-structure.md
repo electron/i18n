@@ -91,7 +91,7 @@ script/ - Electron がさまざまな目的で実行するすべてのスクリ�
     ├── notes/ - 新しいバージョンの Electron のリリースノートを生成します。
     └── uploaders/ - リリース中にさまざまなリリースに関するファイルをアップロードします。
 ```
-* **tools** - Helper scripts used by GN files.
+* **tools** - GN ファイルで使用するヘルパースクリプト。
   * ここに配置されたスクリプトは、`script` のスクリプトと違ってユーザーが直接呼び出せません。
 * **typings** - Electron 内部コードの TypeScript 型定義。
 * **vendor** - `boto` や `requests` など、サードパーティの依存関係のソースコード。
