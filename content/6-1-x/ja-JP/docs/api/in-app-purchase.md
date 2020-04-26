@@ -25,7 +25,7 @@
 
 * `productID` String - 購入する製品の識別子。 (`com.example.app.product1` の識別子は `product1`)。
 * `quantity` Integer (任意) - ユーザーが購入しようとしている商品数。
-* `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue.
+* `callback` Function (任意) - PaymentQueue に支払い情報が追加されたときに呼び出されるコールバック。
   * `isProductValid` Boolean - プロダクトが有効かつ支払いキューに追加されたかどうか決定する。
 
 `purchaseProduct` を呼び出す前に、できるだけ早く `transactions-updated` イベントをリッスンする必要があります。
@@ -44,7 +44,7 @@
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
 * `productIDs` String[] - 取得する製品の識別子。
-* `callback` Function - The callback called with the products or an empty array if the products don't exist.
+* `callback` Function - コールバックは製品のリストで呼ばれます。製品が存在しない場合は空の配列です。
   * `products` Product[] - [`Product`](structures/product.md) オブジェクトの配列。
 
 製品説明を探します。
