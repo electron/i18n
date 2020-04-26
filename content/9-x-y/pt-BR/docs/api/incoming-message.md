@@ -1,69 +1,65 @@
-## Kelas: pesan datang
+## Class: IncomingMessage
 
-> Tangani tanggapan terhadap permintaan HTTP / HTTPS.
+> Handle responses to HTTP/HTTPS requests.
 
-Proses: [Main](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
-` IncomingMessage </ 0> mengimplementasikan 
-antarmuka <a href="https://nodejs.org/api/stream.html#stream_readable_streams"> Readable Stream </ 1> dan karena itu <a href="https://nodejs.org/api/events.html#events_class_eventemitter"> EventEmitter </ 2> .</p>
+`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-<h3 spaces-before="0">Contoh peristiwa</h3>
+### Eventos de instância
 
-<h4 spaces-before="0">Acara : 'data'</h4>
+#### Event: 'data'
 
-<p spaces-before="0">Pengembalian:</p>
+Retorna:
 
-<ul>
-<li><code> bingkai</ 0>  penyangga- Sejumlah data dari respon tubuh.</li>
-</ul>
+* `chunk` Buffer - A chunk of response body's data.
 
-<p spaces-before="0"><code> Data </ 0>  acara adalah metode biasa mentransfer data respon ke dalam kode aplikatif.</p>
+The `data` event is the usual method of transferring response data into applicative code.
 
-<h4 spaces-before="0">Acara : 'akhir'</h4>
+#### Event: 'end'
 
-<p spaces-before="0">Menunjukkan bahwa tubuh respons telah berakhir.</p>
+Indicates that response body has ended.
 
-<h4 spaces-before="0">Acara : 'dibatalkan'</h4>
+#### Event: 'aborted'
 
-<p spaces-before="0">Emitted ketika permintaan telah dibatalkan selama transaksi HTTP berlangsung.</p>
+Emitido quando uma solicitação foi cancelada durante uma transação HTTP em curso.
 
-<h4 spaces-before="0">Acara: 'kesalahan'</h4>
+#### Evento: 'error'
 
-<p spaces-before="0">Pengembalian:</p>
+Retorna:
 
-<p spaces-before="0">Kesalahan <code> kesalahan </ 0> - Biasanya memegang string kesalahan yang mengidentifikasi penyebab kegagalan akar.</p>
+`error` Error - Typically holds an error string identifying failure root cause.
 
-<p spaces-before="0">Emitted saat terjadi kesalahan saat streaming data respon acara. Misalnya, jika server menutup yang mendasari sementara respon masih streaming, sebuah event <code> kesalahan</ 0>  akan dipancarkan pada objek respon dan acara <code> tutup </ 0> selanjutnya akan mengikuti permintaan. objek.
-</p>
+Emitido quando ocorreu um erro ao transmitir eventos de dados de resposta. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
-<h3 spaces-before="0">Contoh properti</h3>
+### Propriedades de Instância
 
-<p spaces-before="0">Contoh <code> datang pesan </ 0> memiliki properti yang mudah dibaca berikut ini:</p>
+An `IncomingMessage` instance has the following readable properties:
 
-<h4 spaces-before="0"><code>respon.status Code`</h4>
+#### `response.statusCode`
 
-Sebuah ` Integer </ 0> yang menunjukkan kode status respons HTTP.</p>
+Um `Integer` indica o estado do código de resposta HTTP.
 
-<h4 spaces-before="0"><code>response.statusMessage`</h4>
+#### `response.statusMessage`
 
-A `String` mewakili the HTTP status message.
+Uma `String` representa a mensagem de estado HTTP.
 
-#### `Tanggapan`
+#### `response.headers`
 
 An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
 
-* Semua nama header diturunkan.
-* Setiap nama header menghasilkan properti bernilai array pada objek header.
-* Setiap nilai header didorong ke dalam array yang terkait dengan nama kopinya.
+* Todos os nomes de cabeçalho são em minúsculas.
+* Cada nome de cabeçalho produz uma propriedade de valor de matriz no objeto de cabeçalho.
+* Cada valor do cabeçalho é inserido na matriz associada ao nome do cabeçalho.
 
-#### `respon.http Versi`
+#### `response.httpVersion`
 
-Sebuah ` String </ 0> yang menunjukkan nomor versi protokol HTTP . Nilai tipikal adalah '1.0' atau '1.1'. Selain itu <code> httpVersionMajor </ 0> dan <code> httpVersionMinor </ 0> adalah dua properti yang dapat dibaca Integer yang mengembalikan masing-masing bilangan utama HTTP dan versi minor.</p>
+A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
 
-<h4 spaces-before="0"><code>respon.http Versi utama`</h4>
+#### `response.httpVersionMajor`
 
-Sebuah ` Integer </ 0> yang menunjukkan nomor versi protokol utama HTTP .</p>
+An `Integer` indicating the HTTP protocol major version number.
 
-<h4 spaces-before="0"><code>respon.http Versi kecil`</h4>
+#### `response.httpVersionMinor`
 
-Sebuah  Integer </ 0> yang menunjukkan nomor versi protokol HTTP minor .</p>
+An `Integer` indicating the HTTP protocol minor version number.
