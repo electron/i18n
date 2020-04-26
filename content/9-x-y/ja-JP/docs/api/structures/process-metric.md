@@ -15,7 +15,7 @@
 * `creationTime` Number - このプロセスの作成時間。 時間はエポックからのミリ秒数として表されます。 `pid` はプロセスの終了後に再利用される可能性があるため、`pid` と `creationTime` の両方を使用してプロセスを一意に識別すると良いでしょう。
 * `memory` [MemoryInfo](memory-info.md) - プロセスのメモリ情報。
 * `sandboxed` Boolean (任意) _macOS_ _Windows_ - プロセスが OS レベルでサンドボックス化されるかどうか。
-* `integrityLevel` String (optional) _Windows_ - One of the following values:
+* `integrityLevel` String (任意) _Windows_ - 次のいずれかの値:
   * `untrusted`
   * `low`
   * `medium`
