@@ -7,7 +7,7 @@
 ### `new TouchBarSegmentedControl(options)` _実験的_
 
 * `options` Object
-  * `segmentStyle` String (optional) - Style of the segments:
+  * `segmentStyle` String (任意) - 以下のセグメントのスタイルのいずれかです。
     * `automatic` - デフォルト。 セグメントコントロールの見た目は、コントロールを表示しているウインドウタイプとウインドウ内の位置に基づいて自動決定されます。
     * `rounded` - コントロールは丸みのあるスタイルで表示されます。
     * `textured-rounded` - コントロールは、テクスチャ付きの丸みのあるスタイルで表示されます。
@@ -16,8 +16,8 @@
     * `capsule` - コントロールはカプセル状のスタイルで表示されます。
     * `small-square` - コントロールは小さな正方形のスタイルで表示されます。
     * `separated` - コントロール内のセグメントは、互いに非常に近く表示されますが、接触しません。
-  * `mode` String (optional) - The selection mode of the control:
-    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
+  * `mode` String (任意) - コントロールの選択モード。
+    * `single` - 既定値。 一度に 1 つアイテムを選択し、どれかを選択すると、前に選択したアイテムの選択が解除されます。
     * `multiple` - 一度に複数のアイテムを選択できます。
     * `buttons` - セグメントをボタンとして動作させ、各セグメントを押して離すことができますが、アクティブとしてマークされることはありません。
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - このコントロールに配置するセグメントの配列。
@@ -32,7 +32,7 @@
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+コントロールの現在のセグメントスタイルを表す `String`。 この値を更新すると、タッチバー内のコントロールがすぐに更新されます。
 
 #### `touchBarSegmentedControl.segments`
 
