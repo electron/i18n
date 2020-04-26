@@ -1,6 +1,6 @@
 # アプリケーションの配布
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+Electron アプリを配布するには、パッケージ化してアイコンを変更する必要があります。 以下のサードパーティ製パッケージツールのどれかを使用するのが最も簡単です。
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
@@ -9,7 +9,7 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 これらのツールは、配布可能なあなたのElectronアプリケーションに行う必要のある全ての手順をカバーします。その手順には、あなたのアプリケーションのパッケージング、実行ファイルのリブランド、正しいアイコンの設定、インストーラーの作成(オプション)が含まれます。
 
 ## マニュアル配布
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+手動でアプリの配布準備をすることもできます。 これに必要なステップを以下に示します。
 
 Electron でアプリを配布する際は、Electron の [プレビルドバイナリ](https://github.com/electron/electron/releases) をダウンロードする必要があります。 次に、アプリケーションが含まれたフォルダの名前を `app` に変更し、Electron のリソースディレクトリに以下に示すように配置します。 Electron のプレビルドバイナリの場所は、以下の例では `electron/` と示されていることに注意してください。
 
