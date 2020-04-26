@@ -1,15 +1,15 @@
 # REPL
 
-Read-Eval-Print-Loop (REPL) basit, etkileşimli bilgisayar programlama ortamı tek kullanıcı girdisi alır (örn. tek bir ifade), işler ve sonucu kullanıcıya döndürür.
+Read-Eval-Print-Loop (REPL) - это простая интерактивная среда компьютерного программирования, которая принимает однопользовательские входы (т.е. отдельные выражения), оценивает их и возвращает результат пользователю.
 
-`repl` modülü, aşağıdakileri kullanarak REPL uygulamasına erişilmesini sağlar:
+Модуль `repl` предоставляет реализацию REPL, к которой можно получить доступ, используя:
 
-* Yerel proje bağımlılığı olarak `electron` veya `electron-prebuilt` yüklendiği varsayılır:
+* Если у вас есть `electron` или `electron-prebuilt` установлен как локальный проект зависимость:
 
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
-* Global olarak `electron` veya `electron-prebuilt` yüklendiği varsayılır:
+* Если у вас `electron` или `electron-prebuilt` установлен глобально:
 
   ```sh
   electron --interactive
@@ -17,6 +17,6 @@ Read-Eval-Print-Loop (REPL) basit, etkileşimli bilgisayar programlama ortamı t
 
 This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
 
-**Not:** `electron --interactive` Windows üzerinde kullanılabilir değildir.
+**Note:** `electron --interactive` is not available on Windows.
 
-Daha fazla bilgi  Node.js REPL dokümanlarında </ 0> bulunabilir.</p>
+More information can be found in the [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html).
