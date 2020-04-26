@@ -86,7 +86,7 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
+**注意:** 表示しようとしてもソースコードが表示されない場合は、上記の `~/.lldbinit ` ファイルを追加していない可能性があります。
 
 このポイントでのデバッグが完了したら、`process continue` を実行します。 このスレッドで特定の行がヒットするまで (`thread until 100`) 続行することもできます。 このコマンドは、このフレームの100行目に達するまで、現在のフレーム内のスレッドを実行し、現在のフレームを終了すると停止します。
 
