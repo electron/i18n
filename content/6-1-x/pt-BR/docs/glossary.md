@@ -1,24 +1,24 @@
-# Bảng thuật ngữ
+# Glossário
 
-Trang này định nghĩa một số thuật ngữ thường được sử dụng trong Electron.
+Esta página define alguns termos usados frequentemente no desenvolvimento com Electron.
 
 ### ASAR
 
-ASAR là viết tắt của Atom Shell Archive Format. Một tập tin [asar](https://github.com/electron/asar) đơn giản như một tập tin `tar`, nó là một định dạng nối các file lại với nhau thành một file duy nhất. Electron có thể đọc bất kể tập tin nào trong file có định dạng này mà không cần giải nén toàn bộ tập tin.
+ASAR significa formato de arquivo Atom Shell (em inglês, Atom Shell Archive Format). Um arquivo de [asar](https://github.com/electron/asar) é um simples `tar` formato que juntas os arquivos para um único arquivo. Electron pode ler arquivos arbitrários sem descompactar o arquivo inteiro.
 
 The ASAR format was created primarily to improve performance on Windows... TODO
 
 ### CRT
 
-Thư viện C Run-time (CRT) là một bộ phận của thư viện C++ tiêu chuẩn mà kết hợp chặt chẽ với thư viện ISO C99 tiêu chuẩn. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+A C Run-time (CRT) biblioteca é a parte padrão de C++ que incorpora a biblioteca padrão ISO C99. As bibliotecas do Visual C++ que implementam o CRT apoiar o desenvolvimento de código nativo e misto de código nativo e gerenciado e código gerenciado puro para desenvolvimento .NET.
 
 ### DMG
 
-Apple Disk Image là một định dạng đóng gói được sử dụng bởi macOS. Tập tin DMG thường được sử dụng để phân phối ứng dụng "installers". [electron-builder](https://github.com/electron-userland/electron-builder) hỗ trợ `dmg` như một build target.
+Uma imagem de disco da Apple é um formato de embalagem usado pelo macOS. DMG arquivos são componentes usados para distribuir um aplicativo "instaladores". [electron-builder](https://github.com/electron-userland/electron-builder) suporta `mg` como destino de compilação.
 
 ### IME
 
-Trình chỉnh sửa phương thức nhập liệu. Một chương trình cho phép người dùng nhập các chữ cái và kí tự mà không thể tìm thấy trên bàn phím của họ. Lấy ví dụ, nó cho phép người dùng bàn phím La-tinh nhập các chữ cái trong tiếng Trung, tiếng Nhật, tiếng Hàn và tiếng Ấn.
+Editor de Método de Entrada. Um programa que permite os usuários inserir caracteres e símbolos não encontrados no seu teclado. Por exemplo, isso permite que usuários com teclado Latinos teclados troque as entradas de caracteres para Chinês, Japonês e Koreano.
 
 ### IDL
 
@@ -30,19 +30,19 @@ IPC stands for Inter-Process Communication. Electron uses IPC to send serialized
 
 ### libchromiumcontent
 
-Một thư viện mở bao gồm Chromium Content module và tất cả dependency của nó (ví dụ: Blink, V8, vv..). Cũng được gọi là "libcc".
+Uma biblioteca compartilhada que inclui o [Chromium Content module](https://www.chromium.org/developers/content-module) e todas as suas dependências (exemplo: Blink, [V8](#v8) e etc.). Também conhecido como "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
 ### main process
 
-Quá trình chính, thường là một tệp tên là main,js, là điểm vào tới mọi ứng dụng Electron. Nó kiểm soát cuộc đời của một ứng dụng, từ khi mở đến khi đóng. Nó cũng kiểm soát các phần tử bản địa như là Menu, Thanh Menu, Dock,Tray, vv.. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+O processo principal, normalmente fica em um arquivo chamando `main.js`, é o ponto de entrada para cada app em Electron. Isso controla a vida do app, de aberto para fechado. Isso também é gerencia elementos nativos, como o Menu, Barra de Menus, Dock, Bandeja e etc. O processo principal é responsável por criar cada novo processo renderizado no app. Todo está construído em cima do Node API.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
 In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
-Xem thêm: [process](#process), [renderer process](#renderer-process)
+Consulte também: [processo](#process), [processo de processador](#renderer-process)
 
 ### MAS
 
@@ -50,21 +50,21 @@ Acronym for Apple's Mac App Store. For details on submitting your app to the MAS
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+Um sistema IPC para a comunicação intra- ou inter-process (Entre Processos), e isso é importante porque o Chrome está interessado em ser capaz de dividir seu trabalho em processos separados ou de não dependência das pressões de memória, etc.
 
-Tham khảo https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Veja https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-### các module native
+### native modules
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Chúng phần lớn được sử dụng để cung cấp khớp nối giữa JavaScript chạy trên Node.js và các thư viện C/C++.
+Módulos nativos (também chamados [addons](https://nodejs.org/api/addons.html) em Node.Js) são módulos escritos em C ou C++ que pode ser carregado em Node.js ou Electron usando a função require() e fazer o uso de modo como se fossem um módulo comum de Node.js. Eles são usados principalmente para fornecer uma interface entre o JavaScript em execução em bibliotecas de Node.js e C/C++.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Os módulos nativos do Node são suportados pelo Electron, mas considerando que o Electron provavelmente irá utilizar uma versão do V8 dos binários do Node instalados no seu sistema, você deve especificar manualmente a localização dos headers do Electron quando for copilar módulos nativos.
 
-Xem thêm [Cách sử dụng các Module của Node](tutorial/using-native-node-modules.md).
+Consulte também [Usando Módulos Nativos de Node](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. Nó được phát hành dưới sự kết hợp của nhiều loại giấy phép phần mềm miễn phí, và được sử dụng rộng rãi thay thế cho sản phẩm thương mại độc quyền như InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) hỗ trợ NSIS như một build target.
+Nullsoft Scriptable Install System é um instalador de scripts, ferramenta de autoria para Microsoft Windows. Ele é lançado sob uma combinação de licenças de software livre e é uma alternativa amplamente utilizada para produtos proprietários comerciais como o InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) suporta mg como destino de compilação.
 
 ### OSR
 
@@ -72,35 +72,35 @@ OSR (Off-screen rendering) can be used for loading heavy page in background and 
 
 ### process
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Um processo é uma instância de um programa de computador que está sendo executado. Apps de Electron que fazem usam do [main](#main-process) e um ou vários processo de [renderer](#renderer-process) estão executando vários programas simultaneamente.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+Em Node.js e Electron, cada processo em execução tem um objeto de `process`. Este objeto é um global que fornece informações sobre e controle sobre, o atual processo. Como um global, é sempre disponível para aplicações sem o uso de require().
 
-Xem thêm: [process](#main-process), [renderer process](#renderer-process)
+Consulte também: [processo principal](#main-process), [processo de processador](#renderer-process)
 
 ### renderer process
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+Em navegadores normais, as páginas web geralmente executam em um ambiente de área restrita e não têm a permissão de acessar recursos nativos. Usuários do Electron, por outro lado, têm o poder de usar as APIs do Node.js em páginas web, permitindo interações de baixo nível com o sistema operacional.
 
-Xem thêm: [process](#process), [main process](#main-process)
+Consulte também: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel é um framework de código aberto que permite que aplicativos de elétron atualizar automaticamente como novas versões são lançadas. Consulte o [autoUpdater](api/auto-updater.md) API para obter informações sobre como começar com o Squirrel.
 
-### không gian người dùng
+### userland
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Este termo originou-se da comunidade Unix, onde "userland" ou "userspace" refere-se a programas que são executados fora da kernel do sistema operacional. Mais recentemente, o termo foi popularizado na comunidade Node e npm para distinguir entre os recursos disponíveis em "Node core" de pacotes publicados no registro do npm pela maior comunidade "usuários".
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Como Node, o Electron é focado em ter um pequeno conjunto de APIs que fornecem todos os primitivos necessários para o desenvolvimento de aplicativos de multi-plataformas desktop. Esta filosofia do projeto permite que o Electron permaneça uma ferramenta flexível sem ser excessivamente prescritiva sobre como deve ser usado. Userland permite que os usuários criar e compartilhar ferramentas que fornecem funcionalidade adicional em cima do que é disponível no "Núcleo".
 
 ### V8
 
 V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron forma o V8 como parte do Chromium e em seguida, aponta o Node ao V8 quando construindo.
 
 V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
@@ -110,4 +110,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-Những thẻ `webview` được sử dụng để tích hợp nội dung 'khách' (như các trang web bên ngoài) trong ứng dụng Electron của bạn. Chúng tương tự như các thẻ `iframe`, nhưng khác biệt ở chổ mỗi một webview chạy trên một tiến trình riêng biệt. Nó không có các quyền như những trang web của bạn và mọi tương tác giữa ứng dụng của bạn với nội dung được tích hợp đều là bất đồng bộ. Điều này giúp ứng dụng của bạn an toàn đối với những nội dung được tích hợp.
+`webview` são tags são usadas para incorporar conteúdo 'convidado' (como páginas de web externas) seu aplicativo de Electron. Eles são semelhantes a `iframe`s, mas diferem em que cada WebView é executado em um processo separado. Ele não tem a mesma permissões como sua página web e todas as interações entre seu aplicativo e conteúdo incorporado será assíncrono. Isso mantém seu aplicativo seguro do conteúdo incorporado.
