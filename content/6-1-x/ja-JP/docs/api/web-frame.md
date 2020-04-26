@@ -20,9 +20,11 @@ webFrame.setZoomFactor(2)
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - 拡大率。
+* `factor` Double - 拡大率。省略値は 1.0 です。
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+指定の拡大率に変更します。 拡大率は百分率なので、300% = 3.0 です。
+
+拡大率は 0.0 より大きい必要があります。
 
 ### `webFrame.getZoomFactor()`
 
@@ -45,28 +47,40 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **注意**: Electron ではデフォルトで視覚ズームは無効化されています。 再び有効にする場合は以下を呼び出します。
 > 
 > `js
   webFrame.setVisualZoomLevelLimits(1, 3)`
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _非推奨_
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
+**非推奨:** この API は Chromium がサポートしなくなりました。
+
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `language` String
 * `provider` Object
-  * `spellCheck` Function.
+  * `spellCheck` Function
     * `words` String[]
     * `callback` Function
       * `misspeltWords` String[]
 
 入力フィールドとテキストエリアのスペルチェックのプロバイダを設定します。
+
+このメソッドを使用する場合は、ウインドウを構築するときに組み込みスペルチェックを無効にする必要があります。
+
+```js
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    spellcheck: false
+  }
+})
+```
 
 `provider` は、スペルチェックのために個々の単語の配列を受け取る `spellCheck` メソッドを持つオブジェクトである必要があります。 `spellCheck` 関数は非同期的に実行され、完了時にスペルミスの単語を含む `callback` 関数を呼び出します。
 
@@ -90,28 +104,21 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `css` String - CSS ソースコード。
 
-`css` をスタイルシートとしてドキュメント内に挿入します。
+戻り値 `String` - 挿入された CSS のキー。後で `webFrame.removeInsertedCSS(key)` を介して CSS を削除するために使用できます。
+
+現在のウェブページに CSS を挿入し、挿入されたスタイルシートの一意なキーを返します。
+
+### `webFrame.removeInsertedCSS(key)`
+
+* `key` String
+
+現在のウェブページから挿入された CSS を削除します。 スタイルシートは `webFrame.insertCSS(css)` から返されるキーで識別されます。
 
 ### `webFrame.insertText(text)`
 
 * `text` String
 
 フォーカスされた要素に `text` を挿入します。
-
-### `webFrame.executeJavaScript(code[, userGesture, callback])`
-
-* `code` String
-* `userGesture` Boolean (任意) - 省略値は `false`。
-* `callback` Function (optional) - Called after script has been executed.
-  * `result` Any
-
-戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
-
-ページ内の `code` を評価します。
-
-ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
-
-**[非推奨予定](modernization/promisification.md)**
 
 ### `webFrame.executeJavaScript(code[, userGesture])`
 
@@ -124,20 +131,6 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
-### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (任意) - 省略値は `false`。
-* `callback` Function (optional) - Called after script has been executed.
-  * `result` Any
-
-戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
-
-`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
-
-**[非推奨予定](modernization/promisification.md)**
-
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
 * `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。  任意の整数を指定できます。
@@ -148,35 +141,14 @@ webFrame.setSpellCheckProvider('en-US', {
 
 `executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
-### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` _(Deprecated)_
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `csp` String
-
-イソレートコンテキストのコンテンツセキュリティポリシーを設定します。
-
-### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` _(Deprecated)_
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `name` String
-
-Set the name of the isolated world. Useful in devtools.
-
-### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` _(Deprecated)_
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `securityOrigin` String
-
-イソレートコンテキストのセキュリティオリジンを設定します。
-
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 * `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
 * `info` Object
   * `securityOrigin` String (任意) - 隔離された空間のためのセキュリティオリジン
   * `csp` String (任意) - 隔離された空間のためのコンテンツセキュリティポリシー
-  * `name` String (optional) - Name for isolated world. Useful in devtools.
+  * `name` String (任意) - 隔離されたワールドの名前。 デベロッパー ツールで役立ちます。
 
-Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
+隔離されたワールドのセキュリティオリジン、コンテンツセキュリティポリシー、名前を設定します。 注: `csp` が指定されている場合は、`securityOrigin` も指定する必要があります。
 
 ### `webFrame.getResourceUsage()`
 
@@ -238,26 +210,26 @@ console.log(webFrame.getResourceUsage())
 
 ## プロパティ
 
-### `webFrame.top`
+### `webFrame.top` _読み出し専用_
 
-`webFrame` が属するフレーム階層内のトップフレームを表す `WebFrame`。トップフレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
+`webFrame` が属するフレーム階層内のトップフレームを表す `WebFrame | null`。トップフレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.opener`
+### `webFrame.opener` _読み出し専用_
 
-`webFrame` が開かれたフレームを表す `WebFrame`。開いたフレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+`webFrame` が開かれたフレームを表す `WebFrame | null`。開いたフレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.parent`
+### `webFrame.parent` _読み出し専用_
 
-`webFrame` の親フレームを表す `WebFrame`。`webFrame` がトップフレームか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+`webFrame` の親フレームを表す `WebFrame | null`。`webFrame` がトップフレームか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.firstChild`
+### `webFrame.firstChild` _読み出し専用_
 
-`webFrame` の最初の子フレームを表す `WebFrame`。`webFrame` に子フレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+`webFrame` の最初の子フレームを表す `WebFrame | null`。`webFrame` に子フレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.nextSibling`
+### `webFrame.nextSibling` _読み出し専用_
 
-次の兄弟フレームを表す `WebFrame`。`webFrame` がその親の最後の子フレームか、次の兄弟フレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
+次の兄弟フレームを表す `WebFrame | null`。`webFrame` がその親の最後の子フレームか、次の兄弟フレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.routingId`
+### `webFrame.routingId` _読み出し専用_
 
-An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 同じ基底フレームを参照する WebFrame インスタンスは、同じ `routingId` を持ちます。
