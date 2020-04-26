@@ -1,29 +1,29 @@
 ---
-title: Discontinuing support for 32-bit Linux
+title: 32 ビット Linux のサポート中止
 author: felixrieseberg
 date: '2019-03-04'
 ---
 
-The Electron team will discontinue support for 32-bit Linux (ia32 / i386) starting with Electron v4.0. The last version of Electron that supports 32-bit based installations of Linux is Electron v3.1, which will receive support releases until Electron v6 is released. Support for 64-bit based Linux and `armv7l` will continue unchanged.
+Electron チームは 32 ビット Linux (ia32 / i386) に対するサポートを Electron v4.0 から中止します。 32 ビットを元にした Linux 環境をサポートする最後のバージョンは Electron v3.1 です。このバージョンでは、 Electron v6 がリリースされるまでサポートリリースを受けられます。 64 ビット Linux 及び `armv7l` のサポートは変わらず続行されます。
 
 ---
 
-## What exactly is Electron no longer supporting?
+## Electron は何のサポートをやめるのですか?
 
-You may have seen the description "64-bit" and "32-bit" as stickers on your computer or as options for downloading software. The term is used to describe a specific computer architecture. Most computers made in the 1990s and early 2000s were made with CPUs that were based on the 32-bit architecture, while most computers made later were based on the newer and more powerful 64-bit architecture. The Nintendo 64 (get it?) and the PlayStation 2 were the first widely available consumer devices with the new architecture, computers sold after 2010 contained almost exclusively 64-bit processors. As a result, support has been shrinking: Google stopped releasing Chrome for 32-bit Linux in March 2016, Canonical stopped providing 32-bit desktop images in 2017 and dropped support for 32-bit altogether with Ubuntu 18.10. Arch Linux, elementary OS, and other prominent Linux distributions have already dropped support for the aging processor architecture.
+コンピュータに貼られたシールや、ソフトウェアをダウンロードするときの選択肢として "64 ビット" 及び "32 ビット" の説明を見たことがあるかもしれません。 この語は、特定のコンピュータアーキテクチャを表します。 1990 年代と 2000 年代初期に作成されたほとんどのコンピュータは、 32 ビットアーキテクチャに基づいた CPU を使用していましたが、後に作られたものは、より新しく強力な 64 ビットアーキテクチャに基づくようになりました。 Nintendo 64 (分かりますか?) と PlayStation 2 は新しいアーキテクチャを持つデバイスで最初に広く利用されたものでした。 2010 年以降に販売されたコンピュータのほとんどには、 64 ビットプロセッサが使われていました。 Google は 32 ビット向けの Chrome リリースを 2016 年 3 月にやめたほか、 Canonical は 32 ビットデスクトップ向けイメージの配布を 2017 年にやめた後、 Ubuntu 18.10 で 32 ビットのサポートを終了しました。このように、 32 ビットアーキテクチャのサポートは縮小しています。 Arch Linux、Elementary OS や他の著名な Linux ディストリビューションでは、既に古いプロセッサアーキテクチャのサポートを終了しています。
 
-Until now, Electron has provided and supported builds that run on the older 32-bit architecture. From release v4.0 onwards, the Electron team will no longer be able to provide binaries or support for 32-bit Linux.
+これまで、 Electron は 32 ビットアーキテクチャ向けのビルドを配布し、サポートしてきました。 リリース v4.0 から、 Electron チームは 32 ビット Linux のバイナリ配布やサポートをできなくなります。
 
-Electron has always been a vibrant open source project and we continue to support and encourage developers interested in building Electron for exotic architectures.
+Electron は常に活発的なオープンソースプロジェクトであり、新しいアーキテクチャ向けに Electron をビルドしようとする開発者を奨励したり、助けたりしていきます。
 
-## What does that mean for developers?
+## 開発者にとっては何を意味しますか?
 
-If you are not currently providing 32-bit distributions of your app for Linux, no action is required.
+32 ビット Linux 用にアプリを配布していない場合、何もする必要はありません。
 
-Projects which ship 32-bit Linux Electron applications will need to decide how to proceed. 32-bit Linux will be supported on Electron 3 [until](https://electronjs.org/docs/tutorial/support#supported-versions) the release of Electron 6, which gives some time to make decisions and plans.
+32 ビット Linux 向け Electron アプリを配布しているプロジェクトでは、どのように進めるかを決める必要があるでしょう。 決定や計画を行うために、Electron 6 がリリースされる [まで](https://electronjs.org/docs/tutorial/support#supported-versions) は Electron 3 で 32 ビット Linux がサポートされます。
 
-## What does that mean for users?
+## ユーザにとっては何を意味しますか?
 
-If you are a Linux user and not sure whether or not you're running a 64-bit based system, you are likely running on a 64-bit based architecture. To make sure, you can run the `lscpu` or `uname -m` commands in your terminal. Either one will print your current architecture.
+あなたが Linux ユーザで、 64 ビットに基づいたシステムで実行しているかどうかが分からない場合、おそらく 64 ビットに基づいたアーキテクチャで実行しているでしょう。 確認するには、 `lscpu` または `uname -m` コマンドを端末で実行してください。 どちらかが現在のアーキテクチャを表示するでしょう。
 
-If you are using Linux on a 32-bit processor, you have likely already encountered difficulties finding recently released software for your operating system. The Electron team joins other prominent members in the Linux community by recommending that you upgrade to a 64-bit based architecture.
+Linux を 32 ビットプロセッサで実行している場合、最近リリースされたソフトウェアでその OS 用のものを見つけるのは困難になってきているはずです。 Electron チームは、 Linux コミュニティの他の著名なメンバーと同じく、 64 ビットに基づいたアーキテクチャへアップグレードすることを推奨します。
