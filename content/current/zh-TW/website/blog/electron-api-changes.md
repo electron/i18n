@@ -53,7 +53,7 @@ var BrowserWindow = require('electron').remote.require('BrowserWindow')
 The `ipc` module existed on both the main process and renderer process and the API was different on each side, which is quite confusing for new users. We have renamed the module to `ipcMain` in the main process, and `ipcRenderer` in the renderer process to avoid confusion:
 
 ```javascript
-// In main process.
+// 在主處理序裡。
 var ipcMain = require('electron').ipcMain
 ```
 
