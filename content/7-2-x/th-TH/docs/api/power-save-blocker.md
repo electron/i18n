@@ -1,10 +1,10 @@
-# powerSaveBlocker
+# पॉवर सेवब्लॉकर
 
 > Block the system from entering low-power (sleep) mode.
 
-Messages </a>
+Process: [Main](../glossary.md#main-process)
 
-For example:
+उदाहरण के लिए:
 
 ```javascript
 const { powerSaveBlocker } = require('electron')
@@ -15,7 +15,7 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## วิธีการ
+## मेथड्स
 
 The `powerSaveBlocker` module has the following methods:
 
