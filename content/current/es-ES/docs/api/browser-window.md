@@ -440,7 +440,7 @@ Devuelve:
 * `event` Event
 * `rotation` Float
 
-Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
+Emitido en el gesto de rotación del trackpad. Emitido continuamente hasta que el gesto de rotación se termine. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
 #### Evento: "sheet-begin" _macOS_
 
@@ -556,17 +556,17 @@ win.loadURL('https://github.com')
 
 #### `win.webContents` _Readonly_
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+Un objeto `WebContents` que esta ventana posse. All web page related events and operations will be done via it.
 
 Consulte la [documentation `webContents`](web-contents.md) de sus métodos y eventos.
 
 #### `win.id` _Readonly_
 
-A `Integer` property representing the unique ID of the window.
+Una propiedad `Integer` representando el identificador único de la ventana.
 
 #### `win.autoHideMenuBar`
 
-A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
+Una propiedad `Boolean` que determina si la barra de menú de la ventana debe ocultarse automáticamente. Una vez activada, la barra de menú sólo se mostrará cuando los usuarios presionen la tecla `Alt`.
 
 If the menu bar is already visible, setting this property to `true` won't hide it immediately.
 
