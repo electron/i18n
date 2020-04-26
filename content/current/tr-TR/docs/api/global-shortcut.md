@@ -1,55 +1,55 @@
-# evrenselKısayol
+# globalShortcut
 
-> Uygulamanın klavye odağı olmadığı zaman klavye etkinliklerini algılar.
+> Отслеживает действия на клавиатуре, когда она не сфокусирована на приложении.
 
-İşlem: [Ana](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
-`globalShortcut` modülü bir evrensel kısayolu işletim sistemi ile kaydedebilir/kaydetmeyebilir bu sayede çeşitli kısayollar için işlemleri özelleştirebilirsiniz.
+Модуль `globalShortcut` может регистрировать/отменять регистрацию глобальных сочетаний клавиш, так что вы можете настраивать задачи для различных сочетаний клавиш.
 
-**Note:** Kısayol evrenseldir; uygulamanın klavye odağı olmasa bile çalışacaktır. Uygulamanın modülünün `ready` etkinliği belirtilmeden bu modülü kullanmamalısınız.
+**Примечание:** Сочетания клавиш являются глобальными, они будут работать, даже если ваше приложение не акцентирует внимание на клавиатуре. **Примечание:** Вам не следует использовать данный модуль до тех пор, пока событие `ready` приложения не произошло.
 
 ```javascript
 const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+  // Регистрируем слушатель для сочетания клавиш 'CommandOrControl+X'.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
 
   if (!ret) {
-    console.log('registration failed')
+    console.log('ошибка регистрации')
   }
 
-  // Check whether a shortcut is registered.
+  // Проверяем, было ли сочетание зарегистрировано.
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Unregister a shortcut.
+  // Отменяем регистрацию сочетания клавиш.
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Unregister all shortcuts.
+  // Отменяем регистрацию всех сочетаний.
   globalShortcut.unregisterAll()
 })
 ```
 
-## Yöntemler
+## Методы
 
-`globalShortcut` modülü aşağıdaki yöntemlere sahiptir:
+Модуль `globalShortcut` имеет следующие методы:
 
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Returns `Boolean` - Whether or not the shortcut was registered successfully.
+Возвращает `Boolean` - было ли сочетание клавиш успешно зарегистрировано.
 
 Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
-Hızlandırıcı zaten diğer uygulamalar tarafından alınmışsa, bu çağrı sessizce başarısız olacaktır. Bu davranış işletim sistemleri tarafından seçilmiştir, uygulamaların evrensel kısayollarla uğraşmasını istemedikleri için.
+Когда accelerator уже занят другими приложениями, этот вызов будет молча завершаться ошибкой. Такое поведение назначается операционными системами, поскольку они не хотят, чтобы приложения боролись за глобальные сочетания клавиш.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+Следующие accelerators не будут успешно зарегистрированы на macOS 10.14 Mojave, если приложение не было авторизовано в качестве [доверенного клиента специальных возможностей](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
 * "Media Play/Pause"
 * "Media Next Track"
@@ -58,14 +58,14 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 ### `globalShortcut.registerAll(accelerators, callback)`
 
-* `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
+* `accelerators` String[] - массив [Accelerator](accelerator.md).
 * `callback` Function
 
 Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
-When a given accelerator is already taken by other applications, this call will silently fail. Bu davranış işletim sistemleri tarafından seçilmiştir, uygulamaların evrensel kısayollarla uğraşmasını istemedikleri için.
+Когда определенный accelerator уже занят другими приложениями, этот вызов будет молча завершаться ошибкой. Такое поведение назначается операционными системами, поскольку они не хотят, чтобы приложения боролись за глобальные сочетания клавиш.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+Следующие accelerators не будут успешно зарегистрированы на macOS 10.14 Mojave, если приложение не было авторизовано в качестве [доверенного клиента специальных возможностей](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
 * "Media Play/Pause"
 * "Media Next Track"
@@ -76,16 +76,16 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 * `accelerator` [Accelerator](accelerator.md)
 
-`Boolean`'a döner - Bu uygulamanın `accelerator`'ü kaydedip kaydetmediğine göre.
+Возвращает `Boolean` - независимо от того, зарегистрировало ли это приложение `accelerator`.
 
-Hızlandırıcı zaten diğer uygulamalar tarafından alınmışsa, bu çağrı hala `false`'a dönecektir. Bu davranış işletim sistemleri tarafından seçilmiştir, uygulamaların evrensel kısayollarla uğraşmasını istemedikleri için.
+Когда ускоритель уже занят другими приложениями, этот вызов будет возвращать `false`. Такое поведение назначается операционными системами, поскольку они не хотят, чтобы приложения боролись за глобальные сочетания клавиш.
 
 ### `globalShortcut.unregister(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-`accelerator` evrensel kısayolunun kaydını siler.
+Отмена регистрации сочетания клавиш `accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
-Bütün evrensel kısayol kayıtlarını siler.
+Отменяет регистрацию всех глобальных ярлыков.
