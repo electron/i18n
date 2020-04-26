@@ -1,16 +1,15 @@
-# Objek Tombol Thumbar
+# Objeto ThumbarButton
 
-* ` ikon </ 0>  <a href="../native-image.md"> NativeImage </ 1> - Ikon ditampilkan di toolbar thumbnail.</p></li>
-<li><p spaces-before="0"><code> klik </ 0> Fungsi</p></li>
-<li><code> tooltip </ 0>  String (opsional) - Teks tooltip tombol.</li>
-<li><code>flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.</li> </ul>
+* `icon` [NativeImage](../native-image.md) - O icone exibido na barra de ferramentas de miniaturas.
+* `click` Function
+* `tooltip` String (opcional) - O texto do tooltip do botão.
+* `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
-The ` bendera </ 0> adalah array yang yang dapat mencakup berikut <code> String </ 0> s:</p>
+As `flags` são um array que pode conter as seguintes `String`s:
 
-<ul>
-<li><code> diaktifkan </ 0> - Tombol aktif dan tersedia untuk pengguna.</li>
-<li><p spaces-before="0"><code>disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.</li>
-* ` dismissonclick </ 0> - Saat tombol diklik, jendela thumbnail segera ditutup.</p></li>
-<li><p spaces-before="0"><code> nobackground </ 0> - Jangan menggambar batas tombol, gunakan hanya gambarnya.</p></li>
-<li><code> hidden </ 0> - Tombol tidak ditunjukkan ke pengguna.</li>
-<li><code>noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.</li> </ul>
+* `enabled` - O botão está ativo e disponível ao usuário.
+* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `dismissonclick` - Quando o botão é clicado, o janela da miniatura é fechada imediatamente.
+* `nobackground` - Não desenha a borda do botão, utiliza apenas a imagem.
+* `hidden` - O botão não é exibido ao usuário.
+* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
