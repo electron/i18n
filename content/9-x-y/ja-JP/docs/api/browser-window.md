@@ -119,8 +119,8 @@ child.once('ready-to-show', () => {
 * `options` Object (任意)
   * `width` Integer (任意) - ピクセル単位でのウインドウの幅。 省略値は `800` です。
   * `height` Integer (任意) - ピクセル単位でのウインドウの高さ。 省略値は `600` です。
-  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. 省略すると、ウインドウは中央に配置されます。
-  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. 省略すると、ウインドウは中央に配置されます。
+  * `x` Integer (任意) - (y が使われている場合は **必須**) ウインドウの画面左のオフセット。 省略すると、ウインドウは中央に配置されます。
+  * `y` Integer (任意) - (x が使われている場合は **必須**) ウインドウの画面上のオフセット。 省略すると、ウインドウは中央に配置されます。
   * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は `false` です。
   * `center` Boolean (任意) - ウインドウを画面中央に表示します。
   * `minWidth` Integer (任意) - ウインドウの最小の幅。 省略値は `0` です。
@@ -209,12 +209,12 @@ child.once('ready-to-show', () => {
     * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。少量のデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
     * `safeDialogs` Boolean (任意) - ブラウザによる連続ダイアログ保護を有効にするかどうか。 省略値は、`false` です。
     * `safeDialogsMessage` String (任意) - 連続したダイアログからの保護が機能したときに表示されるメッセージ。 定義されていなければデフォルトメッセージが使われますが、現在のデフォルトメッセージは英語であり、ローカライズされていないことに注意してください。
-    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. 省略値は、`false` です。
+    * `disableDialogs` Boolean (任意) - ダイアログを完全に無効化するかどうか。 `safeDialogs` を上書きします。 省略値は、`false` です。
     * `navigateOnDragDrop` Boolean (任意) - ファイルやリンクをページにドラッグ & ドロップした際にナビゲーションするかどうか。 省略値は、`false` です。
     * `autoplayPolicy` String (任意) - ウインドウ内のコンテンツに適用される自動再生ポリシーで、`no-user-gesture-required`、`user-gesture-required`、`document-user-activation-required` にできます。 省略値は `no-user-gesture-required` です。
     * `disableHtmlFullscreenWindowResize` Boolean (任意) - HTML フルスクリーンになった時にウィンドウのサイズ変更を禁止するかどうか。 省略値は `false` です。
-    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. 省略値は `true` です。
+    * `accessibleTitle` String (任意) - スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトル文字列。 この文字列はユーザに直接表示されません。
+    * `spellcheck` Boolean (任意) - 組み込みスペルチェックを有効にするかどうか。 省略値は `true` です。
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
@@ -326,9 +326,9 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - ウインドウがリサイズされようとしているサイズ。
 
-Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+ウィンドウがリサイズされる前に発生します。 `event.preventDefault()`を呼び出すことで、ウィンドウがリサイズされるのを阻止できます。
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+このイベントは、ウィンドウが手動でリサイズされようとしているときにしか発生しません。 ウィンドウを、`setBounds`や`setSize` でリサイズする時には、このイベントは発生しません。
 
 #### イベント: 'resize'
 
@@ -341,9 +341,9 @@ Note that this is only emitted when the window is being resized manually. Resizi
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - ウインドウが移動されようとしている位置。
 
-Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
+ウィンドウが移動される前に発生します。 Windows では、 `event.preventDefault()` を呼び出すことで、ウィンドウが移動されるのを阻止できます。
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+このイベントは、ウィンドウが手動でリサイズされようとしているときにしか発生しません。 ウィンドウを、`setBounds`や`setSize` でリサイズする時には、このイベントは発生しません。
 
 #### イベント: 'move'
 
@@ -426,7 +426,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 * `event` Event
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+3 本指でのスワイプ時に発生します。 方向は `up`、`right`、`down`、`left` のいずれかになります。
 
 The method underlying this event is built to handle older macOS-style trackpad swiping, where the content on the screen doesn't move with the swipe. Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
 
@@ -632,7 +632,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.accessibleTitle`
 
-A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. この文字列はユーザに直接表示されません。
 
 ### インスタンスメソッド
 
@@ -934,7 +934,7 @@ Linuxでは常に `true` を返します。
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). `flag` が true の場合、省略値は `floating` です。 flag が false の場合、`level` は `normal` にリセットされます。 `floating` から `status` までに含まれているものにおいて、ウィンドウは macOS では Dock の下に、Windows ではタスクバーの下に配置されることをことに注意してください。 `pop-up-menu` 以降は、macOS では Dock の上に、Windows ではタスクバーの上に表示されます。 詳細については、[macOS のドキュメント](https://developer.apple.com/documentation/appkit/nswindow/level) を参照してください。
+* `level` String (任意) _macOS_ _Windows_ - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 `flag` が true の場合、省略値は `floating` です。 flag が false の場合、`level` は `normal` にリセットされます。 `floating` から `status` までに含まれているものにおいて、ウィンドウは macOS では Dock の下に、Windows ではタスクバーの下に配置されることをことに注意してください。 `pop-up-menu` 以降は、macOS では Dock の上に、Windows ではタスクバーの上に表示されます。 詳細については、[macOS のドキュメント](https://developer.apple.com/documentation/appkit/nswindow/level) を参照してください。
 * `relativeLevel` Integer (任意) _macOS_ - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`0` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
 ウィンドウを常に他のウィンドウの上に表示するかどうかを設定します。 この設定を行った後でも、ウィンドウはまだ通常のものであり、フォーカスが当てられないツールボックスウィンドウではありません。
@@ -945,7 +945,7 @@ Linuxでは常に `true` を返します。
 
 #### `win.moveAbove(mediaSourceId)`
 
-* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+* `mediaSourceId` String - DesktopCapturerSource の ID の形式のウィンドウ ID。 例えば "window:1869:0" 。
 
 Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
 
@@ -1155,7 +1155,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `progress` Double
 * `options` Object (任意)
-  * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+  * `mode` String _Windows_ - プログレスバーのモード。 `none` 、 `normal` 、 `indeterminate` 、 `error` 、 `paused` のいずれかが使用できます。
 
 プログレスバーの進捗を設定します。 有効な範囲は [0, 1.0] です。
 
@@ -1194,7 +1194,7 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
 
 #### `win.setShape(rects)` _Windows_ _Linux_ _実験的_
 
-* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+* `rects` [Rectangle[]](structures/rectangle.md) - ウィンドウの形を設定します。 空のリストを渡すと、ウィンドウが四角形に戻ります。
 
 ウィンドウの形を設定すると、システム内で描画とユーザ操作が許可されているウィンドウ内の領域が決まります。 与えられた領域の外側のピクセルでは描画されず、マウスイベントも登録されません。 領域外のマウスイベントはそのウィンドウでは受信されませんが、ウィンドウの後ろにあるものにそのイベントがフォールスルーします。
 
@@ -1242,7 +1242,7 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
 * `options` Object
   * `appId` String (任意) - ウインドウの[アプリユーザーモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx)。 設定されないと、他のオプションは無効です。
   * `appIconPath` String (任意) - ウインドウの[再起動アイコン](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx)。
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. 省略値は `0` です。
+  * `appIconIndex` Integer (任意) - `appIconPath` でのアイコンのインデックス。 `appIconPath` が設定されていない場合は無視されます。 省略値は `0` です。
   * `relaunchCommand` String (任意) - ウインドウの[再起動コマンド](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx)。
   * `relaunchDisplayName` String (任意) - ウインドウの[再起動表示名](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx)。
 
@@ -1308,7 +1308,7 @@ If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hid
 
 * `ignore` Boolean
 * `options` Object (任意)
-  * `forward` Boolean (optional) _macOS_ _Windows_ - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. `ignore` がtrueのときだけ使用されます。 `ignore` がfalseの場合、この値に関わらず、転送は常に無効です。
+  * `forward` Boolean (任意) _macOS_ _Windows_ - true の場合、マウスの移動メッセージが Chromium に転送され、`mouseleave` のようなマウス関連のイベントが有効になります。 `ignore` がtrueのときだけ使用されます。 `ignore` がfalseの場合、この値に関わらず、転送は常に無効です。
 
 ウインドウがすべてのマウスイベントを無視するようにします。
 
