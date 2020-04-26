@@ -4,9 +4,9 @@
 
 ウェブページで新しいウィンドウを作成するために `window.open` が呼び出されると、[`BrowserWindow`](browser-window.md) の新しいインスタンスが `url` に対して作成され、 ページの制御が制限されるように、プロキシが `window.open` に返されます。
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+プロキシは、従来のウェブページと互換性があるように実装された、限定された標準機能を有します。 新しいウィンドウを完全に制御するには、`BrowserWindow` を直接作成する必要があります。
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+新しく作成された `BrowserWindow` は、デフォルトで親ウィンドウのオプションを継承します。 `features` 文字列の中に設定することで、継承されたオプションを上書きできます。
 
 ### `window.open(url[, frameName][, features])`
 
