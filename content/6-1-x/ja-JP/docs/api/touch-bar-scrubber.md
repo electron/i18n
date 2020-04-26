@@ -44,15 +44,15 @@
 
 #### `touchBarScrubber.showArrowButtons`
 
-A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
+このスクラバーに左 / 右の選択矢印を表示するかどうかを表す `Boolean`。 この値を更新すると、タッチバー内のコントロールがすぐに更新されます。
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. この値を更新すると、タッチバーのコントロールがすぐに更新されます。 取りうる値:
+このスクラバーのモードを表す `String`。 この値を更新すると、タッチバーのコントロールがすぐに更新されます。 取りうる値:
 
 * `fixed` - `NSScrubberModeFixed` に割り当て.
 * `free` - `NSScrubberModeFree` に割り当て.
 
 #### `touchBarScrubber.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. この値を更新すると、タッチバーのコントロールがすぐに更新されます。
+このスクラバーが連続しているかどうかを表す `Boolean`。 この値を更新すると、タッチバーのコントロールがすぐに更新されます。
