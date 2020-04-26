@@ -61,7 +61,7 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+ASAR サポートを無効にします。 この変数は、`ELECTRON_RUN_AS_NODE` を設定したフォークされた子プロセスと生成された子プロセスでのみサポートされます。
 
 ### `ELECTRON_RUN_AS_NODE`
 
@@ -77,7 +77,7 @@ Linuxのグローバルメニューバーを使用しません。
 
 ### `ELECTRON_TRASH` _Linux_
 
-Set the trash implementation on Linux. Default is `gio`.
+Linux でゴミの実装を設定します。 既定値は `gio` です。
 
 Options:
 * `gvfs-trash`
@@ -96,7 +96,7 @@ Options:
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Electron が ASAR ファイルから読み込むときに、読み取りオフセットとファイルパスをシステムの `tmpdir` へログとして出力します。 ファイルの順番を最適化するために、結果のファイルを ASAR モジュールへ与えられます。
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
