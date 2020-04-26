@@ -72,7 +72,7 @@ session.defaultSession.cookies.set(cookie)
 
 返回 `Promise<Cookie[]>` - 一个会解析成数组或者 cookie 对象的 promise。
 
-Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
+发送请求以获取匹配 `filter` 的所有 cookie，并通过响应来解决承诺问题。
 
 #### `cookies.set(details)`
 
