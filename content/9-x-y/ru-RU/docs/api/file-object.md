@@ -1,10 +1,10 @@
-# `File` Object
+# Объект `File`
 
-> HTML5 `File` API kullanarak dosya sistemi içerisindeki dosyalarla çalışın.
+> Использует `File` из HTML5 API для найтивной работы с файлами в файловой системе.
 
-DOM'un File arayüzü, HTML5'in dosya API'i ile işletim sistemi seviyesinde dosyalarla iş yapmak için soyutlama sağlar. Electron, `File` arayüzüne dosyanın sistem üzerindeki gerçek yolunu belirten bir `path` özelliği ekledi.
+Файловый интерфейс DOM предоставляет абстракции над файловой системой, чтобы позволить пользователям работать с ней с помощью файлового API HTML5. Electron добавил атрибут `path` к интерфейсу `File`, который предоставляет настоящий путь к файлу в файловой системе.
 
-Uygulamaya sürüklenen bir dosyanın gerçek yolunu alma örneği:
+Пример получения настоящего пути из перетаскиваемого в приложение файла:
 
 ```html
 <div id="holder">
