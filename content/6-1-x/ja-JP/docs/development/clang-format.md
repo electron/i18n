@@ -6,7 +6,7 @@
 
 `npm install -g clang-format` を介して `clang-format` と `git-clang-format` をインストールできます。
 
-To automatically format a file according to Electron C++ code style, run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
+Electron C++ コードスタイルに従ってファイルを自動的にフォーマットするには、 `clang-format -i electron/への/パス/ファイル.cc` を実行します。 これは macOS/Linux/Windows で動作します。
 
 以下は変更したコードをフォーマットするワークフローです。
 
@@ -16,11 +16,11 @@ To automatically format a file according to Electron C++ code style, run `clang-
 4. `git add your_changed_file.cc` を実行して、変更をコミットします。
 5. これでこのブランチはプルリクエストを開く準備ができました。
 
-If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
+もし最新の git コミット (HEAD) 上の変更コードをフォーマットしたい場合は、`git-clang-format HEAD~1` でできます。 より詳しくは `git-clang-format -h` を参照してください。
 
 ## エディタ統合
 
-You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
+あなたの好きなエディタに直接 `clang-format` を統合することもできます。 エディタ統合の設定に関する詳細は、以下のページを参照してください。
 
   * [Atom](https://atom.io/packages/clang-format)
   * [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
