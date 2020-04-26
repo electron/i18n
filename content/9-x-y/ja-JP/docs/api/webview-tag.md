@@ -6,7 +6,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 
 ## 有効にする
 
-By default the `webview` tag is disabled in Electron >= 5.  タグを有効にするには、`BrowserWindow` を構築するときに `webviewTag` webPreferences オプションを設定します。 詳しい情報については、[BrowserWindow コンストラクタ](browser-window.md) を参照してください。
+既定では `webview` タグは Electron >= 5 では無効化されています。  タグを有効にするには、`BrowserWindow` を構築するときに `webviewTag` webPreferences オプションを設定します。 詳しい情報については、[BrowserWindow コンストラクタ](browser-window.md) を参照してください。
 
 ## 概要
 
@@ -72,7 +72,7 @@ By default the `webview` tag is disabled in Electron >= 5.  タグを有効に�
 <webview src="https://www.github.com/"></webview>
 ```
 
-A `String` representing the visible URL. Writing to this attribute initiates top-level navigation.
+表示される URL を表す `String`。 この属性に書き込むと、最上位のナビゲーションが始まります。
 
 `src` に独自の値を代入すると、現在のページがリロードされます。
 
@@ -108,7 +108,7 @@ A `String` representing the visible URL. Writing to this attribute initiates top
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-`Boolean`。 When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+`Boolean`。 この属性が存在する場合、`webview` 内のゲストページはブラウザのプラグインを使用できます。 プラグインはデフォルトで無効です。
 
 ### `preload`
 
@@ -136,7 +136,7 @@ A `String` representing the visible URL. Writing to this attribute initiates top
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-A `String` that sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
+ページがナビゲーションされる前に設定するゲストページのユーザーエージェントの `String`。 そのページがロードされると、`setUserAgent` メソッドでユーザーエージェントを変更します。
 
 ### `disablewebsecurity`
 
@@ -144,7 +144,7 @@ A `String` that sets the user agent for the guest page before the page is naviga
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-`Boolean`。 When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
+`Boolean`。 この属性が存在すると、ゲストページでウェブセキュリティが無効になります。 ウェブセキュリティはデフォルトで有効です。
 
 ### `partition`
 
@@ -155,7 +155,7 @@ A `String` that sets the user agent for the guest page before the page is naviga
 
 ページが使用するセッションを設定する `String` です。 `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 `partition` が設定されていない場合は、アプリのデフォルトのセッションが使用されます。
 
-This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
+アクティブなレンダラープロセスのセッションは変更できないため、この値は最初のナビゲーションの前にのみ変更できます。 その後の値の変更は、DOM 例外で失敗します。
 
 ### `allowpopups`
 
@@ -163,7 +163,7 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-`Boolean`。 When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
+`Boolean`。 この属性が存在すると、ゲストページは新しいウィンドウを開くことができます。 ポップアップはデフォルトで無効です。
 
 ### `webpreferences`
 
@@ -324,7 +324,7 @@ webview.addEventListener('dom-ready', () => {
 
 戻り値 `Promise<void>` - 削除に成功すると解決されます。
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
+現在のウェブページから挿入された CSS を削除します。 スタイルシートは `<webview>.insertCSS(css)` から返されるキーで識別されます。
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
@@ -443,7 +443,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
   * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
   * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
   * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. 省略値は `false` 。
+  * `wordStart` Boolean (任意) - 単語の始めだけを見るかどうか。 省略値は `false` 。
   * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
@@ -452,7 +452,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request.
+* `action` String - [`<webview>.findInPage`](#webviewfindinpagetext-options) リクエストを終了する際に行うアクションを指定します。
   * `clearSelection` - 選択を消去する。
   * `keepSelection` - その選択を通常の選択に変換する。
   * `activateSelection` - 選択ノードをフォーカスして、クリックする。
@@ -462,9 +462,9 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 ### `<webview>.print([options])`
 
 * `options` Object (任意)
-  * `silent` Boolean (optional) - Don't ask user for print settings. 省略値は、`false` です。
+  * `silent` Boolean (任意) - プリンタの設定をユーザに尋ねないかどうか。 省略値は、`false` です。
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. 省略値は、`false` です。
-  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `deviceName` String (任意) - 使用するプリンタデバイスの名前をセットします。 Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. 省略値は `true` です。
   * `margins` Object (optional)
     * `marginType` String (任意) - `default`、`none`、`printableArea` か `custom` にできます。 `custom` を選択した場合、`top`、`bottom`、`left`、`right` も指定する必要があります。
@@ -490,7 +490,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 戻り値 `Promise<void>`
 
-Prints `webview`'s web page. Same as `webContents.print([options])`.
+`webview` のウェブページを印刷します。 `webContents.print([options])` と同じです。
 
 ### `<webview>.printToPDF(options)`
 
@@ -545,7 +545,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 * `factor` Number - 拡大率。
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+指定の拡大率に変更します。 拡大率は百分率なので、300% = 3.0 です。
 
 ### `<webview>.setZoomLevel(level)`
 
@@ -633,7 +633,7 @@ Fired when a load has committed. This includes navigation within the current doc
 * `title` String
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+ナビゲーション中にページタイトルが設定されると発生します。 `explicitSet` は、タイトルがファイル URL から合成されている場合に false になります。
 
 ### イベント: 'page-favicon-updated'
 
@@ -725,11 +725,11 @@ webview.addEventListener('new-window', async (e) => {
 
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+ユーザーまたはページがナビゲーションを開始しようとしたときに発生します。 `window.location` オブジェクトが変更されるか、ユーザがページ内のリンクをクリックしたときに発生することがあります。
 
 このイベントは、 `<webview>.loadURL` や `<webview>.back` のような、API によってプログラム上から開始されるナビゲーションのときには発行されません。
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
 `event.preventDefault()` を呼んでも効果は __ありません__。
 
@@ -741,7 +741,7 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 ナビゲーションが完了したときに発行されます。
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。 これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
 ### イベント: 'did-navigate-in-page'
 
@@ -779,17 +779,17 @@ webview.addEventListener('close', () => {
 `sendToHost` メソッドと `ipc-message` イベントを使用すると、ゲストページと埋め込みページの間で通信できます。
 
 ```javascript
-// In embedder page.
+// 埋め込みページ内
 const webview = document.querySelector('webview')
 webview.addEventListener('ipc-message', (event) => {
   console.log(event.channel)
-  // Prints "pong"
+  // "pong" が出力される
 })
 webview.send('ping')
 ```
 
 ```javascript
-// In guest page.
+// ゲストページ内
 const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
@@ -827,7 +827,7 @@ webContents が破棄されたときに発生します。
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+ページのテーマカラーが変わったときに発生します。 This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
