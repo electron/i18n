@@ -29,7 +29,7 @@ __プラットフォームによる制限:__
 * アプリインジゲータのみがある Linux ディストリビューションでは、tray アイコンを動かすために `libappindicator1` をインストールする必要があります。
 * アプリインジゲータはコンテキストメニューがあるときのみ表示されます。
 * Linux でアプリインジゲータが使用されるとき、`click` イベントは無視されます。
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. 例:
+* Linux では、個々の `MenuItem` に加えられた変更を有効にするには、`setContextMenu` を再び呼ぶ必要があります。 例:
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -205,7 +205,7 @@ macOS において、この tray アイコンが押されたときの関連付�
 
 * `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+ダブルクリックイベントを無視するオプションを設定します。 これらのイベントを無視することで tray アイコンそれぞれの独立したクリックを検知することを許可します。
 
 この値はデフォルトで false にセットされます。
 
@@ -217,7 +217,7 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 
 * `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (任意) - `iconType` が `custom` のときに使うアイコン。
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
+  * `iconType` String (任意) - `none`、`info`、`warning`、`error`、`custom` のいずれかにできます。 省略値は `custom` です。
   * `title` String
   * `content` String
   * `largeIcon` Boolean (任意) - 大きなバージョンのアイコン。できればこちらを使用します。 省略値は `true` です。 [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020) に対応します。
@@ -239,7 +239,7 @@ tray のバルーンを除去します。
 * `menu` Menu (任意)
 * `position` [Point](structures/point.md) (任意) - ポップアップ位置。
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+tray アイコンのコンテキストメニューをポップアップ表示します。 `menu` が渡されると、tray アイコンのコンテキストメニューの代わりに `menu` を表示します。
 
 `position` は Windows でのみ有効で、省略値は (0, 0) です。
 
