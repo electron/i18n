@@ -57,7 +57,7 @@ Stabilization branches are branches that run parallel to master, taking in only 
 
 ![](../images/versioning-sketch-1.png)
 
-Since Electron 8, stabilization branches are always **major** version lines, and named against the following template `$MAJOR-x-y` e.g. `8-x-y`.  Prior to that we used **minor** version lines and named them as `$MAJOR-$MINOR-x` e.g. `2-0-x`
+Desde Electron 8, las ramas de estabilización son siempre de las líneas de versión **mayor** y se nombran contra la siguiente plantilla `$MAJOR-x-y` p.e. `8-x-y`.  Antes de eso nosotros usabamos la lineas de version **minor** y las nombrabamos como `$MAJOR-$MINOR-x` p.e. `2-0-x`
 
 Permitimos a varias ramas estabilizadoras existir simultaneamente e intentamos soportar por lo menos dos en paralelo todo el tiempo, los arreglos de seguridad por la puerta trasera son necesarios. ![](../images/versioning-sketch-2.png)
 
