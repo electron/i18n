@@ -1,12 +1,12 @@
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Gère les sessions du navigateur, les cookies, le cache, les paramètres de proxy, etc.
 
-Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
+Processus : [Main](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+Le module `session` peut être utilisé pour créer des objets `Session`.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+Vous pouvez également accéder à la `session` des pages existantes à l’aide de la propriété `session` des [`WebContents`](web-contents.md), ou le module `session`.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -18,37 +18,37 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Metode
+## Méthodes
 
-The `session` module has the following methods:
+Le module `session` dispose des méthodes suivantes :
 
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
 * `options` Object (optional)
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Boolean - Si vous voulez activer le cache.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+Retourne `Session` - Une instance de session de la chaîne de caractères `partition`. Quand il y a une `Session` existante avec la même `partition`, elle sera retournée; sinon une nouvelle instance `Session` sera créée avec `options`.
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+Si `partition` commence par `persist:`, la page utilisera une session persistante disponible pour toutes les pages de l'application avec la même `partition`. s'il n'y a pas de `persist:` préfixe, la page utilisera une session en mémoire. Si le `partition` est vide puis la session par défaut de l'application sera retournée.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+Pour créer une `Session` avec `options`, vous devez vous assurer que la `Session` avec la `partition` n'a jamais été utilisée auparavant. Il n'y a pas moyen de changer les `options` d'un objet `Session` existant.
 
-## Properties
+## Propriétés
 
-The `session` module has the following properties:
+Le module `session` dispose des propriétés suivantes :
 
 ### `session.defaultSession`
 
-A `Session` object, the default session object of the app.
+Un objet `Session`, l'objet d'une session par défaut de l'application.
 
-## Class: Session
+## Classe : Session
 
-> Get and set properties of a session.
+> Les propriétés getter et setter d'une session.
 
-Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
+Processus : [Main](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+Vous pouvez créer un objet `Session` avec le module `session` :
 
 ```javascript
 const { session } = require('electron')
@@ -56,21 +56,21 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### Événements d’instance
 
-The following events are available on instances of `Session`:
+Les événements suivants sont disponibles pour les instances de `Session` :
 
-#### Event: 'will-download'
+#### Événement : 'will-download'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+Émis lorsque Electron est sur le point de télécharger `item` dans `webContents`.
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+Faire appel à `Event.preventDefault ()` annule le téléchargement et `item` ne sera pas disponible dans le battement suivant du processus.
 
 ```javascript
 const { session } = require('electron')
@@ -82,35 +82,71 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'preconnect' _Experimental_
+#### Event: 'preconnect'
 
-Returns:
+Retourne :
+
+* `event` Événement
+* `preconnectUrl` String - L'URL demandée pour la préconnexion par le moteur de rendu .
+* `allowCredentials` Booléen - Vrai si le moteur de rendu demande que la connexion inclue les informations d'identification (voir la [spec](https://w3c.github.io/resource-hints/#preconnect) pour plus de détails.)
+
+Émis lorsqu'un processus de rendu demande de préconnexion à une URL, généralement à cause de un hint[ressource ](https://w3c.github.io/resource-hints/).
+
+#### Event: 'spellcheck-dictionary-initialized'
+
+Retourne :
 
 * `event` Event
-* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
-* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+* `languageCode` String - The language code of the dictionary file
 
-Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
 
-### Metode de Instanță
+#### Event: 'spellcheck-dictionary-download-begin'
 
-The following methods are available on instances of `Session`:
+Retourne :
+
+* `event` Événement
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file starts downloading
+
+#### Event: 'spellcheck-dictionary-download-success'
+
+Retourne :
+
+* `event` Événement
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully downloaded
+
+#### Event: 'spellcheck-dictionary-download-failure'
+
+Retourne :
+
+* `event` Événement
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
+
+### Méthodes d’instance
+
+Les méthodes suivantes sont disponibles pour les instances de `Session` :
 
 #### `ses.getCacheSize()`
 
-Returns `Promise<Integer>` - the session's current cache size, in bytes.
+Retourne `Promise<Integer>` - la taille actuelle du cache de la session, en octets.
 
 #### `ses.clearCache()`
 
-Returns `Promise<void>` - resolves when the cache clear operation is complete.
+Retourne `Promise<void>` - résout lorsque l'opération de nettoyage du cache est terminée.
 
-Clears the session’s HTTP cache.
+Efface le cache HTTP de la session.
 
 #### `ses.clearStorageData([options])`
 
 * `options` Object (optional)
-  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+  * `origin` String (facultatif) - Doit suivre la représentation de `window.location.origin` `scheme://host:port`.
+  * `storages` String[] (facultatif) - Les types de stockage à effacer, peuvent contenir : `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 
 Returns `Promise<void>` - resolves when the storage data has been cleared.
@@ -122,17 +158,17 @@ Writes any unwritten DOMStorage data to disk.
 #### `ses.setProxy(config)`
 
 * `config` Object
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+  * `pacScript` String (optional) - The URL associated with the PAC file.
+  * `proxyRules` String (optional) - Rules indicating which proxies to use.
+  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
 
 Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
-Sets the proxy settings.
+Indique les paramètres de proxy.
 
 When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
-The `proxyRules` has to follow the rules below:
+Les `proxyRules` doivent suivre les règles ci-dessous :
 
 ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
@@ -142,7 +178,7 @@ proxyURIList = <proxyURL>[","<proxyURIList>]
 proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 ```
 
-For example:
+Par exemple :
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
 * `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
@@ -152,31 +188,31 @@ For example:
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-The `proxyBypassRules` is a comma separated list of rules described below:
+Le `proxyBypassRules` est une liste de règles séparées par des virgules, comme décrites ci-dessous :
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
 
-   Match all hostnames that match the pattern HOSTNAME_PATTERN.
+   Correspond à tous les noms d'hôte qui correspondent au pattern HOSTNAME_PATTERN.
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Exemples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
-   Match a particular domain suffix.
+   Correspond à un suffixe de domaine particulier.
 
-   Examples: ".google.com", ".com", "http://.google.com"
+   Exemples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
 
-   Match URLs which are IP address literals.
+   Correspond aux URLs qui sont des adresses IP littérales.
 
-   Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+   Exemples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
 
    Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
 
-   Examples: "192.168.1.1/16", "fefe:13::abc/33".
+   Exemples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
 
@@ -190,37 +226,37 @@ Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location.
+* `path` String - Emplacement de téléchargement.
 
 Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (optional) - Whether to emulate network outage. Modurile implicite sunt false-fals.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Par défaut, est faux.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
-Emulates network with the given configuration for the `session`.
+Emule le réseau avec la configuration donnée pour la `session`.
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+// Pour émuler une connexion GPRS avec un débit de 50kbps et une latence de 500 ms.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
 })
 
-// To emulate a network outage.
+// Pour simuler une panne réseau.
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
-#### `ses.preconnect(options)` _Experimental_
+#### `ses.preconnect(options)`
 
 * `options` Object
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
-  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. 1 par défaut.
 
 Preconnects the given number of sockets to an origin.
 
@@ -230,17 +266,17 @@ Disables any network emulation already active for the `session`. Resets to the o
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function
+* `proc` Function | null
   * `request` Object
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `verificationResult` String - Résultat de la vérification par Chromium.
+    * `errorCode` Integer - Code d'erreur.
   * `callback` Function
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
-      * `0` - Indicates success and disables Certificate Transparency verification.
-      * `-2` - Indicates failure.
-      * `-3` - Uses the verification result from chromium.
+      * `0` - Indique la réussite et désactive la vérification de transparence de certificat.
+      * `-2` - Indique l'échec.
+      * `-3` - Utilise le résultat de la vérification de Chromium.
 
 Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
@@ -263,7 +299,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Function | null
-  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `webContents` [WebContents](web-contents.md) - WebContents qui demandent la permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function
     * `permissionGranted` Boolean - Allow or deny the permission.
@@ -279,7 +315,7 @@ Sets the handler which can be used to respond to permission requests for the `se
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
+    return callback(false) // interdit.
   }
 
   callback(true)
@@ -315,118 +351,162 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 Returns `Promise<void>` - Resolves when the operation is complete.
 
-Clears the host resolver cache.
+Vide le cache de résolution de l'hôte.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
+* `domaines` String - Une liste de serveurs séparés par des virgules pour lesquels l'authentification intégrée est activée.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Définit dynamiquement s'il faut toujours envoyer des identifiants pour l'authentification HTTP NTLM ou Négocier .
 
 ```javascript
 const { session } = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// considère n'importe quelle url se terminant par `example.com`, `foobar.com`, `baz`
+// pour une authentification intégrée.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// considère toutes les urls pour une authentification intégrée.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (facultatif)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+Remplace les `userAgent` et `acceptLanguages` pour cette session.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+Le `acceptLanguages` doit être une liste ordonnée de codes de langue séparés par des virgules, pour exemple `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Cela n'affecte pas les `WebContents`, et chaque `WebContents` peut utiliser `webContents.setUserAgent` pour remplacer l'agent utilisateur à l'échelle de la session.
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+Renvoie `String` - L'utilisateur de cette session.
 
 #### `ses.getBlobData(identifier)`
 
-* `identifier` String - Valid UUID.
+* `identifier` String - UUID valide.
 
-Returns `Promise<Buffer>` - resolves with blob data.
+Retourne `Promise<Buffer>` - résout avec des données Blob.
+
+#### `ses.downloadURL(url)`
+
+* `url` String
+
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+
+**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
 
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Object
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `path` String - Chemin d'accès absolu pour le téléchargement.
+  * `urlChain` String[] - Chaîne de caractère complète de l'URL du téléchargement.
+  * `type` String (facultatif)
+  * `offset` Integer - Portée de départ pour le téléchargement.
+  * `length` Integer - Longueur totale du le téléchargement.
+  * `lastModified` String (optional) - Last-Modified header value.
+  * `eTag` String (optional) - ETag header value.
+  * `startTime` Double (facultatif) - Heure du début de téléchargement, en nombre de secondes depuis la date initiale UNIX (1er janvier 1970 à 0 heure (UTC)).
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Autorise la reprise des téléchargements `annulés` ou `interrompus` depuis la `Session`précédente. L'API va générer un [DownloadItem](download-item.md) accessible avec l'événement [will-download](#event-will-download) . Le [DownloadItem](download-item.md) n'aura aucun `WebContents` associé et l'état initial sera `interrompu`. Le téléchargement ne démarre que lorsque l'API `resume` est appelée sur [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+Retourne `Promise<void>` - résout lorsque le cache d'authentification HTTP de la session a été effacé.
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - An array of absolute path to preload scripts
+* `preloads` String[] - Un tableau de chemin absolu pour précharger les scripts
 
-Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+Ajoute des scripts qui seront exécutés sur TOUS les contenus web qui sont associés à cette session juste avant l'exécution normale des scripts `preload`.
 
 #### `ses.getPreloads()`
 
-Returns `String[]` an array of paths to preload scripts that have been registered.
+Retourne `String[]` un tableau de chemins pour précharger les scripts qui ont été enregistrés.
 
-### Propietățile inițiale
+#### `ses.setSpellCheckerLanguages(languages)`
 
-The following properties are available on instances of `Session`:
+* `languages` String[] - An array of language codes to enable the spellchecker for.
+
+The built in spellchecker does not automatically detect what language a user is typing in.  In order for the spell checker to correctly check their words you must call this API with an array of language codes.  You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
+
+#### `ses.getSpellCheckerLanguages()`
+
+Returns `String[]` - An array of language codes the spellchecker is enabled for.  If this list is empty the spellchecker will fallback to using `en-US`.  By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale.  This setting is persisted across restarts.
+
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages.  This API is a no-op on macOS.
+
+#### `ses.setSpellCheckerDictionaryDownloadURL(url)`
+
+* `url` String - A base URL for Electron to download hunspell dictionaries from.
+
+By default Electron will download hunspell dictionaries from the Chromium CDN.  If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries.  We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
+
+If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`.  Please note the trailing slash.  The URL to the dictionaries is formed as `${url}${filename}`.
+
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
+
+#### `ses.addWordToSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to add to the dictionary
+
+Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+
+**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+
+### Propriétés d'instance
+
+Les propriétés suivantes sont disponibles pour les instances de `Session` :
+
+#### `ses.availableSpellCheckerLanguages` _Readonly_
+
+A `String[]` array which consists of all the known available spell checker languages.  Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
 #### `ses.cookies` _Readonly_
 
-A [`Cookies`](cookies.md) object for this session.
+Un objet [`Cookies`](cookies.md) pour cette session.
 
 #### `ses.webRequest` _Readonly_
 
-A [`WebRequest`](web-request.md) object for this session.
+Un objet [`WebRequest`](web-request.md) pour cette session.
 
 #### `ses.protocol` _Readonly_
 
-A [`Protocol`](protocol.md) object for this session.
+Un objet [`Protocole`](protocol.md) pour cette session.
 
 ```javascript
 const { app, session } = require('electron')
 const path = require('path')
 
-app.on('ready', function () {
-  const protocol = session.fromPartition('some-partition').protocol
-  protocol.registerFileProtocol('atom', function (request, callback) {
+application. n('ready', function () {
+  protocole const = session.fromPartition('some-partition').protocole
+  . egisterFileProtocol('atom', function (request, callback) {
     var url = request.url.substr(7)
-    callback({ path: path.normalize(`${__dirname}/${url}`) })
+    callback({ path: path. ormalize(`${__dirname}/${url}`) })
   }, function (error) {
-    if (error) console.error('Failed to register protocol')
+    if (error) console. rror('Échec de l'enregistrement du protocole)
   })
 })
 ```
 
 #### `ses.netLog` _Readonly_
 
-A [`NetLog`](net-log.md) object for this session.
+Un objet [`NetLog`](net-log.md) pour cette session.
 
 ```javascript
 const { app, session } = require('electron')
 
 app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
-  netLog.startLogging('/path/to/net-log')
-  // After some network events
-  const path = await netLog.stopLogging()
-  console.log('Net-logs written to', path)
+  netLog. tartLogging('/path/to/net-log')
+  // Après quelques événements de réseau
+  const path = wait netLog. topLogging()
+  console.log('Net-logs écrit vers', chemin)
 })
 ```
