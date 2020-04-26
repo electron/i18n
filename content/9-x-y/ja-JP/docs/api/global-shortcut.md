@@ -45,7 +45,7 @@ app.on('will-quit', () => {
 
 戻り値 `Boolean` - ショートカットが正常に登録されたかどうか.
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+`accelerator` のグローバルショートカットを登録します。 `callback` は登録したショートカットがユーザに押下されたときに呼び出されます。
 
 アクセラレータが他のアプリケーションによってすでに使用されている場合、この呼び出しは何も通知することなく失敗します。 この動作は、アプリケーションにグローバルショートカットの取り合いをさせたくないため、オペレーティングシステムによって意図されたものです。
 
@@ -61,7 +61,7 @@ Registers a global shortcut of `accelerator`. The `callback` is called when the 
 * `accelerators` String[] - [Accelerator](accelerator.md)の配列
 * `callback` Function
 
-Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
+`accelerators` 内の全ての `accelerator` のグローバルショートカットを登録します。 `callback` は登録したいずれかのショートカットがユーザに押下されたときに呼び出されます。
 
 与えられたアクセラレータが他のアプリケーションによってすでに使用されている場合、この呼び出しは何も通知することなく失敗します。 この動作は、アプリケーションにグローバルショートカットの取り合いをさせたくないため、オペレーティングシステムによって意図されたものです。
 
