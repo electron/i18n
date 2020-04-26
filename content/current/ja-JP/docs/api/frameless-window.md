@@ -62,7 +62,7 @@ win.show()
 ### 制限事項
 
 * 透明な領域越しにクリックすることはできません。 これを解決するためにウインドウ形状を設定するAPIを紹介しようと思います。詳細は、[我々の課題](https://github.com/electron/electron/issues/1335)を参照して下さい。
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
+* 透明なウィンドウは、サイズを変更できません。 `resizable` を `true` に設定すると、いくつかのプラットフォームでは透明なウインドウが機能しなくなることがあります。
 * `blur` フィルターはWebページにしか適用されないため、ウインドウの下にあるコンテンツ (すなわち、ユーザーのシステムで開かれた他のアプリケーション) にぼかし効果を適用する方法はありません。
 * Windowsオペレーティングシステムでは、DWMが無効なとき、透明なウインドウは機能しません。
 * Linux では、GPU を無効にして透明なウインドウを作成するための ARGB を許可するため、ユーザーがコマンドラインに `--enable-transparent-visuals --disable-gpu` を指定しなければなりません。これは、Linux における [いくつかの NVidia ドライバーでアルファチャンネルが機能しない](https://code.google.com/p/chromium/issues/detail?id=369209) という上流のバグによるものです。
