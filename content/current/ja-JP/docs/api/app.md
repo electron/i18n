@@ -485,7 +485,7 @@ Linux では、最初の表示ウィンドウにフォーカスします。 macO
 
 アプリがロギングするディレクトリを設定または作成します。これは `app.getPath()` や `app.setPath(pathName, newPath)` で操作できます。
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on _macOS_, and inside the `userData` directory on _Linux_ and _Windows_.
+`path` 引数なしで `app.setAppLogsPath()` を呼び出すと、このディレクトリは、_macOS_ では `~/Library/Logs/アプリ名` に、_Linux_ と _Windows_ では `userData` ディレクトリ内に設定されます。
 
 ### `app.getAppPath()`
 
@@ -493,7 +493,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(name)`
 
-* `name` String - You can request the following paths by the name:
+* `name` String - 以下のパスを名前で要求することができます。
   * `home` ユーザのホームディレクトリ。
   * `appData` - 既定のユーザ毎のアプリケーションデータディレクトリ。
     * Windowsの場合、`%APPDATA%`
@@ -582,7 +582,7 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 
 ### `app.getLocaleCountryCode()`
 
-Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. この値はネイティブの OS API から取得します。
+戻り値 `String` - 2 文字の [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) 国名コードで、ユーザーの OS のロケールを示します。 この値はネイティブの OS API から取得します。
 
 **注意:** ロケールの国コードを取得できなかった場合、これは空文字列を返します。
 
@@ -601,8 +601,8 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - `://` を除くプロトコルの名前。 例えば、アプリで `electron://` リンクを処理したい場合、引数を `electron` にしてこのメソッドを呼び出してください。
-* `path` String (optional) _Windows_ - The path to the Electron executable. Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Arguments passed to the executable. Defaults to an empty array
+* `path` String (任意) _Windows_ - Electron 実行形式へのパス。 省略値は `process.execPath` です。
+* `args` String[] (任意) _Windows_ - 実行形式に渡す引数。 省略値は空の配列です。
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
@@ -984,7 +984,7 @@ app.setLoginItemSettings({
   * `credits` String (任意) _macOS_ _Windows_ - クレジット情報。
   * `authors` String[] (任意) _Linux_ - アプリの作者のリスト。
   * `website` String (任意) _Linux_ - アプリのウェブサイト。
-  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (任意) _Linux_ _Windows_ - アプリのアイコンへのパス。 Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
 
 Aboutパネルのオプションを設定します。 MacOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
@@ -1078,7 +1078,7 @@ app.moveToApplicationsFolder({
 
 `Integer` 型のプロパティです。現在のアプリのバッジ数を返します。カウントを `0` にセットするとバッジを非表示にします。
 
-On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+macOS では、ゼロ以外の整数を設定すると、ドックアイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
 **注:** Unity ランチャーで動作させるには `.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) を読んでください。
 
