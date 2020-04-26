@@ -80,5 +80,3 @@ Atom チームのメンバー [Kevin Sawicki](https://github.com/kevinsawicki) �
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/JIRXVGVPzn8" frameborder="0" allowfullscreen></iframe></div>
 
-
-
