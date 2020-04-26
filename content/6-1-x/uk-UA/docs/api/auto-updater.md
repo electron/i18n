@@ -1,95 +1,97 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> Uygulamaları kendiliğinden güncelleme yapmak için etkinleştirin.
 
-Процес: [Main](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
-**Дивіться також: [Детальна інструкція як налаштувати процес оновлення вашого застосунку](../tutorial/updates.md).**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
-## Зауваження
+`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+
+## Platform Bildirimleri
 
 Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-Крім того, є деякі тонкі відмінності на кожноій платформі:
+Buna ek olarak, bu platformlarda bazı ufak farklar vardır:
 
 ### macOS
 
-На macOS, модуль `autoUpdater` вбудований в [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), мається на увазі, що не потрібно додаткових налаштувань для його роботи. Щоб дізнатися потреби серверної частини, можете прочитати [Підтримку Серверу](https://github.com/Squirrel/Squirrel.Mac#server-support). Зауважте що [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) застосовується для всіх запитів зроблених при процесі оновлення. Застосунки, яким потрібно вимкнути ATS можуть додати ключ `NSAllowsArbitraryLoads` до свого plist.
+MacOS'ta, `autoUpdater` modulü [Squirrel](https://github.com/Squirrel/Squirrel.Mac) üzerine kurulmuştur. Mac'in anlamı onu çalışabilir yapmak için herhangi bir özel kuruma ihtiyacınız yok demektir. Sunucu tarafı gereksinimleri için [Sunucu desteği](https://github.com/Squirrel/Squirrel.Mac#server-support) okuyabilirsiniz. [Uygulama Aktarım Katmanı Güvenliği](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)'nin (ATS) güncelleştirme işleminin bir parçası olarak yapılan tüm istekler için geçerli olduğunu unutmayın. Uygulamalar plist'lerine `NSAllowsArbitraryLoads` anahtarını ekleyerek ATS'nin devre dışı kalmasını sağlamalıdır.
 
 **Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
 ### Windows
 
-На Windows, ви маєте встановлювати свій застосунок на машину користувача перед тим, як зможете використовувати `autoUpdater`, тому рекомедовано використовувати [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) чи [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) пакети для генерації встановника Windows.
+Windows'ta `autoUpdater`'ı kullanmadan önce uygulamanızı bir kullanıcının makinesine yüklemeniz gerekir. Bu nedenle Windows yükleyici paketi oluşturmak için [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) veya [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) kullanılması önerilir.
 
-При використанні [electron-winstaller](https://github.com/electron/windows-installer) чи [electron-forge](https://github.com/electron-userland/electron-forge) переконайтеся що ви не намагаєтеся оновити застосунок [при першому запуску](https://github.com/electron/windows-installer#handling-squirrel-events) (Дивіться також [ці випадки для детільної інформації](https://github.com/electron/electron/issues/7155)). Також рекомендується використовувати [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) для отримання піктограм вашого застосунку на робочому столі.
+[electron-winstaller](https://github.com/electron/windows-installer) veya [electron-forge](https://github.com/electron-userland/electron-forge) kullanırken uygulamanız [ilk çalıştığında ](https://github.com/electron/windows-installer#handling-squirrel-events)güncellenmeye çalışmadığından emin olun ([Ayrıca daha fazla bilgi için buna bakın](https://github.com/electron/electron/issues/7155)). Ayrıca, uygulamanız için masaüstü kısayolları almak için [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) 'ı kullanmanız önerilir.
 
-Встановник згенерований Squirrel створить піктограму з [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) у форматі `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, наприклад, `com.squirrel.slack.Slack` чи `com.squirrel.code.Code`. Ви маєте використовувати однакове ID для вашого застосунку з `app.setAppUserModelId` API, в іншому випадку Windows не зможе правильно закріпити ваш застосунок в панелі завдань.
+Yükleyici Squirrel ile [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) şeklinde bir kısayol ikonu üretecektir ve bunun formatı `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE` şeklinde olacaktır. `com.squirrel.slack.Slack` ve `com.squirrel.code.Code` bunun örnekleridir. Uygulamanız için `app.setAppUserModelId` API ile aynı ID'yi kullanmanız gerekiyor, aksi halde Windows görev çubuğunda uygulamanızı doğru bir şekilde sabitleyemeyecektir.
 
-На відміну від Squirrel.Mac, Windows може тримати оновлення на S3 чи будь-якому іншому файловому сховищі. Ви можете прочитати документацію [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) для детальнішої інформації як Squirrel.Windows працює.
+Squirrel.Mac'ten farklı olarak, Windows güncelleştirmeleri S3'te veya diğer herhangi bir statik dosya ana sisteminde tutabilir. Squirrel.Windows'un nasıl çalıştığı hakkında daha fazla bilgi almak için [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) belgelerini okuyabilirsiniz.
 
-## Події (Events)
+## Events
 
-Об'єкт `autoUpdater` викликає наступні події:
+`autoUpdater` nesnesi aşağıdaki olaylarla ortaya çıkarır:
 
-### Подія: 'error'
+### Event: 'error'
 
-Повертає:
+Returns:
 
 * `error` Error
 
-Відбувається коли виникає помилка при оновленні.
+Güncelleştirilirken bir hata olduğunda ortaya çıkan.
 
-### Подія: 'checking-for-update'
+### Event: 'checking-for-update'
 
-Відбувається при перевірці чи стартувало оновлення.
+Bir güncellemenin başlatılıp başlatılmadığını kontrol ederken ortaya çıkan.
 
-### Подія: 'update-available'
+### Event: 'update-available'
 
 Emitted when there is an available update. The update is downloaded automatically.
 
-### Подія: 'update-not-available'
+### Olay: 'update-not-available'
 
-Відбувається коли нема доступних оновлень.
+Mevcut bir güncelleme yokken ortaya çıkan.
 
-### Подія: 'update-downloaded'
+### Event: 'update-downloaded'
 
-Повертає:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
 * `updateURL` String
 
-Вібдувається коли оновлення завантажено.
+Bir güncelleme indirildiğinde ortaya çıkan.
 
-На Windows доступне тільки `releaseName`.
+Windows üzerinde yalnızca `releaseName` kullanılabilir.
 
 **Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
 
-### Подія: 'before-quit-for-update'
+### Event: 'before-quit-for-update'
 
-Ця подія викликається після того як користувач викликав `quitAndInstall()`.
+This event is emitted after a user calls `quitAndInstall()`.
 
-Коли викликається цей API, подія `before-quit` не виконується перед закриттям всіх вікон. Як результат ви маєте очікувати цю подію, якщо хочете виконати дії перед закриттям всіх вікон, так само як і `before-quit`.
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
-## Методи
+## Metodlar
 
-Об'єкт `autoUpdater` має наступні методи:
+`autoUpdater` nesnesi aşağıdaki yöntemleri içerir:
 
-### `autoUpdater.setFeedURL(options)`
+### `autoUpdater.setFeedURL(seçenekler)`
 
 * `options` Object
-  * `url` String
-  * `headers` Object (опціонально) _macOS_ - хедери HTTP запиту.
-  * `serverType` String (опціонально) _macOS_ - `json` чи `default`, дивись [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README для детальнішої інформації.
+  * `url` Dize
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
-Встановлює `url` та ініціалізує автоновлення.
+`url`'i belirler ve otomatik güncelleyici başlar.
 
 ### `autoUpdater.getFeedURL()`
 
-Повертає `String` - Поточна URL для оновлення.
+`String`'i geri döndürür - Geçerli olan akış URL'ini günceller.
 
 ### `autoUpdater.checkForUpdates()`
 
@@ -99,6 +101,6 @@ Asks the server whether there is an update. You must call `setFeedURL` before us
 
 Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-Під капотом виклик `autoUpdater.quitAndInstall()` спочатку закриє всі вікна застосунку та автоматично викличе `app.quit()` після закриття всіх вікон.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
-**Примітка:** Не обов'язково викликати дану функцію, щоб застосувати оновлення, тому що успішно завантажене оновлення завжди застосується при наступному старті застосунку.
+** Not: **Bir güncelleme uygulamak bu metodu çağırmak kesinlikle gerekli değildir, Başarılı bir şekilde indirilmiş bir güncelleme uygulamanın bir sonraki başlatılmasında yinede devreye girecektir.
