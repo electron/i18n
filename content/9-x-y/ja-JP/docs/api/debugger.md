@@ -40,7 +40,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 * `event` Event
 * `reason` String - デバッガーがデタッチする理由。
 
-Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+デバッグセッションが終了したときに発生します。 これは、`webContents` がクローズされるか、アタッチしていた `webContents` に対して開発者ツールが呼び出されるときに発生します。
 
 #### イベント: 'message'
 
@@ -48,7 +48,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 * `event` Event
 * `method` String - メソッド名。
-* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `params` any - リモートデバッグプロトコルの 'parameters' 属性で定義されたイベントパラメータ。
 
 デバッグ対象で計測イベントが生じる毎に発生します。
 
