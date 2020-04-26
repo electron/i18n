@@ -1,20 +1,20 @@
-## クラス: TouchBarColorPicker
+## Class: TouchBarColorPicker
 
-> ネイティブ macOS アプリケーション用のタッチバー内にカラーピッカーを作成する
+> Create a color picker in the touch bar for native macOS applications
 
-プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarColorPicker(options)` _実験的_
+### `new TouchBarColorPicker(options)` _Experimental_
 
 * `options` Object
-  * `availableColors` String[] (任意) - 選択可能な色として表示される、16進数の色の文字列の配列。
-  * `selectedColor` String (任意) - 16進数形式、即ち `#ABCDEF` の選択された色。
+  * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
+  * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
   * `change` Function (optional) - Function to call when a color is selected.
-    * `color` String - ユーザがピッカーから選択した色.
+    * `color` String - The color that the user selected from the picker.
 
-### インスタンスプロパティ
+### Instance Properties (인스턴스 속성)
 
-`TouchBarColorPicker` のインスタンスには以下のプロパティがあります。
+The following properties are available on instances of `TouchBarColorPicker`:
 
 #### `touchBarColorPicker.availableColors`
 
