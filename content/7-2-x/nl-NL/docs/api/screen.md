@@ -1,8 +1,8 @@
-# screen
+# scherm
 
-> 스크린 크기, 디스플레이, 커서위치, 등등 에 대한 정보를 회수한다.
+> Retrieve information about screen size, displays, cursor position, etc.
 
-프로세스: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
@@ -16,7 +16,7 @@ An example of creating a window that fills the whole screen:
 const { app, BrowserWindow, screen } = require('electron')
 
 let win
-app.whenReady().then(() => {
+app.on('ready', () => {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize
   win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
@@ -30,7 +30,7 @@ const { app, BrowserWindow, screen } = require('electron')
 
 let win
 
-app.whenReady().then(() => {
+app.on('ready', () => {
   let displays = screen.getAllDisplays()
   let externalDisplay = displays.find((display) => {
     return display.bounds.x !== 0 || display.bounds.y !== 0
@@ -46,13 +46,13 @@ app.whenReady().then(() => {
 })
 ```
 
-## 이벤트
+## Events
 
 The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
@@ -61,7 +61,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
@@ -70,7 +70,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `display` [Display](structures/display.md)
@@ -78,7 +78,7 @@ Returns:
 
 Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
-## 메소드
+## Methoden
 
 The `screen` module has the following methods:
 
