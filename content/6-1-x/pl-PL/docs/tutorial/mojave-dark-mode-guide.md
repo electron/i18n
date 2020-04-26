@@ -1,39 +1,24 @@
-# Tryb ciemny w macOS Mojave
+# Wsparcie dla Ciemnego Motywu w macOS
 
-In macOS 10.14 Mojave, Apple introduced a new [system-wide dark mode](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) for all macOS computers.  By default Electron apps do not automatically adjust their UI and native interfaces to the dark mode setting when it's enabled. This is primarily due to Apple's own guidelines saying you **shouldn't** use the dark mode native interfaces if your app's own interfaces don't support dark mode themselves.
+In macOS 10.14 Mojave, Apple introduced a new [system-wide dark mode](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) for all macOS computers.  If your Electron app has a dark mode, you can make it follow the system-wide dark mode setting using [the `nativeTheme` api](../api/native-theme.md).
 
-If your app does have a dark mode, you can make your Electron app follow the system-wide dark mode setting.
+In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for all macOS computers. In order for the `nativeTheme.shouldUseDarkColors` and `Tray` APIs to work correctly in this mode on Catalina, you need to either have `NSRequiresAquaSystemAppearance` set to `false` in your `Info.plist` file, or be on Electron `>=7.0.0`. Both [Electron Packager](https://github.com/electron/electron-packager) and [Electron Forge](https://www.electronforge.io/) have a [`darwinDarkModeSupport` option](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html#darwindarkmodesupport) to automate the `Info.plist` changes during app build time.
 
 ## Automatically updating the native interfaces
 
-"Native Interfaces" include the file picker, window border, dialogs, context menus and more; basically anything where the UI comes from macOS and not your app.  In order to make these interfaces update to dark mode automatically, you need to set the `NSRequiresAquaSystemAppearance` key in your app's `Info.plist` file to `false`.  Np.
-
-```xml
-<plist>
-<dict>
-  ...
-  <key>NSRequiresAquaSystemAppearance</key>
-  <false />
-  ...
-</dict>
-</plist>
-```
-
-If you are using [`electron-packager` >= 12.2.0](https://github.com/electron-userland/electron-packager) or [`electron-forge` >= 6](https://github.com/electron-userland/electron-forge) you can set the [`darwinDarkModeSupport`](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) option when packaging and this key will be set for you.
-
-If you are using [`electron-builder` >= 20.37.0](https://github.com/electron-userland/electron-builder) you can set the [`darkModeSupport`](https://www.electron.build/configuration/mac.html) option.
+"Native Interfaces" include the file picker, window border, dialogs, context menus and more; basically, anything where the UI comes from macOS and not your app. As of Electron 7.0.0, the default behavior is to opt in to this automatic theming from the OS. If you wish to opt out and are using Electron
+&gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let your opt out of this theming, due to the use of the macOS 10.14 SDK.
 
 ## Automatically updating your own interfaces
 
-If your app has its own dark mode you should toggle it on and off in sync with the system's dark mode setting.  You can do this by listening for the theme changed event on Electron's `systemPreferences` module.  Np.
+If your app has its own dark mode, you should toggle it on and off in sync with the system's dark mode setting. You can do this by listening for the theme updated event on Electron's `nativeTheme` module.
 
-```js
-const { systemPreferences } = require('electron')
+Na przykład:
 
-systemPreferences.subscribeNotification(
-  'AppleInterfaceThemeChangedNotification',
-  function theThemeHasChanged () {
-    updateMyAppTheme(systemPreferences.isDarkMode())
-  }
-)
+```javascript
+const { nativeTheme } = require('electron')
+
+nativeTheme.on('updated', function theThemeHasChanged () {
+  updateMyAppTheme(nativeTheme.shouldUseDarkColors)
+})
 ```
