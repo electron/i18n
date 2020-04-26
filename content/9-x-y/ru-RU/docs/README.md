@@ -1,119 +1,119 @@
-# Официальное руководство
+# Офіційне керівництво
 
-Убедитесь, что Вы используете документацию, соответствующую вашей версии Electron. Версия должна быть частью URL-адреса страницы. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. Чтобы просмотреть более старые версии документации, Вы можете использовать [browse by tag](https://github.com/electron/electron/tree/v1.4.0) на GitHub, открыв список «Switch branches/tags» и выбрав тег, соответствующий вашей версии.
+Будь ласка, переконайтеся, що ви використовуєте документацію, що відповідає вашій версії Electron. Номер версії має бути частиною URL-адреси сторінки. Якщо це не так, можливо ви використовуєте документацію гілки робробки, що може містити API зміни не сумісні з вашою версією Electron. Щоб переглянути старіші версії документації, ви можете [перейти по тегу](https://github.com/electron/electron/tree/v1.4.0) на GitHub, відкривши випадаюче меню "Перемкнути гілку/тег" і вибравши тег, який відповідає вашій версії.
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Ось питання, які задають найчастіше. Перегляньте їх перед створенням проблеми:
 
-* [FAQ по Electron](faq.md)
+* [FAQ Electron](faq.md)
 
-## Руководство
+## Посібники та Підручники
 
-* [О Electron](tutorial/about.md)
-* [Настройка среды разработки](tutorial/development-environment.md)
-  * [Настройка macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Настройка Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Настройка Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Выбор редактора](tutorial/development-environment.md#a-good-editor)
-* [Создание Вашего первого приложения](tutorial/first-app.md)
-  * [Установка Electron](tutorial/first-app.md#installing-electron)
-  * [Разработка Electron в двух словах](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Запуск Вашего приложения](tutorial/first-app.md#running-your-app)
-* [Макеты и CLI](tutorial/boilerplates-and-clis.md)
-  * [Макеты против CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+* [Налаштовування Середовища Розробки](tutorial/development-environment.md)
+  * [Налаштовування macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Налаштовування Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Налаштовування Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Вибір Редактора](tutorial/development-environment.md#a-good-editor)
+* [Створення вашого першого застосунку](tutorial/first-app.md)
+  * [Встановлення Electron](tutorial/first-app.md#installing-electron)
+  * [Розробка на Electron в Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [Запуск Вашого Застосунку](tutorial/first-app.md#running-your-app)
+* [Шаблони Коду та CLI](tutorial/boilerplates-and-clis.md)
+  * [Шаблони Коду vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Другие инструменты и макеты](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Архитектура приложения](tutorial/application-architecture.md)
-  * [Основной( Main ) и графический( Renderer ) процессы](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Использование API Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Использование API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
-  * [Использование нативных модулей Node.js](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
-* Добавление функционала в Ваше приложение
-  * [Уведомления](tutorial/notifications.md)
-  * [Недавние документы](tutorial/recent-documents.md)
-  * [Прогресс приложения](tutorial/progress-bar.md)
-  * [Пользовательское меню macOS](tutorial/macos-dock.md)
-  * [Пользовательские задачи Windows](tutorial/windows-taskbar.md)
-  * [Пользовательские действия на Linux](tutorial/linux-desktop-actions.md)
-  * [Горячие клавиши](tutorial/keyboard-shortcuts.md)
-  * [Оффлайн/Онлайн обнаружение](tutorial/online-offline-events.md)
-  * [Представленный файл для macOS BrowserWindows](tutorial/represented-file.md)
-  * [Нативное перетаскивание файла](tutorial/native-file-drag-drop.md)
-  * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
-  * [Поддержка Темного режима macOS](tutorial/mojave-dark-mode-guide.md)
-  * [Встраивание веб в Electron](tutorial/web-embeds.md)
-* [Доступность](tutorial/accessibility.md)
+  * [Інші Інструменти та Шаблони Коду](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+* [Архітектура Застосунків](tutorial/application-architecture.md)
+  * [Головний та Процес Рендерингу](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Використання API Electron](tutorial/application-architecture.md#using-electron-apis)
+  * [Використання API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
+  * [Використання Нативних Модулів Node.js](tutorial/using-native-node-modules.md)
+  * [Стратегії продуктивності](tutorial/performance.md)
+* Додавання Функцій до Вашого Застосунку
+  * [Сповіщення](tutorial/notifications.md)
+  * [Останні Документи](tutorial/recent-documents.md)
+  * [Прогрес Перекладу](tutorial/progress-bar.md)
+  * [Налаштовуване Dock Меню](tutorial/macos-dock.md)
+  * [Налаштовувана Панель Завдань Windows](tutorial/windows-taskbar.md)
+  * [Налаштовувані Linux Дії Робочого Столу](tutorial/linux-desktop-actions.md)
+  * [Гарячі Клавіші](tutorial/keyboard-shortcuts.md)
+  * [Оффлайн/Онлайн Виявлення](tutorial/online-offline-events.md)
+  * [Представлення Файлу для macOS BrowserWindows](tutorial/represented-file.md)
+  * [Нативний Drag & Drop Файлу](tutorial/native-file-drag-drop.md)
+  * [Закадровий Рендеринг](tutorial/offscreen-rendering.md)
+  * [Підтримка темної теми macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Веб-вкладення в Electron](tutorial/web-embeds.md)
+* [Доступність](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Включение доступности](tutorial/accessibility.md#enabling-accessibility)
-* [Тестирование и отладка](tutorial/application-debugging.md)
-  * [Отладка главного процесса](tutorial/debugging-main-process.md)
-  * [Отладка главного процесса с кодом Visual Studio](tutorial/debugging-main-process-vscode.md)
-  * [Использование Selenium и WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-  * [Расширение DevTools](tutorial/devtools-extension.md)
-  * [Автоматическое тестирование с помощью собственного драйвера](tutorial/automated-testing-with-a-custom-driver.md)
-* [Распространение](tutorial/application-distribution.md)
-  * [Поддерживаемые платформы](tutorial/support.md#supported-platforms)
-  * [Цифровая подпись](tutorial/code-signing.md)
+  * [Увімкнення Спеціальних Можливостей](tutorial/accessibility.md#enabling-accessibility)
+* [Тестування та відлагодження](tutorial/application-debugging.md)
+  * [Відлагодження Головного Процесу](tutorial/debugging-main-process.md)
+  * [Відладка Головного Процесу з Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Використання Selenium і WebDriver](tutorial/using-selenium-and-webdriver.md)
+  * [Тестування на віддалених CI системах (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [Розширення DevTools](tutorial/devtools-extension.md)
+  * [Автоматичне тестування за допомогою користувацького драйвера](tutorial/automated-testing-with-a-custom-driver.md)
+* [Розповсюдження](tutorial/application-distribution.md)
+  * [Підтримувані Платформи](tutorial/support.md#supported-platforms)
+  * [Підпис коду](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Безопасность](tutorial/security.md)
-  * [Отчеты по безопасности](tutorial/security.md#reporting-security-issues)
-  * [Вопросы и обновления безопасности Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Предупреждение безопасности Electron](tutorial/security.md#electron-security-warnings)
-  * [Контрольный список безопасности](tutorial/security.md#checklist-security-recommendations)
-* [Обновления](tutorial/updates.md)
-  * [Развертывание сервера обновлений](tutorial/updates.md#deploying-an-update-server)
-  * [Внедрение обновлений в Ваше приложение](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Применение обновлений](tutorial/updates.md#applying-updates)
-* [Получение поддержки](tutorial/support.md)
+* [Безпека](tutorial/security.md)
+  * [Повідомити про Проблему Безпеки](tutorial/security.md#reporting-security-issues)
+  * [Проблеми з Безпекою Chromium та Вдосконалення](tutorial/security.md#chromium-security-issues-and-upgrades)
+  * [Попередження про Безпеку Electron](tutorial/security.md#electron-security-warnings)
+  * [Контрольний Список Безпеки](tutorial/security.md#checklist-security-recommendations)
+* [Оновлення](tutorial/updates.md)
+  * [Розгортання на Сервері для Оновлень](tutorial/updates.md#deploying-an-update-server)
+  * [Реалізація Оновлення в Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Застосування Оновлень](tutorial/updates.md#applying-updates)
+* [Підтримка](tutorial/support.md)
 
-## Подробное руководство
+## Докладні Підручники
 
-Эти индивидуальные руководства расширят темы, обсуждаемые выше.
+Ці окремі підручники розширюють теми, що обговорюються в Путівнику вище.
 
-* [Установка Electron](tutorial/installation.md)
-  * [Прокси](tutorial/installation.md#proxies)
-  * [Пользовательские зеркала и кеши](tutorial/installation.md#custom-mirrors-and-caches)
-  * [Устранение проблем](tutorial/installation.md#troubleshooting)
-* Отзыв разработчика Electron Releases &
-  * [Политика контроля версиями](tutorial/electron-versioning.md)
-  * [Графики выпуска](tutorial/electron-timelines.md)
-  * [Программа отзывов](tutorial/app-feedback-program.md)
-* [Упаковка исходников приложения с помощью asar](tutorial/application-packaging.md)
-  * [Создание архива asar](tutorial/application-packaging.md#generating-asar-archives)
-  * [Использование архива asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Добавление распакованных файлов в архив asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Использование плагина Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [Встановлення Electron](tutorial/installation.md)
+  * [Проксі](tutorial/installation.md#proxies)
+  * [Користувацькі Дзеркала та Кеш](tutorial/installation.md#custom-mirrors-and-caches)
+  * [Виправлення Неполадок](tutorial/installation.md#troubleshooting)
+* Випуски Electron & відгуки розробників
+  * [Політика версійності](tutorial/electron-versioning.md)
+  * [Історія та план версій](tutorial/electron-timelines.md)
+  * [Програма зворотнього зв’язку](tutorial/app-feedback-program.md)
+* [Пакування Коду Застосунку з asar](tutorial/application-packaging.md)
+  * [Генерація asar Архівів](tutorial/application-packaging.md#generating-asar-archives)
+  * [Використання asar Архівів](tutorial/application-packaging.md#using-asar-archives)
+  * [Обмеження](tutorial/application-packaging.md#limitations-of-the-node-api)
+  * [Додавання Нерозпакованих Файлів в asar Архів](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [Тестування Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Використання Плагіну Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
-* [Глоссарий](glossary.md)
+* [Словник Термінів](glossary.md)
 
-## Справочник по API
+## Довідник API
 
-* [Краткий обзор](api/synopsis.md)
-* [Объект процесса](api/process.md)
-* [Поддерживаемые параметры командной строки](api/command-line-switches.md)
-* [Переменные окружения](api/environment-variables.md)
-* [Критические изменения в API](breaking-changes.md)
+* [Короткий Огляд](api/synopsis.md)
+* [Обробка Об'єктів](api/process.md)
+* [Підтримувані параметри командного рядка](api/command-line-switches.md)
+* [Змінні Середовища](api/environment-variables.md)
+* [Підтримка розширень Chrome](api/extensions.md)
+* [Останні важливі зміни в API](breaking-changes.md)
 
-### Пользовательские DOM-элементы:
+### Користувацькі DOM Елементи:
 
-* [Объект `File`](api/file-object.md)
+* [Об'єкт `File`](api/file-object.md)
 * [Тег `<webview>`](api/webview-tag.md)
-* [Функция `window.open`](api/window-open.md)
-* [Объект `BrowserWindowProxy`](api/browser-window-proxy.md)
+* [Функція `window.open`](api/window-open.md)
+* [Об’єкт `BrowserWindowProxy`](api/browser-window-proxy.md)
 
-### Модули для главного процесса:
+### Модулі для Головного Процесу:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -128,7 +128,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
-* [Notification (Оповещения)](api/notification.md)
+* [Нагадування](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
@@ -139,20 +139,20 @@ There are questions that are asked quite often. Check this out before creating a
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Модули для процесса-рендерера (веб-страницы):
+### Модулі для Процесу Рендерера (Web Page):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Модули для обоих процессов:
+### Модулі для Обох Процесів:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [shell](api/shell.md)
 
-## Разработка
+## Розробка
 
-См. [development/README.md](development/README.md)
+Дивіться [development/README.md](development/README.md)
