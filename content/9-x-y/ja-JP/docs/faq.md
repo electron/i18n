@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## 何分か経つとアプリの Window/tray が消えてしまいます
+## 数分経つとアプリの tray が消失します。
 
-Window/trayを格納するのに使用している変数がガベージコレクトされたときに発生します。
+これは、tray を格納している変数がガベージコレクトされると発生します。
 
 以下のドキュメントが参考になるはずです。
 
@@ -58,7 +58,7 @@ Window/trayを格納するのに使用している変数がガベージコレク
 
 ```javascript
 const { app, Tray } = require('electron')
-app.on('ready', () => {
+app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -69,7 +69,7 @@ app.on('ready', () => {
 ```javascript
 const { app, Tray } = require('electron')
 let tray = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -137,3 +137,24 @@ npm uninstall -g electron
 ```
 
 組み込みモジュールを使用していてもまだこのエラーが出る場合、異なるプロセスでモジュールを使用しようとしている可能性が高いです。 たとえば、`electron.app` はメインプロセスのみ、`electron.webFrame` はレンダラープロセスのみで利用できます。
+
+## フォントがぼやけます。これはどういうものでどうすればいいのですか?
+
+[サブピクセルアンチエイリアス](http://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。 サンプル:
+
+![サブピクセルレンダリングのサンプル](images/subpixel-rendering-screenshot.gif)
+
+サブピクセルアンチエイリアスは不透明なレイヤーの背景が必要で、そのレイヤーはフォントグリフを含みます。 (詳しくは [この issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) を参照してください)。
+
+目的を達成するには、[BrowserWindow](api/browser-window.md) のコンストラクタで背景を設定します。
+
+```javascript
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({
+  backgroundColor: '#fff'
+})
+```
+
+この効果は (一部の?) 液晶画面でしか見られません。 違いが見えなくても、ユーザーの中には違って見える人がいるかもしれません。 こうしてはいけない理由がなければ、背景は基本的にこのように設定するのが良いでしょう。
+
+CSS で背景を設定するだけでは期待する効果はないことに注意してください。
