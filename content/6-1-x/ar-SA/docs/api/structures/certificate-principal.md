@@ -1,8 +1,8 @@
-# موضوع الشهادة الرئيسية
+# Objeto CertificatePrincipal
 
-* `commonName` String - الإسم الشائع.
-* `organizations` String[] - اسماء المنظمة.
-* `organizationUnits` String[] - اسماء الوحدة التنظيمية.
-* `locality` String - الموقع.
-* `state` String - الولاية أو المقاطعة.
-* `country` String - الدولة او الجهة.
+* `commonName` String - Nombre común.
+* `organizations` String[] - Nombres de la organización.
+* `organizationUnits` String[] -Nombres de la Unidad de Organización.
+* `locality` String - Localidad.
+* `state` String - Estado o Provincia.
+* `country` String - País o región.
