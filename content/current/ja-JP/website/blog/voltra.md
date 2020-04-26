@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: Voltra'
+title: '今週のプロジェクト: Voltra'
 author:
   - '0x00A'
   - aprileelcich
@@ -7,59 +7,59 @@ author:
 date: '2017-03-07'
 ---
 
-This week we met with [Aprile Elcich](https://twitter.com/aprileelcich) and [Paolo Fragomeni](https://twitter.com/0x00A) to talk about Voltra, an Electron-powered music player.
+今週は、[Aprile Elcich](https://twitter.com/aprileelcich) さんと [Paolo Fragomeni](https://twitter.com/0x00A) さんにお会いして、Electron を搭載した音楽プレイヤー Voltra についてお話を伺いました。
 
 ---
 
-## What is Voltra?
+## Voltra とは何ですか?
 
-[Voltra](https://voltra.co/) is a music player for people who want to own their music. It’s also a store where you can discover and buy new music based on what you already own. It’s ad-free, cross-platform for desktop and mobile. It also doesn’t spy on you.
+[Voltra](https://voltra.co/) は、自分の音楽を所有したい人のための音楽プレイヤーです。 すでに持っているものから新しい音楽を見つけたり、購入したりできるストアでもあります。 広告なしで、デスクトップとモバイル向けのクロスプラットフォームです。 情報収集もしません。
 
 [![voltra-artistview](https://cloud.githubusercontent.com/assets/2289/23670061/4db0323c-031b-11e7-81fd-128e714e911c.jpg)](https://voltra.co/)
 
-## Who is Voltra for?
+## Voltra はどんな人が対象ですか?
 
-Anyone who listens to music.
+音楽を聴くすべての人です。
 
-## What motivated you to create Voltra?
+## Voltra を作ったきっかけは何ですか?
 
-Radio has has always had a big share of listeners. It’s moving off the airwaves and onto the Internet. Now you can rent music on demand — it’s a radio revival! A lot of new products and services have emerged because of this, but streaming radio still leaves someone else in control of your music and how you experience it.
+ラジオは昔からリスナーの大きなシェアを獲得しています。 今や電波からインターネットへと移行しています。 オンデマンドで音楽をレンタルできるようにもなりました - ラジオの復活です! そのために多くの新しい製品やサービスが登場しています。しかし、ストリーミングラジオはまだ、音楽とその視聴手段を掌握されています。
 
-We wanted a product that was entirely focused on music you own. Something that made it easy to discover and buy new music directly from artists or labels.
+私たちは、自分が持っている音楽というものに全面的にこだわったプロダクトを望みました。 アーティストやレーベルから直接、新しい音楽を発見したり購入したりすることを容易にするものです。
 
-## Is there a free version?
+## 無料版はありますか?
 
-The desktop player is completely free. [Selling your music is also free!](https://voltra.co/artists) We are not ad-supported.
+デスクトッププレイヤーは完全に無料です。 [あなたの音楽を販売するのも無料です!](https://voltra.co/artists) 当サイトに広告はありません。
 
-Since the app is free, we may open source it later on. Right now we don’t have the bandwidth to manage that. We also have very specific ideas for features and the direction we want to take things. We have an active beta community and we take our feedback to heart.
+このアプリは無料なので、後にオープンソース化するかもしれません。 今のところそれを管理する余裕はありません。 機能や採り入れる方向性についても、とても具体的なアイデアを持っています。 活発なベータコミュニティもあり、そのフィードバックを大切にしています。
 
-## How do you make money?
+## どうやって収益化するのですか?
 
-We have premium features!
+プレミアム機能があります!
 
-Our [Voltra Audio Archive](https://voltra.co/premium/) is a cloud-backup service designed specifically for music. We don’t compress or share data blocks. Your music collection is physically backed up for you.
+[Voltra Audio Archive](https://voltra.co/premium/) は、音楽に特化したクラウドバックアップサービスです。 データブロックを圧縮、共有はしません。 あなたの音楽コレクションは、物理的なバックアップです。
 
-For artists and labels, our [Pro Membership](https://voltra.co/artists/pro) offers tools to help them reach more relevant audiences, such as analytics and professional artist webpages.
+アーティストやレーベル向けの [プロ会員](https://voltra.co/artists/pro) は、アナリティクスやプロアーティストのウェブページなど、より関連する視聴者に届けるためのツールを提供しています。
 
-## What makes Voltra different?
+## Voltra は何が特色なのですか?
 
-Design and usability are incredibly important to us. We want to give listeners a distraction-free listening experience! There are a some interesting music players and stores out there. But many of them are more advanced and harder to use than their creators realize. We want to make Voltra accessible to as many people as possible.
+デザインとユーザビリティは、私たちにとって非常に重要です。 リスナーの皆様に、煩わせない視聴体験を提供したいのです! 興味深い音楽プレーヤーやストアはすでにいくつか出ています。 しかし、その多くは作者が思っているよりも高度で使いづらいのです。 一人でも多くの人が Voltra を利用できるようにしたいです。
 
-We also don't take a cut from the artist or the label. That’s a key differentiator for us. It’s really important because it lowers the barrier for artists to get their music to market.
+また、アーティストやレーベルからの引き抜きはしていません。 これが差別化しているポイントです。 アーティストが自分の音楽を市場に出すための障壁を下げるには、本当に重要なことなのです。
 
-## What are some design & technical decisions you made?
+## どのようなデザイン & 技術的な決定をしましたか?
 
-While designing Voltra, we considered UI conventions from native apps and the web, we also thought a lot about what we could remove. We have an active private beta group who have given us critical feedback over the last few months.
+Voltra をデザインするにあたって、ネイティブアプリやウェブの UI の慣習を考慮し、何を削るかということもたくさん考えました。 私たちには、ここ数ヶ月の間で批判的なフィードバックをくれた活発なプライベートベータグループがいます。
 
-We found that album art and photography are really important to people. Many players are just lists of files. One of the cool things about owning physical albums is the album art, and we wanted to put emphasis on this in the Voltra desktop app.
+人々は、アルバムアートや写真を本当に大切にしているということがわかりました。 多くのプレイヤーはファイルのリストでしかありません。 アルバムアートは物理アルバムを所有するにあたって格好いい所の一つですが、Voltra デスクトップアプリではこの点を強調したいと思いました。
 
 [![voltra-albumview](https://cloud.githubusercontent.com/assets/2289/23670056/4b0c18d4-031b-11e7-89e1-539e927a380d.jpg)](https://voltra.co/)
 
-We also made sure not to mess with people's files. We use file watching so you can put your files wherever you want, and we don't rename them or move them for you. We have an embedded database to track the state of the watched directories so that we can track what's new, even when the process isn't running.
+他人のファイルに手を出さないようにも気をつけました。 ファイルを見るだけなので、それ自体は好きな場所に置くことができます。名前を変更したり、移動したりすることはありません。 プロセスが実行されていなくても新規ファイルを追跡できるように、見ているディレクトリの状態を追跡する埋め込みデータベースがあります。
 
-## What are some challenges you've faced while building Voltra?
+## Voltra 構築の際に直面した課題はありますか?
 
-We spend a lot of time focused on performance. We started with frameworks but moved to vanilla Javascript. In our experience, the generalized abstractions they provide outweigh the performance penalties and ceremony that they introduce.
+パフォーマンスを重視して、そこに時間をかけました。 最初はフレームワークから始めましたが、バニラ JavaScript に移行しました。 経験上、フレームワークが提供する一般的な抽象化は、導入することによるパフォーマンスの対価や儀式的な記述を上回ります。
 
 We handle very large collections pretty well at this point. Large collections means possibly tens of thousands of images! Having Node.js’ file system module directly available from the render process made it really easy to lazy load and unload lots of images super quickly based on DOM events.
 
