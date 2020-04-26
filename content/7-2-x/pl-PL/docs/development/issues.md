@@ -6,7 +6,7 @@
 * [Triaging a Bug Report](#triaging-a-bug-report)
 * [Resolving a Bug Report](#resolving-a-bug-report)
 
-## How to Contribute in Issues
+## Jak wnieść swój wkład w issues
 
 For any issue, there are fundamentally three ways an individual can contribute:
 
@@ -14,7 +14,7 @@ For any issue, there are fundamentally three ways an individual can contribute:
 2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
 3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
-## Asking for General Help
+## Prośba o pomoc ogólną
 
 ["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
 
