@@ -1,8 +1,8 @@
-# Deteksi Peristiwa Online / Offline
+# Rilevamento di eventi online/offline
 
-[Deteksi kejadian online dan offline](https://developer.mozilla.org/en-US/docs/Online_and_offline_events)dapat diimplementasikan dalam proses perenderer dengan menggunakan atribut [`navigator.onLine `](http://html5index.org/Offline%20-%20NavigatorOnLine.html), bagian dari API HTML5 standar. Atribut `navigator.onLine` mengembalikan `false` jika jaringan apapun permintaan dijamin gagal yaitu pasti offline (terputus dari jaringan). Mengembalikan `true` dalam semua kasus lain. Karena semua kondisi lain kembali `benar`, kita harus memperhatikan positif palsu, karena kita tidak dapat mengasumsikan nilai `benar` berarti Electron dapat mengakses internet. Seperti dalam kasus di mana komputer menjalankan perangkat lunak virtualisasi yang memiliki adapter ethernet virtual yang selalu "terhubung." Karena itu, jika Anda benar-benar ingin menentukan status akses internet Elektron, Anda harus mengembangkan cara tambahan untuk pengecekan.
+L'identificazione [Evento online ed offline](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) può essere implementata nel processo di rendering usando l'attributo [`navigatore.inLinea`](http://html5index.org/Offline%20-%20NavigatorOnLine.html), parte dell'API standard HTML5. L'attributo `navigatore.inLinea` restituisce `false` se ogni richiesta rete garantisce di fallire, per esempio offline definitivamente (disconnesso dalla rete). Restituisce `true` in ogni caso. Se ogni altra condizione restituisce `true`, si deve sapere che si possono ottenere falsi positici, non potendo supporre che il valore `true` significhi necessariamente che Electron può accedere ad internet. Come nel caso in cui il computer stia eseguendo un software di virtualizzazione che ha adattatori ethernet virtuali sempre "connesso". Pertanto, se vuoi davvero determinare lo stato di accesso ad internet di Electron, dovresti sviluppare significati addizionali per controllare.
 
-Contoh:
+Esempio:
 
 _main.js_
 
@@ -11,13 +11,13 @@ const { app, BrowserWindow } = require('electron')
 
 let onlineStatusWindow
 
-app.whenReady().then(() => {
+app.on('ready', () => {
   onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
   onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
 })
 ```
 
-_online-status.html_
+_stato-online.html_
 
 ```html
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ _online-status.html_
 </html>
 ```
 
-Mungkin ada kejadian di mana Anda ingin menanggapi kejadian ini di Proses utama juga. Proses utama bagaimanapun tidak memiliki `navigator` dan dengan demikian tidak dapat mendeteksi kejadian ini secara langsung. Menggunakan Perangkat komunikasi inter-proses Elektron, acara dapat diteruskan ke proses utama dan ditangani sesuai kebutuhan, seperti yang ditunjukkan pada contoh berikut.
+Ci potrebbero essere instanze dove vuoi rispondere a questi eventi anche nel processo principale. Il processo principale comunque non ha oggetto `navigatore` e quindi non può identificare questi eventi direttamente. Usando le utilità di comunicazione interprocessuali di Electron, questi eventi possono essere inoltrati al processo principale e gestiti per le necessità, come mostrato nell'esempio seguente.
 
 _main.js_
 
@@ -45,8 +45,8 @@ _main.js_
 const { app, BrowserWindow, ipcMain } = require('electron')
 let onlineStatusWindow
 
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
+app.on('ready', () => {
+  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
   onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
 })
 
@@ -55,7 +55,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-_online-status.html_
+_stato-online.html_
 
 ```html
 <!DOCTYPE html>
@@ -67,10 +67,10 @@ _online-status.html_
     ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
   }
 
-  window.addEventListener('online',  alertOnlineStatus)
-  window.addEventListener('offline',  alertOnlineStatus)
+  window.addEventListener('online',  updateOnlineStatus)
+  window.addEventListener('offline',  updateOnlineStatus)
 
-  alertOnlineStatus()
+  updateOnlineStatus()
 </script>
 </body>
 </html>
