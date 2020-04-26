@@ -4,7 +4,7 @@
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Ось питання, які задають найчастіше. Перегляньте їх перед створенням проблеми:
 
 * [FAQ Electron](faq.md)
 
