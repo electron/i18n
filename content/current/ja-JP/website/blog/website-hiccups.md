@@ -1,31 +1,31 @@
 ---
-title: Website Hiccups
+title: Web サイトのしゃっくり
 author: zeke
 date: '2018-02-12'
 ---
 
-Last week the [electronjs.org](https://electronjs.org) site had a few minutes of downtime. If you were affected by these brief outages, we're sorry for the inconvenience. After a bit of investigation today, we've diagnosed the root cause and have deployed a [fix](https://github.com/electron/electronjs.org/pull/1076).
+先週、 [electronjs.org](https://electronjs.org) で数分間のダウンタイムが発生しました。 この短い停止による影響でご迷惑をおかけして申し訳ありません。 本日、少しの調査の後、根本の原因を診断し、 [修正](https://github.com/electron/electronjs.org/pull/1076) を行いました。
 
 ---
 
-To prevent this kind of downtime in the future, we've enabled [Heroku threshold alerts](https://devcenter.heroku.com/articles/metrics#threshold-alerting) on our app. Any time our web server accumulates failed requests or slow responses beyond a certain threshold, our team will be notified so we can address the problem quickly.
+今後このようなダウンタイムを防ぐために、 [Heroku threshold alerts](https://devcenter.heroku.com/articles/metrics#threshold-alerting) をアプリで有効化しました。失敗したリクエストや遅いレスポンスが一定のしきい値を超えて蓄積されるたびに、私たちのチームに通知され、素早く問題に対応できます。
 
-## Offline Docs in Every Language
+## すべての言語のオフラインドキュメント
 
-The next time you're developing an Electron app on a plane or in a subterranean coffee shop, you might want to have a copy of the docs for offline reference. Fortunately, Electron's docs are available as Markdown files in over 20 languages.
+あなたが Electron アプリを飛行機や地下のコーヒーショップで開発するとき、オフラインで参照するためにドキュメントのコピーが欲しい場合があるでしょう。 幸い、 20 以上の言語での Markdown ファイルによる Electron ドキュメントが利用可能です。
 
 ```sh
 git clone https://github.com/electron/electron-i18n
 ls electron-i18n/content
 ```
 
-## Offline Docs with a GUI
+## GUI でのオフラインドキュメント
 
-[devdocs.io/electron](https://devdocs.io/electron/) is a handy website that stores docs for offline use, not just for Electron but many other projects like JavaScript, TypeScript, Node.js, React, Angular, and many others. And of course there's an Electron app for that, too. Check out [devdocs-app](https://electronjs.org/apps/devdocs-app) on the Electron site.
+[devdocs.io/electron](https://devdocs.io/electron/) は、 Electron だけでなく、 JavaScript 、 TypeScript 、 Node.js 、 React 、 Angular などのドキュメントを保存している便利な Web サイトです。 もちろん、参照するための Electron アプリもあります。 Electron サイトで [devdocs-app](https://electronjs.org/apps/devdocs-app) を参照してください。
 
 [![](https://user-images.githubusercontent.com/8784712/27121730-11676ba8-511b-11e7-8c01-00444ee8501a.png)](https://electronjs.org/apps/devdocs-app)
 
-If you like to install apps without using your mouse or trackpad, give [Electron Forge](https://electronforge.io/)'s `install` command a try:
+アプリをマウスやトラックパッドなしでインストールしたい場合、 [Electron Forge](https://electronforge.io/) の `install` コマンドをお試しください:
 
 ```sh
 npx electron-forge install egoist/devdocs-app
