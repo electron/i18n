@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Het venster/tray van mijn app verdween na een paar minuten.
+## My app's tray disappeared after a few minutes.
 
-Dit gebeurt wanneer de variabele die wordt gebruikt om het venster/tray op te slaan "garbage collected" wordt.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Wanneer je dit probleem tegenkomt, zullen de volgende artikelen misschien van pas komen:
 
@@ -58,7 +58,7 @@ Als je een snelle oplossing zoekt, kun je de variabelen globaal maken door de co
 
 ```javascript
 const { app, Tray } = require('electron')
-app.on('ready', () => {
+app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -69,7 +69,7 @@ naar dit:
 ```javascript
 const { app, Tray } = require('electron')
 let tray = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -115,25 +115,25 @@ When using Electron's built-in module you might encounter an error like this:
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+It is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+## The font looks blurry, what is this and what can I do?
+
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Voorbeeld:
+
+![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+
+Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+
+To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
 
 ```javascript
-console.log(require.resolve('electron'))
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({
+  backgroundColor: '#fff'
+})
 ```
 
-and then check if it is in the following form:
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
-```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-```
-
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
-
-```sh
-npm uninstall electron
-npm uninstall -g electron
-```
-
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Notice that just setting the background in the CSS does not have the desired effect.
