@@ -1,9 +1,9 @@
-# Display 物件
+# Đối tượng display
 
-* `id` Number - 代表顯示區的唯一識別數字
-* `rotation` Number - 螢幕畫面的順時鐘旋轉角度，度數可以是 0、90、180 或 270。
-* `scaleFactor` Number - 輸出裝置的像素比例
-* `touchSupport` String - 可以是 `available`、`unavailable`、`unknown`。
+* `id` Number - Unique identifier associated with the display.
+* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
+* `scaleFactor` Number - Output device's pixel scale factor.
+* `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
 * `monochrome` Boolean - Whether or not the display is a monochrome display.
 * `accelerometerSupport` String - Can be `available`, `unavailable`, `unknown`.
 * `colorSpace` String -  represent a color space (three-dimensional object which contains all realizable color combinations) for the purpose of color conversions
@@ -15,4 +15,4 @@
 * `workAreaSize` [Size](size.md)
 * `internal` Boolean - `true` for an internal display and `false` for an external display
 
-The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+Đối tượng `display` đại diện cho một màn hình vật lý được kết nối với hệ thống. Một `Display` giả có thể tồn tại trên một headless system (hệ thống không có màn hình, giao diện người dùng; các thiết bị ngoại vi,...), hoặc `Display` có thể tương ứng với một màn hình ảo, màn hình từ xa.
