@@ -4,7 +4,7 @@
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Ось питання, які задають найчастіше. Перегляньте їх перед створенням проблеми:
 
 * [FAQ Electron](faq.md)
 
@@ -30,7 +30,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Використання API Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Використання API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Використання Нативних Модулів Node.js](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+  * [Стратегії продуктивності](tutorial/performance.md)
 * Додавання Функцій до Вашого Застосунку
   * [Сповіщення](tutorial/notifications.md)
   * [Останні Документи](tutorial/recent-documents.md)
@@ -44,7 +44,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Нативний Drag & Drop Файлу](tutorial/native-file-drag-drop.md)
   * [Закадровий Рендеринг](tutorial/offscreen-rendering.md)
   * [Підтримка темної теми macOS](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [Веб-вкладення в Electron](tutorial/web-embeds.md)
 * [Доступність](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -101,9 +101,9 @@ There are questions that are asked quite often. Check this out before creating a
 
 * [Короткий Огляд](api/synopsis.md)
 * [Обробка Об'єктів](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [Підтримувані параметри командного рядка](api/command-line-switches.md)
 * [Змінні Середовища](api/environment-variables.md)
-* [Chrome Extensions Support](api/extensions.md)
+* [Підтримка розширень Chrome](api/extensions.md)
 * [Останні важливі зміни в API](breaking-changes.md)
 
 ### Користувацькі DOM Елементи:
