@@ -8,4 +8,4 @@
 * `secure` Boolean (opcional) - Se o cookie está marcado como seguro.
 * `httpOnly` Boolean (opcional) - Se o cookie está marcado como apenas HTTP.
 * `session` Boolean (optional) - Se o cookie é um cookie de sessão ou um cookie persistente com uma data de expiração.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `expirationDate` Double (optional) - A data de validade do cookie como o número de segundos desde a época da UNIX. Não fornecida em cookies de sessão.
