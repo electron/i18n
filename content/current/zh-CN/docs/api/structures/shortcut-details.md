@@ -1,6 +1,6 @@
-# Об'єкт ShortcutDetails
+# ShortcutDetails 对象
 
-* `target` String - Ціль запуску з цього ярлика.
+* ` target `字符串-该快捷方式启动的目标。
 * `cwd` String (optional) - The working directory. Default is empty.
 * `args` String (optional) - The arguments to be applied to `target` when launching from this shortcut. Default is empty.
 * `description` String (optional) - The description of the shortcut. Default is empty.
