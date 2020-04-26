@@ -1,18 +1,18 @@
-# Görüntüleme Nesnesi
+# Obiekt Display
 
-* `id` Sayı - Ekranla ilgili benzersiz tanımlayıcı.
-* `rotation` Sayı - 0, 90, 180, 270 olabilir, ekranın saat yönündeki dönüş derecesini temsil eder.
-* `scaleFactor` Sayı - Çıktı cihazının piksel ölçeği çarpanı.
-* `touchSupport` Dize - `available`, `unavailable`, `unknown` olabilir.
-* `monochrome` Boolean - Whether or not the display is a monochrome display.
-* `accelerometerSupport` String - Can be `available`, `unavailable`, `unknown`.
-* `colorSpace` String -  represent a color space (three-dimensional object which contains all realizable color combinations) for the purpose of color conversions
-* `colorDepth` Number - The number of bits per pixel.
-* `depthPerComponent` Number - The number of bits per color component.
-* `bounds` [Dikdörtgen](rectangle.md)
-* `size` [Boyut](size.md)
-* `workArea` [Dikdörtgen](rectangle.md)
-* `workAreaSize` [Boyut](size.md)
-* `internal` Boolean - `true` for an internal display and `false` for an external display
+* `id` Number - Unikalny identyfikator powiązany z wyświetlaczem.
+* `rotation` Number - może być równy 0, 90, 180, 270, reprezentuje obrót ekranu w stopniach według ruchu wskazówek zegara.
+* `scaleFactor` Numer - współczynnik skali pikseli urządzenia wyjściowego.
+* `touchSupport` String - może przyjmować wartości `available`, `unavailable`, `unknown`.
+* `monochrome` - określa czy wyświetlacz jest wyświetlaczem monochromatycznym.
+* `accelerometerSupport` String - może przyjmować wartości `available`, `unavailable`, `unknown`.
+* `colorSpace` String -  reprezentuje przestrzeń kolorów (trójwymiarowy obiekt, który zawiera wszystkie możliwe kombinacje kolorów) na potrzeby konwersji kolorów
+* `colorDepth` Number - Liczba bitów na piksel.
+* `depthPerComponent` Liczba - Liczba bitów na komponent koloru.
+* `bounds` [Rectangle](rectangle.md)
+* `size` [Size](size.md)
+* `workArea` [Rectangle](rectangle.md)
+* `workAreaSize` [Size](size.md)
+* `internal` Boolean - `true` dla wyświetlacza wewnętrznego i `false` dla wyświetlacza zewnętrznego
 
-`Display` nesnesi sisteme bağlanmış fiziksel bir ekranı temsil eder. Sahte bir `Display` monitörsüz bir sistemde mevcut olabilir, ya da bir `Display` uzak, sanal bir ekrana karşılık gelebilir.
+Obiekt `Display` reprezentuje fizyczny wyświetlacz połączony z systemem. Fałszywy `Display` może istnieć w systemie headless, lub `Display` może odpowiadać do wirtualnego, zdalnego wyświetlacza.
