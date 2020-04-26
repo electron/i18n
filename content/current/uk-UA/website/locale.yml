@@ -1,4 +1,4 @@
-tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
+tagline: Створюйте крос-платформні комп'ютерні застосунки за допомогою JavaScript, HTML та CSS
 nav:
   apps: Застосунки
   blog: Блог
@@ -131,7 +131,7 @@ headings:
   languages: Мови
 taglines:
   languages: Локалізований контент від нашої крутої глобальної спільноти.
-  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: Electron нещодавно приєднався до OpenJS Foundation. Дізнайтеся більше в <a href="/blog/electron-joins-openjsf">оголошені</a>!
 help_translate: "Допоможіть з перекладами"
 footer:
   see_the_faq: Перегляньте FAQ
@@ -166,13 +166,13 @@ clipboard:
   copy_to_clipboard: Копіювати до буферу обміну
   copied: Скопійовано
 fiddle_launch_button:
-  launch: Launch
-  launch_in_fiddle: Launch in Fiddle
+  launch: Запустити
+  launch_in_fiddle: Запустити в Fiddle
 or: чи
 pages:
   '/':
-    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | Створюйте крос-платформні застосунки на JavaScript, HTML та CSS.
+    description: 'Створюйте крос-платформні комп''ютерні застосунки за допомогою JavaScript, HTML та CSS.'
   '/apps':
     title: Застосунки Electron
     description: Застосунки, побудовані на Electron
@@ -225,10 +225,10 @@ landing:
     lead_desc: Найпростіший спосіб розпочати з Electron
     create_app: Створи свій додаток
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
-    code_with_types: Code with Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
+    explore: Дослідити Electron
+    explore_desc: "Спробуйте Electron без встановлення будь-яких залежностей: Fiddle включає все, що необхідно для дослідження платформи. Він також включає приклади для кожного API, доступного в Electron, тому якщо ви хочете побачити, що таке BrowserView, або як працює desktopCapturer, Fiddle вам допоможе."
+    code_with_types: Код з типами
+    code_with_types_desc: Fiddle має чудовий "Monaco Editor", той самий редактор, що використовується в Visual Studio Code. Він також автоматично встановлює визначення типів для вибраної версії Electron, гарантуючи, що у вас завжди будуть всі API Electron.
     compile_and_package: Compile and Package
     compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
     easy_start: Start with Fiddle, Continue Wherever
