@@ -11,7 +11,7 @@
   * `value` Integer (任意) - 選択されている値。
   * `minValue` Integer (任意) - 最小値。
   * `maxValue` Integer (任意) - 最大値。
-  * `change` Function (optional) - Function to call when the slider is changed.
+  * `change` Function (任意) - スライダーが変更されたときに呼ぶ関数。
     * `newValue` Number - Slider 上でユーザが選択した値。
 
 ### インスタンスプロパティ
@@ -20,16 +20,16 @@
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+スライダーの現在のテキストを表す `String`。 この値を変更すると、タッチバー内のスライダーのコントロールがすぐに更新されます。
 
 #### `touchBarSlider.value`
 
-A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
+スライダーの現在の値を表す `Number`。 この値を変更すると、タッチバー内のスライダーのコントロールがすぐに更新されます。
 
 #### `touchBarSlider.minValue`
 
-A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
+スライダーの現在の最小値を表す `Number`。 この値を変更すると、タッチバー内のスライダーのコントロールがすぐに更新されます。
 
 #### `touchBarSlider.maxValue`
 
-A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
+スライダーの現在の最大値を表す `Number`。 この値を変更すると、タッチバー内のスライダーのコントロールがすぐに更新されます。
