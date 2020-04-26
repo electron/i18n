@@ -1,13 +1,13 @@
-# Chromium Geliştirme
+# Розробка Chromium
 
-> Krom hakkında öğrenme ve gelişimi izleme için kaynak topluluğu
+> Збірка ресурсів про Chromium та його розробку
 
-- Twitter üzerinde [@ChromiumDev](https://twitter.com/ChromiumDev)
-- Twitter üzerinde [@googlechrome](https://twitter.com/googlechrome)
-- [Blog](https://blog.chromium.org)
-- [Kod Arama](https://cs.chromium.org/)
-- [Kaynak Kodu](https://cs.chromium.org/chromium/src/)
-- [Geliştirme Takvimi ve Yayın Bilgisi](https://www.chromium.org/developers/calendar)
-- [Tartışma grupları](http://www.chromium.org/developers/discussion-groups)
+- [@ChromiumDev](https://twitter.com/ChromiumDev) в Twitter
+- [@googlechrome](https://twitter.com/googlechrome) в Twitter
+- [Блог](https://blog.chromium.org)
+- [Пошук Коду](https://cs.chromium.org/)
+- [Вихідний Код](https://cs.chromium.org/chromium/src/)
+- [Календар Розробки та Релізна Інформація](https://www.chromium.org/developers/calendar)
+- [Групи Обговорення](http://www.chromium.org/developers/discussion-groups)
 
-Ayrıca bkz: [V8 geliştirme](v8-development.md)
+Дивіться також [Розробка V8](v8-development.md)
