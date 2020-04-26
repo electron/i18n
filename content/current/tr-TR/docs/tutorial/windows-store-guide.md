@@ -1,32 +1,39 @@
-# Руководство по распространению с помощью Windows Store
+# Windows Uygulama Mağazası'na Gönderme Kılavuzu
 
-С выходом Windows 10, старый добрый исполнительный файл win32 обзавелся новым братом: универсальной платформой Windows (The Universal Windows Platform). Новый формат `.appx` не только позволяет применять различные новые API, как push-уведомления от Кортаны, но также значительно упрощает установку и обновления через Windows Store.
+Windows 10 ile, iyi eski win32 çalıştırılabilmenin yeni bir kardeşi var: Evrensel Windows Platformu. Yeni ` .appx </ 0> biçimi yalnızca bir dizi yeni
+Cortana veya Push Bildirimleri gibi güçlü API'ler, ancak Windows Mağazası aracılığıyla, ayrıca yükleme ve güncellemeyi basitleştirir.</p>
 
-Microsoft разработали инструмент, который компилирует приложения на Electron как `.appx`  пакеты, позволяя разработчикам использовать некоторые приятные нововведения от новой модели приложения. Этот гайд объясняет как его использовать - и какие возможности и ограничения присутствуют у пакета Electron AppX.
+<p spaces-before="0">Microsoft <a href="https://github.com/catalystcode/electron-windows-store">, Electron uygulamalarını <code> .appx </ 1> paketleri halinde derleyen bir araç geliştirdi </ 0>, geliştiricilerin yeni uygulamada bulunan özelliklerden yararlanmasını sağlayan bir araç geliştirdi. Bu kılavuz, nasıl kullanılacağını ve bir Electron AppX paketinin özellik ve sınırlamaları hakkında açıklama yapar.</p>
 
-## Предыстория и требования
+<h2 spaces-before="0">Arka plan ve Gereksinimler</h2>
 
-"Юбилейное обновление" Windows 10 (Windows 10 "Anniversary Update") позволяет запускать win32 `.exe`-файлы, запуская их вместе с виртуализованными файловой системой и реестром. Они оба создаются во время компиляции запуском приложения и установщика внутри контейнера Windows (Windows Container), позволяя Windows определить, какие именно изменения были внесены в операционную систему во время установки. Соединение исполнительного файла с виртуальными файловой системой и реестром позволяет Windows задействовать установку и деинсталляцию в одно касание (one-click installation / uninstallation).
+<p spaces-before="0">Windows 10 "Yıldönümü Güncellemesi", sanal bir dosya sistemi ve kayıt defteri ile başlatarak win32 <code> .exe </ 0> ikili dosyalarını çalıştırabilir . Her ikiside derleme sırasında Windows içinde uygulama ve yükleyiciyi çalıştırarak oluşturulan Konteyner, Windows'un hangi modifikasyonları işletim sistemi kurulum sırasında yapılır. Çalıştırılabilir dosyayı bir sanal dosya sistemi ve bir sanal kayıt defteri ile eşleştirme, Windows'un tek tıklamayla yükleme ve kaldırmayı etkinleştirmesini sağlar.</p>
 
-Вдобавок, exe-файл запускается внутри appx модели - это означает, что он может использовать множество API, доступных универсальной платформе Windows (Universal Windows Platform). Для получения еще больших возможностей, приложение на Electron можно соединить с невидимым фоновым процессом UWP, запущенным вместе с `exe`-файлом - что-то типа напарника, который будет запускать фоновые процессы, получать push-уведомления или взаимодействовать с другими UWP приложениями.
+<p spaces-before="0">Buna ek olarak, exe, appx modelinde başlatıldı - Universal Windows Platform'un sunduğu API'ların çoğunu kullanabileceği anlamına geliyor. Daha fazla yetenek kazanmak için, bir Electron uygulaması, görevleri arka planda çalıştırmak, push bildirimleri almak ya da işlehat duyurularını almak için bir yardımcı olarak başlatılan <code> exe </ 0> ile birlikte başlatılan görünmez bir UWP arka plan göreviyle eşleşebilir . Diğer UWP uygulamaları ile iletişim kurun.</p>
 
-Для компиляции любого существующего приложения на Electron, удостоверьтесь, что вы попадаете под следующие требования:
+<p spaces-before="0">Mevcut herhangi bir Electron uygulamasını derlemek için aşağıdaki gereksinimlere sahip olduğunuzdan emin olun:</p>
 
-* Windows 10 with Anniversary Update (выпущено 2-го Августа, 2016)
-* The Windows 10 SDK, [загрузить здесь](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* Как минимум Node 4 (для проверки версии, запустите в терминале `node -v`)
+<ul>
+<li>Yıldönümü Güncellemesi ile Windows 10 (2 Ağustos 2016'da piyasaya sürülmüştür)</li>
+<li>Windows 10 SDK <a href="https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk"> indirilebilir burada </ 0></li>
+<li>En azından Düğüm 4 (kontrol etmek için, <code> düğümünü çalıştırın-v </ 0>)</li>
+</ul>
 
-После этого, установите `electron-windows-store` CLI:
+<p spaces-before="0">Ardından gidip <code> electron-windows-store ` CLI'yi yükleyin:
 
 ```sh
-npm install -g electron-windows-store
+npm yükleme -g elektron-windows-mağaza
 ```
 
-## 1 Шаг: Упакуйте ваше приложение
+## 1. Adım: Elektron Uygulamasını Paketleyin
 
-Упакуйте приложение, используя [electron-packager](https://github.com/electron/electron-packager) (или подобный инструмент). Удостоверьтесь, что вы удалили `node_modules`, которые не понадобятся вам в финальной версии приложения, так как любой неиспользуемый модуль в конечном счете увеличит размер вашего приложения.
+Uygulamayı
 
-Консольный вывод должен иметь примерный вид:
+ elektron paketleyici </ 0> (veya benzer bir alet) kullanarak paketleyin . Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.</p> 
+
+Çıktı kabaca şöyle olmalıdır:
+
+
 
 ```plaintext
 ├── Ghost.exe
@@ -39,56 +46,69 @@ npm install -g electron-windows-store
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
-├── natives_blob.bin
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   └── app.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
 ```
 
-## Шаг 2: Запуск electron-windows-store
 
-Из под PowerShell с расширенными разрешениями (откройте как "Администратор"), запустите `electron-windows-store` с обязательными параметрами, подав как входные, так и выводные директории, имя приложения и версию, и подтверждение, что `node_modules` будут сжаты.
 
-```powershell
-electron-windows-store `
+
+## 2. Adım: Elektron windows mağazasını çalıştırma
+
+Yüksek bir PowerShell'den ("Yönetici olarak çalıştırın") gerekli parametrelerle `` electron-windows-store </ 0> 'i çalıştırın ; hem giriş ve çıkış dizinlerini, uygulamanın adını ve sürümünü ve
+ <0 > node_modules </ 0> düzleştirilmelidir.</p>
+
+<pre><code class="powershell">electron-windows-store `
     --input-directory C:\myelectronapp `
     --output-directory C:\output\myelectronapp `
     --package-version 1.0.0.0 `
     --package-name myelectronapp
-```
+``</pre> 
 
-После запуска инструмент начнет работу: он принимает ваше приложение как ввод, сжимая `node_modules`. Затем, он архивирует ваше приложение как `app.zip`. Используя установщик и Windows Container, он создает "расширенный" AppX пакет - включая Windows Application Manifest (`AppXManifest.xml`), а также виртуальные файловую систему и реестр внутри выходной папки.
+Bu araç idam edildikten sonra çalışmaya başlar: Electron uygulamanızı bir giriş olarak kabul eder , ` node_modules </ 0> 'i düzleştirir. Ardından uygulamanızı <code> app.zip </ 0> olarak arşivler.
+Araç, bir yükleyici ve bir Windows Konteyner kullanarak , Windows Uygulama Bildirisi'ni ( <code> AppXManifest.xml </ 0> ) ve çıktı dosyanızın sanal dosya sistemini ve sanal kayıt defterini içeren "genişletilmiş" bir AppX paketi oluşturur.</p>
 
-После создания файлов расширенной AppX, инструмент использует упаковщик приложений Windows - Windows App Packager (`MakeAppx.exe`) - чтобы из всех файлов создать пакет AppX в одном файле. Наконец, инструмент может быть использован для создания доверенного сертификата на вашем компьютере, чтобы подписывать новые пакеты AppX. С подписанным AppX пакетом, CLI также может автоматически установить пакет на вашу машину.
+<p spaces-before="0">Genişletilmiş AppX dosyaları oluşturulduktan sonra araç , disk üzerindeki bu dosyalardan tek bir dosya AppX paketi oluşturmak için Windows Uygulama Paketleyiciyi ( <code> MakeAppx.exe </ 0> ) kullanır.
+Son olarak, araç yeni AppX paketini imzalamak için bilgisayarınızda güvenilir bir sertifika oluşturmak için kullanılabilir. İmzalı AppX paketi ile CLI, otomatik olarak paketi makinenize yükleyebilir.</p>
 
-## Шаг 3: Использование AppX пакета
+<h2 spaces-before="0">3. Adım: AppX Paketini Kullanma</h2>
 
-Чтобы запустить ваш пакет, вашим пользователям необходима Windows 10 с так называемым "Юбилейным обновлением" - дополнительная информация по обновлению Windows [здесь](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+<p spaces-before="0">Paketinizi çalıştırmak için, kullanıcıların gerekir Windows'u sözde "Yıldönümü Güncellemesi" ile 10 - Windows'un nasıl güncelleştirileceği ile ilgili ayrıntılar bulunabilir <a href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update">Burada</a>.</p>
 
-В отличие от традиционных UWP приложений, упакованные приложения должны пройти процесс ручной проверки, записаться на которую можно [здесь](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Тем временем, все пользователи смогут установить ваш пакет, кликнув по нему два раза, так что передача в магазин может быть не обязательной, если вы хотите более легкий способ установки. В управляемых средах (обычно на уровне предприятия), `Add-AppxPackage` [PowerShell Cmdlet может использоваться для установки в автоматическом режиме](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+<p spaces-before="0">Geleneksel UWP uygulamalarına karşı olarak, paketlenmiş uygulamaların şu anda bir elle doğrulama işlemi uygulayabilirsiniz. <a href="https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge">burada</a>.
+In the meantime, all users will be able to install your package by double-clicking it,
+so a submission to the store might not be necessary if you're looking for an
+easier installation method. Yönetilen ortamlarda (genellikle işletmeler), <code>Add-AppxPackage` [PowerShell Cmdlet otomatik olarak yüklemek için kullanılabilir](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
-Еще одним важным ограничением является то, что скомпилированный AppX пакет все еще содержит win32 запускаемый файл - как следствие, он не запустится на Xbox, Hololens или смартфонах.
+Bir diğer önemli kısıtlama, derlenmiş AppX paketinin hala bir win32 yürütülebilir - ve bu nedenle Xbox, HoloLens veya Telefonlar üzerinde çalışmaz.
 
-## Опционально: Добавьте UWP функционал, используя BackgroundTask
-Вы можете соединить свое приложение с невидимым фоновым UWP процессом, который будет использовать функционал Windows 10 на полную - push-уведомления, интеграция Кортаны или живые тайлы в меню Пуск.
 
-Чтобы проверить, как приложение на Electron использует этот процесс для отправки Toast-уведомлений и живых тайлов, [посмотрите на пример от Microsoft](https://github.com/felixrieseberg/electron-uwp-background).
 
-## Опционально: Конвертируйте с помощью виртуализации контейнера
+## İsteğe bağlı: Bir BackgroundTask kullanarak UWP Özellikleri Ekle
 
-Чтобы создать AppX пакет, `electron-windows-store` CLI использует шаблон, который должен подойти для большинства приложений на Electron. Однако, если вы используете кастомный установщик, или вы испытываете какие-либо проблемы с созданным пакетом, вы можете попытаться создать пакет с использованием компиляции с Windows контейнером, CLI установит и запустит ваше приложение в пустом Windows контейнере, чтобы определить, какие изменения ваше приложение вносит в операционную систему.
+Electron uygulamanızı; bildirim gönderme, Cortana entegrasyonu veya canlı karo gibi Windows 10 özelliklerinden tam olarak yararlanmanızı sağlayacak görünmez bir UWP arka plan göreviyle eşleştirebilirsiniz.
 
-Перед запуском CLI в первый раз, вам нужно настроить "Конвертер десктопных приложений Windows" ("Windows Desktop App Converter"). Этот процесс займет пару минут, но не беспокойтесь - его нужно запустить лишь один раз. Загрузите Desktop App Converter [здесь](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). Вы получите два файла: `DesktopAppConverter.zip` и `BaseImage-14316.wim`.
+Bir arka plan görevini kullanan bir Electron uygulamasının toast bildirimlerini ve canlı karoları nasıl gönderdiğini kontrol etmek için, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
 
-1. Распакуйте `DesktopAppConverter.zip`. Из под PowerShell с расширенными разрешениями ("открыть как Администратор", убедитесь, что политика запуска на вашей системе позволяет нам запускать все, что потребуется, использовав ` обход Set-ExecutionPolicy`).
-2. Затем, запустите установку Desktop App Converter, указав место Windows base Image (загружено как `BaseImage-14316.wim`), вызвав  `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
-3. Если запуск вышеуказанных команд потребует перезагрузки, пожалуйста, сделайте это и снова выполните эти команды после успешной перезагрузки.
 
-После успешной установки вы можете перейти к компиляции вашего приложения.
+
+## İsteğe bağlı: Konteyner Sanallaştırması'nı kullanarak Dönüştürün
+
+AppX paketi oluşturmak için, `electron-windows-store` CLI'si çoğu Electron uygulamasında çalışması gereken bir şablon kullanır. Bununla birlikte, bir özel kurulumcu kullanıyorsanız veya oluşturulan paketle ilgili herhangi bir sorun yaşarsanız, Windows Container - içinde derleme kullanarak bir paket oluşturmaya çalışabilir, bu modda, CLI yükleme yapar ve uygulamanızı boş Windows Konteynerın'da çalıştırır uygulamanızın hangi işletim modülüne değişiklik yaptığını tam olarak belirleme sistemi.
+
+CLI'yi ilk defa çalıştırmadan önce, "Windows Masaüstü Uygulama Dönüştürücüsü" nü kurmanız gerekmektedir. Bu birkaç dakika alacaktır, ama endişelenmeyin - bunu yalnızca bir defa yapmanız gerekiyor. Karşıdan yükleme ve Masaüstü çeviri uygulaması için [burası](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). İki dosya alacaksınız: `DesktopAppConverter.zip` ve `BaseImage-14316.wim`.
+
+1. Zipten çıkar `DesktopAppConverter.zip`. Yükseltilmiş Powershell' den ( "yönetici olarak çalıştır", sistem yürütme politikanızın bize izin vermesini sağlayın. Bu şekilde Çalıştırmak istediğimiz herşeyi `Set-ExecutionPolicy bypass` çağırarak çalıştırır.
+
+2. Konumdaki windows temel görünümünü görmezden gelerek masaüstü uygulama çeviricisini indir ve çalıştır.
+
+3. Yukarıdaki komutu çalıştırdığınızda yeniden başlatmanız istendiğinde, lütfen makineyi yeniden başlatın ve başarılı gerçekleşen bir yeniden başlatma sonrasında yukarıda bulunan komutu tekrar çalıştırın.
+
+Kurulum başarılı olursa, Electron uygulamanızı derlemek için ilerleyebilirsiniz.
