@@ -1,5 +1,5 @@
 ---
-title: 搜索
+title: Zoeken
 author:
   - echjordan
   - vanessayuenn
@@ -42,7 +42,7 @@ Sometimes you know *what* you want to accomplish, but you don't know exactly *ho
 
 Trying to resize a window? Search for [`resize`] and jump straight to the method you need.
 
-## 教程
+## Tutorials
 
 Electron has an ever-growing collection of tutorials to complement its API documentation. Now you can more easily find tutorials on a given topic, right alongside related API documentation.
 
@@ -56,7 +56,7 @@ The folks at [Libraries.io](https://libraries.io) have created [SourceRank](http
 
 Want alternatives to Electron's built-in IPC modules? Search for [`is:package ipc`].
 
-## Electron 应用
+## Electron Apps
 
 It's [easy to index data with Algolia](https://github.com/electron/algolia-indices), so we added the existing apps list from [electron/apps](https://github.com/electron/apps).
 
