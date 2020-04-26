@@ -56,21 +56,21 @@ console.log(systemPreferences.isDarkMode())
 * `userInfo` Object
 * `deliverImmediately` Boolean (任意) - サブスクライブ中のアプリがアクティブでなくても通知をすぐに送信する場合は `true` です。
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+macOS のネイティブ通知として `event` を送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `event` String
 * `userInfo` Object
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+macOS のネイティブ通知として `event` を送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `event` String
 * `userInfo` Object
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+macOS のネイティブ通知として `event` を送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
 ### `systemPreferences.subscribeNotification(event, callback)` _macOS_
 
@@ -101,7 +101,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 戻り値 `Number` - この登録のID。
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
+`subscribeNotification` と同じですが、ローカルデフォルトでは `NSNotificationCenter` を使用します。 これは、`NSUserDefaultsDidChangeNotification` などのイベントに必要です。
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
@@ -161,7 +161,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 
 `NSUserDefaults` 内の `key` の値を設定します。
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+`type` は `value` の実際の型と一致する必要があります。 そうでない場合は例外が送出されます。
 
 いくつかの一般的な `key` と `value` は以下です。
 
@@ -171,7 +171,7 @@ Note that `type` should match actual type of `value`. An exception is thrown if 
 
 * `key` String
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+`NSUserDefaults` 内のその `key` を削除します。 This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
