@@ -1,12 +1,12 @@
-## Classe : WebRequest
+## Class: WebRequest
 
 > Intercept and modify the contents of a request at various stages of its lifetime.
 
-Processus : [Main](../glossary.md#main-process)
+Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
-Les instances de la classe `WebRequest` sont accessibles à l'aide de la propriété `WebRequest` d'une `Session`.
+Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
-Les méthodes de `WebRequest` acceptent un `filter` et un `listener` optionnels. Le `listener` va être appelé avec `listener(details)` quand l'événement de l'API est émis. L'objet `details` représente la requête.
+The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request.
 
 ⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
@@ -30,9 +30,9 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 })
 ```
 
-### Méthodes d’instance
+### Metode de Instanță
 
-Les méthodes suivants sont disponibles pour les instances de `WebRequest` :
+The following methods are available on instances of `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
@@ -50,7 +50,7 @@ Les méthodes suivants sont disponibles pour les instances de `WebRequest` :
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
     * `response` Object
-      * `cancel` Boolean)
+      * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
 The `listener` will be called with `listener(details, callback)` when a request is about to occur.
@@ -87,15 +87,15 @@ Some examples of valid `urls`:
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `requestHeaders` Object
+    * `requestHeaders` Record<string, string>
   * `callback` Function
-    * `response` Object
-      * `cancel` Boolean)
-      * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
+    * `beforeSendResponse` Object
+      * `cancel` Boolean (optional)
+      * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
-The `callback` has to be called with an `response` object.
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -110,7 +110,7 @@ The `callback` has to be called with an `response` object.
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `requestHeaders` Object
+    * `requestHeaders` Record<string, string>
 
 The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
 
@@ -129,16 +129,17 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
-    * `responseHeaders` Object
+    * `requestHeaders` Record<string, string>
+    * `responseHeaders` Record<string, string[]> (optional)
   * `callback` Function
-    * `response` Object
-      * `cancel` Boolean)
-      * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
+    * `headersReceivedResponse` Object
+      * `cancel` Boolean (optional)
+      * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
-The `callback` has to be called with an `response` object.
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
@@ -153,7 +154,7 @@ The `callback` has to be called with an `response` object.
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string[]> (optional)
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
     * `statusCode` Integer
     * `statusLine` String
@@ -175,9 +176,10 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
+    * `statusLine` String
     * `ip` String (optional) - The server IP address that the request was actually sent to.
     * `fromCache` Boolean
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string[]> (optional)
 
 The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
 
@@ -194,10 +196,11 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string[]> (optional)
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
+    * `error` String
 
 The `listener` will be called with `listener(details)` when a request is completed.
 
@@ -215,6 +218,6 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - La description de l'erreur.
+    * `error` String - The error description.
 
 The `listener` will be called with `listener(details)` when an error occurs.
