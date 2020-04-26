@@ -1,10 +1,10 @@
-# Các phím tắt
+# Atalhos do Teclado
 
-> Cấu hình phím tắt tại thư mục và toàn hệ thống
+> Configure atalhos de teclado locais e globais
 
-## Các phím tắt tại local
+## Atalhos Locais
 
-Bạn có thể sử dụng module [Menu](../api/menu.md) để cài đặt các phím tắt, điều đó sẽ kích hoạt các phím tắt khi cửa sổ của app được focus vào. Để làm điều này, chỉ cần cài thêm vô một [`accelerator`] khi tạo [MenuItem](../api/menu-item.md).
+Você pode usar o módulo [Menu](../api/menu.md) para configurar os atalhos do teclado que serão acionados quando a aplicação estiver em foco. Para isso, especifique a propriedade [`accelerator`] quando criar um [MenuItem](../api/menu-item.md).
 
 ```js
 const { Menu, MenuItem } = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-You can configure different key combinations based on the user's operating system.
+Você pode configurar diferentes combinações de teclas com base no sistema operacional do usuário.
 
 ```js
 {
@@ -25,33 +25,33 @@ You can configure different key combinations based on the user's operating syste
 }
 ```
 
-## Các phím tắt Global
+## Atalhos Globais
 
-Bạn có thể sử dụng module [globalShortcut](../api/global-shortcut.md) để xác định các sự kiện trên bàn phím khi mà app không được focus.
+Você pode usar o módulo [globalShortcut](../api/global-shortcut.md) para detectar os eventos do teclado mesmo quando o aplicativo não possuir foco no teclado.
 
 ```js
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
 })
 ```
 
-## Các phím tắt trong một BrowserWindow
+## Atalhos em uma janela do navegador
 
-Nếu bạn muốn bắt các phím tắt cho một [BrowserWindow](../api/browser-window.md), bạn có thể sử dụng sự kiện `keyup` và `keydown` để theo dõi cửa sổ đó từ bên trong quá trình renderer.
+Se você quiser lidar com os atalhos de teclado para um [BrowserWindow](../api/browser-window.md), você pode "observar" eventos `keyup` e `keydown` no objeto da janela dentro do processo de renderização.
 
 ```js
-window.addEventListener('keyup', doSomething, true)
+window.addEventListener('keyup', fazerAlgumaCoisa, true)
 ```
 
-Lưu ý, biến số thứ ba `true` có nghĩa là listener sẽ luôn nhận được giá trị của nút đã nhấn trước khi các listener khác `stopPropagation()` nó.
+Observe o terceiro paramêtro `true`, significa que o "listener" irá receber o evento de pressionar teclas antes de outros "listeners", para que eles não tenham `stopPropagation()` chamado para eles.
 
-Sự kiện [`before-input-event`](../api/web-contents.md#event-before-input-event) diễn ra trước khi các sự kiện `keydown` và `keyup` trên trang. Nó có thể được sử dụng để nắm bắt và xử lý các tùy chỉnh phím tắt không được hiển thị trong trình đơn.
+O evento [`before-input-event`](../api/web-contents.md#event-before-input-event) é emitido antes enviar os eventos `keydown` e `keyup` na página. Ele pode ser usado para capturar e manipular atalhos personalizados que não estão visíveis no menu.
 
-Nếu bạn không muốn tự bắt các phím tắt, bạn có thể sử dụng các thư viện nâng cao hỗ trợ việc phát hiện phím như [mousetrap](https://github.com/ccampbell/mousetrap).
+Se você não quer fazer análises manuais de atalhos, há bibliotecas que fazem a detecção teclas avançadas, como a [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
