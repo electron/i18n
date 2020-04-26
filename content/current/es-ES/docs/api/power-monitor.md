@@ -1,59 +1,59 @@
-# Monitor de energía
+# ang powerMonitor
 
-> Monitorea los cambios de estado de energía.
+> I-monitor ang mga pagbabago sa estado ng power.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
-Por ejemplo:
+Halimbawa ng:
 
 ```javascript
 const { app, powerMonitor } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
 })
 ```
 
-## Eventos
+## Mga event
 
-El módulo `powerMonitor` emite los siguientes eventos:
+Ang modyul ng `powerMonitor` ay maglalabas ng mga sumusunod na event:
 
-### Evento: "suspend"
+### Event: 'isuspindi'
 
-Se emite cuando se suspende el sistema.
+Ay lalabas kapag ang sistema ay sususpindihin.
 
-### Evento: "resume"
+### Event: 'magpatuloy'
 
-Se emite cuando se reanuda el sistema.
+Ay lalabas kapag ang sistema ay nagpapatuloy.
 
-### Evento: "on-ac" _Windows_
+### Event: 'on-ac' sa _Windows_
 
-Se emite cuando el sistema se cambia a la corriente alterna.
+Ay lalabas kapag ang sistema ay nagbago sa AC power.
 
-### Evento: "on-battery" _Windows_
+### Event: 'on-battery' sa _Windows_
 
-Se emite cuando el sistema se cambia a la energía de batería.
+Ay lalabas kapag ang sistema ay nagbago sa power ng baterya.
 
-### Evento: 'shutdown' _Linux_ _macOS_
+### Event: 'shutdown' _Linux_ _macOS_
 
-Se emite cuando el sistema está a punto de reiniciarse o apagarse. Si el controlador de eventos invocó `e.preventDefault()`, Electron intentará retrasar el apagado del sistema para que la aplicación salga limpiamente. Si se llama a `e.preventDefault()`, la aplicación debe salir tan pronto como sea posible llamando a algo como `app.quit()`.
+Emitted when the system is about to reboot or shut down. If the event handler invokes `e.preventDefault()`, Electron will attempt to delay system shutdown in order for the app to exit cleanly. If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.
 
-### Evento: 'lock-screen' _macOS_ _Windows_
+### Event: 'lock-screen' _macOS_ _Windows_
 
-Emitido cuando el sistema está a punto de bloquear la pantalla.
+Emitted when the system is about to lock the screen.
 
-### Evento: 'unlock-screen' _macOS_ _Windows_
+### Event: 'unlock-screen' _macOS_ _Windows_
 
-Emitido tan pronto como el sistema desbloquea la pantalla.
+Emitted as soon as the systems screen is unlocked.
 
-## Métodos
+## Mga Pamamaraan
 
-El modulo `powerMonitor` tiene los siguientes métodos:
+The `powerMonitor` module has the following methods:
 
 ### `powerMonitor.getSystemIdleState(idleThreshold)`
 
@@ -61,10 +61,10 @@ El modulo `powerMonitor` tiene los siguientes métodos:
 
 Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-Calcule el estado de reposo del sistema. `idleThreshold` es la cantidad de tiempo (en segundos) antes de considerar inactivo.  `locked` is available on supported systems only.
+Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
 
 ### `powerMonitor.getSystemIdleTime()`
 
-Devuelve `Integer` - Tiempo inactivo en segundos
+Returns `Integer` - Idle time in seconds
 
-Calcular tiempo inactivo del sistema en segundos.
+Calculate system idle time in seconds.

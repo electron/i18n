@@ -1,29 +1,26 @@
-# Acceleration
+# Accelerator
 
 > Define keyboard shortcuts.
 
-</code>
+Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
-उदाहरण:
+Examples:
 
-* `CommandOrControl + A`
-* `CommandOrControl + A`
-</p> 
+* `CommandOrControl+A`
+* `CommandOrControl+Shift+Z`
 
-
+Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
 
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   // Register a 'CommandOrControl+Y' shortcut listener.
-  >
+  globalShortcut.register('CommandOrControl+Y', () => {
+    // Do stuff when Y and either Command/Control is pressed.
   })
 })
 ```
-
-
-
 
 ## Platform notice
 
@@ -32,8 +29,6 @@ On Linux and Windows, the `Command` key does not have any effect so use `Command
 Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
-
-
 
 ## Available modifiers
 
@@ -45,8 +40,6 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `AltGr`
 * `Shift`
 * `Super`
-
-
 
 ## Available key codes
 
@@ -71,8 +64,8 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `VolumeUp`, `VolumeDown` and `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
 * `PrintScreen`
-* NumPad Keys 
-    * `num0` - `num9`
+* NumPad Keys
+  * `num0` - `num9`
   * `numdec` - decimal key
   * `numadd` - numpad `+` key
   * `numsub` - numpad `-` key

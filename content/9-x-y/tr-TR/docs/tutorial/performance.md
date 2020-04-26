@@ -19,7 +19,7 @@ To learn more about how to profile your app's code, familiarize yourself with th
  * [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
  * [Talk: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
-## Kontrol Listesi
+## Checklist
 
 Chances are that your app could be a little leaner, faster, and generally less resource-hungry if you attempt these steps.
 
@@ -35,7 +35,7 @@ Chances are that your app could be a little leaner, faster, and generally less r
 
 Before adding a Node.js module to your application, examine said module. How many dependencies does that module include? What kind of resources does it need to simply be called in a `require()` statement? You might find that the module with the most downloads on the NPM package registry or the most stars on GitHub is not in fact the leanest or smallest one available.
 
-### Neden?
+### Why?
 
 The reasoning behind this recommendation is best illustrated with a real-world example. During the early days of Electron, reliable detection of network connectivity was a problem, resulting many apps to use a module that exposed a simple `isOnline()` method.
 
@@ -45,7 +45,7 @@ In many server contexts, startup time is virtually irrelevant. A Node.js server 
 
 In short, a seemingly excellent module written primarily for Node.js servers running Linux might be bad news for your app's performance. In this particular example, the correct solution was to use no module at all, and to instead use connectivity checks included in later versions of Chromium.
 
-### Nasıl?
+### How?
 
 When considering a module, we recommend that you check:
 
@@ -72,7 +72,7 @@ If you have expensive setup operations, consider deferring those. Inspect all th
 
 In traditional Node.js development, we're used to putting all our `require()` statements at the top. If you're currently writing your Electron application using the same strategy _and_ are using sizable modules that you do not immediately need, apply the same strategy and defer loading to a more opportune time.
 
-### Neden?
+### Why?
 
 Loading modules is a surprisingly expensive operation, especially on Windows. When your app starts, it should not make users wait for operations that are currently not necessary.
 
@@ -80,7 +80,7 @@ This might seem obvious, but many applications tend to do a large amount of work
 
 Let's consider Visual Studio Code as an example. When you open a file, it will immediately display the file to you without any code highlighting, prioritizing your ability to interact with the text. Once it has done that work, it will move on to code highlighting.
 
-### Nasıl?
+### How?
 
 Let's consider an example and assume that your application is parsing files in the fictitious `.foo` format. In order to do that, it relies on the equally fictitious `foo-parser` module. In traditional Node.js development, you might write code that eagerly loads dependencies:
 
@@ -146,13 +146,13 @@ Electron's main process (sometimes called "browser process") is special: It is t
 
 Under no circumstances should you block this process and the UI thread with long-running operations. Blocking the UI thread means that your entire app will freeze until the main process is ready to continue processing.
 
-### Neden?
+### Why?
 
 The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. If your window is rendering a buttery-smooth animation, it'll need to talk to the GPU process about that – once again going through the main process.
 
 Electron and Chromium are careful to put heavy disk I/O and CPU-bound operations onto new threads to avoid blocking the UI thread. You should do the same.
 
-### Nasıl?
+### How?
 
 Electron's powerful multi-process architecture stands ready to assist you with your long-running tasks, but also includes a small number of performance traps.
 
@@ -167,13 +167,13 @@ Electron's powerful multi-process architecture stands ready to assist you with y
 
 Since Electron ships with a current version of Chrome, you can make use of the latest and greatest features the Web Platform offers to defer or offload heavy operations in a way that keeps your app smooth and responsive.
 
-### Neden?
+### Why?
 
 Your app probably has a lot of JavaScript to run in the renderer process. The trick is to execute operations as quickly as possible without taking away resources needed to keep scrolling smooth, respond to user input, or animations at 60fps.
 
 Orchestrating the flow of operations in your renderer's code is particularly useful if users complain about your app sometimes "stuttering".
 
-### Nasıl?
+### How?
 
 Generally speaking, all advice for building performant web apps for modern browsers apply to Electron's renderers, too. The two primary tools at your disposal  are currently `requestIdleCallback()` for small operations and `Web Workers` for long-running operations.
 
@@ -186,7 +186,7 @@ Generally speaking, all advice for building performant web apps for modern brows
 
 One of Electron's great benefits is that you know exactly which engine will parse your JavaScript, HTML, and CSS. If you're re-purposing code that was written for the web at large, make sure to not polyfill features included in Electron.
 
-### Neden?
+### Why?
 
 When building a web application for today's Internet, the oldest environments dictate what features you can and cannot use. Even though Electron supports well-performing CSS filters and animations, an older browser might not. Where you could use WebGL, your developers may have chosen a more resource-hungry solution to support older phones.
 
@@ -194,7 +194,7 @@ When it comes to JavaScript, you may have included toolkit libraries like jQuery
 
 It is rare for a JavaScript-based polyfill to be faster than the equivalent native feature in Electron. Do not slow down your Electron app by shipping your own version of standard web platform features.
 
-### Nasıl?
+### How?
 
 Operate under the assumption that polyfills in current versions of Electron are unnecessary. If you have doubts, check [caniuse.com](https://caniuse.com/) and check if the [version of Chromium used in your Electron version](../api/process.md#processversionschrome-readonly) supports the feature you desire.
 
@@ -207,7 +207,7 @@ If you're using a transpiler/compiler like TypeScript, examine its configuration
 
 Avoid fetching rarely changing resources from the internet if they could easily be bundled with your application.
 
-### Neden?
+### Why?
 
 Many users of Electron start with an entirely web-based app that they're turning into a desktop application. As web developers, we are used to loading resources from a variety of content delivery networks. Now that you are shipping a proper desktop application, attempt to "cut the cord" where possible
  - and avoid letting your users wait for resources that never change and could easily be included  in your app.
@@ -216,7 +216,7 @@ A typical example is Google Fonts. Many developers make use of Google's impressi
 
 When building an Electron app, your users are better served if you download the fonts and include them in your app's bundle.
 
-### Nasıl?
+### How?
 
 In an ideal world, your application wouldn't need the network to operate at all. To get there, you must understand what resources your app is downloading \- and how large those resources are.
 
@@ -232,11 +232,11 @@ As a tip, loading resources from the Internet that you might want to change with
 
 As already pointed out in "[Loading and running code too soon](#2-loading-and-running-code-too-soon)", calling `require()` is an expensive operation. If you are able to do so, bundle your application's code into a single file.
 
-### Neden?
+### Why?
 
 Modern JavaScript development usually involves many files and modules. While that's perfectly fine for developing with Electron, we heavily recommend that you bundle all your code into one single file to ensure that the overhead included in calling `require()` is only paid once when your application loads.
 
-### Nasıl?
+### How?
 
 There are numerous JavaScript bundlers out there and we know better than to anger the community by recommending one tool over another. We do however recommend that you use a bundler that is able to handle Electron's unique environment that needs to handle both Node.js and browser environments.
 

@@ -2,7 +2,7 @@
 
 Для смягчения [проблем](https://github.com/joyent/node/issues/6960), связанных с длинными именами путей в Windows, небольшого ускорения `require` и скрытия исходного кода вы можете упаковать ваше приложение в [asar](https://github.com/electron/asar) архив с минимальными изменениями в исходном коде.
 
-Для большинства пользователей это просто, потому что это поддерживается "из коробки" [`electron-packager`](https://github.com/electron/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), и [`electron-builder`](https://github.com/electron-userland/electron-builder). Если же вы не используете ни один из этих инструментов, читайте дальше.
+Для большинства пользователей это просто, потому что это поддерживается "из коробки" [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), и [`electron-builder`](https://github.com/electron-userland/electron-builder). Если же вы не используете ни один из этих инструментов, читайте дальше.
 
 ## Создание `asar` архивов
 

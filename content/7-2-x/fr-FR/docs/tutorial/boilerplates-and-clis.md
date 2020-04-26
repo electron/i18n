@@ -20,9 +20,9 @@ Vous pouvez trouver plus d'information et de documentation sur [electronforge.io
 
 ## electron-builder
 
-A "complete solution to package and build a ready-for-distribution Electron app" that focuses on an integrated experience. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+Une «solution complète pour emballer et construire une application Electron prête à être distribuée» qui se concentre sur une expérience intégrée. électron-builder ajoute une dépendance unique axée sur la simplicité et gère toutes les autres exigences en interne.
 
-`electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+electron-builder remplace les fonctionnalités et modules utilisés par les mainteneurs Electron (tels que la mise à jour automatique) par des modules personnalisés. Ils sont généralement plus intégrés, mais auront moins de points communs avec les applications Electron populaires comme Atom, Visual Studio Code ou Slack.
 
 Vous pouvez trouver plus d'information et de documentation [ici](https://github.com/electron-userland/electron-builder).
 

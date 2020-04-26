@@ -10,8 +10,8 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 
 ### `window.open(url[, frameName][, features])`
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>frameName` String (optional)
+* `url` String
+* `frameName` String (optional)
 * `features` String (optional)
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.

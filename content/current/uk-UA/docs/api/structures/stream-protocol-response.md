@@ -1,4 +1,4 @@
-# Об'єкт StreamProtocolResponse
+# StreamProtocolResponse Nesnesi
 
 * `statusCode` Number (optional) - The HTTP response code.
 * `headers` Record<String, String | String[]> (optional) - An object containing the response headers.

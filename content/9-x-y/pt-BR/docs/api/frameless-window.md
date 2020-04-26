@@ -1,113 +1,86 @@
-# Jendela tanpa bingkai
+# Frameless Window
 
-> Buka jendela tanpa bilah alat, perbatasan, atau " krom " grafis lainnya .
+> Abra uma janela sem barra de ferramentas, bordas ou outros elementos gráficos do "Chrome".
 
-Jendela buram tanpa bingkai adalah jendela yang tidak memiliki
+Uma janela 'frameless' é uma janela que não possui [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), ou seja, não possui partes da janela que não são partes da página web, como a barra de ferramentas. Estas são opções na classe [`BrowserWindow`](browser-window.md).
 
- krom </ 0> , bagian jendela, seperti bilah alat, yang bukan merupakan bagian dari halaman web. Ini adalah pilihan pada kelas ` BrowserWindow </ 0> .</p>
+## Criando uma frameless window
 
-<h2 spaces-before="0">Buat jendela buram tanpa bingkai</h2>
-
-<p spaces-before="0">Untuk membuat jendela tanpa bingkai, Anda perlu mengatur <code> bingkai </ 0> ke <code> palsu </ 0> di
- <a href="browser-window.md">jendela Browser </ 1> 's <code> Pilihan </ 0> :</p>
-
-<pre><code class="javascript">const { BrowserWindow } = membutuhkan ('elektron')
-let win = new BrowserWindow({ width: 800, height: 600, frame: false })
-win.show()
-`</pre> 
-
-
-
-### Alternatif macos
-
-There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. Anda dapat melakukannya dengan menetapkan ` titleBarStyle </ 0>  option :</p>
-
-<h4 spaces-before="0"><code>tersembunyi`</h4> 
-
-Hasil di bar judul tersembunyi dan jendela konten ukuran penuh, namun bilah judul masih memiliki kontrol jendela standar ("lampu lalu lintas") di kiri atas.
-
+Para criar uma frameless window, você precisa definir `frame` como `false` nas `options` da [BrowserWindow](browser-window.md):
 
 
 ```javascript
-const { BrowserWindow } = membutuhkan ('elektron')
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600, frame: false })
+win.show()
+```
+
+### Alternativas no macOS
+
+There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. Você pode fazê-lo, especificando a opção `titleBarStyle`:
+
+#### `hidden`
+
+Resultando em uma janela com a barra do título escondida e o conteúdo ocupando o tamanho inteiro da janela, no entanto, a janela ainda possuirá os controles no canto superior esquerdo.
+
+```javascript
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
+#### `hiddenInset`
 
-
-
-#### `tersembunyi sisipan`
-
-Hasil di bar judul tersembunyi dengan tampilan alternatif dimana tombol lampu lalu lintas sedikit lebih tertutup dari tepi jendela.
-
-
+Resulta em uma barra de título escondida com uma aparência alternativa, onde os botões de controle da janela estão um pouco mais dentro do limite da janela.
 
 ```javascript
-const { BrowserWindow } = membutuhkan ('elektron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
-
-
-
-#### `adat tombol di atas hover`
+#### `customButtonsOnHover`
 
 Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
-
-
 ```javascript
-const { BrowserWindow } = membutuhkan ('elektron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
+## Janela transparente
 
-
-
-## Jendela transparan
-
-Dengan menetapkan ` transparan </ 0>  option untuk <code> benar </ 0> , Anda juga dapat membuat jendela tanpa bingkai transparan:</p>
-
-<pre><code class="javascript">const { BrowserWindow } = require ('electron') misalkan win = new BrowserWindow ( { transparent: true, frame: false } ) win.show ()
-`</pre> 
-
-
-
-### Keterbatasan
-
-* Anda tidak bisa mengklik area transparan. Kami akan memperkenalkan API untuk mengatur bentuk jendela untuk mengatasi masalah ini, lihat  masalah kami </ 0> untuk rinciannya.</p></li> 
-  
-  * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
-
-* ` blur </ 0> Filter hanya berlaku untuk halaman web, sehingga tidak ada cara untuk menerapkan efek blur dengan isi di bawah jendela (yaitu aplikasi lain yang terbuka pada sistem pengguna).</p></li>
-<li><p spaces-before="0">Pada sistem operasi Windows , jendela transparan tidak akan berfungsi saat DWM dinonaktifkan.</p></li>
-<li><p spaces-before="0">On Linux, users have to put <code>--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
-
-* On Mac, the native window shadow will not be shown on a transparent window.</ul> 
-
-
-
-## Jendela klik-tayang
-
-Untuk membuat jendela klik-tayang, yaitu membuat jendela mengabaikan semua peristiwa mouse, Anda dapat memanggil API  win.setIgnoreMouseEvents (ignore) </ 0> :</p> 
-
-
+Definindo a opção `transparent` como `true` você também pode fazer a frameless window transparente:
 
 ```javascript
-const { BrowserWindow } = require ('electron') biarkan menang = new BrowserWindow () win.setIgnoreMouseEvents (true)
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ transparent: true, frame: false })
+win.show()
 ```
 
+### Limitações
 
+* Você não pode clicar através da área transparente. Nós iremos introduzir uma API para definir a forma da janela para solucionar isto, veja [nosso issue no Github](https://github.com/electron/electron/issues/1335) para mais detalhes.
+* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
+* O filtro `blur` apenas se aplica a página web, logo, não há uma maneira de aplicar o efeito de borrado ao conteúdo abaixo da janela (ou seja, outras aplicações abertas no sistema do usuário).
+* On Windows operating systems, transparent windows will not work when DWM is disabled.
+* On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
+* On Mac, the native window shadow will not be shown on a transparent window.
 
+## Click-through window
+
+To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
+
+```javascript
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow()
+win.setIgnoreMouseEvents(true)
+```
 
 ### Forwarding
 
 Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
-
-
 
 ```javascript
 let win = require('electron').remote.getCurrentWindow()
@@ -120,54 +93,42 @@ el.addEventListener('mouseleave', () => {
 })
 ```
 
-
 This makes the web page click-through when over `el`, and returns to normal outside it.
 
+## Draggable region
 
+By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
 
-## Daerah serangga
+Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
 
-Secara default, jendela tanpa bingkai tidak dapat ditarik. Aplikasi harus menentukan ` - webkit - app-wilayah: menyeret </ 0> dalam CSS untuk pemesanan elektron yang daerah draggable (seperti OS standar titlebar), dan aplikasi juga dapat menggunakan <code> - webkit - app-wilayah: no- drag </ 0> untuk mengecualikan daerah bebas-draggable dari daerah draggable. Perhatikan bahwa hanya bentuk persegi panjang yang saat ini didukung.</p>
+To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
 
-<p spaces-before="0">Catatan: <code> -webkit-app-region: drag </ 0> diketahui bermasalah saat alat pengembang terbuka. Lihat ini <a href="https://github.com/electron/electron/issues/3647"> Masalah GitHub </ 0> untuk informasi lebih lanjut termasuk solusi.</p>
-
-<p spaces-before="0">Untuk membuat seluruh jendela menjadi seret, Anda dapat menambahkan gaya <code> -webkit-app-region: drag </ 0> sebagai
- <code> body </ 0> :</p>
-
-<pre><code class="html"><body style="-webkit-app-region: drag"> 
-</ 0>
-`</pre> 
-
-Dan perhatikan bahwa jika Anda telah membuat keseluruhan jendela draggable, Anda juga harus menandai tombol sebagai non-draggable, jika tidak, tidak mungkin bagi pengguna untuk mengekliknya:
-
-
-
-```css
-tombol {
-   -webkit-app-region: no-drag; }
+```html
+<body style="-webkit-app-region: drag">
+</body>
 ```
 
+And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
+
+```css
+button {
+  -webkit-app-region: no-drag;
+}
+```
 
 If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
+## Text selection
 
-
-## Pilihan teks
-
-Di jendela tanpa bingkai, perilaku menyeret mungkin bertentangan dengan pemilihan teks. Misalnya, saat Anda menyeret titlebar Anda mungkin secara tidak sengaja memilih teks pada titlebar. Untuk mencegah hal ini, Anda perlu menonaktifkan pemilihan teks dalam area yang dapat digeser seperti ini:
-
-
+In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
 
 ```css
-.bar judul {
+.titlebar {
   -webkit-user-select: none;
   -webkit-app-region: drag;
 }
 ```
 
+## Context menu
 
-
-
-## Menu konteks
-
-Pada beberapa platform, area draggable akan diperlakukan sebagai bingkai non-klien, jadi Bila Anda klik kanan pada menu sistem akan muncul. Untuk membuat menu berperilaku benar pada semua platform Anda tidak boleh menggunakan menu konteks kustom pada daerah yang seret.
+On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.

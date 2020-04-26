@@ -1597,7 +1597,7 @@ Un instancia de [`WebContents`](web-contents.md) que podría poseer este `WebCon
 
 #### `contents.devToolsWebContents` _Readonly_
 
-A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
+Una propiedad `WebContents | null` que representa el `WebContents` de la DevTools asociada con el `WebContents` dado.
 
 **Note:** Los usuario nunca deberían almacenar este objeto porque puede convertirse en `null` cuando el DevTools ha sido cerrado.
 

@@ -46,7 +46,7 @@ export npm_config_target=1.2.3
 export npm_config_arch=x64
 export npm_config_target_arch=x64
 # Electron başlıklarını indir.
-export npm_config_disturl=https://atom.io/download/electron
+export npm_config_disturl=https://electronjs.org/headers
 # node-pre-gyp'e Electron'u build ettiğimizi belirt.
 npm_config_runtime=electron dışarı aktar
 # node-pre-gyp modülü ana kod üzerinden yap.
@@ -60,7 +60,7 @@ HOME=~/.electron-gyp npm yükle
 Yerli bir modül geliştiren bir geliştiriciyseniz ve Electron'a karşı test etmek istiyorsanız, Electron modülünü manuel olarak yeniden oluşturmak isteyebilirsiniz. Elektron için inşa etmek için doğrudan `node-gyp` kullanabilirsiniz:
 
 ```sh
-cd /path-to-module/ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
+cd /path-to-module/ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
 * `HOME=~/.electron-gyp` changes where to find development headers.
@@ -93,7 +93,7 @@ On Windows, by default, `node-gyp` links native modules against `node.dll`. Howe
 If you get an error like `Module did not self-register`, or `The specified
 procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook.  If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere.  If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
 
-```text
+```plaintext
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
      "my_addon.obj" "win_delay_load_hook.obj"
 ```

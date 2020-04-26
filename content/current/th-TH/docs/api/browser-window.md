@@ -1,32 +1,35 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> สร้างและควบคุม BrowserWindow
 
-فرآیند: [اصلی](../glossary.md#main-process)
+Messages </a>
 
 ```javascript
 // In the main process.
 const { BrowserWindow } = require('electron')
 
-// Or use `remote` from the renderer process.
+// หรือจะใช้ `remote` จาก renderer process.
 // const { BrowserWindow } = require('electron').remote
 
-const win = new BrowserWindow({ width: 800, height: 600 })
+let win = new BrowserWindow({ width: 800, height: 600 })
+win.on('closed', () => {
+  win = null
+})
 
-// Load a remote URL
+// เรียก Remote URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// หรือเรียกไฟล์ HTML
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Frameless window (window ไร้ขอบ)
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+คุณสามารถใช้ [Frameless Window](frameless-window.md) API เพื่อสร้าง window แบบไร้ขอบหรือพื้นหลังโปร่งใส
 
-## Showing window gracefully
+## แสดงหน้าต่างแบบสวยๆ
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+เมื่อ load page ใน window โดยตรง ผู้ใช้อาจเห็นสิ่งต่างๆ ค่อยแสดงขึ้นมา ซึ่งผู้ใช้จะได้รับประสบการณ์ที่ไม่ดีในการใช้ application แบบ native เพื่อที่จะให้ window แสดงแบบไร้การกระพริบ จะมีทางเลือก 2 ทาง ในสถานการณ์ที่แตกต่างกันออกไป
 
 ## Using `ready-to-show` event
 
@@ -106,9 +109,9 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> สร้างและควบคุม BrowserWindow
 
-فرآیند: [اصلی](../glossary.md#main-process)
+Messages </a>
 
 `BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -177,7 +180,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
-    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _Deprecated_
+    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _This property is experimental_
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
     * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Default is `true`.
@@ -214,7 +217,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
     * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `true`.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
@@ -451,7 +454,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-### روش های ایستا
+### Static Methods
 
 The `BrowserWindow` class has the following static methods:
 
@@ -481,7 +484,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 Returns `BrowserWindow` - The window with the given `id`.
 
-#### `BrowserWindow.addExtension(path)` _Deprecated_
+#### `BrowserWindow.addExtension(path)`
 
 * `path` String
 
@@ -491,27 +494,21 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+#### `BrowserWindow.removeExtension(name)`
 
-#### `BrowserWindow.removeExtension(name)` _Deprecated_
-
-* PrinterInfo Object
+* `name` String ชื่อ
 
 Remove a Chrome extension by name.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
-
-#### `BrowserWindow.getExtensions()` _Deprecated_
+#### `BrowserWindow.getExtensions()`
 
 Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
-
-#### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
+#### `BrowserWindow.addDevToolsExtension(path)`
 
 * `path` String
 
@@ -523,19 +520,15 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+#### `BrowserWindow.removeDevToolsExtension(name)`
 
-#### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
-
-* PrinterInfo Object
+* `name` String ชื่อ
 
 Remove a DevTools extension by name.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
-
-#### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
+#### `BrowserWindow.getDevToolsExtensions()`
 
 Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
@@ -549,8 +542,6 @@ console.log(installed)
 ```
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 ### Instance Properties
 
@@ -571,7 +562,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 #### `win.id` _Readonly_
 
-A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
+A `Integer` property representing the unique ID of the window.
 
 #### `win.autoHideMenuBar`
 
@@ -734,15 +725,16 @@ Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
 
 Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_ _Linux_
+#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_
 
 * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
- * `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
+* `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
 
 This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
 
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
-{ width: 40, height: 50 }. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.
+Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.
+
+Calling this function with a value of `0` will remove any previously set aspect ratios.
 
 #### `win.setBackgroundColor(backgroundColor)`
 
@@ -786,13 +778,9 @@ console.log(win.getBounds())
 
 Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
-#### `win.getBackgroundColor()`
-
-Returns `String` - Gets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
-
 #### `win.setContentBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` [Rectangle](structures/rectangle.md) สี่เหลี่ยมผืนผ้า
 * `animate` Boolean (optional) _macOS_
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
@@ -867,11 +855,15 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by the user.
+Sets whether the window can be manually resized by user.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by the user.
+Returns `Boolean` - Whether the window can be manually resized by user.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
@@ -879,11 +871,15 @@ Returns `Boolean` - Whether the window can be manually resized by the user.
 
 Sets whether the window can be moved by user. On Linux does nothing.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isMovable()` _macOS_ _Windows_
 
 Returns `Boolean` - Whether the window can be moved by user.
 
 On Linux always returns `true`.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setMinimizable(minimizable)` _macOS_ _Windows_
 
@@ -891,11 +887,15 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually minimized by user. On Linux does nothing.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually minimized by the user.
+Returns `Boolean` - Whether the window can be manually minimized by user
 
 On Linux always returns `true`.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setMaximizable(maximizable)` _macOS_ _Windows_
 
@@ -903,11 +903,15 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually maximized by user. On Linux does nothing.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isMaximizable()` _macOS_ _Windows_
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
 On Linux always returns `true`.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -915,9 +919,13 @@ On Linux always returns `true`.
 
 Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isFullScreenable()`
 
 Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setClosable(closable)` _macOS_ _Windows_
 
@@ -925,11 +933,15 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 Sets whether the window can be manually closed by user. On Linux does nothing.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isClosable()` _macOS_ _Windows_
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
 On Linux always returns `true`.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
@@ -1276,9 +1288,13 @@ Sets whether the window menu bar should hide itself automatically. Once set the 
 
 If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isMenuBarAutoHide()`
 
 Returns `Boolean` - Whether menu bar automatically hides itself.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setMenuBarVisibility(visible)` _Windows_ _Linux_
 
@@ -1290,9 +1306,11 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 Returns `Boolean` - Whether the menu bar is visible.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (optional)
+  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows _deprecated_
 
 Sets whether the window should be visible on all workspaces.
 

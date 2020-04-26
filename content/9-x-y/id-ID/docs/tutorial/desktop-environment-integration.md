@@ -1,14 +1,14 @@
-# Integração com Ambiente de Trabalho
+# Integrasi Lingkungan Desktop
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+sistem operasi yang berbeda menyediakan fitur yang berbeda untuk mengintegrasikan aplikasi desktop ke dalam lingkungan desktop mereka. Sebagai contoh, pada Windows , aplikasi dapat menempatkan shortcut di jumplist dari task bar, dan di Mac, aplikasi dapat menempatkan sebuah menu kustom di dermaga menu.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Panduan ini menjelaskan cara untuk mengintegrasikan aplikasi Anda ke orang-orang lingkungan desktop dengan Electron API.
 
-## Notificações
+## pemberitahuan
 
 See the [Notifications documentation](notifications.md).
 
-## Documentos Recentes
+## Dokumen Terkini
 
 See [Recent Documents documentation](recent-documents.md).
 
@@ -24,6 +24,6 @@ See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLa
 
 See the [Represented File documentation](represented-file.md).
 
-## Dragging files out of the window
+## Menyeret data dari jendela
 
 See the [Native File Drag & Drop documentation](native-file-drag-drop.md).

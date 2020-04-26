@@ -2,7 +2,7 @@
 
 > Logging network events for a session.
 
-Process: [Main](../glossary.md#main-process)
+Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
 ```javascript
 const { netLog } = require('electron')
@@ -19,7 +19,7 @@ See [`--log-net-log`](command-line-switches.md#--log-net-logpath) to log network
 
 **Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
 
-## Methods
+## Metode
 
 ### `netLog.startLogging(path[, options])`
 

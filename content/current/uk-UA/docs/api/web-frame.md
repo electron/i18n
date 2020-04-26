@@ -1,12 +1,12 @@
 # webFrame
 
-> Geçerli web sayfasının görünümünü özelleştirin.
+> Customize the rendering of the current web page.
 
-İşlem: [Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)okok yes ie ui azt
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
-Geçerli sayfayı% 200'e yakınlaştırmaya bir örnek.
+An example of zooming current page to 200%.
 
 ```javascript
 const { webFrame } = require('electron')
@@ -14,7 +14,7 @@ const { webFrame } = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## Yöntemler
+## Методиa
 
 The `WebFrame` class has the following instance methods:
 
@@ -28,29 +28,38 @@ The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 
-`Number` döndürür - Geçerli yakınlaştırma faktörü.
+Returns `Number` - The current zoom factor.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Yakınlaştırma seviyesi.
+* `level` Number - Zoom level.
 
-Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artım yukarıdaki veya aşağıdaki %20 daha büyük veya daha küçük, varsayılan %300 sınırına ve %50 orijinal boyutuna sırasıyla yakınlaştırma oranını temsil eder.
+Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
 ### `webFrame.getZoomLevel()`
 
-`Number` döndürür - Geçerli yakınlaştırma seviyesi.
+Returns `Number` - The current zoom level.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
+Sets the maximum and minimum pinch-to-zoom level.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
 > `js
   webFrame.setVisualZoomLevelLimits(1, 3)`
+
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -61,7 +70,7 @@ Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
     * `callback` Function
       * `misspeltWords` String[]
 
-Giriş alanlarında ve metin alanlarında yazım denetimi için bir provider ayarlar.
+Sets a provider for spell checking in input fields and text areas.
 
 If you want to use this method you must disable the builtin spellchecker when you construct the window.
 
@@ -75,7 +84,7 @@ const mainWindow = new BrowserWindow({
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
-Provider gibi [node-spellchecker](https://github.com/atom/node-spellchecker) kullanılarak bir örnek:
+An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
 const { webFrame } = require('electron')
@@ -109,32 +118,26 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 * `text` String
 
-Odaklanmış öğeye `metin` ekler.
+Inserts `text` to the focused element.
 
-### `webFrame.executeJavaScript(code[, userGesture, callback])`
+### `webFrame.executeJavaScript(code[, userGesture])`
 
-* `code` Dizgi
-* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
-* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
-  * `result` Any
-  * `error` Error
+* `code` String
+* `userGesture` Boolean (optional) - Default is `false`.
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-Sayfadaki `code`'u ölçer.
+Evaluates `code` in page.
 
-Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
+In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
 
-### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default main world (where content runs), `999` is the world used by Electron's `contextIsolation` feature. Accepts values in the range 1..536870911.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature.  You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
-* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
-  * `result` Any
-  * `error` Error
+* `userGesture` Boolean (optional) - Default is `false`.
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
@@ -149,7 +152,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-`Object` 'i geri getirir:
+Повертає `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -158,14 +161,14 @@ Set the security origin, content security policy and name of the isolated world.
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Blink'in dahili belleğinin önbelleklerinin kullanım bilgilerini açıklayan bir nesne döndürür.
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-Bu oluşturur:
+This will generate:
 
 ```javascript
 {
@@ -183,9 +186,9 @@ Bu oluşturur:
 
 ### `webFrame.clearCache()`
 
-Artık kullanılmayan belleği boşa çıkarmaya çalışır (ör. önceki gezinmeden fotoğraflar).
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-Boşu boşuna bu metodu çağırmanın muhtemelen Electron'u yavaşlatacağını unutmayın çünkü boşalan önbellekleri tekrar doldurmak zorunda kalacaktır, sadece uygulamanızda sayfanın aslında daha az bellek kullandığını düşündüğünüz bir olay varsa bunu çağırmalısınız (örneğin, çok yoğun bir sayfadan çoğunlukla boş olan bir sayfaya gidiyorsanız ve orada kalmak niyetindeyseniz).
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
 
 ### `webFrame.getFrameForSelector(selector)`
 
@@ -195,7 +198,7 @@ Returns `WebFrame` - The frame element in `webFrame's` document selected by `sel
 
 ### `webFrame.findFrameByName(name)`
 
-* `name` Dizi
+* `name` String
 
 Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 
@@ -205,7 +208,7 @@ Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` woul
 
 Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
-## Özellikler
+## Властивості (Properties)
 
 ### `webFrame.top` _Readonly_
 

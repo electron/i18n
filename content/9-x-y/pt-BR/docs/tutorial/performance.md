@@ -182,62 +182,62 @@ Geralmente, todo conselho para construir aplicativos web melhores para navegador
 *Web Workers* são uma ferramenta poderosa para rodar um código em uma thread separada. Há algumas ressalvas - consulte a [documentação de multi-thread do Electron](./multithreading.md) e a [documentação do MDN para Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Elas são a solução ideal para qualquer operação que precise de muito poder de CPU por um longo período de tempo.
 
 
-## 5) Unnecessary polyfills
+## 5) Sobrecargas desnecessárias
 
-One of Electron's great benefits is that you know exactly which engine will parse your JavaScript, HTML, and CSS. If you're re-purposing code that was written for the web at large, make sure to not polyfill features included in Electron.
-
-### Por que?
-
-When building a web application for today's Internet, the oldest environments dictate what features you can and cannot use. Even though Electron supports well-performing CSS filters and animations, an older browser might not. Where you could use WebGL, your developers may have chosen a more resource-hungry solution to support older phones.
-
-When it comes to JavaScript, you may have included toolkit libraries like jQuery for DOM selectors or polyfills like the `regenerator-runtime` to support `async/await`.
-
-It is rare for a JavaScript-based polyfill to be faster than the equivalent native feature in Electron. Do not slow down your Electron app by shipping your own version of standard web platform features.
-
-### Como?
-
-Operate under the assumption that polyfills in current versions of Electron are unnecessary. If you have doubts, check [caniuse.com](https://caniuse.com/) and check if the [version of Chromium used in your Electron version](../api/process.md#processversionschrome-readonly) supports the feature you desire.
-
-In addition, carefully examine the libraries you use. Are they really necessary? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available](http://youmightnotneedjquery.com/).
-
-If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
-
-
-## 6) Unnecessary or blocking network requests
-
-Avoid fetching rarely changing resources from the internet if they could easily be bundled with your application.
+Um dos maiores benefícios do Electron é que você sabe exatamente qual engine vai interpretar seu JavaScript, HTML e CSS. Se você esta usando código que foi escrito para a web em geral, certifique-se de não sobrecarregar recursos já incluídos no Electron.
 
 ### Por que?
 
-Many users of Electron start with an entirely web-based app that they're turning into a desktop application. As web developers, we are used to loading resources from a variety of content delivery networks. Now that you are shipping a proper desktop application, attempt to "cut the cord" where possible
- - and avoid letting your users wait for resources that never change and could easily be included  in your app.
+Ao construir uma aplicação web para a internet de hoje, os ambientes mais antigos ditam quais funcionalidades você pode e não pode usar. Embora o Electron suporte filtros e animações CSS de bom desempenho, um navegador mais antigo pode não suportar. Onde você poderia usar WebGL, seus desenvolvedores podem ter escolhido uma solução mais faminta por recursos para suportar telefones antigos.
 
-A typical example is Google Fonts. Many developers make use of Google's impressive collection of free fonts, which comes with a content delivery network. The pitch is straightforward: Include a few lines of CSS and Google will take care of the rest.
+Quando isso vem para o JavaScript, você deve ter incluído bibliotecas ferramentais como JQuery para seletores DOM ou sobrecargas como o `regenerator-runtime` para suportar `async/await`.
 
-When building an Electron app, your users are better served if you download the fonts and include them in your app's bundle.
+É raro que uma sobrecarga baseada em JavaScript seja mais rápida que o equivalente em uma funcionalidade nativa do Electron. Não deixe seu aplicativo Electron lento, enviando sua própria versão dos recursos de plataforma web padrão.
 
 ### Como?
 
-In an ideal world, your application wouldn't need the network to operate at all. To get there, you must understand what resources your app is downloading \- and how large those resources are.
+Opere sobre a suposição que sobrecargas em versões atuais do Electron são desnecessárias. Se você tem dúvidas, cheque [caniuse.com](https://caniuse.com/) e verifique se a [versão do Chromium usada em sua aplicação Electron](../api/process.md#processversionschrome-readonly) suporta a funcionalidade que deseja.
 
-To do so, open up the developer tools. Navigate to the `Network` tab and check the `Disable cache` option. Then, reload your renderer. Unless your app prohibits such reloads, you can usually trigger a reload by hitting `Cmd + R` or `Ctrl + R` with the developer tools in focus.
+Além disso, examine cuidadosamente as bibliotecas que você usa. São realmente necessárias? `jQuery`, por exemplo, foi um sucesso tal que muitos de seus recursos agora fazem parte da [configuração padrão de JavaScript disponível](http://youmightnotneedjquery.com/).
 
-The tools will now meticulously record all network requests. In a first pass, take stock of all the resources being downloaded, focusing on the larger files first. Are any of them images, fonts, or media files that don't change and could be included with your bundle? If so, include them.
+Se você estiver usando um compilador/transpilador como TypeScript, examine sua configuração e certifique-se de que esteja utilizando a versão mais recente do ECMAScript suportada pelo Electron.
 
-As a next step, enable `Network Throttling`. Find the drop-down that currently reads `Online` and select a slower speed such as `Fast 3G`. Reload your renderer and see if there are any resources that your app is unnecessarily waiting for. In many cases, an app will wait for a network request to complete despite not actually needing the involved resource.
 
-As a tip, loading resources from the Internet that you might want to change without shipping an application update is a powerful strategy. For advanced control over how resources are being loaded, consider investing in [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
+## 6) Requisições desnecessárias ou bloqueadoras
 
-## 7) Bundle your code
-
-As already pointed out in "[Loading and running code too soon](#2-loading-and-running-code-too-soon)", calling `require()` is an expensive operation. If you are able to do so, bundle your application's code into a single file.
+Evite buscar raramente recursos da internet se eles podem facilmente ser empacotados com seu aplicativo.
 
 ### Por que?
 
-Modern JavaScript development usually involves many files and modules. While that's perfectly fine for developing with Electron, we heavily recommend that you bundle all your code into one single file to ensure that the overhead included in calling `require()` is only paid once when your application loads.
+Muitos usuários do Electron começam com um aplicativo inteiramente baseado na web que estão transformando em uma aplicação desktop. Como desenvolvedores web, estamos acostumados a carregar recursos de uma variedade de redes de conteúdo. Agora que você está enviando uma aplicação desktop correta, tente "cortar o cordão" quando possível
+ - e evite deixar que seus usuários esperem por recursos que nunca mudam e poderiam facilmente ser incluídos em seu programa.
+
+Um típico exemplo é o Google Fonts. Muitos desenvolvedores usam a incrível coleção de fontes gratuitas do Google, que vem com um rede de entrega de conteúdo. O tom é direto: Inclua algumas linhas de CSS e o Google cuidará do resto.
+
+Quando está construindo uma aplicação Electron, seus usuários serão melhor atendidos se você baixar as fontes e incluí-las no pacote de seu programa.
 
 ### Como?
 
-There are numerous JavaScript bundlers out there and we know better than to anger the community by recommending one tool over another. We do however recommend that you use a bundler that is able to handle Electron's unique environment that needs to handle both Node.js and browser environments.
+Em um mundo ideal, sua aplicação não precisaria de conexão com a internet para funcionar completamente. Para chegar lá, você deve entender quais recursos em sua aplicação estão baixando \- e o quão grandes são esses recursos.
 
-As of writing this article, the popular choices include [Webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), and [rollup.js](https://rollupjs.org/).
+Para isso, abra suas ferramentas de desenvolvedor. Navegue até a seção `Network` e marque a opção `Disable cache`. Em seguida, recarregue seu renderizador. A menos que sua aplicação proíba tais recarregamentos, você pode fazer ativar o recarregamento pressionando `Cmd +R` ou `Ctrl + R` com a ferramenta de desenvolvedor em foco.
+
+As ferramentas agora vão meticulosamente gravar todas as requisições de rede. No primeiro passo, faça um balanço de todos os recursos que estão sendo baixados, focando nos arquivos grandes primeiro. Há algumas dessas imagens, fontes ou arquivos de mídia que não mudam e poderiam ser incluídas em seu pacote ? Se sim, inclua elas.
+
+Como próximo passo, habilite o `Network Throttling`. Ache o menu suspenso que está em `Online` e selecione uma velocidade menor como o `Fast 3G`. Recarregue seu renderizador e veja se tem algum recurso que sua aplicação está esperando desnecessariamente. Em muitos casos, o programa vai aguardar uma requisição na rede ser concluída apesar de não precisar realmente do recurso envolvido.
+
+Uma dica, carregar recursos da Internet que você pode querer alterar sem enviar uma atualização de aplicativo é uma estratégia poderosa. Para o controle avançado de sobre como os recursos estão sendo carregados, considere investir em [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
+
+## 7) Empacote seu código
+
+Como já apontado em "[Carregando e rodando o código muito cedo](#2-loading-and-running-code-too-soon)", o `require()` é uma operação cara. Se você for capaz, comprima sua aplicação em um único arquivo.
+
+### Por que?
+
+Desenvolvimentos modernos de JavaScript normalmente envolvem muitos arquivos e módulos. Enquanto isso é perfeito para desenvolver com Electron, nós recomendamos fortemente que você empacote todo o seu código em um único arquivos para garantir que a sobrecarga inclusa no método `require()` seja paga apenas uma vez quando sua aplicação inicia.
+
+### Como?
+
+Tem vários compressores de JavaScript lá fora e nós sabemos que melhor que irritar a comunidade recomendando uma única ferramenta em detrimento de outra. Nós recomendamos contudo que você use um empacotador que seja capaz de lidar com o ambiente único do Electron que precisa lidar com Node.js e Browser.
+
+A partir da escrita deste artigo, as escolhas populares incluem [Webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), e [rollup.js](https://rollupjs.org/).
