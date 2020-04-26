@@ -9,7 +9,7 @@
 ### `new MenuItem(options)`
 
 * `options` Object
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
+  * `click` Function (任意) - メニューアイテムがクリックされたとき、 `click(menuItem, browserWindow, event)` で呼び出されます。
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` [KeyboardEvent](structures/keyboard-event.md)
@@ -26,9 +26,9 @@
   * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要がある。
   * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. 省略値は true です。
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (任意) - `submenu` 型メニューアイテムを指定する必要があります。 もし `submenu` を指定した場合、`type: 'submenu'` は省略できます。 値が [`Menu`](menu.md) でない場合は、`Menu.buildFromTemplate` を用いて自動的に変換されます。
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
+  * `id` String (任意) - 単一のメニューの中でユニーク。 宣言されている場合は、位置属性によってこのアイテムへの参照として使用できます。
   * `before` String[] (任意) - 指定したラベルの前にこのアイテムを挿入します。 参照された項目が存在しない場合、アイテムはメニューの最後に挿入されます。 また、与えられたメニューアイテムをそのアイテムと同じ「グループ」に配置する必要があることを意味します。
-  * `after` String[] (optional) - Inserts this item after the item with the specified label. 参照された項目が存在しない場合、アイテムはメニューの最後に挿入されます。
+  * `after` String[] (任意) - 指定したラベルの後にこのアイテムを挿入します。 参照された項目が存在しない場合、アイテムはメニューの最後に挿入されます。
   * `beforeGroupContaining` String[] (任意) - 単一のコンテキストメニューで、指定されたラベルのアイテムを含むグループの前に、そのグループの配置を宣言する手段を提供します。
   * ` afterGroupContaining ` String[] (任意) - 単一のコンテキストメニューで、指定されたラベルのアイテムを含むグループの後に、そのグループの配置を宣言する手段を提供します。
 
@@ -93,7 +93,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 
 macOS の `role` を指定するとき、`label` と `accelerator` がメニューアイテムに影響を与える唯一のオプションです。 ほかのすべてのオプションは無視されます。 小文字の `role`、`toggledevtools` などもまだサポートしています。
 
-**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
+**注意:** macOS 上の tray 内の最も上にあるメニューアイテムでは、`enabled` と `visibility` プロパティは利用できません。
 
 ### インスタンスプロパティ
 
@@ -109,7 +109,7 @@ A `String` indicating the item's visible label.
 
 #### `menuItem.click`
 
-MenuItem がクリックイベントを受け取った時に発火される `Function`。 It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+MenuItem がクリックイベントを受け取った時に発火される `Function`。 これは `menuItem.click(event, focusedWindow, focusedWebContents)` で呼び出されます。
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
@@ -120,7 +120,7 @@ MenuItem がクリックイベントを受け取った時に発火される `Fun
 
 #### `menuItem.type`
 
-そのアイテムの種類を示す `String`。 Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
+そのアイテムの種類を示す `String`。 `normal` 、 `separator` 、 `submenu` 、 `checkbox` 、 `radio` のいずれか。
 
 #### `menuItem.role`
 
