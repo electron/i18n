@@ -58,7 +58,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 * `event` Event
 * `state` String - `completed`、`cancelled` か `interrupted` にできます。
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+ダウンロードが終了状態となったときに発生します。 これは完了したダウンロード、キャンセルされたダウンロード (`downloadItem.cancel()` によって) 、再開できる中断されたダウンロードを含みます。
 
 `state` は、次のいずれかになります。
 
@@ -78,13 +78,13 @@ Emitted when the download is in a terminal state. This includes a completed down
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+戻り値 `String` - ダウンロードアイテムの保存先パス。 これは `downloadItem.setSavePath(path)` で設定されたものか、保存ダイアログで選択されたものになります。
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
 * `options` SaveDialogOptions - ファイル保存ダイアログのオプションを設定します。 このオブジェクトは `options` パラメータ([`dialog.showSaveDialog()`](dialog.md)の)と同じプロパティを持ちます。
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。
+この API によって、ダウンロードアイテムに対して既定で開かれる保存ダイアログのカスタムオプションをユーザが設定できます。 このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。
 
 #### `downloadItem.getSaveDialogOptions()`
 
@@ -102,7 +102,7 @@ This API allows the user to set custom options for the save dialog that opens fo
 
 一時停止されたダウンロードを再開します。
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. そうでなければ、`resume()` は、前回受信したバイト数を無視して、最初からダウンロードを再開します。
+**注:** 再開可能なダウンロードを有効にするには、ダウンロードしているサーバーがRangeリクエストをサポートしており、`Last-Modified` と `ETag` の両方のヘッダーの値を提供していなければなりません。 そうでなければ、`resume()` は、前回受信したバイト数を無視して、最初からダウンロードを再開します。
 
 #### `downloadItem.canResume()`
 
@@ -128,7 +128,7 @@ This API allows the user to set custom options for the save dialog that opens fo
 
 戻り値 `String` - ダウンロードアイテムのファイル名。
 
-**Note:** The file name is not always the same as the actual one saved in local disk. ユーザーが表示されたダウンロード保存ダイアログでファイル名を変更した場合、保存されたファイルの実際の名前は異なります。
+**注:** ファイル名は常にローカルディスクに保存したものと同じではありません。 ユーザーが表示されたダウンロード保存ダイアログでファイル名を変更した場合、保存されたファイルの実際の名前は異なります。
 
 #### `downloadItem.getTotalBytes()`
 
@@ -146,9 +146,9 @@ This API allows the user to set custom options for the save dialog that opens fo
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+戻り値 `String` - 現在の状態。 `progressing` 、 `completed` 、 `cancelled` 、 `interrupted` のいずれか。
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**注:** 以下のメソッドは、セッションが再開されたときに `cancelled` アイテムを再開するのに特に有用です。
 
 #### `downloadItem.getURLChain()`
 
