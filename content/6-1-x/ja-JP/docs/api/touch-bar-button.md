@@ -19,12 +19,12 @@
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+ボタンの現在のテキストを表す `String`。 この値を変更すると、タッチバー内のボタンがすぐに更新されます。
 
 #### `touchBarButton.backgroundColor`
 
-A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
+ボタンの背景色を表す 16 進数の `String`。 この値を変更すると、タッチバー内のボタンがすぐに更新されます。
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+ボタンの現在のアイコンを表す `NativeImage`。 この値を変更すると、タッチバー内のボタンがすぐに更新されます。
