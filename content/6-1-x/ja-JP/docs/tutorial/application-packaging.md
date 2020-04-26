@@ -24,7 +24,7 @@ $ asar pack your-app app.asar
 
 ## `asar` アーカイブを使用する
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Electron には、2 組の API があります。Node.js により提供される Node API、そして Chromium により提供されるウェブ API です。 どちらの API も `asar` アーカイブからのファイル読み込みに対応しています。
 
 ### Node API
 
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+ウェブページで、アーカイブ内のファイルを `file:` プロトコルでリクエストできます。 Node API と同様、`asar` アーカイブはディレクトリのように扱われます。
 
 例えば、`$.get` でファイルを取得するには以下のようにします。
 
@@ -139,9 +139,9 @@ Node API で、`asar` アーカイブがディレクトリのように動作す�
 
 ## `asar` アーカイブへパックされていないファイルを追加
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+上で述べたように、いくつかの Node API は、呼び出されたときにファイルをファイルシステムに解凍します。 パフォーマンスの問題とは別に、この動作によってさまざまなウイルス対策スキャナが起動される可能性があります。
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+回避策として、`--unpack` オプションを使用して様々なファイルを解凍したままにできます。 以下の例では、ネイティブ Node.js モジュールの共有ライブラリはパッケージされません。
 
 ```sh
 $ asar pack app app.asar --unpack *.node
