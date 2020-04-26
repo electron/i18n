@@ -1,8 +1,8 @@
-# CertificatePrincipal Object 证书主体
+# Об'єкт CertificatePrincipal
 
-* `commonName` String - 通用名.
-* `organizations` String[] - 组织名称.
-* `organizationUnits` String[] - 组织单位名称.
-* `locality` String - 地区.
-* `state` String - 州或省.
-* `country` String - 国家或地区.
+* `commonName` String - загальне им'я.
+* `organizations` String[] - ім'я організаціЇ.
+* `organizationUnits` String[] - назва(и) посад(и) в організації.
+* `locality` String - Місцезнаходження.
+* `state` String - Область або провінція.
+* `country` String - Країна або регіон.
