@@ -1,10 +1,10 @@
-# crashReporter
+# kecelakaan reporter
 
-> クラッシュレポートをリモートサーバーに送信します。
+> Kirim laporan kerusakan ke server jauh.
 
-プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-以下は、リモートサーバーにクラッシュレポートを自動的に送信する例です。
+Berikut ini adalah contoh untuk secara otomatis mengirimkan laporan kerusakan ke server jauh:
 
 ```javascript
 const { crashReporter } = require('electron')
@@ -17,100 +17,117 @@ crashReporter.start({
 })
 ```
 
-クラッシュレポートを受信して処理するサーバーをセットアップするには、以下のプロジェクトを使用することができます。
+Untuk menyiapkan server untuk menerima dan memproses laporan kerusakan, Anda dapat menggunakan proyek berikut ini:
 
 * [socorro](https://github.com/mozilla/socorro)
-* [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
+* [mini-istirahat pad-server](https://github.com/electron/mini-breakpad-server)
 
-また、サードパーティによる解決方法も使用できます。
+Or use a 3rd party hosted solution:
 
 * [Backtrace](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
 * [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
-クラッシュレポートは、アプリケーション固有の一時ディレクトリフォルダーの中にローカルで保存されます。 `YourName` という `productName` の場合、クラッシュレポートは一時ディレクトリの中の `YourName Crashes` という名前のフォルダに保存されます。 クラッシュレポーターを開始する前に `app.setPath('temp', '/my/custom/temp')` APIを呼び出すことで、アプリのこの一時ディレクトリをカスタマイズすることができます。
+Laporan kerusakan disimpan secara lokal di folder direktori khusus aplikasi. Untuk `nama produk </ 0> dari <code> nama kamu </ 0> , laporan kerusakan akan disimpan dalam folder bernama <code> nama Crash kamu </ 0> di dalam direktori temp. Anda dapat menyesuaikan lokasi direktori sementara ini untuk aplikasi Anda dengan memanggil <code> app.setPath ( 'temp', '/ my / custom / temp') </ 0> 
+API sebelum memulai reporter kecelakaan.</p>
 
-## メソッド
+<h2 spaces-before="0">Methods</h2>
 
-`crashReporter` モジュールには以下のメソッドがあります。
+<p spaces-before="0">The <code> kecelakaan Reporter </ 0> modul memiliki metode berikut:</p>
 
-### `crashReporter.start(options)`
+<h3 spaces-before="0"><code>kecelakaan Reporter.mulai (pilihan)`</h3>
 
 * `options` Object
   * `companyName` String
-  * `submitURL` String - POSTでクラッシュレポートが送信されるURL。
-  * `productName` String (任意) - 省略値は、`app.name` です。
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. 省略値は `true` です。
-  * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は、`false` です。
-  * `extra` Record&lt;String, String&gt; (任意) - レポートと一緒に送信される、自由に定義できるオブジェクト。 文字列のプロパティだけしか正しく送信されません。 ネストしたオブジェクトはサポートしていません。 Windows を使用する場合、プロパティ名と値は 64 文字未満でなければなりません。
-  * `crashesDirectory` String (任意) - クラッシュレポートを一時的に保存するディレクトリ (クラッシュレポーターが `process.crashReporter.start` 経由で起動されたときのみ使用されます)。
+  * ` submitURL </ 0>  String - URL bahwa laporan kerusakan akan dikirim ke POST.</li>
+<li><code>productName` String (optional) - Defaults to `app.name`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Defaultnya adalah `true`.
+  * ` mengabaikan Sistem jatuh Handler </ 0>  Boolean (opsional) - Default adalah <code> false </ 0> .</li>
+<li><code>extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Hanya properti string yang dikirim dengan benar. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
+  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
-他の `crashReporter` APIを使用する前に、クラッシュレポートを収集したい各プロセス (メイン/レンダラー) で、このメソッドを呼び出す必要があります。 異なるプロセスから呼び出すときは、`crashReporter.start` に異なるオプションを渡すことができます。
+Anda diminta untuk memanggil metode ini sebelum menggunakan API ` crashReporter </ 0> lainnya dan dalam setiap proses (utama / perender) yang ingin Anda kumpulkan laporan kerusakan.
+Anda bisa melewati pilihan yang berbeda untuk <code> kecelakaan Reporter.mulai </ 0> saat memanggil dari berbagai proses.</p>
 
-**注:** `child_process` モジュール経由で作成された子プロセスは、Electronモジュールにアクセスすることはできません。 それ故、それらからクラッシュレポートを収集するため、代わりに `process.crashReporter.start` を使用してください。 クラッシュレポートを一時的に保存するディレクトリを指す `crashesDirectory` と呼ばれる追加のオプションと一緒に上記と同じオプションを渡してください。 子プロセスをクラッシュさせる `process.crash()` を呼び出すことで、これをテストすることができます。
+<p spaces-before="0"><strong x-id="1"> Catatan </ 0> Proses anak yang dibuat melalui modul <code> child_process </ 1> tidak akan memiliki akses ke modul Elektron .
+Oleh karena itu, untuk mengumpulkan laporan kerusakan dari mereka, gunakan <code> process.crashReporter.start </ 0> . Lewati pilihan yang sama seperti di atas dan yang tambahan yang disebut <code> crash Direktori</ 0> yang seharusnya mengarah ke direktori untuk menyimpan laporan kerusakan sementara. Anda bisa menguji ini dengan memanggil <code> process.crash () </ 0> untuk menabrak proses anak.</p>
 
-**注釈:** 最初の `start` の呼び出しの後、追加/更新した `extra` パラメーターを送信する必要がある場合、macOS では、`addExtraParameter` を呼び出してください。Linux と Windows では、追加/更新した `extra` パラメーターとともに `start` を再度、呼び出してください。
+<p spaces-before="0"><strong x-id="1">Note:</strong> If you need send additional/updated <code>extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
-**注:** macOS と Windows では、Electron はクラッシュの収集と報告に新しい `crashpad` クライアントを使用します。 クラッシュレポートを有効にしたい場合、どのプロセスからクラッシュを収集したいかに関わらず、メインプロセスから `crashReporter.start` を使用して `crashpad` を初期化する必要があります。 一度、この方法で初期化されると、crashpadのハンドラーはすべてのプロセスからクラッシュを収集します。 依然として、レンダラーや子プロセスから `crashReporter.start` を呼び出す必要があります。そうでない場合、それらからのクラッシュは、`companyName`、`productName` やすべての `extra` 情報なしでレポートされます。
+**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. Jika Anda ingin mengaktifkan laporan kerusakan, menginisialisasi ` crashpad </ 0> dari proses utama menggunakan <code> crashReporter.start </ 0> diperlukan terlepas dari proses mana yang ingin Anda kumpulkan. Setelah diinisialisasi dengan cara ini, pengendara crashpad mengumpulkan crash dari semua proses. Anda masih harus menghubungi <code> crashReporter.start </ 0> dari proses renderer atau child, jika tidak crash dari mereka akan dilaporkan tanpa <code> companyName </ 0> , <code> productName </ 0> atau salah satu dari informasi <code> ekstra </ 0> .</p>
 
-### `crashReporter.getLastCrashReport()`
+<h3 spaces-before="0"><code>kecelakaan Reporter.dapatkan terakhir kecelakaan Reporter ()`</h3>
 
-戻り値 [`CrashReport`](structures/crash-report.md):
+Mengembalikan
+` kecelakaan Report </ 0> :</p>
 
-ひとつ前のクラッシュレポートのIDとその日付を返します。 アップロードされたクラッシュレポートだけを返します。例え、クラッシュレポートがディスク上に存在したとしてもそれはアップロードされるまで返しません。 アップロードされたレポートがない場合これは、`null` を返します。
+<p spaces-before="0">Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, <code>null` is returned.</p> 
 
-### `crashReporter.getUploadedReports()`
 
-戻り値 [`CrashReport[]`](structures/crash-report.md):
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+### `kecelakaan reporter.dapatkan unggahan repoter ()`
 
-### `crashReporter.getUploadToServer()`
+Mengembalikan ` kecelakaan Report [] </ 0> :</p>
+
+<p spaces-before="0">Returns all uploaded crash reports. Each report contains the date and uploaded
+ID.</p>
+
+<h3 spaces-before="0"><code>crashReporter.getUploadToServer()`</h3> 
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**注:** このAPIは、メインプロセスからしか呼び出すことができません。
+** Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p> 
+
+
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean _macOS_ - レポートがサーバーに送信されるかどうか.
+* ` unggah ke Server </ 0>  Boolean  <em x-id="4"> macOS </ 1> - Apakah laporan harus diserahkan ke server.</li>
+</ul>
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
-
-**注:** このAPIは、メインプロセスからしか呼び出すことができません。
+<p spaces-before="0">This would normally be controlled by user preferences. This has no effect if
+called before <code>start` is called.</p> 
+  ** Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p> 
+  
+  
 
 ### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
 
-* `key` String - パラメータキー。長さは、64文字未満でなければなりません。
-* `value` String - パラメータの値。長さは、64文字未満でなければなりません。
+* ` kunci </ 0>  String - Kunci parameter, harus panjangnya kurang dari 64 karakter.</li>
+<li><code>value` String - Parameter value, must be less than 64 characters long.
 
-クラッシュレポートで送信される追加のパラメータを設定します。 ここで指定された値は、`start` が呼び出されたときに `extra` オプション経由で設定された値と一緒に送信されます。 この API は macOS と Windows でのみ利用可能です。Linux で最初の `start` の呼び出し後に追加/更新した追加のパラメーターを送信する必要がある場合、更新した `extra` オプションと一緒に、`start` を再度呼び出してください。
+Tetapkan parameter tambahan untuk dikirim dengan laporan kerusakan. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
+
+
 
 ### `crashReporter.removeExtraParameter(key)` _macOS_ _Windows_
 
-* `key` String - パラメータキー。長さは、64文字未満でなければなりません。
+* ` kunci </ 0>  String - Kunci parameter, harus panjangnya kurang dari 64 karakter.</li>
+</ul>
 
-クラッシュレポートと一緒に送信されないように、現在のパラメータセットから追加したパラメータを削除します。
+<p spaces-before="0">Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.</p>
 
-### `crashReporter.getParameters()`
+<h3 spaces-before="0"><code>crashReporter.getParameters()`</h3> 
+  See all of the current parameters being passed to the crash reporter.
+  
+  
 
-クラッシュレポーターに渡されているすべての現在のパラメータを参照します。
+## Laporan Kecelakaan Payload
 
-### `crashReporter.getCrashesDirectory()`
+Reporter kecelakaan akan mengirimkan data berikut ke ` submitURL </ 0> sebagai <code> multipart / form-data </ 0>  <code> POST </ 0> :</p>
 
-戻り値 `String` - クラッシュディレクトリは、アップロードされる前に一時保存されます。
+<ul>
+<li><code> ver </ 0>  String - Versi Elektron .</li>
+<li><code> platform </ 0>  String - misal 'win32'.</li>
+<li><code> proses_tipe </ 0>  String - misalnya 'renderer'.</li>
+<li><code> guid </ 0>  String - misal '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.</li>
+<li><code> _version </ 0>  String - Versi di <code> package.json </ 0> .</li>
+<li><p spaces-before="0"><code>_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek. ok
 
-## クラッシュレポートの内容
-
-クラッシュレポーターは、以下のデータを `submitURL` に `multipart/form-data` の `POST` で送信します。
-
-* `ver` String - Electronのバージョン。
-* `platform` String - 例えば、'win32'。
-* `process_type` String - 例えば、'renderer'。
-* `guid` String - 例えば、'5e1286fc-da97-479e-918b-6bfb0c3d1c72'。
-* `_version` String - `package.json` のバージョン。
-* `_productName` String - `crashReporter` の `options` のプロダクト名。
 * `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - `crashReporter` の `options` の会社名。
-* `upload_file_minidump` File - `minidump` 形式でのクラッシュレポート。
-* `crashReporter` の `options` オブジェクトにある `extra` オブジェクトのすべてのレベル1プロパティ。
+
+* `_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek.
+
+* `upload_file_minidump` File - Laporan kerusakan dalam format `minidump`.
+
+* Semua tingkat satu sifat objek `ekstra` di `crashReporter` `pilihan` objek.
