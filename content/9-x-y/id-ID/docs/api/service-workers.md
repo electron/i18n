@@ -2,11 +2,11 @@
 
 > Query and receive events from a sessions active service workers.
 
-Proses: [Main](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
-Sebagai contoh:
+Por exemplo:
 
 ```javascript
 const { session } = require('electron')
@@ -25,13 +25,13 @@ session.defaultSession.serviceWorkers.on('console-message', (event, messageDetai
 })
 ```
 
-### Contoh peristiwa
+### Eventos de instância
 
 The following events are available on instances of `ServiceWorkers`:
 
 #### Event: 'console-message'
 
-Pengembalian:
+Retorna:
 
 * `event` Event
 * `messageDetails` Object - Information about the console message
@@ -44,7 +44,7 @@ Pengembalian:
 
 Emitted when a service worker logs something to the console.
 
-### Metode Instance
+### Métodos de Instância
 
 The following methods are available on instances of `ServiceWorkers`:
 
