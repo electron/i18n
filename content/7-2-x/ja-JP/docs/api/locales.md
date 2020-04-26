@@ -2,7 +2,7 @@
 
 > `app.getLocale()` から返されるロケール値
 
-Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
+Electron は Chromium の `l10n_util` ライブラリでロケールを取得します。 あり得る値は以下の通りです:
 
 | 言語コード  | 言語名            |
 | ------ | -------------- |
