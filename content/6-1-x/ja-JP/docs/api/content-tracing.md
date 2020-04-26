@@ -38,7 +38,7 @@ app.on('ready', () => {
 * `callback` Function
   * `categories` String[]
 
-カテゴリグループの集合を取得します。 The category groups can change as new code paths are reached.
+カテゴリグループの集合を取得します。 カテゴリグループは、新しいコードパスに達すると変更できます。
 
 一度、すべての子プロセスが `getCategories` リクエストを受諾したら、カテゴリグループの配列で `callback` が呼び出されます。
 
@@ -48,7 +48,7 @@ app.on('ready', () => {
 
 戻り値 `Promise<String[]>` - すべての子プロセスが `getCategories` リクエストを受諾したとき、そのカテゴリグループの配列で解決されます。
 
-カテゴリグループの集合を取得します。 The category groups can change as new code paths are reached.
+カテゴリグループの集合を取得します。 カテゴリグループは、新しいコードパスに達すると変更できます。
 
 
 ### `contentTracing.startRecording(options, callback)`
@@ -84,7 +84,7 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 
 一度、すべての子プロセスが `startRecording` リクエストを受諾したら、トレースデータを含むファイルと一緒に `callback` が呼び出されます。
 
-トレースデータは空でない `resultFilePath` もしくは一時ファイルへと書き込まれます。 The actual file path will be passed to `callback` if it's not `null`.
+トレースデータは空でない `resultFilePath` もしくは一時ファイルへと書き込まれます。 これが `null` でない場合、実際のファイルパスは `callback` に渡されます。
 
 **[非推奨予定](modernization/promisification.md)**
 
@@ -107,7 +107,7 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
     * `value` Number
     * `percentage` Number
 
-完全な形式のパーセンテージとして、トレースバッファのプロセス間の最大使用率を取得します。 When the TraceBufferUsage value is determined the `callback` is called.
+完全な形式のパーセンテージとして、トレースバッファのプロセス間の最大使用率を取得します。 TraceBufferUsage の値が決定されると、 `callback` が呼ばれます。
 
 **[非推奨予定](modernization/promisification.md)**
 
