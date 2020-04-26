@@ -1,92 +1,95 @@
-## クラス: BrowserView
+## Class: BrowserView
 
-> ビューを作成したり、制御したりします。
+> 뷰들을 생성하고 제어합니다.
 
-プロセス: [Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
-`BrowserView` は、[`BrowserWindow`](browser-window.md) に追加のウェブコンテンツを埋め込むのに使用することができます。 外側のウインドウを基準にして配置される点を除いて、子ウインドウのようなものです。 `webview` タグの代替となるものです。
+A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
-### サンプル
+### 예시
 
 ```javascript
-// メインプロセス
+// 메인 프로세스에서.
 const { BrowserView, BrowserWindow } = require('electron')
 
-const win = new BrowserWindow({ width: 800, height: 600 })
+let win = new BrowserWindow({ width: 800, height: 600 })
+win.on('closed', () => {
+  win = null
+})
 
-const view = new BrowserView()
+let view = new BrowserView()
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` _実験的_
+### `new BrowserView([options])` _실험적_
 
-* `options` Object (任意)
-  * `webPreferences` Object (任意) - [BrowserWindow](browser-window.md) を参照してください。
+* `options` Object (optional)
+  * `webPreferences` 객체 (optional) - [BrowserWindow](browser-window.md) 참조.
 
-### 静的メソッド
+### 정적 메서드
 
 #### `BrowserView.getAllViews()`
 
-戻り値 `BrowserView[]` - 開かれたすべてのBrowserViewの配列。
+`BrowserView[]` 반환 - 열린 모든 BrowserViews 배열.
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-戻り値 `BrowserView | null` - 指定された `webContents` を保持しているBrowserViewまたはコンテンツがBrowserViewによって保持されていない場合、`null`。
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-戻り値 `BrowserView` - 指定された `id` のビュー。
+`BrowserView` 반환 - `id`에 해당하는 뷰.
 
-### インスタンスプロパティ
+### Instance Properties (인스턴스 속성)
 
-`new BrowserView` で作成されたオブジェクトは、以下のプロパティを持っています。
+Objects created with `new BrowserView` have the following properties:
 
-#### `view.webContents` _実験的_
+#### `view.webContents` _Experimental_
 
-このビューによって保持されている [`WebContents`](web-contents.md) オブジェクト。
+A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` _実験的_
+#### `view.id` _Experimental_
 
-ビューの一意のIDを表す `Integer`。
+A `Integer` representing the unique ID of the view.
 
-### インスタンスメソッド
+### 인스턴스 메서드
 
-`new BrowserView` で作成されたオブジェクトは、次のインスタンスメソッドを持っています。
+Objects created with `new BrowserView` have the following instance methods:
 
 #### `view.destroy()`
 
-強制的にビューを閉じます。`unload` と `beforeunload` イベントは、Webページで発生しません。 ビューでやることが終わった後、メモリや他のリソースを解放するため、できるだけ早くこのファンクションを呼び出してください。
+Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
 
 #### `view.isDestroyed()`
 
-戻り値 `Boolean` - ビューが破棄されているかどうか。
+Returns `Boolean` - Whether the view is destroyed.
 
-#### `view.setAutoResize(options)` _実験的_
+#### `view.setAutoResize(options)` _Experimental_
 
 * `options` Object
-  * `width` Boolean (任意) - `true` の場合、ビューの横幅はウインドウと一緒に伸び縮みします。 省略値は `false` です。
-  * `height` Boolean (任意) - `true` の場合、ビューの高さはウインドウと一緒に伸び縮みします。 省略値は `false` です。
-  * `horizontal` Boolean (任意) - `true` の場合、ビューの x 位置と幅はウィンドウに比例して増減します。 省略値は `false` です。
-  * `vertical` Boolean (任意) - `true` の場合、ビューの y 位置と高さはウィンドウに比例して増減します。 省略値は `false` です。
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-#### `view.setBounds(bounds)` _実験的_
+#### `view.setBounds(bounds)` _실험적_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-ウインドウを基準に指定された境界までビューをリサイズしたり、移動させたりします。
+Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.getBounds()` _実験的_
+#### `view.getBounds()` _실험적_
 
-戻り値 [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md)
 
-`Object` としてのこの BrowserView インスタンスの `bounds`。
+The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` _実験的_
+#### `view.setBackgroundColor(color)` _실험적_
 
-* `color` String - `#aarrggbb` や `#argb` といった形式の色。 アルファチャンネルは任意です。
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
