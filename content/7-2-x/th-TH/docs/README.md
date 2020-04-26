@@ -10,6 +10,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## แนะนำและบทความสอน
 
+* [เกี่ยวกับ Electron](tutorial/about.md)
 * [วิธีการติดตั้งสำหรับการพัฒนา](tutorial/development-environment.md)
   * [การติดตั้งบน macOS](tutorial/development-environment.md#setting-up-macos)
   * [การติดตั้งบน Windows](tutorial/development-environment.md#setting-up-windows)
@@ -44,7 +45,6 @@ There are questions that are asked quite often. Check this out before creating a
   * [เนทิฟไฟล์  ลาก&และ; วาง](tutorial/native-file-drag-drop.md)
   * [การเรนเดอร์แบบ Offscreen](tutorial/offscreen-rendering.md)
   * [O](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [การเข้าถึง](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -101,10 +101,9 @@ There are questions that are asked quite often. Check this out before creating a
 
 * [บทย่อ](api/synopsis.md)
 * [กระบวนการของวัตถุ](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [รองรับการสลับคำสั่งของ Chrome](api/chrome-command-line-switches.md)
 * [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
-* [Chrome Extensions Support](api/extensions.md)
-* [ทำลายการเปลี่ยนแปลง API](breaking-changes.md)
+* [ทำลายการเปลี่ยนแปลง API](api/breaking-changes.md)
 
 ### องค์ประกอบที่กำหนดเอง (Automatic Translation)
 
@@ -128,9 +127,8 @@ There are questions that are asked quite often. Check this out before creating a
 * [รายการบนเมนู](api/menu-item.md)
 * [เน็ต](api/net.md)
 * [netLog](api/net-log.md)
-* [Pemberitahuan](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
-* [powerSaveBlocker](api/power-save-blocker.md)
+* [ประหยัดพลังงาน Blocker](api/power-save-blocker.md)
 * [โพรโทคอล](api/protocol.md)
 * [หน้าจอ](api/screen.md)
 * [เซสชั่น](api/session.md)
