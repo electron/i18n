@@ -1,7 +1,7 @@
-# Issues In Electron
+# Issues w Electron
 
-* [How to Contribute in Issues](#how-to-contribute-in-issues)
-* [Asking for General Help](#asking-for-general-help)
+* [Jak wnieść swój wkład w issues](#how-to-contribute-in-issues)
+* [Prośba o pomoc ogólną](#asking-for-general-help)
 * [Submitting a Bug Report](#submitting-a-bug-report)
 * [Triaging a Bug Report](#triaging-a-bug-report)
 * [Resolving a Bug Report](#resolving-a-bug-report)
