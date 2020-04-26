@@ -17,7 +17,7 @@
 * プラットフォーム依存なコードは避けてください。
   * `path.join()` を使用してファイル名を連結します。
   * 一時ディレクトリを参照する必要がある場合は、`/tmp` ではなく `os.tmpdir()` を使用してください。
-* Using a plain `return` when returning explicitly at the end of a function.
+* 関数の終わりから明示的に戻るときにただの `return` を使用します。
   * `return null`、`return undefined`、`null` や `undefined` ではありません
 
 ## C++ と Python
