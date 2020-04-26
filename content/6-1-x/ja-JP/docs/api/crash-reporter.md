@@ -62,11 +62,11 @@ crashReporter.start({
 
 戻り値 [`CrashReport[]`](structures/crash-report.md):
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+アップロードされたすべてのクラッシュレポートを返します。 各レポートには、日付とアップロードされた ID が含まれています。
 
 ### `crashReporter.getUploadToServer()`
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+戻り値 `Boolean` - レポートがサーバに送信されるべきかどうか。 `start` メソッドまたは `setUploadToServer` を通して設定されます。
 
 **注:** このAPIは、メインプロセスからしか呼び出すことができません。
 
@@ -74,7 +74,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 * `uploadToServer` Boolean _macOS_ - レポートがサーバーに送信されるかどうか.
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+これは通常、ユーザーの設定によって制御されます。 `start` が呼ばれるまでは何もしません。
 
 **注:** このAPIは、メインプロセスからしか呼び出すことができません。
 
@@ -105,7 +105,7 @@ This would normally be controlled by user preferences. This has no effect if cal
 * `guid` String - 例えば、'5e1286fc-da97-479e-918b-6bfb0c3d1c72'。
 * `_version` String - `package.json` のバージョン。
 * `_productName` String - `crashReporter` の `options` のプロダクト名。
-* `prod` String - Name of the underlying product. In this case Electron.
+* `prod` String - 基底にあるプロダクトの名前。 この場合は Electron です。
 * `_companyName` String - `crashReporter` の `options` の会社名。
 * `upload_file_minidump` File - `minidump` 形式でのクラッシュレポート。
 * `crashReporter` の `options` オブジェクトにある `extra` オブジェクトのすべてのレベル1プロパティ。
