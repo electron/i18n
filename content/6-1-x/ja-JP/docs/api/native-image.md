@@ -4,7 +4,7 @@
 
 プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+Electron では、 API が画像を取る場合、ファイルパスまたは `NativeImage` インスタンスを渡すことができます。 `null` が渡されたときは空の画像が使用されます。
 
 例として、tray を作ったりウインドウのアイコンを設定したりするとき、`String` で画像ファイルパスを渡せます。
 
@@ -27,9 +27,9 @@ console.log(appIcon)
 
 ## サポートされているフォーマット
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+現在 `PNG` と `JPEG` の画像形式に対応しています。 透明度とか可逆圧縮に対応した `PNG` をおすすめします。
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
+Windows では、ファイルパスから `ICO` アイコンを読み込むこともできます。 最高の表示品質を得るため、少なくとも以下のサイズを含めることをおすすめします:
 
 * 小さいアイコン
  * 16x16 (DPI スケール 100%)
@@ -51,7 +51,7 @@ Apple Retina ディスプレイのような高解像度をサポートしてい�
 
 例えば `icon.png` が通常の標準解像度の画像であれば、`icon@2x.png` が2倍のピクセル密度を持つ高解像度の画像として扱われます。
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. 例:
+同時に異なるピクセル密度のディスプレイをサポートしたい場合、同じフォルダ内に異なるサイズの画像を置き、DPI 接尾子無しでファイル名を使用して下さい。 例:
 
 ```text
 images/
@@ -83,13 +83,13 @@ console.log(appIcon)
 
 ## テンプレート画像
 
-Template images consist of black and an alpha channel. テンプレート画像は単体の画像として使用するものではなく、通常、最終的にさせたい見た目を作成するため、他のコンテンツと混合されます。
+テンプレート画像は黒色とアルファチャンネルで構成されます。 テンプレート画像は単体の画像として使用するものではなく、通常、最終的にさせたい見た目を作成するため、他のコンテンツと混合されます。
 
 最も一般的なケースは、メニューバーのアイコンに使用することです。これは明るいメニューバーと暗いメニューバーの両方に適応できます。
 
 **注釈:** テンプレート画像は macOS でのみサポートされています。
 
-To mark an image as a template image, its filename should end with the word `Template`. 例:
+画像をテンプレート画像としてマークするには、そのファイル名が `Template` で終わる必要があります。 例:
 
 * `xxxTemplate.png`
 * `xxxTemplate.png`
@@ -129,7 +129,7 @@ console.log(image)
 
 戻り値 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+`buffer` から新しい `NativeImage` インスタンスを作成します。これには`toBitmap()` によって返された生のビットマップピクセルデータが含まれます。 詳細な形式はプラットフォームに依存します。
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
@@ -141,7 +141,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 戻り値 `NativeImage`
 
-`buffer` から `NativeImage` の新しいインスタンスを作成します。 Tries to decode as PNG or JPEG first.
+`buffer` から `NativeImage` の新しいインスタンスを作成します。 最初に PNG または JPEG としてデコードしようとします。
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -162,7 +162,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 `hslShift` は以下のルールで画像に適用されます。
 * `hsl_shift[0]` (色相): 画像における色相の絶対値 - 0 から 1 が 色相カラーホイール (赤) の 0 から 360 に割り当てられます。
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = そのまま変わらない。 1 = fully saturate the image.
+* `hsl_shift[1]` (彩度): 画像における彩度の変化量。 以下のキー値を使用します: 0 = すべての色を取り除く。 0.5 = そのまま変わらない。 1 = 完全に鮮やかにする。
 * `hsl_shift[2]` (明るさ): 画像における明るさの変化量。以下のキー値を使用します。 0 = 明るさをすべて取り除く (すべてのピクセルを黒にする)。 0.5 = そのまま変わらない。 1 = 完全に明るい (すべてのピクセルを白にする)。
 
 つまり、`[-1, 0, 1]` は完全に白い画像になり、`[-1, 1, 0]` は完全に黒い画像になります。
@@ -268,9 +268,9 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 * `options` Object
   * `scaleFactor` Double - 画像を表現する際の拡大倍率。
-  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
-  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `width` Integer (任意) - 既定値は 0 です。 `buffer` にビットマップバッファが指定されている場合は必要です。
+  * `height` Integer (任意) - 既定値は 0 です。 `buffer` にビットマップバッファが指定されている場合は必要です。
   * `buffer` Buffer (任意) - 生の画像データを格納するバッファ。
   * `dataURL` String (任意) - Base64 エンコードした PNG または JPEG 画像を格納しているデータURL。
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+画像の表現を指定された縮尺で追加します。 これによって、異なる縮尺の表現を明示的に画像へ追加できます。 空の画像で呼び出すことができます。
