@@ -14,7 +14,7 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Note:** The remote module can be disabled for security reasons in the following contexts:
 - [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
@@ -119,7 +119,7 @@ project/
 ```js
 // main process: main/index.js
 const { app } = require('electron')
-app.on('ready', () => { /* ... */ })
+app.whenReady().then(() => { /* ... */ })
 ```
 
 ```js
@@ -150,6 +150,6 @@ Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main 
 
 ## Các thuộc tính
 
-### `remote.process`
+### `remote.process` _Readonly_
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
