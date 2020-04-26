@@ -1,4 +1,4 @@
-# Node अपग्रेड करना
+# อัพเกรด Node
 
 ## Discussion
 
