@@ -1,10 +1,10 @@
 # webContents
 
-> ウェブページを描画、制御します。
+> Render and control web pages.
 
-プロセス: [Main](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
-`webContents` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。 [`BrowserWindow`](browser-window.md) オブジェクトのプロパティには、ウェブページを描画し、制御する責任があります。 以下は、`webContents` オブジェクトにアクセスする例です。
+`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -16,9 +16,9 @@ let contents = win.webContents
 console.log(contents)
 ```
 
-## メソッド
+## Metodi
 
-これらのメソッドは、`webContents` モジュールからアクセスできます。
+These methods can be accessed from the `webContents` module:
 
 ```javascript
 const { webContents } = require('electron')
@@ -27,47 +27,33 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-戻り値 `WebContents[]` - すべての `WebContents` インスタンスの配列。 これには、すべてのウインドウ、開かれた開発者向けツール、開発者向けツールのバックグラウンド拡張のページが含まれます。
+Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
 
 ### `webContents.getFocusedWebContents()`
 
-戻り値 `WebContents` - このアプリケーション内でフォーカス中の WebContents。無ければ `null`。
+Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
 
 ### `webContents.fromId(id)`
 
-* `id` Integer
+* `id` Numero Intero
 
-戻り値 `WebContents` - 指定した ID の WebContents インスタンス。
+Returns `WebContents` - A WebContents instance with the given ID.
 
-## クラス: WebContents
+## Class: WebContents
 
-> BrowserWindow インスタンスのコンテンツを、描画し、制御します。
+> Render and control the contents of a BrowserWindow instance.
 
-プロセス: [Main](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
-### インスタンスイベント
+### Eventi dell'istanza
 
-#### イベント: 'did-finish-load'
+#### Event: 'did-finish-load'
 
-ナビゲーションが終了した時、すなわち、タブのくるくるが止まったときや、`onload` イベントが送られた後に、発行されます。
+Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
 
-#### イベント: 'did-fail-load'
+#### Event: 'did-fail-load'
 
-戻り値:
-
-* `event` Event
-* `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
-* `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
-
-このイベントは `did-finish-load` に似ていますが、ロードが失敗したときも発行されます。 エラーコードとその意味のすべてのリストは [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) です。
-
-#### イベント: 'did-fail-provisional-load'
-
-戻り値:
+Restituisce:
 
 * `event` Event
 * `errorCode` Integer
@@ -77,108 +63,122 @@ console.log(webContents)
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-このイベントは `did-fail-load` に似ていますが、ロードがキャンセルされたときに発行されます (例えば `window.stop()` が呼び出されたときなど)。
+This event is like `did-finish-load` but emitted when the load failed. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### イベント: 'did-frame-finish-load'
+#### Event: 'did-fail-provisional-load'
 
-戻り値:
+Restituisce:
+
+* `event` Event
+* `errorCode` Integer
+* `errorDescription` String
+* `validatedURL` String
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
+
+#### Event: 'did-frame-finish-load'
+
+Restituisce:
 
 * `event` Event
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-フレームのナビゲーションが終了したときに発行されます。
+Emitted when a frame has done navigation.
 
-#### イベント: 'did-start-loading'
+#### Event: 'did-start-loading'
 
-タブのくるくるが始まったタイミングに対応しています。
+Corresponds to the points in time when the spinner of the tab started spinning.
 
-#### イベント: 'did-stop-loading'
+#### Event: 'did-stop-loading'
 
-タブのくるくるが止まったタイミングに対応しています。
+Corresponds to the points in time when the spinner of the tab stopped spinning.
 
-#### イベント: 'dom-ready'
+#### Event: 'dom-ready'
 
-戻り値:
-
-* `event` Event
-
-指定のフレームの document が読み込まれたときに発行されます。
-
-#### イベント: 'page-title-updated'
-
-戻り値:
+Restituisce:
 
 * `event` Event
-* `title` String
+
+Emitted when the document in the given frame is loaded.
+
+#### Evento: 'page-title-updated'
+
+Restituisce:
+
+* `event` Event
+* `Titolo` Stringa
 * `explicitSet` Boolean
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-#### イベント: 'page-favicon-updated'
+#### Event: 'page-favicon-updated'
 
-戻り値:
-
-* `event` Event
-* `favicons` String[] - URLの配列。
-
-ページがファビコンの URL を受け取ると発行されます。
-
-#### イベント: 'new-window'
-
-戻り値:
+Restituisce:
 
 * `event` Event
-* `url` String
+* `favicons` String[] - Array of URLs.
+
+Emitted when page receives favicon urls.
+
+#### Event: 'new-window'
+
+Restituisce:
+
+* `event` Event
+* `url` Stringa
 * `frameName` String
-* `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
-* `options` BrowserWindowConstructorOptions - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
-* `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
-* `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
+* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
 Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
-デフォルトでは、`url` の新しい `BrowserWindow` が作成されます。
+By default a new `BrowserWindow` will be created for the `url`.
 
-`event.preventDefault()` を呼ぶと、Electron が自動的に新しい [`BrowserWindow`](browser-window.md) を作成するのを防ぎます。 もし `event.preventDefault()` を呼び、新しい `BrowserWindow` を手動で作る場合、新しい [`BrowserWindow`](browser-window.md) インスタンスの参照を [`event.newGuest`](browser-window.md) にセットしなければ、予期しない動作になる可能性があります。 例:
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Ad esempio:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
   event.preventDefault()
   const win = new BrowserWindow({
-    webContents: options.webContents, // 提供されていれば既存の webContents を使う
+    webContents: options.webContents, // use existing webContents if provided
     show: false
   })
   win.once('ready-to-show', () => win.show())
   if (!options.webContents) {
-    win.loadURL(url) // 自動で既存の webContents はナビゲートされる
+    win.loadURL(url) // existing webContents will be navigated automatically
   }
   event.newGuest = win
 })
 ```
 
-#### イベント: 'will-navigate'
+#### Event: 'will-navigate'
 
-戻り値:
+Restituisce:
 
 * `event` Event
-* `url` String
+* `url` Stringa
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
-このイベントは、 `webContents.loadURL` や `webContents.back` のような API によって、プログラム上から開始されるナビゲーションのときには発行されません。
+This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
 
 It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-`event.preventDefault()` を呼ぶとナビゲーションが阻害されます。
+Calling `event.preventDefault()` will prevent the navigation.
 
-#### イベント: 'did-start-navigation'
+#### Event: 'did-start-navigation'
 
-戻り値:
+Restituisce:
 
 * `event` Event
-* `url` String
+* `url` Stringa
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -186,12 +186,12 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 
 Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
 
-#### イベント: 'will-redirect'
+#### Event: 'will-redirect'
 
-戻り値:
+Restituisce:
 
 * `event` Event
-* `url` String
+* `url` Stringa
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -199,16 +199,16 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 Emitted as a server side redirect occurs during navigation.  For example a 302 redirect.
 
-このイベントは常に、同一ナビゲーションで `did-start-navigation` の後かつ `did-redirect-navigation` イベントの前に発行されます。
+This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
 
-`event.preventDefault()` を呼ぶとナビゲーション (リダイレクトではない) が阻害されます。
+Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
 
-#### イベント: 'did-redirect-navigation'
+#### Event: 'did-redirect-navigation'
 
-戻り値:
+Restituiti:
 
 * `event` Event
-* `url` String
+* `url` Stringa
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -216,60 +216,60 @@ Emitted as a server side redirect occurs during navigation.  For example a 302 r
 
 Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
 
-このイベントを阻害することはできません。リダイレクトを防ぎたい場合は、上記の `will-redirect` イベントを確認してください。
+This event can not be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
 
-#### イベント: 'did-navigate'
+#### Event: 'did-navigate'
 
-戻り値:
+Restituisce:
 
 * `event` Event
-* `url` String
-* `httpResponseCode` Integer - HTTP ナビゲーションが無い場合は-1
-* `httpStatusText` String - HTTP ナビゲーションが無い場合は空
+* `url` Stringa
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations
 
-メインフレームのナビゲーションが完了したときに発生します。
+Emitted when a main frame navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-#### イベント: 'did-frame-navigate'
+#### Event: 'did-frame-navigate'
 
-戻り値:
+Restituisce:
 
 * `event` Event
-* `url` String
-* `httpResponseCode` Integer - HTTP ナビゲーションが無い場合は-1
-* `httpStatusText` String - HTTP ナビゲーションが無い場合は空。
+* `url` Stringa
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations,
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-フレームのナビゲーションが完了したときに発生します。
+Emitted when any frame navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-#### イベント: 'did-navigate-in-page'
+#### Event: 'did-navigate-in-page'
 
-戻り値:
+Restituisce:
 
 * `event` Event
-* `url` String
+* `url` Stringa
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-フレームのページ内ナビゲーションが発生したときに発生します。
+Emitted when an in-page navigation happened in any frame.
 
-ページ内ナビゲーションが行われるとき、ページのURLは変更されますがページ外でのナビゲーションは発生しません。 これが発生する例は、アンカーリンクがクリックされたときや、DOM の `hashchange` イベントがトリガーされたときです。
+When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-#### イベント: 'will-prevent-unload'
+#### Event: 'will-prevent-unload'
 
-戻り値:
+Restituisce:
 
 * `event` Event
 
-`beforeunload` イベントハンドラがページのアンロードをキャンセルしようとしたときに発行されます。
+Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
-`event.preventDefault()` を呼ぶと、`beforeunload` イベントハンドラが無視され、 ページをアンロードできます。
+Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
 
 ```javascript
 const { BrowserWindow, dialog } = require('electron')
@@ -277,9 +277,9 @@ const win = new BrowserWindow({ width: 800, height: 600 })
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBox(win, {
     type: 'question',
-    buttons: ['このページを離れる', 'キャンセル'],
-    title: 'このサイトを離れてもよろしいですか?',
-    message: '行った変更が保存されない可能性があります。',
+    buttons: ['Leave', 'Stay'],
+    title: 'Do you want to leave this site?',
+    message: 'Changes you made may not be saved.',
     defaultId: 0,
     cancelId: 1
   })
@@ -290,55 +290,55 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### イベント: 'crashed'
+#### Event: 'crashed'
 
-戻り値:
-
-* `event` Event
-* `killed` Boolean
-
-レンダラープロセスがクラッシュしたり、強制終了されたりしたときに発行されます。
-
-#### イベント: 'unresponsive'
-
-Webページが応答しなくなるときに発生します。
-
-#### イベント: 'responsive'
-
-応答しないWebページが再び応答するようになるときに発生します。
-
-#### イベント: 'plugin-crashed'
-
-戻り値:
+Restituisce:
 
 * `event` Event
-* `name` String
-* `version` String
+* `ucciso` Booleano
 
-プラグインプロセスがクラッシュしたときに発行されます。
+Emitted when the renderer process crashes or is killed.
 
-#### イベント: 'destroyed'
+#### Evento: 'unresponsive'
 
-`webContents` が破棄されたときに発生します。
+Emesso quando la pagina web diventa non responsive.
 
-#### イベント: 'before-input-event'
+#### Evento: 'responsive'
 
-戻り値:
+Emesso quando la pagina web non responsive diventa responsive di nuovo.
+
+#### Event: 'plugin-crashed'
+
+Restituisce:
+
+* `event` Event
+* `name` Stringa
+* `version` Stringa
+
+Emitted when a plugin process has crashed.
+
+#### Event: 'destroyed'
+
+Emitted when `webContents` is destroyed.
+
+#### Event: 'before-input-event'
+
+Restituisce:
 
 * `event` Event
 * `input` Object - Input properties.
-  * `type` String - `keyUp` か `keyDown`。
-  * `key` String - [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `code` String - [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `isAutoRepeat` Boolean - [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `shift` Boolean - [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `control` Boolean - [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `alt` Boolean - [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `meta` Boolean - [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
+  * `type` String - Either `keyUp` or `keyDown`.
+  * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
 
-ページ内の `keydown` と `keyup` イベントが発生する直前に発行されます。 `event.preventDefault` を呼ぶと、ページの `keydown`/`keyup` イベントとメニューショートカットを阻害します。
+Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
-メニューショートカットだけを阻害するには、[`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental) を使用します。
+To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental):
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -346,115 +346,115 @@ const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
-  // 例えば、Ctrl / Cmd が押下されているときのみ、
-  // アプリケーションのメニューキーボードショートカットを有効にします。
+  // For example, only enable application menu keyboard shortcuts when
+  // Ctrl/Cmd are down.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
 
-#### イベント: 'enter-html-full-screen'
+#### Evento: 'enter-html-full-screen'
 
-ウインドウがHTML APIによってフルスクリーン状態に入るときに発生します。
+Emesso quando la finestra entra in uno stato full-screen attivata da un API HTML.
 
-#### イベント: 'leave-html-full-screen'
+#### Evento: 'leave-html-full-screen'
 
-ウインドウがHTML APIによってフルスクリーン状態を抜けるときに発生します。
+Emesso quando la finestra esce da uno stato full-screen attivata da un API HTML.
 
-#### イベント: 'zoom-changed'
+#### Event: 'zoom-changed'
 
-戻り値:
+Restituisce:
 * `event` Event
-* `zoomDirection` String - `in` か `out` にできます。
+* `zoomDirection` String - Can be `in` or `out`.
 
-ユーザーがマウスホイールを使用してズームレベルの変更を要求しているときに生成されます。
+Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
-#### イベント: 'devtools-opened'
+#### Event: 'devtools-opened'
 
-開発者向けツールが開かれたときに発行されます。
+Emitted when DevTools is opened.
 
-#### イベント: 'devtools-closed'
+#### Event: 'devtools-closed'
 
-開発者向けツールが閉じられたときに発行されます。
+Emitted when DevTools is closed.
 
-#### イベント: 'devtools-focused'
+#### Event: 'devtools-focused'
 
-開発者向けツールがフォーカスされた / 開かれたときに発行されます。
+Emitted when DevTools is focused / opened.
 
-#### イベント: 'certificate-error'
+#### Evento: 'certificato-errore'
 
-戻り値:
+Restituisce:
 
 * `event` Event
-* `url` String
-* `error` String - エラーコード.
-* `certificate` [Certificate](structures/certificate.md)
-* `callback` Function
-  * `isTrusted` Boolean - 証明書が信頼できるとみなされるかどうかを示す。
+* `url` Stringa
+* `errore` Stringa - Il codice d'errore.
+* `certificato` [Certificato](structures/certificate.md)
+* `callback` Funzione
+  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
-`url` の `certificate` の認証に失敗したときに発行されます。
+Emitted when failed to verify the `certificate` for `url`.
 
-使い方は、[`app` の `certificate-error` イベント](app.md#event-certificate-error) と同じです。
+The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### イベント: 'select-client-certificate'
+#### Evento: 'selezione-certificato-client'
 
-戻り値:
+Restituisce:
 
 * `event` Event
 * `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function
-  * `certificate` [Certificate](structures/certificate.md) - 指定されたリストの証明書でなければならない。
+* `Listacertificati` [Certificati[]](structures/certificate.md)
+* `callback` Funzione
+  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
-クライアント証明書が要求されたときに発生します。
+Emesso quando un certificato client è richiesto.
 
-使い方は、[`app` の `select-client-certificate` イベント](app.md#event-select-client-certificate) と同じです。
+The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### イベント: 'login'
+#### Evento: 'accedi'
 
-戻り値:
+Restituisce:
 
 * `event` Event
 * `authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
-* `callback` Function
-  * `username` String (任意)
-  * `password` String (任意)
+  * `èProxy` Booleano
+  * `schema` Stringa
+  * `ospite` Stringa
+  * `porta` Numero Intero
+  * `regno` Stringa
+* `callback` Funzione
+  * `username` String (opzionale)
+  * `password` String (opzionale)
 
-`webContents` が Basic 認証を要求すると発生します。
+Emesso quando i `Contenutiweb` vogliono fare un'autenticazione base.
 
-使い方は、[`app` の `login` イベント](app.md#event-login) と同じです。
+The usage is the same with [the `login` event of `app`](app.md#event-login).
 
-#### イベント: 'found-in-page'
+#### Event: 'found-in-page'
 
-戻り値:
+Restituisce:
 
 * `event` Event
 * `result` Object
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - アクティブなマッチの位置。
-  * `matches` Integer - マッチの個数。
-  * `selectionArea` Rectangle - 最初に一致した領域の座標。
+  * `activeMatchOrdinal` Integer - Position of the active match.
+  * `matches` Integer - Number of Matches.
+  * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-[`webContents.findINPage`] リクエストの結果が有効なときに発行されます。
+Emitted when a result is available for [`webContents.findInPage`] request.
 
-#### イベント: 'media-started-playing'
+#### Event: 'media-started-playing'
 
-メディアの再生を開始するときに発行されます。
+Emitted when media starts playing.
 
-#### イベント: 'media-paused'
+#### Event: 'media-paused'
 
-メディアが一時停止、または再生が終了したときに発行されます。
+Emitted when media is paused or done playing.
 
-#### イベント: 'did-change-theme-color'
+#### Event: 'did-change-theme-color'
 
-戻り値:
+Restituisce:
 
 * `event` Event
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
@@ -465,83 +465,82 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-#### イベント: 'update-target-url'
+#### Event: 'update-target-url'
 
-戻り値:
+Restituisce:
 
 * `event` Event
-* `url` String
+* `url` Stringa
 
-マウスをリンクにマウスオーバーしたり、キーボードでリンクにフォーカスしたときに発行されます。
+Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### イベント: 'cursor-changed'
+#### Event: 'cursor-changed'
 
-戻り値:
+Restituisce:
 
 * `event` Event
 * `type` String
-* `image` [NativeImage](native-image.md) (任意)
-* `scale` Float (任意) - カスタムカーソルの拡大率。
-* `size` [Size](structures/size.md) (任意) - `image` のサイズ。
-* `hotspot` [Point](structures/point.md) (任意) - カスタムカーソルのホットスポットの座標。
+* `image` [NativeImage](native-image.md) (optional)
+* `scale` Float (optional) - scaling factor for the custom cursor.
+* `size` [Size](structures/size.md) (optional) - the size of the `image`.
+* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
 
-カーソルの種類が変更されたときに発行されます。 `type` は `default`、`crosshair`、`pointer`、`text`、`wait`、`help`、`e-resize`、`n-resize`,`ne-resize`、`nw-resize`、`s-resize`、`se-resize`、`sw-resize`、`w-resize`,`ns-resize`、`ew-resize`、`nesw-resize`、`nwse-resize`、`col-resize`,`row-resize`、`m-panning`、`e-panning`、`n-panning`、`ne-panning`、`nw-panning`,`s-panning`、`se-panning`、`sw-panning`、`w-panning`、`move`、`vertical-text`,`cell`、`context-menu`、`alias`、`progress`、`nodrop`、`copy`、`none`,`not-allowed`、`zoom-in`、`zoom-out`、`grab`、`grabbing`、`custom` になれます。
+Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
-もし `type` パラメータが `custom` の場合、`image` パラメータはカスタムカーソルの [`NativeImage`](native-image.md) を、`scale`、`size`、`hotspot` はカスタムカーソルについての追加の情報を持ちます。
+If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### イベント: 'context-menu'
+#### Event: 'context-menu'
 
-戻り値:
+Restituisce:
 
 * `event` Event
 * `params` Object
-  * `x` Integer - x 座標.
-  * `y` Integer - y 座標.
-  * `linkURL` String - コンテキストメニューが呼び出されたノードを囲うリンク URL。
+  * `x` Integer - x coordinate.
+  * `y` Integer - y coordinate.
+  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
   * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-  * `pageURL` String - コンテキストメニューが呼び出された最上位のページの URL。
-  * `frameURL` String - コンテキストメニューが呼び出されたサブフレームの URL。
+  * `pageURL` String - URL of the top level page that the context menu was invoked on.
+  * `frameURL` String - URL of the subframe that the context menu was invoked on.
   * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
-  * `mediaType` String - コンテキストメニューが呼び出されたノードの種類。 `none`、`image`、`audio`、`video`、`canvas`、`file`、`plugin` になれる。
-  * `hasImageContents` Boolean - 空でないコンテンツ画像の上でコンテキストメニューが呼び出されたかどうか。
-  * `isEditable` Boolean - コンテキストが編集可能かどうか。
-  * `selectionText` String - コンテキストメニューが呼び出されたときの選択テキスト。
-  * `titleText` String - コンテキストが呼び出されたときの選択要素の、タイトルまたは alt テキスト。
-  * `misspelledWord` String - カーソルの下のスペルミスした単語 (もしあるならば)。
-  * `dictionarySuggestions` String[] - ユーザに `misspelledWord` の置き換えを示す推測した単語の配列。  単語のスペルミスがあり、スペルチェッカーが有効な場合にのみ利用できます。
-  * `frameCharset` String - メニューが呼び出されたときのフレームのテキストエンコーディング。
-  * `inputFieldType` String - 入力フィールド内でコンテキストメニューが呼び出されたときの、そのタイプ。 `none`、`plainText`、`password`、`other` になれる。
+  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
+  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
+  * `isEditable` Boolean - Whether the context is editable.
+  * `selectionText` String - Text of the selection that the context menu was invoked on.
+  * `titleText` String - Title or alt text of the selection that the context was invoked on.
+  * `misspelledWord` String - The misspelled word under the cursor, if any.
+  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
+  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
   * `mediaFlags` Object - The flags for the media element the context menu was invoked on.
-    * `inError` Boolean - メディア要素がクラッシュしたかどうか。
-    * `isPaused` Boolean - メディア要素が一時停止されているかどうか。
-    * `isMuted` Boolean - メディア要素がミュートされているかどうか。
-    * `hasAudio` Boolean - メディア要素に音声があるかどうか。
-    * `isLooping` Boolean - メディア要素をループしているかどうか。
-    * `isControlsVisible` Boolean - メディア要素のコントロールが見えるかどうか。
-    * `canToggleControls` Boolean - メディア要素のコントロールがトグル切り替えできるかどうか。
-    * `canRotate` Boolean - メディア要素を回転できるかどうか。
+    * `inError` Boolean - Whether the media element has crashed.
+    * `isPaused` Boolean - Whether the media element is paused.
+    * `isMuted` Boolean - Whether the media element is muted.
+    * `hasAudio` Boolean - Whether the media element has audio.
+    * `isLooping` Boolean - Whether the media element is looping.
+    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
+    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
+    * `canRotate` Boolean - Whether the media element can be rotated.
   * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
-    * `canUndo` Boolean - レンダラーが、undo できると信頼しているかどうか。
-    * `canUndo` Boolean - レンダラーが、redo できると信頼しているかどうか。
-    * `canCut` Boolean - レンダラーが、カットできると信頼しているかどうか。
-    * `canCopy` Boolean - レンダラーが、コピーできると信頼しているかどうか。
-    * `canPaste` Boolean - レンダラーが、ペーストできると信頼しているかどうか。
-    * `canDelete` Boolean - レンダラーが、削除できると信頼しているかどうか。
-    * `canSelectAll` Boolean - レンダラーが、全選択できると信頼しているかどうか。
+    * `canUndo` Boolean - Whether the renderer believes it can undo.
+    * `canRedo` Boolean - Whether the renderer believes it can redo.
+    * `canCut` Boolean - Whether the renderer believes it can cut.
+    * `canCopy` Boolean - Whether the renderer believes it can copy
+    * `canPaste` Boolean - Whether the renderer believes it can paste.
+    * `canDelete` Boolean - Whether the renderer believes it can delete.
+    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
 
-処理が必要な新しいコンテキストメニューがあるときに発行されます。
+Emitted when there is a new context menu that needs to be handled.
 
-#### イベント: 'select-bluetooth-device'
+#### Event: 'select-bluetooth-device'
 
-戻り値:
+Restituisce:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function
-  * `deviceId` String
+* `callback` Funzione
+  * `deviceId` Stringa
 
-`navigator.bluetooth.requestDevice` を呼ぶうえで、Bluetooth デバイスを選択する必要があるときに発行されます。 `navigator.bluetooth` を使用するには、`webBluetooth` API を有効にする必要があります。 もし `event.preventDefault` が呼ばれなければ、最初に有効なデバイスが選択されます。 `callback` は選択された `deviceId` で呼ばれます。リクエストがキャンセルされると、`callbback` に空文字列が渡されます。
+Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -565,13 +564,13 @@ app.on('ready', () => {
 })
 ```
 
-#### イベント: 'paint'
+#### Event: 'paint'
 
-戻り値:
+Restituisce:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
-* `image` [NativeImage](native-image.md) - フレーム全体の画像データ。
+* `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
 Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
 
@@ -585,13 +584,13 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### イベント: 'devtools-reload-page'
+#### Event: 'devtools-reload-page'
 
-開発者向けツールウインドウが webContents にリロードを指示したときに発行されます。
+Emitted when the devtools window instructs the webContents to reload
 
-#### イベント: 'will-attach-webview'
+#### Event: 'will-attach-webview'
 
-戻り値:
+Restituisce:
 
 * `event` Event
 * `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
@@ -599,136 +598,136 @@ win.loadURL('http://github.com')
 
 Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
 
-このイベントは、 `webContents` の `<webview>` が読み込まれる前に `webPreferences` を設定するのに使用でき、`<webview>` の属性を通して設定できない設定を、設定する機能を提供します。
+This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
 
-**注釈:** 指定された `preload` スクリプトオプションは、このイベントが発行された `webPreferences` オブジェクト内の、`preloadURL` (`preload` ではない) として現れます。
+**Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-#### イベント: 'did-attach-webview'
+#### Event: 'did-attach-webview'
 
-戻り値:
+Restituisce:
 
 * `event` Event
-* `webContents` WebContents - `<webview>` で使われるゲスト WebContents。
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
-`<webview>` がこの webContents に適用されたときに発行されます。
+Emitted when a `<webview>` has been attached to this web contents.
 
 #### Event: 'console-message'
 
-戻り値:
+Restituisce:
 
 * `event` Event
 * `level` Integer
-* `message` String
+* `messaggio` Stringa
 * `line` Integer
 * `sourceId` String
 
-関連付けられたウインドウがコンソールメッセージを出力すると発生します。
+Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
-#### イベント: 'preload-error'
+#### Event: 'preload-error'
 
-戻り値:
+Restituisce:
 
 * `event` Event
 * `preloadPath` String
-* `error` Error
+* `errore` Errore
 
-プリロードスクリプト `preloadPath` がハンドルされていない例外 `error` を投げたときに発行されます。
+Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
 
-#### イベント: 'ipc-message'
+#### Event: 'ipc-message'
 
-戻り値:
-
-* `event` Event
-* `channel` String
-* `...args` any[]
-
-レンダラープロセスが ` ipcRenderer.send()` を介して非同期メッセージを送信したときに発生します。
-
-#### イベント: 'ipc-message-sync'
-
-戻り値:
+Restituisce:
 
 * `event` Event
 * `channel` String
 * `...args` any[]
 
-レンダラープロセスが ` ipcRenderer.sendSync()` を介して同期メッセージを送信したときに発生します。
+Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
 
-#### イベント: 'desktop-capturer-get-sources'
+#### Event: 'ipc-message-sync'
 
-戻り値:
+Restituisce:
+
+* `event` Event
+* `channel` String
+* `...args` any[]
+
+Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
+
+#### Event: 'desktop-capturer-get-sources'
+
+Restituisce:
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. `event.preventDefault()` を呼び出すと、空のソースを返します。
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
-#### イベント: 'remote-require'
+#### Event: 'remote-require'
 
-戻り値:
+Restituisce:
 
 * `event` IpcMainEvent
-* `モジュール名` String
+* `moduleName` String
 
-レンダラープロセス内で `remote.require()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### イベント: 'remote-get-global'
+#### Event: 'remote-get-global'
 
-戻り値:
+Restituisce:
 
 * `event` IpcMainEvent
 * `globalName` String
 
-レンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### イベント: 'remote-get-builtin'
+#### Event: 'remote-get-builtin'
 
-戻り値:
-
-* `event` IpcMainEvent
-* `モジュール名` String
-
-レンダラープロセス内で `remote.getBuiltin()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-#### イベント: 'remote-get-current-window'
-
-戻り値:
+Restituisce:
 
 * `event` IpcMainEvent
+* `moduleName` String
 
-レンダラープロセス内で `remote.getCurrentWindow()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### イベント: 'remote-get-current-web-contents'
+#### Event: 'remote-get-current-window'
 
-戻り値:
+Restituisce:
 
 * `event` IpcMainEvent
 
-レンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### イベント: 'remote-get-guest-web-contents'
+#### Event: 'remote-get-current-web-contents'
 
-戻り値:
+Restituisce:
+
+* `event` IpcMainEvent
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-guest-web-contents'
+
+Restituisce:
 
 * `event` IpcMainEvent
 * `guestWebContents` [WebContents](web-contents.md)
 
-レンダラープロセス内で `<webview>.getWebContents()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### インスタンスメソッド
+### Metodi Istanza
 
-#### `contents.loadURL(url[, options])`
+#### `contents.loadURL(url[, opzioni])`
 
-* `url` String
-* `options` Object (任意)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
-  * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
-  * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー。
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
-  * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
+* `url` Stringa
+* `options` Object (optional)
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opzionale) - Un HTTP Referrer url.
+  * `userAgent` String (opzionale) - Un user agent originato dalla richiesta.
+  * `extraHeaders` String (opzionale) - Extra headers separati da "\n".
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opzionale)
+  * `baseURLForDataURL` String (opzionale) - Url di base (con il separatore del percorso) per file da caricare dal data url. Questo è necessario solo se l'`url` specificato è un data url e necessita di carica altri file.
 
-戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。 無操作拒否ハンドラーが既にアタッチされているため、未処理の拒否エラーは回避されます。
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
 
-ウインドウ内に `url` を読み込みます。 `url` は、`http://` や `file://` のようなプロトコルの接頭子を含まなければなりません。 HTTP キャッシュをバイパスする必要があるロードの場合は、`pragma` ヘッダを使用してそれを実現します。
+Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
 
 ```javascript
 const { webContents } = require('electron')
@@ -736,15 +735,15 @@ const options = { extraHeaders: 'pragma: no-cache\n' }
 webContents.loadURL('https://github.com', options)
 ```
 
-#### `contents.loadFile(filePath[, options])`
+#### `contents.loadFile(filePath[, opzioni])`
 
-* `filePath` String
-* `options` Object (任意)
-  * `search` Record&lt;String, String&gt; (任意) - `url.format()` に渡されます。
-  * `search` String (任意) - `url.format()` に渡されます。
-  * `hash` String (任意) - `url.format()` に渡されます。
+* `Percorsofile` Stringa
+* `options` Object (optional)
+  * `query` Record<String, String> (optional) - Passed to `url.format()`.
+  * `search` String (optional) - Passed to `url.format()`.
+  * `hash` String (optional) - Passed to `url.format()`.
 
-戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application.  For instance an app structure like this:
 
@@ -756,7 +755,7 @@ Loads the given file in the window, `filePath` should be a path to an HTML file 
 |   - index.html
 ```
 
-このようなコードが必要です。
+Would require code like this
 
 ```js
 win.loadFile('src/index.html')
@@ -764,13 +763,13 @@ win.loadFile('src/index.html')
 
 #### `contents.downloadURL(url)`
 
-* `url` String
+* `url` Stringa
 
-ナビゲーションなしで `url` のリソースのダウンロードを初期化します。 The `will-download` event of `session` will be triggered.
+Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
 
 #### `contents.getURL()`
 
-戻り値 `String` - 現在のウェブページの URL。
+Returns `String` - The URL of the current web page.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -783,109 +782,109 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-戻り値 `String` - 現在のウェブページのタイトル。
+Returns `String` - The title of the current web page.
 
 #### `contents.isDestroyed()`
 
-戻り値 `Boolean` - ウェブページが破棄されているかどうか。
+Returns `Boolean` - Whether the web page is destroyed.
 
 #### `contents.focus()`
 
-ウェブページにフォーカスします。
+Focuses the web page.
 
 #### `contents.isFocused()`
 
-戻り値 `Boolean` - ウェブページがフォーカスされているかどうか。
+Returns `Boolean` - Whether the web page is focused.
 
 #### `contents.isLoading()`
 
-戻り値 `Boolean` - ウェブページがまだリソースを読み込んでいるかどうか。
+Returns `Boolean` - Whether web page is still loading resources.
 
 #### `contents.isLoadingMainFrame()`
 
-戻り値 `Boolean` - メインフレーム (iframe やフレーム内のフレームだけではない) がまだ読み込んでいるかどうか。
+Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
 
 #### `contents.isWaitingForResponse()`
 
-戻り値 `Boolean` - ウェブページが、ページのメインリソースからの最初の応答を待機しているかどうか。
+Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
 
 #### `contents.stop()`
 
-保留中のナビゲーションを停止します。
+Stops any pending navigation.
 
 #### `contents.reload()`
 
-現在のページを再読み込みします。
+Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-現在のページを、キャッシュを無視して再読み込みします。
+Reloads current page and ignores cache.
 
 #### `contents.canGoBack()`
 
-戻り値 `Boolean` - ブラウザが前のウェブページへ戻れるかどうか。
+Returns `Boolean` - Whether the browser can go back to previous web page.
 
 #### `contents.canGoForward()`
 
-戻り値 `Boolean` - ブラウザが次のウェブページへ進めるかどうか。
+Returns `Boolean` - Whether the browser can go forward to next web page.
 
 #### `contents.canGoToOffset(offset)`
 
 * `offset` Integer
 
-戻り値 `Boolean` - `offset` 番目のウェブページへ行けるかどうか。
+Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
-ナビゲーション履歴を消去します。
+Clears the navigation history.
 
 #### `contents.goBack()`
 
-ブラウザを前のページへ戻させます。
+Makes the browser go back a web page.
 
 #### `contents.goForward()`
 
-ブラウザを次のページへ進めさせます。
+Makes the browser go forward a web page.
 
 #### `contents.goToIndex(index)`
 
 * `index` Integer
 
-ブラウザを指定した絶対ウェブページインデックスへナビゲーションします。
+Navigates browser to the specified absolute web page index.
 
 #### `contents.goToOffset(offset)`
 
 * `offset` Integer
 
-現在のエントリから指定したオフセットへナビゲーションします。
+Navigates to the specified offset from the "current entry".
 
 #### `contents.isCrashed()`
 
-戻り値 `Boolean` - レンダラープロセスがクラッシュしたかどうか。
+Returns `Boolean` - Whether the renderer process has crashed.
 
 #### `contents.setUserAgent(userAgent)`
 
 * `userAgent` String
 
-このウェブページのユーザエージェントをオーバーライドします。
+Overrides the user agent for this web page.
 
-**[非推奨](modernization/property-updates.md)**
+**[Deprecato](modernization/property-updates.md)**
 
 #### `contents.getUserAgent()`
 
-戻り値 `String` - このウェブページのユーザエージェント。
+Returns `String` - The user agent for this web page.
 
-**[非推奨](modernization/property-updates.md)**
+**[Deprecato](modernization/property-updates.md)**
 
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
-* `options` Object (任意)
+* `options` Object (optional)
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
-戻り値 `Promise<String>` - 挿入された CSS のキーで解決される promise。後で `contents.removeInsertedCSS(key)` を使用して CSS を削除するために使用できます。
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
 
-現在のウェブページに CSS を挿入し、挿入されたスタイルシートの一意なキーを返します。
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ```js
 contents.on('did-finish-load', function () {
@@ -897,7 +896,7 @@ contents.on('did-finish-load', function () {
 
 * `key` String
 
-戻り値 `Promise<void>` - 削除に成功すると解決されます。
+Returns `Promise<void>` - Resolves if the removal was successful.
 
 Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
@@ -910,198 +909,186 @@ contents.on('did-finish-load', async function () {
 
 #### `contents.executeJavaScript(code[, userGesture])`
 
-* `code` String
-* `userGesture` Boolean (任意) - 省略値は `false`。
+* `code` Stringa
+* `userGesture` Boolean (optional) - Default is `false`.
 
-戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-ページ内の `code` を評価します。
+Evaluates `code` in page.
 
-ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
+In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
 
-コードの実行は、ウェブページの読み込みが停止するまで中断されます。
+Code execution will be suspended until web page stop loading.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
   .then((result) => {
-    console.log(result) // フェッチ呼び出しの JSON オブジェクトになります
+    console.log(result) // Will be the JSON object from the fetch call
   })
 ```
 
-#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。  任意の整数を指定できます。
-* `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (任意) - 省略値は `false`。
-
-戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
-
-`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
-
-#### `contents.setIgnoreMenuShortcuts(ignore)` _実験的_
+#### `contents.setIgnoreMenuShortcuts(ignore)` _Sperimentale_
 
 * `ignore` Boolean
 
-この WebContents がフォーカスされている間、アプリケーションのメニューショートカットを無視します。
+Ignore application menu shortcuts while this web contents is focused.
 
 #### `contents.setAudioMuted(muted)`
 
 * `muted` Boolean
 
-現在のウェブページのオーディオをミュートします。
+Mute the audio on the current web page.
 
-**[非推奨](modernization/property-updates.md)**
+**[Deprecato](modernization/property-updates.md)**
 
 #### `contents.isAudioMuted()`
 
-戻り値 `Boolean` - このページがミュートされているかどうか。
+Returns `Boolean` - Whether this page has been muted.
 
-**[非推奨](modernization/property-updates.md)**
+**[Deprecato](modernization/property-updates.md)**
 
 #### `contents.isCurrentlyAudible()`
 
-戻り値 `Boolean` - 音声が現在再生中かどうか。
+Returns `Boolean` - Whether audio is currently playing.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Double - 拡大率。省略値は 1.0 です。
+* `factor` Double - Zoom factor; default is 1.0.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
-拡大率は 0.0 より大きい必要があります。
+The factor must be greater than 0.0.
 
-**[非推奨](modernization/property-updates.md)**
+**[Deprecato](modernization/property-updates.md)**
 
 #### `contents.getZoomFactor()`
 
-戻り値 `Number` - 現在の拡大率。
+Returns `Number` - the current zoom factor.
 
-**[非推奨](modernization/property-updates.md)**
+**[Deprecato](modernization/property-updates.md)**
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Number - 拡大レベル。
+* `level` Number - Zoom level.
 
-指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 この式は `scale := 1.2 ^ level` です。
+Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
-**[非推奨](modernization/property-updates.md)**
+**[Deprecato](modernization/property-updates.md)**
 
 #### `contents.getZoomLevel()`
 
-戻り値 `Number` - 現在の拡大レベル。
+Returns `Number` - the current zoom level.
 
-**[非推奨](modernization/property-updates.md)**
+**[Deprecato](modernization/property-updates.md)**
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-戻り値 `Promise<void>`
+Returns `Promise<void>`
 
-ピンチによる拡大レベルの最大値と最小値を設定します。
+Sets the maximum and minimum pinch-to-zoom level.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
 > `js
   contents.setVisualZoomLevelLimits(1, 3)`
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _非推奨_
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-戻り値 `Promise<void>`
+Returns `Promise<void>`
 
-レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
-
-**非推奨:** この API は Chromium がサポートしなくなりました。
+Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 #### `contents.undo()`
 
-ウェブページの `undo` 編集コマンドを実行します。
+Executes the editing command `undo` in web page.
 
 #### `contents.redo()`
 
-ウェブページの `redo` 編集コマンドを実行します。
+Executes the editing command `redo` in web page.
 
 #### `contents.cut()`
 
-ウェブページの `cut` 編集コマンドを実行します。
+Executes the editing command `cut` in web page.
 
 #### `contents.copy()`
 
-ウェブページの `copy` 編集コマンドを実行します。
+Executes the editing command `copy` in web page.
 
 #### `contents.copyImageAt(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-指定した位置の画像をクリップボードにコピーします。
+Copy the image at the given position to the clipboard.
 
 #### `contents.paste()`
 
-ウェブページの `paste` 編集コマンドを実行します。
+Executes the editing command `paste` in web page.
 
 #### `contents.pasteAndMatchStyle()`
 
-ウェブページの `pasteAndMatchStyle` 編集コマンドを実行します。
+Executes the editing command `pasteAndMatchStyle` in web page.
 
 #### `contents.delete()`
 
-ウェブページの `delete` 編集コマンドを実行します。
+Executes the editing command `delete` in web page.
 
 #### `contents.selectAll()`
 
-ウェブページの `selectAll` 編集コマンドを実行します。
+Executes the editing command `selectAll` in web page.
 
 #### `contents.unselect()`
 
-ウェブページの `unselect` 編集コマンドを実行します。
+Executes the editing command `unselect` in web page.
 
 #### `contents.replace(text)`
 
-* `text` String
+* `testo` Stringa
 
-ウェブページの `replace` 編集コマンドを実行します。
+Executes the editing command `replace` in web page.
 
 #### `contents.replaceMisspelling(text)`
 
-* `text` String
+* `testo` Stringa
 
-ウェブページの `replaceMisspelling` 編集コマンドを実行します。
+Executes the editing command `replaceMisspelling` in web page.
 
 #### `contents.insertText(text)`
 
-* `text` String
+* `testo` Stringa
 
-戻り値 `Promise<void>`
+Returns `Promise<void>`
 
-フォーカスされた要素に `text` を挿入します。
+Inserts `text` to the focused element.
 
 #### `contents.findInPage(text[, options])`
 
-* `text` String - 検索するコンテンツ。空にしてはいけません。
-* `options` Object (任意)
-  * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
-  * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
-  * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. 省略値は `false` 。
-  * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
+* `text` String - Content to be searched, must not be empty.
+* `options` Object (optional)
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. il valore predefinito è `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-戻り値 `Integer` - リクエストに使われたリクエスト ID。
+Returns `Integer` - The request id used for the request.
 
-ウェブページ内の `text` のすべてのマッチを探すリクエストを開始します。 リクエストの結果は [`found-in-page`](web-contents.md#event-found-in-page) イベントを読むことで取得できます。
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
 * `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request.
-  * `clearSelection` - 選択を消去する。
-  * `keepSelection` - その選択を通常の選択に変換する。
-  * `activateSelection` - 選択ノードをフォーカスして、クリックする。
+  * `clearSelection` - Clear the selection.
+  * `keepSelection` - Translate the selection into a normal selection.
+  * `activateSelection` - Focus and click the selection node.
 
-指定された `action` で、`webContents` の `findInPage` リクエストを停止します。
+Stops any `findInPage` request for the `webContents` with the provided `action`.
 
 ```javascript
 const { webContents } = require('electron')
@@ -1115,71 +1102,66 @@ console.log(requestId)
 
 #### `contents.capturePage([rect])`
 
-* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
-`rect` 内のページのスナップショットをキャプチャします。 `rect` を省略すると、表示されているページ全体をキャプチャします。
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 #### `contents.isBeingCaptured()`
 
 Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
 
-#### `contents.incrementCapturerCount([size, stayHidden])`
+#### `contents.incrementCapturerCount([size])`
 
-* `size` [Size](structures/size.md) (任意) - キャプチャの推奨サイズ。
-* `stayHidden` Boolean (任意) -  ページを表示せずに非表示のままにします。
+* `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
 
-キャプチャ回数は 1 ずつ増加します。 ブラウザーウインドウが非表示でもキャプチャ回数がゼロではない場合、ページは表示されていると見なされます。 ページを非表示のままにする場合は、`stayHidden` を true に設定していることを確認してください。
+Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero.
 
-これは Page Visibility API にも影響を与えます。
+This also affects the Page Visibility API.
 
-#### `contents.decrementCapturerCount([stayHidden])`
+#### `contents.decrementCapturerCount()`
 
-* `stayHidden` Boolean (任意) -  ページを表示状態にせず非表示のままにします。
-
-キャプチャ回数は 1 ずつ減少します。 ブラウザウィンドウが隠されるまたはオクルージョンされるか、キャプチャーカウントが 0 になると、ページは非表示状態やオクルージョン状態にセットされます。 代わりに非表示のキャプチャ回数を減らしたい場合は、`stayHidden` を true に設定してください。
+Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero.
 
 #### `contents.getPrinters()`
 
-システムプリンタのリストを取得します。
+Get the system printer list.
 
-戻り値 [`PrinterInfo[]`](structures/printer-info.md)
+Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
-* `options` Object (任意)
-  * `silent` Boolean (optional) - Don't ask user for print settings. 省略値は、`false` です。
-  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. 省略値は、`false` です。
+* `options` Object (optional)
+  * `silent` Boolean (optional) - Don't ask user for print settings. Di default è `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Di default è `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. 省略値は `true` です。
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Di default `true`.
   * `margins` Object (optional)
-    * `marginType` String (任意) - `default`、`none`、`printableArea` か `custom` にできます。 `custom` を選択した場合、`top`、`bottom`、`left`、`right` も指定する必要があります。
-    * `top` Number (任意) - 印刷されたウェブページの上側のマージン。ピクセル単位です。
-    * `bottom` Number (任意) - 印刷されたウェブページの下側のマージン。ピクセル単位です。
-    * `left` Number (任意) - 印刷されたウェブページの左側のマージン。ピクセル単位です。
-    * `right` Number (任意) - 印刷されたウェブページの右側のマージン。ピクセル単位です。
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. 省略値は、`false` です。
-  * `scaleFactor` Number (任意) - ウェブページのスケール係数。
-  * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
-  * `collate` Boolean (任意) - ウェブページを校合するかどうか。
-  * `copies` Number (任意) - 印刷するウェブページの版数。
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Di default è `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
   * `pageRanges` Record<string, number> (optional) - The page range to print. Should have two keys: `from` and `to`.
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Object (optional)
-    * `horizontal` Number (任意) - 水平 DPI。
-    * `vertical` Number (任意) - 垂直 DPI。
-  * `header` String (任意) - ページヘッダーとして印刷される文字列。
-  * `footer` String (任意) - ページフッターとして印刷される文字列。
-* `callback` Function (任意)
-  * `success` Boolean - 印刷呼び出しの成功を示す。
-  * `failureReason` String - 印刷に失敗した場合に呼び戻されるエラーの説明。
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+* `callback` Function (optional)
+  * `success` Boolean - Indicates success of the print call.
+  * `failureReason` String - Error description called back if the print fails.
 
-ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
+Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
-`page-break-before: always;` CSS スタイルを使用して、強制的に改ページして印刷できます。
+Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
 
-使用例:
+Example usage:
 
 ```js
 const options = { silent: true, deviceName: 'My-Printer' }
@@ -1192,18 +1174,18 @@ win.webContents.print(options, (success, errorType) => {
 
 * `options` Object
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
-  * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
-  * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
-  * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Può essere `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un oggetto contenente `height`(altezza) e la `width`(larghezza) in micron.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
-戻り値 `Promise<Buffer>` - 生成された PDF データで実行されます。
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
 
-Chromium の印刷のカスタム設定のプレビューで、PDF としてウインドウのウェブページを出力します。
+Stampa la pagina web della finestra come PDF con le impostazioni di stampa personalizzate di Chromium.
 
-`@page` CSS ルールがウェブページ内で使われている場合、`landscape` は無視されます。
+Il `landscape` verrà ignorato se la regola CSS `@page` è utilizzato nella pagina web.
 
-デフォルトでは、空の `options` は以下のようにみなされます。
+Per impostazione predefinita, se l'oggetto `options` è vuoto verrà utilizzato il seguente:
 
 ```javascript
 {
@@ -1214,9 +1196,9 @@ Chromium の印刷のカスタム設定のプレビューで、PDF としてウ�
 }
 ```
 
-`page-break-before: always;` CSS スタイルを使用して、強制的に改ページして印刷できます。
+Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
 
-これは `webContents.printToPDF` の例です。
+Un esempio di `webContents.printToPDF`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1226,11 +1208,11 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
-  // デフォルトの印刷オプションを使用します
+  // Use default printing options
   win.webContents.printToPDF({}).then(data => {
     fs.writeFile('/tmp/print.pdf', data, (error) => {
       if (error) throw error
-      console.log('PDF 書き出しに成功しました。')
+      console.log('Write PDF successfully.')
     })
   }).catch(error => {
     console.log(error)
@@ -1256,21 +1238,21 @@ win.webContents.on('devtools-opened', () => {
 
 * `path` String
 
-開発者向けツールのワークスペースから指定したパスを削除します。
+Removes the specified path from DevTools workspace.
 
 #### `contents.setDevToolsWebContents(devToolsWebContents)`
 
 * `devToolsWebContents` WebContents
 
-`devToolsWebContents` を開発者向けツールを表示するターゲット `WebContents` として使用します。
+Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
 
-`devToolsWebContents` はナビゲーションを行ってはいけません。また、コール後に他の目的に使用することはできません。
+The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
 
-デフォルトでは、Electron は開発者が制御を非常に制限したネイティブビューを持つ内部 `WebContents` を作成することによって開発者向けツールを管理します。 `setDevToolsWebContents` メソッドでは、開発者は任意の `WebContents` を使用して、`BrowserWindow`、`BrowserView`、`<webview>` タグなどの開発者向けツールを表示できます。
+By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
 
-開発者向けツールを閉じても `devToolsWebContents` は破棄されないことに注意してください。 `devToolsWebContents` を破棄するのは呼び出し元の責任です。
+Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
 
-`<webview>` タグ内で開発者向けツールを表示する例:
+An example of showing devtools in a `<webview>` tag:
 
 ```html
 <html>
@@ -1297,7 +1279,7 @@ win.webContents.on('devtools-opened', () => {
 </html>
 ```
 
-`BrowserWindow` 内で開発者向けツールを表示する例:
+An example of showing devtools in a `BrowserWindow`:
 
 ```js
 const { app, BrowserWindow } = require('electron')
@@ -1316,70 +1298,58 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (任意)
-  * `mode` String - 指定したドック状態で開発者向けツールを開く。`right`、`bottom`、`undocked`、`detach` にできる。 省略値は最後に使用したときのドック状態。 `undocked` モードではドックを後ろにやれる。 `detach` モードではできない。
+* `options` Object (optional)
+  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
-開発者向けツールを開く。
+Opens the devtools.
 
-`contents` が `<webview>` タグである場合、デフォルトでは `mode` が `detach` になり、空の `mode` を明示的に渡すと最後に使用されたドックステートを使用して強制的に実行されます。
+When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
 #### `contents.closeDevTools()`
 
-開発者向けツールを閉じる。
+Closes the devtools.
 
 #### `contents.isDevToolsOpened()`
 
-戻り値 `Boolean` - 開発者向けツールが開かれているかどうか。
+Returns `Boolean` - Whether the devtools is opened.
 
 #### `contents.isDevToolsFocused()`
 
-戻り値 `Boolean` - 開発者向けツールがフォーカスされているかどうか。
+Returns `Boolean` - Whether the devtools view is focused .
 
 #### `contents.toggleDevTools()`
 
-開発者向けツールをトグル切り替えします。
+Toggles the developer tools.
 
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-(`x`, `y`) の位置の要素の検査を開始します。
+Starts inspecting element at position (`x`, `y`).
 
 #### `contents.inspectSharedWorker()`
 
-共有ワーカーコンテキストの開発者向けツールを開きます。
-
-#### `contents.inspectSharedWorkerById(workerId)`
-
-* `workerId` String
-
-ID に基づいて共有ワーカーのインスペクターを起動します。
-
-#### `contents.getAllSharedWorkers()`
-
-戻り値 [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - すべての共有ワーカーに関する情報。
+Opens the developer tools for the shared worker context.
 
 #### `contents.inspectServiceWorker()`
 
-サービスワーカコンテキストの開発者向けツールを開きます。
+Opens the developer tools for the service worker context.
 
 #### `contents.send(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Gli argomenti verranno serializzati internamente in JSON e dunque funzioni e catene di prototype non verrano incluse.
 
-> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
-
-以下はメインプロセスからレンダラープロセスにメッセージを送る例です。
+An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// メインプロセス
+// Nel processo principale(main).
 const { app, BrowserWindow } = require('electron')
 let win = null
 
@@ -1411,23 +1381,21 @@ app.on('ready', () => {
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
 
-> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
-
-If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  以下は例です。
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Per esempio
 
 ```js
-// レンダラープロセス内
+// In a renderer process
 console.log('My frameId is:', require('electron').webFrame.routingId)
 ```
 
-メインプロセス内の受信した IPC メッセージすべてから `frameId` を読み取ることもできます。
+You can also read `frameId` from all incoming IPC messages in the main process.
 
 ```js
-// メインプロセス内
+// In the main process
 ipcMain.on('ping', (event) => {
   console.info('Message came from frameId:', event.frameId)
 })
@@ -1437,60 +1405,60 @@ ipcMain.on('ping', (event) => {
 
 * `parameters` Object
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
-    * `desktop` - デスクトップ画面タイプ.
-    * `mobile` - モバイル画面タイプ.
-  * `screenSize` [Size](structures/size.md) - エミュレートされる画面サイズの設定 (screenPosition == mobile).
-  * `viewPosition` [Point](structures/point.md) - スクリーン上のビューの位置 (screenPosition == mobile) (省略値: `{ x: 0, y: 0 }`).
-  * `deviceScaleFactor` Integer - デバイスの拡大率の設定 (ゼロなら元々のデバイスの拡大率) (省略値: `0`).
-  * `screenSize` [Size](structures/size.md) - エミュレートされるビューのサイズの設定 (空は上書きしないことを意味する)
-  * `scale` Float - 有効なスペース内のエミュレートするビューの拡大率。 (表示モードにフィットしない) (省略値: `1`).
+    * `desktop` - Desktop screen type.
+    * `mobile` - Mobile screen type.
+  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
+  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{ x: 0, y: 0 }`).
+  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: `0`).
+  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
+  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-与えられた引数でデバイスのエミュレートを有効にします
+Enable device emulation with the given parameters.
 
 #### `contents.disableDeviceEmulation()`
 
-`webContents.enableDeviceEmulation` で有効にしたデバイスのエミュレートを向こうにします。
+Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(inputEvent)`
 
 * `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-入力 `event` をページに送ります。 **注釈:** `sendInputEvent()` が動くには、そのコンテツを含む [`BrowserWindow`](browser-window.md) がフォーカスされている必要があります。
+Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (任意) - 省略値は `false`。
-* `callback` Function
+* `onlyDirty` Boolean (optional) - Defaults to `false`.
+* `callback` Funzione
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-プレゼンテーションイベントとキャプチャされたフレームの監視を開始し、プレゼンテーションイベントがあれば、`callbabck` が `callback(image, dirtyRect)` で呼ばれます。
+Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
 
-`image` はキャプチャされたフレームを格納する [NativeImage](native-image.md) のインスタンスです。
+The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
 
-`dirtyRect` は 再描画されたページの部分を示す `x, y, width, height` プロパティのオブジェクトです。 もし `onlyDirty` が `true` にセットされている場合、`image` は再描画された領域だけを含みます。 `onlyDirty` の省略値は `false` です。
+The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 
-フレームプレゼンテーションイベントの監視を終了します。
+End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
 * `item` Object
-  * `file` String[] | String - ドラッグが開始されたファイルへのパス。
-  * `icon` [NativeImage](native-image.md) | String - 画像です。macOS では空にできません。
+  * `file` String[] | String - The path(s) to the file(s) being dragged.
+  * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
-現在の D&D 操作のドラッグアイテムに `item` をセットします。`file` はドラッグされるファイルへの絶対パスで、`icon` はドラッグするときにカーソルの下に表示される画像です。
+Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
 #### `contents.savePage(fullPath, saveType)`
 
-* `fullPath` String - 完全なファイルパス。
+* `fullPath` String - The full file path.
 * `saveType` String - Specify the save type.
-  * `HTMLOnly` - ページの HTML だけを保存する。
-  * `HTMLComplete` - 完全な HTML ページを保存する。
-  * `MHTML` - MHTML として完全な HTML ページを保存する。
+  * `HTMLOnly` - Save only the HTML of the page.
+  * `HTMLComplete` - Save complete-html page.
+  * `MHTML` - Save complete-html page as MHTML.
 
-戻り値 `Promise<void>` - ページが保存された場合に実行されます。
+Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1509,23 +1477,23 @@ win.webContents.on('did-finish-load', async () => {
 
 #### `contents.showDefinitionForSelection()` _macOS_
 
-ページ上の選択された単語を検索するポップアップ辞書を表示します。
+Shows pop-up dictionary that searches the selected word on the page.
 
 #### `contents.isOffscreen()`
 
-戻り値 `Boolean` - *オフスクリーンレンダリング* が有効にされているかどうかを示す。
+Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
 
 #### `contents.startPainting()`
 
-もし *オフスクリーンレンダリング* が有効かつ描画中でなければ、描画を開始します。
+If *offscreen rendering* is enabled and not painting, start painting.
 
 #### `contents.stopPainting()`
 
-もし *オフスクリーンレンダリング* が有効かつ描画中であれば、描画を終了します。
+If *offscreen rendering* is enabled and painting, stop painting.
 
 #### `contents.isPainting()`
 
-戻り値 `Boolean` - もし *オフスクリーンレンダリング* が有効であれば、現在描画中かどうかを返します。
+Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
 
 #### `contents.setFrameRate(fps)`
 
@@ -1533,106 +1501,106 @@ win.webContents.on('did-finish-load', async () => {
 
 If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
 
-**[非推奨](modernization/property-updates.md)**
+**[Deprecato](modernization/property-updates.md)**
 
 #### `contents.getFrameRate()`
 
-戻り値 `Boolean` - もし *オフスクリーンレンダリング* が有効であれば、現在のフレームレートを返します。
+Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
 
-**[非推奨](modernization/property-updates.md)**
+**[Deprecato](modernization/property-updates.md)**
 
 #### `contents.invalidate()`
 
-このウェブコンテンツが入っているウインドウの完全な再描画をスケジュールします。
+Schedules a full repaint of the window this web contents is in.
 
-もし *オフスクリーンレンダリング* が有効であれば、フレームを無効にし、`'paint'` を通して新しいフレームを生成します。
+If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
-戻り値 `String` - WebRTC IP ハンドリングポリシーを返します。
+Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
 * `policy` String - Specify the WebRTC IP Handling Policy.
-  * `default` - ユーザの公開IPとローカルIPを公開します。 これはデフォルトの動作です。 このポリシーが使用されるとき、WebRTC には、すべてのインターフェースを列挙し、それらを結合して公開インターフェースを検出する権利があります。
-  * `default_public_interface_only` - ユーザの公開IPを公開しますが、ユーザのローカルIPは公開しません。 このポリシーが使用されるとき、WebRTC は HTTP が使用するデフォルトのルートのみを使用する必要があります。 これはどのローカルアドレスも公開しません。
-  * `default_public_and_private_interfaces` - ユーザの公開IPとローカルIPを公開します。 このポリシーが使用されるとき、WebRTC は HTTP が使用するデフォルトのルートのみを使用する必要があります。 これは関連するデフォルトのプライベートアドレスも公開します。 デフォルトルートは、マルチホームのエンドポイント上で OS によって選択されたルートです。
+  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
 Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
 
 #### `contents.getOSProcessId()`
 
-戻り値 `Integer` - 関連するレンダラープロセスのオペレーティングシステムの `pid`。
+Returns `Integer` - The operating system `pid` of the associated renderer process.
 
 #### `contents.getProcessId()`
 
-戻り値 `Integer` - 関連するレンダラーの Chromium 内部の `pid`。 フレーム特有のナビゲーションイベント (`did-frame-navigate` など) で渡される `frameProcessId` と比較できます。
+Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
 
 #### `contents.takeHeapSnapshot(filePath)`
 
-* `filePath` String - 出力ファイルのパス
+* `filePath` String - Path to the output file.
 
-戻り値 `Promise<void>` - スナップショットの作成が成功したかどうかを示します。
+Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
-V8ヒープを取得して、`filePath`にそれを保存します。
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 #### `contents.setBackgroundThrottling(allowed)`
 
 * `allowed` Boolean
 
-Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. これは Page Visibility API にも影響を与えます。
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 #### `contents.getType()`
 
-Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserView`、`remote`、`webview` か `offscreen` になります。
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
-### インスタンスプロパティ
+### Proprietà Istanza
 
 #### `contents.audioMuted`
 
-このページをミュートするかどうかを決定する `Boolean` プロパティ。
+A `Boolean` property that determines whether this page is muted.
 
 #### `contents.userAgent`
 
-このウェブページのユーザーエージェントを決定する `String` プロパティ。
+A `String` property that determines the user agent for this web page.
 
 #### `contents.zoomLevel`
 
-このウェブコンテンツのズームレベルを決定する `Number` プロパティ。
+A `Number` property that determines the zoom level for this web contents.
 
-原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 The formula for this is `scale := 1.2 ^ level`.
+The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
 #### `contents.zoomFactor`
 
-`Number` 型のプロパティです。このウェブコンテンツのズーム率を決定します。
+A `Number` property that determines the zoom factor for this web contents.
 
-ズーム率は百分率のズームなので、300% = 3.0 になります。
+The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 
 #### `contents.frameRate`
 
 An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 60 are accepted.
 
-*オフスクリーンレンダリング* が有効な場合にのみ適用されます。
+Only applicable if *offscreen rendering* is enabled.
 
-#### `contents.id` _読み出し専用_
+#### `contents.id` _Readonly_
 
-この WebContents の一意のIDを表す `Integer`。
+A `Integer` representing the unique ID of this WebContents.
 
-#### `contents.session` _読み出し専用_
+#### `contents.session` _Readonly_
 
-この webContents で使われる [`Session`](session.md)。
+A [`Session`](session.md) used by this webContents.
 
-#### `contents.hostWebContents` _読み出し専用_
+#### `contents.hostWebContents` _Readonly_
 
-この `WebContents` を所有するかもしれない [`WebContents`](web-contents.md) インスタンス。
+A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
-#### `contents.devToolsWebContents` _読み出し専用_
+#### `contents.devToolsWebContents` _Readonly_
 
-この `WebContents` の開発者向けツールの `WebContents` インスタンス。
+A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
 
-**注釈:** 開発者向けツールが閉じられたときに `null` になる可能性があるので、このオブジェクトは決して格納しないで下さい。
+**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
-#### `contents.debugger` _読み出し専用_
+#### `contents.debugger` _Readonly_
 
-この webContents の [`Debugger`](debugger.md) インスタンス。
+A [`Debugger`](debugger.md) instance for this webContents.
