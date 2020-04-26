@@ -7,7 +7,7 @@
 ### `new TouchBarSpacer(options)` _実験的_
 
 * `options` Object
-  * `size` String (optional) - Size of spacer, possible values are:
-    * `small` - アイテム間の小さいスペース。 Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
-    * `large` - アイテム間の大きいスペース。 Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
-    * `flexible` - 利用可能なスペース全てを埋める。 Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
+  * `size` String (任意) - スペーサのサイズ。以下は設定可能な値です。
+    * `small` - アイテム間の小さいスペース。 `NSTouchBarItemIdentifierFixedSpaceSmall` に対応します。 これが既定値です。
+    * `large` - アイテム間の大きいスペース。 `NSTouchBarItemIdentifierFixedSpaceLarge` に対応します。
+    * `flexible` - 利用可能なスペース全てを埋める。 `NSTouchBarItemIdentifierFlexibleSpace` に対応します。
