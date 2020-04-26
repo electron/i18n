@@ -1,8 +1,8 @@
-# && thuongfa0509@gma& il. com& thuongfa0509@gmail. comv
+# Snapcraft Guide (Ubuntu Software Center & More)
 
 This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
 
-## Background and Requirements
+## Contexto e Requisitos
 
 Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
 
@@ -26,11 +26,11 @@ The module works like [`electron-winstaller`](https://github.com/electron/window
 npm install --save-dev electron-installer-snap
 ```
 
-### Step 1: Package Your Electron Application
+### Etapa 1: Empacotar sua aplicação Electron
 
 Package the application using [electron-packager](https://github.com/electron/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
-The output should look roughly like this:
+A saída deve ser algo mais ou menos assim:
 
 ```plaintext
 .
@@ -44,7 +44,6 @@ The output should look roughly like this:
         ├── libgcrypt.so.11
         ├── libnode.so
         ├── locales
-        ├── natives_blob.bin
         ├── resources
         ├── v8_context_snapshot.bin
         └── version
