@@ -5,7 +5,7 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
 時折、Chromium の変更やその他のビルド要件の変更により、これらのイメージを更新する必要があります。
 
 ユースケースの例:
-    * We need `VS15.9` and we have `VS15.7` installed; this would require us to update an Azure image.
+    * `VS15.9` が必要なのに `VS15.7` がインストールされているので、Azure イメージを更新する必要がある。
 
 1. 修正したいイメージを指定します。
     * [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml) では、イメージは *image* プロパティで識別されます。
@@ -16,11 +16,11 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
 
 2. Azure ストレージアカウントキーを取得します
     * LastPass (Azure Enterprise 傘下) に保存されている資格情報を使用して Azure にログインし、AppVeyor にある名前に対応するストレージアカウントを探します。
-        * 例えば、`appveyorlibccbuilds` という **Disk Storage Account Name** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts
+        * 例えば、`appveyorlibccbuilds` という **ディスクストレージアカウント名** の場合、ストレージアカウントのリスト @ ホーム < ストレージアカウントで `appveyorlibccbuilds` を探します。
             * それをクリックして `アクセスキー` を見つけます。そして、リストにあるキーのうちどれでも使うことができます。
 
 3. Azure からフルの仮想マシンイメージ URI を取得します
-    * Navigate to Home < Storage Accounts < `$ACCT_NAME` < Blobs < Images
+    * ホーム < ストレージアカウント < `$ACCT_NAME` < Blobs < イメージ に移動します。
         * そのリスト内の、Appveyor から入手した VHD パス名を探してクリックします。
             * 出てきたウィンドウ上から URL 全体をコピーします。
 
@@ -49,7 +49,7 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
         * マスター VHD URI - 前のステップの最後で取得した URI を使用します
         * 位置情報は `East US` を使用します
 
-6. Log back into Azure and find the VM you just created in Homee < Virtual Machines < `$YOUR_NEW_VM`
+6. Azure にログインし直して先ほど作成した VM を探します。ホーム < 仮想マシン < `$YOUR_NEW_VM` を見てください。
     * RDP (Remote Desktop) ファイルをダウンロードして VM にアクセスできます。
 
 7. Microsoft リモート デスクトップを使用して、`接続` をクリックして VM に接続します。
