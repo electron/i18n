@@ -1,12 +1,12 @@
 # session
 
-> Session Управление сеансами браузера, куками, кешем, настройками прокси и т. д.
+> Manage browser sessions, cookies, cache, proxy settings, etc.
 
-Процесс: [Главный](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
-Модуль `session` может быть использован для создания новых объектов `Session`.
+The `session` module can be used to create new `Session` objects.
 
-Вы также можете получить доступ к `session` существующих страниц, используя свойство `session` в [`WebContents`](web-contents.md), или из модуля `session`.
+You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -18,37 +18,37 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Методы
+## Metody
 
-Модуль `session` имеет следующие методы:
+The `session` module has the following methods:
 
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
 * `options` Object (optional)
-  * `cache` Boolean - Включен ли кэш.
+  * `cache` Boolean - Whether to enable cache.
 
-Возвращает `Session` - Экземпляр сеанса из строки `partition`. При наличии `Session` с таким же `partition`, он будет возвращен; иначе новый экземпляр `Session` будет создан с `options`.
+Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
-Если `partition` начинается с `persist:`, страница будет использовать постоянный сеанс, который доступен всем страницам в приложении с тем же `partition`. если нет префикса `persist:`, страница будет использовать сеанс в памяти. Если `partition` пуст, то будет возвращен сеанс приложения по умолчанию.
+If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
 
-Чтобы создать `Session` с `options`, вы должны убедиться, что `Session` с `partition` раньше никогда не использовался. Невозможно изменить `options` из существующего `Session` объекта.
+To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
-## Свойства
+## Właściwości
 
-Модуль `session` имеет следующие свойства:
+The `session` module has the following properties:
 
 ### `session.defaultSession`
 
-Объект `Session`, объект сеанса по умолчанию для приложения.
+A `Session` object, the default session object of the app.
 
-## Класс: Session
+## Klasa: Session
 
-> Получает и устанавливает свойства сеанса.
+> Get and set properties of a session.
 
-Процесс: [Главный](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
-Вы можете создать объект `Session` в модуле `session`:
+You can create a `Session` object in the `session` module:
 
 ```javascript
 const { session } = require('electron')
@@ -56,19 +56,21 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### События экземпляра
+### Zdarzenia instancji
 
-Для экземпляров `Session` доступны следующие события:
+The following events are available on instances of `Session`:
 
-#### Событие: 'will-download'
+#### Zdarzenie: 'will-download'
+
+Zwraca:
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-Возникает, когда Electron собирается загрузить `item` в `webContents`.
+Emitted when Electron is about to download `item` in `webContents`.
 
-Вызов `event.preventDefault()` отменит загрузку, и `item` не будет доступен со следующего тика процесса.
+Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
 
 ```javascript
 const { session } = require('electron')
@@ -80,210 +82,151 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Методы экземпляра
+#### Event: 'preconnect'
 
-Для экземпляров `Session` доступны следующие методы:
+Zwraca:
 
-#### `ses.getCacheSize(callback)`
+* `event` Event
+* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
+* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
 
-* `callback` Function
-  * `size` Integer - Cache size used in bytes.
-  * `error` Integer - The error code corresponding to the failure.
+Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
 
-Callback is invoked with the session's current cache size.
+#### Event: 'spellcheck-dictionary-initialized'
 
-**[Скоро устареет](modernization/promisification.md)**
+Zwraca:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
+
+#### Event: 'spellcheck-dictionary-download-begin'
+
+Zwraca:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file starts downloading
+
+#### Event: 'spellcheck-dictionary-download-success'
+
+Zwraca:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully downloaded
+
+#### Event: 'spellcheck-dictionary-download-failure'
+
+Zwraca:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
+
+### Metody instancji
+
+The following methods are available on instances of `Session`:
 
 #### `ses.getCacheSize()`
 
-Возвращает `Promise<Integer>` - текущий размер кэша сеанса, в байтах.
-
-#### `ses.clearCache(callback)`
-
-* `callback` Function - Called when operation is done.
-  * `error` Integer - The error code corresponding to the failure.
-
-Очищает HTTP-кэш сеанса.
-
-**[Скоро устареет](modernization/promisification.md)**
+Returns `Promise<Integer>` - the session's current cache size, in bytes.
 
 #### `ses.clearCache()`
 
-Возвращает `Promise<void>` - Разрешение после завершения операции очистки кэша.
+Returns `Promise<void>` - resolves when the cache clear operation is complete.
 
-Очищает HTTP-кэш сеанса.
-
-#### `ses.clearStorageData([options,] callback)`
-
-* `options` Object (optional)
-  * `origin` String (опционально) - Должен следовать представлению `window.location.origin` `scheme://host:port`.
-  * `storages` String[] (опционально) - типы хранилищ для очистки, могут содержать: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
-  * `quotas` String[] (опционально) - типы квот для очистки, могут содержать: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - Called when operation is done.
-
-Clears the storage data for the current session.
-
-**[Скоро устареет](modernization/promisification.md)**
+Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options])`
 
 * `options` Object (optional)
-  * `origin` String (опционально) - Должен следовать представлению `window.location.origin` `scheme://host:port`.
-  * `storages` String[] (опционально) - типы хранилищ для очистки, могут содержать: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
-  * `quotas` String[] (опционально) - типы квот для очистки, могут содержать: `temporary`, `persistent`, `syncable`.
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. If not specified, clear all storage types.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`. If not specified, clear all quotas.
 
-Возвращает `Promise<void>` - Разрешение после завершения очистки данных хранилища.
+Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
-Записывает непрочитанные DOMStorage данные на диск.
-
-#### `ses.setProxy(config, callback)`
-
-* `config` Object
-  * `pacScript` String - URL- адрес, связанный с PAC-файлом.
-  * `proxyRules` String - Правила, указывающие какие прокси использовать.
-  * `proxyBypassRules` String - Правила, указывающие, какие URL должны обходить настройки прокси.
-* `callback` Function - Called when operation is done.
-
-Установка настроек прокси.
-
-При совместном использовании `pacScript` и `proxyRules` опция `proxyRules` игнорируется, и применяется конфигурация `pacScript`.
-
-`proxyRules` должен следовать следующим правилам:
-
-```sh
-proxyRules = schemeProxies[";"<;0>]
-schemeProxies = [<;1>"="]<;2>
-urlScheme = "http" | "https" | "ftp" | "socks"
-proxyURIList = <;3>[","<;2>]
-proxyURL = [<;4>"://"]<;5>[":"<;6>]
-```
-
-Например:
-
-* `http=foopy:80;ftp=foopy2` - Использовать HTTP прокси `foopy:80` для URL `http://`, и HTTP прокси `foopy2:80` для URL `ftp://`.
-* `foopy:80` - Использовать HTTP прокси `foopy:80` для всех URL.
-* `foopy:80,bar,direct://` - Использовать HTTP прокси `foopy:80` для всех URL-адресов, переключение на `bar`, если `foopy:80` недоступен, и после этого прокси не использовать.
-* `socks4://foopy` - Использовать SOCKS v4 прокси `foopy:1080` для всех URL.
-* `http=foopy,socks5://bar.com` - Использовать HTTP прокси `foopy` для http URL-адресов и и переключиться на прокси SOCKS5 `bar.com`, если `foopy` недоступен.
-* `http=foopy,direct://` - Использовать HTTP прокси `foopy` для http URL-адресов и не использовать прокси, если `foopy` недоступен.
-* `http=foopy;socks=foopy2` - Использовать HTTP прокси `foopy` для http URL-адресов и использовать `socks4://foopy2` для всех других URL.
-
-`proxyBypassRules` - это список правил, разделенных запятыми:
-
-* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <;0> ]`
-
-   Сопоставьте все имена хостов, которые соответствуют шаблону HOSTNAME_PATTERN.
-
-   Например:    "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
-
- * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
-
-   Соответствует суффиксу конкретного домена.
-
-   Например: ".google.com", ".com", "http://.google.com"
-
-* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
-
-   Сравнивать URL, которые являются знаками IP-адресов.
-
-   Например: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
-
-* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
-
-   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
-
-   Например: "192.168.1.1/16", "fefe:13::abc/33".
-
-* `<local>`
-
-   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
-
-**[Скоро устареет](modernization/promisification.md)**
+Writes any unwritten DOMStorage data to disk.
 
 #### `ses.setProxy(config)`
 
 * `config` Object
-  * `pacScript` String - URL- адрес, связанный с PAC-файлом.
-  * `proxyRules` String - Правила, указывающие какие прокси использовать.
-  * `proxyBypassRules` String - Правила, указывающие, какие URL должны обходить настройки прокси.
+  * `pacScript` String (optional) - The URL associated with the PAC file.
+  * `proxyRules` String (optional) - Rules indicating which proxies to use.
+  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
 
-Возвращает `Promise<void>` - Разрешение после завершения процесса настройки прокси.
+Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
-Установка настроек прокси.
+Sets the proxy settings.
 
-При совместном использовании `pacScript` и `proxyRules` опция `proxyRules` игнорируется, и применяется конфигурация `pacScript`.
+When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
-`proxyRules` должен следовать следующим правилам:
+The `proxyRules` has to follow the rules below:
 
 ```sh
-proxyRules = schemeProxies[";"<;0>]
-schemeProxies = [<;1>"="]<;2>
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
 urlScheme = "http" | "https" | "ftp" | "socks"
-proxyURIList = <;3>[","<;2>]
-proxyURL = [<;4>"://"]<;5>[":"<;6>]
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 ```
 
-Например:
+Na przykład:
 
-* `http=foopy:80;ftp=foopy2` - Использовать HTTP прокси `foopy:80` для URL `http://`, и HTTP прокси `foopy2:80` для URL `ftp://`.
-* `foopy:80` - Использовать HTTP прокси `foopy:80` для всех URL.
-* `foopy:80,bar,direct://` - Использовать HTTP прокси `foopy:80` для всех URL-адресов, переключение на `bar`, если `foopy:80` недоступен, и после этого прокси не использовать.
-* `socks4://foopy` - Использовать SOCKS v4 прокси `foopy:1080` для всех URL.
-* `http=foopy,socks5://bar.com` - Использовать HTTP прокси `foopy` для http URL-адресов и и переключиться на прокси SOCKS5 `bar.com`, если `foopy` недоступен.
-* `http=foopy,direct://` - Использовать HTTP прокси `foopy` для http URL-адресов и не использовать прокси, если `foopy` недоступен.
-* `http=foopy;socks=foopy2` - Использовать HTTP прокси `foopy` для http URL-адресов и использовать `socks4://foopy2` для всех других URL.
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
+* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
+* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-`proxyBypassRules` - это список правил, разделенных запятыми:
+The `proxyBypassRules` is a comma separated list of rules described below:
 
-* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <;0> ]`
+* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
 
-   Сопоставьте все имена хостов, которые соответствуют шаблону HOSTNAME_PATTERN.
+   Match all hostnames that match the pattern HOSTNAME_PATTERN.
 
-   Например:    "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
-   Соответствует суффиксу конкретного домена.
+   Match a particular domain suffix.
 
-   Например: ".google.com", ".com", "http://.google.com"
+   Examples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
 
-   Сравнивать URL, которые являются знаками IP-адресов.
+   Match URLs which are IP address literals.
 
-   Например: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+   Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
 
    Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
 
-   Например: "192.168.1.1/16", "fefe:13::abc/33".
+   Examples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
 
    Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
-
-#### `ses.resolveProxy(url, callback)`
-
-* `url` URL
-* `callback` Function
-  * `proxy` String
-
-Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
-
-**[Скоро устареет](modernization/promisification.md)**
 
 #### `ses.resolveProxy(url)`
 
 * `url` URL
 
-Возвращает `Promise<string>` - Разрешение с информацией прокси для `url`.
+Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - Место загрузки.
+* `path` String - The download location.
 
 Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
@@ -295,19 +238,27 @@ Sets download saving directory. By default, the download directory will be the `
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
-Эмулирует сеть с заданной конфигурацией для `session`.
+Emulates network with the given configuration for the `session`.
 
 ```javascript
-// Для эмулирования GPRS соединения с пропускной способностью 50кбит/с и задержкой 500 мс.
+// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
 })
 
-// Для эмулирования отключения или отказа сети.
+//W celu symulacji awarii sieci.
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
+
+#### `ses.preconnect(options)`
+
+* `options` Object
+  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Domyślnie dla 1.
+
+Preconnects the given number of sockets to an origin.
 
 #### `ses.disableNetworkEmulation()`
 
@@ -315,21 +266,22 @@ Disables any network emulation already active for the `session`. Resets to the o
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function
-  * `request` Object
+* `proc` Function | null
+  * Obiekt `request`
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Результат проверки из хрома.
-    * `errorCode` Integer - Код ошибки.
+    * `validatedCertificate` [Certificate](structures/certificate.md)
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `callback` Function
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
-      * `0` - Указывает на успех и отключает проверку прозрачности сертификата.
-      * `-2` - указывает на сбой.
-      * `-3` - Использует результат проверки из хрома.
+      * `0` - Indicates success and disables Certificate Transparency verification.
+      * `-2` - Indicates failure.
+      * `-3` - Uses the verification result from chromium.
 
-Устанавливает значение проверки сертификата для `session`, `proc` будет вызываться с `proc(request, callback)` всякий раз, когда запрашивается сертификат сервера. Вызов `callback(0)` принимает сертификат, вызов `callback(-2)` отклоняет его.
+Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
-Вызов `setCertificateVerifyProc (null)` приведет к возврату к процедуре проверки сертификата по умолчанию.
+Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -353,8 +305,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Function
     * `permissionGranted` Boolean - Allow or deny the permission.
   * `details` Object - Some properties are only available on certain permission types.
-    * `externalURL` String (Optional) - The url of the `openExternal` request.
-    * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `externalURL` String (optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
     * `requestingUrl` String - The last URL the requesting frame loaded
     * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
@@ -373,7 +325,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* Funkcja `handler`<Boolean> | null
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
@@ -395,14 +347,6 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
   return true
 })
 ```
-
-#### `ses.clearHostResolverCache(callback)`
-
-* `callback` Function (optional) - Called when operation is done.
-
-Clears the host resolver cache.
-
-**[Скоро устареет](modernization/promisification.md)**
 
 #### `ses.clearHostResolverCache()`
 
@@ -441,19 +385,19 @@ This doesn't affect existing `WebContents`, and each `WebContents` can use `webC
 
 Returns `String` - The user agent for this session.
 
-#### `ses.getBlobData(identifier, callback)`
-
-* `identifier` String - Valid UUID.
-* `callback` Function
-  * `result` Buffer - Blob data.
-
-**[Скоро устареет](modernization/promisification.md)**
-
 #### `ses.getBlobData(identifier)`
 
 * `identifier` String - Valid UUID.
 
 Returns `Promise<Buffer>` - resolves with blob data.
+
+#### `ses.downloadURL(url)`
+
+* `url` String
+
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+
+**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
 
 #### `ses.createInterruptedDownload(options)`
 
@@ -463,28 +407,15 @@ Returns `Promise<Buffer>` - resolves with blob data.
   * `mimeType` String (optional)
   * `offset` Integer - Start range for the download.
   * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
+  * `lastModified` String (optional) - Last-Modified header value.
+  * `eTag` String (optional) - ETag header value.
   * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
 Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache(options, callback)`
+#### `ses.clearAuthCache(options)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function - Called when operation is done.
-
-Clears the session’s HTTP authentication cache.
-
-**[Скоро устареет](modernization/promisification.md)**
-
-#### `ses.clearAuthCache(options)` _(deprecated)_
-
-* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
-
-#### `ses.clearAuthCache()`
 
 Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
@@ -498,45 +429,146 @@ Adds scripts that will be executed on ALL web contents that are associated with 
 
 Returns `String[]` an array of paths to preload scripts that have been registered.
 
-### Instance Properties
+#### `ses.setSpellCheckerLanguages(languages)`
+
+* `languages` String[] - An array of language codes to enable the spellchecker for.
+
+The built in spellchecker does not automatically detect what language a user is typing in.  In order for the spell checker to correctly check their words you must call this API with an array of language codes.  You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
+
+#### `ses.getSpellCheckerLanguages()`
+
+Returns `String[]` - An array of language codes the spellchecker is enabled for.  If this list is empty the spellchecker will fallback to using `en-US`.  By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale.  This setting is persisted across restarts.
+
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages.  This API is a no-op on macOS.
+
+#### `ses.setSpellCheckerDictionaryDownloadURL(url)`
+
+* `url` String - A base URL for Electron to download hunspell dictionaries from.
+
+By default Electron will download hunspell dictionaries from the Chromium CDN.  If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries.  We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
+
+If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`.  Please note the trailing slash.  The URL to the dictionaries is formed as `${url}${filename}`.
+
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
+
+#### `ses.listWordsInSpellCheckerDictionary()`
+
+Returns `Promise<String[]>` - An array of all words in app's custom dictionary. Resolves when the full dictionary is loaded from disk.
+
+#### `ses.addWordToSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to add to the dictionary
+
+Returns `Boolean` - Whether the word was successfully written to the custom dictionary. This API will not work on non-persistent (in-memory) sessions.
+
+**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+
+#### `ses.removeWordFromSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to remove from the dictionary
+
+Returns `Boolean` - Whether the word was successfully removed from the custom dictionary. This API will not work on non-persistent (in-memory) sessions.
+
+**Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well
+
+#### `ses.loadExtension(path)`
+
+* `path` String - Path to a directory containing an unpacked Chrome extension
+
+Returns `Promise<Extension>` - resolves when the extension is loaded.
+
+This method will raise an exception if the extension could not be loaded. If there are warnings when installing the extension (e.g. if the extension requests an API that Electron does not support) then they will be logged to the console.
+
+Note that Electron does not support the full range of Chrome extensions APIs.
+
+Note that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
+
+```js
+const { app, session } = require('electron')
+const path = require('path')
+
+app.on('ready', async () => {
+  await session.defaultSession.loadExtension(path.join(__dirname, 'react-devtools'))
+  // Note that in order to use the React DevTools extension, you'll need to
+  // download and unzip a copy of the extension.
+})
+```
+
+This API does not support loading packed (.crx) extensions.
+
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+
+#### `ses.removeExtension(extensionId)`
+
+* `extensionId` String - ID of extension to remove
+
+Unloads an extension.
+
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+
+#### `ses.getExtension(extensionId)`
+
+* `extensionId` String - ID of extension to query
+
+Returns `Extension` | `null` - The loaded extension with the given ID.
+
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+
+#### `ses.getAllExtensions()`
+
+Returns `Extension[]` - A list of all loaded extensions.
+
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+
+### Właściwości instancji
 
 The following properties are available on instances of `Session`:
 
-#### `ses.cookies`
+#### `ses.availableSpellCheckerLanguages` _Readonly_
 
-A [Cookies](cookies.md) object for this session.
+A `String[]` array which consists of all the known available spell checker languages.  Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
-#### `ses.webRequest`
+#### `ses.cookies` _Readonly_
 
-A [WebRequest](web-request.md) object for this session.
+A [`Cookies`](cookies.md) object for this session.
 
-#### `ses.protocol`
+#### `ses.serviceWorkers` _Readonly_
 
-A [Protocol](protocol.md) object for this session.
+A [`ServiceWorkers`](service-workers.md) object for this session.
+
+#### `ses.webRequest` _Readonly_
+
+A [`WebRequest`](web-request.md) object for this session.
+
+#### `ses.protocol` _Readonly_
+
+A [`Protocol`](protocol.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
 const path = require('path')
 
-app.on('ready', function () {
+app.whenReady().then(() => {
   const protocol = session.fromPartition('some-partition').protocol
-  protocol.registerFileProtocol('atom', function (request, callback) {
-    var url = request.url.substr(7)
+  protocol.registerFileProtocol('atom', (request, callback) => {
+    let url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
-  }, function (error) {
+  }, (error) => {
     if (error) console.error('Failed to register protocol')
   })
 })
 ```
 
-#### `ses.netLog`
+#### `ses.netLog` _Readonly_
 
-A [NetLog](net-log.md) object for this session.
+A [`NetLog`](net-log.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
 
-app.on('ready', async function () {
+app.whenReady().then(async () => {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
   // After some network events
