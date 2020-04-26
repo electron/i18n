@@ -1,6 +1,6 @@
-# Phiên bản Electron
+# Wersjonowanie Electrona
 
-> Chi tiết về cách đặt phiên bản Electron.
+> Szczegółowe spojrzenie na nasze zasady dotyczące wersjonowania i wdrażania.
 
 As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
 
@@ -8,13 +8,13 @@ As of version 2.0.0, Electron follows [semver](#semver). The following command w
 npm install --save-dev electron
 ```
 
-Để nâng cấp dự án lên phiên bản ổn định mới nhất:
+To update an existing project to use the latest stable version:
 
 ```sh
 npm install --save-dev electron@latest
 ```
 
-## Phiên bản 1.x
+## Wersja 1.x
 
 Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
@@ -51,7 +51,7 @@ Below is a table explicitly mapping types of changes to their corresponding cate
 
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
-# Ổn định branches
+# Stabilizacja gałęzi
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
@@ -63,7 +63,7 @@ We allow for multiple stabilization branches to exist simultaneously, and intend
 
 Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
 
-# Bản dùng thử và xử lý Bug
+# Wersje beta i poprawki błędów
 
 Developers want to know which releases are _safe_ to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
 
@@ -80,7 +80,7 @@ The process is as follows:
     1. The change is backwards API-compatible (deprecations are allowed)
     2. The risk to meeting our stability timeline must be low.
 2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
-3. If a particular beta release is _generally regarded_ as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
+3. If a particular beta release is _generally regarded_ as stable, it will be re-released as a stable build, changing only the version information. np. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the _patch_ version is incremented e.g. `2.0.1`.
 
 Specifically, the above means:
