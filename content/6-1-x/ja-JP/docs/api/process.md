@@ -53,7 +53,7 @@ process.once('loaded', () => {
 
 ### `process.defaultApp`
 
-`Boolean`。 When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+`Boolean`。 デフォルトアプリに、引数として渡されてアプリが起動されると、このプロパティはメインプロセス内で `true` になります。それ以外では `undefined` です。
 
 ### `process.isMainFrame`
 
