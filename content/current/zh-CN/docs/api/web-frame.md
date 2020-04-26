@@ -19,9 +19,11 @@ The `WebFrame` class has the following instance methods:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - 缩放比例
+* `factor` Double - Zoom factor; default is 1.0.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+
+The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 
@@ -49,23 +51,35 @@ Returns `Number` - The current zoom level.
 > `js
   webFrame.setVisualZoomLevelLimits(1, 3)`
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
 设置最大和最小基于布局(例如非图像)的缩放级别。
 
+**Deprecated:** This API is no longer supported by Chromium.
+
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `language` String
 * `provider` Object
-  * `spellCheck` Function.
+  * `spellCheck` Function
     * `words` String[]
     * `callback` Function
       * `misspeltWords` String[]
 
 Sets a provider for spell checking in input fields and text areas.
+
+If you want to use this method you must disable the builtin spellchecker when you construct the window.
+
+```js
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    spellcheck: false
+  }
+})
+```
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
@@ -89,28 +103,21 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `css` String - CSS source code.
 
-Inserts `css` as a style sheet in the document.
+Returns `String` - A key for the inserted CSS that can later be used to remove the CSS via `webFrame.removeInsertedCSS(key)`.
+
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+
+### `webFrame.removeInsertedCSS(key)`
+
+* `key` String
+
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(text)`
 
 * `text` String
 
 插入`text` 到焦点元素
-
-### `webFrame.executeJavaScript(code[, userGesture, callback])`
-
-* `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed.
-  * `result` Any
-
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
-
-在页面中执行 `code`。
-
-在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
-
-**[即将弃用](modernization/promisification.md)**
 
 ### `webFrame.executeJavaScript(code[, userGesture])`
 
@@ -123,20 +130,6 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
 
-### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
-
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
-* `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed.
-  * `result` Any
-
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
-
-Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
-
-**[即将弃用](modernization/promisification.md)**
-
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature.  You can provide any integer here.
@@ -146,27 +139,6 @@ Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
-
-### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` _(Deprecated)_
-
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
-* `csp` String
-
-Set the content security policy of the isolated world.
-
-### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` _(Deprecated)_
-
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
-* `name` 字符串
-
-Set the name of the isolated world. Useful in devtools.
-
-### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` _(Deprecated)_
-
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
-* `securityOrigin` String
-
-Set the security origin of the isolated world.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
@@ -237,26 +209,26 @@ Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
 ## 属性
 
-### `webFrame.top`
+### `webFrame.top` _Readonly_
 
-A `WebFrame` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
+A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
 
-### `webFrame.opener`
+### `webFrame.opener` _Readonly_
 
-A `WebFrame` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
+A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
 
-### `webFrame.parent`
+### `webFrame.parent` _Readonly_
 
-A `WebFrame` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
+A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
 
-### `webFrame.firstChild`
+### `webFrame.firstChild` _Readonly_
 
-A `WebFrame` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
+A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
 
-### `webFrame.nextSibling`
+### `webFrame.nextSibling` _Readonly_
 
-A `WebFrame` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
+A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
 
-### `webFrame.routingId`
+### `webFrame.routingId` _Readonly_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
