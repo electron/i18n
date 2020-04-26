@@ -8,29 +8,29 @@ date: '2015-06-04'
 
 ---
 
-You can visit [/docs](https://electronjs.org/docs) to see what versions are available or [/docs/all](https://electronjs.org/docs/all) to see the latest version of docs all on one page (nice for `cmd` + `f` searches).
+[/docs](https://electronjs.org/docs) で利用可能なバージョンを確認するか、 [/docs/all](https://electronjs.org/docs/all) で最新バージョンのドキュメントを 1 ページに表示できます ( `cmd` + `f` 検索しやすい) 。
 
-If you'd like to contribute to the docs content, you can do so in the [Electron repository](https://github.com/electron/electron/tree/master/docs), where the docs are fetched from. We fetch them for each minor release and add them to the [Electron site repository](http://github.com/electron/electronjs.org), which is made with [Jekyll](http://jekyllrb.com).
+あなたがドキュメントの内容に貢献したい場合、ドキュメントの取得元である [Electron リポジトリ](https://github.com/electron/electron/tree/master/docs) で行えます。 マイナーリリースのたびに取得して [Jekyll](http://jekyllrb.com) で作られた [Electron サイトリポジトリ](http://github.com/electron/electronjs.org) へ追加します。
 
-If you're interested in learning more about how we pull the docs from one repository to another continue reading below. Otherwise, enjoy the [docs](https://electronjs.org/latest)!
+どのようにリポジトリから他のリポジトリへドキュメントを移動しているかについて興味があれば、続きを読んでください。 そうでない場合は、 [ドキュメント](https://electronjs.org/latest) をお楽しみください!
 
-## The Technical Bits
+## 技術的な小話
 
-We're preserving the documentation within the Electron core repository as is. This means that [electron/electron](http://github.com/electron/electron) will always have the latest version of the docs. When new versions of Electron are released, we duplicate them over on the Electron website repository, [electron/electronjs.org](http://github.com/electron/electronjs.org).
+私たちは Electron コアリポジトリ内のドキュメントをそのまま保存しています。 これは [electron/electron](http://github.com/electron/electron) が常に最新版のドキュメントを持つことを意味します。 新しいバージョンの Electron がリリースされるとき、 Electron Web サイトリポジトリ [electron/electronjs.org](http://github.com/electron/electronjs.org) へ複製します。
 
 ### script/docs
 
-To fetch the docs we run a [script](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/script/docs) with a command line interface of `script/docs vX.XX.X` with or without the `--latest` option (depending on if the version you're importing is the latest version). Our [script for fetching docs](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js) uses a few interesting Node modules:
+ドキュメントを取得するために、 [スクリプト](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/script/docs) を、 `script/docs vX.XX.X` のコマンドラインインターフェースで、 `--latest` オプション付き及び無しで (取得しようとしているバージョンが最新かどうかによる) 実行します。 私たちの [ドキュメントを取得するスクリプト](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js) はいくつかのおもしろい Node モジュールを使用します:
 
-- [`nugget`](http://npmjs.com/nugget) for [getting the release tarball](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L40-L43) and saving it to a temporay directory.
-- [`gunzip-maybe`](http://npmsjs.com/gunzip-maybe) to [unzip the tarball](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L95).
-- [`tar-fs`](http://npmjs.com/tar-fs) for [streaming just the `/docs` directory](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L63-L65) from the tarball and [filtering and processing the files](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L68-L78) (with the help of [`through2`](http://npmjs.com/through2)) so that they work nicely with our Jekyll site (more on that below).
+- [リリースの tarball を取得](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L40-L43) して一時ディレクトリへ保存するための [`nugget`](http://npmjs.com/nugget) 。
+- [tarball を展開](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L95) するための [`gunzip-maybe`](http://npmsjs.com/gunzip-maybe) 。
+- 私たちの Jekyll サイトで動作するよう、 tarball から [`/docs` ディレクトリを ストリーミング](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L63-L65) して ( [`through2`](http://npmjs.com/through2) の助けを借りずに) [ファイルを絞り込み・処理](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L68-L78) するための [`tar-fs`](http://npmjs.com/tar-fs) (詳細は下にあります) 。
 
-[Tests](https://github.com/electron/electronjs.org/tree/gh-pages/spec) help us know that all the bits and pieces landed as expected.
+すべて正常に行われたかどうかを [テスト](https://github.com/electron/electronjs.org/tree/gh-pages/spec) が私たちに教えてくれます。
 
 ### Jekyll
 
-The Electron website is a Jekyll site and we make use of the [Collections](http://jekyllrb.com/docs/collections/) feature for the docs with a structure like this:
+Electron の Web サイトは Jekyll サイトであり、以下のような構成のドキュメントに [Collections](http://jekyllrb.com/docs/collections/) 機能を使っています:
 
 ```bash
 electron.atom.io
@@ -38,34 +38,34 @@ electron.atom.io
     ├── latest
     ├── v0.27.0
     ├── v0.26.0
-    ├── so on
-    └── so forth
+    ├── 続く
+    └── さらに続く
 ```
 
 #### フロントマター
 
-For Jekyll to render each page it needs at least empty front matter. We're going to make use of front matter on all of our pages so while we're streaming out the `/docs` directory we check to see if a file is the `README.md` file (in which case it receives one front matter configuration) or if it is any other file with a markdown extension (in which case it receives slightly different front matter).
+Jekyll が各ページをレンダリングするには、少なくとも空のフロントマターが必要です。 すべてのページでフロントマターを利用するため、 `/docs` ディレクトリからストリーミングしている間、ファイルが `README.md` ファイルである (この場合は特定のフロントマター構成を取得します) か、 Markdown の拡張子を持つ他のファイルである (この場合は少し異なるフロントマターを取得します) かを確認します。
 
-Each page receives this set of front matter variables:
+各ページは、次のようなフロントマター変数を取得します:
 
 ```yaml
 ---
 version: v0.27.0
 category: Tutorial
-title: 'Quick Start'
+title: 'クイックスタート'
 source_url: 'https://github.com/electron/electron/blob/master/docs/tutorial/quick-start.md'
 ---
 ```
 
-The `README.md` gets an additional `permalink` so that has a URL has a common root of `index.html` rather than an awkward `/readme/`.
+`README.md</0> では、 <code>/readme/` とせずに、 `index.html</0> の共通なルートを持つ URL を追加の <code>permalink` として設定します。
 
 ```yaml
 permalink: /docs/v0.27.0/index.html
 ```
 
-#### Config and Redirects
+#### 構成とリダイレクト
 
-In the site's `_config.yml` file a variable `latest_version` is set every time the `--latest` flag is used when fetching docs. We also add a list of all the versions that have been added to the site as well as the permalink we'd like for the entire docs collection.
+サイトの `_config.yml` 内の `latest_version` 変数は、ドキュメントの取得時に `--latest` フラグが使われるたびに設定されます。 また、サイトに追加されたすべてのバージョンのリストと、ドキュメントコレクション全体に必要なパーマリンクも追加します。
 
 ```yaml
 latest_version: v0.27.0
@@ -75,7 +75,7 @@ collections:
     docs: {output: true, permalink: '/docs/:path/'}
 ```
 
-The file `latest.md` in our site root is empty except for this front matter which allows users to see the index (aka `README`) of the latest version of docs by visiting this URL, [electron.atom.io/docs/latest](https://electronjs.org/docs/latest), rather than using the latest version number specifically (though you can do that, too).
+サイトのルートにある `latest.md` はこのフロントマターを除いて空です。これによって、ユーザはバージョンを指定することなく、ドキュメントの最新バージョンのインデックス (`README` とも言う) を この URL: [electron.atom.io/docs/latest](https://electronjs.org/docs/latest) から参照することができます (バージョンを指定することもできます) 。
 
 ```yaml
 ---
@@ -84,9 +84,9 @@ redirect_to: /docs/{{ site.data.releases[0].version }}
 ---
 ```
 
-#### Layouts
+#### レイアウト
 
-In the `docs.html` layout template we use conditionals to either show or hide information in the header and breadcrumb.
+`docs.html` のレイアウトテンプレートでは、条件によって情報をヘッダやパンくずリストに表示または非表示しています。
 
 ```html
 {% raw %}
@@ -97,7 +97,7 @@ In the `docs.html` layout template we use conditionals to either show or hide in
 {% endraw %}
 ```
 
-To create a page showing the versions that are available we just loop through the list in our config on a file, `versions.md`, in the site's root. Also we give this page a permalink: `/docs/`
+利用可能なバージョンを示すページを作成するために、サイトのルートにある `versions.md` に記されたリストをループします。 また、このページに `/docs/` のパーマリンクを与えます。
 
 ```html
 {% raw %}
@@ -107,5 +107,5 @@ To create a page showing the versions that are available we just loop through th
 {% endraw %}
 ```
 
-Hope you enjoyed these technical bits! If you're interested in more information on using Jekyll for documentation sites, checkout how GitHub's docs team publishes [GitHub's docs on Jekyll](https://github.com/blog/1939-how-github-uses-github-to-document-github).
+これらの技術的な小話を楽しんでいただけたことを願います! ドキュメントサイトで Jekyll を使用することについての詳しい情報に興味がありましたら、 GitHub ドキュメントチームがどのように公開しているか [GitHub's docs on Jekyll](https://github.com/blog/1939-how-github-uses-github-to-document-github) をご覧ください。
 
