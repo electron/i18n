@@ -1,10 +1,10 @@
 # screen
 
-> Предоставляет информацию о размере экрана, дисплеях, позиции курсора.
+> 取得螢幕大小、顯示器、游標位置等的資訊。
 
-Процесс: [Главный](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
-Этот модуль нельзя использовать до тех пор, пока событие `ready` в `app` не будет готово к использованию.
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -16,21 +16,21 @@ An example of creating a window that fills the whole screen:
 const { app, BrowserWindow, screen } = require('electron')
 
 let win
-app.whenReady().then(() => {
+app.on('ready', () => {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize
   win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
 })
 ```
 
-Другой пример создания окна на внешнем дисплее:
+Another example of creating a window in the external display:
 
 ```javascript
 const { app, BrowserWindow, screen } = require('electron')
 
 let win
 
-app.whenReady().then(() => {
+app.on('ready', () => {
   let displays = screen.getAllDisplays()
   let externalDisplay = displays.find((display) => {
     return display.bounds.x !== 0 || display.bounds.y !== 0
@@ -46,98 +46,98 @@ app.whenReady().then(() => {
 })
 ```
 
-## События
+## 事件
 
-Объект `screen` имеет следующие события:
+The `screen` module emits the following events:
 
-### Событие: 'display-added'
+### 事件: 'display-added'
 
-Возвращает:
+回傳:
 
-* Событие типа `event`
+* `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Возникает при добавлении `newDisplay`.
+Emitted when `newDisplay` has been added.
 
-### Событие: 'display-removed'
+### 事件: 'display-removed'
 
-Возвращает:
+回傳:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Возникает при удалении `oldDisplay`.
+Emitted when `oldDisplay` has been removed.
 
-### Событие: 'display-metrics-changed'
+### 事件: 'display-metrics-changed'
 
-Возвращает:
+回傳:
 
 * `event` Event
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Возникает при изменении одной или нескольких метрик в `display`. `changedMetrics` является массивом строк, описывающих изменения. Возможные изменения `bounds`, `workArea`, `scaleFactor` и `rotation`.
+Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
-## Методы
+## 方法
 
-Модуль `screen` имеет следующие методы:
+The `screen` module has the following methods:
 
 ### `screen.getCursorScreenPoint()`
 
-Возвращает [`Point`](structures/point.md)
+回傳 [`Point`](structures/point.md)
 
-Текущее абсолютное положение указателя мыши.
+The current absolute position of the mouse pointer.
 
 ### `screen.getPrimaryDisplay()`
 
-Возвращает [`Display`](structures/display.md) - Основной дисплей.
+Returns [`Display`](structures/display.md) - The primary display.
 
 ### `screen.getAllDisplays()`
 
-Возвращает [`Display[]`](structures/display.md) - Массив доступных в настоящее время дисплеев.
+Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Возвращает [`Display`](structures/display.md) - Дисплей, ближайший к указанной точке.
+Returns [`Display`](structures/display.md) - The display nearest the specified point.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Возвращает [`Display`](structures/display.md) - Дисплей, который наиболее близко пересекает заданные границы.
+Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
 
 ### `screen.screenToDipPoint(point)` _Windows_
 
 * `point` [Point](structures/point.md)
 
-Возвращает [`Point`](structures/point.md)
+回傳 [`Point`](structures/point.md)
 
-Преобразует физическую точку экрана в точку DIP экрана. Масштаб DPI выполняется относительно отображения, содержащего физическую точку.
+Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
 ### `screen.dipToScreenPoint(point)` _Windows_
 
 * `point` [Point](structures/point.md)
 
-Возвращает [`Point`](structures/point.md)
+回傳 [`Point`](structures/point.md)
 
-Преобразует точку DIP экрана в физическую точку экрана. Масштаб DPI выполняется относительно отображения, содержащего точку DIP.
+Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
 ### `screen.screenToDipRect(window, rect)` _Windows_
 
 * `window` [BrowserWindow](browser-window.md) | null
 * `rect` [Rectangle](structures/rectangle.md)
 
-Возвращает [`Rectangle`](structures/rectangle.md)
+回傳 [`Rectangle`](structures/rectangle.md)
 
-Преобразует физический прямоугольник экрана в DIP-прямоугольник экрана. Шкала DPI выполняется относительно дисплея, ближайшего к `window`. Если `window` равен нулю, то масштабирование будет производиться до ближайшего к `rect`.
+Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
 
 ### `screen.dipToScreenRect(window, rect)` _Windows_
 
 * `window` [BrowserWindow](browser-window.md) | null
 * `rect` [Rectangle](structures/rectangle.md)
 
-Возвращает [`Rectangle`](structures/rectangle.md)
+回傳 [`Rectangle`](structures/rectangle.md)
 
-Преобразовывает DIP-прямоуголник экрана в физический прямоугольник экрана. Шкала DPI выполняется относительно дисплея, ближайшего к `window`. Если `window` равен нулю, то масштабирование будет производиться до ближайшего к `rect`.
+Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
