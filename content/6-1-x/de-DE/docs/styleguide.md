@@ -13,27 +13,27 @@ Dies sind die Richtlinien für das Schreiben von Dokumentation zu Elektron.
 Am Beispiel von `Schnellstart`:
 
 ```markdown
-# Quick Start
+# Schnellstart
 
 ...
 
-## Main process
+## Main-Prozess
 
 ...
 
-## Renderer process
+## Renderer-Prozess
 
 ...
 
-## Run your app
+## Ihre App ausführen
 
 ...
 
-### Run as a distribution
+### Als Distribution ausführen
 
 ...
 
-### Manually downloaded Electron binary
+### Electron-Binärdatei manuell herunterladen
 
 ...
 ```
@@ -49,8 +49,8 @@ Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 
 ## Wörter auswählen
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Verwende "wird" anstatt "würde" für die Beschreibung von Ergebnissen.
+* Bevorzugen Sie "im ___ Prozess" gegenüber "bei".
 
 ## API Referenzen
 
@@ -58,21 +58,21 @@ Die folgenden Regeln gelten nur für Dokumentationen der APIs.
 
 ### Seitentitel
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Jede Seite muss den tatsächlichen Objektnamen verwenden, den `require('electron')` als Titel zurück gibt, wie `BrowserWindow`, `autoUpdater`, und `session`.
 
-Under the page title must be a one-line description starting with `>`.
+Unter dem Seitentitel muss eine einzeilige Beschreibung sein, beginnend mit `>`.
 
-Using `session` as example:
+Am Beispiel von `session`:
 
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Verwalte Browser-Sitzungen, Cookies, Cache, Proxy-Einstellungen, etc.
 ```
 
 ### Methoden und Events von Modulen
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Für Module, die keine Klassen sind, müssen deren Methoden und Events unter `## Methods` und `## Events` aufgelistet werden.
 
 Verwende `AutoUpdater` als Beispiel:
 
@@ -83,20 +83,20 @@ Verwende `AutoUpdater` als Beispiel:
 
 ### Event: 'error'
 
-## Methods
+## Methoden
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
 ### Klassen
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
+* API-Klassen oder Klassen, die Teil von Modulen sind, müssen unter dem Kapitel `## Klassen: Klassenname` aufgeführt werden.
+* Eine Seite kann mehrere Klassen haben.
 * Konstruktoren müssen mit `###` Level-Titeln aufgelistet werden.
 * [Statische Methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) müssen unter einem Kapitel `### Statische Methoden` aufgelistet werden.
 * [Instanz-Methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) müssen unter einem `### Instanz-Methoden` Kapitel aufgelistet werden.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
+* Alle Methoden, die einen Rückgabewert haben, müssen ihre Beschreibung mit "Returns `[TYPE]`" beginnen
+  * Wenn die Methode ein `Objekt` zurückgibt, kann dessen Struktur angegeben werden mit einem Doppelpunkt gefolgt von einem Zeilenumbruch, dann einer ungeordneten Liste der Eigenschaften im gleichen Stil wie die Funktionsparameter.
 * Instance Events must be listed under an `### Instance Events` chapter.
 * Instance Properties must be listed under an `### Instance Properties` chapter.
   * Instance properties must start with "A [Property Type] ..."
