@@ -1,14 +1,11 @@
-# Objek JumpListCategory
+# Objeto JumpListCategory
 
 * `type` String (optional) - One of the following:
-  * `tasks` - Items in this category will be placed into the standard `Tasks` category. Hanya ada satu kategori seperti itu, dan itu akan selalu ditampilkan di bagian bawah Daftar Langsung.
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
-  * ` recent </ 0> - Menampilkan daftar file yang baru dibuka oleh aplikasi, nama kategori dan itemnya ditetapkan oleh Windows . Item dapat ditambahkan ke kategori ini secara tidak langsung menggunakan <code> app.addRecentDocument (path) </ 0> .</li>
-<li><code> custom </ 0> - Menampilkan daftar tugas atau file, <code> nama </ 0> harus ditetapkan oleh aplikasi.</li>
-</ul></li>
-<li><p spaces-before="0"><code> name </ 0>  String (opsional) - Harus ditetapkan jika <code> ketik </ 0> adalah <code> custom </ 0> , jika tidak maka itu harus dihilangkan.</p></li>
-<li><p spaces-before="0"><code> item </ 0> JumpListItem [] (opsional) - Array dari <a href="jump-list-item.md"><code> JumpListItem </ 1> benda jika <code> ketik </ 0> adalah <code> tugas </ 0> atau
- <code> kustom < / 0> , jika tidak maka harus dihilangkan.</p></li>
-</ul>
+  * `tarefas` - itens nesta categoria serão colocados na categoria de `tarefas` padrão. Só pode existir um de cada categoria, e sempre será mostrado no final da Jump List.
+  * `frequente` - Exibe uma lista de arquivos abertos recentemente pelo aplicativo, o nome da categoria e seus itens são definidos pelo Windows.
+  * `recent` - Exibe uma lista de arquivos abertos recentemente pelo aplicativo, o nome e a categoria de seus itens são definidos pelo Windows. Itens podem ser adicionados indiretamente a esta categoria usando `app.addRecentDocument(path)`.
+  * `custom` - Exibe tarefas ou links para arquivos, o `name` precisa ser definido pelo aplicativo.
+* `name` String (opcional) - Precisa ser definido se o `type` é `custom`, caso contrário deverá ser omitido.
+* `items` JumpListItem[] (opcional) - Matriz de [`JumpListItem`](jump-list-item.md) objetos que se `type` for `tasks` ou `custom`, caso contrário, deverá ser omitido.
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> If a <code>JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.</p>
+**Nota:** Se um objeto `JumpListCategory` não tem o `type` nem a propriedade do `name` definido, então seu `type` é assumido como `tasks`. Se a propriedade do `name` está definida mas a propriedade do `type` é omissa, então o `type` é assumido como `custom`.

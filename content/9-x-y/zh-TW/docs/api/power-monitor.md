@@ -12,7 +12,7 @@ This module cannot be used until the `ready` event of the `app` module is emitte
 ```javascript
 const { app, powerMonitor } = require('electron')
 
-app.whenReady().then(() => {
+app.on('ready', () => {
   powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })

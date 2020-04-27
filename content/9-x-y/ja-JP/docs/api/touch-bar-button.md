@@ -11,7 +11,7 @@
   * `accessibilityLabel` String (任意) - VoiceOver などのスクリーンリーダーが使用するボタンの簡単な説明文。
   * `backgroundColor` String (任意) - 16進数形式、即ち `#ABCDEF` のボタンの背景色。
   * `icon` [NativeImage](native-image.md) | String (任意) - ボタンのアイコン。
-  * `iconPosition` String (任意) - `left`、`right`、`overlay` にできます。 Defaults to `overlay`.
+  * `iconPosition` String (任意) - `left`、`right`、`overlay` にできます。 省略値は `overlay`。
   * `click` Function (任意) - ボタンがクリックされたときに呼ぶ関数。
   * `enabled` Boolean (optional) - Whether the button is in an enabled state.  省略値は `true` です。
 
@@ -23,19 +23,19 @@
 
 #### `touchBarButton.accessibilityLabel`
 
-A `String` representing the description of the button to be read by a screen reader. Will only be read by screen readers if no label is set.
+スクリーンリーダーが読み上げるボタンの説明文を表す `String`。 ラベルが設定されていない場合に限り、スクリーンリーダーが読み上げます。
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+ボタンの現在のテキストを表す `String`。 この値を変更すると、タッチバー内のボタンがすぐに更新されます。
 
 #### `touchBarButton.backgroundColor`
 
-A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
+ボタンの背景色を表す 16 進数の `String`。 この値を変更すると、タッチバー内のボタンがすぐに更新されます。
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+ボタンの現在のアイコンを表す `NativeImage`。 この値を変更すると、タッチバー内のボタンがすぐに更新されます。
 
 #### `touchBarButton.enabled`
 

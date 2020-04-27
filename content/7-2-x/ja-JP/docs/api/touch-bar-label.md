@@ -16,8 +16,8 @@
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+ラベルの現在のテキストを表す `String`。 この値を変更すると、タッチバー内のラベルがすぐに更新されます。
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+ラベルの現在のテキストの色を表す 16 進数の `String`。 この値を変更すると、タッチバー内のラベルがすぐに更新されます。

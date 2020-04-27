@@ -1,4 +1,4 @@
 # ProtocolResponseUploadData Object
 
-* `contentType` String - MIME type of the content.
+* `contentType` Dize - İçeriğin MIME türünü gösterir.
 * `data` String | Buffer - Content to be sent.

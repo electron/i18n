@@ -1,4 +1,4 @@
-# Objet UploadBlob
+# Objeto UploadBlob
 
-* `type` String - `blob`.
-* `blobUUID` String - UUID des données blob à télécharger.
+* `tipo` Cadena de caracteres - `blob`.
+* `blob UUID` Cadena de caracteres - UUID de datos blob para subir.

@@ -10,7 +10,7 @@
 
 ## プラットフォームに関する注意事項
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+現在、macOS と Windows にのみ対応しています。 Linux では、自動更新の組み込みサポートがないので、アプリ更新にはディストリビューションのパッケージマネージャーの使用を推奨しています。
 
 さらに、各プラットフォームではいくつかの微妙な違いがあります。
 
@@ -18,7 +18,7 @@ Currently, only macOS and Windows are supported. There is no built-in support fo
 
 macOSでは、`autoUpdater` モジュールは [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) で構築されているので、動作させるのに特別なセットアップ作業をする必要はありません。 サーバー側の要件については、[サーバーサポート](https://github.com/Squirrel/Squirrel.Mac#server-support) をお読みください。 [アプリケーショントランスポートセキュリティ](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) が、更新処理の一部としてなされるすべてのリクエストに適用されることに注意してください。 アプリのplistに `NSAllowsArbitraryLoads` キーを追加することで、ATSを無効にすることができます。
 
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
+**注:** macOS で自動更新を有効にするには、アプリ署名が必要です。 これは `Squirrel.Mac` の動作要件です。
 
 ### Windows
 
@@ -48,7 +48,7 @@ Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイ�
 
 ### イベント: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+利用可能な更新がある場合に発生します。 更新は自動ダウンロードされます。
 
 ### イベント: 'update-not-available'
 
@@ -68,7 +68,7 @@ Emitted when there is an available update. The update is downloaded automaticall
 
 Windowsでは `releaseName` のみ利用可能です。
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**注:** 必ずこのイベントを処理する必要はありません。 ダウンロードに成功した更新は、次回のアプリケーション起動時でも適用されます。
 
 ### イベント: 'before-quit-for-update'
 
@@ -95,11 +95,11 @@ Windowsでは `releaseName` のみ利用可能です。
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+更新があるかどうかサーバーに問い合わせます。 この API を使用する前に `setFeedURL` を呼び出す必要があります。
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+ダウンロード後にアプリを再起動し、更新をインストールします。 `update-downloaded` が発生した後でしか呼び出さないでください。
 
 `autoUpdater.quitAndInstall()` を呼ぶと、この中では最初にすべてのアプリケーションウィンドウを閉じ、すべてのウィンドウが閉じられた後に自動的に `app.quit()` を呼び出します。
 

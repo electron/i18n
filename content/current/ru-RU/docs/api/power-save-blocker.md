@@ -1,10 +1,10 @@
 # powerSaveBlocker
 
-> Block the system from entering low-power (sleep) mode.
+> Предотвращает переход системы в режим пониженного потребления питания.
 
-Proces: [Main](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
-Na przykład:
+Например:
 
 ```javascript
 const { powerSaveBlocker } = require('electron')
@@ -15,9 +15,9 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## Metody
+## Методы
 
-The `powerSaveBlocker` module has the following methods:
+Модуль `powerSaveBlocker` имеет следующие методы:
 
 ### `powerSaveBlocker.start(type)`
 
@@ -25,22 +25,22 @@ The `powerSaveBlocker` module has the following methods:
   * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-Returns `Integer` - The blocker ID that is assigned to this power blocker.
+Возвращает `Integer` - Идентификатор блокировщика, назначенный этому блокировщику питания.
 
 Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
 
-**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Tylko największy typ precedensu zaczyna działać. In other words, `prevent-display-sleep` always takes precedence over `prevent-app-suspension`.
+**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Вступает в силу только наиболее высокий тип приоритета. Другими словами, `prevent-display-sleep` всегда выше `prevent-app-suspension`.
 
-For example, an API calling A requests for `prevent-app-suspension`, and another calling B requests for `prevent-display-sleep`. `prevent-display-sleep` will be used until B stops its request. After that, `prevent-app-suspension` is used.
+Например, API-интерфейс, вызывающий запросы A для `prevent-app-suspension`, и другой вызов запросов B для `prevent-display-sleep`. `prevent-display-sleep` будет использоваться до тех пор, пока B не прекратит свой запрос. После этого, будет использоваться `prevent-app-suspension`.
 
 ### `powerSaveBlocker.stop(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Integer - Идентификатор блокировщика энергосбережения, возвращённый `powerSaveBlocker.start`.
 
-Stops the specified power save blocker.
+Останавливает указанный блокировщик энергосбережения.
 
 ### `powerSaveBlocker.isStarted(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Integer - Идентификатор блокировщика энергосбережения, возвращённый `powerSaveBlocker.start`.
 
-Returns `Boolean` - Whether the corresponding `powerSaveBlocker` has started.
+Возвращает `Boolean` - Запущен ли соответствующий `powerSaveBlocker`.

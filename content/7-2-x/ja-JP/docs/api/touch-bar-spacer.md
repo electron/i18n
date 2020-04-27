@@ -7,7 +7,7 @@
 ### `new TouchBarSpacer(options)` _実験的_
 
 * `options` Object
-  * `size` String (optional) - Size of spacer, possible values are:
+  * `size` String (任意) - スペーサのサイズ。設定可能な値:
     * `small` - アイテム間の小さいスペース。
     * `large` - アイテム間の大きいスペース。
     * `flexible` - 利用可能なスペース全てを埋める。

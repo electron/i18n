@@ -29,7 +29,7 @@ __プラットフォームによる制限:__
 * アプリインジゲータのみがある Linux ディストリビューションでは、tray アイコンを動かすために `libappindicator1` をインストールする必要があります。
 * アプリインジゲータはコンテキストメニューがあるときのみ表示されます。
 * Linux でアプリインジゲータが使用されるとき、`click` イベントは無視されます。
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. 例:
+* Linux では、個々の `MenuItem` に加えられた変更を有効にするには、`setContextMenu` を再び呼ぶ必要があります。 例:
 
 ```javascript
 const { app, Menu, Tray } = require('electron')

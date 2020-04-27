@@ -1,12 +1,12 @@
-## Class: Cookies
+## Клас: Cookies
 
-> Query and modify a session's cookies.
+> Достъп и промяна на потребителска сесия.
 
-العملية: [Main](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+Инстанция на класа `Cookies` можете да достъпите с помощта на свойството `cookies` на класа `Session`.
 
-For example:
+Например:
 
 ```javascript
 const { session } = require('electron')
@@ -38,17 +38,17 @@ session.defaultSession.cookies.set(cookie)
   })
 ```
 
-### Instance Events
+### Събития
 
-The following events are available on instances of `Cookies`:
+Имате достъп до следните събития:
 
-#### Event: 'changed'
+#### Събитие: 'changed'
 
-* `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
+* `event` Събитие
+* `cookie` [Cookie](structures/cookie.md) - бисквитката, която е променена.
 * `cause` String - The cause of the change with one of the following values:
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
+  * `explicit` - Бисквитката е променена директно чрез действие на потребителя.
+  * `overwrite` - Бисквитката е изтрита автоматично поради действие 'Insert', което я е презаписало.
   * `expired` - The cookie was automatically removed as it expired.
   * `evicted` - The cookie was automatically evicted during garbage collection.
   * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
@@ -56,7 +56,7 @@ The following events are available on instances of `Cookies`:
 
 Emitted when a cookie is changed because it was added, edited, removed, or expired.
 
-### Instance Methods
+### Инстантни методи
 
 The following methods are available on instances of `Cookies`:
 
@@ -80,9 +80,9 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
-  * <;; 0>;; الاسم<;;/0>;; السلسلة--اسم ملف تعريف الارتباط. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `domain` String (по избор) - Това е домайн-а на бисквитката, ще бъде нормализирана с точка така, че да бъде валидна и за съб-домайни. Empty by default if omitted.
+  * `path` String (по избор) - Пътя на бисквитката. Empty by default if omitted.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. По подразбиране е false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 

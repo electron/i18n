@@ -63,5 +63,3 @@ Electron は初めてですか? Electron 1.0 の紹介ビデオはこちらで�
 
 <div class="video"><iframe src="https://www.youtube.com/embed/8YP_nOCO-4Q?rel=0" frameborder="0" allowfullscreen></iframe></div>
 
-
-

@@ -1,4 +1,4 @@
-# IpcMainInvokeEvent Object extends `Event`
+# IpcMainInvokeEvent Object extiende `Event`
 
-* `frameId` Integer - The ID of the renderer frame that sent this message
-* `sender` WebContents - Returns the `webContents` that sent the message
+* `frameId` Integer - El ID de frame renderer que enviá este mensaje
+* `sender` WebContents - Devuelve el `webContents` que enviá el mensaje

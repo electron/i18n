@@ -11,7 +11,7 @@ macOS 版 Electron のビルドについては、以下のガイドラインに�
 
 ## Python
 
-Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
+システムと Python のバージョンが少なくとも TLS 1.2 をサポートしていることも確認してください。これはあなたの macOS と Python のバージョンの両方に依存します。 クイックテストをするには以下を実行します。
 
 ```sh
 $ npm run check-tls

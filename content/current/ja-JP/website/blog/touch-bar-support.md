@@ -1,26 +1,26 @@
 ---
-title: Touch Bar Support
+title: Touch Bar サポート
 author: kevinsawicki
 date: '2017-03-08'
 ---
 
-The Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) beta release contains initial support for the macOS [Touch Bar](https://developer.apple.com/macos/touch-bar).
+Electron の [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) ベータリリースは macOS の [Touch Bar](https://developer.apple.com/macos/touch-bar) に対する初期サポートを含みます。
 
 ---
 
-The new Touch Bar API allows you to add buttons, labels, popovers, color pickers, sliders, and spacers. These elements can be dynamically updated and also emit events when they are interacted with.
+新しい Touch Bar API により、ボタン、ラベル、ポップオーバー、カラーピッカー、スペーサを追加することができます。 これらの要素は動的に更新され、対話が起こった際にはイベントが発生します。
 
-This is the first release of this API so it will be evolving over the next few Electron releases. Please check out the release notes for further updates and open [issues](https://github.com/electron/electron/issues) for any problems or missing functionality.
+この API の最初のリリースに過ぎないため、いくつかの Electron のリリースの間に進化していくでしょう。 詳しい更新内容についてはリリースノートを参照してください。なんらかの問題が生じているか、機能が欠けている場合は、 [Issue](https://github.com/electron/electron/issues) を開いてください。
 
-You can install this version via `npm install electron@beta` and learn more about it in the [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) and [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron docs.
+このバージョンは `npm install electron@beta` でインストールできます。詳細は Electron ドキュメントの [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) 及び [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) を参照してください。
 
-Big thanks to [@MarshallOfSound](https://github.com/MarshallOfSound) for contributing this to Electron. :tada:
+[@MarshallOfSound](https://github.com/MarshallOfSound) による Electron への貢献に大いなる感謝を表します。 :tada:
 
-## Touch Bar Example
+## Touch Bar の例
 
-![Touch Bar Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
+![Touch Bar の Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
 
-Below is an example of creating a simple slot machine game in the touch bar. It demonstrates how to create a touch bar, style the items, associate it with a window, handle button click events, and update the labels dynamically.
+以下は Touch Bar を用いたシンプルなスロットゲームの例です。 Touch Bar の作成方法、アイテムにスタイルを適用する方法、ウィンドウと関連付ける方法、ボタンクリックイベントを扱う方法、ラベルを動的に更新する方法を示しています。
 
 ```js
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -29,20 +29,20 @@ const {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
 
 let spinning = false
 
-// Reel labels
+// リールのラベル
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// Spin result label
+// 結果のラベル
 const result = new TouchBarLabel()
 
-// Spin button
+// スピンボタン
 const spin = new TouchBarButton({
   label: '🎰 Spin',
   backgroundColor: '#7851A9',
   click: () => {
-    // Ignore clicks if already spinning
+    // 常に回っていれば無視
     if (spinning) {
       return
     }
@@ -60,7 +60,7 @@ const spin = new TouchBarButton({
       if ((Date.now() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // Slow down a bit on each spin
+        // スピンごとに少し遅くする
         timeout *= 1.1
         setTimeout(spinReels, timeout)
       }
@@ -84,16 +84,16 @@ const updateReels = () => {
 const finishSpin = () => {
   const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
   if (uniqueValues === 1) {
-    // All 3 values are the same
-    result.label = '💰 Jackpot!'
+    // 3 つの値がすべて同じ
+    result.label = '💰 ジャックポット!'
     result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
-    // 2 values are the same
-    result.label = '😍 Winner!'
+    // 2 つの値が同じ
+    result.label = '😍 勝利!'
     result.textColor = '#FDFF00'
   } else {
-    // No values are the same
-    result.label = '🙁 Spin Again'
+    // すべて違う値
+    result.label = '🙁 もう一回'
     result.textColor = null
   }
   spinning = false

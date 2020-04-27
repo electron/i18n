@@ -22,7 +22,7 @@ webFrame.setZoomFactor(2)
 
 * `factor` Number - 拡大率。
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+指定の拡大率に変更します。 拡大率は百分率なので、300% = 3.0 です。
 
 ### `webFrame.getZoomFactor()`
 
@@ -45,7 +45,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **注意**: Electron ではデフォルトで視覚ズームは無効化されています。 再び有効にする場合は以下を呼び出します。
 > 
 > `js
   webFrame.setVisualZoomLevelLimits(1, 3)`

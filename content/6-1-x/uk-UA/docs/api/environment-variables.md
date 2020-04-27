@@ -1,32 +1,32 @@
-# Змінні Середовища
+# Ortam Değişkenleri
 
-> Контроль конфігурації програми і її поведінки без зміни коду.
+> Uygulama ayarlarını ve davranışını koda dokunmadan kontrol edin.
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Bazı Electron davranışları, komut satırı parametreleri ve uygulamanın kendisinin kodundan daha önce başladığı için ortam değişkenleri tarafından kontrol edilir.
 
-POSIX shell example:
+POSIX kabuk örneği:
 
 ```sh
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Windows konsol örneği:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
 > electron
 ```
 
-## Production Variables
+## Canlı ortam değışkenleri
 
-The following environment variables are intended primarily for use at runtime in packaged Electron applications.
+Aşağıdaki ortam değişkenleri, Electron uygulamalarının çalışma anında kulllanılır.
 
 ### `NODE_OPTIONS`
 
 Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
 
-Приклад:
+Örneğin:
 
 ```sh
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
@@ -42,17 +42,24 @@ Unsupported options are:
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
+
+```sh
+--max-http-header-size
+--http-parser
+```
 
 ### `GOOGLE_API_KEY`
 
-You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
 
 ```javascript
-process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
+process.env.GOOGLE_API_KEY = 'API_ANAHTARINIZI_BURAYA_YAZIN'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://developers.google.com/maps/documentation/geocoding/get-api-key).
+By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+
+N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
 ### `ELECTRON_NO_ASAR`
 
@@ -60,15 +67,15 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Starts the process as a normal Node.js process.
+Süreçi normal bir Node.js süreci olarak başlat.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
-Don't attach to the current console session.
+O anki konsol oturumuna kendini bağlama.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
 
-Don't use the global menu bar on Linux.
+Linux'taki global menu bar'ını kullanma.
 
 ### `ELECTRON_TRASH` _Linux_
 
@@ -80,14 +87,14 @@ Options:
 * `kioclient5`
 * `kioclient`
 
-## Development Variables
+## Geliştirme değişkenleri
 
-The following environment variables are intended primarily for development and debugging purposes.
+Aşağıdaki ortam değişkenleri birincil olarak geliştirme ve hata ayıklama niyetiyle kullanılır.
 
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Prints Chrome's internal logging to the console.
+Chrome'un kendi içindeki kayıtlarını konsola basar.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
@@ -95,20 +102,20 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Prints the stack trace to the console when Electron crashes.
+Electron çöktüğünde yığıt izlerini konsola basar.
 
-Ця змінна середовища не буде працювати якщо запущено `crashReporter`.
+Bu ortam değişkeni `crashReporter` başlamış durumdaysa çalışmaz.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
 
-Показує вікно Windows's crash коли Electron ламається.
+Electron çöktüğünde windows'un çökme diyaloğunu gösterir.
 
-Ця змінна середовища не буде працювати якщо запущено `crashReporter`.
+Bu ortam değişkeni `crashReporter` başlamış durumdaysa çalışmaz.
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Kullanım:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```

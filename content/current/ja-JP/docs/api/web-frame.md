@@ -22,7 +22,7 @@ webFrame.setZoomFactor(2)
 
 * `factor` Double - 拡大率。省略値は 1.0 です。
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+指定の拡大率に変更します。 拡大率は百分率なので、300% = 3.0 です。
 
 拡大率は 0.0 より大きい必要があります。
 
@@ -47,7 +47,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **注意**: Electron ではデフォルトで視覚ズームは無効化されています。 再び有効にする場合は以下を呼び出します。
 > 
 > `js
   webFrame.setVisualZoomLevelLimits(1, 3)`
@@ -112,7 +112,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `key` String
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
+現在のウェブページから挿入された CSS を削除します。 スタイルシートは `webFrame.insertCSS(css)` から返されるキーで識別されます。
 
 ### `webFrame.insertText(text)`
 
@@ -146,9 +146,9 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 * `info` Object
   * `securityOrigin` String (任意) - 隔離された空間のためのセキュリティオリジン
   * `csp` String (任意) - 隔離された空間のためのコンテンツセキュリティポリシー
-  * `name` String (optional) - Name for isolated world. Useful in devtools.
+  * `name` String (任意) - 隔離されたワールドの名前。 デベロッパー ツールで役立ちます。
 
-Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
+隔離されたワールドのセキュリティオリジン、コンテンツセキュリティポリシー、名前を設定します。 注: `csp` が指定されている場合は、`securityOrigin` も指定する必要があります。
 
 ### `webFrame.getResourceUsage()`
 
@@ -232,4 +232,4 @@ console.log(webFrame.getResourceUsage())
 
 ### `webFrame.routingId` _読み出し専用_
 
-An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 同じ基底フレームを参照する WebFrame インスタンスは、同じ `routingId` を持ちます。

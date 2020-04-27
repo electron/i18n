@@ -1,38 +1,38 @@
-# 環境変数
+# Variabili di ambiente
 
-> コードを変更することなくアプリケーションの設定と動作を制御します。
+> Controllo della configurazione applicativa e comportamentali senza cambiare codice.
 
-いくつかのElectronの動作は、コマンドラインのフラグやアプリのコードよりも早く初期化されるため、環境変数によって制御されます。
+Alcuni comportamenti di Electron sono controllati da variabili d'ambiente perché sono inizializzati prima dei parametri a riga di comando e del codice dell'app.
 
-POSIXシェルの例:
+Esempio shell POSIX:
 
 ```sh
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windowsコンソールの例:
+Esempio Windows console:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
 > electron
 ```
 
-## 製品用の変数
+## Variabili di produzione
 
-以下の環境変数は、主にパッケージ化されたElectronアプリケーションで実行時に使用するためのものです。
+Le seguenti variabili d'ambiente sono principalmente destinate per l'uso a runtime in un'applicazione Electron pacchettizzata.
 
 ### `NODE_OPTIONS`
 
-Electron は Node の [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options) の一部をサポートに含んでいます。 Chromium の BoringSSL の使用と衝突するものを除き、大多数はサポートされています。
+Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
 
-サンプル:
+Esempio:
 
 ```sh
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
-以下はサポートされていないオプションです。
+Unsupported options are:
 
 ```sh
 --use-bundled-ca
@@ -42,7 +42,7 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` は、以下のようにしない限りパッケージされたアプリ内では明示的に許可されません。
+`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
 
 ```sh
 --max-http-header-size
@@ -51,13 +51,15 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 
 ### `GOOGLE_API_KEY`
 
-Google の Geocoding ウェブサービスにリクエストを送信するための API キーを指定できます。 これを行うには、ジオコードリクエストを行うブラウザウィンドウを開く前に、メインプロセスファイルに次のコードを配置します。
+Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
 
 ```javascript
-process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
+process.env.GOOGLE_API_KEY = 'LA_TUA_CHIAVE_QUI'
 ```
 
-例えば、Google APIキーを取得する方法については、[このページ](https://developers.google.com/maps/documentation/javascript/get-api-key)を参照して下さい。 既定では、新たに生成されたGoogle APIキーでは、ジオコーディングリクエストを行うことができないことがあります。 ジオコーディングリクエストを有効にするには、[このページ](https://developers.google.com/maps/documentation/geocoding/get-api-key)を参照して下さい。
+By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+
+N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
 ### `ELECTRON_NO_ASAR`
 
@@ -65,34 +67,34 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 ### `ELECTRON_RUN_AS_NODE`
 
-通常のNode.jsプロセスとしてプロセスを開始します。
+Esegue il processo come un normale processo Node.js.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
-現在のコンソールセッションにアタッチしません。
+Non collega l'attuale sessione console.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
 
-Linuxのグローバルメニューバーを使用しません。
+Non usa la barra del menu globale su Linux.
 
 ### `ELECTRON_TRASH` _Linux_
 
 Set the trash implementation on Linux. Default is `gio`.
 
-Options:
+Opzioni:
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
 * `kioclient`
 
-## 開発用の変数
+## Variabili di sviluppo
 
-以下の環境変数は、主に開発とデバッグを目的としています。
+Le seguenti variabili d'ambiente sono principalmente destinate per scopi di sviluppo e debugging.
 
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-コンソールにChromeの内部ログを出力します。
+Stampa il logging interno di Chrome nella console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
@@ -100,20 +102,20 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Electronがクラッシュすると、コンソールにスタックトレースを出力します。
+Stampa lo stack trace nella console quando Electron crasha.
 
-`crashReporter` が開始されている場合、この環境変数は機能しません。
+Questa variabile d'ambiente non funzionerà se il `crashReporter` è avviato.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
 
-Electronがクラッシュすると、Windowsのクラッシュダイアログを表示します。
+Mostra la finestra di crash di Windows quando Electron crasha.
 
-`crashReporter` が開始されている場合、この環境変数は機能しません。
+Questa variabile d'ambiente non funzionerà se il `crashReporter` è avviato.
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-`electron` パッケージを実行しているとき、この変数は `npm install` によってダウンロードされた代わりの Electron の指定ビルドを使用するための `electron` コマンドを知らせます。 使い方:
+Durante l'esecuzione dal pacchetto `electron`, questa variabile indica al comando `electron` di usare la build Electron specificata invece di quella scaricata tramite `npm install`. Uso:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```

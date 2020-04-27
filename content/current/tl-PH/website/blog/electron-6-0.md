@@ -28,7 +28,7 @@ Much of Electron's functionality is provided by the core components of Chromium,
 
 This release also includes improvements to Electron's APIs. [The release notes](https://github.com/electron/electron/releases/tag/v6.0.0) have a more complete list, but here are the highlights:
 
-### Promisification / Промисификация
+### Promisification
 
 Electron 6.0 continues the modernization [initiative](https://github.com/electron/electron/blob/master/docs/api/modernization/promisification.md) started in 5.0 to improve [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) support.
 
@@ -78,7 +78,7 @@ Folks using `electron-osx-sign` to codesign their Electron app shouldn't have to
 
 In order to package your application correctly with these new helpers you need to be using `electron-packager@14.0.4` or higher.  If you are using `electron-builder` you should follow [this issue](https://github.com/electron-userland/electron-builder/issues/4104) to track support for these new helpers.
 
-## Критические изменения
+## Breaking Changes
 
  * This release begins laying the groundwork for a future requirement that native Node modules loaded in the renderer process be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). The reasons for this change are faster performance, stronger security, and reduced maintenance workload. Read the full details including the proposed timeline in [this issue](https://github.com/electron/electron/issues/18397). This change is expected to be completed in Electron v11.
 
@@ -92,7 +92,7 @@ In order to package your application correctly with these new helpers you need t
 
 Per our [support policy](https://electronjs.org/docs/tutorial/support#supported-versions), 3.x.y has reached end of life. Developers and applications are encouraged to upgrade to a newer version of Electron.
 
-## Программа отзывов
+## App Feedback Program
 
 We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
 

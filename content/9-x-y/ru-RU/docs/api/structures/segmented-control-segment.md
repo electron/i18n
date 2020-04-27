@@ -1,5 +1,5 @@
-# Segmentli Kontrol Segmenti Nesnesi
+# Объект SegmentedControlSegment
 
-* ` label </ 0>  String (optional) - Bu segmentte görünecek metin.</li>
-<li><code>icon` NativeImage (optional) - The image to appear in this segment.
+* `label` String (опционально) - текст отобразится в этом сегменте.
+* `icon` NativeImage (опционально) - изображение отобразится в этом сегменте.
 * `enabled` Boolean (optional) - Whether this segment is selectable. Default: true.

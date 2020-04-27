@@ -493,7 +493,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(name)`
 
-* `name` String - You can request the following paths by the name:
+* `name` String - 以下のパスを名前で要求することができます。
   * `home` ユーザのホームディレクトリ。
   * `appData` - 既定のユーザ毎のアプリケーションデータディレクトリ。
     * Windowsの場合、`%APPDATA%`
@@ -599,8 +599,8 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - `://` を除くプロトコルの名前。 例えば、アプリで `electron://` リンクを処理したい場合、引数を `electron` にしてこのメソッドを呼び出してください。
-* `path` String (optional) _Windows_ - The path to the Electron executable. Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Arguments passed to the executable. Defaults to an empty array
+* `path` String (任意) _Windows_ - Electron 実行形式へのパス。 省略値は `process.execPath` です。
+* `args` String[] (任意) _Windows_ - 実行形式に渡す引数。 省略値は空の配列です。
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 

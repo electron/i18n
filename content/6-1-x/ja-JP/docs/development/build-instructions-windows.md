@@ -11,7 +11,7 @@ Windows 版 Electron のビルドについては、以下のガイドライン�
   * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) もビルドプロセスを実行するために必要です。
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* 完全な頒布物を作成する予定があれば、Windows SDK 10.0.15063.468 の Windows 用デバッグツールで、`.pdb` ファイルからシンボルストアを作成するために `symstore.exe` を使用します。
   * 異なるバージョンのSDKを並行してインストールできます。 SDK をインストールするには、Visual Studio Installer を開いて `変更` → `個別のコンポーネント` を選択し、スクロールしてインストールする適切な Windows SDK を選択します。 他に、[Windows SDK とエミュレータのアーカイブ](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) を見て、SDK のスタンドアロン版をそれぞれダウンロードすることでもできます。
   * SDK デバッグツールもインストールする必要があります。 Windows 10 SDK が Visual Studio インストーラーを介してインストールされた場合は、次のようにしてインストールできます。 `コントロールパネル` → `プログラム` → `プログラムと機能` → "Windows Software Development Kit" を選択 → `変更` → `変更` → "Debugging Tools For Windows" にチェック → `変更`。 または、スタンドアロンの SDK インストーラをダウンロードして、それを使ってデバッグツールをインストールすることができます。
 
@@ -19,7 +19,7 @@ Windows 版 Electron のビルドについては、以下のガイドライン�
 
 Electron のビルドは完全にコマンドラインスクリプトで行われ、Visual Studio では実行できません。 任意のエディタで Electron を開発できますが、将来 Visual Studio を使用したビルドがサポートされます。
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**注釈:** Visual Studio はビルドに使用されていませんが、それが提供するビルドツールチェーンが必要なため、まだ **必要** です。
 
 ## ビルド
 
@@ -79,7 +79,7 @@ $ git config --system core.longpaths true
 
 ### error: use of undeclared identifier 'DefaultDelegateCheckMode'
 
-This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
+これは、Windows 用のデバッグツールが Windows Driver Kit とともにインストールされている場合においてビルド中に発生する可能性があります。 Windows Driver Kit をアンインストールし、上記の手順で Debugging Tools をインストールします。
 
 ### ImportError: No module named win32file
 

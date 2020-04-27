@@ -44,6 +44,7 @@ Package the application using [electron-packager](https://github.com/electron/el
         ├── libgcrypt.so.11
         ├── libnode.so
         ├── locales
+        ├── natives_blob.bin
         ├── resources
         ├── v8_context_snapshot.bin
         └── version

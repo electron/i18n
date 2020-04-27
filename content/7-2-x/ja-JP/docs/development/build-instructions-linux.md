@@ -47,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+その他のディストリビューションも、例えば pacman のようなパッケージマネージャーで同様のパッケージをインストールできるでしょう。 ソースコードからコンパイルする必要があるかもしれません。
 
 ### クロスコンパイル
 
@@ -79,7 +79,7 @@ $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+プリビルドされた `clang` は `libtinfo.so.5` へリンクしようとします。 ホストアーキテクチャにしたがって、以下のように適切な `libncurses` にシンボリックリンクしてください。
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -87,7 +87,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## 高度なトピック
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+デフォルトのビルド構成は、主要なデスクトップ Linux ディストリビューションを対象としています。 特定のディストリビューションやデバイス向けにビルドするには、以下の情報を参考にしてください。
 
 ### システムの`clang`をダウンロードした`clang`バイナリの代りに使う
 

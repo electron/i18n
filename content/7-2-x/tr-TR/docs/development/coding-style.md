@@ -1,67 +1,56 @@
-# Kodlama Stili
+# Стиль кода
 
-Electron için kodlama stili rehberleri.
+Это руководство по стилю кодирования для Electron.
 
-`cpplint` ve `eslint` tarafından tespit edilen durumları görmek için `npm run lint` çalıştırabilirsiniz.
+Вы пожете запустить `npm run lint` для того чтобы получить список проблемных мест по стилю кода, найденных с помощью `cpplint` и `eslint`.
 
-## Genel Kod
+## Оформление кода
 
-* Yeni satır ile biter.
-* Place requires in the following order:
-  * Built in Node Modules (such as `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
-  * Local Modules (using relative paths)
-* Place class properties in the following order:
-  * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
-* Avoid platform-dependent code:
-  * Dosya isimlerini birleştirmek için `path.join()` kullanın.
-  * Geçiçi dizine gönderme yapmaya ihtiyaç duyduğunuzda `/tmp` yerine `os.tmpdir()` kullanın.
+* Завершайте все файлы переводом строки.
+* Размещайте require в следующем порядке:
+  * Встроенные модули Node (такие как `path`)
+  * Встроенные модули Electron (такие как `ipc`, `app`)
+  * Локальные модули (используя относительные пути)
+* Размещайте свойства классов в следующем порядке:
+  * Методы и свойства класса (названия методов должны начинаться с `@`)
+  * Методы и свойства объекта (экземпляра)
+* Избегайте платформенно-зависимого кода:
+  * Используйте `path.join()` для конкатенации имен файлов.
+  * Используйте `os.tmpdir()` вместо `/tmp` когда нужно сослаться на каталог для временных файлов.
 * Using a plain `return` when returning explicitly at the end of a function.
-  * Not `return null`, `return undefined`, `null` or `undefined`
+  * Не `return null`, не `return undefined`, не `null` или `undefined`
 
-## C++ and Python
+## C++ и Python
 
-C++ ve Python için Chromium'un [Kodlama stili](https://www.chromium.org/developers/coding-style)'ni takip ediyoruz. C+++ kodlarını otomatik olarak formatlamak için
+Для C++ и Python мы следуем [стилю кодирования](https://www.chromium.org/developers/coding-style) Chromium. Для автоматического форматирования кода на C++ вы можете использовать [clang-format](clang-format.md). Есть также скрипт `script/cpplint.py`, позволяющий проверить, что все файлы соответствуют стилю.
 
-clang-format</0 kullanabilirsiniz. Aynı zamanda `script/cpplint.py` betiği de tüm dosyalar buna uyuyuyor mu kontrol eder.</p> 
+Версией Python, которую мы используем в настоящее время, является Python 2.7.
 
-Şu an kullandığımız Python versiyonu 2.7.
+Код C++ использует многожество абстракций и типов Chrome, поэтому рекомендуется ознакомиться с ними. Хорошее место чтобы начать это [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) из документации по Chromium. Документ упоминает некоторые специальные типы, областные типы (которые автоматически освобождают используемую ими память при выходе из области), механизмы логгирования и т. д.
 
-C++ kodu Chromium'un soyutlamalarını ve tiplerini bolca kullanır. Bunlara hakim olmanız tavsiye edilir. Başlangıç için [Önemli soyutlamalar ve Veri Yapıları](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) dökumanına bakabilirsiniz. Bu belge bazı özel tipleri, scope'lanmış tipleri (scope dışına çıkınca otomatik olarak salınırlar.), kayıt etme mekanizmalarını anlatır.
+## Документация
 
+* Используйте стиль разметки [remark](https://github.com/remarkjs/remark).
 
-
-## Dokümantasyon
-
-* Write [remark](https://github.com/remarkjs/remark) markdown style.
-
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
-
-
+Вы можете выполнить команду `npm run lint-docs` чтобы убедиться, что ваши изменения документации корректно отформатированы.
 
 ## JavaScript
 
-* [Standart](https://npm.im/standard) JavaScript stilinde yazın.
-* Dosya isimleri `_` ile değil `-` ile birleştirilmeli, örneğin: `dosya_adi.js` yerine `dosya-adi.js`. Bunun sebebi [github/atom](https://github.com/github/atom) modül isimlerinin genelde `module-name` formunda olmasıdır. Bu kural sadece `.js` dosyalarında uygulanır.
+* Пишите в стиле [стандартном](https://npm.im/standard) для JavaScript.
+* Имена файлов должны соединяться через `-` вместо `_`, например, `file-name.js` вместо `file_name.js`, поскольку имена в [github/atom](https://github.com/github/atom) обычно пишутся в форме `module-name`. Это правило применяется только к `.js`-файлам.
+* Используйте новый синтаксис ES6/ES2015 там, где это уместно
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) для requires и прочих постоянных значений.  Если значение примитивно, используйте имя в верхнем регистре (например, `const NUMBER_OF_RETRIES = 5`).
+  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) для определения переменных
+  * [Стрелочные функции](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions) вместо `function () { }`
+  * [Используйте шаблоны литералов](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) вместо конкатенации строк с использованием `+`
 
-* Uygun olan yerlerde ES6/ES2015 sözdizimini kullanın
-  
-    * require komutları ve sabitler için [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
-  * değişkenleri tanımlamak için [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
-  * `function () { }` yerine [Ok Fonksiyonları](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
-  * string birleştirme için + kullanmak yerine template literalleri `+`
+## Именование сущностей
 
+Electron APIs использует ту же схему капитализации, что и Node.js:
 
+- Если сам модуль является классом, напр. `BrowserWindow`, используйте `PascalCase`.
+- Если модуль является набором API, напр. `globalShortcut`, используйте `camelCase`.
+- Когда API это свойство объекта, и оно обладает достаточной сложностью для помещения в отдельную главу, как например `win.webContents`, используйте `mixedCase`.
+- Для всех других не модульных API используйте естественные названия, напр. ` Tag` или `Process Object`.
 
-## İsimlendirmeler
-
-Electron API'leri Node.js ile aynı büyük/küçük harf düzenini kullanır:
-
-- When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-- When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
-- API bir objenin bir mülkü ise, ve ayrı bir bölüme sahip olacak kadar karmaşık ise, `win.webContents` gibi, `mixedCase` kullanın.
-
-- Modül olmayan API'lar için, `<webview> Tag` veya `Process Object` gibi doğal başlıklar kullanın.
-
-Yeni bir API oluştururken, jQuery'nin tek-fonksiyon stili yerine getter ve setter kullanarak erişim yapmak tercih edilir. Örneğin, `.getText()` and `.setText(text)`, `.text([text])` yerine tercih edilir. Bununla ilgili bir [tartışma](https://github.com/electron/electron/issues/46) mevcut.
+При создании новых API рекомендуется использовать getters и setters вместо одной функции для доступа в типичном для jQuery стиле. Например, `.getText()` и `.setText(text)` более предпочтительны, чем `.text([text])`. См. обсуждение этой темы [здесь](https://github.com/electron/electron/issues/46).

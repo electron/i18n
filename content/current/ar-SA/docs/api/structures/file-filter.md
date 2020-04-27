@@ -1,4 +1,4 @@
-# Objet FileFilter
+# كائن FileFilter
 
-* `name` String
-* `extensions` String[]
+* `name` سلسلة نصية
+* `extensions` مصفوفة سلاسل نصية

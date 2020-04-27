@@ -1,4 +1,4 @@
-# `window.open` Function
+# `विंडो.ओपन` फंक्शन
 
 > Open a new window and load a URL.
 
@@ -18,7 +18,7 @@ Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window a
 
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
-For example:
+उदाहरण के लिए:
 ```js
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```

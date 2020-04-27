@@ -4,7 +4,7 @@
 
 Процесс: [Главный](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. Он используется в событии `will-download` класса `Session` и позволяет пользователям управлять элементом загрузки.
+`DownloadItem` это [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), который представляет элемент загрузки в Electron. Он используется в событии `will-download` класса `Session` и позволяет пользователям управлять элементом загрузки.
 
 ```javascript
 // В основном процессе.
@@ -74,7 +74,7 @@ Emitted when the download is in a terminal state. This includes a completed down
 
 * `path` String - Установить путь сохраняемого элемента загрузки.
 
-API доступен только в сессии `will-download` функции обратного вызова. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+API доступен только в сессии `will-download` функции обратного вызова. Если пользователь не устанавливает путь сохранения через API, Electron будет использовать исходную процедуру для определения пути сохранения; здесь обычно вызывается диалоговое окно сохранения.
 
 #### `downloadItem.getSavePath()`
 
@@ -114,7 +114,7 @@ Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+Возвращает `String` - URL источника, из которого загружается элемент.
 
 #### `downloadItem.getMimeType()`
 
@@ -152,7 +152,7 @@ Returns `String` - The current state. Can be `progressing`, `completed`, `cancel
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+Возвращает `String[]` - полная URL-цепочка до элемента, включая любые перенаправления.
 
 #### `downloadItem.getLastModifiedTime()`
 
@@ -165,3 +165,11 @@ Returns `String` - ETag header value.
 #### `downloadItem.getStartTime()`
 
 Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+
+### Свойства экземпляра
+
+#### `downloadItem.savePath`
+
+Свойство `String`, которое определяет путь к файлу сохранения элемента загрузки.
+
+Свойство доступно только в сессии `will-download` функции обратного вызова. Если пользователь не устанавливает путь сохранения через свойство, Electron будет использовать исходную процедуру для определения пути сохранения; здесь обычно вызывается диалоговое окно сохранения.

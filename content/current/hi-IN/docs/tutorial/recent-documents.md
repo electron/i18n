@@ -1,35 +1,35 @@
-# Recent Documents (Windows & macOS)
+# Недавние документы (Windows & macOS)
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows и macOS предоставляют легкий доступ к списку последних документов открытых приложением через JumpList или dock меню, соответственно.
 
-__जम्पलिस्ट:__
+__JumpList:__
 
-![जम्पलिस्ट हाल ही की फाइल्स](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-__एप्लीकेशन डॉक मेन्यु:__
+__Dock меню приложения:__
 
 ![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-हाल ही के दस्तावेजों में एक फाइल को शामिल करने के लिए, आप [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) ऐपीआई का इस्तेमाल कर सकते हैं:
+Чтобы добавить файл в недавние документы, можно использовать [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
 
 ```javascript
 const { app } = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-और आप [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) ऐपीआई का इस्तेमाल हाल ही के दस्तावेजों की सूची को खाली करने के लिए कर सकते हैं:
+И вы можете использовать [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API, чтобы очистить список последних документов:
 
 ```javascript
 const { app } = require('electron')
 app.clearRecentDocuments()
 ```
 
-## विंडोज नोट्स
+## Windows примечания
 
-विंडोज पर इस सुविधा का इस्तेमाल करने के लिए, आपकी एप्लीकेशन दस्तावेज के फाइल प्रकार के एक हैंडलर के रूप में पंजीकृत होनी चाहिये, अन्यथा फाइल जम्पलिस्ट में दिखाई नहीं देगी, उसे शामिल करने के बाद भी नहीं | अपनी एप्लीकेशन का पंजीकरण करने के बारे में आप सारी जानकारी [एप्लीकेशन पंजीकरण](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx) में प्राप्त कर सकते हैं |
+In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. Вы можете найти все о регистрации вашего приложения в [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
-जब एक उपयोगकर्ता जम्पलिस्ट से फाइल क्लिक करेगा, तो आपकी एप्लीकेशन का एक नया इंस्टैंस शुरू हो जायेगा, जिसमे फाइल का पथ कमांड लाइन आर्गुमेंट के रूप में शामिल होगा |
+Когда пользователь щелкает файл из JumpList, новый экземпляр приложения будет запущен с добавленного пути файла, как аргумент командной строки.
 
-## मैकओस नोट्स
+## macOS примечания
 
-जब एक फाइल हाल ही एक दस्तावेजों से मंगाई जाती है, तो `app` मोड्यूल का `open-file` इवेंट उसके लिए छोड़ा जायेगा|
+When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.

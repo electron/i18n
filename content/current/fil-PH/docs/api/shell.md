@@ -1,12 +1,12 @@
-# shell
+# "Shell"
 
-> Manage files and URLs using their default applications.
+> Ayusin ang mga payl at "URLs" gamit ang kanilang "default" o ang pagpapanatili nito sa dating "applications".
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The `shell` module provides functions related to desktop integration.
+Ang modyul ng `shell` ng mga gamit nito na kaugnay sa pinagsama-samang "desktop".
 
-An example of opening a URL in the user's default browser:
+Isang halimbawa ay ang pagbukas ng URL sa dating nitong "browser" ng gumagamit:
 
 ```javascript
 const { shell } = require('electron')
@@ -14,9 +14,9 @@ const { shell } = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-## Methods
+## Mga Paraan
 
-The `shell` module has the following methods:
+Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
 ### `shell.showItemInFolder(fullPath)`
 
@@ -24,15 +24,15 @@ The `shell` module has the following methods:
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openPath(path)`
+### `shell.openItem(fullPath)`
 
-* `path` String
+* `fullPath` String
 
-Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
 
-Open the given file in the desktop's default manner.
+Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
-### `shell.openExternal(url[, options])`
+### `shell.openExternal(url[, mga pagpipilian])`
 
 * `url` String - Max 2081 characters on windows.
 * `options` Object (optional)
@@ -50,31 +50,31 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
 
-Move the given file to trash and returns a boolean status for the operation.
+Burahin ang binigay na payl at bumalik sa posisyon nito bilang "boolean" para sa pagpapagana.
 
 ### `shell.beep()`
 
-Play the beep sound.
+Laruin ang tunog na "beep".
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
 * `shortcutPath` String
 * `operation` String (optional) - Default is `create`, can be one of following:
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+  * `create` - Ang paglikha ng bagong "shortcut", pagpapalit ng lumang impormasyon o datos sa bago o tinatawag na "overwriting", kung kinakailangan.
+  * `update` - Ang pagsasaayos ng mga katangian ayon sa pinakabagong aspeto nito ay mangyayari lamang sa umiiral na "shortcut".
+  * `replace` - Ang pagpatong sa "shortcut" ay maaaring mabigo kung ito ay hindi umiiral.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+Pagbabalik sa `Boolean` - kung ang pagpapaikli ay matagumpay na nalikha.
 
-Creates or updates a shortcut link at `shortcutPath`.
+Lumikha o pagsasaayos ng pagpapaikili ng "link" ayon sa pinakabagong aspeto nito sa `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` _Windows_
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Pagbalik sa [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+Paglulutas ng "shortcut link" sa `shortcutPath`.
 
-An exception will be thrown when any error happens.
+Ang eksepsiyon ay mababaliwala kapag may maling nangyari.

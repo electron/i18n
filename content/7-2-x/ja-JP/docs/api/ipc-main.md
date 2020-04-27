@@ -4,11 +4,11 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`ipcMain` オブジェクトは [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) クラスのインスタンスの一つです。 メインプロセスで使用される場合、レンダラープロセス (ウェブページ) から送られる非同期及び同期メッセージを処理します。 レンダラーから送信されたメッセージは、このモジュールに送られます。
+`ipcMain` モジュールは [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。 メインプロセスで使用される場合、レンダラープロセス (ウェブページ) から送られる非同期及び同期メッセージを処理します。 レンダラーから送信されたメッセージは、このモジュールに送られます。
 
 ## メッセージ送信
 
-また、メインプロセスからレンダラープロセスにメッセージを送ることもできます。より詳しくは [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) を参照して下さい。
+また、メインプロセスからレンダラープロセスにメッセージを送ることもできます。より詳しくは [webContents.send](web-contents.md#contentssendchannel-args) を参照して下さい。
 
 * メッセージを送信しているとき、イベント名は `channel` です。
 * 同期メッセージに返信をするには、`event.returnValue` を設定する必要があります。
@@ -61,21 +61,68 @@ ipcRenderer.send('asynchronous-message', 'ping')
   * `event` IpcMainEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+イベントに対する一回限りの `listener` 関数を追加します。 この `listener` は、次にメッセージが `channel` へ送信されたときに、削除されてから呼び出されます。
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
 * `listener` Function
+  * `...args` any[]
 
 指定した `channel` の listener 配列から、指定した `listener` を削除します。
 
 ### `ipcMain.removeAllListeners([channel])`
 
-* `channel` String
+* `channel` String (任意)
 
 指定した `channel` の listener を全て削除します。
 
-## イベントオブジェクト
+### `ipcMain.handle(channel, listener)`
+
+* `channel` String
+* `listener` Function<Promise<void> | any>
+  * `event` IpcMainInvokeEvent
+  * `...args` any[]
+
+`invoke` 可能な IPC のハンドラを追加します。 このハンドラは、レンダラが `ipcRenderer.invoke(channel, ...args)` を呼び出したとき常に呼び出されます。
+
+`listener` が Promise を返す場合、Promise の最終的な結果は、リモート呼び出し元への応答として返されます。 それ以外は、リスナーの戻り値が応答の値として使用されます。
+
+```js
+// メインプロセス
+ipcMain.handle('my-invokable-ipc', async (event, ...args) => {
+  const result = await somePromise(...args)
+  return result
+})
+
+// レンダラープロセス
+async () => {
+  const result = await ipcRenderer.invoke('my-invokable-ipc', arg1, arg2)
+  // ...
+}
+```
+
+ハンドラーの最初の引数として渡される `event` は、通常のイベントリスナーに渡されるものと同じです。 どの WebContents が呼び出しリクエスト元であるかに関する情報が含まれています。
+
+### `ipcMain.handleOnce(channel, listener)`
+
+* `channel` String
+* `listener` Function<Promise<void> | any>
+  * `event` IpcMainInvokeEvent
+  * `...args` any[]
+
+1 つの `invoke` 可能な IPC メッセージを処理し、リスナーを削除します。 `ipcMain.handle(channel, listener)` を参照してください。
+
+### `ipcMain.removeHandler(channel)`
+
+* `channel` String
+
+`channel` にハンドラがあれば削除します。
+
+## IpcMainEvent オブジェクト
 
 `callback` に渡された `event` オブジェクトに関するドキュメントは、[`ipc-main-event`](structures/ipc-main-event.md) 構造体ドキュメントにあります。
+
+## IpcMainInvokeEvent オブジェクト
+
+`handle` コールバックに渡される `event` オブジェクトのドキュメントは、[`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) 構造体ドキュメントにあります。

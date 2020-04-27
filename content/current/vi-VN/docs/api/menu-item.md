@@ -1,10 +1,10 @@
-## Клас: MenuItem
+## Class: MenuItem
 
-> Додає пункти до нативних меню додатка і контекстних меню.
+> Add items to native application menus and context menus.
 
-Процес: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-Дивіться [`Menu`](menu.md) для прикладів.
+See [`Menu`](menu.md) for examples.
 
 ### `new MenuItem(options)`
 
@@ -15,15 +15,16 @@
     * `event` [KeyboardEvent](structures/keyboard-event.md)
   * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String (необов'язково)
-  * `sublabel` String (необов'язково)
-  * `accelerator` [Accelerator](accelerator.md) (необов'язково)
-  * `icon` ([NativeImage](native-image.md) | String) (необов'язково)
+  * `label` String (optional)
+  * `sublabel` String (optional)
+  * `toolTip` String (optional) _macOS_ - Hover text for this menu item.
+  * `accelerator` [Accelerator](accelerator.md) (optional)
+  * `icon` ([NativeImage](native-image.md) | String) (optional)
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-  * `acceleratorWorksWhenHidden` Boolean (optional) - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`. _macOS_
+  * `acceleratorWorksWhenHidden` Boolean (optional) _macOS_ - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
   * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. За замовчуванням true.
+  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Mặc định là true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of  the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
@@ -33,7 +34,7 @@
 
 **Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. This property is only usable on macOS High Sierra 10.13 or newer.
 
-### Ролі
+### Roles
 
 Roles allow menu items to have predefined behaviors.
 
@@ -48,15 +49,15 @@ The `role` property can have following values:
 * `undo`
 * `redo`
 * `cut`
-* `copy`
+* `sao chép`
 * `paste`
 * `pasteAndMatchStyle`
 * `selectAll`
 * `delete`
-* `minimize` - Згорнути поточне вікно.
-* `close` - Закрити поточне вікно.
+* `minimize` - Minimize current window.
+* `close` - Close current window.
 * `quit` - Quit the application.
-* `reload` - Перезавантажити поточне вікно.
+* `reload` - Reload the current window.
 * `forceReload` - Reload the current window ignoring the cache.
 * `toggleDevTools` - Toggle developer tools in the current window.
 * `togglefullscreen` - Toggle full screen mode on the current window.
@@ -94,7 +95,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 **Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
-### Властивості Екземпляра
+### Các Thuộc Tính
 
 The following properties are available on instances of `MenuItem`:
 
@@ -119,7 +120,7 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.type`
 
-A `String` indicating the type of the item.
+A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
 
 #### `menuItem.role`
 
@@ -127,7 +128,7 @@ A `String` (optional) indicating the item's role, if set. Can be `undo`, `redo`,
 
 #### `menuItem.accelerator`
 
-A `String` (optional) indicating the item's accelerator, if set.
+A `Accelerator` (optional) indicating the item's accelerator, if set.
 
 #### `menuItem.icon`
 
@@ -136,6 +137,10 @@ A `NativeImage | String` (optional) indicating the item's icon, if set.
 #### `menuItem.sublabel`
 
 A `String` indicating the item's sublabel, this property can be dynamically changed.
+
+#### `menuItem.toolTip` _macOS_
+
+A `String` indicating the item's hover text.
 
 #### `menuItem.enabled`
 

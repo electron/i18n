@@ -10,7 +10,7 @@ Electron アプリケーションのアクセシビリティに関する懸念�
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. 以下に例を示します。
+Spectron テストフレームワークで、アプリケーション内の各ウィンドウと `<webview>` タグを監視できます。 以下に例を示します。
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {

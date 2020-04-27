@@ -61,7 +61,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
   * `event` IpcMainEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+イベントに対する一回限りの `listener` 関数を追加します。 この `listener` は、次にメッセージが `channel` へ送信されたときに、削除されてから呼び出されます。
 
 ### `ipcMain.removeListener(channel, listener)`
 
@@ -84,7 +84,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
+`invoke` 可能な IPC のハンドラを追加します。 このハンドラは、レンダラが `ipcRenderer.invoke(channel, ...args)` を呼び出したとき常に呼び出されます。
 
 `listener` が Promise を返す場合、Promise の最終的な結果は、リモート呼び出し元への応答として返されます。 それ以外は、リスナーの戻り値が応答の値として使用されます。
 
@@ -111,7 +111,7 @@ async () => {
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
+1 つの `invoke` 可能な IPC メッセージを処理し、リスナーを削除します。 `ipcMain.handle(channel, listener)` を参照してください。
 
 ### `ipcMain.removeHandler(channel)`
 

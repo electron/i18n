@@ -22,7 +22,7 @@ webFrame.setZoomFactor(2)
 
 * `factor` Double - 拡大率。省略値は 1.0 です。
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+指定の拡大率に変更します。 拡大率は百分率なので、300% = 3.0 です。
 
 拡大率は 0.0 より大きい必要があります。
 
@@ -47,7 +47,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **注意**: Electron ではデフォルトで視覚ズームは無効化されています。 再び有効にする場合は以下を呼び出します。
 > 
 > `js
   webFrame.setVisualZoomLevelLimits(1, 3)`
@@ -103,7 +103,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `key` String
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
+現在のウェブページから挿入された CSS を削除します。 The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(text)`
 

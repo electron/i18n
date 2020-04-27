@@ -43,7 +43,7 @@ HTTP プロキシを使用する必要がある場合は、`ELECTRON_GET_USE_PRO
 もし Github にアクセス出来ないかカスタムビルドを提供する必要がある場合、他に提供されているミラーや既存のキャッシュからダウンロードできます。
 
 #### ミラー
-基底URL、Electron のバイナリを見つけるためのパス、バイナリのファイル名は、環境変数を用いて上書きできます。 The url used by `@electron/get` is composed as follows:
+基底URL、Electron のバイナリを見つけるためのパス、バイナリのファイル名は、環境変数を用いて上書きできます。 `@electron/get` で使われる URL は以下の組み合わせです。
 
 ```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME

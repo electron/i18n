@@ -6,11 +6,11 @@ When working with Electron, it is important to understand that Electron is not a
 
 With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
 
-## گزارش مشکلات امنیتی
+## รายงานปัญหาด้านความปลอดภัย
 
 For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
-## Chromium Security Issues and Upgrades
+## รายงานปัญหาด้านความปลอดภัยของ Chromium และการอัพเกรต
 
 Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
 
@@ -31,7 +31,7 @@ A security issue exists whenever you receive code from an untrusted source (e.g.
 
 > :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
-## هشدار امنیتی الکترون
+## การแจ้งเตือนความปลอดภัยสำหรับ Electron
 
 From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
@@ -279,7 +279,7 @@ CSP allows the server serving content to restrict and control the resources Elec
 
 The following CSP will allow Electron to execute scripts from the current website and from `apis.example.com`.
 
-```plaintext
+```txt
 // Bad
 Content-Security-Policy: '*'
 

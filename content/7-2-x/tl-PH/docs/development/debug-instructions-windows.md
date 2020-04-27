@@ -1,45 +1,45 @@
-# Отладка под Windows
+# Debugging on Windows
 
-Если вы наблюдаете аварии или проблемы в работе Electron, которые, как вы считаете, вызваны самим Electron, а не приложением на JavaScript, отладка может быть немного сложной, особенно для разработчиков ранее не занимавшихся отладкой кода на C++. Однако, используя Visual Studio, cервера символов Electron размещенного на GitHub и исходного кода Electon, вы можете перейте к пошаговой отладке с точками остановки в исходном коде Electron.
+If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
 
-**См. также**: Есть много информации об отладке Chromium, большая часть из которых относится и к Electron, на сайте разработчиков Chromium: [Отладка Chromium на Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
-## Требования
+## Requirements
 
-* **Отладочная сборка Electron**: Обычно проще всего собрать ее самостоятельно, используя инструменты и предварительные требования, перечисленные в [инструкции по сборке под Windows](build-instructions-windows.md). Вы конечно можете скачать обычную сборку Electron и подключиться для отладки к ней, но вы обнаружите, что она сильно оптимизирована, и это существенно затрудняет отладку: отладчик не сможет показать вам содержимое всех переменных, так же путь выполнения может казаться странным вследствие встраивания функций (inlining), хвостовых вызовов (trail calls) и других оптимизаций, выполненных компилятором.
+* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
-* **Visual Studio с инструментами C++**: бесплатная общественная редакция Visual Studio, можно использовать версии VS2013 и VS2015. После установки, [настройте Visual Studio для использования сервера символов Electron на GitHub](setting-up-symbol-server.md). Это позволит Visual Studio получить лучшее представление о том, что происходит внутри Electron, что позводит представить переменные в удобочитаемом формате.
+* **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Once installed, [configure Visual Studio to use GitHub's Electron Symbol server](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
 
-* **ProcMon**: [бесплатный инструмент от SysInternals](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx), позволяющий вам просматривать параметры процессов, файловые дескрипторы, и операции над реестром.
+* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
 
-## Подключение к Electron для отладки
+## Attaching to and Debugging Electron
 
-Для запуска сеанса отладки, откройте PowerShell/CMD и запустите отладочную сборку Electron, указав приложение в качестве параметра.
+To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
 
 ```powershell
 $ ./out/Debug/electron.exe ~/my-electron-app/
 ```
 
-### Задание точек останова
+### Setting Breakpoints
 
-Затем, откройте Visual Studio. Electron не был собран из Visual Studio, и поэтому код не содержит файла проекта; тем не менее, вы можете открывать исходные файлы просто "как файл", то есть Visual Studio откроет их сами по себе. Тем не менее, вы можете ставить точки останова - Visual Studio автоматически определит, что этот исходный код соответствует исполняемому коду в подключенном процессе, и остановится на указанной точке останова.
+Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
 
-Соответствующие файлы кода можно найти в `./atom/`.
+Relevant code files can be found in `./atom/`.
 
-### Подключение
+### Attaching
 
-Вы можете подключить отладчик Visual Studio к запущенному процессу, на локальном или удаленном компьютере. После того как процесс был запущен, нажмите Debug / Attach to Process (или нажмите `CTRL + ALT + P`), чтобы открыть диалоговое окно «Attach to Process». Вы можете использовать эту возможность для отладки приложений, выполняемых на локальном или удаленном компьютере, и для одновременной отладки нескольких процессов.
+You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
 
-Если Electron выполняется под учетной записью другого пользователя, установите флажок `Show processes from all users`. Обратите внимание, что вы увидите несколько процессов, их количество зависит от того, сколько BrowserWindows открыто в вашем приложении. Типичное одноокнонное приложение будет выглядеть в Visual Studio как два процесса `Electron.exe` - один для основного процесса и один для процесса визуализации. Поскольку список показывает вам только имена, в настоящее время нет надежного способа выяснить какой из них к чему относится.
+If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
 
-### К какому процессу я должен подключиться?
+### Which Process Should I Attach to?
 
-Код, выполняющийся в рамках основного процесса (то есть, код находящийся в вашем основном JavaScript файле или вызывающийся из него), а также код, вызываемый с помощью remote (`require('electron').remote`), будет выполняться внутри основного процесса, в то время как остальной код будет выполняться внутри соответствующего процесса визуализации.
+Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
 
-Вы можете подключиться к несколько программам для отладки, но только одна программа будет активна в отладчике в каждый момент времени. Вы можете задать активную программу в панели инструментов `Debug Location` либо в окне `Processes`.
+You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
 
-## Использование ProcMon для наблюдения за процессом
+## Using ProcMon to Observe a Process
 
-В то время как Visual Studio отлично подходит для изучения конкретных путей выполнения, ProcMon действительно силен в наблюдении за всем, что делает ваше приложение с операционной системой - включая файлы, реестр, сеть, процессы и детальное профилирование процессов. Он пытается протоколировать **все** происходящие события, что может быть даже весьма излишним, но если вы стремитесь понять, что и как делает ваше приложение с операционной системой, это может быть ценным ресурсом.
+While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
 
-В качестве введения в базовые и расширенные возможности отладки через ProcMon можно рекомендовать [это видео руководство](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) от Microsoft.
+For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.

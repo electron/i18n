@@ -8,14 +8,14 @@
 
 * `options` Object
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - このスクラバーに配置するアイテムの配列.
-  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
+  * `select` Function (任意) - ユーザーがタップしたアイテムが、最後にタップしたアイテムではないと呼ばれます。
     * `selectedIndex` Integer - ユーザが選択したアイテムのインデックス.
-  * `highlight` Function (optional) - Called when the user taps any item.
+  * `highlight` Function (任意) - ユーザが任意のアイテムをタップしたときに呼ばれます。
     * `highlightedIndex` Integer - ユーザがタッチしたアイテムのインデックス.
-  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
+  * `selectedStyle` String (任意) - 選択したアイテムのスタイル。 `background`、`outline`、`none` のいずれかにできます。 省略値は `none` です。
+  * `overlayStyle` String (任意) - 選択したオーバーレイアイテムのスタイル。 `background`、`outline`、`none` のいずれかにできます。 省略値は `none` です。
   * `showArrowButtons` Boolean (任意) - 省略値は、`false` になります。
-  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
+  * `mode` String (任意) - `fixed` か `free` にできます。 省略値は `free` です。
   * `continuous` Boolean (任意) - 省略値は、`true` になります。
 
 ### インスタンスプロパティ
@@ -44,15 +44,15 @@
 
 #### `touchBarScrubber.showArrowButtons`
 
-A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
+このスクラバーに左 / 右の選択矢印を表示するかどうかを表す `Boolean`。 この値を更新すると、タッチバー内のコントロールがすぐに更新されます。
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. この値を更新すると、タッチバーのコントロールがすぐに更新されます。 取りうる値:
+このスクラバーのモードを表す `String`。 この値を更新すると、タッチバーのコントロールがすぐに更新されます。 取りうる値:
 
 * `fixed` - `NSScrubberModeFixed` に割り当て.
 * `free` - `NSScrubberModeFree` に割り当て.
 
 #### `touchBarScrubber.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. この値を更新すると、タッチバーのコントロールがすぐに更新されます。
+このスクラバーが連続しているかどうかを表す `Boolean`。 この値を更新すると、タッチバーのコントロールがすぐに更新されます。

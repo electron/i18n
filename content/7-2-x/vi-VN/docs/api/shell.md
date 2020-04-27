@@ -2,7 +2,7 @@
 
 > Manage files and URLs using their default applications.
 
-Процеси: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Tiến trình: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The `shell` module provides functions related to desktop integration.
 
@@ -14,7 +14,7 @@ const { shell } = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-## Методиa
+## Các phương thức
 
 The `shell` module has the following methods:
 
@@ -24,11 +24,11 @@ The `shell` module has the following methods:
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openPath(path)`
+### `shell.openItem(fullPath)`
 
-* `path` String
+* `fullPath` String
 
-Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+Returns `Boolean` - Whether the item was successfully opened.
 
 Open the given file in the desktop's default manner.
 
@@ -43,18 +43,17 @@ Returns `Promise<void>`
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
-### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
+### `shell.moveItemToTrash(fullPath)`
 
 * `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
 
-Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
+Returns `Boolean` - Whether the item was successfully moved to the trash.
 
 Move the given file to trash and returns a boolean status for the operation.
 
 ### `shell.beep()`
 
-Відтворює звуковий сигнал.
+Play the beep sound.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
@@ -73,7 +72,7 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 * `shortcutPath` String
 
-Повертає [`ShortcutDetails`](structures/shortcut-details.md)
+Returns [`ShortcutDetails`](structures/shortcut-details.md)
 
 Resolves the shortcut link at `shortcutPath`.
 

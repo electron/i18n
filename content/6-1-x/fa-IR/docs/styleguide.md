@@ -1,16 +1,16 @@
-# Electron Documentation Style Guide
+# Electron Documentation Styleguide
 
-Ini adalah pedoman untuk menulis dokumentasi Elektron.
+These are the guidelines for writing Electron documentation.
 
-## judul
+## Titles
 
-* Setiap halaman harus memiliki satu ` # ` judul-tingkat di bagian atas.
-* Bab dalam halaman yang sama harus memiliki ` ## ` judul-tingkat.
-* Sub-bab perlu meningkatkan jumlah dari `#` pada judul sesuai kedalaman nesting mereka.
-* Semua kata-kata dalam judul halaman harus dikapitalisasi, kecuali konjungsi seperti "dari" dan "dan".
-* Hanya kata pertama dari judul bab harus dikapitalisasi.
+* Each page must have a single `#`-level title at the top.
+* Chapters in the same page must have `##`-level titles.
+* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
+* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
+* Only the first word of a chapter title must be capitalized.
 
-Menggunakan `Quick Start` sebagai contoh:
+Using `Quick Start` as example:
 
 ```markdown
 # Quick Start
@@ -38,31 +38,31 @@ Menggunakan `Quick Start` sebagai contoh:
 ...
 ```
 
-Untuk API referensi, ada pengecualian untuk aturan ini.
+For API references, there are exceptions to this rule.
 
-## aturan penurunan harga
+## Markdown rules
 
-* Gunakan `sh` dari pada `cmd` di blok kode (karena stabilo sintaks).
-* Garis harus dibungkus pada 80 kolom.
-* Tidak ada daftar nesting lebih dari 2 tingkat (karena penyajian penurunan harga).
-* Semua `js` dan `javascript` blok kode yang dibatasi dengan [standar-penurunan harga](http://npm.im/standard-markdown).
+* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Lines should be wrapped at 80 columns.
+* No nesting lists more than 2 levels (due to the markdown renderer).
+* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
-## Pemetikan kata-kata
+## Picking words
 
-* Gunakan "will" lebih "would" ketika menggambarkan hasil.
-* Memilih "in the ___ process" lebih "on".
+* Use "will" over "would" when describing outcomes.
+* Prefer "in the ___ process" over "on".
 
-## API referensi
+## API references
 
-Aturan berikut hanya berlaku untuk dokumentasi API.
+The following rules only apply to the documentation of APIs.
 
-### Judul halaman
+### عنوان صفحه
 
-Setiap halaman harus menggunakan nama objek yang sebenarnya dikembalikan oleh `membutuhkan('elektron')` sebagai judul, seperti `BrowserWindow`, `AutoUpdater`, dan `session`.
+Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
-Di bawah judul halaman harus menjadi deskripsi satu baris dimulai dengan `>`.
+Under the page title must be a one-line description starting with `>`.
 
-Menggunakan `session` sebagai contoh:
+Using `session` as example:
 
 ```markdown
 # session
@@ -70,11 +70,11 @@ Menggunakan `session` sebagai contoh:
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 ```
 
-### Metode modul dan acara
+### Module methods and events
 
-Untuk modul yang tidak berkelas, metode, dan acara mereka harus terdaftar di bawah `## Metode` dan `## Events` bagian.
+For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
-Menggunakan `AutoUpdater` sebagai contoh:
+Using `autoUpdater` as an example:
 
 ```markdown
 # autoUpdater
@@ -88,20 +88,20 @@ Menggunakan `AutoUpdater` sebagai contoh:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Kelas-kelas
+### Classes
 
-* API kelas atau kelas yang merupakan bagian dari modul harus terdaftar di bawah `## Class: TheClassName` bagian.
-* Satu halaman dapat memiliki beberapa kelas.
-* Konstruktor harus terdaftar dengan `###`-tingkat judul.
-* [Metode Statis](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) harus terdaftar di bawah `### Static Methods` bagian.
-* [Metode Instance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) harus terdaftar di bawah `### Instance Methods` bagian.
+* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
+* One page can have multiple classes.
+* Constructors must be listed with `###`-level titles.
+* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
+* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
-  * Jika metode mengembalikan sebuah `Object`, struktur dapat ditentukan dengan menggunakan titik dua diikuti dengan baris baru kemudian daftar unordered properti dalam gaya yang sama sebagai parameter fungsi.
-* Misalnya Acara harus terdaftar di bawah `### Instance Events` bagian.
+  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
+* Instance Events must be listed under an `### Instance Events` chapter.
 * Instance Properties must be listed under an `### Instance Properties` chapter.
-  * Sifat misalnya harus dimulai dengan "A [Property Type] ..."
+  * Instance properties must start with "A [Property Type] ..."
 
-Menggunakan `Session` dan `Cookies` kelas sebagai contoh:
+Using the `Session` and `Cookies` classes as an example:
 
 ```markdown
 # session
@@ -110,7 +110,7 @@ Menggunakan `Session` dan `Cookies` kelas sebagai contoh:
 
 ### session.fromPartition(partition)
 
-## Static Properties
+## Properties
 
 ### session.defaultSession
 
@@ -135,9 +135,9 @@ Menggunakan `Session` dan `Cookies` kelas sebagai contoh:
 #### `cookies.get(filter, callback)`
 ```
 
-### Metode
+### Methods
 
-Metode Bab harus dalam bentuk berikut:
+The methods chapter must be in the following form:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -148,40 +148,40 @@ Metode Bab harus dalam bentuk berikut:
 ...
 ```
 
-Judul bisa `###` atau `####`-levels tergantung pada apakah itu adalah metode modul atau kelas.
+The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
 
 For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
-Sebagai contoh, metode dari `Session` kelas bawah `session` modul harus menggunakan `ses` sebagai `objectName`.
+For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
-Argumen opsional dinotasikan oleh tanda kurung `[]` sekitarnya argumen opsional serta koma diperlukan jika argumen opsional ini berikut argumen lain:
+The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
 ```sh
-diperlukan [, opsional]
+required[, optional]
 ```
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
-* [`Deretan`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Jumlah`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Obyek`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`susunan`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Atau jenis kustom seperti Electron [`webcontent`](api/web-contents.md)
+* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`شئ`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
 
-Jika argumen atau metode unik untuk platform tertentu, platform tersebut dilambangkan menggunakan daftar dicetak miring ruang-delimited berikut datatype. Nilai bisa saja `MacOS`, `Windows`, atau `Linux`.
+If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-`Susunan` ketik argumen harus menentukan elemen susunan yang mungkin termasuk dalam deskripsi di bawah ini.
+`Array` type arguments must specify what elements the array may include in the description below.
 
-Deskripsi untuk `Fungsi` ketik argumen harus menjelaskan bagaimana hal itu dapat disebut dan daftar jenis parameter yang akan dikirimkan ke sana.
+The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
-### Acara
+### Events
 
-Peristiwa Bab harus dalam bentuk berikut:
+The events chapter must be in following form:
 
 ```markdown
 ### Event: 'wake-up'
@@ -193,13 +193,13 @@ Returns:
 ...
 ```
 
-Judul bisa `###` atau `####`-levels tergantung pada apakah itu adalah acara dari modul atau kelas.
+The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
 
-Argumen dari suatu acara mengikuti aturan yang sama seperti metode.
+The arguments of an event follow the same rules as methods.
 
-### properti
+### Properties
 
-Sifat Bab harus dalam bentuk berikut:
+The properties chapter must be in following form:
 
 ```markdown
 ### session.defaultSession
@@ -207,8 +207,8 @@ Sifat Bab harus dalam bentuk berikut:
 ...
 ```
 
-Judul bisa `###` atau `####`-levels tergantung pada apakah itu adalah properti dari modul atau kelas.
+The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
 
-## Dokumentasi Penerjemahan
+## Documentation Translations
 
-Lihat [electron/i18n](https://github.com/electron/i18n#readme)
+See [electron/i18n](https://github.com/electron/i18n#readme)

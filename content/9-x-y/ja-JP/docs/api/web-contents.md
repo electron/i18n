@@ -114,7 +114,7 @@ console.log(webContents)
 * `title` String
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+ナビゲーション中にページタイトルが設定されると発生します。 `explicitSet` は、タイトルがファイル URL から合成されている場合に false になります。
 
 #### イベント: 'page-favicon-updated'
 
@@ -137,7 +137,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 * `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
 * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+ページが `url` のための新しいウィンドウを開く要求をすると発生します。 `window.open` か `<a target='_blank'>` のような外部リンクによるリクエストである可能性があります。
 
 デフォルトでは、`url` の新しい `BrowserWindow` が作成されます。
 
@@ -165,11 +165,11 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 * `event` Event
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+ユーザーまたはページがナビゲーションを開始しようとしたときに発生します。 `window.location` オブジェクトが変更されるか、ユーザがページ内のリンクをクリックしたときに発生することがあります。
 
 このイベントは、 `webContents.loadURL` や `webContents.back` のような API によって、プログラム上から開始されるナビゲーションのときには発行されません。
 
-It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+これは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでも発行されません。 これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
 `event.preventDefault()` を呼ぶとナビゲーションが阻害されます。
 
@@ -184,7 +184,7 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+フレーム (メインを含む) がナビゲーションを始めているときに発生します。 ページ内ナビゲーションの場合、`isInplace` が `true` になります。
 
 #### イベント: 'will-redirect'
 
@@ -197,7 +197,7 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted as a server side redirect occurs during navigation.  For example a 302 redirect.
+ナビゲーション中にサーバーサイドリダイレクトが発生すると発行されます。  302 リダイレクトなどがその例です。
 
 このイベントは常に、同一ナビゲーションで `did-start-navigation` の後かつ `did-redirect-navigation` イベントの前に発行されます。
 
@@ -214,7 +214,7 @@ Emitted as a server side redirect occurs during navigation.  For example a 302 r
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
+ナビゲーション後にサーバーサイドリダイレクトが発生すると発行されます。  302 リダイレクトなどがその例です。
 
 このイベントを阻害することはできません。リダイレクトを防ぎたい場合は、上記の `will-redirect` イベントを確認してください。
 
@@ -229,7 +229,7 @@ Emitted after a server side redirect occurs during navigation.  For example a 30
 
 メインフレームのナビゲーションが完了したときに発生します。
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。 これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
 #### イベント: 'did-frame-navigate'
 
@@ -245,7 +245,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 フレームのナビゲーションが完了したときに発生します。
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。 これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
 #### イベント: 'did-navigate-in-page'
 
@@ -326,7 +326,7 @@ Webページが応答しなくなるときに発生します。
 戻り値:
 
 * `event` Event
-* `input` Object - Input properties.
+* `input` Object - 入力プロパティ。
   * `type` String - `keyUp` か `keyDown`。
   * `key` String - [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `code` String - [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
@@ -457,9 +457,9 @@ win.webContents.on('before-input-event', (event, input) => {
 戻り値:
 
 * `event` Event
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* `color` (String | null) - '#rrggbb' 形式のテーマカラー。 テーマカラーが設定されていないと `null` です。
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+ページのテーマカラーが変わったときに発生します。 これは通常、メタタグを発見すると起こります。
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -498,10 +498,10 @@ Emitted when a page's theme color changes. This is usually due to encountering a
   * `x` Integer - x 座標.
   * `y` Integer - y 座標.
   * `linkURL` String - コンテキストメニューが呼び出されたノードを囲うリンク URL。
-  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
+  * `linkText` String - リンクに関連付けたテキスト。 リンクのコンテンツが画像の場合は、空文字列になります。
   * `pageURL` String - コンテキストメニューが呼び出された最上位のページの URL。
   * `frameURL` String - コンテキストメニューが呼び出されたサブフレームの URL。
-  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
+  * `srcURL` String - コンテキストメニューが呼び出された要素のソース URL。 ソース URL を持つ要素は、画像、オーディオ、ビデオです。
   * `mediaType` String - コンテキストメニューが呼び出されたノードの種類。 `none`、`image`、`audio`、`video`、`canvas`、`file`、`plugin` になれる。
   * `hasImageContents` Boolean - 空でないコンテンツ画像の上でコンテキストメニューが呼び出されたかどうか。
   * `isEditable` Boolean - コンテキストが編集可能かどうか。
@@ -511,8 +511,8 @@ Emitted when a page's theme color changes. This is usually due to encountering a
   * `dictionarySuggestions` String[] - ユーザに `misspelledWord` の置き換えを示す推測した単語の配列。  単語のスペルミスがあり、スペルチェッカーが有効な場合にのみ利用できます。
   * `frameCharset` String - メニューが呼び出されたときのフレームのテキストエンコーディング。
   * `inputFieldType` String - 入力フィールド内でコンテキストメニューが呼び出されたときの、そのタイプ。 `none`、`plainText`、`password`、`other` になれる。
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on.
+  * `menuSourceType` String - コンテキストメニューを呼び出した入力ソース。 `none`、`mouse`、`keyboard`、`touch`、`touchMenu` のいずれかです。
+  * `mediaFlags` Object - コンテキストメニューが呼び出されたメディア要素のフラグ。
     * `inError` Boolean - メディア要素がクラッシュしたかどうか。
     * `isPaused` Boolean - メディア要素が一時停止されているかどうか。
     * `isMuted` Boolean - メディア要素がミュートされているかどうか。
@@ -521,7 +521,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
     * `isControlsVisible` Boolean - メディア要素のコントロールが見えるかどうか。
     * `canToggleControls` Boolean - メディア要素のコントロールがトグル切り替えできるかどうか。
     * `canRotate` Boolean - メディア要素を回転できるかどうか。
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
+  * `editFlags` Object - これらのフラグは、レンダラーが対応するアクションを実行できると信頼しているかどうかを示します。
     * `canUndo` Boolean - レンダラーが、undo できると信頼しているかどうか。
     * `canUndo` Boolean - レンダラーが、redo できると信頼しているかどうか。
     * `canCut` Boolean - レンダラーが、カットできると信頼しているかどうか。
@@ -573,7 +573,7 @@ app.whenReady().then(() => {
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - フレーム全体の画像データ。
 
-Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
+新しいフレームが生成されたときに発生します。 バッファには変更された部分だけが渡されます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -594,10 +594,10 @@ win.loadURL('http://github.com')
 戻り値:
 
 * `event` Event
-* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
-* `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
+* `webPreferences` WebPreferences - ゲストページで使用されるウェブ設定。 このオブジェクトを変更して、ゲストページの設定を調整できます。
+* `params` Record<string, string> - 他の `<webview>` パラメーター。`src` URL などがこれにあたります。 このオブジェクトを変更して、ゲストページのパラメーターを調整できます。
 
-Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
+`<webview>` の webContents がこの webContents に適用されようとしているときに発行されます。 `event.preventDefault()` を呼ぶとゲストページを破棄します。
 
 このイベントは、 `webContents` の `<webview>` が読み込まれる前に `webPreferences` を設定するのに使用でき、`<webview>` の属性を通して設定できない設定を、設定する機能を提供します。
 
@@ -660,7 +660,7 @@ Emitted when a `<webview>`'s web contents is being attached to this web contents
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. `event.preventDefault()` を呼び出すと、空のソースを返します。
+レンダラープロセス内で `desktopCapture.getSources()` が呼ばれたときに発生します。 `event.preventDefault()` を呼び出すと、空のソースを返します。
 
 #### イベント: 'remote-require'
 
@@ -886,7 +886,7 @@ contents.on('did-finish-load', () => {
 
 戻り値 `Promise<void>` - 削除に成功すると解決されます。
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
+現在のウェブページから挿入された CSS を削除します。 The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
 contents.on('did-finish-load', async () => {
@@ -949,7 +949,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 * `factor` Double - 拡大率。省略値は 1.0 です。
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+指定の拡大率に変更します。 拡大率は百分率なので、300% = 3.0 です。
 
 拡大率は 0.0 より大きい必要があります。
 
@@ -976,7 +976,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **注意**: Electron ではデフォルトで視覚ズームは無効化されています。 再び有効にする場合は以下を呼び出します。
 > 
 > `js
   contents.setVisualZoomLevelLimits(1, 3)`
@@ -1051,7 +1051,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
   * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
   * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
   * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. 省略値は `false` 。
+  * `wordStart` Boolean (任意) - 単語の始めだけを見るかどうか。 省略値は `false` 。
   * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
@@ -1113,9 +1113,9 @@ Returns `Boolean` - Whether this page is being captured. It returns true when th
 #### `contents.print([options], [callback])`
 
 * `options` Object (任意)
-  * `silent` Boolean (optional) - Don't ask user for print settings. 省略値は、`false` です。
+  * `silent` Boolean (任意) - プリンタの設定をユーザに尋ねないかどうか。 省略値は、`false` です。
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. 省略値は、`false` です。
-  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `deviceName` String (任意) - 使用するプリンタデバイスの名前をセットします。 Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. 省略値は `true` です。
   * `margins` Object (optional)
     * `marginType` String (任意) - `default`、`none`、`printableArea` か `custom` にできます。 `custom` を選択した場合、`top`、`bottom`、`left`、`right` も指定する必要があります。
@@ -1381,7 +1381,7 @@ app.whenReady().then(() => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message) // Prints 'whoooooooh!'
+      console.log(message) // 'whoooooooh!' と出力される
     })
   </script>
 </body>

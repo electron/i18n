@@ -1,15 +1,15 @@
 # Accelerator
 
-> Definiere Tastenkürzel
+> Define keyboard shortcuts.
 
-Acceleratoren sind String die mehrere Modifikatoren und einzelne Key Codes enthalten können. Diese werden mit einem `+` Zeichen verknüpft und werden dazu verwendet, Tastenkürzel für deine App zu definieren.
+Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
-Beispiele:
+Examples:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Tastenkürzel werden registriert mit dem  [`globalShortcut`](global-shortcut.md) Modul durch die  [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) Methode, z.B.
+Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
 
 ```javascript
 const { app, globalShortcut } = require('electron')
@@ -22,33 +22,33 @@ app.on('ready', () => {
 })
 ```
 
-## Hinweis zu Betriebssystemen
+## Platform notice
 
-Unter Linux und Windows hat die `Command` Taste keinen Effekt, weshalb `CommandOrControl` benutzt werden sollte. Es repräsentiert  `Command` unter macOS und  `Control` unter Linux und Windows um Tastenkürzel zu definieren.
+On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
 
 Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
-`Super` wird unter Windows und Linux auf die`Windows`-Taste und unter macOS auf die `Cmd` gemappt.
+The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
-## Verfügbare Modifikatoren
+## Available modifiers
 
-* `Command` (oder kurz `Cmd`)
-* `Control` (oder kurz `Ctrl`)
-* `CommandOrControl` (oder kurz `CmdOrCtrl`)
+* `Command` (or `Cmd` for short)
+* `Control` (or `Ctrl` for short)
+* `CommandOrControl` (or `CmdOrCtrl` for short)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Verfügbare Tastencodes
+## Available key codes
 
-* `0` bis `9`
-* `A` bis `Z`
-* `F1` bis `F24`
-* Sonderzeichen wie `~`, `!`, `@`, `#`, `$`, etc.
+* `0` až `9`
+* `A` až `Z`
+* `F1` až `F24`
+* Interpunkční znaménka jako `~`, `!`, `@`, `#`, `$` atd.
 * `Plus`
-* `Space (Leerzeichen)`
+* `Mezera`
 * `Tab`
 * `Capslock`
 * `Numlock`
@@ -56,15 +56,15 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (Oder `Enter` als Alias)
-* `Up`, `Down`, `Left` und `Right`
-* `Home` und `End`
-* `PageUp` und `PageDown`
-* `Escape` (oder `Esc` als Abkürzung)
-* `VolumeUp`, `VolumeDown` und `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` und `MediaPlayPause`
+* `Return` (neboli `Enter`)
+* Šipky `Up`, `Down`, `Left` and `Right`
+* `Home` a `End`
+* `PageUp` a `PageDown`
+* `Escape` (zkráceně `Esc`)
+* `VolumeUp`, `VolumeDown` a `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` a `MediaPlayPause`
 * `PrintScreen`
-* NumPad-Tasten
+* NumPad Keys
   * `num0` - `num9`
   * `numdec` - decimal key
   * `numadd` - numpad `+` key

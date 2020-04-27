@@ -1,237 +1,223 @@
-# 빌드 방법
+# ビルド手順
 
-아래 명시된 가이드라인에 따라 Electron을 빌드하시길 바랍니다.
+Electron のビルドについては、以下のガイドラインに従ってください。
 
-## 플랫폼 별 기본 요건
+## プラットフォーム要件
 
-우선, 빌드를 진행할 플랫폼의 기본 요건을 확인하세요.
+続行する前に、以下から各プラットフォームのビルド要件を確認してください。
 
   * [macOS](build-instructions-macos.md#prerequisites)
-  * [리눅스](build-instructions-linux.md#prerequisites)
+  * [Linux](build-instructions-linux.md#prerequisites)
   * [Windows](build-instructions-windows.md#prerequisites)
 
-## GN 기본 요건
+## GN 要件
 
-Chromium과 Chromium 관련 의존성을 가져오는데 사용되는 툴셋인 [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)를 설치해야 합니다.
+[`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up) をインストールする必要があります。このツールセットは Chromium とその依存関係のダウンロードに使用されます。
 
-또한, Windows에서는 환경 변수 `DEPOT_TOOLS_WIN_TOOLCHAIN=0`으로 설정해야 합니다. 이를 위해, `제어판`→`시스템과 보안`→`시스템`→`고급 시스템 설정`을 열고, 그 값이 `0` 인 시스템 변수 `DEPOT_TOOLS_WIN_TOOLCHAIN`을 추가합니다.  이것은 로컬에 설치된 Visual Studio 버전을 사용하라고 `depot_tools`에게 알려주는 설정입니다. (이같은 설정이 없다면, `depot_tools`는 구글 직원들만 이용할 수 있는 구글 내부 Visual Studio 버전을 다운로드할 것입니다).
+更に Windows では、`DEPOT_TOOLS_WIN_TOOLCHAIN=0` と環境変数を設定する必要があります。 これを行うには、`コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。  これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。
 
-## 캐시된 빌드 (선택 사항)
+## キャッシュからのビルド (任意の手順)
 
 ### GIT\_CACHE\_PATH
 
-Electron을 여러 번 빌드할 예정이라면, git cache를 추가하여 잇따라 발생하는 `gclient` 호출 속도를 높일 수 있습니다. git cache를 추가하려면 `GIT_CACHE_PATH` 환경 변수를 설정하세요:
+Electron を数回ビルドしようとしている場合、git キャッシュを追加することでその後の `gclient` の呼び出しを高速化できます。 これをするには、`GIT_CACHE_PATH` 環境変数を以下のように設定する必要があります。
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# 약 16G의 저장공간을 사용할 것입니다.
-```
-
-> **주의**: git cache는 로컬 캐시를 지정하기 위해 upstream git 저장소 대신 `src/electron` 저장소를 `origin`으로 설정할 것입니다. 이같은 설정을 유지하면 `git push`를 실행할 때 원하는 결과를 얻지 못하게 될 것입니다—여러분은 로컬 캐시가 아닌 github로 push하고 싶을 것입니다. 이러한 문제를 해결하려면, `src/electron` 디렉토리에서 아래 명령어를 실행하세요:
-
-```sh
-$ git remote set-url origin https://github.com/electron/electron
+# 16G ほどあります。
 ```
 
 ### sccache
 
-Chromium 및 Electron을 빌드하기 위해 수 천개의 파일이 컴파일됩니다. [sccache](https://github.com/mozilla/sccache)를 통해 Electron CI의 빌드 결과를 재사용하면 대기 시간을 줄일 수 있습니다. 이를 위해, 2 개의 환경 변수 설정과 추가적인 절차(하단에 명시됨)가 필요합니다.
+Chromium と Electron をビルドするために幾千ものファイルをコンパイルしなければいけません。 [sccache](https://github.com/mozilla/sccache) を通して Electron CI のビルド出力を再利用することで待ち時間の多くを回避できます。 これにはいくつかの任意の手順 (下記リスト) と以下の2つの環境変数が必要です。
 
 ```sh
 export SCCACHE_BUCKET="electronjs-sccache-ci"
 export SCCACHE_TWO_TIER=true
 ```
 
-## 코드 받기
+## コードを取得
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
-$ gclient config \
-    --name "src/electron" \
-    --unmanaged \
-    https://github.com/electron/electron
+$ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# 이 작업은 시간이 약간 소요될 수 있습니다.
+# これはしばらくかかります、コーヒーを飲みに行きましょう。
 ```
 
-> `https://github.com/electron/electron` 대신, 자신이 소유한 fork저장소를 사용할 수도 있습니다. (저장소 url은 아래와 같은 형태일 것입니다. `https://github.com/<username>/electron`).
+> `https://github.com/electron/electron` の代わりに、`https://github.com/<username>/electron` のような自分のフォークを使うこともできます。
 
-#### pulling/pushing 관련 참고 사항
+#### プル/プッシュ時の注意
 
-향후 공식 `electron` 저장소에 대해 `git pull` 또는 `git push`를 할 계획이라면 각 폴더의 origin URL을 업데이트해야 합니다.
+もし将来公式の `electron` レポジトリから `git pull` や `git push` をする予定であれば、現在はそれぞれのフォルダの origin URL を更新する必要があります。
 
 ```sh
 $ cd src/electron
 $ git remote remove origin
 $ git remote add origin https://github.com/electron/electron
+$ git checkout master
 $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
 
-:memo: `gclient` 는 의존성 (Chromium 이나 Node.js 같은)을 확인하기 위해 `src/electron` 폴더 안에 있는 `DEPS`라는 파일을 확인합니다. `gclient sync -f`는 Electron 빌드를 위해 필요한 모든 의존성이 DEPS 파일과 일치하는지 확인하는 명령어입니다.
+:memo: `gclient` は、Chromium や Node.js のような依存の解決のために `src/electron` フォルダ内の `DEPS` と呼ばれるファイルを確認します。 `gclient sync -f` を実行することで Electron のビルドに必要な依存関係をすべて取得します。
 
-따라서, pull을 하려면 다음 명령어를 입력하세요:
+なので、プルするには、以下のコマンドを実行するとよいでしょう。
 ```sh
 $ cd src/electron
 $ git pull
 $ gclient sync -f
 ```
 
-## 빌드하기
+## ビルド
 
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# 다음 줄은 sccache와 함께 빌드하는 경우만 필요합니다
+# this next line is needed only if building with sccache
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
-$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
-Windows 환경이라면 (추가적인 인자는 없음):
+Windows 上(任意の引数はなし):
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
-$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
 ```
 
-위의 명령어를 실행하면 `src/` 아래에 debug 빌드 설정을 가진 `out/Debug`라는 빌드 디렉토리가 생성될 것입니다. `Debug`라는 이름은 다른 이름으로 변경할 수 있습니다. 단, `out`의 서브 디렉토리여야만 합니다. 또한 `gn gen`을 다시 실행할 수 없습니다—빌드 인자를 변경하고 싶다면, 에디터를 불러오기 위해 `gn args out/Debug` 명령을 실행할 수 있습니다.
+これはデバッグビルドの設定とともに `src/` 下の `out/Testing` ビルドディレクトリに生成されます。 `Testing` は他の名前に置換できますが、`out` のサブディレクトリである必要があります。 更に `gn gen` を再び実行してはいけません。ビルド引数を変更したい場合、` gn args out/Testing` を実行してエディタを呼び出します。
 
-이용 가능한 빌드 설정 옵션 목록을 보려면, `gn args
-out/Debug --list` 명령어를 실행하세요.
+利用可能なビルド設定を一覧するには、`gn args out/Testing --list` を実行してください。
 
-**Electron의 Debug ("component" 또는 "shared" 라고 부르기도 함) 빌드 설정을 생성하려면:**
+**Electron の Testing ビルド設定は以下のとおりです。**
 
 ```sh
-$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
-**Electron의 Release ("non-component" 또는 "static" 이라고 부르기도 함) 빌드 설정을 생성하려면:**
+**Electron の Release (別名 "non-component" または "static") ビルド設定は以下のとおりです。**
 
 ```sh
 $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 ```
 
-**빌드하고 `electron` 타켓과 함께 `ninja`를 실행하려면:** 주의하세요: 이 작업은 시간이 좀 걸릴 수 있습니다.
+**ビルドするには、`ninja` を `electron` ターゲットで実行します。** 注意: これはさらなる時間を要し、パソコンも熱くなります。
 
-debug 설정:
+テスト構成は以下のとおりです。
 ```sh
-$ ninja -C out/Debug electron
+$ ninja -C out/Testing electron
 ```
 
-release 설정:
+リリース構成は以下のとおりです。
 ```sh
 $ ninja -C out/Release electron
 ```
 
-이 명령어는 이전에 'libchromiumcontent' (`chromium` 디렉토리의 `content/` 디렉토리와 WebKit 및 V8을 포함한 관련 의존성) 였던 모든 것을 빌드하는 것이기 때문에 상당한 시간이 걸릴 것입니다.
+これは、先に "libchromiumcontent" (` chromium` の `content/` ディレクトリとWebKitとV8などの依存関係) のすべてをビルドします。そのため時間がかかります。
 
-반복된 빌드 작업 속도를 향상시키기 위해 [sccache](https://github.com/mozilla/sccache)를 사용할 수 있습니다. `gn args out/Debug` 명령어를 통해 에디터가 파일을 열면 제일 마지막 부분에 `cc_wrapper = "sccache"`를 입력해서 GN 인자를 추가할 수 있습니다.
+次回以降のビルドを高速化するには、[sccache](https://github.com/mozilla/sccache) が使用できます。 GN 引数 `cc_wrapper = "sccache"` を追加して `gn args out/Testing` を実行するように、エディタで開いてファイルの末尾に追加してください。
 
-실행 가능한 빌드 결과는 `./out/Debug` 디렉토리 안에 존재할 것입니다.
+実行形式は `./out/Testing` 下に置かれます。
 
 ```sh
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron
-# Windows 환경에서는
-$ ./out/Debug/electron.exe
-# 리눅스 환경에서는
-$ ./out/Debug/electron
+$ ./out/Testing/Electron.app/Contents/MacOS/Electron
+# Windowsの場合
+$ ./out/Testing/electron.exe
+# Linuxの場合
+$ ./out/Testing/electron
 ```
 
-### 패키징
+### パッケージ化
 
-리눅스에서는 우선 아래 명령으로 디버깅 및 심볼 정보를 제거합니다:
+Linuxの場合、デバッグ情報やシンボル情報を削除します。
 ```sh
 electron/script/strip-binaries.py -d out/Release
 ```
 
-electron 빌드를 배포 가능한 zip 파일로 패키지하려면:
+配布可能なzipファイルとしてこのエレクトロンビルドをパッケージするには、次のようにする。
 ```sh
 ninja -C out/Release electron:electron_dist_zip
 ```
 
-### 크로스-컴파일
+### クロスコンパイル
 
-현재 빌드 작업을 하고 있는 플랫폼 환경과 동일하지 않은 플랫폼을 대상으로 컴파일하려면, `target_cpu` 및 `target_os` 를 GN 인자에서 설정하세요 예를 들어, x64 시스템 환경에서 x86을 대상으로 컴파일하는 경우, `gn args`에서 `target_cpu = "x86"`으로 설정하세요.
+構築しているプラットフォームと同じでないプラットフォーム用にコンパイルするには、`target_cpu` 及び `target_os` GN 引数を設定します。 例えば、x64 ホストから x86 ターゲットをコンパイルするには、`gn args` で `target_cpu = "x86"` と指定します。
 
 ```sh
-$ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
+$ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 ```
 
-Chromium에서 모든 종류의 소스 및 타겟 CPU/OS 조합을 지원하지는 않습니다.
+ソースコードとターゲット CPU/OS のすべての組み合わせが Chromium でサポートされているわけではありません。
 
 <table>
-<tr><th>Host</th><th>Target</th><th>Status</th></tr>
-<tr><td>Windows x64</td><td>Windows arm64</td><td>Experimental</td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+<tr><th>ホスト</th><th>ターゲット</th><th>状況</th></tr>
+<tr><td>Windows x64</td><td>Windows arm64</td><td>実験的</td>
+<tr><td>Windows x64</td><td>Windows x86</td><td>自動テスト済み</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>自動テスト済み</td></tr>
 </table>
 
-If you test other combinations and find them to work, please update this document :)
+他の組み合わせをテストしてうまく動作することがわかれば、このドキュメントを更新してください :)
 
-See the GN reference for allowable values of [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) and [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values).
+[`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) と [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) の許可されている値については、 GN リファレンスを参照してください。
 
-#### Windows on Arm (experimental)
-
-To cross-compile for Windows on Arm, [follow Chromium's guide](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio) to get the necessary dependencies, SDK and libraries, then build with `ELECTRON_BUILDING_WOA=1` in your environment before running `gclient sync`.
+#### Arm 上で Windows (実験的)
+Arm 上の Windows 用にクロスコンパイルするには、[Chromium のガイドに従って](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio) 必要な依存関係、SDK およびライブラリを取得し、`gclient sync` を実行する前に環境内で `ELECTRON_BUILDING_WOA=1` でビルドします。
 
 ```bat
 set ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 ```
 
-Or (if using PowerShell):
+もしくは (PowerShell を用いる場合) こうします。
 ```powershell
 $env:ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 ```
 
-Next, run `gn gen` as above with `target_cpu="arm64"`.
+それから、上記のように `target_cpu="arm64"` で `gn gen` を実行します。
 
-## 테스트
 
-테스트를 실행하려면 우선 빌드 과정에서 빌드된 Node.js 버전과 같은 버전을 기준으로 테스트 모듈을 빌드해야합니다. 컴파일하려는 모듈을 위한 빌드 헤더를 생성하려면 `src/` 디렉토리 안에서 다음 명령어를 실행하세요.
+## テスト
 
-```sh
-$ ninja -C out/Debug third_party/electron_node:headers
-# 생성된 헤더를 이용해 테스트 모듈을 설치하세요
-$ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
-```
-
-그리고 `electron/spec` 인자와 함께 Electron을 실행하세요.
+このテストを実行するために、あなたは最初に、このビルドプロセスの一部としてビルドする Node.js と同じバージョンに対してテストモジュールをビルドする必要があります。 再びコンパイルするモジュールのためのビルドヘッダを生成するために、`src/`ディレクトリの下で以下のように実行します。
 
 ```sh
-# Mac:
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
-# Windows:
-$ ./out/Debug/electron.exe electron/spec
-# 리눅스:
-$ ./out/Debug/electron electron/spec
+$ ninja -C out/Testing third_party/electron_node:headers
 ```
 
-Electron 바이너리에 추가 플래그를 넘겨주면 디버깅하는데 도움이 될 것입니다:
+これで [テストを実行](testing.md#unit-tests) できます。
+
+もし何かをデバッグ中であれば、以下のフラグを Electron バイナリに渡すと役に立つかもしれません。
 
 ```sh
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
-  --ci --enable-logging -g 'BrowserWindow module'
+$ npm run test -- \
+  --enable-logging -g 'BrowserWindow module'
 ```
 
-## 다른 컴퓨터와 git cache 공유하기
+## 複数マシン間での gitのキャッシュの共有
 
-리눅스에서는 SMB 공유를 이용한 내보내기를 통해 gclient git cache를 다른 컴퓨터와 공유할 수 있습니다. 하지만 한 번에 한 프로세스/컴퓨터에서만 캐시를 사용할 수 있습니다. git-cache 스크립트에 의해 생성된 locks이 이러한 상황을 막기 위해 노력하겠지만, 네트워크 환경에서는 완벽하게 동작하지는 않을 수 있습니다.
+gclient git キャッシュを Linux 上で SMB 共有としてエクスポートすることで、他のマシンと共有することは可能ですが、一度に一つのプロセス/マシンだけがキャッシュを使用できます。 git-cache スクリプトによって作成されたロックはこれを防止しようとしますが、ネットワーク内で完璧には動作しない可能性があります。
 
-Windows에서는 SMBv2 는 캐시 디렉토리를 가지고 있는데 git cache 스크립트와 문제를 일으킬 수 있습니다. 따라서, 아래의 레지스터 키를
+Windows では、SMBv2 にはディレクトリキャッシュがあり、git キャッシュスクリプトに問題が発生するため、レジストリキー
 
 ```sh
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-0으로 설정해 비활성화시켜야 합니다. 추가 정보는 이곳에서 확인하세요: https://stackoverflow.com/a/9935126
+を0に設定して無効にする必要があります。 詳細: https://stackoverflow.com/a/9935126
 
-## 문제 해결
+これは PowerShell 内ですぐに設定できます (管理者権限で実行します)。
 
-### git cache 안의 오래된 locks
-git cache 이용 과정 중에 `gclient sync`가 중단되면, 캐시는 잠긴 상태(locked) 로 남을 것입니다. lock을 제거하려면, `--break_repo_locks` 인자를 `gclient sync`에 전달하시길 바랍니다.
+```powershell
+New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstation\Parameters" -Name DirectoryCacheLifetime -Value 0 -PropertyType DWORD -Force
+```
 
-### chromium-internal.googlesource.com에 대한 사용자이름/비밀번호를 물어보는 경우
-Windows에서 `gclient sync`를 실행했을 때 `'https://chrome-internal.googlesource.com':에 대한 사용자 이름` 을 요청하는 창이 나타났다면, `DEPOT_TOOLS_WIN_TOOLCHAIN` 환경 변수를 0으로 설정하지 않았기 때문일 것입니다. `제어판`→`시스템과 보안`→`시스템`→`고급 시스템 설정`을 열고, 그 값이 `0` 인 시스템 변수 `DEPOT_TOOLS_WIN_TOOLCHAIN`을 추가합니다.  이것은 로컬에 설치된 Visual Studio 버전을 사용하라고 `depot_tools`에게 알려주는 설정입니다. (이같은 설정이 없다면, `depot_tools`는 구글 직원들만 이용할 수 있는 구글 내부 Visual Studio 버전을 다운로드할 것입니다).
+## トラブルシューティング
+
+### git キャッシュ内の古いロック
+git キャッシュを使用している間に `gclient sync` が割り込まれた場合、キャッシュがロックされたままになります。 このロックを除去するには、`gclient sync` に `--ignore_locks` 引数を渡します。
+
+### chromium-internal.googlesource.com のユーザー名/パスワードを聞かれる
+Windows 上で `gclient sync` を実行しているときに `Username for 'https://chrome-internal.googlesource.com':` のプロンプトが表示された場合、おそらく `DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数が 0 に設定されていないからです。 `コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。  これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。

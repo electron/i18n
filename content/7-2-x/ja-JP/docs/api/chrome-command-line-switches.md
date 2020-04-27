@@ -44,7 +44,7 @@ HTTP/2 および SPDY/3.1 プロトコルを無効にします。
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Specifies the flags passed to the Node.js engine. `flags` をメインプロセスで有効化したい場合は、 Electron の開始時に与えられる必要があります。
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
@@ -58,7 +58,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ## --proxy-bypass-list=`hosts`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+セミコロン区切りで与えられたホストに対してプロキシサーバを回避するように Electron へ指示します。 このフラグは `—proxy-server` と共に使用される場合のみ有効です。
 
 例:
 
@@ -75,7 +75,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+プロキシサーバを使わず、常に直接接続を行います。 他に与えられたプロキシサーバのフラグをすべて上書きします。
 
 ## --host-rules=`rules`
 
@@ -85,7 +85,7 @@ Don't use a proxy server and always make direct connections. Overrides any other
 
 * `MAP * 127.0.0.1` は、すべてのホスト名を強制的に127.0.0.1にマッピングします。
 * `MAP *.google.com proxy` は、すべてのgoogle.comのサブドメインを強制的に "proxy" で解決されるようにします。
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP test.com [::1]:77` は "test.com" を強制的に IPv6 ループバックへ解決されるようにします。 また、ソケットアドレスのポートを 77 に強制します。
 * `MAP * baz, EXCLUDE www.google.com` は、"www.google.com" 以外のすべてを "baz" に再マッピングします。
 
 これらのマッピングは、ネットワークリクエストのエンドポイントのホスト (直接接続でのTCP接続とホストリゾルバー、HTTPプロキシ接続での `CONNECT`、`SOCKS` プロキシ接続でのエンドポイントホスト) に対して適用されます。
@@ -108,7 +108,7 @@ Don't use a proxy server and always make direct connections. Overrides any other
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. `*` のプリフィックスがない場合は、URL は厳密に一致する必要があります。
+ユーザー資格情報の委任が必要なサーバのコンマ区切りリスト。 `*` のプリフィックスがない場合は、URL は厳密に一致する必要があります。
 
 ## --ignore-certificate-errors
 
@@ -140,7 +140,7 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 
 ## --v=`log_level`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+既定で有効な最高の V ロギングレベルを設定します。既定値は 0 です。 通常、正の値は V ロギングレベルに使用されます。
 
 このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
 

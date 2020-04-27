@@ -82,21 +82,21 @@ $ git commit
 
 プレフィックスの例:
 
-  - fix: A bug fix
-  - feat: A new feature
-  - docs: Documentation changes
-  - test: Adding missing tests or correcting existing tests
-  - build: Changes that affect the build system
-  - ci: Changes to our CI configuration files and scripts
-  - perf: A code change that improves performance
-  - refactor: A code change that neither fixes a bug nor adds a feature
-  - style: Changes that do not affect the meaning of the code (linting)
-  - vendor: Bumping a dependency like libchromiumcontent or node
+  - fix: バグ修正
+  - feat: 新機能
+  - docs: ドキュメントの変更
+  - test: 足りないテストの追加や既存のテストの訂正
+  - build: ビルドシステムに影響する変更
+  - ci: CI の設定ファイルとスクリプトへの変更
+  - perf: パフォーマンスを改善するコード変更
+  - refactor: バグ修正や機能追加の無いコード変更
+  - style: コードの意味を変えない変更 (lint)
+  - vendor: libchromiumcontent や node のような依存関係の更新
 
 その他、コミットメッセージを作成するときに留意すること:
 
 1. 最初の行は、以下の通りにしてください。
-   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   - 変更の簡単な説明を含める (50 文字以下が好ましく、72 文字を超えない)
    - 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
 2. 2行目は空にしてください。
 3. 他のすべての行は72列で折り返します。

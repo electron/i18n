@@ -1,14 +1,14 @@
 # ipcRenderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> 由畫面轉譯處理序到主處理序的非同步通訊。
 
-Process: [Renderer](../glossary.md#renderer-process)
+處理序: [畫面轉譯器](../glossary.md#renderer-process)
 
 The `ipcRenderer` module is an  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
 
 See [ipcMain](ipc-main.md) for code examples.
 
-## Các phương thức
+## 方法
 
 The `ipcRenderer` module has the following method to listen for events and send messages:
 
@@ -112,6 +112,6 @@ Sends a message to a window with `webContentsId` via `channel`.
 
 Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
 
-## Event object
+## Event 物件
 
 The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.

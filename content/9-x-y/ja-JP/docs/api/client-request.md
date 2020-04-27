@@ -8,13 +8,13 @@
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
+* `options` (Object | String) - もし `options` が String なら、リクエスト URL として処理されます。 オブジェクトの場合は、次のプロパティによる HTTP リクエストの完全な指定と予期されます。
+  * `method` String (任意) - HTTP リクエストのメソッド。 既定では GET メソッドです。
+  * `url` String (任意) - リクエスト URL 。 http または https のプロトコルスキームを含む絶対形式である必要があります。
   * `session` Session (任意) - リクエストが関連付けられている [`Session`](session.md) のインスタンス。
   * `partition` String (任意) - リクエストが関連付けられている [`partition`](session.md) の名前。 省略値は、空の文字列です。 `session` オプションは、`partition` よりも優先されます。 そのため、`session` が明示的に指定されている場合、`partition` は無視されます。
   * `useSessionCookies` Boolean (任意) - 指定のセッションからこのリクエストで Cookie を送るかどうか。  これは `net` リクエストの Cookie の動作を `fetch` リクエストと同じにします。 省略値は、`false` です。
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
+  * `protocol` String (任意) - 'scheme:' 形式でのプロトコルスキーム。 現在 'http:' と 'https:' に対応しています。 既定値は 'http:' です。
   * `host` String (任意) - ホスト名とポート番号を連結した 'hostname:port' として指定されたサーバーホスト。
   * `hostname` String (任意) - サーバーホスト名。
   * `port` Integer (任意) - サーバーのリスニングポート番号。
@@ -89,7 +89,7 @@ request.on('login', (authInfo, callback) => {
 
 #### イベント: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+`request` が中止されたときに発生します。 `request` が既に閉じられている場合、 `abort` イベントは発生しません。
 
 #### イベント: 'error'
 
@@ -142,12 +142,12 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 
 * `name` String - 追加したヘッダーの名前を指定します。
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+以前に設定した追加ヘッダーの名前を削除します。 このメソッドは、最初の書き込み前のみ呼び出すことができます。 最初の書き込み後にこのメソッドを呼び出すとエラーがスローされます。
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
+* `chunk` (String | Buffer) - リクエストボディのデータのチャンク。 文字列の場合、指定されたエンコーディングで Buffer に変換されます。
+* `encoding` String (任意) - 文字列のチャンクを Buffer オブジェクトへ変換する際に使用されます。 既定値は 'utf-8' です。
 * `callback` Function (任意) - 書き込み操作の終了後に呼び出されます。
 
 `callback` は、Node.jsのAPIとの類似性を維持する目的で導入された本質的にはダミーのファンクションです。 `chunk` コンテンツがChromiumのネットワークレイヤーに到達した後、すぐに非同期で呼び出されます。 Node.jsの実装とは違って、`callback` が呼び出される前に `chunk` コンテンツが書き込まれていることは保証されません。
@@ -160,7 +160,7 @@ Removes a previously set extra header name. This method can be called only befor
 * `encoding` String (任意)
 * `callback` Function (任意)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+リクエストデータの最終チャンクを送信します。 後続の書き込みまたは終了の操作は許可されません。 終了操作の直後に `finish` イベントが発生します。
 
 #### `request.abort()`
 
@@ -168,14 +168,14 @@ Sends the last chunk of the request data. Subsequent write or end operations wil
 
 #### `request.followRedirect()`
 
-Continues any pending redirection. Can only be called during a `'redirect'` event.
+保留中のリダイレクトを続行します。 `'redirect'` イベントの間のみ呼び出せます。
 
 #### `request.getUploadProgress()`
 
 戻り値 `Object`:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
+* `active` Boolean - リクエストが現在アクティブかどうか。 これが false の場合、他のプロパティは設定されません。
+* `started` Boolean - アップロードが開始されたかどうか。 これが false の場合、 `current` と `total` は 0 になります。
 * `current` Integer - どのくらいアップロードしたかのバイト数。
 * `total` Integer - このリクエストでアップロードされるバイト数。
 

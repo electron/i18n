@@ -11,7 +11,7 @@ JavaScript が Electron コーディングスタイルに準拠しているこ�
 
 C++ が Electron コーディングスタイルに準拠していることを確認するには、`npm run lint-cpp` を実行します。これは、`cpplint` スクリプトを実行します。 `clang-format` と用意された [短いチュートリアル](clang-format.md) を使うことを推奨します。
 
-There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
+このリポジトリに Python が多数あるわけではありませんが、これもコーディングスタイル規則によって管理されています。 `npm run lint-py` を実行すれば、`pylint` を使ってすべての Python をチェックします。
 
 ## 単体テスト
 

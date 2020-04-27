@@ -1,37 +1,37 @@
 ---
-title: WebPreferences Vulnerability Fix
+title: WebPreferences 脆弱性の修正
 author: ckerr
 date: '2018-08-22'
 ---
 
-A remote code execution vulnerability has been discovered affecting apps with the ability to open nested child windows on Electron versions (3.0.0-beta.6, 2.0.7, 1.8.7, and 1.7.15). This vulnerability has been assigned the CVE identifier [CVE-2018-15685](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685).
+Electron バージョン (3.0.0-beta.6 、 2.0.7 、 1.8.7 、 1.7.15) において、ネストされた子ウィンドウを開くことのできるアプリに影響するリモートコード実行の脆弱性が発見されました。 この脆弱性には CVE 識別子 [CVE-2018-15685](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685) が割り当てられています。
 
 ---
 
 ## 影響を受けるプラットフォーム
 
-You are impacted if:
+以下の条件に該当する場合、影響を受けます。
 
-1. You embed _any_ remote user content, even in a sandbox
-2. You accept user input with any XSS vulnerabilities
+1. サンドボックス内を含め、_なんらかの_ 外部ユーザコンテンツを埋め込んでいる
+2. XSS 脆弱性のあるユーザの入力受け付けがある
 
 _詳細_
 
-You are impacted if any user code runs inside an `iframe` / can create an `iframe`. Given the possibility of an XSS vulnerability it can be assumed that most apps are vulnerable to this case.
+いずれかのユーザコードが `iframe` 内で動作している、または `iframe` を作成できる場合に影響を受けます。 XSS の脆弱性が発生する可能性を考えると、ほとんどのアプリがこのケースに対して脆弱であると想定できます。
 
-You are also impacted if you open any of your windows with the `nativeWindowOpen: true` or `sandbox: true` option.  Although this vulnerability also requires an XSS vulnerability to exist in your app, you should still apply one of the mitigations below if you use either of these options.
+ウインドウを `nativeWindowOpen: true` や `sandbox: true` で開いている場合でも影響を受けます。  この脆弱性はアプリ内に XSS 脆弱性が存在することも条件にありますが、先述のオプションを使用している場合、以下の緩和策のどれかを適用する必要があります。
 
 ## 緩和策
 
-We've published new versions of Electron which include fixes for  this vulnerability: [`3.0.0-beta.7`](https://github.com/electron/electron/releases/tag/v3.0.0-beta.7), [`2.0.8`](https://github.com/electron/electron/releases/tag/v2.0.8), [`1.8.8`](https://github.com/electron/electron/releases/tag/v1.8.8), and [`1.7.16`](https://github.com/electron/electron/releases/tag/v1.7.16). We urge all Electron developers to update their apps to the latest stable version immediately.
+私たちはこの脆弱性の修正を含む新しいバージョンの Electron を公開しました: [`3.0.0-beta.7`](https://github.com/electron/electron/releases/tag/v3.0.0-beta.7) 、 [`2.0.8`](https://github.com/electron/electron/releases/tag/v2.0.8) 、 [`1.8.8`](https://github.com/electron/electron/releases/tag/v1.8.8) 、 [`1.7.16`](https://github.com/electron/electron/releases/tag/v1.7.16) 。 Electron 開発者全員は、アプリをすぐに最新の安定バージョンに更新することを推奨します。
 
-If for some reason you are unable to upgrade your Electron version, you can protect your app by blanket-calling `event.preventDefault()` on the `new-window` event for all  `webContents`'. If you don't use `window.open` or any child windows at all then this is also a valid mitigation for your app.
+何らかの理由で Electron のバージョンをアップグレードできない場合は、すべての `webContents` に対して `new-window` イベントで `event.preventDefault()` を呼ぶことであなたのアプリを保護できます。 `window.open` や子ウィンドウを用いないこともまた有効な緩和策です。
 
 ```javascript
 mainWindow.webContents.on('new-window', e => e.preventDefault())
 ```
 
-If you rely on the ability of your child windows to make grandchild windows, then a third mitigation strategy is to use the following code on your top level window:
+子ウインドウが孫ウインドウを作ることに依存している場合、3 つ目の緩和策として、最上位ウインドウに以下のコードを使用すると良いでしょう。
 
 ```javascript
 const enforceInheritance = (topWebContents) => {
@@ -52,11 +52,11 @@ const enforceInheritance = (topWebContents) => {
 enforceInheritance(mainWindow.webContents)
 ```
 
-This code will manually enforce that the top level windows `webPreferences` is manually applied to all child windows infinitely deep.
+このコードは、最上位ウインドウの `webPreferences` がすべての子ウィンドウへ無限に適用されるように手動で強制します。
 
 ## 詳細情報
 
-This vulnerability was found and reported responsibly to the Electron project by [Matt Austin](https://twitter.com/mattaustin) of [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
+この脆弱性は [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685) の [Matt Austin](https://twitter.com/mattaustin) により発見され、責任を持って Electron プロジェクトへ報告されました。
 
 Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
 

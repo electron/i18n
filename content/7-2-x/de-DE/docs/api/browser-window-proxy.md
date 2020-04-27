@@ -2,11 +2,11 @@
 
 > Manipulate the child browser window
 
-Prozess: [Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
-### Instanz Methoden
+### Instance Methods
 
 The `BrowserWindowProxy` object has the following instance methods:
 
@@ -20,7 +20,7 @@ Forcefully closes the child window without calling its unload event.
 
 #### `win.eval(code)`
 
-* `code` Zeichenkette
+* `code` String
 
 Evaluates the code in the child window.
 
@@ -41,7 +41,7 @@ Sends a message to the child window with the specified origin or `*` for no orig
 
 In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
 
-### Instanz Eigenschaften
+### Instance Properties
 
 The `BrowserWindowProxy` object has the following instance properties:
 

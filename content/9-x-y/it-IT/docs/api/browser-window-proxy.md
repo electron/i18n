@@ -1,50 +1,50 @@
-## クラス: BrowserWindowProxy
+## Classe: ProxyFinestraBrowser
 
-> 子ブラウザウィンドウを操作します。
+> Manipola la finestra browser figlia
 
-プロセス: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderer](../glossary.md#renderer-process)
 
-`BrowserWindowProxy` オブジェクトは、`window.open` から返却され、子ウインドウの限定的な機能を提供します。
+L'oggetto `ProxyFinestraBrowser` è tornato da `apri.finestra` e fornisce una limitata funzionalità con la finestra figlia.
 
-### インスタンスメソッド
+### Metodi Istanza
 
-`BrowserWindowProxy` オブジェクトには、次のインスタンスメソッドがあります。
+L'oggetto `ProxyFinestraBrowser` prevede i seguenti metodi d'istanza:
 
 #### `win.blur()`
 
-子ウインドウからフォーカスを外します。
+Rimuove la focalizzazione dalla finestra figlia.
 
-#### `win.close()`
+#### `win.chiudi()`
 
-unloadイベントを呼び出すことなく、子ウインドウを強制的に閉じます。
+Chiude forzatamente la finestra figlia senza chiamare il suo evento scaricato.
 
-#### `win.eval(code)`
+#### `win.eval(codice)`
 
-* `code` String
+* `code` Stringa
 
-子ウインドウでコードを評価します。
+Valuta il codice nella finestra figlia.
 
-#### `win.focus()`
+#### `win.focalizza()`
 
-子ウインドウにフォーカスします (ウインドウを前面に移動します)。
+Focalizza la finestra figlia (porta la finestra in primo piano).
 
-#### `win.print()`
+#### `win.stampa()`
 
-子ウインドウで印刷ダイアログを呼び出します。
+Invoca il dialogo di stampa sulla finestra figlia.
 
-#### `win.postMessage(message, targetOrigin)`
+#### `win.postaMessaggio(messaggio, bersaglioOrigine)`
 
 * `message` any
-* `targetOrigin` String
+* `Originebersaglio` Stringa
 
-特定のオリジンまたはオリジン未設定を意味する `*` で子ウインドウにメッセージを送信します。
+Invia un messaggio alla finestra figlia con l'origine specificata o `*` per nessuna preferenza d'origine.
 
-これらのメソッドに加えて、子ウインドウには、プロパティがなく、1つのメソッドを持つ `window.opener` オブジェクトが実装されています。
+In aggiunta a questi metodi, la finestra figlia implementa l'oggetto `apri.finestra` senza proprietà ed un metodo singolo.
 
-### インスタンスプロパティ
+### Proprietà Istanza
 
-`BrowserWindowProxy` オブジェクトには、次のインスタンスプロパティがあります。
+L'oggetto `ProxyFinestraBrowser` ha le seguenti proprietà d'istanza:
 
-#### `win.closed`
+#### `win.chiuso`
 
-子ウインドウが閉じた後にtrueが設定される `Boolean` 型のプロパティ。
+Un `Booleano` impostato a true dopo che la finestra figlia viene chiusa.
