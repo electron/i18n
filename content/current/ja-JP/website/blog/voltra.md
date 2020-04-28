@@ -65,13 +65,13 @@ We handle very large collections pretty well at this point. Large collections me
 
 In general *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* and *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* have been super important tools for performing lots of processing while keeping the UI responsive. More specifically, distributing CPU-bound tasks into separate processes really helps to keep the user interface responsive. For example, we moved the actual audio context into a separate process, communicating with it over [IPC](https://electronjs.org/docs/glossary/#ipc) to avoid potential interruptions from a busy UI.
 
-## Why did you choose to build Voltra on Electron?
+## Electron で Voltra を構築することにしたのはなぜですか?
 
-The browser’s sandbox is too restricted for our app. But we are also developing a web player. So it’s a huge win that we can share almost 100% of the code between the two implementations.
+ブラウザのサンドボックスはとても制限されていますが、私たちはウェブプレイヤーも開発しています。 そのため、2 つの実装間でほぼ 100% のコードを共有できるのは大きな利点です。
 
-We actually started by building a native app with Swift. The main problem we found was that we were reinventing a lot of things. The web has the world’s largest open source eco-system. So we pretty quickly switched to Electron.
+実際には、Swift でネイティブアプリを構築するところから始めました。 一番の問題点は、多くの再発明をしていることでした。 ウェブには世界最大のオープンソースエコシステムがあります。 そこで、すぐに Electron に切り替えました。
 
-Also, and most importantly, with Electron you develop once and it should Just Work™ on all the major platforms. It’s not guaranteed, but the cost of coding natively for each platform definitely outweighs any other costs that electron introduces.
+最も重要なのは、Electron で一度開発すれば、すべての主要なプラットフォームで Just Work™ するということです。 保証はありませんが、各プラットフォームのためのネイティブコーディングのコストは、Electron を導入するコストを確実に上回っています。
 
 ## Electron の好きなところは何ですか?
 
