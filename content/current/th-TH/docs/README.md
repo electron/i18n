@@ -103,7 +103,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [กระบวนการของวัตถุ](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
-* [Chrome Extensions Support](api/extensions.md)
+* [Supporto Estensioni Chrome](api/extensions.md)
 * [ทำลายการเปลี่ยนแปลง API](breaking-changes.md)
 
 ### องค์ประกอบที่กำหนดเอง (Automatic Translation)
