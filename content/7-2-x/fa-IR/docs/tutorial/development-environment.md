@@ -1,67 +1,67 @@
 # محیط برنامه نویسی
 
-Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Electron بر اساس Node.js توسعه داده شده است. برای تبدیل سیستم عامل خود به محیطی که توسط آن قادر باشید نرم افزار های دسکتاپ را با Electron توسعه دهید، شما فقط به Node.js، npm، نرم افزار ویرایش کد به انتخاب خودتان و دانش ابتدایی درباره واسط خط فرمان سیستم عامل خود دارید.
 
 ## راه اندازی macOS
 
-> Electron supports macOS 10.10 (Yosemite) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Electron از سیستم عامل مک 10.10 (Yosemite) به بالا پشتیبانی می کند. اپل اجازه استفاده از سیستم عامل مک در ماشین های مجازی را نمی دهد مگر اینکه کامپیوتر میزبان اپل باشد، پس اگر احساس کردید که به مک احتیاج دارید، از سرویس های ابری که دسترسی به مک را اجاره می دهند استفاده کنید (مثل [MacInCloud](https://www.macincloud.com/) یا [xcloud](https://xcloud.me)).
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+نخست، آخرین نسخه Node.js را نصب کنید. توصیه ما شما این است که آخرین نسخه در دسترس `LTS` یا `جاری` را نصب کنید. به [صفحه دانلود Node.js](https://nodejs.org/en/download/) رفته و `macOS Installer` را انتخاب کنید. در حالی که Homebrew گزینه ارائه شده است، ولی ما بر ضد آن توصیه می کنیم - با روشی که Homebrew، Node.js را نصب می کند، بسیاری از ابزارها ناسازگار خواهد بود.
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+بعد از اینکه دانلود شد، فایل نصب را اجرا کرده و اجازه دهید تا installation wizard شما را در مراحل نصب راهنمایی کند.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+وقتی نصب شد، تصدیق کنید که همه چیز طبق انتظار کار می کند. نرم افزار `Terminal` سیستم عامل مک را در پوشه `/Applications/Utilities` پیداکنید (یا در Spotlight کلمه `Terminal` را جستجو کنید). `Terminal` یا دیگر واسط خط فرمان به انتخاب خودتان را باز کنید و تصدیق کنید که `node` و `npm` هردو در دسترس هستند:
 
 ```sh
-# This command should print the version of Node.js
+# این دستور باید نسخه Node.js را نمایش دهد
 node -v
 
-# This command should print the version of npm
+# این دستور باید نسخه npm را نمایش دهد
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+اگر هردو دستور شماره نسخه را نمایش دهد، شما کاملا آماده هستید! قبل از اینکه شروع کنید، ممکن است بخواهید یک [ویرایشگر کد](#a-good-editor) مناسب برای توسعه جاوا اسکریپت نصب کنید.
 
 ## راه اندازی ویندوز
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron از ویندوز نسخه 7 به بالا پشتیبانی می کند - تلاش برای توسعه نرم افزار تحت Electron در نسخه های پایین تر ویندوز بی فایده خواهد بود. مایکروسافت [فایل های ایمیج ماشین مجازی همراه با ویندوز 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) را به صورت رایگان برای توسعه دهندگان تهیه کرده است.
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+نخست، آخرین نسخه Node.js را نصب کنید. توصیه ما شما این است که آخرین نسخه در دسترس `LTS` یا `جاری` را نصب کنید. به [صفحه دانلود Node.js](https://nodejs.org/en/download/) رفته و `Windows Installer` را انتخاب کنید. بعد از اینکه دانلود شد، فایل نصب را اجرا کرده و اجازه دهید تا installation wizard شما را در مراحل نصب راهنمایی کند.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+در صفحه ای که به شما اجازه می دهد تا نصب را پیکربندی کنید، از اینکه گزینه های `Node.js runtime`، `npm package manager` و `Add to PATH` انتخاب شده باشد اطمینان حاصل کنید.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+وقتی نصب شد، تصدیق کنید که همه چیز طبق انتظار کار می کند. با باز کردن منوی Start و نوشتن `PowerShell`، Windows PowerShell را پیدا کنید. `PowerShell` یا دیگر واسط خط فرمان به انتخاب خودتان را باز کنید و تصدیق کنید که `node` و `npm` هردو در دسترس هستند:
 
 ```powershell
-# This command should print the version of Node.js
+# این دستور باید نسخه Node.js را نمایش دهد
 node -v
 
-# This command should print the version of npm
+# این دستور باید نسخه npm را نمایش دهد
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+اگر هردو دستور شماره نسخه را نمایش دهد، شما کاملا آماده هستید! قبل از اینکه شروع کنید، ممکن است بخواهید یک [ویرایشگر کد](#a-good-editor) مناسب برای توسعه جاوا اسکریپت نصب کنید.
 
 ## راه اندازی لینوکس
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> به طور کلی، Electron از Ubuntu 12.04، Fedora 21، Debian 8 و... پشتبانی می کند.
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+نخست، آخرین نسخه Node.js را نصب کنید. با توجه به توزیع لینوکس خودتان، مراحل نصب ممکن است متفاوت باشد. با فرض اینکه شما به طور معمول نرم افزار را توسط سامانه مدیریت بسته مثل `apt` یا `pacman` نصب می کنید، از [راهنمای نصب Node.js در لینوکس](https://nodejs.org/en/download/package-manager/) اسنفاده کنید.
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+شما از لینوکس استفاده می کنید، پس احتمالا در حال حاظر می دانید که چگونه با واسط خط فرمان کار کنید. واسط مورد علاقه خود را باز کرده و تصدیق کنید که `node` و `npm` هردو در دسترس هستند:
 
 ```sh
-# This command should print the version of Node.js
+# این دستور باید نسخه Node.js را نمایش دهد
 node -v
 
-# This command should print the version of npm
+# این دستور باید نسخه npm را نمایش دهد
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+اگر هردو دستور شماره نسخه را نمایش دهد، شما کاملا آماده هستید! قبل از اینکه شروع کنید، ممکن است بخواهید یک [ویرایشگر کد](#a-good-editor) مناسب برای توسعه جاوا اسکریپت نصب کنید.
 
-## A Good Editor
+## یک ویرایشگر خوب
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+ما به شما دو ویرایشگر محبوب رایگان که توسط Electron ساخته شده اند را پیشنهاد می کنیم: [Atom](https://atom.io/) که توسط گیت‌هاب منتشر شده و [Visual Studio Code](https://code.visualstudio.com/) که توسط مایکروسافت منتشر شده است. هر دو اینها به صورت عالی از جاوا اسکریپت پشتیبانی می کنند.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+اگر شما هم یکی از چنیدن توسعه دهنده با اولویت های دیگر هستید، مطمئن باشید که تقریبا تمام ویرایشگرها و IDE ها از جاوا اسکریپت پشتبانی می کنند.
