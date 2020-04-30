@@ -1,10 +1,10 @@
 ---
-title: Electron 1.0
+title: 일렉트론 1.0
 author: jlord
 date: '2016-05-11'
 ---
 
-For the last two years, Electron has helped developers build cross platform desktop apps using HTML, CSS, and JavaScript. Now we're excited to share a major milestone for our framework and for the community that created it. The release of Electron 1.0 is now available from [electronjs.org](https://electronjs.org).
+For the last two years, Electron has helped developers build cross platform desktop apps using HTML, CSS, and JavaScript. Now we're excited to share a major milestone for our framework and for the community that created it. 출시된 일렉트론 1.0은 현재 [electronjs.org](https://electronjs.org) 에서 사용 가능합니다.
 
 ---
 

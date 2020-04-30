@@ -63,7 +63,7 @@ Voltra をデザインするにあたって、ネイティブアプリやウェ�
 
 We handle very large collections pretty well at this point. Large collections means possibly tens of thousands of images! Having Node.js’ file system module directly available from the render process made it really easy to lazy load and unload lots of images super quickly based on DOM events.
 
-In general *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* and *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* have been super important tools for performing lots of processing while keeping the UI responsive. More specifically, distributing CPU-bound tasks into separate processes really helps to keep the user interface responsive. For example, we moved the actual audio context into a separate process, communicating with it over [IPC](https://electronjs.org/docs/glossary/#ipc) to avoid potential interruptions from a busy UI.
+一般的に、*[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* と *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* は、UI の応答性を維持しながら多くの処理を実行するにあたってとてつもなく重要な道具です。 具体的には、CPU に依存するタスクを別のプロセスに分散させることで、ユーザーインターフェースの応答性を保つことができます。 たとえば、実際のオーディオコンテキストを別のプロセスに移動し、ビジーな UI による潜在的な中断を [IPC](https://electronjs.org/docs/glossary/#ipc) を介した通信で回避しました。
 
 ## Electron で Voltra を構築することにしたのはなぜですか?
 
