@@ -12,7 +12,7 @@ Ana işlemden yan işleme mesaj göndermek mümkündür, daha fazla bilgi için 
 
 * Bir mesaj gönderirken, etkinlik adı `channel`.
 * Eşzamanlı bir mesaja cevap vermek için, `event.returnValue`yi ayarlamak gereklidir.
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* Göndericiye asenkron bir mesajı geri göndermek için, `even.reply(...)` komutunu kullanabilirsiniz.  Bu yardımcı yöntemi iletileri otomatik olarak ana pencere olmayan (örn: iframes) mesajı yakalar halbuki `event.sender.send(...)` her zaman ana çerçeveye gönderir.
 
 İşleyici ve ana işlemler arasında mesaj gönderme ve işleme ilişkin bir örneği:
 
