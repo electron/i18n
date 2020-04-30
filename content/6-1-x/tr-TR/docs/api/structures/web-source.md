@@ -2,4 +2,4 @@
 
 * `code` Dizgi
 * `url` String (optional)
-* `startLine` Integer (optional) - Default is 1.
+* `startLine` tamsayı (isteğe bağlı) - Varsayılan değer 1.
