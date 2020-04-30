@@ -1,4 +1,4 @@
 # CPUKullanımı Nesnesi
 
-* `percentCPUUsage` Number - Percentage of CPU used since the last call to getCPUUsage. First call returns 0.
-* `idleWakeupsPerSecond` Number - The number of average idle cpu wakeups per second since the last call to getCPUUsage. First call returns 0. Will always return 0 on Windows.
+* `percentCPUUsage` Number - getCPUUsage son çağırmadaki CPU yani işlemcinin yüzdesi. İlk çağrı 0 olarak döner.
+* `idleWakeupsPerSecond` Number - getCPUUsage son çağırmadaki ortalama saniye başına boşta durma ve uyanma sayısı (js: number). İlk çağrı 0 olarak döner. Windows'ta her zaman 0 olarak döner.
