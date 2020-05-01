@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. Windows ve Linux'ta, `bitiş başlatma` olayı, `hazır` etkinliği ile aynıdır; macOS'ta bu olay, `NSApplication` 'in `applicationWillFinishLaunching` bildirimini temsil eder. Genellikle, `açık dosya` ve `açık-url` olayları için dinleyicileri ayarlarsınız ve çökme muhabirini ve otomatik güncelleyiciyi başlatırsınız.
 
-In most cases, you should do everything in the `ready` event handler.
+Genellikle `ready` event handler durumunda kullanmalısınız.
 
 ### Etkinlik: 'hazır'
 
