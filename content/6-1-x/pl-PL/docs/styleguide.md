@@ -13,11 +13,11 @@ Są to wytyczne do pisania dokumentacji Electrona.
 Używając `Quick Start` jako przykładu:
 
 ```markdown
-# Quick Start
+# Szybki start
 
 ...
 
-## Main process
+## Główny proces
 
 ...
 
