@@ -71,21 +71,21 @@ There are questions that are asked quite often. Check this out before creating a
   * [佈署更新伺服器](tutorial/updates.md#deploying-an-update-server)
   * [在應用程式中實作更新功能](tutorial/updates.md#implementing-updates-in-your-app)
   * [套用更新](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [獲取支援](tutorial/support.md)
 
 ## 深入教學
 
-These individual tutorials expand on topics discussed in the guide above.
+這些單獨的教程將展開有關本指南中討論的主題。
 
 * [安裝 Electron](tutorial/installation.md)
   * [代理伺服器](tutorial/installation.md#proxies)
   * [自訂鏡像及快取](tutorial/installation.md#custom-mirrors-and-caches)
   * [疑難排解](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback
-  * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md)
+* 電子釋放 & 開發人員回饋
+  * [版本控制方針](tutorial/electron-versioning.md)
+  * [發佈時間表](tutorial/electron-timelines.md)
+  * [應用反饋計畫](tutorial/app-feedback-program.md)
+* [使用 asar 打包應用程式原始程式碼](tutorial/application-packaging.md)
   * [產生 asar 封存檔](tutorial/application-packaging.md#generating-asar-archives)
   * [使用 asar 封存檔](tutorial/application-packaging.md#using-asar-archives)
   * [限制](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -101,9 +101,9 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * [簡介](api/synopsis.md)
 * [處理序物件](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [支援的 Chrome 命令列參數](api/command-line-switches.md)
 * [環境變數](api/environment-variables.md)
-* [Chrome Extensions Support](api/extensions.md)
+* [Chrome插件支援](api/extensions.md)
 * [Breaking API Changes](breaking-changes.md)
 
 ### 自訂 DOM 元素：
@@ -111,7 +111,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [`File` 物件](api/file-object.md)
 * [`<webview>` 標籤](api/webview-tag.md)
 * [`window.open` 函式](api/window-open.md)
-* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
+* [`瀏覽器視窗代理`物件](api/browser-window-proxy.md)
 
 ### 主處理序可用的模組：
 
@@ -135,7 +135,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [TouchBar](api/touch-bar.md)
+* [觸控條](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
