@@ -6,7 +6,7 @@ Diese Seite enthält Begriffe, die während der Entwicklung von Electron häufig
 
 ASAR steht für Atom-Shell-Archiv-Format. Ein [asar](https://github.com/electron/asar)-Archiv ist ein simples, `tar`-ähnliches Format, das die Dateien in einer einzelnen Datei zusammenführt. Electron kann willkürliche Dateien aus dem Archiv lesen ohne diese zu entpacken.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+Das ASAR-Format wurde primär für bessere Performance unter Windows entwickelt... TODO
 
 ### CRT
 
@@ -22,11 +22,11 @@ Input Method Editor. Ein Programm, dass dem Benutzer die Eingabe von Buchstaben 
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Interface description language. Schreiben Sie Funktionssignaturen und Datentypen in einem Format, mit dem Schnittstellen in Java, C++, JavaScript usw. generiert werden können.
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC steht für Inter-Process Communication. Electron verwendet IPC-serialisierte JSON Nachrichten zwischen den [Haupt-](#main-process) und [Renderer](#renderer-process) Prozessen.
 
 ### libchromiumcontent
 
@@ -38,15 +38,15 @@ Eine gemeinsame Bibliothek, die das [Chromium Content Modul](https://www.chromiu
 
 Der Main-Prozess, gewöhnlich in einer Datei namens `main.js`, ist der Einstiegspunkt für jede Electron-App. Es steuert die App, vom Öffnen bis zum Schließen. Er steurert auch Native Elemente wie Menu, Menu Bar, Dock, Tray, usw. Der Hauptprozess ist für die Erstellung jedes neuen Renderer-Prozesses in der App verantwortlich. Die vollständige Node-API ist eingebaut.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Die Datei für den Hauptprozess jeder App ist in der `main` Eigenschaft in `package.json` angegeben. This is how `electron .` knows what file to execute at startup.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+In Chromium wird dieser Prozess als "Browser-Prozess" bezeichnet. In Electron wird er umbenannt, um Verwechslung mit Renderer-Prozessen zu vermeiden.
 
 Siehe auch: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Abkürzung für Apple's Mac App Store. Für Infromationen zum Einreichen deiner App zum MAS siehe [Anleitung: Mac App Store Veröffentlichung](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
