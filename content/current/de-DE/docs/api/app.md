@@ -59,7 +59,7 @@ Rückgabewert:
 </ul>
 
 <p spaces-before="0">Emitted when all windows have been closed and the application will quit.
-Calling <code>event.preventDefault()` will prevent the default behaviour, which is terminating the application.</p>
+Ein Aufruf von <code>event.preventDefault()` verhindert das Standardverhalten, welches die Anwendung schließt.</p>
 
 Schau dir die Beschreibung/Dokumentation des `window-all-closed` Events an um die Unterschiede zwischen dem `will-quit` und dem `window-all-closed` Event zu verstehen.
 
