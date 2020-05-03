@@ -70,7 +70,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## 深入教學
 
-These individual tutorials expand on topics discussed in the guide above.
+這些單獨的教程將展開有關本指南中討論的主題。
 
 * [深入: 安裝 Electron](tutorial/installation.md)
   * [代理伺服器](tutorial/installation.md#proxies)
