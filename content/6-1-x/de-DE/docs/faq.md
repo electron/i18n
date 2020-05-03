@@ -12,7 +12,7 @@ Man kann auch versuchen, Electron direkt unter [electron/electron/releases](http
 
 Die Chrome Version von Electron wird in der Regel innerhalb von ein oder zwei Wochen Implementiert nachdem eine neue stabile Version für Chrome veröffentlicht wird. Diese Schätzung kann nicht garantiert werden und hängt vom Arbeitsaufwand während der Aktualisierung ab.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Nur der stabile Kanal von Chrome wird verwendet. Wenn ein wichtiger Fix im Beta- oder Dev-Kanal ist, werden wir ihn zurückportieren.
 
 Weitere Informationen finden Sie in der [Einführung zur Sicherheit](tutorial/security.md).
 
@@ -36,12 +36,12 @@ global.sharedObject = {
 ```
 
 ```javascript
-// In page 1.
+// Auf Seite 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// Auf Seite 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
