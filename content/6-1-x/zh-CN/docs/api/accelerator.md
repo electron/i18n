@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 在 Linux 和 Windows 上, ` Command ` 键没有任何效果, 所以使用 ` CommandOrControl `表述, macOS 是 ` Command ` ，在 Linux 和 Windows 上是` Control `。
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+使用 `Alt`按键替代 `Option`按键。 使用 Alt 键代替Option. `Option` 键只在 macOS 系统上存在, 而 `Alt` 键在任何系统上都有效.
 
 `Super`键是指 Windows 和 Linux 系统上的 `Windows` 键，但在 macOS 里为 `Cmd` 键.
 

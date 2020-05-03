@@ -44,10 +44,10 @@ Rückgabewert:
 * ` Ereignis </ 0>  Ereignis</li>
 </ul>
 
-<p spaces-before="0">Emitted before the application starts closing its windows.
-Calling <code>event.preventDefault()` will prevent the default behavior, which is terminating the application.</p>
+<p spaces-before="0">Ausgelöst, bevor sich die Fenster der Anwendung schließen.
+Ein Aufruf von <code>event.preventDefault()` verhindert das Standardverhalten, welches die Anwendung schließt.</p>
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Wichtig**: Wenn das Beenden der App durch einen Aufruf von `autoUpdater.quitAndInstall()` initiiert wurde, wird das `before-quit` Event *nach* der Auslösung aller `close` Events für alle Fenster ausgelöst und diese werden geschlossen.
 
 **Hinweis:** Wenn die Anwendung unter Windows beendet wird, weil das System heruntergefahren oder neu gestartet wird oder der Benutzer sich abmeldet, wird dieses Event nicht ausgelöst.
 
@@ -58,8 +58,8 @@ Rückgabewert:
 * ` Ereignis </ 0>  Ereignis</li>
 </ul>
 
-<p spaces-before="0">Emitted when all windows have been closed and the application will quit.
-Calling <code>event.preventDefault()` will prevent the default behaviour, which is terminating the application.</p>
+<p spaces-before="0">Ausgelöst, wenn alle Fenster geschlossen sind und sich die Anwendung beenden wird.
+Ein Aufruf von <code>event.preventDefault()` verhindert das Standardverhalten, welches die Anwendung schließt.</p>
 
 Schau dir die Beschreibung/Dokumentation des `window-all-closed` Events an um die Unterschiede zwischen dem `will-quit` und dem `window-all-closed` Event zu verstehen.
 
@@ -120,7 +120,7 @@ Rückgabewert:
 
 Wird während [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ausgelöst, wenn eine Aktivität von einem anderen Gerät wieder aufgenommen werden soll. Du solltest `event.preventDefault()` aufrufen wenn du dieses Event verwenden willst.
 
-Eine Benutzeraktivität kann nur in einer App fortgesetzt werden, die die gleiche Entwicklerteam-ID als die Quell-App der Aktivität hat und den Typ der Aktivität unterstützt. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+Eine Benutzeraktivität kann nur in einer App fortgesetzt werden, die die gleiche Entwicklerteam-ID als die Quell-App der Aktivität hat und den Typ der Aktivität unterstützt. Unterstützte Aktivitätstypen sind spezifiziert in `Info.plist` unter dem `NSUserActivityTypes` Schlüssel.
 
 ### Event: 'will-continue-activity' _macOS_
 
@@ -129,7 +129,7 @@ Rückgabewert:
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Du solltest `event.preventDefault()` aufrufen wenn du dieses Event verwenden willst.
+Wird während [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ausgelöst, bevor eine Aktivität von einem anderen Gerät wieder aufgenommen werden soll. Du solltest `event.preventDefault()` aufrufen wenn du dieses Event verwenden willst.
 
 ### Event: 'continue-activity-error' _macOS_
 
@@ -139,7 +139,7 @@ Rückgabewert:
 <li><p spaces-before="0"><code>type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).</p>
 * `error` String - Ein String mit der lokalisierten Beschreibung des Fehlers.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+Wird während [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ausgelöst, wenn eine Aktivität von einem anderen Gerät nicht wieder aufgenommen werden kann.
 
 ### Ereignis: 'activity-was-continued' _macOS_
 

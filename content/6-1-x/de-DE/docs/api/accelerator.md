@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 Unter Linux und Windows hat die `Command` Taste keinen Effekt, weshalb `CommandOrControl` benutzt werden sollte. Es repräsentiert  `Command` unter macOS und  `Control` unter Linux und Windows um Tastenkürzel zu definieren.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Verwenden Sie `Alt` anstelle von `Option`. `Option` existiert nur unter macOS, wohingegen `Alt` in allen Betriebssystemen verfügbar ist.
 
 `Super` wird unter Windows und Linux auf die`Windows`-Taste und unter macOS auf die `Cmd` gemappt.
 
