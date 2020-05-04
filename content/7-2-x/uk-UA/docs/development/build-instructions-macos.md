@@ -6,7 +6,7 @@ Follow the guidelines below for building Electron on macOS.
 
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
-* [node.js](https://nodejs.org) (external)
+* [Node.js](https://nodejs.org) (зовнішній)
 * Python 2.7 with support for TLS 1.2
 
 ## Python
