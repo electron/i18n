@@ -1,4 +1,4 @@
-# Supported Command Line Switches
+# 支援的 Chrome 命令列參數
 
 > Electron 支援的命令列參數。
 
