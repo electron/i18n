@@ -4,7 +4,7 @@ Follow the guidelines below for building Electron on Linux.
 
 ## Prerequisites
 
-* At least 25GB disk space and 8GB RAM.
+* Не менше 25 Гб дискового простору та 8 Гб ОЗП.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 
   Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
@@ -85,7 +85,7 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Advanced topics
+## Розширені теми
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
