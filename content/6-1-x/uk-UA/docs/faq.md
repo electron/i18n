@@ -12,7 +12,7 @@
 
 Chrome для Electron зазвичай випускається протягом тижня чи двох після релізу стабільної версії Chrome. Цей термін не є гарантованим і залежить від кількості роботи спричиненої оновленням.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Тільки стабільний канал Chrome використовується. If an important fix is in beta or dev channel, we will back-port it.
 
 Для більш детальної інформації, перегляньте [Політику безпеки](tutorial/security.md).
 
@@ -36,12 +36,12 @@ global.sharedObject = {
 ```
 
 ```javascript
-// In page 1.
+// На сторінці 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// На сторінці 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
