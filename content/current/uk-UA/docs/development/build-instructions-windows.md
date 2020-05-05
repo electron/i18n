@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on Windows.
 
-## Prerequisites
+## Системні вимоги
 
 * Windows 10 / Server 2012 R2 або вище
 * Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
@@ -39,7 +39,7 @@ $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") ta
 
 The other building steps are exactly the same.
 
-## Visual Studio project
+## Проект Visual Studio
 
 To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
 
@@ -59,7 +59,7 @@ If you encountered an error like `Command xxxx not found`, you may try to use th
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+Спробуйте перевстановити 32-ух бітну Node.js.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
