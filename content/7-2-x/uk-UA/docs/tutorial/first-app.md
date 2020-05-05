@@ -107,8 +107,8 @@ const { app, BrowserWindow } = require('electron')
 let win
 
 function createWindow () {
-  // Create the browser window.
-  win = new BrowserWindow({
+  // Створює вікно браузера.
+  let win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -116,7 +116,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // і завантажує index.html.
   win.loadFile('index.html')
 
   // Open the DevTools.
