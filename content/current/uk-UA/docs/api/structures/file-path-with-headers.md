@@ -1,4 +1,4 @@
-# FilePathWithHeaders Object
+# Об'єкт FilePathWithHeaders
 
-* `path` String - The path to the file to send.
-* `headers` Record<string, string> (optional) - Additional headers to be sent.
+* `path` String - Шлях до файлу, який потрібно надіслати.
+* `headers` Record<string, string> (необов'язково) - Додаткові заголовки для надсилання.
