@@ -431,7 +431,7 @@ Devuelve:
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-The method underlying this event is built to handle older macOS-style trackpad swiping, where the content on the screen doesn't move with the swipe. Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
+El método subyacente a este evento esta construido para manejar el viejo estilo de desplazamiento del trackpad de macOS, donde el contenido de la pantalla no se mueve con el manotazo. La mayoría de los trackpads de macOS ya no están configurados para permitir este tipo de movimiento,  así que para emitir correctamente la preferencia 'Desplazamiento entre paginas' en `System Preferences > Trackpad > More Gestures` debe establecer a 'Desplazar con dos o tres dedos'.
 
 #### Event: 'rotate-gesture' _macOS_
 
@@ -440,7 +440,7 @@ Devuelve:
 * `event` Event
 * `rotation` Float
 
-Emitido en el gesto de rotación del trackpad. Emitido continuamente hasta que el gesto de rotación se termine. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
+Emitido en el gesto de rotación del trackpad. Emitido continuamente hasta que el gesto de rotación se termine. El valor de `rotation` en cada emisión es el angulo en grado rotado desde la última emisión. El último evento emitido sobra un gesto de rotación siempre será el valor de `0`. Los valores de rotación en sentido contrario a las agujas del reloj son positivos, mientras que los del sentido de las agujas del reloj son Negativo.
 
 #### Evento: "sheet-begin" _macOS_
 
@@ -470,13 +470,13 @@ Devuelve `BrowserWindow | null` - La ventana que es enfocada en esta aplicación
 
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
+Devuelve `BrowserWindow | null` - La ventana que posee al `webContents` dado o `null` si los contenidos no son propiedad de una ventana.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+Devuelve `BrowserWindow | null` - La ventana que posee el `browserView` dado. If the given view is not attached to any window, returns `null`.
 
 #### `BrowserWindow.fromId(id)`
 
@@ -504,7 +504,7 @@ Elimina una extensión de Chrome por su nombre.
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Devuelve `Record<String, ExtensionInfo>` - Las llaves son los nombres de la extensión y cada valor es un Objeto conteniendo las propiedades `name` y `version`.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
@@ -530,7 +530,7 @@ Elimina una extensión de Devtools mediante su nombre.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Devuelve `Record<string, ExtensionInfo>` - Las llaves son los nombres de la extensión y cada valor es un Objeto conteniendo las propiedades `name` y `version`.
 
 Para verificar si una extensión de DevTools está instalada se puede ejecutar lo siguiente:
 
@@ -604,7 +604,7 @@ On Linux the setter is a no-op, although the getter returns `true`.
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+Una propiedad `Boolean` que determina si la ventana es excluida o no del menu Windows de la aplicación. `false` por defecto.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -623,7 +623,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.accessibleTitle`
 
-A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. Esta cadena no es directamente visible para los usuarios.
 
 ### Métodos de Instancia
 
@@ -637,7 +637,7 @@ Al forzar el cierre de una ventana, el evento `unload` y `beforeunload` no se em
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+Trate de cerrar la ventana. Esto tiene el mismo efecto que un usuario pulsando manualmente el botón cerrar de la ventana. The web page may cancel the close though. Ver el [close event](#event-close).
 
 #### `win.focus()`
 
@@ -677,7 +677,7 @@ Devuelve `Boolean` - Si la ventana actual es una ventana modal o no.
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+Maximiza la ventana. This will also show (but not focus) the window if it isn't being displayed already.
 
 #### `win.unmaximize()`
 
@@ -689,7 +689,7 @@ Devuelve `Boolean` - Si la ventana está maximizada.
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+Minimiza la ventana. On some platforms the minimized window will be shown in the Dock.
 
 #### `win.restore()`
 
@@ -740,7 +740,7 @@ Llamar esta función con un valor de `0` eliminara cualquier configuración de a
 
 * `backgroundColor` String - Color de fondo de la ventana como un valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alpha es soportada si `transparent` es `true`). Por defecto es `#FFF` (blanco).
 
-Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+Sets the background color of the window. Ver [Setting `backgroundColor`](#setting-backgroundcolor).
 
 #### `win.previewFile(path[, displayName])` _macOS_
 
@@ -803,7 +803,7 @@ Habilita o deshabilita la ventana.
 
 #### `win.isEnabled()`
 
-Returns Boolean - whether the window is enabled.
+Devuelve Boolean - Si la ventana esta activada o no.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -869,7 +869,7 @@ Devuelve `Boolean` - Si la ventana puede ser redimensionada manualmente por el u
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Sets whether the window can be moved by user. En Linux no hace nada.
 
 **[Cambiar](modernization/property-updates.md)**
 
@@ -885,7 +885,7 @@ En Linux siempre devuelve `true`.
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Sets whether the window can be manually minimized by user. En Linux no hace nada.
 
 **[Cambiar](modernization/property-updates.md)**
 
@@ -931,7 +931,7 @@ Devuelve `Boolean` - Si el botón de la ventana de maximizar/acercar activa o no
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Sets whether the window can be manually closed by user. En Linux no hace nada.
 
 **[Cambiar](modernization/property-updates.md)**
 
@@ -1032,7 +1032,7 @@ Devuelve `Boolean` - Si la ventana está o no en modo kiosco.
 
 #### `win.getMediaSourceId()`
 
-Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+Returns `String` - Window id in the format of DesktopCapturerSource's id. Por ejemplo "window:1234:0".
 
 More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
 
