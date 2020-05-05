@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 На Linux і Windows, клавіша `Command` не має ніякого впливу, тому використовуйте `CommandOrControl`, який являє собою `Command` на macOS та `Control` на Linux і Windows, для визначення акселераторів.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Використовуйте `Alt` замість `Option`. Клавіша `Option` існує лише в macOS, тоді як клавіша `Alt` доступна на всіх платформах.
 
 Клавіша `Super` відповідає клавіші `Windows` на Windows та Linux і `Cmd` на macOS.
 
