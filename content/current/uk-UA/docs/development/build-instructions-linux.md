@@ -2,10 +2,10 @@
 
 Follow the guidelines below for building Electron on Linux.
 
-## Prerequisites
+## Системні вимоги
 
 * Не менше 25 Гб дискового простору та 8 Гб ОЗП.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
+* Python 2.7.x. Деякі дистрибутиви, наприклад CentOS 6.x, досі використовують Python 2.6.x. Отже, ви повинні перевірити версію Python за допомогою `python -V`.
 
   Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
 
@@ -15,11 +15,11 @@ Follow the guidelines below for building Electron on Linux.
 
   If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
 
-* Node.js. There are various ways to install Node. Ви можете завантажити вихідний код з [nodejs.org](https://nodejs.org) та скомпілювати його. Таким чином ви зможете встановити Node для вашого домашнього директорію зі стандартними правами користувача. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
+* Node.js. Є різні способи встановлення Node. Ви можете завантажити вихідний код з [nodejs.org](https://nodejs.org) та скомпілювати його. Таким чином ви зможете встановити Node для вашого домашнього директорію зі стандартними правами користувача. Або спробуйте репозиторії, такі як [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* [clang](https://clang.llvm.org/get_started.html) 3.4 або вище.
 * Development headers of GTK 3 and libnotify.
 
-On Ubuntu, install the following libraries:
+В Ubuntu, встановіть наступні бібліотеки:
 
 ```sh
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
@@ -29,7 +29,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        gperf bison python-dbusmock openjdk-8-jre
 ```
 
-On RHEL / CentOS, install the following libraries:
+У RHEL / CentOS, встановіть наступні бібліотеки:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
@@ -38,7 +38,7 @@ $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-On Fedora, install the following libraries:
+У Fedora, встановіть наступні бібліотеки:
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
@@ -99,6 +99,6 @@ For example if you installed `clang` under `/usr/local/bin/clang`:
 $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_base_path = "/usr/local/bin"'
 ```
 
-### Using compilers other than `clang`
+### Використання інших компіляторів, а не `clang`
 
-Building Electron with compilers other than `clang` is not supported.
+Будування Electron з іншими компіляторами, а не `clang` не підтримується.

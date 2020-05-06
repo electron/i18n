@@ -49,7 +49,7 @@ Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 
 ## Wörter auswählen
 
-* Use "will" over "would" when describing outcomes.
+* "Wird" sollte statt "würde" verwendet werden, um Ergebnisse zu beschreiben.
 * Prefer "in the ___ process" over "on".
 
 ## API Referenzen

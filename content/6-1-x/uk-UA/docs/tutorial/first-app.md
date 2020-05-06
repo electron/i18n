@@ -1,4 +1,4 @@
-# Writing Your First Electron App
+# Написання вашої першої Electron програми
 
 Electron дозволяє вам створювати прикладні застосунки за допомогою чистого JavaScript, надаючи середовище з багатим нативним (операційна система) API. Ви можете розглядати це як варіант Node.js середовища, яке фокусується на прикладних застосунках, а не вебсервісах.
 
@@ -6,7 +6,7 @@ This doesn't mean Electron is a JavaScript binding to graphical user interface (
 
 **Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. Базовий Electron застосунок міг би мати таку структуру папки:
 
 ```text
 your-app/
@@ -81,7 +81,7 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // Створює вікно браузера.
   let win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -90,7 +90,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // і завантажує index.html.
   win.loadFile('index.html')
 }
 
@@ -107,8 +107,8 @@ const { app, BrowserWindow } = require('electron')
 let win
 
 function createWindow () {
-  // Create the browser window.
-  win = new BrowserWindow({
+  // Створює вікно браузера.
+  let win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -116,10 +116,10 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // і завантажує index.html.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Відкриває DevTools.
   win.webContents.openDevTools()
 
   // Emitted when the window is closed.
@@ -183,16 +183,16 @@ Once you've created your initial `main.js`, `index.html`, and `package.json` fil
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
-**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
+**Примітка**: Запуск цього прикладу потребує [Git](https://git-scm.com) та [npm](https://www.npmjs.com/).
 
 ```sh
-# Clone the repository
+# Клонування репозиторію
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Вхід в репозиторій
 $ cd electron-quick-start
-# Install dependencies
+# Встановлення залежностей
 $ npm install
-# Run the app
+# Запуск програми
 $ npm start
 ```
 

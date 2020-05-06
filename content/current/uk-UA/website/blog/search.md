@@ -48,7 +48,7 @@ Electron has an ever-growing collection of tutorials to complement its API docum
 
 Looking for security best practices? Search for [`security`].
 
-## npm Packages
+## Пакети npm
 
 There are now over 700,000 packages in the npm registry and it's not always easy to find the one you need. To make it easier to discover these modules, we've created [`electron-npm-packages`], a collection of the 3400+ modules in the registry that are built specifically for use with Electron.
 
@@ -95,6 +95,6 @@ The best way to submit your feedback is by filing an issue on GitHub in the appr
 - [algolia/instantsearch.js](https://github.com/algolia/instantsearch.js) is the browser-side client that enables find-as-you-type search.
 - [algolia/algoliasearch-client-javascript](https://github.com/algolia/algoliasearch-client-javascript) is the Node.js client for uploading data to Algolia's servers.
 
-## Thanks
+## Подяка
 
 Special thanks to [Emily Jordan](https://github.com/echjordan) and [Vanessa Yuen](https://github.com/vanessayuenn) for building these new search capabilities, to [Libraries.io](https://libraries.io) for providing [SourceRank](https://docs.libraries.io/overview.html#sourcerank) scores, and to the team at Algolia for helping us get started. 🍹

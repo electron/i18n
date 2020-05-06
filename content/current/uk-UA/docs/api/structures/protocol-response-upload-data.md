@@ -1,4 +1,4 @@
-# ProtocolResponseUploadData Object
+# Об'єкт ProtocolResponseUploadData
 
-* `contentType` String - MIME type of the content.
-* `data` String | Buffer - Content to be sent.
+* `contentType` String - MIME тип вмісту.
+* `дані` Рядок | Буфер - Вміст, який буде надіслано.

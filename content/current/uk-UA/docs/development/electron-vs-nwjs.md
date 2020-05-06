@@ -1,10 +1,10 @@
-# Technical Differences Between Electron and NW.js
+# Технічні відмінності між Electron та NW.js
 
-Like [NW.js](https://nwjs.io/), Electron provides a platform to write desktop applications with web technologies. Both platforms enable developers to utilize HTML, JavaScript, and Node.js. On the surface, they seem very similar.
+Як і [NW.js](https://nwjs.io/), Electron надає платформу для створення комп'ютерних за допомогою веб технологій. Both platforms enable developers to utilize HTML, JavaScript, and Node.js. On the surface, they seem very similar.
 
 There are however fundamental differences between the two projects that make Electron a completely separate product from NW.js.
 
-## 1) Entry of Application
+## 1) Точка входу застосунку
 
 In NW.js, the main entry point of an application can be an HTML web page. In that case, NW.js will open the given entry point in a browser window.
 
@@ -32,7 +32,7 @@ Given that hardware manufacturers, Microsoft, Chromium, and Node.js haven't rele
 
 However, we understand that requirements outside our wildest imagination may exist, so if you're looking for something like Electron that runs on Windows XP, the NW.js legacy release might be the right fit for you.
 
-## 5) Features
+## 5) Можливості
 
 There are numerous differences in the amount of supported features. Electron has a bigger community, more production apps using it, and [a large amount of userland modules available on npm](https://www.npmjs.com/search?q=electron).
 

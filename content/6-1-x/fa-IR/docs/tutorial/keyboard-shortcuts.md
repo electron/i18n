@@ -1,22 +1,23 @@
-# Keyboard Shortcuts
+# میانبر های صفحه کلید
 
 > Configure local and global keyboard shortcuts
 
 ## Local Shortcuts
 
-Anda dapat menggunakan modul
+You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
 
- Menu </ 0> untuk mengkonfigurasi cara pintas keyboard yang hanya akan dipicu saat aplikasi difokuskan. Untuk melakukannya, tentukan properti [ ` akselerator </ 0> ] saat membuat <a href="../api/menu-item.md"> MenuItem </ 1> .</p>
+```js
+const { Menu, MenuItem } = require('electron')
+const menu = new Menu()
 
-<pre><code class="js">const { Menu, MenuItem } = require ('electron') const menu = new Menu () menu.append (menu baruT ({
-   label: 'Cetak',
-   akselerator: 'CmdOrCtrl + P',
-   klik: () = & gt; { console.log ('waktu untuk mencetak barang')}}))
-`</pre> 
+menu.append(new MenuItem({
+  label: 'Print',
+  accelerator: 'CmdOrCtrl+P',
+  click: () => { console.log('time to print stuff') }
+}))
+```
 
 You can configure different key combinations based on the user's operating system.
-
-
 
 ```js
 {
@@ -24,42 +25,56 @@ You can configure different key combinations based on the user's operating syste
 }
 ```
 
+## Global Shortcuts
 
-
-
-## Jalan pintas global
-
-Anda dapat menggunakan modul  globalShortcut </ 0> untuk mendeteksi kejadian keyboard meskipun aplikasi tidak memiliki fokus pada keyboard.</p> 
-
-
+You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
 
 ```js
 const { app, globalShortcut } = require('electron')
 
-app.whenReady().then(() => {
+app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
 })
 ```
 
+## Shortcuts within a BrowserWindow
 
+If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
+```js
+window.addEventListener('keyup', doSomething, true)
+```
 
-## Jalan pintas dalam BrowserWindow
+Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
 
-Jika Anda ingin menangani jalan pintas keyboard untuk  BrowserWindow </ 0> , Anda dapat menggunakan pendengar acara ` keyup </ 1> dan <code> keydown </ 1>  pada objek jendela di dalam proses renderer.</p>
+The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
 
-<pre><code class="js">window.addEventListener('keyup', doSomething, true)
-`</pre> 
+If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
 
-Perhatikan parameter ketiga ` true </ 0> yang berarti pendengar akan selalu menerima penekanan tombol sebelum pendengar lainnya sehingga mereka tidak dapat menahan <code> stopPropagation () </ 0> memanggil mereka.</p>
+```js
+Mousetrap.bind('4', () => { console.log('4') })
+Mousetrap.bind('?', () => { console.log('show shortcuts!') })
+Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-<p spaces-before="0">The <a href="../api/web-contents.md#event-before-input-event"><code> sebelum-input- acara </ 0>  acara 
-dipancarkan sebelum pengiriman <code> keydown </ 1> dan <code> keyup </ 1> peristiwa di halaman. Ini bisa digunakan untuk menangkap dan menangani shortcut custom yang tidak terlihat pada menu.</p>
+// combinations
+Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-<p spaces-before="0">Jika Anda tidak ingin melakukan penguraian manual pintas ada perpustakaan yang melakukan deteksi kunci lanjut seperti <a href="https://github.com/ccampbell/mousetrap"> perangkap tikus </ 0> .</p>
+// map multiple combinations to the same callback
+Mousetrap.bind(['command+k', 'ctrl+k'], () => {
+  console.log('command k or control k')
 
-<pre><code class="js">Mousetrap.bind ('4', () = > {console.log('4')}) Mousetrap.bind ('? ', () = > {console.log ('menunjukkan cara pintas!')}) Mousetrap.bind ('Escudo', () = > {console.log('escape')}, 'keyup') / / kombinasi Mousetrap.bind ('perintah + pergeseran + k', () = > {console.log ('perintah pergeseran k')}) / / peta beberapa kombinasi ke callback sama Mousetrap.bind (['perintah + k', ' ctrl + k'], ()) = > {console.log ('perintah k atau control k') / / kembali palsu untuk mencegah perilaku default dan acara berhenti dari menggelegak kembali palsu}) / / gmail gaya urutan Mousetrap.bind ('g saya ', () = > {console.log ('pergi ke inbox')}) Mousetrap.bind ('* ', () = > {konsol .log ('Pilih Semua')}) / / kode konami!
-Mousetrap.bind ('sampai sampai down turun kiri kanan kiri kanan b masukkan ', () = > {console.log ('kode konami')})
-`</pre>
+  // return false to prevent default behavior and stop event from bubbling
+  return false
+})
+
+// gmail style sequences
+Mousetrap.bind('g i', () => { console.log('go to inbox') })
+Mousetrap.bind('* a', () => { console.log('select all') })
+
+// konami code!
+Mousetrap.bind('up up down down left right left right b a enter', () => {
+  console.log('konami code')
+})
+```

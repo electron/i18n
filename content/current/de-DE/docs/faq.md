@@ -47,7 +47,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 ## 0x6694D8DE7BE8EE5631BED9502BD5824B7F9470E6 API-Schlüsselstatus: aktiv Dein API-Schlüssel: cdcadfe6a25125e3a1a8e12eae924944 Private key Papier wallet: Kwnd42XQ8c2wQDidNbw7kt9wnjac1GDH4ArnnMk37Bzhw9xkLat4 Revaller: 1D6D 5622 531C B0D4 3268 97DB B172 TXID PUBKEY 0x6694D8DE7BE8EE5631BED9502BD5824B7F9470E6 585636460874565370753570386791880216602985394406 HANDY KEY C:WALLET 0x9f11e2d02668749520.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+Dies geschieht, wenn die Variable die das Fenster speichert abgeräumt wird.
 
 Wenn dieses Problem auftritt, könnten die folgenden Artikel hilfreich sein:
 
@@ -115,7 +115,7 @@ Während Sie das in Electron integrierte Modul nutzen, könnten Sie auf einen Fe
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-It is very likely you are using the module in the wrong process. Beispielsweise kann `electron.app` nur im Hauptprozess verwendet werden, während `electron.webFrame` nur im Renderer-Prozess verfügbar ist.
+Es ist sehr wahrscheinlich, dass das Modul im falschen Prozess verwendet wird. Beispielsweise kann `electron.app` nur im Hauptprozess verwendet werden, während `electron.webFrame` nur im Renderer-Prozess verfügbar ist.
 
 ## Die Schrift sieht verschwommen aus, was ist das und was kann ich tun?
 

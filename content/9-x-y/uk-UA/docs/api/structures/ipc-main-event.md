@@ -1,8 +1,8 @@
 # Об'єкт IpcMainEvent наслідує `Event`
 
 * `frameId` Integer - Ідентифікатор рендер фрейму, який відправив дане повідомлення
-* `returnValue` any - Set this to the value to be returned in a synchronous message
+* `returnValue` any - Встановить значення, що буде повернене в синхронному повідомленні
 * `sender` WebContents - Повертає `webContents`, який відправив повідомлення
-* `reply` Function - Функція, яка відправить IPC повідомлення в рендер фрейм, який відправив оригінальне повідомлення, яке зараз обробляється.  You should use this method to "reply" to the sent message in order to guarantee the reply will go to the correct process and frame.
+* `reply` Function - Функція, яка відправить IPC повідомлення в рендер фрейм, який відправив оригінальне повідомлення, яке зараз обробляється.  Ви повинні використовувати цей метод щоб "відповісти" на відправлене повідомлення щоб гарантувати те, що відповідь піде в правильний process та frame.
   * `channel` String
   * `...args` any[]

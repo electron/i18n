@@ -11,9 +11,9 @@ There are questions that are asked quite often. Check this out before creating a
 ## راهنماهای و آموزش
 
 * [راه اندازی محیط توسعه](tutorial/development-environment.md)
-  * [راه اندازی macOS](tutorial/development-environment.md#setting-up-macos)
-  * [راه اندازی ویندوز](tutorial/development-environment.md#setting-up-windows)
-  * [راه اندازی لینوکس](tutorial/development-environment.md#setting-up-linux)
+  * [راه اندازی در macOS](tutorial/development-environment.md#setting-up-macos)
+  * [راه اندازی در ویندوز](tutorial/development-environment.md#setting-up-windows)
+  * [راه اندازی در لینوکس](tutorial/development-environment.md#setting-up-linux)
   * [انتخاب یک ویرایشگر](tutorial/development-environment.md#a-good-editor)
 * [ایجاد اولین برنامه شما](tutorial/first-app.md)
   * [نصب الکترون Electron](tutorial/first-app.md#installing-electron)
