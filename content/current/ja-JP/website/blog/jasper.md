@@ -11,9 +11,9 @@ This week we interviewed the creator of [Jasper](https://jasperapp.io), an Elect
 
 ---
 
-## Hello! Who are you?
+## こんにちは! あなたは誰ですか?
 
-I'm [Ryo Maruyama](https://github.com/h13i32maru), a software developer in Japan. I am developing [Jasper](https://jasperapp.io) and [ESDoc](https://esdoc.org).
+私は [Ryo Maruyama](https://github.com/h13i32maru) で日本のソフトウェア開発者です。 I am developing [Jasper](https://jasperapp.io) and [ESDoc](https://esdoc.org).
 
 ## What is Jasper?
 
