@@ -1,11 +1,11 @@
-# MouseWheelInputEvent Object extends `MouseInputEvent`
+# Об'єкт MouseWheelInputEvent наслідує `MouseInputEvent`
 
-* `type` String - The type of the event, can be `mouseWheel`.
-* `deltaX` Integer (optional)
-* `deltaY` Integer (optional)
-* `wheelTicksX` Integer (optional)
-* `wheelTicksY` Integer (optional)
-* `accelerationRatioX` Integer (optional)
-* `accelerationRatioY` Integer (optional)
-* `hasPreciseScrollingDeltas` Boolean (optional)
-* `canScroll` Boolean (optional)
+* `type` String - Тип події, може бути `mouseWheel`.
+* `deltaX` Integer (необов'язково)
+* `deltaY` Integer (необов'язково)
+* `wheelTicksX` Integer (необов'язково)
+* `wheelTicksY` Integer (необов'язково)
+* `accelerationRatioX` Integer (необов'язково)
+* `accelerationRatioY` Integer (необов'язково)
+* `hasPreciseScrollingDeltas` Boolean (необов'язково)
+* `canScroll` Boolean (необов'язково)
