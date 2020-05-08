@@ -476,7 +476,7 @@ Devuelve `BrowserWindow | null` - La ventana que posee al `webContents` dado o `
 
 * `browserView` [BrowserView](browser-view.md)
 
-Devuelve `BrowserWindow | null` - La ventana que posee el `browserView` dado. If the given view is not attached to any window, returns `null`.
+Devuelve `BrowserWindow | null` - La ventana que posee el `browserView` dado. Si la vista dada no esta adjunta a ninguna ventana, devuelve `null`.
 
 #### `BrowserWindow.fromId(id)`
 
@@ -556,7 +556,7 @@ win.loadURL('https://github.com')
 
 #### `win.webContents` _Readonly_
 
-Un objeto `WebContents` que esta ventana posse. All web page related events and operations will be done via it.
+Un objeto `WebContents` que esta ventana posse. Toda página web relacionada eventos y operaciones se realizarán a través de ella.
 
 Consulte la [documentation `webContents`](web-contents.md) de sus métodos y eventos.
 
@@ -572,7 +572,7 @@ If the menu bar is already visible, setting this property to `true` won't hide i
 
 #### `win.minimizable`
 
-A `Boolean` property that determines whether the window can be manually minimized by user.
+Una propiedad `Boolean` que determina si la ventana puede ser minimizada manualmente por el usuario.
 
 On Linux the setter is a no-op, although the getter returns `true`.
 
@@ -1198,11 +1198,11 @@ Devuelve `Boolean` - Si la ventana tiene o no una sombra.
 
 * `opacity` Number- entre 0.0 (completamente transparente) y 1.0 (completamente opaco)
 
-Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
+Sets the opacity of the window. En Linux no hace nada. Out of bound number values are clamped to the [0, 1] range.
 
 #### `win.getOpacity()`
 
-Devuelve `number` - entre 0.0 (completamente transparente) y 1.0 (totalmente opaco). On Linux, always returns 1.
+Devuelve `number` - entre 0.0 (completamente transparente) y 1.0 (totalmente opaco). En Linux, siempre devuelve 1.
 
 #### `win.setShape(rects)` _Windows_ _Linux_ _Experimental_
 
@@ -1260,7 +1260,7 @@ Configura la descripción emergente que se muestra cuando se pasa sobre la vista
 
 Establece las propiedades para el botón de la barra de herramientas de la ventana.
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**Note:** `relaunchCommand` y `relaunchDisplayName` siempre deben ser establecidos juntos. Si una de esas propiedades no está establecida, entonces ninguna será usada.
 
 #### `win.showDefinitionForSelection()` _macOS_
 
@@ -1284,7 +1284,7 @@ Esto no puede llamarse cuando `titleBarStyle` está configurado para ser `custom
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Establece si el menu bar de la ventana debe ocultarse a si misma automáticamente o no. Once set the menu bar will only show when users press the single `Alt` key.
 
 Si la barra de menú ya es visible, llamar `setAutoHideMenuBar(true)` no la ocultará inmediatamente.
 
@@ -1300,7 +1300,7 @@ Devuelve `Boolean` - Si la barra de menú se oculta o no automáticamente.
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+Establece si la barra de menú debe estar visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
 
 #### `win.isMenuBarVisible()`
 
