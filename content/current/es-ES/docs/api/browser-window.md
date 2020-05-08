@@ -476,7 +476,7 @@ Devuelve `BrowserWindow | null` - La ventana que posee al `webContents` dado o `
 
 * `browserView` [BrowserView](browser-view.md)
 
-Devuelve `BrowserWindow | null` - La ventana que posee el `browserView` dado. If the given view is not attached to any window, returns `null`.
+Devuelve `BrowserWindow | null` - La ventana que posee el `browserView` dado. Si la vista dada no esta adjunta a ninguna ventana, devuelve `null`.
 
 #### `BrowserWindow.fromId(id)`
 
@@ -556,7 +556,7 @@ win.loadURL('https://github.com')
 
 #### `win.webContents` _Readonly_
 
-Un objeto `WebContents` que esta ventana posse. All web page related events and operations will be done via it.
+Un objeto `WebContents` que esta ventana posse. Toda página web relacionada eventos y operaciones se realizarán a través de ella.
 
 Consulte la [documentation `webContents`](web-contents.md) de sus métodos y eventos.
 
@@ -568,11 +568,11 @@ Una propiedad `Integer` representando el identificador único de la ventana.
 
 Una propiedad `Boolean` que determina si la barra de menú de la ventana debe ocultarse automáticamente. Una vez activada, la barra de menú sólo se mostrará cuando los usuarios presionen la tecla `Alt`.
 
-If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+Si el menu bar ya está visible, estableciendo esta propiedad a `true` no lo ocultará inmediatamente.
 
 #### `win.minimizable`
 
-A `Boolean` property that determines whether the window can be manually minimized by user.
+Una propiedad `Boolean` que determina si la ventana puede ser minimizada manualmente por el usuario.
 
 On Linux the setter is a no-op, although the getter returns `true`.
 
@@ -740,7 +740,7 @@ Llamar esta función con un valor de `0` eliminara cualquier configuración de a
 
 * `backgroundColor` String - Color de fondo de la ventana como un valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alpha es soportada si `transparent` es `true`). Por defecto es `#FFF` (blanco).
 
-Sets the background color of the window. Ver [Setting `backgroundColor`](#setting-backgroundcolor).
+Establece el color de fondo de la ventana. Ver [Setting `backgroundColor`](#setting-backgroundcolor).
 
 #### `win.previewFile(path[, displayName])` _macOS_
 
@@ -758,7 +758,7 @@ Cierra el panel actual de [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
 * `animate` Boolean (opcional) _macOS_
 
-Redimensiona y mueve la ventana a los límites proporcionados. Any properties that are not supplied will default to their current values.
+Redimensiona y mueve la ventana a los límites proporcionados. Cualquier propiedad que no se proporcione tendrá sus valores actuales por defecto.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -901,7 +901,7 @@ En Linux siempre devuelve `true`.
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Sets whether the window can be manually maximized by user. En Linux no hace nada.
 
 **[Cambiar](modernization/property-updates.md)**
 
@@ -1047,7 +1047,7 @@ El tipo nativo del controlador en Windows es `HWND`, en macOS `NSView*` y en Lin
 * `message` Integer
 * `callback` Función
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Engancha una ventana de mensaje. The `callback` is called when the message is received in the WndProc.
 
 #### `win.isWindowMessageHooked(message)` _Windows_
 
@@ -1147,7 +1147,7 @@ win.loadURL('http://localhost:8000/post', {
 
 Devuelve `Promise<void>` - la promesa sera resolvida cuando la página haya finalizado de cargar (mira [`did-finish-load`](web-contents.md#event-did-finish-load)), y será rechazada si la pagina falla al cargar (mira [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application.  See the `webContents` docs for more information.
+Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application.  Ver la documentación `webContents` para más información.
 
 #### `win.reload()`
 
@@ -1169,11 +1169,11 @@ Eliminar la barra de menú de la ventana.
 * `options` Object (opcional)
   * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+Establece el valor del progreso en el progress bar. Rango valido es [0, 1.0].
 
 Elimina la barra de progreso cuando el progreso es < 0; cambia a modo indeterminado cuando el progreso es >1.
 
-En la plataforma Linux, solo es compatible con el environment de escritorio Unity. Se necesita especificar el nombre del archivo `*.desktop` en el campo `desktopName` dentro de `package.json`. By default, it will assume `{app.name}.desktop`.
+En la plataforma Linux, solo es compatible con el environment de escritorio Unity. Se necesita especificar el nombre del archivo `*.desktop` en el campo `desktopName` dentro de `package.json`. Por defecto, será asumido `{app.name}.desktop`.
 
 En Windows, se puede pasar de modo. Los valores aceptados son `none`, `normal`, `indeterminate`, `error`, y `paused`. Si se llama a`setProgressBar` sin establecer un modo (pero con un valor dentro del rango válido), se asumirá el modo `normal`.
 
@@ -1198,11 +1198,11 @@ Devuelve `Boolean` - Si la ventana tiene o no una sombra.
 
 * `opacity` Number- entre 0.0 (completamente transparente) y 1.0 (completamente opaco)
 
-Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
+Establece la opacidad de la ventana. En Linux no hace nada. Out of bound number values are clamped to the [0, 1] range.
 
 #### `win.getOpacity()`
 
-Devuelve `number` - entre 0.0 (completamente transparente) y 1.0 (totalmente opaco). On Linux, always returns 1.
+Devuelve `number` - entre 0.0 (completamente transparente) y 1.0 (totalmente opaco). En Linux, siempre devuelve 1.
 
 #### `win.setShape(rects)` _Windows_ _Linux_ _Experimental_
 
@@ -1260,7 +1260,7 @@ Configura la descripción emergente que se muestra cuando se pasa sobre la vista
 
 Establece las propiedades para el botón de la barra de herramientas de la ventana.
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**Note:** `relaunchCommand` y `relaunchDisplayName` siempre deben ser establecidos juntos. Si una de esas propiedades no está establecida, entonces ninguna será usada.
 
 #### `win.showDefinitionForSelection()` _macOS_
 
@@ -1284,7 +1284,7 @@ Esto no puede llamarse cuando `titleBarStyle` está configurado para ser `custom
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Establece si el menu bar de la ventana debe ocultarse a si misma automáticamente o no. Once set the menu bar will only show when users press the single `Alt` key.
 
 Si la barra de menú ya es visible, llamar `setAutoHideMenuBar(true)` no la ocultará inmediatamente.
 
@@ -1300,7 +1300,7 @@ Devuelve `Boolean` - Si la barra de menú se oculta o no automáticamente.
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+Establece si la barra de menú debe estar visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
 
 #### `win.isMenuBarVisible()`
 
@@ -1398,7 +1398,7 @@ Añade una ventana como pestaña de la ventana actual, después de la pestaña p
 
 * `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Para más detalles, ver [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc).
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+Añade un efecto de vibración a la ventana del navegador. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
 Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
 

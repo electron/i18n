@@ -35,7 +35,7 @@ Let's take a look at an example configuration with all required fields. Not all 
 
 ```json
 {
-  "name": "my-app",
+  "name": "mi-app",
   "version": "0.0.1",
   "config": {
     "forge": {
@@ -49,7 +49,7 @@ Let's take a look at an example configuration with all required fields. Not all 
         },
         "osxNotarize": {
           "appleId": "felix@felix.fun",
-          "appleIdPassword": "my-apple-id-password",
+          "appleIdPassword": "mi-clave-apple-id",
         }
       }
     }
@@ -79,7 +79,7 @@ To see all of this in action, check out Electron Fiddle's source code, [especial
 
 ## `Electron-builder`
 
-Electron Builder comes with a custom solution for signing your application. You can find [its documentation here](https://www.electron.build/code-signing).
+Electron Builder viene con una solución personalizada para la firma de su aplicación. Usted puede encontar [its documentation here](https://www.electron.build/code-signing).
 
 ## `Empaquetador de Electron`
 
@@ -125,14 +125,14 @@ The `plist` file referenced here needs the following macOS-specific entitlements
 
 ## Mac App Store
 
-See the [Mac App Store Guide](mac-app-store-submission-guide.md).
+Vea la [Mac App Store Guide](mac-app-store-submission-guide.md).
 
 # Firmando compilaciones Windows
 
 Antes de Firmar Compilaciones Windows, tu debes hacer lo siguiente:
 
 1. Obtener un certificado de firma de código de Windows Authenticode (requiere una cuota anual)
-2. Install Visual Studio to get the signing utility (the free [Community Edition](https://visualstudio.microsoft.com/vs/community/) is enough)
+2. Instale Visual Studio para obtener la utilizada para firmar (la gratis [Community Edition](https://visualstudio.microsoft.com/vs/community/) es suficiente)
 
 Usted puede obtener una certificado de firma de código desde muchos revendedores. Prices vary, so it may be worth your time to shop around. Entre los revendedores populares se incluyen:
 
@@ -143,7 +143,7 @@ Usted puede obtener una certificado de firma de código desde muchos revendedore
 
 Hay una serie de herramientas para firmar su aplicación empaquetada:
 
-- [`electron-winstaller`] will generate an installer for windows and sign it for you
+- [`electron-winstaller`] generará un instalador para windows y lo firmará por usted
 - [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
 - [`electron-builder`] puede firmar algunos de los empaques instaladores de windows
 

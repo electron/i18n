@@ -436,7 +436,7 @@ Devuelve:
 * `event` Event
 * `rotation` Float
 
-Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
+Emitido en el gesto de rotación del trackpad. Emitido continuamente hasta que el gesto de rotación se termine. El valor de `rotation` en cada emisión es el angulo en grado rotado desde la última emisión. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
 #### Evento: "sheet-begin" _macOS_
 
@@ -552,7 +552,7 @@ win.loadURL('https://github.com')
 
 #### `win.webContents` _Readonly_
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+Un objeto `WebContents` que esta ventana posse. All web page related events and operations will be done via it.
 
 Consulte la [documentation `webContents`](web-contents.md) de sus métodos y eventos.
 
