@@ -8,4 +8,4 @@
 * `secure` Boolean (opcjonalne) - Czy ciasteczko jest oznaczone jako bezpieczne.
 * `httpOnly` Boolean (opcjonalne) - Czy ciasteczko jest oznaczone jako HTTP.
 * `session` Boolean (opcjonalne) - Czy ciasteczko jest ciasteczkiem sesji czy trwałym ciasteczkiem z datą ważności.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Nie dostarczono dla plików cookie sesji.
