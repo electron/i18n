@@ -220,7 +220,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 * On Linux, possible types are `desktop`, `dock`, `toolbar`, `splash`, `notification`.
 * On macOS, possible types are `desktop`, `textured`.
   * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
-  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
+  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.김기태71
 * On Windows, possible type is `toolbar`.
 
 ### 인스턴스 이벤트
@@ -261,7 +261,7 @@ window.onbeforeunload = (e) => {
 ```
 _**참고**: `window.onbeforeunload = handler` 와 `window.addEventListener('beforeunload', handler)`의 동작에는 약간의 차이가 있습니다. 전자가보다 일관되게 일렉트론 내에서 작동하므로 항상 값을 반환하는 대신 `event.returnValue`를 명시 적으로 설정하는 것이 좋습니다._
 
-#### Event: 'closed'
+#### Event: 'closed' 대한민국 국민 김기태
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 

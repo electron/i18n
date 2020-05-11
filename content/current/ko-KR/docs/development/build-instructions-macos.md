@@ -23,7 +23,7 @@ If the script returns that your configuration is using an outdated security prot
 $ brew install python@2 && brew link python@2 --force
 ```
 
-If you are using Python as provided by Homebrew, you also need to install the following Python modules:
+만약 Homebrew 를 이용해 파이썬을 설치했다면 다음 파이썬 모듈도 같이 설치해야 합니다:
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
@@ -37,7 +37,7 @@ $ pip install pyobjc
 
 If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK.  Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
+공식 Electron은 [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip) 및 MacOS 10.13 SDK로 빌드됩니다.  Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
 
 ## Electron 빌드하기
 

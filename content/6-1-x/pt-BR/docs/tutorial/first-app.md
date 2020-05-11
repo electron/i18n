@@ -117,10 +117,10 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // e carregar o index.html do app.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Abrir o DevTools.
   win.webContents.openDevTools()
 
   // Emitido quando a janela é fechada.
