@@ -1,10 +1,10 @@
 # Multithreading
 
-With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
+Sa mga [ nagtra-trabaho ng Web](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), posibling magpatakbo ng JavaScript sa OS-level threads.
 
 ## Multi-threaded Node.js
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+Posibling gumamit ng mga tampok ng Node.js sa manggagawa ng Electron's Web, upang gawin ito ay ang `nodeIntegrationInWorker` na opsyon ay dapat na itakda sa `true` sa `webPreferences`.
 
 ```javascript
 let win = new BrowserWindow({
@@ -14,19 +14,19 @@ let win = new BrowserWindow({
 })
 ```
 
-The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
+Ang `nodeIntegrationInWorker` ay pwedeng gamitin ng nagsasarili sa `nodeIntegration`, pero `sandbox` ay dapat hindi itakda sa `true`.
 
-## Available APIs
+## Magagamit na APIs
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
+Lahat ng built-in na modyul ng Node.js ay suportado ng manggagawa ng Web, at `asar` archives ay maari paring mabasa gamit ang Node.js APIs. Gayunpaman wala sa mga Electron's built-in modyuls ay maaring gamitin sa multi-threaded na kapaligiran.
 
-## Native Node.js modules
+## Native Node.js modyuls
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+Anumang native Node.js modyul ay maaaring i-karga ng direkta sa Web Workers, ngunit mahigpit na inirerekomenda na hindi gawin ito. Kadalasan na umiiral na native modyul ay nakasulat na ipagpapalagay na iisang-threaded na kapaligiran, ang paggamit nila sa Web Workers ay hahantong sa paglagapak at pagsira ng memorya.
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+Tandaan na kahit na ang native Node.js modyul ay isang thread-safe hindi parin ligtas na ikarga ito sa Web Worker dahil ang `process.dlopen` na ginagawa ay hindi ligtas na thread.
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+Ang tanging paraan para i-load ang native modyul na ligtas sa ngayon, ay siguraduhin na ang karga ng apps ay walang native modyul simulan ng mga Web Workers.
 
 ```javascript
 process.dlopen = () => {
