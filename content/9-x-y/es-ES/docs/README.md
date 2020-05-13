@@ -104,6 +104,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [Objeto de proceso](api/process.md)
 * [Cambios de línea de comandos soportados](api/command-line-switches.md)
 * [Variables de entorno](api/environment-variables.md)
+* [Soporte de extensiones de Chrome](api/extensions.md)
 * [Rupturas de cambios de la API](breaking-changes.md)
 
 ### Elementos de DOM personalizados:
