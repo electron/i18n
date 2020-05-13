@@ -6,7 +6,7 @@ author:
 date: '2017-02-07'
 ---
 
-今週は、[Beaker ブラウザ](https://beakerbrowser.com/) の作者 <a href = "http://pfrazee.github.io/">Paul Frazee</a> に突撃しました。 Beaker は実験的な P2P ウェブブラウザで、Dat プロトコルでユーザーのデバイスからサイトをホストします。
+今週は、[Beaker ブラウザ](https://beakerbrowser.com/) の作者 [Paul Frazee](http://pfrazee.github.io/) に突撃しました。 Beaker は実験的な P2P ウェブブラウザで、Dat プロトコルでユーザーのデバイスからサイトをホストします。
 
 ---<iframe width="100%" height="420" src="https://www.youtube.com/embed/Bem9nRpyPEs" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
