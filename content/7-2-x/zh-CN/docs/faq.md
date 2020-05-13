@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's tray disappeared after a few minutes.
+## 为什么应用的窗口、托盘在一段时间后不见了？
 
-This happens when the variable which is used to store the tray gets garbage collected.
+这通常是因为用来存放窗口、托盘的变量被垃圾回收了。
 
 你可以参考以下两篇文章来了解为什么会遇到这个问题：
 
@@ -58,7 +58,7 @@ This happens when the variable which is used to store the tray gets garbage coll
 
 ```javascript
 const { app, Tray } = require('electron')
-app.whenReady().then(() => {
+app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -69,7 +69,7 @@ app.whenReady().then(() => {
 ```javascript
 const { app, Tray } = require('electron')
 let tray = null
-app.whenReady().then(() => {
+app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
