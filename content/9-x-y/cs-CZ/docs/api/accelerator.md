@@ -46,7 +46,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `0` až `9`
 * `A` až `Z`
 * `F1` až `F24`
-* Interpunkční znaménka jako `~`, `!`, `@`, `#`, `$` atd.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Mezera`
 * `Tab`
