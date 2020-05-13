@@ -19,7 +19,7 @@ To learn more about how to profile your app's code, familiarize yourself with th
  * [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
  * [Talk: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
-## Checklist
+## Danh sách kiểm tra
 
 Chances are that your app could be a little leaner, faster, and generally less resource-hungry if you attempt these steps.
 
