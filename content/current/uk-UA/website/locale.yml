@@ -87,10 +87,12 @@ releases:
   page: Сторінка
   all_releases: Всі релізи
   back_to_index: Назад до змісту
+electron_is_good:
+  title: Apps users love, built with Electron
+  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
 electron_is_easy:
   title: Все простіше, ніж здається
   description: Якщо ви можете створити сайт, то ви можете створити і прикладну програму. Electron це фреймворк для створення застосунків з такими веб-технологіями як JavaScript, HTML та CSS. Він подбає про важкі частини, тому ви можете зосередитися на ядрі вашої програми.
-  video_link: Дивитися відео
 web_technologies:
   title: Веб-технології
   description: Electron використовує Chromium та Node.js, тому ви можете створювати додатки за допомогою HTML, CSS та JavaScript.
@@ -135,13 +137,7 @@ taglines:
 help_translate: "Допоможіть з перекладами"
 footer:
   see_the_faq: Перегляньте FAQ
-companies:
-  title: Збудовано з Electron
-  description: Початково розроблено для редактора GitHub <a href='https://atom.io' target='_blank'>Atom</a>, та зараз використовується компаніями по цілому світу.
 apps:
-  description: 'Перевіряти ідеї чи створювати додатки дуже просто з Electron. Переглянь <a href=''/apps''>деякі додатки збудовані нашою спільнотою</a> чи ж <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">опублікуй свій додаток</a>.'
-  view_more: Переглянути більше застосунків
-  submit_your_own: надішліть власний
   something_missing: Чогось не вистачає?
   edit_this_app: Редагувати цей застосунок.
   search_app: Фільтр застосунків по назві, опису, т.д.…
