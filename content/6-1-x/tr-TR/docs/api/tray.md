@@ -1,10 +1,10 @@
-## Class: Tray
+## Sınıf: Tepsi
 
-> Добавить иконки и контекстные меню в системную область уведомлений.
+> Sistem bildirim alanına simgeler ve bağlam menüleri ekleyin.
 
-Процесс: [Главный](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
-`Tray` является [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'ом.
+`Tray` bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'dir.
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -18,231 +18,247 @@ app.on('ready', () => {
     { label: 'Item3', type: 'radio', checked: true },
     { label: 'Item4', type: 'radio' }
   ])
-  tray.setToolTip('Это мое приложение.')
+  tray.setToolTip('This is my application.')
   tray.setContextMenu(contextMenu)
 })
 ```
 
-__Ограничения платформ:__
+__Platform sınırlamaları:__
 
-* В Linux индикатор приложения будет использован, если он поддерживается, иначе будет использован `GtkStatusIcon`.
-* В дистрибутивах Linux, которые поддерживают только индикаторы приложений, вы должны установите `libappindicator1`, чтобы значок в трее заработал.
-* Индикатор приложения будет отображаться только при наличии контекстного меню.
-* Когда индикатор приложения используется в Linux, событие `click` игнорируется.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Например:
+* Linux'ta uygulama göstergesi destekleniyorsa kullanılacaktır, otherwise `GtkStatusIcon` will be used instead.
+* Linux dağıtımlarında sadece uygulama göstergesi destegi vardir, tepsi ikonu için `libappindicator1` yüklenmelidir.
+* Uygulama göstergesi yalnızca bağlam menüsü olduğunda gösterilir.
+* Linux'ta uygulama göstergesi kullanıldığındathe `click` event is ignored.
+* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Örneğin:
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
 
-
-
-let tray = null
+let appIcon = null
 app.on('ready', () => {
-  tray = new Tray('/path/to/my/icon')
+  appIcon = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
-    { label: 'Item2', type: 'radio' },
-    [1],
-    
+    { label: 'Item2', type: 'radio' }
   ])
-  enu.items.checked is my application.')
-  con.setContextMenu(contextMenu)
+
+  // Make a change to the context menu
+  contextMenu.items[1].checked = false
+
+  // Call this again for Linux because we modified the context menu
+  appIcon.setContextMenu(contextMenu)
 })
 ```
-* В Windows рекомендуется использовать значки `ICO` для получения лучших визуальных эффектов.
+* Windows'ta en iyi görsel efektleri almak için `ICO` simgeler kullanılması önerilir.
 
-Если вы хотите сохранить одинаковое поведение на всех платформах, вам не следует полагаться на событие `click` и всегда прикреплять контекстное меню к значку в трее.
+Eğer diğer platformlarda da tamamen aynı davranışları sergilemeye devam etmek istiyorsan, `tık` olayına bağlı kalmamalısın ve her zaman bağlam menüsüne tepsi simgesi ile ekli kalmalısın.
 
 
 ### `new Tray(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Создаёт новую иконку в трее, связанную с `image`.
+Tray ile ilişkili yeni bir simge oluşturulur`image`.
 
-### События экземпляра
+### Örnek Events
 
-Модуль `Tray` генерирует следующие события:
+`Tray` modülü aşağıdaki olayları yayar:
 
-#### Событие: 'click'
-
-Возвращает:
+#### Olay: 'click'
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - границы иконки в трее.
-* `position` [Point](structures/point.md) - позиция события.
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
+* `position` [Point](structures/point.md) - event'ın pozisyonu.
 
-Вызывается при двойном клике на иконке в трее.
+Tray simgesi tıklandığında çıkar.
 
-#### Событие: 'right-click' _macOS_ _Windows_
-
-Возвращает:
+#### Event: 'right-click' _macOS_ _Windows_
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - границы иконки в трее.
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 
-Возникает при правом клике на иконке в трее.
+Tray simgesi sağ tıkladığında ortaya çıkar.
 
-#### Событие: 'double-click' _macOS_ _Windows_
-
-Возвращает:
+#### Event: 'double-click' _macOS_ _Windows_
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - границы иконки в трее.
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 
-Вызывается при двойном нажатии на иконку в трее.
+Tray simgesi sağ tıkladığında tetiklenir.
 
-#### Событие: 'balloon-show' _Windows_
+#### Event: 'balloon-show' _Windows_
 
-Возникает при всплывающем сообщении в трее.
+Tray balon gösterildiğinde ortaya çıkar.
 
-#### Событие: 'balloon-click' _Windows_
+#### Event: 'balloon-click' _Windows_
 
-Вызывается при клике на всплывающем сообщении в трее.
+Tepsi balonu tıklandığında ortaya çıkar.
 
-#### Событие: 'balloon-closed' _Windows_
+#### Event: 'balloon-closed' _Windows_
 
-Возникает, когда всплывающее сообщение в трее закрыто из-за тайм-аута или вручную пользователем.
+Zaman aşımı veya kullanıcı elle tepsinin balonu kapatıldığında ortaya çıkar kapatır.
 
-#### Событие: 'drop' _macOS_
+#### Event: 'drop' _macOS_
 
-Возникает при перетаскивании элементов на значок в трее.
+Sürüklenen herhangi bir nesne tray simgesine düştüğünde ortaya çıkar.
 
-#### Событие: 'drop-files' _macOS_
+#### Event: 'drop-files' _macOS_
 
-Возвращает:
+* `event` Olay
+* `files` String[] - Düşürülen dosyaların yolları.
 
-* `event` Event
-* `files` String[] - пути брошенных файлов.
+Sürüklenen dosyalar yaydıklarında tray simgesine düşer.
 
-Возникает при перетаскивании файлов на значок в трее.
+#### Event: 'drop-text' _macOS_
 
-#### Событие: 'drop-text' _macOS_
+* `event` Olay
+* `text` String - Düşürülen yazı stringi.
 
-Возвращает:
+Sürüklenen metin tepsi simgesine düştüğünde ortaya çıkar.
 
-* `event` Event
-* `text` String - брошенная текстовая строка.
+#### Event: 'drag-enter' _macOS_
 
-Возникает при перетаскивании строки на значок в трее.
+Bir sürükleme işlemi tepsi simgesine girdiğinde ortaya çıkar.
 
-#### Событие: 'drag-enter' _macOS_
+#### Event: 'drag-leave' _macOS_
 
-Возникает, когда операция перетаскивания происходит на иконке в трее.
+Bir sürükleme işlemi tepsi simgesinden çıktığında ortaya çıkar.
 
-#### Событие: 'drag-leave' _macOS_
+#### Event: 'drag-end' _macOS_
 
-Возникает, когда операция перетаскивания завершилась на иконке в трее.
+Bir sürükleme işlemi tepside bittiğinde veya başka bir yerde bittiğinde ortaya çıkar.
 
-#### Событие: 'drag-end' _macOS_
-
-Возникает, когда операция перетаскивания заканчивается в трее или заканчивается в другом месте.
-
-#### Событие: 'mouse-enter' _macOS_
-
-Возвращает:
+#### Event: 'mouse-enter' _macOS_
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - позиция события.
+* `position` [Point](structures/point.md) - event'ın pozisyonu.
 
-Возникает при входе курсора мыши на иконку в трее.
+Fare tepsi simgesine girdiğinde ortaya çıkar.
 
-#### Событие: 'mouse-leave' _macOS_
-
-Возвращает:
+#### Event: 'mouse-leave' _macOS_
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - позиция события.
+* `position` [Point](structures/point.md) - event'ın pozisyonu.
 
-Возникает при выходе курсора мыши с иконки в трее.
+Fare tepsi simgesinden çıktığında ortaya çıkar.
 
-#### Событие: 'mouse-move' _macOS_ _Windows_
-
-Возвращает:
+#### Olay: 'mouse-move' _macOS_
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - позиция события.
+* `position` [Point](structures/point.md) - event'ın pozisyonu.
 
-Возникает при перемещении мыши на значке в трее.
+Fare tepsi simgesini hareket ettirdikçe ortaya çıkar.
 
-### Методы экземпляра
+### Örnek Metodlar
 
-Класс `Tray` имеет следующие методы:
+The `Tray` sınıfı aşağıdaki yöntemleri içerir:
 
 #### `tray.destroy()`
 
-Немедленно уничтожить иконку в трее.
+Tepsi simgesini derhal imha eder.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Устанавливает `image` ассоциированный с значком в трее.
+Bu tepsi simgesiyle ilişkili `image` 'i ayarlar.
 
 #### `tray.setPressedImage(image)` _macOS_
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Устанавливает `image`, связанное с этим значком в трее, при нажатии в macOS.
+MacOS üzerine basıldığında bu tepsi simgesiyle ilişkili `image`'i ayarlar.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Устанавливает текст отображаемый при наведении на значок в трее.
+Bu tepsi simgesinin üzerine gelen metni ayarlar.
 
 #### `tray.setTitle(title)` _macOS_
 
 * `title` String
 
-Устанавливает заголовок, отображаемый рядом со значком в строке состояния (поддержка ANSI цветов).
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
 
 #### `tray.getTitle()` _macOS_
 
-Возвращает `String` - заголовок, отображаемый рядом со значком в области уведомлений в строке состояния
+* `title` String
+
+Returns `String` - the title displayed next to the tray icon in the status bar
+
+#### `tray.setHighlightMode(mode)` _macOS_
+
+* `mode` String - Highlight mode with one of the following values:
+  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
+  * `always` - Daima tepsi simgesini vurgulayın.
+  * `never` - Asla tepsi simgesini vurgulamayın.
+
+Tepsinin simge arka planı vurgulandığında (mavi renkte) ayarlar.
+
+**[Kullanımdan kaldırıldı](breaking-changes.md#tray)**
+
+**Note:** pencere görünürlüğü değiştiğinde `'never'` ve `'always'` modları arasında geçiş yaparak [`BrowserWindow`](browser-window.md) ile `highlightMode` kullanabilirsiniz.
+
+```javascript
+const { BrowserWindow, Tray } = require('electron')
+
+const win = new BrowserWindow({ width: 800, height: 600 })
+const tray = new Tray('/path/to/my/icon')
+
+tray.on('click', () => {
+  win.isVisible() ? win.hide() : win.show()
+})
+win.on('show', () => {
+  tray.setHighlightMode('always')
+})
+win.on('hide', () => {
+  tray.setHighlightMode('never')
+})
+```
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
-* `ignore` Логическое значение
+* `ignore` Boolean
 
 Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
-Значение по умолчанию установлено в значение false.
+This value is set to false by default.
 
 #### `tray.getIgnoreDoubleClickEvents()` _macOS_
 
-Возвращает `Boolean` - будет ли игнорироваться события двойного щелчка.
+Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` _Windows_
 
 * `options` Object
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (isteğe bağlı) -
   * `title` String
-  * `content` String
+  * `content` Dizge
 
-Отображает всплывающее сообщение в трее.
+Bir tepsi balonunu görüntüler.
 
 #### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - позиция всплывающего сообщения.
+* `menu` Menü (İsteğe bağlı)
+* `position` [Point](structures/point.md) (İsteğe bağlı) - Pop up pozisyonu.
 
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-`position` доступна только для Windows, и это (0, 0) по умолчанию.
+`position` yalnızca Windows'ta kullanılabilir ve varsayılan olarak (0, 0) değerindedir.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu | null
+* `menu` Menü | boş
 
-Устанавливает контекстное меню для этого значка.
+Bu simgenin bağlam menüsünü ayarlar.
 
 #### `tray.getBounds()` _macOS_ _Windows_
 
-Возвращает [`Rectangle`](structures/rectangle.md)
+[`Rectangle`](structures/rectangle.md) döndürür
 
-`bounds` значка в трее как `Object`.
+`bounds` tepsi simgesinin `Object`' i olarak belirtilir.
 
 #### `tray.isDestroyed()`
 
-Возвращает `Boolean` - уничтожен ли значок в трее.
+Returns `Boolean` - Tepsi simgesinin yok edilip edilmediği.
