@@ -87,10 +87,12 @@ releases:
   page: الصفحة
   all_releases: كل الاصدارات
   back_to_index: العودة إلى الرئيسية
+electron_is_good:
+  title: Apps users love, built with Electron
+  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
 electron_is_easy:
   title: الأمر أسهل مما تصور
   description: إن كان بمقدورك بناء موقع إلكتروني، فستكون قادرًا على بناء تطبيق سطح المكتب. Electron هو إطار عمل لإنشاء تطبيقات سطح المكتب حقيقة باستخدام تقنيات الويب مثل جافاسكريبت وHTML وCSS. يهتم Electron بالتفاصيل الصعبة والمعقدة ليتيح لك التركيز على جوهر تطبيقك.
-  video_link: شاهد مقطع الفيديو
 web_technologies:
   title: تقنيات الويب
   description: يستخدم إلكترون كلاً من Chromium و Node.js لتتمكن من بناء تطبيقك باستخدام HTML، وCSS، وجافاسكريبت.
@@ -135,13 +137,7 @@ taglines:
 help_translate: "المساعدة في الترجمة"
 footer:
   see_the_faq: راجع اﻷسئلة المتداولة بكثرة
-companies:
-  title: مبنية على Electron
-  description: وضعت في البداية لGitHub <a href='https://atom.io' target='_blank'>محرر أتوم</a>، ومنذ ذلك الحين اعتمدت الإلكترون من قبل الشركات في جميع أنحاء العالم.
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
-  view_more: عرض المزيد من التطبيقات
-  submit_your_own: أرسل تطبيقك الخاص
   something_missing: هل هناك شيء مفقود؟
   edit_this_app: عدّل هذا التطبيق.
   search_app: تصفية التطبيقات حسب الاسم والوصف وغير ذلك…
