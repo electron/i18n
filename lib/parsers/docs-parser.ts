@@ -54,6 +54,9 @@ export async function parseFile(file: IParseFile, ids: Record<string, string>) {
     splitMd(await fixMdLinks(markdown)).map(async (section: $TSFixMe) => {
       const parsed = await hubdown(section.body, {
         runBefore: [plaintextFix, bashFix, fiddleUrls],
+        highlight: {
+          ignoreMissing: true,
+        }
       })
       const $ = cheerio.load(parsed.content || '')
       file.title =
