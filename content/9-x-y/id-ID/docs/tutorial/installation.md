@@ -59,7 +59,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 Sebagai alternatif, Anda dapat mengganti cache lokal. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Anda dapat memakai folder cache itu untuk menyediakan custom build Electron atau untuk menghindari sentuhan sama sekali dengan jaringan.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
+* macOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
 
 Pada lingkungan yang telah menggunakan Elektron versi lama, Anda mungkin juga menemukan cache di ` ~ /.electron `.
