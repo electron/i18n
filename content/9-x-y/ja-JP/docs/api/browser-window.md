@@ -138,7 +138,7 @@ child.once('ready-to-show', () => {
   * `fullscreenable` Boolean (任意) - ウインドウをフルスクリーンモードにすることができるかどうか。 macOSでは、さらに、最大化/ズームボタンが、フルスクリーンモードまたはウインドウ最大化に切り替わるかどうか。 省略値は `true` です。
   * `simpleFullscreen` Boolean (任意) - macOS で Lion より前のフルスクリーンを使用します。 省略値は、`false` です。
   * `skipTaskbar` Boolean (任意) - ウインドウをタスクバーに表示するかどうか。 省略値は `false` です。
-  * `kiosk` Boolean (optional) - キオスクモード。 省略値は、`false` です。
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. 省略値は、`false` です。
   * `title` String (任意) - デフォルトのウインドウタイトル。 省略値は `"Electron"` です。 HTML タグの `<title>` が `loadURL()` でロードされた HTML ファイル内で定義されている場合、このプロパティは無視されます。
   * `icon` ([NativeImage](native-image.md) | String) (任意) - ウインドウのアイコン。 Windowsでは、最高の視覚効果を得るためには、`ICO` アイコンを使うことを推奨します。未定義のままにすることもできますが、その場合、実行可能ファイルのアイコンが使われます。
   * `show` Boolean (任意) - 生成時にウインドウを表示するかどうか。 省略値は `true` です。
@@ -153,7 +153,7 @@ child.once('ready-to-show', () => {
   * `backgroundColor` String (任意) - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にセットすれば #AARRGGBB 形式のアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
   * `hasShadow` Boolean (任意) - ウインドウに影を付けるかどうか。 省略値は `true` です。
   * `opacity` Number (任意) - ウインドウの初期透明度を 0.0 (完全に透明) から 1.0 (完全に不透明) の間で設定します。 これは Windows と macOS でのみ実装されています。
-  * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマの使用を強制します。いくつかの GTK+3 デスクトップ環境でしか動作しません。 省略値は、`false` です。
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. 省略値は、`false` です。
   * `transparent` Boolean (任意) - ウインドウを [透明](frameless-window.md#transparent-window) にします。 省略値は、`false` です。 Windows では、ウィンドウがフレームレスでない限り機能しません。
   * `type` String (任意) - ウインドウのタイプで、省略すると通常のウインドウになります。 詳しくは後述します。
   * `titleBarStyle` String (任意) - ウインドウタイトルバーのスタイル。 省略値は `default` です。 以下は取りうる値です。
@@ -579,6 +579,50 @@ A `Boolean` property that determines whether the window menu bar should hide its
 
 メニューバーが既に表示されている場合、このプロパティを `true` にセットしてもすぐに非表示にはなりません。
 
+#### `win.simpleFullScreen`
+
+A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.
+
+#### `win.fullScreen`
+
+A `Boolean` property that determines whether the window is in fullscreen mode.
+
+#### `win.visibleOnAllWorkspaces`
+
+A `Boolean` property that determines whether the window is visible on all workspaces.
+
+**Note:** Always returns false on Windows.
+
+#### `win.shadow`
+
+A `Boolean` property that determines whether the window has a shadow.
+
+#### `win.menuBarVisible` _Windows_ _Linux_
+
+A `Boolean` property that determines whether the menu bar should be visible.
+
+**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+
+#### `win.kiosk`
+
+A `Boolean` property that determines whether the window is in kiosk mode.
+
+#### `win.documentEdited` _macOS_
+
+A `Boolean` property that specifies whether the window’s document has been edited.
+
+The icon in title bar will become gray when set to `true`.
+
+#### `win.representedFilename` _macOS_
+
+A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+
+#### `win.title`
+
+A `String` property that determines the title of the native window.
+
+**Note:** The title of the web page can be different from the title of the native window.
+
 #### `win.minimizable`
 
 `Boolean` 型のプロパティです。ウインドウがユーザーによって手動で最小化できるかどうかを決定します。
@@ -632,7 +676,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.accessibleTitle`
 
-A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. この文字列はユーザに直接表示されません。
+スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトルを定義する `String` 型のプロパティ。 この文字列はユーザに直接表示されません。
 
 ### インスタンスメソッド
 
@@ -724,7 +768,7 @@ A `String` property that defines an alternative title provided only to accessibi
 
 簡易フルスクリーンモードに設定したり、解除したりします。
 
-Mac OS X Lion (10.7) より前のバージョンで見られる簡易フルスクリーンモードはネイティブのフルスクリーン動作をエミュレートします。
+Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
 
 #### `win.isSimpleFullScreen()` _macOS_
 
@@ -947,7 +991,7 @@ Linuxでは常に `true` を返します。
 
 * `mediaSourceId` String - DesktopCapturerSource の ID の形式のウィンドウ ID。 例えば "window:1869:0" 。
 
-Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
+Z オーダーの意味で、ウィンドウをソースウィンドウの上に移動します。 `mediaSourceId` がウィンドウの ID でないか、ウィンドウが存在しない場合、このメソッドはエラーをスローします。
 
 #### `win.moveTop()`
 
@@ -1012,7 +1056,7 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-キオスクモードに入ったり、出たりします。
+Enters or leaves kiosk mode.
 
 #### `win.isKiosk()`
 
@@ -1020,7 +1064,7 @@ win.setSheetOffset(toolbarRect.height)
 
 #### `win.getMediaSourceId()`
 
-Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+戻り値 `String` - DesktopCapturerSource の ID の形式のウィンドウ ID。 例えば "window:1234:0" 。
 
 より正確には、フォーマットは ` window:id:other_id` です。ここでの `id` は、Windows では `HWND`、macOS では `CGWindowID` (`uint64_t`)、Linux では `Window` (`unsigned long`) です。 `other_id` は、同じトップレベルウィンドウ内のウェブコンテンツ (タブ) を識別するために使用されます。
 
@@ -1388,11 +1432,11 @@ macOS ではウィンドウからフォーカスは除去されません。
 
 * `position` [Point](structures/point.md)
 
-Set a custom position for the traffic light buttons. `titleBarStyle` を `hidden` にした場合のみ可能です.
+信号ボタンのカスタム位置を設定します。 `titleBarStyle` を `hidden` にした場合のみ可能です.
 
 #### `win.getTrafficLightPosition()` _macOS_
 
-Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+戻り値 `Point` - 現在の信号ボタンの位置。 `titleBarStyle` を `hidden` にした場合のみ可能です.
 
 #### `win.setTouchBar(touchBar)` _macOS_ _Experimental_
 
