@@ -1,4 +1,4 @@
-# MacOS Dock
+# macOS Dock
 
 Electron有API来配置macOS Dock中的应用程序图标。 可以使用API用来创建一个自定义的Dock菜单项，这个API是macOS独占的，但是Electron也会默认使用应用的Dock图标来实现一些可以跨平台的功能，例如[最近文件](./recent-documents.md)和[应用程序进度](./progress-bar.md)
 
