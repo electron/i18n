@@ -47,7 +47,7 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 * `0` 부터 `9` 까지
 * `A` 부터 `Z` 까지
 * `F1` 부터 `F24` 까지
-* `~`, `!`, `@`, `#`, `$` 등의 구두점 기호들
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`
