@@ -46,7 +46,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `0` đến `9`
 * `A` đến `Z`
 * `F1` đến `F24`
-* Các dấu câu như `~`, `!`, `@`, `#`, `$`, vâng vâng.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Cộng`
 * `Dấu cách`
 * `Tab`
