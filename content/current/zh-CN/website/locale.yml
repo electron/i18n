@@ -87,10 +87,12 @@ releases:
   page: 页
   all_releases: 全部发行版
   back_to_index: 返回索引
+electron_is_good:
+  title: Apps users love, built with Electron
+  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
 electron_is_easy:
   title: 比你想象的更简单
   description: 如果你可以建一个网站，你就可以建一个桌面应用程序。 Electron 是一个使用 JavaScript, HTML 和 CSS 等 Web 技术创建原生程序的框架，它负责比较难搞的部分，你只需把精力放在你的应用的核心上即可。
-  video_link: 观看视频
 web_technologies:
   title: Web 技术
   description: Electron 基于 Chromium 和 Node.js, 让你可以使用 HTML, CSS 和 JavaScript 构建应用。
@@ -135,13 +137,7 @@ taglines:
 help_translate: "帮助我们翻译"
 footer:
   see_the_faq: 查看常见问题
-companies:
-  title: 使用 Electron 构建的应用
-  description: 最初为 GitHub 开发 <a href='https://atom.io' target='_blank'>Atom 编辑器</a>, Electron 此后被世界各地的公司采纳。
 apps:
-  description: '使用 Electron，能轻松为您的公司创建桌面应用程序或想法。请查看 <a href=''/apps''>社区创建的一些应用</a> 或 <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">添加您自己的应用</a>。'
-  view_more: 查看更多应用
-  submit_your_own: 提交你的应用
   something_missing: 少了点什么？
   edit_this_app: 编辑此应用程序。
   search_app: 按名称，说明等过滤应用...
