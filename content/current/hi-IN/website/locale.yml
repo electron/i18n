@@ -87,10 +87,12 @@ releases:
   page: Page
   all_releases: All Releases
   back_to_index: Back to index
+electron_is_good:
+  title: Apps users love, built with Electron
+  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
 electron_is_easy:
   title: जितना आप सोचते है उससे आसान है यह
   description: यदि आप एक वेबसाइट का निर्माण कर सकते हैं, तो आप एक डेस्कटॉप एप्लिकेशन बना सकते हैं । इलेक्ट्रॉन जावास्क्रिप्ट, एचटीएमएल और सीएसएस जैसी वेब प्रौद्योगिकियों के साथ मूल एप्लीकेशनस बनाने के लिए एक रूपरेखा है । यह मुश्किल भागों का ख्याल रखता है ताकि आप अपने एप्लीकेशन के मूल पर ध्यान केंद्रित कर सकते हैं ।
-  video_link: वीडियो देखें
 web_technologies:
   title: वेब तकनीक
   description: इलेक्ट्रॉन क्रोमियम और नोड.जेएस का उपयोग करता है ताकि आप एचटीएमएल, सीएसएस और जावास्क्रिप्ट के साथ अपनी एप्प का निर्माण कर सके ।
@@ -135,13 +137,7 @@ taglines:
 help_translate: "अनुवाद करने में मद्द करें"
 footer:
   see_the_faq: अक्सर पूछे जाने वाले सवाल (एफएक्यू) पढ़ें
-companies:
-  title: Built on Electron
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
-  view_more: और अधिक एप्प्स देखें
-  submit_your_own: स्वयं का सबमिट करें
   something_missing: किसी चीज़ की कमी है?
   edit_this_app: इस एप्प का संपादन करें |
   search_app: Filter apps by name, description, etc…
