@@ -58,7 +58,7 @@ Pengembalian:
 
 * `peristiwa` Peristiwa
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
 Lihat deskripsi ` jendela-semua-ditutup </ 0>  acara untuk perbedaan antara <code> akan-berhenti </ 0> dan <code> jendela-semua-ditutup </ 0> peristiwa.</p>
 
@@ -166,7 +166,7 @@ Pengembalian:
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
 ### Event: 'new-window-for-tab' _macOS_
 
@@ -465,9 +465,14 @@ Mengembalikan `Boolean` - `true` jika Elektron selesai menginisialisasi, `false`
 
 Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
-### `app.focus()`
+### `app.focus([options])`
+
+* `options` Object (optional)
+  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+
+You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macos_
 
@@ -510,6 +515,7 @@ Mengembalikan `String` - Direktori aplikasi saat ini.
   * `video` Direktori untuk video pengguna.
   * `logs` Directory for your app's log folder.
   * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+  * `crashDumps` Directory where crash dumps are stored.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
@@ -517,8 +523,8 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 ### `app.getFileIcon(path[, options])`
 
-* ` path </ 0>  String</li>
-<li><code>options` Object (optional)
+* `path` String
+* `options` Object (optional)
   * `size` String
     * `kecil` - 16x16
     * `normal` - 32x32
@@ -538,10 +544,9 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 ### `app.setPath(nama, path)`
 
 * ` nama </ 0>  String</li>
-<li><code> path </ 0>  String</li>
-</ul>
+<li><code>path` String
 
-<p spaces-before="0">Menimpa <code>path` ke direktori khusus atau file yang terkait dengan `nama`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.</p>
+Menimpa `path` ke direktori khusus atau file yang terkait dengan `nama`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
 Anda hanya dapat menimpa jalur dari `nama` didefinisikan dalam `app.getPath`.
 
@@ -559,7 +564,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.setName(nama)`
 
-* ` nama </ 0>  String</li>
+* ` nama </ 0>  Deretan</li>
 </ul>
 
 <p spaces-before="0">Mengabaikan nama aplikasi saat ini.</p>
@@ -584,10 +589,9 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 ### `app.addRecentDocument(path)` _macOS_ _Windows_
 
-* ` path </ 0>  String</li>
-</ul>
+* `path` String
 
-<p spaces-before="0">Menambahkan <code>path` ke daftar dokumen terbaru.</p>
+Menambahkan `path` ke daftar dokumen terbaru.
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
@@ -674,8 +678,7 @@ Mengatur atau menghapus Daftar Langsung kustom untuk aplikasi, dan mengembalikan
 
 Jika `kategori` adalah `null` daftar Jump kustom yang telah ditetapkan sebelumnya (jika ada) akan diganti oleh Daftar Langsung standar untuk aplikasi (dikelola oleh Windows).
 
-** Catatan: </ 0> Jika objek ` JumpListCategory </ 1> tidak memiliki <code> tipe </ 1> atau <code> nama </ 1> 
-properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> . If the <code>name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.</p>
+**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Setiap usaha untuk menambahkan kembali item yang dihapus ke kategori khusus lebih awal dari pada itu akan mengakibatkan keseluruhan kategori khusus dihilangkan dari Daftar Langsung. Daftar item yang dihapus dapat diperoleh dengan menggunakan `app.getJumpListSettings()`.
 
@@ -846,7 +849,7 @@ Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
 
 Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
 
@@ -933,7 +936,7 @@ Mengembalikan `Objek`:
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
 * `settings` Object
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Default ke ` false </ 0> .</li>
+  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Default ke ` false </ 0>.</li>
 <li><code>openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Default ke `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
@@ -982,7 +985,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Tetapkan opsi tentang panel. This will override the values defined in the app's `.plist` file on MacOS. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut. On Linux, values must be set in order to be shown; there are no defaults.
+Tetapkan opsi tentang panel. This will override the values defined in the app's `.plist` file on macOS. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut. On Linux, values must be set in order to be shown; there are no defaults.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1076,7 +1079,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher mensyaratkan adanya a `.desktop` file untuk bekerja, untuk informasi lebih lanjut silahkan baca [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.commandLine` _Readonly_
 
