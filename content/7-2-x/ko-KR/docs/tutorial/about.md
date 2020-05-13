@@ -24,7 +24,6 @@ Electron 프로젝트는 GitHub 팀과 커뮤니티에서 [열심히 활동하�
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this _just works_ but sometimes it means patching Node.js.
 
-
 ### 버전 관리
 
 Electron 2.0 버전부터 [`semver`](https://semver.org) 규칙에 따라 버전을 관리하고 있습니다. 최신 버전의 npm을 사용해 `$ npm install electron` 명령을 실행하기만 하면 Electron 버전은 쉽게 관리할 수 있을 것입니다.
