@@ -1629,7 +1629,7 @@ A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
 #### `contents.devToolsWebContents` _Readonly_
 
-A `WebContents` of DevTools for this `WebContents`.
+Właściwość `WebContents | null` reprezentująca DevTools `WebContents` skojarzona z `WebContents`.
 
 **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
