@@ -59,7 +59,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 Alternativamente, puoi annullare la cache locale. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Puoi usare la cartella della cache per fornire build personalizzate di Electron o per evitare di entrare totalmente a contatto con la rete.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
-* MacOS: `~/Libreria/Caches/electron/`
+* macOS: `~/Libreria/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Locale/electron/Cache/`
 
 In ambienti che usano versioni di Electron precedenti, potresti trovare la cache anche in `~/.electron`.
