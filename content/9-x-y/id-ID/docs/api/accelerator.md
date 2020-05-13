@@ -54,8 +54,8 @@ The ` super </ 0> kunci dipetakan ke <code> Windows </ 0> tombol pada Windows da
 * ` 0 </ 0> sampai <code> 9 </ 0></li>
 <li><code> A </ 0> ke <code> Z </ 0></li>
 <li><code> F1 </ 0> sampai <code> F24 </ 0></li>
-<li>Tanda baca seperti <code> ~ </ 0> , <code> ! </ 0> , <code> @ </ 0> , <code> # </ 0> , <code> $ </ 0> , dll.</li>
-<li><code>Plus`
+<li>Punctuation like <code>~`, `!`, `@`, `#`, `$`, etc.
+* `Plus`
 * `Ruang`
 * `Tab`
 * `Capslock`
