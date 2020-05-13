@@ -12,7 +12,7 @@
 
 通过多次的尝试，我们发现，构建高性能的Electron应用程序，最成功的策略是分析正在运行的代码，查找其中最耗资源的部分，然后对其进行优化。 一遍又一遍地重复这个“搬砖”的过程，将极大地提高应用程序的性能。 在大型应用程序（例如Visual Studio Code、Slack）中的实践经验证明了这是目前最可靠的性能提升策略。
 
-要了解更多关于如何分析应用程序代码的信息，请熟悉Chrome开发者工具。 如果想同时对多个进程进行深入分析，请考虑使用[Chrome Tracing]工具。
+要了解更多关于如何分析应用程序代码的信息，请熟悉Chrome开发者工具。 For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool) tool.
 
 ### 推荐阅读
 
@@ -209,8 +209,7 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 
 ### 为什么？
 
-许多开始使用基于Web的应用程序的Electron用户后来都使用了桌面应用。 作为网页开发者，我们习惯了从各种内容交付网站加载资源。 现在你要运送到一个真正的桌面应用上，尝试“剪断绳子”是可能的
- - 并避免让你的用户等待永远没有改变并且可以轻松地将纳入你的应用中的资源。
+许多开始使用基于Web的应用程序的Electron用户后来都使用了桌面应用。 作为网页开发者，我们习惯了从各种内容交付网站加载资源。 Now that you are shipping a proper desktop application, attempt to "cut the cord" where possible and avoid letting your users wait for resources that never change and could easily be included  in your app.
 
 一个典型的例子是谷歌字体。 许多开发者使用谷歌令人印象深刻的免费字体集，这些字体通过内容交付网络获取。 方法显而易见：包括几行CSS 和谷歌将处理其余部分。
 
