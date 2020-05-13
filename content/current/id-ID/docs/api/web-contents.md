@@ -1602,7 +1602,7 @@ Sebuah instance [`WebContents`](web-contents.md) yang mungkin sendiri ini `WebCo
 
 #### `contents.devToolsWebContents` _Readonly_
 
-`WebContents` dari DevTools untuk ini `WebContents`.
+A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
 
 **Catatan:** Pengguna harus tidak pernah menyimpan objek ini karena hal itu mungkin menjadi `null` ketika DevTools telah ditutup.
 
