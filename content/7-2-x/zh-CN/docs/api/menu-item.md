@@ -13,7 +13,7 @@
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` [KeyboardEvent](structures/keyboard-event.md)
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. 参见 [roles](#roles)
+  * `role` String （可选）- 可为`undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow`, `windowMenu` - 指定菜单项的行为，定义`click`属性后此属性将被忽略。 参见 [roles](#roles)
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
   * `label` String (可选)
   * `sublabel` String (可选)
@@ -105,7 +105,7 @@ The following additional roles are available on _macOS_:
 
 #### `menuItem.label`
 
-A `String` indicating the item's visible label.
+A `String` indicating the item's visible label, this property can be dynamically changed.
 
 #### `menuItem.click`
 
@@ -136,7 +136,7 @@ A `NativeImage | String` (optional) indicating the item's icon, if set.
 
 #### `menuItem.sublabel`
 
-A `String` indicating the item's sublabel.
+A `String` indicating the item's sublabel, this property can be dynamically changed.
 
 #### `menuItem.toolTip` _macOS_
 
@@ -162,9 +162,7 @@ A `String` indicating the item's hover text.
 
 #### `menuItem.registerAccelerator`
 
-A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
-
-This property can be dynamically changed.
+A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.
 
 #### `menuItem.commandId`
 
