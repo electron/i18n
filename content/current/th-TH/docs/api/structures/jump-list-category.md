@@ -1,11 +1,11 @@
-# شئ JumpListCategory
+# JumpListCategory Object
 
 * `type` String (optional) - One of the following:
-  * `وظایف` - آیتم های درون این دسته بندی، در دسته بندیِ استانداردِ `وظایف` قرار خواهند گرفت. تنها یک دسته بندی این چنینی می تواند وجود داشته باشد، و همیشه در پایین لیست پرشی نمایش داده خواهد شد.
-  * `غالب` - یک لیست از اپ هایی که اغلب باز شده اند نمایش می دهد، نام دسته بندی و آیتم های آن با ویندوز تنظیم می شوند.
-  * `اخیر` - یک لیست از اپ هایی که اخیرا باز شده اند نشان می دهد، نام دسته بندی و آیتم های آن با ویندوز تنظیم می شوند. آیتم ها می توانند به صورت غیر مستقیم و با استفاده از `app.addRecentDocument(path)` به دسته بندی اضافه شوند.
-  * `مشخص شده` - لینک فایل و وظایف را نمایش می دهد، `نام` باید توسط اپ تنظیم شده باشد.
-* `نام` رشته (اختیاری) - تنها در صورتی که `نوع` `مشخص شده` است باید تنظیم شود، در غیر این صورت نادیده گرفته شود.
-* `آیتم ها` JumpListItem[] (اختیاری) - آرایه ای از اشیای [`آیتم های لیست پرشی`](jump-list-item.md) تنها در صورتی که `نوع``وظایف`یا`مشخص شده` است، در غیر این صورت باید نادیده گرفته شود.
+  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
+  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
+  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
+  * `custom` - Displays tasks or file links, `name` must be set by the app.
+* `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
+* `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
 
-**نکته:** اگر شی یک `دسته بندیِ لیست پرشی` نه `نوع` و نه `نام` مشخص شده داشته باشد، `نوع` آن، `وظایف` فرض خواهد شد. اگر خاصیتِ `نام` تنظیم شده باشد ولی `نوع` خاصیت نه، `نوع` به صورت `مشخص شده` فرض خواهد شد.
+**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
