@@ -138,7 +138,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `fullscreenable` Boolean (opcional) - si la ventana puede ponerse el modo pantalla completa. En macOS, también si el botón maximizar o acercarse debería alternar el modo pantalla completa o maximizar la ventana. Por defecto es `true`.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Por defecto es `false`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Por defecto es `false`.
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. Por defecto es `false`.
   * `title` String (opcional) - Titulo de la ventana por defecto. Por defecto es `"Electron"`. Si la etiqueta HTML `<title>` es definida en el archivo HTML cargado por `loadURL()`, esta propiedad será ignorada.
   * `icon` ([NativeImage](native-image.md) | String) (opcional) - El icono de la ventana. En Windows, se recomienda usar iconos `ICO` para obtener mejores efectos visuales. También se se puede dejar sin definir, de esta manera se utilizará el icono del ejecutable.
   * `show` Boolean (optional) - Whether window should be shown when created. Por defecto es `true`.
@@ -153,7 +153,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `backgroundColor` String (opcional) - El color de fondo de la Ventana como un valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alfa en formato #AARRGGBB es soportado si `transparent` es establecido a `true`). Por defecto es `#FFF` (blanco).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. Por defecto es `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Por defecto es `false`.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. Por defecto es `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Por defecto es `false`. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Los valores posibles son:
@@ -579,6 +579,50 @@ A `Boolean` property that determines whether the window menu bar should hide its
 
 If the menu bar is already visible, setting this property to `true` won't hide it immediately.
 
+#### `win.simpleFullScreen`
+
+A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.
+
+#### `win.fullScreen`
+
+A `Boolean` property that determines whether the window is in fullscreen mode.
+
+#### `win.visibleOnAllWorkspaces`
+
+A `Boolean` property that determines whether the window is visible on all workspaces.
+
+**Note:** Always returns false on Windows.
+
+#### `win.shadow`
+
+A `Boolean` property that determines whether the window has a shadow.
+
+#### `win.menuBarVisible` _Windows_ _Linux_
+
+A `Boolean` property that determines whether the menu bar should be visible.
+
+**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+
+#### `win.kiosk`
+
+A `Boolean` property that determines whether the window is in kiosk mode.
+
+#### `win.documentEdited` _macOS_
+
+A `Boolean` property that specifies whether the window’s document has been edited.
+
+The icon in title bar will become gray when set to `true`.
+
+#### `win.representedFilename` _macOS_
+
+A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+
+#### `win.title`
+
+A `String` property that determines the title of the native window.
+
+**Note:** The title of the web page can be different from the title of the native window.
+
 #### `win.minimizable`
 
 A `Boolean` property that determines whether the window can be manually minimized by user.
@@ -724,7 +768,7 @@ Devuelve `Boolean` - Si la ventana está o no en pantalla completa.
 
 Entra o sale del modo simple de pantalla completa.
 
-El modo simple de pantalla completa emula el comportamiento de la pantalla completa nativa que se encuentra en versiones de Mac OS X anteriores a Lion (10.7).
+Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
 
 #### `win.isSimpleFullScreen()` _macOS_
 
@@ -1012,7 +1056,7 @@ Hace que la ventana no se muestre en la barra de tareas.
 
 * `flag` Boolean
 
-Entra o sale del modo kiosko.
+Enters or leaves kiosk mode.
 
 #### `win.isKiosk()`
 
@@ -1020,7 +1064,7 @@ Devuelve `Boolean` - Si la ventana está o no en modo kiosco.
 
 #### `win.getMediaSourceId()`
 
-Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+Returns `String` - Window id in the format of DesktopCapturerSource's id. Por ejemplo "window:1234:0".
 
 More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
 
@@ -1400,7 +1444,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Configura el plano de la touchBar para la ventana actual. Espeficando `null` o `undefined` elimina la barra táctil. Este método solo es efectivo si la máquina tiene una barra táctil y si se está ejecutando en macOS 10.12.1+.
 
-**Nota:** Actualmente la API TouchBar es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 
