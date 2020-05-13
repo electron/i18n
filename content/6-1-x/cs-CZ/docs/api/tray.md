@@ -66,8 +66,6 @@ The `Tray` module emits the following events:
 
 #### Event: 'click'
 
-Vrací:
-
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 * `position` [Point](structures/point.md) - The position of the event.
@@ -76,16 +74,12 @@ Emitted when the tray icon is clicked.
 
 #### Event: 'right-click' _macOS_ _Windows_
 
-Vrací:
-
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Emitted when the tray icon is right clicked.
 
 #### Event: 'double-click' _macOS_ _Windows_
-
-Vrací:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -110,16 +104,12 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' _macOS_
 
-Vrací:
-
 * `event` Event
 * `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' _macOS_
-
-Vrací:
 
 * `event` Event
 * `text` String - the dropped text string.
@@ -140,8 +130,6 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Event: 'mouse-enter' _macOS_
 
-Vrací:
-
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
@@ -149,16 +137,12 @@ Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' _macOS_
 
-Vrací:
-
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the mouse exits the tray icon.
 
-#### Event: 'mouse-move' _macOS_ _Windows_
-
-Vrací:
+#### Event: 'mouse-move' _macOS_
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -199,7 +183,39 @@ Sets the title displayed next to the tray icon in the status bar (Support ANSI c
 
 #### `tray.getTitle()` _macOS_
 
+* `title` String
+
 Returns `String` - the title displayed next to the tray icon in the status bar
+
+#### `tray.setHighlightMode(mode)` _macOS_
+
+* `mode` String - Highlight mode with one of the following values:
+  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
+  * `always` - Always highlight the tray icon.
+  * `never` - Never highlight the tray icon.
+
+Sets when the tray's icon background becomes highlighted (in blue).
+
+**[Deprecated](breaking-changes.md#tray)**
+
+**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+
+```javascript
+const { BrowserWindow, Tray } = require('electron')
+
+const win = new BrowserWindow({ width: 800, height: 600 })
+const tray = new Tray('/path/to/my/icon')
+
+tray.on('click', () => {
+  win.isVisible() ? win.hide() : win.show()
+})
+win.on('show', () => {
+  tray.setHighlightMode('always')
+})
+win.on('hide', () => {
+  tray.setHighlightMode('never')
+})
+```
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
@@ -216,23 +232,11 @@ Returns `Boolean` - Whether double click events will be ignored.
 #### `tray.displayBalloon(options)` _Windows_
 
 * `options` Object
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Default is `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
-  * `noSound` Boolean (optional) - Do not play the associated sound. Default is `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
-  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Default is `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
 
 Displays a tray balloon.
-
-#### `tray.removeBalloon()` _Windows_
-
-Removes a tray balloon.
-
-#### `tray.focus()` _Windows_
-
-Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
 
 #### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
