@@ -87,10 +87,12 @@ releases:
   page: Sayfa
   all_releases: Tüm Sürümler
   back_to_index: Dizine geri dön
+electron_is_good:
+  title: Apps users love, built with Electron
+  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
 electron_is_easy:
   title: Düşündüğünden daha kolay
   description: Eğer bir website oluşturabiliyorsanız, masaüstü uygulama da oluşturabilirsiniz. Electron, JavaScript, HTML ve CSS gibi web teknolojileriyle birlikte yaratıcı, yerli uygulamalar oluşturmak için bir sistemdir. Uygulamanızın özüne odaklanabilmeniz için, zor kısımların üstesinden gelir.
-  video_link: Videoyu İzle
 web_technologies:
   title: Web Teknolojileri
   description: Electron Chromium ve Node.js kullanır, bu yüzden uygulamanızı HTML, CSS ve JavaScript ile oluşturabilirsiniz.
@@ -135,13 +137,7 @@ taglines:
 help_translate: "Çeviriye yardım et"
 footer:
   see_the_faq: 'Bkz: sıkça sorulan sorular'
-companies:
-  title: Built on Electron
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
-  view_more: Daha fazla uygulama görüntüleyin
-  submit_your_own: kendininkini gönder
   something_missing: Bir şey mi eksik?
   edit_this_app: Bu uygulamayı düzenle.
   search_app: Uygulamaları ada, açıklamaya vb. Göre filtreleyin…
