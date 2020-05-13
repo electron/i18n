@@ -75,7 +75,7 @@ Returns:
 * `event` Event
 
 Emitted when all windows have been closed and the application will quit.
-Calling `event.preventDefault()` will prevent the default behaviour, which is
+Calling `event.preventDefault()` will prevent the default behavior, which is
 terminating the application.
 
 See the description of the `window-all-closed` event for the differences between
@@ -204,7 +204,7 @@ Returns:
   [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Emitted when [Handoff][handoff] is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Emitted when [Handoff][handoff] is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
 ### Event: 'new-window-for-tab' _macOS_
 
@@ -554,10 +554,16 @@ Returns `Promise<void>` - fulfilled when Electron is initialized.
 May be used as a convenient alternative to checking `app.isReady()`
 and subscribing to the `ready` event if the app is not ready yet.
 
-### `app.focus()`
+### `app.focus([options])`
+
+* `options` Object (optional)
+  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is
+  currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application
 the active app. On Windows, focuses on the application's first window.
+
+You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macOS_
 
@@ -602,6 +608,7 @@ Returns `String` - The current application directory.
   * `videos` Directory for a user's videos.
   * `logs` Directory for your app's log folder.
   * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+  * `crashDumps` Directory where crash dumps are stored.
 
 Returns `String` - A path to a special directory or file associated with `name`. On
 failure, an `Error` is thrown.
@@ -1021,7 +1028,7 @@ This method can only be called before app is ready.
 
 By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per
 domain basis if the GPU processes crashes too frequently. This function
-disables that behaviour.
+disables that behavior.
 
 This method can only be called before app is ready.
 
@@ -1190,7 +1197,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file on MacOS. See the [Apple docs][about-panel-options] for more details. On Linux, values must be set in order to be shown; there are no defaults.
+Set the about panel options. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs][about-panel-options] for more details. On Linux, values must be set in order to be shown; there are no defaults.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
