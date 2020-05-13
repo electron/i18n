@@ -44,7 +44,7 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 * `0`'dan `9`'a
 * `A`'dan `Z`'ye
 * `F1`'den `F24`'e
-* `~`, `!`, `@`, `#`, `$`, vb. gibi noktalama işaretleri.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Artı`
 * `Boşluk`
 * `Sekme`
