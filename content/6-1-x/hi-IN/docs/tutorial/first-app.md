@@ -8,7 +8,7 @@
 
 As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
-```plaintext
+```text
 your-app/
 ├── package.json
 ├── main.js
