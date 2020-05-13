@@ -49,7 +49,7 @@ app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevine_library')
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
-app.whenReady().then(() => {
+app.on('ready', () => {
   win = new BrowserWindow()
   win.show()
 })
