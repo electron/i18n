@@ -87,10 +87,12 @@ releases:
   page: صفحه
   all_releases: تمامی رهانش‌ها
   back_to_index: بازگشت به فهرست
+electron_is_good:
+  title: Apps users love, built with Electron
+  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
 electron_is_easy:
   title: ساده‌تر از آن چیزی است که فکر می‌کنید
   description: اگر می توانید یک وب سایت بسازید، پس می توانید یک برنامه ی دسکتاپی هم بسازید. الکترون چارچوبی برای ساخت برنامه های بومی با استفاده از فناوری هایی مثل جاوا اسکریپت، HTML و CSS است. بخش های دشوار توسط الکترون انجام می شوند، بنابراین شما می توانید بر روی مرکز برنامه تان تمرکز کنید.
-  video_link: ویدئو را مشاهده کنید
 web_technologies:
   title: فناوری‌های وب
   description: الکترون از Chromium و Node.js استفاده می کند، بنابراین شما می توانید برنامه تان را با HTML، CSS و جاوا اسکریپت بسازید.
@@ -135,13 +137,7 @@ taglines:
 help_translate: "همکاری در ترجمه"
 footer:
   see_the_faq: پرسش های متداول را ببینید
-companies:
-  title: Built on Electron
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
-  view_more: مشاهده برنامه‌های بیشتر
-  submit_your_own: برنامه خودتان را ارسال کنید
   something_missing: چیزی فراموش شده است؟
   edit_this_app: ویرایش این برنامه.
   search_app: فیلتر کردن برنامه ها بر اساس نام،توضیح کوتاه و…
