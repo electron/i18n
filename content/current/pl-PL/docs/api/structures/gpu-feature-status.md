@@ -1,29 +1,29 @@
-# GPUFeatureStatus Object
+# Obiekt GPUFeatureStatus
 
 * `2d_canvas` String - Canvas.
 * `flash_3d` String - Flash.
 * `flash_stage3d` String - Flash Stage3D.
-* `flash_stage3d_baseline` String - Flash Stage3D Baseline profiel.
-* `gpu_compositing` String - Compositing.
-* `multiple_raster_threads` String - Multiple Raster Threads.
-* `native_gpu_memory_buffers` String - Native GpuMemoryBuffers.
-* `rasterization` String - Rasterizatie.
-* `video_decode` String - Video Decode.
-* `video_encode` String - Video Encode.
-* `vpx_decode` String - VPx Video Decode.
+* `flash_stage3d_baseline` String - Profil Flash Stage3D Baseline.
+* `gpu_compositing` String - Kompozycja.
+* `multiple_raster_threads` String - Wielowątkowa rasteryzacja.
+* `native_gpu_memory_buffers` String - Natywne GpuMemoryBuffers.
+* `rasterization` String - Rasteryzacja.
+* `video_decode` String - Dekodowanie Video.
+* `video_encode` String - Kodowanie Video.
+* `vpx_decode` String - Dekodowanie VPx Video.
 * `webgl` String - WebGL.
 * `webgl2` String - WebGL2.
 
-Mogelijke waarden:
+Możliwe wartości:
 
 * `disabled_software` - Software only. Hardware acceleration disabled (yellow)
-* `disabled_off` - Uitgeschakeld (rood)
-* `disabled_off_ok` - Uitgeschakeld (geel)
-* `unavailable_software` - Enkel software. Hardware acceleratie onbeschikbaar (geel)
-* `unavailable_off` - Onbeschikbaar (rood)
-* `unavailable_off_ok` - Onbeschikbaar (geel)
-* `enabled_readback` - Hardware geaccelereerd, maar lagere performantie (geel)
-* `enabled_force` - Hardware acceleratie op alle pagina's (groen)
-* `enabled` - Hardware geaccelereerd (groen)
-* `enabled_on` - Ingeschakeld (groen)
-* `enabled_force_on` - Geforceerd ingeschakeld (groen)
+* `disabled_off` - Wyłączona (kolor czerwony)
+* `disabled_off_ok` - Wyłączona (kolor żółty)
+* `unavailable_software` - Tylko dla oprogramowania, sprzętowa akceleracja niedostępna (kolor żółty)
+* `unavailable_off` - Niedostępna (kolor czerwony)
+* `unavailable_off_ok` - Niedostępna (kolor żółty)
+* `enabled_readback` - Sprzętowa akceleracja, lecz zredukowana wydajność (kolor żółty)
+* `enabled_force` - Sprzętowa akceleracja na wszystkich stronach (kolor zielony)
+* `enabled` - Sprzętowa akceleracja (kolor zielony)
+* `enabled_on` - Włączona (kolor zielony)
+* `enabled_force_on` - Wymuszone włączenie (kolor zielony)
