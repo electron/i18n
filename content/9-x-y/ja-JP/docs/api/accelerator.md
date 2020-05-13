@@ -46,7 +46,7 @@ Linux と Windows の場合、`Command` キーは効果がありません。Acce
 * `0` から `9`
 * `A` から `Z`
 * `F1` から `F24`
-* `~`、`!`、`@`、`#`、`$` などの記号。
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`
