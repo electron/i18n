@@ -4,17 +4,12 @@
 
 进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-以下是一个自动提交崩溃日志到服务器的示例
+The following is an example of setting up Electron to automatically submit crash reports to a remote server:
 
 ```javascript
 const { crashReporter } = require('electron')
 
-crashReporter.start({
-  productName: 'YourName',
-  companyName: 'YourCompany',
-  submitURL: 'https://your-domain.com/url-to-submit',
-  uploadToServer: true
-})
+crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 ```
 
 构建一个用于接受和处理崩溃日志的服务，你需要以下工程
@@ -28,7 +23,9 @@ crashReporter.start({
 * [Sentry](https://docs.sentry.io/clients/electron)
 * [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
-崩溃日志被保存在本地的应用特有的临时文件夹中。 对于`YourName`对象中的`productName`，崩溃报日志将被储存在临时文件夹中名为`YourName Crashes`的文件文件夹中。 在启动崩溃报告器之前，您可以通过调用`app.setPath('temp', 'my/custom/temp')` API来自定义这些临时文件的保存路径
+Crash reports are stored temporarily before being uploaded in a directory underneath the app's user data directory (called 'Crashpad' on Windows and Mac, or 'Crash Reports' on Linux). You can override this directory by calling `app.setPath('crashDumps', '/path/to/crashes')` before starting the crash reporter.
+
+On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to monitor and report crashes. On Linux, Electron uses [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.
 
 ## 方法
 
@@ -37,27 +34,33 @@ crashReporter.start({
 ### `crashReporter.start(options)`
 
 * `options` Object
-  * `compannyame` 字符串
   * `submitURL` 字符串 - 崩溃日志将以POST的方式发送给此URL.
   * `productName` String (optional) - Defaults to `app.name`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. 默认值为 `true`。
-  * `ignoreSystemCrashHandler` 布尔型(可选) - 默认为`false`.
-  * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. 只有字符串属性能够被正确发送. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
-  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. 默认值为 `true`。
+  * `ignoreSystemCrashHandler` Boolean (optional) - If true, crashes generated in the main process will not be forwarded to the system crash handler. 默认值为 `false`.
+  * `rateLimit` Boolean (optional) _macOS_ _Windows_ - If true, limit the number of crashes uploaded to 1/hour. 默认值为 `false`.
+  * `compress` Boolean (optional) _macOS_ _Windows_ - If true, crash reports will be compressed and uploaded with `Content-Encoding: gzip`. Not all collection servers support compressed payloads. 默认值为 `false`.
+  * `extra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with crash reports that are generated in the main process. Only string values are supported. Crashes generated in child processes will not contain these extra parameters to crash reports generated from child processes, call [`addExtraParameter`](#crashreporteraddextraparameterkey-value) from the child process.
+  * `globalExtra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with any crash reports generated in any process. These annotations cannot be changed once the crash reporter has been started. If a key is present in both the global extra parameters and the process-specific extra parameters, then the global one will take precedence. By default, `productName` and the app version are included, as well as the Electron version.
 
-在你调用任何其他的`crashReporter` API之前，您必须调用此方法. 在每个需要收集崩溃日志的进程 (主进程 / 渲染器进程) 中，也必须先调用此方法. 从不同的进程调用时, 可以传不同的配置给 ` crashReporter. start `。
+This method must be called before using any other `crashReporter` APIs. Once initialized this way, the crashpad handler collects crashes from all subsequently created processes. The crash reporter cannot be disabled once started.
 
-** 注意 **由 ` child_process ` 模块创建的子进程将无法访问 Electron 模块。 因此, 要收集它们的故障报告, 请用 ` process.crashReporter.start `代替。 传递与上面相同的选项以及一个名为 ` crashesDirectory ` 的附加项, 它应指向一个目录, 以便临时存储崩溃报告。 你可以调用 ` process.crash()` 使子进程崩溃，来测试结果。
+This method should be called as early as possible in app startup, preferably before `app.on('ready')`. If the crash reporter is not initialized at the time a renderer process is created, then that renderer process will not be monitored by the crash reporter.
 
-** 注意: **，如果您在第一次调用 ` start ` 后需要发送 附加的/更新的 ` extra ` 参数, 在 macOS 上，你可以调用 ` addExtraParameter `。而在 Linux 和 Windows 上，则使用 新的/更新的 ` extra ` 参数，再次调用 `start `即可。
+**Note:** You can test out the crash reporter by generating a crash using `process.crash()`.
 
-**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. 如果要启用崩溃报告，则需要在主进程使用`crashReporter.start`初始化`crashpad`， 不管你想收集哪个进程的报告。 使用这种方式初始化后，crashpad将处理从所有进程收集的崩溃报告。 你仍然需要从渲染器进程或子进程中调用`crashReporter.start` ，否则崩溃报告将不包含`companyName`, `productName`和任何`extra`信息。
+**Note:** If you need to send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter`.
+
+**Note:** Parameters passed in `extra`, `globalExtra` or set with `addExtraParameter` have limits on the length of the keys and values. Key names must be at most 39 bytes long, and values must be no longer than 127 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
+
+**Note:** Calling this method from the renderer process is deprecated.
 
 ### `crashReporter.getLastCrashReport()`
 
-返回 [`CrashReport`](structures/crash-report.md):
+Returns [`CrashReport`](structures/crash-report.md) - The date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. 如果没有上传的报告，则返回`null`
 
-返回上次崩溃报告的日期和ID。 只有已上传的崩溃报告将被返回；在磁盘上存在崩溃报告，除非上传，不然不会返回。 如果没有上传的报告，则返回`null`
+**Note:** Calling this method from the renderer process is deprecated.
 
 ### `crashReporter.getUploadedReports()`
 
@@ -65,40 +68,48 @@ crashReporter.start({
 
 Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
+**Note:** Calling this method from the renderer process is deprecated.
+
 ### `crashReporter.getUploadToServer()`
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**注意：** 这个API仅可从主进程调用。
+**Note:** Calling this method from the renderer process is deprecated.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean _macOS_ - 是否将报告提交到服务器.
+* `uploadToServer` Boolean - Whether reports should be submitted to the server.
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**注意：** 这个API仅可从主进程调用。
+**Note:** Calling this method from the renderer process is deprecated.
 
-### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
+### `crashReporter.getCrashesDirectory()` _Deprecated_
 
-* `key` String - 参数键，长度必须小于64个字符
-* `value` String - 参数值, 长度必须小于64个字符
+Returns `String` - The directory where crashes are temporarily stored before being uploaded.
 
-设置一个在发送崩溃报告时将额外包含的参数。 当调用 `start` 时, 除了通过 `extra` 选项设置的值之外, 此处指定值也将被发送。 This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
+**Note:** This method is deprecated, use `app.getPath('crashDumps')` instead.
 
-### `crashReporter.removeExtraParameter(key)` _macOS_ _Windows_
+### `crashReporter.addExtraParameter(key, value)`
 
-* `key` String - 参数键，长度必须小于64个字符
+* `key` String - Parameter key, must be no longer than 39 bytes.
+* `value` String - Parameter value, must be no longer than 127 bytes.
 
-从当前设定的参数中移除一个额外的参数, 以便它不会与崩溃报告一起发送。
+设置一个在发送崩溃报告时将额外包含的参数。 The values specified here will be sent in addition to any values set via the `extra` option when `start` was called.
+
+Parameters added in this fashion (or via the `extra` parameter to `crashReporter.start`) are specific to the calling process. Adding extra parameters in the main process will not cause those parameters to be sent along with crashes from renderer or other child processes. Similarly, adding extra parameters in a renderer process will not result in those parameters being sent with crashes that occur in other renderer processes or in the main process.
+
+**Note:** Parameters have limits on the length of the keys and values. Key names must be no longer than 39 bytes, and values must be no longer than 127 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
+
+### `crashReporter.removeExtraParameter(key)`
+
+* `key` String - Parameter key, must be no longer than 39 bytes.
+
+Remove a extra parameter from the current set of parameters. Future crashes will not include this parameter.
 
 ### `crashReporter.getParameters()`
 
-查看传递给崩溃报告的所有当前参数。
-
-### `crashReporter.getCrashesDirectory()`
-
-Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+Returns `Record<String, String>` - The current 'extra' parameters of the crash reporter.
 
 ## 崩溃报告内容
 
