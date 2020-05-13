@@ -129,7 +129,7 @@ Dibunyikan saat halaman menerima url favicon.
 
 Pengembalian:
 
-* `acara` Acara
+* `event` NewWindowEvent
 * `url` String
 * `nama bingkai` tali
 * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
