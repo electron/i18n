@@ -129,7 +129,7 @@ Emite cuando la página recibe urls de favicon.
 
 Devuelve:
 
-* `event` Event
+* `event` NewWindowEvent
 * `url` String
 * `frameName` String
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
