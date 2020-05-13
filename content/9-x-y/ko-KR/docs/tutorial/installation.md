@@ -59,7 +59,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 또는, 로컬 캐시를 대체할 수 있습니다. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. 캐시 폴더를 사용하여 electron의 커스텀 빌드를 제공하거나 일체의 네트워크 접속을 피할 수 있습니다.
 
 * Linux: `$XDG_CACHE_HOME` 또는 `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
+* macOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` 또는 `~/AppData/Local/electron/Cache/`
 
 이전 버전의 electron을 사용하는 환경에서는, `~/.electron`에서 캐시를 찾을 수 있습니다.
