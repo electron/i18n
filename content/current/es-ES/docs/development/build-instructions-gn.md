@@ -16,11 +16,9 @@ Necesitaras instalar [`depot_tools`](http://commondatastorage.googleapis.com/chr
 
 Ademas, en Windows, tendrás que asignar la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Para hacerlo, abre ` Panel de Control ` → ` Sistema y Seguridad ` → ` Sistema ` → ` Opciones de Configuración Avanzadas ` y agrega a tu sistema la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN` con el valor `0`.  Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
 
-## Compilaciones cacheadas (paso opcional)
+### Setting up the git cache
 
-### GIT\_CACHE\_PATH
-
-Si usted planea compilar Electron más de un vez, agregar in cache git aumentará las llamadas posteriores a `gclient`. Para hacer esto, establezca una variable de entorno: `GIT_CACHE_PATH`:
+If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -28,22 +26,13 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # Esto usará alrededor de 16G.
 ```
 
-### sccache
-
-Miles de archivos deben ser compilados para construir Chromium y Electron. Puede evitar gran parte de la espera reutilizando la salida de construcción de Electron CI a través de [sccache](https://github.com/mozilla/sccache). Esto requiere pasos adicionales (listados abajo) y estas dos variables:
-
-```sh
-export SCCACHE_BUCKET="electronjs-sccache-ci"
-export SCCACHE_TWO_TIER=true
-```
-
 ## Obteniendo el código
 
 ```sh
-$ mkdir electron-gn && cd electron-gn
+$ mkdir electron && cd electron
 $ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# Esto tomará unos momentos, puedes ir por un café.
+# This will take a while, go get a coffee.
 ```
 
 > En lugar de `https://github.com/electron/electron`, puedes usar tu propio fork aquí (algo como `https://github.com/<username>/electron`).
