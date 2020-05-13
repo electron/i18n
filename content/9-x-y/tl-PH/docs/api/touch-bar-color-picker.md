@@ -1,25 +1,25 @@
-## Klase: TouchBarColorPicker
+## Class: TouchBarColorPicker
 
-> Lumikha nang tagapili ng kulay sa touch bar sa likas na macOS na mga aplikasyon
+> Create a color picker in the touch bar for native macOS applications
 
-Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `bagong TouchBarColorPicker(options)` _Experimental_
+### `new TouchBarColorPicker(options)` _Experimental_
 
 * `options` Object
-  * `availableColors` String[] (optional) - Pagkakasunod-sunod ng mga linya ng kulay para ipakitang bilang posibleng kulay na mapili.
-  * `selectedColor` String (optional) - Ang napiling kulay sa tagapili, i.e `#ABCDEF`.
+  * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
+  * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
   * `change` Function (optional) - Function to call when a color is selected.
-    * `color` String - Ang kulay na napili ng gumagamit sa pilian.
+    * `color` String - The color that the user selected from the picker.
 
-### Katangian ng pagkakataon
+### Instance Properties
 
-Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBarColorPicker`:
+The following properties are available on instances of `TouchBarColorPicker`:
 
-#### `touchBarColorPicker.mamagamitnamgaKulay`
+#### `touchBarColorPicker.availableColors`
 
 A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
 
-#### `touchBarColorPicker.napilingKulay`
+#### `touchBarColorPicker.selectedColor`
 
 A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
