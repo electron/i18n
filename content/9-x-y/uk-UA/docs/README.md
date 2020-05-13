@@ -104,6 +104,7 @@
 * [Обробка Об'єктів](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Змінні Середовища](api/environment-variables.md)
+* [Підтримка розширень Chrome](api/extensions.md)
 * [Останні важливі зміни в API](breaking-changes.md)
 
 ### Користувацькі DOM Елементи:
