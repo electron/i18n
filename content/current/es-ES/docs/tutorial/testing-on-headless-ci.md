@@ -1,23 +1,23 @@
-# Tests sur les systèmes CI Headless (Travis CI, Jenkins)
+# Pruebas de sistemas de CI sin cabeceras (Travis CI, Jenkins)
 
-Étant basé sur Chromium, Electron requiert un pilote d’affichage de la fonction. Si Chromium ne peut pas trouver un pilote d’affichage, Electron échouera tout simplement au lancement - et par conséquent, n'exécutera aucun de vos tests, peu importe comment vous les exécutez. Tester les applications Electron sur Travis, Circle, Jenkins ou systèmes similaires exige donc un peu de configuration. En substance, nous devons utiliser un pilote d’affichage virtuel.
+Al estar basado en Chromium, Electron requiere un controlador para funcionar. Si chromium no puede encontrar un controlador de pantalla, Electron no se lanzará y por lo tanto no ejecuta ningunas de sus pruebas, independientemente de como usted las está corriendo. Probar aplicaciones basadas en Electron en Travis, Circle, Jenkins o sistemas similares requiere un poco de configuración. En esencia, necesitamos un controlador de pantalla virtual.
 
-## Configuration du serveur d’affichage virtuel
+## Configurando un servidor de pantalla virtual
 
-Tout d’abord, installez [Xvfb](https://en.wikipedia.org/wiki/Xvfb). C’est un framebuffer virtuel, mettant en oeuvre le protocole du serveur d'affichage X11 - il effectue toutes les opérations graphiques en mémoire sans montrer n’importe quel sortie à l'écran, c'est exactement ce dont nous avons besoin.
+Primero, instala [Xvfb](https://en.wikipedia.org/wiki/Xvfb). Es un framebuffer virtual, implementando el protocolo de servidor de pantalla X11 - realiza todas las operaciones gráficas en la memoria sin mostrar nada en el monitor, que es exactamente lo que necesitamos.
 
-Ensuite, créez un écran virtuel xvfb et exporter une variable d’environnement appelée DISPLAY qui pointe vers lui. Chromium dans Electron va automatiquement chercher pour `$DISPLAY`, donc aucune configuration supplémentaire de votre application n’est nécessaire. Cette étape peut être automatisée avec [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe) : Ajoutez vos commandes de test avec `xvfb-maybe` et le petit outil configurera automatiquement xvfb, si requis par le système actuel. Sous Windows ou macOS, il ne se passera rien.
+Entonces, crea una pantalla virtual Xvfb y exporta una variable de entorno llamada DISPLAY que apunta a ella. Chromium en electron buscará automáticamente por `$DISPLAY`, así que su aplicación no requerirá más configuraciones. Este paso puede ser automatizado con Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): prepara tus pruebas de comandos con `xvfb-maybe` y la pequeña herramienta automáticamente configurará Xvfb, si es requerido por el sistema actual. En Windows o macOS, no hará nada.
 
 ```sh
-## Sous Windows ou macOS, electron-mocha est invoque
-## Sous Linux, si on est dans un environement headless, cela reviendra 
-## à xvfb-run electron-mocha ./test/*.js 
+## En Windows o macOS, esto invoca electron-mocha
+## En Linux, si estamos en un entorno sin cabeza, esto será equivalente
+## a xvfb-run electron-mocha ./test/*.js
 xvfb-maybe electron-mocha ./test/*.js
 ```
 
 ### Travis CI
 
-Sur Travis, votre `.travis.yml` devrait ressembler à peu près à ça :
+En Travis, su `. travis.yml` debería verse más o menos así:
 
 ```yml
 addons:
@@ -32,12 +32,12 @@ install:
 
 ### Jenkins
 
-Pour Jenkins, un [plugin Xvfb est disponible](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
+Para Jenkins, un [plugin de Xvfb está disponible](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
 
 ### Circle CI
 
-Cercle CI est génial et a xvfb et `$DISPLAY` [ déjà installer, aucune configuration supplémentaire est requise](https://circleci.com/docs/environment#browsers).
+Circle CI es impresionante y tiene xvfb y `$DISPLAY` [ya configurados, por lo que no es necesaria ninguna configuración adicional](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 
-AppVeyor s'exécute sur Windows, supportant Selenium, Chromium, Electron et outils similaires - aucune configuration n’est requise.
+AppVeyor corre en Windows, soportando Selenium, Chromium, electron y herramientas fuera de la caja similares - no se requiere configuración.
