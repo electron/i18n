@@ -87,10 +87,12 @@ releases:
   page: 페이지
   all_releases: 모든 릴리즈들
   back_to_index: 목차로 돌아가기
+electron_is_good:
+  title: Apps users love, built with Electron
+  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
 electron_is_easy:
   title: Electron은 여러분이 생각한 것보다 쉽습니다.
   description: 만약 당신이 웹 사이트를 구축할 수 있다면, 데스크톱 앱도 만드실 수 있습니다. Electron은 네이티브 애플리케이션이며 자바스크립트, HTML, CSS로 이루어진 프레임워크입니다. Electron은 어려운 부분을 처리하므로 당신은 애플리케이션의 핵심 부분에 집중할 수 있습니다.
-  video_link: 동영상 보기
 web_technologies:
   title: 웹 기술
   description: Electron은 Chromium과 Node.js를 사용하여 여러분이 HTML, CSS, 그리고 자바스크립트를 이용해 애플리케이션을 만들수 있도록 해줍니다.
@@ -135,13 +137,7 @@ taglines:
 help_translate: "번역 참여"
 footer:
   see_the_faq: 자주 묻는 질문
-companies:
-  title: Electron으로 설계된 애플리케이션
-  description: GitHub의 <a href='https://atom.io' target='_blank'>Atom 편집기</a>를 위해 처음 개발된 Electron은 전 세계 회사에서 채택되었습니다.
 apps:
-  description: 'Electron과 함께라면 여러분의 회사에서 데스크톱 애플리케이션을 개발하는 것은 쉬운 일입니다. <a href=''/apps''>커뮤니티에서 개발한 앱 목록</a>또는 <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">여러분이 직접 개발한 앱을 추가하기</a>를 확인해보세요!'
-  view_more: 더 많은 애플리케이션 보기
-  submit_your_own: 의견을 제출하세요
   something_missing: 뭔가 누락되었나요?
   edit_this_app: 이 앱을 수정하세요.
   search_app: 앱을 이름, 설명 등으로 필터링하기…
