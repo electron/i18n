@@ -138,7 +138,7 @@ child.once('ready-to-show', () = > {
   * `fullscreenable` Boolean (опционально) - может ли окно быть в полноэкранном режиме. На macOS также кнопка увеличить/зумировать должна переключить в полноэкранный режим или увеличить окно. По умолчанию - `true`.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. По умолчанию - `false`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. По умолчанию - `false`.
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. По умолчанию - `false`.
   * `title` String (опционально) - заголовок окна по умолчанию. По умолчанию `"Electron"`. Если HTML-тег `<title>` определен в HTML-файле, загруженном с помощью `loadURL()`, то это свойство будет игнорироваться.
   * `icon` ([NativeImage](native-image.md) | String) (опционально) - иконка окна. На Windows рекомендуется использовать иконки `ICO`, чтобы получить лучший визуальный эффект, Вы также можете оставить неопределенным, чтобы был использован значок исполняемого файла.
   * `show` Boolean (optional) - Whether window should be shown when created. По умолчанию - `true`.
@@ -153,7 +153,7 @@ child.once('ready-to-show', () = > {
   * `backgroundColor` String (опционально) - фоновый цвет окна в HEX-формате, например `#66CD00`, `#FFF` или `#80FFFFFF` (альфа в формате #AARRGGBB поддерживается, если `transparent` установлено `true`). По умолчанию `#FFF` (белый).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. По умолчанию - `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. По умолчанию - `false`.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. По умолчанию - `false`.
   * `transparent` Boolean (опционально) - делает окно [прозрачным](frameless-window.md#transparent-window). По умолчанию - `false`. В Windows не работает до тех пор, пока окно не будет без фрейма.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Возможные значения:
@@ -579,6 +579,50 @@ A `Boolean` property that determines whether the window menu bar should hide its
 
 Если панель меню уже видна, установка этого свойства в `true` не будет скрывать ее немедленно.
 
+#### `win.simpleFullScreen`
+
+A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.
+
+#### `win.fullScreen`
+
+A `Boolean` property that determines whether the window is in fullscreen mode.
+
+#### `win.visibleOnAllWorkspaces`
+
+A `Boolean` property that determines whether the window is visible on all workspaces.
+
+**Note:** Always returns false on Windows.
+
+#### `win.shadow`
+
+A `Boolean` property that determines whether the window has a shadow.
+
+#### `win.menuBarVisible` _Windows_ _Linux_
+
+A `Boolean` property that determines whether the menu bar should be visible.
+
+**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+
+#### `win.kiosk`
+
+A `Boolean` property that determines whether the window is in kiosk mode.
+
+#### `win.documentEdited` _macOS_
+
+A `Boolean` property that specifies whether the window’s document has been edited.
+
+The icon in title bar will become gray when set to `true`.
+
+#### `win.representedFilename` _macOS_
+
+A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+
+#### `win.title`
+
+A `String` property that determines the title of the native window.
+
+**Note:** The title of the web page can be different from the title of the native window.
+
 #### `win.minimizable`
 
 Свойство `Boolean` определяет, может ли окно быть вручную свернуто пользователем.
@@ -636,13 +680,13 @@ A `String` property that defines an alternative title provided only to accessibi
 
 ### Методы экземпляра
 
-Objects created with `new BrowserWindow` have the following instance methods:
+Объекты, созданные с помощью `new BrowserWindow`, имеют следующие методы экземпляра:
 
 **Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
 #### `win.destroy()`
 
-Принудительно закрывает окно, события `unload` и `beforeunload` не произойдут для веб-страниц, а событие `close` также не будет происходить для этого окна, но гарантировано, что событие `closed` будет происходить.
+Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
 
 #### `win.close()`
 
@@ -650,7 +694,7 @@ Try to close the window. This has the same effect as a user manually clicking th
 
 #### `win.focus()`
 
-Фокусирует окно.
+Focuses on the window.
 
 #### `win.blur()`
 
@@ -722,9 +766,9 @@ Sets whether the window should be in fullscreen mode.
 
 * `flag` Boolean
 
-Входит или покидает простой полноэкранный режим.
+Enters or leaves simple fullscreen mode.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
 
 #### `win.isSimpleFullScreen()` _macOS_
 
@@ -732,16 +776,16 @@ Simple fullscreen mode emulates the native fullscreen behavior found in versions
 
 #### `win.isNormal()`
 
-Возвращает `Boolean` - в нормальном состоянии (не увеличено до предела, не свернуто, не в полноэкранном режиме) окно или нет.
+Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_ _Linux_
 
 * `aspectRatio` Float - соотношение сторон для некоторой части содержимого.
  * `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
 
-This will make a window maintain an aspect ratio. Дополнительный размер позволяет разработчику иметь пространство, указанное в пикселях, которое не входит в расчеты соотношения сторон. Этот метод уже учитывает разницу между размером окна и размером его содержимого.
+Это заставит окно поддерживать соотношение сторон. Дополнительный размер позволяет разработчику иметь пространство, указанное в пикселях, которое не входит в расчеты соотношения сторон. This API already takes into account the difference between a window's size and its content size.
 
-Consider a normal window with an HD video player and associated controls. Возможно, на левом крае есть 15-ти пиксельный контроллер, 25-ти пиксельный контроллер на правом крае и 50-ти пиксельный контроллер внизу плеера. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
+Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
 { width: 40, height: 50 }. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Суммируйте любые области дополнительной ширины и высоты, которые у Вас есть, в общем представлении содержимого.
 
 #### `win.setBackgroundColor(backgroundColor)`
@@ -1012,11 +1056,11 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Enters or leaves kiosk mode.
 
 #### `win.isKiosk()`
 
-Возвращает `Boolean` - в режиме киоска окно или нет.
+Returns `Boolean` - Whether the window is in kiosk mode.
 
 #### `win.getMediaSourceId()`
 
@@ -1028,7 +1072,7 @@ More precisely the format is `window:id:other_id` where `id` is `HWND` on Window
 
 Returns `Buffer` - The platform-specific handle of the window.
 
-Нативный тип маркера это `HWND` на Windows, `NSView*` на macOS и `Window` (`unsigned long`) на Linux.
+The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
 
 #### `win.hookWindowMessage(message, callback)` _Windows_
 
@@ -1041,13 +1085,13 @@ Hooks a windows message. The `callback` is called when the message is received i
 
 * `message` Integer
 
-Возвращает `Boolean` - `true` или `false`, в зависимости от того, какое сообщение было перехвачено.
+Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
 
 #### `win.unhookWindowMessage(message)` _Windows_
 
 * `message` Integer
 
-Пропускает сообщение окна.
+Unhook the window message.
 
 #### `win.unhookAllWindowMessages()` _Windows_
 
@@ -1057,7 +1101,7 @@ Unhooks all of the window messages.
 
 * `filename` String
 
-Устанавливает путь до файла, который представляет окно, и иконки файла, которая будет показываться в заголовке окна.
+Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
 
 #### `win.getRepresentedFilename()` _macOS_
 
@@ -1067,11 +1111,11 @@ Unhooks all of the window messages.
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+Определяет, был ли отредактирован документ окна, иконка в заголовке станет серой, когда установлено `true`.
 
 #### `win.isDocumentEdited()` _macOS_
 
-Возвращает `Boolean` - был ли изменен документ окна.
+Returns `Boolean` - Whether the window's document has been edited.
 
 #### `win.focusOnWebView()`
 
@@ -1099,9 +1143,9 @@ Specifies whether the window’s document has been edited, and the icon in title
 
 Тоже, что и [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
 
-`url` может быть удаленным адресом (например, `http://`) или путем до локального HTML-файла, используя протокол `file://`.
+The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
 
-Для обеспечения правильного форматирования URL файла рекомендуется использовать метод NodeJS [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject):
+To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
 
 ```javascript
 let url = require('url').format({
@@ -1113,7 +1157,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Вы можете загрузить URL, используя `POST`-запрос с зашифрованными URL данными, сделав следующее:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -1139,7 +1183,7 @@ Same as `webContents.loadFile`, `filePath` should be a path to an HTML file rela
 
 #### `win.reload()`
 
-Тоже, что и `webContents.reload`.
+Same as `webContents.reload`.
 
 #### `win.setMenu(menu)` _Linux_ _Windows_
 
@@ -1294,13 +1338,13 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 * `visible` Boolean
 
-Sets whether the window should be visible on all workspaces.
+Устанавливает видимость окна на всех рабочих местах.
 
 **Примечание:** Этот метод ничего не делает Windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Возвращает `Boolean` - видно ли окно на всех рабочих местах.
+Returns `Boolean` - Whether the window is visible on all workspaces.
 
 **Примечание:** Данный API всегда возвращает false в Windows.
 
@@ -1348,15 +1392,15 @@ Changes whether the window can be focused.
 
 * `autoHide` Boolean
 
-Контролирует скрытие курсора, во время печатания.
+Controls whether to hide cursor when typing.
 
 #### `win.selectPreviousTab()` _macOS_
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Выбирает предыдущую вкладку, когда нативные вкладки включены и в окне присутствуют другие вкладки.
 
 #### `win.selectNextTab()` _macOS_
 
-Выбирает следующую вкладку, когда нативные вкладки включены и в окне присутствуют другие вкладки.
+Selects the next tab when native tabs are enabled and there are other tabs in the window.
 
 #### `win.mergeAllWindows()` _macOS_
 
@@ -1374,7 +1418,7 @@ Moves the current tab into a new window if native tabs are enabled and there is 
 
 * `browserWindow` BrowserWindow
 
-Добавляет окно, как вкладку, в это окно, после вкладки экземпляра окна.
+Adds a window as a tab on this window, after the tab for the window instance.
 
 #### `win.setVibrancy(type)` _macOS_
 
@@ -1394,13 +1438,13 @@ Set a custom position for the traffic light buttons. Can only be used with `titl
 
 Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
 
-#### `win.setTouchBar(touchBar)` _macOS_ _Экспериментально_
+#### `win.setTouchBar(touchBar)` _macOS_ _Experimental_
 
 * `touchBar` TouchBar | null
 
-Устанавливает слой сенсорной панели для текущего окна. Указав `null` или `undefined` очистит сенсорную панель. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+Sets the touchBar layout for the current window. Указав `null` или `undefined` очистит сенсорную панель. Этот метод имеет эффект только, если машина имеет сенсорную панель и запускается на macOS 10.12.1+.
 
-**Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Экспериментально_
 
@@ -1420,7 +1464,7 @@ Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `nul
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` _Экспериментально_
+#### `win.getBrowserViews()` _Experimental_
 
 Возвращает `BrowserView[]` - массив всех BrowserViews которые были присоединены с `addBrowserView` или `setBrowserView`.
 
