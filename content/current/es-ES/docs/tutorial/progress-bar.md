@@ -1,20 +1,20 @@
-# Barre de progression dans la barre des tâches (Windows, macOS, Unity)
+# Barra de progreso en la barra de tareas (Windows, macOS, Unity)
 
-Sous Windows, un bouton de la barre des tâches peut être utilisé pour afficher une barre de progression. Cela permet à une fenêtre de fournir des informations de progression à l'utilisateur sans qu'il soit nécessaire de passer à la fenêtre elle-même.
+En Windows, el botón en la barra puede ser utilizada para mostrar una barra de progreso. Esto habilita a una página a proveer información a el usuario sin que tenga que cambiar a la página en sí.
 
-Sous macOS, la barre de progression s'affichera dans le cadre de l'icône du dock.
+En macOS la barra de progreso será mostrada como una parte del ícono del dock.
 
-Le Unity DE possède également une fonctionnalité similaire qui vous permet de spécifier la barre de progression dans le lanceur.
+El Unity DE también tiene una función similar que le permite especificar la barra de progreso en el laucher.
 
-__Barre de progression dans le bouton de la barre des tâches :__
+__Barra de progreso en el botón de la barra de tareas:__
 
-![Barre de progression personnalisée](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![Barra de progreso de la barra de tareas](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-Les trois cas sont couverts par la même API - la méthode `setProgressBar()` disponible sur les instances de `BrowserWindows`. Appelez-la avec un numéro entre `0` et `1` pour indiquer votre progression. Si vous avez une longue tâche qui est actuellement à 63% en finalisation, vous l'appelleriez avec `setProgressBar(0.63)`.
+Los tres casos están cubiertos por la misma API - el método `setProgressBar()` disponible en estancias de `BrowserWindows`. Llame al método con un número entre `0` y `1` para indicar tu progreso. Si usted tiene una tarea de larga ejecución que actualmente está al 63% hacia la finalización, lo llamaríamos con `setProgressBar(0.63)`.
 
-D'une manière générale, régler le paramètre sur une valeur inférieure à zéro (comme `-1`) supprimera la barre de progression, alors qu'en réglant sur une valeur supérieure à un (comme `2`) cela basculera la barre de progression dans un mode intermédiaire.
+En términos generales, ajustar el parámetro a un valor debajo de cero (como `-1`) quitará la barra de progreso mientras el valor establecido es mayor que uno (como `2`) cambiará la barra de progreso al modo intermedio.
 
-Voir la [documentation API pour plus d'options et de modes](../api/browser-window.md#winsetprogressbarprogress).
+Ver el [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress).
 
 ```javascript
 const { BrowserWindow } = require('electron')
