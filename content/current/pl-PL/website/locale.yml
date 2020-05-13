@@ -87,10 +87,12 @@ releases:
   page: Strona
   all_releases: Wszystkie Wydania
   back_to_index: Wróć do indeksu
+electron_is_good:
+  title: Apps users love, built with Electron
+  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
 electron_is_easy:
   title: To łatwiejsze, niż myślisz
   description: Jeśli potrafisz stworzyć stronę internetową, potrafisz też napisać aplikację desktopową. Electron to framework, służący tworzeniu natywnych aplikacji, z użyciem technologii takich jak JavaScript, HTML, czy CSS. Electron zadba o trudniejsze tematy, tak, abyś ty mógł skupić się na najważniejszych elementach swojej aplikacji.
-  video_link: Zobacz wideo
 web_technologies:
   title: Technologie Webowe
   description: Electron używa Chromium oraz Node.js, więc możesz napisać swoją własną aplikację używając języków HTML, CSS oraz JavaScript.
@@ -135,13 +137,7 @@ taglines:
 help_translate: "Pomóż w tłumaczeniu"
 footer:
   see_the_faq: Zobacz najczęściej zadawane pytania
-companies:
-  title: Aplikacje stworzone przy użyciu Electrona
-  description: Początkowo opracowany dla <a href='https://atom.io' target='_blank'> edytora kodu Atom </a>. Od tego czasu Electron został przyjęty przez firmy na całym świecie.
 apps:
-  description: 'Z Electronem tworzenie aplikacji komputerowej dla firmy lub pomysłu jest proste. Sprawdź <a href=''/apps''>wybrane aplikacje stworzone przez społeczność </a> lub <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app"> dodaj własne </a>.'
-  view_more: Zobacz więcej aplikacji
-  submit_your_own: dodaj własną aplikację
   something_missing: Czegoś brakuje?
   edit_this_app: Edytuj tę aplikację.
   search_app: Filtruj aplikacje na podstawie nazwy, opisu itd…
