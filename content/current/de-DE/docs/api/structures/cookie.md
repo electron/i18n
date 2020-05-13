@@ -1,11 +1,11 @@
-# Cookie objekt
+# Cookie Objekt
 
-* `name` String – jméno cookie.
-* `value` String – hodnota cookie.
-* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
-* `path` String (volitelné) – cesta cookie.
-* `secure` Boolean (volitelné) – značí, jestli je cookie značena jako secure.
-* `httpOnly` Boolean (volitelné) – značí, jestli je cookie označena jako HTTP only.
-* `session` Boolean (volitelné) – značí, jestli je cookie session cookie, anebo časově omezenou cookie s datem vypršení.
+* `name` String - Der Name des Cookies.
+* `value` String - Der Wert des Cookies.
+* `domain` String (optional) - Die Domain des Cookie; dies wird mit einem vorhergehenden Punkt normalisiert, so dass es auch für Subdomains gilt.
+* `hostOnly` Boolean (optional) - Ob das Cookie ein Host-only Cookie ist; dies wird nur `true` sein, wenn keine Domain übergeben wurde.
+* `path` String (optional) - Der Pfad des Cookie.
+* `secure` Boolean (optional) - Ist der Cookie als sicher markiert?
+* `httpOnly` Boolean (optional) - Ist der Cookie als "HTTP only" markiert?
+* `session` Boolean (optional) - Ist der Cookie ein Session Cookie oder ein permanenter Cookie mit einem Ablaufdatum?
 * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
