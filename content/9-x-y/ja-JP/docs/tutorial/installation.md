@@ -59,7 +59,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 代わりに、ローカルキャッシュを上書きできます。 `@electron/get` はあなたのネットワークに負荷がかからないように、ダウンロードしたバイナリをローカルディレクトリにキャッシュします。 そのキャッシュフォルダは、Electron のカスタムビルドの提供やネットワークとの接続を回避するために使用できます。
 
 * Linux: `$XDG_CACHE_HOME` または `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
+* macOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` または `~/AppData/Local/electron/Cache/`
 
 古いバージョンの Electron を使用していた環境の場合は、`~/.electron` 内にもキャッシュがあるかもしれません。
