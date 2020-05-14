@@ -12,7 +12,7 @@ This document uses the following convention to categorize breaking changes:
 - **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
 - **Removed:** An API or feature was removed, and is no longer supported by Electron.
 
-## Planned Breaking API Changes (12.0)
+## Modificări Plănuite ale API(12.0)
 
 ### Removed: `crashReporter` methods in the renderer process
 
@@ -29,9 +29,9 @@ They should be called only from the main process.
 
 See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
-## Planned Breaking API Changes (11.0)
+## Modificări Plănuite ale API(11.0)
 
-## Planned Breaking API Changes (10.0)
+## Modificări Plănuite ale API(10.0)
 
 ### Deprecated: `companyName` argument to `crashReporter.start()`
 
@@ -92,7 +92,7 @@ const w = new BrowserWindow({
 
 We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
-## Planned Breaking API Changes (9.0)
+## Modificări Plănuite ale API(9.0)
 
 ### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
 
@@ -525,7 +525,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `clipboard`
+### `clipboard-clipboard`
 
 ```js
 // Dezaprobată 
@@ -566,7 +566,7 @@ crashReporter.start({
 })
 ```
 
-### `nativeImage`
+### `nativeImage-ImagineNativă`
 
 ```js
 // Dezaprobată 
@@ -577,7 +577,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `process-proces`
+### `proces`
 
 ```js
 // Dezaprobată 
@@ -633,7 +633,7 @@ webContents.setSize(options)
 // Acest API nu a fost înlocuit
 ```
 
-### `webFrame`
+### `webFrame-cadruWeb`
 
 ```js
 // Dezaprobată 
@@ -695,7 +695,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-### `nativeImage`
+### `nativeImage-ImagineNativă`
 
 ```js
 // Eliminată 
@@ -709,7 +709,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `process-proces`
+### `proces`
 
 * `process.versions.electron` și `process.version.chrome` vor fi făcute propietăți read-only - doarcitit, pentru a avea consistență cu celelalte propietăți setate de Node `process.versions`.
 
@@ -722,7 +722,7 @@ webContents.setZoomLevelLimits(1, 2)
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-### `webFrame`
+### `webFrame-cadruWeb`
 
 ```js
 // Eliminată 
