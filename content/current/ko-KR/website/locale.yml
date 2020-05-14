@@ -10,7 +10,7 @@ nav:
   donors: 후원자
   languages: 언어
   license: 라이선스
-  releases: 출시
+  releases: 버전
   search: 검색
   userland: 사용자 공간
   governance: 운영 방식
@@ -85,7 +85,7 @@ releases:
   previous: 이전
   previous_page: 이전 페이지
   page: 페이지
-  all_releases: 모든 릴리즈들
+  all_releases: 모든 버전
   back_to_index: 목차로 돌아가기
 electron_is_good:
   title: 유저들이 사랑하는, Electron으로 만들어진 앱
@@ -118,7 +118,7 @@ explore:
   fiddle_title: Electron Fiddle과 함께 강력한 경험을 시도해보세요
   see_more_info: 자세히 보기
 download_from_github: GitHub에서 다운로드
-view_all_releases_on_github: GitHub에서 <a href="https://github.com/electron/electron-api-demos/releases">모든 릴리즈를 확인해보세요</a>
+view_all_releases_on_github: GitHub에서 <a href="https://github.com/electron/electron-api-demos/releases">모든 버전을 확인해보세요</a>
 quick_start:
   title: "Electron의 실제 동작을 보려면 <a href='https://github.com/electron/electron-quick-start'target='_blank'>빠른 시작</a> 앱을 돌려보세요."
   description: 유용한 표기법이 포함된 아주 작은 Electron 앱
@@ -150,7 +150,7 @@ apps:
   downloads: 다운로드
   keywords: 키워드
   license: 라이선스
-  latest_release: 최근 릴리즈
+  latest_release: 최신 버전
 blog:
   title: Electron 블로그
   description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
@@ -180,20 +180,20 @@ pages:
     description: 한 페이지에서 검색가능한 모든 Electron 가이드와 API 설명서
   '/docs/api':
     title: API
-    description: 최신 일렉트론 릴리즈에 대한 API 참고 문서
+    description: 최신 Electron 버전에 대한 API 참조 문서
   '/docs/development':
     title: 개발
     description: Electron으로 개발하기
   '/docs/tutorial':
     title: 튜토리얼
-    description: 최신 Electron 출시에 대한 가이드와 튜토리얼
+    description: 최신 Electron 버전에 대한 가이드와 튜토리얼
   '/blog':
     title: Electron 블로그
     description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
   '/community':
     title: 커뮤니티
   '/releases':
-    title: 릴리즈
+    title: 버전
   '/contact':
     title: 연락처
     description: Twitter, Slack, GitHub 혹은 이메일을 통해서 Electron팀과 연락하세요.
@@ -240,7 +240,7 @@ governance:
     title: 지원 활동
     description: Electron 커뮤니티를 성장시킵니다
   releases:
-    title: 출시
+    title: 버전 출시
     description: 모든 릴리스 분기 및 릴리스를 지원하는 툴을 감독합니다.
   upgrades:
     title: 업그레이드
