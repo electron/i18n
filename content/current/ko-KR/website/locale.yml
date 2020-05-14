@@ -1,4 +1,4 @@
-tagline: JavaScript, HTML, CSS를 이용하여 크로스 플랫폼 데스크탑 앱을 만들어보세요
+tagline: JavaScript, HTML, CSS를 이용하여 크로스 플랫폼 데스크톱 앱을 만들어보세요.
 nav:
   apps: 앱
   blog: 블로그
@@ -74,11 +74,11 @@ releases:
   show_releases: "출시 버전 보기:"
   show_only_releases_from: "해당 출시 버전만 보기:"
   all_versions: 모든 버전
-  stable_releases: 안정 릴리즈
-  stable_desc: 정규, 지원 릴리즈
-  beta_releases: 베타 릴리즈
+  stable_releases: 안정 버전
+  stable_desc: 정규, 지원받는 버전
+  beta_releases: 베타 버전
   beta_desc: 곧 나올 변경사항을 당신의 앱에서 테스트해보세요.
-  nightly_releases: Nightly 릴리즈
+  nightly_releases: Nightly 버전
   nightly_desc: 최신 기능을 체험해 보세요.
   next: 다음
   next_page: 다음 페이지
@@ -92,7 +92,7 @@ electron_is_good:
   description: 업계의 수많은 조직들이 Electron을 사용하여 크로스 플랫폼 소프트웨어를 만들고 있습니다.
 electron_is_easy:
   title: Electron은 생각보다 쉽습니다.
-  description: 만약 당신이 웹 사이트를 구축할 수 있다면, 데스크톱 앱도 만드실 수 있습니다. Electron은 네이티브 애플리케이션이며 자바스크립트, HTML, CSS로 이루어진 프레임워크입니다. Electron은 어려운 부분을 처리하므로 당신은 애플리케이션의 핵심 부분에 집중할 수 있습니다.
+  description: 웹사이트를 만드실 수 있다면 데스크톱 앱도 만드실 수 있습니다. Electron은 JavaScript, HTML, CSS 같은 웹 기술로 네이티브 애플리케이션을 만들 수 있는 프레임워크입니다. 어려운 부분은 Electron이 대신하니 여러분은 애플리케이션 개발에만 집중할 수 있습니다.
 web_technologies:
   title: 웹 기술
   description: Electron은 Chromium과 Node.js를 사용하여 여러분이 HTML, CSS, 그리고 자바스크립트를 이용해 애플리케이션을 만들수 있도록 해줍니다.
