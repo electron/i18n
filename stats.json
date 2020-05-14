@@ -172,10 +172,10 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "65817",
-    "translated": "63330",
+    "translated": "63336",
     "approved": "45458",
     "words": "632619",
-    "words_translated": "599371",
+    "words_translated": "599406",
     "words_approved": "413479",
     "translated_progress": 94,
     "approved_progress": 65,
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "65817",
-    "translated": "28802",
+    "translated": "28880",
     "approved": "21779",
     "words": "632619",
-    "words_translated": "252042",
+    "words_translated": "252849",
     "words_approved": "180878",
     "translated_progress": 39,
     "approved_progress": 28,
-    "qa_issues": 2448
+    "qa_issues": 2460
   },
   {
     "name": "Persian",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "65817",
-    "translated": "22400",
+    "translated": "22418",
     "approved": "17438",
     "words": "632619",
-    "words_translated": "164486",
+    "words_translated": "164536",
     "words_approved": "124815",
     "translated_progress": 26,
     "approved_progress": 19,
-    "qa_issues": 772
+    "qa_issues": 773
   },
   {
     "name": "Romanian",
