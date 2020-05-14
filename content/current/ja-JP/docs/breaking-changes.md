@@ -12,7 +12,65 @@
 - **非推奨:** API は非推奨になりました。 この API は引き続き機能しますが、非推奨の警告を発し、将来のリリースで削除されます。
 - **削除:** API または機能が削除され、Electron でサポートされなくなりました。
 
+## 予定されている破壊的なAPIの変更 (12.0)
+
+### Removed: `crashReporter` methods in the renderer process
+
+The following `crashReporter` methods are no longer available in the renderer process:
+
+- `crashReporter.start`
+- `crashReporter.getLastCrashReport`
+- `crashReporter.getUploadedReports`
+- `crashReporter.getUploadToServer`
+- `crashReporter.setUploadToServer`
+- `crashReporter.getCrashesDirectory`
+
+They should be called only from the main process.
+
+See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+
+## 予定されている破壊的なAPIの変更 (11.0)
+
 ## 予定されている破壊的なAPIの変更 (10.0)
+
+### Deprecated: `companyName` argument to `crashReporter.start()`
+
+The `companyName` argument to `crashReporter.start()`, which was previously required, is now optional, and further, is deprecated. To get the same behavior in a non-deprecated way, you can pass a `companyName` value in `globalExtra`.
+
+```js
+// Deprecated in Electron 10
+crashReporter.start({ companyName: 'Umbrella Corporation' })
+// Replace with
+crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
+```
+
+### Deprecated: `crashReporter.getCrashesDirectory()`
+
+The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
+
+```js
+// Deprecated in Electron 10
+crashReporter.getCrashesDirectory()
+// Replace with
+app.getPath('crashDumps')
+```
+
+### Deprecated: `crashReporter` methods in the renderer process
+
+Calling the following `crashReporter` methods from the renderer process is deprecated:
+
+- `crashReporter.start`
+- `crashReporter.getLastCrashReport`
+- `crashReporter.getUploadedReports`
+- `crashReporter.getUploadToServer`
+- `crashReporter.setUploadToServer`
+- `crashReporter.getCrashesDirectory`
+
+The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
+
+All above methods remain non-deprecated when called from the main process.
+
+See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
 ### 削除: Browser Window の Affinity
 
@@ -427,7 +485,7 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-Windows でネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
+Windows 向けにネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
 
 ## 破壊的な API の変更 (3.0)
 

@@ -46,7 +46,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `0` tot `9`
 * `A` tot `Z`
 * `F1` tot `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Spatie`
 * `Tab`

@@ -295,7 +295,7 @@ Cette API n'est disponible que sur macOS 10.14 Mojave ou plus récent.
     * `window-background` - L'arrière-plan d'une fenêtre.
     * `window-frame-text` - Le texte dans la barre de titre de la fenêtre.
 
-Retourne `String` - Le paramètre de couleur système sous forme hexadécimale RVB (`#ABCDEF`). Voir la [documentation Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) et la [documentation MacOS](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) pour plus de détails.
+Retourne `String` - Le paramètre de couleur système sous forme hexadécimale RVB (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
 
 The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 

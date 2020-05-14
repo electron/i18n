@@ -1,10 +1,10 @@
-# Objet Produit
+# Objeto del Producto
 
-* `productIdentifier` String - La chaîne de caractères permettant d'identifier le produit dans l'App Store Apple.
-* `localizedDescription` String - Une description du produit.
-* `localizedTitle` String - Le nom du produit.
-* `contentVersion` String - Une chaîne de caractères permettant d'identifier le contenu.
-* `contentLengths` Number[] - Taille totale du contenu, en octets.
-* `price` Number - Prix du produit dans la devise locale.
-* `formattedPrice` String - Le prix formaté localement du produit.
-* `downloadable` Boolean - Une valeur booléenne qui indique si l'App Store a du contenu téléchargeable pour ce produit. `true` si au minimum un fichier a été associé au produit.
+* `productIdentifier` String - El string que identifica el producto de la Apple App Store.
+* `localizedDescription` String - Una descripción del producto.
+* `localizedTitle` String - El nombre del producto.
+* `contentVersion` String - Un string que identifica la versión del contenido.
+* `contentLengths` Number[] - El peso total del contenido, en bytes.
+* `price` Number - El costo del producto en la moneda local.
+* `formattedPrice` String - El formato de la configuración regional del precio del producto.
+* `isDownloadable` Boolean - Un valor booleano que indica si la App Store tiene contenido descargable para este producto. `true` si al menos un archivo ha sido asociado con el producto.

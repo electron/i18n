@@ -116,6 +116,7 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 * [Proses objek](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Variabel Lingkungan](api/environment-variables.md)
+* [Chrome Extensions Support](api/extensions.md)
 * [Breaking API Changes](breaking-changes.md)
 
 

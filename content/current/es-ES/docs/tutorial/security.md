@@ -159,43 +159,9 @@ Electron usa la misma tecnología que los [Content Scripts](https://developer.ch
 
 Incluso cuando usas `nodeIntegration: false` para forzar el fuerte aislamiento y prevenir el uso de Node primitivos, `contextIsolation` también se debe usar.
 
-### ¿Por què?
+### Why & How?
 
-El aislamiento del contexto permite a cada uno de los scripts correr en el renderer para hacer cambios a su ambiente de JavaScript sin preocuparse acerca de los conflictos con los scripts en la API de Electron o la pre-carga del script.
-
-Mientras aún es una característica experimental de Electron, el contexto de aislamiento agrega una capa adicional de seguridad. Esto crea un nuevo mundo JavaScript para las APIs Electron y scripts de precargas, que mitiga los llamados ataques de "Prototype Pollution".
-
-At the same time, preload scripts still have access to the  `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
-
-### ¿Còmo?
-
-```js
-// Main process
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    contextIsolation: true,
-    preload: path.join(app.getAppPath(), 'preload.js')
-  }
-})
-```
-
-```js
-// Preload script
-
-// Establece una variable en la página antes de que sea cargado
-webFrame.executeJavaScript('window.foo = "foo";')
-
-// La página cargada no podrá acceder a ella, sólo está disponible en esta contexto
-window.bar = 'bar'
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Saldrá del sistema 'undefined' ya que window.foo sólo está disponible en el contexto principal
-  console.log(window.foo)
-
-  // Saldrá del sistema 'bar' dado que window.bar esta disponible en este contexto 
-  console.log(window.bar)
-})
-```
+For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
 
 
 ## 4) Gestionar las solicitudes de permiso de sesión desde el contenido remoto
@@ -324,7 +290,7 @@ Descargar la inicial HTML de un sitio web mediante `HTTPS` e intentar descargar 
 
 Cargando contenido sobre `HTTPS` se asegura la autenticidad y la integridad de los recursos cargados mientras se cifra el trafico en si mismo. Ver la sección en [only displaying secure content](#1-only-load-secure-content) para más detalles.
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```js
 // Malo
@@ -365,7 +331,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Correcto
+// Bueno
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -391,7 +357,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Correcto
+// Bueno
 const mainWindow = new BrowserWindow()
 ```
 

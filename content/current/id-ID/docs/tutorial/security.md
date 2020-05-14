@@ -157,45 +157,9 @@ Elektron menggunakan sama teknologi seperti Chromium [Content Scripts](https://d
 
 Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
 
-### Mengapa?
+### Why & How?
 
-Context isolation allows each of the scripts running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
-
-While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
-
-At the same time, preload scripts still have access to the  `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
-
-### Bagaimana?
-
-```js
-// Main process
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    contextIsolation: true,
-    preload: path.join(app.getAppPath(), 'preload.js')
-  }
-})
-```
-
-```js
-// Pramuat script
-
-// Tetapkan variabel di halaman sebelum dimuat
-webFrame.executeJavaScript('window.foo = "foo";')
-
-// Yang dimuat halaman tidak akan bisa untuk mengakses ini, itu hanya tersedia
-// di dalam konteks
-window.bar = 'bar'
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Akan log out 'bar' sejak window.bar tersedia dalam konteks ini
-  console.log(window.foo)
-
-
-  // 
-  console.log(window.bar)
-})
-```
+For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
 
 
 ## 4) Menangani permintaan izin sesi dari konten jauh
@@ -369,7 +333,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 9) Do Not Use `enableBlinkFeatures`
 
-_Rekomendasi adalah elektron 's default_
+_Recommendation is Electron's default_
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -388,8 +352,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow()
+Baik const mainWindow = BrowserWindow() baru
 ```
 
 

@@ -16,11 +16,9 @@ Electron のビルドについては、以下のガイドラインに従って�
 
 更に Windows では、`DEPOT_TOOLS_WIN_TOOLCHAIN=0` と環境変数を設定する必要があります。 これを行うには、`コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。  これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。
 
-## キャッシュからのビルド (任意の手順)
+### Setting up the git cache
 
-### GIT\_CACHE\_PATH
-
-Electron を数回ビルドしようとしている場合、git キャッシュを追加することでその後の `gclient` の呼び出しを高速化できます。 これをするには、`GIT_CACHE_PATH` 環境変数を以下のように設定する必要があります。
+If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -28,22 +26,13 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # 16G ほどあります。
 ```
 
-### sccache
-
-Chromium と Electron をビルドするために幾千ものファイルをコンパイルしなければいけません。 [sccache](https://github.com/mozilla/sccache) を通して Electron CI のビルド出力を再利用することで待ち時間の多くを回避できます。 これにはいくつかの任意の手順 (下記リスト) と以下の2つの環境変数が必要です。
-
-```sh
-export SCCACHE_BUCKET="electronjs-sccache-ci"
-export SCCACHE_TWO_TIER=true
-```
-
 ## コードを取得
 
 ```sh
-$ mkdir electron-gn && cd electron-gn
+$ mkdir electron && cd electron
 $ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# これはしばらくかかります、コーヒーを飲みに行きましょう。
+# This will take a while, go get a coffee.
 ```
 
 > `https://github.com/electron/electron` の代わりに、`https://github.com/<username>/electron` のような自分のフォークを使うこともできます。

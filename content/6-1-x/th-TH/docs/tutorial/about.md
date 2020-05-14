@@ -1,58 +1,75 @@
-# درباره الکترون
+# เกี่ยวกับ Electron
 
-الکترون یک کتابخانه متن باز است که توسط GitHub برای ساخت نرم افزار های  چند سکویی  تحت دسکتاپ با استفاده از Html ٫ CSS و Javascript ساخته شده است. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Electron](https://electronjs.org) เป็นโอเพนซอร์ซไลบรารีที่พัฒนาโดย GitHub เอาไว้ใช้สำหรับการพัฒนาเดสก์ท็อป ครอสแพลตฟอร์มแอปพลิเคชัน ด้วยภาษา HTML, CSS, และ JavaScript การทำงานของ Electron เกิดขึ้นจากการผสมผสานระหว่าง [Chromium](https://www.chromium.org/Home) และ [Node.js](https://nodejs.org) เข้าด้วยกัน และตัวแอปสามารถนำไปใช้ได้กับทั้งระบบปฏิบัติการ Mac, Windows, และ Linux
 
 Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
 
 It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+อ่านต่อเพื่อเรียนรู้เพิ่มเติมเกี่ยวกับผู้มีส่วนร่วมและปล่อยอิเล็กตรอนหรือเริ่มต้นสร้างด้วยอิเล็กตรอนใน
 
-## Core Team and Contributors
+ คู่มือการเริ่มต้นอย่างรวดเร็ว <0></p> 
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-## نسخه‌ها
+
+## ทีมหลักและผู้สนับสนุน
+
+อิเล็กตรอนได้รับการดูแลโดยทีมงานที่ GitHub รวมถึงกลุ่มของผู้มีส่วนร่วม [ ผู้มีส่วนร่วม ](https://github.com/electron/electron/graphs/contributors) จากชุมชน ผู้ให้ข้อมูลบางคนเป็นบุคคลและทำงานใน บริษัท ขนาดใหญ่ที่กำลังพัฒนาเกี่ยวกับอิเล็กตรอน เรายินดีที่จะเพิ่มผู้มีส่วนร่วมให้กับโครงการในฐานะผู้ดูแล อ่านเพิ่มเติมเกี่ยวกับ [ การมีส่วนร่วมกับอิเล็กตรอน ](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
+
+
+
+## การเผยแพร่
 
 [Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
 
-### Updating Dependencies
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+### การอัพเดท
+
+โดยปกติแล้ว Chromium รุ่นของอิเล็กตรอนจะอัปเดตภายในหนึ่งหรือสองสัปดาห์หลังจากรุ่น Chromium ที่เสถียรใหม่ออกวางจำหน่ายทั้งนี้ขึ้นอยู่กับความพยายามที่เกี่ยวข้องในการอัปเกรด
+
+เมื่อมีการปล่อย Node.js เวอร์ชั่นใหม่อิเล็กตรอนมักจะรอประมาณหนึ่งเดือนก่อนที่จะอัปเกรดเพื่อให้มีเวอร์ชั่นที่เสถียรยิ่งขึ้น
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this _just works_ but sometimes it means patching Node.js.
 
-### Versioning
 
-As of version 2.0 Electron [follows `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+
+### เวอร์ชั่น
+
+ในฐานะที่เป็นรุ่น 2.0 อิเล็กตรอน [ ตามด้วย `semver` ](https://semver.org) สำหรับแอปพลิเคชันส่วนใหญ่และการใช้ npm เวอร์ชันล่าสุดใด ๆ การใช้ `$ npm install electron` จะทำสิ่งที่ถูกต้อง
+
+กระบวนการอัปเดตเวอร์ชันนี้มีรายละเอียดอย่างชัดเจนใน [Versioning Doc](electron-versioning.md).
+
+
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+การสนับสนุนระยะยาวของอิเล็กตรอนรุ่นเก่าไม่มีอยู่ในปัจจุบัน หากอิเล็กตรอนรุ่นปัจจุบันของคุณทำงานให้คุณคุณสามารถอยู่กับมันได้นานเท่าที่คุณต้องการ หากคุณต้องการใช้ประโยชน์จากฟีเจอร์ใหม่ ๆ เมื่อเข้ามาคุณควรอัพเกรดเป็นเวอร์ชั่นใหม่
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+อัปเดตที่สำคัญมาพร้อมกับเวอร์ชัน ` v1.0.0 ` หากคุณยังไม่ได้ใช้เวอร์ชันนี้คุณควร [ อ่านเพิ่มเติมเกี่ยวกับ ` v1.0.0 ` การเปลี่ยนแปลง ](https://electronjs.org/blog/electron-1-0)
 
-## فلسفه اصلی
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
 
-For instance, Electron uses Chromium's rendering library rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+## Core Philosophy
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+เพื่อให้อิเล็กตรอนมีขนาดเล็ก (ขนาดไฟล์) และยั่งยืน (การแพร่กระจายของการพึ่งพาและ API) โครงการ จำกัด ขอบเขตของโครงการหลัก
 
-## تاریخچه
+ตัวอย่างเช่น Electron ใช้ไลบรารีการแสดงผลของ Chromium มากกว่า Chromium ทั้งหมด สิ่งนี้ทำให้การอัปเกรด Chromium ง่ายขึ้น แต่ยังหมายถึงคุณลักษณะบางอย่างของเบราว์เซอร์ที่พบใน Google Chrome ไม่มีอยู่ในอิเล็กตรอน
 
-در زیر نقطه عطفی در تاریخچه الکترون را مشاهده می‌کنید.
+คุณสมบัติใหม่ที่เพิ่มเข้ากับอิเล็กตรอนควรเป็น API ดั้งเดิม หากคุณสมบัติสามารถเป็นโมดูล Node.js ของตัวเองก็น่าจะเป็น ดู [ เครื่องมืออิเล็กตรอนที่สร้างโดยชุมชน ](https://electronjs.org/community)
 
-| :calendar:           | :tada:                                                                                                       |
-| -------------------- | ------------------------------------------------------------------------------------------------------------ |
-| **۲۲ فروردین ۱۳۹۲**  | [اتم شل آغاز شده است](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
-| **۱۶ اردیبهشت ۱۳۹۳** | [اتم شل متن باز شد](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                           |
-| **۲۸ فروردین ۱۳۹۴**  | [اتم شل به الکترون تغییر نام داد](https://github.com/electron/electron/pull/1389).                           |
-| **۲۲ اردیبهشت ۱۳۹۵** | [الکترون نسخه `1.0.0` را منتشر کرد](https://electronjs.org/blog/electron-1-0).                               |
-| **اردیبهشت ۱۳۹۵**    | [برنامه‌های الکترون سازگار با مک اپ استور](mac-app-store-submission-guide.md).                               |
-| **مرداد ۱۳۹۵**       | [فروشگاه ویندوز از برنامه‌های الکترون پشتیبانی می‌کند](windows-store-guide.md).                              |
+
+
+## ประวัติ
+
+ด้านล่างเป็นเหตุการณ์สำคัญในประวัติศาสตร์ของอิเล็กตรอน
+
+| :calendar:       | :tada:                                                                                                            |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **เมษายน 2013**  | [ Atom Shell เริ่มต้นขึ้น ](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45) |
+| **พฤษภาคม 2014** | [ Atom Shell เปิดแหล่งที่มา ](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html)                       |
+| **เมษายน 2015**  | [ Atom Shell ได้รับการตั้งชื่อใหม่ว่าอิเล็กตรอน ](https://github.com/electron/electron/pull/1389)                 |
+| **พฤษภาคม 2016** | [ Electron ปล่อย `v1.0.0` ](https://electronjs.org/blog/electron-1-0)                                             |
+| **พฤษภาคม 2016** | [ แอปอิเล็กตรอนที่เข้ากันได้กับ Mac App Store ](mac-app-store-submission-guide.md)                                |
+| **สิงหาคม 2016** | [ การสนับสนุน Windows Store สำหรับแอป Electron ](windows-store-guide.md)                                          |

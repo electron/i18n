@@ -55,7 +55,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
 Смотрите описание события `window-all-closed` для различий между событиями `will-quit` и `window-all-closed`.
 
@@ -154,7 +154,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - содержит специфичное, для приложения, состояние, сохраненное в хранилище по активности.
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. Если Вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Иначе, операция завершится ошибкой и будет вызвано `continue-activity-error`.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Иначе, операция завершится ошибкой и будет вызвано `continue-activity-error`.
 
 ### Событие: 'new-window-for-tab' _macOS_
 
@@ -457,9 +457,14 @@ app.exit(0)
 
 Возвращает `Promise<void>` - выполняется, когда Electron инициализирован. Может быть использован в качестве удобной альтернативы проверки `app.isReady()` и подписывания на событие `ready`, если приложение еще не готово.
 
-### `app.focus()`
+### `app.focus([options])`
+
+* `options` Object (optional)
+  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+
+You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macOS_
 
@@ -500,8 +505,9 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
   * `music` каталог пользователя "Music".
   * `pictures` каталог пользователя для фотографии.
   * `videos` каталог пользователя для видео.
-  * `logs` директория для логов Вашего приложения.
-  * `pepperFlashSystemPlugin` полный путь к системной версии плагина Pepper Flash.
+  * `logs` директория для логов вашего приложения.
+  * `pepperFlashSystemPlugin` путь к плагину Pepper Flash.
+  * `crashDumps` Directory where crash dumps are stored.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
@@ -522,8 +528,8 @@ Returns `String` - A path to a special directory or file associated with `name`.
 
 На _Windows_, там 2 вида значков:
 
-* Иконки, связанные с определенными расширениями, такими как `.mp3`, `.png`, и т.д.
-* Иконки внутри файла, таких как `.exe`, `.dll` и `.ico`.
+* Значки, связанные с определенными расширениями, как `.mp3`, `.png`, и т.д.
+* Значки внутри файла, как `.exe`, `.dll`, `.ico`.
 
 На _Linux_ и _macOS_ иконки зависят от приложения, ассоциируемого с mime-типом файла.
 
@@ -536,17 +542,17 @@ Returns `String` - A path to a special directory or file associated with `name`.
 
 Можно переопределять только пути `name`, определенное в `app.getPath`.
 
-По умолчанию cookies и кэш веб-страницы будут храниться в каталоге `userData`. Если Вы хотите изменить это расположение, Вам необходимо переопределить путь `userData` прежде, чем произойдет событие `ready` модуля `app`.
+По умолчанию cookies и кэш веб-страницы будут храниться в каталоге `userData`. Если вы хотите изменить это расположение, вам необходимо переопределить путь `userData` прежде, чем событие `ready` модуля `app` возникнет.
 
 ### `app.getVersion()`
 
-Возвращает `String` - версия загруженного приложения. Если версия не найдена в файле `package.json` приложения, возвращается версия текущего пакета или исполняемого файла.
+Возвращает `String` - версии загруженного приложения. Если версия не найдена в файле `package.json` приложения, возвращается версия текущего пакета или исполняемого файла.
 
 ### `app.getName()`
 
 Возвращает `String` - имя текущего приложения, который является именем в файле приложения `package.json`.
 
-Обычно поле `name` в `package.json` является коротким именем, написанном в нижнем регистре, согласно спецификации модулей npm. Обычно Вы должны также указать поле `productName`, которое является названием(в верхнем регистре) Вашего приложения, и которое будет предпочтительнее `name` для Electron.
+Обычно поле `name` в `package.json` является коротким именем, написанном в нижнем регистре, согласно спецификации модулей npm. Обычно Вы должны также указать поле `productName`, которое пишется заглавными буквами - имя вашего приложения, и которое будет предпочтительнее `name` для Electron.
 
 ### `app.setName(name)`
 
@@ -646,7 +652,7 @@ This method returns the application name of the default handler for the protocol
 
 Возвращает `Object`:
 
-* `minItems` Integer - минимальное количество элементов, которые будут показаны в Jump List (для более подробного описания этого значение см. [документация MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `minItems` Integer - минимальное количество элементов, которые будут показаны в списке переходов (для более подробного описания этого значения, см. [документацию MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem []](structures/jump-list-item.md) - массив объектов `JumpListItem`, которые соответствуют элементам, которые пользователь явно удалил из настраиваемых категорий в Jump List. Эти элементы не должны быть снова добавлены в Jump List, при **следующем** вызове `app.setJumpList()`, Windows не будет отображать любую настраиваемую категорию, содержащую любой из удаленных пунктов.
 
 ### `app.setJumpList(categories)` _Windows_
@@ -663,7 +669,7 @@ This method returns the application name of the default handler for the protocol
 
 Если `categories` - `null`, то ранее установленный пользовательский список переходов (если таковой имеется) будет заменён стандартным списком переходов для приложения (управляется Windows).
 
-**Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойства, тогда `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
+**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Любая попытка вновь добавить удаленный элемент в пользовательскую категорию перед тем, как метод выполнится, приведёт к исключению всей категории из списка переходов. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
@@ -737,7 +743,7 @@ app.setJumpList([
 
 На macOS система автоматически обеспечивает единственный экземпляр, когда пользователи пытаются открыть второй экземпляра Вашего приложения в Finder, для этого будут происходить `open-file` и `open-url` события. Так или иначе, когда пользователи запустят Ваше приложение через командную строку, системный механизм единственного экземпляра будет обойден, и Вы должны использовать этот метод, чтобы обеспечить единственный экземпляр.
 
-Пример активации окна первичного экземпляра, при запуске второго экземпляра:
+Пример активации окна единственного экземпляра, при запуске второго экземпляра:
 
 ```javascript
 const { app } = require('electron')
@@ -797,7 +803,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` any- специфичное, для приложения, состояние для использования другими устройствами.
 
-Обновляет текущую активность, если его тип совпадает `type` слияния записей из `userInfo` в его текущем словаре `userInfo`.
+Обновляет текущую активность, если ее тип соответствует `type`, объединяя записи с `userInfo` в свой текущий словарь `userInfo`.
 
 ### `app.setAppUserModelId(id)` _Windows_
 
@@ -824,7 +830,7 @@ Activation policy types:
 * `callback` Function
   * `result` Integer - результат импорта.
 
-Импортирует сертификат в формате pkcs12 в хранилище сертификатов платформы. `callback` вызывается с `result` - результат операции импорта, значение `0` указывает на успех, все другие значения указывают на ошибку в соответствии со списком [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) в Chromium.
+Импорт сертификата в формате pkcs12 из платформы хранилища сертификатов. `callback` вызывается с `result` - результат операции импорта, значение `0` указывает на успех, все другие значения указывают на ошибку в соответствии со списком [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) в Chromium.
 
 ### `app.disableHardwareAcceleration()`
 
@@ -834,7 +840,7 @@ Activation policy types:
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
 
 Этот метод может быть вызван только до того, как приложение будет готово.
 
@@ -912,7 +918,7 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 Возвращает `Object`:
 
-* `openAtLogin` Boolean - `true`, если приложение планируется открыть при входе в систему.
+* `openAtLogin` Boolean - `true` если приложение планируется открыть при входе в систему.
 * `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Это означает, что приложению не следует открывать любое окно при запуске. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
@@ -953,9 +959,9 @@ app.setLoginItemSettings({
 
 * `enabled` Boolean - включить или отключить отрисовку [древа специальных возможностей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Вручную включает поддержку специальных возможностей от Chrome, позволяя пользователям открывать специальные возможности в настройках приложения. См. [документацию специальных возможностей Chromium](https://www.chromium.org/developers/design-documents/accessibility) для подробной информации. Отключено по умолчанию.
+Вручную включает поддержку специальных возможностей от Chrome, позволяя пользователям открывать специальные возможности в настройках приложения. Смотрите [документацию специальных возможностей Chromium](https://www.chromium.org/developers/design-documents/accessibility) для подробной информации. Отключено по умолчанию.
 
-Этот метод должен вызываться после того, как произошло событие `ready`.
+Этот API должен вызываться после того, как произошло событие `ready`.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
@@ -966,16 +972,16 @@ Show the app's about panel options. These options can be overridden with `app.se
 ### `app.setAboutPanelOptions(options)`
 
 * `options` Object
-  * `applicationName` String (опционально) - имя приложения.
-  * `applicationVersion` String (опционально) - версия приложения.
-  * `copyright` String (опционально) - информация авторских прав.
+  * `applicationName` String (опиционально) - имя приложения.
+  * `applicationVersion` String (опиционально) - версия приложения.
+  * `copyright` String (опиционально) - copyright информация.
   * `version` String (optional) _macOS_ - The app's build version number.
   * `credits` String (optional) _macOS_ _Windows_ - Credit information.
   * `authors` String[] (optional) _Linux_ - List of app authors.
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Установите описание панели опций. This will override the values defined in the app's `.plist` file on MacOS. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
+Установите описание панели опций. This will override the values defined in the app's `.plist` file on macOS. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1002,7 +1008,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-Начинает доступ в область безопасности ресурса. С помощью этого метода Electron приложения, которые упакованы для Mac App Store, могут выходить за пределы их песочницы, чтобы получить файлы, выбранные пользователем. Описание того, как работает эта система, см. в [документации Apple](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16).
+Начать доступ в области безопасности ресурса. С помощью этого метода Electron приложения, которые упакованы для Mac App Store, могут выходить на пределы их песочницы, чтобы получить файлы, выбранные пользователем. Подробное описание как работает эта система, смотри [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16).
 
 ### `app.enableSandbox()` _Experimental_
 
@@ -1057,7 +1063,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 Этот API должен вызываться после того, как произошло событие `ready`.
 
-**Примечание:** Отрисовка древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
 ### `app.applicationMenu`
 
@@ -1069,7 +1075,7 @@ A `Menu | null`свойство, которое возвращает [`Menu`](me
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Примечание:** Unity требует существования файла `.desktop` для работы, для получения дополнительной информации, пожалуйста, прочитайте [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.commandLine` _Readonly_
 

@@ -46,7 +46,7 @@ Klawisz `Super` jest mapowany do klawisza`Windows` w systemach Windows i Linux o
 * od `0` do `9`
 * od `A` do `Z`
 * od `F1` do `F24`
-* Znaki interpunkcyjne takie jak `~`, `!`, `@`, `nr`, `` $, itp.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`

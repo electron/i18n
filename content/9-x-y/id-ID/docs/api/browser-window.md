@@ -174,7 +174,7 @@ Ini menciptakan `BrowserWindow` baru dengan sifat asli yang ditetapkan oleh `opt
 <li><code>fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. Di macOS, juga apakah tombol perbesar/zoom harus beralih penuh mode layar atau memaksimalkan jendela. Defaultnya adalah `true`.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Defaultnya adalah ` false </ 0> .</li>
 <li><code>skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Defaultnya adalah ` false </ 0> .</li>
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. Defaultnya adalah ` false </ 0> .</li>
 <li><code>title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `ikon` ([NativeImage](native-image.md) | String) (opsional) - Ikon jendela. Pada Windows itu disarankan untuk menggunakan ikon `ICO` untuk mendapatkan efek visual terbaik, Anda juga bisa biarkan tidak terdefinisi sehingga ikon executable akan digunakan.
   * `show` Boolean (optional) - Whether window should be shown when created. Default adalah `benar`.
@@ -189,7 +189,7 @@ Ini menciptakan `BrowserWindow` baru dengan sifat asli yang ditetapkan oleh `opt
 <li><code>backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. Defaultnya adalah `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Defaultnya adalah ` false </ 0> .</li>
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. Defaultnya adalah ` false </ 0> .</li>
 <li><code>transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Defaultnya adalah ` false </ 0> . On Windows, does not work unless the window is frameless.</li>
 <li><code>type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Nilai yang mungkin adalah:
@@ -761,6 +761,68 @@ If the menu bar is already visible, setting this property to `true` won't hide i
 
 
 
+#### `win.simpleFullScreen`
+
+A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.
+
+
+
+#### `win.fullScreen`
+
+A `Boolean` property that determines whether the window is in fullscreen mode.
+
+
+
+#### `win.visibleOnAllWorkspaces`
+
+A `Boolean` property that determines whether the window is visible on all workspaces.
+
+**Note:** Always returns false on Windows.
+
+
+
+#### `win.shadow`
+
+A `Boolean` property that determines whether the window has a shadow.
+
+
+
+#### `win.menuBarVisible` _Windows_ _Linux_
+
+A `Boolean` property that determines whether the menu bar should be visible.
+
+**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+
+
+
+#### `win.kiosk`
+
+A `Boolean` property that determines whether the window is in kiosk mode.
+
+
+
+#### `win.documentEdited` _macOS_
+
+A `Boolean` property that specifies whether the window’s document has been edited.
+
+The icon in title bar will become gray when set to `true`.
+
+
+
+#### `win.representedFilename` _macOS_
+
+A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+
+
+
+#### `win.title`
+
+A `String` property that determines the title of the native window.
+
+**Note:** The title of the web page can be different from the title of the native window.
+
+
+
 #### `win.minimizable`
 
 A `Boolean` property that determines whether the window can be manually minimized by user.
@@ -947,7 +1009,7 @@ Mengembalikan ` Boolean </ 0> - Apakah jendela dalam mode layar penuh.</p>
 
 Enters or leaves simple fullscreen mode.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
 
 
 
@@ -1309,7 +1371,7 @@ Membuat jendela tidak tampil di taskbar.
 #### `win.setKiosk(flag)`
 
 * `bendera` Boolean
-Masuk atau keluar dari mode kiosk.
+Enters or leaves kiosk mode.
 
 
 
@@ -1801,7 +1863,7 @@ Set a custom position for the traffic light buttons. Can only be used with `titl
 
 Mengatur tata letak touchBar untuk jendela aktif. Menentukan `null` atau `undefined` membersihkan bar sentuhan. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
 
-**Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 
 

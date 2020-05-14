@@ -119,3 +119,11 @@ Quand lancée depuis le paquet `electron` , cette variable dit à la commande d'
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```
+
+## Set By Electron
+
+Electron sets some variables in your environment at runtime.
+
+### `ORIGINAL_XDG_CURRENT_DESKTOP`
+
+This variable is set to the value of `XDG_CURRENT_DESKTOP` that your application originally launched with.  Electron sometimes modifies the value of `XDG_CURRENT_DESKTOP` to affect other logic within Chromium so if you want access to the _original_ value you should look up this environment variable instead.

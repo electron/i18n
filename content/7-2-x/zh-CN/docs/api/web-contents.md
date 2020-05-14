@@ -129,7 +129,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 返回:
 
-* `event` Event
+* `event` NewWindowEvent
 * `url` String
 * `frameName` String
 * `disposition` String - 可以被设置为 `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` 及 `other`.

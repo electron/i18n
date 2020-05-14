@@ -16,11 +16,9 @@
 
 Также, для Windows вам потребуется добавить переменную среды `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Чтобы это сделать, откройте `Панель управления` → `Система и безопасность` → `Система` → `Дополнительные параметры системы` и добавьте системную переменную `DEPOT_TOOLS_WIN_TOOLCHAIN` со значением `0`.  Она говорит `depot_tools` использовать вашу локальную версию Visual Studio (по умолчанию, `depot_tools` попробует загрузить приватную Google версию к которой имеют доступ только Гугловцы).
 
-## Кэшированная сборка (опционально)
+### Setting up the git cache
 
-### GIT\_CACHE\_PATH
-
-Если вы планируете собирать Electron больше одного раза, добавление git cache ускорит дальнейшие запросы к `gclient`. Чтобы это сделать, установите переменную среды `GIT_CACHE_PATH`:
+If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -28,22 +26,13 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # Это будет использовать примерно 16 гигабайт.
 ```
 
-### sccache
-
-Для сборки Chromium и Electron компилируются тысячи файлов. Вы можете избежать большей части ожидания, повторно используя вывод сборки Electron CI через [sccache](https://github.com/mozilla/sccache). Для этого требуются некоторые необязательные шаги (перечисленные ниже) и эти две переменные среды:
-
-```sh
-export SCCACHE_BUCKET="electronjs-sccache-ci"
-export SCCACHE_TWO_TIER=true
-```
-
 ## Получение кода
 
 ```sh
-$ mkdir electron-gn && cd electron-gn
+$ mkdir electron && cd electron
 $ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# Это займёт некоторое время, идите и налейте себе кофейку.
+# This will take a while, go get a coffee.
 ```
 
 > Вместо `https://github.com/electron/electron`, вы можете использовать здесь свой собственный форк (что-то вроде `https://github.com/<username>/electron`).
@@ -104,7 +93,7 @@ $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EX
 $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 ```
 
-**To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
+**Чтобы построить, запустите `ninja` с целью `electron`:** Nota Bene: Это займет некоторое время и, вероятно, нагревает ваш ноутбук.
 
 Для конфигурации тестирования:
 ```sh

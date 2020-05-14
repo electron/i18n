@@ -12,7 +12,65 @@ This document uses the following convention to categorize breaking changes:
 - **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
 - **Removed:** An API or feature was removed, and is no longer supported by Electron.
 
+## Запланированные критические изменения API (12.0)
+
+### Removed: `crashReporter` methods in the renderer process
+
+The following `crashReporter` methods are no longer available in the renderer process:
+
+- `crashReporter.start`
+- `crashReporter.getLastCrashReport`
+- `crashReporter.getUploadedReports`
+- `crashReporter.getUploadToServer`
+- `crashReporter.setUploadToServer`
+- `crashReporter.getCrashesDirectory`
+
+They should be called only from the main process.
+
+See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+
+## Запланированные критические изменения API (11.0)
+
 ## Запланированные критические изменения API (10.0)
+
+### Deprecated: `companyName` argument to `crashReporter.start()`
+
+The `companyName` argument to `crashReporter.start()`, which was previously required, is now optional, and further, is deprecated. To get the same behavior in a non-deprecated way, you can pass a `companyName` value in `globalExtra`.
+
+```js
+// Deprecated in Electron 10
+crashReporter.start({ companyName: 'Umbrella Corporation' })
+// Replace with
+crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
+```
+
+### Deprecated: `crashReporter.getCrashesDirectory()`
+
+The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
+
+```js
+// Deprecated in Electron 10
+crashReporter.getCrashesDirectory()
+// Replace with
+app.getPath('crashDumps')
+```
+
+### Deprecated: `crashReporter` methods in the renderer process
+
+Calling the following `crashReporter` methods from the renderer process is deprecated:
+
+- `crashReporter.start`
+- `crashReporter.getLastCrashReport`
+- `crashReporter.getUploadedReports`
+- `crashReporter.getUploadToServer`
+- `crashReporter.setUploadToServer`
+- `crashReporter.getCrashesDirectory`
+
+The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
+
+All above methods remain non-deprecated when called from the main process.
+
+See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
 ### Removed: Browser Window Affinity
 
@@ -427,7 +485,7 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-При создании нативных модулей для Windows, переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, тогда нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
+При создании нативных модулей для Windows, переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
 
 ## Критические изменения API (3.0)
 
@@ -626,7 +684,7 @@ webview.onkeyup&nbsp;= () => { /* обработчик */ }
 // Устарело
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Заменено на
+// Заменить на
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -636,7 +694,7 @@ let windowB = new BrowserWindow(optionsB)
 ```js
 // Удалено
 menu.popup(browserWindow, 100, 200, 2)
-// Заменить на
+// Заменено на
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
@@ -685,7 +743,7 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-### Двойные ARM ресурсы
+### Двойные ресурсы ARM
 
 Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурс с префиксом `v7l` был добавлен, чтобы уточнить для пользователей, какую версию ARM он поддерживает, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
 

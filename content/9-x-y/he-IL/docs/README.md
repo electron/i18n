@@ -104,6 +104,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Process Object](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [משתני סביבה](api/environment-variables.md)
+* [Chrome Extensions Support](api/extensions.md)
 * [שינויים השוברים את ה־API](breaking-changes.md)
 
 ### אלמנטי DOM מותאמים אישית:

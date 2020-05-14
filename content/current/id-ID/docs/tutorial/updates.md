@@ -1,6 +1,8 @@
 # Memperbarui Aplikasi
 
-Ada beberapa cara untuk mengupdate aplikasi Elektron . Yang sangat mudah dan Secara resmi didukung salah satunya adalah keuntungan dari built-in Squirrel </ 0> kerangka dan Modul  autoUpdater </ 1> elektron.</p> 
+Ada beberapa cara untuk mengupdate aplikasi Elektron . Yang sangat mudah dan Secara resmi didukung salah satunya adalah keuntungan dari built-in
+
+ Squirrel </ 0> kerangka dan Modul  autoUpdater </ 1> elektron.</p> 
 
 
 
@@ -74,9 +76,9 @@ Selanjutnya, buatlah URL server update dan beri tahu [autoUpdater](../api/auto-u
 
 ```javascript
 const server = 'https://your-deployment-url.com'
-const feed = `${server}/update/${process.platform}/${app.getVersion()}`
+const url = `${server}/update/${process.platform}/${app.getVersion()}`
 
-autoUpdater.setFeedURL(feed)
+autoUpdater.setFeedURL({ url })
 ```
 
 
@@ -126,3 +128,10 @@ autoUpdater.on ('error', message = & gt; {
    console.error ('Ada masalah saat memperbarui aplikasi')
    console.error (message)})
 ```
+
+
+
+
+## Handing Updates Manually
+
+Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).

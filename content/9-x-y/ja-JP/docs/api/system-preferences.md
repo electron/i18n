@@ -295,7 +295,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `window-background` - ウィンドウの背景
     * `window-frame-text` - ウィンドウのタイトルバー領域のテキスト。
 
-戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳しくは、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx)と [MacOS のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors)をご覧ください。
+戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
 
 次の色は macOS 10.14 でのみ使用可能です。`find-highlight`、`selected-content-background`、`separator`、`unemphasized-selected-content-background`、`unemphasized-selected-text-background`、`unemphasized-selected-text`。
 

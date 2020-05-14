@@ -129,7 +129,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` NewWindowEvent
 * `url` String
 * `frameName` String
 * `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.

@@ -59,7 +59,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 Alternatif olarak yerel önbelleği geçersiz kılabilirsiniz. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Önbellek klasörünü Elektron'un özel kurulumlarını sağlamak veya ağ ile iletişimini tamamen kesmek için kullanabilirsiniz.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
+* macOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
 
 Electron'un daha eski sürümlerinin kullanıldığı çevrelerde önbelleği `~/.electron` içinde bulabilirsiniz.

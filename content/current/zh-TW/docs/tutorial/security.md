@@ -159,43 +159,9 @@ Electron uses the same technology as Chromium's [Content Scripts](https://develo
 
 Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
 
-### 為什麼?
+### Why & How?
 
-Context isolation allows each of the scripts running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
-
-While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
-
-At the same time, preload scripts still have access to the  `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
-
-### 怎麼做?
-
-```js
-// Main process
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    contextIsolation: true,
-    preload: path.join(app.getAppPath(), 'preload.js')
-  }
-})
-```
-
-```js
-// 預載腳本
-
-// 在網頁載入前設定變數
-webFrame.executeJavaScript('window.foo = "foo";')
-
-// 載入的頁面將無法存取這個變數，只有在這個 context 下才能存取
-window.bar = 'bar'
-
-document.addEventListener('DOMContentLoaded', () => {
-  // 會印出 'undefined'，因為 window.foo 只能在主 context 中用
-  console.log(window.foo)
-
-  // 會印出 'bar'，因為 window.bar 可以在這個 context 中用
-  console.log(window.bar)
-})
-```
+For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
 
 
 ## 3) 處理來自遠端內容的 Session 權限請求

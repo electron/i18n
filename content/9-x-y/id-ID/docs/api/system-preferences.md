@@ -686,7 +686,7 @@ const alpha = color.substr(6, 2) // "dd"
 </ul>
 
 <p spaces-before="0">
-  Mengembalikan <code>Senar</code> - Pengaturan warna sistem dalam bentuk heksadesimal RGB (<code>#ABCDEF</code>). See the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx">Windows docs</a> and the <a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors">MacOS docs</a> for more details.
+  Mengembalikan <code>Senar</code> - Pengaturan warna sistem dalam bentuk heksadesimal RGB (<code>#ABCDEF</code>). See the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx">Windows docs</a> and the <a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors">macOS docs</a> for more details.
 </p>
 
 <p spaces-before="0">

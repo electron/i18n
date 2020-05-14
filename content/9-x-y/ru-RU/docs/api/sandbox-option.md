@@ -30,7 +30,7 @@ app.whenReady().then(() => {
 })
 ```
 
-В приведенном выше коде у созданного [`BrowserWindow`](browser-window.md) отключен Node.js и он может общаться только через IPC. Использование этой опции не позволяет Electron создавать в рендерере среду выполнения Node.js. Также внутри этого нового окна `window.open` следует родному поведению (по умолчанию Electron создает [`BrowserWindow`](browser-window.md) и возвращает прокси к нему через `window.open`).
+В приведенном выше коде у созданного [`BrowserWindow`](browser-window.md) отключен Node.js и он может общаться только через IPC. Использование этой опции не позволяет Electron создавать в рендерере среду выполнения Node.js. Also, within this new window `window.open` follows the native behavior (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
 [`app.enableSandbox`](app.md#appenablesandbox-experimental) может использоваться для принудительной установки `sandbox: true` для всех экземпляров `BrowserWindow`.
 

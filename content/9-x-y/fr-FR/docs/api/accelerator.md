@@ -46,7 +46,7 @@ La touche `Super` est associée à la touche `Windows` sur Windows et Linux et `
 * `0` à `9`
 * `A` à `Z`
 * `F1` à `F24`
-* Signes de ponctuation comme `~`, `!`, `@`, `#`, `$`, etc.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`

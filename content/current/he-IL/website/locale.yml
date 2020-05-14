@@ -87,10 +87,12 @@ releases:
   page: עמוד
   all_releases: כל המהדורות
   back_to_index: חזרה לעמוד הראשי
+electron_is_good:
+  title: Apps users love, built with Electron
+  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
 electron_is_easy:
   title: זה קל יותר משאתה חושב
   description: מהיום, אם אתה יכול לבנות אתר אתה יוכל לבנות גם יישומי מחשב. Electron הוא framework לפיתוח יישומים למערכות הפעלה שנות בטכנולוגיות פיתוח אתרים כמו JavaScript, HTML, ו-CSS. Electron דואג להתאמות השונות כך שאתם תוכלו להתמקד בעיקר היישום שלכם.
-  video_link: צפה בסרטון
 web_technologies:
   title: טכנולוגיות פיתוח אתרים
   description: Electron עושה שימוש ב-Chromium וב-Node.js כך שתוכלו לבנות את היישום שלכם עם HTML, CSS, ו- JavaScript.
@@ -135,13 +137,7 @@ taglines:
 help_translate: "עזור לתרגם"
 footer:
   see_the_faq: צפה בשאלות נפוצות
-companies:
-  title: Built on Electron
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
-  view_more: הצג יישומים נוספים
-  submit_your_own: שלח משלך
   something_missing: משהו חסר?
   edit_this_app: ערוך את היישום הזה.
   search_app: סנן יישומים לפי שם, תיאור, ועוד…

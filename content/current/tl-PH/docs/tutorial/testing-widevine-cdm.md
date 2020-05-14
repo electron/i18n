@@ -26,7 +26,7 @@ Open `chrome://components/` in Chrome browser, find `Widevine Content Decryption
 
 The library file `widevinecdm.dll` will be under `Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` directory.
 
-### On MacOS
+### On macOS
 
 The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` directory.
 
@@ -36,7 +36,7 @@ The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chro
 
 After getting the library files, you should pass the path to the file with `--widevine-cdm-path` command line switch, and the library's version with `--widevine-cdm-version` switch. The command line switches have to be passed before the `ready` event of `app` module gets emitted.
 
-उदाहरण कोड:
+Example code:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -49,7 +49,7 @@ app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevine_library')
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.show()
 })
@@ -59,5 +59,5 @@ app.on('ready', () => {
 
 To verify whether widevine works, you can use following ways:
 
-* https://shaka-player-demo.appspot.com/ खोलें और एक मनिफेस्त लोड करें जो कि `वाइडवाइन` का इस्तेमाल करता हो |
-* http://www.dash-player.com/demo/drm-test-area/ खोलें, जाँचे कि क्या पेज `bitdash uses Widevine in your browser` दिखाता है, और फिर विडियो चलायें |
+* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
+* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.

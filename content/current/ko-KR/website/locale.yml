@@ -1,4 +1,4 @@
-tagline: JavaScript, HTML, CSS를 이용하여 크로스 플랫폼 데스크탑 앱을 만들어보세요
+tagline: JavaScript, HTML, CSS를 이용하여 크로스 플랫폼 데스크톱 앱을 만들어보세요.
 nav:
   apps: 앱
   blog: 블로그
@@ -10,7 +10,7 @@ nav:
   donors: 후원자
   languages: 언어
   license: 라이선스
-  releases: 출시
+  releases: 버전
   search: 검색
   userland: 사용자 공간
   governance: 운영 방식
@@ -74,23 +74,25 @@ releases:
   show_releases: "출시 버전 보기:"
   show_only_releases_from: "해당 출시 버전만 보기:"
   all_versions: 모든 버전
-  stable_releases: 안정 릴리즈
-  stable_desc: 정규, 지원 릴리즈
-  beta_releases: 베타 릴리즈
+  stable_releases: 안정 버전
+  stable_desc: 정규, 지원받는 버전
+  beta_releases: 베타 버전
   beta_desc: 곧 나올 변경사항을 당신의 앱에서 테스트해보세요.
-  nightly_releases: Nightly 릴리즈
+  nightly_releases: Nightly 버전
   nightly_desc: 최신 기능을 체험해 보세요.
   next: 다음
   next_page: 다음 페이지
   previous: 이전
   previous_page: 이전 페이지
   page: 페이지
-  all_releases: 모든 릴리즈들
+  all_releases: 모든 버전
   back_to_index: 목차로 돌아가기
+electron_is_good:
+  title: 유저들이 사랑하는, Electron으로 만들어진 앱
+  description: 업계의 수많은 조직들이 Electron을 사용하여 크로스 플랫폼 소프트웨어를 만들고 있습니다.
 electron_is_easy:
-  title: Electron은 여러분이 생각한 것보다 쉽습니다.
-  description: 만약 당신이 웹 사이트를 구축할 수 있다면, 데스크톱 앱도 만드실 수 있습니다. Electron은 네이티브 애플리케이션이며 자바스크립트, HTML, CSS로 이루어진 프레임워크입니다. Electron은 어려운 부분을 처리하므로 당신은 애플리케이션의 핵심 부분에 집중할 수 있습니다.
-  video_link: 동영상 보기
+  title: Electron은 생각보다 쉽습니다.
+  description: 웹사이트를 만드실 수 있다면 데스크톱 앱도 만드실 수 있습니다. Electron은 JavaScript, HTML, CSS 같은 웹 기술로 네이티브 애플리케이션을 만들 수 있는 프레임워크입니다. 어려운 부분은 Electron이 대신하니 여러분은 애플리케이션 개발에만 집중할 수 있습니다.
 web_technologies:
   title: 웹 기술
   description: Electron은 Chromium과 Node.js를 사용하여 여러분이 HTML, CSS, 그리고 자바스크립트를 이용해 애플리케이션을 만들수 있도록 해줍니다.
@@ -116,7 +118,7 @@ explore:
   fiddle_title: Electron Fiddle과 함께 강력한 경험을 시도해보세요
   see_more_info: 자세히 보기
 download_from_github: GitHub에서 다운로드
-view_all_releases_on_github: GitHub에서 <a href="https://github.com/electron/electron-api-demos/releases">모든 릴리즈를 확인해보세요</a>
+view_all_releases_on_github: GitHub에서 <a href="https://github.com/electron/electron-api-demos/releases">모든 버전을 확인해보세요</a>
 quick_start:
   title: "Electron의 실제 동작을 보려면 <a href='https://github.com/electron/electron-quick-start'target='_blank'>빠른 시작</a> 앱을 돌려보세요."
   description: 유용한 표기법이 포함된 아주 작은 Electron 앱
@@ -135,13 +137,7 @@ taglines:
 help_translate: "번역 참여"
 footer:
   see_the_faq: 자주 묻는 질문
-companies:
-  title: Electron으로 설계된 애플리케이션
-  description: GitHub의 <a href='https://atom.io' target='_blank'>Atom 편집기</a>를 위해 처음 개발된 Electron은 전 세계 회사에서 채택되었습니다.
 apps:
-  description: 'Electron과 함께라면 여러분의 회사에서 데스크톱 애플리케이션을 개발하는 것은 쉬운 일입니다. <a href=''/apps''>커뮤니티에서 개발한 앱 목록</a>또는 <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">여러분이 직접 개발한 앱을 추가하기</a>를 확인해보세요!'
-  view_more: 더 많은 애플리케이션 보기
-  submit_your_own: 의견을 제출하세요
   something_missing: 뭔가 누락되었나요?
   edit_this_app: 이 앱을 수정하세요.
   search_app: 앱을 이름, 설명 등으로 필터링하기…
@@ -154,7 +150,7 @@ apps:
   downloads: 다운로드
   keywords: 키워드
   license: 라이선스
-  latest_release: 최근 릴리즈
+  latest_release: 최신 버전
 blog:
   title: Electron 블로그
   description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
@@ -184,20 +180,20 @@ pages:
     description: 한 페이지에서 검색가능한 모든 Electron 가이드와 API 설명서
   '/docs/api':
     title: API
-    description: 최신 일렉트론 릴리즈에 대한 API 참고 문서
+    description: 최신 Electron 버전에 대한 API 참조 문서
   '/docs/development':
     title: 개발
     description: Electron으로 개발하기
   '/docs/tutorial':
     title: 튜토리얼
-    description: 최신 Electron 출시에 대한 가이드와 튜토리얼
+    description: 최신 Electron 버전에 대한 가이드와 튜토리얼
   '/blog':
     title: Electron 블로그
     description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
   '/community':
     title: 커뮤니티
   '/releases':
-    title: 릴리즈
+    title: 버전
   '/contact':
     title: 연락처
     description: Twitter, Slack, GitHub 혹은 이메일을 통해서 Electron팀과 연락하세요.
@@ -244,7 +240,7 @@ governance:
     title: 지원 활동
     description: Electron 커뮤니티를 성장시킵니다
   releases:
-    title: 출시
+    title: 버전 출시
     description: 모든 릴리스 분기 및 릴리스를 지원하는 툴을 감독합니다.
   upgrades:
     title: 업그레이드

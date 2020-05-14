@@ -104,6 +104,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [Process Object](api/process.md)
 * [Wspierane Zmienne Konsoli](api/command-line-switches.md)
 * [Zmienne Środowiskowe](api/environment-variables.md)
+* [Obsługa rozszerzeń Chrome](api/extensions.md)
 * [Istotne zmiany w API](breaking-changes.md)
 
 ### Własne Elementy DOM:

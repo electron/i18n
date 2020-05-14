@@ -46,7 +46,7 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 * `0` - `9`
 * `A` - `Z`
 * `F1` - `F24`
-* Символы пунктуации, например `~`, `!`, `@`, `#`, `$`, и т.д.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`

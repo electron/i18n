@@ -149,46 +149,9 @@ Electron は Chromium の [コンテンツスクリプト](https://developer.chr
 
 `nodeIntegration: false`を使用して、文字列のアイソレーションを強制する場合やNode primitivesの使用を避ける場合であっても、 `contextIsolation` を使用しなければなりません。
 
-### なぜ？
+### Why & How?
 
-コンテキストイソレーションにより、レンダラーで実行されている各スクリプトは、Electron API またはプリロードスクリプト内のスクリプトとの衝突を心配することなく、JavaScript 環境を変更できます。
-
-まだ実験的なElectronの機能ですが、コンテキストアイソレーションはセキュリティのためのレイヤーを追加します。 これは Electron APIとプリロードスクリプトのために新しいJavaScriptの世界を作成します。そのため、プロトタイプ汚染攻撃を緩和します。
-
-同時に、プリロードスクリプトは `document` や `window` オブジェクトにアクセスできるようになります。 言い換えれば、ローリスクでハイリターンを得ているということです。
-
-### どうすればいいの？
-
-```js
-// メインプロセス
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    contextIsolation: true,
-    preload: path.join(app.getAppPath(), 'preload.js')
-  }
-})
-```
-
-```js
-// プリロードスクリプト
-
-// ロードする前にページ内の変数を設定
-webFrame.executeJavaScript('window.foo = "foo";')
-
-// ロードされたページはこの変数にアクセスできない
-// このコンテキスト内でのみ有効
-window.bar = 'bar'
-
-document.addEventListener('DOMContentLoaded', () => {
-  // window.foo はメインコンテキストでのみ使用可能なため
-  // ログアウトすると 'undefined' になる
-  console.log(window.foo)
-
-  // window.bar はこのコンテキスト内で使用可能なため
-  // ログアウトしても 'bar'
-  console.log(window.bar)
-})
-```
+For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
 
 
 ## 4) リモートのコンテンツからセッション権限リクエストを利用する

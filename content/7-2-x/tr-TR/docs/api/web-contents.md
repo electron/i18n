@@ -129,7 +129,7 @@ Sayfa sık kullanılan simge Url'lerini aldığında yayınlanır.
 
 Dönüşler:
 
-* `event` Olay
+* `event` NewWindowEvent
 * `url` Dize
 * `frameName` Dize
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.

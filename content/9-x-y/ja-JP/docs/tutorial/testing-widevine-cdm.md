@@ -26,7 +26,7 @@ Chrome ブラウザで `chrome://components/` を開き、`Widevine Content Decr
 
 ライブラリファイル `widevinecdm.dll` は、`Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` ディレクトリにあります。
 
-### macOSの場合
+### macOS
 
 ライブラリファイル `libwidevinecdm.dylib` は、`/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` ディレクトリにあります。
 

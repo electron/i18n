@@ -157,7 +157,7 @@ Por exemplo, os métodos da classe `Session` sob o módulo `session` usa `ses` c
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
 ```sh
-required[, optional]
+obrigatório[, opcional]
 ```
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:

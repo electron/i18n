@@ -1,4 +1,4 @@
-# Electron Documentation Style Guide
+# เอกสารแนะนำลักษณะอิเลคตรอน
 
 นี่คือแนวทางสำหรับการเขียนเอกสารของอิเล็กตรอน
 
@@ -126,35 +126,35 @@ Para referencias API, hay excepciones para esta regla.
 
 
 ```markdown
-# session
+# เซสชัน
 
-## Methods
+## วิธีการ
 
-### session.fromPartition(partition)
+### session.fromPartition (พาร์ติชัน)
 
-## Static Properties
+## คุณสมบัติ
 
 ### session.defaultSession
 
-## Class: Session
+## คลาส: เซสชัน
 
-### Instance Events
+### เหตุการณ์อินสแตนซ์
 
-#### Event: 'will-download'
+#### กิจกรรม: 'จะดาวน์โหลด'
 
-### Instance Methods
+### วิธีการอินสแตนซ์
 
-#### `ses.getCacheSize()`
+#### `ses.getCacheSize ()`
 
-### Instance Properties
+### คุณสมบัติอินสแตนซ์
 
 #### `ses.cookies`
 
-## Class: Cookies
+## คลาส: คุกกี้
 
-### Instance Methods
+### วิธีการอินสแตนซ์
 
-#### `cookies.get(filter, callback)`
+#### `cookies.get (ตัวกรองการโทรกลับ)`
 ```
 
 

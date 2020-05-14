@@ -674,7 +674,7 @@ app.on('web-contents-created', (event, contents) => {
 
 
 
-## 14) Do not use `openExternal` with untrusted content
+## 14) 신뢰되지 않은 내용으로 `openExternal` 사용하지 않기
 
 Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
@@ -760,7 +760,7 @@ const mainWindow = new BrowserWindow({
 
 
 
-## 16) Filter the `remote` module
+## 16) `remote` 모듈 필터링
 
 If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
 

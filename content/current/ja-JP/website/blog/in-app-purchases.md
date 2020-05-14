@@ -4,7 +4,7 @@ author: zeke
 date: '2018-04-04'
 ---
   
-新しい Electron 2.0 リリースラインは新しい機能と修正が [詰め込まれて](https://github.com/electron/electron/releases/tag/v2.0.0-beta.1) います。 この新しいメジャーバージョンのハイライトの1つは、Apple の <a href = "https://support.apple.com/en-us/HT202023">Mac App Store</a> 向けの [ `inAppPurchase` API](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md) です。
+新しい Electron 2.0 リリースラインは新しい機能と修正が [詰め込まれて](https://github.com/electron/electron/releases/tag/v2.0.0-beta.1) います。 この新しいメジャーバージョンのハイライトの1つは、Apple の [Mac App Store](https://support.apple.com/en-us/HT202023) 向けの [ `inAppPurchase` API](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md) です。
 
 ---
 

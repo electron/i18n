@@ -17,11 +17,9 @@ You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/c
 Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
 Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
 
-## Cached builds (optional step)
+### Setting up the git cache
 
-### GIT\_CACHE\_PATH
-
-If you plan on building Electron more than once, adding a git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
+If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -29,19 +27,10 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # This will use about 16G.
 ```
 
-### sccache
-
-Thousands of files must be compiled to build Chromium and Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
-
-```sh
-export SCCACHE_BUCKET="electronjs-sccache-ci"
-export SCCACHE_TWO_TIER=true
-```
-
 ## Dostawanie kodu
 
 ```sh
-$ mkdir electron-gn && cd electron-gn
+$ mkdir electron && cd electron
 $ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
 # This will take a while, go get a coffee.
@@ -157,7 +146,7 @@ Not all combinations of source and target CPU/OS are supported by Chromium.
 <tr><th>Host</th><th>Target</th><th>Status</th></tr>
 <tr><td>Windows x64</td><td>Windows arm64</td><td>Eksperymentalny</td>
 <tr><td>Windows x64</td><td>Windows x86</td><td>Automatycznie przetestowane</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>Automatycznie przetestowane</td></tr>
 </table>
 
 If you test other combinations and find them to work, please update this document :)

@@ -26,7 +26,7 @@ Open `chrome://components/` in Chrome browser, find `Widevine Content Decryption
 
 The library file `widevinecdm.dll` will be under `Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` directory.
 
-### On MacOS
+### On macOS
 
 The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` directory.
 
@@ -45,11 +45,11 @@ const { app, BrowserWindow } = require('electron')
 // * `libwidevinecdm.dylib` on macOS,
 // * `widevinecdm.dll` on Windows.
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevine_library')
-// The version of plugin can be got from `chrome://plugins` page in Chrome.
+// The version of plugin can be got from `chrome://components` page in Chrome.
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.show()
 })

@@ -17,7 +17,7 @@ console.log(clipboard.readText('selection'))
 
 `clipboard` 모듈은 다음과 같은 메서드를 가지고 있습니다:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**참고**: Experimental 마크가 붙은 API는 실험적인 기능이며 차후 최신 버전에서 제거될 수 있습니다.
 
 ### `clipboard.readText([type])`
 
@@ -138,7 +138,7 @@ Returns `Object`:
 
 `title`과 `url`을 클립보드에 북마크 형식으로 씁니다.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**참고**: 윈도우의 대부분의 앱은 북마크 붙여넣기를 지원하지 않습니다. `clipboard.write` 를 통해 북마크와 대체 텍스트를 클립보드에 쓸 수 있습니다.
 
 ```js
 const { clipboard } = require('electron')

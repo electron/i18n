@@ -16,11 +16,9 @@ Chromium과 Chromium 관련 의존성을 가져오는데 사용되는 툴셋인 
 
 또한, Windows에서는 환경 변수 `DEPOT_TOOLS_WIN_TOOLCHAIN=0`으로 설정해야 합니다. 이를 위해, `제어판`→`시스템과 보안`→`시스템`→`고급 시스템 설정`을 열고, 그 값이 `0` 인 시스템 변수 `DEPOT_TOOLS_WIN_TOOLCHAIN`을 추가합니다.  이것은 로컬에 설치된 Visual Studio 버전을 사용하라고 `depot_tools`에게 알려주는 설정입니다. (이같은 설정이 없다면, `depot_tools`는 구글 직원들만 이용할 수 있는 구글 내부 Visual Studio 버전을 다운로드할 것입니다).
 
-## 캐시된 빌드 (선택 사항)
+### Setting up the git cache
 
-### GIT\_CACHE\_PATH
-
-Electron을 여러 번 빌드할 예정이라면, git cache를 추가하여 잇따라 발생하는 `gclient` 호출 속도를 높일 수 있습니다. git cache를 추가하려면 `GIT_CACHE_PATH` 환경 변수를 설정하세요:
+If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -28,22 +26,13 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # 약 16G의 저장공간을 사용할 것입니다.
 ```
 
-### sccache
-
-Chromium 및 Electron을 빌드하기 위해 수 천개의 파일이 컴파일됩니다. [sccache](https://github.com/mozilla/sccache)를 통해 Electron CI의 빌드 결과를 재사용하면 대기 시간을 줄일 수 있습니다. 이를 위해, 2 개의 환경 변수 설정과 추가적인 절차(하단에 명시됨)가 필요합니다.
-
-```sh
-export SCCACHE_BUCKET="electronjs-sccache-ci"
-export SCCACHE_TWO_TIER=true
-```
-
 ## 코드 받기
 
 ```sh
-$ mkdir electron-gn && cd electron-gn
+$ mkdir electron && cd electron
 $ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# 이 작업은 잠시 시간이 소요될 수 있으니, 잠시 쉬다 오세요.
+# This will take a while, go get a coffee.
 ```
 
 > `https://github.com/electron/electron` 대신, 자신이 소유한 fork저장소를 사용할 수도 있습니다. (저장소 url은 아래와 같은 형태일 것입니다. `https://github.com/<username>/electron`).

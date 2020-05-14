@@ -46,7 +46,7 @@ La chiave `Super` è mappata alla chiave `Windows` per Windows e Linux e `Cmd` s
 * Da `0` a `9`
 * Da `A` a `Z`
 * Da `F1` a `F24`
-* Punteggiature come `~`, `!`, `@`, `#`, `$`, etc.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Più`
 * `Spazio`
 * `Tab`

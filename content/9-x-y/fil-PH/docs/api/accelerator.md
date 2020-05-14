@@ -46,7 +46,7 @@ Ang key ng `Super` ay naka-balangkas sa key ng `Windows` sa Windows at Linux at 
 * Mula `0` hanggang `9`
 * Mula `A` hanggang `Z`
 * Mula `F1` hanggang `F24`
-* Mga bantas tulad ng `~`, `!`, `@`, `#`, `$`, atbp.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`

@@ -51,7 +51,7 @@ Elektron yalnızca `chrome.*` API'larının sınırlı bir listesini desteklemek
 * [jQuery hata ayıklayıcısı](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
 * [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
 * [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-* [Serebral hata ayıklayıcı](https://cerebraljs.com/docs/introduction/debugger.html)
+* [Serebral hata ayıklayıcı](https://cerebraljs.com/docs/introduction/devtools.html)
 * [Redux DevTools Eklentisi](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX geliştirici araçları](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 

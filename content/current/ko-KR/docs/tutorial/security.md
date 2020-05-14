@@ -194,53 +194,9 @@ Even when you use `nodeIntegration: false` to enforce strong isolation and preve
 
 
 
-### 왜냐구요?
+### Why & How?
 
-Context isolation allows each of the scripts running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
-
-While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
-
-At the same time, preload scripts still have access to the  `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
-
-
-
-### 어떻게 하나요?
-
-
-
-```js
-// 메인 프로세스
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    contextIsolation: true,
-    preload: path.join(app.getAppPath(), 'preload.js')
-  }
-})
-```
-
-
-
-
-```js
-// 프리로드 스크립트
-
-// 로드되기 전에 페이지 변수를 설정합니다.
-webFrame.executeJavaScript('window.foo = "foo";')
-
-// 로드된 페이지에서는 이것에 접근할 수 없습니다, 이 컨텍스트에서만
-// 접근이 가능합니다.
-window.bar = 'bar'
-
-document.addEventListener('DOMContentLoaded', () => {
-  // window.foo는 메인 콘텍스트에서만 접근할 수 있기 때문에 'undefined' 가
-  // 출력됩니다.
-  console.log(window.foo)
-
-  // window.bar는 이 콘텍스트에서 사용할 수 있기 때문에 'bar'가 출력됩니다.
-  console.log(window.bar)
-})
-```
-
+For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
 
 
 
@@ -671,7 +627,7 @@ app.on('web-contents-created', (event, contents) => {
 
 
 
-## 14) Do not use `openExternal` with untrusted content
+## 14) 신뢰되지 않은 내용으로 `openExternal` 사용하지 않기
 
 Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
@@ -757,7 +713,7 @@ const mainWindow = new BrowserWindow({
 
 
 
-## 16) Filter the `remote` module
+## 16) `remote` 모듈 필터링
 
 If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
 

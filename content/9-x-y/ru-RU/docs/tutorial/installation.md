@@ -59,7 +59,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 Кроме того, можно заменить локальный кеш. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Папку с кешем можно использовать для кастомных сборок или, чтобы полностью избежать сетевого трафика.
 
 * Linux: `$XDG_CACHE_HOME` или `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
+* macOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` или `~/AppData/Local/electron/Cache/`
 
 В старом Electron возможно использование папки `~/.electron`.

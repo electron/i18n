@@ -41,7 +41,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
+Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -120,7 +120,7 @@ If you're only setting a custom titlebar as draggable, you also need to make all
 
 ## Metin seçimi
 
-Çerçevesiz pencerede sürükleme hareketi, metin seçimi ile çakışabilir. Örneğin, başlık çubuğunu sürüklediğinizde, yanlışlıkla başlık çubuğu üstündeki metni seçebilirsiniz. Bunu önlemek için, sürüklenebilir alandaki metin seçimini bu şekilde devre dışı bırakmanız gerekiyor:
+In a frameless window the dragging behavior may conflict with selecting text. Örneğin, başlık çubuğunu sürüklediğinizde, yanlışlıkla başlık çubuğu üstündeki metni seçebilirsiniz. Bunu önlemek için, sürüklenebilir alandaki metin seçimini bu şekilde devre dışı bırakmanız gerekiyor:
 
 ```css
 .titlebar {

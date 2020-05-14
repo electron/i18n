@@ -104,6 +104,7 @@ I tutorial seguenti approfondiscono temi discussi nelle guide sopra elencate.
 * [Oggetto Process](api/process.md)
 * [Opzioni della linea di comando supportate](api/command-line-switches.md)
 * [Variabili di ambiente](api/environment-variables.md)
+* [Supporto Estensioni Chrome](api/extensions.md)
 * [Ultime modifiche API](breaking-changes.md)
 
 ### Elementi DOM personalizzati:

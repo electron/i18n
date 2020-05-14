@@ -1,16 +1,16 @@
 ## Class: Menu
 
-> Create native application menus and context menus.
+> Cria menus de aplicativo e menus de contexto nativos.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Tạo menu mới.
+Cria um novo menu.
 
-### Các phương thức chung
+### Métodos estáticos
 
-The `menu` class has the following static methods:
+The `Menu` class has the following static methods:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -26,9 +26,9 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Retorna `Menu | null` - O menu do aplicativo, se definido, ou `null`, se não fora definido.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) ainda podem ser modificadas dinamicamente.
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 
@@ -48,11 +48,11 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Các phương thức riêng
+### Métodos de Instância
 
-The `menu` object has the following instance methods:
+O objeto `menu` possui os seguintes métodos de instância:
 
-#### `menu.popup(options)`
+#### `menu.popup([options])`
 
 * `options` Object (optional)
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
@@ -67,13 +67,13 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
-Closes the context menu in the `browserWindow`.
+Fecha o menu de contexto em `browserWindow`.
 
 #### `menu.append(menuItem)`
 
 * `menuItem` [MenuItem](menu-item.md)
 
-Appends the `menuItem` to the menu.
+Acrescenta o `menuItem` ao menu.
 
 #### `menu.getMenuItemById(id)`
 
@@ -81,14 +81,14 @@ Appends the `menuItem` to the menu.
 
 Returns `MenuItem` the item with the specified `id`
 
-#### `menu.insert(pos, menuItem)`
+#### `menu.Insert(pos, menuItem)`
 
 * `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Insere o `menuItem` na posição `pos` do menu.
 
-### Instance Events
+### Eventos de instância
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
@@ -96,7 +96,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 #### Event: 'menu-will-show'
 
-Trả về:
+Retorna:
 
 * `event` Event
 
@@ -104,37 +104,39 @@ Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Trả về:
+Retorna:
 
 * `event` Event
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Các Thuộc Tính
+### Propriedades de Instância
 
-`menu` objects also have the following properties:
+Objetos `menu` também possuem as seguintes propriedades:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+Um array `MenuItem[]` contendo os itens do menu.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Cada `Menu` consiste de múltiplos [`MenuItem`](menu-item.md)s e cada `MenuItem` pode ter um submenu.
 
-## Ví dụ
+## Exemplos
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+A classe `Menu` só está disponível no processo principal, mas você também pode usá-lo no processo de renderização através do módulo [`remoto`](remote.md).
 
-### Main process
+### Processo principal
 
-An example of creating the application menu in the main process with the simple template API:
+Um exemplo de criar o menu do aplicativo no processo principal com a API do modelo simples:
 
 ```javascript
 const { app, Menu } = require('electron')
 
+const isMac = process.platform === 'darwin'
+
 const template = [
   // { role: 'appMenu' }
-  ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
+  ...(isMac ? [{
+    label: app.name,
     submenu: [
       { role: 'about' },
       { type: 'separator' },
@@ -232,9 +234,9 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Quá trình render
+### Processo de renderização
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+Abaixo está um exemplo de criação dinâmica de um menu em uma página da web (processo de renderização) usando o módulo [`remoto`](remote.md), e o mostra quando o usuário clica com o botão direito na página:
 
 ```html
 <!-- index.html -->
@@ -254,11 +256,11 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## Notas sobre o Menu de aplicativo no macOS
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Standard Menus
+### Menus Padrão
 
 On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
@@ -266,11 +268,11 @@ On macOS there are many system-defined standard menus, like the [`Services`](htt
 * `help`
 * `services`
 
-### Standard Menu Item Actions
+### Ações padronizadas para Item de Menu
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+O macOS fornece ações padronizadas para alguns itens de menu, como `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
-### Main Menu's Name
+### Nome do Menu Principal
 
 On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
@@ -278,7 +280,7 @@ On macOS the label of the application menu's first item is always your app's nam
 
 The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
-## Menu Item Position
+## Posição do Item de menu
 
 You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
@@ -289,9 +291,9 @@ You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupConta
 
 By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
-### Ví dụ
+### Exemplos
 
-Mẫu:
+Modelo:
 
 ```javascript
 [
@@ -311,7 +313,7 @@ Menu:
 - 4
 ```
 
-Mẫu:
+Modelo:
 
 ```javascript
 [
@@ -335,7 +337,7 @@ Menu:
 - 2
 ```
 
-Mẫu:
+Modelo:
 
 ```javascript
 [

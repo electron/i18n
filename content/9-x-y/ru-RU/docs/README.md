@@ -104,6 +104,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Объект процесса](api/process.md)
 * [Поддерживаемые параметры командной строки](api/command-line-switches.md)
 * [Переменные окружения](api/environment-variables.md)
+* [Chrome Extensions Support](api/extensions.md)
 * [Критические изменения в API](breaking-changes.md)
 
 ### Пользовательские DOM-элементы:

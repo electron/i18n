@@ -131,8 +131,8 @@ Emitted when page receives favicon urls.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code> URL </ 0>  Zeichenfolge</li>
+* `event` NewWindowEvent
+* ` URL </ 0>  Zeichenfolge</li>
 <li><code>frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).

@@ -59,7 +59,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 或是，你也可以蓋過本機快取。 `@electron/get` will cache downloaded binaries in a local directory to not stress your network. 你可以使用這個快取目錄來提供客製版的 Electron，或是在完全沒有網路的環境下執行。
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
+* macOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` 或 `~/AppData/Local/electron/Cache/`
 
 在使用舊版 Electron 的環境中，快取可能放在 `~/.electron` 裡。

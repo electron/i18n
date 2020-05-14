@@ -14,13 +14,13 @@ A sandboxed renderer doesn't have a Node.js environment running and doesn't expo
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in Chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
-## उदाहरण
+## Exemplu
 
 To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
 
 ```js
 let win
-app.whenReady().then(() => {
+app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true
@@ -37,7 +37,7 @@ In the above code the [`BrowserWindow`](browser-window.md) that was created has 
 ```js
 let win
 app.enableSandbox()
-app.whenReady().then(() => {
+app.on('ready', () => {
   // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
@@ -50,7 +50,7 @@ An app can make customizations to sandboxed renderers using a preload script. He
 
 ```js
 let win
-app.whenReady().then(() => {
+app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true,
@@ -106,13 +106,13 @@ The `-x` flag should be used with any required module that is already exposed in
 Currently the `require` function provided in the preload scope exposes the following modules:
 
 - `electron`
-  - `क्रेश रिपोर्टर`
-  - `डेस्कटॉप कैप्चरर`
-  - `आईपीसी रेंदेरेर`
-  - `मूल छवि`
-  - `दूरस्थ`
-  - `वेबफ्रेम`
-- `इवेंट्स`
+  - `crashReporter`
+  - `desktopCapturer-capturareaDesktop-ului`
+  - `ipcRenderer`
+  - `nativeImage-ImagineNativă`
+  - `remote-de la distanță`
+  - `webFrame-cadruWeb`
+- `events`
 - `timers`
 - `url`
 

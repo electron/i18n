@@ -2,7 +2,7 @@
 
 > 防止系統進入低耗電 (睡眠) 模式。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 For example:
 

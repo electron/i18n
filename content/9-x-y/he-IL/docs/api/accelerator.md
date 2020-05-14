@@ -46,7 +46,7 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 * `0` עד `9`
 * `A` עד `Z`
 * `F1` עד `F24`
-* סימני פיסוק כגון `~`, `!`, `@`, `#`, `$` וכו׳.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`

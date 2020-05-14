@@ -1629,7 +1629,7 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 #### `contents.devToolsWebContents` _読み出し専用_
 
-この `WebContents` の開発者向けツールの `WebContents` インスタンス。
+A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
 
 **注釈:** 開発者向けツールが閉じられたときに `null` になる可能性があるので、このオブジェクトは決して格納しないで下さい。
 

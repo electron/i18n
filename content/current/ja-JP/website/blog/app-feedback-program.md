@@ -33,4 +33,4 @@ Electron はリリースサイクルが高速かつより安定するように�
 いいえ、アプリケーションの情報は一般公開されません。 情報は、アプリフィードバックプログラムと [Electron ガバナンス](https://github.com/electron/governance) のメンバーのみが閲覧できるプライベート GitHub リポジトリに保管されます。 メンバーは全員 Electron の [行動規範](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md) の遵守に同意しています。
 
 ## 新規申込
-現在、新規申込の <em x-id = "3">数を限定</em> しています。 もし興味があり、上記の要件を満しているならば、この [フォーム](https://goo.gl/forms/OpMEKV75ScN6we7g1) に記入してください。
+現在、新規申込の *数を限定* しています。 もし興味があり、上記の要件を満しているならば、この [フォーム](https://goo.gl/forms/OpMEKV75ScN6we7g1) に記入してください。

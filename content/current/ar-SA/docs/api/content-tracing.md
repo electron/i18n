@@ -1,118 +1,68 @@
-# contentTracing
+# تتبع المحتوى
 
-> Recopile datos de rastreo del módulo de contenido de Chromium para encontrar cuellos de botella de rendimiento y operaciones lentas.
+> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+العملية: [Main](../glossary.md#main-process)
 
-Este módulo no incluye una interfaz web, por lo que debe abrir `chrome://tracing/` en un navegador Chrome y cargar el archivo generado para ver el resultado.
+This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
 
-**Nota:** No debe usar este módulo hasta que se emita el evento `ready` del módulo de la aplicación.
+**Note:** You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
 const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
-  const options = {
-    categoryFilter: '*',
-    traceOptions: 'record-until-full,enable-sampling'
-  }
-
-  contentTracing.startRecording(options, () => {
+  (async () => {
+    await contentTracing.startRecording({
+      include_categories: ['*']
+    })
     console.log('Tracing started')
-
-    setTimeout(() => {
-      contentTracing.stopRecording('', (path) => {
-        console.log('Tracing data recorded to ' + path)
-      })
-    }, 5000)
-  })
+    await new Promise(resolve => setTimeout(resolve, 5000))
+    const path = await contentTracing.stopRecording()
+    console.log('Tracing data recorded to ' + path)
+  })()
 })
 ```
 
-## Métodos
+## Methods
 
-El módulo `contentTracing` tiene los siguientes métodos:
-
-### `contentTracing.getCategories(callback)`
-
-* `callback` Función
-  * `categories` Cadena[]
-
-Get a set of category groups. The category groups can change as new code paths are reached.
-
-Una vez que todos los procesos hijos han confirmado la solicitud de `getCategories` `callback` es llamado con un array de grupos de categorías.
-
-**[Próximamente desaprobado](modernization/promisification.md)**
+The `contentTracing` module has the following methods:
 
 ### `contentTracing.getCategories()`
 
-Devuelve `Promise<String[]>` - resuelve con un array de grupos de categorías una vez que todos los procesos hijos han confirmado la solicitud `getCategories`
+Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
 
-Get a set of category groups. The category groups can change as new code paths are reached.
-
-
-### `contentTracing.startRecording(options, callback)`
-
-* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
-* `callback` Función
-
-Iniciar la grabación en todos los procesos.
-
-La grabación se inicia de manera inmediata de forma local y asincrónica en los procesos secundarios tan pronto como reciben la solicitud de habilitación de grabación. Se llamará al `callback` una vez que todos los procesos secundarios hayan confirmado la solicitud `startRecording`.
-
-**[Próximamente desaprobado](modernization/promisification.md)**
+Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
 ### `contentTracing.startRecording(options)`
 
-* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
+* `options` ([TraceConfig](structures/trace-config.md) | [TraceCategoriesAndOptions](structures/trace-categories-and-options.md))
 
-Devuelve `Promise<void>` - resuelto una vez que todos los procesos hijos han confirmado la solicitud `startRecording`.
+Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
 
-Iniciar la grabación en todos los procesos.
+Start recording on all processes.
 
-La grabación se inicia de manera inmediata de forma local y asincrónica en los procesos secundarios tan pronto como reciben la solicitud de habilitación de grabación.
+Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
 
-### `contentTracing.stopRecording(resultFilePath, callback)`
+If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
 
-* `resultFilePath` Cadena
-* `callback` Función
-  * `resultFilePath` Cadena
+### `contentTracing.stopRecording([resultFilePath])`
 
-Dejar de grabar en todos los procesos.
+* `resultFilePath` String (optional)
 
-Los procesos secundarios normalmente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. Esto ayuda a minimizar la sobrecarga de tiempo de ejecución del rastreo ya que el envío de datos de rastreo a través de IPC puede ser una operación costosa. Por lo tanto, para finalizar el rastreo, debemos pedir asincrónicamente a todos los procesos secundarios que eliminen cualquier dato de rastreo pendiente.
+Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-Una vez que todos los procesos secundarios hayan confirmado la solicitud `stopRecording`, se llamará a `callback` con un archivo que contiene los datos rastreados.
+Stop recording on all processes.
 
-Los datos de rastreo serán escritos dentro de `resultFilePath` si este no está vacío o dentro de un archivo temporal. The actual file path will be passed to `callback` if it's not `null`.
+Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
-**[Próximamente desaprobado](modernization/promisification.md)**
-
-### `contentTracing.stopRecording(resultFilePath)`
-
-* `resultFilePath` Cadena
-
-Devuelve `Promise<String>` - resuelve con un archivo que contiene los datos rastreados una vez que todos los procesos hijos han confirmado la solicitud `stopRecording`
-
-Dejar de grabar en todos los procesos.
-
-Los procesos secundarios normalmente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. Esto ayuda a minimizar la sobrecarga de tiempo de ejecución del rastreo ya que el envío de datos de rastreo a través de IPC puede ser una operación costosa. Por lo tanto, para finalizar el rastreo, debemos pedir asincrónicamente a todos los procesos secundarios que eliminen cualquier dato de rastreo pendiente.
-
-Los datos de rastreo serán escritos dentro de `resultFilePath` si este no está vacío o dentro de un archivo temporal.
-
-### `contentTracing.getTraceBufferUsage(callback)`
-
-* `callback` Función
-  * Object
-    * `value` Número
-    * `percentage` Número
-
-Obtener el uso máximo a través de procesos de trace buffer como un porcentaje del estado completo. When the TraceBufferUsage value is determined the `callback` is called.
-
-**[Próximamente desaprobado](modernization/promisification.md)**
+Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
 ### `contentTracing.getTraceBufferUsage()`
 
-Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo el `value` y `percentage` de máximo uso de trace buffer
+Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
 
-Obtener el uso máximo a través de procesos de trace buffer como un porcentaje del estado completo.
+* `value` Number
+* `percentage` Number
+
+Get the maximum usage across processes of trace buffer as a percentage of the full state.

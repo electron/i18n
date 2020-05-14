@@ -46,7 +46,7 @@ A tecla `Super` é mapeada para a tecla `Windows` no Windows e no Linux e para a
 * `0` a `9`
 * `A` a `Z`
 * `F1` a `F24`
-* Pontuações como `~`, `!`, `@`, `#`, `$` e etc.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus (+)`
 * `Space (Espaço)`
 * `Tab`

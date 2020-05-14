@@ -26,7 +26,7 @@ Abre `chrome://components/` en el navegador Chrome, encuentra `Widevine Content 
 
 El archivo de la librería `widevinecdm.dll` estará en el directorio `Program Files(x86)/Google/Chrome/Application/VERSIÓN_DE_CHROME/WidevineCdm/_platform_specific/win_(x86|x64)/`.
 
-### En MacOS
+### En macOS
 
 El archivo de la librería `libwidevinecdm.dylib` estará en el directorio `/Applications/Google Chrome.app/Contents/Versions/VERSIÓN_DE_CHROME/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/`.
 

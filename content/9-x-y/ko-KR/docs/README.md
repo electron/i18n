@@ -104,6 +104,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [프로세스 개체](api/process.md)
 * [지원되는 명령행 스위치](api/command-line-switches.md)
 * [환경 변수](api/environment-variables.md)
+* [Chrome 확장 지원](api/extensions.md)
 * [중요한 API 변화](breaking-changes.md)
 
 ### 사용자 지정 DOM 요소:

@@ -1,4 +1,4 @@
-# Dock macOS
+# dock macOS
 
 Electron ha delle API per configuare l'icona dell'app nel dock macOS. A macOS-only API exists to create a custom dock menu, but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
 

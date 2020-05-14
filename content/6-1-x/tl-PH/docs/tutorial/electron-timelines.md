@@ -1,16 +1,47 @@
-# Electron Release Timelines
+## 5.0.0 Release Schedule
+Take a look at 5.0.0 Timeline [blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
+#### Notes:
+- These dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
+- These are our scheduled beta releases, however we often release more betas than scheduled.
 
-* The `-beta.1` and `stable` dates are our solid release dates.
-* We strive for weekly beta releases, however we often release more betas than scheduled.
-* All dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
-* Take a look at the [5.0.0 Timeline blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
+| Date/Week Of     | Release      | Comments                                                                  |
+| ---------------- | ------------ | ------------------------------------------------------------------------- |
+| Tue, 2019-Jan-22 | 5.0.0-beta.1 | 🔥                                                                         |
+| Tue, 2019-Jan-29 | 5.0.0-beta.x |                                                                           |
+| Tue, 2019-Feb-05 | 5.0.0-beta.x | Last Date to Join [AFP](https://electronjs.org/blog/app-feedback-program) |
+| Tue, 2019-Feb-12 | 5.0.0-beta.x |                                                                           |
+| Tue, 2019-Feb-19 | none         | Maintainers Summit                                                        |
+| Tue, 2019-Feb-26 | 5.0.0-beta.x |                                                                           |
+| Tue, 2019-Mar-05 | 5.0.0-beta.x | halfway mark                                                              |
+| Tue, 2019-Mar-12 | 5.0.0-beta.x |                                                                           |
+| Tue, 2019-Mar-19 | 5.0.0-beta.x |                                                                           |
+| Tue, 2019-Mar-26 | 5.0.0-beta.x |                                                                           |
+| Tue, 2019-Apr-02 | 5.0.0-beta.x |                                                                           |
+| Tue, 2019-Apr-09 | 5.0.0-beta.x |                                                                           |
+| Tue, 2019-Apr-16 | none         | quiet period - stable prep                                                |
+| Tue, 2019-Apr-23 | 5.0.0        | ✨stable ✨                                                                 |
 
-| Version | -beta.1    | Stable     | Chrome | Node |
-| ------- | ---------- | ---------- | ------ | ---- |
-| 2.0.0   | 2018-02-21 | 2018-05-01 | M61    | v8   |
-| 3.0.0   | 2018-06-21 | 2018-09-18 | M66    | v10  |
-| 4.0.0   | 2018-10-11 | 2018-12-20 | M69    | v10  |
-| 5.0.0   | 2019-01-22 | 2019-04-24 | M73    | v12  |
-| 6.0.0   | 2019-05-01 | 2019-07-30 | M76    | v12  |
-| 7.0.0   | 2019-08-01 | 2019-10-22 | M78    | v12  |
-| 8.0.0   | TBD        | TBD        | TBD    | TBD  |
+*Includes: Chromium M73 and Node v12.0*
+
+## 6.0.0 Release Schedule
+#### Notes:
+- These dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
+- These are our scheduled beta releases, however we often release more betas than scheduled.
+
+| Date/Week Of     | Release      | Comments                       |
+| ---------------- | ------------ | ------------------------------ |
+| Thu, 2019-Apr-25 | 6.0.0-beta.1 | 🔥                              |
+| Tue, 2019-Apr-30 | 6.0.0-beta.x |                                |
+| Tue, 2019-May-07 | 6.0.0-beta.x |                                |
+| Tue, 2019-May-14 | 6.0.0-beta.x |                                |
+| Tue, 2019-May-21 | 6.0.0-beta.x |                                |
+| Tue, 2019-May-28 | 6.0.0-beta.x |                                |
+| Tue, 2019-Jun-04 | 6.0.0-beta.x | halfway mark                   |
+| Tue, 2019-Jun-11 | 6.0.0-beta.x |                                |
+| Tue, 2019-Jun-18 | 6.0.0-beta.x |                                |
+| Tue, 2019-Jun-25 | 6.0.0-beta.x |                                |
+| Tue, 2019-Jul-02 | 6.0.0-beta.x |                                |
+| Tue, 2019-Jul-09 | 6.0.0-beta.x | 🚧 quiet period - stable prep 🚧 |
+| Thu, 2019-Jul-18 | 6.0.0        | ✨ stable ✨                     |
+
+*Includes: Chromium M75 and Node v12.0*
