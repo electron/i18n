@@ -112,3 +112,11 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
 ```
+
+## Set By Electron
+
+Electron sets some variables in your environment at runtime.
+
+### `ORIGINAL_XDG_CURRENT_DESKTOP`
+
+This variable is set to the value of `XDG_CURRENT_DESKTOP` that your application originally launched with.  Electron sometimes modifies the value of `XDG_CURRENT_DESKTOP` to affect other logic within Chromium so if you want access to the _original_ value you should look up this environment variable instead.
