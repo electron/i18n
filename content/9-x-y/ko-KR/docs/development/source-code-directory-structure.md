@@ -13,13 +13,13 @@ Electron
 ├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
 ├── default_app/ - A default app run when Electron is started without
 |                  providing a consumer app.
-├── docs/ - Electron's documentation.
+├── docs/ - Electron 문서
 |   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
 |   ├── development/ - Documentation to aid in developing for and with Electron.
 |   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
-|   ├── images/ - Images used in documentation.
+|   ├── images/ - 문서에 사용되는 이미지
 |   └── tutorial/ - Tutorial documents for various aspects of Electron.
-├── lib/ - JavaScript/TypeScript source code.
+├── lib/ - JavaScript/TypeScript 소스 코드
 |   ├── browser/ - Main process initialization code.
 |   |   ├── api/ - API implementation for main process modules.
 |   |   └── remote/ - Code related to the remote module as it is
