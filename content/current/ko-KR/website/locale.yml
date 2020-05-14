@@ -88,10 +88,10 @@ releases:
   all_releases: 모든 릴리즈들
   back_to_index: 목차로 돌아가기
 electron_is_good:
-  title: Apps users love, built with Electron
-  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
+  title: 유저들이 사랑하는, Electron으로 만들어진 앱
+  description: 업계의 수많은 조직들이 Electron을 사용하여 크로스 플랫폼 소프트웨어를 만들고 있습니다.
 electron_is_easy:
-  title: Electron은 여러분이 생각한 것보다 쉽습니다.
+  title: Electron은 생각보다 쉽습니다.
   description: 만약 당신이 웹 사이트를 구축할 수 있다면, 데스크톱 앱도 만드실 수 있습니다. Electron은 네이티브 애플리케이션이며 자바스크립트, HTML, CSS로 이루어진 프레임워크입니다. Electron은 어려운 부분을 처리하므로 당신은 애플리케이션의 핵심 부분에 집중할 수 있습니다.
 web_technologies:
   title: 웹 기술
