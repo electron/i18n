@@ -14,9 +14,9 @@
 
 ## 予定されている破壊的なAPIの変更 (12.0)
 
-### Removed: `crashReporter` methods in the renderer process
+### 削除: レンダラープロセス内での `crashReporter` メソッド
 
-The following `crashReporter` methods are no longer available in the renderer process:
+以下の `crashReporter` メソッドはレンダラープロセスで利用できなくなります。
 
 - `crashReporter.start`
 - `crashReporter.getLastCrashReport`
@@ -25,9 +25,9 @@ The following `crashReporter` methods are no longer available in the renderer pr
 - `crashReporter.setUploadToServer`
 - `crashReporter.getCrashesDirectory`
 
-They should be called only from the main process.
+これらは、メインプロセスから呼び出ことしかできません。
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+詳しくは [#23265](https://github.com/electron/electron/pull/23265) を参照してください。
 
 ## 予定されている破壊的なAPIの変更 (11.0)
 
