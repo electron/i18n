@@ -129,7 +129,7 @@ Pinapalabas kapag natanggap ng pahina ang mga url ng favicon.
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` NewWindowEvent
 * `url` Tali
 * `frameName` Pisi
 * `Disposisyon` String - Maaaring `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` at `iba pang`.
