@@ -8,7 +8,7 @@ Electron의 소스 코드는 몇 개의 파트로 분리되어 있습니다. 그
 
 ```diff
 Electron
-├── build/ - Build configuration files needed to build with GN.
+├── build/ - GN으로 빌드하는데 필요한 빌드 구성 파일
 ├── buildflags/ - Determines the set of features that can be conditionally built.
 ├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
 ├── default_app/ - A default app run when Electron is started without
@@ -45,14 +45,14 @@ Electron
 ├── patches/ - Patches applied on top of Electron's core dependencies
 |   |          in order to handle differences between our use cases and
 |   |          default functionality.
-|   ├── boringssl/ - Patches applied to Google's fork of OpenSSL, BoringSSL.
-|   ├── chromium/ - Patches applied to Chromium.
-|   ├── node/ - Patches applied on top of Node.js.
-|   └── v8/ - Patches applied on top of Google's V8 engine.
-├── shell/ - C++ source code.
+|   ├── boringssl/ - Google의 OpenSSL 포크인 BoringSSL에 적용된 패치.
+|   ├── chromium/ - Chromium에 적용된 패치
+|   ├── node/ - Node.js 기반에 적용된 패치
+|   └── v8/ - Google V8 엔진 기반에 적용된 패치
+├── shell/ - C++ 소스 코드
 |   ├── app/ - 시스템 엔트리 코드.
-|   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   |          main process things. This talks to the renderer to manage web
+|   ├── browser/ - 메인 윈도우, UI, 메인 프로세스의 모든 것을 포함한
+|   |   |          프론트엔드. This talks to the renderer to manage web
 |   |   |          pages.
 |   |   ├── ui/ - 서로 다른 플랫폼에 대한 UI 관련 구현 코드.
 |   |   |   ├── cocoa/ - Cocoa 특정 소스 코드.
