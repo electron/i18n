@@ -10,8 +10,8 @@ Electron의 소스 코드는 몇 개의 파트로 분리되어 있습니다. 그
 Electron
 ├── atom/ - C++ 소스 코드.
 |   ├── app/ - 시스템 엔트리 코드.
-|   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   |          main process things. This talks to the renderer to manage web
+|   ├── browser/ - 메인 윈도우, UI, 메인 프로세스의 모든 것을 포함한
+|   |   |          프론트엔드. This talks to the renderer to manage web
 |   |   |          pages.
 |   |   ├── ui/ - 서로 다른 플랫폼에 대한 UI 관련 구현 코드.
 |   |   |   ├── cocoa/ - Cocoa 특정 소스 코드.
