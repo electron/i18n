@@ -41,4 +41,4 @@ If you're developing Electron and don't plan to redistribute your custom Electro
 
 ## Electron 빌드하기
 
-See [Build Instructions: GN](build-instructions-gn.md).
+[GN 빌드 지침](build-instructions-gn.md)을 참조하세요.
