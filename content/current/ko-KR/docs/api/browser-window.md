@@ -492,7 +492,7 @@ Adds Chrome extension located at `path`, and returns extension's name.
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**참고:** 이 API는 `app` 모듈의 `ready` 이벤트가 호출되기 전까진 사용할 수 없습니다.
 
 #### `BrowserWindow.removeExtension(name)`
 
@@ -500,13 +500,13 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a Chrome extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**참고:** 이 API는 `app` 모듈의 `ready` 이벤트가 호출되기 전까진 사용할 수 없습니다.
 
 #### `BrowserWindow.getExtensions()`
 
 Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**참고:** 이 API는 `app` 모듈의 `ready` 이벤트가 호출되기 전까진 사용할 수 없습니다.
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
@@ -518,7 +518,7 @@ The extension will be remembered so you only need to call this API once, this AP
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**참고:** 이 API는 `app` 모듈의 `ready` 이벤트가 호출되기 전까진 사용할 수 없습니다.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
@@ -526,7 +526,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a DevTools extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**참고:** 이 API는 `app` 모듈의 `ready` 이벤트가 호출되기 전까진 사용할 수 없습니다.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
@@ -541,7 +541,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**참고:** 이 API는 `app` 모듈의 `ready` 이벤트가 호출되기 전까진 사용할 수 없습니다.
 
 ### Instance Properties (인스턴스 속성)
 
@@ -1314,13 +1314,13 @@ Returns `Boolean` - Whether the menu bar is visible.
 
 Sets whether the window should be visible on all workspaces.
 
-**Note:** This API does nothing on Windows.
+**참고:** 이 API는 Windows에서 아무 동작도 하지 않습니다.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
 Returns `Boolean` - Whether the window is visible on all workspaces.
 
-**Note:** This API always returns false on Windows.
+**참고:** 이 API는 Windows에서 항상 false를 반환합니다.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
