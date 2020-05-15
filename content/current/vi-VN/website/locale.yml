@@ -75,9 +75,9 @@ releases:
   show_only_releases_from: "Chỉ Hiện Thị Những Phiên Bản Từ:"
   all_versions: Tất Cả Phiên Bản
   stable_releases: Phiên Bản Ổn Định
-  stable_desc: Підтримувані релізи
+  stable_desc: Regular, supported releases
   beta_releases: Phiên Bản Beta
-  beta_desc: Перевірити сумісність із запланованими змінами
+  beta_desc: Test your app with upcoming changes
   nightly_releases: Nightly Releases
   nightly_desc: Trải nghiệm các tính năng mới nhất
   next: Tiếp theo
