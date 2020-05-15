@@ -62,7 +62,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Mở App store](tutorial/mac-app-store-submission-guide.md)
   * [Kho ứng dụng Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Bảo mật](tutorial/security.md)
+* [Security](tutorial/security.md)
   * [Báo cáo vấn đề bảo mật](tutorial/security.md#reporting-security-issues)
   * [Vấn đề bảo mật của Chromium và các cập nhật](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Cảnh báo bảo mật của Electron](tutorial/security.md#electron-security-warnings)
