@@ -27,7 +27,7 @@ If you are using Python as provided by Homebrew, you also need to install the fo
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+Вы можете использовать `pip` для установки:
 
 ```sh
 $ pip установить pyobjc
@@ -37,7 +37,7 @@ $ pip установить pyobjc
 
 If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK.  Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
+Официальные сборки Electron созданы с помощью [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip) и macOS 10.13 SDK.  Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
 
 ## Собираем Electron
 
