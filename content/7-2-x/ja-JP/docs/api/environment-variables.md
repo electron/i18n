@@ -119,4 +119,4 @@ Electron は実行時に環境変数をいくつか設定します。
 
 ### `ORIGINAL_XDG_CURRENT_DESKTOP`
 
-この変数には、アプリケーション が起動した `XDG_CURRENT_DESKTOP` の値が設定されます。  Electron sometimes modifies the value of `XDG_CURRENT_DESKTOP` to affect other logic within Chromium so if you want access to the _original_ value you should look up this environment variable instead.
+この変数には、アプリケーション が起動した `XDG_CURRENT_DESKTOP` の値が設定されます。  Electron は `XDG_CURRENT_DESKTOP` の値を変更して Chromium 内の他のロジックに影響を与えることがあるので、_元々_ の値にアクセスしたい場合は、代わりにこの環境変数を見る必要があります。
