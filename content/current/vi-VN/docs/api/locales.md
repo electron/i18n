@@ -93,7 +93,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | no            | Norwegian               |
 | oc            | Occitan                 |
 | om            | Oromo                   |
-| hoặc          | Oriya                   |
+| or            | Oriya                   |
 | pa            | Punjabi                 |
 | pl            | Polish                  |
 | ps            | Pashto                  |
@@ -131,7 +131,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | uk            | Ukrainian               |
 | ur            | Urdu                    |
 | uz            | Uzbek                   |
-| vi            | Tiếng Việt              |
+| vi            | Việt                    |
 | xh            | Xhosa                   |
 | yi            | Yiddish                 |
 | yo            | Yoruba                  |
