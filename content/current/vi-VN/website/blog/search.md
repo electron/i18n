@@ -56,7 +56,7 @@ The folks at [Libraries.io](https://libraries.io) have created [SourceRank](http
 
 Want alternatives to Electron's built-in IPC modules? Search for [`is:package ipc`].
 
-## Các App Electron
+## Electron Apps
 
 It's [easy to index data with Algolia](https://github.com/electron/algolia-indices), so we added the existing apps list from [electron/apps](https://github.com/electron/apps).
 
