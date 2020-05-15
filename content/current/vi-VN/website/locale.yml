@@ -34,7 +34,7 @@ docs:
   detailed: Chi Tiết
   custom_dom: Tùy chỉnh các DOM Element
   main_proc_modules: Mô-đun chính - Main Process
-  renderer_proc_modules: Renderer Process Modules
+  renderer_proc_modules: Mô-đun quy trình renderer
   both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: Cải thiện tài liệu này
@@ -43,7 +43,7 @@ docs:
     view_all_docs: Tất cả tài liệu trên một trang
 languages:
   choose_language: Chọn ngôn ngữ trang web của bạn
-  view_more_details: View More Language Details
+  view_more_details: Xem thêm chi tiết ngôn ngữ
   translation_progress: Tiến độ dịch thuật
   current: lựa chọn hiện tại
 community:
@@ -75,9 +75,9 @@ releases:
   show_only_releases_from: "Chỉ Hiện Thị Những Phiên Bản Từ:"
   all_versions: Tất Cả Phiên Bản
   stable_releases: Phiên Bản Ổn Định
-  stable_desc: Regular, supported releases
+  stable_desc: Підтримувані релізи
   beta_releases: Phiên Bản Beta
-  beta_desc: Test your app with upcoming changes
+  beta_desc: Перевірити сумісність із запланованими змінами
   nightly_releases: Nightly Releases
   nightly_desc: Trải nghiệm các tính năng mới nhất
   next: Tiếp theo
@@ -145,7 +145,7 @@ apps:
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
   #App show page specific localization strings
   website: Website
-  repository: Repository
+  repository: Kho
   category: Thể loại
   downloads: Tải xuống
   keywords: Từ khóa
@@ -162,7 +162,7 @@ clipboard:
   copy_to_clipboard: Chép vào clipboard
   copied: Đã sao chép
 fiddle_launch_button:
-  launch: Launch
+  launch: Chạy
   launch_in_fiddle: Launch in Fiddle
 or: hoặc
 pages:
