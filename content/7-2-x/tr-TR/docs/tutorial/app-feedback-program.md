@@ -1,3 +1,0 @@
-# Electron Uygulama Geribildirim Programı
-
-Electron, kolaylaştırılmış yayın işlemleri ve daha hızlı yayına alma üzerine çalışıyor. Buna yardımcı olmak için ve beta sürümlerimizi büyük ölçekli Electron uygulamalarda test ederken karşılaştıkları uygulamaya özel sorunları Electron takımına rapor edebilmeleri için Uygulama Geri bildirim Programı bulunmakta. Bu programı, işi önceliklendirmek ve mümkün olan en kısa zamanda uygulamaların bir sonraki kararlı sürümünü almamıza yardımcı olması için kullanıyoruz. Kısa ve haftalık çevrimiçi check-in'lere katılmaları gibi katılımcılardan beklediğimiz birkaç koşulumuz var. Please visit the [blog post](https://electronjs.org/blog/app-feedback-program) for details and sign-up.
