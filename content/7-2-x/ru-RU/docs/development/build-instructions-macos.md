@@ -27,7 +27,7 @@ If you are using Python as provided by Homebrew, you also need to install the fo
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+Вы можете использовать `pip` для установки:
 
 ```sh
 $ pip установить pyobjc
