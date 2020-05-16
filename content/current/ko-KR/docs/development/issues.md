@@ -25,25 +25,12 @@
 전자 / 전자 문제 추적기에서 새 문제를 연다면 사용자에게 채워져야하는 템플릿이 표시됩니다.
 
 ```markdown
-<!--
-Thanks for opening an issue! A few things to keep in mind:
-
-- The issue tracker is only for bugs and feature requests.
-- Before reporting a bug, please try reproducing your issue against
-  the latest version of Electron.
-- If you need general advice, join our Slack: http://atom-slack.herokuapp.com
--->
-
-* Electron version:
-* Operating system:
-
-### Expected behavior
-
-<!-- What do you think should happen? -->
-
-### Actual behavior
-
-<!-- What actually happens? -->
+이슈를 열어주셔서 감사합니다. 명심해야할 몇 가지 사항 :
+- 이슈 추적은 버그만을 위한 것 입니다.
+- 버그를 보고하기 전에 최선 버전의 Electron에 대해 문제를 재현해 보세요.
+일반적인 충고가 필요하면, Slack : http://atom-slack.herokuapp.com에 가입하세요. -->
+### 실제 행동
+<!== 실제로 일어나면 어떻게 되나요? -->
 
 ### How to reproduce
 
