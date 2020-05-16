@@ -56,7 +56,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
 #### 缓存
-或者，您可以覆盖本地缓存。 `@electron/get` will cache downloaded binaries in a local directory to not stress your network. 您可以使用该缓存文件夹来提供 Electron 的定制版本，或者避免进行网络连接。
+或者，您可以覆盖本地缓存。 `electron-download` 会将下载的二进制文件缓存在本地目录中，不会增加网络负担。 您可以使用该缓存文件夹来提供 Electron 的定制版本，或者避免进行网络连接。
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * macOS: `~/Library/Caches/electron/`
@@ -64,7 +64,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 在使用旧版本 Electron 的环境中，您也可以在`~/.electron`中找到缓存。
 
-You can also override the local cache location by providing a `electron_config_cache` environment variable.
+您也可以通过提供一个 `electron_config_cache` 环境变量来覆盖本地缓存位置。
 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
