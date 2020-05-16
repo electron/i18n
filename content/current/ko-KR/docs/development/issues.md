@@ -74,8 +74,8 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 
 추가적인 맥락이나 지원 세부 사항을 제공하지 않는 간결한 답변은 도움이 되지 않거나 전문적이지 않습니다. 많은 사람들에게 반응은 성가시고 비우호적입니다.
 
-토론자들은 협력적으로 문제를 해결하고 서로의 발전을 돕도록 권장합니다. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+토론자들은 협력적으로 문제를 해결하고 서로의 발전을 돕도록 권장합니다. 잘못되었다고 생각하거나 잘못된 정보가 포함된 문제가 발생한다면 추가 지원 컨텍스트를 통해 왜 그런 느낌이 들었는지 설명하고 자신이 틀렸다고 확신할 수 있습니다. 이렇게함으로써, 우리는 종종 정확한 결과에 더 빨리 도달할 수 있습니다.
 
 ## 버그 리포트 해결
 
-주요 이슈들은 Pull Request를 열어 해결합니다. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+주요 이슈들은 Pull Request를 열어 해결합니다. 끌어 오기 요청을 열고 검토하는 프로세스는 열기 및 심사 문제와 유사하지만 제안된 변경 사항이 Electron 프로젝트의 최소 품질 및 기능 지침을 충족시키는데 필요한 검토 및 승인 작업 속도와 함께 수행됩니다.
