@@ -1,18 +1,18 @@
 # Electron 이슈
 
-* [How to Contribute to Issues](#how-to-contribute-to-issues)
+* [이슈에 기여하는 방법](#how-to-contribute-to-issues)
 * [일반적인 도움받기](#asking-for-general-help)
 * [버그 신고하기](#submitting-a-bug-report)
 * [버그 보고서 작성](#triaging-a-bug-report)
 * [버그 리포트 해결](#resolving-a-bug-report)
 
-## How to Contribute to Issues
+## 이슈에 기여하는 방법
 
 어떤 이슈든, 개인이 근본적으로 기여할수 있는 3가지 방법이 있습니다.:
 
 1. 토론할 이슈를 열어서 : Electron에서 새 버그를 찾은 것 같다면, [`electron/electron` issue tracker](https://github.com/electron/electron/issues)에 새 이슈를 열어서 보고해야 합니다.
 2. 이슈를 심사하는데 도움을 줌으로써 : 다음을 수행하여 이 작업을 수행할 수 있습니다. 보조 세부 정보(버그를 보여주는 재현 가능한 테스트 사례) 또는 문제를 해결하기 위한 제안을 제공합니다.
-3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
+3. 문제 해결에 도움을 줌으로써 : 이 작업은 문제가 버그가 아니거나, 수정된 것임을 보여줌으로써 수행될 수 있습니다. 그러나 이 작업은 `electron/electron` 내 소스를 바꾸는 pull request를 열어서 구체적이고 검토 가능한 방식으로 더 자주 수행될 수 있습니다.
 
 ## 일반적인 도움받기
 
