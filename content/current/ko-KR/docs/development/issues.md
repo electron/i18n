@@ -64,17 +64,17 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 
 만약 여러분이 Electron의 버그를 찾았다고 확신하시면, 이 양식을 당신의 최고의 기술을 이용해 채워주세요.
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It is easier to fix a bug if it can be reproduced.
+보고서를 평가하는데 필요한 두 가지 정보는 버그에 대한 설명과 간단한 테스트입니다. 이것을 다시 만들 수 있습니다. 버그를 재현할 수 있으면 수정 하기가 더 쉽습니다.
 
-See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+최소, 완료 및 검증 가능한 예시를 작성하는 방법을 참조하세요.
 
 ## 버그 보고서 작성
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+공개된 이슈를 토론하는 것은 일반적인 것 입니다. 일부 토론자들은 행동이 버그인지 기능인지를 포함하여 의견이 다를 수 있습니다. 이 토론은 프로세스의 일부이며 집중되고 도움이 되는 전문적인 태도를 유지해야 합니다.
 
-Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+추가적인 맥락이나 지원 세부 사항을 제공하지 않는 간결한 답변은 도움이 되지 않거나 전문적이지 않습니다. 많은 사람들에게 반응은 성가시고 비우호적입니다.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+토론자들은 협력적으로 문제를 해결하고 서로의 발전을 돕도록 권장합니다. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
 ## 버그 리포트 해결
 
