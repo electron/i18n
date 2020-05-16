@@ -20,9 +20,9 @@
 
 ## 버그 신고하기
 
-To submit a bug report:
+버그 보고서를 제출한다면
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
+전자 / 전자 문제 추적기에서 새 문제를 연다면 사용자에게 채워져야하는 템플릿이 표시됩니다.
 
 ```markdown
 <!--
