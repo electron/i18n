@@ -11,12 +11,12 @@
 어떤 이슈든, 개인이 근본적으로 기여할수 있는 3가지 방법이 있습니다.:
 
 1. 토론할 이슈를 열어서 : Electron에서 새 버그를 찾은 것 같다면, [`electron/electron` issue tracker](https://github.com/electron/electron/issues)에 새 이슈를 열어서 보고해야 합니다.
-2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
+2. 이슈를 심사하는데 도움을 줌으로써 : 다음을 수행하여 이 작업을 수행할 수 있습니다. 보조 세부 정보(버그를 보여주는 재현 가능한 테스트 사례) 또는 문제를 해결하기 위한 제안을 제공합니다.
 3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
 ## 일반적인 도움받기
 
-["Finding Support"](../tutorial/support.md#finding-support) 는 프로그래밍 도움, 보안 문제 보고, 기여 등을 위한 리소스 목록을 가지고 있습니다. Please use the issue tracker for bugs only!
+["Finding Support"](../tutorial/support.md#finding-support) 는 프로그래밍 도움, 보안 문제 보고, 기여 등을 위한 리소스 목록을 가지고 있습니다. 이슈트래커는 버그를 위해서만 사용해주세요!
 
 ## 버그 신고하기
 
