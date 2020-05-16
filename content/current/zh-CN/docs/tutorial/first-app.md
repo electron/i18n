@@ -123,7 +123,7 @@ function createWindow () {
 // 部分 API 在 ready 事件触发后才能使用。
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+//当所有窗口都被关闭后退出
 app.on('window-all-closed', () => {
   // 在 macOS 上，除非用户用 Cmd + Q 确定地退出，
   // 否则绝大部分应用及其菜单栏会保持激活。
@@ -140,8 +140,8 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. 也可以拆分成几个文件，然后用 require 导入。
+// 您可以把应用程序其他的流程写在在此文件中
+// 代码 也可以拆分成几个文件，然后用 require 导入。
 ```
 
 最后，创建你想展示的 `index.html`：
