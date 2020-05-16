@@ -74,7 +74,7 @@ It's common for open issues to involve discussion. Some contributors may have di
 
 Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+Contributors are encouraged to solve issues collaboratively and help one another make progress. 잘못되었다고 생각하거나 잘못된 정보가 포함된 문제가 발생한다면 추가 지원 컨텍스트를 통해 왜 그런 느낌이 들었는지 설명하고 자신이 틀렸다고 확신할 수 있습니다. By doing so, we can often reach the correct outcome faster.
 
 ## 버그 리포트 해결
 
