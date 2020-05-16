@@ -55,17 +55,17 @@ url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
-By default, `ELECTRON_CUSTOM_DIR` is set to `v$VERSION`. To change the format, use the `{{ version }}` placeholder. For example, `version-{{ version }}` resolves to `version-5.0.0`, `{{ version }}` resolves to `5.0.0`, and `v{{ version }}` is equivalent to the default. As a more concrete example, to use the China non-CDN mirror:
+默认情况下，`ELECTRON_CUSTTOM_DIR`被设置为 `v$VERSION`。 要更改格式，请使用 `{{ version }}` 占位符。 例如，`version-{{ version }}` 被解析为 `version-5.0.0`, `{{ version }}` 被解析为 `5.0.0`， `v{{ version }}` 与默认值等价。 更具体的例子，使用中国非CDN镜像：
 
 ```shell
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ELECTRON_CUSTOM_DIR="{{ version }}"
 ```
 
-The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
+上述配置将从URL下载，例如`https://npm.taobao.org/mirrors/electron-v8.0.0-linux-x64.zip`
 
 #### 缓存
-或者，您可以覆盖本地缓存。 `@electron/get` will cache downloaded binaries in a local directory to not stress your network. 您可以使用该缓存文件夹来提供 Electron 的定制版本，或者避免进行网络连接。
+或者，您可以覆盖本地缓存。 `electron-download` 会将下载的二进制文件缓存在本地目录中，不会增加网络负担。 您可以使用该缓存文件夹来提供 Electron 的定制版本，或者避免进行网络连接。
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * macOS: `~/Library/Caches/electron/`
@@ -73,7 +73,7 @@ The above configuration will download from URLs such as `https://npm.taobao.org/
 
 在使用旧版本 Electron 的环境中，您也可以在`~/.electron`中找到缓存。
 
-You can also override the local cache location by providing a `electron_config_cache` environment variable.
+您也可以通过提供一个 `electron_config_cache` 环境变量来覆盖本地缓存位置。
 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
