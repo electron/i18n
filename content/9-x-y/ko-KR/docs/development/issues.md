@@ -1,12 +1,12 @@
 # Electron 이슈
 
-* [How to Contribute to Issues](#how-to-contribute-to-issues)
+* [이슈에 기여하는 방법](#how-to-contribute-to-issues)
 * [일반적인 도움받기](#asking-for-general-help)
 * [버그 신고하기](#submitting-a-bug-report)
 * [버그 보고서 작성](#triaging-a-bug-report)
 * [버그 리포트 해결](#resolving-a-bug-report)
 
-## How to Contribute to Issues
+## 이슈에 기여하는 방법
 
 어떤 이슈든, 개인이 근본적으로 기여할수 있는 3가지 방법이 있습니다.:
 
