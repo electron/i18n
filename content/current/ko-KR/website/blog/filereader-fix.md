@@ -31,7 +31,7 @@ The latest beta of Electron 5 was tracking Chromium 73 and therefore is already 
 
 ## 추가 정보
 
-This vulnerability was discovered by Clement Lecigne of Google's Threat Analysis Group and reported to the Chrome team.  The Chrome blog post can be found [here](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
+This vulnerability was discovered by Clement Lecigne of Google's Threat Analysis Group and reported to the Chrome team.  [여기](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html)에서 Chrome 블로그 게시글을 확인할 수 있습니다.
 
 Electron 애플리케이션의 보안을 안전하게 유지하는 법을 알아보시려면 [보안 자습서](https://electronjs.org/docs/tutorial/security)를 읽어보세요.
 
