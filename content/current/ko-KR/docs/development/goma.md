@@ -1,6 +1,6 @@
 # Goma
 
-> Goma is a distributed compiler service for open-source projects such as Chromium and Android.
+> Goma는 크롬과 안드로이드 같은 오픈 소스 프로젝트를 위한 분산 컴파일러 서비스입니다.
 
 Electron has a deployment of a custom Goma Backend that we make available to all Electron Maintainers.  See the [Access](#access) section below for details on authentication.  There is also a `cache-only` Goma endpoint that will be used by default if you do not have credentials.  Requests to the cache-only Goma will not hit our cluster, but will read from our cache and should result in significantly faster build times.
 
@@ -26,7 +26,7 @@ If you're using `build-tools`, appropriate `-j` values will automatically be use
 
 If you access [http://localhost:8088](http://localhost:8088) on your local machine you can monitor compile jobs as they flow through the goma system.
 
-## Access
+## 액세스
 
 For security and cost reasons, access to Electron's Goma cluster is currently restricted to Electron Maintainers.  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
 
