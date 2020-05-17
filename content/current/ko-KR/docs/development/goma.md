@@ -2,13 +2,13 @@
 
 > Goma는 크롬과 안드로이드 같은 오픈 소스 프로젝트를 위한 분산 컴파일러 서비스입니다.
 
-Electron은 모든 Electron 사용자들이 사용할 수 있도록 커스텀 Goma 백엔드 배포가 있습니다.  자세한 인증 사항은 [Access](#access) 섹션을 참조하십시오.  There is also a `cache-only` Goma endpoint that will be used by default if you do not have credentials.  Requests to the cache-only Goma will not hit our cluster, but will read from our cache and should result in significantly faster build times.
+Electron은 모든 Electron 메인테이너들이 사용할 수 있도록 커스텀 Goma 백엔드 배포가 있습니다.  자세한 인증 사항은 [Access](#access) 섹션을 참조하십시오.  There is also a `cache-only` Goma endpoint that will be used by default if you do not have credentials.  Requests to the cache-only Goma will not hit our cluster, but will read from our cache and should result in significantly faster build times.
 
 ## Goma 활성화
 
-현재 Goma를 사용할 수 있는 유일한 방법은 [빌드 도구를](https://github.com/electron/build-tools)사용하는 것입니다. Goma configuration is automatically included when you set up `build-tools`.
+현재 Goma를 사용할 수 있는 유일한 방법은 [빌드 도구를](https://github.com/electron/build-tools)사용하는 것입니다. `빌드 도구를`설정할 때 Goma 구성이 자동으로 포함됩니다.
 
-If you are a maintainer and have access to our cluster, please ensure that you run `e init` with `--goma=cluster` in order to configure `build-tools` to use the Goma cluster.  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
+만약에 app 메인테이너이고 클러스터에 액세스 할 수 있다면, 반드시Goma 클러스터를 사용 할 `build-tools`를 구성하기 위해 `e init`을 `--goma=cluster`와 함께 실행하세요.  기존 구성이 있는 경우, `"goma": "cluster"`를 구성 파일에서 설정할 수 있습니다.
 
 ## Building with Goma
 
