@@ -145,7 +145,7 @@ apps:
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
   #App show page specific localization strings
   website: Website
-  repository: Kho
+  repository: Repository
   category: Thể loại
   downloads: Tải xuống
   keywords: Từ khóa
@@ -162,7 +162,7 @@ clipboard:
   copy_to_clipboard: Chép vào clipboard
   copied: Đã sao chép
 fiddle_launch_button:
-  launch: Chạy
+  launch: Launch
   launch_in_fiddle: Launch in Fiddle
 or: hoặc
 pages:

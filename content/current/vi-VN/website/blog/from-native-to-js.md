@@ -70,7 +70,7 @@ This class also contains functions to set properties on a module:
 .SetProperty("property_name", &getter_function_to_bind)
 ```
 
-hoặc
+or
 
 ```cpp
 .SetProperty("property_name", &getter_function_to_bind, &setter_function_to_bind)

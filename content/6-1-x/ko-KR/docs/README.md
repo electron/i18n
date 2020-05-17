@@ -4,7 +4,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 
 ## 자주 묻는 질문
 
-There are questions that are asked quite often. Check this out before creating an issue:
+자주 묻는 질문이 있습니다. 이슈를 제기하기 전에 확인하세요.
 
 * [Electron 자주 묻는 질문](faq.md)
 
