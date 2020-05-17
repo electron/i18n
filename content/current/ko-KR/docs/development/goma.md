@@ -6,7 +6,7 @@ Electron은 모든 Electron 사용자들이 사용할 수 있도록 커스텀 Go
 
 ## Goma 활성화
 
-Currently the only supported way to use Goma is to use our [Build Tools](https://github.com/electron/build-tools). Goma configuration is automatically included when you set up `build-tools`.
+현재 Goma를 사용할 수 있는 유일한 방법은 [빌드 도구를](https://github.com/electron/build-tools)사용하는 것입니다. Goma configuration is automatically included when you set up `build-tools`.
 
 If you are a maintainer and have access to our cluster, please ensure that you run `e init` with `--goma=cluster` in order to configure `build-tools` to use the Goma cluster.  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
 
