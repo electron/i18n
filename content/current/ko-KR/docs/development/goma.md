@@ -28,10 +28,10 @@ If you access [http://localhost:8088](http://localhost:8088) on your local machi
 
 ## 액세스
 
-For security and cost reasons, access to Electron's Goma cluster is currently restricted to Electron Maintainers.  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
+보안 및 비용 상의 이유로 Electron의 Goma 클러스터에 대한 액세스는 현재 Electron 관리자에게 제한되어 있습니다.  액세스하려면 Slack의 #access-requests로 가서 ping @ goma-squad로 이동하여 액세스를 요청합니다.  관리자께서 액세스 권한을 자동으로 부여하지 않는 경우에 따라서 액세스 권한이 결정됩니다.
 
-## Uptime / Support
+## 가동 시간 / 지원
 
-We have automated monitoring of our Goma cluster and cache at https://status.notgoma.com
+https://status.notgoma.com에서 Goma 클러스터 및 캐시를 자동으로 모니터링 합니다.
 
-We do not provide support for usage of Goma and any issues raised asking for help / having issues will _probably_ be closed without much reason, we do not have the capacity to handle that kind of support.
+우리는 Goma 사용 및 도움 / 요청을 하는 문제에 대해서는 지원하지 않습니다. 많은 이유없이 문제가 해결될 것이므로 이러한 지원을 처리할 수 수 있는 능력이 없습니다.
