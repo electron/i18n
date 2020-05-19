@@ -4,8 +4,8 @@
     "description": "",
     "slug": "app",
     "websiteUrl": "http://electronjs.org/docs/api/app",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/app.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/app.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -75,7 +75,7 @@
       {
         "name": "isReady",
         "signature": "()",
-        "description": "`true` if Electron has finished initializing, `false` otherwise.",
+        "description": "`true` if Electron has finished initializing, `false` otherwise. See also `app.whenReady()`.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -248,6 +248,10 @@
               {
                 "value": "pepperFlashSystemPlugin",
                 "description": ""
+              },
+              {
+                "value": "crashDumps",
+                "description": ""
               }
             ]
           }
@@ -356,7 +360,7 @@
       {
         "name": "getName",
         "signature": "()",
-        "description": "The current application's name, which is the name in the application's `package.json` file.\n\nUsually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.\n\n**Deprecated**",
+        "description": "The current application's name, which is the name in the application's `package.json` file.\n\nUsually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -368,7 +372,7 @@
       {
         "name": "setName",
         "signature": "(name)",
-        "description": "Overrides the current application's name.\n\n**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.\n\n**Deprecated**",
+        "description": "Overrides the current application's name.\n\n**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.",
         "parameters": [
           {
             "name": "name",
@@ -792,6 +796,38 @@
         ]
       },
       {
+        "name": "setActivationPolicy",
+        "signature": "(policy)",
+        "description": "Sets the activation policy for a given app.\n\nActivation policy types:\n\n* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.\n* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.\n* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.",
+        "parameters": [
+          {
+            "name": "policy",
+            "description": "Can be 'regular', 'accessory', or 'prohibited'.",
+            "required": true,
+            "collection": false,
+            "type": "String",
+            "possibleValues": [
+              {
+                "value": "regular",
+                "description": ""
+              },
+              {
+                "value": "accessory",
+                "description": ""
+              },
+              {
+                "value": "prohibited",
+                "description": ""
+              }
+            ]
+          }
+        ],
+        "returns": null,
+        "additionalTags": [
+          "os_macos"
+        ]
+      },
+      {
         "name": "importCertificate",
         "signature": "(options, callback)",
         "description": "Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium net_error_list.",
@@ -857,7 +893,7 @@
       {
         "name": "disableDomainBlockingFor3DAPIs",
         "signature": "()",
-        "description": "By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.\n\nThis method can only be called before app is ready.",
+        "description": "By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.\n\nThis method can only be called before app is ready.",
         "parameters": [],
         "returns": null,
         "additionalTags": []
@@ -922,7 +958,7 @@
       {
         "name": "setBadgeCount",
         "signature": "(count)",
-        "description": "Whether the call succeeded.\n\nSets the counter badge for current app. Setting the count to `0` will hide the badge.\n\nOn macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.\n\n**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read Desktop Environment Integration.\n\n**Deprecated**",
+        "description": "Whether the call succeeded.\n\nSets the counter badge for current app. Setting the count to `0` will hide the badge.\n\nOn macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.\n\n**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read Desktop Environment Integration.",
         "parameters": [
           {
             "name": "count",
@@ -944,7 +980,7 @@
       {
         "name": "getBadgeCount",
         "signature": "()",
-        "description": "The current value displayed in the counter badge.\n\n**Deprecated**",
+        "description": "The current value displayed in the counter badge.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -1128,7 +1164,7 @@
       {
         "name": "isAccessibilitySupportEnabled",
         "signature": "()",
-        "description": "`true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.\n\n**Deprecated**",
+        "description": "`true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -1142,7 +1178,7 @@
       {
         "name": "setAccessibilitySupportEnabled",
         "signature": "(enabled)",
-        "description": "Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. See Chromium's accessibility docs for more details. Disabled by default.\n\nThis API must be called after the `ready` event is emitted.\n\n**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.\n\n**Deprecated**",
+        "description": "Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. See Chromium's accessibility docs for more details. Disabled by default.\n\nThis API must be called after the `ready` event is emitted.\n\n**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.",
         "parameters": [
           {
             "name": "enabled",
@@ -1169,7 +1205,7 @@
       {
         "name": "setAboutPanelOptions",
         "signature": "(options)",
-        "description": "Set the about panel options. This will override the values defined in the app's `.plist` file on MacOS. See the Apple docs for more details. On Linux, values must be set in order to be shown; there are no defaults.\n\nIf you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named \"Credits.html\", \"Credits.rtf\", and \"Credits.rtfd\", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple documentation for more information.",
+        "description": "Set the about panel options. This will override the values defined in the app's `.plist` file on macOS. See the Apple docs for more details. On Linux, values must be set in order to be shown; there are no defaults.\n\nIf you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named \"Credits.html\", \"Credits.rtf\", and \"Credits.rtfd\", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple documentation for more information.",
         "parameters": [
           {
             "name": "options",
@@ -1444,7 +1480,7 @@
       },
       {
         "name": "dock",
-        "description": "A `Dock` object that allows you to perform actions on your app icon in the user's dock on macOS.",
+        "description": "A `Dock` `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.",
         "required": true,
         "additionalTags": [
           "os_macos",
@@ -1499,7 +1535,7 @@
       },
       {
         "name": "ready",
-        "description": "Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.",
+        "description": "Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.",
         "parameters": [
           {
             "name": "launchInfo",
@@ -1533,7 +1569,7 @@
       },
       {
         "name": "will-quit",
-        "description": "Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.\n\nSee the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.\n\n**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.",
+        "description": "Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.\n\nSee the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.\n\n**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.",
         "parameters": [
           {
             "name": "event",
@@ -1757,7 +1793,7 @@
       },
       {
         "name": "update-activity-state",
-        "description": "Emitted when Handoff is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.",
+        "description": "Emitted when Handoff is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.",
         "parameters": [
           {
             "name": "event",
@@ -2387,34 +2423,6 @@
           }
         ],
         "additionalTags": []
-      },
-      {
-        "name": "remote-get-guest-web-contents",
-        "description": "Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.",
-        "parameters": [
-          {
-            "name": "event",
-            "description": "",
-            "collection": false,
-            "type": "Event",
-            "required": true
-          },
-          {
-            "name": "webContents",
-            "description": "",
-            "collection": false,
-            "type": "WebContents",
-            "required": true
-          },
-          {
-            "name": "guestWebContents",
-            "description": "",
-            "collection": false,
-            "type": "WebContents",
-            "required": true
-          }
-        ],
-        "additionalTags": []
       }
     ]
   },
@@ -2423,8 +2431,8 @@
     "description": "",
     "slug": "auto-updater",
     "websiteUrl": "http://electronjs.org/docs/api/auto-updater",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/auto-updater.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/auto-updater.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -2612,8 +2620,8 @@
     "description": "",
     "slug": "browser-view",
     "websiteUrl": "http://electronjs.org/docs/api/browser-view",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/browser-view.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/browser-view.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -2856,8 +2864,8 @@
     "description": "",
     "slug": "browser-window-proxy",
     "websiteUrl": "http://electronjs.org/docs/api/browser-window-proxy",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/browser-window-proxy.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/browser-window-proxy.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -2959,8 +2967,8 @@
     "description": "",
     "slug": "browser-window",
     "websiteUrl": "http://electronjs.org/docs/api/browser-window",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/browser-window.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/browser-window.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -3146,7 +3154,7 @@
             },
             {
               "name": "kiosk",
-              "description": "The kiosk mode. Default is `false`.",
+              "description": "Whether the window is in kiosk mode. Default is `false`.",
               "required": false,
               "additionalTags": [],
               "collection": false,
@@ -3278,7 +3286,7 @@
             },
             {
               "name": "darkTheme",
-              "description": "Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.",
+              "description": "Forces using dark theme for the window, only works on some GTK desktop environments. Default is `false`.",
               "required": false,
               "additionalTags": [],
               "collection": false,
@@ -3538,7 +3546,7 @@
                 },
                 {
                   "name": "affinity",
-                  "description": "When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _This property is experimental_",
+                  "description": "When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _Deprecated_",
                   "required": false,
                   "additionalTags": [],
                   "collection": false,
@@ -3863,15 +3871,7 @@
                 },
                 {
                   "name": "spellcheck",
-                  "description": "Whether to enable the builtin spellchecker. Default is `false`.",
-                  "required": false,
-                  "additionalTags": [],
-                  "collection": false,
-                  "type": "Boolean"
-                },
-                {
-                  "name": "enableWebSQL",
-                  "description": "Whether to enable the WebSQL api. Default is `true`.",
+                  "description": "Whether to enable the builtin spellchecker. Default is `true`.",
                   "required": false,
                   "additionalTags": [],
                   "collection": false,
@@ -3993,7 +3993,7 @@
       {
         "name": "addExtension",
         "signature": "(path)",
-        "description": "Adds Chrome extension located at `path`, and returns extension's name.\n\nThe method will also not return if the extension's manifest is missing or incomplete.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.",
+        "description": "Adds Chrome extension located at `path`, and returns extension's name.\n\nThe method will also not return if the extension's manifest is missing or incomplete.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.\n\n**Note:** This method is deprecated. Instead, use `ses.loadExtension(path)`.",
         "parameters": [
           {
             "name": "path",
@@ -4005,12 +4005,14 @@
           }
         ],
         "returns": null,
-        "additionalTags": []
+        "additionalTags": [
+          "stability_deprecated"
+        ]
       },
       {
         "name": "removeExtension",
         "signature": "(name)",
-        "description": "Remove a Chrome extension by name.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.",
+        "description": "Remove a Chrome extension by name.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.\n\n**Note:** This method is deprecated. Instead, use `ses.removeExtension(extension_id)`.",
         "parameters": [
           {
             "name": "name",
@@ -4022,12 +4024,14 @@
           }
         ],
         "returns": null,
-        "additionalTags": []
+        "additionalTags": [
+          "stability_deprecated"
+        ]
       },
       {
         "name": "getExtensions",
         "signature": "()",
-        "description": "The keys are the extension names and each value is an Object containing `name` and `version` properties.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.",
+        "description": "The keys are the extension names and each value is an Object containing `name` and `version` properties.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.\n\n**Note:** This method is deprecated. Instead, use `ses.getAllExtensions()`.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -4044,12 +4048,14 @@
             }
           ]
         },
-        "additionalTags": []
+        "additionalTags": [
+          "stability_deprecated"
+        ]
       },
       {
         "name": "addDevToolsExtension",
         "signature": "(path)",
-        "description": "Adds DevTools extension located at `path`, and returns extension's name.\n\nThe extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.\n\nThe method will also not return if the extension's manifest is missing or incomplete.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.",
+        "description": "Adds DevTools extension located at `path`, and returns extension's name.\n\nThe extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.\n\nThe method will also not return if the extension's manifest is missing or incomplete.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.\n\n**Note:** This method is deprecated. Instead, use `ses.loadExtension(path)`.",
         "parameters": [
           {
             "name": "path",
@@ -4061,12 +4067,14 @@
           }
         ],
         "returns": null,
-        "additionalTags": []
+        "additionalTags": [
+          "stability_deprecated"
+        ]
       },
       {
         "name": "removeDevToolsExtension",
         "signature": "(name)",
-        "description": "Remove a DevTools extension by name.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.",
+        "description": "Remove a DevTools extension by name.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.\n\n**Note:** This method is deprecated. Instead, use `ses.removeExtension(extension_id)`.",
         "parameters": [
           {
             "name": "name",
@@ -4078,12 +4086,14 @@
           }
         ],
         "returns": null,
-        "additionalTags": []
+        "additionalTags": [
+          "stability_deprecated"
+        ]
       },
       {
         "name": "getDevToolsExtensions",
         "signature": "()",
-        "description": "The keys are the extension names and each value is an Object containing `name` and `version` properties.\n\nTo check if a DevTools extension is installed you can run the following:\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.",
+        "description": "The keys are the extension names and each value is an Object containing `name` and `version` properties.\n\nTo check if a DevTools extension is installed you can run the following:\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.\n\n**Note:** This method is deprecated. Instead, use `ses.getAllExtensions()`.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -4099,7 +4109,9 @@
             }
           ]
         },
-        "additionalTags": []
+        "additionalTags": [
+          "stability_deprecated"
+        ]
       }
     ],
     "staticProperties": [],
@@ -4288,7 +4300,7 @@
       {
         "name": "setSimpleFullScreen",
         "signature": "(flag)",
-        "description": "Enters or leaves simple fullscreen mode.\n\nSimple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).",
+        "description": "Enters or leaves simple fullscreen mode.\n\nSimple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).",
         "parameters": [
           {
             "name": "flag",
@@ -4330,7 +4342,7 @@
       {
         "name": "setAspectRatio",
         "signature": "(aspectRatio[, extraSize])",
-        "description": "This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.\n\nConsider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.\n\nCalling this function with a value of `0` will remove any previously set aspect ratios.",
+        "description": "This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.\n\nConsider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and { width: 40, height: 50 }. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.",
         "parameters": [
           {
             "name": "aspectRatio",
@@ -4349,7 +4361,8 @@
         ],
         "returns": null,
         "additionalTags": [
-          "os_macos"
+          "os_macos",
+          "os_linux"
         ]
       },
       {
@@ -4443,6 +4456,18 @@
         "returns": {
           "collection": false,
           "type": "Rectangle"
+        },
+        "additionalTags": []
+      },
+      {
+        "name": "getBackgroundColor",
+        "signature": "()",
+        "description": "Gets the background color of the window. See Setting `backgroundColor`.",
+        "parameters": [],
+        "returns": {
+          "collection": false,
+          "type": "String",
+          "possibleValues": null
         },
         "additionalTags": []
       },
@@ -4668,7 +4693,7 @@
       {
         "name": "setResizable",
         "signature": "(resizable)",
-        "description": "Sets whether the window can be manually resized by user.\n\n**Deprecated**",
+        "description": "Sets whether the window can be manually resized by the user.",
         "parameters": [
           {
             "name": "resizable",
@@ -4684,7 +4709,7 @@
       {
         "name": "isResizable",
         "signature": "()",
-        "description": "Whether the window can be manually resized by user.\n\n**Deprecated**",
+        "description": "Whether the window can be manually resized by the user.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -4695,7 +4720,7 @@
       {
         "name": "setMovable",
         "signature": "(movable)",
-        "description": "Sets whether the window can be moved by user. On Linux does nothing.\n\n**Deprecated**",
+        "description": "Sets whether the window can be moved by user. On Linux does nothing.",
         "parameters": [
           {
             "name": "movable",
@@ -4714,7 +4739,7 @@
       {
         "name": "isMovable",
         "signature": "()",
-        "description": "Whether the window can be moved by user.\n\nOn Linux always returns `true`.\n\n**Deprecated**",
+        "description": "Whether the window can be moved by user.\n\nOn Linux always returns `true`.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -4728,7 +4753,7 @@
       {
         "name": "setMinimizable",
         "signature": "(minimizable)",
-        "description": "Sets whether the window can be manually minimized by user. On Linux does nothing.\n\n**Deprecated**",
+        "description": "Sets whether the window can be manually minimized by user. On Linux does nothing.",
         "parameters": [
           {
             "name": "minimizable",
@@ -4747,7 +4772,7 @@
       {
         "name": "isMinimizable",
         "signature": "()",
-        "description": "Whether the window can be manually minimized by user\n\nOn Linux always returns `true`.\n\n**Deprecated**",
+        "description": "Whether the window can be manually minimized by the user.\n\nOn Linux always returns `true`.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -4761,7 +4786,7 @@
       {
         "name": "setMaximizable",
         "signature": "(maximizable)",
-        "description": "Sets whether the window can be manually maximized by user. On Linux does nothing.\n\n**Deprecated**",
+        "description": "Sets whether the window can be manually maximized by user. On Linux does nothing.",
         "parameters": [
           {
             "name": "maximizable",
@@ -4780,7 +4805,7 @@
       {
         "name": "isMaximizable",
         "signature": "()",
-        "description": "Whether the window can be manually maximized by user.\n\nOn Linux always returns `true`.\n\n**Deprecated**",
+        "description": "Whether the window can be manually maximized by user.\n\nOn Linux always returns `true`.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -4794,7 +4819,7 @@
       {
         "name": "setFullScreenable",
         "signature": "(fullscreenable)",
-        "description": "Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.\n\n**Deprecated**",
+        "description": "Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.",
         "parameters": [
           {
             "name": "fullscreenable",
@@ -4810,7 +4835,7 @@
       {
         "name": "isFullScreenable",
         "signature": "()",
-        "description": "Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.\n\n**Deprecated**",
+        "description": "Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -4821,7 +4846,7 @@
       {
         "name": "setClosable",
         "signature": "(closable)",
-        "description": "Sets whether the window can be manually closed by user. On Linux does nothing.\n\n**Deprecated**",
+        "description": "Sets whether the window can be manually closed by user. On Linux does nothing.",
         "parameters": [
           {
             "name": "closable",
@@ -4840,7 +4865,7 @@
       {
         "name": "isClosable",
         "signature": "()",
-        "description": "Whether the window can be manually closed by user.\n\nOn Linux always returns `true`.\n\n**Deprecated**",
+        "description": "Whether the window can be manually closed by user.\n\nOn Linux always returns `true`.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -5089,7 +5114,7 @@
       {
         "name": "setKiosk",
         "signature": "(flag)",
-        "description": "Enters or leaves the kiosk mode.",
+        "description": "Enters or leaves kiosk mode.",
         "parameters": [
           {
             "name": "flag",
@@ -5889,7 +5914,7 @@
       {
         "name": "setAutoHideMenuBar",
         "signature": "(hide)",
-        "description": "Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.\n\nIf the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.\n\n**Deprecated**",
+        "description": "Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.\n\nIf the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.",
         "parameters": [
           {
             "name": "hide",
@@ -5905,7 +5930,7 @@
       {
         "name": "isMenuBarAutoHide",
         "signature": "()",
-        "description": "Whether menu bar automatically hides itself.\n\n**Deprecated**",
+        "description": "Whether menu bar automatically hides itself.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -5945,7 +5970,7 @@
       },
       {
         "name": "setVisibleOnAllWorkspaces",
-        "signature": "(visible[, options])",
+        "signature": "(visible)",
         "description": "Sets whether the window should be visible on all workspaces.\n\n**Note:** This API does nothing on Windows.",
         "parameters": [
           {
@@ -5954,25 +5979,6 @@
             "required": true,
             "collection": false,
             "type": "Boolean"
-          },
-          {
-            "name": "options",
-            "description": "",
-            "required": false,
-            "collection": false,
-            "type": "Object",
-            "properties": [
-              {
-                "name": "visibleOnFullScreen",
-                "description": "Sets whether the window should be visible above fullscreen windows _deprecated_",
-                "required": false,
-                "additionalTags": [
-                  "os_macos"
-                ],
-                "collection": false,
-                "type": "Boolean"
-              }
-            ]
           }
         ],
         "returns": null,
@@ -6472,7 +6478,7 @@
       },
       {
         "name": "id",
-        "description": "A `Integer` property representing the unique ID of the window.",
+        "description": "A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.",
         "required": true,
         "additionalTags": [
           "availability_readonly"
@@ -6487,6 +6493,87 @@
         "additionalTags": [],
         "collection": false,
         "type": "Boolean"
+      },
+      {
+        "name": "simpleFullScreen",
+        "description": "A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "Boolean"
+      },
+      {
+        "name": "fullScreen",
+        "description": "A `Boolean` property that determines whether the window is in fullscreen mode.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "Boolean"
+      },
+      {
+        "name": "visibleOnAllWorkspaces",
+        "description": "A `Boolean` property that determines whether the window is visible on all workspaces.\n\n**Note:** Always returns false on Windows.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "Boolean"
+      },
+      {
+        "name": "shadow",
+        "description": "A `Boolean` property that determines whether the window has a shadow.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "Boolean"
+      },
+      {
+        "name": "menuBarVisible",
+        "description": "A `Boolean` property that determines whether the menu bar should be visible.\n\n**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.",
+        "required": true,
+        "additionalTags": [
+          "os_windows",
+          "os_linux"
+        ],
+        "collection": false,
+        "type": "Boolean"
+      },
+      {
+        "name": "kiosk",
+        "description": "A `Boolean` property that determines whether the window is in kiosk mode.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "Boolean"
+      },
+      {
+        "name": "documentEdited",
+        "description": "A `Boolean` property that specifies whether the window’s document has been edited.\n\nThe icon in title bar will become gray when set to `true`.",
+        "required": true,
+        "additionalTags": [
+          "os_macos"
+        ],
+        "collection": false,
+        "type": "Boolean"
+      },
+      {
+        "name": "representedFilename",
+        "description": "A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.",
+        "required": true,
+        "additionalTags": [
+          "os_macos"
+        ],
+        "collection": false,
+        "type": "String",
+        "possibleValues": null
+      },
+      {
+        "name": "title",
+        "description": "A `String` property that determines the title of the native window.\n\n**Note:** The title of the web page can be different from the title of the native window.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "String",
+        "possibleValues": null
       },
       {
         "name": "minimizable",
@@ -6921,8 +7008,8 @@
     "description": "",
     "slug": "client-request",
     "websiteUrl": "http://electronjs.org/docs/api/client-request",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/client-request.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/client-request.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -7461,8 +7548,8 @@
     "description": "",
     "slug": "clipboard",
     "websiteUrl": "http://electronjs.org/docs/api/clipboard",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/clipboard.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/clipboard.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -8106,8 +8193,8 @@
     "description": "",
     "slug": "command-line",
     "websiteUrl": "http://electronjs.org/docs/api/command-line",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/command-line.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/command-line.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -8210,8 +8297,8 @@
     "description": "",
     "slug": "content-tracing",
     "websiteUrl": "http://electronjs.org/docs/api/content-tracing",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/content-tracing.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/content-tracing.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -8221,7 +8308,7 @@
       {
         "name": "getCategories",
         "signature": "()",
-        "description": "resolves with an array of category groups once all child processes have acknowledged the `getCategories` request\n\nGet a set of category groups. The category groups can change as new code paths are reached. See also the list of built-in tracing categories.",
+        "description": "resolves with an array of category groups once all child processes have acknowledged the `getCategories` request\n\nGet a set of category groups. The category groups can change as new code paths are reached. See also the list of built-in tracing categories.\n\n> **NOTE:** Electron adds a non-default tracing category called `\"electron\"`. This category can be used to capture Electron-specific tracing events.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -8341,8 +8428,8 @@
     "description": "",
     "slug": "context-bridge",
     "websiteUrl": "http://electronjs.org/docs/api/context-bridge",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/context-bridge.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/context-bridge.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -8395,8 +8482,8 @@
     "description": "",
     "slug": "cookies",
     "websiteUrl": "http://electronjs.org/docs/api/cookies",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/cookies.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/cookies.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -8649,8 +8736,8 @@
     "description": "",
     "slug": "crash-reporter",
     "websiteUrl": "http://electronjs.org/docs/api/crash-reporter",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/crash-reporter.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/crash-reporter.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -8660,7 +8747,7 @@
       {
         "name": "start",
         "signature": "(options)",
-        "description": "You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.\n\n**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Therefore, to collect crash reports from them, use `process.crashReporter.start` instead. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.\n\n**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.\n\n**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.",
+        "description": "This method must be called before using any other `crashReporter` APIs. Once initialized this way, the crashpad handler collects crashes from all subsequently created processes. The crash reporter cannot be disabled once started.\n\nThis method should be called as early as possible in app startup, preferably before `app.on('ready')`. If the crash reporter is not initialized at the time a renderer process is created, then that renderer process will not be monitored by the crash reporter.\n\n**Note:** You can test out the crash reporter by generating a crash using `process.crash()`.\n\n**Note:** If you need to send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter`.\n\n**Note:** Parameters passed in `extra`, `globalExtra` or set with `addExtraParameter` have limits on the length of the keys and values. Key names must be at most 39 bytes long, and values must be no longer than 127 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.\n\n**Note:** Calling this method from the renderer process is deprecated.",
         "parameters": [
           {
             "name": "options",
@@ -8669,15 +8756,6 @@
             "collection": false,
             "type": "Object",
             "properties": [
-              {
-                "name": "companyName",
-                "description": "",
-                "required": true,
-                "additionalTags": [],
-                "collection": false,
-                "type": "String",
-                "possibleValues": null
-              },
               {
                 "name": "submitURL",
                 "description": "URL that crash reports will be sent to as POST.",
@@ -8697,8 +8775,19 @@
                 "possibleValues": null
               },
               {
+                "name": "companyName",
+                "description": "Deprecated alias for `{ globalExtra: { _companyName: ... } }`.",
+                "required": false,
+                "additionalTags": [
+                  "stability_deprecated"
+                ],
+                "collection": false,
+                "type": "String",
+                "possibleValues": null
+              },
+              {
                 "name": "uploadToServer",
-                "description": "Whether crash reports should be sent to the server. Default is `true`.",
+                "description": "Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. Default is `true`.",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
@@ -8706,15 +8795,37 @@
               },
               {
                 "name": "ignoreSystemCrashHandler",
-                "description": "Default is `false`.",
+                "description": "If true, crashes generated in the main process will not be forwarded to the system crash handler. Default is `false`.",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
                 "type": "Boolean"
               },
               {
+                "name": "rateLimit",
+                "description": "If true, limit the number of crashes uploaded to 1/hour. Default is `false`.",
+                "required": false,
+                "additionalTags": [
+                  "os_macos",
+                  "os_windows"
+                ],
+                "collection": false,
+                "type": "Boolean"
+              },
+              {
+                "name": "compress",
+                "description": "If true, crash reports will be compressed and uploaded with `Content-Encoding: gzip`. Not all collection servers support compressed payloads. Default is `false`.",
+                "required": false,
+                "additionalTags": [
+                  "os_macos",
+                  "os_windows"
+                ],
+                "collection": false,
+                "type": "Boolean"
+              },
+              {
                 "name": "extra",
-                "description": "An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.",
+                "description": "Extra string key/value annotations that will be sent along with crash reports that are generated in the main process. Only string values are supported. Crashes generated in child processes will not contain these extra parameters to crash reports generated from child processes, call `addExtraParameter` from the child process.",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
@@ -8733,13 +8844,24 @@
                 ]
               },
               {
-                "name": "crashesDirectory",
-                "description": "Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).",
+                "name": "globalExtra",
+                "description": "Extra string key/value annotations that will be sent along with any crash reports generated in any process. These annotations cannot be changed once the crash reporter has been started. If a key is present in both the global extra parameters and the process-specific extra parameters, then the global one will take precedence. By default, `productName` and the app version are included, as well as the Electron version.",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
-                "type": "String",
-                "possibleValues": null
+                "type": "Record",
+                "innerTypes": [
+                  {
+                    "collection": false,
+                    "type": "String",
+                    "possibleValues": null
+                  },
+                  {
+                    "collection": false,
+                    "type": "String",
+                    "possibleValues": null
+                  }
+                ]
               }
             ]
           }
@@ -8750,7 +8872,7 @@
       {
         "name": "getLastCrashReport",
         "signature": "()",
-        "description": "Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.",
+        "description": "The date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.\n\n**Note:** Calling this method from the renderer process is deprecated.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -8761,7 +8883,7 @@
       {
         "name": "getUploadedReports",
         "signature": "()",
-        "description": "Returns all uploaded crash reports. Each report contains the date and uploaded ID.",
+        "description": "Returns all uploaded crash reports. Each report contains the date and uploaded ID.\n\n**Note:** Calling this method from the renderer process is deprecated.",
         "parameters": [],
         "returns": {
           "collection": true,
@@ -8772,7 +8894,7 @@
       {
         "name": "getUploadToServer",
         "signature": "()",
-        "description": "Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.\n\n**Note:** This API can only be called from the main process.",
+        "description": "Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.\n\n**Note:** Calling this method from the renderer process is deprecated.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -8783,7 +8905,7 @@
       {
         "name": "setUploadToServer",
         "signature": "(uploadToServer)",
-        "description": "This would normally be controlled by user preferences. This has no effect if called before `start` is called.\n\n**Note:** This API can only be called from the main process.",
+        "description": "This would normally be controlled by user preferences. This has no effect if called before `start` is called.\n\n**Note:** Calling this method from the renderer process is deprecated.",
         "parameters": [
           {
             "name": "uploadToServer",
@@ -8797,13 +8919,27 @@
         "additionalTags": []
       },
       {
+        "name": "getCrashesDirectory",
+        "signature": "()",
+        "description": "The directory where crashes are temporarily stored before being uploaded.\n\n**Note:** This method is deprecated, use `app.getPath('crashDumps')` instead.",
+        "parameters": [],
+        "returns": {
+          "collection": false,
+          "type": "String",
+          "possibleValues": null
+        },
+        "additionalTags": [
+          "stability_deprecated"
+        ]
+      },
+      {
         "name": "addExtraParameter",
         "signature": "(key, value)",
-        "description": "Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.",
+        "description": "Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called.\n\nParameters added in this fashion (or via the `extra` parameter to `crashReporter.start`) are specific to the calling process. Adding extra parameters in the main process will not cause those parameters to be sent along with crashes from renderer or other child processes. Similarly, adding extra parameters in a renderer process will not result in those parameters being sent with crashes that occur in other renderer processes or in the main process.\n\n**Note:** Parameters have limits on the length of the keys and values. Key names must be no longer than 39 bytes, and values must be no longer than 127 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.",
         "parameters": [
           {
             "name": "key",
-            "description": "Parameter key, must be less than 64 characters long.",
+            "description": "Parameter key, must be no longer than 39 bytes.",
             "required": true,
             "collection": false,
             "type": "String",
@@ -8811,56 +8947,53 @@
           },
           {
             "name": "value",
-            "description": "Parameter value, must be less than 64 characters long.",
+            "description": "Parameter value, must be no longer than 127 bytes.",
             "required": true,
             "collection": false,
             "type": "String",
             "possibleValues": null
           }
         ],
-        "returns": null,
-        "additionalTags": [
-          "os_macos",
-          "os_windows"
-        ]
-      },
-      {
-        "name": "removeExtraParameter",
-        "signature": "(key)",
-        "description": "Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.",
-        "parameters": [
-          {
-            "name": "key",
-            "description": "Parameter key, must be less than 64 characters long.",
-            "required": true,
-            "collection": false,
-            "type": "String",
-            "possibleValues": null
-          }
-        ],
-        "returns": null,
-        "additionalTags": [
-          "os_macos",
-          "os_windows"
-        ]
-      },
-      {
-        "name": "getParameters",
-        "signature": "()",
-        "description": "See all of the current parameters being passed to the crash reporter.",
-        "parameters": [],
         "returns": null,
         "additionalTags": []
       },
       {
-        "name": "getCrashesDirectory",
+        "name": "removeExtraParameter",
+        "signature": "(key)",
+        "description": "Remove a extra parameter from the current set of parameters. Future crashes will not include this parameter.",
+        "parameters": [
+          {
+            "name": "key",
+            "description": "Parameter key, must be no longer than 39 bytes.",
+            "required": true,
+            "collection": false,
+            "type": "String",
+            "possibleValues": null
+          }
+        ],
+        "returns": null,
+        "additionalTags": []
+      },
+      {
+        "name": "getParameters",
         "signature": "()",
-        "description": "The directory where crashes are temporarily stored before being uploaded.",
+        "description": "The current 'extra' parameters of the crash reporter.",
         "parameters": [],
         "returns": {
           "collection": false,
-          "type": "String",
-          "possibleValues": null
+          "type": "Record",
+          "innerTypes": [
+            {
+              "collection": false,
+              "type": "String",
+              "possibleValues": null
+            },
+            {
+              "collection": false,
+              "type": "String",
+              "possibleValues": null
+            }
+          ]
         },
         "additionalTags": []
       }
@@ -8873,8 +9006,8 @@
     "description": "",
     "slug": "debugger",
     "websiteUrl": "http://electronjs.org/docs/api/debugger",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/debugger.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/debugger.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -9015,8 +9148,8 @@
     "description": "",
     "slug": "desktop-capturer",
     "websiteUrl": "http://electronjs.org/docs/api/desktop-capturer",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/desktop-capturer.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/desktop-capturer.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -9084,8 +9217,8 @@
     "description": "",
     "slug": "dialog",
     "websiteUrl": "http://electronjs.org/docs/api/dialog",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/dialog.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/dialog.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -10102,8 +10235,8 @@
     "description": "",
     "slug": "dock",
     "websiteUrl": "http://electronjs.org/docs/api/dock",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/dock.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/dock.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -10334,8 +10467,8 @@
     "description": "",
     "slug": "download-item",
     "websiteUrl": "http://electronjs.org/docs/api/download-item",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/download-item.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/download-item.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -10348,7 +10481,7 @@
       {
         "name": "setSavePath",
         "signature": "(path)",
-        "description": "The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.\n\n**Deprecated: use the `savePath` property instead.**",
+        "description": "The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.",
         "parameters": [
           {
             "name": "path",
@@ -10365,7 +10498,7 @@
       {
         "name": "getSavePath",
         "signature": "()",
-        "description": "The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.\n\n**Deprecated: use the `savePath` property instead.**",
+        "description": "The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -10691,8 +10824,8 @@
     "description": "",
     "slug": "global-shortcut",
     "websiteUrl": "http://electronjs.org/docs/api/global-shortcut",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/global-shortcut.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/global-shortcut.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -10805,8 +10938,8 @@
     "description": "",
     "slug": "in-app-purchase",
     "websiteUrl": "http://electronjs.org/docs/api/in-app-purchase",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/in-app-purchase.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/in-app-purchase.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -10884,6 +11017,14 @@
         "additionalTags": []
       },
       {
+        "name": "restoreCompletedTransactions",
+        "signature": "()",
+        "description": "Restores finished transactions. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.\n\nThe payment queue delivers a new transaction for each previously completed transaction that can be restored. Each transaction includes a copy of the original transaction.",
+        "parameters": [],
+        "returns": null,
+        "additionalTags": []
+      },
+      {
         "name": "getReceiptURL",
         "signature": "()",
         "description": "the path to the receipt.",
@@ -10936,8 +11077,8 @@
     "description": "",
     "slug": "incoming-message",
     "websiteUrl": "http://electronjs.org/docs/api/incoming-message",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/incoming-message.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/incoming-message.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -11050,8 +11191,8 @@
     "description": "",
     "slug": "ipc-main",
     "websiteUrl": "http://electronjs.org/docs/api/ipc-main",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/ipc-main.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/ipc-main.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -11335,8 +11476,8 @@
     "description": "",
     "slug": "ipc-renderer",
     "websiteUrl": "http://electronjs.org/docs/api/ipc-renderer",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/ipc-renderer.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/ipc-renderer.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -11624,8 +11765,8 @@
     "description": "",
     "slug": "menu-item",
     "websiteUrl": "http://electronjs.org/docs/api/menu-item",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/menu-item.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/menu-item.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -11675,7 +11816,7 @@
             },
             {
               "name": "role",
-              "description": "Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See roles.",
+              "description": "Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See roles.",
               "required": false,
               "additionalTags": [],
               "collection": false,
@@ -11787,14 +11928,6 @@
                 },
                 {
                   "value": "stopSpeaking",
-                  "description": ""
-                },
-                {
-                  "value": "close",
-                  "description": ""
-                },
-                {
-                  "value": "minimize",
                   "description": ""
                 },
                 {
@@ -12066,7 +12199,7 @@
       },
       {
         "name": "label",
-        "description": "A `String` indicating the item's visible label, this property can be dynamically changed.",
+        "description": "A `String` indicating the item's visible label.",
         "required": true,
         "additionalTags": [],
         "collection": false,
@@ -12145,7 +12278,7 @@
       },
       {
         "name": "role",
-        "description": "A `String` (optional) indicating the item's role, if set. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`",
+        "description": "A `String` (optional) indicating the item's role, if set. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`",
         "required": false,
         "additionalTags": [],
         "collection": false,
@@ -12260,14 +12393,6 @@
             "description": ""
           },
           {
-            "value": "close",
-            "description": ""
-          },
-          {
-            "value": "minimize",
-            "description": ""
-          },
-          {
             "value": "zoom",
             "description": ""
           },
@@ -12353,7 +12478,7 @@
       },
       {
         "name": "sublabel",
-        "description": "A `String` indicating the item's sublabel, this property can be dynamically changed.",
+        "description": "A `String` indicating the item's sublabel.",
         "required": true,
         "additionalTags": [],
         "collection": false,
@@ -12397,7 +12522,7 @@
       },
       {
         "name": "registerAccelerator",
-        "description": "A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.",
+        "description": "A `Boolean` indicating if the accelerator should be registered with the system or just displayed.\n\nThis property can be dynamically changed.",
         "required": true,
         "additionalTags": [],
         "collection": false,
@@ -12428,8 +12553,8 @@
     "description": "",
     "slug": "menu",
     "websiteUrl": "http://electronjs.org/docs/api/menu",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/menu.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/menu.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -12720,8 +12845,8 @@
     "description": "",
     "slug": "native-image",
     "websiteUrl": "http://electronjs.org/docs/api/native-image",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/native-image.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/native-image.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -12921,8 +13046,8 @@
     "description": "",
     "slug": "native-image",
     "websiteUrl": "http://electronjs.org/docs/api/native-image",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/native-image.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/native-image.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -13106,7 +13231,7 @@
       {
         "name": "setTemplateImage",
         "signature": "(option)",
-        "description": "Marks the image as a template image.\n\n**Deprecated**",
+        "description": "Marks the image as a template image.",
         "parameters": [
           {
             "name": "option",
@@ -13122,7 +13247,7 @@
       {
         "name": "isTemplateImage",
         "signature": "()",
-        "description": "Whether the image is a template image.\n\n**Deprecated**",
+        "description": "Whether the image is a template image.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -13286,8 +13411,8 @@
     "description": "",
     "slug": "native-theme",
     "websiteUrl": "http://electronjs.org/docs/api/native-theme",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/native-theme.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/native-theme.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -13307,7 +13432,7 @@
       },
       {
         "name": "themeSource",
-        "description": "A `String` property that can be `system`, `light` or `dark`.  It is used to override and supercede the value that Chromium has chosen to use internally.\n\nSetting this property to `system` will remove the override and everything will be reset to the OS default.  By default `themeSource` is `system`.\n\nSettings this property to `dark` will have the following effects:\n\n* `nativeTheme.shouldUseDarkColors` will be `true` when accessed\n* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the dark UI.\n* Any UI the OS renders on macOS including menus, window frames, etc. will use the dark UI.\n* The `prefers-color-scheme` CSS query will match `dark` mode.\n* The `updated` event will be emitted\n\nSettings this property to `light` will have the following effects:\n\n* `nativeTheme.shouldUseDarkColors` will be `false` when accessed\n* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the light UI.\n* Any UI the OS renders on macOS including menus, window frames, etc. will use the light UI.\n* The `prefers-color-scheme` CSS query will match `light` mode.\n* The `updated` event will be emitted\n\nThe usage of this property should align with a classic \"dark mode\" state machine in your application where the user has three options.\n\n* `Follow OS` --> `themeSource = 'system'`\n* `Dark Mode` --> `themeSource = 'dark'`\n* `Light Mode` --> `themeSource = 'light'`\n\nYour application should then always use `shouldUseDarkColors` to determine what CSS to apply.",
+        "description": "A `String` property that can be `system`, `light` or `dark`.  It is used to override and supersede the value that Chromium has chosen to use internally.\n\nSetting this property to `system` will remove the override and everything will be reset to the OS default.  By default `themeSource` is `system`.\n\nSettings this property to `dark` will have the following effects:\n\n* `nativeTheme.shouldUseDarkColors` will be `true` when accessed\n* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the dark UI.\n* Any UI the OS renders on macOS including menus, window frames, etc. will use the dark UI.\n* The `prefers-color-scheme` CSS query will match `dark` mode.\n* The `updated` event will be emitted\n\nSettings this property to `light` will have the following effects:\n\n* `nativeTheme.shouldUseDarkColors` will be `false` when accessed\n* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the light UI.\n* Any UI the OS renders on macOS including menus, window frames, etc. will use the light UI.\n* The `prefers-color-scheme` CSS query will match `light` mode.\n* The `updated` event will be emitted\n\nThe usage of this property should align with a classic \"dark mode\" state machine in your application where the user has three options.\n\n* `Follow OS` --> `themeSource = 'system'`\n* `Dark Mode` --> `themeSource = 'dark'`\n* `Light Mode` --> `themeSource = 'light'`\n\nYour application should then always use `shouldUseDarkColors` to determine what CSS to apply.",
         "required": true,
         "additionalTags": [],
         "collection": false,
@@ -13366,8 +13491,8 @@
     "description": "",
     "slug": "net-log",
     "websiteUrl": "http://electronjs.org/docs/api/net-log",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/net-log.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/net-log.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -13489,8 +13614,8 @@
     "description": "",
     "slug": "net",
     "websiteUrl": "http://electronjs.org/docs/api/net",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/net.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/net.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -13535,8 +13660,8 @@
     "description": "",
     "slug": "notification",
     "websiteUrl": "http://electronjs.org/docs/api/notification",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/notification.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/notification.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -13964,8 +14089,8 @@
     "description": "",
     "slug": "power-monitor",
     "websiteUrl": "http://electronjs.org/docs/api/power-monitor",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/power-monitor.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/power-monitor.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -14085,8 +14210,8 @@
     "description": "",
     "slug": "power-save-blocker",
     "websiteUrl": "http://electronjs.org/docs/api/power-save-blocker",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/power-save-blocker.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/power-save-blocker.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -14166,8 +14291,8 @@
     "description": "",
     "slug": "process",
     "websiteUrl": "http://electronjs.org/docs/api/process",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/process.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/process.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -14525,14 +14650,6 @@
         "type": "Boolean"
       },
       {
-        "name": "enablePromiseAPIs",
-        "description": "A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.",
-        "required": true,
-        "additionalTags": [],
-        "collection": false,
-        "type": "Boolean"
-      },
-      {
         "name": "resourcesPath",
         "description": "A `String` representing the path to the resources directory.",
         "required": true,
@@ -14635,8 +14752,8 @@
     "description": "",
     "slug": "protocol",
     "websiteUrl": "http://electronjs.org/docs/api/protocol",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/protocol.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/protocol.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -16160,8 +16277,8 @@
     "description": "",
     "slug": "remote",
     "websiteUrl": "http://electronjs.org/docs/api/remote",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/remote.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/remote.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -16250,8 +16367,8 @@
     "description": "",
     "slug": "screen",
     "websiteUrl": "http://electronjs.org/docs/api/screen",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/screen.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/screen.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -16522,12 +16639,205 @@
     ]
   },
   {
+    "name": "ServiceWorkers",
+    "description": "",
+    "slug": "service-workers",
+    "websiteUrl": "http://electronjs.org/docs/api/service-workers",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/service-workers.md",
+    "version": "9.0.0",
+    "type": "Class",
+    "process": {
+      "main": true,
+      "renderer": true
+    },
+    "constructorMethod": null,
+    "staticMethods": [],
+    "staticProperties": [],
+    "instanceMethods": [
+      {
+        "name": "getAllRunning",
+        "signature": "()",
+        "description": "A ServiceWorkerInfo object where the keys are the service worker version ID and the values are the information about that service worker.",
+        "parameters": [],
+        "returns": {
+          "collection": false,
+          "type": "Record",
+          "innerTypes": [
+            {
+              "collection": false,
+              "type": "Number"
+            },
+            {
+              "collection": false,
+              "type": "ServiceWorkerInfo"
+            }
+          ]
+        },
+        "additionalTags": []
+      },
+      {
+        "name": "getFromVersionID",
+        "signature": "(versionId)",
+        "description": "Information about this service worker\n\nIf the service worker does not exist or is not running this method will throw an exception.",
+        "parameters": [
+          {
+            "name": "versionId",
+            "description": "",
+            "required": true,
+            "collection": false,
+            "type": "Number"
+          }
+        ],
+        "returns": {
+          "collection": false,
+          "type": "ServiceWorkerInfo"
+        },
+        "additionalTags": []
+      }
+    ],
+    "instanceProperties": [],
+    "instanceEvents": [
+      {
+        "name": "console-message",
+        "description": "Emitted when a service worker logs something to the console.",
+        "parameters": [
+          {
+            "name": "event",
+            "description": "",
+            "collection": false,
+            "type": "Event",
+            "required": true
+          },
+          {
+            "name": "messageDetails",
+            "description": "Information about the console message",
+            "collection": false,
+            "type": "Object",
+            "properties": [
+              {
+                "name": "message",
+                "description": "The actual console message",
+                "required": true,
+                "additionalTags": [],
+                "collection": false,
+                "type": "String",
+                "possibleValues": null
+              },
+              {
+                "name": "versionId",
+                "description": "The version ID of the service worker that sent the log message",
+                "required": true,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Number"
+              },
+              {
+                "name": "source",
+                "description": "The type of source for this message.  Can be `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` or `other`.",
+                "required": true,
+                "additionalTags": [],
+                "collection": false,
+                "type": "String",
+                "possibleValues": [
+                  {
+                    "value": "javascript",
+                    "description": ""
+                  },
+                  {
+                    "value": "xml",
+                    "description": ""
+                  },
+                  {
+                    "value": "network",
+                    "description": ""
+                  },
+                  {
+                    "value": "console-api",
+                    "description": ""
+                  },
+                  {
+                    "value": "storage",
+                    "description": ""
+                  },
+                  {
+                    "value": "app-cache",
+                    "description": ""
+                  },
+                  {
+                    "value": "rendering",
+                    "description": ""
+                  },
+                  {
+                    "value": "security",
+                    "description": ""
+                  },
+                  {
+                    "value": "deprecation",
+                    "description": ""
+                  },
+                  {
+                    "value": "worker",
+                    "description": ""
+                  },
+                  {
+                    "value": "violation",
+                    "description": ""
+                  },
+                  {
+                    "value": "intervention",
+                    "description": ""
+                  },
+                  {
+                    "value": "recommendation",
+                    "description": ""
+                  },
+                  {
+                    "value": "other",
+                    "description": ""
+                  }
+                ]
+              },
+              {
+                "name": "level",
+                "description": "The log level, from 0 to 3.  In order it matches `verbose`, `info`, `warning` and `error`.",
+                "required": true,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Number"
+              },
+              {
+                "name": "sourceUrl",
+                "description": "The URL the message came from",
+                "required": true,
+                "additionalTags": [],
+                "collection": false,
+                "type": "String",
+                "possibleValues": null
+              },
+              {
+                "name": "lineNumber",
+                "description": "The line number of the source that triggered this console message",
+                "required": true,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Number"
+              }
+            ],
+            "required": true
+          }
+        ],
+        "additionalTags": []
+      }
+    ],
+    "instanceName": "serviceWorkers"
+  },
+  {
     "name": "session",
     "description": "",
     "slug": "session",
     "websiteUrl": "http://electronjs.org/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/session.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/session.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -16589,8 +16899,8 @@
     "description": "",
     "slug": "session",
     "websiteUrl": "http://electronjs.org/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/session.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/session.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -16657,7 +16967,7 @@
               },
               {
                 "name": "storages",
-                "description": "The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.",
+                "description": "The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. If not specified, clear all storage types.",
                 "required": false,
                 "additionalTags": [],
                 "collection": true,
@@ -16666,7 +16976,7 @@
               },
               {
                 "name": "quotas",
-                "description": "The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.",
+                "description": "The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`. If not specified, clear all quotas.",
                 "required": false,
                 "additionalTags": [],
                 "collection": true,
@@ -16919,6 +17229,14 @@
                       },
                       {
                         "name": "certificate",
+                        "description": "",
+                        "required": true,
+                        "additionalTags": [],
+                        "collection": false,
+                        "type": "Certificate"
+                      },
+                      {
+                        "name": "validatedCertificate",
                         "description": "",
                         "required": true,
                         "additionalTags": [],
@@ -17509,9 +17827,27 @@
         "additionalTags": []
       },
       {
+        "name": "listWordsInSpellCheckerDictionary",
+        "signature": "()",
+        "description": "An array of all words in app's custom dictionary. Resolves when the full dictionary is loaded from disk.",
+        "parameters": [],
+        "returns": {
+          "collection": false,
+          "type": "Promise",
+          "innerTypes": [
+            {
+              "collection": true,
+              "type": "String",
+              "possibleValues": null
+            }
+          ]
+        },
+        "additionalTags": []
+      },
+      {
         "name": "addWordToSpellCheckerDictionary",
         "signature": "(word)",
-        "description": "Whether the word was successfully written to the custom dictionary.\n\n**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well",
+        "description": "Whether the word was successfully written to the custom dictionary. This API will not work on non-persistent (in-memory) sessions.\n\n**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well",
         "parameters": [
           {
             "name": "word",
@@ -17525,6 +17861,100 @@
         "returns": {
           "collection": false,
           "type": "Boolean"
+        },
+        "additionalTags": []
+      },
+      {
+        "name": "removeWordFromSpellCheckerDictionary",
+        "signature": "(word)",
+        "description": "Whether the word was successfully removed from the custom dictionary. This API will not work on non-persistent (in-memory) sessions.\n\n**Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well",
+        "parameters": [
+          {
+            "name": "word",
+            "description": "The word you want to remove from the dictionary",
+            "required": true,
+            "collection": false,
+            "type": "String",
+            "possibleValues": null
+          }
+        ],
+        "returns": {
+          "collection": false,
+          "type": "Boolean"
+        },
+        "additionalTags": []
+      },
+      {
+        "name": "loadExtension",
+        "signature": "(path)",
+        "description": "resolves when the extension is loaded.\n\nThis method will raise an exception if the extension could not be loaded. If there are warnings when installing the extension (e.g. if the extension requests an API that Electron does not support) then they will be logged to the console.\n\nNote that Electron does not support the full range of Chrome extensions APIs.\n\nNote that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.\n\nThis API does not support loading packed (.crx) extensions.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.",
+        "parameters": [
+          {
+            "name": "path",
+            "description": "Path to a directory containing an unpacked Chrome extension",
+            "required": true,
+            "collection": false,
+            "type": "String",
+            "possibleValues": null
+          }
+        ],
+        "returns": {
+          "collection": false,
+          "type": "Promise",
+          "innerTypes": [
+            {
+              "collection": false,
+              "type": "Extension"
+            }
+          ]
+        },
+        "additionalTags": []
+      },
+      {
+        "name": "removeExtension",
+        "signature": "(extensionId)",
+        "description": "Unloads an extension.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.",
+        "parameters": [
+          {
+            "name": "extensionId",
+            "description": "ID of extension to remove",
+            "required": true,
+            "collection": false,
+            "type": "String",
+            "possibleValues": null
+          }
+        ],
+        "returns": null,
+        "additionalTags": []
+      },
+      {
+        "name": "getExtension",
+        "signature": "(extensionId)",
+        "description": "| `null` - The loaded extension with the given ID.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.",
+        "parameters": [
+          {
+            "name": "extensionId",
+            "description": "ID of extension to query",
+            "required": true,
+            "collection": false,
+            "type": "String",
+            "possibleValues": null
+          }
+        ],
+        "returns": {
+          "collection": false,
+          "type": "Extension"
+        },
+        "additionalTags": []
+      },
+      {
+        "name": "getAllExtensions",
+        "signature": "()",
+        "description": "A list of all loaded extensions.\n\n**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.",
+        "parameters": [],
+        "returns": {
+          "collection": true,
+          "type": "Extension"
         },
         "additionalTags": []
       }
@@ -17550,6 +17980,16 @@
         ],
         "collection": false,
         "type": "Cookies"
+      },
+      {
+        "name": "serviceWorkers",
+        "description": "A `ServiceWorkers` object for this session.",
+        "required": true,
+        "additionalTags": [
+          "availability_readonly"
+        ],
+        "collection": false,
+        "type": "ServiceWorkers"
       },
       {
         "name": "webRequest",
@@ -17736,8 +18176,8 @@
     "description": "",
     "slug": "shell",
     "websiteUrl": "http://electronjs.org/docs/api/shell",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/shell.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/shell.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -17762,12 +18202,12 @@
         "additionalTags": []
       },
       {
-        "name": "openItem",
-        "signature": "(fullPath)",
-        "description": "Whether the item was successfully opened.\n\nOpen the given file in the desktop's default manner.",
+        "name": "openPath",
+        "signature": "(path)",
+        "description": "Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise \"\".\n\nOpen the given file in the desktop's default manner.",
         "parameters": [
           {
-            "name": "fullPath",
+            "name": "path",
             "description": "",
             "required": true,
             "collection": false,
@@ -17777,7 +18217,14 @@
         ],
         "returns": {
           "collection": false,
-          "type": "Boolean"
+          "type": "Promise",
+          "innerTypes": [
+            {
+              "collection": false,
+              "type": "String",
+              "possibleValues": null
+            }
+          ]
         },
         "additionalTags": []
       },
@@ -17953,8 +18400,8 @@
     "description": "",
     "slug": "system-preferences",
     "websiteUrl": "http://electronjs.org/docs/api/system-preferences",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/system-preferences.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/system-preferences.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -18547,7 +18994,7 @@
       {
         "name": "getColor",
         "signature": "(color)",
-        "description": "The system color setting in RGB hexadecimal form (`#ABCDEF`). See the Windows docs and the MacOS docs for more details.\n\nThe following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.",
+        "description": "The system color setting in RGB hexadecimal form (`#ABCDEF`). See the Windows docs and the macOS docs for more details.\n\nThe following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.",
         "parameters": [
           {
             "name": "color",
@@ -18898,7 +19345,7 @@
       {
         "name": "isHighContrastColorScheme",
         "signature": "()",
-        "description": "`true` if a high contrast theme is active, `false` otherwise.\n\n**Depreacted:** Should use the new `nativeTheme.shouldUseHighContrastColors` API.",
+        "description": "`true` if a high contrast theme is active, `false` otherwise.\n\n**Deprecated:** Should use the new `nativeTheme.shouldUseHighContrastColors` API.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -18913,7 +19360,7 @@
       {
         "name": "getEffectiveAppearance",
         "signature": "()",
-        "description": "Can be `dark`, `light` or `unknown`.\n\nGets the macOS appearance setting that is currently applied to your application, maps to NSApplication.effectiveAppearance\n\n**Deprecated**",
+        "description": "Can be `dark`, `light` or `unknown`.\n\nGets the macOS appearance setting that is currently applied to your application, maps to NSApplication.effectiveAppearance",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -18940,7 +19387,7 @@
       {
         "name": "getAppLevelAppearance",
         "signature": "()",
-        "description": "| `null` - Can be `dark`, `light` or `unknown`.\n\nGets the macOS appearance setting that you have declared you want for your application, maps to NSApplication.appearance. You can use the `setAppLevelAppearance` API to set this value.\n\n**Deprecated**",
+        "description": "| `null` - Can be `dark`, `light` or `unknown`.\n\nGets the macOS appearance setting that you have declared you want for your application, maps to NSApplication.appearance. You can use the `setAppLevelAppearance` API to set this value.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -18968,7 +19415,7 @@
       {
         "name": "setAppLevelAppearance",
         "signature": "(appearance)",
-        "description": "Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.\n\n**Deprecated**",
+        "description": "Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.",
         "parameters": [
           {
             "name": "appearance",
@@ -19344,8 +19791,8 @@
     "description": "",
     "slug": "touch-bar-button",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-button",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/touch-bar-button.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/touch-bar-button.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -19437,6 +19884,14 @@
               "type": "Function",
               "parameters": [],
               "returns": null
+            },
+            {
+              "name": "enabled",
+              "description": "Whether the button is in an enabled state.  Default is `true`.",
+              "required": false,
+              "additionalTags": [],
+              "collection": false,
+              "type": "Boolean"
             }
           ]
         }
@@ -19480,6 +19935,14 @@
         "additionalTags": [],
         "collection": false,
         "type": "NativeImage"
+      },
+      {
+        "name": "enabled",
+        "description": "A `Boolean` representing whether the button is in an enabled state.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "Boolean"
       }
     ],
     "instanceEvents": [],
@@ -19490,8 +19953,8 @@
     "description": "",
     "slug": "touch-bar-color-picker",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-color-picker",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/touch-bar-color-picker.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/touch-bar-color-picker.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -19579,8 +20042,8 @@
     "description": "",
     "slug": "touch-bar-group",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-group",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/touch-bar-group.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/touch-bar-group.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -19620,8 +20083,8 @@
     "description": "",
     "slug": "touch-bar-label",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-label",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/touch-bar-label.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/touch-bar-label.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -19708,8 +20171,8 @@
     "description": "",
     "slug": "touch-bar-popover",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-popover",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/touch-bar-popover.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/touch-bar-popover.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -19792,8 +20255,8 @@
     "description": "",
     "slug": "touch-bar-scrubber",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-scrubber",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/touch-bar-scrubber.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/touch-bar-scrubber.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -20034,8 +20497,8 @@
     "description": "",
     "slug": "touch-bar-segmented-control",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-segmented-control",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/touch-bar-segmented-control.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/touch-bar-segmented-control.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -20198,8 +20661,8 @@
     "description": "",
     "slug": "touch-bar-slider",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-slider",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/touch-bar-slider.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/touch-bar-slider.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -20316,8 +20779,8 @@
     "description": "",
     "slug": "touch-bar-spacer",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-spacer",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/touch-bar-spacer.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/touch-bar-spacer.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -20371,8 +20834,8 @@
     "description": "",
     "slug": "touch-bar",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/touch-bar.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/touch-bar.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -20580,15 +21043,15 @@
     "description": "",
     "slug": "tray",
     "websiteUrl": "http://electronjs.org/docs/api/tray",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/tray.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/tray.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
       "renderer": true
     },
     "constructorMethod": {
-      "signature": "(image)",
+      "signature": "(image, [guid])",
       "parameters": [
         {
           "name": "image",
@@ -20606,6 +21069,14 @@
               "possibleValues": null
             }
           ]
+        },
+        {
+          "name": "guid",
+          "description": "Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.",
+          "required": false,
+          "collection": false,
+          "type": "String",
+          "possibleValues": null
         }
       ]
     },
@@ -20912,6 +21383,17 @@
         ]
       },
       {
+        "name": "closeContextMenu",
+        "signature": "()",
+        "description": "Closes an open context menu, as set by `tray.setContextMenu()`.",
+        "parameters": [],
+        "returns": null,
+        "additionalTags": [
+          "os_macos",
+          "os_windows"
+        ]
+      },
+      {
         "name": "setContextMenu",
         "signature": "(menu)",
         "description": "Sets the context menu for this icon.",
@@ -21145,6 +21627,52 @@
         ]
       },
       {
+        "name": "mouse-up",
+        "description": "Emitted when the mouse is released from clicking the tray icon.\n\nNote: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.",
+        "parameters": [
+          {
+            "name": "event",
+            "description": "",
+            "collection": false,
+            "type": "KeyboardEvent",
+            "required": true
+          },
+          {
+            "name": "position",
+            "description": "The position of the event.",
+            "collection": false,
+            "type": "Point",
+            "required": true
+          }
+        ],
+        "additionalTags": [
+          "os_macos"
+        ]
+      },
+      {
+        "name": "mouse-down",
+        "description": "Emitted when the mouse clicks the tray icon.",
+        "parameters": [
+          {
+            "name": "event",
+            "description": "",
+            "collection": false,
+            "type": "KeyboardEvent",
+            "required": true
+          },
+          {
+            "name": "position",
+            "description": "The position of the event.",
+            "collection": false,
+            "type": "Point",
+            "required": true
+          }
+        ],
+        "additionalTags": [
+          "os_macos"
+        ]
+      },
+      {
         "name": "mouse-enter",
         "description": "Emitted when the mouse enters the tray icon.",
         "parameters": [
@@ -21222,8 +21750,8 @@
     "description": "",
     "slug": "web-contents",
     "websiteUrl": "http://electronjs.org/docs/api/web-contents",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/web-contents.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/web-contents.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -21280,8 +21808,8 @@
     "description": "",
     "slug": "web-contents",
     "websiteUrl": "http://electronjs.org/docs/api/web-contents",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/web-contents.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/web-contents.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -21704,7 +22232,7 @@
       {
         "name": "setUserAgent",
         "signature": "(userAgent)",
-        "description": "Overrides the user agent for this web page.\n\n**Deprecated**",
+        "description": "Overrides the user agent for this web page.",
         "parameters": [
           {
             "name": "userAgent",
@@ -21721,7 +22249,7 @@
       {
         "name": "getUserAgent",
         "signature": "()",
-        "description": "The user agent for this web page.\n\n**Deprecated**",
+        "description": "The user agent for this web page.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -21894,7 +22422,7 @@
       {
         "name": "setAudioMuted",
         "signature": "(muted)",
-        "description": "Mute the audio on the current web page.\n\n**Deprecated**",
+        "description": "Mute the audio on the current web page.",
         "parameters": [
           {
             "name": "muted",
@@ -21910,7 +22438,7 @@
       {
         "name": "isAudioMuted",
         "signature": "()",
-        "description": "Whether this page has been muted.\n\n**Deprecated**",
+        "description": "Whether this page has been muted.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -21932,7 +22460,7 @@
       {
         "name": "setZoomFactor",
         "signature": "(factor)",
-        "description": "Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.\n\nThe factor must be greater than 0.0.\n\n**Deprecated**",
+        "description": "Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.\n\nThe factor must be greater than 0.0.",
         "parameters": [
           {
             "name": "factor",
@@ -21948,7 +22476,7 @@
       {
         "name": "getZoomFactor",
         "signature": "()",
-        "description": "the current zoom factor.\n\n**Deprecated**",
+        "description": "the current zoom factor.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -21959,7 +22487,7 @@
       {
         "name": "setZoomLevel",
         "signature": "(level)",
-        "description": "Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.\n\n**Deprecated**",
+        "description": "Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.",
         "parameters": [
           {
             "name": "level",
@@ -21975,7 +22503,7 @@
       {
         "name": "getZoomLevel",
         "signature": "()",
-        "description": "the current zoom level.\n\n**Deprecated**",
+        "description": "the current zoom level.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -22014,40 +22542,6 @@
           ]
         },
         "additionalTags": []
-      },
-      {
-        "name": "setLayoutZoomLevelLimits",
-        "signature": "(minimumLevel, maximumLevel)",
-        "description": "Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.\n\n**Deprecated:** This API is no longer supported by Chromium.",
-        "parameters": [
-          {
-            "name": "minimumLevel",
-            "description": "",
-            "required": true,
-            "collection": false,
-            "type": "Number"
-          },
-          {
-            "name": "maximumLevel",
-            "description": "",
-            "required": true,
-            "collection": false,
-            "type": "Number"
-          }
-        ],
-        "returns": {
-          "collection": false,
-          "type": "Promise",
-          "innerTypes": [
-            {
-              "collection": false,
-              "type": "void"
-            }
-          ]
-        },
-        "additionalTags": [
-          "stability_deprecated"
-        ]
       },
       {
         "name": "undo",
@@ -22544,7 +23038,7 @@
               },
               {
                 "name": "pageRanges",
-                "description": "The page range to print. Should have two keys: `from` and `to`.",
+                "description": "The page range to print.",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
@@ -22588,23 +23082,15 @@
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
-                "type": "Object",
-                "properties": [
+                "type": "Record",
+                "innerTypes": [
                   {
-                    "name": "horizontal",
-                    "description": "The horizontal dpi.",
-                    "required": false,
-                    "additionalTags": [],
                     "collection": false,
-                    "type": "Number"
+                    "type": "string"
                   },
                   {
-                    "name": "vertical",
-                    "description": "The vertical dpi.",
-                    "required": false,
-                    "additionalTags": [],
                     "collection": false,
-                    "type": "Number"
+                    "type": "number"
                   }
                 ]
               },
@@ -22625,6 +23111,24 @@
                 "collection": false,
                 "type": "String",
                 "possibleValues": null
+              },
+              {
+                "name": "pageSize",
+                "description": "Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": [
+                  {
+                    "collection": false,
+                    "type": "String",
+                    "possibleValues": null
+                  },
+                  {
+                    "collection": false,
+                    "type": "Size"
+                  }
+                ]
               }
             ]
           },
@@ -22670,16 +23174,68 @@
             "type": "Object",
             "properties": [
               {
+                "name": "headerFooter",
+                "description": "the header and footer for the PDF.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Record",
+                "innerTypes": [
+                  {
+                    "collection": false,
+                    "type": "string"
+                  },
+                  {
+                    "collection": false,
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "name": "landscape",
+                "description": "`true` for landscape, `false` for portrait.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Boolean"
+              },
+              {
                 "name": "marginsType",
-                "description": "Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.",
+                "description": "Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
                 "type": "Integer"
               },
               {
+                "name": "scaleFactor",
+                "description": "The scale factor of the web page. Can range from 0 to 100.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Number"
+              },
+              {
+                "name": "pageRanges",
+                "description": "The page range to print.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Record",
+                "innerTypes": [
+                  {
+                    "collection": false,
+                    "type": "string"
+                  },
+                  {
+                    "collection": false,
+                    "type": "number"
+                  }
+                ]
+              },
+              {
                 "name": "pageSize",
-                "description": "Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.",
+                "description": "Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
@@ -22706,14 +23262,6 @@
               {
                 "name": "printSelectionOnly",
                 "description": "Whether to print selection only.",
-                "required": false,
-                "additionalTags": [],
-                "collection": false,
-                "type": "Boolean"
-              },
-              {
-                "name": "landscape",
-                "description": "`true` for landscape, `false` for portrait.",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
@@ -23310,7 +23858,7 @@
       {
         "name": "setFrameRate",
         "signature": "(fps)",
-        "description": "If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.\n\n**Deprecated**",
+        "description": "If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.",
         "parameters": [
           {
             "name": "fps",
@@ -23326,7 +23874,7 @@
       {
         "name": "getFrameRate",
         "signature": "()",
-        "description": "If *offscreen rendering* is enabled returns the current frame rate.\n\n**Deprecated**",
+        "description": "If *offscreen rendering* is enabled returns the current frame rate.",
         "parameters": [],
         "returns": {
           "collection": false,
@@ -23534,7 +24082,7 @@
       },
       {
         "name": "id",
-        "description": "A `Integer` representing the unique ID of this WebContents.",
+        "description": "A `Integer` representing the unique ID of this WebContents. Each ID is unique among all `WebContents` instances of the entire Electron application.",
         "required": true,
         "additionalTags": [
           "availability_readonly"
@@ -25574,27 +26122,6 @@
           }
         ],
         "additionalTags": []
-      },
-      {
-        "name": "remote-get-guest-web-contents",
-        "description": "Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.",
-        "parameters": [
-          {
-            "name": "event",
-            "description": "",
-            "collection": false,
-            "type": "IpcMainEvent",
-            "required": true
-          },
-          {
-            "name": "guestWebContents",
-            "description": "",
-            "collection": false,
-            "type": "WebContents",
-            "required": true
-          }
-        ],
-        "additionalTags": []
       }
     ],
     "instanceName": "webContents"
@@ -25604,8 +26131,8 @@
     "description": "",
     "slug": "web-frame",
     "websiteUrl": "http://electronjs.org/docs/api/web-frame",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/web-frame.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/web-frame.md",
+    "version": "9.0.0",
     "type": "Module",
     "process": {
       "main": true,
@@ -25688,31 +26215,6 @@
         ],
         "returns": null,
         "additionalTags": []
-      },
-      {
-        "name": "setLayoutZoomLevelLimits",
-        "signature": "(minimumLevel, maximumLevel)",
-        "description": "Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.\n\n**Deprecated:** This API is no longer supported by Chromium.",
-        "parameters": [
-          {
-            "name": "minimumLevel",
-            "description": "",
-            "required": true,
-            "collection": false,
-            "type": "Number"
-          },
-          {
-            "name": "maximumLevel",
-            "description": "",
-            "required": true,
-            "collection": false,
-            "type": "Number"
-          }
-        ],
-        "returns": null,
-        "additionalTags": [
-          "stability_deprecated"
-        ]
       },
       {
         "name": "setSpellCheckProvider",
@@ -25834,8 +26336,8 @@
       },
       {
         "name": "executeJavaScript",
-        "signature": "(code[, userGesture])",
-        "description": "A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.\n\nEvaluates `code` in page.\n\nIn the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.",
+        "signature": "(code[, userGesture, callback])",
+        "description": "A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.\n\nEvaluates `code` in page.\n\nIn the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.",
         "parameters": [
           {
             "name": "code",
@@ -25851,6 +26353,30 @@
             "required": false,
             "collection": false,
             "type": "Boolean"
+          },
+          {
+            "name": "callback",
+            "description": "Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.",
+            "required": false,
+            "collection": false,
+            "type": "Function",
+            "parameters": [
+              {
+                "name": "result",
+                "description": "",
+                "required": true,
+                "collection": false,
+                "type": "Any"
+              },
+              {
+                "name": "error",
+                "description": "",
+                "required": true,
+                "collection": false,
+                "type": "Error"
+              }
+            ],
+            "returns": null
           }
         ],
         "returns": {
@@ -25867,12 +26393,12 @@
       },
       {
         "name": "executeJavaScriptInIsolatedWorld",
-        "signature": "(worldId, scripts[, userGesture])",
-        "description": "A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.\n\nWorks like `executeJavaScript` but evaluates `scripts` in an isolated context.",
+        "signature": "(worldId, scripts[, userGesture, callback])",
+        "description": "A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.\n\nWorks like `executeJavaScript` but evaluates `scripts` in an isolated context.",
         "parameters": [
           {
             "name": "worldId",
-            "description": "The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature.  You can provide any integer here.",
+            "description": "The ID of the world to run the javascript in, `0` is the default main world (where content runs), `999` is the world used by Electron's `contextIsolation` feature. Accepts values in the range 1..536870911.",
             "required": true,
             "collection": false,
             "type": "Integer"
@@ -25890,6 +26416,30 @@
             "required": false,
             "collection": false,
             "type": "Boolean"
+          },
+          {
+            "name": "callback",
+            "description": "Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.",
+            "required": false,
+            "collection": false,
+            "type": "Function",
+            "parameters": [
+              {
+                "name": "result",
+                "description": "",
+                "required": true,
+                "collection": false,
+                "type": "Any"
+              },
+              {
+                "name": "error",
+                "description": "",
+                "required": true,
+                "collection": false,
+                "type": "Error"
+              }
+            ],
+            "returns": null
           }
         ],
         "returns": {
@@ -26199,8 +26749,8 @@
     "description": "",
     "slug": "web-request",
     "websiteUrl": "http://electronjs.org/docs/api/web-request",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/web-request.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/web-request.md",
+    "version": "9.0.0",
     "type": "Class",
     "process": {
       "main": true,
@@ -27564,8 +28114,8 @@
     "description": "",
     "slug": "webview-tag",
     "websiteUrl": "http://electronjs.org/docs/api/webview-tag",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/webview-tag.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/webview-tag.md",
+    "version": "9.0.0",
     "type": "Element",
     "process": {
       "main": true,
@@ -28361,7 +28911,7 @@
               },
               {
                 "name": "printBackground",
-                "description": "Also prints the background color and image of the web page. Default is `false`.",
+                "description": "Prints the background color and image of the web page. Default is `false`.",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
@@ -28369,12 +28919,222 @@
               },
               {
                 "name": "deviceName",
-                "description": "Set the printer device name to use. Default is `''`.",
+                "description": "Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
                 "type": "String",
                 "possibleValues": null
+              },
+              {
+                "name": "color",
+                "description": "Set whether the printed web page will be in color or grayscale. Default is `true`.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Boolean"
+              },
+              {
+                "name": "margins",
+                "description": "",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Object",
+                "properties": [
+                  {
+                    "name": "marginType",
+                    "description": "Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.",
+                    "required": false,
+                    "additionalTags": [],
+                    "collection": false,
+                    "type": "String",
+                    "possibleValues": [
+                      {
+                        "value": "default",
+                        "description": ""
+                      },
+                      {
+                        "value": "none",
+                        "description": ""
+                      },
+                      {
+                        "value": "printableArea",
+                        "description": ""
+                      },
+                      {
+                        "value": "custom",
+                        "description": ""
+                      }
+                    ]
+                  },
+                  {
+                    "name": "top",
+                    "description": "The top margin of the printed web page, in pixels.",
+                    "required": false,
+                    "additionalTags": [],
+                    "collection": false,
+                    "type": "Number"
+                  },
+                  {
+                    "name": "bottom",
+                    "description": "The bottom margin of the printed web page, in pixels.",
+                    "required": false,
+                    "additionalTags": [],
+                    "collection": false,
+                    "type": "Number"
+                  },
+                  {
+                    "name": "left",
+                    "description": "The left margin of the printed web page, in pixels.",
+                    "required": false,
+                    "additionalTags": [],
+                    "collection": false,
+                    "type": "Number"
+                  },
+                  {
+                    "name": "right",
+                    "description": "The right margin of the printed web page, in pixels.",
+                    "required": false,
+                    "additionalTags": [],
+                    "collection": false,
+                    "type": "Number"
+                  }
+                ]
+              },
+              {
+                "name": "landscape",
+                "description": "Whether the web page should be printed in landscape mode. Default is `false`.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Boolean"
+              },
+              {
+                "name": "scaleFactor",
+                "description": "The scale factor of the web page.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Number"
+              },
+              {
+                "name": "pagesPerSheet",
+                "description": "The number of pages to print per page sheet.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Number"
+              },
+              {
+                "name": "collate",
+                "description": "Whether the web page should be collated.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Boolean"
+              },
+              {
+                "name": "copies",
+                "description": "The number of copies of the web page to print.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Number"
+              },
+              {
+                "name": "pageRanges",
+                "description": "The page range to print.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Record",
+                "innerTypes": [
+                  {
+                    "collection": false,
+                    "type": "string"
+                  },
+                  {
+                    "collection": false,
+                    "type": "number"
+                  }
+                ]
+              },
+              {
+                "name": "duplexMode",
+                "description": "Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "String",
+                "possibleValues": [
+                  {
+                    "value": "simplex",
+                    "description": ""
+                  },
+                  {
+                    "value": "shortEdge",
+                    "description": ""
+                  },
+                  {
+                    "value": "longEdge",
+                    "description": ""
+                  }
+                ]
+              },
+              {
+                "name": "dpi",
+                "description": "",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Record",
+                "innerTypes": [
+                  {
+                    "collection": false,
+                    "type": "string"
+                  },
+                  {
+                    "collection": false,
+                    "type": "number"
+                  }
+                ]
+              },
+              {
+                "name": "header",
+                "description": "String to be printed as page header.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "String",
+                "possibleValues": null
+              },
+              {
+                "name": "footer",
+                "description": "String to be printed as page footer.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "String",
+                "possibleValues": null
+              },
+              {
+                "name": "pageSize",
+                "description": "Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": [
+                  {
+                    "collection": false,
+                    "type": "String",
+                    "possibleValues": null
+                  },
+                  {
+                    "collection": false,
+                    "type": "Size"
+                  }
+                ]
               }
             ]
           }
@@ -28404,16 +29164,68 @@
             "type": "Object",
             "properties": [
               {
+                "name": "headerFooter",
+                "description": "the header and footer for the PDF.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Record",
+                "innerTypes": [
+                  {
+                    "collection": false,
+                    "type": "string"
+                  },
+                  {
+                    "collection": false,
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "name": "landscape",
+                "description": "`true` for landscape, `false` for portrait.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Boolean"
+              },
+              {
                 "name": "marginsType",
-                "description": "Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.",
+                "description": "Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
                 "type": "Integer"
               },
               {
+                "name": "scaleFactor",
+                "description": "The scale factor of the web page. Can range from 0 to 100.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Number"
+              },
+              {
+                "name": "pageRanges",
+                "description": "The page range to print.",
+                "required": false,
+                "additionalTags": [],
+                "collection": false,
+                "type": "Record",
+                "innerTypes": [
+                  {
+                    "collection": false,
+                    "type": "string"
+                  },
+                  {
+                    "collection": false,
+                    "type": "number"
+                  }
+                ]
+              },
+              {
                 "name": "pageSize",
-                "description": "Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.",
+                "description": "Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
@@ -28440,14 +29252,6 @@
               {
                 "name": "printSelectionOnly",
                 "description": "Whether to print selection only.",
-                "required": false,
-                "additionalTags": [],
-                "collection": false,
-                "type": "Boolean"
-              },
-              {
-                "name": "landscape",
-                "description": "`true` for landscape, `false` for portrait.",
                 "required": false,
                 "additionalTags": [],
                 "collection": false,
@@ -28651,40 +29455,6 @@
         "additionalTags": []
       },
       {
-        "name": "setLayoutZoomLevelLimits",
-        "signature": "(minimumLevel, maximumLevel)",
-        "description": "Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.\n\n**Deprecated:** This API is no longer supported by Chromium.",
-        "parameters": [
-          {
-            "name": "minimumLevel",
-            "description": "",
-            "required": true,
-            "collection": false,
-            "type": "Number"
-          },
-          {
-            "name": "maximumLevel",
-            "description": "",
-            "required": true,
-            "collection": false,
-            "type": "Number"
-          }
-        ],
-        "returns": {
-          "collection": false,
-          "type": "Promise",
-          "innerTypes": [
-            {
-              "collection": false,
-              "type": "void"
-            }
-          ]
-        },
-        "additionalTags": [
-          "stability_deprecated"
-        ]
-      },
-      {
         "name": "showDefinitionForSelection",
         "signature": "()",
         "description": "Shows pop-up dictionary that searches the selected word on the page.",
@@ -28692,19 +29462,6 @@
         "returns": null,
         "additionalTags": [
           "os_macos"
-        ]
-      },
-      {
-        "name": "getWebContents",
-        "signature": "()",
-        "description": "The web contents associated with this `webview`.\n\nIt depends on the `remote` module, it is therefore not available when this module is disabled.",
-        "parameters": [],
-        "returns": {
-          "collection": false,
-          "type": "WebContents"
-        },
-        "additionalTags": [
-          "stability_deprecated"
         ]
       },
       {
@@ -29327,8 +30084,8 @@
     "description": "",
     "slug": "bluetooth-device",
     "websiteUrl": "http://electronjs.org/docs/api/structures/bluetooth-device",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/bluetooth-device.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/bluetooth-device.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "deviceName",
@@ -29356,8 +30113,8 @@
     "description": "",
     "slug": "certificate-principal",
     "websiteUrl": "http://electronjs.org/docs/api/structures/certificate-principal",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/certificate-principal.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/certificate-principal.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "commonName",
@@ -29421,8 +30178,8 @@
     "description": "",
     "slug": "certificate",
     "websiteUrl": "http://electronjs.org/docs/api/structures/certificate",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/certificate.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/certificate.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "data",
@@ -29517,8 +30274,8 @@
     "description": "",
     "slug": "cookie",
     "websiteUrl": "http://electronjs.org/docs/api/structures/cookie",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/cookie.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/cookie.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "name",
@@ -29604,8 +30361,8 @@
     "description": "",
     "slug": "cpu-usage",
     "websiteUrl": "http://electronjs.org/docs/api/structures/cpu-usage",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/cpu-usage.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/cpu-usage.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "percentCPUUsage",
@@ -29631,8 +30388,8 @@
     "description": "",
     "slug": "crash-report",
     "websiteUrl": "http://electronjs.org/docs/api/structures/crash-report",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/crash-report.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/crash-report.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "date",
@@ -29659,8 +30416,8 @@
     "description": "",
     "slug": "custom-scheme",
     "websiteUrl": "http://electronjs.org/docs/api/structures/custom-scheme",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/custom-scheme.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/custom-scheme.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "scheme",
@@ -29737,8 +30494,8 @@
     "description": "",
     "slug": "desktop-capturer-source",
     "websiteUrl": "http://electronjs.org/docs/api/structures/desktop-capturer-source",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/desktop-capturer-source.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/desktop-capturer-source.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "id",
@@ -29791,8 +30548,8 @@
     "description": "The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.",
     "slug": "display",
     "websiteUrl": "http://electronjs.org/docs/api/structures/display",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/display.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/display.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "id",
@@ -29944,8 +30701,8 @@
     "description": "",
     "slug": "event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/event",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/event.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/event.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "preventDefault",
@@ -29963,8 +30720,8 @@
     "description": "",
     "slug": "extension-info",
     "websiteUrl": "http://electronjs.org/docs/api/structures/extension-info",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/extension-info.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/extension-info.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "name",
@@ -29988,12 +30745,76 @@
   },
   {
     "type": "Structure",
+    "name": "Extension",
+    "description": "",
+    "slug": "extension",
+    "websiteUrl": "http://electronjs.org/docs/api/structures/extension",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/extension.md",
+    "version": "9.0.0",
+    "properties": [
+      {
+        "name": "id",
+        "description": "",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "String",
+        "possibleValues": null
+      },
+      {
+        "name": "manifest",
+        "description": "Copy of the extension's manifest data.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "any"
+      },
+      {
+        "name": "name",
+        "description": "",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "String",
+        "possibleValues": null
+      },
+      {
+        "name": "path",
+        "description": "The extension's file path.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "String",
+        "possibleValues": null
+      },
+      {
+        "name": "version",
+        "description": "",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "String",
+        "possibleValues": null
+      },
+      {
+        "name": "url",
+        "description": "The extension's `chrome-extension://` URL.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "String",
+        "possibleValues": null
+      }
+    ]
+  },
+  {
+    "type": "Structure",
     "name": "FileFilter",
     "description": "",
     "slug": "file-filter",
     "websiteUrl": "http://electronjs.org/docs/api/structures/file-filter",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/file-filter.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/file-filter.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "name",
@@ -30021,8 +30842,8 @@
     "description": "",
     "slug": "file-path-with-headers",
     "websiteUrl": "http://electronjs.org/docs/api/structures/file-path-with-headers",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/file-path-with-headers.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/file-path-with-headers.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "path",
@@ -30059,8 +30880,8 @@
     "description": "Possible values:\n\n* `disabled_software` - Software only. Hardware acceleration disabled (yellow)\n* `disabled_off` - Disabled (red)\n* `disabled_off_ok` - Disabled (yellow)\n* `unavailable_software` - Software only, hardware acceleration unavailable (yellow)\n* `unavailable_off` - Unavailable (red)\n* `unavailable_off_ok` - Unavailable (yellow)\n* `enabled_readback` - Hardware accelerated but at reduced performance (yellow)\n* `enabled_force` - Hardware accelerated on all pages (green)\n* `enabled` - Hardware accelerated (green)\n* `enabled_on` - Enabled (green)\n* `enabled_force_on` - Force enabled (green)",
     "slug": "gpu-feature-status",
     "websiteUrl": "http://electronjs.org/docs/api/structures/gpu-feature-status",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/gpu-feature-status.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/gpu-feature-status.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "2d_canvas",
@@ -30187,8 +31008,8 @@
     "description": "",
     "slug": "input-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/input-event",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/input-event.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/input-event.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "modifiers",
@@ -30272,8 +31093,8 @@
     "description": "",
     "slug": "io-counters",
     "websiteUrl": "http://electronjs.org/docs/api/structures/io-counters",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/io-counters.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/io-counters.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "readOperationCount",
@@ -30332,8 +31153,8 @@
     "description": "",
     "slug": "ipc-main-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/ipc-main-event",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/ipc-main-event.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/ipc-main-event.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "frameId",
@@ -30368,6 +31189,14 @@
         "type": "Function",
         "parameters": [
           {
+            "name": "channel",
+            "description": "",
+            "required": true,
+            "collection": false,
+            "type": "String",
+            "possibleValues": null
+          },
+          {
             "name": "...args",
             "description": "",
             "required": true,
@@ -30386,8 +31215,8 @@
     "description": "",
     "slug": "ipc-main-invoke-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/ipc-main-invoke-event",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/ipc-main-invoke-event.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/ipc-main-invoke-event.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "frameId",
@@ -30414,8 +31243,8 @@
     "description": "",
     "slug": "ipc-renderer-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/ipc-renderer-event",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/ipc-renderer-event.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/ipc-renderer-event.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "sender",
@@ -30441,8 +31270,8 @@
     "description": "**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.",
     "slug": "jump-list-category",
     "websiteUrl": "http://electronjs.org/docs/api/structures/jump-list-category",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/jump-list-category.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/jump-list-category.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "type",
@@ -30495,8 +31324,8 @@
     "description": "",
     "slug": "jump-list-item",
     "websiteUrl": "http://electronjs.org/docs/api/structures/jump-list-item",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/jump-list-item.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/jump-list-item.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "type",
@@ -30600,8 +31429,8 @@
     "description": "",
     "slug": "keyboard-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/keyboard-event",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/keyboard-event.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/keyboard-event.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "ctrlKey",
@@ -30652,8 +31481,8 @@
     "description": "",
     "slug": "keyboard-input-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/keyboard-input-event",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/keyboard-input-event.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/keyboard-input-event.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "type",
@@ -30694,8 +31523,8 @@
     "description": "Note that all statistics are reported in Kilobytes.",
     "slug": "memory-info",
     "websiteUrl": "http://electronjs.org/docs/api/structures/memory-info",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/memory-info.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/memory-info.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "workingSetSize",
@@ -30731,8 +31560,8 @@
     "description": "",
     "slug": "memory-usage-details",
     "websiteUrl": "http://electronjs.org/docs/api/structures/memory-usage-details",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/memory-usage-details.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/memory-usage-details.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "count",
@@ -30766,8 +31595,8 @@
     "description": "",
     "slug": "mime-typed-buffer",
     "websiteUrl": "http://electronjs.org/docs/api/structures/mime-typed-buffer",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/mime-typed-buffer.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/mime-typed-buffer.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "mimeType",
@@ -30795,8 +31624,8 @@
     "description": "",
     "slug": "mouse-input-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/mouse-input-event",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/mouse-input-event.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/mouse-input-event.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "type",
@@ -30923,8 +31752,8 @@
     "description": "",
     "slug": "mouse-wheel-input-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/mouse-wheel-input-event",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/mouse-wheel-input-event.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/mouse-wheel-input-event.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "type",
@@ -31013,8 +31842,8 @@
     "description": "",
     "slug": "new-window-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/new-window-event",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/new-window-event.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/new-window-event.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "newGuest",
@@ -31032,8 +31861,8 @@
     "description": "",
     "slug": "notification-action",
     "websiteUrl": "http://electronjs.org/docs/api/structures/notification-action",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/notification-action.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/notification-action.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "type",
@@ -31066,8 +31895,8 @@
     "description": "**Note:** Both `x` and `y` must be whole integers, when providing a point object as input to an Electron API we will automatically round your `x` and `y` values to the nearest whole integer.",
     "slug": "point",
     "websiteUrl": "http://electronjs.org/docs/api/structures/point",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/point.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/point.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "x",
@@ -31093,12 +31922,21 @@
     "description": "",
     "slug": "printer-info",
     "websiteUrl": "http://electronjs.org/docs/api/structures/printer-info",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/printer-info.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/printer-info.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "name",
-        "description": "",
+        "description": "the name of the printer as understood by the OS.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "String",
+        "possibleValues": null
+      },
+      {
+        "name": "displayName",
+        "description": "the name of the printer as shown in Print Preview.",
         "required": true,
         "additionalTags": [],
         "collection": false,
@@ -31107,7 +31945,7 @@
       },
       {
         "name": "description",
-        "description": "",
+        "description": "a longer description of the printer's type.",
         "required": true,
         "additionalTags": [],
         "collection": false,
@@ -31116,7 +31954,7 @@
       },
       {
         "name": "status",
-        "description": "",
+        "description": "the current status of the printer.",
         "required": true,
         "additionalTags": [],
         "collection": false,
@@ -31124,11 +31962,20 @@
       },
       {
         "name": "isDefault",
-        "description": "",
+        "description": "whether or not a given printer is set as the default printer on the OS.",
         "required": true,
         "additionalTags": [],
         "collection": false,
         "type": "Boolean"
+      },
+      {
+        "name": "options",
+        "description": "an object containing a variable number of platform-specific printer information.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "Object",
+        "properties": []
       }
     ]
   },
@@ -31138,8 +31985,8 @@
     "description": "",
     "slug": "process-memory-info",
     "websiteUrl": "http://electronjs.org/docs/api/structures/process-memory-info",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/process-memory-info.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/process-memory-info.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "residentSet",
@@ -31176,8 +32023,8 @@
     "description": "",
     "slug": "process-metric",
     "websiteUrl": "http://electronjs.org/docs/api/structures/process-metric",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/process-metric.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/process-metric.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "pid",
@@ -31308,8 +32155,8 @@
     "description": "",
     "slug": "product",
     "websiteUrl": "http://electronjs.org/docs/api/structures/product",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/product.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/product.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "productIdentifier",
@@ -31388,8 +32235,8 @@
     "description": "",
     "slug": "protocol-request",
     "websiteUrl": "http://electronjs.org/docs/api/structures/protocol-request",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/protocol-request.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/protocol-request.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "url",
@@ -31434,8 +32281,8 @@
     "description": "",
     "slug": "protocol-response-upload-data",
     "websiteUrl": "http://electronjs.org/docs/api/structures/protocol-response-upload-data",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/protocol-response-upload-data.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/protocol-response-upload-data.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "contentType",
@@ -31472,8 +32319,8 @@
     "description": "",
     "slug": "protocol-response",
     "websiteUrl": "http://electronjs.org/docs/api/structures/protocol-response",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/protocol-response.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/protocol-response.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "error",
@@ -31618,8 +32465,8 @@
     "description": "",
     "slug": "rectangle",
     "websiteUrl": "http://electronjs.org/docs/api/structures/rectangle",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/rectangle.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/rectangle.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "x",
@@ -31661,8 +32508,8 @@
     "description": "",
     "slug": "referrer",
     "websiteUrl": "http://electronjs.org/docs/api/structures/referrer",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/referrer.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/referrer.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "url",
@@ -31723,8 +32570,8 @@
     "description": "",
     "slug": "remove-client-certificate",
     "websiteUrl": "http://electronjs.org/docs/api/structures/remove-client-certificate",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/remove-client-certificate.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/remove-client-certificate.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "type",
@@ -31752,8 +32599,8 @@
     "description": "",
     "slug": "remove-password",
     "websiteUrl": "http://electronjs.org/docs/api/structures/remove-password",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/remove-password.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/remove-password.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "type",
@@ -31834,8 +32681,8 @@
     "description": "",
     "slug": "scrubber-item",
     "websiteUrl": "http://electronjs.org/docs/api/structures/scrubber-item",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/scrubber-item.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/scrubber-item.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "label",
@@ -31862,8 +32709,8 @@
     "description": "",
     "slug": "segmented-control-segment",
     "websiteUrl": "http://electronjs.org/docs/api/structures/segmented-control-segment",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/segmented-control-segment.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/segmented-control-segment.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "label",
@@ -31894,12 +32741,49 @@
   },
   {
     "type": "Structure",
+    "name": "ServiceWorkerInfo",
+    "description": "",
+    "slug": "service-worker-info",
+    "websiteUrl": "http://electronjs.org/docs/api/structures/service-worker-info",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/service-worker-info.md",
+    "version": "9.0.0",
+    "properties": [
+      {
+        "name": "scriptUrl",
+        "description": "The full URL to the script that this service worker runs",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "String",
+        "possibleValues": null
+      },
+      {
+        "name": "scope",
+        "description": "The base URL that this service worker is active for.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "String",
+        "possibleValues": null
+      },
+      {
+        "name": "renderProcessId",
+        "description": "The virtual ID of the process that this service worker is running in.  This is not an OS level PID.  This aligns with the ID set used for `webContents.getProcessId()`.",
+        "required": true,
+        "additionalTags": [],
+        "collection": false,
+        "type": "Number"
+      }
+    ]
+  },
+  {
+    "type": "Structure",
     "name": "SharedWorkerInfo",
     "description": "",
     "slug": "shared-worker-info",
     "websiteUrl": "http://electronjs.org/docs/api/structures/shared-worker-info",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/shared-worker-info.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/shared-worker-info.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "id",
@@ -31927,8 +32811,8 @@
     "description": "",
     "slug": "shortcut-details",
     "websiteUrl": "http://electronjs.org/docs/api/structures/shortcut-details",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/shortcut-details.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/shortcut-details.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "target",
@@ -32000,8 +32884,8 @@
     "description": "",
     "slug": "size",
     "websiteUrl": "http://electronjs.org/docs/api/structures/size",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/size.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/size.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "width",
@@ -32027,8 +32911,8 @@
     "description": "",
     "slug": "stream-protocol-response",
     "websiteUrl": "http://electronjs.org/docs/api/structures/stream-protocol-response",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/stream-protocol-response.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/stream-protocol-response.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "statusCode",
@@ -32093,8 +32977,8 @@
     "description": "",
     "slug": "string-protocol-response",
     "websiteUrl": "http://electronjs.org/docs/api/structures/string-protocol-response",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/string-protocol-response.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/string-protocol-response.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "mimeType",
@@ -32140,8 +33024,8 @@
     "description": "",
     "slug": "task",
     "websiteUrl": "http://electronjs.org/docs/api/structures/task",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/task.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/task.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "program",
@@ -32213,8 +33097,8 @@
     "description": "The `flags` is an array that can include following `String`s:\n\n* `enabled` - The button is active and available to the user.\n* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.\n* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.\n* `nobackground` - Do not draw a button border, use only the image.\n* `hidden` - The button is not shown to the user.\n* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.",
     "slug": "thumbar-button",
     "websiteUrl": "http://electronjs.org/docs/api/structures/thumbar-button",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/thumbar-button.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/thumbar-button.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "icon",
@@ -32260,8 +33144,8 @@
     "description": "",
     "slug": "trace-categories-and-options",
     "websiteUrl": "http://electronjs.org/docs/api/structures/trace-categories-and-options",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/trace-categories-and-options.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/trace-categories-and-options.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "categoryFilter",
@@ -32289,8 +33173,8 @@
     "description": "An example TraceConfig that roughly matches what Chrome DevTools records:",
     "slug": "trace-config",
     "websiteUrl": "http://electronjs.org/docs/api/structures/trace-config",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/trace-config.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/trace-config.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "recording_mode",
@@ -32404,8 +33288,8 @@
     "description": "",
     "slug": "transaction",
     "websiteUrl": "http://electronjs.org/docs/api/structures/transaction",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/transaction.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/transaction.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "transactionIdentifier",
@@ -32516,8 +33400,8 @@
     "description": "",
     "slug": "upload-blob",
     "websiteUrl": "http://electronjs.org/docs/api/structures/upload-blob",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/upload-blob.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/upload-blob.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "type",
@@ -32545,8 +33429,8 @@
     "description": "",
     "slug": "upload-data",
     "websiteUrl": "http://electronjs.org/docs/api/structures/upload-data",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/upload-data.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/upload-data.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "bytes",
@@ -32582,8 +33466,8 @@
     "description": "",
     "slug": "upload-file",
     "websiteUrl": "http://electronjs.org/docs/api/structures/upload-file",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/upload-file.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/upload-file.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "type",
@@ -32635,8 +33519,8 @@
     "description": "",
     "slug": "upload-raw-data",
     "websiteUrl": "http://electronjs.org/docs/api/structures/upload-raw-data",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/upload-raw-data.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/upload-raw-data.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "type",
@@ -32663,8 +33547,8 @@
     "description": "",
     "slug": "web-source",
     "websiteUrl": "http://electronjs.org/docs/api/structures/web-source",
-    "repoUrl": "https://github.com/electron/electron/blob/8.3.0/docs/api/docs/api/structures/web-source.md",
-    "version": "8.3.0",
+    "repoUrl": "https://github.com/electron/electron/blob/9.0.0/docs/api/docs/api/structures/web-source.md",
+    "version": "9.0.0",
     "properties": [
       {
         "name": "code",

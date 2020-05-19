@@ -165,9 +165,10 @@ Clears the session’s HTTP cache.
     `scheme://host:port`.
   * `storages` String[] (optional) - The types of storages to clear, can contain:
     `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`,
-    `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+    `shadercache`, `websql`, `serviceworkers`, `cachestorage`. If not
+    specified, clear all storage types.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain:
-    `temporary`, `persistent`, `syncable`.
+    `temporary`, `persistent`, `syncable`. If not specified, clear all quotas.
 
 Returns `Promise<void>` - resolves when the storage data has been cleared.
 
@@ -310,6 +311,7 @@ the original network configuration.
   * `request` Object
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
+    * `validatedCertificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
     * `errorCode` Integer - Error code.
   * `callback` Function
@@ -529,13 +531,87 @@ note the trailing slash.  The URL to the dictionaries is formed as `${url}${file
 
 **Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
 
+#### `ses.listWordsInSpellCheckerDictionary()`
+
+Returns `Promise<String[]>` - An array of all words in app's custom dictionary.
+Resolves when the full dictionary is loaded from disk.
+
 #### `ses.addWordToSpellCheckerDictionary(word)`
 
 * `word` String - The word you want to add to the dictionary
 
-Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+Returns `Boolean` - Whether the word was successfully written to the custom dictionary. This API
+will not work on non-persistent (in-memory) sessions.
 
 **Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+
+#### `ses.removeWordFromSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to remove from the dictionary
+
+Returns `Boolean` - Whether the word was successfully removed from the custom dictionary. This API
+will not work on non-persistent (in-memory) sessions.
+
+**Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well
+
+#### `ses.loadExtension(path)`
+
+* `path` String - Path to a directory containing an unpacked Chrome extension
+
+Returns `Promise<Extension>` - resolves when the extension is loaded.
+
+This method will raise an exception if the extension could not be loaded. If
+there are warnings when installing the extension (e.g. if the extension
+requests an API that Electron does not support) then they will be logged to the
+console.
+
+Note that Electron does not support the full range of Chrome extensions APIs.
+
+Note that in previous versions of Electron, extensions that were loaded would
+be remembered for future runs of the application. This is no longer the case:
+`loadExtension` must be called on every boot of your app if you want the
+extension to be loaded.
+
+```js
+const { app, session } = require('electron')
+const path = require('path')
+
+app.on('ready', async () => {
+  await session.defaultSession.loadExtension(path.join(__dirname, 'react-devtools'))
+  // Note that in order to use the React DevTools extension, you'll need to
+  // download and unzip a copy of the extension.
+})
+```
+
+This API does not support loading packed (.crx) extensions.
+
+**Note:** This API cannot be called before the `ready` event of the `app` module
+is emitted.
+
+#### `ses.removeExtension(extensionId)`
+
+* `extensionId` String - ID of extension to remove
+
+Unloads an extension.
+
+**Note:** This API cannot be called before the `ready` event of the `app` module
+is emitted.
+
+#### `ses.getExtension(extensionId)`
+
+* `extensionId` String - ID of extension to query
+
+Returns `Extension` | `null` - The loaded extension with the given ID.
+
+**Note:** This API cannot be called before the `ready` event of the `app` module
+is emitted.
+
+#### `ses.getAllExtensions()`
+
+Returns `Extension[]` - A list of all loaded extensions.
+
+**Note:** This API cannot be called before the `ready` event of the `app` module
+is emitted.
 
 ### Instance Properties
 
@@ -550,6 +626,10 @@ code to the `setSpellCheckerLanaguages` API that isn't in this array will result
 
 A [`Cookies`](cookies.md) object for this session.
 
+#### `ses.serviceWorkers` _Readonly_
+
+A [`ServiceWorkers`](service-workers.md) object for this session.
+
 #### `ses.webRequest` _Readonly_
 
 A [`WebRequest`](web-request.md) object for this session.
@@ -562,12 +642,12 @@ A [`Protocol`](protocol.md) object for this session.
 const { app, session } = require('electron')
 const path = require('path')
 
-app.on('ready', function () {
+app.whenReady().then(() => {
   const protocol = session.fromPartition('some-partition').protocol
-  protocol.registerFileProtocol('atom', function (request, callback) {
-    var url = request.url.substr(7)
+  protocol.registerFileProtocol('atom', (request, callback) => {
+    let url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
-  }, function (error) {
+  }, (error) => {
     if (error) console.error('Failed to register protocol')
   })
 })
@@ -580,7 +660,7 @@ A [`NetLog`](net-log.md) object for this session.
 ```javascript
 const { app, session } = require('electron')
 
-app.on('ready', async function () {
+app.whenReady().then(async () => {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
   // After some network events

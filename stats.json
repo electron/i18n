@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "65822",
-    "translated": "28947",
+    "translated": "28953",
     "approved": "21779",
     "words": "632677",
-    "words_translated": "253678",
+    "words_translated": "253784",
     "words_approved": "180878",
     "translated_progress": 40,
     "approved_progress": 28,
-    "qa_issues": 2486
+    "qa_issues": 2490
   },
   {
     "name": "Persian",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "65822",
-    "translated": "9952",
+    "translated": "9962",
     "approved": "7368",
     "words": "632677",
-    "words_translated": "48280",
+    "words_translated": "48485",
     "words_approved": "32687",
     "translated_progress": 7,
     "approved_progress": 5,
-    "qa_issues": 767
+    "qa_issues": 769
   }
 ]

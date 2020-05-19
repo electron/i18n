@@ -624,7 +624,7 @@ const { app, BrowserWindow } = require('electron')
 let win = null
 app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
@@ -800,17 +800,6 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 Calling `event.preventDefault()` will prevent the object from being returned.
 Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-guest-web-contents'
-
-Returns:
-
-* `event` IpcMainEvent
-* `guestWebContents` [WebContents](web-contents.md)
-
-Emitted when `<webview>.getWebContents()` is called in the renderer process.
-Calling `event.preventDefault()` will prevent the object from being returned.
-Custom value can be returned by setting `event.returnValue`.
-
 ### Instance Methods
 
 #### `contents.loadURL(url[, options])`
@@ -978,13 +967,9 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 Overrides the user agent for this web page.
 
-**[Deprecated](modernization/property-updates.md)**
-
 #### `contents.getUserAgent()`
 
 Returns `String` - The user agent for this web page.
-
-**[Deprecated](modernization/property-updates.md)**
 
 #### `contents.insertCSS(css[, options])`
 
@@ -998,7 +983,7 @@ Injects CSS into the current web page and returns a unique key for the inserted
 stylesheet.
 
 ```js
-contents.on('did-finish-load', function () {
+contents.on('did-finish-load', () => {
   contents.insertCSS('html, body { background-color: #f00; }')
 })
 ```
@@ -1013,7 +998,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
-contents.on('did-finish-load', async function () {
+contents.on('did-finish-load', async () => {
   const key = await contents.insertCSS('html, body { background-color: #f00; }')
   contents.removeInsertedCSS(key)
 })
@@ -1065,13 +1050,9 @@ Ignore application menu shortcuts while this web contents is focused.
 
 Mute the audio on the current web page.
 
-**[Deprecated](modernization/property-updates.md)**
-
 #### `contents.isAudioMuted()`
 
 Returns `Boolean` - Whether this page has been muted.
-
-**[Deprecated](modernization/property-updates.md)**
 
 #### `contents.isCurrentlyAudible()`
 
@@ -1086,13 +1067,9 @@ zoom percent divided by 100, so 300% = 3.0.
 
 The factor must be greater than 0.0.
 
-**[Deprecated](modernization/property-updates.md)**
-
 #### `contents.getZoomFactor()`
 
 Returns `Number` - the current zoom factor.
-
-**[Deprecated](modernization/property-updates.md)**
 
 #### `contents.setZoomLevel(level)`
 
@@ -1103,13 +1080,9 @@ increment above or below represents zooming 20% larger or smaller to default
 limits of 300% and 50% of original size, respectively. The formula for this is
 `scale := 1.2 ^ level`.
 
-**[Deprecated](modernization/property-updates.md)**
-
 #### `contents.getZoomLevel()`
 
 Returns `Number` - the current zoom level.
-
-**[Deprecated](modernization/property-updates.md)**
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -1125,17 +1098,6 @@ Sets the maximum and minimum pinch-to-zoom level.
 > ```js
 > contents.setVisualZoomLevelLimits(1, 3)
 > ```
-
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
-
-* `minimumLevel` Number
-* `maximumLevel` Number
-
-Returns `Promise<void>`
-
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
-
-**Deprecated:** This API is no longer supported by Chromium.
 
 #### `contents.undo()`
 
@@ -1297,13 +1259,17 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print. Should have two keys: `from` and `to`.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the start page.
+    * `to` Number - the end page.
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
-  * `dpi` Object (optional)
+  * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
   * `header` String (optional) - String to be printed as page header.
   * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`,
+  `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 * `callback` Function (optional)
   * `success` Boolean - Indicates success of the print call.
   * `failureReason` String - Error description called back if the print fails.
@@ -1325,14 +1291,21 @@ win.webContents.print(options, (success, errorType) => {
 #### `contents.printToPDF(options)`
 
 * `options` Object
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for
     default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`,
-    `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
     and `width` in microns.
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the first page to print.
+    * `to` Number - the last page to print (inclusive).
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`,
+  `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
 Returns `Promise<Buffer>` - Resolves with the generated PDF data.
 
@@ -1348,7 +1321,9 @@ By default, an empty `options` will be regarded as:
   marginsType: 0,
   printBackground: false,
   printSelectionOnly: false,
-  landscape: false
+  landscape: false,
+  pageSize: 'A4',
+  scaleFactor: 100
 }
 ```
 
@@ -1428,13 +1403,20 @@ An example of showing devtools in a `<webview>` tag:
 </head>
 <body>
   <webview id="browser" src="https://github.com"></webview>
-  <webview id="devtools"></webview>
+  <webview id="devtools" src="about:blank"></webview>
   <script>
+    const { webContents } = require('electron').remote
+    const emittedOnce = (element, eventName) => new Promise(resolve => {
+      element.addEventListener(eventName, event => resolve(event), { once: true })
+    })
     const browserView = document.getElementById('browser')
     const devtoolsView = document.getElementById('devtools')
-    browserView.addEventListener('dom-ready', () => {
-      const browser = browserView.getWebContents()
-      browser.setDevToolsWebContents(devtoolsView.getWebContents())
+    const browserReady = emittedOnce(browserView, 'dom-ready')
+    const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
+    Promise.all([browserReady, devtoolsReady]).then(() => {
+      const browser = webContents.fromId(browserView.getWebContentsId())
+      const devtools = webContents.fromId(devtoolsView.getWebContentsId())
+      browser.setDevToolsWebContents(devtools)
       browser.openDevTools()
     })
   </script>
@@ -1450,7 +1432,7 @@ const { app, BrowserWindow } = require('electron')
 let win = null
 let devtools = null
 
-app.once('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   devtools = new BrowserWindow()
   win.loadURL('https://github.com')
@@ -1539,7 +1521,7 @@ An example of sending messages from the main process to the renderer process:
 const { app, BrowserWindow } = require('electron')
 let win = null
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL(`file://${__dirname}/index.html`)
   win.webContents.on('did-finish-load', () => {
@@ -1713,13 +1695,9 @@ Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is cu
 If *offscreen rendering* is enabled sets the frame rate to the specified number.
 Only values between 1 and 60 are accepted.
 
-**[Deprecated](modernization/property-updates.md)**
-
 #### `contents.getFrameRate()`
 
 Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
-
-**[Deprecated](modernization/property-updates.md)**
 
 #### `contents.invalidate()`
 
@@ -1814,7 +1792,7 @@ Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` _Readonly_
 
-A `Integer` representing the unique ID of this WebContents.
+A `Integer` representing the unique ID of this WebContents. Each ID is unique among all `WebContents` instances of the entire Electron application.
 
 #### `contents.session` _Readonly_
 

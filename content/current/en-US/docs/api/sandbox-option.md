@@ -39,7 +39,7 @@ To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
 
 ```js
 let win
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true
@@ -51,7 +51,7 @@ app.on('ready', () => {
 
 In the above code the [`BrowserWindow`](browser-window.md) that was created has Node.js disabled and can communicate
 only via IPC. The use of this option stops Electron from creating a Node.js runtime in the renderer. Also,
-within this new window `window.open` follows the native behaviour (by default Electron creates a [`BrowserWindow`](browser-window.md)
+within this new window `window.open` follows the native behavior (by default Electron creates a [`BrowserWindow`](browser-window.md)
 and returns a proxy to this via `window.open`).
 
 [`app.enableSandbox`](app.md#appenablesandbox-experimental) can be used to force `sandbox: true` for all `BrowserWindow` instances.
@@ -59,7 +59,7 @@ and returns a proxy to this via `window.open`).
 ```js
 let win
 app.enableSandbox()
-app.on('ready', () => {
+app.whenReady().then(() => {
   // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
@@ -73,7 +73,7 @@ Here's an example:
 
 ```js
 let win
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true,
