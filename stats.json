@@ -192,7 +192,7 @@
     "words_approved": "180878",
     "translated_progress": 40,
     "approved_progress": 28,
-    "qa_issues": 2494
+    "qa_issues": 2493
   },
   {
     "name": "Persian",
@@ -315,14 +315,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "65822",
-    "translated": "21060",
+    "translated": "21224",
     "approved": "16984",
     "words": "632677",
-    "words_translated": "128503",
+    "words_translated": "130252",
     "words_approved": "106618",
     "translated_progress": 20,
     "approved_progress": 16,
-    "qa_issues": 1153
+    "qa_issues": 1173
   },
   {
     "name": "Vietnamese",
