@@ -289,14 +289,14 @@
     "name": "Thai",
     "code": "th",
     "phrases": "65822",
-    "translated": "6463",
+    "translated": "6508",
     "approved": "4910",
     "words": "632677",
-    "words_translated": "34148",
+    "words_translated": "34421",
     "words_approved": "24717",
     "translated_progress": 5,
     "approved_progress": 3,
-    "qa_issues": 835
+    "qa_issues": 837
   },
   {
     "name": "Turkish",
@@ -315,14 +315,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "65822",
-    "translated": "21351",
+    "translated": "21382",
     "approved": "16984",
     "words": "632677",
-    "words_translated": "131241",
+    "words_translated": "131652",
     "words_approved": "106618",
     "translated_progress": 20,
     "approved_progress": 16,
-    "qa_issues": 1178
+    "qa_issues": 1180
   },
   {
     "name": "Vietnamese",
