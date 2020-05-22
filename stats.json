@@ -309,20 +309,20 @@
     "words_approved": "219590",
     "translated_progress": 42,
     "approved_progress": 34,
-    "qa_issues": 2321
+    "qa_issues": 2319
   },
   {
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "65822",
-    "translated": "21224",
+    "translated": "21351",
     "approved": "16984",
     "words": "632677",
-    "words_translated": "130252",
+    "words_translated": "131241",
     "words_approved": "106618",
     "translated_progress": 20,
     "approved_progress": 16,
-    "qa_issues": 1173
+    "qa_issues": 1178
   },
   {
     "name": "Vietnamese",
