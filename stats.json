@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "65822",
-    "translated": "7772",
+    "translated": "7777",
     "approved": "5747",
     "words": "632677",
-    "words_translated": "49931",
+    "words_translated": "50031",
     "words_approved": "36586",
     "translated_progress": 7,
     "approved_progress": 5,
-    "qa_issues": 619
+    "qa_issues": 620
   },
   {
     "name": "Bulgarian",
@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "65822",
-    "translated": "23423",
+    "translated": "23428",
     "approved": "18414",
     "words": "632677",
-    "words_translated": "135254",
+    "words_translated": "135319",
     "words_approved": "103996",
     "translated_progress": 21,
     "approved_progress": 16,
-    "qa_issues": 1563
+    "qa_issues": 1567
   },
   {
     "name": "Hebrew",
@@ -159,14 +159,14 @@
     "name": "Italian",
     "code": "it",
     "phrases": "65822",
-    "translated": "23918",
+    "translated": "24018",
     "approved": "19272",
     "words": "632677",
-    "words_translated": "172541",
+    "words_translated": "174137",
     "words_approved": "141566",
     "translated_progress": 27,
     "approved_progress": 22,
-    "qa_issues": 1348
+    "qa_issues": 1355
   },
   {
     "name": "Japanese",
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "65822",
-    "translated": "28960",
+    "translated": "29028",
     "approved": "21779",
     "words": "632677",
-    "words_translated": "253880",
+    "words_translated": "254898",
     "words_approved": "180878",
     "translated_progress": 40,
     "approved_progress": 28,
-    "qa_issues": 2493
+    "qa_issues": 2508
   },
   {
     "name": "Persian",
@@ -315,14 +315,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "65822",
-    "translated": "21383",
+    "translated": "21537",
     "approved": "16984",
     "words": "632677",
-    "words_translated": "131716",
+    "words_translated": "134848",
     "words_approved": "106618",
-    "translated_progress": 20,
+    "translated_progress": 21,
     "approved_progress": 16,
-    "qa_issues": 1181
+    "qa_issues": 1214
   },
   {
     "name": "Vietnamese",
