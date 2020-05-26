@@ -315,14 +315,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "65822",
-    "translated": "21537",
+    "translated": "21553",
     "approved": "16984",
     "words": "632677",
-    "words_translated": "134848",
+    "words_translated": "135270",
     "words_approved": "106618",
     "translated_progress": 21,
     "approved_progress": 16,
-    "qa_issues": 1214
+    "qa_issues": 1217
   },
   {
     "name": "Vietnamese",
