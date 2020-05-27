@@ -36,7 +36,7 @@
     "words_approved": "288388",
     "translated_progress": 56,
     "approved_progress": 45,
-    "qa_issues": 200
+    "qa_issues": 201
   },
   {
     "name": "Chinese Traditional",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "65822",
-    "translated": "22418",
+    "translated": "22438",
     "approved": "17438",
     "words": "632677",
-    "words_translated": "164536",
+    "words_translated": "164822",
     "words_approved": "124815",
     "translated_progress": 26,
     "approved_progress": 19,
-    "qa_issues": 773
+    "qa_issues": 772
   },
   {
     "name": "Romanian",
