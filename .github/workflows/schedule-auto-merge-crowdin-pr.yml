@@ -19,3 +19,6 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: npm run automerge
+    - name: Notify Ozark
+      if: ${{ always() }}
+      run: npx @ozark/handler
