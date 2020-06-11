@@ -5,7 +5,7 @@
 Stat | Value
 ---- | -----
 total files | 277
-total words | 267276
+total words | 267278
 unique words | 12677
 average words per file | 964
 
@@ -23,6 +23,6 @@ average words per file | 705
 Stat | Value
 ---- | -----
 total files | 7212
-total words | 5398355
+total words | 5398357
 unique words | 90825
 average words per file | 748
