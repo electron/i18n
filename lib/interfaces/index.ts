@@ -20,8 +20,15 @@ export interface IParseFile extends WalkEntry {
   isDevTutorial?: boolean
   isApiStructureDoc?: boolean
 
-  sections?: $TSFixMe
+  sections?: Array<Section>
 
   title?: string
   description?: string
+}
+export interface Section {
+  name: string
+  slug: string
+  level: number
+  body: string
+  html: string | null
 }
