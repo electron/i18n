@@ -39,7 +39,7 @@
     "make-dir": "^3.0.0",
     "make-promises-safe": "^5.0.0",
     "match-words": "^1.0.0",
-    "mocha": "^7.0.0",
+    "mocha": "^8.0.1",
     "npm-run-all": "^4.1.2",
     "prettier": "^2.0.0",
     "remark": "^12.0.0",
@@ -73,8 +73,8 @@
     "upload-crowdin-glossary": "ts-node script/upload-crowdin-glossary.ts",
     "automerge": "ts-node ./script/automerge.ts"
   },
-  "electronLatestStableTag": "v9.0.3",
-  "electronMasterBranchCommit": "b1574f9e596c0ca8667c79df73cc3fd8b0d44c49",
+  "electronLatestStableTag": "v9.0.4",
+  "electronMasterBranchCommit": "0f44682be02d2367a41c6a1997d74f13a8645f0a",
   "engines": {
     "node": ">=10"
   },

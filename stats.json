@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "65822",
-    "translated": "42129",
+    "translated": "42150",
     "approved": "33884",
     "words": "632677",
-    "words_translated": "358517",
+    "words_translated": "358748",
     "words_approved": "288388",
     "translated_progress": 56,
     "approved_progress": 45,
-    "qa_issues": 201
+    "qa_issues": 203
   },
   {
     "name": "Chinese Traditional",
@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "65822",
-    "translated": "43638",
+    "translated": "43662",
     "approved": "34879",
     "words": "632677",
-    "words_translated": "368900",
+    "words_translated": "369232",
     "words_approved": "292326",
     "translated_progress": 58,
     "approved_progress": 46,
-    "qa_issues": 2131
+    "qa_issues": 2134
   },
   {
     "name": "German",
@@ -120,27 +120,27 @@
     "name": "Hebrew",
     "code": "he",
     "phrases": "65822",
-    "translated": "2191",
+    "translated": "2192",
     "approved": "1478",
     "words": "632677",
-    "words_translated": "13415",
+    "words_translated": "13426",
     "words_approved": "8641",
     "translated_progress": 2,
     "approved_progress": 1,
-    "qa_issues": 159
+    "qa_issues": 160
   },
   {
     "name": "Hindi",
     "code": "hi",
     "phrases": "65822",
-    "translated": "7835",
+    "translated": "7837",
     "approved": "6166",
     "words": "632677",
-    "words_translated": "68528",
+    "words_translated": "68534",
     "words_approved": "54152",
     "translated_progress": 10,
     "approved_progress": 8,
-    "qa_issues": 1322
+    "qa_issues": 1324
   },
   {
     "name": "Indonesian",
@@ -159,14 +159,14 @@
     "name": "Italian",
     "code": "it",
     "phrases": "65822",
-    "translated": "24018",
+    "translated": "24037",
     "approved": "19272",
     "words": "632677",
-    "words_translated": "174137",
+    "words_translated": "174668",
     "words_approved": "141566",
     "translated_progress": 27,
     "approved_progress": 22,
-    "qa_issues": 1355
+    "qa_issues": 1357
   },
   {
     "name": "Japanese",
@@ -218,20 +218,20 @@
     "words_approved": "86722",
     "translated_progress": 16,
     "approved_progress": 13,
-    "qa_issues": 855
+    "qa_issues": 856
   },
   {
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "65822",
-    "translated": "22442",
+    "translated": "22470",
     "approved": "17438",
     "words": "632677",
-    "words_translated": "164850",
+    "words_translated": "164973",
     "words_approved": "124815",
     "translated_progress": 26,
     "approved_progress": 19,
-    "qa_issues": 773
+    "qa_issues": 776
   },
   {
     "name": "Romanian",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "65822",
-    "translated": "40841",
+    "translated": "40846",
     "approved": "35089",
     "words": "632677",
-    "words_translated": "336631",
+    "words_translated": "336696",
     "words_approved": "288159",
     "translated_progress": 53,
     "approved_progress": 45,
-    "qa_issues": 1830
+    "qa_issues": 1832
   },
   {
     "name": "Spanish",
@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "65822",
-    "translated": "34768",
+    "translated": "34798",
     "approved": "28148",
     "words": "632677",
-    "words_translated": "269545",
+    "words_translated": "269945",
     "words_approved": "219590",
     "translated_progress": 42,
     "approved_progress": 34,
-    "qa_issues": 2331
+    "qa_issues": 2332
   },
   {
     "name": "Ukrainian",
