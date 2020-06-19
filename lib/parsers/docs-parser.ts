@@ -3,7 +3,7 @@ import * as fs from 'fs'
 import * as URL from 'url'
 import * as packageJSON from '../../package.json'
 import { bashFix, fiddleUrls, plaintextFix } from '../transfomers'
-import { IParseFile, Section } from '../interfaces'
+import { IParseFile, ISection } from '../interfaces'
 import hubdown = require('hubdown')
 import * as cheerio from 'cheerio'
 import { categoryNames, IGNORE_PATTERN } from '../constants'
@@ -51,7 +51,7 @@ export async function parseFile(file: IParseFile, ids: Record<string, string>) {
   }
 
   file.sections = await Promise.all(
-    splitMd(await fixMdLinks(markdown)).map(async (section: Section) => {
+    splitMd(await fixMdLinks(markdown)).map(async (section) => {
       const parsed = await hubdown(section.body, {
         runBefore: [plaintextFix, bashFix, fiddleUrls],
         highlight: {
@@ -143,10 +143,10 @@ function fixMdLinks(md: string): Promise<string> {
   })
 }
 
-function splitMd(md: string): Array<Section> {
+function splitMd(md: string): Array<ISection> {
   const slugger = new GithubSlugger()
-  const sections: Array<Section> = []
-  let section: Section = { name: '', slug: '', body: '', level: 0, html: null }
+  const sections: Array<ISection> = []
+  let section: ISection = { name: '', slug: '', body: '', level: 0, html: null }
   let bodyArray: Array<string> = []
   let isInCodeBlock = false
 

@@ -20,12 +20,12 @@ export interface IParseFile extends WalkEntry {
   isDevTutorial?: boolean
   isApiStructureDoc?: boolean
 
-  sections?: Array<Section>
+  sections?: Array<ISection>
 
   title?: string
   description?: string
 }
-export interface Section {
+export interface ISection {
   name: string
   slug: string
   level: number
