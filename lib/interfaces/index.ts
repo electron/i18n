@@ -20,8 +20,16 @@ export interface IParseFile extends WalkEntry {
   isDevTutorial?: boolean
   isApiStructureDoc?: boolean
 
-  sections?: $TSFixMe
+  sections?: Array<ISection>
 
   title?: string
   description?: string
+}
+export interface ISection {
+  name: string
+  slug: string
+  level: number
+  // TODO(HashimotoYT): Remove that in the final file
+  body: string
+  html: string | null
 }

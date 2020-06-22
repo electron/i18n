@@ -77,12 +77,23 @@ describe('i18n.docs', () => {
           const doc = i18n.docs[locale][href]
           doc.sections.length.should.be.above(0)
           doc.sections.forEach((section) => {
-            // expect(section.name, )
             expect(
               section.name,
               `${locale} ${href} has a section without a name`
             ).to.be.a('string')
             section.name.length.should.be.above(0)
+
+            expect(
+              section.slug,
+              `${locale} ${href} has a section without a slug`
+            ).to.be.a('string')
+            section.slug.length.should.be.above(0)
+
+            expect(
+              section.level,
+              `${locale} ${href} has a section without a level`
+            ).to.be.a('number')
+            section.level.should.be.within(1, 6)
 
             expect(
               section.html,

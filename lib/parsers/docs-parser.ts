@@ -3,7 +3,7 @@ import * as fs from 'fs'
 import * as URL from 'url'
 import * as packageJSON from '../../package.json'
 import { bashFix, fiddleUrls, plaintextFix } from '../transfomers'
-import { IParseFile, $TSFixMe } from '../interfaces'
+import { IParseFile, ISection } from '../interfaces'
 import hubdown = require('hubdown')
 import * as cheerio from 'cheerio'
 import { categoryNames, IGNORE_PATTERN } from '../constants'
@@ -51,7 +51,7 @@ export async function parseFile(file: IParseFile, ids: Record<string, string>) {
   }
 
   file.sections = await Promise.all(
-    splitMd(await fixMdLinks(markdown)).map(async (section: $TSFixMe) => {
+    splitMd(await fixMdLinks(markdown)).map(async (section) => {
       const parsed = await hubdown(section.body, {
         runBefore: [plaintextFix, bashFix, fiddleUrls],
         highlight: {
@@ -143,28 +143,41 @@ function fixMdLinks(md: string): Promise<string> {
   })
 }
 
-function splitMd(md: string): Array<{ name: null; body: string[] }> {
+function splitMd(md: string): Array<ISection> {
   const slugger = new GithubSlugger()
-  const sections: Array<{ name: null; body: Array<string> }> = []
-  let section = { name: null, body: [] as Array<string> }
-  let inCodeBlock = false
+  const sections: Array<ISection> = []
+  let section: ISection = { name: '', slug: '', body: '', level: 0, html: null }
+  let bodyArray: Array<string> = []
+  let isInCodeBlock = false
+
   const isHeading = (line: string) =>
-    !inCodeBlock && line.trim().startsWith('#')
+    !isInCodeBlock && line.trim().startsWith('#')
+
+  // TODO(erickzhao): Remove opening .trim() call because heading should never be tabbed in
+  const cleanHeading = (heading: string) => ({
+    text: heading.replace(/^\#{1,6}\ /, ''),
+    level: (heading.trim().match(/^\#{1,6}\ /) as Array<string>)[0].trim()
+      .length,
+  })
 
   md.split('\n').forEach((curr, i, lines) => {
     if (curr.startsWith('```')) {
-      inCodeBlock = !inCodeBlock
+      isInCodeBlock = !isInCodeBlock
     }
     if (isHeading(curr)) {
-      section.name = slugger.slug(curr)
+      const heading = cleanHeading(curr)
+      section.name = heading.text
+      section.slug = slugger.slug(heading.text)
+      section.level = heading.level
     }
-    section.body.push(curr)
+    bodyArray.push(curr)
 
     let next = lines[i + 1]
     if (next === undefined || isHeading(next)) {
-      section.body = section.body.join('\n') as $TSFixMe
+      section.body = bodyArray.join('\n')
       sections.push(section)
-      section = { name: null, body: [] }
+      section = { name: '', slug: '', body: '', level: 0, html: null }
+      bodyArray.length = 0
     }
   })
 
