@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "65822",
-    "translated": "23473",
+    "translated": "23474",
     "approved": "18414",
     "words": "632677",
-    "words_translated": "136279",
+    "words_translated": "136288",
     "words_approved": "103996",
     "translated_progress": 21,
     "approved_progress": 16,
-    "qa_issues": 1569
+    "qa_issues": 1570
   },
   {
     "name": "Hebrew",
@@ -198,10 +198,10 @@
     "name": "Persian",
     "code": "fa",
     "phrases": "65822",
-    "translated": "4899",
+    "translated": "4917",
     "approved": "3067",
     "words": "632677",
-    "words_translated": "22858",
+    "words_translated": "22956",
     "words_approved": "12908",
     "translated_progress": 3,
     "approved_progress": 2,
@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "65822",
-    "translated": "34798",
+    "translated": "34805",
     "approved": "28148",
     "words": "632677",
-    "words_translated": "269945",
+    "words_translated": "270092",
     "words_approved": "219590",
     "translated_progress": 42,
     "approved_progress": 34,
-    "qa_issues": 2332
+    "qa_issues": 2334
   },
   {
     "name": "Ukrainian",
