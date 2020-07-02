@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "65822",
-    "translated": "22484",
+    "translated": "22500",
     "approved": "17438",
     "words": "632677",
-    "words_translated": "165065",
+    "words_translated": "165292",
     "words_approved": "124815",
     "translated_progress": 26,
     "approved_progress": 19,
-    "qa_issues": 778
+    "qa_issues": 779
   },
   {
     "name": "Romanian",
