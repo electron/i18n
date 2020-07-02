@@ -19,7 +19,7 @@ const JSTemplate = `module.exports = {
   electronLatestStableTag: \'${packageJSON.electronLatestStableTag}\',
   electronMasterBranchCommit: \'${packageJSON.electronMasterBranchCommit}\',
 
-  date: \'${now}\'
+  date: \'${now}\',
 }
 `
 

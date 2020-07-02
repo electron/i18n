@@ -2,7 +2,7 @@ import * as assert from 'assert'
 import * as fs from 'fs'
 import * as path from 'path'
 import * as cheerio from 'cheerio'
-import hubdown = require('hubdown')
+import electronMarkdown = require('electron-markdown')
 
 export interface IParseElectronGlossaryReturn {
   term: string
@@ -19,7 +19,7 @@ export async function parseElectronGlossary(
     `../content/current/${locale}/docs/glossary.md`
   )
   const md = fs.readFileSync(sourceFile, 'utf8')
-  const { content: html } = await hubdown(md)
+  const html = await electronMarkdown(md)
   const $ = cheerio.load(html)
 
   return $('h3')

@@ -2,16 +2,16 @@ import * as path from 'path'
 import * as fs from 'fs'
 import * as URL from 'url'
 import * as packageJSON from '../../package.json'
-import { bashFix, fiddleUrls, plaintextFix } from '../transfomers'
+import { fiddleUrls } from '../transfomers'
 import { IParseFile, ISection } from '../interfaces'
-import hubdown = require('hubdown')
+import electronMarkdown = require('electron-markdown')
 import * as cheerio from 'cheerio'
 import { categoryNames, IGNORE_PATTERN } from '../constants'
 const GithubSlugger = require('github-slugger')
-const remark = require('remark')
-const links = require('remark-inline-links')
 const cleanDeep = require('clean-deep')
 const hrefType = require('href-type')
+const remark = require('remark')
+const links = require('remark-inline-links')
 
 export async function parseFile(file: IParseFile, ids: Record<string, string>) {
   file.fullyPath = path.join(file.basePath, file.relativePath)
@@ -52,13 +52,10 @@ export async function parseFile(file: IParseFile, ids: Record<string, string>) {
 
   file.sections = await Promise.all(
     splitMd(await fixMdLinks(markdown)).map(async (section) => {
-      const parsed = await hubdown(section.body, {
-        runBefore: [plaintextFix, bashFix, fiddleUrls],
-        highlight: {
-          ignoreMissing: true,
-        },
+      const parsed = await electronMarkdown(section.body, {
+        runBefore: [fiddleUrls],
       })
-      const $ = cheerio.load(parsed.content || '')
+      const $ = cheerio.load(parsed || '')
       file.title =
         file.title ||
         $('h1').first().text().trim() ||
