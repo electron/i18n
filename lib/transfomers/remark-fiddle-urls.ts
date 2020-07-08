@@ -2,12 +2,14 @@ import * as visit from 'unist-util-visit'
 import { electronLatestStableTag } from '../../package.json'
 import { Node } from 'unist'
 
-const regex = /(javascript.*|js.*) fiddle='([^']*)'(.*)/
+const langRegex = /(javascript.*|js.*)/
+const metaRegex = /fiddle='([^']*)'(.*)/
 
 // TODO(deermichel): add test!
 
 interface IAdditionalNode extends Node {
   lang: string
+  meta: string
 
   data: {
     hProperties: Record<string, string>
@@ -18,13 +20,14 @@ interface IAdditionalNode extends Node {
 // embed fiddle urls as html attributes
 export const fiddleUrls = () => (tree: Node) => {
   visit(tree, 'code', (node: IAdditionalNode) => {
-    if (!node.lang) return
+    if (!node.lang || !node.meta) return
 
-    const matches = node.lang.match(regex)
-    if (matches) {
+    const langMatch = node.lang.match(langRegex)
+    const metaMatch = node.meta.match(metaRegex)
+
+    if (langMatch && metaMatch) {
       // retrieve and remove url from language definition
-      const url = `electron/${electronLatestStableTag}/${matches[2]}`
-      node.lang = matches[1] + matches[3]
+      const url = `electron/${electronLatestStableTag}/${metaMatch[1]}`
 
       // save url in data-fiddle-url html attribute
       node.data = node.data || {}
