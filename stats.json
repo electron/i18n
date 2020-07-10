@@ -42,14 +42,14 @@
     "name": "Chinese Traditional",
     "code": "zh-TW",
     "phrases": "65822",
-    "translated": "20534",
+    "translated": "20552",
     "approved": "16396",
     "words": "632677",
-    "words_translated": "98343",
+    "words_translated": "98582",
     "words_approved": "77724",
     "translated_progress": 15,
     "approved_progress": 12,
-    "qa_issues": 65
+    "qa_issues": 66
   },
   {
     "name": "Czech",
@@ -94,10 +94,10 @@
     "name": "French",
     "code": "fr",
     "phrases": "65822",
-    "translated": "43662",
+    "translated": "43663",
     "approved": "34879",
     "words": "632677",
-    "words_translated": "369232",
+    "words_translated": "369243",
     "words_approved": "292326",
     "translated_progress": 58,
     "approved_progress": 46,
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "65822",
-    "translated": "22500",
+    "translated": "22506",
     "approved": "17438",
     "words": "632677",
-    "words_translated": "165292",
+    "words_translated": "165339",
     "words_approved": "124815",
     "translated_progress": 26,
     "approved_progress": 19,
-    "qa_issues": 779
+    "qa_issues": 782
   },
   {
     "name": "Romanian",
@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "65822",
-    "translated": "34805",
+    "translated": "34834",
     "approved": "28148",
     "words": "632677",
-    "words_translated": "270092",
+    "words_translated": "270241",
     "words_approved": "219590",
     "translated_progress": 42,
     "approved_progress": 34,
-    "qa_issues": 2334
+    "qa_issues": 2337
   },
   {
     "name": "Ukrainian",
