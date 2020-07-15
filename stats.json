@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "65822",
-    "translated": "43663",
+    "translated": "43698",
     "approved": "34879",
     "words": "632677",
-    "words_translated": "369243",
+    "words_translated": "369804",
     "words_approved": "292326",
     "translated_progress": 58,
     "approved_progress": 46,
-    "qa_issues": 2134
+    "qa_issues": 2139
   },
   {
     "name": "German",
@@ -146,14 +146,14 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "65822",
-    "translated": "34043",
+    "translated": "34062",
     "approved": "27641",
     "words": "632677",
-    "words_translated": "261674",
+    "words_translated": "261700",
     "words_approved": "214007",
     "translated_progress": 41,
     "approved_progress": 33,
-    "qa_issues": 2585
+    "qa_issues": 2588
   },
   {
     "name": "Italian",
@@ -289,10 +289,10 @@
     "name": "Thai",
     "code": "th",
     "phrases": "65822",
-    "translated": "7694",
+    "translated": "7696",
     "approved": "4910",
     "words": "632677",
-    "words_translated": "48071",
+    "words_translated": "48081",
     "words_approved": "24717",
     "translated_progress": 7,
     "approved_progress": 3,
