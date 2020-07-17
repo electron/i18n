@@ -296,7 +296,7 @@
     "words_approved": "24717",
     "translated_progress": 7,
     "approved_progress": 3,
-    "qa_issues": 1095
+    "qa_issues": 1094
   },
   {
     "name": "Turkish",
@@ -328,10 +328,10 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "65822",
-    "translated": "10069",
+    "translated": "10072",
     "approved": "7368",
     "words": "632677",
-    "words_translated": "50225",
+    "words_translated": "50238",
     "words_approved": "32687",
     "translated_progress": 7,
     "approved_progress": 5,
