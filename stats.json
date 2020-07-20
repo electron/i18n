@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "65822",
-    "translated": "22506",
+    "translated": "22526",
     "approved": "17438",
     "words": "632677",
-    "words_translated": "165339",
+    "words_translated": "165633",
     "words_approved": "124815",
     "translated_progress": 26,
     "approved_progress": 19,
-    "qa_issues": 782
+    "qa_issues": 787
   },
   {
     "name": "Romanian",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "65822",
-    "translated": "48854",
+    "translated": "48864",
     "approved": "40136",
     "words": "632677",
-    "words_translated": "432480",
+    "words_translated": "432575",
     "words_approved": "354939",
     "translated_progress": 68,
     "approved_progress": 56,
-    "qa_issues": 2971
+    "qa_issues": 2975
   },
   {
     "name": "Tagalog",
@@ -315,14 +315,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "65822",
-    "translated": "21574",
+    "translated": "21579",
     "approved": "16984",
     "words": "632677",
-    "words_translated": "135489",
+    "words_translated": "135589",
     "words_approved": "106618",
     "translated_progress": 21,
     "approved_progress": 16,
-    "qa_issues": 1217
+    "qa_issues": 1219
   },
   {
     "name": "Vietnamese",
