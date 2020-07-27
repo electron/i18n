@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "65822",
-    "translated": "43753",
+    "translated": "43754",
     "approved": "34879",
     "words": "632677",
-    "words_translated": "370366",
+    "words_translated": "370370",
     "words_approved": "292326",
     "translated_progress": 58,
     "approved_progress": 46,
-    "qa_issues": 2143
+    "qa_issues": 2144
   },
   {
     "name": "German",
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "65822",
-    "translated": "29666",
+    "translated": "29704",
     "approved": "21779",
     "words": "632677",
-    "words_translated": "264648",
+    "words_translated": "265065",
     "words_approved": "180878",
     "translated_progress": 41,
     "approved_progress": 28,
-    "qa_issues": 2680
+    "qa_issues": 2695
   },
   {
     "name": "Persian",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "65822",
-    "translated": "22526",
+    "translated": "22539",
     "approved": "17438",
     "words": "632677",
-    "words_translated": "165633",
+    "words_translated": "165962",
     "words_approved": "124815",
     "translated_progress": 26,
     "approved_progress": 19,
-    "qa_issues": 787
+    "qa_issues": 788
   },
   {
     "name": "Romanian",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "65822",
-    "translated": "40885",
+    "translated": "40906",
     "approved": "35095",
     "words": "632677",
-    "words_translated": "337091",
+    "words_translated": "337246",
     "words_approved": "288202",
     "translated_progress": 53,
     "approved_progress": 45,
-    "qa_issues": 1847
+    "qa_issues": 1853
   },
   {
     "name": "Spanish",
@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "65822",
-    "translated": "34839",
+    "translated": "34855",
     "approved": "28148",
     "words": "632677",
-    "words_translated": "270261",
+    "words_translated": "270497",
     "words_approved": "219590",
     "translated_progress": 42,
     "approved_progress": 34,
-    "qa_issues": 2338
+    "qa_issues": 2349
   },
   {
     "name": "Ukrainian",
@@ -335,6 +335,6 @@
     "words_approved": "32687",
     "translated_progress": 7,
     "approved_progress": 5,
-    "qa_issues": 783
+    "qa_issues": 782
   }
 ]
