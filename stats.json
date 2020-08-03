@@ -29,10 +29,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "65822",
-    "translated": "42192",
+    "translated": "42247",
     "approved": "33884",
     "words": "632677",
-    "words_translated": "359165",
+    "words_translated": "359653",
     "words_approved": "288388",
     "translated_progress": 56,
     "approved_progress": 45,
@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "65822",
-    "translated": "43754",
+    "translated": "43759",
     "approved": "34879",
     "words": "632677",
-    "words_translated": "370370",
+    "words_translated": "370410",
     "words_approved": "292326",
     "translated_progress": 58,
     "approved_progress": 46,
-    "qa_issues": 2144
+    "qa_issues": 2143
   },
   {
     "name": "German",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "65822",
-    "translated": "48893",
+    "translated": "48901",
     "approved": "40136",
     "words": "632677",
-    "words_translated": "432827",
+    "words_translated": "432906",
     "words_approved": "354939",
     "translated_progress": 68,
     "approved_progress": 56,
-    "qa_issues": 2987
+    "qa_issues": 2989
   },
   {
     "name": "Tagalog",
