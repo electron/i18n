@@ -42,14 +42,14 @@
     "name": "Chinese Traditional",
     "code": "zh-TW",
     "phrases": "65822",
-    "translated": "20552",
+    "translated": "20594",
     "approved": "16396",
     "words": "632677",
-    "words_translated": "98582",
+    "words_translated": "99206",
     "words_approved": "77724",
     "translated_progress": 15,
     "approved_progress": 12,
-    "qa_issues": 66
+    "qa_issues": 70
   },
   {
     "name": "Czech",
