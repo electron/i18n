@@ -1,6 +1,7 @@
 on:
   schedule:
     - cron: 0 */6 * * *
+  workflow_dispatch: {}
 
 name: Update source content
 
@@ -22,7 +23,10 @@ jobs:
       - name: Upload Content To Crowdin
         uses: crowdin/github-action@1.0.9
         with:
-          upload_sources: true
+          download_translations: true
+          localization_branch_name: new-translations
+          crowdin_branch_name: master
+          config: crowdin.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
