@@ -29,12 +29,12 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "65822",
-    "translated": "42268",
+    "translated": "42270",
     "approved": "33884",
     "words": "632677",
-    "words_translated": "360625",
+    "words_translated": "360662",
     "words_approved": "288388",
-    "translated_progress": 56,
+    "translated_progress": 57,
     "approved_progress": 45,
     "qa_issues": 204
   },
@@ -146,14 +146,14 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "65822",
-    "translated": "34063",
+    "translated": "34233",
     "approved": "27641",
     "words": "632677",
-    "words_translated": "261704",
+    "words_translated": "263314",
     "words_approved": "214007",
     "translated_progress": 41,
     "approved_progress": 33,
-    "qa_issues": 2588
+    "qa_issues": 2628
   },
   {
     "name": "Italian",
