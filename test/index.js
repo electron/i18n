@@ -486,7 +486,7 @@ describe('i18n.electronLatestStableTag', () => {
 })
 
 describe('i18n.electronSupportedVersions', () => {
-  it('its an array', () => {
+  it('is an array', () => {
     expect(i18n.electronSupportedVersions).to.be.an('array')
   })
 

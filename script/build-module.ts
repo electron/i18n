@@ -18,7 +18,7 @@ import {
 } from '../lib/parse-electron-glossary'
 const getIds = require('get-crowdin-file-ids')
 
-const contentDir = (version: string) =>
+const getContentDir = (version: string) =>
   path.join(__dirname, `../content/${version}`)
 
 let ids: Record<string, string> = {}
