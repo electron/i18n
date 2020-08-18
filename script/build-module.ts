@@ -28,7 +28,7 @@ async function parseDocs(version: string): Promise<Partial<IParseFile>[]> {
 
   console.time('parsed docs in')
   const markdownFiles = walk
-    .entries(contentDir(version))
+    .entries(getContentDir(version))
     .filter((file) => file.relativePath.includes('/docs'))
     .filter((file) => file.relativePath.endsWith('.md'))
   console.log(
@@ -62,7 +62,7 @@ async function parseDocsByVersions() {
 async function parseBlogs() {
   console.time('parsed blogs in')
   const markdownFiles = walk
-    .entries(contentDir('current'))
+    .entries(getContentDir('current'))
     .filter((file) => file.relativePath.includes('website/blog'))
     .filter((file) => file.fullPath.endsWith('.md'))
   console.log(
