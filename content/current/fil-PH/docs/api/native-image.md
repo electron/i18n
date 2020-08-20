@@ -240,13 +240,9 @@ Nagbabalik [`Size`](structures/size.md)
 
 Nagmamarka ng imahe bilang template image.
 
-**[Deprecated](modernization/property-updates.md)**
-
 #### `image.isTemplateImage()`
 
 Nagbabalik `Boolean` - Kung ang imahe ay isang template image.
-
-**[Deprecated](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 

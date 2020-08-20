@@ -11,8 +11,8 @@
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-  // 注册一个 'CommandOrControl+X' 的全局快捷键
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
@@ -43,7 +43,7 @@ app.on('will-quit', () => {
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Returns `Boolean` - Whether or not the shortcut was registered successfully.
+返回`Boolean` - 快捷键注册是否成功
 
 Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
@@ -63,7 +63,7 @@ Registers a global shortcut of `accelerator`. The `callback` is called when the 
 
 Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
-When a given accelerator is already taken by other applications, this call will silently fail. 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
+如果定义的快捷键已经被其他应用占有，这个调用会故障沉默。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
 在 macOS 10.14 Mojave 下面，如果 app 没有被授权为[可信任使用的客户端](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)，那么下列快捷键会注册失败：
 

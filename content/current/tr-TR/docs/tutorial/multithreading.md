@@ -7,7 +7,7 @@
 Elektron'un Web Workers'ında Node.js özelliklerini kullanmak mümkündür, bunu yapmak için `nodeIntegrationInWorker` seçeneği `webPreferences`'de `true` olarak ayarlanmalıdır.
 
 ```javascript
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegrationInWorker: true
   }
@@ -32,5 +32,5 @@ Herhangi bir yerel Node.js modülü doğrudan Web İşçileri'ne yüklenebilir, 
 process.dlopen = () => {
   throw new Error('Load native module is not safe')
 }
-let worker = new Worker('script.js')
+const worker = new Worker('script.js')
 ```

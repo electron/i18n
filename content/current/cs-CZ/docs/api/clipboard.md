@@ -1,6 +1,6 @@
 # schránka
 
-> Perform copy and paste operations on the system clipboard.
+> Выполняет копирование и вставку в буфер обмена системы.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 

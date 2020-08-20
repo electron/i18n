@@ -10,7 +10,7 @@
 
 ### 静态方法
 
-The `Menu` class has the following static methods:
+`Menu`类有以下方法:
 
 #### `Menu.setApplicationMenu(menu)`
 

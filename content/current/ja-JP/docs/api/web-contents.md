@@ -129,7 +129,7 @@ console.log(webContents)
 
 戻り値:
 
-* `event` Event
+* `event` NewWindowEvent
 * `url` String
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
@@ -290,7 +290,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### イベント: 'crashed'
+#### Event: 'crashed' _Deprecated_
 
 戻り値:
 
@@ -298,6 +298,25 @@ win.webContents.on('will-prevent-unload', (event) => {
 * `killed` Boolean
 
 レンダラープロセスがクラッシュしたり、強制終了されたりしたときに発行されます。
+
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+
+#### Event: 'render-process-gone'
+
+戻り値:
+
+* `event` Event
+* `details` Object
+  * `reason` String - The reason the render process is gone.  取りうる値:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failure` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+
+Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
 
 #### イベント: 'unresponsive'
 
@@ -331,6 +350,7 @@ Webページが応答しなくなるときに発生します。
   * `key` String - [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `code` String - [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `isAutoRepeat` Boolean - [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
+  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
   * `shift` Boolean - [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `control` Boolean - [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `alt` Boolean - [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
@@ -549,7 +569,7 @@ const { app, BrowserWindow } = require('electron')
 let win = null
 app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
@@ -705,15 +725,6 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-#### イベント: 'remote-get-guest-web-contents'
-
-戻り値:
-
-* `event` IpcMainEvent
-* `guestWebContents` [WebContents](web-contents.md)
-
-レンダラープロセス内で `<webview>.getWebContents()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
 ### インスタンスメソッド
 
 #### `contents.loadURL(url[, options])`
@@ -775,10 +786,10 @@ win.loadFile('src/index.html')
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ width: 800, height: 600 })
-win.loadURL('http://github.com')
-
-let currentURL = win.webContents.getURL()
-console.log(currentURL)
+win.loadURL('http://github.com').then(() => {
+  const currentURL = win.webContents.getURL()
+  console.log(currentURL)
+})
 ```
 
 #### `contents.getTitle()`
@@ -869,13 +880,9 @@ console.log(currentURL)
 
 このウェブページのユーザエージェントをオーバーライドします。
 
-**[非推奨](modernization/property-updates.md)**
-
 #### `contents.getUserAgent()`
 
 戻り値 `String` - このウェブページのユーザエージェント。
-
-**[非推奨](modernization/property-updates.md)**
 
 #### `contents.insertCSS(css[, options])`
 
@@ -888,7 +895,7 @@ console.log(currentURL)
 現在のウェブページに CSS を挿入し、挿入されたスタイルシートの一意なキーを返します。
 
 ```js
-contents.on('did-finish-load', function () {
+contents.on('did-finish-load', () => {
   contents.insertCSS('html, body { background-color: #f00; }')
 })
 ```
@@ -902,7 +909,7 @@ contents.on('did-finish-load', function () {
 現在のウェブページから挿入された CSS を削除します。 スタイルシートは `contents.insertCSS(css)` から返されるキーで識別されます。
 
 ```js
-contents.on('did-finish-load', async function () {
+contents.on('did-finish-load', async () => {
   const key = await contents.insertCSS('html, body { background-color: #f00; }')
   contents.removeInsertedCSS(key)
 })
@@ -950,13 +957,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 現在のウェブページのオーディオをミュートします。
 
-**[非推奨](modernization/property-updates.md)**
-
 #### `contents.isAudioMuted()`
 
 戻り値 `Boolean` - このページがミュートされているかどうか。
-
-**[非推奨](modernization/property-updates.md)**
 
 #### `contents.isCurrentlyAudible()`
 
@@ -970,13 +973,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 拡大率は 0.0 より大きい必要があります。
 
-**[非推奨](modernization/property-updates.md)**
-
 #### `contents.getZoomFactor()`
 
 戻り値 `Number` - 現在の拡大率。
-
-**[非推奨](modernization/property-updates.md)**
 
 #### `contents.setZoomLevel(level)`
 
@@ -984,13 +983,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 この式は `scale := 1.2 ^ level` です。
 
-**[非推奨](modernization/property-updates.md)**
-
 #### `contents.getZoomLevel()`
 
 戻り値 `Number` - 現在の拡大レベル。
-
-**[非推奨](modernization/property-updates.md)**
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -1005,17 +1000,6 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 > 
 > `js
   contents.setVisualZoomLevelLimits(1, 3)`
-
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _非推奨_
-
-* `minimumLevel` Number
-* `maximumLevel` Number
-
-戻り値 `Promise<void>`
-
-レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
-
-**非推奨:** この API は Chromium がサポートしなくなりました。
 
 #### `contents.undo()`
 
@@ -1164,16 +1148,21 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
-  * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。 `from` と `to` の 2 つのキーが必要です。
+  * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
+    * `from` Number - the start page.
+    * `to` Number - the end page.
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
-  * `dpi` Object (任意)
+  * `dpi` Record<string, number> (optional)
     * `horizontal` Number (任意) - 水平 DPI。
     * `vertical` Number (任意) - 垂直 DPI。
   * `header` String (任意) - ページヘッダーとして印刷される文字列。
   * `footer` String (任意) - ページフッターとして印刷される文字列。
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 * `callback` Function (任意)
   * `success` Boolean - 印刷呼び出しの成功を示す。
   * `failureReason` String - 印刷に失敗した場合に呼び戻されるエラーの説明。
+
+When a custom `pageSize` is passed, Chromium attempts to validate platform specific minumum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
 
 ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
@@ -1191,11 +1180,18 @@ win.webContents.print(options, (success, errorType) => {
 #### `contents.printToPDF(options)`
 
 * `options` Object
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
   * `marginsType` Integer (optional) - 使用する余白の種類を指定します。 0 で既定値、1 で余白なし、2 で最小限の余白になります。
-  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
+  * `scaleFactor` Number (任意) - ウェブページのスケール係数。 Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
+    * `from` Number - the first page to print.
+    * `to` Number - the last page to print (inclusive).
+  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
-  * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
 
 戻り値 `Promise<Buffer>` - 生成された PDF データで実行されます。
 
@@ -1210,7 +1206,9 @@ Chromium の印刷のカスタム設定のプレビューで、PDF としてウ�
   marginsType: 0,
   printBackground: false,
   printSelectionOnly: false,
-  landscape: false
+  landscape: false,
+  pageSize: 'A4',
+  scaleFactor: 100
 }
 ```
 
@@ -1283,13 +1281,20 @@ win.webContents.on('devtools-opened', () => {
 </head>
 <body>
   <webview id="browser" src="https://github.com"></webview>
-  <webview id="devtools"></webview>
+  <webview id="devtools" src="about:blank"></webview>
   <script>
+    const { webContents } = require('electron').remote
+    const emittedOnce = (element, eventName) => new Promise(resolve => {
+      element.addEventListener(eventName, event => resolve(event), { once: true })
+    })
     const browserView = document.getElementById('browser')
     const devtoolsView = document.getElementById('devtools')
-    browserView.addEventListener('dom-ready', () => {
-      const browser = browserView.getWebContents()
-      browser.setDevToolsWebContents(devtoolsView.getWebContents())
+    const browserReady = emittedOnce(browserView, 'dom-ready')
+    const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
+    Promise.all([browserReady, devtoolsReady]).then(() => {
+      const browser = webContents.fromId(browserView.getWebContentsId())
+      const devtools = webContents.fromId(devtoolsView.getWebContentsId())
+      browser.setDevToolsWebContents(devtools)
       browser.openDevTools()
     })
   </script>
@@ -1305,7 +1310,7 @@ const { app, BrowserWindow } = require('electron')
 let win = null
 let devtools = null
 
-app.once('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   devtools = new BrowserWindow()
   win.loadURL('https://github.com')
@@ -1383,7 +1388,7 @@ ID に基づいて共有ワーカーのインスペクターを起動します�
 const { app, BrowserWindow } = require('electron')
 let win = null
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL(`file://${__dirname}/index.html`)
   win.webContents.on('did-finish-load', () => {
@@ -1430,6 +1435,29 @@ console.log('My frameId is:', require('electron').webFrame.routingId)
 // メインプロセス内
 ipcMain.on('ping', (event) => {
   console.info('Message came from frameId:', event.frameId)
+})
+```
+
+#### `contents.postMessage(channel, message, [transfer])`
+
+* `channel` String
+* `message` any
+* `transfer` MessagePortMain[] (optional)
+
+Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
+
+The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
+
+例:
+```js
+// Main process
+const { port1, port2 } = new MessageChannelMain()
+webContents.postMessage('port', { message: 'hello' }, [port1])
+
+// Renderer process
+ipcRenderer.on('port', (e, msg) => {
+  const [port] = e.ports
+  // ...
 })
 ```
 
@@ -1533,13 +1561,9 @@ win.webContents.on('did-finish-load', async () => {
 
 もし *オフスクリーンレンダリング* が有効であれば指定された数字にフレームレートをセットします。 1 から 60 の値のみを受け取ります。
 
-**[非推奨](modernization/property-updates.md)**
-
 #### `contents.getFrameRate()`
 
 戻り値 `Boolean` - もし *オフスクリーンレンダリング* が有効であれば、現在のフレームレートを返します。
-
-**[非推奨](modernization/property-updates.md)**
 
 #### `contents.invalidate()`
 
@@ -1617,7 +1641,7 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 #### `contents.id` _読み出し専用_
 
-この WebContents の一意のIDを表す `Integer`。
+この WebContents の一意のIDを表す `Integer`。 Each ID is unique among all `WebContents` instances of the entire Electron application.
 
 #### `contents.session` _読み出し専用_
 

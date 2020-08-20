@@ -14,8 +14,8 @@
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-  // Регистрация слушателя сочетания клавиш 'CommandOrControl+Y'.
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Сделайте что-нибудь, когда Y и Command/Control нажаты.
   })
@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 На Linux и Windows, клавиша `Command` не имеет никакого эффекта, так что используйте `CommandOrControl`, который представляет собой `Command` на macOS и `Control` на Linux и Windows для определения некоторых акселераторов.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Используйте `Alt` вместо `опции`. Клавиша `Option` существует только на macOS, в то время как клавиша `Alt` доступна на всех платформах.
 
 Клавиша `Super` сопоставляется с клавишей `Windows` в Windows и Linux и `Cmd` на macOS.
 
@@ -46,7 +46,7 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 * `0` - `9`
 * `A` - `Z`
 * `F1` - `F24`
-* Символы пунктуации, например `~`, `!`, `@`, `#`, `$`, и т.д.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`

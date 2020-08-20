@@ -84,7 +84,6 @@ There are questions that are asked quite often. Check this out before creating a
 *
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
-  * [برنامج ملاحظات بيتا](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md)
   * [توليد ملفات asar](tutorial/application-packaging.md#generating-asar-archives)
   * [استخدام أرشيفات asar](tutorial/application-packaging.md#using-asar-archives)

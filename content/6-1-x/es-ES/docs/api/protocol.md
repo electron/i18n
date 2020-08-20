@@ -114,7 +114,7 @@ protocol.registerSchemesAsPrivileged([
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `referrer` Cadena
     * `method` String
@@ -136,7 +136,7 @@ Por defecto el `scheme` es tratado como `http:`, que es analizado de forma difer
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `referrer` Cadena
     * `method` String
@@ -166,7 +166,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `referrer` Cadena
     * `method` String
@@ -184,7 +184,7 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Objeto
     * `referrer` Cadena
@@ -213,7 +213,7 @@ Para solicitudes POST el objeto `uploadData` debe ser proporcionado.
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Objeto
     * `referrer` Cadena
@@ -295,7 +295,7 @@ Devuelve `Promise<Boolean>` - completado con un boolean eso indica si hay un con
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `referrer` Cadena
     * `method` String
@@ -311,7 +311,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nu
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `referrer` Cadena
     * `method` String
@@ -327,7 +327,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador 
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `referrer` Cadena
     * `method` String
@@ -343,7 +343,7 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Objeto
     * `referrer` Cadena
@@ -366,7 +366,7 @@ Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlado
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Object
     * `referrer` Cadena

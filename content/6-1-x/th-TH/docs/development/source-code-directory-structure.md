@@ -1,18 +1,18 @@
 # โครงสร้างของไดเรกทอรี่ของรหัสต้นฉบับ
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+รหัสแหล่งที่มาของอิเล็กตรอนจะถูกแยกออกเป็นบางส่วนส่วนใหญ่ ต่อไปนี้โครเมียมในอนุสัญญาแยก
 
-You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+คุณอาจจะต้องคุ้นเคยกับกระบวนการ[หลายโครเมียม สถาปัตยกรรม](https://dev.chromium.org/developers/design-documents/multi-process-architecture) เพื่อทําความเข้าใจซอร์สโค้ดได้ดีขึ้น
 
-## Structure of Source Code
+## โครงสร้างของรหัสแหล่งที่มา
 
 ```diff
 Electron
 ├── atom/ - C++ source code.
-|   ├── app/ - System entry code.
-|   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   |          main process things. This talks to the renderer to manage web
-|   |   |          pages.
+|   ├── app / - รหัสรายการระบบ
+|   ├──เบราว์เซอร์ / -- ส่วนหน้ารวมทั้งหน้าต่างหลัก UI และทั้งหมดของ
+|   |   |          กระบวนการหลัก นี้พูดถึง renderer ในการจัดการเว็บ
+|   |   |          หน้า
 |   |   ├── ui/ - Implementation of UI stuff for different platforms.
 |   |   |   ├── cocoa/ - Cocoa specific source code.
 |   |   |   ├── win/ - Windows GUI specific source code.

@@ -70,7 +70,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 * 使用 ` ~ 2.0. 0 ` 只接受您的 ` 2.0.0 ` 版本的稳定性或安全性相关的修复程序。
 * 使用 ` ^ 2.0. 0 ` 可允许不破坏性的 _ 合理稳定 _ 功能以及安全性和 bug 修复。
 
-第二点重要的是使用 `^` 的应用程序仍然能够期望合理的稳定性水平。 To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+第二点重要的是使用 `^` 的应用程序仍然能够期望合理的稳定性水平。 为了达到这个目的，semver允许一个 _pre-release 标识_ 来表示一个特定的版本还不 _安全_ 或 _稳定_.
 
 无论你选择什么，你将定期不得不在 `package.json` 中打破版本，因为突破性变更是 Chromium 的一个常态。
 

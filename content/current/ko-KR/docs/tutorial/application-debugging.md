@@ -9,7 +9,7 @@ Electron 응용 프로그램이 원하는 방식으로 작동하지 않을 때�
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 

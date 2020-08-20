@@ -1113,12 +1113,12 @@ Le `boutons` est un tableau d'objets `Bouton` :
   * `icon` [NativeImage](native-image.md) - L'icône s'affichant dans la miniature dans la barre d'outils.
   * `click` Function
   * `tooltip` String (facultatif) - Le texte dans l'info-bulle du bouton.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `flags` String[] (facultatif) - Contrôle les états et comportements spécifiques du bouton. Par défaut, il est `['activé']`.
 
 Le `flags` est un tableau pouvant inclure ces `String`s suivant :
 
 * `enabled` - Le bouton est actif et disponible à l'utilisateur.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `désactivé` - Le bouton est désactivé. Il est présent, mais a un état visuel indiquant qu'il ne répondra pas à l'action de l'utilisateur.
 * `dismissonclick` - Lorsque le bouton est cliqué, la fenêtre de miniature se ferme immédiatement.
 * `nobackground` - Utilise uniquement l'image et ne dessine pas de bordure sur le bouton.
 * `hidden` - Le bouton n'est pas affiché à l'utilisateur.
@@ -1209,7 +1209,7 @@ Retourne `Boolean` - Si la fenêtre est visible sur tous les espaces de travail.
 
 * `ignore` Boolean
 * `options` Object (optional)
-  * `forward` Boolean (optional) _macOS_ _Windows_ - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Utilisé uniquement lorsque `ignore` est vrai. Si `ignore` est faux, le transfert est toujours désactivé quelle que soit cette valeur.
+  * `Avancer` Boolean (facultatif) _macOS_ _Windows_ - Si vrai, transférez la souris messages vers Chromium, en activant les événements liés à la souris tels que `souris`. Utilisé uniquement lorsque `ignore` est vrai. Si `ignore` est faux, le transfert est toujours désactivé quelle que soit cette valeur.
 
 Fait que la fenêtre ignore tous les événements de la souris.
 

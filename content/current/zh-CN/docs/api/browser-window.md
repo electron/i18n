@@ -11,15 +11,12 @@ const { BrowserWindow } = require('electron')
 // 或者从渲染进程中使用 `remote`.
 // const { BrowserWindow } = require('electron').remote
 
-let win = new BrowserWindow({ width: 800, height: 600 })
-win.on('closed', () => {
-  win = null
-})
+const win = new BrowserWindow({ width: 800, height: 600 })
 
-// 加载远程URL
+// Load a remote URL
 win.loadURL('https://github.com')
 
-// 或加载本地HTML文件
+// Or load a local HTML file
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -120,14 +117,14 @@ child.once('ready-to-show', () => {
 ### `new BrowserWindow([options])`
 
 * `options` Object (optional)
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
+  * `width` Integer (可选) - 窗口的宽度(以像素为宽度)。 默认值为 `800`
+  * `height` Integer (可选) - 窗口的高度(以像素为单位)。 默认值为 `600`
+  * `x` Interger (可选) - (**必选** 如果使用了y) 窗口相对于屏幕左侧的偏移量。 默认值为将窗口居中。
+  * `y` Integer (可选) - (**必选** 如果使用了x) 窗口相对于屏幕顶端的偏移量。 默认值为将窗口居中。
   * `useContentSize` Boolean (可选) - `width` 和 `height` 将设置为 web 页面的尺寸(译注: 不包含边框), 这意味着窗口的实际尺寸将包括窗口边框的大小，稍微会大一点。 默认值为 `false`.
   * `center` Boolean (可选) - 窗口在屏幕居中.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
+  * 整型（可选）-窗口的最小宽度。默认为0 默认值为 `0`
+  * `minHeight` Integer (optional) - Window's minimum height. 默认值为 `0`
   * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
   * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
   * `resizable` Boolean (optional) - Whether window is resizable. 默认值为 `true`。
@@ -141,7 +138,7 @@ child.once('ready-to-show', () => {
   * ` fullscreenable ` Boolean (可选) - 窗口是否可以进入全屏状态. 在 macOS上, 最大化/缩放按钮是否可用 默认值为 `true`。
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. 默认值为 `false`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. 默认值为 `false`.
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. 默认值为 `false`.
   * `title`String(可选) - 默认窗口标题 默认为`"Electron"`。 如果由`loadURL()`加载的HTML文件中含有标签`<title>`，此属性将被忽略。
   * `icon` ([NativeImage](native-image.md) | String) (可选) - 窗口的图标. 在 Windows 上推荐使用 `ICO` 图标来获得最佳的视觉效果, 默认使用可执行文件的图标.
   * `show` Boolean (optional) - Whether window should be shown when created. 默认值为 `true`。
@@ -156,7 +153,7 @@ child.once('ready-to-show', () => {
   * `backgroundColor` String(可选) - 窗口的背景颜色为十六进制值，例如`#66CD00`, `#FFF`, `#80FFFFFF` (设置`transparent`为`true`方可支持alpha属性，格式为#AARRGGBB)。 默认值为 `#FFF`（白色）。
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. 默认值为 `true`。
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. 默认值为 `false`.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. 默认值为 `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 默认值为 `false`. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are:
@@ -180,8 +177,8 @@ child.once('ready-to-show', () => {
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. 默认值为 `true`。
     * `session` [Session](session.md#class-session) (可选) - 设置页面的 session 而不是直接忽略 Session 对象, 也可用 `partition` 选项来代替，它接受一个 partition 字符串. 同时设置了`session` 和 `partition`时, `session` 的优先级更高. 默认使用默认的 session.
     * `partition` String (optional) - 通过 session 的 partition 字符串来设置界面session. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 默认使用默认的 session.
-    * `affinity` String (可选) - 当指定，具有相同`affinity` 的 web页面将在相同的渲染进程运行。 需要注意的是，由于渲染过程中会有代码重用，如 `webPreferences`的`preload`, `sandbox` 和 `nodeIntegration`等选项会在不同页面之间共用，即使你已经在不同页面中为同一选项设置过不同的值，它们仍会被共用。 因此，建议为`affinity`相同的页面，使用相同的 `webPreferences` _这一选项当前是实验性的_
-    * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
+    * `affinity` String (可选) - 当指定，具有相同`affinity` 的 web页面将在相同的渲染进程运行。 需要注意的是，由于渲染过程中会有代码重用，如 `webPreferences`的`preload`, `sandbox` 和 `nodeIntegration`等选项会在不同页面之间共用，即使你已经在不同页面中为同一选项设置过不同的值，它们仍会被共用。 因此，建议为`affinity`相同的页面，使用相同的 `webPreferences` _Deprecated_
+    * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. 默认值为 `1.0`
     * `javascript` Boolean (optional) - Enables JavaScript support. 默认值为 `true`。
     * `webSecurity` Boolean (可选) - 当设置为 `false`, 它将禁用同源策略 (通常用来测试网站), 如果此选项不是由开发者设置的，还会把 `allowRunningInsecureContent`设置为 `true`. 默认值为 `true`。
     * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. 默认值为 `false`.
@@ -207,6 +204,7 @@ child.once('ready-to-show', () => {
     * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 这也会影响到 [Page Visibility API](#page-visibility). 默认值为 `true`。
     * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
     * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认值为 `false`. `preload`脚本的运行环境仍然可以访问`document` 和 `window`全局变量，但它将使用自己内置的函数 (如`Array`, `Object`, `JSON`等)，并且将被加载的页面与对全局环境所做的任何更改隔离开来. Electron API 仅在 `preload` 脚本中有效，而不是加载的页面。 在加载可能不受信任的远程内容时, 应使用此选项, 以确保加载的内容不能篡改 ` preload ` 脚本和使用的 Electron APIs。 此选项使用 [ Chrome Content Scripts ](https://developer.chrome.com/extensions/content_scripts#execution-environment) 使用的相同技术。 通过在控制台选项卡顶部的组合框中选择 "Electron Isolated Context" 条目, 可以在开发工具中访问此上下文。
+    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`.  The default is `false`. In Electron 12, the default will be changed to `true`. _Deprecated_
     * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. ** 注意: **此选项目前是实验性的。
     * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认值为 `false`. ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
     * `additionalArguments` String\[] (可选) - 一系列将会被附加至此app的渲染进程的`process.argv`的字符串. 对于将少量数据向下传至渲染进程的预加载脚本而言是十分实用的.
@@ -217,7 +215,13 @@ child.once('ready-to-show', () => {
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
     * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. 默认值为 `false`.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. 默认值为 `true`。
+    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). 默认值为 `true`。
+    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
+      * `none` - Disables code caching
+      * `code` - Heuristic based code caching
+      * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
+      * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
 
 当使用 ` minWidth `/` maxWidth `/` minHeight `/` maxHeight ` 设置最小或最大窗口大小时, 它只限制用户。 它不会阻止您将不符合大小限制的值传递给 ` setBounds `/` setSize ` 或 ` BrowserWindow ` 的构造函数。
 
@@ -483,7 +487,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 返回 `BrowserWindow` -拥有给定 `id` 的窗口.
 
-#### `BrowserWindow.addExtension(path)`
+#### `BrowserWindow.addExtension(path)` _Deprecated_
 
 * `path` String
 
@@ -493,7 +497,9 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-#### `BrowserWindow.removeExtension(name)`
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+
+#### `BrowserWindow.removeExtension(name)` _Deprecated_
 
 * `name` 字符串
 
@@ -501,13 +507,17 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-#### `BrowserWindow.getExtensions()`
+**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+
+#### `BrowserWindow.getExtensions()` _Deprecated_
 
 Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-#### `BrowserWindow.addDevToolsExtension(path)`
+**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+
+#### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
 * `path` String
 
@@ -519,7 +529,9 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-#### `BrowserWindow.removeDevToolsExtension(name)`
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+
+#### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
 * `name` 字符串
 
@@ -527,7 +539,9 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-#### `BrowserWindow.getDevToolsExtensions()`
+**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+
+#### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
 Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
@@ -541,6 +555,8 @@ console.log(installed)
 ```
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
+
+**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 ### 实例属性
 
@@ -561,13 +577,57 @@ A `WebContents` object this window owns. All web page related events and operati
 
 #### `win.id` _Readonly_
 
-A `Integer` property representing the unique ID of the window.
+A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
 
 #### `win.autoHideMenuBar`
 
 A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
 
 If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+
+#### `win.simpleFullScreen`
+
+A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.
+
+#### `win.fullScreen`
+
+A `Boolean` property that determines whether the window is in fullscreen mode.
+
+#### `win.visibleOnAllWorkspaces`
+
+A `Boolean` property that determines whether the window is visible on all workspaces.
+
+**Note:** Always returns false on Windows.
+
+#### `win.shadow`
+
+A `Boolean` property that determines whether the window has a shadow.
+
+#### `win.menuBarVisible` _Windows_ _Linux_
+
+A `Boolean` property that determines whether the menu bar should be visible.
+
+**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+
+#### `win.kiosk`
+
+A `Boolean` property that determines whether the window is in kiosk mode.
+
+#### `win.documentEdited` _macOS_
+
+A `Boolean` property that specifies whether the window’s document has been edited.
+
+The icon in title bar will become gray when set to `true`.
+
+#### `win.representedFilename` _macOS_
+
+A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+
+#### `win.title`
+
+A `String` property that determines the title of the native window.
+
+**Note:** The title of the web page can be different from the title of the native window.
 
 #### `win.minimizable`
 
@@ -714,7 +774,7 @@ Minimizes the window. On some platforms the minimized window will be shown in th
 
 进入或离开简单的全屏模式。
 
-简单全屏模式模拟 Mac OS X prior to Lion (10.7) 版本中发现的原生全屏行为。
+Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
 
 #### `win.isSimpleFullScreen()` _macOS_
 
@@ -724,16 +784,15 @@ Minimizes the window. On some platforms the minimized window will be shown in th
 
 返回 `Boolean` - 窗口是否处于正常状态（未最大化，未最小化，不在全屏模式下）。
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_
+#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_ _Linux_
 
 * ` aspectRatio ` Float- 为内容视图保持的宽高比.
-* `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
+ * `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
 
 这将使窗口保持长宽比。 额外的大小允许开发人员有空间 (以像素为单位), 不包括在纵横比计算中。 此 API 已经考虑了窗口大小和内容大小之间的差异。
 
-想象一个使用高清视频播放器和相关控件的普通窗口。 假假如左边缘有15px, 右边缘有25px, 在播放器下面有50px. 为了保持16:9 的长宽比 (标准的HD长宽比为1920x1080)， 我们可以调用这个api传入参数16/9 和[ 40,50 ]. 第二个参数不管网页中的额外的宽度和高度在什么位置, 只要它们存在就行. 在全部内部窗口中，加上任何额外的宽度和高度 。
-
-使用 `0` 调用此函数，将会移除先前设置的宽高比。
+想象一个使用高清视频播放器和相关控件的普通窗口。 假假如左边缘有15px, 右边缘有25px, 在播放器下面有50px. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
+{ width: 40, height: 50 }. 第二个参数不管网页中的额外的宽度和高度在什么位置, 只要它们存在就行. 在全部内部窗口中，加上任何额外的宽度和高度 。
 
 #### `win.setBackgroundColor(backgroundColor)`
 
@@ -777,6 +836,10 @@ console.log(win.getBounds())
 
 Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
+#### `win.getBackgroundColor()`
+
+Returns `String` - Gets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
@@ -802,7 +865,7 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 
 #### `win.isEnabled()`
 
-Returns Boolean - whether the window is enabled.
+Returns `Boolean` - whether the window is enabled.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -854,15 +917,11 @@ Returns Boolean - whether the window is enabled.
 
 * `resizable` Boolean
 
-设置用户是否可以手动调整窗口大小。
-
-**[过时的](modernization/property-updates.md)**
+Sets whether the window can be manually resized by the user.
 
 #### `win.isResizable()`
 
-返回 `Boolean` - 设置窗口是否可以被用户改变大小.
-
-**[过时的](modernization/property-updates.md)**
+Returns `Boolean` - Whether the window can be manually resized by the user.
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
@@ -870,15 +929,11 @@ Returns Boolean - whether the window is enabled.
 
 Sets whether the window can be moved by user. On Linux does nothing.
 
-**[过时的](modernization/property-updates.md)**
-
 #### `win.isMovable()` _macOS_ _Windows_
 
 返回 `Boolean` - 窗口是否可以被用户拖动
 
 在 Linux 上总是返回 ` true `。
-
-**[过时的](modernization/property-updates.md)**
 
 #### `win.setMinimizable(minimizable)` _macOS_ _Windows_
 
@@ -886,15 +941,11 @@ Sets whether the window can be moved by user. On Linux does nothing.
 
 Sets whether the window can be manually minimized by user. On Linux does nothing.
 
-**[过时的](modernization/property-updates.md)**
-
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-返回 `Boolean` -窗口是否可以最小化
+Returns `Boolean` - Whether the window can be manually minimized by the user.
 
 在 Linux 上总是返回 ` true `。
-
-**[过时的](modernization/property-updates.md)**
 
 #### `win.setMaximizable(maximizable)` _macOS_ _Windows_
 
@@ -902,29 +953,21 @@ Sets whether the window can be manually minimized by user. On Linux does nothing
 
 Sets whether the window can be manually maximized by user. On Linux does nothing.
 
-**[过时的](modernization/property-updates.md)**
-
 #### `win.isMaximizable()` _macOS_ _Windows_
 
 返回 `Boolean` - 窗口是否可以最大化.
 
 在 Linux 上总是返回 ` true `。
 
-**[过时的](modernization/property-updates.md)**
-
 #### `win.setFullScreenable(fullscreenable)`
 
 * `fullscreenable` Boolean
 
-设置点击最大化按钮是否可以全屏或最大化窗口.
-
-**[过时的](modernization/property-updates.md)**
+Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
 #### `win.isFullScreenable()`
 
-返回 `Boolean` - 是否为全屏状态或窗口最大化
-
-**[过时的](modernization/property-updates.md)**
+Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
 #### `win.setClosable(closable)` _macOS_ _Windows_
 
@@ -932,15 +975,11 @@ Sets whether the window can be manually maximized by user. On Linux does nothing
 
 Sets whether the window can be manually closed by user. On Linux does nothing.
 
-**[过时的](modernization/property-updates.md)**
-
 #### `win.isClosable()` _macOS_ _Windows_
 
 返回 `Boolean` - 窗口是否可以被用户关闭.
 
 在 Linux 上总是返回 ` true `。
-
-**[过时的](modernization/property-updates.md)**
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
@@ -1023,7 +1062,7 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-进入或离开 kiosk 模式。
+Enters or leaves kiosk mode.
 
 #### `win.isKiosk()`
 
@@ -1253,7 +1292,7 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
 * `options` Object
   * `appId` String (可选) - 窗口的 [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). 该项必须设置, 否则其他选项将没有效果.
   * `appIconPath` String (可选) -窗口的 [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
+  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. 默认值为 `0`
   * `relaunchCommand` String (可选) - 窗口的 [重新启动命令](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (可选) - 窗口的[重新启动显示名称](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
@@ -1285,15 +1324,11 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
 
 Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
 
-如果菜单栏已经可见, 调用 `setAutoHideMenuBar(true)`时不会立刻隐藏.
-
-**[过时的](modernization/property-updates.md)**
+If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
 #### `win.isMenuBarAutoHide()`
 
 返回 `Boolean` - 判断窗口的菜单栏是否自动隐藏.
-
-**[过时的](modernization/property-updates.md)**
 
 #### `win.setMenuBarVisibility(visible)` _Windows_ _Linux_
 
@@ -1305,11 +1340,9 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 返回 `Boolean` - 判断窗口的菜单栏是否可见.
 
-#### `win.setVisibleOnAllWorkspaces(visible[, options])`
+#### `win.setVisibleOnAllWorkspaces(visible)`
 
 * `visible` Boolean
-* `options` Object (optional)
-  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows _deprecated_
 
 设置窗口是否在所有工作空间上可见
 
@@ -1325,7 +1358,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 * `ignore` Boolean
 * `options` Object (optional)
-  * `forward` Boolean (optional) _macOS_ _Windows_ - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. 仅当` ignore </ 0>为 true 时才被使用。 如果 <code>ignore` 为 false, 转发始终是禁用的，不管这个值是什么。
+  * `forward` Boolean (可选) _macOS_ _Windows_ - 如果为 true, 传递鼠标移动消息给 Chromium，鼠标相关事件将可用，如 `mouseleave`。 仅当` ignore </ 0>为 true 时才被使用。 如果 <code>ignore` 为 false, 转发始终是禁用的，不管这个值是什么。
 
 忽略窗口内的所有鼠标事件
 

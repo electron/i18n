@@ -14,9 +14,17 @@ This document uses the following convention to categorize breaking changes:
 
 ## Cambios planeados en la API(12.0)
 
-### Removed: `crashReporter` methods in the renderer process
+### Default Changed: `contextIsolation` defaults to `true`
 
-The following `crashReporter` methods are no longer available in the renderer process:
+In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
+
+We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+
+For more details see: https://github.com/electron/electron/issues/23506
+
+### Eliminado: métodos `crashReporter` en el render process
+
+Los siguientes métodos `crashReporter` ya no están disponible en el renderer process:
 
 - `crashReporter.start`
 - `crashReporter.getLastCrashReport`
@@ -25,39 +33,47 @@ The following `crashReporter` methods are no longer available in the renderer pr
 - `crashReporter.setUploadToServer`
 - `crashReporter.getCrashesDirectory`
 
-They should be called only from the main process.
+Deberían ser llamados solo desde el proceso principal.
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+Vea [#23265](https://github.com/electron/electron/pull/23265) para mas detalles.
+
+### Default Changed: `crashReporter.start({ compress: true })`
+
+The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
+
+If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
 
 ## Cambios planeados en la API(11.0)
 
+There are no breaking changes planned for 11.0.
+
 ## Cambios planeados en la API(10.0)
 
-### Deprecated: `companyName` argument to `crashReporter.start()`
+### Desaprobado: argumento `companyName` para `crashReporter.start()`
 
-The `companyName` argument to `crashReporter.start()`, which was previously required, is now optional, and further, is deprecated. To get the same behavior in a non-deprecated way, you can pass a `companyName` value in `globalExtra`.
+El argumento `companyName` para `crashReporter.start()`, que era previamente requerido, ahora es opcional, y aún más, está desaprobado. Para obtener el mismo comportamiento de una forma no desaprobada, pude pasar un valor `companyName` en `globalExtra`.
 
 ```js
-// Deprecated in Electron 10
+// Desaprobado en Electron 10
 crashReporter.start({ companyName: 'Umbrella Corporation' })
-// Replace with
+// Reemplazar con 
 crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
 ```
 
-### Deprecated: `crashReporter.getCrashesDirectory()`
+### Obsoleto: `crashReporter.getCrashesDirectory()`
 
-The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
+El método `crashReporter.getCrashesDirectory` ha sido desaprobado. Uso debe ser reemplazado por `app.getPath('crashDumps')`.
 
 ```js
-// Deprecated in Electron 10
+// Obsoleto en Electron 10
 crashReporter.getCrashesDirectory()
-// Replace with
+// Reemplazar con
 app.getPath('crashDumps')
 ```
 
-### Deprecated: `crashReporter` methods in the renderer process
+### Obsoleto: los métodos `crashReporter` en el renderer process
 
-Calling the following `crashReporter` methods from the renderer process is deprecated:
+Llamar a los siguientes métodos `crashReporter` desde el renderer process es obsoleto:
 
 - `crashReporter.start`
 - `crashReporter.getLastCrashReport`
@@ -66,17 +82,21 @@ Calling the following `crashReporter` methods from the renderer process is depre
 - `crashReporter.setUploadToServer`
 - `crashReporter.getCrashesDirectory`
 
-The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
+Los únicos métodos no desaprobados restantes en el modulo `crashReporter` en el render son `addExtraParameter`, `removeExtraParameter` y `getParameters`.
 
-All above methods remain non-deprecated when called from the main process.
+Todos los métodos anteriores permanecen no desaprobados cuando son llamados desde el proceso principal.
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+Vea [#23265](https://github.com/electron/electron/pull/23265) para mas detalles.
 
-### Removed: Browser Window Affinity
+### Deprecated: `crashReporter.start({ compress: false })`
 
-The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
 
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+### Eliminado: Browser Window Affinity
+
+La opción `affinity` al construir una nueva `BrowserWindow` se eliminará como parte de nuestro plan para alinear más estrechamente con el modelo de proceso de Chromium por seguridad, rendimiento y mantenimiento.
+
+Para información más detallada vea [#18397](https://github.com/electron/electron/issues/18397).
 
 ### Default Changed: `enableRemoteModule` defaults to `false`
 
@@ -100,7 +120,7 @@ As of Electron 9 we do not allow loading of non-context-aware native modules in 
 
 If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
 
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+Para información más detallada vea [#18397](https://github.com/electron/electron/issues/18397).
 
 ### Removed: `<webview>.getWebContents()`
 
@@ -182,7 +202,7 @@ const getGuestForWebContents = (webContentsId, contents) => {
     throw new Error(`Invalid webContentsId: ${webContentsId}`)
   }
   if (guest.hostWebContents !== contents) {
-    throw new Error(`Access denied to webContents`)
+    throw new Error('Access denied to webContents')
   }
   return guest
 }
@@ -232,7 +252,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleState`
+### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleTime`
 
 ```js
 // Removed in Electron 7.0
@@ -507,20 +527,20 @@ const { memory } = metrics[0] // Propiedad Obsoleta
 ### `BrowserWindow`
 
 ```js
-// Obsoleto
-let optionsA = {webPreferences: { blinkFeatures: '' }}
-let windowA = new BrowserWindow(optionsA)
-// Reemplazar con
-let optionsB = {webPreferences: { enableBlinkFeatures: '' }}
-let windowB = new BrowserWindow(optionsB)
+// Deprecated
+const optionsA = { webPreferences: { blinkFeatures: '' } }
+const windowA = new BrowserWindow(optionsA)
+// Replace with
+const optionsB = { webPreferences: { enableBlinkFeatures: '' } }
+const windowB = new BrowserWindow(optionsB)
 
-// Obsoleto
+// Deprecated
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Reemplazar con
+// Replace with
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -681,12 +701,12 @@ La siguiente lista incluye cambios efectuados en la API 2.0 de Electrón.
 ### `BrowserWindow`
 
 ```js
-// Cambiar
-let optionsA = { titleBarStyle: 'hidden-inset' }
-let windowA = new BrowserWindow(optionsA)
-// Reemplazar con
-let optionsB = { titleBarStyle: 'hiddenInset' }
-let windowB = new BrowserWindow(optionsB)
+// Deprecated
+const optionsA = { titleBarStyle: 'hidden-inset' }
+const windowA = new BrowserWindow(optionsA)
+// Replace with
+const optionsB = { titleBarStyle: 'hiddenInset' }
+const windowB = new BrowserWindow(optionsB)
 ```
 
 ### `menu`

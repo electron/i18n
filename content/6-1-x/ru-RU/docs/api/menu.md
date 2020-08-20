@@ -16,7 +16,7 @@
 
 * `menu` Menu | null
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+Устанавливает `меню` в качестве меню приложения на macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
 Также на Windows и Linux, Вы можете использовать `&` в названии подменю верхнего списка, чтобы указать, какая буква должна получить сгенерированный акселератор( Accelerator ). Для примера, использование `&File` для меню файла в результате сгенерирует акселератор( Accelerator ) `Alt-F`, который открывает соответствующее меню. Указанный символ в названии кнопки будет подчеркнут. Символ `&` не отображается в названии кнопки.
 
@@ -54,7 +54,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 #### `menu.popup(options)`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `windows` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.

@@ -23,11 +23,11 @@ Jika skrip mengembalikan bahwa konfigurasi Anda menggunakan protokol keamanan ya
 $ brew install python@2 && brew link python@2 --force
 ```
 
-If you are using Python as provided by Homebrew, you also need to install the following Python modules:
+Jika Anda menggunakan Python seperti yang disediakan oleh Homebrew, Anda juga perlu memasang modul Python berikut:
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+Anda dapat menggunakan`pip` untuk memasangnya:
 
 ```sh
 $ pip install pyobjc
@@ -35,10 +35,10 @@ $ pip install pyobjc
 
 ## macos SDK
 
-If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Jika Anda mengembangkan Electron dan tidak berencana untuk mendistribusikan custom Electron build anda, Anda dapat melewati bagian ini.
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK.  Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
+Build Electron Resmi dibuat dengan [ Xcode 9.4.1 ](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), dan macOS 10.13 SDK.  Pengembangan dengan SDK yang lebih baru juga berfungsi, tetapi rilisnya saat ini menggunakan SDK 10.13.
 
-## Building Electron
+## Pengembangan Electron
 
-See [Build Instructions: GN](build-instructions-gn.md).
+Lihat [Build Instructions: GN](build-instructions-gn.md).

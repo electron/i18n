@@ -133,8 +133,7 @@ A `Boolean`. When this attribute is present the guest page will have web securit
 ### `partisi`
 
 ```html
-<webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electronjs.org" partition="electron"></webview>
+<webview src="https://github.com" partition="persist:github"></webview> <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
 A `String` that sets the session used by the page. Jika `partisi` diawali dengan `bertahan:`, halaman akan menggunakan sesi terus-menerus tersedia untuk semua halaman di app dengan `partisi` yang sama. jika tidak ada `bertahan:` awalan, halaman akan menggunakan sesi di memori. Dengan menugaskan yang sama `partisi`, beberapa halaman dapat berbagi sesi yang sama. Jika `partisi` disetel maka sesi app default akan digunakan.
@@ -448,8 +447,30 @@ Berhenti permintaan `findInPage` `webview` dengan disediakan `tindakan`.
 
 * `options` Object (optional)
   * `silent` Boolean (optional) - Don't ask user for print settings. Defaultnya adalah ` false </ 0> .</li>
-<li><code>printBackground` Boolean (optional) - Also prints the background color and image of the web page. Defaultnya adalah ` false </ 0> .</li>
-<li><code>deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+<li><code>printBackground` Boolean (optional) - Prints the background color and image of the web page. Defaultnya adalah ` false </ 0> .</li>
+<li><code>deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Defaultnya adalah `true`.
+  * `margins` Object (optional)
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Defaultnya adalah ` false </ 0> .</li>
+<li><code>scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the start page.
+    * `to` Number - the end page.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional)
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
 Returns `Promise<void>`
 
@@ -458,11 +479,18 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 ### `<webview>.printToPDF(options)`
 
 * `options` Object
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the first page to print.
+    * `to` Number - the last page to print (inclusive).
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
 Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
 
@@ -527,26 +555,9 @@ Returns `Promise<void>`
 
 Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
-
-* `minimalLevel` Nomor
-* `maksimalLevel` Nomor
-
-Returns `Promise<void>`
-
-Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
-
-**Deprecated:** This API is no longer supported by Chromium.
-
 ### `<webview>.showDefinitionForSelection()` _macOS_
 
 Menampilkan kamus pop-up yang mencari kata yang dipilih pada halaman.
-
-### `<webview>.getWebContents()` _Deprecated_
-
-Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
-
-It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 ### `<webview>.getWebContentsId()`
 

@@ -20,7 +20,8 @@
 
 > #### Примечание: взаимодействие между процессами
 > 
-> В Electron у нас есть несколько способов связи между основным процессом и процессом визуализации, такие как [` ipcRenderer `](../api/ipc-renderer.md) и [` ipcMain `](../api/ipc-main.md) для отправки сообщений, а также [remote](../api/remote.md) модуль для связи в стиле RPC. Так же доступен FAQ о [том, как обмениваться данными между веб-страницами](../faq.md#how-to-share-data-between-web-pages).
+> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+
 
 ## Использование API Electron
 
@@ -42,16 +43,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Поскольку возможна связь между процессами, процесс визуализации может вызвать основной процесс для выполнения задач. Electron имеет модуль, называемый `remote`, который предоставляет API, доступный только основному процессу. Чтобы создать `BrowserWindow` из процесса визуализации, мы используем remote в качестве посредника:
+Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
 
 ```javascript
-// Это сработает в процессе визуализации, но будет undefined
-// в основном процессе
-const { remote } = require('electron')
-const { BrowserWindow } = remote
+// In the main process:
+const { ipcMain } = require('electron')
 
-const win = new BrowserWindow()
+ipcMain.handle('perform-action', (event, ...args) => {
+  // ... do something on behalf of the renderer ...
+})
+
+// In the renderer process:
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.invoke('perform-action', ...args)
 ```
+
+Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
 
 ## Использование API Node.js
 

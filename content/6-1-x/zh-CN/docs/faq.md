@@ -12,7 +12,7 @@
 
 通常来说，在稳定版的 Chrome 发布后一到两周内，我们会更新 Electron 内的 Chrome 版本。 这个只是个估计且不能保证，取决于与升级所涉及的工作量。
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+我们只使用稳定的 Chrome 频道。 如果一个重要的修复在 beta 或 dev 通道中，我们将返回端口。
 
 更多信息，请看[安全介绍](tutorial/security.md)
 
@@ -36,12 +36,12 @@ global.sharedObject = {
 ```
 
 ```javascript
-// In page 1.
+// 在第1页。
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// 在第2页。
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 

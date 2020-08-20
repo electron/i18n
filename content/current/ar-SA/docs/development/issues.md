@@ -1,4 +1,4 @@
-# Issues In Electron
+# قضايا في الكترون
 
 * [How to Contribute to Issues](#how-to-contribute-to-issues)
 * [Asking for General Help](#asking-for-general-help)

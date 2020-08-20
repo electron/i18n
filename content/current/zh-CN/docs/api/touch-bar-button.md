@@ -2,7 +2,7 @@
 
 > 为mac os应用在touch bar中创建一个按钮组件
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new BrowserView(可选)` _实验功能_
 
@@ -13,6 +13,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * ` iconPosition `String (可选) - 可以是 ` left `、` right` 或 ` overlay `。 Defaults to `overlay`.
   * ` click `function (可选) - 单击按钮时调用的函数。
+  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  默认值为 `true`。
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
@@ -35,3 +36,7 @@ A `String` hex code representing the button's current background color. Changing
 #### `touchBarButton.icon`
 
 A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+
+#### `touchBarButton.enabled`
+
+A `Boolean` representing whether the button is in an enabled state.

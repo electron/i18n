@@ -12,14 +12,14 @@ Windows에서 시스템은 코드 서명 인증서에 신뢰 수준을 할당합
 
 > App can't be opened because it is from an unidentified developer
 
-If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
+If you are building an Electron app that you intend to package and distribute, it should be code signed. Mac과 Windows 앱스토어는 서명 되지 않은 애플리케이션을 허용하지 않습니다.
 
-# Signing macOS builds
+# MacOS 빌드 서명(Signing MacOS builds)
 
 MacO에서 빌드를 서명 하기 전에 다음을 수행 해야 합니다.
 
 1. (연회비 필요) [애플 개발자 프로그램](https://developer.apple.com/programs/)에 등록
-2. Download and install [Xcode](https://developer.apple.com/xcode)
+2. [Xcode](https://developer.apple.com/xcode) 다운로드 및 설치
 3. [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates) 생성, 다운로드, 및 설치
 
 패키지 된 응용 프로그램 서명을 위한 도구가 몇개 있습니다:

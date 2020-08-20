@@ -1319,7 +1319,7 @@ Returns array of `BrowserView` what was an attached with addBrowserView or setBr
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. كاذبة بشكل افتراضي.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })

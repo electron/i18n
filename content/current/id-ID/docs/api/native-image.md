@@ -277,15 +277,11 @@ Mengembalikan [`Ukuran`](structures/size.md)
 
 Menandai gambar sebagai gambar template.
 
-**[Tidak berlaku lagi](modernization/property-updates.md)**
-
 
 
 #### `image.isTemplateImage()`
 
 Mengembalikan `Boolean` - Apakah gambar itu adalah gambar template.
-
-**[Tidak berlaku lagi](modernization/property-updates.md)**
 
 
 

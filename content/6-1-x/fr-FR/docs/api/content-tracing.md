@@ -1,10 +1,10 @@
 # contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> Collecter des données de suivi à partir du module de contenu de Chromium pour trouver des goulots d'étranglement de performance et des opérations lentes.
 
 Processus : [Main](../glossary.md#main-process)
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+Ce module n'inclut pas d'interface web, vous devez donc ouvrir `chrome://tracing/` dans un navigateur Chrome et charger le fichier généré pour afficher le résultat. .
 
 **Remarque :** Vous ne devriez pas utiliser ce module tant que l'événement `ready` du module de l'application n'est pas émis.
 

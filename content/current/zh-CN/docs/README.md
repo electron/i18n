@@ -4,7 +4,7 @@
 
 ## 常见问题 (FAQ)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+有些问题经常被问到。 在新建问题之前请先查看：
 
 * [Electron 常见问题 (FAQ)](faq.md)
 
@@ -84,7 +84,6 @@ There are questions that are asked quite often. Check this out before creating a
 * Electron发布 & 开发者反馈
   * [版本规则](tutorial/electron-versioning.md)
   * [发布时间线](tutorial/electron-timelines.md)
-  * [应用反馈项目](tutorial/app-feedback-program.md)
 * [用 asar 打包 App 源代码](tutorial/application-packaging.md)
   * [生成 asar 档案](tutorial/application-packaging.md#generating-asar-archives)
   * [使用 asar 档案文件](tutorial/application-packaging.md#using-asar-archives)
@@ -103,7 +102,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [进程对象](api/process.md)
 * [支持的命令行开关](api/command-line-switches.md)
 * [环境变量](api/environment-variables.md)
-* [Chrome Extensions Support](api/extensions.md)
+* [Chrome 扩展支持](api/extensions.md)
 * [重要的API变更](breaking-changes.md)
 
 ### 自定义 DOM 元素:
@@ -120,17 +119,17 @@ There are questions that are asked quite often. Check this out before creating a
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [对话框](api/dialog.md)
-* [系统快捷键](api/global-shortcut.md)
+* [dialog](api/dialog.md)
+* [globalShortcut](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
-* [网络](api/net.md)
+* [net](api/net.md)
 * [netLog](api/net-log.md)
 * [通知](api/notification.md)
-* [电源监视器](api/power-monitor.md)
-* [省电拦截器 | powerSaveBlocker](api/power-save-blocker.md)
+* [powerMonitor](api/power-monitor.md)
+* [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
 * [screen](api/screen.md)
 * [session](api/session.md)
@@ -148,7 +147,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 ### 两种进程都可用的模块:
 
-* [剪贴板](api/clipboard.md)
+* [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [shell](api/shell.md)

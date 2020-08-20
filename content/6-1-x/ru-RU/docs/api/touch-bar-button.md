@@ -1,30 +1,30 @@
-## Class: TouchBarButton
+## Класс: TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> Создает кнопку в сенсорной панели для нативных приложений macOS
 
 Процесс: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarButton(options)` _Experimental_
+### `new TouchBarButton(options)` _ Экспериментально_
 
 * `options` Object
-  * `label` String (optional) - Button text.
-  * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
-  * `click` Function (optional) - Function to call when the button is clicked.
+  * `label` String (необязаельный) - Текст кнопки.
+  * `backgroundColor` String (необязательный) - Цвет фона кнопки в шестнадцатиричном представлении, т.е. `#ABCDEF`.
+  * `icon` [NativeImage](native-image.md) (необязательный) - Иконка.
+  * `iconPosition` String (необязательный) - Позиция иконки, может иметь значения `left`, `right` или `overlay`.
+  * `click` Function (необязательный) - Функция которая будет вызвана при нажатии на кнопку.
 
 ### Instance Properties
 
-The following properties are available on instances of `TouchBarButton`:
+Для экземпляров `TouchBarButton` доступны следующие свойства:
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+Строка (`String`) представляющая текущий текст кнопки. Изменение этого значения немедленно обновляет кнопку в сенсорной панели.
 
 #### `touchBarButton.backgroundColor`
 
-A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
+Строка (`String`) представляющая текущий цвет кнопки в шестнадцатиричном формате. Изменение этого значения немедленно обновляет кнопку в сенсорной панели.
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+`NativeImage,` представляющее текущую иконку кнопки. Изменение этого значения немедленно обновляет кнопку в сенсорной панели.

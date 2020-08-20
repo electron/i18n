@@ -133,7 +133,7 @@ headings:
   languages: Języki
 taglines:
   languages: Przetłumaczony kontent ze wspaniałą globalną społecznością programistów.
-  announcement: Electron dołączył właśnie do Fundacji OpenJS. Zobacz <a href="/blog/electron-joins-openjsf">ogłoszenie</a>, aby uzyskać więcej informacji!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "Pomóż w tłumaczeniu"
 footer:
   see_the_faq: Zobacz najczęściej zadawane pytania
@@ -215,6 +215,8 @@ pages:
     description: System zarządzania Electrona złożony jest z różnych grup, które zajmują się innymi aspektami ekosystemu oraz z grupy administracyjnej, która ma za zadanie rozwiązywać konflikty między poszczególnymi grupami.
   '/donors':
     title: Darczyńcy
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: Pierwsze kroki
   fiddle:

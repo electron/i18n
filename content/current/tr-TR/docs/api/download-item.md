@@ -4,7 +4,7 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
-`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. O `oturumun` `will-download` olayı içinde kullanılır ve kullanıcıların indirilen öğeyi kontrol etmesine izin verir.
+`DownloadItem` Electron içindeki indirme öğesini temsil eden bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'dir. O `oturumun` `will-download` olayı içinde kullanılır ve kullanıcıların indirilen öğeyi kontrol etmesine izin verir.
 
 ```javascript
 // Ana süreçte.
@@ -76,13 +76,9 @@ Emitted when the download is in a terminal state. This includes a completed down
 
 API, yalnızca oturumun `will-download` geri arama işlevinde kullanılabilir. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
 
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
-
 #### `downloadItem.getSavePath()`
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
-
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 

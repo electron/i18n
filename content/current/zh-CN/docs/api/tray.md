@@ -10,7 +10,7 @@
 const { app, Menu, Tray } = require('electron')
 
 let tray = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   tray = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
@@ -35,7 +35,7 @@ __平台限制：__
 const { app, Menu, Tray } = require('electron')
 
 let appIcon = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   appIcon = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
@@ -54,9 +54,10 @@ app.on('ready', () => {
 如果要在所有平台上保持完全相同的行为, 则不应依赖 ` click ` 事件, 并且始终将上下文菜单附加到任务栏图标。
 
 
-### `new Tray(image)`
+### `new Tray(image, [guid])`
 
 * `image` ([NativeImage](native-image.md) | String)
+* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
 
 创建与` image `关联的新任务栏图标。
 
@@ -137,6 +138,26 @@ app.on('ready', () => {
 #### Event: 'drag-end' _macOS_
 
 当有任何拖动操作在托盘或其他地方结束时，触发该事件。
+
+#### Event: 'mouse-up' _macOS_
+
+返回:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Point](structures/point.md) - 事件的位置信息。
+
+Emitted when the mouse is released from clicking the tray icon.
+
+Note: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.
+
+#### Event: 'mouse-down' _macOS_
+
+返回:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Point](structures/point.md) - 事件的位置信息。
+
+Emitted when the mouse clicks the tray icon.
 
 #### Event: 'mouse-enter' _macOS_
 
@@ -242,6 +263,10 @@ Returns focus to the taskbar notification area. Notification area icons should u
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
 参数 `position` 只在 Windows 上可用， 并拥有默认值 (0, 0)。
+
+#### `tray.closeContextMenu()` _macOS_ _Windows_
+
+Closes an open context menu, as set by `tray.setContextMenu()`.
 
 #### `tray.setContextMenu(menu)`
 

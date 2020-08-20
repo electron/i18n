@@ -84,7 +84,6 @@
 * Випуски Electron & відгуки розробників
   * [Політика версійності](tutorial/electron-versioning.md)
   * [Історія та план версій](tutorial/electron-timelines.md)
-  * [Програма зворотнього зв’язку](tutorial/app-feedback-program.md)
 * [Пакування Коду Застосунку з asar](tutorial/application-packaging.md)
   * [Генерація asar Архівів](tutorial/application-packaging.md#generating-asar-archives)
   * [Використання asar Архівів](tutorial/application-packaging.md#using-asar-archives)

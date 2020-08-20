@@ -5,7 +5,7 @@ Tất cả ba điều hành hệ thống cung cấp phương tiện cho các ứ
 **Lưu ý:** Vì đây là một API HTML5 nó chỉ sẵn sàng trong quá trình render. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
 
 ```javascript
-let myNotification = new Notification('Title', {
+const myNotification = new Notification('Title', {
   body: 'Lorem Ipsum Dolor Sit Amet'
 })
 

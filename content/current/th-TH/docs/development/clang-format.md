@@ -1,27 +1,27 @@
 # การใช้รูปแบบ clang ในโค้ด C++
 
-[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html) is a tool to automatically format C/C++/Objective-C code, so that developers don't need to worry about style issues during code reviews.
+[`รูปแบบ clang`](http://clang.llvm.org/docs/ClangFormat.html)เป็นเครื่องมือในการ โดยอัตโนมัติจัดรูปแบบ C / C ++ / รหัสวัตถุประสงค์ C เพื่อให้นักพัฒนาไม่จําเป็นต้อง กังวลเกี่ยวกับปัญหาสไตล์ในระหว่างการแสดงความคิดเห็นรหัส
 
-It is highly recommended to format your changed C++ code before opening pull requests, which will save you and the reviewers' time.
+ขอแนะนําให้ใช้รหัส C++ ที่เปลี่ยนแปลงก่อนเปิดการดึง ซึ่งจะช่วยให้คุณและเวลาของผู้ตรวจทาน
 
-You can install `clang-format` and `git-clang-format` via `npm install -g clang-format`.
+คุณสามารถติดตั้ง`รูปแบบ clang`และ`git clang รูปแบบ`ผ่าน `npmติดตั้ง- กรัม clang- รูปแบบ`ของ
 
 To automatically format a file according to Electron C++ code style, run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
 
-The workflow to format your changed code:
+เวิร์กโฟลว์เพื่อจัดรูปแบบโค้ดที่เปลี่ยนแปลงของคุณ:
 
-1. Make codes changes in Electron repository.
-2. Run `git add your_changed_file.cc`.
-3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
-4. Run `git add your_changed_file.cc`, and commit your change.
-5. Now the branch is ready to be opened as a pull request.
+1. ทําการเปลี่ยนแปลงรหัสในที่เก็บอิเล็กตรอน
+2. เรียกใช้`git เพิ่ม your_changed_file.cc`
+3. เรียกใช้`git -clang รูปแบบ`และคุณอาจจะเห็นการปรับเปลี่ยนใน `your_changed_file.cc`การแก้ไขเหล่านี้ถูกสร้างขึ้นจาก`รูปแบบ clang`
+4. เรียกใช้`git เพิ่ม your_changed_file.cc`และยอมรับการเปลี่ยนแปลงของคุณ
+5. ตอนนี้สาขาพร้อมที่จะเปิดเป็นคําขอดึง
 
 If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
-## Editor Integration
+## บูรณาการบรรณาธิการ
 
 You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
-  * [Atom](https://atom.io/packages/clang-format)
-  * [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
+  * [อะตอม (Automatic Translation)](https://atom.io/packages/clang-format)
+  * [วิม & เอเมคส์](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
   * [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)

@@ -10,21 +10,21 @@ Electron은 모든 Electron 메인테이너들이 사용할 수 있도록 커스
 
 만약에 app 메인테이너이고 클러스터에 액세스 할 수 있다면, 반드시Goma 클러스터를 사용 할 `build-tools`를 구성하기 위해 `e init`을 `--goma=cluster`와 함께 실행하세요.  기존 구성이 있는 경우, `"goma": "cluster"`를 구성 파일에서 설정할 수 있습니다.
 
-## Building with Goma
+## Goma로 개발
 
-When you are using Goma you can run `ninja` with a substantially higher `j` value than would normally be supported by your machine.
+Goma를 사용할 때, 일반적으로 기계에서 지원하는 것보다 훨씬 더 높은 `j` 값으로 `ninja`를 실행할 수 있습니다.
 
-Please do not set a value higher than **200** on Windows or Linux and **50** on macOS. We monitor Goma system usage, and users found to be abusing it with unreasonable concurrency will be de-activated.
+윈도우나 리눅스에서 **200** , macOS에서 **50**보다 높은 값으로 설정하지 마세요. 우리는 Goma 시스템 사용랑을 모니터 합니다. 비합리적인 동시성을 가지고 그것을 남용하는 것으로 보여지는 사용자들은 비활성화됩니다.
 
 ```bash
 ninja -C out/Testing electron -j 200
 ```
 
-If you're using `build-tools`, appropriate `-j` values will automatically be used for you.
+만약 `build-tools`를 사용하고 있다면, 적절한 `-j`값이 자동으로 적용되어질 것입니다.
 
-## Monitoring Goma
+## Goma 모니터링
 
-If you access [http://localhost:8088](http://localhost:8088) on your local machine you can monitor compile jobs as they flow through the goma system.
+로컬 컴퓨터에서 [http://localhost:8088](http://localhost:8088) 에 접속하면 고마 시스템을 통해 작동되는 컴파일 작업을 확인할 수 있습니다.
 
 ## 액세스
 
@@ -34,4 +34,4 @@ If you access [http://localhost:8088](http://localhost:8088) on your local machi
 
 https://status.notgoma.com에서 Goma 클러스터 및 캐시를 자동으로 모니터링 합니다.
 
-우리는 Goma 사용 및 도움 / 요청을 하는 문제에 대해서는 지원하지 않습니다. 많은 이유없이 문제가 해결될 것이므로 이러한 지원을 처리할 수 수 있는 능력이 없습니다.
+우리는 Goma 사용 및 도움 / 요청을 하는 문제에 대해서 지원하지 않습니다. _아마_ 별 이유 없이 문제들이 해결될 것이고 이러한 지원을 처리할 수 있는 역량이 부족합니다.

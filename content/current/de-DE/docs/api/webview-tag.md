@@ -464,8 +464,30 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 * `options` Object (optional)
   * `silent` Boolean (optional) - Don't ask user for print settings. Standard ist `false`.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Standard ist `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Standard ist `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Standard ist `true`.
+  * `margins` Object (optional)
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Standard ist `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the start page.
+    * `to` Number - the end page.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional)
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
 Returns `Promise<void>`
 
@@ -474,11 +496,18 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 ### `<webview>.printToPDF(options)`
 
 * `options` Object
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the first page to print.
+    * `to` Number - the last page to print (inclusive).
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
 Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
 
@@ -542,26 +571,9 @@ Returns `Promise<void>`
 
 Setzt das Maximum und Minimum pinch-to-zoom Level.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
-
-* `minimumLevel` Number
-* `maximumLevel` Number
-
-Returns `Promise<void>`
-
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
-
-**Deprecated:** This API is no longer supported by Chromium.
-
 ### `<webview>.showDefinitionForSelection()` _macOS_
 
 Shows pop-up dictionary that searches the selected word on the page.
-
-### `<webview>.getWebContents()` _Deprecated_
-
-Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
-
-It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 ### `<webview>.getWebContentsId()`
 
@@ -575,8 +587,8 @@ The following DOM events are available to the `webview` tag:
 
 Rückgabewert:
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>isMainFrame` Boolean
+* `url` String
+* `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -687,8 +699,8 @@ console.log(requestId)
 
 Rückgabewert:
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>frameName` String
+* `url` String
+* `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
@@ -741,14 +753,11 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
 Rückgabewert:
 
 * `isMainFrame` Boolean
-* ` URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Emitted when an in-page navigation happened.</p>
+Emitted when an in-page navigation happened.
 
-<p spaces-before="0">When in-page navigation happens, the page URL changes but does not cause
-navigation outside of the page. Examples of this occurring are when anchor links
-are clicked or when the DOM <code>hashchange` event is triggered.</p>
+When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
 ### Event: 'close'
 
@@ -833,19 +842,18 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Rückgabewert:
 
-*  URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
+Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-<h3 spaces-before="0">Event: 'devtools-opened'</h3>
+### Event: 'devtools-opened'
 
-<p spaces-before="0">Emittiert wenn die DevTools geöffnet wurden.</p>
+Emittiert wenn die DevTools geöffnet wurden.
 
-<h3 spaces-before="0">Event: 'devtools-closed'</h3>
+### Event: 'devtools-closed'
 
-<p spaces-before="0">Emittiert wenn die DevTools geschlossen wurden.</p>
+Emittiert wenn die DevTools geschlossen wurden.
 
-<h3 spaces-before="0">Event: 'devtools-focused'</h3>
+### Event: 'devtools-focused'
 
-<p spaces-before="0">Emitted when DevTools is focused / opened.</p>
+Emitted when DevTools is focused / opened.

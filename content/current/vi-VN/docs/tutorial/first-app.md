@@ -2,11 +2,11 @@
 
 Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs.5256783105227699 웹 서버 대신 데스크탑 애플리케이션에 초점을 맞춘 Node.js 런타임의 변종이라고 생각하시면 됩니다.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Thay vì đó, Electron sử dụng các trang web như chính giao diện của bản thân, vì vậy bạn có thể coi nó như một phiên bản trình duyệt Chromium rút gọn, được điều khiển thông qua JavaScript.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**Ghi chú **: Ví dụ này cũng có sẵn dưới dạng repository nên bạn có thể [tải và chạy ngay lập tức ](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+Theo như việc phát triển được quan tâm, một ứng dụng Electron bản chất chính là một ứng dụng Node.js. Bắt đầu bằng một file `package.json` là một ví dụ cụ thể rằng đây là một module của Node.js. Một ứng dụng cơ bản nhất của Electron sẽ có những cấu trúc thư mục như sau:
 
 ```plaintext
 your-app/
@@ -15,13 +15,13 @@ your-app/
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+Tạo một thư mục trống mới cho ứng dụng Electron của bạn. Mở command line client và chạy lệnh `npm init` từ thư mục đã tải.
 
 ```sh
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+Câu lệnh npm sẽ điều hướng bạn bằng cách tạo ra một file `package.json` cơ bản. Script được xách định bằng miền `main` là một script khởi đầu ứng dụng của bạn, và cũng chính là nơi chạy qui trình chính của ứng dụng. Một ví dụ về file `package.json` sẽ giống như thế này:
 
 ```json
 {
@@ -31,20 +31,9 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Ghi chú __: Nếu miền `main` không hiện diện trong file `package.json`, Electron sẽ cố load file `index.js` (như cách mà Node.js thực hiện).
 
-```json
-{
-  "name": "your-app",
-  "version": "0.1.0",
-  "main": "main.js",
-  "scripts": {
-    "start": "node ."
-  }
-}
-```
-
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
 
 ```json
 {
@@ -82,7 +71,7 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create the browser window.
-  let win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -124,10 +113,10 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }

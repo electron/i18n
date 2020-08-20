@@ -59,7 +59,7 @@ fs.readdirSync('/path/to/example.asar')
 Ein Modul aus dem Archiv nutzen:
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+require('./path/to/example.asar/dir/module.js')
 ```
 
 Sie können außerdem eine Website in einem `asar`-Archiv mit `BrowserWindow` anzeigen lassen:

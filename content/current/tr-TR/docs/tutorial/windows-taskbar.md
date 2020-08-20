@@ -102,8 +102,8 @@ __Arayüzü görev çubuğuna al:__
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Overlay için açıklama')
+const win = new BrowserWindow()
+win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
 
@@ -121,7 +121,7 @@ BrowserWindow görev çubuğu düğmesine basmak için,
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```

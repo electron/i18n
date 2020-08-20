@@ -1,6 +1,6 @@
-## Class: DownloadItem
+## تحميل الملف
 
-> Control file downloads from remote sources.
+> التحكم في تنزيل الملفات من خلال المصادر البعيدة.
 
 العملية: [Main](../glossary.md#main-process)
 
@@ -39,7 +39,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### Event: 'updated'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `state` String - Can be `progressing` or `interrupted`.
@@ -53,7 +53,7 @@ The `state` can be one of following:
 
 #### Event: 'done'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `state` String - Can be `completed`, `cancelled` or `interrupted`.
@@ -76,13 +76,9 @@ The `downloadItem` object has the following methods:
 
 The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
 
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
-
 #### `downloadItem.getSavePath()`
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
-
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 

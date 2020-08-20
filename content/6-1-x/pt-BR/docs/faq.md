@@ -12,7 +12,7 @@ Se a instalação via `npm` falhar, você também pode tentar baixar o Electron 
 
 A versão do Chrome usada no Electron é geralmente disponibilizada dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é garantida, depende da quantidade de trabalho envolvido na atualização.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Somente a versão estável do Chrome é usada. If an important fix is in beta or dev channel, we will back-port it.
 
 Para mais informações, consulte a [introdução de segurança](tutorial/security.md).
 

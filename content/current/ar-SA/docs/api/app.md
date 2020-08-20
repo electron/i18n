@@ -25,11 +25,11 @@ In most cases, you should do everything in the `ready` event handler.
 
 ### Event: 'ready'
 
-Returns:
+تراجع:
 
 * `launchInfo` unknown _macOS_
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
 ### Event: 'window-all-closed'
 
@@ -39,7 +39,7 @@ If you do not subscribe to this event and all windows are closed, the default be
 
 ### Event: 'before-quit'
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -51,11 +51,11 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 ### Event: 'will-quit'
 
-Returns:
+تراجع:
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
 See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
 
@@ -63,7 +63,7 @@ See the description of the `window-all-closed` event for the differences between
 
 ### Event: 'quit'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `exitCode` Integer
@@ -74,7 +74,7 @@ Emitted when the application is quitting.
 
 ### Event: 'open-file' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `path` String
@@ -87,7 +87,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 ### Event: 'open-url' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `url` String
@@ -98,7 +98,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 ### Event: 'activate' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -107,7 +107,7 @@ Emitted when the application is activated. Various actions can trigger this even
 
 ### Event: 'continue-activity' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -119,7 +119,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'will-continue-activity' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -128,7 +128,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'continue-activity-error' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -138,7 +138,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'activity-was-continued' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -148,17 +148,17 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'update-activity-state' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
 ### Event: 'new-window-for-tab' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -166,7 +166,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### Event: 'browser-window-blur'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -175,7 +175,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### Event: 'browser-window-focus'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -184,7 +184,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### Event: 'browser-window-created'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -193,7 +193,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### Event: 'web-contents-created'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -202,7 +202,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 ### Event: 'certificate-error'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -230,7 +230,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -254,7 +254,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### Event: 'login'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -291,7 +291,7 @@ Emitted whenever there is a GPU info update.
 
 ### Event: 'gpu-process-crashed'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `killed` Boolean
@@ -300,7 +300,7 @@ Emitted when the GPU process crashes or is killed.
 
 ### Event: 'renderer-process-crashed'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -308,9 +308,27 @@ Returns:
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
+#### Event: 'render-process-gone'
+
+تراجع:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `details` Object
+  * `reason` String - The reason the render process is gone.  القيم الممكنة:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failure` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+
+Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+
 ### Event: 'accessibility-support-changed' _macOS_ _Windows_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
@@ -319,7 +337,7 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ### Event: 'session-created'
 
-Returns:
+تراجع:
 
 * `session` [Session](session.md)
 
@@ -335,7 +353,7 @@ app.on('session-created', (session) => {
 
 ### Event: 'second-instance'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `argv` String[] - An array of the second instance's command line arguments
@@ -351,7 +369,7 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 ### Event: 'desktop-capturer-get-sources'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -360,7 +378,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 ### Event: 'remote-require'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -370,7 +388,7 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 
 ### Event: 'remote-get-global'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -380,7 +398,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process of `webConte
 
 ### Event: 'remote-get-builtin'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -390,7 +408,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process of `webCont
 
 ### Event: 'remote-get-current-window'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -399,28 +417,18 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process of `w
 
 ### Event: 'remote-get-current-web-contents'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-guest-web-contents'
-
-Returns:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `guestWebContents` [WebContents](web-contents.md)
-
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
-
 ## Methods
 
 The `app` object has the following methods:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+ملاحظة: تتوفر بعض الطرق فقط على أنظمة تشغيل محددة ويتم تصنيفها على هذا النحو.
 
 ### `app.quit()`
 
@@ -461,15 +469,20 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise. See also `app.whenReady()`.
 
 ### `app.whenReady()`
 
 Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
-### `app.focus()`
+### `app.focus([options])`
+
+* `options` Object (optional)
+  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+
+You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macOS_
 
@@ -512,6 +525,7 @@ Returns `String` - The current application directory.
   * `videos` Directory for a user's videos.
   * `logs` Directory for your app's log folder.
   * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+  * `crashDumps` Directory where crash dumps are stored.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
@@ -558,17 +572,13 @@ Returns `String` - The current application's name, which is the name in the appl
 
 Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
-**[Deprecated](modernization/property-updates.md)**
-
 ### `app.setName(name)`
 
-* `الإسم`String
+* `name` سلسلة نصية
 
 Overrides the current application's name.
 
 **Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
-
-**[Deprecated](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -677,7 +687,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**Note:** إذا كان الكائن `JumpListCategory` ليس لديه `type` ولا `name` تعيين الخواص `type` يفترض أن يكون `tasks`. إذا كانت خاصية `name` معينة لكن خاصية `type` يتم حذفها ويفترض أن يكون `type` `custom`.
+**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. إذا كانت خاصية `name` معينة لكن خاصية `type` يتم حذفها ويفترض أن يكون `type` `custom`.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
@@ -771,7 +781,7 @@ if (!gotTheLock) {
   })
 
   // Create myWindow, load the rest of the app, etc...
-  app.on('ready', () => {
+  app.whenReady().then(() => {
   })
 }
 ```
@@ -819,6 +829,17 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
 
+### `app.setActivationPolicy(policy)` _macOS_
+
+* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+
+Sets the activation policy for a given app.
+
+Activation policy types:
+* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
+* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
+* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+
 ### `app.importCertificate(options, callback)` _Linux_
 
 * `options` Object
@@ -837,7 +858,7 @@ This method can only be called before app is ready.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
 
 This method can only be called before app is ready.
 
@@ -897,13 +918,9 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
-**[Deprecated](modernization/property-updates.md)**
-
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
 Returns `Integer` - The current value displayed in the counter badge.
-
-**[Deprecated](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` _Linux_
 
@@ -956,8 +973,6 @@ app.setLoginItemSettings({
 
 Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-**[Deprecated](modernization/property-updates.md)**
-
 ### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
 
 * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
@@ -967,8 +982,6 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
-
-**[Deprecated](modernization/property-updates.md)**
 
 ### `app.showAboutPanel()`
 
@@ -986,7 +999,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file on MacOS. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
+Set the about panel options. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1088,7 +1101,7 @@ A [`CommandLine`](./command-line.md) object that allows you to read and manipula
 
 ### `app.dock` _macOS_ _Readonly_
 
-A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
 
 ### `app.isPackaged` _Readonly_
 
@@ -1108,6 +1121,6 @@ This is the user agent that will be used when no user agent is set at the `webCo
 
 ### `app.allowRendererProcessReuse`
 
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `false`.
+A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
 
 The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).

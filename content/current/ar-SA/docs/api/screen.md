@@ -16,7 +16,7 @@ An example of creating a window that fills the whole screen:
 const { app, BrowserWindow, screen } = require('electron')
 
 let win
-app.on('ready', () => {
+app.whenReady().then(() => {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize
   win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
@@ -30,7 +30,7 @@ const { app, BrowserWindow, screen } = require('electron')
 
 let win
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   let displays = screen.getAllDisplays()
   let externalDisplay = displays.find((display) => {
     return display.bounds.x !== 0 || display.bounds.y !== 0
@@ -52,7 +52,7 @@ The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
@@ -61,7 +61,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
@@ -70,7 +70,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `display` [Display](structures/display.md)

@@ -10,7 +10,7 @@
 const { app, Menu, Tray } = require('electron')
 
 let tray = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   tray = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
@@ -35,7 +35,7 @@ __Platform limitations:__
 const { app, Menu, Tray } = require('electron')
 
 let appIcon = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   appIcon = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
@@ -54,9 +54,10 @@ app.on('ready', () => {
 If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
 
 
-### `new Tray(image)`
+### `new Tray(image, [guid])`
 
 * `image` ([NativeImage](native-image.md) | String)
+* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
 
 Creates a new tray icon associated with the `image`.
 
@@ -66,7 +67,7 @@ The `Tray` module emits the following events:
 
 #### Event: 'click'
 
-Returns:
+تراجع:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -76,7 +77,7 @@ Emitted when the tray icon is clicked.
 
 #### Event: 'right-click' _macOS_ _Windows_
 
-Returns:
+تراجع:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -85,7 +86,7 @@ Emitted when the tray icon is right clicked.
 
 #### Event: 'double-click' _macOS_ _Windows_
 
-Returns:
+تراجع:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -110,7 +111,7 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `files` String[] - The paths of the dropped files.
@@ -119,7 +120,7 @@ Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `text` String - the dropped text string.
@@ -138,9 +139,29 @@ Emitted when a drag operation exits the tray icon.
 
 Emitted when a drag operation ends on the tray or ends at another location.
 
+#### Event: 'mouse-up' _macOS_
+
+تراجع:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Point](structures/point.md) - The position of the event.
+
+Emitted when the mouse is released from clicking the tray icon.
+
+Note: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.
+
+#### Event: 'mouse-down' _macOS_
+
+تراجع:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Point](structures/point.md) - The position of the event.
+
+Emitted when the mouse clicks the tray icon.
+
 #### Event: 'mouse-enter' _macOS_
 
-Returns:
+تراجع:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -149,7 +170,7 @@ Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' _macOS_
 
-Returns:
+تراجع:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -158,7 +179,7 @@ Emitted when the mouse exits the tray icon.
 
 #### Event: 'mouse-move' _macOS_ _Windows_
 
-Returns:
+تراجع:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -242,6 +263,10 @@ Returns focus to the taskbar notification area. Notification area icons should u
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
 The `position` is only available on Windows, and it is (0, 0) by default.
+
+#### `tray.closeContextMenu()` _macOS_ _Windows_
+
+Closes an open context menu, as set by `tray.setContextMenu()`.
 
 #### `tray.setContextMenu(menu)`
 

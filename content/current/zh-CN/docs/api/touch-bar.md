@@ -2,7 +2,7 @@
 
 > 为原生macOS应用创建TouchBar布局
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBar(options)` _实验功能_
 
@@ -159,7 +159,7 @@ const touchBar = new TouchBar({
 
 let window
 
-app.once('ready', () => {
+app.whenReady().then(() => {
   window = new BrowserWindow({
     frame: false,
     titleBarStyle: 'hiddenInset',

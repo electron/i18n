@@ -8,8 +8,9 @@ Vous pouvez utiliser [app.commandLine.appendSwitch](app.md#appcommandlineappends
 const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
-app.on('ready', () => {
-  // Votre code ici
+
+app.whenReady().then(() => {
+  // Your code here
 })
 ```
 
@@ -24,6 +25,10 @@ Désactive le cache disque pour les requêtes HTTP.
 ## --disable-http2
 
 Désactive les protocoles HTTP/2 et SPDY/3.1.
+
+### --disable-ntlm-v2
+
+Disables NTLM v2 for posix platforms, no effect elsewhere.
 
 ## --lang
 
@@ -160,7 +165,6 @@ Enables caller stack logging for the following APIs (filtering events):
 - `remote.getBuiltin()` / `remote-get-global`
 - `remote.getCurrentWindow()` / `remote-get-current-window`
 - `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
-- `remote.getGuestWebContents()` / `remote-get-guest-web-contents`
 
 ## --no-sandbox
 

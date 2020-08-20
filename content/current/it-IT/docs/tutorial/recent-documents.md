@@ -32,4 +32,27 @@ Quando un utente clicca su un file dalla JumpList, una nuova istanza della tua a
 
 ## note di macOS
 
+### Adding the Recent Documents list to the application menu:
+
+![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+
+You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+
+```json
+{
+  "submenu":[
+    {
+      "label":"Open Recent",
+      "role":"recentdocuments",
+      "submenu":[
+        {
+          "label":"Clear Recent",
+          "role":"clearrecentdocuments"
+        }
+      ]
+    }
+  ]
+}
+```
+
 Quando viene richiesto un file dal menu dei documenti recenti, l'evento `apri-file` del modulo `app` sarà emesso per esso.

@@ -4,17 +4,17 @@
 
 进程: [主进程](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. 當在主進程使用時，它能用來接收來自渲染進程（網頁）的同步與非同步訊息， 而從渲染進程送出的訊息也會被送往此模組。
 
 ## 傳送訊息
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+要從主進程發送訊息給渲染進程也是可以的，詳情請見 [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-)。
 
-* When sending a message, the event name is the `channel`.
-* To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* 當要傳遞一個訊息時，事件名稱就是雙方的 `溝通管道`。
+* 為了回覆一個同步的訊息時，你需要對 `event.returnValue` 指定值。
+* 若要送出一個非同步的訊息回給發送者，你可以使用 `event.reply(...)`。  此方法將會自主的接收那些來自非 main frame（例如：iframes）的訊息，而 `event.sender.send(...)` 則總是把訊息傳送給 main frame。
 
-An example of sending and handling messages between the render and main processes:
+以下是在主進程與渲染進程之間傳送和接收訊息的一個例子：
 
 ```javascript
 // 在主處理序裡。
@@ -43,7 +43,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ## 方法
 
-The `ipcMain` module has the following method to listen for events:
+`ipcMain` 模組具有以下方法來偵聽事件：
 
 ### `ipcMain.on(channel, listener)`
 
@@ -52,7 +52,7 @@ The `ipcMain` module has the following method to listen for events:
   * `event` IpcMainEvent
   * `...args` any[]
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+監聽 `channel`，當一個新的訊息抵達 `listener` 時將會呼叫 `listener(event, args...)`。
 
 ### `ipcMain.once(channel, listener)`
 
@@ -61,21 +61,21 @@ Listens to `channel`, when a new message arrives `listener` would be called with
   * `event` IpcMainEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+對事件加入一次性的 `listener`。 此 `listener` 只有在下一次訊息發送到 `channel` 時才會被調用，之後就會被移除。
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+從特定 `channel` 的 listener array 之中刪除特定的 `listener`。
 
 ### `ipcMain.removeAllListeners([channel])`
 
 * `channel` String
 
-Removes listeners of the specified `channel`.
+刪除所有指定 `channel` 的 listener。
 
 ## Event 物件
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
+傳遞 `event` object 到 `callback` 的文件描述在 [`ipc-main-event`](structures/ipc-main-event.md) 結構文件。

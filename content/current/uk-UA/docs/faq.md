@@ -12,7 +12,7 @@
 
 Chrome для Electron зазвичай випускається протягом тижня чи двох після релізу стабільної версії Chrome. Цей термін не є гарантованим і залежить від кількості роботи спричиненої оновленням.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Тільки стабільний канал Chrome використовується. If an important fix is in beta or dev channel, we will back-port it.
 
 Для більш детальної інформації, перегляньте [Політику безпеки](tutorial/security.md).
 
@@ -26,24 +26,7 @@ Only the stable channel of Chrome is used. If an important fix is in beta or dev
 
 Для передачі даних між веб-сторінками (рендеринг) найлегшим способом буде використання HTML5 API, який вже доступний в браузері. Хорошими кандидатами є [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) та [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Вбо ви можете використати IPC систему, яка характерна для Electron, для збереження об'єктів у головному процесі як глобальну змінну і потім мати доступ до неї з рендерерів через `remote` властивість модуля `electron`:
-
-```javascript
-// В головному процесі.
-global.sharedObject = {
-  someProperty: 'default value'
-}
-```
-
-```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
-```
-
-```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
-```
+Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
 ## My app's tray disappeared after a few minutes.
 
@@ -84,7 +67,7 @@ app.whenReady().then(() => {
 ```javascript
 // В головному процесі.
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
   }
@@ -117,7 +100,7 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 It is very likely you are using the module in the wrong process. Наприклад `electron.app` може бути використаний тільки в головному процесі, тоді як `electron.webFrame` доступний тільки в процесі рендерингу.
 
-## The font looks blurry, what is this and what can I do?
+## Шрифт виглядає розмитим, у чому причина і що я можу з цим зробити?
 
 If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Приклад:
 
@@ -129,7 +112,7 @@ Sub-pixel anti-aliasing needs a non-transparent background of the layer containi
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   backgroundColor: '#fff'
 })
 ```

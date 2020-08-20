@@ -20,7 +20,7 @@ Para crear una ventana en sandbox, pase `sandbox: true` a `webPreferences`:
 
 ```js
 let win
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true
@@ -30,14 +30,14 @@ app.on('ready', () => {
 })
 ```
 
-En el código anterior el [`BrowserWindow`](browser-window.md) que fue creado tiene Node.js deshabilitado y solo puede comunicarse a través de IPC. El uso de esta opción impide que Electron cree un tiempo de ejecución de Node.js en el renderizador. Además dentro de esa ventana nueva `window.open` sigue el comportamiento nativo(por defecto Electron crea un [`BrowserWindow`](browser-window.md) y devuelve un proxy a este via `window.open`).
+En el código anterior el [`BrowserWindow`](browser-window.md) que fue creado tiene Node.js deshabilitado y solo puede comunicarse a través de IPC. El uso de esta opción impide que Electron cree un tiempo de ejecución de Node.js en el renderizador. Also, within this new window `window.open` follows the native behavior (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
 [`app.enableSandbox`](app.md#appenablesandbox-experimental) puede ser usado para forzar `sandbox: true` para todas las instancias de`BrowserWindow`.
 
 ```js
 let win
 app.enableSandbox()
-app.on('ready', () => {
+app.whenReady().then(() => {
   // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
@@ -50,7 +50,7 @@ An app can make customizations to sandboxed renderers using a preload script. He
 
 ```js
 let win
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true,

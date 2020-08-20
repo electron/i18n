@@ -172,7 +172,7 @@ Below the method is more detailed information on each of the arguments. The type
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* 'animar' Boolean (opcional) _macOS_ _Windows_ - Animar a coisa.
 ```
 
 `Array` type arguments must specify what elements the array may include in the description below.

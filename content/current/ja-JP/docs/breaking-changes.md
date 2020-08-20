@@ -14,9 +14,17 @@
 
 ## 予定されている破壊的なAPIの変更 (12.0)
 
-### Removed: `crashReporter` methods in the renderer process
+### Default Changed: `contextIsolation` defaults to `true`
 
-The following `crashReporter` methods are no longer available in the renderer process:
+In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
+
+We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+
+For more details see: https://github.com/electron/electron/issues/23506
+
+### 削除: レンダラープロセス内での `crashReporter` メソッド
+
+以下の `crashReporter` メソッドはレンダラープロセスで利用できなくなります。
 
 - `crashReporter.start`
 - `crashReporter.getLastCrashReport`
@@ -25,11 +33,19 @@ The following `crashReporter` methods are no longer available in the renderer pr
 - `crashReporter.setUploadToServer`
 - `crashReporter.getCrashesDirectory`
 
-They should be called only from the main process.
+これらは、メインプロセスから呼び出ことしかできません。
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+詳しくは [#23265](https://github.com/electron/electron/pull/23265) を参照してください。
+
+### Default Changed: `crashReporter.start({ compress: true })`
+
+The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
+
+If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
 
 ## 予定されている破壊的なAPIの変更 (11.0)
+
+There are no breaking changes planned for 11.0.
 
 ## 予定されている破壊的なAPIの変更 (10.0)
 
@@ -70,7 +86,11 @@ The only non-deprecated methods remaining in the `crashReporter` module in the r
 
 All above methods remain non-deprecated when called from the main process.
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+詳しくは [#23265](https://github.com/electron/electron/pull/23265) を参照してください。
+
+### Deprecated: `crashReporter.start({ compress: false })`
+
+Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
 
 ### 削除: Browser Window の Affinity
 
@@ -173,7 +193,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 ただし、`remote` モジュールをできる限り使用しないことを推奨します。
 
 ```js
-// メイン
+// main
 const { ipcMain, webContents } = require('electron')
 
 const getGuestForWebContents = (webContentsId, contents) => {
@@ -182,7 +202,7 @@ const getGuestForWebContents = (webContentsId, contents) => {
     throw new Error(`Invalid webContentsId: ${webContentsId}`)
   }
   if (guest.hostWebContents !== contents) {
-    throw new Error(`Access denied to webContents`)
+    throw new Error('Access denied to webContents')
   }
   return guest
 }
@@ -192,7 +212,7 @@ ipcMain.handle('openDevTools', (event, webContentsId) => {
   guest.openDevTools()
 })
 
-// レンダラー
+// renderer
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
@@ -232,7 +252,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### API 変更: `powerMonitor.querySystemIdleTime` は `powerMonitor.getSystemIdleState` に
+### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleTime`
 
 ```js
 // Electron 7.0 で削除
@@ -507,23 +527,23 @@ const { memory } = metrics[0] // 非推奨なプロパティ
 ### `BrowserWindow`
 
 ```js
-// 非推奨
-let optionsA = { webPreferences: { blinkFeatures: '' } }
-let windowA = new BrowserWindow(optionsA)
-// こちらに置換
-let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
-let windowB = new BrowserWindow(optionsB)
+// Deprecated
+const optionsA = { webPreferences: { blinkFeatures: '' } }
+const windowA = new BrowserWindow(optionsA)
+// Replace with
+const optionsB = { webPreferences: { enableBlinkFeatures: '' } }
+const windowB = new BrowserWindow(optionsB)
 
-// 非推奨
+// Deprecated
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // なにかする
+    // do something
   }
 })
-// こちらに置換
+// Replace with
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // なにかする
+    // do something
   }
 })
 ```
@@ -682,12 +702,12 @@ webview.onkeyup = () => { /* handler */ }
 ### `BrowserWindow`
 
 ```js
-// 非推奨
-let optionsA = { titleBarStyle: 'hidden-inset' }
-let windowA = new BrowserWindow(optionsA)
-// こちらに置換
-let optionsB = { titleBarStyle: 'hiddenInset' }
-let windowB = new BrowserWindow(optionsB)
+// Deprecated
+const optionsA = { titleBarStyle: 'hidden-inset' }
+const windowA = new BrowserWindow(optionsA)
+// Replace with
+const optionsB = { titleBarStyle: 'hiddenInset' }
+const windowB = new BrowserWindow(optionsB)
 ```
 
 ### `menu`

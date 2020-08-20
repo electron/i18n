@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Object (optional)
+* `options` Object (опционально)
   * `cache` Boolean - Включен ли кэш.
 
 Возвращает `Session` - Экземпляр сеанса из строки `partition`. При наличии `Session` с таким же `partition`, он будет возвращен; иначе новый экземпляр `Session` будет создан с `options`.
@@ -115,7 +115,7 @@ Callback is invoked with the session's current cache size.
 
 #### `ses.clearStorageData([options,] callback)`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `origin` String (опционально) - Должен следовать представлению `window.location.origin` `scheme://host:port`.
   * `storages` String[] (опционально) - типы хранилищ для очистки, могут содержать: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (опционально) - типы квот для очистки, могут содержать: `temporary`, `persistent`, `syncable`.
@@ -127,7 +127,7 @@ Clears the storage data for the current session.
 
 #### `ses.clearStorageData([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `origin` String (опционально) - Должен следовать представлению `window.location.origin` `scheme://host:port`.
   * `storages` String[] (опционально) - типы хранилищ для очистки, могут содержать: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (опционально) - типы квот для очистки, могут содержать: `temporary`, `persistent`, `syncable`.

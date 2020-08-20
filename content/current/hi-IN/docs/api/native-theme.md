@@ -2,7 +2,7 @@
 
 > Read and respond to changes in Chromium's native color theme.
 
-Process: [Main](../glossary.md#main-process)
+प्रक्रिया: [Main](../glossary.md#main-process)
 
 ## इवेंट्स
 
@@ -22,7 +22,7 @@ A `Boolean` for if the OS / Chromium currently has a dark mode enabled or is bei
 
 ### `nativeTheme.themeSource`
 
-A `String` property that can be `system`, `light` or `dark`.  It is used to override and supercede the value that Chromium has chosen to use internally.
+A `String` property that can be `system`, `light` or `dark`.  It is used to override and supersede the value that Chromium has chosen to use internally.
 
 Setting this property to `system` will remove the override and everything will be reset to the OS default.  By default `themeSource` is `system`.
 

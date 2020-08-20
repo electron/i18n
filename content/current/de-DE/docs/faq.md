@@ -12,7 +12,7 @@ Man kann auch versuchen, Electron direkt unter [electron/electron/releases](http
 
 Die Chrome Version von Electron wird in der Regel innerhalb von ein oder zwei Wochen Implementiert nachdem eine neue stabile Version für Chrome veröffentlicht wird. Diese Schätzung kann nicht garantiert werden und hängt vom Arbeitsaufwand während der Aktualisierung ab.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Nur der stabile Kanal von Chrome wird verwendet. Wenn ein wichtiger Fix im Beta- oder Dev-Kanal ist, werden wir ihn zurückportieren.
 
 Weitere Informationen finden Sie in der [Einführung zur Sicherheit](tutorial/security.md).
 
@@ -26,24 +26,7 @@ Neue Funktionalitäten von Node.js werden in der Regel durch V8 Upgrades ermögl
 
 Um Daten zwischen Web-Seiten (Renderer-Prozesse) zu teilen, ist der einfachste Weg, HTML5-APIs zu verwenden, die bereits in Browsern zur Verfügung stehen. Gute Kandidaten sind [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`LocalStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) und [`SessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Oder Sie können das IPC-System verwenden, welches speziell für Electron ist, um Objekte in den Hauptprozess als eine globale Variable zu speichern und dann vom Renderer über die `remote`-Eigenschaft des `Elektrons` Moduls darauf zugreifen:
-
-```javascript
-// Im Hauptprozess.
-global.sharedObject = {
-  someProperty: 'default value'
-}
-```
-
-```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
-```
-
-```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
-```
+Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
 ## 0x6694D8DE7BE8EE5631BED9502BD5824B7F9470E6 API-Schlüsselstatus: aktiv Dein API-Schlüssel: cdcadfe6a25125e3a1a8e12eae924944 Private key Papier wallet: Kwnd42XQ8c2wQDidNbw7kt9wnjac1GDH4ArnnMk37Bzhw9xkLat4 Revaller: 1D6D 5622 531C B0D4 3268 97DB B172 TXID PUBKEY 0x6694D8DE7BE8EE5631BED9502BD5824B7F9470E6 585636460874565370753570386791880216602985394406 HANDY KEY C:WALLET 0x9f11e2d02668749520.
 
@@ -84,7 +67,7 @@ Um dies zu beheben können Sie die Node-Integration in Electron deaktivieren:
 ```javascript
 // Im Hauptprozess.
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
   }
@@ -129,7 +112,7 @@ Um dieses Ziel zu erreichen, setzen Sie den Hintergrund im Konstruktor für [Bro
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   backgroundColor: '#fff'
 })
 ```

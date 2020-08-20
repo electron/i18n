@@ -2,17 +2,25 @@
 
 Здесь будут описаны критические изменения, а также будут добавлены предупреждения об устаревших функциях в JS коде, где это возможно, по крайней мере перед тем, как изменения будут сделаны в [одной мажорной версии](tutorial/electron-versioning.md#semver).
 
-### Types of Breaking Changes
+### Типы критических изменений
 
-This document uses the following convention to categorize breaking changes:
+В этом документе используется следующее соглашение для классификации критических изменений:
 
-- **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
-- **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.
-- **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. The old behavior can be restored by explicitly specifying the value.
-- **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
-- **Removed:** An API or feature was removed, and is no longer supported by Electron.
+- **Изменение API:** API был изменен таким образом, что код, который не был обновлен, гарантировано бросит исключение.
+- **Изменение поведения:** Поведение Electron было изменено, но не обязательно появление исключений.
+- **Изменено значение по-умолчанию:** Код, работа которого зависит от старого значения по-умолчанию, может сломаться, не обязательно кидая исключение. Старое поведение можно восстановить, если явно указать значение.
+- **Устарело:** API был помечен как устаревший. API продолжит функционировать, но будет появляться предупреждающее сообщение о том, что API будет удален в будущем релизе.
+- **Удалено:** API или функция была удалена и больше не поддерживается Electron.
 
 ## Запланированные критические изменения API (12.0)
+
+### Default Changed: `contextIsolation` defaults to `true`
+
+In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
+
+We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+
+For more details see: https://github.com/electron/electron/issues/23506
 
 ### Removed: `crashReporter` methods in the renderer process
 
@@ -29,7 +37,15 @@ They should be called only from the main process.
 
 See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
+### Default Changed: `crashReporter.start({ compress: true })`
+
+The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
+
+If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
+
 ## Запланированные критические изменения API (11.0)
+
+There are no breaking changes planned for 11.0.
 
 ## Запланированные критические изменения API (10.0)
 
@@ -72,13 +88,17 @@ All above methods remain non-deprecated when called from the main process.
 
 See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
+### Deprecated: `crashReporter.start({ compress: false })`
+
+Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
+
 ### Removed: Browser Window Affinity
 
-The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+Параметр `affinity` при создании нового `BrowserWindow` будет удален в рамках нашего плана для более тесной связи с моделью процесса Chrome в целях безопасности, производительность и лучшей поддержки.
 
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+Для подробностей см. [#18397](https://github.com/electron/electron/issues/18397).
 
-### Default Changed: `enableRemoteModule` defaults to `false`
+### Изменение значения по-умолчанию: `enableRemoteModule` изменено на `false`
 
 In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
 
@@ -100,7 +120,7 @@ As of Electron 9 we do not allow loading of non-context-aware native modules in 
 
 If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
 
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+Для подробностей см. [#18397](https://github.com/electron/electron/issues/18397).
 
 ### Removed: `<webview>.getWebContents()`
 
@@ -182,7 +202,7 @@ const getGuestForWebContents = (webContentsId, contents) => {
     throw new Error(`Invalid webContentsId: ${webContentsId}`)
   }
   if (guest.hostWebContents !== contents) {
-    throw new Error(`Access denied to webContents`)
+    throw new Error('Access denied to webContents')
   }
   return guest
 }
@@ -232,7 +252,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleState`
+### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleTime`
 
 ```js
 // Removed in Electron 7.0
@@ -485,7 +505,7 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-При создании нативных модулей для Windows, переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
+При создании нативных модулей для Windows, переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, тогда нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
 
 ## Критические изменения API (3.0)
 
@@ -507,23 +527,23 @@ const { memory } = metrics[0] // Свойство устарело
 ### `BrowserWindow`
 
 ```js
-// Устарело
-let optionsA = { webPreferences: { blinkFeatures: '' } }
-let windowA = new BrowserWindow(optionsA)
-// Заменить на
-let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
-let windowB = new BrowserWindow(optionsB)
+// Deprecated
+const optionsA = { webPreferences: { blinkFeatures: '' } }
+const windowA = new BrowserWindow(optionsA)
+// Replace with
+const optionsB = { webPreferences: { enableBlinkFeatures: '' } }
+const windowB = new BrowserWindow(optionsB)
 
-// Устарело
+// Deprecated
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // делаем что-нибудь
+    // do something
   }
 })
-// Заменить на
+// Replace with
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // делаем что-нибудь
+    // do something
   }
 })
 ```
@@ -681,12 +701,12 @@ webview.onkeyup&nbsp;= () => { /* обработчик */ }
 ### `BrowserWindow`
 
 ```js
-// Устарело
-let optionsA = { titleBarStyle: 'hidden-inset' }
-let windowA = new BrowserWindow(optionsA)
-// Заменить на
-let optionsB = { titleBarStyle: 'hiddenInset' }
-let windowB = new BrowserWindow(optionsB)
+// Deprecated
+const optionsA = { titleBarStyle: 'hidden-inset' }
+const windowA = new BrowserWindow(optionsA)
+// Replace with
+const optionsB = { titleBarStyle: 'hiddenInset' }
+const windowB = new BrowserWindow(optionsB)
 ```
 
 ### `menu`

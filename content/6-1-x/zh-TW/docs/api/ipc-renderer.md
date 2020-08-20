@@ -4,13 +4,13 @@
 
 處理序: [畫面轉譯器](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+`ipcRenderer` 模組是一個 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 類別實例。 它提供一些方法能讓你從渲染進程（網頁）到主進程途中傳遞同步和非同步的訊息。 你也可以用來接收來自主進程的回覆。
 
-See [ipcMain](ipc-main.md) for code examples.
+其他範例請查閱 [ipcMain](ipc-main.md)。
 
 ## 方法
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+`ipcRenderer` 模組具有以下方法用來監聽事件和發送訊息：
 
 ### `ipcRenderer.on(channel, listener)`
 
@@ -19,7 +19,7 @@ The `ipcRenderer` module has the following method to listen for events and send 
   * `event` IpcRendererEvent
   * `...args` any[]
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+監聽 `channel`，當一個新的訊息抵達 `listener` 時將會呼叫 `listener(event, args...)`。
 
 ### `ipcRenderer.once(channel, listener)`
 
@@ -28,42 +28,42 @@ Listens to `channel`, when a new message arrives `listener` would be called with
   * `event` IpcRendererEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+對事件加入一次性的 `listener`。 此 `listener` 只有在下一次訊息發送到 `channel` 時才會被調用，之後就會被移除。
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+從特定 `channel` 的 listener array 之中刪除特定的 `listener`。
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
 * `channel` String
 
-Removes all listeners, or those of the specified `channel`.
+刪除所有指定 `channel` 的 listener。
 
 ### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+通過 `channel` 非同步地向主進程發送訊息，也可以從這裡傳遞任意參數。 參數將被序列化成 JSON 字串，因此，不會包含任何函數或原型鏈。
 
-The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
+主進程透過 [`ipcMain`](ipc-main.md) 來監聽 `channel` 並接收訊息。
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+返回 `any` ─ [`ipcMain`](ipc-main.md) handler 的回傳訊息。
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+通過 `channel` 同步地向主進程發送訊息，也從這裡傳遞任意參數。 參數將被序列化成 JSON 字串，因此，不會包含任何函數或原型鏈。
 
-The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
+主進程透過 `ipcMain` 來監聽 [`channel`](ipc-main.md) 並接收訊息，接著藉由指定 `event.returnValue` 來回覆。
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**註：**發送同步訊息將阻塞整個渲染進程，除非你知道你在做什麼，否則絕對不應使用它。
 
 ### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
 
@@ -71,15 +71,15 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `webContentsId` via `channel`.
+透過 `channel` 發送訊息給一個具有 `webContentsId` 的視窗。
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+與 `ipcRenderer.send` 類似，但不同的是訊息會被發送到主頁面上的 `<webview>` 元素，而不是主程序。
 
 ## Event 物件
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
+傳遞 `event` object 到 `callback` 的文件描述在 [`ipc-renderer-event`](structures/ipc-renderer-event.md) 結構文件。

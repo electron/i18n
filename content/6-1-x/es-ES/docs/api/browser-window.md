@@ -1115,16 +1115,16 @@ Los `buttons` es un arreglo de objetos `Button`:
   * `icon` [NativeImage](native-image.md) - El icono que muestra la barra de herramientas de la vista previa.
   * `click` Función
   * `tooltip` String (opcional): el texto de la información sobre el botón.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `flags` String[] (opcional) - Controla los estados y comportamientos específicos del botón. Por defecto, es `['enabled']`.
 
 Los `flags` es una matriz que puede incluir siguientes `String`s:
 
 * `enabled` - El botón está activo y disponible para el usuario.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `disabled` - El botón está deshabilitado. Está presente, pero tiene un estado visual indicando que no responderá a la acción del usuario.
 * `dismissonclick` - Cuando se hace clic en el botón, la ventana de miniatura se cierra de inmediato.
 * `nobackground` - No dibuja un borde del botón, usa solo la imagen.
 * `hidden` - El botón no es mostrado al usuario.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `noninteractive` - El botón está habilitado pero no es interactivo; no se dibuja el estado del botón pulsado. Este valor está destinado a instancias donde el botón se utiliza en una notificación.
 
 #### `win.setThumbnailClip(region)` _Windows_
 
@@ -1211,7 +1211,7 @@ Devuelve `Boolean` - Si la ventana es visible en todos los espacios de trabajo.
 
 * `ignore` Boolean
 * `options` Object (opcional)
-  * `forward` Boolean (optional) _macOS_ _Windows_ - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Solo se usa cuando `ignore` es verdadero. Si `ignore` es falso, el reenvío está simpre desactivado independientemente de este valor.
+  * `forward` Boolean (opcional) _macOS_ _Windows_ - Si es true, enviá el mensaje de movimiento de mouse a Chromium, permitiendo eventos relacionados tal como `mouseleave`. Solo se usa cuando `ignore` es verdadero. Si `ignore` es falso, el reenvío está simpre desactivado independientemente de este valor.
 
 Hace que la ventana ignore todos los eventos del ratón.
 
@@ -1319,7 +1319,7 @@ Retorna un array de `BrowserView` que estuvo adjunto con addBrowserView o setBro
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` por defecto.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })

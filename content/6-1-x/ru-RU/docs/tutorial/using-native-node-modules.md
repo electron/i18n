@@ -1,6 +1,6 @@
 # Использование модулей узлов
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed on your system, the modules you use will need to be recompiled for Electron. Otherwise, you will get the following class of error when you try to run your app:
+Electron поддерживает нативные модули Node, но поскольку Electron скорее всего будет использовать версию движка V8, отличную от версии Node установленной в вашей системе, модули необходимо будет перекомпилировать для Electron. Иначе, при запуске приложения вы получите следующий класс ошибок:
 
 ```sh
 Error: The module '/path/to/native/module.node'
@@ -12,7 +12,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ## Как установить нативные модули
 
-There are several different ways to install native modules:
+Существует несколько способов установки нативных модулей:
 
 ### Installing modules and rebuilding for Electron
 

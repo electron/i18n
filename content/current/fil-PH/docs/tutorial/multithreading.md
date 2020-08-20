@@ -7,7 +7,7 @@ Sa mga [ nagtra-trabaho ng Web](https://developer.mozilla.org/en/docs/Web/API/We
 Posibling gumamit ng mga tampok ng Node.js sa manggagawa ng Electron's Web, upang gawin ito ay ang `nodeIntegrationInWorker` na opsyon ay dapat na itakda sa `true` sa `webPreferences`.
 
 ```javascript
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegrationInWorker: true
   }
@@ -32,5 +32,5 @@ Ang tanging paraan para i-load ang native modyul na ligtas sa ngayon, ay sigurad
 process.dlopen = () => {
   throw new Error('Load native module is not safe')
 }
-let worker = new Worker('script.js')
+const worker = new Worker('script.js')
 ```

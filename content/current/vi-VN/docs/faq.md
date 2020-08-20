@@ -26,24 +26,7 @@ Các tính năng mới của Node.js thường được cung cấp bởi V8, k�
 
 Các đơn giản nhất để chia sẻ dữ liệu giữa các trang web (trong quá trình renderer) là sử dụng HTML5 API, đã có sẵn trong trình duyệt. Đề nghị tốt nhất cho bạn là [API Storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) và [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Hoặc bạn có thể sử dụng hệ thống IPC của Electron, để lưu trữ các đối tượng trong main process như là một biến toàn cầu, và sau đó truy cập chúng từ các renderer thông qua các property `điều khiển (remote)` của module `electron`:
-
-```javascript
-// Trong tiến trình main.
-global.sharedObject = {
-  someProperty: 'default value'
-}
-```
-
-```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
-```
-
-```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
-```
+Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
 ## Thanh ứng dụng của tôi biến mất sau vài phút.
 
@@ -84,7 +67,7 @@ Do Node.js được tích hợp trong Electron, do đó có một số symbol b�
 ```javascript
 // Trong tiến trình main.
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
   }
@@ -129,7 +112,7 @@ Sub-pixel anti-aliasing cần một nền không trong suốt của lớp có ch
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   backgroundColor: '#fff'
 })
 ```

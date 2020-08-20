@@ -11,8 +11,8 @@
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-  // Регистрируем слушатель для сочетания клавиш 'CommandOrControl+X'.
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })

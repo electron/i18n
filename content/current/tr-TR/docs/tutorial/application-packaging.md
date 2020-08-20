@@ -59,7 +59,7 @@ fs.readdirSync('/path/to/example.asar')
 Arşivdeki bir modülü kullanın:
 
 ```javascript
-gerektirir('/path/to/example.asar/dir/module.js')
+require('./path/to/example.asar/dir/module.js')
 ```
 
 `BrowserWindow` ile `asar` arşivinde bir web sayfası da gösterebilirsiniz:

@@ -9,8 +9,8 @@ const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
-app.on('ready', () => {
-  // Tu código aquí
+app.whenReady().then(() => {
+  // Your code here
 })
 ```
 
@@ -26,13 +26,17 @@ Desactiva la cache de disco para las peticiones HTTP.
 
 Desactiva los protocolos HTTP/2 y SPDY/3.
 
+### --disable-ntlm-v2
+
+Disables NTLM v2 for posix platforms, no effect elsewhere.
+
 ## --lang
 
 Establecer una configuración regional personalizada.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Parámetros de depuración, vea la guía [Debugeando el proceso principal](../tutorial/debugging-main-process.md) para más detalles.
+Parámetros de depuración, vea la guía [Debugging the Main Process](../tutorial/debugging-main-process.md) para mas detalles.
 
 ## --remote-debugging-port=`port`
 
@@ -161,7 +165,6 @@ Enables caller stack logging for the following APIs (filtering events):
 - `remote.getBuiltin()` / `remote-get-global`
 - `remote.getCurrentWindow()` / `remote-get-current-window`
 - `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
-- `remote.getGuestWebContents()` / `remote-get-guest-web-contents`
 
 ## --no-sandbox
 

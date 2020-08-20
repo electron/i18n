@@ -29,13 +29,13 @@ Mengembalikan:
 
 * `launchInfo` unknown _macOS_
 
-Emitted ketika Elektron selesai menginisialisasi. Di macos , ` launchInfo </ 0> memegang <code> userInfo </ 0> dari <code> NSUserNotification </ 0> yang digunakan untuk membuka aplikasi, jika diluncurkan dari Notification Center. Anda dapat menghubungi <code> app.isReady () </ 0> untuk memeriksa apakah acara ini telah dipecat.</p>
+Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
-<h3 spaces-before="0">Acara : 'window-all-closed'</h3>
+### Acara : 'window-all-closed'
 
-<p spaces-before="0">Emitted ketika semua jendela telah ditutup.</p>
+Emitted ketika semua jendela telah ditutup.
 
-<p spaces-before="0">Jika Anda tidak berlangganan acara ini dan semua jendela ditutup, perilaku defaultnya adalah berhenti dari aplikasi; Namun, jika Anda berlangganan, Anda mengontrol apakah aplikasi berhenti atau tidak. Jika pengguna menekan <code> Cmd + Q </ 0> , atau pengembang yang disebut
+Jika Anda tidak berlangganan acara ini dan semua jendela ditutup, perilaku defaultnya adalah berhenti dari aplikasi; Namun, jika Anda berlangganan, Anda mengontrol apakah aplikasi berhenti atau tidak. Jika pengguna menekan ` Cmd + Q </ 0> , atau pengembang yang disebut
  <code> app.quit () </ 0> , Elektron pertama akan mencoba untuk menutup semua jendela dan kemudian memancarkan
  <code> akan- berhenti </ 0>  event , dan dalam hal ini <code> jendela-semua-ditutup </ 0>  acara tidak akan dipancarkan.</p>
 
@@ -46,11 +46,11 @@ Emitted ketika Elektron selesai menginisialisasi. Di macos , ` launchInfo </ 0> 
 <ul>
 <li><code>event` Sinyal</li> </ul>
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Diterbitkan sebelum aplikasi mulai menutup jendelanya. Memanggil `event.preventDefault()` akan menghambat perilaku default, sehingga menghentikan aplikasi.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Catatan:** Bia aplikasi keluar disebabkan oleh `autoUpdater.quitAndInstall()`, kemudian `before-quit` disebabkan oleh *after* penyebab`close` acara di semua jendela dan menutupnya.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Catatan:** Di Windows, acara ini tidak akan disiarkan jika aplikasi ditutup karena untuk mematikan/memulai ulang sistem atau pengguna keluar.
 
 ### Acara : 'akan-berhenti'
 
@@ -58,12 +58,12 @@ Pengembalian:
 
 * `peristiwa` Peristiwa
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Terjadi ketika semua jendela telah ditutup dan aplikasi akan keluar. Memanggil `event.preventDefault()` akan menghambat perilaku default, sehingga menghentikan aplikasi.
 
 Lihat deskripsi ` jendela-semua-ditutup </ 0>  acara untuk perbedaan antara <code> akan-berhenti </ 0> dan <code> jendela-semua-ditutup </ 0> peristiwa.</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> On Windows, this event will not be emitted if the app is closed due
-to a shutdown/restart of the system or a user logout.</p>
+<p spaces-before="0"><strong x-id="1">Catatan:</strong> Di Windows, acara ini tidak akan disiarkan jika aplikasi ditutup bila disebakan karena 
+sistem dimatikan/dimulai ulang atau pengguna keluar.</p>
 
 <h3 spaces-before="0">Acara : 'berhenti'</h3>
 
@@ -76,8 +76,8 @@ to a shutdown/restart of the system or a user logout.</p>
 
 <p spaces-before="0">Emitted saat aplikasi berhenti.</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> On Windows, this event will not be emitted if the app is closed due
-to a shutdown/restart of the system or a user logout.</p>
+<p spaces-before="0"><strong x-id="1">Catatan:</strong> Di Windows, acara ini tidak akan disiarkan jika aplikasi ditutup karena
+untuk mematikan/memulai ulang sistem atau pengguna keluar.</p>
 
 <h3 spaces-before="0">Event : 'open-file' <em x-id="4"> macos </ 0></h3>
 
@@ -129,36 +129,26 @@ Emitted selama [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 Aktivitas pengguna hanya dapat dilanjutkan di aplikasi yang memiliki ID Tim pengembang yang sama dengan aplikasi sumber aktivitas dan yang mendukung jenis aktivitas. Jenis aktivitas yang didukung ditentukan di aplikasi `Info.plist` di bawah tombol `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' _macOS_
+### Acara: 'aktivitas-akan-dilanjutkan' _macOS_
 
 Pengembalian:
 
 * `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Anda harus menghubungi `event.preventDefault()` jika Anda ingin menangani acara ini.
+Terjadi saat [ Handoff ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sebelum aktivitas dari perangkat lain diinginkan untuk dilanjutkan. Anda harus menghubungi `event.preventDefault()` jika Anda ingin menangani acara ini.
 
-### Event: 'continue-activity-error' _macOS_
-
-Pengembalian:
-
-* `acara` Acara
-* `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - A string with the error's localized description.
-
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
-
-### Event: 'activity-was-continued' _macOS_
+### Acara: 'aktivitas-error-dilanjutkan' _macOS_
 
 Pengembalian:
 
 * `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `error` String - String dengan deskripsi kesalahan yang dilokalkan.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+Terjadi saat [ Handoff ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sebelum aktivitas dari perangkat lain diinginkan untuk dilanjutkan.
 
-### Event: 'update-activity-state' _macOS_
+### Acara: 'aktivitas-telah-dilanjutkan' _macOS_
 
 Pengembalian:
 
@@ -166,7 +156,17 @@ Pengembalian:
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Terjadi saat [ Handoff ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sebelum aktivitas dari perangkat lain diinginkan untuk dilanjutkan.
+
+### Acara: 'memperbarui-kondisi-aktivitas' _macOS_
+
+Pengembalian:
+
+* `acara` Acara
+* `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` unknown - Contains app-specific state stored by the activity.
+
+Terjadi saat [ Handoff ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) akan dilanjutkan di perangkat lain. Jika Anda perlu memperbarui status yang akan ditransfer, Anda harus segera memanggil ` event.preventDefault() `, membuat kamus ` userInfo ` baru dan memanggil ` app.updateCurrentActivity() ` tepat waktu. Bila tidak, operasi akan gagal dan `continue-activity-error` akan dipanggil.
 
 ### Event: 'new-window-for-tab' _macOS_
 
@@ -316,6 +316,24 @@ Pengembalian:
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
+#### Event: 'render-process-gone'
+
+Pengembalian:
+
+* `acara` Acara
+* `webContents` [WebContents](web-contents.md)
+* `details` Object
+  * `reason` String - The reason the render process is gone.  Nilai yang mungkin:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failure` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+
+Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+
 ### Event: 'aksesibilitas-support-changed' _macOS_ _Windows_
 
 Pengembalian:
@@ -414,16 +432,6 @@ Pengembalian:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-guest-web-contents'
-
-Pengembalian:
-
-* `acara` Acara
-* `webContents` [WebContents](web-contents.md)
-* `guestWebContents` [WebContents](web-contents.md)
-
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
-
 ## Metode
 
 The `aplikasi` objek memiliki metode berikut:
@@ -469,15 +477,20 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Mengembalikan `Boolean` - `true` jika Elektron selesai menginisialisasi, `false` sebaliknya.
+Mengembalikan `Boolean` - `true` jika Elektron selesai menginisialisasi, `false` sebaliknya. See also `app.whenReady()`.
 
 ### `app.whenReady()`
 
 Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
-### `app.focus()`
+### `app.focus([options])`
+
+* `options` Object (optional)
+  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+
+You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macos_
 
@@ -520,6 +533,7 @@ Mengembalikan `String` - Direktori aplikasi saat ini.
   * `video` Direktori untuk video pengguna.
   * `logs` Directory for your app's log folder.
   * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+  * `crashDumps` Directory where crash dumps are stored.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
@@ -532,7 +546,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
   * `size` String
     * `kecil` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on _Linux_, 32x32 on _Windows_, unsupported on _macOS_.
+    * `besar` - 48x48 di _Linux_, 32x32 pada _Windows_, tidak didukung di _macOS_.
 
 Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
 
@@ -567,8 +581,6 @@ Mengembalikan `String` - Nama aplikasi saat ini, yang merupakan nama di file `pa
 
 Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Anda juga harus menentukan bidang `productName`, yang merupakan nama lengkap kapitalisasi aplikasi Anda, dan mana yang lebih disukai dari `nama`oleh Elektron.
 
-**[Tidak berlaku lagi](modernization/property-updates.md)**
-
 ### `app.setName(nama)`
 
 * ` nama </ 0>  String</li>
@@ -577,8 +589,6 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 <p spaces-before="0">Mengabaikan nama aplikasi saat ini.</p>
 
 <p spaces-before="0"><strong x-id="1">Note:</strong> This function overrides the name used internally by Electron; it does not affect the name that the OS uses.</p>
-
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
 
 <h3 spaces-before="0"><code>app.getLocale()`</h3>
 
@@ -691,7 +701,7 @@ Jika `kategori` adalah `null` daftar Jump kustom yang telah ditetapkan sebelumny
 ** Catatan: </ 0> Jika objek ` JumpListCategory </ 1> tidak memiliki <code> tipe </ 1> atau <code> nama </ 1> 
 properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> . If the <code>name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.</p>
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Setiap usaha untuk menambahkan kembali item yang dihapus ke kategori khusus lebih awal dari pada itu akan mengakibatkan keseluruhan kategori khusus dihilangkan dari Daftar Langsung. Daftar item yang dihapus dapat diperoleh dengan menggunakan `app.getJumpListSettings()`.
+**Catatan:** Pengguna dapat menghapus item dari kategori khusus, dan Windows tidak mengizinkan item yang dihapus ditambahkan ke dalam kategori khusus sampai **setelah** panggilan sukses berikutnya ke `app.setJumpList(kategori)`. Setiap usaha untuk menambahkan kembali item yang dihapus ke kategori khusus lebih awal dari pada itu akan mengakibatkan keseluruhan kategori khusus dihilangkan dari Daftar Langsung. Daftar item yang dihapus dapat diperoleh dengan menggunakan `app.getJumpListSettings()`.
 
 Berikut adalah contoh sederhana untuk membuat Daftar Langsung kustom:
 
@@ -783,7 +793,7 @@ if (!gotTheLock) {
   })
 
   // Create myWindow, load the rest of the app, etc...
-  app.on('ready', () => {
+  app.whenReady().then(() => {
   })
 }
 ```
@@ -831,6 +841,17 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 Ubah [User ID Model Aplikasi](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) menjadi `id`.
 
+### `app.setActivationPolicy(policy)` Linux _macOS_
+
+* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+
+Sets the activation policy for a given app.
+
+Activation policy types:
+* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
+* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
+* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+
 ### `app.importCertificate(options, callback)` _Linux_
 
 * `options` Object
@@ -849,7 +870,7 @@ Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
 
 Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
 
@@ -909,13 +930,9 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Note:** Unity launcher mensyaratkan adanya a `.desktop` file untuk bekerja, untuk informasi lebih lanjut silahkan baca [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
-**[Tidak berlaku lagi](modernization/property-updates.md)**
-
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
 Mengembalikan `Integer` - Nilai saat ini ditampilkan di lencana penghitung.
-
-**[Tidak berlaku lagi](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` _Linux_
 
@@ -963,8 +980,6 @@ const appFolder = path.dirname(process.execPath) const updateExe = path.resolve(
 
 Mengembalikan `Boolean` - `true` jika dukungan aksesibilitas Chrome diaktifkan, `salah` sebaliknya. API ini akan mengembalikan `true` jika penggunaan teknologi bantu, seperti pembaca layar, telah terdeteksi. Lihat https://www.chromium.org/developers/design-documents/accessibility untuk lebih jelasnya.
 
-**[Tidak berlaku lagi](modernization/property-updates.md)**
-
 ### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
 
 * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
@@ -974,8 +989,6 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
-
-**[Tidak berlaku lagi](modernization/property-updates.md)**
 
 ### `app.showAboutPanel()`
 
@@ -993,7 +1006,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Tetapkan opsi tentang panel. This will override the values defined in the app's `.plist` file on MacOS. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut. On Linux, values must be set in order to be shown; there are no defaults.
+Tetapkan opsi tentang panel. This will override the values defined in the app's `.plist` file on macOS. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut. On Linux, values must be set in order to be shown; there are no defaults.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1095,7 +1108,7 @@ A [`CommandLine`](./command-line.md) object that allows you to read and manipula
 
 ### `app.dock` _macOS_ _Readonly_
 
-A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
 
 ### `app.isPackaged` _Readonly_
 
@@ -1115,6 +1128,6 @@ This is the user agent that will be used when no user agent is set at the `webCo
 
 ### `app.allowRendererProcessReuse`
 
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `false`.
+A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
 
 The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).

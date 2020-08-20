@@ -21,4 +21,3 @@ These guides are intended for people working on the Electron project itself. For
 * [在 macOS 上 Debug](debugging-instructions-macos.md)
 * [在 Debugger 中設定符號伺服器](setting-up-symbol-server.md)
 * [Patches](patches.md)
-* [Node 升版](upgrading-node.md)

@@ -24,18 +24,18 @@ shell.openExternal('https://github.com')
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openItem(fullPath)`
+### `shell.openPath(path)`
 
-* `fullPath` String
+* `path` String
 
-Возвращает `Boolean` - Успешно ли был открыт объект.
+Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 Open the given file in the desktop's default manner.
 
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Max 2081 characters on windows.
-* `options` Object (optional)
+* `options` Object (опционально)
   * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
   * `workingDirectory` String (optional) _Windows_ - The working directory.
 

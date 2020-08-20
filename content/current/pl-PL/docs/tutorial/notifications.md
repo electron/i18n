@@ -5,7 +5,7 @@ Wszystkie trzy systemy operacyjne zapewniają środki dla aplikacji do wysyłani
 **Note:** Since this is an HTML5 API it is only available in the renderer process. Jeśli chcesz pokazać Powiadomienia w głównym procesie sprawdź moduł [Powiadomienia](../api/notification.md).
 
 ```javascript
-let myNotification = new Notification('Title', {
+const myNotification = new Notification('Title', {
   body: 'Lorem Ipsum Dolor Sit Amet'
 })
 
@@ -39,7 +39,7 @@ This allows you to determine ahead of time whether or not Windows will silently 
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+Powiadomienia są bezpośrednie na macOS, lecz powinieneś zawsze uważać na [Wytyczne Apple dotyczące interfejsu ludzkiego dotyczące powiadomień](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Pamiętaj, że powiadomienia są ograniczone do 256 bajtów i zostają przycinane, jeśli przekroczysz limit.
 

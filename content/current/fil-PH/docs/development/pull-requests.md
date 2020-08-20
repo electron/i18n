@@ -181,7 +181,7 @@ Huwag mag-post ng komento sa kahilingan ng pull upang i-ping ang mga reviewer ku
 
 All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
-Subukan na huwag mawalan ng pag-asa. Kung sa palagay mo ay hindi makatarungan ang pagrepaso, sabihin ito o humingi ang input ng isa pang kontribyutor ng proyekto. Kadalasan ang mga ganitong mga komento ay resulta ng ang isang tagasuri ay nagsasagawa ng hindi sapat na oras upang repasuhin at hindi masasadya. Ang ganitong mga problema ay maaaring madalas na malutas na may kaunting pasensya. Na sinabi, Ang mga tagasuri ay dapat na inaasahan na magbigay ng kapaki-pakinabang na pag-uumpisa.
+Subukan na huwag mawalan ng pag-asa. Kung sa palagay mo ay hindi makatarungan ang pagrepaso, sabihin ito o humingi ang input ng isa pang kontribyutor ng proyekto. Kadalasan ang mga ganitong mga komento ay resulta ng ang isang tagasuri ay nagsasagawa ng hindi sapat na oras upang repasuhin at hindi masasadya. Ang ganitong mga problema ay maaaring madalas na malutas na may kaunting pasensya. That said, reviewers should be expected to provide helpful feedback.
 
 ### Ikalabin-isang hakbang: Landing
 

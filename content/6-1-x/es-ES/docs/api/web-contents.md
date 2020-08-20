@@ -392,7 +392,7 @@ El uso es el mismo con [the `select-client-certificate` evento de `app`](app.md#
 Devuelve:
 
 * `event` Event
-* `request` Object
+* Objeto `request`
   * `method` String
   * `url` URL
   * `referrer` URL
@@ -1311,7 +1311,7 @@ app.on('ready', () => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message) // Prints 'whoooooooh!'
+      console.log(message) // Imprime '¡Suuuuuuuuuuuuuu!'
     })
   </script>
 </body>

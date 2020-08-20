@@ -59,7 +59,7 @@ fs.readdirSync('/chemin/vers/exemple.asar')
 Utiliser un module de l’archive :
 
 ```javascript
-require('/chemin/vers/exemple.asar/dir/module.js')
+require('./path/to/example.asar/dir/module.js')
 ```
 
 Vous pouvez également afficher une page web se trouvant dans une archive `asar` avec `BrowserWindow` :

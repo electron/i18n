@@ -65,7 +65,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                          g ++ - aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cpu` parameter to `gn gen`:
+Dan untuk mengkompilasi silang target ` arm ` atau ` ia32 `, Anda harus meneruskan parameter ` target_cpu ` ke ` gn gen `:
 
 ```sh
 $ gn gen out/Debug --args='import(...) target_cpu="arm"'
@@ -73,7 +73,7 @@ $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 
 ## Bangunan
 
-See [Build Instructions: GN](build-instructions-gn.md)
+Lihat [Build Instructions: GN](build-instructions-gn.md)
 
 ## Penyelesaian masalah
 
@@ -91,9 +91,9 @@ The default building configuration is targeted for major desktop Linux distribut
 
 ### Menggunakan sistem ` clang ` daripada download ` clang ` binari
 
-Secara default Elektron dibangun dengan pembangunan setelahnya [`clang`](https://clang.llvm.org/get_started.html) binari yang disediakan oleh Proyek kromium. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
+Secara default Elektron dibangun dengan pembangunan setelahnya [`clang`](https://clang.llvm.org/get_started.html) binari yang disediakan oleh Proyek kromium. Jika karena alasan tertentu Anda ingin membangun dengan ` clang ` terpasang di sistem Anda, Anda dapat menentukan argumen ` clang_base_path ` di GN args.
 
-For example if you installed `clang` under `/usr/local/bin/clang`:
+Misalnya bila anda memeasang `clang` di bawah `/usr/local/bin/clang`:
 
 ```sh
 $ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
@@ -101,4 +101,4 @@ $ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_p
 
 ### Menggunakan kompiler selain ` clang `
 
-Building Electron with compilers other than `clang` is not supported.
+Membangun Electron dengan kompiler selain `clang` tidak didukung.

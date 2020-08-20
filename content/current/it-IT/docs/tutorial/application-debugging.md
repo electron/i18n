@@ -9,7 +9,7 @@ The most comprehensive tool to debug individual renderer processes is the Chromi
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 

@@ -84,7 +84,6 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 * Electron 릴리즈 & 개발자 피드백
   * [버저닝 정책](tutorial/electron-versioning.md)
   * [출시 일정](tutorial/electron-timelines.md)
-  * [앱 피드백 프로그램](tutorial/app-feedback-program.md)
 * [asar로 앱 소스 코드 패키징](tutorial/application-packaging.md)
   * [asar 아카이브 생성](tutorial/application-packaging.md#generating-asar-archives)
   * [asar 아카이브 사용하기](tutorial/application-packaging.md#using-asar-archives)

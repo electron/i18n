@@ -13,6 +13,7 @@
   * `icon` [NativeImage](native-image.md) | String (任意) - ボタンのアイコン。
   * `iconPosition` String (任意) - `left`、`right`、`overlay` にできます。 省略値は `overlay`。
   * `click` Function (任意) - ボタンがクリックされたときに呼ぶ関数。
+  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  省略値は `true` です。
 
 `accessibilityLabel` を定義するときは、macOS [ベストプラクティス](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc) を満たしていることを確認してください。
 
@@ -35,3 +36,7 @@
 #### `touchBarButton.icon`
 
 ボタンの現在のアイコンを表す `NativeImage`。 この値を変更すると、タッチバー内のボタンがすぐに更新されます。
+
+#### `touchBarButton.enabled`
+
+A `Boolean` representing whether the button is in an enabled state.

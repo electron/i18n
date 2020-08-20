@@ -9,7 +9,7 @@ L’outil le plus complet pour déboguer les processus individuels de rendu est 
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 

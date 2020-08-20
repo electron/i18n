@@ -84,7 +84,6 @@ There are questions that are asked quite often. Check this out before creating a
 * Electron Releases & Developer Feedback
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [ציר זמן הוצאות לאור](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md)
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)

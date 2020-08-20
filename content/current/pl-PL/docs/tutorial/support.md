@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
 ### Aktualnie wspierane wersje
-- 8.1.x
-- 7.1.x
-- 6.1.x
+- 9.x.y
+- 8.x.y
+- 7.x.y
 
 ### EOL
 
@@ -63,7 +63,7 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. [Elec
 
 The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
 
-[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+[Aż do wydania Electrona 2.0](../breaking-changes.md#duplicate-arm-assets) Electron będzie również kontynuował wydanie pliku binarnego dla `armv7l` z przyrostek `arm`. Both binaries are identical.
 
 Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 

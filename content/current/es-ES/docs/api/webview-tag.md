@@ -464,8 +464,30 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
 
 * `options` Object (opcional)
   * `silent` Boolean (optional) - Don't ask user for print settings. Por defecto es `false`.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Por defecto es `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por defecto es `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Por defecto es `true`.
+  * `margins` Object (optional)
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Por defecto es `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the start page.
+    * `to` Number - the end page.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional)
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
 Devuelve `Promise<void>`
 
@@ -474,11 +496,18 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 ### `<webview>.printToPDF(opciones)`
 
 * `options` Object
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the first page to print.
+    * `to` Number - the last page to print (inclusive).
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
   * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
   * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
-  * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
 
 Returns `Promise<Uint8Array>` - Se resuelve cuando los datos PDF son generados.
 
@@ -542,26 +571,9 @@ Devuelve `Promise<void>`
 
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
-
-* `minimumLevel` Número
-* `maximumLevel` Número
-
-Devuelve `Promise<void>`
-
-Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no visual).
-
-**Deprecated:** This API is no longer supported by Chromium.
-
 ### `<webview>.showDefinitionForSelection()` _macOS_
 
 Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
-
-### `<webview>.getWebContents()` _Deprecated_
-
-Devuelve [`WebContents`](web-contents.md) - Los contenidos web asociados con esto `webview`.
-
-Depende del módulo [`remote`](remote.md), por lo tanto no esta disponible cuando este módulo esta deshabilitado.
 
 ### `<webview>.getWebContentsId()`
 
@@ -576,7 +588,7 @@ Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 Devuelve:
 
 * `url` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -591,7 +603,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
 
@@ -599,7 +611,7 @@ Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es 
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Disparado cuando un frame ha terminado la navegación.
 
@@ -615,11 +627,11 @@ Corresponde a los puntos en tiempo cuando el girador del tabulador termina de gi
 
 Disparado cuando el documento en el frame dado es cargado.
 
-### Evento: "page-title-updated"
+### Evento: 'page-title-updated'
 
 Devuelve:
 
-* `title` Cadena
+* `title` String
 * `explicitSet` Boolen
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
@@ -736,14 +748,14 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `url` String
 
 Emitido cuando una navegación dentro de la página sucede.
 
 Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
-### Evento: 'close'
+### Evento: "close"
 
 Disparado cuando la página de invitado intenta cerrarse.
 

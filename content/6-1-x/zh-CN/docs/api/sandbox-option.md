@@ -56,7 +56,7 @@ app.on('ready', () => {
 
 ## 预加载
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+An app can make customizations to sandboxed renderers using a preload script. 例如：
 
 
 

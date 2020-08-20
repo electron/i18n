@@ -14,6 +14,14 @@ This document uses the following convention to categorize breaking changes:
 
 ## Planned Breaking API Changes (12.0)
 
+### Default Changed: `contextIsolation` defaults to `true`
+
+In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
+
+We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+
+For more details see: https://github.com/electron/electron/issues/23506
+
 ### Removed: `crashReporter` methods in the renderer process
 
 The following `crashReporter` methods are no longer available in the renderer process:
@@ -29,7 +37,15 @@ They should be called only from the main process.
 
 See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
+### Default Changed: `crashReporter.start({ compress: true })`
+
+The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
+
+If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
+
 ## Planned Breaking API Changes (11.0)
+
+There are no breaking changes planned for 11.0.
 
 ## Planned Breaking API Changes (10.0)
 
@@ -71,6 +87,10 @@ The only non-deprecated methods remaining in the `crashReporter` module in the r
 All above methods remain non-deprecated when called from the main process.
 
 See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+
+### Deprecated: `crashReporter.start({ compress: false })`
+
+Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
 
 ### Removed: Browser Window Affinity
 
@@ -182,7 +202,7 @@ const getGuestForWebContents = (webContentsId, contents) => {
     throw new Error(`Invalid webContentsId: ${webContentsId}`)
   }
   if (guest.hostWebContents !== contents) {
-    throw new Error(`Access denied to webContents`)
+    throw new Error('Access denied to webContents')
   }
   return guest
 }
@@ -232,7 +252,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleState`
+### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleTime`
 
 ```js
 // Removed in Electron 7.0
@@ -508,11 +528,11 @@ const { memory } = metrics[0] // Deprecated property
 
 ```js
 // Deprecated
-let optionsA = { webPreferences: { blinkFeatures: '' } }
-let windowA = new BrowserWindow(optionsA)
+const optionsA = { webPreferences: { blinkFeatures: '' } }
+const windowA = new BrowserWindow(optionsA)
 // Replace with
-let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
-let windowB = new BrowserWindow(optionsB)
+const optionsB = { webPreferences: { enableBlinkFeatures: '' } }
+const windowB = new BrowserWindow(optionsB)
 
 // Deprecated
 window.on('app-command', (e, cmd) => {
@@ -682,11 +702,11 @@ The following list includes the breaking API changes made in Electron 2.0.
 
 ```js
 // Deprecated
-let optionsA = { titleBarStyle: 'hidden-inset' }
-let windowA = new BrowserWindow(optionsA)
+const optionsA = { titleBarStyle: 'hidden-inset' }
+const windowA = new BrowserWindow(optionsA)
 // Replace with
-let optionsB = { titleBarStyle: 'hiddenInset' }
-let windowB = new BrowserWindow(optionsB)
+const optionsB = { titleBarStyle: 'hiddenInset' }
+const windowB = new BrowserWindow(optionsB)
 ```
 
 ### `תפריט`

@@ -2,7 +2,7 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Process: [Main](../glossary.md#main-process)
+प्रक्रिया: [Main](../glossary.md#main-process)
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
@@ -16,7 +16,7 @@ An example of creating a window that fills the whole screen:
 const { app, BrowserWindow, screen } = require('electron')
 
 let win
-app.on('ready', () => {
+app.whenReady().then(() => {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize
   win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
@@ -30,7 +30,7 @@ const { app, BrowserWindow, screen } = require('electron')
 
 let win
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   let displays = screen.getAllDisplays()
   let externalDisplay = displays.find((display) => {
     return display.bounds.x !== 0 || display.bounds.y !== 0

@@ -180,7 +180,7 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `message` String - Content of the message box.
   * `detail` String (optional) - Extra information of the message.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
+  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` domyślnie.
   * `icon` ([NativeImage](native-image.md) | String) (opcjonalne)
   * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value or callback response.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
@@ -203,7 +203,7 @@ Argument `browserWindow` pozwala dialogowemu dołączyć się do okna nadrzędne
   * `message` String - Content of the message box.
   * `detail` String (optional) - Extra information of the message.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
+  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` domyślnie.
   * `icon` [NativeImage](native-image.md) (optional)
   * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value or callback response.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.

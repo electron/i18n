@@ -134,8 +134,8 @@ const { app, Menu } = require('electron')
 const template = [
   // { role: 'appMenu' }
   ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
-    submenu: [
+    мітка: app.getName(),
+    підменю: [
       { role: 'about' },
       { type: 'separator' },
       { role: 'services' },
@@ -149,8 +149,8 @@ const template = [
   }] : []),
   // { role: 'fileMenu' }
   {
-    label: 'File',
-    submenu: [
+    мітка: 'Файл',
+    підменю: [
       isMac ? { role: 'close' } : { role: 'quit' }
     ]
   },

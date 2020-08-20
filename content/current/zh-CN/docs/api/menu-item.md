@@ -11,9 +11,9 @@
 * `options` Object
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
     * `menuItem` MenuItem
-    * `browserWindow` [BrowserWindow](browser-window.md)
+    * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.
     * `event` [KeyboardEvent](structures/keyboard-event.md)
-  * `role` String （可选）- 可为`undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow`, `windowMenu` - 指定菜单项的行为，定义`click`属性后此属性将被忽略。 参见 [roles](#roles)
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. 参见 [roles](#roles)
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
   * `label` String (可选)
   * `sublabel` String (可选)
@@ -47,7 +47,8 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 `role ` 属性可以具有以下值:
 
 * `undo`
-* `redo`
+* `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
+* `重做`
 * `cut`
 * `copy`
 * `paste`
@@ -72,7 +73,6 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 The following additional roles are available on _macOS_:
 
 * `appMenu` - Whole default "App" menu (About, Services, etc.)
-* ` about `-映射到 ` orderFrontStandardAboutPanel ` 操作.
 * ` hide `-映射到 ` hide ` 操作.
 * ` hideOthers `-映射到 ` hideOtherApplications ` 操作.
 * ` unhide `-映射到 ` unhideAllApplications ` 操作.
@@ -93,7 +93,7 @@ The following additional roles are available on _macOS_:
 
 在 macOS 上指定 ` role ` 时, ` label ` 和 ` accelerator ` 是影响菜单项的唯一选项。 所有其它选项都将被忽略。 不过，仍然支持小写的`role`，如`toggledevtools`。
 
-**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
 
 ### 实例属性
 
@@ -105,7 +105,7 @@ The following additional roles are available on _macOS_:
 
 #### `menuItem.label`
 
-A `String` indicating the item's visible label, this property can be dynamically changed.
+A `String` indicating the item's visible label.
 
 #### `menuItem.click`
 
@@ -124,7 +124,7 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.role`
 
-`String`（可选） 指出菜单项的角色 可为 `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow`, `windowMenu`
+`String`（可选） 指出菜单项的角色 Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
 
 #### `menuItem.accelerator`
 
@@ -136,7 +136,7 @@ A `NativeImage | String` (optional) indicating the item's icon, if set.
 
 #### `menuItem.sublabel`
 
-A `String` indicating the item's sublabel, this property can be dynamically changed.
+A `String` indicating the item's sublabel.
 
 #### `menuItem.toolTip` _macOS_
 
@@ -162,7 +162,9 @@ A `String` indicating the item's hover text.
 
 #### `menuItem.registerAccelerator`
 
-A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.
+A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
+
+This property can be dynamically changed.
 
 #### `menuItem.commandId`
 

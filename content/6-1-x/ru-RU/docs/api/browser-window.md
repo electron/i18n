@@ -117,7 +117,7 @@ child.once('ready-to-show', () = > {
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
@@ -989,7 +989,7 @@ Hooks a windows message. The `callback` is called when the message is received i
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional)
+* `options` Object (опционально)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - HTTP Referrer.
   * `userAgent` String (опционально) - user-agent, создающий запрос.
   * `extraHeaders` String (опционально) - дополнительные заголовки, разделенные "\n"
@@ -1029,7 +1029,7 @@ win.loadURL('http://localhost:8000/post', {
 #### `win.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (optional)
+* `options` Object (опционально)
   * `query` Object (опционально) - переданный в `url.format()`.
   * `search` String (опционально) - переданная в `url.format()`.
   * `hash` String (опционально) - переданная в `url.format()`.
@@ -1055,7 +1055,7 @@ Same as `webContents.loadFile`, `filePath` should be a path to an HTML file rela
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (optional)
+* `options` Object (опционально)
   * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -1115,16 +1115,16 @@ Sets the opacity of the window. On Linux does nothing.
   * `icon` [NativeImage](native-image.md) - иконка, отображаемая на панели миниатюр.
   * `click` Function
   * `tooltip` String (опционально) - текст всплывающей подсказки на кнопке.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `flags` String[] (опционально) - Управление конкретными состояниями и поведением кнопки. По умолчанию, является `['enabled']`.
 
 `flags` — это массив, который может включать следующие `строки`:
 
 * `enabled` - кнопка активна и доступна пользователю.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `disabled` - Кнопка отключена. Она присутствует, но имеет неактивное визуальное состояние и не будет реагировать на действия пользователя.
 * `dismissonclick` - когда кнопка нажата, окно миниатюры закрывается немедленно.
 * `nobackground` - не рисует границы кнопок, использует только изображение.
 * `hidden` - кнопка не отображается пользователю.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `noninteractive` - Кнопка включена, но не интерактивна; ни одно состояние кнопки не отображается. Это значение предназначено для случаев, когда кнопка используется в уведомлении.
 
 #### `win.setThumbnailClip(region)` _Windows_
 
@@ -1194,7 +1194,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
-* `options` Object (optional)
+* `options` Object (опционально)
   * `visibleOnFullScreen` Boolean (опционально) _macOS_ - устанавливает видимость панели меню в полноэкранном режиме окна
 
 Устанавливает видимость окна на всех рабочих местах.
@@ -1210,8 +1210,8 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Логическое значение
-* `options` Object (optional)
-  * `forward` Boolean (optional) _macOS_ _Windows_ - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Используется, только когда `ignore` - true. Если `ignore` - false, перенаправление всегда будет отключено, независимо от этого значения.
+* `options` Object (опционально)
+  * `forward` Boolean (опционально) _macOS_ _Windows_ - Если true, перенаправляет сообщения о передвижение мыши в Chromium, включая события мыши, такие как `mouseleave`. Используется, только когда `ignore` - true. Если `ignore` - false, перенаправление всегда будет отключено, независимо от этого значения.
 
 Заставляет окно игнорировать все события мыши.
 

@@ -31,20 +31,9 @@ gagabayan ka ni npm mula sa pinaka basic na `package.json` file. Ang script na t
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does).
 
-```json
-{
-  "name": "your-app",
-  "version": "0.1.0",
-  "main": "main.js",
-  "scripts": {
-    "start": "node ."
-  }
-}
-```
-
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
 
 ```json
 {
@@ -82,7 +71,7 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create the browser window.
-  let win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -124,15 +113,18 @@ function createWindow () {
 Ilang APIs ay maari lamang gamitin matapos ang pangyayaring ito ay nangyayari.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
-app.on('window-lahat-sarado', () => {
-  // Sa macOS ito ay karaniwan para sa mga aplikasyon at kanilang menu bar
-  //para manatiling aktibo hanggang ang gumagamit ay tahasang huminto sa Cmd+Q
-  Kung (proseso.platporm !== 'darwin') {
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
 
 app.on('activate', () => {
-  //Sa macOS ito ay karaniwan upang muling lumikha ng window sa app kapag ang 
-  //ang dock icon ay nag-click at wla nang iba pang windows na nakabukas.
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }

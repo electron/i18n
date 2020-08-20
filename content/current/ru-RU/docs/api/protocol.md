@@ -10,7 +10,7 @@
 const { app, protocol } = require('electron')
 const path = require('path')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
@@ -32,7 +32,7 @@ app.on('ready', () => {
 const { session, app, protocol } = require('electron')
 const path = require('path')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   const partition = 'persist:example'
   const ses = session.fromPartition(partition)
 

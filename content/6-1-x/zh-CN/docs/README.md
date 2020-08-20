@@ -4,7 +4,7 @@
 
 ## 常见问题 (FAQ)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+有些问题经常被问到。 在新建问题之前请先查看：
 
 * [Electron 常见问题 (FAQ)](faq.md)
 

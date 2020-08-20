@@ -84,7 +84,6 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * Versiones Electron & Comentarios de desarrollador
   * [Política de versiones](tutorial/electron-versioning.md)
   * [Tiempos de Lanzamientos](tutorial/electron-timelines.md)
-  * [Programa de retroalimentación](tutorial/app-feedback-program.md)
 * [Empaquetando el código fuente con asar](tutorial/application-packaging.md)
   * [Generar archivos asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Usando archivos asar](tutorial/application-packaging.md#using-asar-archives)

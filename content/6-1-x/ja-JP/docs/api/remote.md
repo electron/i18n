@@ -75,7 +75,8 @@ For example, the following code seems innocent at first glance. It installs a ca
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+  // ウインドウが閉じられた...
+})
 })
 ```
 

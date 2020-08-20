@@ -21,4 +21,3 @@
 * [macOS におけるデバッグ](debugging-instructions-macos.md)
 * [デバッガでシンボルサーバを設定](setting-up-symbol-server.md)
 * [パッチ](patches.md)
-* [Nodeのアップグレード](upgrading-node.md)

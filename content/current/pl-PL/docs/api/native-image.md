@@ -239,13 +239,9 @@ Zwraca [`Size`](structures/size.md)
 
 Marks the image as a template image.
 
-**[Przestarzałe](modernization/property-updates.md)**
-
 #### `image.isTemplateImage()`
 
 Returns `Boolean` - Whether the image is a template image.
-
-**[Przestarzałe](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 

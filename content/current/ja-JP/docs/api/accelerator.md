@@ -14,8 +14,8 @@ Accelerator は、`+` によって結合された複数の修飾キーと単一�
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-  // 'CommandOrControl+Y' をショートカットリスナーに登録します。
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Y と Command/Control が押下されたときに処理を行います。
   })
@@ -46,7 +46,7 @@ Linux と Windows の場合、`Command` キーは効果がありません。Acce
 * `0` から `9`
 * `A` から `Z`
 * `F1` から `F24`
-* `~`、`!`、`@`、`#`、`$` などの記号。
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`

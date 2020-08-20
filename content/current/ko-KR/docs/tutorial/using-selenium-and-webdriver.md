@@ -131,12 +131,12 @@ const options = {
     browserName: 'chrome',
     'goog:chromeOptions': {
       binary: '/Path-to-Your-App/electron', // 사용할 Electron 바이너리의 경로.
-      args: [/* cli arguments */] // Optional, 'app=' + /path/to/your/app/
+      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
 }
 
-let client = webdriverio.remote(options)
+const client = webdriverio.remote(options)
 
 client
   .init()

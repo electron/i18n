@@ -70,7 +70,7 @@ Pengembang ingin mengetahui rilis mana yang _aman_ untuk digunakan. Bahkan fitur
 * Gunakan ` ~ 2.0.0 </ 0> untuk mengakui hanya perbaikan stabilitas atau keamanan terkait rilis Anda <code> 2.0.0 </ 0>.</li>
 <li>Gunakan <code>^ 2.0.0` untuk mengakui fitur pekerjaan yang tidak melanggar _ cukup stabil _ serta perbaikan keamanan dan bug.
 
-Yang penting dari poin kedua adalah aplikasi yang menggunakan ` ^` tetap dapat mengharapkan tingkat stabilitas yang masuk akal. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+Yang penting dari poin kedua adalah aplikasi yang menggunakan ` ^` tetap dapat mengharapkan tingkat stabilitas yang masuk akal. Untuk mencapai hal ini, semver memungkinkan _ pengenal pra-rilis _ untuk menunjukkan versi tertentu belum _aman_ atau _ stabil_.
 
 Apapun yang anda pilih, secara berkala Anda harus menemukan versi ` package.json ` karena melanggar perubahan adalah fakta kehidupan Chromium.
 

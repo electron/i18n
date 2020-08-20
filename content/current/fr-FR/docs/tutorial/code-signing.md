@@ -2,7 +2,7 @@
 
 La signature de code est une technologie de sécurité que vous utilisez pour certifier qu'une application a bien été créée par vous.
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+Sur macOS le système peut détecter tout changement apporté à l'application, qu'il s'agisse d'une modification introduite accidentellement ou par du code malicieux.
 
 On Windows, the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low, will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
 
@@ -11,9 +11,9 @@ Bien qu'il reste possible de distribuer des applications non signées, cela n'es
 ![macOS Catalina Gatekeeper warning: The app cannot be opened because the
 developer cannot be verified](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
+Comme vous pouvez le voir, les utilisateurs ont deux options : déplacez l'application directement dans la corbeille ou annulez son exécution. Vous ne voulez pas que vos utilisateurs voient cette boîte de dialogue.
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed.
+Si vous développez une application Electron destinée à être empaquetée et distribuée, son code devra être signé.
 
 # Signing & notarizing macOS builds
 
@@ -21,9 +21,9 @@ Properly preparing macOS applications for release requires two steps: First, the
 
 To start the process, ensure that you fulfill the requirements for signing and notarizing your app:
 
-1. Enroll in the [Apple Developer Program](https://developer.apple.com/programs/) (requires an annual fee)
+1. S'inscrire au [Programme de Développeurs Apple](https://developer.apple.com/programs/) (moyennant des frais annuels)
 2. Download and install [Xcode](https://developer.apple.com/xcode) - this requires a computer running macOS
-3. Generate, download, and install [signing certificates](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+3. Générer, télécharger et installer [des certificats de signature](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
 Electron's ecosystem favors configuration and freedom, so there are multiple ways to get your application signed and notarized.
 
@@ -76,6 +76,24 @@ The `plist` file referenced here needs the following macOS-specific entitlements
 
 To see all of this in action, check out Electron Fiddle's source code, [especially its `electron-forge` configuration file](https://github.com/electron/fiddle/blob/master/forge.config.js).
 
+If you plan to access the microphone or camera within your app using Electron's APIs, you'll also need to add the following entitlements:
+
+```xml
+<key>com.apple.security.device.audio-input</key>
+<true/>
+<key>com.apple.security.device.camera</key>
+<true/>
+```
+
+If these are not present in your app's entitlements when you invoke, for example:
+
+```js
+const { systemPreferences } = require('electron')
+
+const microphone = systemPreferences.askForMediaAccess('microphone')
+```
+
+Your app may crash. See the Resource Access section in [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) for more information and entitlements you may need.
 
 ## `electron-builder`
 
@@ -141,7 +159,7 @@ You can get a code signing certificate from a lot of resellers. Prices vary, so 
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Amongst others, please shop around to find one that suits your needs, Google is your friend 😄
 
-There are a number of tools for signing your packaged app:
+Il existe un certain nombre d’outils pour la signature de votre application empaquetée :
 
 - [`electron-winstaller`] will generate an installer for windows and sign it for you
 - [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.

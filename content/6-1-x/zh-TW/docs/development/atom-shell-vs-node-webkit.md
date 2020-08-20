@@ -12,7 +12,7 @@ __1. 應用程式入口點__
 
 然而 Electron 則直接以 Javascript 作為程式進入點。 用以取代 URL，使您能直接建立一個客製化的瀏覽器視窗，並載入 Electron API 的 HTML 檔。 您亦能透過監聽事件 window events 來決定關閉應用程式的時機。
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
+Electron 的工作模式更像 Node.js 运行时。 Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
 
 __2. 建置系統__
 
@@ -28,4 +28,4 @@ If you are an experienced NW.js user, you should be familiar with the concept of
 
 By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
 
-Note: NW.js has optionally supported multi-context since 0.13.
+提示：NW.js 自 0.13 版本起就支持可选的 multi-context。

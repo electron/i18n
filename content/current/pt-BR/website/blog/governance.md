@@ -1,5 +1,5 @@
 ---
-title: Electron Governance
+title: Governança do Electron
 author:
   - ckerr
   - sofianguy

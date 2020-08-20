@@ -31,20 +31,9 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does).
 
-```json
-{
-  "name": "your-app",
-  "version": "0.1.0",
-  "main": "main.js",
-  "scripts": {
-    "start": "node ."
-  }
-}
-```
-
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
 
 ```json
 {
@@ -82,7 +71,7 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create the browser window.
-  let win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -124,18 +113,18 @@ function createWindow () {
 // कुछ ऐपीआई इस इवेंट के शुरू होने पर ही इस्तेमाल की जा सकती है |
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  // मैकओएस पर एप्लीकेशनस और उनकी मेन्यु बार के लिए यह सामान्य है कि 
-  // जब तक उपयोगकर्ता cmd+q एंटर करके के बंद न कर दें, तब तक सक्रीय रहें |
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // मैकओएस पर एप्प में एक विंडो का पुनर्निर्माण करना आम है, जब डॉक आइकॉन
-  // क्लिक किया हो और कोई दूसरी विंडोज न खुली हों |
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }

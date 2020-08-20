@@ -37,23 +37,24 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
   // Check each transaction.
   transactions.forEach(function (transaction) {
-    let payment = transaction.payment
+    const payment = transaction.payment
 
     switch (transaction.transactionState) {
       case 'purchasing':
         console.log(`Purchasing ${payment.productIdentifier}...`)
         break
-      case 'purchased':
 
+      case 'purchased': {
         console.log(`${payment.productIdentifier} purchased.`)
 
         // Get the receipt url.
-        let receiptURL = inAppPurchase.getReceiptURL()
+        const receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
 
         // Submit the receipt file to the server and check if it is valid.
-        // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
+        // @перегляньте
+https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
         // If the receipt is valid, the product is purchased
         // ...
@@ -62,6 +63,8 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
+      }
+
       case 'failed':
 
         console.log(`Failed to purchase ${payment.productIdentifier}.`)
@@ -105,8 +108,8 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   })
 
   // Ask the user which product he/she wants to purchase.
-  let selectedProduct = products[0]
-  let selectedQuantity = 1
+  const selectedProduct = products[0]
+  const selectedQuantity = 1
 
   // Purchase the selected product.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {

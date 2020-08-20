@@ -41,7 +41,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Usa botones personalizados de cierre y miniaturiza que se muestran cuando se activa en la parte superior izquierda de la ventana. El botón de pantalla completa no está disponible debido a las restricciones de ventanas sin marco ya que interactúan con las máscaras de ventana MacOS de Apple. Estos botones personalizados evitaran problemas con los eventos de ratón que ocurren con los botones de la barra de herramientas estándar. Esta opción sólo es aplicable para ventanas sin marco.
+Usa botones personalizados de cierre y miniaturiza que se muestran cuando se activa en la parte superior izquierda de la ventana. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. Estos botones personalizados evitaran problemas con los eventos de ratón que ocurren con los botones de la barra de herramientas estándar. Esta opción sólo es aplicable para ventanas sin marco.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -120,7 +120,7 @@ Si sólo está configurando una barra de títulos personalizada como arrastrable
 
 ## Selección de texto
 
-El comportamiento del desplazamiento puede tener conflictos con el texto seleccionado en una ventana sin bordes. Por ejemplo, cuando se arrastra la barra de título, accidentalmente se podría seleccionar el texto sobre la barra de título. Para evitar esto, es necesario deshabilitar la selección de texto dentro de un área desplazable como:
+In a frameless window the dragging behavior may conflict with selecting text. Por ejemplo, cuando se arrastra la barra de título, accidentalmente se podría seleccionar el texto sobre la barra de título. Para evitar esto, es necesario deshabilitar la selección de texto dentro de un área desplazable como:
 
 ```css
 .titlebar {

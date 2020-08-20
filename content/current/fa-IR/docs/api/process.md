@@ -2,7 +2,7 @@
 
 > Extensions to process object.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+فرآیند: [اصلی](../glossary.md#main-process)، [رندر](../glossary.md#renderer-process)
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
@@ -72,10 +72,6 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
 
-### `process.enablePromiseAPIs`
-
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
-
 ### `process.resourcesPath` _Readonly_
 
 A `String` representing the path to the resources directory.
@@ -111,7 +107,7 @@ A `String` representing Electron's version string.
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
-## Methods
+## روش ها
 
 The `process` object has the following methods:
 

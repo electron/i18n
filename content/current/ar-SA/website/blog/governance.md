@@ -1,5 +1,5 @@
 ---
-title: الحوكمة Electron
+title: حوكمة Electron
 author:
   - ckerr
   - sofianguy

@@ -11,9 +11,9 @@ Melihat [`Menu`](menu.md) untuk contoh.
 * `options` Object
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
     * `menuItem` MenuItem
-    * `browserWindow` [BrowserWindow](browser-window.md)
+    * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.
     * `event` [KeyboardEvent](structures/keyboard-event.md)
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `jenis` String (opsional) - dapat `normal`, `pemisah`, `submenu`, `kotak centang` atau `radio`.
   * `label` String (optional)
   * `sublabel` String (optional)
@@ -47,6 +47,7 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 Properti `peran` dapat memiliki nilai-nilai berikut:
 
 * `membatalkan`
+* `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
 * `mengulang`
 * `memotong`
 * `salinan`
@@ -72,7 +73,6 @@ Properti `peran` dapat memiliki nilai-nilai berikut:
 The following additional roles are available on _macOS_:
 
 * `appMenu` - Whole default "App" menu (About, Services, etc.)
-* `tentang` - peta tindakan `orderFrontStandardAboutPanel`.
 * `menyembunyikan` - peta untuk `menyembunyikan` tindakan.
 * `hideOthers` - Map to the `hideOtherApplications` action.
 * `unhide` - peta tindakan `unhideAllApplications`.
@@ -93,7 +93,7 @@ The following additional roles are available on _macOS_:
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
-**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
 
 ### Contoh properti
 
@@ -105,7 +105,7 @@ A `String` indicating the item's unique id, this property can be dynamically cha
 
 #### `menuItem.label`
 
-A `String` indicating the item's visible label, this property can be dynamically changed.
+A `String` indicating the item's visible label.
 
 #### `menuItem.click`
 
@@ -124,7 +124,7 @@ A `String` indicating the type of the item. Can be `normal`, `separator`, `subme
 
 #### `menuItem.role`
 
-A `String` (optional) indicating the item's role, if set. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
+A `String` (optional) indicating the item's role, if set. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
 
 #### `menuItem.accelerator`
 
@@ -136,7 +136,7 @@ A `NativeImage | String` (optional) indicating the item's icon, if set.
 
 #### `menuItem.sublabel`
 
-A `String` indicating the item's sublabel, this property can be dynamically changed.
+A `String` indicating the item's sublabel.
 
 #### `menuItem.toolTip` _macOS_
 
@@ -162,7 +162,9 @@ Anda dapat menambahkan sebuah `klik` fungsi untuk perilaku tambahan.
 
 #### `menuItem.registerAccelerator`
 
-A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.
+A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
+
+This property can be dynamically changed.
 
 #### `menuItem.commandId`
 

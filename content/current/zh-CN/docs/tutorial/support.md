@@ -30,14 +30,14 @@ The latest stable release unilaterally receives all fixes from `master`, and the
 
 All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
 
-When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
+当一个API的改动或移除会导致某个现有功能被破坏时，这个现有功能在被移除之前，仍然会在至少两个主要版本号内得到尽可能的支持。 比如，某个函数需要三个参数，而在主要版本10中，它被修改为需要两个参数，那么这个函数的三参数版本仍然会被支持，至少持续到主要版本12。 经过两个主要版本后，我们仍会尝试支持后向兼容，直到维护成本高得难以承受而无法继续支持。
 
 ### 当前支持的版本
-- 8.1.x
-- 7.1.x
-- 6.1.x
+- 9.x.y
+- 8.x.y
+- 7.x.y
 
-### End-of-life
+### 服务终止
 
 当一个发行分支达到了其支持周期的末尾，该序列将会在NPM中弃用，且会发布一个最终的“结束支持”版本。 这个版本将会添加一个警告以通知正在使用一个不受支持的Electron版本。
 
@@ -57,13 +57,13 @@ When an API is changed or removed in a way that breaks existing functionality, t
 
 仅支持 Windows 7 或更高版本, 旧版操作系统已不再支持(并且无法运行).
 
-为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
+为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 [Electron 6.0.8 以及更高版本添加了对基于Arm (`arm64`) 架构的Windows设备的原生支持](windows-arm.md)。 Running apps packaged with previous versions is possible using the ia32 binary.
 
 ### Linux
 
 Electron 的 `ia32` (`i686`) 和 `x64` (`amd64`) 预编译版本均是在Ubuntu 12.04 下编译的，`arm` 版的二进制文件是在 ARM v7（硬浮点 ABI 与 Debian Wheezy 版本的 NEON）下完成的。
 
-[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. 两个二进制文件是相同的。
+[在Electron 2.0的发布之前](../breaking-changes.md#duplicate-arm-assets)，Electron 也会 继续用简单的` arm `后缀释放` armv7l `二进制文件。 两个二进制文件是相同的。
 
 预编译版本是否能够正常运行，取决于其中是否包含了编译平台的链接库。所以只有 Ubuntu 12.04 是可以保证能正常运行的，并且以下平台也被证实可以正常运行 Electron 的预编译版本：
 

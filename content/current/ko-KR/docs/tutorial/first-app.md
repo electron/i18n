@@ -31,20 +31,9 @@ npm은 기본적인 `package.json`파일을 생성하여 여러분에게 정보�
 }
 ```
 
-__주의__: `package.json`에 `main` 필드에 값이 설정되어 있지 않으면, Electron은 `index.js`를 로드하려고 할 것입니다. (Node.js 동작방식과 유사하게) 이것은 간단한 Node 애플리케이션이지만, 현재 패키지를 실행하기 위한 `node` 명령어를 담은 `start` 스크립트를 추가할 수도 있습니다.
+__주의__: `package.json`에 `main` 필드에 값이 설정되어 있지 않으면, Electron은 `index.js`를 로드하려고 할 것입니다. (Node.js 동작방식과 유사하게)
 
-```json
-{
-  "name": "your-app",
-  "version": "0.1.0",
-  "main": "main.js",
-  "scripts": {
-    "start": "node ."
-  }
-}
-```
-
-이 Node 애플리케이션을 Electron 애플리케이션으로 전환하는 것은 매우 간단합니다 -`node` 런타임을 `electron` 런타임으로 변경하기만 하면 됩니다.
+By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
 
 ```json
 {
@@ -82,7 +71,7 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // 브라우저 창을 생성합니다.
-  let win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -90,7 +79,7 @@ function createWindow () {
     }
   })
 
-  // 그리고 앱의 index.html를 로드합니다.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 
@@ -121,27 +110,27 @@ function createWindow () {
 
 // 이 메소드는 Electron의 초기화가 완료되고
 // 브라우저 윈도우가 생성될 준비가 되었을때 호출된다.
-// 어떤 API는 이 이벤트가 나타난 이후에만 사용할 수 있습니다.
+// Some APIs can only be used after this event occurs.
 app.whenReady().then(createWindow)
 
-// 모든 윈도우가 닫히면 종료된다.
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  // macOS에서는 사용자가 명확하게 Cmd + Q를 누르기 전까지는
-  // 애플리케이션이나 메뉴 바가 활성화된 상태로 머물러 있는 것이 일반적입니다.
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // macOS에서는 dock 아이콘이 클릭되고 다른 윈도우가 열려있지 않았다면
-  // 앱에서 새로운 창을 다시 여는 것이 일반적입니다.
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
-// 이 파일에는 나머지 앱의 특정 주요 프로세스 코드를 포함시킬 수 있습니다. 별도의 파일에 추가할 수도 있으며 이 경우 require 구문이 필요합니다.
+// 이 파일에는 나머지 앱의 특정 주요 프로세스 코드를 포함시킬 수 있습니다. You can also put them in separate files and require them here.
 ```
 
 마지막으로 `index.html`는 보여주고 싶은 웹 페이지에 해당합니다:
@@ -172,7 +161,7 @@ app.on('activate', () => {
 
 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 저장소를 clone하여 이 문서에서 설명한 코드를 실행해 볼 수 있습니다.
 
-**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
+**참고**: 예제 코드를 실행하려면 [Git](https://git-scm.com)과 [npm](https://www.npmjs.com/)이 필요합니다.
 
 ```sh
 # 저장소 clone

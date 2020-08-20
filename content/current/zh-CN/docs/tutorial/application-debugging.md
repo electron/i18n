@@ -9,7 +9,7 @@
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
@@ -23,10 +23,10 @@ win.webContents.openDevTools()
 
 ## V8 Crashes
 
-If the V8 context crashes, the DevTools will display this message.
+如果V8环境崩溃的话, DevTools 将显示以下信息
 
 `DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
 
-Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+Chromium日志可以通过`ELECTRON_ENABLE_LOGGING`环境变量启用。 有关更多信息，请参见[环境变量文档](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging)。
 
-Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+或者，可以传递命令行参数`--enable-logging`。 更多信息请查看[命令行开关文档](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging)

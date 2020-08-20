@@ -20,7 +20,8 @@ Electron 运行 `package.json` 的 `main` 脚本的进程被称为__主进程__�
 
 > #### 题外话：进程间通讯
 > 
-> Electron为主进程（ main process）和渲染器进程（renderer processes）通信提供了多种实现方式，如可以使用[`ipcRenderer`](../api/ipc-renderer.md) 和 [`ipcMain`](../api/ipc-main.md)模块发送消息，使用 [remote](../api/remote.md)模块进行RPC方式通信。 这里也有一个常见问题解答：[web页面间如何共享数据](../faq.md#how-to-share-data-between-web-pages)。
+> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+
 
 ## 使用Electron的API
 
@@ -41,15 +42,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-因为进程之间的通信是被允许的, 所以渲染进程可以调用主进程来执行任务。 Electron通过`remote`模块暴露一些通常只能在主进程中获取到的API。 为了在渲染进程中创建一个`BrowserWindow`的实例，我们通常使用remote模块为中间件：
+Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
 
 ```javascript
-//这样写在渲染进程中时行得通的，但是在主进程中是'未定义'
-const { remote } = require('electron')
-const { BrowserWindow } = remote
+// In the main process:
+const { ipcMain } = require('electron')
 
-const win = new BrowserWindow()
+ipcMain.handle('perform-action', (event, ...args) => {
+  // ... do something on behalf of the renderer ...
+})
+
+// In the renderer process:
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.invoke('perform-action', ...args)
 ```
+
+Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
 
 ## 使用Node.js的API
 

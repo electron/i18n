@@ -11,9 +11,9 @@
 * `options` Object
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
     * `menuItem` MenuItem
-    * ` browserWindow </ 0> <a href="browser-window.md"> BrowserWindow </ 1>Line</li>
-<li><code>event` [KeyboardEvent](structures/keyboard-event.md)
-  * `role` String (опционально) - Может быть `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` или `windowMenu` - Определенное действие элемента меню, если указано, свойство `click` будет игнорироваться. Смотрите [роли](#roles).
+    * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.
+    * `event` [KeyboardEvent](structures/keyboard-event.md)
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. Смотрите [роли](#roles).
   * `type` String (опционально) - Может быть `normal`, `separator`, `submenu`, `checkbox` или `radio`.
   * `label` String (опционально)
   * `sublabel` String (опционально)
@@ -47,6 +47,7 @@
 Свойство `role` может иметь следующие значения:
 
 * `undo - Отменить`
+* `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
 * `redo - Восстановить`
 * `cut - Вырезать`
 * `copy - Копировать`
@@ -72,7 +73,6 @@
 The following additional roles are available on _macOS_:
 
 * `appMenu` - Полное меню "App" по умолчанию (О программе, службах и т. д.)
-* `about` - Сопоставляется с `orderFrontStandardAboutPanel`.
 * `hide` -Сопоставляется с `hide`.
 * `hideOthers` - Сопоставляется с `hideOtherApplications`.
 * `unhide` - Сопоставляется с `unhideAllApplications`.
@@ -93,7 +93,7 @@ The following additional roles are available on _macOS_:
 
 При задании `role` на macOS, `label` и `accelerator` являются единственными параметрами, которые влияют на пункт меню. Все остальные параметры будут проигнорированы. Нижний регистр `role`, например `toggledevtools`, все еще поддерживается.
 
-**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
 
 ### Instance Properties
 
@@ -105,7 +105,7 @@ The following additional roles are available on _macOS_:
 
 #### `menuItem.label`
 
-`Строка` указывает видимую метку элемента, это свойство может быть динамически изменено.
+A `String` indicating the item's visible label.
 
 #### `menuItem.click`
 
@@ -124,7 +124,7 @@ A `Function` that is fired when the MenuItem receives a click event. It can be c
 
 #### `menuItem.role`
 
-`Строка` (опционально) с указанием роли элемента, если установлено. Может быть `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` или `windowMenu`
+`Строка` (опционально) с указанием роли элемента, если установлено. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
 
 #### `menuItem.accelerator`
 
@@ -136,7 +136,7 @@ A `Function` that is fired when the MenuItem receives a click event. It can be c
 
 #### `menuItem.sublabel`
 
-`Строка` с указанием подписи элемента, это свойство может быть динамически изменено.
+A `String` indicating the item's sublabel.
 
 #### `menuItem.toolTip` _macOS_
 
@@ -162,7 +162,9 @@ A `radio` menu item will turn on its `checked` property when clicked, and will t
 
 #### `menuItem.registerAccelerator`
 
-`Boolean` указывает, следует ли регистрировать ускоритель с системой или только что отобразить, это свойство может быть динамически изменено.
+A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
+
+This property can be dynamically changed.
 
 #### `menuItem.commandId`
 

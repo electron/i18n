@@ -14,18 +14,18 @@ Bien qu'il reste possible de distribuer des applications non signées, cela n'es
 
 Si vous développez une application Electron destinée à être empaquetée et distribuée, son code devrait être signé. Les Stores Mac et Windows n'acceptent pas les applications non signées.
 
-# Signing macOS builds
+# Signer les projets pour MacOS
 
-Before signing macOS builds, you must do the following:
+Avant de signer les versions macOS, vous devez :
 
-1. Enroll in the [Apple Developer Program](https://developer.apple.com/programs/) (requires an annual fee)
-2. Download and install [Xcode](https://developer.apple.com/xcode)
+1. S'inscrire au [Programme de Développeurs Apple](https://developer.apple.com/programs/) (moyennant des frais annuels)
+2. Télécharger et installer [Xcode](https://developer.apple.com/xcode)
 3. Generate, download, and install [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
-There are a number of tools for signing your packaged app:
+Il existe un certain nombre d’outils pour la signature de votre application empaquetée :
 
-- [`electron-osx-sign`] is a standalone tool for signing macOS packages.
-- [`electron-packager`] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build.
+- `[électron-osx-sign`] est un outil autonome pour la signature de packages macOS.
+- [`electron-packager`] bundles `electron-osx-sign`. Si vous utilisez `electron-packager`, passez le drapeau `--osx-sign=true` pour signer votre build.
   - [`electron-forge`] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
 - [`electron-builder`] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
 
@@ -45,7 +45,7 @@ You can get a code signing certificate from a lot of resellers. Prices vary, so 
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Amongst others, please shop around to find one that suits your needs, Google is your friend :)
 
-There are a number of tools for signing your packaged app:
+Il existe un certain nombre d’outils pour la signature de votre application empaquetée :
 
 - [`electron-winstaller`] will generate an installer for windows and sign it for you
 - [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.

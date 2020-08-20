@@ -31,20 +31,9 @@ npm wird dich schrittweise durch die Erstellung einer `package.json`-Datei führ
 }
 ```
 
-__Bemerkung__: Wenn das `main`-Feld in der `package.json`-Datei nicht angegeben ist, wird Electron (so wie Node.js) versuchen, eine `index.js`-Datei zu laden. Wenn es sich um eine einfache Node-Anwendung handelt, würden Sie ein `start`-Skript hinzufügen, das `node` anweist, das aktuelle Paket auszuführen:
+__Bemerkung__: Wenn das `main`-Feld in der `package.json`-Datei nicht angegeben ist, wird Electron (so wie Node.js) versuchen, eine `index.js`-Datei zu laden.
 
-```json
-{
-  "name": "your-app",
-  "version": "0.1.0",
-  "main": "main.js",
-  "scripts": {
-    "start": "node ."
-  }
-}
-```
-
-Diese Node-Anwendung in eine Electron-Anwendung umzuwandeln, ist ganz einfach - wir ersetzen lediglich die `node`-Laufzeit durch die `electron`-Laufzeit.
+By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
 
 ```json
 {
@@ -82,7 +71,7 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Erstelle das Browser-Fenster.
-  let win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -90,7 +79,7 @@ function createWindow () {
     }
   })
 
-  // und lade die index.html der App.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 
@@ -124,18 +113,18 @@ function createWindow () {
 // Einige APIs können nur nach dem Auftreten dieses Events genutzt werden.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  // Unter macOS ist es üblich, für Apps und ihre Menu Bar
-  // aktiv zu bleiben, bis der Nutzer explizit mit Cmd + Q die App beendet.
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // Unter macOS ist es üblich ein neues Fenster der App zu erstellen, wenn
-  // das Dock Icon angeklickt wird und keine anderen Fenster offen sind.
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
@@ -174,7 +163,7 @@ Sobald Sie Ihre ersten `main.js`, `index.html` und `package.json` Dateien erstel
 
 Klonen und führen sie den Code für dieses Tutorial mithilfe folgendem Repository aus: [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
+**Hinweis**: Zur Ausführung wird [Git](https://git-scm.com) und [npm](https://www.npmjs.com/) benötigt.
 
 ```sh
 # Klonen des Repositorys

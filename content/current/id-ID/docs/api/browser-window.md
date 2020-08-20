@@ -11,10 +11,7 @@ const { BrowserWindow } = require('electron')
 // Atau gunakan `remote` dari proses perender.
 // const { BrowserWindow } = require('electron').remote
 
-let win = new BrowserWindow({ width: 800, height: 600 })
-win.on('closed', () => {
-  win = null
-})
+const win = new BrowserWindow({ width: 800, height: 600 })
 
 // Load a remote URL
 win.loadURL('https://github.com')
@@ -177,7 +174,7 @@ Ini menciptakan `BrowserWindow` baru dengan sifat asli yang ditetapkan oleh `opt
 <li><code>fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. Di macOS, juga apakah tombol perbesar/zoom harus beralih penuh mode layar atau memaksimalkan jendela. Defaultnya adalah `true`.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Defaultnya adalah ` false </ 0> .</li>
 <li><code>skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Defaultnya adalah ` false </ 0> .</li>
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. Defaultnya adalah ` false </ 0> .</li>
 <li><code>title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `ikon` ([NativeImage](native-image.md) | String) (opsional) - Ikon jendela. Pada Windows itu disarankan untuk menggunakan ikon `ICO` untuk mendapatkan efek visual terbaik, Anda juga bisa biarkan tidak terdefinisi sehingga ikon executable akan digunakan.
   * `show` Boolean (optional) - Whether window should be shown when created. Default adalah `benar`.
@@ -192,7 +189,7 @@ Ini menciptakan `BrowserWindow` baru dengan sifat asli yang ditetapkan oleh `opt
 <li><code>backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. Defaultnya adalah `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Defaultnya adalah ` false </ 0> .</li>
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. Defaultnya adalah ` false </ 0> .</li>
 <li><code>transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Defaultnya adalah ` false </ 0> . On Windows, does not work unless the window is frameless.</li>
 <li><code>type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Nilai yang mungkin adalah:
@@ -233,7 +230,7 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
 
     * `partisi` String (opsional) - Mengatur sesi yang digunakan oleh halaman sesuai dengan string partisi. Jika `partisi` dimulai dengan `bertahan:`, halaman akan menggunakan sesi persisten yang tersedia untuk semua halaman di aplikasi dengan sama `partisi`. Jika tidak ada awalan `bertahan:`, halaman akan menggunakan a sesi dalam memori. Dengan menugaskan yang sama `partisi`, beberapa halaman dapat berbagi sesi yang sama. Default adalah sesi default.
 
-    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _This property is experimental_
+    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _Deprecated_
 
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
 
@@ -272,7 +269,9 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
 <li><p spaces-before="0"><code> contextIsolation </ 0>  Boolean (opsional) - Apakah akan menjalankan API Elektron dan skrip <code> preload </ 0> yang ditentukan dalam konteks JavaScript yang terpisah . Default ke <code> false </ 0> . Konteks script <code> preload ` berjalan masih akan memiliki akses penuh ke jendela ` document `dan` window` namun akan menggunakan set sendiri JavaScript builtins ( `Array`, `Objek`, `JSON`, dll.) Dan akan diisolasi dari perubahan yang dilakukan pada lingkungan global oleh laman yang dimuat. The Electron  API hanya akan tersedia di ` preload </ 0> naskah dan bukan halaman dimuat. Opsi ini harus digunakan saat memuat konten remote yang berpotensi tidak tepercaya untuk memastikan konten yang dimuat tidak dapat merusak skrip <code> preload </ 0> dan setiap API Elektron yang digunakan.
 Opsi ini menggunakan teknik yang sama yang digunakan oleh <a href="https://developer.chrome.com/extensions/content_scripts#execution-environment"> Chrome Content Scripts </ 0> .
 Anda dapat mengakses konteks ini di alat dev dengan memilih entri ' Elektron Isolated Context' di kotak kombo di bagian atas tab Konsol.</p></li>
-<li><p spaces-before="0"><code>nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Default ke ` false </ 0>. Child windows will always have node
+<li><p spaces-before="0"><code>worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`.  The default is `false`. In Electron 12, the default will be changed to `true`. _Deprecated_
+
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Default ke ` false </ 0>. Child windows will always have node
 integration disabled unless <code>nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
 
     * ` webviewTag ` Boolean (opsional) - Apakah untuk mengaktifkan[`<webview>`tag](webview-tag.md). Default ke ` false </ 0>. <strong x-id="1"> Catatan: </strong>
@@ -291,16 +290,22 @@ integration disabled unless <code>nodeIntegrationInSubFrames` is true. **Note:**
 
     * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Defaultnya adalah ` false </ 0> .</p></li>
-</ul></li>
-</ul></li>
-</ul>
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Defaultnya adalah `true`.
 
-<p spaces-before="0">When setting minimum or maximum window size with <code>minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. Ini tidak akan mencegah Anda melewati ukuran yang tidak mengikuti batasan ukuran pada ` setBounds `/`setSize` atau ke konstruktor `BrowserWindow`.
+    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). Defaultnya adalah `true`.
+
+    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
       
-      The possible values and behaviors of the `type` option are platform dependent. Nilai yang mungkin adalah:
-      
-      * Di Linux, jenis yang mungkin adalah `desktop`, `dermaga`, `toolbar`, `splash`, `notifikasi`.
+            * `none` - Disables code caching
+      * `code` - Heuristic based code caching
+      * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
+      * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
+
+When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. Ini tidak akan mencegah Anda melewati ukuran yang tidak mengikuti batasan ukuran pada ` setBounds `/`setSize` atau ke konstruktor `BrowserWindow`.
+
+The possible values and behaviors of the `type` option are platform dependent. Nilai yang mungkin adalah:
+
+* Di Linux, jenis yang mungkin adalah `desktop`, `dermaga`, `toolbar`, `splash`, `notifikasi`.
 
 * On macOS, possible types are `desktop`, `textured`.
   
@@ -323,6 +328,7 @@ integration disabled unless <code>nodeIntegrationInSubFrames` is true. **Note:**
 <li><code>acara` Acara
 * ` title </ 0>  String</li>
 <li><code>explicitSet` Boolean
+
 Emitted ketika dokumen tersebut mengubah namanya, memanggil ` event.preventDefault () </ 0> 
 akan mencegah perubahan dari jendela asli.
 <code>explicitSet` is false when title is synthesized from file URL.
@@ -334,6 +340,7 @@ akan mencegah perubahan dari jendela asli.
 Pengembalian:
 
 * `acara` Acara
+
 Emitted saat jendela akan ditutup. Ini dipancarkan sebelum `` beforeunload </ 0> dan <code> membongkar </ 0>  acara DOM. Memanggil <code> event.preventDefault () </ 0> 
 akan membatalkan penutupan.</p>
 
@@ -643,7 +650,7 @@ Kembali ` BrowserWindow ` - Jendela dengan ` id ` yang diberikan.
 
 
 
-#### `BrowserWindow.addExtension (jalur)`
+#### `BrowserWindow.addExtension(path)` _Deprecated_
 
 * ` path </ 0>  String</li>
 </ul>
@@ -653,9 +660,11 @@ Kembali ` BrowserWindow ` - Jendela dengan ` id ` yang diberikan.
   
   ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
   
+  **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+  
   
 
-#### `BrowserWindow.removeExtension(name)`
+#### `BrowserWindow.removeExtension(name)` _Deprecated_
 
 * ` nama </ 0>  String</li>
 </ul>
@@ -663,16 +672,21 @@ Kembali ` BrowserWindow ` - Jendela dengan ` id ` yang diberikan.
 <p spaces-before="0">Hapus ekstensi Chrome dengan nama.</p>
 
 <p spaces-before="0"><strong x-id="1"> Catatan: </strong> API ini tidak dapat dipanggil sebelum event <code> ready ` dari modul ` app ` dipancarkan.</p> 
+  **Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+  
+  
 
-#### `BrowserWindow.getExtensions ()`
+#### `BrowserWindow.getExtensions()` _Deprecated_
 
 Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
 
+**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 
-#### `BrowserWindow.addDevToolsExtension (jalur)`
+
+#### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
 * ` path </ 0>  String</li>
 </ul>
@@ -684,9 +698,11 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
   
   ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
   
+  **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+  
   
 
-#### `BrowserWindow.removeDevToolsExtension (nama)`
+#### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
 * ` nama </ 0>  String</li>
 </ul>
@@ -694,8 +710,11 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 <p spaces-before="0">Hapus ekstensi DevTools dengan nama.</p>
 
 <p spaces-before="0"><strong x-id="1"> Catatan: </strong> API ini tidak dapat dipanggil sebelum event <code> ready ` dari modul ` app ` dipancarkan.</p> 
+  **Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+  
+  
 
-#### `BrowserWindow.getDevToolsExtensions ()`
+#### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
 Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
@@ -710,6 +729,8 @@ console.log (terpasang)
 
 
 ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
+
+**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 
 
@@ -739,7 +760,7 @@ Lihat dokumentasi[ `webContents` ](web-contents.md)untuk metodenya dan acara.
 
 #### `win.id` _Readonly_
 
-A `Integer` property representing the unique ID of the window.
+A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
 
 
 
@@ -748,6 +769,68 @@ A `Integer` property representing the unique ID of the window.
 A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
 
 If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+
+
+
+#### `win.simpleFullScreen`
+
+A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.
+
+
+
+#### `win.fullScreen`
+
+A `Boolean` property that determines whether the window is in fullscreen mode.
+
+
+
+#### `win.visibleOnAllWorkspaces`
+
+A `Boolean` property that determines whether the window is visible on all workspaces.
+
+**Note:** Always returns false on Windows.
+
+
+
+#### `win.shadow`
+
+A `Boolean` property that determines whether the window has a shadow.
+
+
+
+#### `win.menuBarVisible` _Windows_ _Linux_
+
+A `Boolean` property that determines whether the menu bar should be visible.
+
+**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+
+
+
+#### `win.kiosk`
+
+A `Boolean` property that determines whether the window is in kiosk mode.
+
+
+
+#### `win.documentEdited` _macOS_
+
+A `Boolean` property that specifies whether the window’s document has been edited.
+
+The icon in title bar will become gray when set to `true`.
+
+
+
+#### `win.representedFilename` _macOS_
+
+A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+
+
+
+#### `win.title`
+
+A `String` property that determines the title of the native window.
+
+**Note:** The title of the web page can be different from the title of the native window.
 
 
 
@@ -937,7 +1020,7 @@ Mengembalikan ` Boolean </ 0> - Apakah jendela dalam mode layar penuh.</p>
 
 Enters or leaves simple fullscreen mode.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
 
 
 
@@ -953,19 +1036,19 @@ Returns `Boolean` - Whether the window is in normal state (not maximized, not mi
 
 
 
-#### ` win.setAspectRatio (aspectRatio [, extraSize]) </ 0>  <em x-id="4"> macos </ 1></h4>
+#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_ _Linux_
+
+* ` aspectRatio </ 0> Float - Rasio aspek untuk mempertahankan sebagian dari tampilan konten.</p>
 
 <ul>
-<li><p spaces-before="0"><code> aspectRatio </ 0> Float - Rasio aspek untuk mempertahankan sebagian dari tampilan konten.</p></li>
-<li><p spaces-before="0"><code>extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.</p></li> </ul> 
-
-Ini akan membuat jendela menjaga rasio aspek. Ukuran ekstra memungkinkan pengembang memiliki ruang, ditentukan dalam piksel, tidak termasuk dalam perhitungan rasio aspek. API ini sudah memperhitungkan perbedaan antara ukuran jendela dan ukuran isinya.
-
-Pertimbangkan jendela normal dengan pemutar video HD dan kontrol yang terkait. Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 50 piksel kontrol di bawah pemutar. Untuk mempertahankan rasio aspek 16: 9 (rasio aspek standar untuk HD @ 1920x1080) di dalam pemutar itu sendiri, kami akan memanggil fungsi ini dengan argumen 16/9 dan [40, 50]. Argumen kedua tidak peduli di mana lebar dan tinggi ekstra berada dalam tampilan konten--hanya isinya. Sum any extra width and height areas you have within the overall content view.
-
-Calling this function with a value of `0` will remove any previously set aspect ratios.
-
-
+<li><code>extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.</li> </ul></li> </ul> 
+  
+  Ini akan membuat jendela menjaga rasio aspek. Ukuran ekstra memungkinkan pengembang memiliki ruang, ditentukan dalam piksel, tidak termasuk dalam perhitungan rasio aspek. API ini sudah memperhitungkan perbedaan antara ukuran jendela dan ukuran isinya.
+  
+  Pertimbangkan jendela normal dengan pemutar video HD dan kontrol yang terkait. Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 50 piksel kontrol di bawah pemutar. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
+{ width: 40, height: 50 }. Argumen kedua tidak peduli di mana lebar dan tinggi ekstra berada dalam tampilan konten--hanya isinya. Sum any extra width and height areas you have within the overall content view.
+  
+  
 
 #### `win.setBackgroundColor(backgroundColor)`
 
@@ -1020,6 +1103,12 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `
 
 
 
+#### `win.getBackgroundColor()`
+
+Returns `String` - Gets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+
+
+
 #### `win.setContentBounds (batas [, bernyawa])`
 
 * `batas` [Empat persegi panjang](structures/rectangle.md)
@@ -1053,7 +1142,7 @@ Disable or enable the window.
 
 #### `win.isEnabled()`
 
-Returns Boolean - whether the window is enabled.
+Returns `Boolean` - whether the window is enabled.
 
 
 
@@ -1115,16 +1204,14 @@ Mengembalikan ` Integer [] </ 0> - Berisi lebar dan tinggi maksimum jendela.</p>
 * ` resizable </ 0>  Boolean</li>
 </ul>
 
-<p spaces-before="0">Menetapkan apakah jendela dapat diubah ukurannya secara manual oleh pengguna.</p>
-
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
+<p spaces-before="0">Sets whether the window can be manually resized by the user.</p>
 
 <h4 spaces-before="0"><code>win.isResizable ()`</h4> 
-  Mengembalikan ` Boolean </ 0> - Apakah jendela dapat diubah ukurannya secara manual oleh pengguna.</p>
+  Returns `Boolean` - Whether the window can be manually resized by the user.
+  
+  
 
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
-
-<h4 spaces-before="0"><code> win.setMovable (dapat dipindahkan) </ 0>  <em x-id="4"> macOS </ 1>  <em x-id="4"> Windows </ 1></h4>
+#### ` win.setMovable (dapat dipindahkan) </ 0>  <em x-id="4"> macOS </ 1>  <em x-id="4"> Windows </ 1></h4>
 
 <ul>
 <li><code> bergerak </ 0>  Boolean</li>
@@ -1132,15 +1219,11 @@ Mengembalikan ` Integer [] </ 0> - Berisi lebar dan tinggi maksimum jendela.</p>
 
 <p spaces-before="0">Sets whether the window can be moved by user. On Linux does nothing.</p>
 
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
+<h4 spaces-before="0"><code>win.isMovable()` _macOS_ _Windows_
 
-<h4 spaces-before="0"><code>win.isMovable()` _macOS_ _Windows_</h4> 
-  
-  Mengembalikan ` Boolean </ 0> - Apakah jendela dapat dipindahkan oleh pengguna.</p>
+Mengembalikan ` Boolean </ 0> - Apakah jendela dapat dipindahkan oleh pengguna.</p>
 
 <p spaces-before="0">Di Linux selalu kembali <code> true </ 0> .</p>
-
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
 
 <h4 spaces-before="0"><code> win.setMinimizable (minimizable) </ 0>  <em x-id="4"> macOS </ 1>  <em x-id="4"> Windows </ 1></h4>
 
@@ -1148,26 +1231,19 @@ Mengembalikan ` Integer [] </ 0> - Berisi lebar dan tinggi maksimum jendela.</p>
 <li><code> diminimalkan </ 0>  Boolean</li>
 </ul>
 
-<p spaces-before="0">Sets whether the window can be manually minimized by user. On Linux does
-nothing.</p>
-
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
+<p spaces-before="0">Sets whether the window can be manually minimized by user. On Linux does nothing.</p>
 
 <h4 spaces-before="0"><code> win.isMinimizable () </ 0>  <em x-id="4"> macos </ 1>  <em x-id="4"> Windows </ 1></h4>
 
-<p spaces-before="0">Mengembalikan <code> Boolean </ 0> - Apakah jendela dapat diminimalkan secara manual oleh pengguna</p>
+<p spaces-before="0">Returns <code>Boolean` - Whether the window can be manually minimized by the user.
 
-<p spaces-before="0">Di Linux selalu kembali <code> true </ 0> .</p>
-
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
+Di Linux selalu kembali ` true </ 0> .</p>
 
 <h4 spaces-before="0"><code>win.setMaximizable(maximizable)` _macOS_ _Windows_</h4> 
-  
-  * `maximizable` Boolean
+
+* `maximizable` Boolean
 
 Sets whether the window can be manually maximized by user. On Linux does nothing.
-
-**[Tidak berlaku lagi](modernization/property-updates.md)**
 
 
 
@@ -1177,21 +1253,15 @@ Kembali `Boolean` - Apakah jendela dapat dimaksimalkan secara manual oleh penggu
 
 Di Linux selalu kembali ` true </ 0> .</p>
 
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
-
 <h4 spaces-before="0"><code>win.setFullScreenable (fullscreenable)`</h4> 
 
 * ` fullscreenable </ 0>  Boolean</li>
 </ul>
 
-<p spaces-before="0">Menetapkan apakah tombol perbesar/zoom window toggles fullscreen mode atau memaksimalkan jendela.</p>
-
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
+<p spaces-before="0">Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.</p>
 
 <h4 spaces-before="0"><code>win.isFullScreenable ()`</h4> 
-  Kembali `Boolean` - Apakah tombol jendela memaksimalkan/zoom Matikan modus fullscreen atau memaksimalkan jendela.
-  
-  **[Tidak berlaku lagi](modernization/property-updates.md)**
+  Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
   
   
 
@@ -1200,8 +1270,6 @@ Di Linux selalu kembali ` true </ 0> .</p>
 * `closable` Boolean
 Sets whether the window can be manually closed by user. On Linux does nothing.
 
-**[Tidak berlaku lagi](modernization/property-updates.md)**
-
 
 
 #### `win.isClosable()` _macOS_ _Windows_
@@ -1209,8 +1277,6 @@ Sets whether the window can be manually closed by user. On Linux does nothing.
 Kembali `Boolean` - Apakah jendela bisa ditutup secara manual oleh pengguna.
 
 Di Linux selalu kembali ` true </ 0> .</p>
-
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
 
 <h4 spaces-before="0"><code>win.setAlwaysOnTop (bendera [, tingkat] [, relativeLevel])`</h4> 
 
@@ -1316,7 +1382,7 @@ Membuat jendela tidak tampil di taskbar.
 #### `win.setKiosk(flag)`
 
 * `bendera` Boolean
-Masuk atau keluar dari mode kiosk.
+Enters or leaves kiosk mode.
 
 
 
@@ -1567,18 +1633,18 @@ Jumlah tombol di toolbar thumbnail seharusnya tidak lebih besar dari 7 karena te
     * `ikon` [NativeImage](native-image.md) - Ikon ditampilkan di thumbnail toolbar.
   * ` klik </ 0> Fungsi</li>
 <li><code> tooltip </ 0>  String (opsional) - Teks tooltip tombol.</li>
-<li><code>flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+<li><code>flags` String[] (opsional) - Mengendalikan kondisi spesifik and tindakan dari sebuah tombol. Secara default, adalah `['enabled']`.
 
 The ` bendera </ 0> adalah array yang yang dapat mencakup berikut <code> String </ 0> s:</p>
 
 <ul>
 <li><code> diaktifkan </ 0> - Tombol aktif dan tersedia untuk pengguna.</li>
-<li><p spaces-before="0"><code>disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.</li> 
+<li><p spaces-before="0"><code>disabled` - Tombol dinonaktifkan. Itu ada, tetapi memiliki keadaan visual menunjukkan itu tidak akan merespon tindakan pengguna.</li> 
 
 * ` dismissonclick </ 0> - Saat tombol diklik, jendela thumbnail segera ditutup.</p></li>
 <li><p spaces-before="0"><code> nobackground </ 0> - Jangan menggambar batas tombol, gunakan hanya gambarnya.</p></li>
 <li><code> hidden </ 0> - Tombol tidak ditunjukkan ke pengguna.</li>
-<li><code>noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.</li> </ul> 
+<li><code>noninteractive` - Tombol diaktifkan, namun tidak interaktif; tidak ditekan kondisi tombol tidak jelas. Nilai ini ditujukan untuk contoh di mana tombol digunakan dalam notifikasi.</li> </ul> 
   
   
 
@@ -1643,17 +1709,13 @@ This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
 
 Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
 
-Jika bilah menu sudah terlihat, memanggil `setAutoHideMenuBar(true)` tidak menyembunyikan itu segera.
-
-**[Tidak berlaku lagi](modernization/property-updates.md)**
+If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
 
 
 #### `win.isMenuBarAutoHide()`
 
 Kembali `Boolean` - Apakah bilah menu secara otomatis menyembunyikan dirinya sendiri.
-
-**[Tidak berlaku lagi](modernization/property-updates.md)**
 
 
 
@@ -1671,11 +1733,9 @@ Kembali `Boolean` - Apakah menu bar terlihat.
 
 
 
-#### `win.setVisibleOnAllWorkspaces(visible[, options])`
+#### `win.setVisibleOnAllWorkspaces(visible)`
 
 * `terlihat` Boolean
-* `options` Object (optional) 
-    * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows _deprecated_
 
 Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
 

@@ -8,7 +8,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ## Sandbox
 
-In sandboxed renderers the `process` object contains only a subset of the APIs:
+在沙盒化的渲染进程中， `process` 对象只包含了API的一个子集:
 - `crash()`
 - `hang()`
 - `getCreationTime()`
@@ -72,10 +72,6 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 `Boolean` 类型，用于控制弃用警告是否被打印到`stderr`。 将其设置为`true`将会禁用弃用警告。 使用此属性代替 `-no-deprecation ` 命令行标志。
 
-### `process.enablePromiseAPIs`
-
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. 将其设置为`true`将会禁用弃用警告。
-
 ### `process.resourcesPath` _Readonly_
 
 ` String ` 类型， 表示资源目录的路径。
@@ -121,7 +117,7 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 ### `process.getCreationTime()`
 
-Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+返回 `Number | null` -从纪元开始的毫秒数，如果信息不可用则返回`null`
 
 Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
 
@@ -173,8 +169,8 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 * `total` Integer - 系统可用的物理内存总量(Kb)。
 * `free` Integer - 应用程序或磁盘缓存未使用的内存总量。
-* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
+* `swapTotal` Integer _Windows_ _Linux_ - 系统交换内存容量（单位：千字节）。
+* `swapFree` Integer _Windows_ _Linux_ - 系统可用交换内存大小（单位：千字节）。
 
 Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 

@@ -7,7 +7,7 @@
 可以在 Electron 的 Web Workers 中使用 Node.js 功能，只要在 `webPreferences` 中將 `nodeIntegrationInWorker` 選項設為 `true` 即可。
 
 ```javascript
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegrationInWorker: true
   }
@@ -30,7 +30,7 @@ The only way to load a native module safely for now, is to make sure the app loa
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('載入原生模組並不安全')
+  throw new Error('Load native module is not safe')
 }
-let worker = new Worker('script.js')
+const worker = new Worker('script.js')
 ```

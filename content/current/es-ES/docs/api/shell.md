@@ -24,11 +24,11 @@ El módulo `shell` tiene los siguientes métodos:
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openItem(fullPath)`
+### `shell.openPath(path)`
 
-* `fullPath` Cadena
+* `path` String
 
-Devuelve `Boolean` - Si el elemento se abrió o no con éxito.
+Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 Abre el archivo determinado en el escritorio por defecto.
 

@@ -40,11 +40,17 @@ Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/
 
 ### `inAppPurchase.canMakePayments()`
 
-사용자가 결제를 할 수 있는지에 대한 `Boolean`을 반환합니다.
+Returns `Boolean` - whether a user can make a payment.
+
+### `inAppPurchase.restoreCompletedTransactions()`
+
+Restores finished transactions. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.
+
+[The payment queue](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) delivers a new transaction for each previously completed transaction that can be restored. Each transaction includes a copy of the original transaction.
 
 ### `inAppPurchase.getReceiptURL()`
 
-영수증의 주소인 ` String`을 반환합니다.
+Returns `String` - the path to the receipt.
 
 ### `inAppPurchase.finishAllTransactions()`
 

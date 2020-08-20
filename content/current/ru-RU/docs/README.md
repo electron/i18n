@@ -84,7 +84,6 @@ There are questions that are asked quite often. Check this out before creating a
 * Отзыв разработчика Electron Releases &
   * [Политика контроля версиями](tutorial/electron-versioning.md)
   * [Графики выпуска](tutorial/electron-timelines.md)
-  * [Программа отзывов](tutorial/app-feedback-program.md)
 * [Упаковка исходников приложения с помощью asar](tutorial/application-packaging.md)
   * [Создание архива asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Использование архива asar](tutorial/application-packaging.md#using-asar-archives)

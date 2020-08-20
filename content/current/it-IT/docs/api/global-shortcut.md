@@ -11,8 +11,8 @@ Il modulo `globalShortcut` può registrare/eliminare una scorciatoia di tastiera
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-  // Registra un listener per la combinazione 'CommandOrControl+X'.
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('Hai premuto CommandOrControl+X')
   })

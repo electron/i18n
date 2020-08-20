@@ -64,11 +64,15 @@ Menghapus semua pendengar, atau orang-orang dari yang ditentukan ` saluran </ 0>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p spaces-before="0">Send an asynchronous message to the main process via <code>channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.</p> 
+<p spaces-before="0">Send an asynchronous message to the main process via <code>channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.</p> 
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
+
+If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
+
+If you want to receive a single response from the main process, like the result of a method call, consider using [`ipcRenderer.invoke`](#ipcrendererinvokechannel-args).
 
 
 
@@ -79,7 +83,7 @@ The main process handles it by listening for `channel` with the [`ipcMain`](ipc-
 </ul>
 
 <p spaces-before="0">Returns <code>Promise<any>` - Resolves with the response from the main process.</p> 
-  Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+  Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
   
   
 
@@ -104,6 +108,10 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 ```
 
 
+If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
+
+If you do not need a respons to the message, consider using [`ipcRenderer.send`](#ipcrenderersendchannel-args).
+
 
 
 ### `ipcRenderer.sendSync(channel, ...args)`
@@ -114,7 +122,7 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 <p spaces-before="0">Mengembalikan <code> sembarang </ 0> - Nilai dikirim kembali oleh handler <a href="ipc-main.md"><code> ipcMain </ 1> .</p>
 
-<p spaces-before="0">Send a message to the main process via <code>channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.</p> 
+<p spaces-before="0">Send a message to the main process via <code>channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.</p> 
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
@@ -123,6 +131,35 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 
 > :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. It's much better to use the asynchronous version, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
+
+
+
+### `ipcRenderer.postMessage(channel, message, [transfer])`
+
+* ` saluran </ 0>  String</li>
+<li><code>message` any
+* `transfer` MessagePort[] (optional)
+Send a message to the main process, optionally transferring ownership of zero or more [`MessagePort`][] objects.
+
+The transferred `MessagePort` objects will be available in the main process as [`MessagePortMain`](message-port-main.md) objects by accessing the `ports` property of the emitted event.
+
+Sebagai contoh:
+
+
+```js
+// Renderer process
+const { port1, port2 } = new MessageChannel()
+ipcRenderer.postMessage('port', { message: 'hello' }, [port1])
+
+// Main process
+ipcMain.on('port', (e, msg) => {
+  const [port] = e.ports
+  // ...
+})
+```
+
+
+For more information on using `MessagePort` and `MessageChannel`, see the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel).
 
 
 

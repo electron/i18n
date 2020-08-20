@@ -41,7 +41,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Utilise les boutons personnalisés de fermeture dessinée, et miniaturise les boutons qui affichent en survolant en haut à gauche de la fenêtre. Le bouton en plein écran n'est pas disponible en raison des restrictions de fenêtres sans cadre puisqu'ils s'interface avec les masques de fenêtres MacOS d'Apple. Ces boutons personnalisés empêchent les problèmes liés aux événements de la souris qui se produisent avec les boutons standard de la barre d'outils de la fenêtre. Cette option n'est applicable que pour les fenêtres sans cadres.
+Utilise les boutons personnalisés de fermeture dessinée, et miniaturise les boutons qui affichent en survolant en haut à gauche de la fenêtre. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. Ces boutons personnalisés empêchent les problèmes liés aux événements de la souris qui se produisent avec les boutons standard de la barre d'outils de la fenêtre. Cette option n'est applicable que pour les fenêtres sans cadres.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -120,7 +120,7 @@ Si vous définissez seulement une barre de titre personnalisée comme glissable,
 
 ## Sélection de texte
 
-Dans une fenêtre sans bords, le glisser-déposer peut être en conflit avec la sélection de texte. Par exemple, lorsque vous faites glisser la fenêtre depuis la barre de titre, vous pouvez accidentellement sélectionner son texte. Afin d'éviter cela, vous devez désactiver la sélection de texte dans une zone déplaçable. Comme ceci :
+In a frameless window the dragging behavior may conflict with selecting text. Par exemple, lorsque vous faites glisser la fenêtre depuis la barre de titre, vous pouvez accidentellement sélectionner son texte. Afin d'éviter cela, vous devez désactiver la sélection de texte dans une zone déplaçable. Comme ceci :
 
 ```css
 .titlebar {
