@@ -20,7 +20,6 @@ jobs:
           download_translations: true
           localization_branch_name: new-translations
           crowdin_branch_name: master
-          dryrun_action: true
           config: crowdin.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
