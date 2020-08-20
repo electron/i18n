@@ -25,7 +25,6 @@ jobs:
         with:
           upload_sources: true
 
-          dryrun_action: true
           crowdin_branch_name: master
           config: crowdin.yml
         env:
