@@ -17,6 +17,7 @@ jobs:
       - name: Download content from Crowdin
         uses: crowdin/github-action@1.0.9
         with:
+          upload_sources: false
           download_translations: true
           localization_branch_name: new-translations
           crowdin_branch_name: master
