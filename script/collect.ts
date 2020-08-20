@@ -80,21 +80,30 @@ async function getSupportedBranches(current: string) {
   const resp = await github.repos.listBranches({
     owner: 'electron',
     repo: 'electron',
+    protected: true,
   })
 
-  const branches = resp.data
-    .filter((branch) => {
-      return (
-        branch.protected &&
-        branch.name.match(/(\d)+-(?:(?:[0-9]+-x$)|(?:x+-y$))/)
-      )
-    })
-    .map((b) => b.name)
+  const releaseBranches = resp.data.filter((branch) => {
+    return branch.name.match(/^(\d)+-(?:(?:[0-9]+-x$)|(?:x+-y$))$/)
+  })
 
   const filtered: Record<string, string> = {}
-  branches.sort().forEach((branch) => (filtered[branch.charAt(0)] = branch))
+  releaseBranches
+    .sort((a, b) => {
+      const aParts = a.name.split('-')
+      const bParts = b.name.split('-')
+      for (let i = 0; i < aParts.length; i += 1) {
+        if (aParts[i] === bParts[i]) continue
+        return parseInt(aParts[i], 10) - parseInt(bParts[i], 10)
+      }
+      return 0
+    })
+    .forEach((branch) => {
+      return (filtered[branch.name.split('-')[0]] = branch.name)
+    })
+
   const filteredBranches = Object.values(filtered)
-    .sort()
+    .sort((a, b) => parseInt(a, 10) - parseInt(b, 10))
     .slice(-NUM_SUPPORTED_VERSIONS)
     .filter((arr) => arr !== currentVersion && arr !== 'current')
 
