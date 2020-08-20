@@ -1,32 +1,26 @@
 on:
   schedule:
-    - cron: 0 */6 * * *
+    - cron: 0 */1 * * *
   workflow_dispatch: {}
 
-name: Update source content
+name: Fetch translated content
 
 jobs:
-  fetchLatestSourceContent:
-    name: Fetch latest source content
+  fetchTranslatedContent:
+    name: Fetch latest translated content
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: Fetch latest source content
-        env:
-          CROWDIN_KEY: ${{ secrets.CROWDIN_KEY }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NODE_OPTIONS: --max_old_space_size=4096
-        run: npm run update-source-content
-      - name: Upload Content To Crowdin
+      - name: Download content from Crowdin
         uses: crowdin/github-action@1.0.9
         with:
-          upload_sources: true
-
-          dryrun_action: true
+          download_translations: true
+          localization_branch_name: new-translations
           crowdin_branch_name: master
+          dryrun_action: true
           config: crowdin.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
