@@ -12,7 +12,10 @@ Accelerators are Strings that can contain multiple modifiers and a single key co
 Kısayollar, [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) yöntemini kullanarak [`globalShortcut`](global-shortcut.md) modülüyle kaydedilir.
 
 ```javascript
-const { app, globalShortcut } = require('electron') app.on('ready', () => {   // 'CommandOrControl+Y' için bir kısayol dinleyicisi kaydet.
+const { app, globalShortcut } = require('electron')
+
+app.whenReady().then(() => {
+  // Bir 'CommandOrControl+Y' kısayolu dinleyici kaydet.
   globalShortcut.register('CommandOrControl+Y', () => {     // Y ve Command/Control'a basıldığında bir şeyler yapar.
   }) })
 ```
@@ -21,7 +24,7 @@ const { app, globalShortcut } = require('electron') app.on('ready', () => {   //
 
 Linux ve Windows'ta `Command` tuşunun hiç bir etkisi yok, bu yüzden bazı hızlandırıcıları tanımlamak için macOS'taki `Command` tuşunu ve Linux ve Windows'taki `Control` tuşunu temsil eden `CommandOrControl`'u kullanın.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+`Option tuşu` yerine `Alt` tuşunu kullanın. `Option` tuşu sadece macOS'te bulunur, fakat `Alt` tuşu bütün platformlarda bulunur.
 
 `Super` tuşu, Windows ve Linux'ta `Windows`, macOS'ta ise `Cmd` tuşuyla eşleştirilmiştir.
 
@@ -41,7 +44,7 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 * `0`'dan `9`'a
 * `A`'dan `Z`'ye
 * `F1`'den `F24`'e
-* `~`, `!`, `@`, `#`, `$`, vb. gibi noktalama işaretleri.
+* `~`, `!`, `@`, `#`, `$`, vesaire gibi noktalama işaretleri.
 * `Artı`
 * `Boşluk`
 * `Sekme`
@@ -59,10 +62,10 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 * `Sesi Aç`, `Sesi Kıs` ve `Sesi Kapat`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` ve `MediaPlayPause`
 * `Ekran Görüntüsü`
-* NumPad Keys
+* NumPad Tuşları
   * `num0` - `num9`
-  * `numdec` - decimal key
-  * `numadd` - numpad `+` key
-  * `numsub` - numpad `-` key
-  * `nummult` - numpad `*` key
-  * `numdiv` - numpad `÷` key
+  * `numdec` - ondalık anahtar
+  * `numadd` - numpad `+` tuşu
+  * `numsub` - numpad `-` tuş
+  * `nummult` - numpad `*` tuş
+  * `numdiv` - numpad `÷` tuşu

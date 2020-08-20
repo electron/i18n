@@ -1,10 +1,10 @@
-# Electron Application Architecture
+# Uygulama Mimarisi
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Electron API'larına girmeden önce, iki süreci tartışmamız gerekir. Hangi electron tipini kullanacağız. Temel olarak farklarını ve yapısını anlayacağız.
 
 ## Ana ve Oluşturucu İşlemleri
 
-Electron'da `package.json` 'ın `ana` komut dosyasını çalıştıran süreç __ana süreç__ olarak adlandırılır. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+Electron'da `package.json` 'ın `ana` komut dosyasını çalıştıran süreç __ana süreç__ olarak adlandırılır. Ana işlemde çalışan komut dosyası, web sayfaları oluşturarak bir GUI görüntüleyebilir. Bir Electron uygulamasının her zaman bir ana çalışma süreci vardır, ancak asla daha fazla değildir.
 
 Electron, web sayfalarını görüntülemek için Chromium kullandığından Chromium'un çoklu işlem mimarisi de kullanılır. Electron'daki her web sayfası __oluşturucu işlemi__ olarak adlandırılan kendi işlemini çalıştırır.
 
@@ -14,13 +14,14 @@ Normal tarayıcılarda, web sayfaları genellikle korumalı bir ortamda çalış
 
 Ana işlem `TarayıcıPenceresi` örnekleri oluşturarak web sayfaları oluşturur. Her ` TarayıcıPenceresi ` örneği, web sayfasını kendi oluşturucu işleminde çalıştırır. `TarayıcıPenceresi` örneği yok edildiğinde, ilgili oluşturucu işlemi de sonlandırılır.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Main işlemleri, tüm web sayfalarını ve bunlara karşılık gelen tekrardan oluşturma işlemlerini yönetir. Her render işlemi izole edilir ve yalnızca oluşturulan o sayfanın içindeki işlemleri gerçekleştirir.
 
 Web sayfalarında yerel GUI kaynaklarını web sayfalarındaki yönetmek çok tehlikeli ve kaynakların sızdırılması kolay olduğu için yerel GUI ile ilgili API'lerin çağrılmasına izin verilmez. Bir web sayfasında GUI işlemlerini gerçekleştirmek isterseniz, oluşturucu ana işlemin bu işlemleri gerçekleştirmesini istemek için web sayfasının süreci ana süreçle iletişim kurmalıdır.
 
 > #### Aside: Communication Between Processes
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+
 
 ## Using Electron APIs
 
@@ -42,16 +43,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
-const { remote } = require('electron')
-const { BrowserWindow } = remote
+// In the main process:
+const { ipcMain } = require('electron')
 
-const win = new BrowserWindow()
+ipcMain.handle('perform-action', (event, ...args) => {
+  // ... do something on behalf of the renderer ...
+})
+
+// In the renderer process:
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.invoke('perform-action', ...args)
 ```
+
+Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
 
 ## Node.js API'lerini Kullanma
 

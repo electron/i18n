@@ -94,7 +94,7 @@ const app = require('electron').remote.app
 console.log(app)
 ```
 
-## Methods
+## روش ها
 
 The `remote` module has the following methods:
 
@@ -119,7 +119,7 @@ project/
 ```js
 // main process: main/index.js
 const { app } = require('electron')
-app.on('ready', () => { /* ... */ })
+app.whenReady().then(() => { /* ... */ })
 ```
 
 ```js

@@ -17,7 +17,7 @@ Returns:
 * `event` Event
 * `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
 
-## Methods
+## روش ها
 
 The `inAppPurchase` module has the following methods:
 
@@ -40,11 +40,17 @@ Retrieves the product descriptions.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+Returns `Boolean` - whether a user can make a payment.
+
+### `inAppPurchase.restoreCompletedTransactions()`
+
+Restores finished transactions. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.
+
+[The payment queue](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) delivers a new transaction for each previously completed transaction that can be restored. Each transaction includes a copy of the original transaction.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+Returns `String` - the path to the receipt.
 
 ### `inAppPurchase.finishAllTransactions()`
 

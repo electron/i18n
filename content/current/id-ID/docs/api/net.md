@@ -23,7 +23,7 @@ Node.js.</p>
 <p spaces-before="0">Example usage:</p>
 
 <pre><code class="javascript">const { app } = require('electron')
-app.on('ready', () => {
+app.whenReady().then(() => {
   const { net } = require('electron')
   const request = net.request('https://github.com')
   request.on('response', (response) => {

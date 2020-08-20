@@ -1,43 +1,43 @@
 # สร้างภาพรวมของระบบ
 
-Electron uses [GN](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gn` and `.gni` files.
+Electron uses [gyp](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
 
-## GN Files
+## Gyp Files
 
-The following `gn` files contain the main rules for building Electron:
+Following `gyp` files contain the main rules for building Electron:
 
-* `BUILD.gn` defines how Electron itself is built and includes the default configurations for linking with Chromium.
-* `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.
+* `Brightray/Brightray.gyp` defines how `Brightray` is built and includes the default configurations for linking with Chromium.
+* `สร้าง / args /{debug,release,all}.gn`มีอาร์กิวเมนต์การสร้างเริ่มต้นสําหรับ อาคารอิเล็กตรอน
 
 ## Component Build
 
 Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
 
-Electron inherits this build option from Chromium. In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+อิเล็กตรอนสืบทอดตัวเลือกการสร้างนี้จากโครเมียม In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
 
 ## Tests
 
 **NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
 
-Test your changes conform to the project coding style using:
+ทดสอบการเปลี่ยนแปลงของคุณเป็นไปตามรูปแบบการเขียนโค้ดโครงการโดยใช้:
 
 ```sh
-$ npm run lint
+$ npm ใช้ผ้าสําลี
 ```
 
-Test functionality using:
+ทดสอบการทํางานโดยใช้:
 
 ```sh
-$ npm test
+$ npm ทดสอบ
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+เมื่อใดก็ตามที่คุณทําการเปลี่ยนแปลงรหัสแหล่งที่มาอิเลคตรอน, คุณจะต้องเรียกใช้อีกครั้ง สร้างก่อนการทดสอบ:
 
 ```sh
-$ npm run build && npm test
+$ npm เรียกใช้สร้าง && การทดสอบ npm
 ```
 
-You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Append `.only` to any `describe` or `it` function call:
+คุณสามารถทําให้ชุดทดสอบทํางานได้เร็วขึ้นโดยการแยกการทดสอบหรือบล็อกที่เฉพาะเจาะจง คุณกําลังทํางานกับมอคค่าของ [คุณสมบัติการทดสอบพิเศษ](https://mochajs.org/#exclusive-tests) ผนวก `.only`เพื่อ`อธิบาย`ใด ๆ หรือ`ฟังก์ชั่น`เรียก:
 
 ```js
 describe.only('some feature', () => {
@@ -45,16 +45,16 @@ describe.only('some feature', () => {
 })
 ```
 
-Alternatively, you can use mocha's `grep` option to only run tests matching the given regular expression pattern:
+หรือคุณสามารถใช้ตัวเลือก`grep`ของมอคค่าเพื่อรันการทดสอบที่ตรงกับ รูปแบบการแสดงออกปกติที่ได้รับ:
 
 ```sh
-$ npm test -- --grep child_process
+$ npm ทดสอบ -- --child_process
 ```
 
-Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
+การทดสอบที่มีโมดูลดั้งเดิม (เช่น`runas)`ไม่สามารถดําเนินการกับ ดีบักบิลด์ (ดู[#2558](https://github.com/electron/electron/issues/2558) รายละเอียด) แต่พวกเขาจะทํางานร่วมกับรุ่นสร้าง
 
-To run the tests with the release build use:
+เมื่อต้องการรันการทดสอบด้วยการใช้รุ่นบิลด์:
 
 ```sh
-$ npm test -- -R
+$ npm ทดสอบ -- -R
 ```

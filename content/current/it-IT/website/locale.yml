@@ -133,7 +133,7 @@ headings:
   languages: Lingue
 taglines:
   languages: Contenuti localizzati dalla nostra fantastica comunità di sviluppatori globali.
-  announcement: Electron si è appena unito alla Fondazione OpenJS. Vedi <a href="/blog/electron-joins-openjsf">l'annuncio</a> per ulteriori informazioni!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "Aiuta a tradurre"
 footer:
   see_the_faq: Vedi le domande frequenti
@@ -215,6 +215,8 @@ pages:
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: Donatori
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: Per iniziare
   fiddle:

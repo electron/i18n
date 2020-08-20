@@ -2,7 +2,7 @@
 
 > एेप के अन्दर से ही मैक-स्टोर से खरीददारी
 
-Process: [Main](../glossary.md#main-process)
+प्रक्रिया: [Main](../glossary.md#main-process)
 
 ## इवेंट्स
 
@@ -40,11 +40,17 @@ Retrieves the product descriptions.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+Returns `Boolean` - whether a user can make a payment.
+
+### `inAppPurchase.restoreCompletedTransactions()`
+
+Restores finished transactions. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.
+
+[The payment queue](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) delivers a new transaction for each previously completed transaction that can be restored. Each transaction includes a copy of the original transaction.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+Returns `String` - the path to the receipt.
 
 ### `inAppPurchase.finishAllTransactions()`
 

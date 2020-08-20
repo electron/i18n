@@ -5,9 +5,13 @@ Ketiga sistem operasi tersebut menyediakan sarana bagi aplikasi untuk mengirim p
 **Catatan:** Karena ini adalah API HTML5, ini hanya tersedia dalam proses renderer. Jika Anda ingin menampilkan Notifikasi dalam proses utama, periksa modul [Notification](../api/notification.md).
 
 ```javascript
-biarkan myNotification = baru pemberitahuan ('Title', {
+const myNotification = new Notification('Title', {
   body: 'Lorem Ipsum Dolor Sit Amet'
-}) myNotification.onclick = () = > {console.log ('notifikasi mengklik')}
+})
+
+myNotification.onclick = () => {
+  console.log('Notification clicked')
+}
 ```
 
 Sementara kode dan pengalaman pengguna di seluruh sistem operasi serupa, ada perbedaan halus.
@@ -35,7 +39,7 @@ Hal ini memungkinkan Anda untuk menentukan sebelumnya apakah Windows diam-diam a
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+Notifikasi adalah lurus ke depan pada macOS, tetapi Anda harus menyadari [Apple Human Interface panduan mengenai pemberitahuan](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Perhatikan bahwa notifikasi dibatasi hingga 256 byte dan akan terpotong jika melebihi batas tersebut.
 

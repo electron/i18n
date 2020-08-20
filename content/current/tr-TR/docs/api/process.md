@@ -72,10 +72,6 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Bu özellik `--no-deprecation` komut satırı etiketi yerine kullanılır.
 
-### `process.enablePromiseAPIs`
-
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
-
 ### `process.resourcesPath` _Readonly_
 
 Kaynaklar dizininin yolunu temsil eden bir `String`.

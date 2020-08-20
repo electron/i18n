@@ -14,7 +14,7 @@ Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module 
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Do stuff when Y and either Command/Control is pressed.
@@ -46,7 +46,7 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 * `0` עד `9`
 * `A` עד `Z`
 * `F1` עד `F24`
-* סימני פיסוק כגון `~`, `!`, `@`, `#`, `$` וכו׳.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`

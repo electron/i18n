@@ -7,7 +7,7 @@ Con los [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_
 Es posible utilizar las características de Node.js en Electron's Web Workers. Para hacerlo, la opción `nodeIntegrationInWorker` debe configurarse a `true` en `webPreferences`.
 
 ```javascript
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegrationInWorker: true
   }
@@ -30,7 +30,7 @@ La única forma de cargar un módulo nativo de forma segura por ahora es asegura
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('La carga del módulo nativo no es segura')
+  throw new Error('Load native module is not safe')
 }
-let worker = new Worker('script.js')
+const worker = new Worker('script.js')
 ```

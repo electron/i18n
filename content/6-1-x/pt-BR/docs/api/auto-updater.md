@@ -72,7 +72,7 @@ No Windows apenas o `releaseName` está disponível.
 
 Este evento é emitido depois de um usuário chamar `quitAndInstall()`.
 
-Quando esta API é chamada, o evento `before-quit` não é emitido antes de todas as janelas serem fechadas. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+Quando esta API é chamada, o evento `before-quit` não é emitido antes de todas as janelas serem fechadas. Como resultado, você deve ouvir este evento se você deseja executar ações antes das janelas serem fechadas enquanto um processo é encerrado, Além de ouvir `before-quit`.
 
 ## Métodos
 
@@ -99,6 +99,6 @@ Asks the server whether there is an update. You must call `setFeedURL` before us
 
 Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+Sob o capô chamando `autoUpdater.quitAndInstall()` fechará todos os aplicativos janelas primeiro, e automaticamente chamar `app.quit()` depois de todas as janelas foram Fechado.
 
 **Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.

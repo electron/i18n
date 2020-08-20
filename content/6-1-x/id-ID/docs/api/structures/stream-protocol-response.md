@@ -1,4 +1,4 @@
-# StreamProtocolResponse Object
+# Objek StreamProtocolResponse
 
 * `statusCode` Number - The HTTP response code.
 *  header </ 0>  Obyek - Sebuah  benda yang mengandung header respon.</li>

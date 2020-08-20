@@ -146,8 +146,8 @@ Emitted when a hunspell dictionary file download fails.  For details on the fail
 
 * `options` Object (任意)
   * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
-  * `storages` String[] (任意) - クリアするストレージの種類。`appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage` を含めることができます。
-  * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。
+  * `storages` String[] (任意) - クリアするストレージの種類。`appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage` を含めることができます。 If not specified, clear all storage types.
+  * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。 If not specified, clear all quotas.
 
 戻り値 `Promise<void>` - ストレージデータがクリアされると実行されます。
 
@@ -270,6 +270,7 @@ Disables any network emulation already active for the `session`. Resets to the o
   * `request` Object
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
+    * `validatedCertificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Chromium からの認証結果。
     * `errorCode` Integer - エラーコード。
   * `callback` Function
@@ -452,13 +453,74 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 **Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
 
+#### `ses.listWordsInSpellCheckerDictionary()`
+
+Returns `Promise<String[]>` - An array of all words in app's custom dictionary. Resolves when the full dictionary is loaded from disk.
+
 #### `ses.addWordToSpellCheckerDictionary(word)`
 
 * `word` String - 辞書に追加したい単語
 
-戻り値 `Boolean` - 単語がカスタム辞書に正常に書き込まれたかどうか。
+戻り値 `Boolean` - 単語がカスタム辞書に正常に書き込まれたかどうか。 This API will not work on non-persistent (in-memory) sessions.
 
 **注釈:** macOS と Windows 10 では、この単語は OS カスタム辞書にも書き込まれます
+
+#### `ses.removeWordFromSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to remove from the dictionary
+
+Returns `Boolean` - Whether the word was successfully removed from the custom dictionary. This API will not work on non-persistent (in-memory) sessions.
+
+**Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well
+
+#### `ses.loadExtension(path)`
+
+* `path` String - Path to a directory containing an unpacked Chrome extension
+
+Returns `Promise<Extension>` - resolves when the extension is loaded.
+
+This method will raise an exception if the extension could not be loaded. If there are warnings when installing the extension (e.g. if the extension requests an API that Electron does not support) then they will be logged to the console.
+
+Note that Electron does not support the full range of Chrome extensions APIs.
+
+Note that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
+
+```js
+const { app, session } = require('electron')
+const path = require('path')
+
+app.on('ready', async () => {
+  await session.defaultSession.loadExtension(path.join(__dirname, 'react-devtools'))
+  // Note that in order to use the React DevTools extension, you'll need to
+  // download and unzip a copy of the extension.
+})
+```
+
+This API does not support loading packed (.crx) extensions.
+
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
+
+#### `ses.removeExtension(extensionId)`
+
+* `extensionId` String - ID of extension to remove
+
+Unloads an extension.
+
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
+
+#### `ses.getExtension(extensionId)`
+
+* `extensionId` String - ID of extension to query
+
+Returns `Extension` | `null` - The loaded extension with the given ID.
+
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
+
+#### `ses.getAllExtensions()`
+
+Returns `Extension[]` - A list of all loaded extensions.
+
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 ### インスタンスプロパティ
 
@@ -472,6 +534,10 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 このセッションの [`Cookies`](cookies.md) オブジェクト。
 
+#### `ses.serviceWorkers` _読み出し専用_
+
+A [`ServiceWorkers`](service-workers.md) object for this session.
+
 #### `ses.webRequest` _読み出し専用_
 
 このセッションの [`WebRequest`](web-request.md) オブジェクト。
@@ -484,12 +550,12 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 const { app, session } = require('electron')
 const path = require('path')
 
-app.on('ready', function () {
+app.whenReady().then(() => {
   const protocol = session.fromPartition('some-partition').protocol
-  protocol.registerFileProtocol('atom', function (request, callback) {
-    var url = request.url.substr(7)
+  protocol.registerFileProtocol('atom', (request, callback) => {
+    let url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
-  }, function (error) {
+  }, (error) => {
     if (error) console.error('Failed to register protocol')
   })
 })
@@ -502,10 +568,10 @@ app.on('ready', function () {
 ```javascript
 const { app, session } = require('electron')
 
-app.on('ready', async function () {
+app.whenReady().then(async () => {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
-  // いくつかのネットワークイベントのあと
+  // After some network events
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })

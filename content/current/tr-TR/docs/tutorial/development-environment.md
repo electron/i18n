@@ -61,4 +61,4 @@ If both commands printed a version number, you are all set! Before you get start
 
 Electron'da yerleşik iki ücretsiz popüler editör önerebiliriz: [GitHub'S Atom](https://atom.io/) ve Microsoft'un [Visual Studio Code](https://code.visualstudio.com/). Her ikisi de mükemmel JavaScript desteğine sahiptir.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Güçlü bir tercihe sahip pek çok geliştiricilerden biriyseniz, bugünlerde neredeyse tüm kod editörlerinin ve IDE'lerin JavaScript'i desteklediğini bilin.

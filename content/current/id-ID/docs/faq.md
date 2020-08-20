@@ -26,28 +26,11 @@ Fitur baru Node.js biasanya dibawa oleh tingkatan V8, karena Electron adalah men
 
 Untuk berbagi data antara halaman web (proses renderer) cara paling sederhana adalah dengan gunakan HTML5 API yang sudah tersedia di browser. Kandidat yang baik adalah [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), dan [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Atau anda bisa menggunakan sistem IPC, yang khusus untuk Electron, untuk menyimpan objek dalam proses utama sebagai variabel global, dan kemudian mengaksesnya dari renderers melalui `remot`elemen`electron`modul:
+Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
-```javascript
-// Pada proses utama.
-global.sharedObject = {
-  someProperty: 'default value'
-}
-```
+## Baki aplikasi saya menghilang setelah beberapa menit.
 
-```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
-```
-
-```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
-```
-
-## My app's tray disappeared after a few minutes.
-
-This happens when the variable which is used to store the tray gets garbage collected.
+Hal ini terjadi saat variabel yang digunakan untuk menyimpan baki didapat sampah dikumpulkan.
 
 Jika Anda mengalami masalah ini, artikel berikut mungkin bisa membantu:
 
@@ -84,7 +67,7 @@ Untuk memecahkan masalah ini, Anda dapat menonaktifkan node integrasi dalam elec
 ```javascript
 // Pada proses utama.
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
   }
@@ -115,25 +98,25 @@ Bila menggunakan built-in modul Electron anda mungkin menemukan kesalahan sepert
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-It is very likely you are using the module in the wrong process. Sebagai contoh `electron.app` hanya dapat digunakan dalam proses utama, sedangkan`electron.webFrame` hanya tersedia dalam proses renderer.
+Kemungkinan besar Anda menggunakan modul dalam proses yang salah. Sebagai contoh `electron.app` hanya dapat digunakan dalam proses utama, sedangkan`electron.webFrame` hanya tersedia dalam proses renderer.
 
-## The font looks blurry, what is this and what can I do?
+## Font terlihat kabur, apa ini dan apa yang dapat saya lakukan?
 
 If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Contoh:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Anti-aliasing sub-piksel membutuhkan latar belakang non-transparan dari layer yang berisi font glyphs. (Lihat [isu ini](https://github.com/electron/electron/issues/6344#issuecomment-420371918) untuk info lebih lanjut).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+Untuk mencapai tujuan ini, setel latar belakang dalam konstruktor untuk [ BrowserWindow ](api/browser-window.md):
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   backgroundColor: '#fff'
 })
 ```
 
 The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Perhatikan bahwa hanya mengatur latar belakang di CSS tidak menimbulkan efek yang diinginkan.

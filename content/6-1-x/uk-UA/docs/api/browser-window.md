@@ -1115,12 +1115,12 @@ Sets the opacity of the window. On Linux does nothing.
   * `icon` [NativeImage](native-image.md) - Піктограма для показу на палені мініатюр.
   * `click` Function
   * `tooltip` String (опціонально) - Текст для підказки кнопки.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `flags` String[] (optional) - Control specific states and behaviors of the button. За замовчуванням, це `['enabled']`.
 
 `flags` це масив, що може містити наступні `String`:
 
 * `enabled` - Кнопка активна та доступна юзеру.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `disabled` - Кнопка вимкнена. It is present, but has a visual state indicating it will not respond to user action.
 * `dismissonclick` - Коли на кнопку натискають, панель мініатюр негайно закривається.
 * `nobackground` - Не малювати границі кнопки, використовувати тільки зображення.
 * `hidden` - Кнопка не відображається користувачу.
@@ -1211,7 +1211,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 * `ignore` Boolean
 * `options` Object (optional)
-  * `forward` Boolean (optional) _macOS_ _Windows_ - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Використовується тільки якщо `ignore` дорівнює true. Якщо `ignore` дорівнює false, передавання завжди вимкнене незважаючи на поточне значення.
+  * `forward` Boolean (опціонально) _macOS_ _Windows_ - Якщо true, передають повідомлення про рухи мишки в Chromium, в тому числі пов'язані з мишкою події такими як `mouseleave`. Використовується тільки якщо `ignore` дорівнює true. Якщо `ignore` дорівнює false, передавання завжди вимкнене незважаючи на поточне значення.
 
 Примушує вікно ігнорувати всі події мишки.
 

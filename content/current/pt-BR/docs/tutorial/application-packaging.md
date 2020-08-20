@@ -59,7 +59,7 @@ fs.readdirSync('/path/to/example.asar')
 Para usar um módulo existente no pacote:
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+require('./path/to/example.asar/dir/module.js')
 ```
 
 Você também pode mostrar uma página Web em um pacote `asar` com o `BrowserWindows`:

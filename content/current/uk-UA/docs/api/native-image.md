@@ -239,13 +239,9 @@ Returns `Boolean` - Whether the image is empty.
 
 Marks the image as a template image.
 
-**[Припиняється підтримка](modernization/property-updates.md)**
-
 #### `image.isTemplateImage()`
 
 Returns `Boolean` - Whether the image is a template image.
-
-**[Припиняється підтримка](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 

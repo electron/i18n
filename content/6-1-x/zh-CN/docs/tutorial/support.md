@@ -35,7 +35,7 @@ All supported release lines will accept external pull requests to backport fixes
 - 4.x
 - 3.x
 
-### End-of-life
+### 服务终止
 
 当一个发行分支达到了其支持周期的末尾，该序列将会在NPM中弃用，且会发布一个最终的“结束支持”版本。 这个版本将会添加一个警告以通知正在使用一个不受支持的Electron版本。
 

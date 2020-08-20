@@ -6,11 +6,11 @@ author:
 date: '2020-02-04'
 ---
 
-Electron 8.0.0 has been released! It includes upgrades to Chromium `80`, V8 `8.0`, and Node.js `12.13.0`. We've added Chrome's built-in spellchecker, and much more!
+Electron 8.0.0 вышел! Он включает обновления Chromium `80`, V8 `8.0` и Node.js `12.13.0`. Мы добавили встроенную в Chrome проверку орфографии и многое другое!
 
 ---
 
-The Electron team is excited to announce the release of Electron 8.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Команда Electron рада объявить о выпуске Electron 8.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
 
 ## Notable Changes
 
@@ -39,7 +39,7 @@ See the [8.0.0 release notes](https://github.com/electron/electron/releases/tag/
 
 More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
 
-## API Changes
+## Изменения API
 * `app` API changes:
     * Added `app.getApplicationNameForProtocol(url)`. [#20399](https://github.com/electron/electron/pull/20399)
     * Added `app.showAboutPanel()` and `app.setAboutPanelOptions(options)` support on Windows. [#19420](https://github.com/electron/electron/pull/19420)
@@ -82,8 +82,8 @@ More information about these and future changes can be found on the [Planned Bre
     * Added the support of `fitToPageEnabled` and `scaleFactor` options in WebContents.printToPDF(). [#20436](https://github.com/electron/electron/pull/20436)
 * Updated `webview.printToPDF` documentation to indicate return type is now Uint8Array. [#20505](https://github.com/electron/electron/pull/20505)
 
-### Deprecated APIs
-The following APIs are now deprecated:
+### Устаревшие API
+Следующие API устарели:
 * Deprecated the nonfunctional `visibleOnFullScreen` option within `BrowserWindow.setVisibleOnAllWorkspaces` prior to its removal in the next major release version. [#21732](https://github.com/electron/electron/pull/21732)
 * Deprecated `alternate-selected-control-text` on `systemPreferences.getColor(color)` for macOS. [#20611](https://github.com/electron/electron/pull/20611)
 * Deprecated `setLayoutZoomLevelLimits` on `webContents`, `webFrame`, and `<webview> Tag` because Chromium removed this capability. [#21296](https://github.com/electron/electron/pull/21296)

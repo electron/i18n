@@ -17,7 +17,7 @@ Please also ensure that your system and Python version support at least TLS 1.2.
 $ npx @electron/check-python-tls
 ```
 
-If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
+Eğer komut dosyası, yapılandırmanızın eski bir güvenlik protokolü kullandığını döndürürse, macOS'u High Sierra'ya güncelleyebilir veya Python'un yeni 2.7.x sürümünü indirebilirsiniz. Python'u yeni sürümüne güncellemek için [Homebrew](https://brew.sh/) kullanın:
 
 ```sh
 $ brew install python@2 && brew link python@2 --force
@@ -27,7 +27,7 @@ Homebrew tarafından sağlanan Python kullanıyorsanız, ayrıca aşağıdaki Py
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+Yüklemek için `pip` kullanabilirsiniz:
 
 ```sh
 $ pip install pyobjc
@@ -37,7 +37,7 @@ $ pip install pyobjc
 
 Electron geliştiriyor ve özel Electron derlemenizi dağıtmak gibi bir planınız yoksa bu bölümü atlayabilirsiniz.
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK.  Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
+Resmi Electron sürümleri [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), ve macOS 10.13 SDK ile yapılmıştır.  Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
 
 ## Electron'u Derlemek
 

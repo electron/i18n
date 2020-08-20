@@ -69,7 +69,7 @@ Gunakan modul dari arsip:
 
 
 ```javascript
-membutuhkan ('/ path / to / example.asar / dir / module.js')
+require('./path/to/example.asar/dir/module.js')
 ```
 
 

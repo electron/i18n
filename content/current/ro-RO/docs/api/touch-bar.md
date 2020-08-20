@@ -2,7 +2,7 @@
 
 > Create TouchBar layouts for native macOS applications
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Proces-ul: [Main](../tutorial/application-architecture.md#main-and-renderer-processes) - Principal</0>
 
 ### `new TouchBar(options)` _Experimental_
 
@@ -159,7 +159,7 @@ const touchBar = new TouchBar({
 
 let window
 
-app.once('ready', () => {
+app.whenReady().then(() => {
   window = new BrowserWindow({
     frame: false,
     titleBarStyle: 'hiddenInset',

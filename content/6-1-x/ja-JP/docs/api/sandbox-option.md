@@ -46,7 +46,7 @@ app.on('ready', () => {
 
 ## プリロード
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+An app can make customizations to sandboxed renderers using a preload script. 次に例を示します。
 
 ```js
 let win

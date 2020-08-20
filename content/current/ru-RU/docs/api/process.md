@@ -72,10 +72,6 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 `Boolean` который управляет тем, будут ли предупреждения об устаревании выводиться в `stderr` или нет. Установка в `true` заглушит предупреждения об устаревании. Это свойство используется вместо флага командной строки `--no-deprecation`.
 
-### `process.enablePromiseAPIs`
-
-`Boolean`, управляет тем, выводятся ли уведомления об устаревании в `stderr`, когда прежние API, основанные на обратном вызове, преобразованные в Promises, вызывались с использованием обратных вызовов. Установка значения `true` включит предупреждения о устаревании.
-
 ### `process.resourcesPath` _Только чтение_
 
 `String`. Представляет из себя путь до каталога с ресурсами.
@@ -198,16 +194,16 @@ console.log(version)
 
 * `filePath` String - Путь к выходному файлу.
 
-Возвращает `Boolean`, который указывает успешно ли создан снимок.
+Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
-Делает снимок кучи V8 и сохраняет его в `filePath`.
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
-Вызывает зависание основного потока текущего процесса.
+Causes the main thread of the current process hang.
 
 ### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
 * `maxDescriptors` Integer
 
-Устанавливает мягкое ограничение дескрипторов файлов до `maxDescriptors` или жесткое ограничение операционной системы, в зависимости от того, какое значение ниже для текущего процесса.
+Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.

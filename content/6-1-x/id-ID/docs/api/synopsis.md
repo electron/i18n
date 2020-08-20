@@ -28,15 +28,15 @@ Proses renderer tidak berbeda dengan halaman web biasa, kecuali untuk kemampuan 
 
 
 ```html
-<!DOCTYPE html>
+& lt; DOCTYPE html & gt;
 <html>
 <body>
 <script>
-  const { app } = require('electron').remote
-  console.log(app.getVersion())
-</script>
-</body>
-</html>
+  const { app } = membutuhkan ('elektron'). remote
+  console.log (app.getVersion ())
+</ 2>
+</ 1>
+</ 0>
 ```
 
 

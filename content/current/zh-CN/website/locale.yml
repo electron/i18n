@@ -133,7 +133,7 @@ headings:
   languages: 语言
 taglines:
   languages: 本地化的内容来自我们强大的全球开发者社区。
-  announcement: Electron 刚刚加入了 OpenJS 基金会。查看 <a href="/blog/electron-joins-openjsf">公告</a> 以获取更多信息！
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "帮助我们翻译"
 footer:
   see_the_faq: 查看常见问题
@@ -215,6 +215,8 @@ pages:
     description: Electron 的治理体系是由分管 Electron 生态各部分的工作组和一支负责解决分歧的协调工作组构成的。
   '/donors':
     title: 捐赠者
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: 入门
   fiddle:

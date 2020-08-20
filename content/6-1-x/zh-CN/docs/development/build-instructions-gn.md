@@ -1,4 +1,4 @@
-# Build Instructions
+# 构建说明
 
 请遵循以下指南来构建Electron。
 
@@ -17,25 +17,25 @@
 另外，如果使用Windows系统, 你需要设置环境变量`DEPOT_TOOLS_WIN_TOOLCHAIN=0`。 依次打开 `Control Panel` → `System and
 Security` → `System` → `Advanced system settings` ，然后添加系统变量 `DEPOT_TOOLS_WIN_TOOLCHAIN` ，并设置默认值为 `0`.  这将促使`depot_tools` 使用本地已安装的Visual Studio(默认状态下，`depot_tools`将会下载一个只有谷歌内部员工有权限使用的内部版本)。
 
-## Cached builds (optional step)
+## 缓存构建(可选步骤)
 
 ### GIT\_CACHE\_PATH
 
-If you plan on building Electron more than once, adding a git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
+如果您计划多次构建 Electron，那么就添加 git 缓存以加快后续对`gclient`的调用。 要做到这一点，请设置一个 `GIT_CACHE_PATH` 环境变量：
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# This will use about 16G.
+# 这将使用 16G 左右
 ```
 
-> **NOTE**: the git cache will set the `origin` of the `src/electron` repository to point to the local cache, instead of the upstream git repository. This is undesirable when running `git push`—you probably want to push to github, not your local cache. To fix this, from the `src/electron` directory, run:
+> **注意**：git 缓存将设置`src/electron`的`origin`存储库为本地缓存， 而不是上游的 git 仓库。 This is undesirable when running `git push`—you probably want to push to github, not your local cache. To fix this, from the `src/electron` directory, run:
 
 ```sh
 $ git remote set-url origin https://github.com/electron/electron
 ```
 
-### sccache
+### 缓存
 
 Thousands of files must be compiled to build Chromium and Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
 
@@ -44,7 +44,7 @@ export SCCACHE_BUCKET="electronjs-sccache-ci"
 export SCCACHE_TWO_TIER=true
 ```
 
-## Getting the code
+## 获取代码
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
@@ -53,7 +53,7 @@ $ gclient config \
     --unmanaged \
     https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# 这需要一段时间，去喝杯咖啡吧。
 ```
 
 > Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).

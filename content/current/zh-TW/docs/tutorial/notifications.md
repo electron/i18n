@@ -5,12 +5,12 @@
 **注意:** 因為 HTML5 API 只能在畫面轉譯處理序裡用。 如果你想由主處理序顯示通知，請參考 [Notification](../api/notification.md) 模組。
 
 ```javascript
-let myNotification = new Notification('標題', {
-  body: '鼠牛虎兔龍蛇馬羊猴雞狗豬'
+const myNotification = new Notification('Title', {
+  body: 'Lorem Ipsum Dolor Sit Amet'
 })
 
 myNotification.onclick = () => {
-  console.log('點了通知')
+  console.log('Notification clicked')
 }
 ```
 

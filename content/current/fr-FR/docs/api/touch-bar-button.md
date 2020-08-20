@@ -13,6 +13,7 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
   * `icon` [NativeImage](native-image.md) | String(facultatif) - Icône du bouton.
   * `iconPosition` String (facultatif) -Peut être `left`, `right` ou `overlay`. Defaults to `overlay`.
   * `click` Function (facultatif) - Fonction à appeler lorsque le bouton est cliqué.
+  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  La valeur par défaut est `true`.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
@@ -35,3 +36,7 @@ A `String` hex code representing the button's current background color. Changing
 #### `touchBarButton.icon`
 
 A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+
+#### `touchBarButton.enabled`
+
+A `Boolean` representing whether the button is in an enabled state.

@@ -1,38 +1,38 @@
 # แก้จุดบกพร่อง บน Windows
 
-If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using Visual Studio, Electron's hosted Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
+หากคุณพบปัญหาหรือปัญหาในอิเล็กตรอนที่คุณเชื่อว่าไม่ได้เกิดขึ้น โดยโปรแกรม JavaScript ของคุณ แต่โดยอิเล็กตรอนตัวเอง, การแก้จุดบกพร่องสามารถ จะยุ่งยากเล็กน้อย, โดยเฉพาะอย่างยิ่งสําหรับนักพัฒนาไม่ได้ใช้พื้นเมือง / C ++ ตรวจ แก้ จุด บกพร่อง However, using Visual Studio, Electron's hosted Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
 
 **See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
-## Requirements
+## ข้อกําหนด
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). ในขณะที่คุณสามารถ แนบและแก้ปัญหาอิเล็กตรอนที่คุณสามารถดาวน์โหลดได้โดยตรงคุณจะ พบว่ามันเป็นอย่างมากเพิ่มประสิทธิภาพการแก้จุดบกพร่องมากขึ้น ยาก: ดีบักเกอร์จะไม่สามารถแสดงเนื้อหาของทุก ตัวแปรและเส้นทางการดําเนินการอาจดูแปลกเพราะ inlining, หางโทรและเพิ่มประสิทธิภาพคอมไพเลอร์อื่น ๆ
 
-* **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Once installed, [configure Visual Studio to use Electron's Symbol server](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
+* **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Once installed, [configure Visual Studio to use Electron's Symbol server](setting-up-symbol-server.md). มันจะเปิดใช้งาน Visual Studio ที่จะได้รับความเข้าใจที่ดีขึ้นของสิ่งที่เกิดขึ้น ภายในอิเล็กตรอนทําให้ง่ายต่อการนําเสนอตัวแปรในมนุษย์อ่าน รูป แบบ
 
 * **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
 
-## Attaching to and Debugging Electron
+## การแนบและการแก้จุดบกพร่องอิเล็กตรอน
 
-To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
+เมื่อต้องการเริ่มเซสชันการตรวจแก้จุดบกพร่อง ให้เปิด PowerShell/CMD และดําเนินการตรวจแก้จุดบกพร่องของคุณ สร้างอิเล็กตรอนโดยใช้โปรแกรมเพื่อเปิดเป็นพารามิเตอร์
 
 ```powershell
-$ ./out/Testing/electron.exe ~/my-electron-app/
+$ ./ออก / ทดสอบ / อิเล็กตรอน exe ~/my-อิเล็กตรอน app/
 ```
 
-### Setting Breakpoints
+### การตั้งค่าจุดสั่งหยุด
 
-Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+เปิด Visual Studio แล้ว อิเล็กตรอนไม่ได้สร้างขึ้นด้วย Visual Studio และด้วยเหตุนี้ ไม่มีแฟ้มโครงการ -- แต่คุณสามารถเปิดไฟล์รหัสที่มา "เป็นแฟ้ม" หมายความว่า Visual Studio จะเปิดขึ้นด้วยตัวเอง คุณสามารถ ยังคงตั้งจุดหยุด -- Visual Studio จะคิดออกโดยอัตโนมัติว่า รหัสต้นฉบับตรงกับรหัสที่ทํางานในกระบวนการที่แนบมาและแบ่ง ตาม
 
-Relevant code files can be found in `./shell/`.
+ไฟล์รหัสที่เกี่ยวข้องสามารถพบได้ใน`./เชลล์/`
 
-### Attaching
+### ไฟล์แนบ
 
-You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
+คุณสามารถแนบดีบักเกอร์ Visual Studio กับกระบวนการที่กําลังทํางานอยู่บนโลคัล หรือ คอมพิวเตอร์ระยะไกล หลังจากกระบวนการทํางานแล้ว ให้คลิก Debug / แนบกับกระบวนการ (หรือกด`CTRL+ ALT + P`) เพื่อเปิดกล่องโต้ตอบ "แนบกับกระบวนการ" คุณสามารถใช้ ความสามารถนี้เพื่อดีบักแอปที่กําลังทํางานบนคอมพิวเตอร์เฉพาะที่หรือระยะไกล ดีบักหลายกระบวนการพร้อมกัน
 
-If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+หากอิเล็กตรอนทํางานภายใต้บัญชีผู้ใช้อื่น ให้เลือก `แสดงกระบวนการจากผู้ใช้ทั้งหมด` สังเกตว่าขึ้นอยู่กับจํานวน เบราว์เซอร์Windows app ของคุณเปิดคุณจะเห็นหลายกระบวนการ โดยทั่วไป โปรแกรมประยุกต์แบบหนึ่งหน้าต่างจะส่งผลให้ Visual Studio นําเสนอคุณสอง รายการ`อิเล็กตรอน.exe` - หนึ่งสําหรับกระบวนการหลักและหนึ่งสําหรับการแสดงผล ประมวล ผล เนื่องจากรายชื่อจะให้ชื่อคุณเท่านั้น, ขณะนี้ไม่มีความน่าเชื่อถือ วิธีการหาที่ซึ่ง
 
-### Which Process Should I Attach to?
+### กระบวนการใดที่ฉันควรแนบไป?
 
 Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
 

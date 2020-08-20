@@ -11,8 +11,8 @@ Le module `globalShortcut` peut inscrire/désinscrire un raccourci clavier globa
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-  // Enregistrer un écouteur de raccourci 'CommandOrControl+X'.
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })

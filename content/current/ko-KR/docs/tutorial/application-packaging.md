@@ -59,7 +59,7 @@ fs.readdirSync('/path/to/example.asar')
 아카이브 안의 모듈 사용하기:
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+require('./path/to/example.asar/dir/module.js')
 ```
 
 `asar`아카이브의`BrowserWindow` 클래스를 이용해 원하는 웹 페이지도 표시할 수 있습니다

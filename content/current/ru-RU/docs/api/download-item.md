@@ -76,13 +76,9 @@ Emitted when the download is in a terminal state. This includes a completed down
 
 API доступен только в сессии `will-download` функции обратного вызова. Если пользователь не устанавливает путь сохранения через API, Electron будет использовать исходную процедуру для определения пути сохранения; здесь обычно вызывается диалоговое окно сохранения.
 
-**[Устаревшее](modernization/property-updates.md): используйте вместо этого свойство `savePath`.**
-
 #### `downloadItem.getSavePath()`
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
-
-**[Устаревшее](modernization/property-updates.md): используйте вместо этого свойство `savePath`.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
@@ -100,21 +96,21 @@ This API allows the user to set custom options for the save dialog that opens fo
 
 #### `downloadItem.isPaused()`
 
-Возвращает `Boolean` - приостановлена ли загрузка.
+Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-Возобновляет загрузку, которая была приостановлена.
+Resumes the download that has been paused.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. В противном случае `resume()` удалит ранее полученные байты и перезапустит загрузку с начала.
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
 #### `downloadItem.canResume()`
 
-Возвращает `Boolean` - Может ли загрузка возобновиться.
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-Отменяет операцию загрузки.
+Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
@@ -122,31 +118,31 @@ This API allows the user to set custom options for the save dialog that opens fo
 
 #### `downloadItem.getMimeType()`
 
-Возвращает `String` - Файлы mime типа.
+Returns `String` - The files mime type.
 
 #### `downloadItem.hasUserGesture()`
 
-Возвращает `Boolean` - Есть ли у загрузки пользовательский жест.
+Returns `Boolean` - Whether the download has user gesture.
 
 #### `downloadItem.getFilename()`
 
-Возвращает `String` - Имя файла элемента загрузки.
+Returns `String` - The file name of the download item.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. Если пользователь изменит имя файла в запрашиваемом диалоговом окне сохранения файла, то действительное имя файла будет отличаться.
+**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 
 #### `downloadItem.getTotalBytes()`
 
-Возвращает `Integer` - Общий размер элемента загрузки в байтах.
+Returns `Integer` - The total size in bytes of the download item.
 
-Если размер неизвестен, он возвращает 0.
+If the size is unknown, it returns 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Возвращает `Integer` - Полученные байты элемента загрузки.
+Returns `Integer` - The received bytes of the download item.
 
 #### `downloadItem.getContentDisposition()`
 
-Возвращает `String` - Поле Content-Disposition из заголовка ответа.
+Returns `String` - The Content-Disposition field from the response header.
 
 #### `downloadItem.getState()`
 
@@ -160,15 +156,15 @@ Returns `String` - The current state. Can be `progressing`, `completed`, `cancel
 
 #### `downloadItem.getLastModifiedTime()`
 
-Возвращает `String` - Последнее измененное значение заголовка.
+Returns `String` - Last-Modified header value.
 
 #### `downloadItem.getETag()`
 
-Возвращает `String` - значение ETag заголовка.
+Returns `String` - ETag header value.
 
 #### `downloadItem.getStartTime()`
 
-Возвращает `Double` - Количество секунд с начала UNIX, когда началась загрузка.
+Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
 
 ### Свойства экземпляра
 

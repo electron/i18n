@@ -51,13 +51,15 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 
 ### `GOOGLE_API_KEY`
 
-Google の Geocoding ウェブサービスにリクエストを送信するための API キーを指定できます。 これを行うには、ジオコードリクエストを行うブラウザウィンドウを開く前に、メインプロセスファイルに次のコードを配置します。
+Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-例えば、Google APIキーを取得する方法については、[このページ](https://developers.google.com/maps/documentation/javascript/get-api-key)を参照して下さい。 既定では、新たに生成されたGoogle APIキーでは、ジオコーディングリクエストを行うことができないことがあります。 ジオコーディングリクエストを有効にするには、[このページ](https://developers.google.com/maps/documentation/geocoding/get-api-key)を参照して下さい。
+By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+
+N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
 ### `ELECTRON_NO_ASAR`
 
@@ -79,7 +81,7 @@ Linuxのグローバルメニューバーを使用しません。
 
 Linux でゴミの実装を設定します。 既定値は `gio` です。
 
-Options:
+オプション:
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -115,5 +117,13 @@ Electronがクラッシュすると、Windowsのクラッシュダイアログ�
 `electron` パッケージを実行しているとき、この変数は `npm install` によってダウンロードされた代わりの Electron の指定ビルドを使用するための `electron` コマンドを知らせます。 使い方:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```
+
+## Electron による設定
+
+Electron は実行時に環境変数をいくつか設定します。
+
+### `ORIGINAL_XDG_CURRENT_DESKTOP`
+
+この変数には、アプリケーション が起動した `XDG_CURRENT_DESKTOP` の値が設定されます。  Electron は `XDG_CURRENT_DESKTOP` の値を変更して Chromium 内の他のロジックに影響を与えることがあるので、_元々_ の値にアクセスしたい場合は、代わりにこの環境変数を見る必要があります。

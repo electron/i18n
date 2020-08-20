@@ -21,4 +21,3 @@ Queste guide sono destinate alle persone che lavorano al progetto stesso di Elec
 * [Debugging su macOS](debugging-instructions-macos.md)
 * [Impostazione Simbolo Server nel Debugger](setting-up-symbol-server.md)
 * [Patches](patches.md)
-* [Aggiornando Node](upgrading-node.md)

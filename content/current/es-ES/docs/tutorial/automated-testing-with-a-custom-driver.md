@@ -8,10 +8,10 @@ Para crear un controlador personalizado, usaremos la API de Node.js [child_proce
 const childProcess = require('child_process')
 const electronPath = require('electron')
 
-// desencadenar el proceso
-let env = { /* ... */ }
-let stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-let appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+// spawn the process
+const env = { /* ... */ }
+const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
+const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
 // listen for IPC messages from the app
 appProcess.on('message', (msg) => {
@@ -43,22 +43,22 @@ class TestDriver {
   constructor ({ path, args, env }) {
     this.rpcCalls = []
 
-    // empezar el proceso hijo
-    env.APP_TEST_DRIVER = 1 // vamos a hacer saber a la aplicación si debería escuchar mensajes 
+    // start child process
+    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
     this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
-    // manejar las respuestas rpc
+    // handle rpc responses
     this.process.on('message', (message) => {
-      // lanzar el manejador
-      let rpcCall = this.rpcCalls[message.msgId]
+      // pop the handler
+      const rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
-      // rechazarr/resolver
+      // reject/resolve
       if (message.reject) rpcCall.reject(message.reject)
       else rpcCall.resolve(message.resolve)
     })
 
-    // esperar a que este listo
+    // wait for ready
     this.isReady = this.rpc('isReady').catch((err) => {
       console.error('Application failed to start', err)
       this.stop()
@@ -66,11 +66,11 @@ class TestDriver {
     })
   }
 
-  // llamada RPC simple
+  // simple RPC call
   // to use: driver.rpc('method', 1, 2, 3).then(...)
   async rpc (cmd, ...args) {
-    // enviar un petición rpc
-    let msgId = this.rpcCalls.length
+    // send rpc request
+    const msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
     return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
   }
@@ -92,10 +92,10 @@ async function onMessage ({ msgId, cmd, args }) {
   let method = METHODS[cmd]
   if (!method) method = () => new Error('Invalid method: ' + cmd)
   try {
-    let resolve = await method(...args)
+    const resolve = await method(...args)
     process.send({ msgId, resolve })
   } catch (err) {
-    let reject = {
+    const reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
@@ -106,10 +106,10 @@ async function onMessage ({ msgId, cmd, args }) {
 
 const METHODS = {
   isReady () {
-    // hacer alguna confugracion necesaria
+    // do any setup needed
     return true
   }
-  // define tus metodos RPC aqui
+  // define your RPC-able methods here
 }
 ```
 
@@ -119,7 +119,7 @@ Luego, en tu suite de test, puede usar sus test-driver del siguiente modo:
 const test = require('ava')
 const electronPath = require('electron')
 
-let app = new TestDriver({
+const app = new TestDriver({
   path: electronPath,
   args: ['./app'],
   env: {

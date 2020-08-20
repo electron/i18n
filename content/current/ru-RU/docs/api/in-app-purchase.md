@@ -40,11 +40,17 @@
 
 ### `inAppPurchase.canMakePayments()`
 
-Возвращает `Boolean`, может ли пользователь произвести платеж.
+Returns `Boolean` - whether a user can make a payment.
+
+### `inAppPurchase.restoreCompletedTransactions()`
+
+Restores finished transactions. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.
+
+[The payment queue](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) delivers a new transaction for each previously completed transaction that can be restored. Each transaction includes a copy of the original transaction.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Возвращает `String`, путь к чеку (квитанции).
+Returns `String` - the path to the receipt.
 
 ### `inAppPurchase.finishAllTransactions()`
 

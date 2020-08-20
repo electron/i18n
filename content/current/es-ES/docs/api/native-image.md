@@ -239,13 +239,9 @@ Devuelve [`Size`](structures/size.md)
 
 Marca la imagen como una imagen de plantilla.
 
-**[Cambiar](modernization/property-updates.md)**
-
 #### `image.isTemplateImage()`
 
 Devuelve `Boolean` - Si la imagen es una imagen de plantilla.
-
-**[Cambiar](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 

@@ -463,8 +463,30 @@ webview.addEventListener('dom-ready', () => {
 
 * `options` Object (任意)
   * `silent` Boolean (任意) - プリンタの設定をユーザに尋ねないかどうか。 省略値は、`false` です。
-  * `printBackground` Boolean (任意) - ウェブページの背景色と画像も印刷するかどうか。 省略値は、`false` です。
-  * `deviceName` String (任意) - 使用するプリンタデバイスの名前をセットします。 既定値は `''` です。
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. 省略値は、`false` です。
+  * `deviceName` String (任意) - 使用するプリンタデバイスの名前をセットします。 Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. 省略値は `true` です。
+  * `margins` Object (optional)
+    * `marginType` String (任意) - `default`、`none`、`printableArea` か `custom` にできます。 `custom` を選択した場合、`top`、`bottom`、`left`、`right` も指定する必要があります。
+    * `top` Number (任意) - 印刷されたウェブページの上側のマージン。ピクセル単位です。
+    * `bottom` Number (任意) - 印刷されたウェブページの下側のマージン。ピクセル単位です。
+    * `left` Number (任意) - 印刷されたウェブページの左側のマージン。ピクセル単位です。
+    * `right` Number (任意) - 印刷されたウェブページの右側のマージン。ピクセル単位です。
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. 省略値は、`false` です。
+  * `scaleFactor` Number (任意) - ウェブページのスケール係数。
+  * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
+  * `collate` Boolean (任意) - ウェブページを校合するかどうか。
+  * `copies` Number (任意) - 印刷するウェブページの版数。
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the start page.
+    * `to` Number - the end page.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional)
+    * `horizontal` Number (任意) - 水平 DPI。
+    * `vertical` Number (任意) - 垂直 DPI。
+  * `header` String (任意) - ページヘッダーとして印刷される文字列。
+  * `footer` String (任意) - ページフッターとして印刷される文字列。
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
 戻り値 `Promise<void>`
 
@@ -473,11 +495,18 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.printToPDF(options)`
 
 * `options` Object
-  * `marginsType` Integer (optional) - 使用する余白の種類を指定します。 0 で既定値、1 で余白なし、2 で最小限の余白になります。
-  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
+  * `scaleFactor` Number (任意) - ウェブページのスケール係数。 Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the first page to print.
+    * `to` Number - the last page to print (inclusive).
+  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
   * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
-  * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
 
 戻り値 `Promise<Uint8Array>` - 生成された PDF データで実行されます。
 
@@ -541,26 +570,9 @@ webview.addEventListener('dom-ready', () => {
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _非推奨_
-
-* `minimumLevel` Number
-* `maximumLevel` Number
-
-戻り値 `Promise<void>`
-
-レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
-
-**非推奨:** この API は Chromium がサポートしなくなりました。
-
 ### `<webview>.showDefinitionForSelection()` _macOS_
 
 ページ上の選択された単語を検索するポップアップ辞書を表示します。
-
-### `<webview>.getWebContents()` _非推奨_
-
-戻り値 [`WebContents`](web-contents.md) - この `webview` に関連付けられた webContents。
-
-これは [`remote`](remote.md) モジュールに依存しています。したがって、このモジュールが無効になっていると利用できません。
 
 ### `<webview>.getWebContentsId()`
 
@@ -577,7 +589,7 @@ webview.addEventListener('dom-ready', () => {
 * `url` String
 * `isMainFrame` Boolean
 
-ロードを要求したときに発生します。 これには、現在のドキュメント内のナビゲーションとサブフレームのドキュメントレベルのロードが含まれますが、非同期のリソース読み込みは含まれません。
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
 ### イベント: 'did-finish-load'
 
@@ -717,7 +729,7 @@ webview.addEventListener('new-window', async (e) => {
 
 このイベントは、 `<webview>.loadURL` や `<webview>.back` のような、API によってプログラム上から開始されるナビゲーションのときには発行されません。
 
-アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでも発行されません。 これを意図する場合は `did-navigate-in-page` を使用して下さい。
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
 `event.preventDefault()` を呼んでも効果は __ありません__。
 
@@ -815,7 +827,7 @@ webContents が破棄されたときに発生します。
 
 * `themeColor` String
 
-ページのテーマカラーが変わったときに発生します。 これは通常、メタタグを発見すると起こります。
+ページのテーマカラーが変わったときに発生します。 This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>

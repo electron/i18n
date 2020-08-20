@@ -17,7 +17,7 @@ Please also ensure that your system and Python version support at least TLS 1.2.
 $ npm run check-tls
 ```
 
-If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
+Eğer komut dosyası, yapılandırmanızın eski bir güvenlik protokolü kullandığını döndürürse, macOS'u High Sierra'ya güncelleyebilir veya Python'un yeni 2.7.x sürümünü indirebilirsiniz. Python'u yeni sürümüne güncellemek için [Homebrew](https://brew.sh/) kullanın:
 
 ```sh
 $ brew install python@2 && brew link python@2 --force
@@ -27,7 +27,7 @@ Homebrew tarafından sağlanan Python kullanıyorsanız, ayrıca aşağıdaki Py
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+Yüklemek için `pip` kullanabilirsiniz:
 
 ```sh
 $ pip install pyobjc

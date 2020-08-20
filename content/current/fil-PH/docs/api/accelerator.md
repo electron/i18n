@@ -14,8 +14,8 @@ Ang mga shortcut ay irehistro kasabay ang modyul ng [`globalShortcut`](global-sh
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-  // Magrehistro ng isang 'CommandOrControl+Y' mga tagapakinig ng shortcut.
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Gumawa ng bagay-bagay kapag ang Y at alinman sa Command/Control ay napindot na.
   })
@@ -46,7 +46,7 @@ Ang key ng `Super` ay naka-balangkas sa key ng `Windows` sa Windows at Linux at 
 * Mula `0` hanggang `9`
 * Mula `A` hanggang `Z`
 * Mula `F1` hanggang `F24`
-* Mga bantas tulad ng `~`, `!`, `@`, `#`, `$`, atbp.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`

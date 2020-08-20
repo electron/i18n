@@ -32,4 +32,27 @@ app.clearRecentDocuments()
 
 ## macOS에서 주의할 점
 
+### Adding the Recent Documents list to the application menu:
+
+![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+
+You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+
+```json
+{
+  "submenu":[
+    {
+      "label":"Open Recent",
+      "role":"recentdocuments",
+      "submenu":[
+        {
+          "label":"Clear Recent",
+          "role":"clearrecentdocuments"
+        }
+      ]
+    }
+  ]
+}
+```
+
 파일이 최근 문서 메뉴에서 요청될 경우 `app` 모듈의 `open-file` 이벤트가 호출됩니다.

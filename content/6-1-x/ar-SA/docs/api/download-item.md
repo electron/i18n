@@ -1,6 +1,6 @@
-## Class: DownloadItem
+## تحميل الملف
 
-> Control file downloads from remote sources.
+> التحكم في تنزيل الملفات من خلال المصادر البعيدة.
 
 العملية: [Main](../glossary.md#main-process)
 

@@ -31,20 +31,9 @@ npm vai guiá-lo para criação de um arquivo básico o `package.json`. O script
 }
 ```
 
-__Nota__: Se o campo `main` não se encontra em `package.json`, Electron tentará carregar um `index.js` (assim como Node.js faz). Se isso fosse realmente um simples aplicativo em Node, você adicionaria um script `start`, para instruir o `node` para executar o pacote atual:
+__Nota__: Se o campo `main` não se encontra em `package.json`, Electron tentará carregar um `index.js` (assim como Node.js faz).
 
-```json
-{
-  "name": "seu-app",
-  "version": "0.1.0",
-  "main": "main.js",
-  "scripts": {
-    "start": "node ."
-  }
-}
-```
-
-Transformar esse aplicativo em Node para Electron é bastante simples - nós vamos substituir o termo `node` para o runtime `electron`.
+By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
 
 ```json
 {
@@ -82,7 +71,7 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Cria uma janela de navegação.
-  let win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -90,7 +79,7 @@ function createWindow () {
     }
   })
 
-  // e carregar o index.html do aplicativo.
+  // e carrega o arquivo index.html do seu aplicativo.
   win.loadFile('index.html')
 }
 
@@ -112,22 +101,22 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // e carrega o arquivo index.html do seu aplicativo.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Abrir o DevTools (aba de ferramentas para desenvolvedores).
   win.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// Este método será chamado quando Electron terminar de inicializar
+// e também estiver pronto para criar novas janelas do navegador.
 // Algumas APIs podem ser usadas somente depois que este evento ocorre.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  // No macOS é comum para aplicativos e sua barra de menu 
-  // permaneçam ativo até que o usuário explicitamente encerre com Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
@@ -141,8 +130,9 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. Você também pode colocar eles em arquivos separados e requeridos-as aqui.
+// Nesse arquivo, você pode incluir o resto do código principal
+// de processos do seu aplicativo.
+// Você também pode colocar eles em arquivos separados e requeridos-as aqui.
 ```
 
 Finalmente, o `index.html` é a pagina da web que você quer mostrar:
@@ -173,7 +163,7 @@ Depois de criar seus arquivos iniciais `main.js`,`index.html` e `package.json`, 
 
 Clone e execute o código nesse tutorial utilizando o repositório [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
+**Nota**: Executando as dependências [Git](https://git-scm.com) e [npm](https://www.npmjs.com/).
 
 ```sh
 # Clone o repositório

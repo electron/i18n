@@ -26,24 +26,7 @@ Ang bagong tampok ng Node.js ay kadalasang dala ng V8 upgrade, dahil ang Electro
 
 Para magbahagi ng mga datos sa pagitan ng pahina ng web ( ang nagbabahagi ay nagpoproseso) ang pinaka simpleng paraan ay ang paggamit ng HTML5 API na maari nang gamitin sa mga browser. Ang mabuting kandidato ay [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-O maaari mo ring gamitin ang IPC system, na partikular na sa Electron, upang itabi ang mga bagay sa pangunahing proseso bilang isang pandaigdigang variable, at pagkatapos para ma access ang mga ito mula sa mga renderers sa pamamagitan ng `remote`property `electron`module:
-
-```javascript
-// Sa mga pangunahing proseso.
-global.sharedObject = {
-  someProperty: 'default value'
-}
-```
-
-```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
-```
-
-```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
-```
+Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
 ## My app's tray disappeared after a few minutes.
 
@@ -84,7 +67,7 @@ Upang malutas ito, maaari mong i-off ang pagsasama ng node sa Electron:
 ```javascript
 // Sa mga pangunahing proseso.
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
   }
@@ -97,10 +80,10 @@ Ngunit kung nais mong panatilihin ang mga kakayahan ng paggamit ng Node.js at El
 ```html
 <head>
 <script>
-window.nodeRequire = require;
-delete window.require;
-delete window.exports;
-delete window.module;
+window.nodeKailangan = kailangan
+Magtanggal ng window.kailangan;
+Magtanggal ng window.palabasin
+Magtanggal ng window.modyul;
 </script>
 <script type="text/javascript" src="jquery.js"></script>
 </head>
@@ -130,7 +113,7 @@ To achieve this goal, set the background in the constructor for [BrowserWindow](
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   backgroundColor: '#fff'
 })
 ```

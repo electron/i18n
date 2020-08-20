@@ -8,7 +8,7 @@ The content of this document should be moved to `protocol.md` after we have enab
 
 > Register a custom protocol and intercept existing protocol requests.
 
-Process: [Main](../glossary.md#main-process)
+प्रक्रिया: [Main](../glossary.md#main-process)
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
@@ -16,7 +16,7 @@ An example of implementing a protocol that has the same effect as the `file://` 
 const { app, protocol } = require('electron')
 const path = require('path')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
@@ -36,7 +36,7 @@ To have your custom protocol work in combination with a custom session, you need
 const { session, app, protocol } = require('electron')
 const path = require('path')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   const partition = 'persist:example'
   const ses = session.fromPartition(partition)
 

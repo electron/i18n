@@ -72,7 +72,7 @@ Tenga en cuenta que multiples commits a menudo colisionan cuando son ejecutadas.
 
 Un buen mensaje de commit debe describir que ha cambiado y por qué. El proyecto Electron usa [semantic commit messages](https://conventionalcommits.org/) para racionalizar el proceso de lanzamiento.
 
-Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
+Antes de que una solicitud de pull pueda ser fusionada, **debe** tener un título de pull request con un prefijo semántico.
 
 Ejemplos de mensajes de confirmación con prefijos semánticos:
 
@@ -181,7 +181,7 @@ Siéntete libre de postear un comentario en el pull request para avisar a los cr
 
 All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
-Trata de no estar desmotivado. Si tu sientes que una crítica es injusta, confórmate o busca la entrada de otro contribuyente del proyecto. A menudo ese tipo de comentarios son el resultado de un crítico que no toma el suficiente tiempo para revisar y no son mal intencionados. Estas dificultades a menudo pueden ser resueltas con un poco de paciencia. Dicho esto, se espera que los críticos ofrezcan una crítica útil.
+Trata de no estar desmotivado. Si tu sientes que una crítica es injusta, confórmate o busca la entrada de otro contribuyente del proyecto. A menudo ese tipo de comentarios son el resultado de un crítico que no toma el suficiente tiempo para revisar y no son mal intencionados. Estas dificultades a menudo pueden ser resueltas con un poco de paciencia. That said, reviewers should be expected to provide helpful feedback.
 
 ### Paso 11: Ejecutado
 

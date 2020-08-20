@@ -70,7 +70,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 * 使用 ` ~ 2.0. 0 ` 只接受您的 ` 2.0.0 ` 版本的稳定性或安全性相关的修复程序。
 * 使用 ` ^ 2.0. 0 ` 可允许不破坏性的 _ 合理稳定 _ 功能以及安全性和 bug 修复。
 
-第二点重要的是使用 `^` 的应用程序仍然能够期望合理的稳定性水平。 To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+第二点重要的是使用 `^` 的应用程序仍然能够期望合理的稳定性水平。 为了达到这个目的，semver允许一个 _pre-release 标识_ 来表示一个特定的版本还不 _安全_ 或 _稳定_.
 
 无论你选择什么，你将定期不得不在 `package.json` 中打破版本，因为突破性变更是 Chromium 的一个常态。
 
@@ -85,7 +85,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 特别地，上述步骤意味着：
 
-1. 在测试周期的第3周前允许不打破的 API 更改非常好，即使这些变化有可能造成适度的副影响
+1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
 3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
 
@@ -133,7 +133,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 * 提交会导致 semver **minor** 必须以 `feat:` 开头。
 * 提交会导致 semver ** patch ** 必须以 ` fix:` 开头。
 
-* 我们允许合并提交，只要合并提交的消息符合上述消息格式。
+* We allow squashing of commits, provided that the squashed message adheres to the above message format.
 * 只要pull request里包含有意义的总结性的版本语义消息，即使它其中的某些提交消息不包含版本语义前缀也是可以接受的
 
 # 打了版本的 `主分支`

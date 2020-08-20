@@ -111,7 +111,7 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 * [Proses objek](api/process.md)
 * [Saklar Baris Perintah Chrome yang Didukung](api/chrome-command-line-switches.md)
 * [Variabel Lingkungan](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Perubahan API yang dapat menyebabkan gangguan](api/breaking-changes.md)
 
 
 

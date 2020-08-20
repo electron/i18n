@@ -22,11 +22,12 @@ The `shell` modul memiliki metode berikut:
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openItem (fullPath)`
+### `shell.openPath(path)`
 
-* `fullPath` String
+* ` path </ 0>  String</li>
+</ul>
 
-Mengembalikan `Boolean` - Apakah item berhasil dibuka.
+<p spaces-before="0">Returns <code>Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".</p>
 
 Buka file yang diberikan dengan cara default desktop.
 

@@ -102,7 +102,7 @@ Upang itakda ang overlay icon para sa isang window, pwede mong gamitin ang [Brow
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
@@ -117,7 +117,7 @@ Upang ilabas ang BrowserWindow na pipindutin sa taskbar, pwede mong gamitin ang 
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```

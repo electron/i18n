@@ -21,4 +21,3 @@ These guides are intended for people working on the Electron project itself. For
 * [Debugging on macOS](debugging-instructions-macos.md)
 * [Menyiapkan Symbol Server di Debugger](setting-up-symbol-server.md)
 * [Patches](patches.md)
-* [Upgrade Node](upgrading-node.md)

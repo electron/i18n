@@ -1,56 +1,56 @@
 # ลักษณะการเขียนโค้ด
 
-These are the style guidelines for coding in Electron.
+เหล่านี้เป็นแนวทางสไตล์สําหรับการเข้ารหัสในอิเล็กตรอน
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+คุณสามารถเรียกใช้`npm ใช้ผ้าสําลี`เพื่อแสดงปัญหาลักษณะใด ๆ ที่ตรวจพบโดย`cpplint`และ `2009`
 
-## General Code
+## สร้างรหัส
 
-* End files with a newline.
-* Place requires in the following order:
-  * Built in Node Modules (such as `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
-  * Local Modules (using relative paths)
-* Place class properties in the following order:
-  * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
-* Avoid platform-dependent code:
-  * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+* สิ้นสุดไฟล์ด้วยบรรทัดใหม่
+* สถานที่ต้องการในลําดับต่อไปนี้:
+  * สร้างในโมดูลโหนด (เช่น`เส้นทาง`)
+  * สร้างขึ้นในโมดูลอิเล็กตรอน (เช่น`ipc,` `app)`
+  * โมดูลภายในเครื่อง (โดยใช้พาธสัมพัทธ์)
+* วางคุณสมบัติคลาสตามลําดับต่อไปนี้:
+  * วิธีการและคุณสมบัติระดับ (วิธีการเริ่มต้นด้วย`@`)
+  * วิธีการอินสแตนซ์และคุณสมบัติ
+* หลีกเลี่ยงรหัสขึ้นอยู่กับแพลตฟอร์ม:
+  * ใช้`path.join()`เพื่อต่อชื่อแฟ้ม
+  * ใช้`os.tmpdir()`มากกว่า`/tmp`เมื่อคุณต้องการอ้างอิง ไดเรกตอรีชั่วคราว
 * Using a plain `return` when returning explicitly at the end of a function.
-  * Not `return null`, `return undefined`, `null` or `undefined`
+  * ไม่`ส่งกลับ null` `, ส่งคืนไม่ได้กําหนด` `, null`หรือไม่`ระบุ`
 
-## C++ and Python
+## ซีพลัสและหลาม
 
-For C++ and Python, we follow Chromium's [Coding Style](https://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+สําหรับ C ++ และหลามเราทําตามการเข้ารหัสของโครเมียม[ ลักษณะ.](https://www.chromium.org/developers/coding-style) คุณสามารถใช้ [รูปแบบ clang](clang-format.md)เพื่อจัดรูปแบบรหัส C++ โดยอัตโนมัติ มี ยัง`สคริปต์/cpplint.py`เพื่อตรวจสอบว่าไฟล์ทั้งหมดเป็นไปตาม
 
-The Python version we are using now is Python 2.7.
+รุ่นหลามที่เราใช้ตอนนี้เป็น Python 2.7
 
-The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+รหัส C ++ ใช้จํานวนมากของ abstractions และประเภทของโครเมียม, ดังนั้นมัน แนะนําให้ทําความคุ้นเคยกับพวกเขา สถานที่ที่ดีในการเริ่มต้นคือ [บทคัดย่อที่สําคัญของโครเมียมและโครงสร้างข้อมูล](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) เอกสาร เอกสารกล่าวถึงชนิดพิเศษบางชนิด โดยอัตโนมัติปล่อยหน่วยความจําของพวกเขาเมื่อออกจากขอบเขต), ฯลฯ
 
 ## เอกสารประกอบ
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style.
+* [เขียนสไตล์มาร์ก](https://github.com/remarkjs/remark)ดาวน์
 
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
+คุณสามารถเรียกใช้`npm ทํางาน lint-docs`เพื่อให้แน่ใจว่าเอกสารของคุณมีการเปลี่ยนแปลง จัดรูปแบบอย่างถูกต้อง
 
-## JavaScript
+## จาวาสคริปต์
 
-* Write [standard](https://npm.im/standard) JavaScript style.
-* File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
-* Use newer ES6/ES2015 syntax where appropriate
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants.  If the value is a primitive, use uppercase naming (eg `const NUMBER_OF_RETRIES = 5`).
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
-  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
+* เขียนรูปแบบจาวาสคริปต์[มาตรฐาน](https://npm.im/standard)
+* ชื่อไฟล์ควรต่อด้วย`-`แทน`_`เช่น `ไฟล์ name.js`มากกว่า`file_name.js`เพราะใน [ชื่อโมดูล github /อะตอม](https://github.com/github/atom)มักจะอยู่ใน ฟอร์ม`ชื่อโมดูล` กฎนี้ใช้กับแฟ้ม`.js`เท่านั้น
+* ใช้ไวยากรณ์ ES6/ES2015 ที่ใหม่กว่าตามความเหมาะสม
+  * [`คอนสต์`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) สําหรับค่าคงที่ที่ต้องการและค่าคงที่อื่น ๆ  ถ้าค่าเป็นดั้งเดิม ให้ใช้การตั้งชื่อตัวพิมพ์ใหญ่ (เช่น`const NUMBER_OF_RETRIES = 5`)
+  * [`ให้`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) สําหรับการกําหนดตัวแปร
+  * [ฟังก์ชันลูกศร](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) แทนฟังก์ชัน`() { }`
+  * [ตัวอักษรของแม่แบบ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) แทนการเรียงต่อกันของสตริงโดยใช้ `+`
 
-## Naming Things
+## การตั้งชื่อสิ่งต่างๆ
 
-Electron APIs uses the same capitalization scheme as Node.js:
+API อิเล็กตรอนใช้รูปแบบการใช้ตัวพิมพ์ใหญ่เดียวกันกับ Node.js:
 
-- When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-- When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
-- When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
-- For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
+- เมื่อโมดูลตัวเองเป็นชั้นเช่น`BrowserWindow`ใช้`PascalCase`
+- เมื่อโมดูลเป็นชุดของ API เช่น`globalShortcut`ใช้`camelCase`
+- เมื่อ API เป็นทรัพย์สินของวัตถุและมีความซับซ้อนพอที่จะอยู่ใน แยกบทเช่น`win.webContents,`ใช้`ผสมกรณี`ของ
+- สําหรับ API ที่ไม่ใช่โมดูล ให้ใช้ชื่อที่เป็นธรรมชาติ เช่น`<webview>แท็ก</1>`หรือ `ประมวลผลออบเจกต์`
 
-When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+เมื่อสร้าง API ใหม่ ควรใช้ getters และ setters แทน jQuery ของรูปแบบหนึ่งฟังก์ชั่น ตัวอย่างเช่น`.getText()`และ`.setText (ข้อความ)` เป็นที่ต้องการสําหรับ`.text([text])`. มี [การสนทนา](https://github.com/electron/electron/issues/46)นี้

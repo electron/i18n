@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
 ### Currently supported versions
-- 8.1.x
-- 7.1.x
-- 6.1.x
+- 9.x.y
+- 8.x.y
+- 7.x.y
 
 ### End-of-life
 
@@ -61,13 +61,15 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. [Elec
 
 ### Linux
 
-Berkas-berkas Elektron dibangun pada kode prebuilt ` ia32 </ code> (<code> i686 </ code>) dan <code> x64 </ code> Ubuntu 12.04, biner <code> armv7l </ code> dibangun melawan ARM v7 dengan ABI hard-float dan NEON untuk Debian Wheezy.</p>
+Berkas-berkas Elektron dibangun pada kode prebuilt  ia32 </ code> (<code> i686 </ code>) dan <code> x64 </ code> Ubuntu 12.04, biner <code> armv7l </ code> dibangun melawan ARM v7 dengan ABI hard-float dan NEON untuk Debian Wheezy.</p>
 
-<p spaces-before="0"><a href="../breaking-changes.md#duplicate-arm-assets">Until the release of Electron 2.0</a>, Electron will also
-continue to release the <code>armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+<p spaces-before="0"><a href="../breaking-changes.md#duplicate-arm-assets"> Sampai rilis Electron 2.0 </a> , Elektron juga akan lanjutkan untuk melepaskan <code> armv7l </ code> biner dengan akhiran <code> lengan </ code> yang baru. Both binaries
+are identical.</p>
 
-Apakah biner prebuilt dapat berjalan pada distribusi bergantung pada apakah distribusi mencakup perpustakaan yang terhubung dengan Elektron pada platform bangunan, jadi hanya Ubuntu 12.04 yang dijamin berhasil, namun mengikuti platform juga diverifikasi untuk dapat menjalankan binari prebuilt dari Elektron :
+<p spaces-before="0">Apakah biner prebuilt dapat berjalan pada distribusi bergantung pada apakah distribusi mencakup perpustakaan yang terhubung dengan Elektron pada platform bangunan, jadi hanya Ubuntu 12.04 yang dijamin berhasil, namun mengikuti platform juga diverifikasi untuk dapat menjalankan binari prebuilt dari Elektron :</p>
 
-* Ubuntu 12.04 and newer
-* Fedora 21
-* Debian 8
+<ul>
+<li>Ubuntu 12.04 and newer</li>
+<li>Fedora 21</li>
+<li>Debian 8</li>
+</ul>

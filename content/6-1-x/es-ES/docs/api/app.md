@@ -55,7 +55,7 @@ Devuelve:
 
 * `event` Event
 
-Emitido cuando todas las ventanas han sido cerradas y la aplicación se cerrará. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitido cuando todas las ventanas han sido cerradas y la aplicación se cerrará. Llamando a `event.preventDefault()` evitará el comportamiento por defecto, el cual terminar la aplicación.
 
 Consulte la descripción del evento `window-all-closed` por las diferencias con los eventos `will-quit` y `window-all-closed`.
 
@@ -258,7 +258,7 @@ Devuelve:
 
 * `event` Event
 * `Contenidosweb` [Contenidosweb](web-contents.md)
-* `request` Object
+* Objeto `request`
   * `method` String
   * `url` URL
   * `referrer` URL
@@ -428,7 +428,7 @@ Este método garantiza que todos los eventos de `beforeunload` y `unload` serán
 
 * `exitCode` Íntegro (opcional)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Sale inmediatamente con el `exitCode`. `exitCode` por defecto 0.
 
 Todas las ventanas serán cerradas de inmediato sin preguntarle al usuario, y los eventos `before-quit` y `will-quit` no serán emitidos.
 
@@ -465,7 +465,7 @@ Retorna `Promise<void>` - cumplido cuando Electron esta inicializado. También p
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+En Linux, enfocar en la primera ventana visible. En macOS, hace que la aplicación sea la aplicación activa. En Windows, hace focus en la primera ventana de la aplicación.
 
 ### `app.hide()` _macOS_
 
@@ -473,15 +473,15 @@ Oculta todas la ventanas de la aplicación sin minimizar estas.
 
 ### `app.show()` _macOS_
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Muestra las ventanas de la aplicación después que fueron ocultadas. No los enfoca automáticamente.
 
 ### `app.setAppLogsPath(path)`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (opcional) - Una ruta personalizada para tus registros. Debe ser absoluta.
 
 Establece o crea un directorio de registros de tu aplicación el cual puede ser manipulado con `app.getPath()` o `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on _macOS_, and inside the `userData` directory on _Linux_ and _Windows_.
+Llamando `app.setAppLogsPath()` sin un parámetro `path` resultará en que este directorio sea establecido a `/Library/Logs/YourAppName` en _macOS_, y dentro del directorio `userData` en _Linux_ y _Windows_.
 
 ### `app.getAppPath()`
 
@@ -491,12 +491,12 @@ Devuelve `String` - al directorio de la aplicación actual.
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+Devuelve `String` - Una ruta a un directorio especial o un archivo asociado con `name`. En caso de falla, un `Error` es lanzado.
 
 Usted puede pedir las siguientes direcciones por nombre:
 
 * `Inicio` Directorio de inicio del usuario.
-* `appData` Per-user application data directory, which by default points to:
+* `appData` Directorio de datos de la aplicación por usuario, el cual por defecto apunta a:
   * `%APPDATA%` en Windows
   * `$XDG_CONFIG_HOME` o `~/.config` en Linux
   * `~/Library/Application Support` en marcOS
@@ -520,7 +520,7 @@ Usted puede pedir las siguientes direcciones por nombre:
   * `size` String
     * `pequeño` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on _Linux_, 32x32 on _Windows_, unsupported on _macOS_.
+    * `large` - 48x48 en _Linux_, 32x32 en _Windows_, no soportado en _macOS_.
 * `callback` Función
   * `error` Error
   * `ícono` [NativeImage](native-image.md)
@@ -543,7 +543,7 @@ En _Linux_ y _macOS_, los iconos dependen de la aplicación asociada al tipo de 
   * `size` String
     * `pequeño` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on _Linux_, 32x32 on _Windows_, unsupported on _macOS_.
+    * `large` - 48x48 en _Linux_, 32x32 en _Windows_, no soportado en _macOS_.
 
 Devuelve `Promise<NativeImage>` - cumplido con el icono de la aplicación, el cual es un [NativeImage](native-image.md).
 
@@ -585,7 +585,7 @@ Reescribe el nombre de la aplicación actual.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Devuelve `String` - El locale actual de la aplicación. Los posibles valores de retorno son documentados [aquí](locales.md).
 
 Para establecer la localización, necesitas usar un cambio de línea de comandos al inicio de la aplicación, el cual se puede encontrar [aquí](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
@@ -595,7 +595,7 @@ Para establecer la localización, necesitas usar un cambio de línea de comandos
 
 ### `app.getLocaleCountryCode()`
 
-Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Devuelve `string` - Localización del sistema operativo del usuario código del país de dos letras [ISO 3166](https://www.iso.org/iso-3166-country-codes.html). El valor es tomado desde la APIs nativas de sistema operativo.
 
 **Note:** Cuando no se puede detectar el código de país local, devuelve una cadena vacía.
 
@@ -605,7 +605,7 @@ Returns `string` - User operating system's locale two-letter [ISO 3166](https://
 
 Añade la `ruta` a la lista de documentos recientes.
 
-This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
+Esta lista es manejada por el sistema operativo. En Windows, puede visitar la lista desde la barra de tarea y en macOS, puede visitar la desde el menu dock.
 
 ### `app.clearRecentDocuments()` _macOS_ _Windows_
 

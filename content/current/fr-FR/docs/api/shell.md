@@ -24,11 +24,11 @@ Le module `shell` dispose des méthodes suivantes :
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openItem(fullPath)`
+### `shell.openPath(path)`
 
-* `fullPath` String
+* `path` String
 
-Retourne `Boolean` - Si l'élément s'est bien ouvert.
+Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 

@@ -11,8 +11,8 @@ The `globalShortcut` module can register/unregister a global keyboard shortcut w
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-  // 'CommandOrControl+X' 단축키 리스너 등록
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X 눌러짐.')
   })

@@ -14,7 +14,7 @@ Skróty są zarejestrowane z modułem [`globalShortcut`](global-shortcut.md), za
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Do stuff when Y and either Command/Control is pressed.
@@ -46,7 +46,7 @@ Klawisz `Super` jest mapowany do klawisza`Windows` w systemach Windows i Linux o
 * od `0` do `9`
 * od `A` do `Z`
 * od `F1` do `F24`
-* Znaki interpunkcyjne takie jak `~`, `!`, `@`, `nr`, `` $, itp.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`

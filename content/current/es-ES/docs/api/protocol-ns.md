@@ -16,7 +16,7 @@ Un ejemplo de la implementación de un protocolo que tiene el mismo efecto que e
 const { app, protocol } = require('electron')
 const path = require('path')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
@@ -36,7 +36,7 @@ To have your custom protocol work in combination with a custom session, you need
 const { session, app, protocol } = require('electron')
 const path = require('path')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   const partition = 'persist:example'
   const ses = session.fromPartition(partition)
 

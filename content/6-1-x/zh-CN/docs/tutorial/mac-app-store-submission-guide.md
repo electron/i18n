@@ -20,7 +20,7 @@ Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MA
 
 获得证书之后，你可以使用 [应用部署](application-distribution.md) 打包你的应用，之后进行提交。
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
+首先, 你必须向`Info.plist`中添加一个`ElectronTeamID`键作为你团队的ID:
 
 ```xml
 <plist version="1.0">
@@ -128,7 +128,7 @@ Native modules used in your app also need to be signed. If using electron-osx-si
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-还要注意，原生模块可能产生的中间文件 不包括在内(因为它们也需要签署)。 如果你使用 [electron-packager](https://github.com/electron-userland/electron-packager) 8.1.0 之前的版本，在构建步骤中添加 `--ignore=.+\.o$` 以忽略这些文件。 Versions 8.1.0 and later ignore those files by default.
+还要注意，原生模块可能产生的中间文件 不包括在内(因为它们也需要签署)。 如果你使用 [electron-packager](https://github.com/electron-userland/electron-packager) 8.1.0 之前的版本，在构建步骤中添加 `--ignore=.+\.o$` 以忽略这些文件。 版本8.1.0以及之后的版本默认忽略这些文件.
 
 ### 上传你的应用
 
@@ -195,7 +195,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 ## Electron 使用的加密算法
 
-Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
+根据你发布应用所在的国家或地区，你可能需要提供您软件使用的加密算法的信息。 获取更多信息，请参阅[encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f)。
 
 Electron 使用下列加密算法：
 

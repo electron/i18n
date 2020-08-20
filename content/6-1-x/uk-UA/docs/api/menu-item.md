@@ -58,7 +58,7 @@ The `role` property can have following values:
 * `quit` - Quit the application.
 * `reload` - Перезавантажити поточне вікно.
 * `forceReload` - Reload the current window ignoring the cache.
-* `toggleDevTools` - Toggle developer tools in the current window.
+* `toggleDevTools` - Увімкнути інструмент розробника для поточного вікна.
 * `togglefullscreen` - Toggle full screen mode on the current window.
 * `resetZoom` - Reset the focused page's zoom level to the original size.
 * `zoomIn` - Zoom in the focused page by 10%.

@@ -12,7 +12,7 @@
 ```javascript
 const { app, powerMonitor } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
@@ -23,11 +23,11 @@ app.on('ready', () => {
 
 `powerMonitor` モジュールでは以下のイベントが発生します。
 
-### イベント: 'suspend'
+### Event: 'suspend' _Linux_ _Windows_
 
 システムがサスペンドするときに発生します。
 
-### イベント: 'resume'
+### Event: 'resume' _Linux_ _Windows_
 
 システムが再開するときに発生します。
 

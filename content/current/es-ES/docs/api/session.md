@@ -146,8 +146,8 @@ Borra la memoria caché del HTTP de la sesión.
 
 * `options` Object (opcional)
   * `origin` String (opcional) - Debe seguir la representación de `window.location.origin` `scheme://host:port`.
-  * `storages` String[] (opcional) - Los tipos de almacenamientos para limpiar, puede contener: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
-  * `quotas` String[] (opcional) - El tipo de cuotas a limpiar, puede contener: `temporary`, `persistent`, `syncable`.
+  * `storages` String[] (opcional) - Los tipos de almacenamientos para limpiar, puede contener: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. If not specified, clear all storage types.
+  * `quotas` String[] (opcional) - El tipo de cuotas a limpiar, puede contener: `temporary`, `persistent`, `syncable`. If not specified, clear all quotas.
 
 Devuelve `Promise<void>` - Se resuelve cuando los datos del almacenamiento ha sido borrado.
 
@@ -267,9 +267,10 @@ Disables any network emulation already active for the `session`. Resets to the o
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function | null
-  * `request` Object
+  * Objeto `request`
     * `hostname` String
     * `certificate` [certificate](structures/certificate.md)
+    * `validatedCertificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Resultado de la verificación de chromium.
     * `errorCode` Integer - Código de error.
   * `callback` Función
@@ -452,13 +453,74 @@ Si los archivos presentes en `hunspell_dictionaries.zip` están disponible en `h
 
 **Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
 
+#### `ses.listWordsInSpellCheckerDictionary()`
+
+Returns `Promise<String[]>` - An array of all words in app's custom dictionary. Resolves when the full dictionary is loaded from disk.
+
 #### `ses.addWordToSpellCheckerDictionary(palabra)`
 
 * `word` String - La palabra que desea agregar al diccionario
 
-Devuelve `Boolean` - Si la palabra fue correctamente escrita al diccionario personalizado.
+Devuelve `Boolean` - Si la palabra fue correctamente escrita al diccionario personalizado. This API will not work on non-persistent (in-memory) sessions.
 
 **Note:** En macOS y Windows 10 esta palabra será escrita al diccionario personalizado del sistema operativo también
+
+#### `ses.removeWordFromSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to remove from the dictionary
+
+Returns `Boolean` - Whether the word was successfully removed from the custom dictionary. This API will not work on non-persistent (in-memory) sessions.
+
+**Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well
+
+#### `ses.loadExtension(path)`
+
+* `path` String - Path to a directory containing an unpacked Chrome extension
+
+Returns `Promise<Extension>` - resolves when the extension is loaded.
+
+This method will raise an exception if the extension could not be loaded. If there are warnings when installing the extension (e.g. if the extension requests an API that Electron does not support) then they will be logged to the console.
+
+Note that Electron does not support the full range of Chrome extensions APIs.
+
+Note that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
+
+```js
+const { app, session } = require('electron')
+const path = require('path')
+
+app.on('ready', async () => {
+  await session.defaultSession.loadExtension(path.join(__dirname, 'react-devtools'))
+  // Note that in order to use the React DevTools extension, you'll need to
+  // download and unzip a copy of the extension.
+})
+```
+
+This API does not support loading packed (.crx) extensions.
+
+**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
+
+#### `ses.removeExtension(extensionId)`
+
+* `extensionId` String - ID of extension to remove
+
+Unloads an extension.
+
+**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
+
+#### `ses.getExtension(extensionId)`
+
+* `extensionId` String - ID of extension to query
+
+Returns `Extension` | `null` - The loaded extension with the given ID.
+
+**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
+
+#### `ses.getAllExtensions()`
+
+Returns `Extension[]` - A list of all loaded extensions.
+
+**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
 ### Propiedades de Instancia
 
@@ -472,6 +534,10 @@ Un array `String[]` que consiste en todos los idiomas conocidos disponibles para
 
 Un objeto [`Cookies`](cookies.md) para esta sesión.
 
+#### `ses.serviceWorkers` _Readonly_
+
+A [`ServiceWorkers`](service-workers.md) object for this session.
+
 #### `ses.webRequest` _Readonly_
 
 Un objeto [`WebRequest`](web-request.md) para esta sesión.
@@ -484,12 +550,12 @@ Un objeto [`Protocol`](protocol.md) para esta sesión.
 const { app, session } = require('electron')
 const path = require('path')
 
-app.on('ready', function () {
+app.whenReady().then(() => {
   const protocol = session.fromPartition('some-partition').protocol
-  protocol.registerFileProtocol('atom', function (request, callback) {
-    var url = request.url.substr(7)
+  protocol.registerFileProtocol('atom', (request, callback) => {
+    let url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
-  }, function (error) {
+  }, (error) => {
     if (error) console.error('Failed to register protocol')
   })
 })
@@ -502,10 +568,10 @@ Un objeto [`NetLog`](net-log.md) para esta sesión.
 ```javascript
 const { app, session } = require('electron')
 
-app.on('ready', async function () {
+app.whenReady().then(async () => {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
-  // Después de algunos eventos de red
+  // After some network events
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })

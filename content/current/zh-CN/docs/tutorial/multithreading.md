@@ -7,7 +7,7 @@
 可以在Electron的Web Workers里使用Node.js的特性。要用的话，需把`webPreferences`中的`nodeIntegrationInWorker`选项设置为`true`
 
 ```javascript
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegrationInWorker: true
   }
@@ -32,5 +32,5 @@ Web Workers支持Node.js的所有内置模块，而且`asar`档案也仍通过No
 process.dlopen = () => {
   throw new Error('Load native module is not safe')
 }
-let worker = new Worker('script.js')
+const worker = new Worker('script.js')
 ```

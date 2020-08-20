@@ -29,7 +29,7 @@ app.on('ready', () => {
 })
 ```
 
-## Methods
+## روش ها
 
 The `contentTracing` module has the following methods:
 
@@ -42,7 +42,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[به زودی منقضی می شود](modernization/promisification.md)**
 
 ### `contentTracing.getCategories()`
 
@@ -56,7 +56,7 @@ Get a set of category groups. The category groups can change as new code paths a
 * `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 * `callback` Function
 
-Start recording on all processes.
+شروع به ضبط در تمام فرآیندها.
 
 Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
 

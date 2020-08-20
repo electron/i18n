@@ -14,8 +14,10 @@ Jalan pintas terdaftar dengan modul
 ` globalShortcut </ 0> dengan menggunakan metode <a href="global-shortcut.md#globalshortcutregisteraccelerator-callback"><code> register </ 1> 
 , misalnya</p>
 
-<pre><code class="javascript">const { app, globalShortcut } = memerlukan ('elektron') app.on ('siap', () = & gt; {
-   // Daftarkan pendatang jalan pintas 'CommandOrControl + Y'.
+<pre><code class="javascript">const { app, globalShortcut } = require('electron')
+
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register ('CommandOrControl + Y', () = & gt; {
      // Lakukan hal-hal saat Y dan salah satu Command / Control ditekan.
   })})
@@ -27,7 +29,7 @@ Jalan pintas terdaftar dengan modul
 
 Di Linux dan Windows , tombol ` Command </ 0> tidak berpengaruh sehingga gunakan <code> CommandOrControl </ 0> yang mewakili <code> Command </ 0> pada macOS dan <code> Control </ 0 > di Linux dan Windows untuk menentukan beberapa akselerator.</p>
 
-<p spaces-before="0">Use <code>Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+<p spaces-before="0">Gunakan <code>Alt` dari pada `Option`. Tombol `Option` hanya tersedia di macOS, sedangkan tombol `Alt` tersedia di seluruh platform.
 
 The ` super </ 0> kunci dipetakan ke <code> Windows </ 0> tombol pada Windows dan Linux dan
  <code> Cmd </ 0> di MacOS .</p>
@@ -52,8 +54,8 @@ The ` super </ 0> kunci dipetakan ke <code> Windows </ 0> tombol pada Windows da
 * ` 0 </ 0> sampai <code> 9 </ 0></li>
 <li><code> A </ 0> ke <code> Z </ 0></li>
 <li><code> F1 </ 0> sampai <code> F24 </ 0></li>
-<li>Tanda baca seperti <code> ~ </ 0> , <code> ! </ 0> , <code> @ </ 0> , <code> # </ 0> , <code> $ </ 0> , dll.</li>
-<li><code>Plus`
+<li>Punctuation like <code>~`, `!`, `@`, `#`, `$`, etc.
+* `Plus`
 * `Ruang`
 * `Tab`
 * `Capslock`
@@ -70,10 +72,10 @@ The ` super </ 0> kunci dipetakan ke <code> Windows </ 0> tombol pada Windows da
 <li><code> VolumeUp </ 0> , <code> VolumeDown </ 0> dan <code> VolumeMute </ 0></li>
 <li><code> MediaNextTrack </ 0> , <code> MediaPreviousTrack </ 0> , <code> MediaStop </ 0> dan <code> MediaPlayPause </ 0></li>
 <li><code>Layar cetak`
-* NumPad Keys 
+* Tombol Papan Angka 
     * `num0` - `num9`
-  * `numdec` - decimal key
-  * `numadd` - numpad `+` key
-  * `numsub` - numpad `-` key
-  * `nummult` - numpad `*` key
-  * `numdiv` - numpad `÷` key
+  * `numdec` - tombol desimal
+  * `numadd` - tombol angka `+`
+  * `numsub` - tombol angka `-`
+  * `nummult` - tombl angka`*`
+  * `numdiv` - tombol angka `÷`

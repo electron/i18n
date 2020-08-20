@@ -70,7 +70,7 @@ Les développeurs veulent savoir quelles versions sont fiables (_safe_). Même d
 * Utilisez `~2.0.0` pour admettre que les corrections liées à la stabilité ou à la sécurité dans votre version `2.0.0`.
 * Utilisez `^2.0.0` pour admettre que la fonctionnalité _raisonnablement stable_ ne soit pas cassée, ainsi que la sécurité et les corrections de bogues.
 
-Ce qui est important dans le deuxième point, c'est que les applications utilisant `^` devraient quand même pouvoir s'attendre à un niveau raisonnable de stabilité. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+Ce qui est important dans le deuxième point, c'est que les applications utilisant `^` devraient quand même pouvoir s'attendre à un niveau raisonnable de stabilité. Pour cela, semver autorise un identifiant _pré-version_ pour indiquer qu'une version particulière n'est pas encore _safe_ ou _stable_.
 
 Quoi que vous choisissiez, vous devrez périodiquement remonter la version dans votre `package.json` car les changements cassés sont un fait de la vie de Chromium.
 

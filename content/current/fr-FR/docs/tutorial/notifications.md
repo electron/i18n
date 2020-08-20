@@ -5,7 +5,7 @@ Les trois systèmes d’exploitation permettent aux applications d’envoyer des
 **Remarque :** Depuis qu'il s'agit d'une API HTML5, c'est seulement disponible dans le processus de rendu. Si vous souhaitez afficher des Notifications depuis le processus principal, veuillez voir le module de [Notification](../api/notification.md).
 
 ```javascript
-let myNotification = new Notification('Title', {
+const myNotification = new Notification('Title', {
   body: 'Lorem Ipsum Dolor Sit Amet'
 })
 

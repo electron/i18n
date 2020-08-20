@@ -36,8 +36,8 @@ Show the given file in a file manager. If possible, select the file.
 
 * `url` String - Max 2081 characters on Windows, or the function returns false.
 * `options` Object (optional)
-  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. _macOS_
-  * `workingDirectory` String (optional) - The working directory. _Windows_
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. 默认值为 `true`。 _macOS_
+  * `workingDirectory` 字符串(可选) - 当前工作目录。 _Windows_
 
 Returns `Boolean` - Whether an application was available to open the URL.
 
@@ -49,8 +49,8 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `url` String - Max 2081 characters on windows.
 * `options` Object (optional)
-  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. _macOS_
-  * `workingDirectory` String (optional) - The working directory. _Windows_
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. 默认值为 `true`。 _macOS_
+  * `workingDirectory` 字符串(可选) - 当前工作目录。 _Windows_
 
 Returns `Promise<void>`
 

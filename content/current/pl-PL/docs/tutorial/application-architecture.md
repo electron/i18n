@@ -4,9 +4,9 @@ Zanim zagłębimy się w Electron API, musimy omówić dwa typy procesów dostę
 
 ## Proces główny i renderer
 
-In Electron, the process that runs `package.json`'s `main` script is called __the main process__. Skrypt który uruchamia proces główny, wyświetla GUI przez tworzenie kolejnych stron HTML. Aplikacja korzystająca z Electrona zawsze ma tylko jeden proces główny.
+W Electronie proces, który wykonuje skrypt `main` z pliku `package.json` nazywa się __proces główny__. Skrypt który uruchamia proces główny, wyświetla GUI przez tworzenie kolejnych stron HTML. Aplikacja korzystająca z Electrona zawsze ma tylko jeden proces główny.
 
-Ponieważ Electron używa Chromium do wyświetlania stron internetowych, wykorzystywana jest również wielo-procesowa architektura Chromium. Each web page in Electron runs in its own process, which is called __the renderer process__.
+Ponieważ Electron używa Chromium do wyświetlania stron internetowych, wykorzystywana jest również wielo-procesowa architektura Chromium. Każda strona internetowa w Electronie działa w swoim własnym procesie, który nazywa się __proces renderowania__.
 
 W normalnych przeglądarkach, strony internetowe zazwyczaj są uruchamiane w tzw. sandboxie i nie posiadają dostępu do zasobów natywnych. Użytkownicy Electron mają jednak możliwość użycia interfejsów API Node.js na stronach internetowych, co pozwala na niskopoziomowe interakcje z systemem operacyjnym.
 
@@ -20,7 +20,8 @@ W aplikacji Electron wywoływanie natywnego API od GUI jest niedozwolone, poniew
 
 > #### Notatka: Komunikacja pomiędzy procesami
 > 
-> W Electronie mamy wiele możliwości komunikacji między głównym procesem a procesami renderowania, takie jak [`ipcRenderer`](../api/ipc-renderer.md) oraz moduły  [`ipcMain`](../api/ipc-main.md) do wysyłania komunikatów, a również moduł [remote](../api/remote.md)  do komunikacji RPC. Tutaj jest FAQ o tym [jak udostępniać zasoby między stronami internetowymi](../faq.md#how-to-share-data-between-web-pages).
+> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+
 
 ## Używanie Electron API
 
@@ -42,16 +43,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Ponieważ komunikacja między procesami jest możliwa, proces renderujący może wezwać główny proces do wykonania zadań. Electron jest wyposażony w moduł `remote`, który udostępnia API zwykle dostępne tylko w głównym procesie. Aby utworzyć `BrowserWindow` z procesu renderującego, użyjemy remote jako pośrednika:
+Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
 
 ```javascript
-// To zadziała w procesie renderowania, ale będzie 
-// `undefined` w głównym procesie:
-const { remote } = require('electron')
-const { BrowserWindow } = remote
+// In the main process:
+const { ipcMain } = require('electron')
 
-const win = new BrowserWindow()
+ipcMain.handle('perform-action', (event, ...args) => {
+  // ... do something on behalf of the renderer ...
+})
+
+// In the renderer process:
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.invoke('perform-action', ...args)
 ```
+
+Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
 
 ## Używanie API Node.js
 
@@ -88,4 +96,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 Jest jedno ważne zastrzeżenie: natywne moduły Node.js muszą zostać przekompilowane, by móc je wykorzystać w Electronie.
 
-The vast majority of Node.js modules are _not_ native. Tylko około 400 z ~650,000 modułów to moduły natywne. Jednak jeśli potrzebujesz moduły natywne, przejrzyj [ten poradnik jak zrekompilować je dla aplikacji Electron](./using-native-node-modules.md).
+Zdecydowana większość modułów Node.js _to nie_ moduły natywne. Tylko około 400 z ~650,000 modułów to moduły natywne. Jednak jeśli potrzebujesz moduły natywne, przejrzyj [ten poradnik jak zrekompilować je dla aplikacji Electron](./using-native-node-modules.md).

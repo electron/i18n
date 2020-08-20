@@ -133,7 +133,7 @@ headings:
   languages: زبان‌ ها
 taglines:
   languages: محتوای بومی سازی شده توسط جامعه ی توسعه دهندگان جهانی فوق العاده ی ما.
-  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "همکاری در ترجمه"
 footer:
   see_the_faq: پرسش های متداول را ببینید
@@ -215,6 +215,8 @@ pages:
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: حامیان مالی
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: شروع کنید!
   fiddle:

@@ -11,15 +11,12 @@ const (constanta) { BrowserWindow } = require- cere ('electron')
 // Sau utilizează `remote`-la distanță din procesul renderer.
 // const { BrowserWindow } = require('electron').remote
 
-let win = new BrowserWindow ( { width: 800, height: 600 })
-win.on('closed', () => {
-win = null
-})
+const win = new BrowserWindow({ width: 800, height: 600 })
 
-//Încărcarea URL la distanță
+// Load a remote URL
 win.loadURL('https://github.com')
 
-// Sau încărcarea unui fișier HTML local
+// Or load a local HTML file
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -141,7 +138,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * `fullscreenable` Boolean(opțional) - Punerea ferestrei în ecran complet. În macOS, butonul de maximizare/zoom ar trebui comutat la modul full screen-ecran complet sau maximizarea ferestrei. Modul implicit este `true-adevărat`.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Modul implicit este `false-fals`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Modul implicit este `false-fals`.
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. Modul implicit este `false-fals`.
   * `title` String (opțional) - Titlul ferestrei în modul implicit. Modul implicit este `"Electron"`. Dacă eticheta HTML`<title>` este definită în fișierul HTML încărcat de `loadURL()`, această propietate va fi ignorată.
   * `icon` ([NativeImage](native-image.md) | String) (opțional) - Icoana ferestrei. În Windows este recomandabil a se folosi icoanele `ICO` pentru a avea cele mai bune efecte visuale, pe care le poți lăsa nedefinite în așa fel în cât icoana executabilă va fi folosită.
   * `show` Boolean (optional) - Whether window should be shown when created. Modul implicit este `true-adevărat`.
@@ -156,7 +153,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * <backgroundColor</code> String (opțional) - Culoarea de fond a ferestrei ca valoare hexadecimală, ca ` #66CD00` sau ` #FFF` sau ` #80FFFFFF` ( alpha în #AARRGGBB formatul este suportat dacă `transparent` este setat la `true-adevărat`). Modul implicit este `#FFF` (alb).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. Modul implicit este `true-adevărat`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Modul implicit este `false-fals`.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. Modul implicit este `false-fals`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Modul implicit este `false-fals`. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Valorile posibile sunt:
@@ -180,7 +177,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Modul implicit este `true-adevărat`.
     * `session` [Session-Sesiune](session.md#class-session)(opțional) - Setează sesiunea utilizată de pagină. În loc să trimiți direct obiectul Session-Sesiune, poți alege să folosești în loc opțiunea `partition`, care acceptă o partiție a șirului. Atunci când sunt obținute`session-sesiune<code> și <code>partition-partiție`, <0>session</code> va fi cel preferat. Modul implicit este modul implicit al sesiunii.
     * `partition` String(opțional)- Setează sesiunea utilizată de pagină în conformitate cu partiția șirului sesiunii. Dacă `partition` începe cu `persist:`, pagina va utiliza o sesiune persistentă valabilă tuturor paginilor din interiorul aplicației cu aceași`partitio-partiție`. Dacă nu există prefixul `persist:`, pagina va folosi o sesiune în-memorie. Asignând aceași`partition-partiție`, pagini multiple pot arăta aceași sesiune. Modul implicit este modul implicit al sesiunii.
-    * `affinity` String(opțional) - Când este specificată, paginile cu aceeași`affinity-afinitate` vor rula în același proces de redare. Notează că odată reutilizat procesul de redare, anumite opțiuni `webPreferences-PreferințeWeb` vor fi afișate între paginile web chiar dacă ai specificat valori diferite pentru fiecare, inclusiv dar fară limită la `preload`, `sandbox` și `nodeIntegration`. Așa că este preferabil să utilizezi aceleași `webPreferences-PreferințeWeb` pentru toate paginile cu aceași `affinity-afinitate`. _Această propietate este experimentală_
+    * `affinity` String(opțional) - Când este specificată, paginile cu aceeași`affinity-afinitate` vor rula în același proces de redare. Notează că odată reutilizat procesul de redare, anumite opțiuni `webPreferences-PreferințeWeb` vor fi afișate între paginile web chiar dacă ai specificat valori diferite pentru fiecare, inclusiv dar fară limită la `preload`, `sandbox` și `nodeIntegration`. Așa că este preferabil să utilizezi aceleași `webPreferences-PreferințeWeb` pentru toate paginile cu aceași `affinity-afinitate`. _Deprecated_
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. Modul implicit este `true-adevărat`.
     * `webSecurity` Boolean (opțional)- Când este `false-fals`, va dezactiva politica cu aceași origine ( de obicei website-urile folosite drept test de către oameni), și setează `allowRunningInsecureContent` la `true-adevărat` dacă această opțiune nu a fost deja setată de către utilizator. Modul implicit este `true-adevărat`.
@@ -207,6 +204,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `backgroundThrottling` Boolean (opțional)- Indiferent dacă accelerați animațiile și cronometrele când pagina devine fundal. Aceasta de asemenea afectează [Page Visibility API](#page-visibility). Modul implicit este `true-adevărat`.
     * `offscreen` Boolean (opțional) - Dacă se activează interpretarea offscreen-oprirea ecranului pentru fereastra browser-ului. Modul implicit este`false-fals`. Pentru mai multe detalii vezi [offscreen rendering tutorial](../tutorial/offscreen-rendering.md).
     * `contextIsolation` Boolean (opțional) - Dacă se deschid API-urile Electronilor și script-urile specificate ale `preload` într-un context JavaScript separat. Modurile implicite sunt `false-fals`. În contextul în care script-ul `preload` încă este activ poate avea acces total la globalele `document` și `window-fereastră`, dar va folosi propiul set de construcții JavaScript (`Array`, `Object`, `JSON`, etc.) și vor fi izolate de orice schimbare adusă la mediul global al paginii încărcate. API-ul Electronului va fi valabil doar în script-ul `preload` și nu al paginii încărcate. Această opțiune trebuie utilizată atunci când încărcarea conținutului la distanță potențial necredibil pentru a asigura conținutul încărcat nu poate altera scriptul ` preload-preîncărcare ` și orice API-uri Electron utilizate. Această opțiune folosește aceași tehnică utilizată de [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Poți accesa acest context în instrumentele dev selectând intrarea 'Electron Isolated Context' din caseta combo din partea de sus a barei Consolei.
+    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`.  The default is `false`. In Electron 12, the default will be changed to `true`. _Deprecated_
     * `nativeWindowOpen` Boolean (opțional)- Folosirea nativei `window.open()`. Modul implicit este`false-fals`. Fereastra copil va avea mereu integrarea nodului dezactivată doar dacă `nodeIntegrationInSubFrames` este adevărată. **Note-Notă:** Această opțiune este în momentul actual în fază experimentală.
     * `webviewTag` Boolean (opțional) - Activarea [`<webview>` tag](webview-tag.md). Modul implicit este`false-fals`. **Note-Notă:** Script-ul `preload` configurat pentru `<webview>` nu va avea integrarea nodului activată când este executată așa că ar trebui să asiguri controlul la distanță/conținuturile noncredibile, nu sunt în stare să creeze o etichetă `<webview>` cu un script malicios `preload-preîncărcare`. Poți folosi evenimentul `will-attach-webview` în [webContents](web-contents.md) pentru a îndepărta script-ul `preload` și a valida ori altera setările inițiale ale `<webview>`.
     * `additionalArguments` String[] (optional) - O listă de șiruri care vor fi adăugate la `process.argv` în procesul de redare a acestei aplicații. Utilizat pentru a transmite mici bitsi de date în jos către preîncărcarea script-urilor în procesul de redare.
@@ -217,7 +215,13 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
     * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Modul implicit este `false-fals`.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Modul implicit este `true-adevărat`.
+    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). Modul implicit este `true-adevărat`.
+    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
+      * `none` - Disables code caching
+      * `code` - Heuristic based code caching
+      * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
+      * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
@@ -484,7 +488,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 Returns `BrowserWindow` - The window with the given `id`.
 
-#### `BrowserWindow.addExtension(path)`
+#### `BrowserWindow.addExtension(path)` _Deprecated_
 
 * `path` String
 
@@ -494,7 +498,9 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-#### `BrowserWindow.removeExtension(name)`
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+
+#### `BrowserWindow.removeExtension(name)` _Deprecated_
 
 * `name` String
 
@@ -502,13 +508,17 @@ Remove a Chrome extension by name.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-#### `BrowserWindow.getExtensions()`
+**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+
+#### `BrowserWindow.getExtensions()` _Deprecated_
 
 Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-#### `BrowserWindow.addDevToolsExtension(path)`
+**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+
+#### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
 * `path` String
 
@@ -520,7 +530,9 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-#### `BrowserWindow.removeDevToolsExtension(name)`
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+
+#### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
 * `name` String
 
@@ -528,7 +540,9 @@ Remove a DevTools extension by name.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-#### `BrowserWindow.getDevToolsExtensions()`
+**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+
+#### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
 Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
@@ -542,6 +556,8 @@ console.log(installed)
 ```
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+
+**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 ### Propietățile inițiale
 
@@ -562,13 +578,57 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 #### `win.id` _Readonly_
 
-A `Integer` property representing the unique ID of the window.
+A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
 
 #### `win.autoHideMenuBar`
 
 A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
 
 If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+
+#### `win.simpleFullScreen`
+
+A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.
+
+#### `win.fullScreen`
+
+A `Boolean` property that determines whether the window is in fullscreen mode.
+
+#### `win.visibleOnAllWorkspaces`
+
+A `Boolean` property that determines whether the window is visible on all workspaces.
+
+**Note:** Always returns false on Windows.
+
+#### `win.shadow`
+
+A `Boolean` property that determines whether the window has a shadow.
+
+#### `win.menuBarVisible` _Windows_ _Linux_
+
+A `Boolean` property that determines whether the menu bar should be visible.
+
+**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+
+#### `win.kiosk`
+
+A `Boolean` property that determines whether the window is in kiosk mode.
+
+#### `win.documentEdited` _macOS_
+
+A `Boolean` property that specifies whether the window’s document has been edited.
+
+The icon in title bar will become gray when set to `true`.
+
+#### `win.representedFilename` _macOS_
+
+A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+
+#### `win.title`
+
+A `String` property that determines the title of the native window.
+
+**Note:** The title of the web page can be different from the title of the native window.
 
 #### `win.minimizable`
 
@@ -715,7 +775,7 @@ Returns `Boolean` - Whether the window is in fullscreen mode.
 
 Enters or leaves simple fullscreen mode.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
 
 #### `win.isSimpleFullScreen()` _macOS_
 
@@ -725,16 +785,15 @@ Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
 
 Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_
+#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_ _Linux_
 
 * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
+ * `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
 
 This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
 
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.
-
-Calling this function with a value of `0` will remove any previously set aspect ratios.
+Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
+{ width: 40, height: 50 }. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.
 
 #### `win.setBackgroundColor(backgroundColor)`
 
@@ -778,6 +837,10 @@ console.log(win.getBounds())
 
 Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
+#### `win.getBackgroundColor()`
+
+Returns `String` - Gets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
@@ -803,7 +866,7 @@ Disable or enable the window.
 
 #### `win.isEnabled()`
 
-Returns Boolean - whether the window is enabled.
+Returns `Boolean` - whether the window is enabled.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -855,15 +918,11 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
-
-**[Dezaprobată](modernization/property-updates.md)**
+Sets whether the window can be manually resized by the user.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
-
-**[Dezaprobată](modernization/property-updates.md)**
+Returns `Boolean` - Whether the window can be manually resized by the user.
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
@@ -871,15 +930,11 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 Sets whether the window can be moved by user. On Linux does nothing.
 
-**[Dezaprobată](modernization/property-updates.md)**
-
 #### `win.isMovable()` _macOS_ _Windows_
 
 Returns `Boolean` - Whether the window can be moved by user.
 
 On Linux always returns `true`.
-
-**[Dezaprobată](modernization/property-updates.md)**
 
 #### `win.setMinimizable(minimizable)` _macOS_ _Windows_
 
@@ -887,15 +942,11 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually minimized by user. On Linux does nothing.
 
-**[Dezaprobată](modernization/property-updates.md)**
-
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+Returns `Boolean` - Whether the window can be manually minimized by the user.
 
 On Linux always returns `true`.
-
-**[Dezaprobată](modernization/property-updates.md)**
 
 #### `win.setMaximizable(maximizable)` _macOS_ _Windows_
 
@@ -903,15 +954,11 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually maximized by user. On Linux does nothing.
 
-**[Dezaprobată](modernization/property-updates.md)**
-
 #### `win.isMaximizable()` _macOS_ _Windows_
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
 On Linux always returns `true`.
-
-**[Dezaprobată](modernization/property-updates.md)**
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -919,13 +966,9 @@ On Linux always returns `true`.
 
 Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
-**[Dezaprobată](modernization/property-updates.md)**
-
 #### `win.isFullScreenable()`
 
 Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
-
-**[Dezaprobată](modernization/property-updates.md)**
 
 #### `win.setClosable(closable)` _macOS_ _Windows_
 
@@ -933,15 +976,11 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 Sets whether the window can be manually closed by user. On Linux does nothing.
 
-**[Dezaprobată](modernization/property-updates.md)**
-
 #### `win.isClosable()` _macOS_ _Windows_
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
 On Linux always returns `true`.
-
-**[Dezaprobată](modernization/property-updates.md)**
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
@@ -1024,7 +1063,7 @@ Makes the window not show in the taskbar.
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Enters or leaves kiosk mode.
 
 #### `win.isKiosk()`
 
@@ -1288,13 +1327,9 @@ Sets whether the window menu bar should hide itself automatically. Once set the 
 
 If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
-**[Dezaprobată](modernization/property-updates.md)**
-
 #### `win.isMenuBarAutoHide()`
 
 Returns `Boolean` - Whether menu bar automatically hides itself.
-
-**[Dezaprobată](modernization/property-updates.md)**
 
 #### `win.setMenuBarVisibility(visible)` _Windows_ _Linux_
 
@@ -1306,11 +1341,9 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 Returns `Boolean` - Whether the menu bar is visible.
 
-#### `win.setVisibleOnAllWorkspaces(visible[, options])`
+#### `win.setVisibleOnAllWorkspaces(visible)`
 
 * `visible` Boolean
-* `options` Object (optional)
-  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows _deprecated_
 
 Sets whether the window should be visible on all workspaces.
 

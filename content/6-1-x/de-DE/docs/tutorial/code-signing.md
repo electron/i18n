@@ -16,7 +16,7 @@ If you are building an Electron app that you intend to package and distribute, i
 
 # Signierung von macOS builds
 
-Before signing macOS builds, you must do the following:
+Um macOS-Builds zu signieren, musst du folgendes tun:
 
 1. Enroll in the [Apple Developer Program](https://developer.apple.com/programs/) (requires an annual fee)
 2. Download and install [Xcode](https://developer.apple.com/xcode)

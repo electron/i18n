@@ -6,8 +6,8 @@
 
 ## 自动更新原生界面
 
-"Native Interfaces" include the file picker, window border, dialogs, context menus and more; basically, anything where the UI comes from macOS and not your app. As of Electron 7.0.0, the default behavior is to opt in to this automatic theming from the OS. If you wish to opt out and are using Electron
-&gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let your opt out of this theming, due to the use of the macOS 10.14 SDK.
+"Native Interfaces" include the file picker, window border, dialogs, context menus, and more; basically, anything where the UI comes from macOS and not your app. As of Electron 7.0.0, the default behavior is to opt into this automatic theming from the OS. If you wish to opt-out and are using Electron
+&gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let you opt-out of this theming, due to the use of the macOS 10.14 SDK.
 
 ## 自动更新你的接口
 

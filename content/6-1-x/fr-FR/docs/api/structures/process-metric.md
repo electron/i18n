@@ -1,14 +1,14 @@
 # Objet ProcessMetric
 
 * `pid` Integer - Id du processus.
-* `type` String - Process type. One of the following values:
-  * `Browser`
+* `type` String - Type de processus. Une des valeurs suivantes:
+  * `Navigateur`
   * `Tab`
-  * `Utility`
+  * `Utilitaire`
   * `Zygote`
-  * `Sandbox helper`
+  * `Assistant bac à sable`
   * `GPU`
-  * `Pepper Plugin`
-  * `Pepper Plugin Broker`
-  * `Unknown`
+  * `Plugin Pepper`
+  * `Broker de plugin Pepper`
+  * `Inconnu`
 * `cpu` [CPUUsage](cpu-usage.md) - Usage CPU du processus.

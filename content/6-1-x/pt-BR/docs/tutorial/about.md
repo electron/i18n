@@ -2,9 +2,9 @@
 
 [Electron](https://electronjs.org) é uma biblioteca de código aberto desenvolvida pelo GitHub para o desenvolvimento de aplicativos desktop multiplataforma usando HTML, CSS e JavaScript. O Electron consegue isso combinando [Chromium](https://www.chromium.org/Home) e [Node.js](https://nodejs.org) em um único ambiente de execução. Aplicativos Electron podem ser empacotados para Mac, Windows e Linux.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+O Electron começou em 2013 como um framework no qual, [Atom](https://atom.io), o editor de texto hackeável do GitHub, seria feito. Os dois se tornaram código aberto na primavera de 2014.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+Desde então, ele se tornou uma ferramenta popular usada por desenvolvedores de código aberto, startups e empresas estabelecidas. [Veja quem está desenvolvendo com Electron](https://electronjs.org/apps).
 
 Para aprender mais sobre os contribuidores e lançamentos do Electron ou para começar a criar apps com o Electron, confira nosso [guia rápido](quick-start.md).
 
@@ -14,7 +14,7 @@ O Electron é mantido por uma equipe no GitHub, juntamente com um grupo de [cont
 
 ## Versões
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Electron é atualizado](https://github.com/electron/electron/releases) frequentemente. Nós atualizamos quando há correções de bugs significativas, novas APIs ou para atualizações do Chromium ou Node.js.
 
 ### Atualizando as Dependências
 
@@ -22,7 +22,7 @@ A versão do Chromium do Electron normalmente é atualizada uma ou duas semanas 
 
 Quando uma nova versão do Node.js é lançada, o Electron espera normalmente cerca de um mês antes de atualizá-lo, de modo a garantir uma versão mais estável.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this _just works_ but sometimes it means patching Node.js.
+No Electron, o Node.js e o Chromium compartilham uma única instância do V8 — geralmente a versão que o Chromium está usando. Most of the time this _just works_ but sometimes it means patching Node.js.
 
 
 ### Controle de Versão

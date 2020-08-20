@@ -1,10 +1,10 @@
 # แก้จุดบกพร่อง บน macOS
 
-If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
+หากคุณพบปัญหาหรือปัญหาในอิเล็กตรอนที่คุณเชื่อว่าไม่ได้เกิดขึ้น โดยโปรแกรม JavaScript ของคุณ แต่โดยอิเล็กตรอนตัวเอง, การแก้จุดบกพร่องสามารถ จะยุ่งยากเล็กน้อย, โดยเฉพาะอย่างยิ่งสําหรับนักพัฒนาไม่ได้ใช้พื้นเมือง / C ++ ตรวจ แก้ จุด บกพร่อง However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
 
-## Requirements
+## ข้อกําหนด
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-macos.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-macos.md). ในขณะที่คุณสามารถ แนบและแก้ปัญหาอิเล็กตรอนที่คุณสามารถดาวน์โหลดได้โดยตรงคุณจะ พบว่ามันเป็นอย่างมากเพิ่มประสิทธิภาพการแก้จุดบกพร่องมากขึ้น ยาก: ดีบักเกอร์จะไม่สามารถแสดงเนื้อหาของทุก ตัวแปรและเส้นทางการดําเนินการอาจดูแปลกเพราะ inlining, หางโทรและเพิ่มประสิทธิภาพคอมไพเลอร์อื่น ๆ
 
 * **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
@@ -13,7 +13,7 @@ If you experience crashes or issues in Electron that you believe are not caused 
    command script import ~/electron/src/tools/lldb/lldbinit.py
    ```
 
-## Attaching to and Debugging Electron
+## การแนบและการแก้จุดบกพร่องอิเล็กตรอน
 
 To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
 
@@ -23,11 +23,11 @@ $ lldb ./out/Testing/Electron.app
 Current executable set to './out/Testing/Electron.app' (x86_64).
 ```
 
-### Setting Breakpoints
+### การตั้งค่าจุดสั่งหยุด
 
 LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
 
-Relevant code files can be found in `./shell/`.
+ไฟล์รหัสที่เกี่ยวข้องสามารถพบได้ใน`./เชลล์/`
 
 Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
 

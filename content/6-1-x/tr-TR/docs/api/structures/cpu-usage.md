@@ -1,4 +1,4 @@
 # CPUKullanımı Nesnesi
 
-* `percentCPUUsage` Number - getCPUUsage son çağırmadaki CPU yani işlemcinin yüzdesi. İlk çağrı 0 olarak döner.
-* `idleWakeupsPerSecond` Number - getCPUUsage son çağırmadaki ortalama saniye başına boşta durma ve uyanma sayısı (js: number). İlk çağrı 0 olarak döner. Windows'ta her zaman 0 olarak döner.
+* ` yüzde CPU Kullanımı `: Number - CPU Kullanımı almak için son çağrıdan bu yana kullanılan CPU yüzdesi. İlk çağrı 0 değerini döndürür.
+* `idleWakeupsPerSecond` Sayı - cpu kullanımı için son çağrıdan bu yana saniyede ortalama boşta kalan işlemci uyandırma sayısı. İlk çağrı 0 değerini döndürür. Windows'ta her zaman 0 döndürür.

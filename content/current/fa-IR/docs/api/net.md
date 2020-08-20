@@ -19,7 +19,7 @@ Example usage:
 
 ```javascript
 const { app } = require('electron')
-app.on('ready', () => {
+app.whenReady().then(() => {
   const { net } = require('electron')
   const request = net.request('https://github.com')
   request.on('response', (response) => {
@@ -38,7 +38,7 @@ app.on('ready', () => {
 
 The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
-## Methods
+## روش ها
 
 The `net` module has the following methods:
 

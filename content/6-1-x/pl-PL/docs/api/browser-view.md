@@ -73,10 +73,10 @@ Returns `Boolean` - Whether the view is destroyed.
 #### `view.setAutoResize(options)` _Eksperymentalne_
 
 * `options` Object
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
-  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
-  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
+  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` domyślnie.
+  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` domyślnie.
+  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` domyślnie.
+  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` domyślnie.
 
 #### `view.setBounds(bounds)` _Eksperymentalne_
 

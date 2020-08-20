@@ -50,27 +50,23 @@ Unsupported options are:
 
 ### `GOOGLE_API_kunci`
 
-You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
 
 ```javascript
 proses.env.GOOGLE_API_kunci = 'kamu_kunci_di sini'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Secara default, kunci Google API yang baru dibuat mungkin tidak diizinkan untuk membuat permintaan geocoding. Untuk mengaktifkan permintaan geocoding, kunjungi halaman ini </ 0> .</p> 
+By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
 
-
+N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
 ### `ELEKTRON_tidak_ASAR`
 
 Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
-
-
 ### `ELECTRON_menjalankan_sebagai_NODE`
 
 Mulai proses sebagai proses Node.js normal.
-
-
 
 ### ` ELECTRON_tidak_melapirkan_menghibur </ 0>  <em x-id="4"> jendela</ 1></h3>
 
@@ -85,32 +81,23 @@ Mulai proses sebagai proses Node.js normal.
 Set the trash implementation on Linux. Default is `gio`.
 
 Options:
-
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
 * `kioclient`
-
-
 
 ## Variabel Pembangunan
 
 Variabel lingkungan berikut ditujukan terutama untuk keperluan pengembangan dan debugging.
 
 
-
-
 ### `ELECTRON_memungkinkan_LOGGING`
 
 Mencetak log internal Chrome ke konsol.
 
-
-
 ### `ELECTRON_LOG_ASAR_READS`
 
 When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
-
-
 
 ### `ELECTRON_memungkinkan_tumpuka _DUMPING`
 
@@ -124,12 +111,18 @@ Variabel lingkungan ini tidak akan bekerja jika ` crashReporter </ 0> dimulai.</
 
 <p spaces-before="0">Variabel lingkungan ini tidak akan bekerja jika <code> crashReporter </ 0> dimulai.</p>
 
-<h3 spaces-before="0"><code>ELECTRON_OVERRIDE_DIST_PATH`</h3> 
+<h3 spaces-before="0"><code>ELECTRON_OVERRIDE_DIST_PATH`</h3>
 
 When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Pemakaian:
 
-
-
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```
+
+## Set By Electron
+
+Electron sets some variables in your environment at runtime.
+
+### `ORIGINAL_XDG_CURRENT_DESKTOP`
+
+This variable is set to the value of `XDG_CURRENT_DESKTOP` that your application originally launched with.  Electron sometimes modifies the value of `XDG_CURRENT_DESKTOP` to affect other logic within Chromium so if you want access to the _original_ value you should look up this environment variable instead.

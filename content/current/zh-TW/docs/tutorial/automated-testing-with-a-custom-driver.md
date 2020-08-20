@@ -1,4 +1,4 @@
-# Automated Testing with a Custom Driver
+# 使用自訂驅動程式進行自動測試
 
 To write automated tests for your Electron app, you will need a way to "drive" your application. [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](http://webdriver.io/). However, it's also possible to write your own custom driver using node's builtin IPC-over-STDIO. The benefit of a custom driver is that it tends to require less overhead than Spectron, and lets you expose custom methods to your test suite.
 
@@ -9,9 +9,9 @@ const childProcess = require('child_process')
 const electronPath = require('electron')
 
 // spawn the process
-let env = { /* ... */ }
-let stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-let appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+const env = { /* ... */ }
+const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
+const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
 // listen for IPC messages from the app
 appProcess.on('message', (msg) => {
@@ -50,7 +50,7 @@ class TestDriver {
     // handle rpc responses
     this.process.on('message', (message) => {
       // pop the handler
-      let rpcCall = this.rpcCalls[message.msgId]
+      const rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
       // reject/resolve
@@ -70,7 +70,7 @@ class TestDriver {
   // to use: driver.rpc('method', 1, 2, 3).then(...)
   async rpc (cmd, ...args) {
     // send rpc request
-    let msgId = this.rpcCalls.length
+    const msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
     return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
   }
@@ -92,10 +92,10 @@ async function onMessage ({ msgId, cmd, args }) {
   let method = METHODS[cmd]
   if (!method) method = () => new Error('Invalid method: ' + cmd)
   try {
-    let resolve = await method(...args)
+    const resolve = await method(...args)
     process.send({ msgId, resolve })
   } catch (err) {
-    let reject = {
+    const reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
@@ -119,7 +119,7 @@ Then, in your test suite, you can use your test-driver as follows:
 const test = require('ava')
 const electronPath = require('electron')
 
-let app = new TestDriver({
+const app = new TestDriver({
   path: electronPath,
   args: ['./app'],
   env: {

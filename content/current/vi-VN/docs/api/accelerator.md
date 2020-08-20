@@ -14,7 +14,7 @@ Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module 
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Do stuff when Y and either Command/Control is pressed.
@@ -46,7 +46,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `0` đến `9`
 * `A` đến `Z`
 * `F1` đến `F24`
-* Các dấu câu như `~`, `!`, `@`, `#`, `$`, vâng vâng.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Cộng`
 * `Dấu cách`
 * `Tab`

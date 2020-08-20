@@ -325,7 +325,7 @@ Disables any network emulation already active for the `session`. Resets to the o
   * `callback` Function
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
       * `0` - Indicates success and disables Certificate Transparency verification.
-      * `-2` - Indicates failure.
+      * `-2` - Вказує на збій.
       * `-3` - Uses the verification result from chromium.
 
 Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.

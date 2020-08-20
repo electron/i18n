@@ -5,7 +5,7 @@ I tre sistemi operativi menzionati nel titolo forniscono alle applicazioni gli s
 **Nota:** Essendo questa una API HTML5 è disponibile nel solo processo di rendering. Se vuoi visualizzare le notifiche per mezzo del processo principale controlla la documentazione del modulo [Notification](../api/notification.md).
 
 ```javascript
-let myNotification = new Notification('Title', {
+const myNotification = new Notification('Title', {
   body: 'Lorem Ipsum Dolor Sit Amet'
 })
 
@@ -39,7 +39,7 @@ Ciò ti permette di determinare se Windows eliminerà in silenzio le notifiche o
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+Le notifiche sono dirette su macOS, ma dovresti considerare le [Linee Guida Interfaccia Apple Riguardanti Notifiche](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Nota che le notifiche sono limitate di taglia a 256 byte e saranno troncate se eccederai questo limite.
 

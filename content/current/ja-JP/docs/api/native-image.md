@@ -239,13 +239,9 @@ console.log(image)
 
 画像をテンプレート画像としてマークします。
 
-**[非推奨](modernization/property-updates.md)**
-
 #### `image.isTemplateImage()`
 
 戻り値 `Boolean` - 画像がテンプレート画像かどうか。
-
-**[非推奨](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 

@@ -159,7 +159,7 @@ Rückgabewert:
 <li><p spaces-before="0"><code>type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).</p>
 * `userInfo` Objekt - Enthält app-spezifischen Zustand, der von der Aktivität gespeichert wird.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Wird ausgelöst wenn [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) auf einem anderen Gerät fortgesetzt wird. Wenn Sie den zu übertragenden Status aktualisieren müssen, sollten Sie `event.preventDefault()` sofort aufrufen, ein neues `userInfo-Wörterbuch` erstellen und `app.updateCurrentActiviy()` zeitnah aufrufen. Andernfalls wird die Operation fehlschlagen und `Continue-Activity-error` wird aufgerufen.
 
 ### Event: 'new-window-for-tab' _macOS_
 
@@ -168,7 +168,7 @@ Rückgabewert:
 * ` Ereignis </ 0>  Ereignis</li>
 </ul>
 
-<p spaces-before="0">Emitted when the user clicks the native macOS new tab button. The new
+<p spaces-before="0">Emittiert, wenn der Benutzer auf die neue Registerkarte macOS mit systemeigenem MacOS klickt. The new
 tab button is only visible if the current <code>BrowserWindow` has a `tabbingIdentifier`</p>
 
 ### Event: 'browser-window-blur'
@@ -178,7 +178,7 @@ Rückgabewert:
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>window` [BrowserWindow](browser-window.md)
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+Wird ausgegeben, wenn ein [ browserWindow ](browser-window.md) ausgeblendet wird.
 
 ### Event: 'browser-window-focus'
 
@@ -350,7 +350,7 @@ This event will be emitted inside the primary instance of your application when 
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**Hinweis:** Zusätzliche Kommandozeilenargumente könnten von Chromium hinzugefügt werden, wie `--original-process-start-time`.
 
 ### Event: 'desktop-capturer-get-sources'
 

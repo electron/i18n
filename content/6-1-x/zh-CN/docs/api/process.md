@@ -8,7 +8,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ## Sandbox
 
-In sandboxed renderers the `process` object contains only a subset of the APIs:
+在沙盒化的渲染进程中， `process` 对象只包含了API的一个子集:
 - `crash()`
 - `hang()`
 - `getCreationTime()`
@@ -120,7 +120,7 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 ### `process.getCreationTime()`
 
-Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+返回 `Number | null` -从纪元开始的毫秒数，如果信息不可用则返回`null`
 
 Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
 

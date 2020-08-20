@@ -12,7 +12,7 @@ Halimbawa ng:
 ```javascript
 const { app, powerMonitor } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
@@ -23,11 +23,11 @@ app.on('ready', () => {
 
 Ang modyul ng `powerMonitor` ay maglalabas ng mga sumusunod na event:
 
-### Event: 'isuspindi'
+### Event: 'suspend' _Linux_ _Windows_
 
 Ay lalabas kapag ang sistema ay sususpindihin.
 
-### Event: 'magpatuloy'
+### Event: 'resume' _Linux_ _Windows_
 
 Ay lalabas kapag ang sistema ay nagpapatuloy.
 

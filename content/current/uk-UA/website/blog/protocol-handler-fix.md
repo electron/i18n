@@ -18,7 +18,7 @@ macOS and Linux are **not vulnerable** to this issue.
 
 ## Mitigation
 
-We've published new versions of Electron which include fixes for this vulnerability: [`1.8.2-beta.5`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5), [`1.7.12`](https://github.com/electron/electron/releases/tag/v1.7.12), and [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17). We urge all Electron developers to update their apps to the latest stable version immediately.
+Ми опублікували нові версії Electron, які містять виправлення для цієї уразливості: [`1.8.2-beta.5`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5), [`1.7.12`](https://github.com/electron/electron/releases/tag/v1.7.12), та [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17). We urge all Electron developers to update their apps to the latest stable version immediately.
 
 If for some reason you are unable to upgrade your Electron version, you can append `--` as the last argument when calling [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows), which prevents Chromium from parsing further options. The double dash `--` signifies the end of command options, after which only positional parameters are accepted.
 

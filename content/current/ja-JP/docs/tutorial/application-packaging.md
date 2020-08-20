@@ -59,7 +59,7 @@ fs.readdirSync('/path/to/example.asar')
 アーカイブからモジュールを使用します。
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+require('./path/to/example.asar/dir/module.js')
 ```
 
 `BrowserWindow` で `asar` アーカイブ内のウェブページを表示することもできます。

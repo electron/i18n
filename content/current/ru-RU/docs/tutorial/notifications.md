@@ -5,7 +5,7 @@
 **Примечание:** Поскольку это HTML5 API, то он доступен только в процессе рендеринга. Если вы хотите отправлять уведомления из основного процесса, пожалуйста используйте модуль [Notification](../api/notification.md).
 
 ```javascript
-let myNotification = new Notification('Title', {
+const myNotification = new Notification('Title', {
   body: 'Lorem Ipsum Dolor Sit Amet'
 })
 

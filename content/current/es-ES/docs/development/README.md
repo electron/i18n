@@ -21,4 +21,3 @@ Estas guías están pensadas para gente que trabaja en el proyecto Electron. Par
 * [Depuración en macOS](debugging-instructions-macos.md)
 * [Configuración del servidor de símbolos en el depurador](setting-up-symbol-server.md)
 * [Patches](patches.md)
-* [Actualización de Node](upgrading-node.md)

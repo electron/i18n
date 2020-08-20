@@ -11,9 +11,9 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
 * `options` Object
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
     * `menuItem` MenuItem
-    * `browserWindow` [BrowserWindow](browser-window.md)
+    * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.
     * `event` [KeyboardEvent](structures/keyboard-event.md)
-  * `role` String (opcional) - Puede ser `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define la acción del menu item, cuando es especificado la propiedad `click` sera ignorada. Ver [roles](#roles).
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. Ver [roles](#roles).
   * `type` String (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
   * `label` String (opcional)
   * `sublabel` String (opcional)
@@ -47,13 +47,14 @@ Cada elemento del menu deve tener un `role`, `label`, o en el caso de un separad
 La propiedad `role` puede tener los siguientes valores:
 
 * `deshacer`
-* `rehacer`
-* `cortar`
-* `copiar`
-* `pegar`
+* `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
+* `redo`
+* `cut`
+* `copy`
+* `paste`
 * `pasteAndMatchStyle`
 * `selectAll`
-* `eliminar`
+* `delete`
 * `minimize` - Minimizar la venta actual.
 * `close` - Cerrar la ventana actual.
 * `quit` - Salir de la aplicación.
@@ -72,7 +73,6 @@ La propiedad `role` puede tener los siguientes valores:
 Los siguientes roles adicionales están disponibles en _macOS_:
 
 * `appMenu` - Todo el menú "App" por defecto (Acerca de, Servicios, etc.)
-* `about` - Enlace a la acción `orderFrontStandardAboutPanel`.
 * `hide` - Enlace a la acción `hide`.
 * `hideothers` - Enlace a la acción `hideOtherApplications`.
 * `unhide` - Enlace a la acción `unhideAllApplications`.
@@ -93,7 +93,7 @@ Los siguientes roles adicionales están disponibles en _macOS_:
 
 Al especificar un `role` en macOS, `label` y `accelerator` son las únicas opciones que afectarán el elemento del menú. Todas las demás opciones serán ignoradas. Los `role` en minúscula, por ejemplo, `toggledevtools`, todavía son soportados.
 
-**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
 
 ### Propiedades de la instancia
 
@@ -105,7 +105,7 @@ Un `String` indicando la etiqueta visible del elemento, esta propiedad puede ser
 
 #### `menuItem.label`
 
-Un `String` indicando la etiqueta visible del elemento, esta propiedad puede ser cambiada dinámicamente.
+A `String` indicating the item's visible label.
 
 #### `menuItem.click`
 
@@ -124,7 +124,7 @@ Un `String` indicando el tipo del elemento. Can be `normal`, `separator`, `subme
 
 #### `menuItem.role`
 
-Una `String` (opcional) indicando el rol del elemento, si está establecido. Puede ser `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
+Una `String` (opcional) indicando el rol del elemento, si está establecido. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
 
 #### `menuItem.accelerator`
 
@@ -136,7 +136,7 @@ Una `NativeImage | String` (opcional) indicando el icono del elemento, si estuvi
 
 #### `menuItem.sublabel`
 
-Una `String` indicando la subetiqueta del artículo, esta propiedad puede ser cambiada dinámicamente.
+A `String` indicating the item's sublabel.
 
 #### `menuItem.toolTip` _macOS_
 
@@ -162,7 +162,9 @@ Puede añadir la función `click` para comportamientos adicionales.
 
 #### `menuItem.registerAccelerator`
 
-Un `Boolean` indicando si el acelerador debe ser registrado con el sistema o simplemente mostrado, esta propiedad puede ser cambiada dinámicamente.
+A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
+
+This property can be dynamically changed.
 
 #### `menuItem.commandId`
 

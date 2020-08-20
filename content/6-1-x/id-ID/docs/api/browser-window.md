@@ -1428,18 +1428,18 @@ Jumlah tombol di toolbar thumbnail seharusnya tidak lebih besar dari 7 karena te
     * `ikon` [NativeImage](native-image.md) - Ikon ditampilkan di thumbnail toolbar.
   * ` klik </ 0> Fungsi</li>
 <li><code> tooltip </ 0>  String (opsional) - Teks tooltip tombol.</li>
-<li><code>flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+<li><code>flags` String[] (opsional) - Mengendalikan kondisi spesifik and tindakan dari sebuah tombol. Secara default, adalah `['enabled']`.
 
 The ` bendera </ 0> adalah array yang yang dapat mencakup berikut <code> String </ 0> s:</p>
 
 <ul>
 <li><code> diaktifkan </ 0> - Tombol aktif dan tersedia untuk pengguna.</li>
-<li><p spaces-before="0"><code>disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.</li> 
+<li><p spaces-before="0"><code>disabled` - Tombol dinonaktifkan. Itu ada, tetapi memiliki keadaan visual menunjukkan itu tidak akan merespon tindakan pengguna.</li> 
 
 * ` dismissonclick </ 0> - Saat tombol diklik, jendela thumbnail segera ditutup.</p></li>
 <li><p spaces-before="0"><code> nobackground </ 0> - Jangan menggambar batas tombol, gunakan hanya gambarnya.</p></li>
 <li><code> hidden </ 0> - Tombol tidak ditunjukkan ke pengguna.</li>
-<li><code>noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.</li> </ul> 
+<li><code>noninteractive` - Tombol diaktifkan, namun tidak interaktif; tidak ditekan kondisi tombol tidak jelas. Nilai ini ditujukan untuk contoh di mana tombol digunakan dalam notifikasi.</li> </ul> 
   
   
 

@@ -38,7 +38,7 @@ session.defaultSession.cookies.set(cookie)
   })
 ```
 
-### Instance Events
+### رویدادها نمونه
 
 The following events are available on instances of `Cookies`:
 
@@ -56,7 +56,7 @@ The following events are available on instances of `Cookies`:
 
 Emitted when a cookie is changed because it was added, edited, removed, or expired.
 
-### Instance Methods
+### روشهای نمونه
 
 The following methods are available on instances of `Cookies`:
 
@@ -89,7 +89,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
-**[Deprecated Soon](modernization/promisification.md)**
+**[به زودی منقضی می شود](modernization/promisification.md)**
 
 #### `cookies.set(details)`
 

@@ -1,20 +1,15 @@
-# kerusakanReporter
+# kecelakaan reporter
 
 > Kirim laporan kerusakan ke server jauh.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Berikut ini adalah contoh untuk secara otomatis mengirimkan laporan kerusakan ke server jauh:
+The following is an example of setting up Electron to automatically submit crash reports to a remote server:
 
 ```javascript
 const { crashReporter } = require('electron')
 
-crashReporter.start({
-  productName: 'YourName',
-  companyName: 'YourCompany',
-  submitURL: 'https://your-domain.com/url-to-submit',
-  uploadToServer: true
-})
+crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 ```
 
 Untuk menyiapkan server untuk menerima dan memproses laporan kerusakan, Anda dapat menggunakan proyek berikut ini:
@@ -28,91 +23,107 @@ Or use a 3rd party hosted solution:
 * [Sentry](https://docs.sentry.io/clients/electron)
 * [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
-Laporan kerusakan disimpan secara lokal di folder direktori khusus aplikasi. Untuk `nama produk </ 0> dari <code> nama kamu </ 0> , laporan kerusakan akan disimpan dalam folder bernama <code> nama Crash kamu </ 0> di dalam direktori temp. Anda dapat menyesuaikan lokasi direktori sementara ini untuk aplikasi Anda dengan memanggil <code> app.setPath ( 'temp', '/ my / custom / temp') </ 0> 
-API sebelum memulai reporter kecelakaan.</p>
+Crash reports are stored temporarily before being uploaded in a directory underneath the app's user data directory (called 'Crashpad' on Windows and Mac, or 'Crash Reports' on Linux). You can override this directory by calling `app.setPath('crashDumps', '/path/to/crashes')` before starting the crash reporter.
 
-<h2 spaces-before="0">Methods</h2>
+On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to monitor and report crashes. On Linux, Electron uses [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.
 
-<p spaces-before="0">The <code> kecelakaan Reporter </ 0> modul memiliki metode berikut:</p>
+## Methods
+
+The ` kecelakaan Reporter </ 0> modul memiliki metode berikut:</p>
 
 <h3 spaces-before="0"><code>kecelakaan Reporter.mulai (pilihan)`</h3>
 
 * `options` Object
-  * `companyName` String
   * ` submitURL </ 0>  String - URL bahwa laporan kerusakan akan dikirim ke POST.</li>
 <li><code>productName` String (optional) - Defaults to `app.name`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Defaultnya adalah `true`.
-  * ` mengabaikan Sistem jatuh Handler </ 0>  Boolean (opsional) - Default adalah <code> false </ 0> .</li>
-<li><code>extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Hanya properti string yang dikirim dengan benar. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
-  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. Defaultnya adalah `true`.
+  * `ignoreSystemCrashHandler` Boolean (optional) - If true, crashes generated in the main process will not be forwarded to the system crash handler. Defaultnya adalah ` false </ 0> .</li>
+<li><code>rateLimit` Boolean (optional) _macOS_ _Windows_ - If true, limit the number of crashes uploaded to 1/hour. Defaultnya adalah ` false </ 0> .</li>
+<li><code>compress` Boolean (optional) _macOS_ _Windows_ - If true, crash reports will be compressed and uploaded with `Content-Encoding: gzip`. Not all collection servers support compressed payloads. Defaultnya adalah ` false </ 0> .</li>
+<li><code>extra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with crash reports that are generated in the main process. Only string values are supported. Crashes generated in child processes will not contain these extra parameters to crash reports generated from child processes, call [`addExtraParameter`](#crashreporteraddextraparameterkey-value) from the child process.
+  * `globalExtra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with any crash reports generated in any process. These annotations cannot be changed once the crash reporter has been started. If a key is present in both the global extra parameters and the process-specific extra parameters, then the global one will take precedence. By default, `productName` and the app version are included, as well as the Electron version.
 
-Anda diminta untuk memanggil metode ini sebelum menggunakan API ` crashReporter </ 0> lainnya dan dalam setiap proses (utama / perender) yang ingin Anda kumpulkan laporan kerusakan.
-Anda bisa melewati pilihan yang berbeda untuk <code> kecelakaan Reporter.mulai </ 0> saat memanggil dari berbagai proses.</p>
+This method must be called before using any other `crashReporter` APIs. Once initialized this way, the crashpad handler collects crashes from all subsequently created processes. The crash reporter cannot be disabled once started.
 
-<p spaces-before="0"><strong x-id="1">Note</strong> Child processes created via the <code>child_process` module will not have access to the Electron modules. Oleh karena itu, untuk mengumpulkan laporan kerusakan dari mereka, gunakan ` process.crashReporter.start </ 0> . Lewati pilihan yang sama seperti di atas dan yang tambahan yang disebut <code> crash Direktori</ 0> yang seharusnya mengarah ke direktori untuk menyimpan laporan kerusakan sementara. Anda bisa menguji ini dengan memanggil <code> process.crash () </ 0> untuk menabrak proses anak.</p>
+This method should be called as early as possible in app startup, preferably before `app.on('ready')`. If the crash reporter is not initialized at the time a renderer process is created, then that renderer process will not be monitored by the crash reporter.
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> If you need send additional/updated <code>extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**Note:** You can test out the crash reporter by generating a crash using `process.crash()`.
 
-**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. Jika Anda ingin mengaktifkan laporan kerusakan, menginisialisasi ` crashpad </ 0> dari proses utama menggunakan <code> crashReporter.start </ 0> diperlukan terlepas dari proses mana yang ingin Anda kumpulkan. Setelah diinisialisasi dengan cara ini, pengendara crashpad mengumpulkan crash dari semua proses. Anda masih harus menghubungi <code> crashReporter.start </ 0> dari proses renderer atau child, jika tidak crash dari mereka akan dilaporkan tanpa <code> companyName </ 0> , <code> productName </ 0> atau salah satu dari informasi <code> ekstra </ 0> .</p>
+**Note:** If you need to send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter`.
 
-<h3 spaces-before="0"><code>kecelakaan Reporter.dapatkan terakhir kecelakaan Reporter ()`</h3>
+**Note:** Parameters passed in `extra`, `globalExtra` or set with `addExtraParameter` have limits on the length of the keys and values. Key names must be at most 39 bytes long, and values must be no longer than 127 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
 
-Mengembalikan
-` kecelakaan Report </ 0> :</p>
+**Note:** Calling this method from the renderer process is deprecated.
 
-<p spaces-before="0">Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, <code>null` is returned.</p> 
+### `kecelakaan Reporter.dapatkan terakhir kecelakaan Reporter ()`
 
+Returns [`CrashReport`](structures/crash-report.md) - The date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
 
+**Note:** Calling this method from the renderer process is deprecated.
 
 ### `kecelakaan reporter.dapatkan unggahan repoter ()`
 
-Mengembalikan ` kecelakaan Report [] </ 0> :</p>
+Mengembalikan
+` kecelakaan Report [] </ 0> :</p>
 
 <p spaces-before="0">Returns all uploaded crash reports. Each report contains the date and uploaded
 ID.</p>
+
+<p spaces-before="0"><strong x-id="1">Note:</strong> Calling this method from the renderer process is deprecated.</p>
 
 <h3 spaces-before="0"><code>crashReporter.getUploadToServer()`</h3> 
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Note:** This API can only be called from the main process.
+**Note:** Calling this method from the renderer process is deprecated.
 
 
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean _macOS_ - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean - Whether reports should be submitted to the server.
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Note:** This API can only be called from the main process.
+**Note:** Calling this method from the renderer process is deprecated.
 
 
 
-### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
-
-* ` kunci </ 0>  String - Kunci parameter, harus panjangnya kurang dari 64 karakter.</li>
-<li><code>value` String - Parameter value, must be less than 64 characters long.
-
-Tetapkan parameter tambahan untuk dikirim dengan laporan kerusakan. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
-
-
-
-### `crashReporter.removeExtraParameter(key)` _macOS_ _Windows_
-
-* ` kunci </ 0>  String - Kunci parameter, harus panjangnya kurang dari 64 karakter.</li>
-</ul>
-
-<p spaces-before="0">Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.</p>
-
-<h3 spaces-before="0"><code>crashReporter.getParameters()`</h3> 
-  See all of the current parameters being passed to the crash reporter.
-  
-  
-
-### `crashReporter.getCrashesDirectory()`
+### `crashReporter.getCrashesDirectory()` _Deprecated_
 
 Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+
+**Note:** This method is deprecated, use `app.getPath('crashDumps')` instead.
+
+
+
+### `crashReporter.addExtraParameter(key, value)`
+
+* `key` String - Parameter key, must be no longer than 39 bytes.
+* `value` String - Parameter value, must be no longer than 127 bytes.
+
+Tetapkan parameter tambahan untuk dikirim dengan laporan kerusakan. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called.
+
+Parameters added in this fashion (or via the `extra` parameter to `crashReporter.start`) are specific to the calling process. Adding extra parameters in the main process will not cause those parameters to be sent along with crashes from renderer or other child processes. Similarly, adding extra parameters in a renderer process will not result in those parameters being sent with crashes that occur in other renderer processes or in the main process.
+
+**Note:** Parameters have limits on the length of the keys and values. Key names must be no longer than 39 bytes, and values must be no longer than 20320 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
+
+**Note:** On linux values that are longer than 127 bytes will be chunked into multiple keys, each 127 bytes in length.  E.g. `addExtraParameter('foo', 'a'.repeat(130))` will result in two chunked keys `foo__1` and `foo__2`, the first will contain the first 127 bytes and the second will contain the remaining 3 bytes.  On your crash reporting backend you should stitch together keys in this format.
+
+
+
+### `crashReporter.removeExtraParameter(key)`
+
+* `key` String - Parameter key, must be no longer than 39 bytes.
+
+Remove a extra parameter from the current set of parameters. Future crashes will not include this parameter.
+
+
+
+### `crashReporter.getParameters()`
+
+Returns `Record<String, String>` - The current 'extra' parameters of the crash reporter.
 
 
 
@@ -126,7 +137,7 @@ Reporter kecelakaan akan mengirimkan data berikut ke ` submitURL </ 0> sebagai <
 <li><code> proses_tipe </ 0>  String - misalnya 'renderer'.</li>
 <li><code> guid </ 0>  String - misal '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.</li>
 <li><code> _version </ 0>  String - Versi di <code> package.json </ 0> .</li>
-<li><p spaces-before="0"><code>_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek. ok
+<li><p spaces-before="0"><code>_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek. ok</li> 
 
 * `prod` String - Name of the underlying product. In this case Electron.
 
@@ -134,4 +145,4 @@ Reporter kecelakaan akan mengirimkan data berikut ke ` submitURL </ 0> sebagai <
 
 * `upload_file_minidump` File - Laporan kerusakan dalam format `minidump`.
 
-* Semua tingkat satu sifat objek `ekstra` di `crashReporter` `pilihan` objek.
+* Semua tingkat satu sifat objek `ekstra` di `crashReporter` `pilihan` objek.</ul>

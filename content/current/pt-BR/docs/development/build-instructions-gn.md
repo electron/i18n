@@ -10,6 +10,10 @@ Verifique os pré-requisitos de compilação para sua plataforma antes de prosse
   * [Linux](build-instructions-linux.md#prerequisites)
   * [Windows](build-instructions-windows.md#prerequisites)
 
+## Build Tools
+
+[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
+
 ## Pré-requisitos GN
 
 Você precisará instalar [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), o toolset usado para obter Chromium e suas dependências.
@@ -143,7 +147,7 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 Not all combinations of source and target CPU/OS are supported by Chromium.
 
 <table>
-<tr><th>Host</th><th>Target</th><th>Status</th></tr>
+<tr><th>Host</th><th>Objetivo</th><th>Status</th></tr>
 <tr><td>Windows x64</td><td>Windows arm64</td><td>Experimental</td>
 <tr><td>Windows x64</td><td>Windows x86</td><td>Testado automaticamente</td></tr>
 <tr><td>Linux x64</td><td>Linux x86</td><td>Testado automaticamente</td></tr>

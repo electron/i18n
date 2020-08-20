@@ -40,11 +40,17 @@ Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/
 
 ### `inAppPurchase.canMakePayments()`
 
-返回 `Boolean`, 用来判断用户是否可以发起支付.
+Returns `Boolean` - whether a user can make a payment.
+
+### `inAppPurchase.restoreCompletedTransactions()`
+
+Restores finished transactions. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.
+
+[The payment queue](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) delivers a new transaction for each previously completed transaction that can be restored. Each transaction includes a copy of the original transaction.
 
 ### `inAppPurchase.getReceiptURL()`
 
-返回 `String`, 指收据路径.
+Returns `String` - the path to the receipt.
 
 ### `inAppPurchase.finishAllTransactions()`
 

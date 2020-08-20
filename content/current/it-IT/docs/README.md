@@ -84,7 +84,6 @@ I tutorial seguenti approfondiscono temi discussi nelle guide sopra elencate.
 * Release di Electron & Feedback Sviluppatore
   * [Gestione delle versioni](tutorial/electron-versioning.md)
   * [Timeline di Rilascio](tutorial/electron-timelines.md)
-  * [Programma Feedback App](tutorial/app-feedback-program.md)
 * [Impacchettamento Codice Risorsa App con asar](tutorial/application-packaging.md)
   * [Generare Archivi asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Usare Archivi asar](tutorial/application-packaging.md#using-asar-archives)

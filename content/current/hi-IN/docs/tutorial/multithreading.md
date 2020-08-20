@@ -7,7 +7,7 @@
 इलेक्ट्रॉन के वेब वर्कर्स में नोड.जेएस की सुविधाओं को इस्तेमाल करना संभव है, इसके लिए आपको `webPreferences` में `nodeIntegrationInWorker` विकल्प को `true` सेट करना होगा |
 
 ```javascript
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegrationInWorker: true
   }
@@ -32,5 +32,5 @@ let win = new BrowserWindow({
 process.dlopen = () => {
   throw new Error('Load native module is not safe')
 }
-let worker = new Worker('script.js')
+const worker = new Worker('script.js')
 ```

@@ -2,7 +2,7 @@
 
 ## Поиск поддержки
 
-If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
+Если у вас есть проблема с безопасностью, смотрите [документ безопасности](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Если вы ищете помощь в программировании, для ответов на вопросы, или присоединиться к обсуждению с другими разработчиками, которые используют Electron, вы можете взаимодействовать с сообществом в этих местах:
 - [`electron`](https://discuss.atom.io/c/electron) категория на Atom форумы
@@ -16,7 +16,7 @@ If you have a security concern, please see the [security document](https://githu
 - [`electron-id`](https://electron-id.slack.com) *(Индонезия)*
 - [`electron-pl`](https://electronpl.github.io) *(Польша)*
 
-If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Если вы хотите внести свой вклад в Electron, смотрите [документ](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 Если вы обнаружили ошибку в [поддерживаемой версии](#supported-versions) Electron, сообщите об этом [issue tracker](../development/issues.md).
 
@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
 ### Currently supported versions
-- 8.1.x
-- 7.1.x
-- 6.1.x
+- 9.x.y
+- 8.x.y
+- 7.x.y
 
 ### End-of-life
 
@@ -63,7 +63,7 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. [Elec
 
 Предварительные сборки `ia32` (`i686`) и `x64` (`amd64`) Electron основаны на Ubuntu 12.04, сборка `armv7l` собрана против ARM v7 с прошитым ABI и NEON для Debian Wheezy.
 
-[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+[До релиза Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron также будет продолжать выпуск бинаркой сборки `armv7l` с простым `arm` суффиксом. Both binaries are identical.
 
 Будет ли готовая бинарная сборка включена в дистрибутив, зависит от того, включает ли дистрибутив библиотеки, с которыми связан Electron на компилирруемой платформе, поэтому гарантируется работа только в Ubuntu 12.04, но следующие платформы также проверяются, чтобы иметь возможность запускать прекомпилированные сборки Electron:
 

@@ -27,9 +27,9 @@ It is important to remember that the security of your Electron application is th
 
 ## 신뢰할 수 없는 콘텐츠의 격리
 
-A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+원격 대상에서 코드를 수신하여 로컬에서 실행할 때는 항상 보안 문제가 존재합니다. 예를 들어, 원격 웹사이트가 [`BrowserWindow`](../api/browser-window.md)내부에 표시되는 경우를 고려해봅시다. 만약 공격자가 어떻게 든 콘텐츠를 변경하면(소스를 직접 공격하거나 앱과 실제 목적지 사이에 앉든), 사용자의 컴퓨터에서 native code를 실행할 수 있습니다.
 
-> :warning: 어떤 상황에서도 Node.js 통합을 사용하는 원격 코드를 로드하고 실행하지 않아야 합니다. 대신, Node.js 코드를 실행하기 위해 로컬 파일 (애플리케이션과 함께 패키지된) 만 사용하십시오. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
+> :warning: 어떤 상황에서도 Node.js 통합을 사용하는 원격 코드를 로드하고 실행하지 않아야 합니다. 대신, Node.js 코드를 실행하기 위해 로컬 파일 (애플리케이션과 함께 패키지된) 만 사용하십시오. 원격 컨텐츠를 표시할려면 [`<webview>`](../api/webview-tag.md)태그나 [`BrowserView`](../api/browser-view.md)를 사용하고 `nodeIntegration`을 비활성화하고 `contextIsolation`를 활성화하십시오.
 
 ## Electron 보안 경고
 
@@ -59,7 +59,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
 15 [`remote` 모듈 비활성화](#15-disable-the-remote-module)
 16 [Filter the `remote` module](#16-filter-the-remote-module)</ol> 
 
-To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
+잘못된 구성 및 안전하지 않은 패턴의 감지를 자동화하기 위해 [electronegativity](https://github.com/doyensec/electronegativity)를 사용할 수 있습니다. Electron을 사용한 앱 개발에서 잠재적인 취약점이나 버그의 구현에 대한 추가적인 자세한 내용은 [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)를 참조하세요.
 
 
 
@@ -108,9 +108,9 @@ browserWindow.loadURL('https://example.com')
 
 ## 2) 원격 콘텐츠에 Node.js 통합을 활성화하지 않기
 
-_This recommendation is the default behavior in Electron since 5.0.0._
+_이 권장사항은 Electron 5.0.0 이후부터 기본 동작입니다._
 
-It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
+원격 컨텐츠를 로드하는 모든 렌더러([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), 또는 [`<webview>`](../api/webview-tag.md))에서 Node.js 통합을 비활성화 하는 것이 가장 중요합니다. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
 
 그 후, 특별한 호스트를 위해 추가적인 권한을 부여할 수 있습니다. 예를 들면, 만약 `https://example.com/ '을 가르키는 BrowserWindow를 여는 경우, 해당 웹 사이트에 필요한 정확한 권한을 줄 수 있지만, 그 이상은 필요 없습니다.
 
@@ -189,7 +189,7 @@ window.readConfig = function () {
 
 Electron은 크로니움의 [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment)와 같은 기술을 사용하여 이러한 동작을 가능하게 합니다.
 
-Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+`nodeIntegration: false`를 사용하여 강력한 격리를 시행하고 Node 프리미티브 사용을 방지하더라도 `contextIsolation`도 사용해야 합니다.
 
 
 
@@ -197,7 +197,7 @@ Even when you use `nodeIntegration: false` to enforce strong isolation and preve
 
 컨텍스트 격리를 사용하면 렌더러에서 실행중인 각 스크립트가 Electron API 또는 preload script의 스크립트들과 충돌없이 JavaScript 환경을 변경할 수 있습니다.
 
-While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
+여전히 실험적인 Electron 기능이지만 컨텍스트 격리는 추가적인 보안 계층을 추가합니다. Electron API 및 사전로드 스크립트를 위한 새로운 JavaScript 환경을 만들어 소위 "프로토 타입 오염"공격을 완화합니다.
 
 At the same time, preload scripts still have access to the  `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
 
@@ -291,7 +291,7 @@ session
 
 _추천 값은 Electron의 기본값입니다._
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
+이미 짐작 하듯이 렌더러 프로세스([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md) 혹은 [`<webview>`](../api/webview-tag.md))에서 `webSecurity` 속성을 비활성화하면 중요한 보안 기능이 비활성화 됩니다.
 
 애플리케이션 제품에서 `webSecurity`을 비활성화 하지 마세요.
 

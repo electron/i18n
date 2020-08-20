@@ -1,6 +1,6 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> Créez des icônes de bac, d'ancrage et d'application à l'aide de fichiers PNG ou JPG.
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -239,13 +239,9 @@ Retourne [`Size`](structures/size.md)
 
 Marque l'image comme une image de modèle.
 
-**[Déprécié ](modernization/property-updates.md)**
-
 #### `image.isTemplateImage()`
 
 Retourne `Boolean` - Si l'image est une image de modèle.
-
-**[Déprécié ](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 

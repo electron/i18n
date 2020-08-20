@@ -7,7 +7,20 @@ Proses: [Main](../glossary.md#main-process)
 `Tray` adalah [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
-const { app, Menu, Tray } = require('electron') Biarkan nampan = null app.on ('siap', () = > {nampan = baru Tray('/path/to/my/icon') const contextMenu = tray.setToolTip Menu.buildFromTemplate ([{ label: 'Item1', type: 'radio' }, { label: 'Item2', type: 'radio' }, { label: 'Item3', type: 'radio', checked: true }, { label: 'Item4', type: 'radio' }]) (' Inilah saya  aplikasi.')   tray.setContextMenu(contextMenu)})
+const { app, Menu, Tray } = require('electron')
+
+let tray = null
+app.whenReady().then(() => {
+  tray = new Tray('/path/to/my/icon')
+  const contextMenu = Menu.buildFromTemplate([
+    { label: 'Item1', type: 'radio' },
+    { label: 'Item2', type: 'radio' },
+    { label: 'Item3', type: 'radio', checked: true },
+    { label: 'Item4', type: 'radio' }
+  ])
+  tray.setToolTip('This is my application.')
+  tray.setContextMenu(contextMenu)
+})
 ```
 
 __Keterbatasan platform:__
@@ -19,16 +32,32 @@ __Keterbatasan platform:__
 * On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Sebagai contoh:
 
 ```javascript
-const { app, Menu, Tray } = require('electron') Biarkan appIcon = null app.on ('siap', () = > {appIcon = baru Tray('/path/to/my/icon') const contextMenu = Menu.buildFromTemplate ([{ label: 'Item1', type: 'radio' }, { label: 'Item2', type: 'radio' }]) / / membuat perubahan konteks menu contextMenu.items[1].checked = false / / menyebutnya lagi untuk Linux karena kami diubah konteks menu appIcon.setContextMenu(contextMenu)})
+const { app, Menu, Tray } = require('electron')
+
+let appIcon = null
+app.whenReady().then(() => {
+  appIcon = new Tray('/path/to/my/icon')
+  const contextMenu = Menu.buildFromTemplate([
+    { label: 'Item1', type: 'radio' },
+    { label: 'Item2', type: 'radio' }
+  ])
+
+  // Make a change to the context menu
+  contextMenu.items[1].checked = false
+
+  // Call this again for Linux because we modified the context menu
+  appIcon.setContextMenu(contextMenu)
+})
 ```
 * Pada Windows disarankan untuk menggunakan ikon `ICO` untuk mendapatkan efek visual terbaik.
 
 Jika Anda ingin menyimpan tepat perilaku yang sama pada semua platform, Anda tidak harus bergantung pada acara `Klik` dan selalu lampirkan menu konteks ke tray icon.
 
 
-### `tray baru(image)`
+### `new Tray(image, [guid])`
 
 * `gambar` ([NativeImage](native-image.md) | String)
+* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
 
 Buatlah sebuah ikon tray baru yang terkait dengan `image`.
 
@@ -109,6 +138,26 @@ Dibunyikan apabila operasi tarik keluar ikon tray.
 #### Event: 'drag-end' _macOS_
 
 Dipancarkan ketika operasi drag yang berakhir di baki atau berakhir di lokasi lain.
+
+#### Event: 'mouse-up' _macOS_
+
+Pengembalian:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `posisi` [Point](structures/point.md) - posisi acara.
+
+Emitted when the mouse is released from clicking the tray icon.
+
+Note: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.
+
+#### Event: 'mouse-down' _macOS_
+
+Pengembalian:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `posisi` [Point](structures/point.md) - posisi acara.
+
+Emitted when the mouse clicks the tray icon.
 
 #### Event: 'masuk mouse' _macOS_
 
@@ -215,6 +264,10 @@ Returns focus to the taskbar notification area. Notification area icons should u
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
 Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
+
+#### ` tray.closeContextMenu () </ 0>  <em x-id="4"> macos </ 1>  <em x-id="4"> Windows </ 1></h4>
+
+<p spaces-before="0">Closes an open context menu, as set by <code>tray.setContextMenu()`.</p>
 
 #### `tray.setContextMenu (menu)`
 

@@ -24,11 +24,11 @@ O módulo `shell` tem os seguintes métodos:
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openItem(fullPath)`
+### `shell.openPath(path)`
 
-* `fullPath` String
+* `path` String
 
-Retorna `Boolean` - Se o item foi aberto com êxito.
+Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 Abre o arquivo fornecido na maneira padrão da área de trabalho.
 
@@ -36,7 +36,7 @@ Abre o arquivo fornecido na maneira padrão da área de trabalho.
 
 * `url` String - Max 2081 characters on windows.
 * `options` Object (optional)
-  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
+  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. O padrão é `verdadeiro`.
   * `workingDirectory` String (optional) _Windows_ - The working directory.
 
 Returns `Promise<void>`

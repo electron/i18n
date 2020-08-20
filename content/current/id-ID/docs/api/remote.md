@@ -119,7 +119,7 @@ proyek/
 ```js
 // main process: main/index.js
 const { app } = require('electron')
-app.on('ready', () => { /* ... */ })
+app.whenReady().then(() => { /* ... */ })
 ```
 
 ```js
