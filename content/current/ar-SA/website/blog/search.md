@@ -7,7 +7,7 @@ author:
 date: '2018-06-21'
 ---
 
-The Electron website has a new search engine that delivers instant results for API docs, tutorials, Electron-related npm packages, and more.
+موقع إلكترون يحتوي على محرك بحث جديد يقدم نتائج فورية ل مستندات API ، ودروس ، وحزم npm المتصلة بإلكترون ، وأكثر من ذلك.
 
 <figure>
   <a href="https://electronjs.org/?query=resize" style="display: block; text-align: center;">
@@ -19,11 +19,11 @@ The Electron website has a new search engine that delivers instant results for A
 
 Learning a new technology or framework like Electron can be intimidating. Once you get past the [quick-start](https://github.com/electron/electron-quick-start) phase, it can be difficult to learn best practices, find the right APIs, or discover the tools that will help you build the app of your dreams. We want the Electron website to be a better tool for finding the resources you need to build apps faster and more easily.
 
-Visit any page on [electronjs.org](https://electronjs.org) and you'll find the new search input at the top of the page.
+قم بزيارة أي صفحة على [electronjs.org](https://electronjs.org) وستجد مربع البحث الجديد في الجزء العلوي من الصفحة.
 
-## The Search Engine
+## محرك البحث
 
-When we first set about adding search to the website, we rolled our own search engine using GraphQL as a backend. GraphQL was fun to work with and the search engine was performant, but we quickly realized that building a search engine is not a trivial task. Things like multi-word search and typo detection require a lot of work to get right. Rather than reinventing the wheel, we decided to use an existing search solution: [Algolia](https://algolia.com).
+عندما قمنا لأول مرة بإضافة البحث إلى الموقع، قمنا بدخول محرك البحث الخاص بنا باستخدام GraphQL كخلفية للموقع. كان GraphQL ممتعا محرك البحث كان يؤدي وظيفته بشكل رائع، لكننا أدركنا بسرعة أن بناء محرك بحث ليس مهمة تافهة. اشياء مثل البحث عن كلمات مركبة والكشف عن الاخطاء الاملائية كان امرا يتطلب الكثير من الجهد. بدلاً من إعادة اختراع العجلة ، قررنا استخدام حل جاهز للبحث: [Algolia](https://algolia.com).
 
 Algolia is a hosted search service that has quickly become the search engine of choice among popular open source projects like React, Vue, Bootstrap, Yarn, and [many others](https://community.algolia.com/docsearch/).
 
@@ -36,7 +36,7 @@ Here are some of the features that made Algolia a good fit for the Electron proj
 - [Analytics](https://www.algolia.com/doc/guides/analytics/analytics-overview/) tell us what people are searching for most, as well as what they're searching for but not finding. This will give us valuable insight into how Electron's documentation can be improved.
 - Algolia is [free for open source projects](https://www.algolia.com/for-open-source).
 
-## API Docs
+## مستندات API
 
 Sometimes you know *what* you want to accomplish, but you don't know exactly *how* to do it. Electron has over 750 API methods, events, and properties. No human can easily remember all of them, but computers are good at this stuff. Using Electron's [JSON API docs](https://electronjs.org/blog/api-docs-json-schema), we indexed all of this data in Algolia, and now you can easily find the exact API you're looking for.
 
@@ -48,7 +48,7 @@ Electron has an ever-growing collection of tutorials to complement its API docum
 
 Looking for security best practices? Search for [`security`].
 
-## npm Packages
+## حزم nmp
 
 There are now over 700,000 packages in the npm registry and it's not always easy to find the one you need. To make it easier to discover these modules, we've created [`electron-npm-packages`], a collection of the 3400+ modules in the registry that are built specifically for use with Electron.
 
@@ -62,7 +62,7 @@ It's [easy to index data with Algolia](https://github.com/electron/algolia-indic
 
 Try a search for [`music`] or [`homebrew`].
 
-## Filtering Results
+## فلترة النتائج
 
 If you've used GitHub's [code search](https://github.com/search) before, you're probably aware of its colon-separated key-value filters like `extension:js` or `user:defunkt`. We think this filtering technique is pretty powerful, so we've added an `is:` keyword to Electron's search that lets you filter results to only show a single type:
 
@@ -71,7 +71,7 @@ If you've used GitHub's [code search](https://github.com/search) before, you're 
 - [`is:package ipc`]
 - [`is:app graphql`]
 
-## Keyboard Navigation
+## التنقل في لوحة المفاتيح
 
 People love keyboard shortcuts! The new search can be used without taking your fingers off the keyboard:
 
@@ -83,7 +83,7 @@ People love keyboard shortcuts! The new search can be used without taking your f
 
 We also open-sourced the [module](https://github.com/electron/search-with-your-keyboard/) that enables this keyboard interaction. It's designed for use with Algolia InstantSearch, but is generalized to enable compatibility with different search implementations.
 
-## We want your feedback
+## نحن بحاجة الى ملاحظاتك
 
 If you encounter any issues with the new search tool, we want to hear about it!
 

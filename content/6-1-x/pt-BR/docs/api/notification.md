@@ -20,16 +20,16 @@ It creates a new `Notification` with native properties as set by the `options`.
 
 ### Métodos estáticos
 
-The `Notification` class has the following static methods:
+A classe `Notification` tem os seguintes métodos estáticos:
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+Retorna `Boolean` - se as notificações do desktop são suportadas ou não pelo atual sistema
 
 ### `new Notification([options])` _Experimental_
 
 * `options` Object
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `title` String - Um título para a notificação, na qual será mostrada ao topo da janela de notificação quando exibida.
   * `subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
   * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.

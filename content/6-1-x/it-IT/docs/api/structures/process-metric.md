@@ -1,14 +1,14 @@
 # Oggetto ProcessMetric
 
 * `pid` Integer - Id del processo.
-* `type` String - Process type. One of the following values:
+* `tipo` Stringa - Tipo di processo. Uno dei valori seguenti:
   * `Browser`
   * `Tab`
-  * `Utility`
+  * `Utilità`
   * `Zygote`
-  * `Sandbox helper`
+  * `Aiutante sandbox`
   * `GPU`
-  * `Pepper Plugin`
-  * `Pepper Plugin Broker`
-  * `Unknown`
+  * `Plugin Pepper`
+  * `Broker del Plugin Pepper`
+  * `Sconosciuto`
 * `cpu` [CPUUsage](cpu-usage.md) - Uso di CPU del processo.

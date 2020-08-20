@@ -11,9 +11,9 @@
 * `options` Object
   * `click` Function (任意) - メニューアイテムがクリックされたとき、 `click(menuItem, browserWindow, event)` で呼び出されます。
     * `menuItem` MenuItem
-    * `browserWindow` [BrowserWindow](browser-window.md)
+    * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.
     * `event` [KeyboardEvent](structures/keyboard-event.md)
-  * `role` String (任意) - `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow`, `windowMenu` のいずれかにできます。- メニューアイテムのアクションを定義します。指定すると `click` プロパティは無視されます。 [役割 (roles)](#roles) を参照してください。
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. [役割 (roles)](#roles) を参照してください。
   * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。
   * `label` String (任意)
   * `sublabel` String (任意)
@@ -47,7 +47,8 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 `role` プロパティは、以下の値を持つことができます。
 
 * `undo`
-* `redo`
+* `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
+* `やり直します`
 * `cut`
 * `copy`
 * `paste`
@@ -72,7 +73,6 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 以下は _macOS_ で有効な追加の role です。
 
 * `appMenu` - デフォルトの"App"メニュー全体 (Electronについて、サービス等)
-* `about` - `orderFrontStandardAboutPanel` アクションに割り当てる。
 * `hide` - `hide` アクションに割り当てる。
 * `hideOthers` - `hideOtherApplications` アクションに割り当てる。
 * `unhide` - `unhideAllApplications` アクションに割り当てる。
@@ -93,7 +93,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 
 macOS の `role` を指定するとき、`label` と `accelerator` がメニューアイテムに影響を与える唯一のオプションです。 ほかのすべてのオプションは無視されます。 小文字の `role`、`toggledevtools` などもまだサポートしています。
 
-**注意:** macOS 上の tray 内の最も上にあるメニューアイテムでは、`enabled` と `visibility` プロパティは利用できません。
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
 
 ### インスタンスプロパティ
 
@@ -105,7 +105,7 @@ macOS の `role` を指定するとき、`label` と `accelerator` がメニュ�
 
 #### `menuItem.label`
 
-アイテムの表示ラベルを示す `String`。このプロパティは動的に変更できます。
+A `String` indicating the item's visible label.
 
 #### `menuItem.click`
 
@@ -124,7 +124,7 @@ MenuItem がクリックイベントを受け取った時に発火される `Fun
 
 #### `menuItem.role`
 
-セットされている場合、アイテムの役割を示す `String` (任意)。 `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow`, `windowMenu` のいずれかにできます。
+セットされている場合、アイテムの役割を示す `String` (任意)。 Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
 
 #### `menuItem.accelerator`
 
@@ -136,7 +136,7 @@ MenuItem がクリックイベントを受け取った時に発火される `Fun
 
 #### `menuItem.sublabel`
 
-アイテムの副ラベルを示す `String`。このプロパティは動的に変更できます。
+A `String` indicating the item's sublabel.
 
 #### `menuItem.toolTip` _macOS_
 
@@ -162,7 +162,9 @@ MenuItem がクリックイベントを受け取った時に発火される `Fun
 
 #### `menuItem.registerAccelerator`
 
-アクセラレータをシステムに登録する必要があるのか、ただ表示するだけなのかを示す `Boolean`。このプロパティは動的に変更できます。
+A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
+
+This property can be dynamically changed.
 
 #### `menuItem.commandId`
 

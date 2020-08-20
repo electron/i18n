@@ -84,7 +84,6 @@ There are questions that are asked quite often. Check this out before creating a
 * Versiones Electron & Comentarios de desarrollador
   * [Versiebeleidid](tutorial/electron-versioning.md)
   * [Calendrier de release9996](tutorial/electron-timelines.md)
-  * [525678310522769](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md)
   * [การสร้างคลังเก็บอาซาร์](tutorial/application-packaging.md#generating-asar-archives)
   * [การใช้ asar Archives](tutorial/application-packaging.md#using-asar-archives)

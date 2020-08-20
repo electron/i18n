@@ -1,4 +1,4 @@
-# Issues In Electron
+# قضايا في الكترون
 
 # Issues
 

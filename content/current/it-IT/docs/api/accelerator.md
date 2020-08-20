@@ -13,10 +13,9 @@ Le scorciatoie sono registrate con il modulo [`Scorciatoiaglobale`](global-short
 
 ```javascript
 const { app, globalShortcut } = require('electron')
-    
-    app.on('ready', () => {
-      // Register a 'CommandOrControl+Y' shortcut listener.
 
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+Y' shortcut listener.
   registro.Scorciatoiaglobale('ComandoOControllo+Y', () => {
    // Fai azioni con Y ed entrambi i Comando/Contollo premuti.
   })
@@ -47,7 +46,7 @@ La chiave `Super` è mappata alla chiave `Windows` per Windows e Linux e `Cmd` s
 * Da `0` a `9`
 * Da `A` a `Z`
 * Da `F1` a `F24`
-* Punteggiature come `~`, `!`, `@`, `#`, `$`, etc.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Più`
 * `Spazio`
 * `Tab`

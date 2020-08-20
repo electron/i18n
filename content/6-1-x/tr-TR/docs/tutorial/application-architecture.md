@@ -1,10 +1,10 @@
-# Electron Application Architecture
+# Uygulama Mimarisi
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Electron API'larına girmeden önce, iki süreci tartışmamız gerekir. Hangi electron tipini kullanacağız. Temel olarak farklarını ve yapısını anlayacağız.
 
 ## Ana ve Oluşturucu İşlemleri
 
-Electron'da `package.json` 'ın `ana` komut dosyasını çalıştıran süreç __ana süreç__ olarak adlandırılır. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+Electron'da `package.json` 'ın `ana` komut dosyasını çalıştıran süreç __ana süreç__ olarak adlandırılır. Ana işlemde çalışan komut dosyası, web sayfaları oluşturarak bir GUI görüntüleyebilir. Bir Electron uygulamasının her zaman bir ana çalışma süreci vardır, ancak asla daha fazla değildir.
 
 Electron, web sayfalarını görüntülemek için Chromium kullandığından Chromium'un çoklu işlem mimarisi de kullanılır. Electron'daki her web sayfası __oluşturucu işlemi__ olarak adlandırılan kendi işlemini çalıştırır.
 
@@ -14,7 +14,7 @@ Normal tarayıcılarda, web sayfaları genellikle korumalı bir ortamda çalış
 
 Ana işlem `TarayıcıPenceresi` örnekleri oluşturarak web sayfaları oluşturur. Her ` TarayıcıPenceresi ` örneği, web sayfasını kendi oluşturucu işleminde çalıştırır. `TarayıcıPenceresi` örneği yok edildiğinde, ilgili oluşturucu işlemi de sonlandırılır.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Main işlemleri, tüm web sayfalarını ve bunlara karşılık gelen tekrardan oluşturma işlemlerini yönetir. Her render işlemi izole edilir ve yalnızca oluşturulan o sayfanın içindeki işlemleri gerçekleştirir.
 
 Web sayfalarında yerel GUI kaynaklarını web sayfalarındaki yönetmek çok tehlikeli ve kaynakların sızdırılması kolay olduğu için yerel GUI ile ilgili API'lerin çağrılmasına izin verilmez. Bir web sayfasında GUI işlemlerini gerçekleştirmek isterseniz, oluşturucu ana işlemin bu işlemleri gerçekleştirmesini istemek için web sayfasının süreci ana süreçle iletişim kurmalıdır.
 

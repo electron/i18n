@@ -19,7 +19,7 @@ Ejemlo de uso:
 
 ```javascript
 const { app } = require('electron')
-app.on('ready', () => {
+app.whenReady().then(() => {
   const { net } = require('electron')
   const request = net.request('https://github.com')
   request.on('response', (response) => {
@@ -29,7 +29,7 @@ app.on('ready', () => {
       console.log(`BODY: ${chunk}`)
     })
     response.on('end', () => {
-      console.log('Sin datos en la respuesta.')
+      console.log('No more data in response.')
     })
   })
   request.end()

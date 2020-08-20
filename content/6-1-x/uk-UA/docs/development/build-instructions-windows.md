@@ -1,14 +1,14 @@
 # Інструкція Збірки (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Дотримуйтесь рекомендацій нижче для збірки Electron під Windows.
 
 ## Системні вимоги
 
 * Windows 10 / Server 2012 R2 або вище
 * Visual Studio 2017 15.7.2 or higher - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
 * [Python 2.7.10 або вище](http://www.python.org/download/releases/2.7/)
-  * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
-  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
+  * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Прямо зараз `depot_tools` все ще поставляється з Python 2.7.6, що призведе до помилки команди `gclient` (див. https://crbug.com/868864).
+  * [ Розширення Python для Windows (pywin32)](https://pypi.org/project/pywin32/#files) також необхідні для запуску процесу збірки.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
@@ -17,7 +17,7 @@ Follow the guidelines below for building Electron on Windows.
 
 If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Збірка Electron здійснюється виключно через скрипти командного рядка, і не може бути здійснена в Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
@@ -33,7 +33,7 @@ To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg
 $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
-The other building steps are exactly the same.
+Всі інші інструкції по збірці ідентичні.
 
 ## Проект Visual Studio
 
@@ -47,7 +47,7 @@ $ gn gen out/Debug --ide=vs2017
 
 ### Команда xxxx не знайдена
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Якщо ви зіткнулися з помилкою на зразок `Команду xxxx не знайдено`, ви можете спробувати використовувати консоль `VS2015 Command Prompt` для виконання скриптів збірки.
 
 ### Fatal internal compiler error: C1001
 
@@ -67,7 +67,7 @@ $ mkdir ~\AppData\Roaming\npm
 
 ### node-gyp is not recognized as an internal or external command
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Ви можете зіткнутися з цією помилкою, якщо ви використовуєте Git Bash для збірки, замість цього, ви повинні використовувати PowerShell або командний рядок VS2015.
 
 ### cannot create directory at '...': Filename too long
 
@@ -81,6 +81,6 @@ $ git config --system core.longpaths true
 
 This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
 
-### ImportError: No module named win32file
+### Помилка імпорту: Немає модуля з назвою win32file
 
 Переконайтеся, що ви встановили `pywin32`, використовуючи`pip install pywin32`.

@@ -4,40 +4,40 @@ Follow the guidelines below for building Electron on Windows.
 
 ## ข้อกำหนดเบื้องต้น
 
-* Windows 10 / Server 2012 R2 or higher
+* Windows 10 / Server 2012 R2 หรือสูงกว่า
 * Visual Studio 2017 15.7.2 or higher - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
-* [Python 2.7.10 or higher](http://www.python.org/download/releases/2.7/)
-  * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
-  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
+* [งูหลาม 2.7.10 หรือสูงกว่า](http://www.python.org/download/releases/2.7/)
+  * ขัดกับคําแนะนําการติดตั้ง`depot_tools`เชื่อมโยงด้านล่างคุณจะต้อง ที่จะใช้ Python ที่ติดตั้งในประเทศของคุณกับรุ่นอย่างน้อย 2.7.10 (มี สําหรับ TLS 1.2) To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. เดี๋ยวนี้ `depot_tools`ยังคงมาพร้อมกับหลาม 2.7.6 ซึ่งจะทําให้`gclient` คําสั่งล้มเหลว (ดู https://crbug.com/868864)
+  * [งูหลามสําหรับ Windows (pywin32) ส่วนขยาย](https://pypi.org/project/pywin32/#files) นอกจากนี้ยังมีความจําเป็นเพื่อเรียกใช้กระบวนการสร้าง
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
-  * Different versions of the SDK can be installed side by side. To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
-  * The SDK Debugging Tools must also be installed. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
+  * SDK รุ่นต่างๆสามารถติดตั้งได้แบบเคียงข้างกัน การติดตั้ง SDK เปิดโปรแกรมติดตั้ง Visual Studio เลือก `เปลี่ยน`→`องค์ประกอบส่วนบุคคล`เลื่อนลงและเลือกที่เหมาะสม Windows SDK เพื่อติดตั้ง อีกทางเลือกหนึ่งคือการมองที่ [เก็บถาวรของ Windows SDK และจําลอง](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) และดาวน์โหลด SDK รุ่นสแตนด์อโลนตามลําดับ
+  * เครื่องมือการดีบัก SDK ต้องถูกติดตั้ง ถ้ามีการติดตั้ง Windows 10 SDK ผ่านการติดตั้ง Visual Studio แล้วพวกเขาสามารถติดตั้งได้โดยไปที่: `แผงควบคุม`→`โปรแกรม`→`โปรแกรมและคุณสมบัติ`→ เลือก "Windows ชุดพัฒนาซอฟต์แวร์" → `เปลี่ยน`→`เปลี่ยน`→ตรวจสอบ "เครื่องมือแก้จุดบกพร่องสําหรับ Windows" →`เปลี่ยน` หรือ คุณสามารถดาวน์โหลดตัวติดตั้ง SDK แบบสแตนด์อโลน และใช้เพื่อติดตั้งเครื่องมือการดีบัก
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+หากคุณยังไม่มีการติดตั้ง Windows [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) มีรุ่น timebombed ของ Windows ที่คุณสามารถใช้เพื่อสร้างอิเล็กตรอน
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+อาคารอิเล็กตรอนจะทําทั้งหมดด้วยสคริปต์บรรทัดคําสั่งและไม่สามารถทํา ด้วยสตูดิโอภาพ คุณสามารถพัฒนาอิเล็กตรอนกับบรรณาธิการใด ๆ แต่การสนับสนุนสําหรับ อาคารที่มี Visual Studio จะมาในอนาคต
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
 ## สิ่งก่อสร้าง
 
-See [Build Instructions: GN](build-instructions-gn.md)
+ดู [ คำแนะนำในการสร้าง: GN ](build-instructions-gn.md)
 
-## 32bit Build
+## สร้าง 32 บิต
 
-To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
+ในการสร้างสําหรับเป้าหมาย 32bit คุณต้องผ่าน`target_cpu = "x86"`เป็น GN Arg. คุณสามารถสร้างเป้าหมาย 32bit ควบคู่ไปกับเป้าหมาย 64bit โดยใช้ ไดเรกทอรีผลลัพธ์ที่แตกต่างกันสําหรับ GN เช่นออก`/ ปล่อย x86`กับที่แตกต่างกัน อาร์กิวเมนต์
 
 ```powershell
-$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
+$ gn gen ออก / ปล่อย x86 -- args = "นําเข้า (\"/อิเล็กตรอน / build / args / release.gn \") target_cpu =\"x86\""
 ```
 
-The other building steps are exactly the same.
+ขั้นตอนการสร้างอื่น ๆ จะเหมือนกัน
 
-## Visual Studio project
+## Visual Studio Code
 
-To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
+เมื่อต้องการสร้างโครงการ Visual Studio คุณสามารถส่งผ่านพารามิเตอร์`--ide=vs2017` เพื่อ`gn gen`:
 
 ```powershell
 $ gn gen out/Debug --ide=vs2017
@@ -45,42 +45,42 @@ $ gn gen out/Debug --ide=vs2017
 
 ## วิธีแก้ปัญหาเบื้องต้น
 
-### Command xxxx not found
+### ไม่พบคําสั่ง xxxx
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+หากคุณพบข้อผิดพลาดเช่น`คําสั่ง xxxx ไม่พบ`คุณอาจลองใช้ คอนโซล`พร้อมรับคําสั่ง VS2015`เพื่อเรียกใช้สคริปต์การสร้าง
 
-### Fatal internal compiler error: C1001
+### ข้อผิดพลาดของคอมไพเลอร์ภายในที่ร้ายแรง: C1001
 
-Make sure you have the latest Visual Studio update installed.
+ตรวจสอบให้แน่ใจว่า คุณมีการปรับปรุง Visual Studio ล่าสุดที่ติดตั้ง
 
-### LNK1181: cannot open input file 'kernel32.lib'
+### LNK1181: ไม่สามารถเปิดแฟ้มอินพุท 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+ลองติดตั้ง 32bit Node.js
 
-### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
+### ข้อผิดพลาด: enoent, สถิติ ' C:\ชื่อผู้ใช้\AppData\Rโอเอมิ\nน.
 
-Creating that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
+สร้างไดเรกทอรีที่[ควรแก้ไขปัญหา](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
-$ mkdir ~\AppData\Roaming\npm
+$ mkdir ~ \ AppData\Rโอเอมิ\nน.
 ```
 
-### node-gyp is not recognized as an internal or external command
+### โหนด ไม่ถูกรู้จักเป็นคําสั่งภายในหรือภายนอก
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+คุณอาจได้รับข้อผิดพลาดนี้ถ้าคุณกําลังใช้ Git Bash สําหรับอาคาร, คุณควรใช้ พร้อมท์คําสั่ง PowerShell หรือ VS2015 แทน
 
-### cannot create directory at '...': Filename too long
+### ไม่สามารถสร้างไดเรกทอรีที่ '...': ชื่อแฟ้มยาวเกินไป
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
+มี[บางชื่อ path ยาวมาก](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish)และโดยค่าเริ่มต้น git บน Windows ไม่จัดการชื่อ pathnames ยาวอย่างถูกต้อง (แม้ว่าหน้าต่างสนับสนุนพวกเขา) นี้ควรจะแก้ไขได้:
 
 ```sh
-$ git config --system core.longpaths true
+$ การตั้งค่า - core.longpaths ระบบจริง
 ```
 
-### error: use of undeclared identifier 'DefaultDelegateCheckMode'
+### ข้อผิดพลาด: การใช้ตัวระบุที่ไม่ได้ประกาศ 'DefaultDelegateCheckMode'
 
 This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
 
-### ImportError: No module named win32file
+### นําเข้าเครื่อง: ไม่มีโมดูลที่ชื่อ win32file
 
-Make sure you have installed `pywin32` with `pip install pywin32`.
+ให้แน่ใจว่าคุณได้ติดตั้ง`pywin32`กับ`การติดตั้ง pip pywin32`

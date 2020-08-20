@@ -59,7 +59,7 @@ fs.readdirSync('/path/to/example.asar')
 使用档案中的模块：
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+require('./path/to/example.asar/dir/module.js')
 ```
 
 你也可以使用 `BrowserWindow` 来显示一个 `asar` 档案里的 web 页面：

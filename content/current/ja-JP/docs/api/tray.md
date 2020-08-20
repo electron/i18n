@@ -10,7 +10,7 @@
 const { app, Menu, Tray } = require('electron')
 
 let tray = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   tray = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
@@ -35,7 +35,7 @@ __プラットフォームによる制限:__
 const { app, Menu, Tray } = require('electron')
 
 let appIcon = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   appIcon = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
@@ -54,9 +54,10 @@ app.on('ready', () => {
 すべてのプラットフォームでまったく同じ動作を維持したい場合は、`click` イベントに頼らず、tray アイコンに常にコンテキストメニューを適用して下さい。
 
 
-### `new Tray(image)`
+### `new Tray(image, [guid])`
 
 * `image` ([NativeImage](native-image.md) | String)
+* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
 
 `image` に関連する新しい tray アイコンを作成します。
 
@@ -137,6 +138,26 @@ tray アイコン上にドラッグされたテキストがドロップされた
 #### イベント: 'drag-end' _macOS_
 
 ドラッグ操作が、tray 上か他の場所で終了したときに発行されます。
+
+#### Event: 'mouse-up' _macOS_
+
+戻り値:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Point](structures/point.md) - イベントの位置。
+
+Emitted when the mouse is released from clicking the tray icon.
+
+Note: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.
+
+#### Event: 'mouse-down' _macOS_
+
+戻り値:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Point](structures/point.md) - イベントの位置。
+
+Emitted when the mouse clicks the tray icon.
 
 #### イベント: 'mouse-enter' _macOS_
 
@@ -242,6 +263,10 @@ tray のバルーンを除去します。
 tray アイコンのコンテキストメニューをポップアップ表示します。 `menu` が渡されると、tray アイコンのコンテキストメニューの代わりに `menu` を表示します。
 
 `position` は Windows でのみ有効で、省略値は (0, 0) です。
+
+#### `tray.closeContextMenu()` _macOS_ _Windows_
+
+Closes an open context menu, as set by `tray.setContextMenu()`.
 
 #### `tray.setContextMenu(menu)`
 

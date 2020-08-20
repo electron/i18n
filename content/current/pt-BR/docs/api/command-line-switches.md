@@ -9,8 +9,8 @@ const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
-app.on('ready', () => {
-  // Seu código aqui
+app.whenReady().then(() => {
+  // Your code here
 })
 ```
 
@@ -25,6 +25,10 @@ Desabilita o cache de disco para as requisições HTTP.
 ## --disable-http2
 
 Disable HTTP/2 and SPDY/3.1 protocols.
+
+### --disable-ntlm-v2
+
+Disables NTLM v2 for posix platforms, no effect elsewhere.
 
 ## --lang
 
@@ -81,7 +85,7 @@ Don't use a proxy server and always make direct connections. Overrides any other
 
 A comma-separated list of `rules` that control how hostnames are mapped.
 
-Por exemplo:
+Como por exemplo:
 
 * `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
 * `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
@@ -161,7 +165,6 @@ Enables caller stack logging for the following APIs (filtering events):
 - `remote.getBuiltin()` / `remote-get-global`
 - `remote.getCurrentWindow()` / `remote-get-current-window`
 - `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
-- `remote.getGuestWebContents()` / `remote-get-guest-web-contents`
 
 ## --no-sandbox
 

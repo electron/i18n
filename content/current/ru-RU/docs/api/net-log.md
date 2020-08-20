@@ -7,9 +7,9 @@
 ```javascript
 const { netLog } = require('electron')
 
-app.on('ready', async () => {
+app.whenReady().then(async () => {
   await netLog.startLogging('/path/to/net-log')
-  // После некоторых сетевых событий
+  // After some network events
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })
@@ -24,7 +24,7 @@ app.on('ready', async () => {
 ### `netLog.startLogging(path[, options])`
 
 * `path` String - путь к файлу для записи сетевых журналов.
-* `options` Object (optional)
+* `options` Object (опционально)
   * `captureMode` String (опционально) - Какие типы данных должны быть зафиксированы. По умолчанию будут записаны только метаданные о запросах. Установка этого в `includeSensitive` будет включать cookies и данные аутентификации. Установка на `everything` включит все байты, передаваемые на сокеты. Может быть `default`, `includeSensitive` или `everything`.
   * `maxFileSize` Number (опционально) - Когда журнал заполнится и станет больше этого размера, регистрация автоматически прекратится. По умолчанию неограничено.
 

@@ -7,7 +7,7 @@
 Electron の Web Workers 内で Node.js の機能を使用するには、`webPreferences` の `nodeIntegrationInWorker` オプションを `true` に設定する必要があります。
 
 ```javascript
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegrationInWorker: true
   }
@@ -30,7 +30,7 @@ Node.js の組み込みモジュールはすべて Web Workers でサポート�
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('ネイティブモジュールの読み込みは安全ではありません')
+  throw new Error('Load native module is not safe')
 }
-let worker = new Worker('script.js')
+const worker = new Worker('script.js')
 ```

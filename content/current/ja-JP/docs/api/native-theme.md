@@ -22,7 +22,7 @@ OS / Chromium で現在ダークモードが有効になっている、または
 
 ### `nativeTheme.themeSource`
 
-`String` 型のプロパティです。`system`、`light` か `dark` にできます。  Chromium が内部で使用することを選択した値をオーバーライドして置き換えるために使用されます。
+`String` 型のプロパティです。`system`、`light` か `dark` にできます。  It is used to override and supersede the value that Chromium has chosen to use internally.
 
 このプロパティを `system` に設定するとオーバーライドが削除され、すべてが OS のデフォルトにリセットされます。  既定の `themeSource` は `system` です。
 

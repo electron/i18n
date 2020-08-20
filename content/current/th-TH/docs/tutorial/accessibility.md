@@ -1,6 +1,6 @@
 # การเข้าถึง
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+ทําให้การใช้งานที่สามารถเข้าถึงได้เป็นสิ่งสําคัญและเรายินดีที่จะแนะนําใหม่ และ[สเป็คตรอน](https://electronjs.org/spectron)ที่มอบ[Devtron](https://electronjs.org/devtron) นักพัฒนาซอฟต์แวร์มีโอกาสที่จะทําให้แอปของพวกเขาดีขึ้นสําหรับทุกคน
 
 ---
 

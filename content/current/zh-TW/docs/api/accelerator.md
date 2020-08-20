@@ -14,8 +14,8 @@ Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module 
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-  // 註冊 'CommandOrControl+Y' 快捷鍵監聽器。
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // 做同時按 Y 和 Command 跟 Control 其中一個鍵時要做的事。
   })
@@ -46,7 +46,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `0` 到 `9`
 * `A` 到 `Z`
 * `F1` 到 `F24`
-* `~`, `!`, `@`, `#`, `$` 等半型標點符號。
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `<code>Plus` (加號)</code>
 * `<code>Space` (空白鍵)</code>
 * `Tab`

@@ -45,7 +45,7 @@ Returns:
 
 Emitted before the application starts closing its windows. `event.preventDefault()`를 호출하면 기본 동작의 수행 (애플리케이션 종료) 을 막습니다.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**참고:** 만약 어플리케이션이 `autoUpdater.quitAndInstall()`에 의해 종료되는 경우 모든 윈도우에서 `close`이벤트를 발생한 *후* `before-quit` 가 발생되고 윈도우를 닫습니다.
 
 **참고**: Window 운영체제에서는 시스템 종료, 재시작 또는 로그아웃으로 앱이 종료되는 경우 해당 이벤트가 발생하지 않습니다.
 
@@ -465,7 +465,7 @@ app.exit(0)
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+리눅스에서는 눈에 보이는 최상단의 윈도우에 포커스를 줍니다. MacOS에서는 해당 어플리케이션을 active 앱으로 만듭니다. Windows에서는 어플리케이션 중에 최상단 window에 포커스를 줍니다.
 
 ### `app.hide()` _macOS_
 
@@ -477,11 +477,11 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.setAppLogsPath(path)`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (선택) - 로그를 저장하기 위한 사용자 경로. 절대경로여야 함.
 
 이후에 `app.getPath()` 또는 `app.setPath(pathName, newPath)`를 사용해서 다룰 수 있는, 사용자 앱의 로그를 저장하기 위한 디렉토리를 지정하거나 만듭니다.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on _macOS_, and inside the `userData` directory on _Linux_ and _Windows_.
+`path` 파라미터없이 `app.setAppLogsPath()`를 호출하면, _macOS_에서는 `~/Library/Logs/YourAppName`으로 설정되고, _Linux_와 _Windows_에서는 `userData` 디렉토리 내부로 설정이 됩니다.
 
 ### `app.getAppPath()`
 
@@ -491,12 +491,12 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 * PrinterInfo Object
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+Returns `String` - `name`과 연관된 디렉토리 또는 파일에 대한 경로입니다. 실패시, `Error`가 throw 됩니다.
 
 아래와 같은 경로를 name에 넣어 함수를 호출할 수 있습니다.
 
 * `home` User의 home 디렉토리.
-* `appData` Per-user application data directory, which by default points to:
+* `appData` 사용자별 어플리케이션 데이터 디렉토리, 기본 값은 아래와 같다.
   * Windows에서 `%APPDATA%`
   * Linux에서 `$XDG_CONFIG_HOME` 또는 `~/.config`
   * macOS에서 `~/Library/Application Support`
@@ -561,21 +561,21 @@ _Linux_와 _macOS_에서 아이콘은 mime type과 관련된 어플리케이션�
 * PrinterInfo Object
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
+`name`과 연결된 정의된 디렉터리 또는 파일로 `path` override 합니다. 해당 경로가 존재하지 않으면, `Error`를 throw 합니다. 이 경우 디렉터리(directory)는 `fs.mkdirSync` 또는 이와 유사하게 작성해야 합니다.
 
-You can only override paths of a `name` defined in `app.getPath`.
+`app.getPath에`정의된 `name`으로만 경로만 재정의할 수 있습니다.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+기본적으로 웹 페이지의 쿠키와 캐시는 사용자 데이터 아래에 `userData` 디렉터리에 저장됩니다. 이 위치를 변경하려면, `app` 모듈의 `ready` 이벤트가 발생되기 전의 `userData` 경로를 override 해야 합니다.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Returns `String` - 로딩된 어플리케이션의 버젼 어플리케이션의 `package.json`에 버전이 없는 경우 실행 파일 또는 현재 번들의 버전이 반환됩니다.
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+Returns `String` - `package.json `파일에 정의된 현재 어플리케이션의 이름.
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. 애플리케이션 이름에 대문자를 포함하고 싶다면 `productName` 필드에 값을 설정하세요. 일렉트론을 이 필드의 값을 `name` 필드보다 우선 사용합니다.
+Npm 모듈 사양에 따르면, 일반적으로 `package.json의` `name` 필드는 짧은 소문자 이름입니다. 애플리케이션 이름에 대문자를 포함하고 싶다면 `productName` 필드에 값을 설정하세요. 일렉트론을 이 필드의 값을 `name` 필드보다 우선 사용합니다.
 
 ### `app.setName(name)`
 
@@ -585,7 +585,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Returns `String` - 현재 애플리케이션 locale. 가능한 반환 값은 [여기](locales.md)에서 문서화되어 있습니다.
 
 To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 

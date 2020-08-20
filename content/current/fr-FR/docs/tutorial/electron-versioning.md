@@ -70,7 +70,7 @@ Les développeurs veulent savoir quelles versions sont fiables (_safe_). Même d
 * Utilisez `~2.0.0` pour admettre que les corrections liées à la stabilité ou à la sécurité dans votre version `2.0.0`.
 * Utilisez `^2.0.0` pour admettre que la fonctionnalité _raisonnablement stable_ ne soit pas cassée, ainsi que la sécurité et les corrections de bogues.
 
-Ce qui est important dans le deuxième point, c'est que les applications utilisant `^` devraient quand même pouvoir s'attendre à un niveau raisonnable de stabilité. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+Ce qui est important dans le deuxième point, c'est que les applications utilisant `^` devraient quand même pouvoir s'attendre à un niveau raisonnable de stabilité. Pour cela, semver autorise un identifiant _pré-version_ pour indiquer qu'une version particulière n'est pas encore _safe_ ou _stable_.
 
 Quoi que vous choisissiez, vous devrez périodiquement remonter la version dans votre `package.json` car les changements cassés sont un fait de la vie de Chromium.
 
@@ -85,7 +85,7 @@ Le processus est le suivant:
 
 Plus précisément, ce qui précède signifie :
 
-1. Admettre les changements de non-breaking-API avant la semaine 3 dans le cycle bêta est correct, même si ces changements ont le potentiel de causer des effets secondaires modérés
+1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
 3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
 
@@ -133,7 +133,7 @@ Nous cherchons à accroître la clarté à tous les niveaux du processus de mise
 * Les commits qui entraîneraient un bump **mineur** doivent commencer par `feat:`.
 * Les commits qui entraîneraient un bump de type **patch** doivent commencer par `correctif :`.
 
-* Nous autorisons le écrasement des livres, à condition que le message écrasé adhère au format de message ci-dessus.
+* We allow squashing of commits, provided that the squashed message adheres to the above message format.
 * Il est acceptable pour certains commits dans une pull request de ne pas inclure un préfixe sémantique, aussi longtemps que le titre de la demande d'ajout contient un message sémantique significatif.
 
 # Version `master`

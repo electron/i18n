@@ -17,7 +17,7 @@ There are questions that are asked quite often. Check this out before creating a
 ## Panduan dan Tutorial
 
 * [Setting up the Development Environment](tutorial/development-environment.md) 
-    * [Menyiapkan di macOS](tutorial/development-environment.md#setting-up-macos)
+    * [Menyiapkan macOS](tutorial/development-environment.md#setting-up-macos)
   * [Menyiapkan Windows](tutorial/development-environment.md#setting-up-windows)
   * [Menyiapkan Linux](tutorial/development-environment.md#setting-up-linux)
   * [Memilih Editor](tutorial/development-environment.md#a-good-editor)
@@ -27,8 +27,8 @@ There are questions that are asked quite often. Check this out before creating a
   * [Menjalankan Aplikasi Anda](tutorial/first-app.md#running-your-app)
 * [Boilerplates dan CLIs](tutorial/boilerplates-and-clis.md) 
     * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [elektron-penempa](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [pembangun elektron](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Alat dan Boilerplate lainnya](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Arsitektur Aplikasi](tutorial/application-architecture.md) 
@@ -38,7 +38,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Menggunakan Modul Node.js Asli](tutorial/using-native-node-modules.md)
   * [Strategi dan Kinerja](tutorial/performance.md)
 * Menambahkan Fitur ke Aplikasi Anda 
-    * [pemberitahuan](tutorial/notifications.md)
+    * [Pemberitahuan](tutorial/notifications.md)
   * [Dokumen Terkini](tutorial/recent-documents.md)
   * [Progres Aplikasi](tutorial/progress-bar.md)
   * [Menu Dock Kustom](tutorial/macos-dock.md)
@@ -46,18 +46,18 @@ There are questions that are asked quite often. Check this out before creating a
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
   * [Cara pintas keyboard](tutorial/keyboard-shortcuts.md)
   * [Deteksi Luring/Daring](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [File yang direpresentasikan untuk BrowserWindows macOS](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Rendering di luar layar](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [Mendukung Mode Gelap macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Web penyemat elektron](tutorial/web-embeds.md)
 * [Aksesibilitas](tutorial/accessibility.md) 
     * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Mengaktifkan Aksesibilitas](tutorial/accessibility.md#enabling-accessibility)
 * [Pengujian dan Debugging](tutorial/application-debugging.md) 
     * [Debugging Proses Utama](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debuging Proses Utama dengan Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Menggunakan Selenium dan WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pengujian pada Sistem CI tanpa kepala (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Ekstensi DevTools](tutorial/devtools-extension.md)
@@ -71,13 +71,13 @@ There are questions that are asked quite often. Check this out before creating a
 * [Keamanan](tutorial/security.md) 
     * [Melaporkan Issue Baru](tutorial/security.md#reporting-security-issues)
   * [Masalah keamanan Kromium dan upgrade](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Peringatan Keamanan Elektronika](tutorial/security.md#electron-security-warnings)
+  * [Peringatan Keamanan Elektron](tutorial/security.md#electron-security-warnings)
   * [Daftar Periksa Keamanan](tutorial/security.md#checklist-security-recommendations)
 * [Pembaruan](tutorial/updates.md) 
     * [Menerapkan Server Pembaruan](tutorial/updates.md#deploying-an-update-server)
   * [Menerapkan pembaruan di aplikasi Anda](tutorial/updates.md#implementing-updates-in-your-app)
   * [Menerapkan Pembaruan](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [Mendapat Dukungan](tutorial/support.md)
 
 
 
@@ -90,15 +90,14 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Penyelesaian masalah](tutorial/installation.md#troubleshooting)
 * Rilis Electron & Developer Feedback 
-    * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+    * [Kebijakan Pembuatan Versi](tutorial/electron-versioning.md)
+  * [Garis Waktu Rilis](tutorial/electron-timelines.md)
+* [Pengemasan Sumber Kode Aplikasi dengan asar](tutorial/application-packaging.md) 
     * [Menghasilkan Arsip asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Menggunakan Arsip asar](tutorial/application-packaging.md#using-asar-archives)
   * [Keterbatasan](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Menambahkan File yang Belum Dikemas ke Arsip asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Pengetesan Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Menggunakan Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 
@@ -113,10 +112,10 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 
 * [Ringkasan](api/synopsis.md)
 * [Proses objek](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [Sakelar Baris Perintah yang Didukung](api/command-line-switches.md)
 * [Variabel Lingkungan](api/environment-variables.md)
-* [Chrome Extensions Support](api/extensions.md)
-* [Breaking API Changes](breaking-changes.md)
+* [Dukungan Ekstensi Chrome](api/extensions.md)
+* [Perubahan API yang dapat menyebabkan gangguan](breaking-changes.md)
 
 
 
@@ -125,7 +124,7 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 * [`File` Objek](api/file-object.md)
 * [`<webview>`Tag](api/webview-tag.md)
 * [`window.open` fungsi](api/window-open.md)
-* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
+* [Objek `BrowserWindowProxy`](api/browser-window-proxy.md)
 
 
 

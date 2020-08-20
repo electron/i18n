@@ -13,7 +13,7 @@ Follow the guidelines below for building Electron on Linux.
   $ npx @electron/check-python-tls
   ```
 
-  If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+  Якщо скрипт видає повідомлення, що ваша конфігурація використовує застарілий протокол безпеки, використовуйте вашу систему управління пакетами для оновлення Python до найновішої версії в гілці 2.7. Крім того, відвідайте сторінку https://www.python.org/downloads/ для більш детальної інформації.
 
 * Node.js. Є різні способи встановлення Node. Ви можете завантажити вихідний код з [nodejs.org](https://nodejs.org) та скомпілювати його. Таким чином ви зможете встановити Node для вашого домашнього директорію зі стандартними правами користувача. Або спробуйте репозиторії, такі як [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 або вище.
@@ -58,7 +58,7 @@ $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Аналогічно для `arm64`, встановіть наступне:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
@@ -93,7 +93,7 @@ The default building configuration is targeted for major desktop Linux distribut
 
 By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
 
-For example if you installed `clang` under `/usr/local/bin/clang`:
+Наприклад, якщо ви встановили `clang` у `/usr/local/bin/clang`:
 
 ```sh
 $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_base_path = "/usr/local/bin"'

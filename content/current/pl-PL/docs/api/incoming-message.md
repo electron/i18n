@@ -1,4 +1,4 @@
-## Class: IncomingMessage
+## Klasa: IncomingMessage
 
 > Handle responses to HTTP/HTTPS requests.
 

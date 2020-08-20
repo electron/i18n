@@ -5,12 +5,12 @@ Todos os três sistemas operacionais fornecem meios para os aplicativos enviarem
 **Nota:** Uma vez que esta é uma API do HTML5 só está disponível no processo de renderização. Se você que mostrar a notificações em um processo principal por favor, verifique o módulo [Notification](../api/notification.md).
 
 ```javascript
-let myNotification = new Notification('Título', {
+const myNotification = new Notification('Title', {
   body: 'Lorem Ipsum Dolor Sit Amet'
 })
 
 myNotification.onclick = () => {
-  console.log('Notificação clicada')
+  console.log('Notification clicked')
 }
 ```
 

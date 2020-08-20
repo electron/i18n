@@ -12,7 +12,7 @@ For example:
 ```javascript
 const { app, powerMonitor } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
@@ -23,11 +23,11 @@ app.on('ready', () => {
 
 The `powerMonitor` module emits the following events:
 
-### Event: 'suspend'
+### Event: 'suspend' _Linux_ _Windows_
 
 Emitted when the system is suspending.
 
-### Event: 'resume'
+### Event: 'resume' _Linux_ _Windows_
 
 Emitted when system is resuming.
 

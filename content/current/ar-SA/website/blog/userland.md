@@ -36,7 +36,7 @@ We then used this data to generate the following reports:
 - [App Dependencies](https://electronjs.org/userland/dependencies): Packages most often listed as `dependencies` in Electron apps.
 - [Package Authors](https://electronjs.org/userland/package_authors): The most prolific authors of Electron-related npm packages.
 
-## Filtering Results
+## فلترة النتائج
 
 Reports like [app dependencies](https://electronjs.org/userland/dependencies) and [starred apps](https://electronjs.org/userland/starred_apps) which list packages, apps, and repos have a text input that can be used to filter the results.
 

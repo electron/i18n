@@ -28,7 +28,7 @@
 
 ### `new Notification([options])` _Экспериментально_
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `title` String - Заголовок для уведомления, который будет отображаться в верхней части окна уведомления, когда он будет показан.
   * `subtitle` String (опционально) _macOS_ - Подзаголовок для уведомления, который будет отображаться под заголовком.
   * `body` String - Текст уведомления, который будет отображаться под заголовком или подзаголовком.
@@ -142,7 +142,7 @@
 
 A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
 
-Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
+Стандартное значение - 'low'. Что бы узнать подробнее, смотрите [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels).
 
 #### `notification.timeoutType` _Linux_ _Windows_
 

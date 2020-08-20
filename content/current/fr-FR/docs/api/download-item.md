@@ -76,13 +76,9 @@ L'objet `downloadItem` dispose des méthodes suivantes :
 
 Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session. Si l'utilisateur ne définit pas le chemin de sauvegarde via l'API, Electron utilisera la routine d'origine pour déterminer le chemin de sauvegarde ; cela demande généralement une boîte de dialogue de sauvegarde.
 
-**[Déprécié](modernization/property-updates.md) : utilisez la propriété `savePath` à la place.**
-
 #### `downloadItem.getSavePath()`
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
-
-**[Déprécié](modernization/property-updates.md) : utilisez la propriété `savePath` à la place.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
@@ -106,7 +102,7 @@ Retourne `Boolean` - Si le téléchargement est en pause.
 
 Reprend le téléchargement qui a été mis en pause.
 
-**Remarque :** Pour permettre la reprise des téléchargements, le serveur sur lequel vous téléchargez doit supporter les requêtes de plage (range requests) et doit fournir les en-têtes `Last-Modified` et `ETag`. Sinon `resume()` va rejeter les octets reçus précédemment et redémarrer le téléchargement depuis le début.
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Sinon `resume()` va rejeter les octets reçus précédemment et redémarrer le téléchargement depuis le début.
 
 #### `downloadItem.canResume()`
 

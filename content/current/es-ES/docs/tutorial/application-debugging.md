@@ -9,7 +9,7 @@ La herramienta mas completa para depurar un proceso visualizador individualmente
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 

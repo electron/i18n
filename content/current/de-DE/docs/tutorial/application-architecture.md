@@ -20,7 +20,8 @@ Auf Webseiten ist das Aufrufen von APIs, die auf native GUI-Elemente zugreifen, 
 
 > #### Anmerkung: Kommunikation zwischen Prozessen
 > 
-> In Electron stehen uns verschiedene Wege der Kommunikation zwischen Main- und Render Prozess zur Verfügung, wie z.B. das [`ipcRenderer`](../api/ipc-renderer.md) und das [`ipcMain`](../api/ipc-main.md) Module für das versenden von Nachrichten und das [remote](../api/remote.md) module für RPC Kommunikation. Passend dazu gibt es in den FAQ einen Eintrag zum [Teilen von Daten zwischen Webseiten](../faq.md#how-to-share-data-between-web-pages).
+> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+
 
 ## Benutzung der Electron's APIs
 
@@ -42,16 +43,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Dadurch dass Kommunikation zwischen Prozessen möglich ist, kann ein Render-Prozess den Main-Prozess auffordern einen Task auszuführen. In Electron gibt es ein Modul genannt `remote` welches APIs bereitstellt welche gewöhnlich nur dem Main-Prozess zur Verfügung stehen. Um ein `BrowserWindow` aus einem Render-Prozess heraus zu erstellen, verwenden wir <0>remote</0> als Mittelsmann:
+Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
 
 ```javascript
-// Dies funtioniert in Render-Prozess, gibt aber `undefined` 
-// im Main-Prozess zurück:
-const { remote } = require('electron')
-const { BrowserWindow } = remote
+// In the main process:
+const { ipcMain } = require('electron')
 
-const win = new BrowserWindow()
+ipcMain.handle('perform-action', (event, ...args) => {
+  // ... do something on behalf of the renderer ...
+})
+
+// In the renderer process:
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.invoke('perform-action', ...args)
 ```
+
+Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
 
 ## Node.js APIs verwenden
 

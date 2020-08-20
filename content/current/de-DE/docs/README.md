@@ -4,7 +4,7 @@ Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. 
 
 ## Häufig gestellte Fragen
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines Issue:
 
 * [Electron FAQ](faq.md)
 
@@ -84,7 +84,6 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 * Electron Veröffentlichungen & Entwickler Feedback
   * [Versionsrichtlinie](tutorial/electron-versioning.md)
   * [Veröffentlichungszeitleisten](tutorial/electron-timelines.md)
-  * [App Feedback Programm](tutorial/app-feedback-program.md)
 * [Anwendungsquellcode packen mit asar](tutorial/application-packaging.md)
   * [asar Archive generieren](tutorial/application-packaging.md#generating-asar-archives)
   * [Verwenden von asar Archiven](tutorial/application-packaging.md#using-asar-archives)

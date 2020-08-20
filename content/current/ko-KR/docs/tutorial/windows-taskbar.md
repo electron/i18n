@@ -103,7 +103,7 @@ __작업 표시줄 버튼 위의 오버레이:__
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
@@ -118,7 +118,7 @@ the keyboard focus. BrowserWindow 작업표시줄 버튼을 깜빡이려면, [Br
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```

@@ -24,11 +24,11 @@ The `shell` modülünün aşağıdaki yöntemleri vardır:
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openItem(fullPath)`
+### `shell.openPath(path)`
 
-* `fullPath` Dizgi
+* dizi `yolu`
 
-`Boolean` Döndürür - Öğenin başarılı bir şekilde açılıp açılmadığı.
+Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 

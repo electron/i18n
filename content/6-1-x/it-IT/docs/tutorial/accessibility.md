@@ -10,7 +10,7 @@ Queste nuove funzionalità portano questi strumenti di controllo alla tua app El
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Ad esempio:
+Nel framework di test Spectron, puoi ora controllare ogni finestra e `<webview>`tag nella tua applicazione. Ad esempio:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {

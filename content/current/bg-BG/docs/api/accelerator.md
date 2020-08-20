@@ -13,8 +13,9 @@ Accelerators are Strings that can contain multiple modifiers and a single key co
 
 ```javascript
 const { app, globalShortcut } = require('electron')
-app.on('ready', () => {
-   // Слуша за 'CommandOrControl+Y' клависна команда.
+
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
      // Изпълнява се, когато Y и Command/Control са натиснати.
   })
@@ -45,7 +46,7 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 * от `0` до `9`
 * от `A` до `Z`
 * от `F1` до `F24`
-* Пунктуационни клавиши като `~`, `!`, `@`, `#`, `$`, и др.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `+`
 * `Space`
 * `Tab`

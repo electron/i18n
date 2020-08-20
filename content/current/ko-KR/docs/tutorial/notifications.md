@@ -5,7 +5,7 @@
 **Note:** HTML5 API 이므로 오직 렌더러 프로세스에서만 사용이 가능합니다. 만약 메인 프로세스에 notification을 표시하려면 [Notification](../api/notification.md) 모듈을 확인하십시오.
 
 ```javascript
-let myNotification = new Notification('Title', {
+const myNotification = new Notification('Title', {
   body: 'Lorem Ipsum Dolor Sit Amet'
 })
 

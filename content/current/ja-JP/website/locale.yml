@@ -133,7 +133,7 @@ headings:
   languages: 言語
 taglines:
   languages: 世界中の素晴らしい開発者コミュニティによってローカライズされたコンテンツ
-  announcement: Electron は OpenJS Foundation に加盟しました。詳しくは <a href="/blog/electron-joins-openjsf">お知らせ</a> をご覧ください!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "翻訳に参加する"
 footer:
   see_the_faq: よくある質問（FAQ）
@@ -215,6 +215,8 @@ pages:
     description: Electron ガバナンスシステムは、Electron エコシステムのさまざまな側面を監督するワーキンググループと、それらの間の衝突を解決するように機能する管理ワーキンググループで構成されています。
   '/donors':
     title: スポンサー
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: 始めましょう！
   fiddle:

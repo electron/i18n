@@ -13,7 +13,7 @@ Electron'u linux üzerinde inşaa etmek için aşağıdaki yönlendirmeleri taki
   $ npm run check-tls
   ```
 
-  Komut dosyası yapılandırmanızın eski bir güvenlik protokolu kullandığını döndürürse, Python'u 2.7.x sürümünün en son versiyonuna güncelleştirmek için sisteminizin paket yöneticisini kullanın. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+  Komut dosyası yapılandırmanızın eski bir güvenlik protokolu kullandığını döndürürse, Python'u 2.7.x sürümünün en son versiyonuna güncelleştirmek için sisteminizin paket yöneticisini kullanın. Alternatif olarak, daha detaylı açıklamalar için https://www.python.org/downloads/ adresini ziyaret edin.
 
 * Node.js. Node'u kurmanın birden fazla yolu var. [nodejs.org](https://nodejs.org)'tan indirip derleyebilirsiniz. Bu şekilde Node'u kullanıcı dizinine standart bir şekilde kurabilirsiniz. Ya da [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) gibi depoları deneyebilirsiniz.
 * [clang](https://clang.llvm.org/get_started.html) 3.4 veya sonrası.
@@ -65,7 +65,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cpu` parameter to `gn gen`:
+Ve `arm` veya `ia32` hedeflerine çarpraz derlemek için `gn gen` 'e `target_cpu` parametresini vermelisiniz:
 
 ```sh
 $ gn gen out/Debug --args='import(...) target_cpu="arm"'
@@ -91,9 +91,9 @@ The default building configuration is targeted for major desktop Linux distribut
 
 ### İndirdiğıniz `clang` yerine sistem `clang`'ini kullanmak
 
-Varsayılan olarak önceden oluşturulmuş electron [`clang`](https://clang.llvm.org/get_started.html) tarafından sağlanan iki dosyalar chromium projesi. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
+Varsayılan olarak önceden oluşturulmuş electron [`clang`](https://clang.llvm.org/get_started.html) tarafından sağlanan iki dosyalar chromium projesi. Herhangi bir sebepten dolayı sisteminizde yüklü olan `clang` ile inşa etmek istiyorsanız, `clang_base_path` argümanını GN args içinde belirtebilirsiniz.
 
-For example if you installed `clang` under `/usr/local/bin/clang`:
+Örneğin, eğer `clang` 'ı `/usr/local/bin/clang` dizinine yüklediyseniz:
 
 ```sh
 $ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'

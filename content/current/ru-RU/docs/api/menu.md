@@ -54,7 +54,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 #### `menu.popup([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `windows` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.

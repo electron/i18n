@@ -36,7 +36,7 @@ Show the given file in a file manager. If possible, select the file.
 
 * `url` String - Windows では最大2081文字、そうでなければ関数は false を返します。
 * `options` Object (任意)
-  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. _macOS_
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. 省略値は `true` です。 _macOS_
   * `workingDirectory` String (任意) - 作業ディレクトリ。 _Windows_
 
 戻り値 `Boolean` - URL を開くためにアプリケーションが利用可能かどうか。
@@ -49,7 +49,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `url` String - Windows では最大2081文字です。
 * `options` Object (任意)
-  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. _macOS_
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. 省略値は `true` です。 _macOS_
   * `workingDirectory` String (任意) - 作業ディレクトリ。 _Windows_
 
 戻り値 `Promise<void>`

@@ -686,7 +686,7 @@ const alpha = color.substr(6, 2) // "dd"
 </ul>
 
 <p spaces-before="0">
-  Mengembalikan <code>Senar</code> - Pengaturan warna sistem dalam bentuk heksadesimal RGB (<code>#ABCDEF</code>). See the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx">Windows docs</a> and the <a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors">MacOS docs</a> for more details.
+  Mengembalikan <code>Senar</code> - Pengaturan warna sistem dalam bentuk heksadesimal RGB (<code>#ABCDEF</code>). See the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx">Windows docs</a> and the <a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors">macOS docs</a> for more details.
 </p>
 
 <p spaces-before="0">
@@ -760,7 +760,7 @@ const alpha = color.substr(6, 2) // "dd"
 </p>
 
 <p spaces-before="0">
-  <strong x-id="1">Depreacted:</strong> Should use the new <a href="native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly"><code>nativeTheme.shouldUseHighContrastColors</code></a> API.
+  <strong x-id="1">Deprecated:</strong> Should use the new <a href="native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly"><code>nativeTheme.shouldUseHighContrastColors</code></a> API.
 </p>
 
 <h3 spaces-before="0">
@@ -775,10 +775,6 @@ const alpha = color.substr(6, 2) // "dd"
   Gets the macOS appearance setting that is currently applied to your application, maps to <a href="https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc">NSApplication.effectiveAppearance</a>
 </p>
 
-<p spaces-before="0">
-  <strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong>
-</p>
-
 <h3 spaces-before="0">
   <code>systemPreferences.getAppLevelAppearance()</code> <em x-id="4">macOS</em> <em x-id="4">Deprecated</em>
 </h3>
@@ -789,10 +785,6 @@ const alpha = color.substr(6, 2) // "dd"
 
 <p spaces-before="0">
   Gets the macOS appearance setting that you have declared you want for your application, maps to <a href="https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc">NSApplication.appearance</a>. You can use the <code>setAppLevelAppearance</code> API to set this value.
-</p>
-
-<p spaces-before="0">
-  <strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong>
 </p>
 
 <h3 spaces-before="0">
@@ -807,10 +799,6 @@ const alpha = color.substr(6, 2) // "dd"
 
 <p spaces-before="0">
   Sets the appearance setting for your application, this should override the system default and override the value of <code>getEffectiveAppearance</code>.
-</p>
-
-<p spaces-before="0">
-  <strong x-id="1"><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong>
 </p>
 
 <h3 spaces-before="0">
@@ -871,7 +859,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 </p>
 
 <h3 spaces-before="0">
-  <code>systemPreferences.getMediaAccessStatus(mediaType)</code> <em x-id="4">macOS</em>
+  <code>systemPreferences.getMediaAccessStatus(mediaType)</code> <em x-id="4">Windows</em> <em x-id="4">macOS</em>
 </h3>
 
 <ul>
@@ -886,6 +874,10 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 <p spaces-before="0">
   This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return <code>granted</code>. macOS 10.14 Mojave or higher requires consent for <code>microphone</code> and <code>camera</code> access. macOS 10.15 Catalina or higher requires consent for <code>screen</code> access.
+</p>
+
+<p spaces-before="0">
+  Windows 10 has a global setting controlling <code>microphone</code> and <code>camera</code> access for all win32 applications. It will always return <code>granted</code> for <code>screen</code> and for all media types on older versions of Windows.
 </p>
 
 <h3 spaces-before="0">

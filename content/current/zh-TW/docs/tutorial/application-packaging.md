@@ -59,7 +59,7 @@ fs.readdirSync('/path/to/example.asar')
 使用封存檔中的模組:
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+require('./path/to/example.asar/dir/module.js')
 ```
 
 你也可以在 `BrowserWindow` 中顯示 `asar` 封存檔中的網頁:

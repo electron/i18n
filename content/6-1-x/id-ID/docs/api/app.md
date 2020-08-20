@@ -46,11 +46,11 @@ Emitted ketika Elektron selesai menginisialisasi. Di macos , ` launchInfo </ 0> 
 <ul>
 <li><code>event` Sinyal</li> </ul>
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Diterbitkan sebelum aplikasi mulai menutup jendelanya. Memanggil `event.preventDefault()` akan menghambat perilaku default, sehingga menghentikan aplikasi.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Catatan:** Bia aplikasi keluar disebabkan oleh `autoUpdater.quitAndInstall()`, kemudian `before-quit` disebabkan oleh *after* penyebab`close` acara di semua jendela dan menutupnya.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Catatan:** Di Windows, acara ini tidak akan disiarkan jika aplikasi ditutup karena untuk mematikan/memulai ulang sistem atau pengguna keluar.
 
 ### Acara : 'akan-berhenti'
 
@@ -58,12 +58,12 @@ Pengembalian:
 
 * `peristiwa` Peristiwa
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Terjadi ketika semua jendela telah ditutup dan aplikasi akan keluar. Mmanggil `event.preventDefault()` akan menghambat perilaku default, sehigga menghentikan aplikasi.
 
 Lihat deskripsi ` jendela-semua-ditutup </ 0>  acara untuk perbedaan antara <code> akan-berhenti </ 0> dan <code> jendela-semua-ditutup </ 0> peristiwa.</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> On Windows, this event will not be emitted if the app is closed due
-to a shutdown/restart of the system or a user logout.</p>
+<p spaces-before="0"><strong x-id="1">Catatan:</strong> Di Windows, acara ini tidak akan disiarkan jika aplikasi ditutup bila disebakan karena 
+sistem dimatikan/dimulai ulang atau pengguna keluar.</p>
 
 <h3 spaces-before="0">Acara : 'berhenti'</h3>
 
@@ -76,8 +76,8 @@ to a shutdown/restart of the system or a user logout.</p>
 
 <p spaces-before="0">Emitted saat aplikasi berhenti.</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> On Windows, this event will not be emitted if the app is closed due
-to a shutdown/restart of the system or a user logout.</p>
+<p spaces-before="0"><strong x-id="1">Catatan:</strong> Di Windows, acara ini tidak akan disiarkan jika aplikasi ditutup bila disebakan karena 
+sistem dimatikan/dimulai ulang atau pengguna keluar.</p>
 
 <h3 spaces-before="0">Event : 'open-file' <em x-id="4"> macos </ 0></h3>
 
@@ -130,44 +130,44 @@ Emitted selama [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 Aktivitas pengguna hanya dapat dilanjutkan di aplikasi yang memiliki ID Tim pengembang yang sama dengan aplikasi sumber aktivitas dan yang mendukung jenis aktivitas. Jenis aktivitas yang didukung ditentukan di aplikasi `Info.plist` di bawah tombol `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' _macOS_
+### Acara: 'aktivitas-akan-dilanjutkan' _macOS_
 
 Pengembalian:
 
 * `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Anda harus menghubungi `event.preventDefault()` jika Anda ingin menangani acara ini.
+Terjadi saat [ Handoff ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sebelum aktivitas dari perangkat lain diinginkan untuk dilanjutkan. Anda harus menghubungi `event.preventDefault()` jika Anda ingin menangani acara ini.
 
-### Event: 'continue-activity-error' _macOS_
-
-Pengembalian:
-
-* `acara` Acara
-* `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - A string with the error's localized description.
-
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
-
-### Event: 'activity-was-continued' _macOS_
+### Acara: 'aktivitas-error-dilanjutkan' _macOS_
 
 Pengembalian:
 
 * `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `error` String - String dengan deskripsi kesalahan yang dilokalkan.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+Terjadi saat [ Handoff ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sebelum aktivitas dari perangkat lain diinginkan untuk dilanjutkan.
 
-### Event: 'update-activity-state' _macOS_
+### Acara: 'aktivitas-telah-dilanjutkan' _macOS_
 
 Pengembalian:
 
 * `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `userInfo` Objek - Berisi status khusus-aplikasi yang disimpan oleh aktivitas.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Terjadi saat [ Handoff ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sebelum aktivitas dari perangkat lain diinginkan untuk dilanjutkan.
+
+### Acara: 'memperbarui-kondisi-aktivitas' _macOS_
+
+Pengembalian:
+
+* `acara` Acara
+* `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Objek - Berisi status khusus-aplikasi yang disimpan oleh aktivitas.
+
+Terjadi saat [ Handoff ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) akan dilanjutkan di perangkat lain. Jika Anda perlu memperbarui status yang akan ditransfer, Anda harus segera memanggil ` event.preventDefault() `, membuat kamus ` userInfo ` baru dan memanggil ` app.updateCurrentActiviy() ` tepat waktu. Bila tidak, operasi akan gagal dan `continue-activity-error` akan dipanggil.
 
 ### Event: 'new-window-for-tab' _macOS_
 

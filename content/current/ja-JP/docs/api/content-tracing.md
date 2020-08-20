@@ -11,7 +11,7 @@
 ```javascript
 const { app, contentTracing } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   (async () => {
     await contentTracing.startRecording({
       include_categories: ['*']
@@ -33,6 +33,8 @@ app.on('ready', () => {
 戻り値 `Promise<String[]>` - すべての子プロセスが `getCategories` リクエストを受諾したとき、そのカテゴリグループの配列で解決されます。
 
 カテゴリグループの集合を取得します。 新しいコードパスに到達したら、カテゴリグループは変更できます。 詳しくは [組み込みトレースカテゴリのリスト](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) を参照してください。
+
+> **NOTE:** Electron adds a non-default tracing category called `"electron"`. This category can be used to capture Electron-specific tracing events.
 
 ### `contentTracing.startRecording(options)`
 

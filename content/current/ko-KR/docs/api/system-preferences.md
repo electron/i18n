@@ -50,7 +50,7 @@ Returns:
 
 Returns `Boolean` - Whether the system is in Dark Mode.
 
-**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`.  See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
+**참고:** 이 API가 macOS 10.15 Catalina에서 "자동" 다크 모드에 있을 때 정확한 값을 반환하게 하려면 `Info.plist` 파일에 `NSRequiresAquaSystemAppearance=false`를 추가하거나 Electron 버전이 `7.0.0 이상`이어야 합니다.  See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
 
 **Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
@@ -295,7 +295,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-background` - The background of a window.
     * `window-frame-text` - The text in the window's titlebar area.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
 
 The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 
@@ -326,7 +326,7 @@ Returns `Boolean` - `true` if an inverted color scheme (a high contrast color sc
 
 Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
-**Depreacted:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
+**Deprecated:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
 
 ### `systemPreferences.getEffectiveAppearance()` _macOS_
 
@@ -334,15 +334,11 @@ Returns `String` - Can be `dark`, `light` or `unknown`.
 
 Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-**[더이상 사용하지 않음](modernization/property-updates.md)**
-
 ### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
 
 Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
 
 Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
-
-**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _Deprecated_
 
@@ -350,13 +346,11 @@ Gets the macOS appearance setting that you have declared you want for your appli
 
 Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
 
-**[더이상 사용하지 않음](modernization/property-updates.md)**
-
 ### `systemPreferences.canPromptTouchID()` _macOS_
 
 Returns `Boolean` - whether or not this device has the ability to use Touch ID.
 
-**NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
+**참고:** 이 API는 macOS Sierra 10.12.2 버전 이하에선 `false`를 반환합니다.
 
 ### `systemPreferences.promptTouchID(reason)` _macOS_
 
@@ -376,7 +370,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on the their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
 
-**NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
+**참고:** 이 API는 macOS Sierra 10.12.2 버전 이하에선 거부된 Promise를 반환합니다.
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` _macOS_
 
@@ -384,13 +378,15 @@ This API itself will not protect your user data; rather, it is a mechanism to al
 
 Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
 
-### `systemPreferences.getMediaAccessStatus(mediaType)` _macOS_
+### `systemPreferences.getMediaAccessStatus(mediaType)` _Windows_ _macOS_
 
 * `mediaType` String - Can be `microphone`, `camera` or `screen`.
 
 Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
 
 This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return `granted`. macOS 10.14 Mojave or higher requires consent for `microphone` and `camera` access. macOS 10.15 Catalina or higher requires consent for `screen` access.
+
+Windows 10 has a global setting controlling `microphone` and `camera` access for all win32 applications. It will always return `granted` for `screen` and for all media types on older versions of Windows.
 
 ### `systemPreferences.askForMediaAccess(mediaType)` _macOS_
 

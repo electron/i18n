@@ -5,12 +5,12 @@ Ang tatlong operating system ay nagbibigay ng paraan para sa mga aplikasyon na m
 **Tandaan:** Dahil ito ay isang HTML5 API magagamit lamang ito sa proseso ng tagasalin. Kung gusto mong makita ang mga abiso sa pangunahing proseso mangyaring tignan ang [Notification](../api/notification.md) modyul.
 
 ```javascript
-hayaan myNotification = bagong Abiso ('Pamagat', {
- katawan: 'Lorem Ipsum Dolor Sit Amet'
+const myNotification = new Notification('Title', {
+  body: 'Lorem Ipsum Dolor Sit Amet'
 })
 
-myNotification.onclick = () = & gt; {
-  console.log ('Na-click ang abiso')
+myNotification.onclick = () => {
+  console.log('Notification clicked')
 }
 ```
 
@@ -39,7 +39,7 @@ Ito ay nagbibigay-daan sa iyo upang matukoy sa tamang oras at panahon o hindi Wi
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+Ang mga abiso ay tuwid-patuloy sa macOS, ngunit dapat mong malaman [Mga alituntunin ng Apple's Human Interface tungkol sa mga notipikasyon](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Tandaan na ang mga notipikasyon ay limitado sa 256 bytes na laki at itoy mapuputol kung lalampas ka na sa limitasyon.
 

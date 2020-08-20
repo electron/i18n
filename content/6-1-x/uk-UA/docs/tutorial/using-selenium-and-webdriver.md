@@ -13,30 +13,30 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// Простий тест для перевірки видимого вікна відкривається з заголовком
 const Application = require('spectron').Application
 const assert = require('assert')
 
 const myApp = new Application({
-  path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
+  шлях: '/Applications/MyApp.app/Contents/MacOS/MyApp'
 })
 
 const verifyWindowIsVisibleWithTitle = async (app) => {
   await app.start()
-  try {
-    // Check if the window is visible
+  спробуйте {
+    // Перевірити, чи вікно видиме
     const isVisible = await app.browserWindow.isVisible()
-    // Verify the window is visible
+    // Переконатися, що вікно видиме
     assert.strictEqual(isVisible, true)
-    // Get the window's title
+    // Отримати заголовок вікна
     const title = await app.client.getTitle()
-    // Verify the window's title
+    // Перевірити заголовок вікна
     assert.strictEqual(title, 'My App')
   } catch (error) {
-    // Log any failures
-    console.error('Test failed', error.message)
+    // Записати будь-які збої
+    console.error('Тест не пройдено', error.message)
   }
-  // Stop the application
+  // Зупинити додаток
   await app.stop()
 }
 

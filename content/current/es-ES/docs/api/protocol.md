@@ -10,12 +10,12 @@ Un ejemplo de la implementación de un protocolo que tiene el mismo efecto que e
 const { app, protocol } = require('electron')
 const path = require('path')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
-    if (error) console.error('Falló al registrar protocolo')
+    if (error) console.error('Failed to register protocol')
   })
 })
 ```
@@ -32,7 +32,7 @@ Para tener su protocolo personalizado trabajando con una sesión personalizada, 
 const { session, app, protocol } = require('electron')
 const path = require('path')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   const partition = 'persist:example'
   const ses = session.fromPartition(partition)
 
@@ -114,7 +114,7 @@ protocol.registerSchemesAsPrivileged([
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Record<String, String>
     * `referrer` Cadena
@@ -137,7 +137,7 @@ Por defecto el `scheme` es tratado como `http:`, que es analizado de forma difer
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Record<String, String>
     * `referrer` Cadena
@@ -168,7 +168,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Record<String, String>
     * `referrer` Cadena
@@ -187,7 +187,7 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Record<String, String>
     * `referrer` Cadena
@@ -214,7 +214,7 @@ Para solicitudes POST el objeto `uploadData` debe ser proporcionado.
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Record<String, String>
     * `referrer` Cadena
@@ -286,7 +286,7 @@ Devuelve `Promise<Boolean>` - completado con un boolean eso indica si hay un con
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Record<String, String>
     * `referrer` Cadena
@@ -303,7 +303,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nu
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Record<String, String>
     * `referrer` Cadena
@@ -320,7 +320,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador 
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Record<String, String>
     * `referrer` Cadena
@@ -337,7 +337,7 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Record<String, String>
     * `referrer` Cadena
@@ -358,7 +358,7 @@ Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlado
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
+  * Objeto `request`
     * `url` String
     * `headers` Record<String, String>
     * `referrer` Cadena

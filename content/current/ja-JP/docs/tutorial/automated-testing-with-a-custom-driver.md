@@ -8,12 +8,12 @@ Electron アプリの自動テストを作成するには、アプリケーシ�
 const childProcess = require('child_process')
 const electronPath = require('electron')
 
-// プロセスを生成
-let env = { /* ... */ }
-let stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-let appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+// spawn the process
+const env = { /* ... */ }
+const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
+const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
-// アプリからの IPC メッセージをリッスンする
+// listen for IPC messages from the app
 appProcess.on('message', (msg) => {
   // ...
 })
@@ -43,14 +43,14 @@ class TestDriver {
   constructor ({ path, args, env }) {
     this.rpcCalls = []
 
-    // 子プロセスを開始
-    env.APP_TEST_DRIVER = 1 // メッセージをリッスンする必要があることをアプリに知らせる
+    // start child process
+    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
     this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
-    // rpc レスポンスをハンドル
+    // handle rpc responses
     this.process.on('message', (message) => {
-      // ハンドラを消去
-      let rpcCall = this.rpcCalls[message.msgId]
+      // pop the handler
+      const rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
       // reject/resolve
@@ -58,7 +58,7 @@ class TestDriver {
       else rpcCall.resolve(message.resolve)
     })
 
-    // 準備できるまで待つ
+    // wait for ready
     this.isReady = this.rpc('isReady').catch((err) => {
       console.error('Application failed to start', err)
       this.stop()
@@ -66,11 +66,11 @@ class TestDriver {
     })
   }
 
-  // ↓を使うための簡単な RPC 呼び出し
-  // driver.rpc('method', 1, 2, 3).then(...)
+  // simple RPC call
+  // to use: driver.rpc('method', 1, 2, 3).then(...)
   async rpc (cmd, ...args) {
-    // rpc リクエストを送る
-    let msgId = this.rpcCalls.length
+    // send rpc request
+    const msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
     return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
   }
@@ -92,10 +92,10 @@ async function onMessage ({ msgId, cmd, args }) {
   let method = METHODS[cmd]
   if (!method) method = () => new Error('Invalid method: ' + cmd)
   try {
-    let resolve = await method(...args)
+    const resolve = await method(...args)
     process.send({ msgId, resolve })
   } catch (err) {
-    let reject = {
+    const reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
@@ -106,10 +106,10 @@ async function onMessage ({ msgId, cmd, args }) {
 
 const METHODS = {
   isReady () {
-    // 必要であれば何かセットアップする
+    // do any setup needed
     return true
   }
-  // RPC 可能なメソッドをここに定義する
+  // define your RPC-able methods here
 }
 ```
 
@@ -119,7 +119,7 @@ const METHODS = {
 const test = require('ava')
 const electronPath = require('electron')
 
-let app = new TestDriver({
+const app = new TestDriver({
   path: electronPath,
   args: ['./app'],
   env: {

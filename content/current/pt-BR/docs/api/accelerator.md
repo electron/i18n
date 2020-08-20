@@ -12,10 +12,10 @@ Exemplos:
 Os atalhos são registrados com o módulo [`globalShortcut`](global-shortcut.md) usando o método [`registrar`](global-shortcut.md#globalshortcutregisteraccelerator-callback), ou seja:
 
 ```javascript
-const { app, globalShortcut } = require('electron') 
+const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-// Registrar um 'listener' para o atalho 'CommandOuControl+Y'.
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
   // Fazer algo quando Y e Command ou Control forem pressionados.
   }) 
@@ -46,7 +46,7 @@ A tecla `Super` é mapeada para a tecla `Windows` no Windows e no Linux e para a
 * `0` a `9`
 * `A` a `Z`
 * `F1` a `F24`
-* Pontuações como `~`, `!`, `@`, `#`, `$` e etc.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus (+)`
 * `Space (Espaço)`
 * `Tab`

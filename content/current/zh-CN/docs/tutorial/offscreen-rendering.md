@@ -10,7 +10,7 @@
 
 ### GPU加速
 
-GPU加速渲染意味着使用GPU用于合成。 因为帧必须从需要更多性能的GPU中复制，因此这种模式比另一个模式慢得多。 The benefit of this mode is that WebGL and 3D CSS animations are supported.
+GPU加速渲染意味着使用GPU用于合成。 因为帧必须从需要更多性能的GPU中复制，因此这种模式比另一个模式慢得多。 这种模式的优点是支持WebGL和3D CSS动画.
 
 ### 软件输出设备
 

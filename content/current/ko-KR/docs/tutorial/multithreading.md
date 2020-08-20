@@ -7,7 +7,7 @@
 Electron 's Web Workers에서 Node.js 기능을 사용하여 위해서, `webPreferences`의 `nodeIntegrationInWorker`옵션을 true로 설정해야합니다.
 
 ```javascript
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegrationInWorker: true
   }
@@ -30,7 +30,7 @@ Node.js의 모든 내장 모듈은 Web Workers에서 지원되며, `asar`아카�
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('native module 로드는 안전하지 않습니다.')
+  throw new Error('Load native module is not safe')
 }
-let worker = new Worker('script.js')
+const worker = new Worker('script.js')
 ```

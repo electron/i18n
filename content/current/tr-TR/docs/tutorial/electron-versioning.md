@@ -72,7 +72,7 @@ Geliştiriciler hangi sürümlerin _güvenli_ olacağını bilmek istiyor. Gör�
 <li>Güvenlik ve hata düzeltmelerinin yanı sıra kırılmaz <em x-id="4"> makul derecede kararlı </ 1> özellik işi kabul etmek için <code> ^ 2.0.0 </ 0> kullanın.</li>
 </ul>
 
-<p spaces-before="0">İkinci nokta ile ilgili önemli olan <code> ^ </ 0> kullanan uygulamaların makul düzeyde bir kararlılık beklemesi gerektiğidir. To accomplish this, semver allows for a <em x-id="4">pre-release identifier</em> to indicate a particular version is not yet <em x-id="4">safe</em> or <em x-id="4">stable</em>.</p>
+<p spaces-before="0">İkinci nokta ile ilgili önemli olan <code> ^ </ 0> kullanan uygulamaların makul düzeyde bir kararlılık beklemesi gerektiğidir. Bunu gerçekleştirmek için Semver, belirli bir sürümün henüz <em x-id="4">güvenli</em> veya <em x-id="4">kararlı</em> olmadığını belirtmek için <em x-id="4">yayın öncesi tanımlayıcıya</em> izin verir.</p>
 
 <p spaces-before="0">Hangisini seçerseniz seçin, bozucu değişiklikler Chromium hayatının bir gerçeği olduğu için periyodik olarak <code> package.json </ 0> sürümününe geçmek zorunda kalacaksınız.</p>
 
@@ -88,7 +88,7 @@ Geliştiriciler hangi sürümlerin _güvenli_ olacağını bilmek istiyor. Gör�
 
 Specifically, the above means:
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
 3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
 
@@ -136,7 +136,7 @@ Biz güncelleme ve serbest bırakma sürecinin her düzeyinde netliği arttırma
 <li>Commits that would result in a semver <strong x-id="1">major</strong> bump must start their body with <code>BREAKING CHANGE:`.</li>
 * Semver ile sonuçlanan **minor** tümseği ile başlamalıdır `feat:`.
 * Semver ** yamasına yol açacak komitelerin </ 0> bump'ı ` fix: </ 1> ile başlamalıdır.</p></li>
-<li><p spaces-before="0">Sıkıştırılmış mesajın yukarıdaki ileti biçimine uyması koşuluyla, taahhütlerin ezilmesine izin veririz.</p></li>
+<li><p spaces-before="0">We allow squashing of commits, provided that the squashed message adheres to the above message format.</p></li>
 <li>It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.</li>
 </ul>
 

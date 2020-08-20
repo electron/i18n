@@ -63,13 +63,9 @@ Emitted when the download is in a terminal state. This includes a completed down
 If user doesn't set the save path via the API, Electron will use the original
 routine to determine the save path; this usually prompts a save dialog.</p>
 
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">Deprecated</a>: use the <code>savePath` property instead.</strong></p>
-
-#### `downloadItem.getSavePath ()`
+<h4 spaces-before="0"><code>downloadItem.getSavePath ()`</h4>
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
-
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 

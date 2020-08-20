@@ -36,7 +36,7 @@ Abre o arquivo fornecido na maneira padrão da área de trabalho.
 
 * `url` String - Max 2081 characters on Windows, or the function returns false.
 * `options` Object (optional)
-  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. _macOS_
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. O padrão é `verdadeiro`. _macOS_
   * `workingDirectory` String (optional) - The working directory. _Windows_
 
 Returns `Boolean` - Whether an application was available to open the URL.
@@ -49,7 +49,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `url` String - Max 2081 characters on windows.
 * `options` Object (optional)
-  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. _macOS_
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. O padrão é `verdadeiro`. _macOS_
   * `workingDirectory` String (optional) - The working directory. _Windows_
 
 Returns `Promise<void>`

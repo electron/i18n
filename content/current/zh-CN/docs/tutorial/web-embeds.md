@@ -2,20 +2,20 @@
 
 如果要在Electron BrowserWindow中嵌入（第三方）Web 内容，有三个选项可供您使用： `<iframe>`标记、`<webview>`标记和 `BrowserViews`。 每个功能都略有不同，适用于不同的情况。 为了帮助您在这些选择之间进行选择，本指南将解释他们之间的差异和功能。
 
-## Iframes
+## Iframe
 
-Iframes in Electron behave like iframes in regular browsers. An `<iframe>` element in your page can show external web pages, provided that their [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) allows it. To limit the amount of capabilities a site in an `<iframe>` tag, it's recommended to use the [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) and only allow the capabilities you want to support.
+Iframe 在 Electron 中的行为与普通浏览器中类似。 一个`<iframe>`元素能在页面上显示外部网页，在宿主页面的[内容安全策略](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)允许范围内。 要限制`<iframe>`标签内的站点的功能特性，建议使用[`sandbox`属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox)并仅允许你想要支持的功能特性。
 
-## WebViews
+## WebView
 
-[WebViews](../api/webview-tag.md) are based on Chromium's WebViews and are not explicitly supported by Electron. We do not guarantee that the WebView API will remain available in future versions of Electron. This is why, if you want to use `<webview>` tags, you will need to set `webviewTag` to `true` in the `webPreferences` of your `BrowserWindow`.
+[WebViews](../api/webview-tag.md)基于 Chromium 的 WebView，不被 Electron 明确支持。 我们不能保证WebView API 在未来版本的 Electron 中仍然可用。 这就是为什么如果您想要使用`<webview>`标签，您需要在`BrowserWindow` 的 `webPreferences` 中设置 `webviewTag` 为 `true`。
 
-WebViews are a custom element (`<webview>`) that will only work inside Electron. They are implemented as an "out-of-process iframe". This means that all communication with the `<webview>` is done asynchronously using IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that allow you much greater control over the contents.
+WebView是一个自定义元素 (`<webview>`)，仅在 Electron 内工作。 它们以 "进程外 iframe" 实现。 这意味着所有与 `<webview>` 的通信都是异步使用 IPC 进行的。 `<webview>`元素有许多自定义方法和事件，类似于`webContents`，使您能够更多地控制内容。
 
-Compared to an `<iframe>`, `<webview>` tends to be slightly slower but offers much greater control in loading and communicating with the third party content and handling various events.
+与 `<iframe>`，`<webview>` 相比往往稍慢，但在加载和与第三方内容通信以及处理各种事件方面提供了更大的控制。
 
-## BrowserViews
+## BrowserView
 
-[BrowserViews](../api/browser-view.md) are not part of the DOM - instead, they are created in and controlled by your main process. They are simply another layer of web content on top of your existing window. This means that they are completely separate from your own `BrowserWindow` content and that their position is not controlled by the DOM or CSS but by setting the bounds in the main process.
+[BrowserViews](../api/browser-view.md) 不是 DOM 的一部分，而是由主进程创建和控制。 它们只是现有窗口之上的另一层 Web 内容。 这意味着它们与您自己的 `BrowserWindow` 内容完全分离，并且它们的位置不受 DOM 或 CSS 的控制，而是通过在主进程中设置边界来控制其位置。
 
-BrowserViews offer the greatest control over their contents, since they implement the `webContents` similarly to how a `BrowserWindow` implements it. However, they are not part of your DOM but are overlaid on top of them, which means you will have to manage their position manually.
+BrowserViews 提供对其内容的最大控制，因为它们实现 `webContents` 的方式与 `BrowserWindow` 实现内容的方式类似。 但是，它们不是 DOM 的一部分，而是覆盖在 DOM 之上，这意味着您必须手动管理其位置。

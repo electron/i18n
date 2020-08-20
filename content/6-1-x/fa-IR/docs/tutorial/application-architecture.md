@@ -1,6 +1,6 @@
-# Electron Application Architecture
+# معماری کاربرد الکترونmicrosaft
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Parsian They are fundamentally different and important to understand.
 
 ## فرآیندهای اصلی و رندرینگ
 

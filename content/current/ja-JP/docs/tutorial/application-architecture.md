@@ -20,7 +20,8 @@ Electron はウェブページを表示するために Chromium を使用して�
 
 > #### 余談: プロセス間通信
 > 
-> Electronでは、メインプロセスとレンダラープロセスの間でやり取りする方法がいくつかあります。メッセージ送信用の [`ipcRenderer`](../api/ipc-renderer.md) および [`ipcMain`](../api/ipc-main.md) モジュールや、RPC スタイルでの通信用の [remote](../api/remote.md) モジュールなどがあります。 また、[ウェブページ間でデータを共有する方法](../faq.md#how-to-share-data-between-web-pages) についての FAQ エントリもあります。
+> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+
 
 ## Electron API を使用する
 
@@ -42,16 +43,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-プロセス間の通信が可能であるため、レンダラープロセスはメインプロセスを呼び出してタスクを実行できます。 Electron には `remote` というモジュールがあり、通常はメインプロセスでのみ利用可能な API を公開しています。 レンダラープロセスから `BrowserWindow` を作成するには、remote を仲介者として使用します。
+Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
 
 ```javascript
-// これはレンダラープロセスでは動作しますが
-// メインプロセスでは `undefined` になります
-const { remote } = require('electron')
-const { BrowserWindow } = remote
+// In the main process:
+const { ipcMain } = require('electron')
 
-const win = new BrowserWindow()
+ipcMain.handle('perform-action', (event, ...args) => {
+  // ... do something on behalf of the renderer ...
+})
+
+// In the renderer process:
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.invoke('perform-action', ...args)
 ```
+
+Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
 
 ## Node.js API を使用する
 

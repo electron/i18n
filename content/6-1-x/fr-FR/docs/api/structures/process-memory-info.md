@@ -1,5 +1,5 @@
-# ProcessMemoryInfo Object
+# Objet ProcessMemoryInfo
 
-* `residentSet` Integer _Linux_ and _Windows_ - The amount of memory currently pinned to actual physical RAM in Kilobytes.
-* `private` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content in Kilobytes.
-* `shared` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself in Kilobytes.
+* `residentSet` Integer _Linux_ et _Windows_ - La quantité de mémoire actuellement épinglée à la RAM physique réelle en Kilobytes.
+* `privateBytes` Integer - La quantité de mémoire non partagée par d'autres processus, tel que empilements JS ou contenu HTML en Kilobytes.
+* `shared` Integer - La quantité de mémoire partagée entre processus, généralement la mémoire consommée par le code d'Electron lui-même en Kilobytes.

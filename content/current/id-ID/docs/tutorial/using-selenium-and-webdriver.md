@@ -138,7 +138,7 @@ const options = {
   }
 }
 
-let client = webdriverio.remote(options)
+const client = webdriverio.remote(options)
 
 client
   .init()

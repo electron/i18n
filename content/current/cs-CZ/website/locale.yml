@@ -133,7 +133,7 @@ headings:
   languages: Jazyky
 taglines:
   languages: Lokalizovaný obsah z naší úžasné globální vývojářské komunity.
-  announcement: Electron se právě připojil k OpenJS Foundation. Více informací najdete v tomto <a href="/blog/electron-joins-openjsf">oznámení</a>!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "Pomozte s překladem"
 footer:
   see_the_faq: Prozkoumejte nejčastěji kladené otázky
@@ -215,6 +215,8 @@ pages:
     description: Systém správy Electronu je složen pracovními skupinami, které dohlíží na různé aspekty Electron ekosystému a správní pracovní skupinou, která slouží k řešení konfliktů mezi nimi.
   '/donors':
     title: Dárci
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: Začínáme
   fiddle:

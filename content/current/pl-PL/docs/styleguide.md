@@ -175,9 +175,9 @@ Jeśli argument lub metoda są unikalne dla poszczególnych platform, te platfor
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+Argumenty typu `Array` muszą określać jakie elemenety może tablica zawierać w opisie poniżej.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+Opis argumentów typu `Function` powinien jasno pokazywać, jak miałby być wywoływany i mieć listę parametrów do przekazania.
 
 ### Zdarzenia
 

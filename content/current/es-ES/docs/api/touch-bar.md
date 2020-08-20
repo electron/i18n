@@ -78,15 +78,15 @@ const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// Etquita de spin result
+// Spin result label
 const result = new TouchBarLabel()
 
-// Botón spin
+// Spin button
 const spin = new TouchBarButton({
   label: '🎰 Spin',
   backgroundColor: '#7851A9',
   click: () => {
-    // Ignorar los clics si ya está girando
+    // Ignore clicks if already spinning
     if (spinning) {
       return
     }
@@ -128,15 +128,15 @@ const updateReels = () => {
 const finishSpin = () => {
   const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
   if (uniqueValues === 1) {
-    // Todo los 3 valores son el mismo
+    // All 3 values are the same
     result.label = '💰 Jackpot!'
     result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
-    // 2 valores son el mismo
+    // 2 values are the same
     result.label = '😍 Winner!'
     result.textColor = '#FDFF00'
   } else {
-    // No hay valores iguales
+    // No values are the same
     result.label = '🙁 Spin Again'
     result.textColor = null
   }
@@ -159,7 +159,7 @@ const touchBar = new TouchBar({
 
 let window
 
-app.once('ready', () => {
+app.whenReady().then(() => {
   window = new BrowserWindow({
     frame: false,
     titleBarStyle: 'hiddenInset',

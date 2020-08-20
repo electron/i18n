@@ -14,8 +14,8 @@ Les raccourcis sont enregistrés avec le module [`globalShortcut`](global-shortc
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-  // Enregistre un écouteur de raccourci 'CommandOrControl+Y'.
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Lance le code ici quand les touches Y et Command/Control sont pressés en même temps.
   })
@@ -46,7 +46,7 @@ La touche `Super` est associée à la touche `Windows` sur Windows et Linux et `
 * `0` à `9`
 * `A` à `Z`
 * `F1` à `F24`
-* Signes de ponctuation comme `~`, `!`, `@`, `#`, `$`, etc.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`

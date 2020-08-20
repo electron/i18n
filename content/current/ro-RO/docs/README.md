@@ -84,7 +84,6 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * Eliberări Electron & FeedBack Dezvoltător
   * [Poliță de Versiuni](tutorial/electron-versioning.md)
   * [Elliberări de cronologii](tutorial/electron-timelines.md)
-  * [Program de FeedBack a Aplicațiilor](tutorial/app-feedback-program.md)
 * [Împachetarea Codului Sursă a Aplicațiilor cu asar](tutorial/application-packaging.md)
   * [Generarea arhivelor asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Utilizarea arhivelor asar](tutorial/application-packaging.md#using-asar-archives)

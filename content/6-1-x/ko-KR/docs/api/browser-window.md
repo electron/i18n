@@ -161,7 +161,7 @@ child.once('ready-to-show', () => {
     * `default` - Results in the standard gray opaque Mac title bar.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
-    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
+    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **참고:** 이 옵션은 현재 실험적입니다.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. 기본값은 `false`이다.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. 기본값은 `true`이다.
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.  Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well.
@@ -220,7 +220,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 * On Linux, possible types are `desktop`, `dock`, `toolbar`, `splash`, `notification`.
 * On macOS, possible types are `desktop`, `textured`.
   * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
-  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.김기태71
+  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
 ### 인스턴스 이벤트
@@ -261,7 +261,7 @@ window.onbeforeunload = (e) => {
 ```
 _**참고**: `window.onbeforeunload = handler` 와 `window.addEventListener('beforeunload', handler)`의 동작에는 약간의 차이가 있습니다. 전자가보다 일관되게 일렉트론 내에서 작동하므로 항상 값을 반환하는 대신 `event.returnValue`를 명시 적으로 설정하는 것이 좋습니다._
 
-#### Event: 'closed' 대한민국 국민 김기태
+#### 이벤트: 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
@@ -1115,16 +1115,16 @@ The `buttons` is an array of `Button` objects:
   * `icon` [NativeImage](native-image.md) - 썸네일 도구 모음에 표시되는 아이콘입니다.
   * `click` Function
   * `tooltip` String (optional) - 버튼의 툴팁 텍스트
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `flags` String[] (optional) - 버튼의 특정 상태 및 동작을 제어. 기본값은 `['enabled']`.
 
 `flags`는 다음 `String`을 포함할 수 있는  array입니다.
 
 * `enabled` - 버튼이 활성화되어 있으며 사용자가 사용할  수 있습니다.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `disabled` - 버튼을 비활성화합니다. 존재하지만 사용자의 액션에 반응하지 않는 시각적 상태를 나타냅니다.
 * `dismissonclick` - 버튼을 클릭하면 바로 축소판 창이 닫힙니다.
 * `nobackground` - 버튼 테두리를 그리지 말고 이미지만 사용하세요.
 * `hidden` - 버튼이 사용자에게 보이지 않습니다.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `noninteractive` - 버튼이 활성화되어있더라도 반응하지 않습니다; 눌려진 버튼 상태로 표시되지 않습니다. 이 값은 버튼이 알림에 사용되는 경우에 사용됩니다.
 
 #### `win.setThumbnailClip(region)` _Windows_
 

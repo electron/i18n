@@ -5,22 +5,22 @@ Electron CI on Windows uses AppVeyor, which in turn uses Azure VM images to run.
 Occasionally we need to update these images owing to changes in Chromium or other miscellaneous build requirement changes.
 
 Example Use Case:
-    * We need `VS15.9` and we have `VS15.7` installed; this would require us to update an Azure image.
+    * VS15.9가 필요하고 VS15.7이 설치되어 있습니다. 이를 위해서는 Azure 이미지를 업데이트해야 합니다.
 
 1. Identify the image you wish to modify.
-    * In [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml), the image is identified by the property *image*.
-        * The names used correspond to the *"images"* defined for a build cloud, eg the [libcc-20 cloud](https://windows-ci.electronjs.org/build-clouds/8).
-    * Find the image you wish to modify in the build cloud and make note of the **VHD Blob Path** for that image, which is the value for that corresponding key.
+    * appveyor.yml에서 이미지는 속성 이미지로 식별됩니다.
+        * 사용된 이름은 빌드 클라우드(예: libcc-20 클라우드)에 대해 정의된 "이미지"에 해당합니다.
+    * 빌드 클라우드에서 수정하려는 이미지를 찾고 해당 이미지의 VHD Blob Path (해당 키의 값)를 기록하세요.
         * You will need this URI path to copy into a new image.
-    * You will also need the storage account name which is labeled in AppVeyor as the **Disk Storage Account Name**
+    * AppVeyor에서 디스크 스토리지 계정 이름으로 레이블이 지정된 스토리지 계정 이름이 필요합니다.
 
 2. Get the Azure storage account key
     * Log into Azure using credentials stored in LastPass (under Azure Enterprise) and then find the storage account corresponding to the name found in AppVeyor.
-        * Example, for `appveyorlibccbuilds` **Disk Storage Account Name** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts
+        * Example, for `appveyorlibccbuilds` 스토리지 계정 목록에서 appveyor libc 빌드를 찾을 디스크 스토리지 계정 이름 @ 홈 < 스토리지 계정
             * Click into it and look for `Access Keys`, and then you can use any of the keys present in the list.
 
 3. Get the full virtual machine image URI from Azure
-    * Navigate to Home < Storage Accounts < `$ACCT_NAME` < Blobs < Images
+    * 홈 < 스토리지 계정 < `$ACCT_NAME` < Blob < 이미지로 이동
         * In the following list, look for the VHD path name you got from Appveyor and then click on it.
             * Copy the whole URL from the top of the subsequent window.
 
@@ -49,7 +49,7 @@ Example Use Case:
         * Master VHD URI - use URI obtained @ end of previous step
         * Location use `East US`
 
-6. Log back into Azure and find the VM you just created in Homee < Virtual Machines < `$YOUR_NEW_VM`
+6. Azure에 다시 로그인하고 홈에서 방금 만든 VM을 찾습니다. < 가상 머신 < `$YOUR_NEW_VM`
     * You can download a RDP (Remote Desktop) file to access the VM.
 
 7. Using Microsoft Remote Desktop, click `Connect` to connect to the VM.

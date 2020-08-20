@@ -59,7 +59,7 @@ fs.readdirSync('/path/to/example.asar')
 Gumamit ng modyul galing sa archive:
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+require('./path/to/example.asar/dir/module.js')
 ```
 
 Maaari ring i-display ang pahina ng web sa archive na `asar` kasama ang `BrowserWindow`:

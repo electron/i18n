@@ -1,4 +1,4 @@
-tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
+tagline: JavaScript, HTML ve CSS ile platformlar arası masaüstü uygulamaları geliştirin
 nav:
   apps: Uygulamalar
   blog: Blog
@@ -16,25 +16,25 @@ nav:
   governance: Yönetim
 keyboard_modal:
   title: Klavye Kısayolları
-  key: Key
-  action: Action
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  key: Tuş
+  action: Eylem
+  focus_search: Arama kutusuna odaklan
+  focus_and_clear: Arama kutusuna odaklan ve temizle
+  scroll_down: Sonraki arama sonucunu seç
+  scroll_up: Önceki arama sonucunu seç
+  open: Seçili arama sonucunu aç
+  open_new_tab: Seçili arama sonucunu yeni sekmede aç
 docs:
   title: Electron Dokümanları
   description: Dokümanları <a href="/docs/all">tek bir sayfada</a> görün veya <a href="/docs/faq"> SSS (Sıkça Sorulan Sorular)</a> sayfasına göz atın.
-  guides: "Guides: Getting Started with Electron"
+  guides: "Rehber: Electron'a başlarken"
   api_reference: API Referansı
   api_structures: API Yapıları
   advanced: Gelişmiş
-  detailed: In Detail
+  detailed: Ayrıntılar
   custom_dom: Özel DOM Elementleri
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
+  main_proc_modules: Ana Modül Dosyası
+  renderer_proc_modules: Renderer Proses Modülleri
   both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: Bu dökümanı geliştir
@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Başlarken</b></a>Hızlı başlangıç rehberini okuyarak<a href='/docs/tutorial/first-app'>ilk uygulamanızı geliştirin</a>."
     updates: "Twitter'da <a href='https://twitter.com/electronjs'> @electronjs </a> adresini takip ederek <b> Güncel kalın </b> ve <a href='/blog'> blog yayınına </a> abone olun."
     localized_docs: "<a href='/languages'> Dil sayfasını </a> ziyaret ederek <a href='/languages'> <b> Dokümanları kendi ana dilinizde okuyun </b> </a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'>Atomio Slack'e</a> katılarak, <a href='https://discuss.atom.io/c/electron'>Discuss'da</a> paylaşım yaparak veya <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow'u</a> ziyaret ederek yardım ve geri dönüş alın."
     security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
@@ -62,7 +62,7 @@ community:
     other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Dil Toplulukları
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    description: "Electron topluluğu tüm dünyayı kapsıyor ve herkesin ana dili İngilizce değil. <a href='/languages'>Kendi dilinizde belgeler bulun</a> veya aşağıdaki dil topluluklarından birine katılın:"
   tools: Araçlar
   boilerplates: Şablonlar
   components: Bileşenler
@@ -71,8 +71,8 @@ community:
   awesome_notice: Bu liste <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's Awesome Electron</a> deposu baz alınarak oluşturulmuştur. <br>Listede birşeyler eksik mi? Listenin büyümesine <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">katkıda bulunun</a>.
   meetup_notice: Bir konferans eklemek için, <code>data/meetups.json</code> düzenleyin ve <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">talepte bulunun</a>.
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
+  show_releases: "Sürümleri göster:"
+  show_only_releases_from: "Sadece buradaki sürümleri göster:"
   all_versions: Tüm Sürümler
   stable_releases: Kararlı Sürümler
   stable_desc: Düzenli, desteklenen sürümler
@@ -88,8 +88,8 @@ releases:
   all_releases: Tüm Sürümler
   back_to_index: Dizine geri dön
 electron_is_good:
-  title: Apps users love, built with Electron
-  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
+  title: Electron ile yapılmış, kullanıcıların sevdiği uygulamalar
+  description: Tüm endüstrileri kapsayan binlerce organizasyon, Electron'u çapraz-platform yazılım geliştirmek için kullanıyor.
 electron_is_easy:
   title: Düşündüğünden daha kolay
   description: Eğer bir website oluşturabiliyorsanız, masaüstü uygulama da oluşturabilirsiniz. Electron, JavaScript, HTML ve CSS gibi web teknolojileriyle birlikte yaratıcı, yerli uygulamalar oluşturmak için bir sistemdir. Uygulamanızın özüne odaklanabilmeniz için, zor kısımların üstesinden gelir.
@@ -115,8 +115,8 @@ get_started:
 explore:
   title: Elektron API'leri keşfetmek
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Demos uygulaması</a> Electron API' nin en önemli özelliklerini gösterir. Uygulamanızı oluşturmak için örnek kod ve yardımcı ipuçları ile Electron' da nelerin mümkün olduğunu görün."
-  fiddle_title: Try more powerful experiments with Electron Fiddle
-  see_more_info: See more info
+  fiddle_title: Electron Fiddle'la daha güçlü deneyler yapın
+  see_more_info: Daha fazla bilgi
 download_from_github: Github'dan indirin
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Tüm sürümleri GitHub'da Göster</a>
 quick_start:
@@ -133,7 +133,7 @@ headings:
   languages: Diller
 taglines:
   languages: Bizim mükemmel geliştirici topluluğumuz tarafından yerelleştirilmiş içerik.
-  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "Çeviriye yardım et"
 footer:
   see_the_faq: 'Bkz: sıkça sorulan sorular'
@@ -167,8 +167,8 @@ fiddle_launch_button:
 or: ya da
 pages:
   '/':
-    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | JavaScript, HTML ve CSS ile çapraz-platform masaüstü uygulamaları oluşturun.
+    description: 'JavaScript, HTML ve CSS ile çapraz-platform masaüstü uygulamaları oluşturun.'
   '/apps':
     title: Electron Uygulamaları
     description: Electron ile Yapılmış Uygulamalar
@@ -215,12 +215,14 @@ pages:
     description: Electron yönetim sistemi, Electron ekosisteminin farklı yönlerini denetleyen Çalışma Gruplarından ve aralarındaki çatışmaları çözmek için çalışan bir İdari çalışma grubundan oluşur.
   '/donors':
     title: Bağışçılar
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: Başlarken
   fiddle:
     lead_desc: Electron ile başlamanın en kolay yolu
     create_app: Uygulamanı oluştur
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
+    description: Electron Fiddle küçük Electron deneyleri yapmanızı sağlar. Sizi bir hızlı-başlangıç şablonuyla karşılar – birkaç şey değiştirin, çalışmak istediğiniz Electron versiyonunu seçin ve istediğinizi yapın. Sonra, Fiddle'ınızı bir GitHub Gist'e veya bir yerel dosyaya kaydedin. GitHub'a pushladıktan sonra herkes sadece adres çubuğuna yazarak Fiddle'ınızı deneyebilir.
     explore: Electron'u Keşfet
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
     code_with_types: Kod Tipleri
@@ -234,7 +236,7 @@ governance:
   description: Electron yönetim sistemi, Electron ekosisteminin farklı yönlerini denetleyen Çalışma Gruplarından ve aralarındaki çatışmaları çözmek için çalışan bir İdari çalışma grubundan oluşur.
   wgs: Çalışma Grupları
   ecosystem:
-    title: Ecosystem
+    title: Ekosistem
     description: Oversees the projects that make Electron app development easier.
   outreach:
     title: Sosyal Yardım
@@ -279,7 +281,7 @@ governance:
       - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
     see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
   code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
-  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
-  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
+  license: Electron, <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT Lisansıyla</a> lisanslanmıştır.
+  repository: Yönetim yapısıyla ilgili daha fazla bilgi için <a href="https://github.com/electron/governance">Yönetim Repository'sine</a> göz atın.
 _404:
   page_not_found: Sayfa bulunamadı.

@@ -28,7 +28,7 @@ Vous pouvez trouver plus d'information et de documentation [ici](https://github.
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+Si vous ne voulez pas d'outils, mais seulement un passe-partout solide à partir duquel construire, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) pourrait valoir un coup d'œil. Il est assez populaire dans la communauté et utilise `electron-builder` en interne.
 
 ## Autres outils et boilerplates
 

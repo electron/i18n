@@ -42,23 +42,9 @@ npm init
 ```
 
 
-__ملاحظة__ : إذا كان `main` الحقل غير موجود في `package.json` ، سيحاول الإلكترون تحميل `index.js` (كما يفعل Node.js) . إذا كان هذا في الواقع تطبيقًا بسيطًا للعقدة ، فيمكنك إضافة برنامج `start` نصي يوجه `node` لتنفيذ الحزمة الحالية:
+__ملاحظة__ : إذا كان `main` الحقل غير موجود في `package.json` ، سيحاول الإلكترون تحميل `index.js` (كما يفعل Node.js) .
 
-
-
-```json
-{
-  "name": "your-app",
-  "version": "0.1.0",
-  "main": "main.js",
-  "scripts": {
-    "start": "node ."
-  }
-}
-```
-
-
-تحويل تطبيق العقدة هذا إلى تطبيق إلكتروني بسيط للغاية - نحن فقط نستبدل  `node` بــ  `electron` 
+By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
 
 
 
@@ -111,7 +97,7 @@ const electron = require('electron')
   
   function createWindow () {
     // إنشاء نافذة طولها 800 وعرضها 600.
-  let win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -155,18 +141,18 @@ app.whenReady().then(createWindow)
 // لا يمكن استخدام بعض APIs إلا بعد حدوث هذا الحدث.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-// على macOS من الشائع للتطبيقات وشريط القوائم
-   // للبقاء نشطًا حتى يتم إنهاء المستخدم بشكل صريح باستخدام Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  //على macOS من الشائع إعادة إنشاء نافذة في التطبيق عندما
-  //يتم النقر فوق رمز قفص الاتهام وليس هناك نوافذ أخرى مفتوحة.
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }

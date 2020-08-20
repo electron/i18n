@@ -45,7 +45,7 @@ app.on('window-all-closed', () => {
 
 Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**注意：** 如果由 `autoUpdater.quitAndInstal()` 退出应用程序 ，那么在所有窗口触发 `close` *之后* 才会触发 `before-quit` 并关闭所有窗口。
 
 **注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
@@ -302,7 +302,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+当渲染器进程`webContents`崩溃或关闭（杀死）时触发。
 
 ### 事件: "accessibility-support-changed" _ macOS _ _ Windows _
 
@@ -992,11 +992,11 @@ If you do not set `credits` but still wish to surface them in your app, AppKit w
 
 ### `app.isEmojiPanelSupported`
 
-Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+返回 `布尔值` - 当前操作系统版本是否允许使用本机emoji选取器。
 
 ### `app.showEmojiPanel` _macOS_ _Windows_
 
-Show the platform's native emoji picker.
+打开系统自身的emjio选取器。
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` _macOS (mas)_
 

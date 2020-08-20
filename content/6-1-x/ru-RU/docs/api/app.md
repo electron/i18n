@@ -45,7 +45,7 @@ app.on('window-all-closed', () => {
 
 Выполняется до того, как приложение начнет закрывать свои окна. Вызов `event.preventDefault()` предотвратит поведение по умолчанию, которое приводит к прекращению работы приложения.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Примечание:** Если выход приложения был инициирован `autoUpdater.quitAndInstall()`, тогда `before-quit` происходит *после* того, как происходит событие `close` на всех окнах и закрывает их.
 
 **Примечание:** На Windows это событие не произойдет, если приложение закрылось из-за выключения/перезагрузки системы или выхода пользователя из системы.
 
@@ -55,7 +55,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Возникает, когда все окна будут закрыты и приложение завершит работу. Вызов `event.preventDefault()` предотвратит поведение по умолчанию, которое приводит к прекращению работы приложения.
 
 Смотрите описание события `window-all-closed` для различий между событиями `will-quit` и `window-all-closed`.
 
@@ -162,7 +162,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 * `event` Event
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Возникает при нажатии пользователем кнопки новой вкладки macOS. Кнопка новой вкладки отобразится только если текущий `BrowserWindow` имеет `tabbingIdentifier`
 
 ### Событие: 'browser-window-blur'
 
@@ -352,7 +352,7 @@ app.on('session-created', (event, session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+Возникает, когда `desktopCapturer.getSources()` вызывается в процессе рендерера `webContents`. Вызов `event.preventDefault()` вернет пустые источники.
 
 ### Событие: 'remote-require'
 
@@ -428,13 +428,13 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 * `exitCode` Integer (опиционально)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Немедленный выход с помощью `exitCode`. `exitCode` по умолчанию 0.
 
 Все окна будут закрыты немедленно, без разрешения пользователя, а также события `before-quit` и `will-quit` не будут происходить.
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `args` String[] (опционально)
   * `execPath` String (опиционально)
 
@@ -516,7 +516,7 @@ Returns `String` - A path to a special directory or file associated with `name`.
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional)
+* `options` Object (опционально)
   * `size` String
     * `small` - 16x16
     * `normal` - 32x32
@@ -539,7 +539,7 @@ Returns `String` - A path to a special directory or file associated with `name`.
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` Object (optional)
+* `options` Object (опционально)
   * `size` String
     * `small` - 16x16
     * `normal` - 32x32
@@ -897,7 +897,7 @@ machineModelVersion: '11.5' }
 
 Задает счетчик-значок для текущего приложения. При значении счетчика `0` значок будет скрыт.
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+На macOS отображается на иконке в Dock. На Linux работает только для лаунчера Unity.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
@@ -911,7 +911,7 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -1061,7 +1061,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
 
-No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
+No confirmation dialog will be presented by default. Если нужно подтверждение операции пользователем, используйте [`dialog`](dialog.md) API.
 
 **Примечание:** Этот метод вызывает ошибки, если что-нибудь, кроме пользователя, вызывает сбой перемещения. Например, если пользователь отменяет диалоговое окно авторизации, этот метод возвращает false. Если нам не удастся выполнить копирование, этот метод вызовет ошибку. Сообщение об ошибке должно быть информативным и скажет Вам, что действительно пошло не так
 

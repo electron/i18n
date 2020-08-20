@@ -12,12 +12,9 @@
 // В основном процессе.
 const { BrowserView, BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
-win.on('closed', () => {
-  win = null
-})
+const win = new BrowserWindow({ width: 800, height: 600 })
 
-let view = new BrowserView()
+const view = new BrowserView()
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
@@ -25,7 +22,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` _Экспериментально_
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `webPreferences` Объект (опционально) - Смотрите [BrowserWindow](browser-window.md).
 
 ### Статические методы

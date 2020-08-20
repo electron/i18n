@@ -24,11 +24,11 @@ shell.openExternal('https://github.com')
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openItem(fullPath)`
+### `shell.openPath(path)`
 
-* `fullPath` String
+* `path` String
 
-戻り値 `Boolean` - アイテムが正常に開かれているかどうか.
+Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 指定したファイルをデスクトップの既定の方法で開きます。
 
@@ -36,7 +36,7 @@ Show the given file in a file manager. If possible, select the file.
 
 * `url` String - Windows では最大2081文字です。
 * `options` Object (任意)
-  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
+  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. 省略値は `true` です。
   * `workingDirectory` String (任意) _Windows_ - 作業ディレクトリ。
 
 戻り値 `Promise<void>`

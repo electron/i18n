@@ -24,11 +24,11 @@ shell.openExternal('https://github.com')
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openItem(fullPath)`
+### `shell.openPath(path)`
 
-* `fullPath` String
+* `path` String
 
-返回 `Boolean` - 文件是否成功打开
+Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 以桌面的默认方式打开给定的文件。
 
@@ -36,7 +36,7 @@ Show the given file in a file manager. If possible, select the file.
 
 * `url` String - Max 2081 characters on windows.
 * `options` Object (optional)
-  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
+  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. 默认值为 `true`。
   * `workingDirectory` String (optional) _Windows_ - The working directory.
 
 Returns `Promise<void>`

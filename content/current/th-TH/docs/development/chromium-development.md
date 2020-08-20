@@ -1,13 +1,13 @@
 # การพัฒนาโครเมี่ยม
 
-> A collection of resources for learning about Chromium and tracking its development
+> คอลเลกชันของทรัพยากรสําหรับการเรียนรู้เกี่ยวกับโครเมียมและการติดตามการพัฒนา
 
-- [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
-- [@googlechrome](https://twitter.com/googlechrome) on Twitter
+- [@ChromiumDev](https://twitter.com/ChromiumDev)บน ทวิตเตอร์
+- [@googlechrome](https://twitter.com/googlechrome)บน ทวิตเตอร์
 - [บล็อก](https://blog.chromium.org)
-- [Code Search](https://cs.chromium.org/)
-- [Source Code](https://cs.chromium.org/chromium/src/)
-- [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
-- [Discussion Groups](http://www.chromium.org/developers/discussion-groups)
+- [ค้นหาโค้ด](https://cs.chromium.org/)
+- [แหล่งที่มา](https://cs.chromium.org/chromium/src/)
+- [ปฏิทินการพัฒนาและข้อมูลการปล่อย](https://www.chromium.org/developers/calendar)
+- [กลุ่มการสนทนา](http://www.chromium.org/developers/discussion-groups)
 
-See also [V8 Development](v8-development.md)
+ดู[V8 การพัฒนา](v8-development.md)

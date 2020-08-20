@@ -83,12 +83,12 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 * 当有疑问时，请先执行 `electron-rebuild`。
 * 确保原生模块与Electron应用程序的目标平台和体系结构兼容。
-* Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
+* 确保在该模块的`binding.gyp`中`win_delay_load_hook`没有被设置为`false`。
 * 如果升级了 Electron，你通常需要重新编译这些模块。
 
-### A note about `win_delay_load_hook`
+### 关于`win_delay_load_hook`的说明
 
-在Windows上，默认情况下，`node-gyp`将原生模块与`node.dll`链接。 However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll`. In order to load native modules on Windows, `node-gyp` installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
+在Windows上，默认情况下，`node-gyp`将原生模块与`node.dll`链接。 然而，在Electron 4.x和更高的版本中，原生模块需要的symbols由`electron.exe`导出，并且没有`node.dll`。 In order to load native modules on Windows, `node-gyp` installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
 If you get an error like `Module did not self-register`, or `The specified
 procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook.  If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere.  If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:

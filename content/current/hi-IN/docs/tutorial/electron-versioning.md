@@ -70,7 +70,7 @@ Since Electron 8, stabilization branches are always **major** version lines, and
 * `2.0.0` में स्थिरता या सुरक्षा सम्बंधित फिक्सेस लाने के लिए ही `~2.0.0` का इस्तेमाल करें |
 * `^2.0.0` का इस्तेमाल नॉन-ब्रेकिंग _काफी हद तक स्थिर_ सुविधाओं और साथ ही सुरक्षा और बग फिक्सेस को अनुमति देने के लिए करें |
 
-दूसरी बिंदु में जो आवश्यक बात है वह यह कि `^` को इस्तेमाल करने वाली एप्प्स भी कुछ हद तक स्थिरता की अपेक्षा रख सकें | To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+दूसरी बिंदु में जो आवश्यक बात है वह यह कि `^` को इस्तेमाल करने वाली एप्प्स भी कुछ हद तक स्थिरता की अपेक्षा रख सकें | इसे पूरा करने के लिए, semver एक _pre-release identifier_ को अनुमति प्रदान करता है ताकि वह यह पता लगा सके कि दिया गया संस्करण इस्तेमाल करने के लिए _सुरक्षित_ या _स्थिर_ है या नहीं |
 
 आप कुछ भी चुनें, पर आपको समय-समय पर `package.json` का संस्करण बढ़ाना ही होगा क्योंकि ब्रेकिंग चेंजेस क्रोमियम जीवन का एक सत्य है |
 
@@ -85,7 +85,7 @@ Since Electron 8, stabilization branches are always **major** version lines, and
 
 Specifically, the above means:
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
 3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
 
@@ -133,7 +133,7 @@ For each major and minor bump, you should expect to see something like the follo
 * कम्मिट्स जिनका परिणाम सेमवर **लघु** बढ़त होगा, वे `feat:` से शुरू होने चाहियें |
 * कम्मिट्स जिनका परिणाम सेमवर **पैच** बढ़त होगा, वे `fix:` से शुरू होने चाहियें |
 
-* हम कम्मिट्स के स्क्वाशिंग की अनुमति देते हैं, बस स्क्वाशड सन्देश ऊपर दिए गये सन्देश फॉर्मेट का पालन करता हो |
+* We allow squashing of commits, provided that the squashed message adheres to the above message format.
 * It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
 # Versioned `master`

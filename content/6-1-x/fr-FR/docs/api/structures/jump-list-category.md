@@ -1,6 +1,6 @@
 # Objet JumpListCategory
 
-* `type` String (optional) - One of the following:
+* `type` String (optionel) - Une des valeurs suivantes:
   * `tasks` - Les éléments de cette catégorie seront placée la catégorie standard `Tasks`. Il ne peut y avoir qu'une seule catégorie de ce type, et elle sera toujours affichée en bas de la liste de raccourcis.
   * `frequent` - Affiche une liste de fichiers ouverts fréquemment par l'application, le nom de la catégorie et ses éléments sont définies par Windows.
   * `recent` - Affiche une liste de fichiers ouverts récemment par l'application, le nom de la catégorie et ses éléments sont définies par Windows. Des éléments peuvent être ajoutés à cette catégorie indirectement à l'aide de `app.addRecentDocument(path)`.

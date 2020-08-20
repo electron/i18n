@@ -14,8 +14,8 @@ Los atajos son registrados con el módulo e [`globalShortcut`](global-shortcut.m
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-  // Registrar un grabador de atajo 'CommandOControl+Y'.
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Hacer algo cuando se presiona tanto Tecla Command o Control + Y.
   })
@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 En Linux y Windows, la clave `Command` no tiene ningún efecto, así que se utilizar `CommandOrControl` que representa `Command` para macOS y `Control` para Linux y Windows para definir algunos Aceleradores.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Usa `Alt` en lugar de `Opción`. La clave `Opción` sólo existe en macOS, mientras que la clave `Alt` está disponible en todas las plataformas.
 
 La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` para macOS.
 
@@ -46,7 +46,7 @@ La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` p
 * `0` a `9`
 * `A` a `Z`
 * `F1` a `F24`
-* Signos de puntuación como `~`, `!`, `@`, `#`, `` $, etcétera.
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Más`
 * `Espacio`
 * `Tab`

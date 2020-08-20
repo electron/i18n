@@ -72,7 +72,7 @@ Geliştiriciler hangi sürümlerin _güvenli_ olacağını bilmek istiyor. Gör�
 <li>Güvenlik ve hata düzeltmelerinin yanı sıra kırılmaz <em x-id="4"> makul derecede kararlı </ 1> özellik işi kabul etmek için <code> ^ 2.0.0 </ 0> kullanın.</li>
 </ul>
 
-<p spaces-before="0">İkinci nokta ile ilgili önemli olan <code> ^ </ 0> kullanan uygulamaların makul düzeyde bir kararlılık beklemesi gerektiğidir. To accomplish this, semver allows for a <em x-id="4">pre-release identifier</em> to indicate a particular version is not yet <em x-id="4">safe</em> or <em x-id="4">stable</em>.</p>
+<p spaces-before="0">İkinci nokta ile ilgili önemli olan <code> ^ </ 0> kullanan uygulamaların makul düzeyde bir kararlılık beklemesi gerektiğidir. Bunu gerçekleştirmek için Semver, belirli bir sürümün henüz <em x-id="4">güvenli</em> veya <em x-id="4">kararlı</em> olmadığını belirtmek için <em x-id="4">yayın öncesi tanımlayıcıya</em> izin verir.</p>
 
 <p spaces-before="0">Hangisini seçerseniz seçin, bozucu değişiklikler Chromium hayatının bir gerçeği olduğu için periyodik olarak <code> package.json </ 0> sürümününe geçmek zorunda kalacaksınız.</p>
 

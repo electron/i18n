@@ -10,6 +10,10 @@
   * [लिनक्स](build-instructions-linux.md#prerequisites)
   * [विंडोज](build-instructions-windows.md#prerequisites)
 
+## Build Tools
+
+[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
+
 ## जीएन पूर्वापेक्षाएँ
 
 आपको टूलसेट depot_tools इंस्टॉल करना होगा क्रोमियम और इसकी निर्भरता लाने के लिए उपयोग किया जाता है।

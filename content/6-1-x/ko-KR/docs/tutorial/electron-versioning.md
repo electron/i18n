@@ -70,7 +70,7 @@ Stabilization branches are always either **major** or **minor** version lines, a
 * `~2.0.0`을 사용하면 `2.0.0` 출시 버전에는 안정화, 보안과 관련된 수정사항만 허락됩니다.
 * `^2.0.0`을 사용하면 보안, 버그 수정 뿐만 아니라 큰 변화를 초래하지는 않으면서도 _상당히 안정적인_ 기능도 추가할 수 있습니다.
 
-두 번째 항목에서 중요한 점은 `^`을 사용하는 앱에서도 상당한 수준의 안정성이 보장되어야 한다는 것입니다. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+두 번째 항목에서 중요한 점은 `^`을 사용하는 앱에서도 상당한 수준의 안정성이 보장되어야 한다는 것입니다. 이를 위해, semver는 아직 _안전하거나_ _안정적이지 않은_ 특정 버전을 나타내기 위해 _pre-release 식별자(identifier)_를 제공합니다.
 
 어떤 것을 선택하든지, Chromium은 큰 변화가 자주 발생하기 때문에 `package.json` 안의 버전을 주기적으로 증가시켜야 합니다.
 

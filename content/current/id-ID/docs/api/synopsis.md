@@ -6,7 +6,7 @@ Semua modul built-in Node.js </ 0> tersedia di Elektron dan modul simpul pihak k
 
 Elektron juga menyediakan beberapa modul built-in tambahan untuk pengembangan native aplikasi desktop Beberapa modul hanya tersedia dalam proses utama, beberapa hanya tersedia dalam proses renderer (halaman web), dan beberapa dapat digunakan masuk keduanya proses.
 
-Aturan dasarnya adalah: jika sebuah modul  GUI </ 0> atau sistem tingkat rendah terkait, maka seharusnya hanya tersedia dalam proses utama. You need to be familiar with the concept of main process vs. proses renderer </ 0> skrip untuk bisa menggunakan modul tersebut.</p> 
+Aturan dasarnya adalah: jika sebuah modul  GUI </ 0> atau sistem tingkat rendah terkait, maka seharusnya hanya tersedia dalam proses utama. Anda harus akrab dengan konsep  proses utama vs. proses renderer </ 0> skrip untuk bisa menggunakan modul tersebut.</p> 
 
 The main process script is like a normal Node.js script:
 
@@ -16,7 +16,7 @@ The main process script is like a normal Node.js script:
 const { app, BrowserWindow } = require('electron')
 let win = null
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL('https://github.com')
 })
@@ -28,15 +28,15 @@ Proses renderer tidak berbeda dengan halaman web biasa, kecuali untuk kemampuan 
 
 
 ```html
-<!DOCTYPE html>
+& lt; DOCTYPE html & gt;
 <html>
 <body>
 <script>
-  const { app } = require('electron').remote
-  console.log(app.getVersion())
-</script>
-</body>
-</html>
+  const { app } = membutuhkan ('elektron'). remote
+  console.log (app.getVersion ())
+</ 2>
+</ 1>
+</ 0>
 ```
 
 
@@ -55,7 +55,7 @@ const { app, BrowserWindow } = require('electron')
 
 let win
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.loadURL('https://github.com')
 })
@@ -70,7 +70,7 @@ const { app, BrowserWindow } = electron
 
 let win
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.loadURL('https://github.com')
 })
@@ -86,7 +86,7 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 let win
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.loadURL('https://github.com')
 })

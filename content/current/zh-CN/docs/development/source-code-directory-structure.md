@@ -94,28 +94,5 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
 * **tools** - Helper scripts used by GN files.
   * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
+* **vendor** - Source code for some third party dependencies.
 
-## 让 Git 子模块保持最新
-
-Electron信息库有一些被提供的依赖, 在 [/vendor](https://github.com/electron/electron/tree/master/vendor) 目录中可以找到. 运行 `git status` 时，偶尔会看到这样的消息：
-
-```sh
-$ git status
-
-    modified:   vendor/depot_tools (new commits)
-    modified:   vendor/boto (new commits)
-```
-
-要更新这些被提供的依赖关系，运行以下命令：
-
-```sh
-git submodule update --init --recursive
-```
-
-如果您发现自己经常运行此命令, 你可以在 `~/.gitconfig` 文件中创建一个别名:
-
-```sh
-[alias]
-    su = submodule update --init --recursive
-```

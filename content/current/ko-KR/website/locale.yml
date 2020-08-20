@@ -133,7 +133,7 @@ headings:
   languages: 다국어 지원
 taglines:
   languages: 멋진 글로벌 개발자 커뮤니티에서 번역한 콘텐츠.
-  announcement: Electron이 OpenJS 재단에 참여했습니다. <a href="/blog/electron-joins-openjsf">공지</a>에서 자세히 살펴보세요!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "번역 참여"
 footer:
   see_the_faq: 자주 묻는 질문
@@ -215,6 +215,8 @@ pages:
     description: Electron 운영 시스템은 Electron 생태계의 여러 측면을 감독하는 실무 그룹과 이들 간의 충돌을 해결하는 기능을하는 관리 실무 그룹으로 구성됩니다.
   '/donors':
     title: 후원자
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: 시작하기
   fiddle:

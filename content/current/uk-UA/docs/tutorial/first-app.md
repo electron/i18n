@@ -1,4 +1,4 @@
-# Writing Your First Electron App
+# Написання твого першого Electron додатку
 
 Electron дозволяє вам створювати прикладні застосунки за допомогою чистого JavaScript, надаючи середовище з багатим нативним (операційна система) API. Ви можете розглядати це як варіант Node.js середовища, яке фокусується на прикладних застосунках, а не вебсервісах.
 
@@ -6,7 +6,7 @@ This doesn't mean Electron is a JavaScript binding to graphical user interface (
 
 **Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. Базовий Electron застосунок міг би мати таку структуру папки:
 
 ```plaintext
 your-app/
@@ -31,20 +31,9 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does).
 
-```json
-{
-  "name": "your-app",
-  "version": "0.1.0",
-  "main": "main.js",
-  "scripts": {
-    "start": "node ."
-  }
-}
-```
-
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
 
 ```json
 {
@@ -81,8 +70,8 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
-  let win = new BrowserWindow({
+  // Створює вікно браузера.
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -103,7 +92,7 @@ The `main.js` should create windows and handle all the system events your applic
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // Створює вікно браузера.
   const win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -115,7 +104,7 @@ function createWindow () {
   // and load the index.html of the app.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Відкриває DevTools.
   win.webContents.openDevTools()
 }
 
@@ -124,10 +113,10 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
@@ -173,16 +162,16 @@ Once you've created your initial `main.js`, `index.html`, and `package.json` fil
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
-**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
+**Примітка**: Запуск цього прикладу потребує [Git](https://git-scm.com) та [npm](https://www.npmjs.com/).
 
 ```sh
-# Clone the repository
+# Клонування репозиторію
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Вхід в репозиторій
 $ cd electron-quick-start
-# Install dependencies
+# Встановлення залежностей
 $ npm install
-# Run the app
+# Запуск програми
 $ npm start
 ```
 

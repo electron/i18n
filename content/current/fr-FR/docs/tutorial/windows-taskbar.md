@@ -102,7 +102,7 @@ Pour définir l'icône de superposition d'une fenêtre, vous pouvez utiliser l'A
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
@@ -117,7 +117,7 @@ Pour accentuer le bouton de la barre des tâches de BrowserWindow, vous pouvez u
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```

@@ -7,11 +7,11 @@
 ```javascript
 const { netLog } = require('electron')
 
-app.on('ready', async () => {
+app.whenReady().then(async () => {
   await netLog.startLogging('/path/to/net-log')
-  // 네트워크 이벤트 후
+  // After some network events
   const path = await netLog.stopLogging()
-  console.log('넷 로그가', path, '에 작성되었습니다.')
+  console.log('Net-logs written to', path)
 })
 ```
 

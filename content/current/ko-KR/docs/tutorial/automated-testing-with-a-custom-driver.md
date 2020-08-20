@@ -9,9 +9,9 @@ const childProcess = require('child_process')
 const electronPath = require('electron')
 
 // spawn the process
-let env = { /* ... */ }
-let stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-let appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+const env = { /* ... */ }
+const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
+const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
 // listen for IPC messages from the app
 appProcess.on('message', (msg) => {
@@ -50,7 +50,7 @@ class TestDriver {
     // handle rpc responses
     this.process.on('message', (message) => {
       // pop the handler
-      let rpcCall = this.rpcCalls[message.msgId]
+      const rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
       // reject/resolve
@@ -70,7 +70,7 @@ class TestDriver {
   // to use: driver.rpc('method', 1, 2, 3).then(...)
   async rpc (cmd, ...args) {
     // send rpc request
-    let msgId = this.rpcCalls.length
+    const msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
     return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
   }
@@ -90,12 +90,12 @@ if (process.env.APP_TEST_DRIVER) {
 
 async function onMessage ({ msgId, cmd, args }) {
   let method = METHODS[cmd]
-  if (!method) method = () => new Error('잘못된 메서드: ' + cmd)
+  if (!method) method = () => new Error('Invalid method: ' + cmd)
   try {
-    let resolve = await method(...args)
+    const resolve = await method(...args)
     process.send({ msgId, resolve })
   } catch (err) {
-    let reject = {
+    const reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
@@ -106,10 +106,10 @@ async function onMessage ({ msgId, cmd, args }) {
 
 const METHODS = {
   isReady () {
-    // 여기서 필요한 설정하기
+    // do any setup needed
     return true
   }
-  // 여기서 RPC 가능한 메서드 정의
+  // define your RPC-able methods here
 }
 ```
 
@@ -119,7 +119,7 @@ const METHODS = {
 const test = require('ava')
 const electronPath = require('electron')
 
-let app = new TestDriver({
+const app = new TestDriver({
   path: electronPath,
   args: ['./app'],
   env: {

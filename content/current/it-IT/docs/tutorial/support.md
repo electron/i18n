@@ -2,7 +2,7 @@
 
 ## Trovare Supporto
 
-If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
+Se hai un problema di sicurezza, vedi il [documento di sicurezza](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Se stai cercando un aiuto di programmazione o vuoi partecipare ad una discussione con altri sviluppatori che usano Electron, puoi interagirci in queste posizioni:
 - Categoria [`electron`](https://discuss.atom.io/c/electron) sui forum Atom
@@ -16,7 +16,7 @@ Se stai cercando un aiuto di programmazione o vuoi partecipare ad una discussion
 - [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
 - [`electron-pl`](https://electronpl.github.io) *(Polonia)*
 
-If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Se vorresti contribuire ad Electron, vedi il [documento contributi](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 Se hai trovato bug in una [versione supportata](#supported-versions) di Electron, riportalo con il [tracciatore di problemi](../development/issues.md).
 
@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
 ### Currently supported versions
-- 8.1.x
-- 7.1.x
-- 6.1.x
+- 9.x.y
+- 8.x.y
+- 7.x.y
 
 ### End-of-life
 
@@ -63,7 +63,7 @@ Sia `ia32` (`x86`) che `x64` (`amd64`) binari sono forniti per Windows. [Electro
 
 I binari `ia32` (`i686`) e `x64` (`amd64`) di Electron sono compilati su Ubuntu 12.04, i binari `armv7l` sono compilati tramite ARM v7 con hard-float ABI e NEON per Debian Wheezy.
 
-[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+[Fino alla release 2.0 di Electron](../breaking-changes.md#duplicate-arm-assets), Electron continuerà a rilasciare i binari `armv7l` con `arm` come semplice suffisso. Both binaries are identical.
 
 Se il binario precompilato può essere eseguito su una distribuzione dipende dal fatto che la distribuzione includa le librerie a cui Electron è collegato dalla piattaforma di compilazione, quindi solo su Ubuntu 12.04 è garantita l'esecuzione, ma le seguenti piattaforme sono anche verificate per essere in grado di eseguire i binari precompilati di Electron:
 

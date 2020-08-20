@@ -134,7 +134,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional)
+* `options` Object (опционально)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (опционально) - требуется для буферов растровых изображений.
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
@@ -185,7 +185,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит закодированные данные изображения `PNG`.
@@ -198,21 +198,21 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит копию сырых данных растровых пикселей изображения.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `String` - данные URL изображения.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит сырые данные растровых пикселей изображения.

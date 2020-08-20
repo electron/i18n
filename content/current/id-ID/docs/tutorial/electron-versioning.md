@@ -70,7 +70,7 @@ Pengembang ingin mengetahui rilis mana yang _aman_ untuk digunakan. Bahkan fitur
 * Gunakan ` ~ 2.0.0 </ 0> untuk mengakui hanya perbaikan stabilitas atau keamanan terkait rilis Anda <code> 2.0.0 </ 0>.</li>
 <li>Gunakan <code>^ 2.0.0` untuk mengakui fitur pekerjaan yang tidak melanggar _ cukup stabil _ serta perbaikan keamanan dan bug.
 
-Yang penting dari poin kedua adalah aplikasi yang menggunakan ` ^` tetap dapat mengharapkan tingkat stabilitas yang masuk akal. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+Yang penting dari poin kedua adalah aplikasi yang menggunakan ` ^` tetap dapat mengharapkan tingkat stabilitas yang masuk akal. Untuk mencapai hal ini, semver memungkinkan _ pengenal pra-rilis _ untuk menunjukkan versi tertentu belum _aman_ atau _ stabil_.
 
 Apapun yang anda pilih, secara berkala Anda harus menemukan versi ` package.json ` karena melanggar perubahan adalah fakta kehidupan Chromium.
 
@@ -85,7 +85,7 @@ Prosesnya adalah sebagai berikut:
 
 Specifically, the above means:
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
 3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
 
@@ -133,7 +133,7 @@ Kami berusaha untuk meningkatkan kejelasan di semua tingkat proses update dan re
 * Komitmen yang akan menghasilkan titik semintang **minor** harus dimulai dengan `feat:`.
 * Perintah yang akan menghasilkan tambatan semver **patch** harus dimulai dengan `fix:`.
 
-* Kami mengizinkan meremas commit, asalkan berpegang pesan terjepit di atas format pesan.
+* We allow squashing of commits, provided that the squashed message adheres to the above message format.
 * It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
 # Versioned `master`

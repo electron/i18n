@@ -9,8 +9,10 @@ The `globalShortcut` module can register/unregister a global keyboard shortcut w
 **Tandaan:** Ang shortcut ay global: magagamit ito kahit na ang apps ay walang pagtuon ng keyboard. Hindi mo dapat gamitin ang modyul na ito hanggang ang `handa` pangyayari sa app modyul ay napalabas.
 
 ```javascript
-const { app, globalShortcut } = memerlukan ('elektron') app.on ('siap', () = & gt; {
-   // Daftarkan pendatang jalan pintas 'CommandOrControl + X'.
+const { app, globalShortcut } = require('electron')
+
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X 被按了')
   })

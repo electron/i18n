@@ -37,22 +37,22 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
   // それぞれのトランザクションを確認します。
   transactions.forEach(function (transaction) {
-    let payment = transaction.payment
+    const payment = transaction.payment
 
     switch (transaction.transactionState) {
       case 'purchasing':
         console.log(`Purchasing ${payment.productIdentifier}...`)
         break
-      case 'purchased':
 
+      case 'purchased': {
         console.log(`${payment.productIdentifier} purchased.`)
 
-        // 領収書の URL を取得します。
-        let receiptURL = inAppPurchase.getReceiptURL()
+        // Get the receipt url.
+        const receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
 
-        // 領収書ファイルをサーバーに送信して、それが有効かどうかを確認します。
+        // Submit the receipt file to the server and check if it is valid.
         // こちらを参照 https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
         // 領収書が有効であれば、プロダクトは購入されます
@@ -62,11 +62,13 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
+      }
+
       case 'failed':
 
         console.log(`Failed to purchase ${payment.productIdentifier}.`)
 
-        // トランザクションを終了します。
+        // Finish the transaction.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -105,10 +107,10 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   })
 
   // どの製品を購入したいかをユーザーに尋ねます。
-  let selectedProduct = products[0]
-  let selectedQuantity = 1
+  const selectedProduct = products[0]
+  const selectedQuantity = 1
 
-  // 選択されたプロダクトを購入します。
+  // Purchase the selected product.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')

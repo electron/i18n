@@ -7,9 +7,11 @@ Dengan [Pekerja Web](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_A
 Mungkin untuk menggunakan fitur Node.js di elektron 's Web pekerja, untuk melakukannya `nodeIntegrationInWorker` pilihan harus ditetapkan `benar` dalam `webPreferences`.
 
 ```javascript
-biarkan win = BrowserWindow baru ({webPreferences: {
+const win = new BrowserWindow({
+  webPreferences: {
     nodeIntegrationInWorker: true
-  }})
+  }
+})
 ```
 
 `NodeIntegrationInWorker` dapat digunakan independen dari `nodeIntegration`, tapi `sandbox` harus tidak diatur ke `true`.
@@ -27,6 +29,8 @@ arsip masih dapat dibaca dengan Node.js API . Namun tidak ada modul built-in Ele
 
 <p spaces-before="0">Satu-satunya cara untuk memuat modul asli dengan aman untuk saat ini, adalah memastikan bahwa aplikasi tidak memuat modul asli setelah Pekerja Web memulai.</p>
 
-<pre><code class="javascript">process.dlopen = () = & gt; {
-   buang Kesalahan baru ('Muat modul asli tidak aman')} biarkan pekerja = Pekerja baru ('script.js')
+<pre><code class="javascript">process.dlopen = () => {
+  throw new Error('Load native module is not safe')
+}
+const worker = new Worker('script.js')
 `</pre>

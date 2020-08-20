@@ -118,8 +118,8 @@ proyekto/
 
 ```js
 // main process: main/index.js
-const { app } = kailangan('electron')
-app.on('ready', () => { /* ... */ })
+const { app } = require('electron')
+app.whenReady().then(() => { /* ... */ })
 ```
 
 ```js

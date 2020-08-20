@@ -102,8 +102,8 @@ Para configurar el encubrimiento de un ícono para una ventana tiene que usar el
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Descripción del overlay')
+const win = new BrowserWindow()
+win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
 
@@ -117,7 +117,7 @@ Para iluminar el botón de la barra de tareas del buscador windows, usted puede 
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```

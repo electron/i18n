@@ -1,10 +1,10 @@
 # crashReporter
 
-> Submit crash reports to a remote server.
+> گزارش های خرابی را به سرور راه دور ارسال کنید.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+فرآیند: [اصلی](../glossary.md#main-process)، [رندر](../glossary.md#renderer-process)
 
-The following is an example of automatically submitting a crash report to a remote server:
+در زیر نمونه ای از نحوه یارسال خودکار ارائه گزارش تصادف به یک سرور راه دور آمده است:
 
 ```javascript
 const { crashReporter } = require('electron')
@@ -22,7 +22,7 @@ For setting up a server to accept and process crash reports, you can use followi
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Or use a 3rd party hosted solution:
+یا استفاده از یک راه حل میزبانی 3rd حزب:
 
 * [Backtrace I/O](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)

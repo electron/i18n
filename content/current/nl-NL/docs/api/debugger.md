@@ -49,6 +49,7 @@ Geeft terug:
 * `event` Event
 * `method` String - Method name.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
 
 Emitted whenever the debugging target issues an instrumentation event.
 
@@ -68,10 +69,11 @@ Returns `Boolean` - Whether a debugger is attached to the `webContents`.
 
 Detaches the debugger from the `webContents`.
 
-#### `debugger.sendCommand(method[, commandParams])`
+#### `debugger.sendCommand(method[, commandParams, sessionId])`
 
 * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` any (optional) - JSON object with request parameters.
+* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) message.
 
 Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 

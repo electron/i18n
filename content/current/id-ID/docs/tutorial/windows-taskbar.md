@@ -125,9 +125,9 @@ Mengatur ikon overlay untuk jendela, Anda dapat menggunakan [BrowserWindow.setOv
 
 
 ```javascript
-const { BrowserWindow } = membutuhkan ('elektron')
-biarkan menang = new BrowserWindow ()
-win.setOverlayIcon ('path / to / overlay.png', 'Deskripsi untuk overlay')
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
 
@@ -148,7 +148,7 @@ Untuk flash tombol taskbar BrowserWindow, Anda bisa menggunakan [BrowserWindow.f
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```

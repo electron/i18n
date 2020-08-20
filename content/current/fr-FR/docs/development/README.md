@@ -21,4 +21,3 @@ Ces guides sont destinés aux personnes travaillant sur le projet Electron lui-m
 * [Débogage sur macOS](debugging-instructions-macos.md)
 * [Configuration du serveur de symboles dans le déboggueur](setting-up-symbol-server.md)
 * [Patchs](patches.md)
-* [Mettre à jour Node](upgrading-node.md)

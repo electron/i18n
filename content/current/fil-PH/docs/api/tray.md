@@ -7,18 +7,18 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 Ang`Tray`ay isang  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
-const { app, Menu, Tray } = nangangailanganng('electron')
+const { app, Menu, Tray } = require('electron')
 
-hayaan ang tray = null
-app.on('ready', () => {
-  tray = bagong Tray('/path/to/my/icon')
+let tray = null
+app.whenReady().then(() => {
+  tray = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' },
     { label: 'Item3', type: 'radio', checked: true },
     { label: 'Item4', type: 'radio' }
   ])
-  tray.setToolTip('Ito ay aking aplikasyon.')
+  tray.setToolTip('This is my application.')
   tray.setContextMenu(contextMenu)
 })
 ```
@@ -32,26 +32,32 @@ __Mga Limitasyon ng Plataporma:__
 * On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Halimbawa:
 
 ```javascript
-const { app, Menu, Tray } = nangangaianganng('electron')
+const { app, Menu, Tray } = require('electron')
 
-hayaan ang appIcon = null
-app.on('ready', () => {
-  appIcon = bagong Tray('/path/to/my/icon')
+let appIcon = null
+app.whenReady().then(() => {
+  appIcon = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' }
   ])
-  //Gumawa ng mga pagbabago sa context menu
-  contextMenu.items[1].tiningnan = mali
+
+  // Make a change to the context menu
+  contextMenu.items[1].checked = false
+
+  // Call this again for Linux because we modified the context menu
+  appIcon.setContextMenu(contextMenu)
+})
 ```
 * Sa windows ito ay inirekomenda para gamitin ang mga `ICO`icons para makuha ang pinakamahusay na visual effects.
 
 Kung gusto mong panatilihin ang parehong pag-uugali sa lahat ng plataporma, dapat hindi ka umasa sa 0>click</code> event at palaging i-attach ang context menu sa tray icon.
 
 
-### `bagong Tray(imahe)`
+### `new Tray(image, [guid])`
 
 * `image` [NativeImage](native-image.md) (String)
+* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
 
 Lumilikha ng isang panibagong tray icon na may kaugnayan sa mga`imahe`.
 
@@ -132,6 +138,26 @@ Emitted kapag ang drag operation ay lumabas sa tray icon.
 #### Event: 'drag-end' _macOS_
 
 Emitted kapag ang drag operation ay nagtatapos sa tray o nagtatapos sa ibang lugar.
+
+#### Event: 'mouse-up' _macOS_
+
+Ibinabalik ang:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
+
+Emitted when the mouse is released from clicking the tray icon.
+
+Note: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.
+
+#### Event: 'mouse-down' _macOS_
+
+Ibabalik:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
+
+Emitted when the mouse clicks the tray icon.
 
 #### Event: 'mouse-enter' _macOS_
 
@@ -237,6 +263,10 @@ Returns focus to the taskbar notification area. Notification area icons should u
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
 Ang`position` ay tanging magagamit sa Windows, at ito ay (0, 0) sa pamamagitan ng default,.
+
+#### `tray.closeContextMenu()` _macOS_ _Windows_
+
+Closes an open context menu, as set by `tray.setContextMenu()`.
 
 #### `tray.setContextMenu(menu)`
 

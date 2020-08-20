@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### 实例事件
+### 事件
 
 #### Event: 'detach'
 
@@ -49,6 +49,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 * `event` Event
 * `method` String - 方法名.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
 
 Emitted whenever the debugging target issues an instrumentation event.
 
@@ -68,10 +69,11 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 
 从 `webContents` 里分离调试器.
 
-#### `debugger.sendCommand(method[, commandParams])`
+#### `debugger.sendCommand(method[, commandParams, sessionId])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `method` 字符串 - 方法名称，应该为[远程调试协议](https://chromedevtools.github.io/devtools-protocol/)中定义的方法之一。
 * `commandParams` any (optional) - JSON object with request parameters.
+* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) message.
 
 返回 `Promise<any>` - 一个 promise，远程调试协议中的命令描述的“returns”属性定义的响应，或者显示命令失败的错误消息。
 

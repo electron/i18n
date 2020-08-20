@@ -25,7 +25,7 @@ Test your changes conform to the project coding style using:
 $ npm run lint
 ```
 
-Test functionality using:
+Перевірити функціональність за допомогою:
 
 ```sh
 $ npm test
@@ -53,7 +53,7 @@ $ npm test -- --grep child_process
 
 Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
 
-To run the tests with the release build use:
+Щоб запустити тести з використанням збірки релізів:
 
 ```sh
 $ npm test -- -R

@@ -13,10 +13,10 @@
 Після встановлення, підтвердіть, що все працює, як очікувалося. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```sh
-# This command should print the version of Node.js
+# Ця команда повинна вивести версію Node.js
 node -v
 
-# This command should print the version of npm
+# Ця команда повинна вивести версію npm
 npm -v
 ```
 
@@ -24,7 +24,7 @@ If both commands printed a version number, you are all set! Before you get start
 
 ## Налаштовування Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron підтримує Windows 7 і вище - спроби розробки програм Electron на старіших версіях не увінчаються успіхом. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
 
 Спочатку встановіть останню версію Node.js. Ми рекомендуємо встановити останню версію `LTS` або `поточну` доступну версію. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Після завершення завантаження, запустіть встановлювач та дозвольте майстру встановлення пройти через встановлення.
 
@@ -33,10 +33,10 @@ On the screen that allows you to configure the installation, make sure to select
 Після встановлення, підтвердіть, що все працює, як очікувалося. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
-# This command should print the version of Node.js
+# Ця команда повинна вивести версію Node.js
 node -v
 
-# This command should print the version of npm
+# Ця команда повинна вивести версію npm
 npm -v
 ```
 
@@ -51,10 +51,10 @@ If both commands printed a version number, you are all set! Before you get start
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
-# This command should print the version of Node.js
+# Ця команда повинна вивести версію Node.js
 node -v
 
-# This command should print the version of npm
+# Ця команда повинна вивести версію npm
 npm -v
 ```
 

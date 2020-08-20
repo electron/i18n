@@ -72,10 +72,6 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 Un `Booléen` qui contrôle si oui ou non les avertissements de dépréciation sont imprimés sur `stderr`. Mettre ceci à `true` fera taire les avertissements de dépréciation. Cette propriété est utilisée à la place du drapeau `--no-deprecation`.
 
-### `activer les PromiseAPIs`
-
-Un `Boolean` qui contrôle si oui ou non les avertissements de dépréciation sont imprimés à `stderr` lorsque les APIs anciennement basées sur les callbacks sont convertis en Promises sont appelées en utilisant des callbacks. Définir ceci à `true` activera les avertissements de dépréciation.
-
 ### `process.resourcesPath` _Readonly_
 
 Une `String` représentant le chemin vers le répertoire des ressources.
@@ -173,8 +169,8 @@ Retourne `Object`:
 
 * `total` Integer - La quantité totale de mémoire physique dans Kilobytes disponibles pour le système .
 * `libre` Integer - La quantité totale de mémoire non utilisée par les applications ou le cache du disque.
-* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
+* `swapTotal` Integer _Windows_ _Linux_ - La quantité totale de mémoire swap dans Kilobytes disponible pour le système .
+* `swapFree` Integer _Windows_ _Linux_ - La quantité gratuite de mémoire swap dans Kilobytes disponible pour le système .
 
 Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 

@@ -6,7 +6,8 @@ En macOS 10.15 Catalina, Apple introdujo una nueva opción de modo oscuro "autom
 
 ## Actualizando automáticamente las interfaces nativas
 
-Las "Native Interfaces" incluyen el selector de archivo, borde de ventana, diálogos, menú contextual y mas; básicamente todo donde la UI viene desde macOS y no de tu aplicación. A partir de Electron 7.0.0, el comportamiento por defecto es optar por esta temática automática del sistema operativo. Si deseas optar no participar y estás usando Electron &gt; 8.0.0, debes establecer la llave `NSRequiresAquaSystemAppearance` en el archivo `Info.plist` a `true`. Por favor tenga en cuenta que Electron 8.0.0 y superiores no permitirán que salgas de esta temática, debido al uso del SDK de macOS 10.14.
+"Native Interfaces" include the file picker, window border, dialogs, context menus, and more; basically, anything where the UI comes from macOS and not your app. As of Electron 7.0.0, the default behavior is to opt into this automatic theming from the OS. If you wish to opt-out and are using Electron
+&gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let you opt-out of this theming, due to the use of the macOS 10.14 SDK.
 
 ## Actualizando automáticamente tus propias interfaces
 

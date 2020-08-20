@@ -12,7 +12,7 @@ Se a instalação via `npm` falhar, você também pode tentar baixar o Electron 
 
 A versão do Chrome usada no Electron é geralmente disponibilizada dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é garantida, depende da quantidade de trabalho envolvido na atualização.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Somente a versão estável do Chrome é usada. If an important fix is in beta or dev channel, we will back-port it.
 
 Para mais informações, consulte a [introdução de segurança](tutorial/security.md).
 
@@ -26,28 +26,11 @@ Novos recursos do Node.js geralmente são trazidos por atualização da V8, desd
 
 Para compartilhar dados entre páginas web (os processos de renderização) a maneira mais simples é usar as APIs do HTML5 que já estão disponíveis nos navegadores. Bons candidatos são [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) e [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Ou você pode usar o sistema IPC, que é específico para o Electron, para armazenar objetos no processo principal como uma variável global e depois acessar os representantes através da propriedade `remote` do módulo do `electron`:
-
-```javascript
-// No processo main.
-global.sharedObject = {
-  someProperty: 'default value'
-}
-```
-
-```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
-```
-
-```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
-```
+Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
 ## A minha bandeja de aplicativo desapareceu depois de alguns minutos.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+Isto acontece quando a variável que é usada para armazenar a bandeja é coletada pelo garbage collector.
 
 Se você encontrar esse problema, esses artigos podem ser úteis:
 
@@ -84,7 +67,7 @@ Para resolver isso, você pode desativar a integração com node no Electron:
 ```javascript
 // No processo main.
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
   }
@@ -115,7 +98,7 @@ Quando usar o módulo built-in do Electron você pode encontrar um erro como est
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-It is very likely you are using the module in the wrong process. Por exemplo, `electron.app` pode apenas ser usado pelo processo principal, enquanto `electron.webFrame` está apenas disponível no processo de renderização.
+É bem provável que você esteja utilizando o módulo no processo errado. Por exemplo, `electron.app` pode apenas ser usado pelo processo principal, enquanto `electron.webFrame` está apenas disponível no processo de renderização.
 
 ## A fonte parece borrada, o que é isso e o que eu posso fazer?
 
@@ -129,7 +112,7 @@ Para alcançar este objetivo, defina o plano de fundo do construtor para [Browse
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   backgroundColor: '#fff'
 })
 ```

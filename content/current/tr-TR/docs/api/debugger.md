@@ -2,7 +2,7 @@
 
 > Chrome'un uzaktan hata ayıklama protokolü içın alternatif bir geçiş noktası.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 Chrome Geliştirici Araçları'nın Javascript çalışma anında sayfalarla etkileşime geçme ve yönetmek üzerine [özel bir kütüphanesi](https://chromedevtools.github.io/devtools-protocol/) var.
 
@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Örnek Events
+### Örnek olayları
 
 #### Etkinlik: 'ayırmak'
 
@@ -46,13 +46,14 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `method` String - Yöntem adı.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
 
 Emitted whenever the debugging target issues an instrumentation event.
 
-### Örnek yöntemleri
+### Örnek yöntemler
 
 #### `debugger.attach([protocolVersion])`
 
@@ -68,10 +69,11 @@ Emitted whenever the debugging target issues an instrumentation event.
 
 Hata ayıklayıcıyı `web İçerikleri`nden ayırır.
 
-#### `debugger.sendCommand(method[, commandParams])`
+#### `debugger.sendCommand(method[, commandParams, sessionId])`
 
 * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` any (optional) - JSON object with request parameters.
+* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) message.
 
 Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
