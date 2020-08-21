@@ -1,4 +1,4 @@
-# Application Packaging
+# Đóng góp ứng dụng
 
 To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar][asar] archive with little changes to your source code.
 

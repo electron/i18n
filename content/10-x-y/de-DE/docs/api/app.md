@@ -2,7 +2,7 @@
 
 > Kontrolliere den Ereignisverlauf deiner Anwendung.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 Das folgende Beispiel zeigt, wie die Applikation beendet wird, wenn das letzte Fenster geschlossen wurde:
 
@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Ereignisse
+## Events
 
 Das `app` Objekt stellt folgende Event zur Verfügung:
 
@@ -41,9 +41,11 @@ Wenn du keinen einzigen Listener für dieses Event nutzt und alle Fenster geschl
 
 Rückgabewert:
 
-* `event` Event
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-Ausgelöst, bevor sich die Fenster der Anwendung schließen. Ein Aufruf von `event.preventDefault()` verhindert das Standardverhalten, welches die Anwendung schließt.
+<p spaces-before="0">Ausgelöst, bevor sich die Fenster der Anwendung schließen.
+Ein Aufruf von <code>event.preventDefault()` verhindert das Standardverhalten, welches die Anwendung schließt.</p>
 
 **Wichtig**: Wenn das Beenden der App durch einen Aufruf von `autoUpdater.quitAndInstall()` initiiert wurde, wird das `before-quit` Event *nach* der Auslösung aller `close` Events für alle Fenster ausgelöst und diese werden geschlossen.
 
@@ -53,9 +55,11 @@ Ausgelöst, bevor sich die Fenster der Anwendung schließen. Ein Aufruf von `eve
 
 Rückgabewert:
 
-* `event` Event
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-Ausgelöst, wenn alle Fenster geschlossen sind und sich die Anwendung beenden wird. Ein Aufruf von `event.preventDefault()` verhindert das Standardverhalten, welches die Anwendung schließt.
+<p spaces-before="0">Ausgelöst, wenn alle Fenster geschlossen sind und sich die Anwendung beenden wird.
+Ein Aufruf von <code>event.preventDefault()` verhindert das Standardverhalten, welches die Anwendung schließt.</p>
 
 Schau dir die Beschreibung/Dokumentation des `window-all-closed` Events an um die Unterschiede zwischen dem `will-quit` und dem `window-all-closed` Event zu verstehen.
 
@@ -63,7 +67,7 @@ Schau dir die Beschreibung/Dokumentation des `window-all-closed` Events an um di
 
 ### Event: 'quit'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `exitCode` Integer
@@ -76,8 +80,8 @@ Wird ausgelöst wenn die App beendet wird.
 
 Rückgabewert:
 
-* `event` Event
-* `path` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>path` String
 
 Wird ausgelöst wenn der Nutzer versucht eine Datei mit der App zu öffnen. The `open-file` Event wird auch ausgelöst wenn die App bereits offen ist und das Betriebssystem die App nochmal zum Öffnen einer Datei benutzen will. `open-file` wird auch ausgelöst wenn eine Datei auf das Dock-Icon der App gezogen wird (macOS) und die App noch nicht gestartet ist. Behandle das `open-file` Event so früh wie möglich in deiner App um diesen Fall zu berücksichtigen (Also definitiv bevor das `ready` Event ausgelöst wird).
 
@@ -89,10 +93,12 @@ In Windows musst du `process.argv` (im Main-Prozess) parsen, um den Dateipfad zu
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+<p spaces-before="0">Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Your application's
+<code>Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.</p>
 
 Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
 
@@ -100,8 +106,8 @@ Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
 
 Rückgabewert:
 
-* `event` Event
-* `hasVisibleWindows` Boolean
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>hasVisibleWindows` Boolean
 
 Wird ausgelöst wenn die App aktiviert wird. Eine ganze Menge an Aktionen können dieses Event auslösen. So zum Beispiel das Starten der App zum ersten mal als solches, eine Wiederbenutzung der App während sie bereits läuft oder einfach ein Klick auf das Dock oder Tastbar Icon der App.
 
@@ -109,20 +115,20 @@ Wird ausgelöst wenn die App aktiviert wird. Eine ganze Menge an Aktionen könne
 
 Rückgabewert:
 
-* `event` Event
-* `type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`][activity-type].
+* ` Ereignis </ 0>  Ereignis</li>
+<li><p spaces-before="0"><code>type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`][activity-type].</p>
 * `userInfo` Object - Enthält den app-spezifischen Zustand, der von einer Aktivität auf einem anderen Gerät gespeichert wurde.
 
 Wird während [Handoff][handoff] ausgelöst, wenn eine Aktivität von einem anderen Gerät wieder aufgenommen werden soll. Du solltest `event.preventDefault()` aufrufen wenn du dieses Event verwenden willst.
 
-Eine Benutzeraktivität kann nur in einer App fortgesetzt werden, die die gleiche Entwicklerteam-ID als die Quell-App der Aktivität hat und den Typ der Aktivität unterstützt. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+Eine Benutzeraktivität kann nur in einer App fortgesetzt werden, die die gleiche Entwicklerteam-ID als die Quell-App der Aktivität hat und den Typ der Aktivität unterstützt. Unterstützte Aktivitätstypen sind spezifiziert in `Info.plist` unter dem `NSUserActivityTypes` Schlüssel.
 
 ### Event: 'will-continue-activity' _macOS_
 
 Rückgabewert:
 
-* `event` Event
-* `type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`][activity-type].
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`][activity-type].
 
 Wird während [Handoff][handoff] ausgelöst, bevor eine Aktivität von einem anderen Gerät wieder aufgenommen werden soll. Du solltest `event.preventDefault()` aufrufen wenn du dieses Event verwenden willst.
 
@@ -130,8 +136,8 @@ Wird während [Handoff][handoff] ausgelöst, bevor eine Aktivität von einem and
 
 Rückgabewert:
 
-* `event` Event
-* `type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`][activity-type].
+* ` Ereignis </ 0>  Ereignis</li>
+<li><p spaces-before="0"><code>type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`][activity-type].</p>
 * `error` String - Ein String mit der lokalisierten Beschreibung des Fehlers.
 
 Wird während [Handoff][handoff] ausgelöst, wenn eine Aktivität von einem anderen Gerät nicht wieder aufgenommen werden kann.
@@ -140,8 +146,8 @@ Wird während [Handoff][handoff] ausgelöst, wenn eine Aktivität von einem ande
 
 Rückgabewert:
 
-* `event` Event
-* `type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`][activity-type].
+* ` Ereignis </ 0>  Ereignis</li>
+<li><p spaces-before="0"><code>type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`][activity-type].</p>
 * `userInfo` unknown - Enthält app-spezifischen Zustand, der von der Aktivität gespeichert wird.
 
 Wird während [Handoff][handoff] ausgelöst, wenn eine Aktivität von diesem Gerät auf einem anderen Gerät erfolgreich fortgesetzt wurde.
@@ -150,35 +156,37 @@ Wird während [Handoff][handoff] ausgelöst, wenn eine Aktivität von diesem Ger
 
 Rückgabewert:
 
-* `event` Event
-* `type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`][activity-type].
+* ` Ereignis </ 0>  Ereignis</li>
+<li><p spaces-before="0"><code>type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`][activity-type].</p>
 * `userInfo` unknown - Enthält app-spezifischen Zustand, der von der Aktivität gespeichert wird.
 
-Wird ausgelöst wenn [Handoff][handoff] auf einem anderen Gerät fortgesetzt wird. Wenn Sie den zu übertragenden Status aktualisieren müssen, sollten Sie `event.preventDefault()` sofort aufrufen, ein neues `userInfo-Wörterbuch` erstellen und `app.updateCurrentActivity()` zeitnah aufrufen. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Wird ausgelöst wenn [Handoff][handoff] auf einem anderen Gerät fortgesetzt wird. Wenn Sie den zu übertragenden Status aktualisieren müssen, sollten Sie `event.preventDefault()` sofort aufrufen, ein neues `userInfo-Wörterbuch` erstellen und `app.updateCurrentActivity()` zeitnah aufrufen. Andernfalls wird die Operation fehlschlagen und `Continue-Activity-error` wird aufgerufen.
 
 ### Event: 'new-window-for-tab' _macOS_
 
 Rückgabewert:
 
-* `event` Event
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-Emittiert, wenn der Benutzer auf die neue Registerkarte macOS mit systemeigenem MacOS klickt. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+<p spaces-before="0">Emittiert, wenn der Benutzer auf die neue Registerkarte macOS mit systemeigenem MacOS klickt. The new
+tab button is only visible if the current <code>BrowserWindow` has a `tabbingIdentifier`</p>
 
 ### Event: 'browser-window-blur'
 
 Rückgabewert:
 
-* `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>window` [BrowserWindow](browser-window.md)
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+Wird ausgegeben, wenn ein [ browserWindow ](browser-window.md) ausgeblendet wird.
 
 ### Event: 'browser-window-focus'
 
 Rückgabewert:
 
-* `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>window` [BrowserWindow](browser-window.md)
 
 Emittiert wenn ein [browserWindow](browser-window.md) in den Fokus kommt.
 
@@ -186,8 +194,8 @@ Emittiert wenn ein [browserWindow](browser-window.md) in den Fokus kommt.
 
 Rückgabewert:
 
-* `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>window` [BrowserWindow](browser-window.md)
 
 Emittiert wenn ein neues [browserWindow](browser-window.md) erstellt wird.
 
@@ -195,8 +203,8 @@ Emittiert wenn ein neues [browserWindow](browser-window.md) erstellt wird.
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
 
 Emittiert wen ein neues [webContents](web-contents.md) erstellt wird.
 
@@ -204,10 +212,10 @@ Emittiert wen ein neues [webContents](web-contents.md) erstellt wird.
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `url` String
-* `error` String - Der error code
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>error` String - Der error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - Gibt an ob das Zertifikat als vertrauenswürdig angesehen werden soll
@@ -232,8 +240,8 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function
@@ -256,8 +264,8 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
 * `authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
@@ -293,8 +301,8 @@ Emitted whenever there is a GPU info update.
 
 Rückgabewert:
 
-* `event` Event
-* `killed` Boolean
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>killed` Boolean
 
 Emitted when the GPU process crashes or is killed.
 
@@ -302,8 +310,8 @@ Emitted when the GPU process crashes or is killed.
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
 Emitted when the renderer process of `webContents` crashes or is killed.
@@ -314,8 +322,8 @@ Emitted when the renderer process of `webContents` crashes or is killed.
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
 * `details` Object
   * `reason` String - The reason the render process is gone.  Mögliche werte:
     * `clean-exit` - Process exited with an exit code of zero
@@ -332,8 +340,8 @@ Emitted when the renderer process unexpectedly dissapears.  This is normally bec
 
 Rückgabewert:
 
-* `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
@@ -357,8 +365,8 @@ app.on('session-created', (session) => {
 
 Rückgabewert:
 
-* `event` Event
-* `argv` String[] - An array of the second instance's command line arguments
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>argv` String[] - An array of the second instance's command line arguments
 * `workingDirectory` String - The second instance's working directory
 
 This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
@@ -375,8 +383,8 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
@@ -384,8 +392,8 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
 Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
@@ -394,8 +402,8 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
 * `globalName` String
 
 Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
@@ -404,8 +412,8 @@ Emitted when `remote.getGlobal()` is called in the renderer process of `webConte
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
 Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
@@ -414,8 +422,8 @@ Emitted when `remote.getBuiltin()` is called in the renderer process of `webCont
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
@@ -423,8 +431,8 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process of `w
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
@@ -517,7 +525,7 @@ Returns `String` - The current application directory.
     * `$XDG_CONFIG_HOME` oder `~/.config` in Linux
     * `~/Library/Application Support` in macOS
   * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-  * `cache`
+  * `Cache`
   * `temp` Temporäres Verzeichnis.
   * `exe` Die aktuell ausführbare Datei.
   * `module` Die `libchromiumcontent` Bibliothek.
@@ -692,7 +700,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Wenn die Eigenschaft `name` gesetzt ist, aber die Eigenschaft `type` weggelassen wird, dann wird angenommen, dass die Eigenschaft `type` `custom` ist.
+**Hinweis:** Wenn ein `JumpListCategory` Objekt weder den `type` noch die `name` Eigenschaft gesetzt hat, wird sein `type` als `tasks` angenommen. Wenn die Eigenschaft `name` gesetzt ist, aber die Eigenschaft `type` weggelassen wird, dann wird angenommen, dass die Eigenschaft `type` `custom` ist.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 

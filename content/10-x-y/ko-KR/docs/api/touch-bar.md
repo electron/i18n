@@ -1,8 +1,8 @@
-## Class: TouchBar
+## 클래스: 터치바
 
 > Create TouchBar layouts for native macOS applications
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+프로세스: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBar(options)`
 
@@ -58,7 +58,7 @@ A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpa
 
 A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference to the `TouchBarOtherItemsProxy` class.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 The following properties are available on instances of `TouchBar`:
 

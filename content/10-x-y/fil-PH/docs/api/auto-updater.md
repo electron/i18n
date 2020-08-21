@@ -1,4 +1,4 @@
-# autoUpdater
+# awtoUpdeyter
 
 > Paganahin ang app na awtomatikong mag-update ang kanilang sarili.
 
@@ -34,9 +34,9 @@ Hindi gaya ng sa Squirrel.Mac, ang Windows ay kayang mag-host ng update sa S3 o 
 
 Ang `autoUpdater` maglalabas ng mga ganitong pangyayari:
 
-### Pangyayari: 'error'
+### Event: 'error'
 
-Pagbabalik:
+Magbabalik ng:
 
 * `error` Error
 
@@ -56,7 +56,7 @@ Napalabas kapag walang available na pag-update.
 
 ### Pangyayari: 'update-downloaded'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` na Kaganapan
 * `releaseNotes` Lupid
@@ -76,7 +76,7 @@ This event is emitted after a user calls `quitAndInstall()`.
 
 When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
-## Mga Paraan
+## Pamamaraan
 
 Ang `autoUpdater` na gamit ay mayroong ibat-ibang pamamaraan:
 

@@ -266,7 +266,7 @@ tray.setHighlightMode(mode)
 | `nodeIntegration`  | `true`                            | `false` |
 | `webviewTag`       | `nodeIntegration` を設定しなければ `true` | `false` |
 
-以下は例です。 Re-enabling the webviewTag
+以下は例です。 webviewTag を再有効化しています。
 
 ```js
 const w = new BrowserWindow({
@@ -325,11 +325,11 @@ webFrame.setSpellCheckProvider('en-US', {
 ### `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// 非推奨
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// Replace with
+// こちらに置換
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */

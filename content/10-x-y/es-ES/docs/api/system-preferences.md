@@ -2,7 +2,7 @@
 
 > Obtener las preferencias del sistema.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ```javascript
 const { systemPreferences } = requiere('electron')
@@ -17,7 +17,7 @@ El objeto de los`sistemasdePreferencias`emiten los siguietes eventos:
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `nuevoColor` String - El nuevo color RGBA que el usuario asignó para ser su color de acento del sistema.
 
 ### Event: 'color-changed' _Windows_
@@ -39,7 +39,7 @@ Devuelve:
 
 Devuelve:
 
-* `event` Event
+* `event` Evento
 * `highContrastColorScheme` Boolean - `true` si un tema de alto contraste es esta empezando a usar, de otra manera `false`.
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
@@ -400,7 +400,7 @@ Este consentimiento de usuario no fue requerido hasta macOS 10.14 Mojave, por lo
 
 ### `systemPreferences.getAnimationSettings()`
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `shouldRenderRichAnimation` Boolean - Devuelve verdadero is animaciones ricas deben ser renderizadas. Se observa en el tipo de sesión (por ejemplo, escritorio remoto) y ajustes de accesibilidad para dar orientación a animaciones pesadas.
 * `scrollAnimationsEnabledBySystem` Boolean - Determina sobre una base por plataforma si las animaciones de desplazamiento (por ejemplo, producidas por la clave home/end) deben estar habilitadas.

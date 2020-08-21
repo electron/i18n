@@ -26,7 +26,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## ウインドウを違和感なく表示する
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+ウインドウにページを直接ロードすると、ユーザにはページが徐々にロードされるように見えるかもしれません。これはネイティブアプリとしては良い挙動ではありません。 ちらつかせることなくウインドウを表示するには、さまざまな状況に応じた 2 つの解決策があります。
 
 ## `ready-to-show` イベントを使用する
 
@@ -121,10 +121,10 @@ child.once('ready-to-show', () => {
   * `height` Integer (任意) - ピクセル単位でのウインドウの高さ。 省略値は `600` です。
   * `x` Integer (任意) - (y が使われている場合は **必須**) ウインドウの画面左のオフセット。 省略すると、ウインドウは中央に配置されます。
   * `y` Integer (任意) - (x が使われている場合は **必須**) ウインドウの画面上のオフセット。 省略すると、ウインドウは中央に配置されます。
-  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は、`false` です。
+  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は `false` です。
   * `center` Boolean (任意) - ウインドウを画面中央に表示します。
   * `minWidth` Integer (任意) - ウインドウの最小の幅。 省略値は `0` です。
-  * `minHeight` Integer (任意) - ウィンドウの最小の高さ。 省略値は `0` です。
+  * `minHeight` Integer (任意) - ウィンドウの最小の高さ。 既定値は `0` です。
   * `maxWidth` Integer (任意) - ウインドウの最大の幅。 省略すると無制限です。
   * `maxHeight` Integer (任意) - ウインドウの最大の高さ。 省略すると無制限です。
   * `resizable` Boolean (任意) - ウインドウがリサイズ可能かどうか。 省略値は `true` です。
@@ -178,7 +178,7 @@ child.once('ready-to-show', () => {
     * `session` [Session](session.md#class-session) (任意) - ページで使用されるセッションを設定します。 Session オブジェクトを直接引き渡す代わりに、パーティション文字列を受け付ける `partition` オプションを使用することを選択することもできます。 `session` と `partition` の両方が指定されたときは、`session` が優先されます。 省略値は、既定のセッションです。
     * `partition` String (任意) - セッションのパーティション文字列に従って、ページで使用されるセッションを設定します。 `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 省略値は、既定のセッションです。
     * `affinity` String (任意) - 指定されると、同じ `affinity` のウェブページは同じレンダラープロセス内で実行します。 レンダラープロセスを再利用することにより、`preload`、`sandbox`、`nodeIntegration` などの異なる値を指定した場合でも、特定の `webPreferences` オプションがウェブページ間で共有されることに注意してください。 したがって、同じ `affinity` を持つウェブページに対しては、全く同じ `webPreferences` を使用することをお勧めします。 _Deprecated_
-    * `zoomFactor` Number (任意) - ページの既定のズーム倍率で、`3.0` は `300%` を表します。 省略値は `1.0` です。
+    * `zoomFactor` Number (任意) - ページの既定のズーム倍率で、`3.0` は `300%` を表します。 既定値は `1.0` です。
     * `javascript` Boolean (任意) - JavaScript サポートを有効にします。 省略値は `true` です。
     * `webSecurity` Boolean (任意) - `false` のとき、同一オリジンポリシー (通常、テスト用Webサイトを使用します) が無効になり、ユーザによって設定されない場合、`allowRunningInsecureContent` が `true` に設定されます。 省略値は `true` です。
     * `allowRunningInsecureContent` Boolean (任意) - https のページで http の URL からの JavaScript、CSS やプラグインを実行することを許可します。 省略値は、`false` です。
@@ -203,11 +203,11 @@ child.once('ready-to-show', () => {
     * `defaultEncoding` String (任意) - 省略値は、`ISO-8859-1` です。
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は `false` 。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
-    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、潜在的に信頼できないリモートコンテンツをロードする際、ロードされたコンテンツが `preload` スクリプトや使用されているElectron APIを悪用することができないようにするときに使用する必要があります。 このオプションは、[Chromeのコンテンツスクリプト][chrome-content-scripts]で使用されているのと同じ手法を使用します。 Consoleタブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスすることができます。
+    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されるコンテキストでは `document` と `window` グローバル変数に完全にアクセスできますが、それ独自の JavaScript ビルドインセット (`Array`, `Object`, `JSON` など) を使用します。 これによりロードされたページによるグローバル環境の変更を分離します。 Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、潜在的に信頼できないリモートコンテンツをロードする際、ロードされたコンテンツが `preload` スクリプトや使用されているElectron APIを悪用することができないようにするときに使用する必要があります。 このオプションは、[Chromeのコンテンツスクリプト][chrome-content-scripts]で使用されているのと同じ手法を使用します。 Consoleタブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスすることができます。
     * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`.  The default is `false`. In Electron 12, the default will be changed to `true`. _Deprecated_
     * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 現在、これは実験的な機能です。
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は `false` 。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
-    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
+    * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。  小規模なデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
     * `safeDialogs` Boolean (任意) - ブラウザによる連続ダイアログ保護を有効にするかどうか。 省略値は、`false` です。
     * `safeDialogsMessage` String (任意) - 連続したダイアログからの保護が機能したときに表示されるメッセージ。 定義されていなければデフォルトメッセージが使われますが、現在のデフォルトメッセージは英語であり、ローカライズされていないことに注意してください。
     * `disableDialogs` Boolean (任意) - ダイアログを完全に無効化するかどうか。 `safeDialogs` を上書きします。 省略値は、`false` です。
@@ -216,7 +216,7 @@ child.once('ready-to-show', () => {
     * `disableHtmlFullscreenWindowResize` Boolean (任意) - HTML フルスクリーンになった時にウィンドウのサイズ変更を禁止するかどうか。 省略値は `false` です。
     * `accessibleTitle` String (任意) - スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトル文字列。 この文字列はユーザに直接表示されません。
     * `spellcheck` Boolean (任意) - 組み込みスペルチェックを有効にするかどうか。 省略値は `true` です。
-    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). 省略値は `true` です。
+    * `enableWebSQL` Boolean (任意) - [WebSQL API](https://www.w3.org/TR/webdatabase/) を有効にするかどうか。 省略値は `true` です。
     * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
       * `none` - Disables code caching
       * `code` - Heuristic based code caching
@@ -664,7 +664,7 @@ Linux ではセッターは何もしませんが、ゲッターは `true` を返
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 省略値は `false` です。
+ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 既定値は `false` です。
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -918,11 +918,11 @@ Returns `Boolean` - whether the window is enabled.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by the user.
+ウインドウがユーザによって手動でサイズ変更できるかどうかを設定します。
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by the user.
+戻り値 `Boolean` - ウインドウがユーザによって手動でサイズ変更できるかどうか。
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
@@ -944,7 +944,7 @@ Linuxでは常に `true` を返します。
 
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually minimized by the user.
+戻り値 `Boolean` - ウインドウがユーザによって手動で最小化できるかどうか。
 
 Linuxでは常に `true` を返します。
 
@@ -964,11 +964,11 @@ Linuxでは常に `true` を返します。
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるか、ウインドウを最大化するかを設定します。
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+戻り値 `Boolean` - ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるのか、それともウインドウを最大化するのか。
 
 #### `win.setClosable(closable)` _macOS_ _Windows_
 
@@ -1293,7 +1293,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 * `options` Object
   * `appId` String (任意) - ウインドウの[アプリユーザーモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx)。 設定されないと、他のオプションは無効です。
   * `appIconPath` String (任意) - ウインドウの[再起動アイコン](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx)。
-  * `appIconIndex` Integer (任意) - `appIconPath` でのアイコンのインデックス。 `appIconPath` が設定されていない場合は無視されます。 省略値は `0` です。
+  * `appIconIndex` Integer (任意) - `appIconPath` でのアイコンのインデックス。 `appIconPath` が設定されていない場合は無視されます。 既定値は `0` です。
   * `relaunchCommand` String (任意) - ウインドウの[再起動コマンド](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx)。
   * `relaunchDisplayName` String (任意) - ウインドウの[再起動表示名](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx)。
 
@@ -1325,7 +1325,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 ウィンドウのメニューバーを自動的に非表示にするかどうかを設定します。 一度設定されると、メニューバーはユーザが単独で `Alt` キーを押したときのみに表示されます。
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+メニューバーが既に表示されている場合、`setAutoHideMenuBar(true)` を呼び出してもすぐに非表示にはなりません。
 
 #### `win.isMenuBarAutoHide()`
 
@@ -1335,7 +1335,7 @@ If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hid
 
 * `visible` Boolean
 
-メニューバーを表示するかどうかを設定します。 If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+メニューバーを表示するかどうかを設定します。 メニューバーが自動的に非表示にされている場合でも、ユーザが単に `Alt` キーを押下すれば、依然としてメニューバーを表示させることができます。
 
 #### `win.isMenuBarVisible()`
 

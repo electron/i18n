@@ -14,7 +14,7 @@
   * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Sayı - Kullanıcının kaydırıcıda seçtiği değer.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 Aşağıdaki özelliklere sahip örneklerde `TouchBarSlider`:
 

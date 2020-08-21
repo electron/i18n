@@ -2,7 +2,7 @@
 
 > main 프로세스에서 renderer 프로세스들로 비동기적인 통신을 합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 The `ipcMain` module is an [Event Emitter][event-emitter]. main 프로세스를 사용할 때 renderer 프로세스(웹페이지)가 보내는 메시지를 동기적 혹은 비동기적으로 처리합니다. renderer가 보내는 메시지는 이 모듈로 내보내게 됩니다.
 

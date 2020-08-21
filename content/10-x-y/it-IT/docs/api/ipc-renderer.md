@@ -2,7 +2,7 @@
 
 > Comunicazione asincrona dal un processo di rendering al processo principale.
 
-Processo: [Renderizzatore](../glossary.md#renderer-process)
+Processo: [Renderer](../glossary.md#renderer-process)
 
 The `ipcRenderer` module is an  [EventEmitter][event-emitter]. Fornisce alcuni memtodi che permettono l'invio di messaggi sincroni e assincroni dal processo di rendiring(pagina web) al processo principale. È inoltre possibile ricevere risposte dal processo principale.
 

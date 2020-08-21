@@ -2,7 +2,7 @@
 
 > tray や Dock やアプリケーションのアイコンを PNG や JPG ファイルで作成します。
 
-プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 Electron では、 API が画像を取る場合、ファイルパスまたは `NativeImage` インスタンスを渡すことができます。 `null` が渡されたときは空の画像が使用されます。
 
@@ -177,7 +177,7 @@ console.log(image)
 
 > tray や Dock やアプリケーションアイコンのような画像を、ネイティブにラップします。
 
-プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 ### インスタンスメソッド
 
@@ -233,7 +233,7 @@ console.log(image)
 
 * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns [`Size`](structures/size.md).
+戻り値 [`Size`](structures/size.md).
 
 If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 

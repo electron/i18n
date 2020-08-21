@@ -2,7 +2,7 @@
 
 > Display native system dialogs for opening and saving files, alerting, etc.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 An example of showing a dialog to select multiple files:
 
@@ -18,7 +18,7 @@ const { dialog } = require('electron').remote
 console.log(dialog)
 ```
 
-## Phương thức
+## Các phương thức
 
 The `dialog` module has the following methods:
 

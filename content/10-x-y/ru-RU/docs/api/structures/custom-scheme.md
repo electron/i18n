@@ -1,7 +1,7 @@
 # Объект CustomScheme
 
 * `scheme` String - пользовательские схемы, которые будут зарегистрированы с опциями.
-* `privileges` Object (optional)
+* `privileges` Object (опционально)
   * `standard` Boolean (опционально) - по умолчанию false.
   * `secure` Boolean (optional) - по умолчанию false.
   * `bypassCSP` Boolean (optional) - по умолчанию false.

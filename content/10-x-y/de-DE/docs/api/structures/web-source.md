@@ -1,5 +1,5 @@
 # WebSource Objekt
 
-* `code` String
+* `code` Zeichenkette
 * `url` String (optional)
 * `startLine` Integer (optional) - Standard ist 1.

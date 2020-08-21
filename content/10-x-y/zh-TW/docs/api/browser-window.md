@@ -2,10 +2,10 @@
 
 > 建立及控制瀏覽器視窗。
 
-處理序: [主處理序](../glossary.md#main-process)
+Process: [主程序](../glossary.md#main-process)
 
 ```javascript
-// 在主處理序中.
+// 在主處理序裡。
 const { BrowserWindow } = require('electron')
 
 // 或由畫面轉譯處理序裡使用 `remote`。
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > 建立及控制瀏覽器視窗。
 
-處理序: [主處理序](../glossary.md#main-process)
+Process: [主程序](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter][event-emitter].
 
@@ -1449,7 +1449,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**注意:** TouchBar API 目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
 
 #### `win.setBrowserView(browserView)` _試驗中_
 

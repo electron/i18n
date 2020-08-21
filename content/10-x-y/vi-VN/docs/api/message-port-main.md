@@ -8,7 +8,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessagePortMain
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ### Các phương thức riêng
 

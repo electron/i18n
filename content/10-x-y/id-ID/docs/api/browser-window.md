@@ -138,7 +138,7 @@ Disarankan agar Anda menghentikan sementara operasi mahal saat keadaan visibilit
 
 
 
-> Create and control browser windows.
+> Buat dan kendalikan jendela peramban.
 
 Proses: [Main](../glossary.md#main-process)
 
@@ -322,11 +322,11 @@ The possible values and behaviors of the `type` option are platform dependent. N
 
 <h4 spaces-before="0">Acara : 'halaman-judul-diperbarui'</h4>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Pengembalian:</p>
 
 <ul>
-<li><code>event` Sinyal
-* ` judul</ 0>  String</li>
+<li><code>acara` Acara
+* ` title </ 0>  String</li>
 <li><code>explicitSet` Boolean
 
 Emitted ketika dokumen tersebut mengubah namanya, memanggil ` event.preventDefault () </ 0> 
@@ -337,9 +337,9 @@ akan mencegah perubahan dari jendela asli.
 
 #### Acara : 'dekat'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 
 Emitted saat jendela akan ditutup. Ini dipancarkan sebelum `` beforeunload </ 0> dan <code> membongkar </ 0>  acara DOM. Memanggil <code> event.preventDefault () </ 0> 
 akan membatalkan penutupan.</p>
@@ -397,7 +397,7 @@ Emitted saat window gain fokus.
 
 
 
-#### Acara : 'show'
+#### Acara: 'show'
 
 Emitted saat jendela ditunjukkan.
 
@@ -443,9 +443,9 @@ Emitted saat jendela dipulihkan dari keadaan diminimalkan.
 
 #### Event: 'will-resize' _macOS_ _Windows_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `event` Acara
 * `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
 
 Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
@@ -462,9 +462,9 @@ Emitted after the window has been resized.
 
 #### Event: 'will-move' _macOS_ _Windows_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
 Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
@@ -513,9 +513,9 @@ Emitted saat jendela meninggalkan status layar-penuh yang dipicu oleh HTML API.
 
 #### Event: 'always-on-top-changed'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `isAlwaysOnTop` Boolean
 
 Emitted when the window is set or unset to show always on top of other windows.
@@ -524,9 +524,9 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * ` perintah </ 0>  String</li>
 </ul>
 
@@ -569,9 +569,9 @@ Emitted saat menggulirkan event wheel drive yang diajukan saat mencapai tepi ele
 
 #### Acara : 'gesek' _ macOS </ 0></h4> 
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * ` arah </ 0>  String</li>
 </ul>
 
@@ -582,9 +582,9 @@ Mengembalikan:
 
 #### Event: 'rotate-gesture' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `rotation` Float
 Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
@@ -652,21 +652,21 @@ Kembali ` BrowserWindow ` - Jendela dengan ` id ` yang diberikan.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
-* `path` String
+* ` path </ 0>  String</li>
+</ul>
 
-Menambahkan ekstensi Chrome yang terletak di ` path `, dan mengembalikan nama ekstensi.
-
-Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
-
-** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
-
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
-
-
+<p spaces-before="0">Menambahkan ekstensi Chrome yang terletak di <code> path `, dan mengembalikan nama ekstensi.</p> 
+  Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
+  
+  ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
+  
+  **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+  
+  
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* ` nama </ 0>  Deretan</li>
+* ` nama </ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Hapus ekstensi Chrome dengan nama.</p>
@@ -688,22 +688,23 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 #### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
-* `path` String
-Menambahkan ekstensi DevTools yang terletak di ` path`, dan mengembalikan nama ekstensi.
+* ` path </ 0>  String</li>
+</ul>
 
-Ekstensi akan diingat sehingga Anda hanya perlu memanggil API ini sekali, API ini bukan untuk penggunaan pemrograman. Jika Anda mencoba menambahkan ekstensi yang telah dimuat, metode ini tidak akan kembali dan sebaliknya log peringatan ke konsol.
-
-Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
-
-** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
-
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
-
-
+<p spaces-before="0">Menambahkan ekstensi DevTools yang terletak di <code> path`, dan mengembalikan nama ekstensi.</p> 
+  Ekstensi akan diingat sehingga Anda hanya perlu memanggil API ini sekali, API ini bukan untuk penggunaan pemrograman. Jika Anda mencoba menambahkan ekstensi yang telah dimuat, metode ini tidak akan kembali dan sebaliknya log peringatan ke konsol.
+  
+  Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
+  
+  ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
+  
+  **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+  
+  
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* ` nama </ 0>  Deretan</li>
+* ` nama </ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Hapus ekstensi DevTools dengan nama.</p>
@@ -907,7 +908,7 @@ A `String` property that defines an alternative title provided only to accessibi
 
 
 
-### Методы экземпляра
+### Metode Instance
 
 Objek yang dibuat dengan ` BrowserWindow baru </ 0> memiliki metode contoh berikut:</p>
 
@@ -1332,7 +1333,7 @@ Mengembalikan `Integer []` - berisi jendela posisi saat ini.
 
 #### `win.setTitle(title)`
 
-* ` judul</ 0>  String</li>
+* ` judul </ 0> String</li>
 </ul>
 
 <p spaces-before="0">Perubahan judul jendela asli <code>judul`.</p> 
@@ -1485,8 +1486,8 @@ Mengembalikan `Boolean` - Apakah dokumen jendela telah diedit.
 
 #### `win.loadURL (url [, options])`
 
-* ` url </ 0> String</li>
-<li><code>options` Object (optional) 
+* `url` String
+* `options` Object (optional) 
     * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (opsional) - agen pengguna berasal permintaan.
   * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
@@ -1542,7 +1543,7 @@ Sama seperti ` webContents.reload </ 0> .</p>
 
 <h4 spaces-before="0"><code>win.setMenu(menu)` _Linux_ _Windows_</h4> 
 
-* `menu` Menu | null
+* `menu` Menu | batal
 
 Sets the `menu` as the window's menu bar.
 
@@ -1867,13 +1868,13 @@ Set a custom position for the traffic light buttons. Can only be used with `titl
 
 
 
-#### `win.setTouchBar(touchBar)` _macOS_
+#### `win.setTouchBar(touchBar)` Linux _macOS_
 
 * `touchBar` TouchBar | null
 
 Mengatur tata letak touchBar untuk jendela aktif. Menentukan `null` atau `undefined` membersihkan bar sentuhan. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
 
 
 

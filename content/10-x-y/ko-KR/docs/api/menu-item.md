@@ -2,7 +2,7 @@
 
 > 네이티브 애플리케이션 메뉴와 컨텍스트 메뉴에 아이템을 추가합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 [`Menu`](menu.md)에서 예제를 볼 수 있습니다.
 
@@ -95,7 +95,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 **Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 다음의 속성은 `MenuItem`의 인스턴스에서 유효합니다:
 

@@ -2,7 +2,7 @@
 
 > Tätigen von HTTP/HTTPS anfragen.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 `ClientRequest` implementiert die [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)-Schnittstelle und ist somit ein [EventEmitter][event-emitter].
 
@@ -35,7 +35,7 @@ const request = net.request({
 })
 ```
 
-### Instanz Events
+### Instanz-Ereignisse
 
 #### Event: 'response'
 
@@ -123,7 +123,7 @@ Ein `Boolean` gibt an, ob die HTTP Anfrage eine segmentierte Übertragungscodier
 
 Das Benutzen von segmentierter Codierung wird dringend empfohlen, wenn du einen großen request body senden möchtest, da die Daten in kleinen Stücken gestreamt wird, anstatt das diese intern im Electron Prozess Speicher gebufferd werden.
 
-### Instanz Methoden
+### Beispiel Methoden
 
 #### `request.setHeader(name, value)`
 

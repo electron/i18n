@@ -6,7 +6,7 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
-Halimbawa:
+Halimbawa ng:
 
 ```javascript
 const { session } = require('electron')
@@ -25,15 +25,15 @@ session.defaultSession.serviceWorkers.on('console-message', (event, messageDetai
 })
 ```
 
-### Halimbawa ng mga Event
+### Mga Halimbawa ng "Events"
 
 The following events are available on instances of `ServiceWorkers`:
 
 #### Event: 'console-message'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `messageDetails` Object - Information about the console message
   * `message` String - The actual console message
   * `versionId` Number - The version ID of the service worker that sent the log message
@@ -44,7 +44,7 @@ Pagbabalik:
 
 Emitted when a service worker logs something to the console.
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga Pamamaraan ng Instance
 
 The following methods are available on instances of `ServiceWorkers`:
 

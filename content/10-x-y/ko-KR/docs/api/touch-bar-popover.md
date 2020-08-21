@@ -2,7 +2,7 @@
 
 > Create a popover in the touch bar for native macOS applications
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+프로세스: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarPopover(options)`
 
@@ -12,7 +12,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
   * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. 기본값은 `true`이다.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 The following properties are available on instances of `TouchBarPopover`:
 

@@ -53,7 +53,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### イベント: 'done'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `state` String - `completed`、`cancelled` か `interrupted` にできます。

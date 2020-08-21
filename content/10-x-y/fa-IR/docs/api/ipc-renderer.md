@@ -8,7 +8,7 @@ The `ipcRenderer` module is an  [EventEmitter][event-emitter]. It provides a few
 
 See [ipcMain](ipc-main.md) for code examples.
 
-## Methods
+## روش ها
 
 The `ipcRenderer` module has the following method to listen for events and send messages:
 

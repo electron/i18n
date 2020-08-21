@@ -2,7 +2,7 @@
 
 > 在渲染进程中使用主进程模块。
 
-进程: [渲染进程](../glossary.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
 ` remote ` 模块为渲染进程（web页面）和主进程通信（IPC）提供了一种简单方法。
 
@@ -144,11 +144,11 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getGlobal(name)`
 
-* `name` String
+* `name` 字符串
 
 返回 ` any `-主进程中 ` name ` (例如 ` global[name]`) 的全局变量。
 
-## Properties
+## 属性
 
 ### `remote.process` _Readonly_
 

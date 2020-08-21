@@ -2,9 +2,9 @@
 
 > In-app purchases on Mac App Store.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-## Events
+## Các sự kiện
 
 The `inAppPurchase` module emits the following events:
 

@@ -58,7 +58,7 @@ A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpa
 
 A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference to the `TouchBarOtherItemsProxy` class.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instansya
 
 Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBar`:
 

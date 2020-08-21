@@ -17,9 +17,9 @@ console.log(clipboard.readText('selection'))
 
 Il modulo di `Appunti` ha i seguenti metodi:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Nota:** Le API sperimentali sono contrassegnate come tali e potrebbero essere rimosse in futuro.
 
-### `clipboard.readText([tipo])`
+### `clipboard.readText([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
@@ -78,7 +78,7 @@ const { clipboard } = require('electron')
 clipboard.writeHTML('<b>Hi</b')
 ```
 
-### `clipboard.readImage([tipo])`
+### `clipboard.readText([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
@@ -123,14 +123,14 @@ clipboard.writeRTF(rtf)
 
 ### `clipboard.readBookmark()` _macOS_ _Windows_
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `Titolo` Stringa
 * `url` Stringa
 
 Restituisce un oggetto contenente `titolo` e `url` chiavi rappresentative del segnaposto negli appunti. I valori di `titolo` e `url` saranno vuoti quando i bookmark non sono disponibili.
 
-### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
+### `clipboard.writeBookmark(title, url[, tipo])` _macOS_ _Windows_
 
 * `Titolo` Stringa
 * `url` Stringa
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` _Experimental_
+### `clipboard.read(format)` _Sperimentale_
 
 * `format` Stringa
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` _Experimental_
+### `clipboard.readBuffer(format)` _Sperimentale_
 
 * `format` Stringa
 

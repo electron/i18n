@@ -2,7 +2,7 @@
 
 > Busca y modifica las cookies de la sesión.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Las instancias de la clase `Cookies` son accedidas utilizado la propiedad `cookies` de una `Session`.
 
@@ -44,7 +44,7 @@ Los siguientes eventos están disponibles en las instancias de `Cookies`:
 
 #### Evento: "changed"
 
-* `event` Event
+* `event`
 * `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado.
 * `cause` String - The cause of the change with one of the following values:
   * `explicit` - La cookie se cambió directamente por la acción de un consumidor.
@@ -83,7 +83,7 @@ Envía una solicitud para obtener todas las cookies que coincidan con `filter`, 
   * `domain` String (optional) - El dominio de la cookie; este será normalizado por precediéndolo con un punto para que también sea valido para el uso de subdominios. Empty by default if omitted.
   * `path` String (opcional) - La ruta de la cookie. Empty by default if omitted.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Por defecto a false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Por defecto es false.
+  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Por defecto es falso.
   * `expirationDate` Doble (opcional) - La fecha de vencimiento de la cookie como el número de segundos desde la época UNIX. Si se omite, entonces la cookie cambia a una cookie de sesión y no se conservará entre sesiones.
   * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.  Default is `no_restriction`.
 

@@ -6,7 +6,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessageChannelMain
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Ejemplo:
 ```js

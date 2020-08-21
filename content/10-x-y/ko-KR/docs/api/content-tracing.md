@@ -2,7 +2,7 @@
 
 > Collect tracing data from Chromium to find performance bottlenecks and slow operations.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 This module does not include a web interface. To view recorded traces, use [trace viewer][], available at `chrome://tracing` in Chrome.
 
@@ -24,7 +24,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## 메소드
+## 메서드
 
 The `contentTracing` module has the following methods:
 

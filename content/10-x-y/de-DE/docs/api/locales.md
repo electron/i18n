@@ -93,7 +93,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | no         | Norwegisch                |
 | oc         | Okzitanisch               |
 | om         | Oromo                     |
-| oder       | Oriya                     |
+| or         | Oriya                     |
 | pa         | Pandschabi                |
 | pl         | Polnisch                  |
 | ps         | Paschtu                   |

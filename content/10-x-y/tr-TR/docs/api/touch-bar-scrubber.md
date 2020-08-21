@@ -18,13 +18,13 @@
   * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 Aşağıdaki özelliklere, `TouchBarScrubber` örnekleri üzerinde erişilebilir:
 
 #### `touchBarScrubber.items`
 
-Bir `ScrubberItem[]` array bu kaydırıcıdaki öğeleri temsil eder. Bu değeri değiştirmek dokunmatik bardaki denetimi hemen güncelleştirir. İçindeki derin özellkleri güncelleme array **dokunmatik barı güncellemez**.
+Bir `ScrubberItem[]` array bu kaydırıcıdaki öğeleri temsil eder. Bu değeri güncellemek dokunmatik bardaki kontrolü hemen günceller. İçindeki derin özellkleri güncelleme array **dokunmatik barı güncellemez**.
 
 #### `touchBarScrubber.selectedStyle`
 
@@ -48,11 +48,11 @@ A `Boolean` representing whether to show the left / right selection arrows in th
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Bu değeri değiştirmek dokunmatik bardaki denetimi hemen güncelleştirir. Olası değerler:
+A `String` representing the mode of this scrubber. Bu değeri güncellemek dokunmatik bardaki kontrolü hemen günceller. Olası değerler:
 
 * `fixed` - Haritaları `NSScrubberModeFixed`.
 * `fixed` - Haritaları `NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. Bu değeri değiştirmek dokunmatik bardaki denetimi hemen güncelleştirir.
+A `Boolean` representing whether this scrubber is continuous or not. Bu değeri güncellemek dokunmatik bardaki kontrolü hemen günceller.

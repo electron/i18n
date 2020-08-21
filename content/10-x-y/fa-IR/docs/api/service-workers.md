@@ -25,7 +25,7 @@ session.defaultSession.serviceWorkers.on('console-message', (event, messageDetai
 })
 ```
 
-### Instance Events
+### رویدادها نمونه
 
 The following events are available on instances of `ServiceWorkers`:
 
@@ -44,7 +44,7 @@ Returns:
 
 Emitted when a service worker logs something to the console.
 
-### Instance Methods
+### روشهای نمونه
 
 The following methods are available on instances of `ServiceWorkers`:
 

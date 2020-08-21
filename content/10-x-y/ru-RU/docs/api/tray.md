@@ -2,7 +2,7 @@
 
 > Добавить иконки и контекстные меню в системную область уведомлений.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 `Tray` является [EventEmitter][event-emitter]'ом.
 
@@ -224,7 +224,7 @@ Emitted when the mouse clicks the tray icon.
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 
 Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 

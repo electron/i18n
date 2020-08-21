@@ -24,7 +24,7 @@ Las siguientes propiedades está disponibles en instancias del `depurador de bar
 
 #### `touchBarScrubber.items`
 
-Un array de `ScrubberItem[]` representando los elementos en este depurador. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Mientras se actualicen propiedades profundas en este arreglo **no actualice la barra táctil**.
+Un array de `ScrubberItem[]` representando los elementos en este depurador. Actualiza este valor inmediatamente actualiza el control de la barra táctil. Mientras se actualicen propiedades profundas en este arreglo **no actualice la barra táctil**.
 
 #### `touchBarScrubber.selectedStyle`
 
@@ -48,11 +48,11 @@ A `Boolean` representing whether to show the left / right selection arrows in th
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Posibles valores:
+A `String` representing the mode of this scrubber. Actualiza este valor inmediatamente actualiza el control de la barra táctil. Posibles valores:
 
 * `fijo` - Mapa a `NSScrubberModeFixed`.
 * `libre` - Mapa a `NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. Actualizar este valor actualiza inmediatamente el control en la barra táctil.
+A `Boolean` representing whether this scrubber is continuous or not. Actualiza este valor inmediatamente actualiza el control de la barra táctil.

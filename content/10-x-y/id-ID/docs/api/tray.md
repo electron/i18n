@@ -67,7 +67,7 @@ Modul `Tray` memancarkan peristiwa berikut:
 
 #### Acara : 'klik'
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
@@ -77,7 +77,7 @@ Emitted saat ikon baki diklik.
 
 #### Event: klik 'kanan' _macOS_ _Windows_
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
@@ -86,7 +86,7 @@ Dibunyikan ketika ikon tray benar diklik.
 
 #### Event: 'Klik dua kali' _macOS_ _Windows_
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
@@ -111,18 +111,18 @@ Emitted bila ada item yang diseret dijatuhkan pada ikon baki.
 
 #### Event: 'drop-file' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `event` Acara
 * `file` String [] - path file menjatuhkan.
 
 Disuarakan saat file terseret dijatuhkan di ikon baki.
 
 #### Event: 'drop-teks' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `teks` String - string teks menjatuhkan.
 
 Dibunyikan apabila menyeret teks jatuh dalam ikon tray.
@@ -141,7 +141,7 @@ Dipancarkan ketika operasi drag yang berakhir di baki atau berakhir di lokasi la
 
 #### Event: 'mouse-up' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
@@ -152,7 +152,7 @@ Note: This will not be emitted if you have set a context menu for your Tray usin
 
 #### Event: 'mouse-down' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
@@ -161,7 +161,7 @@ Emitted when the mouse clicks the tray icon.
 
 #### Event: 'masuk mouse' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
@@ -170,7 +170,7 @@ Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
 #### Acara: 'pindah' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
@@ -179,14 +179,14 @@ Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
 #### Event: 'mouse-move' _macOS_ _Windows_
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
 
 Emitted when the mouse moves in the tray icon.
 
-### Методы экземпляра
+### Metode Instance
 
 Itu `net` modul memiliki metode berikut:
 
@@ -214,7 +214,7 @@ Menyetel teks hover untuk ikon baki ini.
 
 #### `tray.setTitle(judul) ` _macos_
 
-* ` judul</ 0>  String</li>
+* ` judul </ 0> String</li>
 </ul>
 
 <p spaces-before="0">Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).</p>
@@ -240,7 +240,7 @@ This value is set to false by default.
 * `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
-  * ` judul</ 0>  String</li>
+  * ` judul </ 0> String</li>
 <li><code>content` String
   * `largeIcon` Boolean (optional) - The large version of the icon should be used. Defaultnya adalah `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
   * `noSound` Boolean (optional) - Do not play the associated sound. Defaultnya adalah ` false </ 0> . Maps to <a href="https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010" f-id="NIIF_NOSOUND" lbb="2" fo="1"><code>NIIF_NOSOUND`</a>.
@@ -271,7 +271,7 @@ Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
 
 #### `tray.setContextMenu (menu)`
 
-* `menu` Menu | null
+* `menu` Menu | batal
 
 Menetapkan menu konteks untuk ikon ini.
 

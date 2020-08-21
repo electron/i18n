@@ -166,7 +166,7 @@ Restituisce `String` - Valore dell'intestazione ETag.
 
 Restituisce `Double` - Numero di secondi dall'epoca UNIX da quando il download è stato avviato.
 
-### Proprietà Istanza
+### Proprietà Istanze
 
 #### `downloadItem.savePath`
 

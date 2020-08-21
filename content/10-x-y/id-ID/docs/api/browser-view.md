@@ -55,7 +55,7 @@ Sebuah [`isi Web`](web-contents.md) objek yang dimiliki oleh pandangan ini.
 
 A `bilangan bulat` mewakili ID unik dari tampilan.
 
-### Методы экземпляра
+### Metode Instance
 
 Objek yang dibuat dengan `lihat Browser baru` memiliki metode contoh berikut:
 

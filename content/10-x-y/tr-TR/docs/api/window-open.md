@@ -1,4 +1,4 @@
-# `window.open` Fonksiyon
+# `window.open` Fonksiyonu
 
 > Yeni bir pencere aç ve URL yükle.
 
@@ -10,7 +10,7 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 
 ### `window.open(url[, frameName][, features])`
 
-* `url` String
+* `url` Dize
 * `frameName` String (opsiyonel)
 * `features` String (opsiyonel)
 

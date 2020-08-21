@@ -2,7 +2,7 @@
 
 > Render và control các trang web.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter][event-emitter]. It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -16,7 +16,7 @@ let contents = win.webContents
 console.log(contents)
 ```
 
-## Phương thức
+## Các phương thức
 
 These methods can be accessed from the `webContents` module:
 
@@ -43,7 +43,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ### Instance Events
 

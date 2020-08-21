@@ -2,7 +2,7 @@
 
 > Control your app in the macOS dock
 
-Process: [Main](../glossary.md#main-process)
+प्रक्रिया: [Main](../glossary.md#main-process)
 
 The following example shows how to bounce your icon on the dock.
 

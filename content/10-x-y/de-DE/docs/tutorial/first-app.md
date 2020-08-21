@@ -9,7 +9,7 @@ Das bedeutet nicht, dass Electron's JavaScript an Bibliotheken für die grafisch
 Was die Entwicklung betrifft, so ist eine Electron-Anwendung grundlegend eine Node.js-Anwendung. Beginnen wir mit einer `package.json`, die die gleiche ist wie die eines Node.js-Moduls. Eine einfache Electron-App hat die folgende Ordnerstruktur:
 
 ```plaintext
-your-app/
+deine-app/
 ├── package.json
 ├── main.js
 └── index.html
@@ -166,7 +166,7 @@ Zu guter Letzt, die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 </html>
 ```
 
-## Ihre App ausführen
+## Starten deiner Anwendung
 
 Sobald Sie Ihre ersten `main.js`, `index.html` und `package.json` Dateien erstellt haben, können Sie Ihre Anwendung testen, indem Sie `npm start` aus dem Verzeichnis Ihrer Anwendung ausführen.
 

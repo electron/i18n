@@ -1,4 +1,4 @@
-# Versionnement d'Electron
+# La gestion de versions d'Electron
 
 > Un descriptif de la politique de gestion de version et d'implémentation.
 

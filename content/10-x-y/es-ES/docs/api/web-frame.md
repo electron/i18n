@@ -112,7 +112,7 @@ Inserta `texto` en el elemento enfocado.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `codigo` String
+* `code` Cadena de caracteres
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
   * `resultado` Cualquiera
@@ -150,7 +150,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)

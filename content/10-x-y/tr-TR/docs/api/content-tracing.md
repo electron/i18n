@@ -2,7 +2,7 @@
 
 > Collect tracing data from Chromium to find performance bottlenecks and slow operations.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 This module does not include a web interface. To view recorded traces, use [trace viewer][], available at `chrome://tracing` in Chrome.
 
@@ -24,7 +24,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Metodlar
+## Yöntemler
 
 `contentTracing` modülü aşağıdaki metodları içerir:
 

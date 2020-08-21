@@ -2,7 +2,7 @@
 
 > Ermöglichen Sie es Apps, sich automatisch zu aktualisieren.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 

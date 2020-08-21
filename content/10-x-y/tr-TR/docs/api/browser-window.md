@@ -1,11 +1,11 @@
 # BrowserWindow
 
-> Tarayıcı pencerelerini kontrol etme ve oluşturma.
+> Tarayıcı pencereleri kontrol etme ve oluşturma.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 ```javascript
-// Ana işlem içinde.
+// Ana süreçte.
 const { BrowserWindow } = require('electron')
 
 // Ya da oluşturucu işleminden `remote` kullanın.
@@ -105,7 +105,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
 
 > Tarayıcı pencerelerini kontrol etme ve oluşturma.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter][event-emitter].
 
@@ -118,40 +118,40 @@ Süreç: [Ana](../glossary.md#main-process)
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
   * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
-  * `useContentSize` Boolean (isteğe bağlı) - `Genişlik` ve `yüksekliğin` web sayfasının boyutu olarak kullanılması gerçek pencerenin boyutunun, pencere çerçevesinin boyutunu ve biraz daha fazlasını içereceği anlamına gelmektedir. Varsayılanı `false`.
+  * `useContentSize` Boolean (isteğe bağlı) - `Genişlik` ve `yüksekliğin` web sayfasının boyutu olarak kullanılması gerçek pencerenin boyutunun, pencere çerçevesinin boyutunu ve biraz daha fazlasını içereceği anlamına gelmektedir. Varsayılan `false`'dur.
   * `center` Boolean (isteğe bağlı) - Pencereyi ekranın ortasında gösterin.
   * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
   * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
   * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
   * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Varsayılanı `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Varsayılanı `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Varsayılanı `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Varsayılanı `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Varsayılanı `true`.
+  * `resizable` Boolean (optional) - Whether window is resizable. Varsayılan `true`'dur.
+  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Varsayılan `true`'dur.
+  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Varsayılan `true`'dur.
+  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Varsayılan `true`'dur.
+  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Varsayılan `true`'dur.
   * `focusable` Boolean (isteğe bağlı) - Pencerenin odaklanıp odaklanamayacağını belirtir. Varsayılan `true`'dur. Windows'ta `focusable: false` ayarı `skipTaskbar: true` anlamına da gelir. Linux ayarlarında `focusable: false` pencerenin wm ile olan etkileşimi durdurur, bu yüzden pencere her zaman tüm çalışma alanlarının en üstünde durur.
-  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Varsayılanı `false`.
-  * `fullscreen` Boolean (isteğe bağlı) - Pencerenin tam ekranda gösterilip gösterilmeyeceği. MacOS'ta özellikle değer `false` olarak ayarlandığında tam ekran düğmesi görünmez veya devre dışı olacaktır. Varsayılanı `false`.
-  * `fullscreenable` Boolean (isteğe bağlı) - Pencerenin tam ekrana moduna alınıp alınamayacağı. MacOs'ta, Ekranı Kapla/Yakınlaştır düğmesinin tam ekran modunu veya Ekranı Kapla penceresini değiştirip değiştirmeyeceği de belirtmektedir. Varsayılanı `true`.
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Varsayılanı `false`.
+  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Varsayılan `false`'dur.
+  * `fullscreen` Boolean (isteğe bağlı) - Pencerenin tam ekranda gösterilip gösterilmeyeceği. MacOS'ta özellikle değer `false` olarak ayarlandığında tam ekran düğmesi görünmez veya devre dışı olacaktır. Varsayılan `false`'dur.
+  * `fullscreenable` Boolean (isteğe bağlı) - Pencerenin tam ekrana moduna alınıp alınamayacağı. MacOs'ta, Ekranı Kapla/Yakınlaştır düğmesinin tam ekran modunu veya Ekranı Kapla penceresini değiştirip değiştirmeyeceği de belirtmektedir. Varsayılan `true`'dur.
+  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Varsayılan `false`'dur.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. Varsayılanı `false`.
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. Varsayılan `false`'dur.
   * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `icon` ([NativeImage](native-image.md) | String) (isteğe bağlı) - Pencere ikonu. Windows'ta en iyi görsel efektleri almak için `ICO` simgelerini kullanmanızı öneririz, ayrıca onu tanımlanmamış şekilde bırakabilirsiniz bu şekilde çalıştırılılabilir ikon kullanılacaktır.
   * `show` Boolean (optional) - Whether window should be shown when created. Varsayılan `true`'dur.
-  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created.  In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`.  Setting this to `false` will cause the `ready-to-show` event to not fire.  Varsayılanı `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Varsayılanı `true`.
+  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created.  In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`.  Setting this to `false` will cause the `ready-to-show` event to not fire.  Varsayılan `true`'dur.
+  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Varsayılan `true`'dur.
   * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Varsayılanı `false`.
+  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Varsayılan `false`'dur.
   * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Varsayılanı `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Varsayılanı `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Varsayılanı `false`.
+  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Varsayılan `false`'dur.
+  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Varsayılan `false`'dur.
+  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Varsayılan `false`'dur.
   * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Varsayılanı `true`.
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Varsayılan `true`'dur.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. Default is [`nativeTheme.shouldUseDarkColors`](native-theme.md).
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Varsayılanı `false`. On Windows, does not work unless the window is frameless.
+  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Varsayılan `false`'dur. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Olası değerler şunlar:
     * `default` - Standart gri opak Mac başlık çubuğunda sonuç verir.
@@ -159,33 +159,33 @@ Süreç: [Ana](../glossary.md#main-process)
     * `hiddenInset` - Trafik ışığı düğmelerinin pencere kenarında biraz daha yerleştirildiği alternatif bir görünüme sahip gizli bir başlık çubuğunda sonuç verir.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** Bu seçenek şu anda deneme niteliğinde.
   * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Varsayılanı `false`.
+  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Varsayılan `false`'dur.
   * ` kalınÇerçeve </ 0>  Boole (opsiyonel) - Kullanım <code> WS_KALIN ÇERÇEVE</ 0> çerçevesiz için stil pencereler üzerinde
- Windows'un standart pencere çerçevesi ekler. <code>false` olarak ayarlamak pencere gölgesini ve pencere animasyonlarını kaldıracaktır. Varsayılanı `true`.
+ Windows'un standart pencere çerçevesi ekler. <code>false` olarak ayarlamak pencere gölgesini ve pencere animasyonlarını kaldıracaktır. Varsayılan `true`'dur.
   * `vibrancy` Dizi (isteğe bağlı) - Pencereye sadece macOS'ta bir tür canlılık efekti ekleyin. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`.  Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
-  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. `true` ise, pencere büyütülürken web sayfasının tercih edilen genişliğine, `false` genişliğinin ekranın genişliğine yaklaşmasına neden olur. `maximize()` Bu komut direk çağrıldığında ayrıca davranışı da etkileyecektir. Varsayılanı `false`.
+  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. `true` ise, pencere büyütülürken web sayfasının tercih edilen genişliğine, `false` genişliğinin ekranın genişliğine yaklaşmasına neden olur. `maximize()` Bu komut direk çağrıldığında ayrıca davranışı da etkileyecektir. Varsayılan `false`'dur.
   * `tabbingIdentifier` Dize (isteğe bağlı) - Sekme grubu adı, pencerenin macOS 10.12+ sürümünde yerel sekme olarak açılmasına izin verir. Aynı sekme tanımlayıcısına sahip olan Windows birlikte gruplandırılacaktır. Bu ayrıca pencerenizin sekme çubuğuna yerel yeni bir sekme düğmesi ekler `app` ve pencereye olayına ulaşmanıza izin verir. `new-window-for-tab`.
   * `webPreferences` Object (optional) - Settings of web page's features.
-    * ` devAraçlar` Boole (isteğe bağlı) - Dev Araçlar etkinleştirip desteklemeyeceğini belirtir. `yanlış` olarak ayarlanırsa DevTools'u açmak için ` BrowserWindow.webContents.openDevTools ()` kullanamazsınız. Varsayılanı `true`.
-    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Varsayılanı `false`.
-    * ` nodeIntegrationInWorker` Boolean (isteğe bağlı) - Düğümün tümleştirilip web çalışanlarında etkinleştirildi. Varsayılanı `false`. Bununla ilgili daha fazla bilgi bulabilirsiniz [ Multithreading'de](../tutorial/multithreading.md).
+    * ` devAraçlar` Boole (isteğe bağlı) - Dev Araçlar etkinleştirip desteklemeyeceğini belirtir. `yanlış` olarak ayarlanırsa DevTools'u açmak için ` BrowserWindow.webContents.openDevTools ()` kullanamazsınız. Varsayılan `true`'dur.
+    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Varsayılan `false`'dur.
+    * ` nodeIntegrationInWorker` Boolean (isteğe bağlı) - Düğümün tümleştirilip web çalışanlarında etkinleştirildi. Varsayılan `false`'dur. Bununla ilgili daha fazla bilgi bulabilirsiniz [ Multithreading'de](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * ` preload` Sicim (isteğe bağlı) - Diğerinden önce yüklenecek bir betiği belirtir sayfalarda komut dosyaları çalıştırın. Bu komut dosyasında, düğüm entegrasyonunun açık veya kapalı olmasına bakılmaksızın düğüm API'lerine her zaman erişilebilmektedir. Değer, komut dosyasının salt dosya yolu olmalıdır. Düğüm entegrasyonu kapatıldığında, önceden yüklenmiş komut dosyası düğümün genel başvuru bayrağını genel kapsamdan yeniden başlatır. Örneği [gör](process.md#event-loaded).
     * ` sandbox` Boole (isteğe bağlı) - Ayarlanırsa, oluşturucuyu gizlenecektir pencere ile ilişkilendirilerek Krom ile uyumlu hale getirilir OS düzeyinde sanal alan ve Node.js motorunu devre. Bu aynı şey değil ` düğüm Entegrasyon` seçeneği ve önyükleme komut dosyasında kullanılabilen API'ler daha sınırlıdır. Seçenek hakkında daha fazla detaya [buradan ](sandbox-option.md) ulaşabilirsiniz.
-    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Varsayılanı `true`.
+    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Varsayılan `true`'dur.
     * `oturum` [Oturum](session.md#class-session) (isteğe bağlı) - Kullanılan oturumu ayarlar sayfa. Oturum nesnesini doğrudan geçirmek yerine bir bölüm dizesini kabul eden `partition` seçeneğini kullanmayı da denebilirsiniz. Ne zaman hem `oturumu` hem de `bölüm` sağlanır, `oturumu` tercih edilir. Varsayılan oturumun varsayılanıdır.
     * `bölüm` Satır (isteğe bağlı) - Sayfanın kullandığı oturumu. oturumun bölümlenmiş satırına göre ayarlar. Eğer `bölümü` ile başlarsa `persist:`, sayfa ile uygulamadaki tüm sayfalar için kalıcı bir oturum kullanacaktır aynı `bölümü`. Hiçbir ` persist`: öneki yoksa, sayfa bellek içi oturumu. Aynı `partition` bölümü atayarak, aynı oturumda birden çok sayfa paylaşabilir. Varsayılan oturumun varsayılanıdır.
     * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _Deprecated_
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
-    * `javascript` Boolean (optional) - Enables JavaScript support. Varsayılanı `true`.
-    * `webSecurity`Boolean (optional) -`false`olduğunda, aynı kaynak ilkesini devre dışı bırakır (genellikle kişiler deneme web sitelerini kullanılır) ve kullanıcı tarafından ayarlanmamışsa bu seçenekleri `allowRunningInsecureContent` `true` ayarlayın,. Varsayılanı `true`.
-    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Varsayılanı `false`.
-    * `images` Boolean (optional) - Enables image support. Varsayılanı `true`.
+    * `javascript` Boolean (optional) - Enables JavaScript support. Varsayılan `true`'dur.
+    * `webSecurity`Boolean (optional) -`false`olduğunda, aynı kaynak ilkesini devre dışı bırakır (genellikle kişiler deneme web sitelerini kullanılır) ve kullanıcı tarafından ayarlanmamışsa bu seçenekleri `allowRunningInsecureContent` `true` ayarlayın,. Varsayılan `true`'dur.
+    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Varsayılan `false`'dur.
+    * `images` Boolean (optional) - Enables image support. Varsayılan `true`'dur.
     * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
-    * `webgl` Boolean (optional) - Enables WebGL support. Varsayılanı `true`.
-    * `plugins` Boolean (optional) - Whether plugins should be enabled. Varsayılanı `false`.
-    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Varsayılanı `false`.
-    * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Varsayılanı `false`.
+    * `webgl` Boolean (optional) - Enables WebGL support. Varsayılan `true`'dur.
+    * `plugins` Boolean (optional) - Whether plugins should be enabled. Varsayılan `false`'dur.
+    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Varsayılan `false`'dur.
+    * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Varsayılan `false`'dur.
     * `enableBlinkFeatures` String (isteğe bağlı) - `,`(virgül) ile ayrılmış özellik dizelerinin bir listesidir. Aktifleştirmek için örneğin; `CSSVariables,KeyboardEventKey`. Desteklenmiş özellik dizelerinin tam listesi [RuntimeEnabledFeatures.json5][runtime-enabled-features] dosyasında olabilir.
     * ` Blink özelliğini devre dışı bırak ` Dizi (opsiyonel) - `,` ile ayrılmış bir özellikler dizisi. İptal etmek için `CSSVariables, KeyboardEventKey`. Desteklenen özellik dizelerinin tam listesini [RuntimeEnabledFeatures.json5][runtime-enabled-features] dosyasında bulabilirsiniz.
     * `defaultFontFamily` Object (optional) - Sets the default font for the font-family.
@@ -206,15 +206,15 @@ Süreç: [Ana](../glossary.md#main-process)
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Varsayılan değer `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (opsiyonel) - Aktifleştirmek için  [`<webview>` etiket](webview-tag.md). Varsayılan değer `false`. **Note:**`<webview>`için yapılandırılmış `preload` komut dosyası, çalıştırıldığında düğüm entegrasyonunun etkinleştirilmesini sağlar bu nedenle uzak/güvenilir olmayan içeriğin muhtemel kötü amaçlı `preload` komut dosyası içeren bir `<webview>` etiketi oluşturamayacağından emin olmanız gerekir. ` webview ekleyecek` etkinliğini [ webSatıcıları'nda](web-contents.md) kullanabilirsiniz. `önyükleme` komut dosyasını kaldırmak ve belgeyi doğrulamak veya değiştirmek için `<webview>` 'nin başlangıç ​​ayarları.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
-    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Varsayılanı `false`.
+    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Varsayılan `false`'dur.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
-    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. Varsayılanı `false`.
-    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Varsayılanı `false`.
+    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. Varsayılan `false`'dur.
+    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Varsayılan `false`'dur.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
     * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Varsayılanı `true`.
-    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). Varsayılanı `true`.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Varsayılan `true`'dur.
+    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). Varsayılan `true`'dur.
     * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
       * `none` - Disables code caching
       * `code` - Heuristic based code caching
@@ -241,8 +241,8 @@ The possible values and behaviors of the `type` option are platform dependent. O
 
 Dönüşler:
 
-* `event` Event
-* `title` String
+* `event` Olay
+* `başlık` Dizi
 * `explicitSet` Boolean
 
 Belge, başlığını değiştirdiğinde ifade edilir, `event.preventDefault()` kullanmak doğal windows başlığının değişmesine engel olur. `explicitSet` is false when title is synthesized from file URL.
@@ -251,7 +251,7 @@ Belge, başlığını değiştirdiğinde ifade edilir, `event.preventDefault()` 
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 
 Pencere kapatıldığında ortaya çıkmaktadır. DOM 'un `beforeunload` ve `unload` etkinliklerinden önce ifade edilir. ` olayı.preventDefault ()`öğesini çağırma kapanış iptal edecek.
 
@@ -328,7 +328,7 @@ Pencere küçültülmüş bir durumdan geri yüklendiğinde ortaya çıkmaktadı
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
 
 Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
@@ -343,7 +343,7 @@ Emitted after the window has been resized.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
 Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
@@ -380,7 +380,7 @@ Pencere, HTML API'sı tarafından tetiklenen bir tam ekran halinde bırakıldı�
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `isAlwaysOnTop` Boolean
 
 Emitted when the window is set or unset to show always on top of other windows.
@@ -389,7 +389,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `command` Dizi
 
 [Uygulama Komutu](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) çağrıldığında ifade edilir. Bunlar genel olarak klavye ortam tuşları ya da tarayıcı komutları ve ayrıca Windows'da ki bazı farelerde olan "Geri" düğmesiyle ilgilidir.
@@ -428,7 +428,7 @@ Kaydırma tekerleği etkinlik aşamasının öğenin kenarına ulaşmasıyla kay
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `direction` Dizi
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
@@ -439,7 +439,7 @@ The method underlying this event is built to handle older macOS-style trackpad s
 
 Dönüşler:
 
-* `event` Event
+* `event` Etkinlik
 * `rotation` Float
 
 Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
@@ -488,7 +488,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
-* `path` Dizgi
+* dizi `yolu`
 
 `yola` Chrome eklentisini ekler ve uzantının adını döndürür.
 
@@ -500,7 +500,7 @@ Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* `name` String
+* `name` Dizi
 
 İsme göre bir Chrome eklentisi kaldır.
 
@@ -518,7 +518,7 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 #### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
-* `path` Dizgi
+* dizi `yolu`
 
 DevTools uzantısını belirtilen lokasyona `yol` ekler ve uzantı adına döner.
 
@@ -532,7 +532,7 @@ Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* `name` String
+* `name` Dizi
 
 İsme göre bir DevTools eklentisi kaldır.
 
@@ -557,7 +557,7 @@ console.log(installed)
 
 **Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
-### Örnek özellikleri
+### Örnek Özellikleri
 
 `yeni BrowserWindow` ile oluşturulan nesneler aşağıdaki özelliklere sahiptir:
 
@@ -683,7 +683,7 @@ Menu.setApplicationMenu(menu)
 
 A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
-### Örnek yöntemleri
+### Örnek Metodlar
 
 `new BrowserWindow` ile oluşturulan nesnelerin aşağıda örnek methodları bulunmakta:
 
@@ -1084,7 +1084,7 @@ Yerel türü Windows' ta `HWND`, macOS' ta `NSView*`, ve Linux' ta `Window` (`un
 #### `win.hookWindowMessage(message, callback)` _Windows_
 
 * `message` Integer
-* `callback` Fonksiyon
+* `callback` Function
 
 Hooks a windows message. The `callback` is called when the message is received in the WndProc.
 
@@ -1138,7 +1138,7 @@ Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 #### `win.loadURL(url[, options])`
 
-* `url` String
+* `url` Dize
 * `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
@@ -1451,7 +1451,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Geçerli pencere için touchBar düzenini ayarlar. Specifying `null` or `undefined` dokunmatik çubuğu temizler. Bu metod sadece macOS 10.12.1+ üzerinde çalışıyorsa ve makinanın dokunmatiği varsa etkilidir.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Not:** TouchBar API şu anda deneyseldir ve gelecekteki Electron sürümlerinde değişebilir veya kaldırılabilir.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

@@ -2,13 +2,13 @@
 
 > Спілкуйтеся асинхронно від процесу візуалізатора до основного процесу.
 
-Процес: [Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)okok yes ie ui azt
 
 The `ipcRenderer` module is an  [EventEmitter][event-emitter]. Він надає кілька методів, тому ви можете надсилати синхронні та асинхронні повідомлення з процесу рендеринга (веб-сторінки) у основний процес. Ви також можете отримувати відповіді від основного процесу.
 
 See [ipcMain](ipc-main.md) for code examples.
 
-## Методи
+## Методиa
 
 The `ipcRenderer` module has the following method to listen for events and send messages:
 

@@ -2,7 +2,7 @@
 
 > İşletim Sistemi masaüstü bildirimlerini oluştur
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 ## Oluşturucu işleminde kullanma
 
@@ -12,7 +12,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 > İşletim Sistemi masaüstü bildirimlerini oluştur
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter][event-emitter].
 
@@ -42,7 +42,7 @@ Süreç: [Ana](../glossary.md#main-process)
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
-### Örnek Events
+### Örnek Olaylar
 
 `new Notification` ile yaratılan nesneler aşağıdaki olayları belirtir:
 
@@ -52,11 +52,11 @@ Süreç: [Ana](../glossary.md#main-process)
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Bildirim kullanıcıya gösterildiğinde yayınlanır, `show()` metodu ile birden çok kez gösterilebileceğinden, bunun birden çok kez tetiklenebileceğini unutmayın.
 
-#### Olay: 'click'
+#### Etkinlik: 'tıkla'
 
 Dönüşler:
 
@@ -68,7 +68,7 @@ Bildirim kullanıcı tarafından aratıldığında yayılıyor.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 
 Bildirim, kullanıcı tarafından manuel müdahale edilerek kapatıldığında ortaya çıkar.
 
@@ -78,7 +78,7 @@ Bu olayın, bildirimin kapalı olduğu tüm durumlarda bildirim vermesi garanti 
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `reply` Dize - Kullanıcının satır içi açıklama kısmına girdiği dize.
 
 Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bildirimde "yanıtla" düğmesini tıklaması gerekir.
@@ -87,10 +87,10 @@ Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bi
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `index` Numara - Etkin olan eylem dizinini gösterir.
 
-### Örnek yöntemleri
+### Sınıf örneği metodları
 
 `new Notification` ile oluşturulan nesnelerin aşağıdaki örnek yöntemleri vardır:
 
@@ -104,7 +104,7 @@ Bildirim daha önce gösterilmişse, bu yöntem önceden gösterilen bildirimi r
 
 Bildirimleri yoksay.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 #### `notification.title`
 

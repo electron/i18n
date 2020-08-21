@@ -287,9 +287,9 @@ const win = new BrowserWindow({ width: 800, height: 600 })
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBoxSync(win, {
     type: 'question',
-    buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
+    buttons: ['このページを離れる', 'キャンセル'],
+    title: 'このサイトを離れてもよろしいですか?',
+    message: '行った変更が保存されない可能性があります。',
     defaultId: 0,
     cancelId: 1
   })
@@ -368,7 +368,7 @@ Webページが応答しなくなるときに発生します。
 
 ページ内の `keydown` と `keyup` イベントが発生する直前に発行されます。 `event.preventDefault` を呼ぶと、ページの `keydown`/`keyup` イベントとメニューショートカットを阻害します。
 
-To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
+メニューショートカットだけを阻害するには、[`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore) を使用します。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1613,7 +1613,7 @@ WebRTC IP ハンドリングポリシーを設定すると、WebRTC を介して
 
 戻り値 `Promise<void>` - スナップショットの作成が成功したかどうかを示します。
 
-V8 ヒープのスナップショットを撮り、それを `filePath` に保存します。
+V8ヒープを取得して、`filePath`にそれを保存します。
 
 #### `contents.getBackgroundThrottling()`
 

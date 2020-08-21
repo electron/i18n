@@ -1,8 +1,8 @@
-# screen
+# màn hình
 
 > Truy xuất thông tin về kích thước màn hình, hiển thị, vị trí con trỏ,.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
@@ -46,7 +46,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Events
+## Các sự kiện
 
 The `screen` module emits the following events:
 

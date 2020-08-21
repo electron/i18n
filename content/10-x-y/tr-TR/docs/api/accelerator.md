@@ -62,10 +62,10 @@ Linux ve Windows'ta `Command` tuşunun hiç bir etkisi yok, bu yüzden bazı hı
 * `Sesi Aç`, `Sesi Kıs` ve `Sesi Kapat`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` ve `MediaPlayPause`
 * `Ekran Görüntüsü`
-* NumPad Keys
+* NumPad Tuşları
   * `num0` - `num9`
-  * `numdec` - decimal key
-  * `numadd` - numpad `+` key
-  * `numsub` - numpad `-` key
-  * `nummult` - numpad `*` key
-  * `numdiv` - numpad `÷` key
+  * `numdec` - ondalık anahtar
+  * `numadd` - numpad `+` tuşu
+  * `numsub` - numpad `-` tuş
+  * `nummult` - numpad `*` tuş
+  * `numdiv` - numpad `÷` tuşu

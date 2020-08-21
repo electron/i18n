@@ -2,7 +2,7 @@
 
 > Un transporte alternativo para el protocolo de depuración remoto de Chrome.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Las herramientas para desarrolladores de Chrome tiene un [special binding][rdp] disponible en JavaScript runtime que permite interactuar con las páginas y equiparlas.
 
@@ -37,7 +37,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `reason` Cadena - Razón para desasociar el depurador.
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.

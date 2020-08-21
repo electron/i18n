@@ -55,7 +55,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 Retorna:
 
-* `event` Event
+* Evento `event`
 * `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
@@ -393,7 +393,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 #### Event: 'zoom-changed'
 
 Retorna:
-* `event` Event
+* `event` Evento
 * `zoomDirection` String - Can be `in` or `out`.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
@@ -1549,7 +1549,7 @@ win.webContents.on('did-finish-load', async () => {
 })
 ```
 
-#### `contents.showDefinitionForSelection()` _macOS_
+#### `contents.showDefinitionForSelection()` no _macOS_
 
 Shows pop-up dictionary that searches the selected word on the page.
 

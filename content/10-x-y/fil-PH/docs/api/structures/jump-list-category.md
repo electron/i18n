@@ -8,4 +8,4 @@
 * `name` String (opsyonal) - Dapat na ilabas kung ang `type` ay `custom`, kung hindi man ito dapat tanggalin.
 * `items` JumpListItem[] (opsyonal) - Ayos ng [`JumpListItem`](jump-list-item.md) mga bagay kung `type` ay `tasks` o `custom`, kung hindi man ito ay dapat tanggalin.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Kung ang `name` ang katangian ay itinakda ngunit ang `type` ang katangian ay tinanggal pagkatapos ang `type` ay ipinalagay na `custom`.
+**Note:** Kung ang `JumpListCategory` ang bagay ay hindi ang `type` o ang `name` itinakda ang katangian pagkatapos ito ay `type` ay ipinapalagay na `tasks`. Kung ang `name` ang katangian ay itinakda ngunit ang `type` ang katangian ay tinanggal pagkatapos ang `type` ay ipinalagay na `custom`.

@@ -2,7 +2,7 @@
 
 > Асинхронно взаимодействуйте с процессами рендеринга из главного процесса.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Модуль `ipcMain` представляет собой [Event Emitter][event-emitter]. При использовании в основном процессе он обрабатывает асинхронные и синхронные сообщения, отправленные из процесса рендеринга (веб-страницы). Сообщения, отправленные из процесса рендеринга, будут направлены в этот модуль.
 
@@ -48,7 +48,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function
+* `listener` Function (Функция)
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,7 +57,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function
+* `listener` Function (Функция)
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -66,7 +66,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function
+* `listener` Function (Функция)
   * `...args` any[]
 
 Удаляет указанный `listener` из массива слушателей конкретного `channel`.

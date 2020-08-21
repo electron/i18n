@@ -2,7 +2,7 @@
 
 > Control your application's event lifecycle.
 
-Process: [Main](../glossary.md#main-process)
+प्रक्रिया: [Main](../glossary.md#main-process)
 
 The following example shows how to quit the application when the last window is closed:
 

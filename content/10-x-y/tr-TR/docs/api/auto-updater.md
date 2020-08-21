@@ -2,7 +2,7 @@
 
 > Uygulamaları kendiliğinden güncelleme yapmak için etkinleştirin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
@@ -34,9 +34,9 @@ Squirrel.Mac'ten farklı olarak, Windows güncelleştirmeleri S3'te veya diğer 
 
 `autoUpdater` nesnesi aşağıdaki olaylarla ortaya çıkarır:
 
-### Event: 'error'
+### Olay: 'error'
 
-Dönüşler:
+Returns:
 
 * `error` Error
 
@@ -58,7 +58,7 @@ Mevcut bir güncelleme yokken ortaya çıkan.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
@@ -83,7 +83,7 @@ When this API is called, the `before-quit` event is not emitted before all windo
 ### `autoUpdater.setFeedURL(seçenekler)`
 
 * `options` Object
-  * `url` String
+  * `url` Dize
   * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
   * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.
 

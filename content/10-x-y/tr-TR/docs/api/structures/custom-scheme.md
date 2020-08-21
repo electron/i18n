@@ -1,7 +1,7 @@
 # CustomScheme Objesi
 
 * `scheme` String - Ayarlarla birlikte kaydedilen özel şemalar.
-* `privileges` Object (optional)
+* `privileges` Object (opsiyonel)
   * `standard` Boolean (opsiyonel) - Varsayılan false.
   * `secure` Boolean (opsiyonel) - Varsayılan false.
   * `bypassCSP` Boolean (opsiyonel) - Varsayılan false.

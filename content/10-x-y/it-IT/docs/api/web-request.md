@@ -48,7 +48,7 @@ The following methods are available on instances of `WebRequest`:
     * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function
+  * `callback` Funzione
     * `response` Object
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
@@ -88,7 +88,7 @@ Some examples of valid `urls`:
     * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
-  * `callback` Function
+  * `callback` Funzione
     * `beforeSendResponse` Object
       * `cancel` Boolean (optional)
       * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
@@ -131,7 +131,7 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `statusCode` Integer
     * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (optional)
-  * `callback` Function
+  * `callback` Funzione
     * `headersReceivedResponse` Object
       * `cancel` Boolean (optional)
       * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.

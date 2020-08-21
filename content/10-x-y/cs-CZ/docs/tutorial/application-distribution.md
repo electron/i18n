@@ -2,7 +2,7 @@
 
 To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
 
-* [electron-forge](https://github.com/electron-userland/electron-forge)
+* [elektronová kovárna](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron/electron-packager)
 

@@ -2,7 +2,7 @@
 
 > Rendert und steuert web pages.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter][event-emitter]. Ist zuständig für das rendering und die Steuerung einer web page und ist eine Property des [`BrowserWindow`](browser-window.md) Objekts. Ein Beispiel für die Verwendung des `webContents` Objekts:
 
@@ -45,7 +45,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 Prozess: [Main](../glossary.md#main-process)
 
-### Instanz Events
+### Instanz-Ereignisse
 
 #### Event: 'did-finish-load'
 
@@ -55,8 +55,8 @@ Emittiert wenn die Navigation abgeschlossen ist, daher, wenn der Spinner des Tab
 
 Rückgabewert:
 
-* `event` Event
-* `errorCode` Integer
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
@@ -69,8 +69,8 @@ This event is like `did-finish-load` but emitted when the load failed. The full 
 
 Rückgabewert:
 
-* `event` Event
-* `errorCode` Integer
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
@@ -81,7 +81,7 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 
 #### Event: 'did-frame-finish-load'
 
-Rückgabewert:
+Returns:
 
 * `event` Event
 * `isMainFrame` Boolean
@@ -102,16 +102,18 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Rückgabewert:
 
-* `event` Event
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-Emitted when the document in the given frame is loaded.
+<p spaces-before="0">Emitted when the document in the given frame is loaded.</p>
 
-#### Event: 'page-title-updated'
+<h4 spaces-before="0">Event: 'page-title-updated'</h4>
 
-Rückgabewert:
+<p spaces-before="0">Rückgabewert:</p>
 
-* `event` Event
-* `title` String
+<ul>
+<li><code> Ereignis </ 0>  Ereignis</li>
+<li><code>title` String
 * `explicitSet` Boolean
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
@@ -120,8 +122,8 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 Rückgabewert:
 
-* `event` Event
-* `favicons` String[] - Array mit URLs.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>favicons` String[] - Array mit URLs.
 
 Emitted when page receives favicon urls.
 
@@ -130,8 +132,8 @@ Emitted when page receives favicon urls.
 Rückgabewert:
 
 * `event` NewWindowWebContentsEvent
-* `url` String
-* `frameName` String
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
@@ -172,8 +174,8 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>url` String
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
@@ -187,8 +189,8 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>url` String
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -200,9 +202,9 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
-* `isInPlace` Boolean
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+<li><code>isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -217,9 +219,9 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
-* `isInPlace` Boolean
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+<li><code>isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -232,9 +234,9 @@ This event can not be prevented, if you want to prevent redirects you should che
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+<li><code>httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations
 
 Emitted when a main frame navigation is done.
@@ -245,9 +247,9 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+<li><code>httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations,
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -261,9 +263,9 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
-* `isMainFrame` Boolean
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+<li><code>isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -275,9 +277,10 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 Rückgabewert:
 
-* `event` Event
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
+<p spaces-before="0">Emitted when a <code>beforeunload` event handler is attempting to cancel a page unload.</p>
 
 Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
 
@@ -304,8 +307,8 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Rückgabewert:
 
-* `event` Event
-* `killed` Boolean
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
 
@@ -315,8 +318,8 @@ Emitted when the renderer process crashes or is killed.
 
 Rückgabewert:
 
-* `event` Event
-* `details` Object
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>details` Object
   * `reason` String - The reason the render process is gone.  Mögliche werte:
     * `clean-exit` - Process exited with an exit code of zero
     * `abnormal-exit` - Process exited with a non-zero exit code
@@ -340,8 +343,8 @@ Ausgegeben wenn eine Webseite, die zuvor nicht mehr antwortete, wieder antwortet
 
 Rückgabewert:
 
-* `event` Event
-* `name` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>name` String
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -354,8 +357,8 @@ Emitted when `webContents` is destroyed.
 
 Rückgabewert:
 
-* `event` Event
-* `input` Object - Input properties.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>input` Object - Input properties.
   * `type` String - Entweder `keyUp` oder `keyDown`.
   * `key` String - Equivalent zu [KeyboardEvent.key][keyboardevent].
   * `code` String - Equivalent zu [KeyboardEvent.code][keyboardevent].
@@ -393,8 +396,8 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 #### Event: 'zoom-changed'
 
 Rückgabewert:
-* `event` Event
-* `zoomDirection` String - Can be `in` or `out`.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>zoomDirection` String - Can be `in` or `out`.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
@@ -414,9 +417,9 @@ Emitted when DevTools is focused / opened.
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
-* `error` String - Der error code.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+<li><code>error` String - Der error code.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -429,8 +432,8 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 Rückgabewert:
 
-* `event` Event
-* `url` URL
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
@@ -443,8 +446,8 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 Rückgabewert:
 
-* `event` Event
-* `authenticationResponseDetails` Object
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
   * `isProxy` Boolean
@@ -464,8 +467,8 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Rückgabewert:
 
-* `event` Event
-* `result` Object
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -486,8 +489,8 @@ Emitted when media is paused or done playing.
 
 Rückgabewert:
 
-* `event` Event
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
@@ -499,17 +502,19 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+<p spaces-before="0">Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
 
-#### Event: 'cursor-changed'
+<h4 spaces-before="0">Event: 'cursor-changed'</h4>
 
-Rückgabewert:
+<p spaces-before="0">Rückgabewert:</p>
 
-* `event` Event
-* `type` String
+<ul>
+<li><code> Ereignis </ 0>  Ereignis</li>
+<li><code>type` String
 * `image` [NativeImage](native-image.md) (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor.
 * `size` [Size](structures/size.md) (optional) - Die Größe des`Bildes`.
@@ -523,8 +528,8 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Rückgabewert:
 
-* `event` Event
-* `params` Object
+* ` Ereignis </ 0>  Ereignis</li>
+<li><p spaces-before="0"><code>params` Object</p>
   * `x` Integer - x Koordinate.
   * `y` Integer - y Koordinate.
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -566,8 +571,8 @@ Emitted when there is a new context menu that needs to be handled.
 
 Rückgabewert:
 
-* `event` Event
-* `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function
   * `deviceId` String
 
@@ -599,8 +604,8 @@ app.whenReady().then(() => {
 
 Rückgabewert:
 
-* `event` Event
-* `dirtyRect` [Rectangle](structures/rectangle.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
 Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
@@ -623,8 +628,8 @@ Emitted when the devtools window instructs the webContents to reload
 
 Rückgabewert:
 
-* `event` Event
-* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><p spaces-before="0"><code>webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.</p>
 * `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
 Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
@@ -637,8 +642,8 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
 Emitted when a `<webview>` has been attached to this web contents.
 
@@ -646,8 +651,8 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Rückgabewert:
 
-* `event` Event
-* `level` Integer
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>level` Integer
 * `message` String
 * `line` Integer
 * `sourceId` String
@@ -658,8 +663,8 @@ Emitted when the associated window logs a console message.
 
 Rückgabewert:
 
-* `event` Event
-* `preloadPath` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>preloadPath` String
 * ` Fehler </ 0> Fehler</li>
 </ul>
 
@@ -669,8 +674,8 @@ Rückgabewert:
 
 Rückgabewert:
 
-* `event` Event
-* `channel` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>channel` String
 * `...args` any[]
 
 Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
@@ -679,8 +684,8 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 Rückgabewert:
 
-* `event` Event
-* `channel` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>channel` String
 * `...args` any[]
 
 Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
@@ -689,9 +694,10 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 Rückgabewert:
 
-* `event` Event
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+<p spaces-before="0">Emitted when <code>desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.</p>
 
 #### Event: 'remote-require'
 
@@ -740,8 +746,8 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 
 #### `contents.loadURL(url[, options])`
 
-* `url` String
-* `options` Object (optional)
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -786,9 +792,10 @@ win.loadFile('src/index.html')
 
 #### `contents.downloadURL(url)`
 
-* `url` String
+* ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
+<p spaces-before="0">Initiates a download of the resource at <code>url` without navigating. The `will-download` event of `session` will be triggered.</p>
 
 #### `contents.getURL()`
 
@@ -928,7 +935,7 @@ contents.on('did-finish-load', async () => {
 
 #### `contents.executeJavaScript(code[, userGesture])`
 
-* `code` String
+* `code` Zeichenkette
 * `userGesture` Boolean (optional) - Default is `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -990,7 +997,7 @@ Returns `Number` - the current zoom factor.
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `level` Number - Zoom Level.
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 

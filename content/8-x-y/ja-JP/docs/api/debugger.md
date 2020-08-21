@@ -71,7 +71,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.sendCommand(method[, commandParams, sessionId])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
+* `method` String - メソッド名。[リモートデバッグプロトコル][rdp] で定義されているメソッドのいずれかである必要があります。
 * `commandParams` any (任意) - リクエストパラメータの JSON オブジェクト。
 * `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
 

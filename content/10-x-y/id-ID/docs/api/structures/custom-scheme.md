@@ -2,9 +2,9 @@
 
 * ` skema ` String [] - Skema kustom untuk didaftarkan sebagai skema standar.
 * `privileges` Object (optional)
-  * `standard` Boolean (optional) - Default false.
-  * `secure` Boolean (optional) - Default false.
-  * `bypassCSP` Boolean (optional) - Default false.
-  * `allowServiceWorkers` Boolean (optional) - Default false.
-  * `supportFetchAPI` Boolean (optional) - Default false.
-  * `corsEnabled` Boolean (optional) - Default false.
+  * `standard` Boolean (optional) - Standar false.
+  * `secure` Boolean (optional) - Standar false.
+  * `bypassCSP` Boolean (optional) - Standar false.
+  * `allowServiceWorkers` Boolean (optional) - Standar false.
+  * `supportFetchAPI` Boolean (optional) - Standar false.
+  * `corsEnabled` Boolean (optional) - Standar false.

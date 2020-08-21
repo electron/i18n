@@ -1,8 +1,8 @@
-# इनएप्पपरचेस
+# एेप में से खरीददारी
 
 > एेप के अन्दर से ही मैक-स्टोर से खरीददारी
 
-Process: [Main](../glossary.md#main-process)
+प्रक्रिया: [Main](../glossary.md#main-process)
 
 ## इवेंट्स
 

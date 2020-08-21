@@ -2,7 +2,7 @@
 
 > Interceptar y modificar el contenido de una solicitud en varias etapas de su ciclo de vida.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Instancias de la clase `WebRequest` son accesibles usando la propiedad `webRequest` de una `Session`.
 
@@ -107,7 +107,7 @@ The `callback` has to be called with a `response` object.
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
-    * `resourceType` String
+    * `sourceId` Cadena
     * `referrer` Cadena
     * `fecha y hora` Doble
     * `requestHeaders` Record<string, string>

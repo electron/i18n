@@ -25,7 +25,7 @@ session.defaultSession.serviceWorkers.on('console-message', (event, messageDetai
 })
 ```
 
-### Zdarzenia instancji
+### Wydarzenia instancji
 
 The following events are available on instances of `ServiceWorkers`:
 

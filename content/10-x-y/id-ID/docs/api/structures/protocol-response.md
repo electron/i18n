@@ -1,6 +1,6 @@
 # ProtocolResponse Object
 
-* `error` Integer (opsional)-Ketika ditetapkan, `request` akan gagal dengan nomor/kode `error` tersebut . For the available error numbers you can use, please see the [net error list][net-error].
+* `error` Integer (opsional)-Ketika ditetapkan, `request` akan gagal dengan nomor/kode `error` tersebut . Untuk nomor kesalahan yang tersedia, silakan lihat [daftar kesalahan bersih][net-error].
 * `statusCode<0> Number (optional) - HTTP respon kode, standarnya 200.</p></li>
 <li><p spaces-before="0"><code>charset` String (opsional) - Charset response body, standarnya adalah `"utf-8"`.
 * `mimeType` String (optional) - MIME type dari response body, standarnya `"text/html"`. Pengaturan `mimeType` akan secara implisit mengatur `content-type` header dari sebuah response, tetapi jika `content-type` sudah diatur didalam `headers`, `mimeType` akan diabaikan.

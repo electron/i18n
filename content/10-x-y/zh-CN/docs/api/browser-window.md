@@ -305,7 +305,7 @@ Emitted when the window is closed. After you have received this event you should
 
 #### 事件: 'ready-to-show'
 
-当页面已经渲染完成(但是还没有显示) 并且窗口可以被显示时触发
+当页面已经渲染完成(但是还没有显示) 并且窗口可以被现实时触发
 
 Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
 
@@ -501,7 +501,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* `name` String
+* `name` 字符串
 
 根据名字删除一个 Chrome 的扩展。
 
@@ -533,7 +533,7 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* `name` String
+* `name` 字符串
 
 根据名字删除一个 DevTools 的扩展。
 
@@ -1450,7 +1450,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 设置窗口的触摸条布局 设置为 `null` 或`undefined`将清除触摸条. 此方法只有在macOS 10.12.1+且设备支持触摸条TouchBar时可用.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**注意:** TouchBar API目前为实验性质，以后的Electron版本可能会更改或删除。
 
 #### `win.setBrowserView(browserView)` _实验_
 

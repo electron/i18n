@@ -233,7 +233,7 @@ Returns `Boolean` - Whether the image is empty.
 
 * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns [`Size`](structures/size.md).
+回傳 [`Size`](structures/size.md).
 
 If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 

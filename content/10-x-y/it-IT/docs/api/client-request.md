@@ -53,7 +53,7 @@ Restituisce:
   * `ospite` Stringa
   * `porta` Numero Intero
   * `regno` Stringa
-* `callback` Function
+* `callback` Funzione
   * `username` String (opzionale)
   * `password` String (opzionale)
 
@@ -115,7 +115,7 @@ Restituisce:
 
 Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Proprietà Istanza
+### Proprietà Istanze
 
 #### `request.chunkedEncoding`
 
@@ -172,7 +172,7 @@ Continues any pending redirection. Can only be called during a `'redirect'` even
 
 #### `request.getUploadProgress()`
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
 * `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.

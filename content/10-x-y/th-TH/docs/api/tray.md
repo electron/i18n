@@ -2,7 +2,7 @@
 
 > Add icons and context menus to the system's notification area.
 
-Messages
+Messages </a>
 
 `Tray` is an [EventEmitter][event-emitter].
 

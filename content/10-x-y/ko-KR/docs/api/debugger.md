@@ -2,7 +2,7 @@
 
 > An alternate transport for Chrome's remote debugging protocol.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 Chrome 개발자 도구는 JavaScript 런타임에서 사용할 수있는 [special binding][rdp]을 가지고있어서 페이지와 상호 작용하고 이를 조작 할 수 있습니다
 
@@ -35,7 +35,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### Event: 'detach'
 
-반환:
+Returns:
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
@@ -44,7 +44,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 #### Event: 'message'
 
-반환:
+Returns:
 
 * `event` Event
 * `method` String - Method name.
@@ -53,7 +53,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Emitted whenever the debugging target issues an instrumentation event.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 #### `debugger.attach([protocolVersion])`
 

@@ -2,7 +2,7 @@
 
 > Альтернативный транспорт для удаленной отладки протокола Chrome.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Инструменты разработчика Chrome имеют [специальную привязку][rdp] доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и управлять ими.
 
@@ -37,7 +37,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `reason` String - причина отсоединения отладчика.
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.

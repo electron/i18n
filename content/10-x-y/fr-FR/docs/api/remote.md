@@ -2,7 +2,7 @@
 
 > Utilise les modules du processus main depuis le processus renderer.
 
-Processus : [Rendu](../glossary.md#renderer-process)
+Processus : [Renderer](../glossary.md#renderer-process)
 
 Le module `distant` fournit un moyen simple de faire une communication entre les processus d'inter-processus (IPC) entre le processus de rendu (page Web) et le processus principal.
 

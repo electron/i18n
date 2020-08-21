@@ -189,7 +189,7 @@ dialog.showOpenDialog(mainWindow, {
 
 メッセージボックスを表示し、メッセージボックスが閉じられるまでプロセスをブロックします。 クリックされたボタンのインデックスを返します。
 
-`browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。 If the `browserWindow` is not shown, the dialog will not be attached to it. In that case it will be displayed as an independent window.
+`browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。 `browserWindow` が表示されていない場合、dialog はアタッチされません。 この場合は独立したウインドウとして表示されます。
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 

@@ -2,7 +2,7 @@
 
 > PNG ya da JPG dosyalarını kullanarak tepsi, dock(macOS menü) ve uygulama simgeleri oluşturun.
 
-İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
@@ -99,15 +99,15 @@ To mark an image as a template image, its filename should end with the word `Tem
 
 ### `nativeImage.createEmpty()`
 
-`NativeImage` Çevir
+`NativeImage` döndürür
 
 Boş bir `NativeImage` örneği oluşturur.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` Dizgi
+* dizi `yolu`
 
-`NativeImage` Çevir
+`NativeImage` döndürür
 
 `path` yolundaki dosyanın yeni bir `NativeImage` örneğini oluşturur. Bu metot, `path` mevcut değilse, okunamazsa veya geçerli bir görüntü değilse boş bir görüntü döndürür.
 
@@ -126,7 +126,7 @@ console.log(image)
   * `height` Tamsayı
   * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
-`NativeImage` Çevir
+`NativeImage` döndürür
 
 Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
 
@@ -138,7 +138,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
   * `height` tamsayı (isteğe bağlı) - Bitmap tamponları için gereklidir.
   * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
-`NativeImage` Çevir
+`NativeImage` döndürür
 
 `buffer`'dan yeni bir `NativeImage` örneği oluşturur. Tries to decode as PNG or JPEG first.
 
@@ -155,7 +155,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 * `imageName` Dizge
 * `hslShift` Number[] (optional)
 
-`NativeImage` Çevir
+`NativeImage` döndürür
 
 NSImage'den, verilen resim adıyla eşleşen yeni bir `NativeImage` örneği oluşturur. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
@@ -177,9 +177,9 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 > Yerel olarak tepsi resimlerini sar, liman aplikasyon ikonları.
 
-İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Örnek yöntemleri
+### Örnek Metodlar
 
 Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
@@ -233,7 +233,7 @@ Returns `Boolean` - Whether the image is empty.
 
 * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
-Returns [`Size`](structures/size.md).
+Çevirme [`Size`](structures/size.md).
 
 If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
@@ -287,7 +287,7 @@ Returns `Float[]` - An array of all scale factors corresponding to representatio
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 

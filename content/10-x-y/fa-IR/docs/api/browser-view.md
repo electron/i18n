@@ -55,7 +55,7 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### Instance Methods
+### روشهای نمونه
 
 Objects created with `new BrowserView` have the following instance methods:
 
@@ -69,7 +69,7 @@ Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(options)` _Experimental_
 
-* `options` Object
+* `گزینه های` ObjectIrN 98
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.

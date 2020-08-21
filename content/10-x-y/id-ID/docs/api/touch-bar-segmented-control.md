@@ -26,7 +26,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
     * `selectedIndex` Bulat - indeks dari segmen pengguna yang dipilih.
     * `isSelected` Boolean - baik yang merupakan pengguna pilihan segmen yang dipilih atau tidak.
 
-### Instance Properties
+### Contoh properti
 
 The following properties are available on instances of `TouchBarSegmentedControl`:
 

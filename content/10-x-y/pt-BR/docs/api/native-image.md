@@ -233,7 +233,7 @@ Returns `Boolean` - Whether the image is empty.
 
 * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
-Returns [`Size`](structures/size.md).
+Retorna [`Size`](structures/size.md).
 
 If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 

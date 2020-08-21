@@ -2,7 +2,7 @@
 
 > İsteğin içeriğini, ömrünün çeşitli aşamalarında kesip değiştirin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `WebRequest` sınıfının örneklerine `Session`'nın `webRequest` özelliği kullanılarak erişilir.
 
@@ -41,14 +41,14 @@ Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
 * `listener` Function | null
   * `details` Object
     * `id` tamsayı
-    * `url` String
+    * `url` Dize
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fonksiyon
+  * `callback` Function
     * `response` Object
       * `cancel` Boolean (isteğe bağlı)
       * `redirectURL` String (isteğe bağlı) - Orijinal istek gönderilmesinden veya tamamlanmasına engel olunur ve bunun yerine belirtilen URL'ye yönlendirilir.
@@ -80,15 +80,15 @@ Some examples of valid `urls`:
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
-    * `id` tamsayı
-    * `url` String
+    * `kOD` Sayı
+    * `path` {string}
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
-  * `callback` Fonksiyon
+  * `callback` Function
     * `beforeSendResponse` Object
       * `cancel` Boolean (isteğe bağlı)
       * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
@@ -104,7 +104,7 @@ The `callback` has to be called with a `response` object.
 * `listener` Function | null
   * `details` Object
     * `id` tamsayı
-    * `url` String
+    * `url` Dize
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
@@ -121,17 +121,17 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
 * `listener` Function | null
   * `details` Object
     * `id` tamsayı
-    * `url` String
+    * `url` Dize
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
     * `statusLine` String
-    * `statusCode` Integer
+    * `statusCode` Tamsayı
     * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (optional)
-  * `callback` Fonksiyon
+  * `callback` Function
     * `headersReceivedResponse` Object
       * `cancel` Boolean (isteğe bağlı)
       * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
@@ -148,7 +148,7 @@ The `callback` has to be called with a `response` object.
 * `listener` Function | null
   * `details` Object
     * `id` tamsayı
-    * `url` String
+    * `url` Dize
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
@@ -156,7 +156,7 @@ The `callback` has to be called with a `response` object.
     * `timestamp` Double
     * `responseHeaders` Record<string, string[]> (optional)
     * `fromCache` Boolean - Yanıtın disk önbelleğinden getirilip getirilmediğini gösterir.
-    * `statusCode` Integer
+    * `statusCode` Tamsayı
     * `statusLine` String
 
 Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` ile birlikte çağırılacaktır. HTTP istekleri için bu, durum satırı ve yanıt başlıklarının mevcut olduğu anlamına gelmektedir.
@@ -168,14 +168,14 @@ Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` i
 * `listener` Function | null
   * `details` Object
     * `id` tamsayı
-    * `url` String
+    * `url` Dize
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
     * `redirectURL` String
-    * `statusCode` Integer
+    * `statusCode` Tamsayı
     * `statusLine` String
     * `ip` String (isteğe bağlı) - Gönderilen isteğin olduğu sunucu IP adresi.
     * `fromCache` Boolean
@@ -190,7 +190,7 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
 * `listener` Function | null
   * `details` Object
     * `id` tamsayı
-    * `url` String
+    * `url` Dize
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
@@ -198,7 +198,7 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
     * `timestamp` Double
     * `responseHeaders` Record<string, string[]> (optional)
     * `fromCache` Boolean
-    * `statusCode` Integer
+    * `statusCode` Tamsayı
     * `statusLine` String
     * `error` String
 
@@ -211,7 +211,7 @@ Bir istek tamamlandığında `listener` `listener(details)` ile birlikte çağı
 * `listener` Function | null
   * `details` Object
     * `id` tamsayı
-    * `url` String
+    * `url` Dize
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize

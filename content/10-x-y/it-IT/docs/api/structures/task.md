@@ -6,4 +6,4 @@
 * `description` Stringa - Descrizione di questo task.
 * `iconPath` Stringa - il percorso assoluto all'icona da mostrare in una JumpList, che può essere un file di risorsa arbitrario che contiene un icona. Solitamente si può specificare il `process.execPath` per mostrare l'icona del programma.
 * `iconIndex` Numero - L'indice icona nel file dell'icona. Se un file icona consiste di due o più icone, imposta il valore per identificare l'icona. Se un file icona contiene una sola icona, questo valore sarà 0.
-* `workingDirectory` String (optional) - The working directory. Default is empty.
+* `workingDirectory` Stringa (opzionale) - La directory funzionante. Predefinito è vuoto.

@@ -1,6 +1,6 @@
 # ProtocolResponse Object
 
-* `error` Integer（可选的） - 如果赋值，`request`将会失败，并返回`error`错误码。 For the available error numbers you can use, please see the [net error list][net-error].
+* `error` Integer（可选的） - 如果赋值，`request`将会失败，并返回`error`错误码。 更多的错误号信息，您可以查阅[网络错误列表][net-error].
 * `statusCode` Number （可选的） - HTTP响应码，默认是200。
 * `charset` String (可选) - 响应体的字符集, 默认值为 `"utf-8"`.
 * `mimeType` String (optional) - The MIME type of response body, default is `"text/html"`. Setting `mimeType` would implicitly set the `content-type` header in response, but if `content-type` is already set in `headers`, the `mimeType` would be ignored.

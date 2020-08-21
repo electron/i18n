@@ -11,7 +11,7 @@ const { app } = require('electron')
 app.dock.bounce()
 ```
 
-### Instance Methods
+### روشهای نمونه
 
 #### `dock.bounce([type])` _macOS_
 
@@ -39,7 +39,7 @@ Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 #### `dock.setBadge(text)` _macOS_
 
-* `text` String
+* `متنی` رشته
 
 Sets the string to be displayed in the dock’s badging area.
 

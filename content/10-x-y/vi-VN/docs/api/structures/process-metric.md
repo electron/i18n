@@ -1,7 +1,7 @@
 # ProcessMetric Object
 
 * `pid` Integer - Process id of the process.
-* `type` String - Process type. One of the following values:
+* `type` String - Process type. Một trong những điều sau đây:
   * `Browser`
   * `Tab`
   * `Utility`

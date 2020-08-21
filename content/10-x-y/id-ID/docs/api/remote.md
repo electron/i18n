@@ -2,7 +2,7 @@
 
 > Gunakan modul proses utama dari proses renderer.
 
-Proses: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizador](../glossary.md#renderer-process)
 
 The `remote` Modul menyediakan cara sederhana untuk melakukan komunikasi antar proses (IPC) antara proses renderer (halaman web) dan proses utama.
 
@@ -94,7 +94,7 @@ const app = require ('elektron'). remote.app
 console.log (app)
 ```
 
-## Methods
+## Metode
 
 Itu `jarak jauh` modul memiliki metode berikut:
 
@@ -142,14 +142,14 @@ Mengembalikan [`BrowserWindow`](browser-window.md) - Jendela tempat halaman web 
 
 Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
 
-### `remote.getGlobal(name)`
+### `remote.getGlobal (nama)`
 
-* ` nama </ 0>  Deretan</li>
+* ` nama </ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Mengembalikan <code>sembarang` - Variabel global`nama` (misalnya `global[name]`) di utama proses.</p>
 
-## Properti/peralatan
+## properti
 
 ### `remote.process` _Readonly_
 

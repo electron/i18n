@@ -191,7 +191,7 @@ A `String` which is a list of strings which specifies the blink features to be e
 
 A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
 
-## Methods
+## روش ها
 
 The `webview` tag has the following methods:
 
@@ -418,19 +418,19 @@ Executes editing command `unselect` in page.
 
 ### `<webview>.replace(text)`
 
-* `text` String
+* `متنی` رشته
 
 Executes editing command `replace` in page.
 
 ### `<webview>.replaceMisspelling(text)`
 
-* `text` String
+* `متنی` رشته
 
 Executes editing command `replaceMisspelling` in page.
 
 ### `<webview>.insertText(text)`
 
-* `text` String
+* `متنی` رشته
 
 Returns `Promise<void>`
 
@@ -494,7 +494,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options)`
 
-* `options` Object
+* `گزینه های` ObjectIrN 98
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
@@ -630,7 +630,7 @@ Fired when document in the given frame is loaded.
 
 Returns:
 
-* `title` String
+* `عنوان` رشته
 * `explicitSet` Boolean
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
@@ -804,7 +804,7 @@ Fired when the renderer process is crashed.
 
 Returns:
 
-* `نام` رشته
+* PrinterInfo Object
 * `version` String
 
 Fired when a plugin process is crashed.

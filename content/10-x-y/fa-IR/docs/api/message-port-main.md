@@ -10,7 +10,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 فرآیند: [اصلی](../glossary.md#main-process)
 
-### Instance Methods
+### روشهای نمونه
 
 #### `port.postMessage(message, [transfer])`
 
@@ -27,7 +27,7 @@ Starts the sending of messages queued on the port. Messages will be queued until
 
 Disconnects the port, so it is no longer active.
 
-### Instance Events
+### رویدادها نمونه
 
 #### Event: 'message'
 

@@ -115,7 +115,7 @@ Retorna:
 
 Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Propriedades de Instância
+### Propriedades da Instância
 
 #### `request.chunkedEncoding`
 

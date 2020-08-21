@@ -2,7 +2,7 @@
 
 > 애플리케이션이 자동으로 업데이트를 진행할 수 있도록 기능을 활성화합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 **참고 자료: [애플리케이션에 업데이트를 구현하는 방법에 대한 자세한 가이드](../tutorial/updates.md).**
 
@@ -34,9 +34,9 @@ Squirrel.Mac과 다르게, Windows는 S3 또는 다른 static file host에서 ho
 
 `autoUpdater` 객체는 다음과 같은 이벤트를 발생시킵니다:
 
-### 이벤트: 'error'
+### Event: 'error'
 
-반환:
+Returns:
 
 * `error` Error
 

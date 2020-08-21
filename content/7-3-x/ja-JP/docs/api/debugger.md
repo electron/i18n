@@ -48,7 +48,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 * `event` Event
 * `method` String - メソッド名。
-* `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `params` unknown - リモートデバッグプロトコルの 'parameters' 属性で定義されたイベントパラメータ。
 
 デバッグ対象で計測イベントが生じる毎に発生します。
 
@@ -70,7 +70,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.sendCommand(method[, commandParams])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
+* `method` String - メソッド名。[リモートデバッグプロトコル][rdp] で定義されているメソッドのいずれかである必要があります。
 * `commandParams` any (任意) - リクエストパラメータの JSON オブジェクト。
 
 戻り値 `Promise<any>` - リモートデバッグプロトコル内のコマンドの説明の 'returns' 属性で定義されたレスポンスで解決されるか、またはコマンドの失敗を示すために拒否されるプロミス。

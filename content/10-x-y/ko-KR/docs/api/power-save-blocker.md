@@ -2,7 +2,7 @@
 
 > Block the system from entering low-power (sleep) mode.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 예시:
 
@@ -15,7 +15,7 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## 메소드
+## 메서드
 
 The `powerSaveBlocker` module has the following methods:
 

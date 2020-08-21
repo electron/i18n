@@ -32,7 +32,7 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
-* `message` Chaîne de caractères
+* `message` String
 * `targetOrigin` String
 
 Envoie un message à la fenêtre parent avec l'origine spécifié ou `*` pour aucune préférence d'origine.

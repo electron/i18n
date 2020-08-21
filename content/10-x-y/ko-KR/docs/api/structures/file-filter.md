@@ -1,4 +1,4 @@
 # FileFilter 객체
 
-* `name` String
+* PrinterInfo Object
 * `extensions` String[]

@@ -2,7 +2,7 @@
 
 > Query and receive events from a sessions active service workers.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
@@ -31,7 +31,7 @@ The following events are available on instances of `ServiceWorkers`:
 
 #### Event: 'console-message'
 
-반환:
+Returns:
 
 * `event` Event
 * `messageDetails` Object - Information about the console message
@@ -44,7 +44,7 @@ The following events are available on instances of `ServiceWorkers`:
 
 Emitted when a service worker logs something to the console.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 The following methods are available on instances of `ServiceWorkers`:
 

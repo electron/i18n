@@ -20,7 +20,7 @@ Forcefully closes the child window without calling its unload event.
 
 #### `win.eval(code)`
 
-* `code` String
+* `code` Zeichenkette
 
 Evaluates the code in the child window.
 

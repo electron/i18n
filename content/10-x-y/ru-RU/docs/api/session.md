@@ -2,7 +2,7 @@
 
 > Session Управление сеансами браузера, куками, кешем, настройками прокси и т. д.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Модуль `session` может быть использован для создания новых объектов `Session`.
 
@@ -46,7 +46,7 @@ console.log(ses.getUserAgent())
 
 > Получает и устанавливает свойства сеанса.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Вы можете создать объект `Session` в модуле `session`:
 

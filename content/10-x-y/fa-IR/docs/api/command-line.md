@@ -13,7 +13,7 @@ app.commandLine.hasSwitch('disable-gpu')
 
 For more information on what kinds of flags and switches you can use, check out the [Command Line Switches](./command-line-switches.md) document.
 
-### Instance Methods
+### روشهای نمونه
 
 #### `commandLine.appendSwitch(switch[, value])`
 

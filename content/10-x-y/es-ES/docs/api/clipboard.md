@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
+En Linux, también hay un portapapeles `selección`. Para manipularlo necesita pasar `selección` a cada método:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -17,7 +17,7 @@ console.log(clipboard.readText ('selección'))
 
 El módulo `portapapeles` tiene los siguientes métodos:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Nota:** Las API experimentales están marcadas como tales y podrían eliminarse en el futuro.
 
 ### `clipboard.readText([type])`
 
@@ -35,7 +35,7 @@ console.log(text)
 // hello i am a bit of text!'
 ```
 
-### `clipboard.writeText(text[, type])`
+### `clipboard.writeText(texto[, type])`
 
 * `texto` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -65,7 +65,7 @@ console.log(html)
 // <meta charset='utf-8'><b>Hi</b>
 ```
 
-### `clipboard.writeHTML(markupo[, type])`
+### `clipboard.writeHTML(markup[, type])`
 
 * `markup` Cadena
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -84,7 +84,7 @@ clipboard.writeHTML('<b>Hi</b')
 
 Devuelve [`NativeImage`](native-image.md) - El contenido de la imagen en el portapapeles.
 
-### `clipboard.writeImage(imageo[, type])`
+### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -107,9 +107,9 @@ console.log(rtf)
 // {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}
 ```
 
-### `clipboard.writeRTF(texto[, type])`
+### `clipboard.writeRTF(text[, type])`
 
-* `texto` String
+* `text` Cadena
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Escribe el `text` en el portapapeles en RTF.
@@ -123,22 +123,22 @@ clipboard.writeRTF(rtf)
 
 ### `clipboard.readBookmark()` _macOS_ _Windows_
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
-* `title` String
+* `title` Cadena
 * `url` String
 
 Devuelve un Objeto que contiene las claves `title` y `url` que representan el marcador en el portapapeles. Los valores `title` y `url` serán cadenas vacías cuando el marcador no está disponible.
 
 ### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
-* `title` String
+* `title` Cadena
 * `url` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Escribe el `título` y la `url` en el portapapeles como un marcador.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Nota:** La mayoría de las aplicaciones en Windows no admiten el pegado de marcadores en ellas para que pueda usar `clipboard.write` para escribir un marcador y un texto alternativo en el portapapeles.
 
 ```js
 const { clipboard } = require('electron')
@@ -157,7 +157,7 @@ This method uses synchronous IPC when called from the renderer process. The cach
 
 ### `clipboard.writeFindText(text)` _macOS_
 
-* `texto` String
+* `texto` Cadena
 
 Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
 
@@ -202,9 +202,9 @@ console.log(hasFormat)
 
 Devuelve `String` - Lee el tipo de `formato` del portapapeles.
 
-### `clipboard.readBuffer(format)` _Experimental_
+### `clipboard.readBuffer(formato)` _Experimental_
 
-* `format` Cadena
+* `formato` Cadena
 
 Devuelve `Buffer` - Lee el `formato` del portapapeles.
 
@@ -235,7 +235,7 @@ const buffer = Buffer.from('writeBuffer', 'utf8')
 clipboard.writeBuffer('public.utf8-plain-text', buffer)
 ```
 
-### `clipboard.write(datao[, type])`
+### `clipboard.write(data[, type])`
 
 * `data` Object
   * `text` Cadena (opcional)

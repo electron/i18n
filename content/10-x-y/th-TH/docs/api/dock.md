@@ -2,7 +2,7 @@
 
 > Control your app in the macOS dock
 
-Messages
+Messages </a>
 
 The following example shows how to bounce your icon on the dock.
 

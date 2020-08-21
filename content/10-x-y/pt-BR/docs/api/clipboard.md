@@ -17,7 +17,7 @@ console.log(clipboard.readText('selection'))
 
 O módulo `clipboard` possui os seguintes métodos:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Nota:** APIs experimentais são marcadas como tal e podem ser removidas no futuro.
 
 ### `clipboard.readText([type])`
 
@@ -149,7 +149,7 @@ clipboard.writeBookmark({
 })
 ```
 
-### `clipboard.readFindText()` _macOS_
+### `clipboard.readFindText()` no _macOS_
 
 Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
 

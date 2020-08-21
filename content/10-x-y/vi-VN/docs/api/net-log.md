@@ -2,7 +2,7 @@
 
 > Logging network events for a session.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ```javascript
 const { netLog } = require('electron')
@@ -19,7 +19,7 @@ See [`--log-net-log`](command-line-switches.md#--log-net-logpath) to log network
 
 **Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
 
-## Phương thức
+## Các phương thức
 
 ### `netLog.startLogging(path[, options])`
 

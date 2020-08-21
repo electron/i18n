@@ -28,15 +28,15 @@ OS / Chromium で現在ダークモードが有効になっている、または
 
 このプロパティを `dark` に設定すると、以下の効果があります。
 * `nativeTheme.shouldUseDarkColors` はアクセス時に `true` になります
-* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the dark UI.
-* Any UI the OS renders on macOS including menus, window frames, etc. will use the dark UI.
+* 右クリックメニューやデベロッパー ツールなど、Linux や Windows 上で Electron がレンダリングするすべての UI は、ダーク UI を使用します。
+* メニューやウィンドウフレームなどの OS が macOS 上でレンダリングする UI は、すべてダーク UI を使用します。
 * [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS が `dark` モードに親和します。
 * `updated` イベントが発生します。
 
 このプロパティを `light` に設定すると、以下の効果があります。
 * `nativeTheme.shouldUseDarkColors` はアクセス時に `false` になります
-* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the light UI.
-* Any UI the OS renders on macOS including menus, window frames, etc. will use the light UI.
+* 右クリックメニューやデベロッパー ツールなど、Linux や Windows 上で Electron がレンダリングするすべての UI は、ライト UI を使用します。
+* メニューやウィンドウフレームなどの OS が macOS 上でレンダリングする UI は、すべてライト UI を使用します。
 * [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS が `light` モードに親和します。
 * `updated` イベントが発生します。
 

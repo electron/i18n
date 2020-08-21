@@ -6,16 +6,16 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessageChannelMain
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
-Örnek:
+Örneğin:
 ```js
 const { port1, port2 } = new MessageChannelMain()
 w.webContents.postMessage('port', null, [port2])
 port1.postMessage({ some: 'message' })
 ```
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 #### `channel.port1`
 

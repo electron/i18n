@@ -1,14 +1,14 @@
-# screen
+# Pantalla
 
 > Recuperar información acerca del tamaño de la pantalla, posiciones del cursor, posiciones, etc.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
 `screen` es un [EventEmitter][event-emitter].
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
+**Nota:** En el renderizador / DevTools, `window.screen` es una propiedad de DOM reservado, así que escribir `let { screen } = require('electron')` no funcionará.
 
 Un ejemplo de crear una ventana que llene toda la pantalla:
 
@@ -54,7 +54,7 @@ El módulo `screen` emite los siguientes eventos:
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `newDisplay` [Display](structures/display.md)
 
 Emitido cuando `newDisplay` ha sido añadido.

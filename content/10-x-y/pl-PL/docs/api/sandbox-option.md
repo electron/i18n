@@ -1,4 +1,4 @@
-# `sandbox` Option
+# Opcja `sandbox`
 
 > Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 

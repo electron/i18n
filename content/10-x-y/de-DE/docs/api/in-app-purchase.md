@@ -2,9 +2,9 @@
 
 > In-app purchases on Mac App Store.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
-## Ereignisse
+## Events
 
 The `inAppPurchase` module emits the following events:
 
@@ -14,8 +14,8 @@ Emitted when one or more transactions have been updated.
 
 Rückgabewert:
 
-* `event` Event
-* `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
 
 ## Methoden
 

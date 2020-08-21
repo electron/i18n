@@ -38,7 +38,7 @@ session.defaultSession.cookies.set(cookie)
   })
 ```
 
-### 实例事件
+### 事件
 
 以下事件会在` Cookies `实例触发。
 

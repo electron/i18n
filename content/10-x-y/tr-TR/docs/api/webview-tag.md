@@ -214,7 +214,7 @@ webview.addEventListener('dom-ready', () => {
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
   * `extraHeaders` Dizgi (isteğe bağlı) - "\n" ile ayrılan ek sayfa başlıkları
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Bu, yalnızca belirtilen `url` veri url'si ve diğer dosyaları yüklemek gerekiyorsa gereklidir.
+  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
 
 Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
 
@@ -222,7 +222,7 @@ Webview'ün içinde `url`'i yükler, `url` prefix protokolünü içermelidir, ö
 
 ### `<webview>.downloadURL(url)`
 
-* `url` String
+* `url` Dize
 
 Initiates a download of the resource at `url` without navigating.
 
@@ -462,17 +462,17 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 ### `<webview>.print([options])`
 
 * `options` Object (optional)
-  * `silent` Boolean (optional) - Don't ask user for print settings. Varsayılanı `false`.
-  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Varsayılanı `false`.
+  * `silent` Boolean (optional) - Don't ask user for print settings. Varsayılan `false`'dur.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Varsayılan `false`'dur.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Varsayılanı `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Varsayılan `true`'dur.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
     * `left` Number (optional) - The left margin of the printed web page, in pixels.
     * `right` Number (optional) - The right margin of the printed web page, in pixels.
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Varsayılanı `false`.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Varsayılan `false`'dur.
   * `scaleFactor` Number (optional) - The scale factor of the web page.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
@@ -523,7 +523,7 @@ Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 ### `<webview>.send(channel, ...args)`
 
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 Returns `Promise<void>`
 
@@ -586,7 +586,7 @@ Aşağıdaki DOM etkinlikleri `webview` etiketinde kullanılabilir:
 
 Dönüşler:
 
-* `url` String
+* `url` Dizgi
 * `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
@@ -698,7 +698,7 @@ console.log(requestId)
 
 Dönüşler:
 
-* `url` String
+* `url` Dize
 * `frameName` Dize
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
@@ -723,7 +723,7 @@ webview.addEventListener('new-window', async (e) => {
 
 Dönüşler:
 
-* `url` String
+* `url` Dize
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
@@ -737,7 +737,7 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Dönüşler:
 
-* `url` String
+* `url` Dize
 
 Bir gezinme yapıldığında ortaya çıkar.
 
@@ -748,7 +748,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 Dönüşler:
 
 * `isMainFrame` Boolean
-* `url` String
+* `url` Dize
 
 Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
@@ -804,7 +804,7 @@ Renderer işlemi çöktüğünde tetiklenir.
 
 Dönüşler:
 
-* `name` String
+* `name` Dizi
 * `versiyon` String
 
 Plugin işlemi çöktüğünde tetiklenir.
@@ -837,7 +837,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Dönüşler:
 
-* `url` String
+* `url` Dize
 
 Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odaklamasını sağladığı zaman yayımlanır.
 

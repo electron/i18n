@@ -2,7 +2,7 @@
 
 > Erstellung und Steuerung von Browserfenstern.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ```javascript
 // Im Hauptprozess.
@@ -106,9 +106,9 @@ Es wird empfohlen aufwendige Aufgaben zu pausieren wenn der Sichtbarkeitszustand
 
 ## Klasse: BrowserWindow
 
-> Erstellung und Steuerung von Browserfenstern.
+> Erzeugung und Steuerung von Browser Fenstern.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter][event-emitter].
 
@@ -233,7 +233,7 @@ The possible values and behaviors of the `type` option are platform dependent. M
   * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
-### Instanz Events
+### Instanz-Ereignisse
 
 Objects created with `new BrowserWindow` emit the following events:
 
@@ -243,8 +243,8 @@ Objects created with `new BrowserWindow` emit the following events:
 
 Rückgabewert:
 
-* `event` Event
-* `title` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>title` String
 * `explicitSet` Boolean
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file URL.
@@ -253,9 +253,11 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 Rückgabewert:
 
-* `event` Event
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+<p spaces-before="0">Emitted when the window is going to be closed. It's emitted before the
+<code>beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.</p>
 
 Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Ein Beispiel:
 
@@ -330,8 +332,8 @@ Emitted when the window is restored from a minimized state.
 
 Rückgabewert:
 
-* `event` Event
-* `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
 
 Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
 
@@ -345,8 +347,8 @@ Emitted after the window has been resized.
 
 Rückgabewert:
 
-* `event` Event
-* `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
 Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
@@ -382,8 +384,8 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 Rückgabewert:
 
-* `event` Event
-* `isAlwaysOnTop` Boolean
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>isAlwaysOnTop` Boolean
 
 Emitted when the window is set or unset to show always on top of other windows.
 
@@ -391,8 +393,8 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 Rückgabewert:
 
-* `event` Event
-* `command` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>command` String
 
 Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
 
@@ -430,8 +432,8 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 Rückgabewert:
 
-* `event` Event
-* `direction` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
@@ -441,8 +443,8 @@ The method underlying this event is built to handle older macOS-style trackpad s
 
 Rückgabewert:
 
-* `event` Event
-* `rotation` Float
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>rotation` Float
 
 Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
@@ -1138,8 +1140,8 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 #### `win.loadURL(url[, options])`
 
-* `url` String
-* `options` Object (optional)
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"

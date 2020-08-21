@@ -124,7 +124,7 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-При запуске из `electron` пакета, эта переменная дает команду `electron` использовать указанную сборку Electron вместо загруженной по `npm install`. Использование:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing

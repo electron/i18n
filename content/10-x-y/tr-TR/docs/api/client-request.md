@@ -2,7 +2,7 @@
 
 > HTTP/HTTPS isteklerini yap.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `ClientRequest` [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface'ini implement eder, bu yüzden de o bir [EventEmitter][event-emitter]'dır.
 
@@ -13,7 +13,7 @@ Süreç: [Ana](../glossary.md#main-process)
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (isteğe bağlı) - İlişkili olduğu istek ile [`partition`](session.md)'nın ismi. Varsayılan boş string. `session` seçeneği `partition`'da hakimdir. Böylelikle `session` açıkça belirtilmedikçe, `partition` yoksayılır.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Varsayılanı `false`.
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Varsayılan `false`'dur.
   * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `hostname` String (isteğe bağlı) - Sunucu ana bilgisayar adı.
@@ -49,11 +49,11 @@ Dönüşler:
 
 * `authInfo` Object
   * `isProxy` Boolean
-  * `scheme` Dizi
-  * `host` Dizi
-  * `port` Tamsayı
-  * `realm` Dizi
-* `callback` Fonksiyon
+  * `scheme` String
+  * `host` String
+  * `port` Integer
+  * `realm` String
+* `callback` Function
   * `username` String (optional)
   * `password` String (optional)
 
@@ -62,7 +62,7 @@ Kimlik doğrulaması yapan bir proxy, kullanıcı bilgilerini istendiğinde yay�
 `callback` fonksiyonunun kullanıcı bilgileri ile geri çağırılması bekleniyor:
 
 * `username` Dizi
-* `password` Dizi
+* `password` String
 
 ```JavaScript
 request.on('login', (authInfo, callback) => {
@@ -108,8 +108,8 @@ HTTP istek-cevap hareketindeki son olay olarak yayınlanır. `close` olayı, `re
 
 Dönüşler:
 
-* `statusCode` Integer
-* `method` Dizi
+* `statusCode` Tamsayı
+* `method` String
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
@@ -119,11 +119,11 @@ Emitted when the server returns a redirect response (e.g. 301 Moved Permanently)
 
 #### `request.chunkedEncoding`
 
-Bir `Boolean` isteğin HTTP yığınlı aktarım kodlamasını kullanıp kullanmayacağını belirtir. Varsayılan değer false. Telefon üzerinde mülkiyet okunabilir ve yazılabilir, ancak HTTP başlıkları henüz koyulmadığından bu işlem yalnızca yazmadan önce ayarlanabilir. İlk yazma bir hata oluşturduktan sonra `chunkedEncoding` özelliğini ayarlamaya çalışır.
+Bir `Boolean` isteğin HTTP yığınlı aktarım kodlamasını kullanıp kullanmayacağını belirtir. Varsayılan yanlış. Telefon üzerinde mülkiyet okunabilir ve yazılabilir, ancak HTTP başlıkları henüz koyulmadığından bu işlem yalnızca yazmadan önce ayarlanabilir. İlk yazma bir hata oluşturduktan sonra `chunkedEncoding` özelliğini ayarlamaya çalışır.
 
 Eğer büyük bir istek parçası göndermeniz gerekiyorsa veri, Electron işlem belleği içerisinde dahili olarak ara belleğe yazdırmak yerine küçük yığınlar içinde akar bu yüzden parçalanmış kodlamanın şiddetle kullanılması önerilir.
 
-### Örnek yöntemleri
+### Sınıf örneği metodları
 
 #### `request.setHeader(name, value)`
 
@@ -134,7 +134,7 @@ Eğer büyük bir istek parçası göndermeniz gerekiyorsa veri, Electron işlem
 
 #### `request.getHeader(name)`
 
-* `name` Dize - İlave bir başlık adı belirtin.
+* `name` String - İlave bir başık adını belirtir.
 
 Returns `String` - The value of a previously set extra header name.
 

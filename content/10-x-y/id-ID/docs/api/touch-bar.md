@@ -58,7 +58,7 @@ A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpa
 
 A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference to the `TouchBarOtherItemsProxy` class.
 
-### Instance Properties
+### Contoh properti
 
 Berikut cara yang tersedia pada contoh-contoh dari `TouchBar`:
 

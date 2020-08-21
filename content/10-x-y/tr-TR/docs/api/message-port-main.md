@@ -8,7 +8,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessagePortMain
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 ### Örnek yöntemleri
 

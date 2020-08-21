@@ -2,7 +2,7 @@
 
 > 轉譯及控制網頁。
 
-處理序: [主處理序](../glossary.md#main-process)
+Process: [主程序](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter][event-emitter]. It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -43,7 +43,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-處理序: [主處理序](../glossary.md#main-process)
+Process: [主程序](../glossary.md#main-process)
 
 ### 物件事件
 
@@ -287,9 +287,9 @@ const win = new BrowserWindow({ width: 800, height: 600 })
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBoxSync(win, {
     type: 'question',
-    buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
+    buttons: ['離開', '留下來'],
+    title: '你確定要離開本站嗎?',
+    message: '你修改的東西可能不會被存下來。',
     defaultId: 0,
     cancelId: 1
   })
@@ -1388,7 +1388,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. 傳遞任何 Function、Promise、Symbol、WeakMap 或 WeakSet 物件將會拋出錯誤。
 
 > **提醒：** 傳送非標準 JavaScript 型別的方法已經不推薦使用（例如 DOM 物件或者特殊的 Electron 物件），並且在 Electron 9 版本開始將會拋出錯誤。
 
@@ -1397,7 +1397,7 @@ The renderer process can handle the message by listening to `channel` with the [
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// 在主處理序中.
+// 在主處理序裡。
 const { app, BrowserWindow } = require('electron')
 let win = null
 

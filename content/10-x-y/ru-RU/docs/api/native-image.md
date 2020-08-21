@@ -233,7 +233,7 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
-Returns [`Size`](structures/size.md).
+Возвращает [`Size`](structures/size.md).
 
 If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
@@ -241,7 +241,7 @@ If `scaleFactor` is passed, this will return the size corresponding to the image
 
 * `option` Boolean
 
-Помечает изображение как шаблон изображения.
+Marks the image as a template image.
 
 #### `image.isTemplateImage()`
 
@@ -260,9 +260,9 @@ If `scaleFactor` is passed, this will return the size corresponding to the image
   * `height` Integer (опционально) - По умолчанию высота изображения.
   * `quality` String (опционально) - Желаемое качество изображения при изменения размера. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
-Возвращает `NativeImage` - измененый размер изображения.
+Returns `NativeImage` - The resized image.
 
-Если указаны только `height` или `width`, то текущее соотношение сторон будет сохранено в изображении.
+If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
 #### `image.getAspectRatio([scaleFactor])`
 

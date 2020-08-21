@@ -93,7 +93,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | no         | Norweski                            |
 | oc         | Prowansalski                        |
 | om         | Oromski                             |
-| lub        | Język orija                         |
+| or         | Język orija                         |
 | pa         | Pendżabski                          |
 | pl         | Polski                              |
 | ps         | Paszto                              |

@@ -28,20 +28,22 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 Hasil returns `Menu | null` - menu aplikasi, jika di set, atau `null`, jika tidak di set.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
+**Catatan:** Contoh `Menu` kembali tidak mendukung dinamis penambahan atau penghapusan item menu. Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
 
 
 
-#### `Menu.sendActionToFirstResponder(action)` _macOS_
+#### ` Menu.kirim aksi pertama ke Responder (tindakan) </ 0> <em x-id="4"> macos </ 1></h4>
 
-* ` aksi </ 0>  Tali</li>
+<ul>
+<li><code> aksi </ 0>  Tali</li>
 </ul>
 
 <p spaces-before="0">Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default. Usually you would use the
 <a href="menu-item.md#roles"><code>role`</a> property of a [`MenuItem`](menu-item.md).</p> 
-  Lihat  MacOS Kakao Acara Penanganan Panduan </ 0> untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p> 
-  
-  
+
+Lihat  MacOS Kakao Acara Penanganan Panduan </ 0> untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p> 
+
+
 
 #### `Menu.membangun dari Template (template)`
 
@@ -55,7 +57,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 
 
-### Методы экземпляра
+### Metode Instance
 
 The `menu` object has the following instance methods:
 
@@ -117,9 +119,9 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 #### Event: 'menu-will-show'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 
 Emitted when `menu.popup()` is called.
 
@@ -127,15 +129,15 @@ Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 
 
-### Instance Properties
+### Contoh properti
 
 `menu` objek juga memiliki properti berikut:
 
@@ -324,7 +326,7 @@ macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tent
 
 <p spaces-before="0">Pada macos label item pertama menu aplikasi selalu nama aplikasi Anda, tidak peduli label apa yang Anda tetapkan. Untuk mengubahnya, modifikasi berkas <code> Info.plist < file > aplikasi Anda. Lihat <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html" f-id="AboutInformationPropertyListFiles" lbb="2" fo="1">Mengaktifkan dokumentasi Akses Jaringan</a> untuk lebih jelasnya.</p>
 
-<h2 spaces-before="0">Setting Menu for Specific Browser Window (<em x-id="3">Linux</em> <em x-id="3">Windows</em>)</h2>
+<h2 spaces-before="0">Setting Menu untuk Jendela Peramban Tertentu (<em x-id="3"> Linux </em> <em x-id="3"> Windows </em>)</h2>
 
 <p spaces-before="0">Metode <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows" f-id="setMenu" fo="2"><code> setMenu`metode </a> pencarian windows dapat mengatur menu tertentu Pencarian windows.
 

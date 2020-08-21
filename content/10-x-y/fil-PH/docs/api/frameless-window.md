@@ -80,7 +80,7 @@ win.show()
 
 
 
-### Mga limitasyon
+### Limitasyons
 
 * Hindi ka maaaring mag-click sa transparent area. Kami ay magpapakilala ng isang API upang itakda ang window shape upang malutas ito, kita n'yo  ang aming isyu </ 0> para sa mga detalye.</p></li> 
   

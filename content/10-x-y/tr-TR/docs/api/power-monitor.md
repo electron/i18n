@@ -2,9 +2,9 @@
 
 > Güç durumu değişikliklerini izleyin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
-## Events
+## Etkinlikler
 
 `powerMonitor` modülü aşağıdaki olayları yayar:
 

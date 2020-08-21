@@ -1,6 +1,6 @@
 # Processamento de Objeto
 
-* `pid` Inteiro - id de processo do processo.
+* `pid` Integer - Processo id of proccesso.
 * `type` String - Process type. One of the following values:
   * `Browser`
   * `Tab`

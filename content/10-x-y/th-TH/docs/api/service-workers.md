@@ -2,7 +2,7 @@
 
 > Query and receive events from a sessions active service workers.
 
-Messages
+Messages </a>
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 

@@ -31,7 +31,7 @@ Disconnects the port, so it is no longer active.
 
 #### Acara : 'pesan'
 
-Mengembalikan:
+Pengembalian:
 
 * `messageEvent` Object
   * `data` any

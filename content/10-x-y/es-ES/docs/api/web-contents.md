@@ -2,7 +2,7 @@
 
 > Procesamiento y control de páginas webs.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `webContents` is an [EventEmitter][event-emitter]. Ese es responsable de renderizar y controlar la página web y es el propietario del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso del objeto `webContents`:
 
@@ -43,7 +43,7 @@ Devuelve `WebContents` - Una instancia de WebContents con el ID especificado.
 
 > Renderice y controle el contenido de una instancia de BrowserWindow.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### Eventos de Instancia
 
@@ -59,7 +59,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -73,7 +73,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -83,8 +83,8 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 
 Devuelve:
 
-* `event` Event
-* `EsElFramePrincipal` Boolean
+* `event` Evento
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -102,16 +102,16 @@ Corresponde a los puntos en tiempo cuando el girador del tabulador terminó de g
 
 Devuelve:
 
-* `event` Event
+* `evento` Evento
 
 Emitido cuando el documento en el frame dado es cargado.
 
-#### Evento: 'page-title-updated'
+#### Evento: "page-title-updated"
 
 Devuelve:
 
 * `event` Event
-* `title` String
+* `title` Cadena
 * `explicitSet` Boolen
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
@@ -173,7 +173,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 Devuelve:
 
 * `event` Event
-* `url` String
+* `url` Cadena
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
@@ -190,7 +190,7 @@ Devuelve:
 * `event` Event
 * `url` String
 * `isInPlace` Boolean
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -203,7 +203,7 @@ Devuelve:
 * `event` Event
 * `url` String
 * `isInPlace` Boolean
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -220,7 +220,7 @@ Devuelve:
 * `event` Event
 * `url` String
 * `isInPlace` Boolean
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -249,7 +249,7 @@ Devuelve:
 * `url` String
 * `httpResponseCode` Integer - -1 para navegaciones no HTTP
 * `httpStatusText` String - vacío para navegaciones no HTTP
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -263,7 +263,7 @@ Devuelve:
 
 * `event` Event
 * `url` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -305,7 +305,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 Devuelve:
 
 * `event` Event
-* `killed` Boolean
+* `killed` Booleano
 
 Emitido cuando el proceso se crashea o es terminado.
 
@@ -368,7 +368,7 @@ Devuelve:
 
 Emitido antes de enviar los eventos `keydown` y `keyup` en la página. Llamando a `event.preventDefault` evitará la página `keydown`/ eventos `keyup` y los accesos rápidos al menú.
 
-To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
+Para evitar sólo los accesos directos del menú, use [`setignoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -410,14 +410,14 @@ Emitido cuando Devtools es cerrado.
 
 Emitido cuando DevTools es centrado o abierto.
 
-#### Evento: 'certificate-error'
+#### Evento: 'error-certificado'
 
 Devuelve:
 
 * `event` Event
 * `url` String
 * `error` cadena - el error del código.
-* `certificate` [Certificate](structures/certificate.md)
+* `certificate` [certificate](structures/certificate.md)
 * `callback` Función
   * `isTrusted` Boolean - indica si el certificado se puede considerar de confianza.
 
@@ -425,7 +425,7 @@ Emitido cuando no se pudo verificar el `certificate` for `url`.
 
 El uso es el mismo con [the `certificate-error` evento de `app`](app.md#event-certificate-error).
 
-#### Evento: 'select-client-certificate'
+#### Evento: 'select--client-certificate'
 
 Devuelve:
 
@@ -725,7 +725,7 @@ Devuelve:
 
 * `event` IpcMainEvent
 
-Emitido cuando `remote.getCurrentWindow()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` impedirá que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getCurrentWindow()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` evitará que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-current-web-contents'
 
@@ -733,7 +733,7 @@ Devuelve:
 
 * `event` IpcMainEvent
 
-Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` impedirá que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` evitará que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 ### Métodos de Instancia
 
@@ -741,7 +741,7 @@ Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de render
 
 * `url` String
 * `options` Object (opcional)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una url HTTP de referencia.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una url HTTP Referencia.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opcional)
@@ -927,7 +927,7 @@ contents.on('did-finish-load', async () => {
 
 #### `contents.executeJavaScript(code[, userGesture])`
 
-* `codigo` String
+* `code` Cadena de caracteres
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 
 Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
@@ -1194,15 +1194,15 @@ win.webContents.print(options, (success, errorType) => {
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
-  * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` para portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
     * `from` Number - the first page to print.
     * `to` Number - the last page to print (inclusive).
-  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
-  * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
+  * `pageSize` String | Size (opcional) - Especifica el tamaño de la página del PDF generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (octional) - Si se va a imprimir los fondos CSS.
+  * `printSelectionOnly` Boolean (opcional) - Se va a imprimir solo la selección.
 
 Returns `Promise<Buffer>` - Se resuelve cuando los datos PDF son generados.
 

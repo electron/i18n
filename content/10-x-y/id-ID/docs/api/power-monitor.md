@@ -4,7 +4,7 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-## Events
+## Kejadian
 
 Modul`powerMonitor` memancarkan peristiwa berikut:
 
@@ -36,7 +36,7 @@ Emitted when the system is about to lock the screen.
 
 Emitted as soon as the systems screen is unlocked.
 
-## Methods
+## Metode
 
 The `powerMonitor` module has the following methods:
 

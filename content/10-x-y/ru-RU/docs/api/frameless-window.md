@@ -41,7 +41,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Использует кастомные кнопки закрыть и уменьшить, которые display при наведении на верхний левый угол окна. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. Эти кастомные кнопки предотвращают проблемы с методами мыши, случающиеся со стандартными кнопками панели инструментов. Эта опция применима только для окон без рамки.
+Использует кастомные кнопки закрыть и уменьшить, которые display при наведении на верхний левый угол окна. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. Эти пользовательские кнопки предотвращают проблемы с событиями мыши, которые случаются со стандартными кнопками панели инструментов. Эта опция применима только для окон без рамки.
 
 ```javascript
 const { BrowserWindow } = require('electron')

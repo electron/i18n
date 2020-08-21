@@ -1,4 +1,4 @@
-# kerusakanReporter
+# kecelakaan reporter
 
 > Kirim laporan kerusakan ke server jauh.
 

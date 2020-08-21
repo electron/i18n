@@ -2,7 +2,7 @@
 
 > Chrome 遠端 debug 協定的替代傳輸通道。
 
-處理序: [主處理序](../glossary.md#main-process)
+Process: [主程序](../glossary.md#main-process)
 
 Chrome Developer Tools has a [special binding][rdp] available at JavaScript runtime that allows interacting with pages and instrumenting them.
 

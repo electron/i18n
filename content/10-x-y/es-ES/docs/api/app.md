@@ -2,7 +2,7 @@
 
 > Controla el ciclo de vida de los eventos de su aplicación.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Los siguientes ejemplos muestran como salir de la aplicación cuando la última ventana está cerrada:
 
@@ -65,7 +65,7 @@ Consulte la descripción del evento `window-all-closed` por las diferencias con 
 
 Devuelve:
 
-* `event` Event
+* `event` Evento
 * `exitCode` Integer
 
 Emitido cuando la aplicación se está cerrando.
@@ -76,7 +76,7 @@ Emitido cuando la aplicación se está cerrando.
 
 Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `path` String
 
 Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y el sistema operativo quiere reusar la aplicación para abrir el archivo. `open-file` también es emitido cuando el archivo es soltado dentro del dock y la aplicación todavía no se está ejecutando. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para manejar este caso (incluso antes de que el evento `ready` sea emitido).
@@ -92,7 +92,7 @@ Devuelve:
 * `event` Event
 * `url` String
 
-Emitido cuando el usuario quiere abrir una URL con la aplicación. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Emitido cuando el usuario quiere abrir una URL con la aplicación. El archivo `Info.plist` de tu aplicación debe definir el esquema URL dentro de la llave `CFBundleURLTypes` y configurar `NSPrincipalClass` a `AtomApplication`.
 
 Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
 
@@ -111,7 +111,7 @@ Devuelve:
 
 * `event` Event
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`][activity-type].
-* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
+* `userInfo` unknown - Contiene el estado especifico de la aplicación guardado por la actividad en otro dispositivo.
 
 Emitido durante [Handoff][handoff] cuando una actividad de un artefacto diferente quiere ser reanudado. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
 
@@ -142,7 +142,7 @@ Devuelve:
 
 * `event` Event
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`][activity-type].
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` unknown - Contiene el estado especifico de la aplicación guardado por la actividad.
 
 Emitido durante [Handoff][handoff] después de que una actividad de este artefacto haya sido reanudado con éxito en otro.
 
@@ -152,7 +152,7 @@ Devuelve:
 
 * `event` Event
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`][activity-type].
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` unknown - Contiene el estado especifico de la aplicación guardado por la actividad.
 
 Emitido cuando [Handoff][handoff] va a ser reanudado en otro artefacto. Si necesita actualizar el estado que se transferirá, debe llamar a `event.preventDefault ()` inmediatamente, crear un nuevo diccionario `userInfo` y llamar a `app.updateCurrentActivity()` de manera oportuna. De otra manera, la operación fallará en `continue-activity-error` será llamada.
 
@@ -164,7 +164,7 @@ Devuelve:
 
 Emitido cuando el usuario hace clic en el botón de nueva pestaña nativa de macOS. El botón de nueva pestaña solo es visible si el `BrowserWindow` actual tiene un `tabbingIdentifier`
 
-### Evento: 'browser-window-blur'
+### Event: 'browser-window-blur'
 
 Devuelve:
 
@@ -173,7 +173,7 @@ Devuelve:
 
 Emitido cuando el [browserWindow](browser-window.md) está borroso.
 
-### Evento: 'browser-window-focus'
+### Event: 'browser-window-focus'
 
 Devuelve:
 
@@ -196,7 +196,7 @@ Emitido cuando se crea un [browserWindow](browser-window.md).
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 
 Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
 
@@ -205,7 +205,7 @@ Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 * `url` String
 * `error` String - El código de error
 * `certificate` [Certificate](structures/certificate.md)
@@ -233,7 +233,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 * `url` URL
 * `certificateList`[Certificate[]](structures/certificate.md)
 * `callback` Función
@@ -252,20 +252,20 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Evento:'login'
+### Event:'login'
 
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 * `authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
-  * `anfitrión` Cadena
-  * `puerto` Íntegro
-  * `realm` Cadena
+  * `host` String
+  * `port` Integer
+  * `realm` String
 * `callback` Función
   * `username` String (opcional)
   * `password` String (opcional)
@@ -285,7 +285,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 Si `callback` es llamado sin un nombre de usuario o contraseña, la solicitud de autenticación sera cancelada y el error de autenticación será retornado a la página.
 
-### Event: 'gpu-info-update'
+### Evento: 'gpu-info-update'
 
 Emitido cada vez que hay una actualización de información de la GPU.
 
@@ -303,8 +303,8 @@ Emitido cuando el proceso de la GPU se crashea o es terminado.
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `killed` Boolean
+* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `killed` Booleano
 
 Emitido cuando el proceso render de `webContents` se bloquea o es matado.
 
@@ -315,7 +315,7 @@ Emitido cuando el proceso render de `webContents` se bloquea o es matado.
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 * `details` Object
   * `reason` String - The reason the render process is gone.  Posibles valores:
     * `clean-exit` - Process exited with an exit code of zero
@@ -376,7 +376,7 @@ Este evento garantiza que se ejecute después del evento `ready` de `app` para s
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 
 Emitido cuando `desktopCapturer.getSources()` es llamado en el render process del `webContents`. Llamando a `event.preventDefault()` hará que devuelva fuentes vacías.
 
@@ -385,7 +385,7 @@ Emitido cuando `desktopCapturer.getSources()` es llamado en el render process de
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 * `moduleName` String
 
 Emitido cuando `remote.require()` es llamado en el renderer process de `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
@@ -395,7 +395,7 @@ Emitido cuando `remote.require()` es llamado en el renderer process de `webConte
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 * `globalName` String
 
 Emitido cuando `remote.getGlobal()` es llamado en el proceso de renderizado del `webContents`. Llamando `event.preventDefault()` evitará que sea devuelto el global. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
@@ -405,28 +405,28 @@ Emitido cuando `remote.getGlobal()` es llamado en el proceso de renderizado del 
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 * `moduleName` String
 
-Emitido cuando `remote.getBuiltin()` es llamado en el proceso renderizador del `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getBuiltin()` es llamado en el proceso renderizador del `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. El valor personalizado puede ser retornado por la configuración `event.returnValue`.
 
 ### Evento: 'remote-get-current-window'
 
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 
-Emitido cuando `remote.getCurrentWindow()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` impedirá que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getCurrentWindow()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` evitará que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 ### Evento: 'remote-get-current-web-contents'
 
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 
-Emitido cuando `remote.getCurrentWebContents()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` impedirá que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getCurrentWebContents()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` evitará que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 ## Métodos
 
@@ -494,7 +494,7 @@ Oculta todas la ventanas de la aplicación sin minimizar estas.
 
 ### `app.show()` _macOS_
 
-Muestra las ventanas de la aplicación luego de que se ocultaron. No los enfoca automáticamente.
+Muestra las ventanas de la aplicación después que fueron ocultadas. No los enfoca automáticamente.
 
 ### `app.setAppLogsPath([path])`
 
@@ -597,7 +597,7 @@ Para establecer la localización, necesitas usar un cambio de línea de comandos
 
 ### `app.getLocaleCountryCode()`
 
-Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. El valor es tomado desde la APIs nativas de sistema operativo.
+Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. El valor es tomado desde APIs nativas del sistema operativo.
 
 **Note:** Cuando no se puede detectar el código de país local, devuelve una cadena vacía.
 
@@ -607,7 +607,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 Añade la `ruta` a la lista de documentos recientes.
 
-Esta lista es manejada por el sistema operativo. En Windows, puede visitar la lista desde la barra de tarea y en macOS, puede visitar la desde el menu dock.
+Esta lista es administrada por el sistema operativo. En Windows, puede visitar la lista desde la barra de tarea y en macOS, puede visitar la desde el menu dock.
 
 ### `app.clearRecentDocuments()` _macOS_ _Windows_
 
@@ -673,7 +673,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 ### `app.getJumpListSettings()` _Windows_
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `minItems` Entero - El número mínimo de elementos que será mostrado en la lista (Para una descripción detallada de este valor vea el [documento MSDN][JumpListBeginListMSDN]).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
@@ -692,7 +692,7 @@ Configura o remueve una Jump list personalizada para la aplicación, y devuelve 
 
 Si la `categoría` es `nula` la configuración personalizada previa de la Jump List (si hay alguna) será reemplazada por la Jump List estándar para la aplicación (manejada por Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Si la propiedad `name` está establecida pero la propiedad `type` esta omitida entonces se asume que el `type` es `custom`.
+**Nota:** Si un objeto de `JumpListCategory` no tiene ni `type` ni el `name` en sus propiedades de objeto, se asume que su propiedad `type` será `tasks`. Si la propiedad `name` está establecida pero la propiedad `type` esta omitida entonces se asume que el `type` es `custom`.
 
 **Nota:** Usuarios pueden remover elementos de las categorías personalizadas y Windows no permitirá que un elemento removido sea añadido de nuevo a la categoría personalizada hasta **después** del siguiente llamado exitoso a `app.setJumpList(categories)`. Cualquier intento de añadir nuevamente el elemento a la categoría personalizada antes que eso resultará en que la categoría entera sea omitida de la Jump List. La lista de elemento removidos puede ser obtenida usando `app.getJumpListSettings()`.
 
@@ -816,11 +816,11 @@ Devuelve `String` - El tipo de la actividad que se está ejecutando actualmente.
 
 ### `app.invalidateCurrentActivity()` _macOS_
 
-Invalidates the current [Handoff][handoff] user activity.
+Invalida la actividad actual [Handoff][handoff] del usuario.
 
 ### `app.resignCurrentActivity()` _macOS_
 
-Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
+Marca la actividad actual del usuario [Handoff][handoff] como inactiva sin invalidarla.
 
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
@@ -833,7 +833,7 @@ Actualiza la actividad actual si su tipo coincide `type`, fusionando las entrada
 
 * `id` Cadena
 
-Changes the [Application User Model ID][app-user-model-id] to `id`.
+Cambia el [Id Modelo de Usuario de la Aplicación][app-user-model-id] a `id`.
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
@@ -1005,7 +1005,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Establece el panel de opciones. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs][about-panel-options] for more details. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
+Establece el panel de opciones. This will override the values defined in the app's `.plist` file on macOS. Ver el [Apple docs][about-panel-options] para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1117,7 +1117,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Nota:** El ejecutador de Unity requiere de la existencia de un archivo `.desktop` para hacerlo funcionar, para más información por favor leer [Desktop Environment Integration][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 

@@ -2,7 +2,7 @@
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ## Utilizando el proceso de renderizado
 
@@ -12,7 +12,7 @@ Si quieres mostrar notificaciones desde un proceso de renderizado se debe utiliz
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `Notification` is an [EventEmitter][event-emitter].
 
@@ -68,7 +68,7 @@ Se emite cuando el usuario hace clic en la notificación.
 
 Devuelve:
 
-* `event` Event
+* `event` Evento
 
 Se emite cuando se cierra la notificación por medio de la intervención manual del usuario.
 
@@ -78,7 +78,7 @@ No se garantiza que este evento se emita en todos los casos donde se cierre la n
 
 Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `reply` String - La cadena que ingreso el usuario dentro del campo de respuesta insertado.
 
 Se emite cuando el usuario hace clic en el botón "Reply" en una notificación con `hasReply: true`.

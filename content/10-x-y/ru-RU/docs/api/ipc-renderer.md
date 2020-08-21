@@ -15,7 +15,7 @@
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function
+* `listener` Function (Функция)
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -24,7 +24,7 @@
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function
+* `listener` Function (Функция)
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -33,7 +33,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function
+* `listener` Function (Функция)
   * `...args` any[]
 
 Удаляет указанный `listener` из массива слушателей конкретного `channel`.
@@ -95,13 +95,13 @@ If you do not need a respons to the message, consider using [`ipcRenderer.send`]
 * `channel` String (Строка)
 * `...args` any[]
 
-Возвращает `any` - Значение, отправленное обработчиком [`ipcMain`](ipc-main.md).
+Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
 
 Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
-Основной процесс обрабатывает его, прослушивая `channel` с помощью модуля [`ipcMain`](ipc-main.md), и отвечая, установив `event.returnValue`.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
 > :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. It's much better to use the asynchronous version, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
 

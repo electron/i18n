@@ -1,6 +1,6 @@
 # ProtocolResponse オブジェクト
 
-* `error` Integer (任意) - 代入すると、その `request` は `error` の番号で失敗します。 For the available error numbers you can use, please see the [net error list][net-error].
+* `error` Integer (任意) - 代入すると、その `request` は `error` の番号で失敗します。 使用できる利用可能なエラー番号については、[net_error_list][net-error] を参照してください。
 * `statusCode` Number (任意) - HTTP レスポンスコード。省略値は、200 です。
 * `charset` String (任意) - レスポンスの本文の文字集合。省略値は、`"utf-8"` です。
 * `mimeType` String (任意) - レスポンスの本文の MIME タイプ。省略値は、`"text/html"` です。 `mimeType` を設定すると、レスポンスで暗黙的に `content-type` ヘッダーが設定されますが、`content-type` が既に `headers` で設定されている場合、`mimeType` は無視されます。

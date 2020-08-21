@@ -2,7 +2,7 @@
 
 > Añadir los iconos y menús contextuales al área de notificación del sistema.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `Tray` es un [EventEmitter][event-emitter].
 
@@ -214,7 +214,7 @@ Configura la activación de texto para este icono de bandeja.
 
 #### `tray.setTitle(title)` _macOS_
 
-* `title` String
+* `title` Cadena
 
 Establece el título mostrado al lado de la bandeja de icono en la barra de estado (Soporta colores ANSI).
 
@@ -239,7 +239,7 @@ Devuelve `Boolean` - Si los eventos de doble click serán ignorados.
 * `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
-  * `title` String
+  * `title` Cadena
   * `content` String
   * `largeIcon` Boolean (optional) - The large version of the icon should be used. Por defecto es `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
   * `noSound` Boolean (optional) - Do not play the associated sound. Por defecto es `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].

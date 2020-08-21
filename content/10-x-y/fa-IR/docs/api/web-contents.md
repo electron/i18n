@@ -16,7 +16,7 @@ let contents = win.webContents
 console.log(contents)
 ```
 
-## Methods
+## روش ها
 
 These methods can be accessed from the `webContents` module:
 
@@ -45,7 +45,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 فرآیند: [اصلی](../glossary.md#main-process)
 
-### Instance Events
+### رویدادها نمونه
 
 #### Event: 'did-finish-load'
 
@@ -111,7 +111,7 @@ Emitted when the document in the given frame is loaded.
 Returns:
 
 * `event` Event
-* `title` String
+* `عنوان` رشته
 * `explicitSet` Boolean
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
@@ -317,7 +317,7 @@ Returns:
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  مقادیر ممکن:
+  * `reason` String - The reason the render process is gone.  Possible values:
     * `clean-exit` - Process exited with an exit code of zero
     * `abnormal-exit` - Process exited with a non-zero exit code
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
@@ -341,7 +341,7 @@ Emitted when the unresponsive web page becomes responsive again.
 Returns:
 
 * `event` Event
-* `نام` رشته
+* PrinterInfo Object
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -735,7 +735,7 @@ Returns:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Instance Methods
+### روشهای نمونه
 
 #### `contents.loadURL(url[, options])`
 
@@ -1057,19 +1057,19 @@ Executes the editing command `unselect` in web page.
 
 #### `contents.replace(text)`
 
-* `text` String
+* `متنی` رشته
 
 Executes the editing command `replace` in web page.
 
 #### `contents.replaceMisspelling(text)`
 
-* `text` String
+* `متنی` رشته
 
 Executes the editing command `replaceMisspelling` in web page.
 
 #### `contents.insertText(text)`
 
-* `text` String
+* `متنی` رشته
 
 Returns `Promise<void>`
 
@@ -1190,7 +1190,7 @@ win.webContents.print(options, (success, errorType) => {
 
 #### `contents.printToPDF(options)`
 
-* `options` Object
+* `گزینه های` ObjectIrN 98
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.

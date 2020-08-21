@@ -2,7 +2,7 @@
 
 > Ermöglichen Sie es Apps, sich automatisch zu aktualisieren.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 **Siehe auch: [Eine detaillierte Anleitung zur Implementierung von Updates in Ihrer Anwendung](../tutorial/updates.md).**
 
@@ -38,13 +38,13 @@ The installer generated with Squirrel will create a shortcut icon with an [Appli
 You can read the documents of <a href="https://github.com/Squirrel/Squirrel.Windows" f-id="squirrel-windows" fo="3">Squirrel.Windows</a> to get more details
 about how Squirrel.Windows works.</p>
 
-<h2 spaces-before="0">Ereignisse</h2>
+<h2 spaces-before="0">Veranstaltungen</h2>
 
 <p spaces-before="0">Das <code> autoUpdater </ 0> -Objekt gibt die folgenden Ereignisse aus:</p>
 
-<h3 spaces-before="0">Event: 'error'</h3>
+<h3 spaces-before="0">Ereignis : "Fehler</h3>
 
-<p spaces-before="0">Rückgabewert:</p>
+<p spaces-before="0">Returns:</p>
 
 <ul>
 <li><code> Fehler </ 0> Fehler</li>
@@ -67,12 +67,11 @@ automatically.</p>
 
 <h3 spaces-before="0">Ereignis : 'Update-Download'</h3>
 
-<p spaces-before="0">Rückgabewert:</p>
+<p spaces-before="0">Kehrt zurück:</p>
 
 <ul>
-<li><code>event` Event</li> 
-
-* ` Release Notes </ 0>  String</li>
+<li><code> Ereignis </ 0>  Ereignis</li>
+<li><code> Release Notes </ 0>  String</li>
 <li><code> releaseName </ 0>  String</li>
 <li><code> releaseDate </ 0> Datum</li>
 <li><code> updateURL </ 0>  String</li>
@@ -87,10 +86,11 @@ downloaded update will still be applied the next time the application starts.</p
 
 <h3 spaces-before="0">Ereignis: 'before-quit-for-update'</h3>
 
-<p spaces-before="0">This event is emitted after a user calls <code>quitAndInstall()`.</p> 
-  When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
-  
-  
+<p spaces-before="0">This event is emitted after a user calls <code>quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+
+
 
 ## Methoden
 
@@ -99,8 +99,8 @@ Das Objekt ` autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
 <h3 spaces-before="0"><code>autoUpdater.setFeedURL(optionen)`</h3> 
 
 * `options` Object 
-    * `url` String
-  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
   * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.
 
 Setzt die ` URL </ 0> und initialisiert den automatischen Updater.</p>

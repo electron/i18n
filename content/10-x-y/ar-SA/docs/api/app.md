@@ -25,7 +25,7 @@ In most cases, you should do everything in the `ready` event handler.
 
 ### Event: 'ready'
 
-Returns:
+تراجع:
 
 * `launchInfo` unknown _macOS_
 
@@ -39,7 +39,7 @@ If you do not subscribe to this event and all windows are closed, the default be
 
 ### Event: 'before-quit'
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -51,7 +51,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 ### Event: 'will-quit'
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -63,7 +63,7 @@ See the description of the `window-all-closed` event for the differences between
 
 ### Event: 'quit'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `exitCode` Integer
@@ -74,7 +74,7 @@ Emitted when the application is quitting.
 
 ### Event: 'open-file' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `path` String
@@ -87,7 +87,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 ### Event: 'open-url' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `url` String
@@ -98,7 +98,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 ### Event: 'activate' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -107,7 +107,7 @@ Emitted when the application is activated. Various actions can trigger this even
 
 ### Event: 'continue-activity' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`][activity-type].
@@ -119,7 +119,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'will-continue-activity' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`][activity-type].
@@ -128,7 +128,7 @@ Emitted during [Handoff][handoff] before an activity from a different device wan
 
 ### Event: 'continue-activity-error' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`][activity-type].
@@ -138,7 +138,7 @@ Emitted during [Handoff][handoff] when an activity from a different device fails
 
 ### Event: 'activity-was-continued' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`][activity-type].
@@ -148,7 +148,7 @@ Emitted during [Handoff][handoff] after an activity from this device was success
 
 ### Event: 'update-activity-state' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`][activity-type].
@@ -158,7 +158,7 @@ Emitted when [Handoff][handoff] is about to be resumed on another device. If you
 
 ### Event: 'new-window-for-tab' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -166,7 +166,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### Event: 'browser-window-blur'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -175,7 +175,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### Event: 'browser-window-focus'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -184,7 +184,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### Event: 'browser-window-created'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -193,7 +193,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### Event: 'web-contents-created'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -202,7 +202,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 ### Event: 'certificate-error'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -230,7 +230,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -254,7 +254,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### Event: 'login'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -291,7 +291,7 @@ Emitted whenever there is a GPU info update.
 
 ### Event: 'gpu-process-crashed'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `killed` Boolean
@@ -300,7 +300,7 @@ Emitted when the GPU process crashes or is killed.
 
 ### Event: 'renderer-process-crashed' _Deprecated_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -312,7 +312,7 @@ Emitted when the renderer process of `webContents` crashes or is killed.
 
 #### Event: 'render-process-gone'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -330,7 +330,7 @@ Emitted when the renderer process unexpectedly dissapears.  This is normally bec
 
 ### Event: 'accessibility-support-changed' _macOS_ _Windows_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
@@ -339,7 +339,7 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ### Event: 'session-created'
 
-Returns:
+تراجع:
 
 * `session` [Session](session.md)
 
@@ -355,7 +355,7 @@ app.on('session-created', (session) => {
 
 ### Event: 'second-instance'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `argv` String[] - An array of the second instance's command line arguments
@@ -373,7 +373,7 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 ### Event: 'desktop-capturer-get-sources'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -382,7 +382,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 ### Event: 'remote-require'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -392,7 +392,7 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 
 ### Event: 'remote-get-global'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -402,7 +402,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process of `webConte
 
 ### Event: 'remote-get-builtin'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -412,7 +412,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process of `webCont
 
 ### Event: 'remote-get-current-window'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -421,7 +421,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process of `w
 
 ### Event: 'remote-get-current-web-contents'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -558,7 +558,7 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* `name` سلسلة نصية
+* `الإسم`String
 * `path` String
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
@@ -579,7 +579,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.setName(name)`
 
-* `name` سلسلة نصية
+* `الإسم`String
 
 Overrides the current application's name.
 
@@ -692,7 +692,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. إذا كانت خاصية `name` معينة لكن خاصية `type` يتم حذفها ويفترض أن يكون `type` `custom`.
+**Note:** إذا كان الكائن `JumpListCategory` ليس لديه `type` ولا `name` تعيين الخواص `type` يفترض أن يكون `tasks`. إذا كانت خاصية `name` معينة لكن خاصية `type` يتم حذفها ويفترض أن يكون `type` `custom`.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
@@ -1094,7 +1094,7 @@ See [Apple's documentation](https://developer.apple.com/library/archive/technote
 
 **Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
 
-## الخصائص
+## Properties
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
 

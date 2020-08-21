@@ -2,11 +2,11 @@
 
 > 뷰들을 생성하고 제어합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
-### Example
+### 예시
 
 ```javascript
 // 메인 프로세스에서.
@@ -43,7 +43,7 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 `BrowserView` 반환 - `id`에 해당하는 뷰.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 Objects created with `new BrowserView` have the following properties:
 
@@ -55,7 +55,7 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 Objects created with `new BrowserView` have the following instance methods:
 

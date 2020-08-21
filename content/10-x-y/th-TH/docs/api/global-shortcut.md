@@ -2,7 +2,7 @@
 
 > Const { app, globalShortcut} = require('electron') app. on('ready', () => { // Register a 'CommandOrControl+X' shortcut listener. const ret = globalShortcut. register('CommandOrControl+X', () => { console. log('CommandOrControl+X is pressed')}) if (! ret) { console. log('registration failed')} // Check whether a shortcut is registered. console. log(globalShortcut. isRegistered('CommandOrControl+X'))}) app. on('will-quit', () => { // Unregister a shortcut. globalShortcut. unregister('CommandOrControl+X') // Unregister all shortcuts. globalShortcut. unregisterAll()})
 
-Messages
+Messages </a>
 
 The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
 

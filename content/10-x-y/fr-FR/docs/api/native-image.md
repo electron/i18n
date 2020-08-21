@@ -1,6 +1,6 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> Créez des icônes de bac, d'ancrage et d'application à l'aide de fichiers PNG ou JPG.
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -233,7 +233,7 @@ Retourne `Boolean` - Si l'image est vide.
 
 * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
-Returns [`Size`](structures/size.md).
+Retourne [`Size`](structures/size.md).
 
 If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 

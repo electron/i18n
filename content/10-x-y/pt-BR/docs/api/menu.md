@@ -28,7 +28,7 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 Retorna `Menu | null` - O menu do aplicativo, se definido, ou `null`, se não fora definido.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) ainda podem ser modificadas dinamicamente.
+**Nota:** A instancia `Menu` retornada não suporta adição dinâmica ou remoção de itens de menu. [Instance properties](#instance-properties) ainda podem ser modificadas dinamicamente.
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 

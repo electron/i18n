@@ -2,9 +2,9 @@
 
 > Read and respond to changes in Chromium's native color theme.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
-## Events
+## Etkinlikler
 
 The `nativeTheme` module emits the following events:
 

@@ -2,7 +2,7 @@
 
 > Crea y controla las ventanas del navegador.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ```javascript
 // En el proceso principal.
@@ -108,7 +108,7 @@ Se recomienda detener operaciones costosas cuando el estado de visibilidad está
 
 > Crea y controla las ventanas del navegador.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `BrowserWindow` es un [EventEmitter][event-emitter].
 
@@ -239,17 +239,17 @@ Los objetos creados con `new BrowserWindow` emiten los siguientes eventos:
 
 **Nota:** Algunos eventos sólo están disponibles en sistemas operativos específicos y se etiquetan como tal.
 
-#### Evento: 'page-title-updated'
+#### Evento: "page-title-updated"
 
 Devuelve:
 
-* `event` Event
-* `title` String
+* `evento` Evento
+* `title` Cadena
 * `explicitSet` Boolen
 
 Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` evitará que el título de la ventana nativa cambie. `explicitSet` is false when title is synthesized from file URL.
 
-#### Evento: "close"
+#### Evento: 'close'
 
 Devuelve:
 
@@ -444,7 +444,7 @@ Devuelve:
 * `event` Event
 * `rotation` Float
 
-Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
+Emitido en el gesto de rotación del trackpad. Emitido continuamente hasta que el gesto de rotación se termine. El valor de `rotation` en cada emisión es el angulo en grado rotado desde la última emisión. El último evento emitido sobra un gesto de rotación siempre será el valor de `0`. Los valores de rotación en sentido contrario a las agujas del reloj son positivos, mientras que los del sentido de las agujas del reloj son Negativo.
 
 #### Evento: "sheet-begin" _macOS_
 
@@ -472,9 +472,9 @@ Devuelve `BrowserWindow | null` - La ventana que es enfocada en esta aplicación
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
+Devuelve `BrowserWindow | null` - La ventana que posee al `webContents` dado o `null` si los contenidos no son propiedad de una ventana.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -512,7 +512,7 @@ Elimina una extensión de Chrome por su nombre.
 
 #### `BrowserWindow.getExtensions()` _Deprecated_
 
-Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Devuelve `Record<String, ExtensionInfo>` - Las llaves son los nombres de la extensión y cada valor es un Objeto conteniendo las propiedades `name` y `version`.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
@@ -544,7 +544,7 @@ Elimina una extensión de Devtools mediante su nombre.
 
 #### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
-Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Devuelve `Record<string, ExtensionInfo>` - Las llaves son los nombres de la extensión y cada valor es un Objeto conteniendo las propiedades `name` y `version`.
 
 Para verificar si una extensión de DevTools está instalada se puede ejecutar lo siguiente:
 
@@ -578,13 +578,13 @@ Consulte la [documentation `webContents`](web-contents.md) de sus métodos y eve
 
 #### `win.id` _Readonly_
 
-A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
+Una propiedad `Integer` representando el identificador único de la ventana. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
 
 #### `win.autoHideMenuBar`
 
 Una propiedad `Boolean` que determina si la barra de menú de la ventana debe ocultarse automáticamente. Una vez activada, la barra de menú sólo se mostrará cuando los usuarios presionen la tecla `Alt`.
 
-If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+Si el menu bar ya está visible, estableciendo esta propiedad a `true` no lo ocultará inmediatamente.
 
 #### `win.simpleFullScreen`
 
@@ -632,7 +632,7 @@ A `String` property that determines the title of the native window.
 
 #### `win.minimizable`
 
-A `Boolean` property that determines whether the window can be manually minimized by user.
+Una propiedad `Boolean` que determina si la ventana puede ser minimizada manualmente por el usuario.
 
 On Linux the setter is a no-op, although the getter returns `true`.
 
@@ -1022,7 +1022,7 @@ Devuelve `Integer[]` - Contiene la posición actual de la ventana.
 
 #### `win.setTitle(title)`
 
-* `title` String
+* `title` Cadena
 
 Cambia el título de la ventana nativa a `title`.
 
@@ -1212,7 +1212,7 @@ Establece el valor del progreso en el progress bar. Rango valido es [0, 1.0].
 
 Elimina la barra de progreso cuando el progreso es < 0; cambia a modo indeterminado cuando el progreso es >1.
 
-En la plataforma Linux, solo es compatible con el environment de escritorio Unity. Se necesita especificar el nombre del archivo `*.desktop` en el campo `desktopName` dentro de `package.json`. By default, it will assume `{app.name}.desktop`.
+En la plataforma Linux, solo es compatible con el environment de escritorio Unity. Se necesita especificar el nombre del archivo `*.desktop` en el campo `desktopName` dentro de `package.json`. Por defecto, será asumido `{app.name}.desktop`.
 
 En Windows, se puede pasar de modo. Los valores aceptados son `none`, `normal`, `indeterminate`, `error`, y `paused`. Si se llama a`setProgressBar` sin establecer un modo (pero con un valor dentro del rango válido), se asumirá el modo `normal`.
 
@@ -1451,7 +1451,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Configura el plano de la touchBar para la ventana actual. Espeficando `null` o `undefined` elimina la barra táctil. Este método solo es efectivo si la máquina tiene una barra táctil y si se está ejecutando en macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Nota:** Actualmente la API TouchBar es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

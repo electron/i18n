@@ -35,7 +35,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### Event: 'detach'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
@@ -44,7 +44,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 #### Event: 'message'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `method` String - Method name.

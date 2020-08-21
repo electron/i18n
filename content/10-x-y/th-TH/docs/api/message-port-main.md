@@ -8,7 +8,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessagePortMain
 
-Messages
+Messages </a>
 
 ### Instance Methods
 

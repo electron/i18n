@@ -1,4 +1,4 @@
-# autoUpdater
+# pembaruan otomatis
 
 > Aktifkan aplikasi untuk memperbarui dirinya secara otomatis.
 
@@ -34,34 +34,31 @@ Tidak seperti Squirrel.Mac, Windows dapat menginangi update pada S3 atau host fi
 
 Objek `autoUpdater` memancarkan peristiwa berikut:
 
-### Acara: 'kesalahan'
+### Sinyal: 'Error'
 
-Mengembalikan:
+Pengembalian:
 
-* ` error </ 0> Kesalahan</li>
-</ul>
+* Kesalahan `kesalahan`
 
-<p spaces-before="0">Emitted saat ada error saat mengupdate.</p>
+Emitted saat ada error saat mengupdate.
 
-<h3 spaces-before="0">Sinyal: 'check-for-update'</h3>
+### Sinyal: 'check-for-update'
 
-<p spaces-before="0">Emitted saat memeriksa apakah update telah dimulai.</p>
+Emitted saat memeriksa apakah update telah dimulai.
 
-<h3 spaces-before="0">Sinyal: 'update-available'</h3>
+### Sinyal: 'update-available'
 
-<p spaces-before="0">Emitted when there is an available update. The update is downloaded
-automatically.</p>
+Emitted when there is an available update. The update is downloaded automatically.
 
-<h3 spaces-before="0">Sinyal: 'update-not-available'</h3>
+### Sinyal: 'update-not-available'
 
-<p spaces-before="0">Emitted saat tidak ada update yang tersedia.</p>
+Emitted saat tidak ada update yang tersedia.
 
-<h3 spaces-before="0">Sinyal: 'update-download'</h3>
+### Sinyal: 'update-download'
 
-<p spaces-before="0">Mengembalikan:</p>
+Pengembalian:
 
-<ul>
-<li><code>event` Sinyal
+* `event` Sinyal
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Tanggal
@@ -79,7 +76,7 @@ This event is emitted after a user calls `quitAndInstall()`.
 
 When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
-## Methods
+## Metode
 
 Objek `autoUpdater` memiliki metode berikut:
 

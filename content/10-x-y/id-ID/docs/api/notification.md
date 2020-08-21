@@ -50,7 +50,7 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 
 
 
-### Contoh peristiwa
+### Perihal contoh
 
 Objek yang dibuat dengan ` Pemberitahuan baru </ 0> memancarkan peristiwa berikut:</p>
 
@@ -58,7 +58,7 @@ Objek yang dibuat dengan ` Pemberitahuan baru </ 0> memancarkan peristiwa beriku
 
 <h4 spaces-before="0">Acara : 'show'</h4>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Returns:</p>
 
 <ul>
 <li><code>event` Sinyal</li> </ul> 
@@ -67,10 +67,10 @@ Emitted saat pemberitahuan ditunjukkan kepada pengguna, perhatikan bahwa ini dap
 
 <h4 spaces-before="0">Acara : 'klik'</h4>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Mengirimkan:</p>
 
 <ul>
-<li><code>event` Sinyal</li> </ul> 
+<li><code>peristiwa` Peristiwa</li> </ul> 
 
 Emitted saat notifikasi diklik oleh pengguna.
 
@@ -78,21 +78,22 @@ Emitted saat notifikasi diklik oleh pengguna.
 
 #### Acara : 'dekat'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `event</ 0> Acara</li>
+</ul>
 
-Emitted saat notifikasi ditutup dengan intervensi manual dari pengguna.
+<p spaces-before="0">Emitted saat notifikasi ditutup dengan intervensi manual dari pengguna.</p>
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+<p spaces-before="0">This event is not guaranteed to be emitted in all cases where the notification
+is closed.</p>
 
+<h4 spaces-before="0">Acara : 'balas' <em x-id="4"> macos </ 0></h4>
 
+<p spaces-before="0">Pengembalian:</p>
 
-#### Acara : 'balas' _ macos </ 0></h4> 
-
-Mengembalikan:
-
-* `event` Sinyal
+<ul>
+<li><code>acara` Acara
 * ` balasan</ 0>  String - String yang dimasukkan pengguna ke kolom dibarisan balasan.</li>
 </ul>
 
@@ -100,14 +101,14 @@ Mengembalikan:
 
 <h4 spaces-before="0">Acara: 'aktifkan' <em x-id="4"> macOS </ 0></h4>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Pengembalian:</p>
 
 <ul>
-<li><code>event` Sinyal
+<li><code>acara` Acara
 * ` masukkan </ 0>  Nomor - Indeks tindakan yang diaktifkan.</li>
 </ul>
 
-<h3 spaces-before="0">Методы экземпляра</h3>
+<h3 spaces-before="0">Metode Contoh</h3>
 
 <p spaces-before="0">Objek yang dibuat dengan <code> Notifikasi baru </ 0> memiliki metode contoh berikut:</p>
 
@@ -124,7 +125,7 @@ Dismisses the notification.
 
 
 
-### Instance Properties
+### Contoh properti
 
 
 

@@ -2,7 +2,7 @@
 
 > Render and control web pages.
 
-Messages
+Messages </a>
 
 `webContents` is an [EventEmitter][event-emitter]. It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -43,7 +43,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-Messages
+Messages </a>
 
 ### Instance Events
 

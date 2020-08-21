@@ -20,4 +20,4 @@
   * `low`
   * `medium`
   * `high`
-  * `unknown`
+  * `未知`

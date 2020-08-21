@@ -2,7 +2,7 @@
 
 > Журналирование сетевых событий сессии.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 ```javascript
 const { netLog } = require('electron')

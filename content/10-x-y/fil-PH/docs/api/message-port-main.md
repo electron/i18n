@@ -31,7 +31,7 @@ Disconnects the port, so it is no longer active.
 
 #### Pangyayari: 'mensahe'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `messageEvent` Object
   * `data` any
@@ -39,7 +39,7 @@ Pagbabalik:
 
 Emitted when a MessagePortMain object receives a message.
 
-#### Event: 'isara'
+#### Event: 'close'
 
 Emitted when the remote end of a MessagePortMain object becomes disconnected.
 

@@ -1,6 +1,6 @@
 # Inicio Rápido
 
-Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un sistema de tiempo de ejecución con poderosas APIs nativas (sistema operativo). Puedes verlo como una variante del sistema de tiempo de ejecución Node.js enfocada en aplicaciones de escritorio en lugar de servidores web.
+Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un motor en tiempo de ejecución con poderosas APIs nativas (sistema operativo). You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
 
 El anterior documento "Inicio Rápido" que solías ver aquí, ha sido dividido en dos documentos:
 

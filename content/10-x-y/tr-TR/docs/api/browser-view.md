@@ -2,14 +2,14 @@
 
 > Görünüm yaratın ve kontrol edin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Çocuk pencere gibidir ama sahibi pencereye göre göreceli konumlandırılır. `webview` etiketine bir alternatif olarak düşünülebilir.
 
 ### Örnek
 
 ```javascript
-// Ana işlem içinde.
+// Ana süreçte.
 const { BrowserView, BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
@@ -43,7 +43,7 @@ Dönüt `BrowserView | null`-BrowserView içeriği tarafından bir BrowserView a
 
 `BrowserView` döner - `id` ile birlikte girilen view.
 
-### Örnek özellikleri
+### Örnek Özellikleri
 
 `new BrowserView` şeklinde yaratılan objeler, aşağıdaki özelliklere sahiptir:
 
@@ -55,7 +55,7 @@ Bu view tarafından sahip olunan bir [`WebContents`](web-contents.md).
 
 View'in eşsiz ID'sini temsil eden bir `Tamsayı`.
 
-### Örnek yöntemleri
+### Örnek Metodlar
 
 `new BrowserView` ile yaratılan objeler aşağıdaki metodlara sahiptir:
 

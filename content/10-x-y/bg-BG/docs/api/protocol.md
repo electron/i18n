@@ -82,7 +82,7 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
 
 ### `protocol.registerFileProtocol(scheme, handler)`
 
-* `scheme` String
+* `схема` Низ
 * `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
@@ -98,7 +98,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
 
 ### `protocol.registerBufferProtocol(scheme, handler)`
 
-* `scheme` String
+* `схема` Низ
 * `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
@@ -120,7 +120,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `protocol.registerStringProtocol(scheme, handler)`
 
-* `scheme` String
+* `схема` Низ
 * `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
@@ -134,7 +134,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 ### `protocol.registerHttpProtocol(scheme, handler)`
 
-* `scheme` String
+* `схема` Низ
 * `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
@@ -148,7 +148,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 ### `protocol.registerStreamProtocol(scheme, handler)`
 
-* `scheme` String
+* `схема` Низ
 * `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
@@ -194,7 +194,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.unregisterProtocol(scheme)`
 
-* `scheme` String
+* `схема` Низ
 
 Returns `Boolean` - Whether the protocol was successfully unregistered
 
@@ -202,13 +202,13 @@ Unregisters the custom protocol of `scheme`.
 
 ### `protocol.isProtocolRegistered(scheme)`
 
-* `scheme` String
+* `схема` Низ
 
 Returns `Boolean` - Whether `scheme` is already registered.
 
 ### `protocol.interceptFileProtocol(scheme, handler)`
 
-* `scheme` String
+* `схема` Низ
 * `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
@@ -220,7 +220,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptStringProtocol(scheme, handler)`
 
-* `scheme` String
+* `схема` Низ
 * `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
@@ -232,7 +232,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptBufferProtocol(scheme, handler)`
 
-* `scheme` String
+* `схема` Низ
 * `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
@@ -244,7 +244,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptHttpProtocol(scheme, handler)`
 
-* `scheme` String
+* `схема` Низ
 * `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
@@ -256,7 +256,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptStreamProtocol(scheme, handler)`
 
-* `scheme` String
+* `схема` Низ
 * `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
@@ -268,7 +268,7 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 
 ### `protocol.uninterceptProtocol(scheme)`
 
-* `scheme` String
+* `схема` Низ
 
 Returns `Boolean` - Whether the protocol was successfully unintercepted
 
@@ -276,7 +276,7 @@ Remove the interceptor installed for `scheme` and restore its original handler.
 
 ### `protocol.isProtocolIntercepted(scheme)`
 
-* `scheme` String
+* `схема` Низ
 
 Returns `Boolean` - Whether `scheme` is already intercepted.
 

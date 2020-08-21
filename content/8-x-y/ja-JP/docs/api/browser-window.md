@@ -29,7 +29,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## ウインドウを違和感なく表示する
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+ウインドウにページを直接ロードすると、ユーザにはページが徐々にロードされるように見えるかもしれません。これはネイティブアプリとしては良い挙動ではありません。 ちらつかせることなくウインドウを表示するには、さまざまな状況に応じた 2 つの解決策があります。
 
 ## `ready-to-show` イベントを使用する
 
@@ -206,10 +206,10 @@ child.once('ready-to-show', () => {
     * `defaultEncoding` String (任意) - 省略値は、`ISO-8859-1` です。
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は `false` 。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
-    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、潜在的に信頼できないリモートコンテンツをロードする際、ロードされたコンテンツが `preload` スクリプトや使用されているElectron APIを悪用することができないようにするときに使用する必要があります。 このオプションは、[Chromeのコンテンツスクリプト][chrome-content-scripts]で使用されているのと同じ手法を使用します。 Consoleタブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスすることができます。
+    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されるコンテキストでは `document` と `window` グローバル変数に完全にアクセスできますが、それ独自の JavaScript ビルドインセット (`Array`, `Object`, `JSON` など) を使用します。 これによりロードされたページによるグローバル環境の変更を分離します。 Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、潜在的に信頼できないリモートコンテンツをロードする際、ロードされたコンテンツが `preload` スクリプトや使用されているElectron APIを悪用することができないようにするときに使用する必要があります。 このオプションは、[Chromeのコンテンツスクリプト][chrome-content-scripts]で使用されているのと同じ手法を使用します。 Consoleタブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスすることができます。
     * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 現在、これは実験的な機能です。
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は `false` 。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
-    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
+    * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。  小規模なデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
     * `safeDialogs` Boolean (任意) - ブラウザによる連続ダイアログ保護を有効にするかどうか。 省略値は、`false` です。
     * `safeDialogsMessage` String (任意) - 連続したダイアログからの保護が機能したときに表示されるメッセージ。 定義されていなければデフォルトメッセージが使われますが、現在のデフォルトメッセージは英語であり、ローカライズされていないことに注意してください。
     * `disableDialogs` Boolean (任意) - ダイアログを完全に無効化するかどうか。 `safeDialogs` を上書きします。 省略値は、`false` です。
@@ -218,7 +218,7 @@ child.once('ready-to-show', () => {
     * `disableHtmlFullscreenWindowResize` Boolean (任意) - HTML フルスクリーンになった時にウィンドウのサイズ変更を禁止するかどうか。 省略値は `false` です。
     * `accessibleTitle` String (任意) - スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトル文字列。 この文字列はユーザに直接表示されません。
     * `spellcheck` Boolean (任意) - 組み込みスペルチェックを有効にするかどうか。 省略値は、`false` です。
-    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). 省略値は `true` です。
+    * `enableWebSQL` Boolean (任意) - [WebSQL API](https://www.w3.org/TR/webdatabase/) を有効にするかどうか。 省略値は `true` です。
     * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
       * `none` - Disables code caching
       * `code` - Heuristic based code caching
@@ -861,11 +861,11 @@ Returns `Boolean` - whether the window is enabled.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by the user.
+ウインドウがユーザによって手動でサイズ変更できるかどうかを設定します。
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by the user.
+戻り値 `Boolean` - ウインドウがユーザによって手動でサイズ変更できるかどうか。
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
@@ -887,7 +887,7 @@ Linuxでは常に `true` を返します。
 
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually minimized by the user.
+戻り値 `Boolean` - ウインドウがユーザによって手動で最小化できるかどうか。
 
 Linuxでは常に `true` を返します。
 
@@ -907,11 +907,11 @@ Linuxでは常に `true` を返します。
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるか、ウインドウを最大化するかを設定します。
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+戻り値 `Boolean` - ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるのか、それともウインドウを最大化するのか。
 
 #### `win.setClosable(closable)` _macOS_ _Windows_
 
@@ -1268,7 +1268,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 ウィンドウのメニューバーを自動的に非表示にするかどうかを設定します。 一度設定されると、メニューバーはユーザが単独で `Alt` キーを押したときのみに表示されます。
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+メニューバーが既に表示されている場合、`setAutoHideMenuBar(true)` を呼び出してもすぐに非表示にはなりません。
 
 #### `win.isMenuBarAutoHide()`
 
@@ -1278,7 +1278,7 @@ If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hid
 
 * `visible` Boolean
 
-メニューバーを表示するかどうかを設定します。 If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+メニューバーを表示するかどうかを設定します。 メニューバーが自動的に非表示にされている場合でも、ユーザが単に `Alt` キーを押下すれば、依然としてメニューバーを表示させることができます。
 
 #### `win.isMenuBarVisible()`
 

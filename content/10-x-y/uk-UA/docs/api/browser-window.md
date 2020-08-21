@@ -1451,7 +1451,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Встановлює шаблон touchBar для почотного вікна. Зазначення `null` чи `undefined` очищує панель дотиків. Цей метод має ефект тільки, якщо машина має панель дотиків та запущена на macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Примітка:** TouchBar API наразі експериментальне і може бути видалене в майбутніх версіях Electron.
 
 #### `win.setBrowserView(browserView)` _Експериментальний_
 

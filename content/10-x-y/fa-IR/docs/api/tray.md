@@ -61,7 +61,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Instance Events
+### رویدادها نمونه
 
 The `Tray` module emits the following events:
 
@@ -186,7 +186,7 @@ Returns:
 
 Emitted when the mouse moves in the tray icon.
 
-### Instance Methods
+### روشهای نمونه
 
 The `Tray` class has the following methods:
 
@@ -214,7 +214,7 @@ Sets the hover text for this tray icon.
 
 #### `tray.setTitle(title)` _macOS_
 
-* `title` String
+* `عنوان` رشته
 
 Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
 
@@ -236,10 +236,10 @@ Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` _Windows_
 
-* `options` Object
+* `گزینه های` ObjectIrN 98
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
-  * `title` String
+  * `عنوان` رشته
   * `content` String
   * `largeIcon` Boolean (optional) - The large version of the icon should be used. Default is `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
   * `noSound` Boolean (optional) - Do not play the associated sound. Default is `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].

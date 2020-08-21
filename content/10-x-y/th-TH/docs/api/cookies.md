@@ -2,7 +2,7 @@
 
 > Query and modify a session's cookies.
 
-Messages
+Messages </a>
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 

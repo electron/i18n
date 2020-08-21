@@ -85,7 +85,7 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Funzione
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully registered
@@ -101,7 +101,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Funzione
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully registered
@@ -123,7 +123,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Funzione
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully registered
@@ -137,7 +137,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Funzione
     * `response` ProtocolResponse
 
 Returns `Boolean` - Whether the protocol was successfully registered
@@ -151,7 +151,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Funzione
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully registered
@@ -211,7 +211,7 @@ Returns `Boolean` - Whether `scheme` is already registered.
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Funzione
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully intercepted
@@ -223,7 +223,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Funzione
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully intercepted
@@ -235,7 +235,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Funzione
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully intercepted
@@ -247,7 +247,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Funzione
     * `response` [ProtocolResponse](structures/protocol-response.md)
 
 Returns `Boolean` - Whether the protocol was successfully intercepted
@@ -259,7 +259,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `schema` Stringa
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Funzione
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully intercepted

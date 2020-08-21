@@ -12,11 +12,13 @@
 <li><code> video_encode </ 0>  String - Video Encode.</li>
 <li><code>vpx_decode` String - VPx Video Decode.
 * ` webgl </ 0>  String - WebGL.</li>
-<li><code>webgl2` String - WebGL2.
+<li><code> webgl2 </ 0>  String - WebGL2.</li>
+</ul>
 
-Nilai yang mungkin:
+<p spaces-before="0">Nilai yang mungkin:</p>
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
+<ul>
+<li><code>disabled_software` - Hanya pada perangkat lunak. Akselerasi perangkat keras dinonaktifkan (kuning)
 *  disabled_off </ 0> - Dimatikan (merah)</li>
 <li><code> disabled_off_ok </ 0> - Dinonaktifkan (kuning)</li>
 <li><code> unavailable_software </ 0> - Perangkat lunak saja, akselerasi perangkat keras tidak tersedia (kuning)</li>

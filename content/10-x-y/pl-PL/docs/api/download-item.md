@@ -7,7 +7,7 @@ Proces: [Main](../glossary.md#main-process)
 `DownloadItem` to [EventEmitter][event-emitter], który reprezentuje pobrany przedmiot w Electronie. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
 ```javascript
-// W procesie głównym.
+//W głównym procesie.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
@@ -35,7 +35,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Zdarzenia instancji
+### Wydarzenia instancji
 
 #### Zdarzenie: 'updated'
 

@@ -64,7 +64,7 @@ The following events are available on instances of `Session`:
 
 Връща:
 
-* `event` Събитие
+* `event` Event
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 

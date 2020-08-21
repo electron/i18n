@@ -2,7 +2,7 @@
 
 > Uygulamanızın olay yaşam döngüsünü kontrol edin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 Aşağıdaki örnek, son pencere kapatıldığında uygulamadan nasıl çıkılacağını göstermektedir:
 
@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## Etkinlikler
 
 `app` nesnesi aşağıdaki olaylarla ortaya çıkar:
 
@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. Windows ve Linux'ta, `bitiş başlatma` olayı, `hazır` etkinliği ile aynıdır; macOS'ta bu olay, `NSApplication` 'in `applicationWillFinishLaunching` bildirimini temsil eder. Genellikle, `açık dosya` ve `açık-url` olayları için dinleyicileri ayarlarsınız ve çökme muhabirini ve otomatik güncelleyiciyi başlatırsınız.
 
-In most cases, you should do everything in the `ready` event handler.
+Genellikle `ready` event handler durumunda kullanmalısınız.
 
 ### Etkinlik: 'hazır'
 
@@ -41,7 +41,7 @@ Bu etkinliğe abone değilseniz ve tüm pencereler kapalıysa, varsayılan davra
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
@@ -65,7 +65,7 @@ Arasındaki farklar için `tüm-pencereler-kapalı` olayının açıklamasına b
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `çıkışKodu` Tamsayı
 
 Uygulama kesildiğinde ortaya çıkar.
@@ -76,8 +76,8 @@ Uygulama kesildiğinde ortaya çıkar.
 
 Dönüşler:
 
-* `event` Event
-* `path` Dizgi
+* `event` Olay
+* dizi `yolu`
 
 Kullanıcı uygulama ile bir dosya açmak istediğinde ortaya çıkar. `open-file` olayı genellikle uygulama zaten açık olduğunda ve OS dosyayı açmak için uygulamayı tekrar kullanmak istediğinde yayınlanır. Dock'a bir dosya düştüğünde ve uygulama henüz çalışmadığında da `open-file` yayınlanır. Bu olayı işlemek için (`hazır` olayı yayından önce bile olsa), uygulamanın başlangıç ​​işleminin çok erken bir aşamasında `açık dosya` olayını dinlediğinizden emin olun.
 
@@ -89,8 +89,8 @@ Windows'ta, dosya yolunu almak için (ana süreçte) `process.argv` ayrıştırm
 
 Dönüşler:
 
-* `event` Event
-* `url` String
+* `event` Olay
+* `url` Dize
 
 Kullanıcı uygulama ile bir url açmak istediğinde ortaya çıkar. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
@@ -100,7 +100,7 @@ Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gereki
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `hasVisibleWindows` Boolean
 
 Uygulama etkinleştirildiğinde ortaya çıkar. Uygulamayı ilk kez başlatmak, uygulamayı zaten çalıştırırken yeniden başlatmaya çalışmak veya uygulamanın yükleme istasyonu veya görev çubuğu simgesini tıklatmak gibi çeşitli eylemler bu olayı tetikleyebilir.
@@ -109,8 +109,8 @@ Uygulama etkinleştirildiğinde ortaya çıkar. Uygulamayı ilk kez başlatmak, 
 
 Dönüşler:
 
-* `event` Event
-* xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`][activity-type]'a haritalar.
+* `event` Olay
+* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`][activity-type]'a haritalar.
 * `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 Farklı bir cihazdan bir etkinlik sürdürmek istediğinde [Handoff][handoff] sırasında ortaya çıkar. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
@@ -121,8 +121,8 @@ Bir kullanıcı etkinliği yalnızca, etkinliğin kaynak uygulamasıyla aynı ge
 
 Dönüşler:
 
-* `event` Event
-* xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`][activity-type]'a haritalar.
+* `event` Olay
+* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`][activity-type]'a haritalar.
 
 Farklı bir cihazdan gelen bir etkinlik yeniden başlatılmadan önce [Handoff][handoff] o esnada ortaya çıkar. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
@@ -130,8 +130,8 @@ Farklı bir cihazdan gelen bir etkinlik yeniden başlatılmadan önce [Handoff][
 
 Dönüşler:
 
-* `event` Event
-* xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`][activity-type]'a haritalar.
+* `event` Olay
+* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`][activity-type]'a haritalar.
 * `error` dize - hatanın yerelleştirilmiş açıklamasına sahip bir dizedir.
 
 [Handoff][handoff] sırasında farklı bir cihazdaki bir etkinliğin başarısız olması durumunda ortaya çıkıyor.
@@ -140,8 +140,8 @@ Dönüşler:
 
 Dönüşler:
 
-* `event` Event
-* xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`][activity-type]'a haritalar.
+* `event` Olay
+* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`][activity-type]'a haritalar.
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Bu cihazdan bir etkinlik başarıyla yürütüldüğünde [Handoff][handoff] o sırada ortaya çıkıyor.
@@ -150,8 +150,8 @@ Bu cihazdan bir etkinlik başarıyla yürütüldüğünde [Handoff][handoff] o s
 
 Dönüşler:
 
-* `event` Event
-* xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`][activity-type]'a haritalar.
+* `event` Olay
+* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`][activity-type]'a haritalar.
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
 [Handoff][handoff] başka bir cihazda yeniden başlatılmaya çalışıldığında yayınlanır. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
@@ -160,7 +160,7 @@ Dönüşler:
 
 Dönüşler:
 
-* `event` Event
+* `event` Etkinlik
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
@@ -168,7 +168,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `browserView` [BrowserView](browser-window.md)
 
 Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
@@ -177,7 +177,7 @@ Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `browserView` [BrowserView](browser-window.md)
 
 Bir [borwserWindow](browser-window.md)'a odaklanıldığında ortaya çıkar.
@@ -186,7 +186,7 @@ Bir [borwserWindow](browser-window.md)'a odaklanıldığında ortaya çıkar.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `browserView` [BrowserView](browser-window.md)
 
 Yeni bir [borwserWindow](browser-window.md) oluşturulduğunda ortaya çıkar.
@@ -195,7 +195,7 @@ Yeni bir [borwserWindow](browser-window.md) oluşturulduğunda ortaya çıkar.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 
 Yeni bir [webContents](web-contents.md) oluşturulduğunda ortaya çıkar.
@@ -204,12 +204,12 @@ Yeni bir [webContents](web-contents.md) oluşturulduğunda ortaya çıkar.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
-* `url` String
+* `url` Dize
 * `error` Dizi - Hata Kodu
 * `certificate` [sertifika](structures/certificate.md)
-* `callback` Fonksiyon
+* `callback` Function
   * `isTrusted` Boolean - Sertifikanın güvenilir olup olmadığını göz önünde bulundur
 
 Çıkarıldığında `url` için `certificate` doğrulama hatası oluştu, sertifikaya güvenmek için temel davranışın oluşmasını `event.preventDefault()` ile engelleyin ve `callback(true)` arayın.
@@ -232,11 +232,11 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `url` URL
 * `certificateList` [Sertifika[]](structures/certificate.md)
-* `callback` Fonksiyon
+* `callback` Function
   * `certificate` [Sertifika](structures/certificate.md) (isteğe bağlı)
 
 Bir istemci sertifikası talep edildiğinde yayılır.
@@ -256,17 +256,17 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
   * `isProxy` Boolean
-  * `scheme` Dizi
+  * `scheme` String
   * `host` Dizi
   * `port` Tamsayı
   * `realm` Dizi
-* `callback` Fonksiyon
+* `callback` Function
   * `username` String (optional)
   * `password` String (optional)
 
@@ -293,7 +293,7 @@ Emitted whenever there is a GPU info update.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `killed` Boolean
 
 Emitted when the GPU process crashes or is killed.
@@ -302,7 +302,7 @@ Emitted when the GPU process crashes or is killed.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `killed` Boolean
 
@@ -314,7 +314,7 @@ Emitted when the renderer process of `webContents` crashes or is killed.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `details` Object
   * `reason` String - The reason the render process is gone.  Olası değerler:
@@ -332,7 +332,7 @@ Emitted when the renderer process unexpectedly dissapears.  This is normally bec
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `accessibilitySupportEnabled` Boolean - `true` Chrome'un ulaşılabilirlik desteği etkinken, o zaman `false`.
 
 Chrome'un erişilebilirlik takviyesi değiştiğinde ortaya çıkar. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin etkinleştirilmesi veya devre dışı bırakılmasında tetiklenir. Daha detaylı bilgi için https://www.chromium.org/developers/design-documents/accessibility ziyaret edin.
@@ -357,7 +357,7 @@ app.on('session-created', (session) => {
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `argv` Dizi[] - İkinci aşamanın komuta satırı argümanları sırası
 * `workingDirectory` Dizi - İkinci aşamanın çalışma dizini
 
@@ -375,7 +375,7 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
@@ -384,7 +384,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `moduleName` String
 
@@ -394,7 +394,7 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `globalName` String
 
@@ -404,7 +404,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process of `webConte
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `moduleName` String
 
@@ -414,7 +414,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process of `webCont
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -423,7 +423,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process of `w
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -456,7 +456,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 Yürürlükteki oluşum tamamlandığında uygulamayı yeniden başlatır (relaunch).
 
-By default, the new instance will use the same working directory and command line arguments with current instance. `args` belirtildiğinde, `args` komut satırı değişkenlerinin yerini alır. `execPath` belirtildiğinde, yeniden başlatma yürürlükteki uygulama yerine `execPath` için uygulanır.
+Varsayılan olarak, yeni örnek aynı çalışma dizinini ve hali hazırdaki örneğin komut satırı argümanlarını kullanacaktır. `args` belirtildiğinde, `args` komut satırı değişkenlerinin yerini alır. `execPath` belirtildiğinde, yeniden başlatma yürürlükteki uygulama yerine `execPath` için uygulanır.
 
 Bu metodun uygulandığında uygulamadan çıkış yapmadığını unutmayın, uygulamayı yeniden başlatmak (restart) için `app.relaunch`'u çağırdıktan sonra `app.quit`'i veya `app.exit`'ı çağırmanız mecburidir.
 
@@ -538,7 +538,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 ### `app.getFileIcon(path[, options])`
 
-* `path` Dizgi
+* dizi `yolu`
 * `options` Object (optional)
   * `size` String
     * `küçük` - 16x16
@@ -558,8 +558,8 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 ### `app.setPath(isim, yol)`
 
-* `name` String
-* `path` Dizgi
+* `name` Dizi
+* dizi `yolu`
 
 `name` ile ilişkilendirilen özel bir dizine veya dosyaya giden dosya yolunu (`path`) baştan tanımlar. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
@@ -580,7 +580,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.setName(name)`
 
-* `name` String
+* `name` Dizi
 
 Mevcut uygulamanın ismini geçersiz kılar.
 
@@ -604,7 +604,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 ### `app.addRecentDocument(yol)` _macOS_ _Windows_
 
-* `path` Dizgi
+* dizi `yolu`
 
 Son dokümanlar listesine `yol` ekler.
 
@@ -693,7 +693,7 @@ Uygulama için özel bir Atlama Listesi'ni ayarlar veya kaldırır ve aşağıda
 
 `kategorileri` `boş` ise, önceden ayarlanmış Özel Geçiş Listesi (varsa) olacaktır. yerine uygulama için standart Git Listesi (Windows tarafından yönetilen) değiştirildi.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Eğer `name` özelliği ayarlanmış fakat `type` göz ardı edilmişse yine `type` ın `custom` olduğu varsayılır.
+**Not:** Eğer bir `JumpListCategory` nesnesinin ne `type` ne de `name` özelliği ayarlanmamışsa `type` ının `tasks` olduğu varsayılır. Eğer `name` özelliği ayarlanmış fakat `type` göz ardı edilmişse yine `type` ın `custom` olduğu varsayılır.
 
 **Not**: Kullanıcılar öğeleri özel kategorilerden kaldırabilir ve Windows kaldırılan bir öğe'nin **tekrar** olana kadar özel bir kategoriye eklenmesine izin verin bir sonraki başarılı çağrı: `app.setJumpList (categories)`. Herhangi bir girişim öğesi kaldırılmış, daha önce özel bir kategoriye yeniden eklemek, tüm özel kategorinin Jump Listesi'nden çıkarılmasıdır. Bu kaldırılan öğelerin listesini `app.getJumpListSettings()`. kullanarak elde edebilirsiniz.
 
@@ -817,13 +817,13 @@ Döndür ` Dizgi </ 0> - Halen çalışan etkinliğin türü.</p>
 
 <h3 spaces-before="0"><code>app.invalidateCurrentActivity()` _macOS_</h3>
 
-Invalidates the current [Handoff][handoff] user activity.
+Geçerli [Handoff][handoff] kullanıcı etkinliğini geçersiz kılar.
 
 ### `app.resignCurrentActivity()` _macOS_
 
 Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
 
-### `app.updateCurrentActivity(type, userInfo)` _macOS_
+### `systemPapp.updateCurrentActivity(type, userInfo)` _macOS_
 
 * `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`][activity-type]'a haritalar.
 * `userInfo` any - App-specific state to store for use by another device.
@@ -834,7 +834,7 @@ Türü `type` ile eşleşiyorsa geçerli etkinliği günceller, y`userInfo`'den 
 
 * `kimlik` dizesi
 
-Changes the [Application User Model ID][app-user-model-id] to `id`.
+Daha fazla bilgi için [Windows Dokümanlarına][app-user-model-id] bakın.
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
@@ -852,7 +852,7 @@ Activation policy types:
 * `options` Object
   * `sertifika` Dize - pkcs12 dosyasının yolunu girin.
   * `şifre` Dize - sertifika için parola.
-* `callback` Fonksiyon
+* `callback` Function
   * `sonuç` Tamsayı - sonuç alma
 
 Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -970,7 +970,7 @@ If you provided `path` and `args` options to `app.setLoginItemSettings`, then yo
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
 * `settings` Object 
-    * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Varsayılan değer `false`.
+    * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Varsayılanı `false` olarak belirler.
   * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Varsayılan olarak değer `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds][mas-builds].
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
@@ -1035,7 +1035,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Panelle ilgili seçenekleri ayarlayın. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs][about-panel-options] for more details. On Linux, values must be set in order to be shown; there are no defaults.
+Panelle ilgili seçenekleri ayarlayın. This will override the values defined in the app's `.plist` file on macOS. Bakınız [Apple docs][about-panel-options] daha fazla detay için. On Linux, values must be set in order to be shown; there are no defaults.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1177,13 +1177,12 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Not:** Birlik Başlatıcısı çalışması için `. Masaüstü dosyasının olması gerekir. Daha fazla bilgi için lütfen <a href="../tutorial/desktop-environment-integration.md#unity-launcher" f-id="unity-requirement" fo="10"> masaüstü ortamı entegrasyonu bölümünü okuyun</a>.</p>
 
-**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
+<p spaces-before="0"><strong x-id="1">Note:</strong> On macOS, you need to ensure that your application has the permission
+to display notifications for this property to take effect.</p>
 
-
-
-### `app.commandLine` _Readonly_
+<h3 spaces-before="0"><code>app.commandLine` _Readonly_</h3> 
 
 A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
 

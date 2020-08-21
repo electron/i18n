@@ -1,6 +1,6 @@
 # Objek JumpListCategory
 
-* `type` String (optional) - One of the following:
+* `type` String (opsional) - Salah satu dari:
   * `tasks` - Items in this category will be placed into the standard `Tasks` category. Hanya ada satu kategori seperti itu, dan itu akan selalu ditampilkan di bagian bawah Daftar Langsung.
   * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
   * ` recent </ 0> - Menampilkan daftar file yang baru dibuka oleh aplikasi, nama kategori dan itemnya ditetapkan oleh Windows . Item dapat ditambahkan ke kategori ini secara tidak langsung menggunakan <code> app.addRecentDocument (path) </ 0> .</li>
@@ -11,4 +11,5 @@
  <code> kustom < / 0> , jika tidak maka harus dihilangkan.</p></li>
 </ul>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> If a <code>JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.</p>
+<p spaces-before="0"><strong x-id="1"> Catatan: </ 0> Jika objek <code> JumpListCategory </ 1> tidak memiliki <code> tipe </ 1> atau <code> nama </ 1> 
+properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> . If the <code>name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.</p>

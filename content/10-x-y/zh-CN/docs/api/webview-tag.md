@@ -12,7 +12,7 @@ By default the `webview` tag is disabled in Electron >= 5.  在构造 `BrowserWi
 
 > 在一个独立的 frame 和进程里显示外部 web 内容。
 
-进程: [渲染进程](../glossary.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. 应用中的嵌入页面可以控制外来内容的布局和重绘。
 
@@ -804,7 +804,7 @@ Fired when the renderer process is crashed.
 
 返回:
 
-* `name` String
+* `name` 字符串
 * `version` String
 
 Fired when a plugin process is crashed.

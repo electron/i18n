@@ -39,7 +39,7 @@ Si vous n'être pas abonné à cet événement et que toutes les fenêtres sont 
 
 ### Événement : 'before-quit'
 
-Retourne :
+Renvoie :
 
 * `event` Événement
 
@@ -65,7 +65,7 @@ Consultez la description de l’événement `window-all-closed` pour voir les di
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `exitCode` Integer
 
 Émis lorsque l'application se quitte.
@@ -580,7 +580,7 @@ Habituellement, le champ `name` de `package.json` est un nom court en minuscule,
 
 Remplace le nom de l'application actuelle.
 
-**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+**Note:** Cette fonction remplace le nom utilisé en interne par Electron; elle n'affecte pas le nom que l'OS utilise.
 
 ### `app.getLocale()`
 
@@ -689,7 +689,7 @@ Définit ou supprime une JumpList personnalisée pour l'application et renvoie l
 
 Si `cetagories` est `null`, la JumpList personnalisée précédemment définie (si existante) sera remplacée par la JumpList standard de l'application (gérée par Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Si la propriété `name` est définie mais que le `type` est omis, alors le `type` est assumé être `custom`.
+**Remarque :** Si un objet `JumpListCategory` n'a ni de `type` ni de propriété `name` de défini, alors le `type` est assumé être `tasks`. Si la propriété `name` est définie mais que le `type` est omis, alors le `type` est assumé être `custom`.
 
 **Remarque :** Les utilisateurs peuvent supprimer des éléments des catégories personnalisées, et Windows n'autorisera pas l'ajout d'un élément supprimé dans une catégorie personnalisée avant le **prochain** appel réussi à `app.setJumpList(categories)`. Toute tentative de réajouter un élément supprimé à une catégorie personnalisée plus tôt, cela entraînera l'omission de toute la catégorie personnalisée dans la JumpList. La liste des éléments supprimés peut être obtenue à l'aide de `app.getJumpListSettings()`.
 
@@ -812,11 +812,11 @@ Retourne `String` - le type de l’activité en cours d’exécution.
 
 ### `app.invalidateCurrentActivity()` _macOS_
 
-Invalidates the current [Handoff][handoff] user activity.
+Invalide l'activité [Handoff][handoff] courante de l'utilisateur.
 
 ### `app.resignCurrentActivity()` _macOS_
 
-Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
+Marque l'activité actuelle de l'utilisateur [Handoff][handoff] comme inactive sans l'invalider.
 
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
@@ -829,7 +829,7 @@ Modifie l'activité en cours si son type correspond à `type`, en fusionnant les
 
 * `id` String
 
-Changes the [Application User Model ID][app-user-model-id] to `id`.
+Change le [Application User Model ID][app-user-model-id] à `id`.
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
@@ -995,13 +995,13 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` String (optional) - Nom de l'application.
   * `applicationVersion` String (optional) - Version de l'application.
   * `copyright` String (optional) - Information copyright.
-  * `version` String (optional) _macOS_ - The app's build version number.
+  * `version` String (facultatif) _macOS_ - Le numéro de version de l'application.
   * `credits` String (optional) _macOS_ _Windows_ - Credit information.
-  * `authors` String[] (optional) _Linux_ - List of app authors.
-  * `website` String (optional) _Linux_ - The app's website.
+  * `auteurs` String[] (facultatif) _Linux_ - Liste des auteurs d'applications.
+  * `site web` String (facultatif) _Linux_ - Le site web de l'application.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Configure les options de la fenêtre À propos de. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs][about-panel-options] for more details. Sous Linux, les valeurs doivent être définies pour être affichées ; il n'y a pas de valeurs par défaut.
+Configure les options de la fenêtre À propos de. This will override the values defined in the app's `.plist` file on macOS. Voir [la documentation Apple][about-panel-options] pour de plus amples informations. Sous Linux, les valeurs doivent être définies pour être affichées ; il n'y a pas de valeurs par défaut.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. Le premier fichier trouvé est utilisé, et si aucun n'est trouvé, la zone info est laissée vide. Consultez la [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) Apple pour plus d'informations.
 
@@ -1113,7 +1113,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
@@ -1156,6 +1156,7 @@ L'intention est que ces dérogations soient désactivées par défaut, puis à u
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
+[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows

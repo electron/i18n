@@ -33,15 +33,15 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 Metode berikut tersedia pada contoh `WebRequest`:
 
-#### `webRequest.onBeforeRequest([filter, ]pendengar)`
+#### `webRequest.onBeforeRequest ([filter,]pendengar)`
 
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
     * `identitas` Integer
-    * ` url </ 0> String</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `exitCode` Integer (opsional)
     * `Jenissumberdaya` Tali
     * `pengarah` String
@@ -74,16 +74,16 @@ Some examples of valid `urls`:
 '*://www.foo.com/'
 ```
 
-#### `webRequest.onBeforeSendHeaders([filter, ]pendengar)`
+#### `webRequest.onBeforeSendHeaders ([filter,] pendengar)`
 
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
     * `identitas` Integer
-    * ` url </ 0> String</li>
-<li><code>method` String
-    * `exitCode` Integer (opsional)
+    * `url` String
+    * ` path </ 0>  String</li>
+<li><code>exitCode` Integer (opsional)
     * `Jenissumberdaya` Tali
     * `pengarah` String
     * `timestamp` Duakali
@@ -104,8 +104,8 @@ The `callback` has to be called with a `response` object.
 * `listener` Function | null
   * `details` Object
     * `identitas` Integer
-    * ` url </ 0> String</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `exitCode` Integer (opsional)
     * `Jenissumberdaya` Tali
     * `pengarah` String
@@ -114,15 +114,15 @@ The `callback` has to be called with a `response` object.
 
 `pendengar` akan dipanggil dengan `pendengar(rincian)` tepat sebelum permintaan akan dikirim ke server, modifikasi sebelumnya `onBeforeSendHeader` respon terlihat pada saat pendengar ini dipecat.
 
-#### `webRequest.onHeadersReceived([filter, ]pendengar)`
+#### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
     * `identitas` Integer
-    * ` url </ 0> String</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `exitCode` Integer (opsional)
     * `Jenissumberdaya` Tali
     * `pengarah` String
@@ -141,15 +141,15 @@ The `callback` has to be called with a `response` object.
 
 The `callback` has to be called with a `response` object.
 
-#### `webRequest.onResponseStarted([filter, ]listener)`
+#### `webRequest.onResponseStarted([filter, ]pendengar)`
 
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
     * `identitas` Integer
-    * ` url </ 0> String</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `exitCode` Integer (opsional)
     * `Jenissumberdaya` Tali
     * `pengarah` String
@@ -161,15 +161,15 @@ The `callback` has to be called with a `response` object.
 
 Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika byte pertama dari respon tubuh yang diterima. Untuk permintaan HTTP, ini berarti baris status dan header respon tersedia.
 
-#### `webRequest.onBeforeRedirect([filter, ]listener)`
+#### `webRequest.onBeforeRedirect([filter, ]pendengar)`
 
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
     * `identitas` Integer
-    * ` url </ 0> String</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `exitCode` Integer (opsional)
     * `Jenissumberdaya` Tali
     * `pengarah` String
@@ -183,15 +183,15 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika byte perta
 
 `pendengar` akan dipanggil dengan `pendengar(rincian)` saat server memulai redirect akan segera terjadi.
 
-#### `webRequest.onCompleted([filter, ]listener)`
+#### `webRequest.onCompleted([filter, ]pendengar)`
 
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
     * `identitas` Integer
-    * ` url </ 0> String</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `exitCode` Integer (opsional)
     * `Jenissumberdaya` Tali
     * `pengarah` String
@@ -204,15 +204,15 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika byte perta
 
 Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika sebuah permintaan selesai.
 
-#### `webRequest.onErrorOccurred([filter, ]listener)`
+#### `webRequest.onErrorOccurred([filter, ]pendengar)`
 
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
     * `identitas` Integer
-    * ` url </ 0> String</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `exitCode` Integer (opsional)
     * `Jenissumberdaya` Tali
     * `pengarah` String

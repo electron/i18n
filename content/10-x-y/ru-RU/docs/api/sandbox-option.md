@@ -32,7 +32,7 @@ app.whenReady().then(() => {
 
 В приведенном выше коде у созданного [`BrowserWindow`](browser-window.md) отключен Node.js и он может общаться только через IPC. Использование этой опции не позволяет Electron создавать в рендерере среду выполнения Node.js. Also, within this new window `window.open` follows the native behavior (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
-[`app.enableSandbox`](app.md#appenablesandbox) can be used to force `sandbox: true` for all `BrowserWindow` instances.
+[`app.enableSandbox`](app.md#appenablesandbox) может использоваться для принудительной установки `sandbox: true` для всех экземпляров `BrowserWindow`.
 
 ```js
 let win
@@ -90,7 +90,7 @@ window.open = customWindowOpen
 Важные вещи, на которые следует обратить внимание в скрипте предварительной загрузки:
 
 - Несмотря на то, что в песочнице не запущен Node.js, он все равно имеет доступ к ограниченной node-подобной среде: `Buffer`, `process`, `setImmediate`, `clearImmediate` и `require` доступны.
-- Скрипт предварительной загрузки может косвенно получить доступ ко всем API из основного процесса через модули `remote` и `ipcRenderer`.
+- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules.
 - Скрипт для предварительной загрузки должен содержаться в одном скрипте, но может иметь сложный код для предварительной загрузки, состоящий из нескольких модулей, используя такие инструменты, как webpack или browserify. Ниже приведен пример использования browserify.
 
 Чтобы создать пакет browserify пакета и использовать его в качестве скрипта предварительной загрузки, можно сделать что-то вроде этого:

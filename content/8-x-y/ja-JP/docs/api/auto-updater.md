@@ -22,13 +22,13 @@ macOSでは、`autoUpdater` モジュールは [Squirrel.Mac][squirrel-mac] で�
 
 ### Windows
 
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller][installer-lib], [electron-forge][electron-forge-lib] or the [grunt-electron-installer][installer] package to generate a Windows installer.
+Windows で `autoUpdater` を使用するには、アプリをユーザのマシンにインストールする必要があります。[electron-winstaller][installer-lib]、[electron-forge][electron-forge-lib]、[grunt-electron-installer][installer] のいずれかのパッケージで Windows インストーラを生成することを推奨します。
 
-When using [electron-winstaller][installer-lib] or [electron-forge][electron-forge-lib] make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). アプリのデスクトップショートカットを作成する [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) も使用することを推奨します。
+[electron-winstaller][installer-lib] または [electron-forge][electron-forge-lib] を使用する場合、[初回実行時に](https://github.com/electron/windows-installer#handling-squirrel-events) アプリを更新しようとしないようにしてください ([この issue の詳細情報](https://github.com/electron/electron/issues/7155) も参照)。 アプリのデスクトップショートカットを作成する [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) も使用することを推奨します。
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID][app-user-model-id] in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. `app.setAppUserModelId` APIでアプリに対して同じIDを使うようにしてください。そうでないと、Windowsはタスクバーにアプリを正しくピン留めすることができません。
+Squirrel で作成されたインストーラは、例えば、`com.squirrel.slack.Slack` や `com.squirrel.code.Code` といった`com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE` という形式の [アプリケーションユーザ ID][app-user-model-id] を持つショートカットアイコンを作成します。 `app.setAppUserModelId` APIでアプリに対して同じIDを使うようにしてください。そうでないと、Windowsはタスクバーにアプリを正しくピン留めすることができません。
 
-Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイルホストに更新プログラムをホストすることができます。 You can read the documents of [Squirrel.Windows][squirrel-windows] to get more details about how Squirrel.Windows works.
+Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイルホストに更新プログラムをホストすることができます。 Squirrel.Windows の仕組みの詳細については、[Squirrel.Windows][squirrel-windows] のドキュメントをお読みください。
 
 ## イベント
 
@@ -85,7 +85,7 @@ Windowsでは `releaseName` のみ利用可能です。
 * `options` Object
   * `url` String
   * `headers` Record&lt;String, String&gt; (任意) _macOS_ - HTTP リクエストのヘッダ。
-  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.
+  * `serverType` String (任意) _macOS_ - `json`、`default` のいずれかです。詳細は [Squirrel.Mac][squirrel-mac] README を参照してください。
 
 `url` を設定して自動更新を初期化します。
 

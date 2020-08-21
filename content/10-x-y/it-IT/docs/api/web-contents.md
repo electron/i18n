@@ -215,7 +215,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-Restituisce:
+Restituiti:
 
 * `event` Event
 * `url` Stringa
@@ -305,7 +305,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 Restituisce:
 
 * `event` Event
-* `killed` Boolean
+* `ucciso` Booleano
 
 Emitted when the renderer process crashes or is killed.
 
@@ -410,29 +410,29 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Evento: 'certificate-error'
+#### Evento: 'certificato-errore'
 
 Restituisce:
 
 * `event` Event
 * `url` Stringa
 * `errore` Stringa - Il codice d'errore.
-* `certificate` [Certificato](structures/certificate.md)
-* `callback` Function
+* `certificato` [Certificato](structures/certificate.md)
+* `callback` Funzione
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
 Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Evento: 'select-client-certificate'
+#### Evento: 'selezione-certificato-client'
 
 Restituisce:
 
 * `event` Event
 * `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function
+* `Listacertificati` [Certificati[]](structures/certificate.md)
+* `callback` Funzione
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 Emesso quando un certificato client è richiesto.
@@ -452,7 +452,7 @@ Restituisce:
   * `ospite` Stringa
   * `porta` Numero Intero
   * `regno` Stringa
-* `callback` Function
+* `callback` Funzione
   * `username` String (opzionale)
   * `password` String (opzionale)
 
@@ -568,7 +568,7 @@ Restituisce:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function
+* `callback` Funzione
   * `deviceId` Stringa
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -660,7 +660,7 @@ Restituisce:
 
 * `event` Event
 * `preloadPath` String
-* `error` Error
+* `errore` Errore
 
 Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
 
@@ -927,7 +927,7 @@ contents.on('did-finish-load', async () => {
 
 #### `contents.executeJavaScript(code[, userGesture])`
 
-* `codice` Stringa
+* `code` Stringa
 * `userGesture` Boolean (optional) - Default is `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -1147,7 +1147,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `silent` Boolean (optional) - Don't ask user for print settings. Di default è `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Di default è `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Il valore predefinito è `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Di default `true`.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
@@ -1502,7 +1502,7 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Function
+* `callback` Funzione
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 

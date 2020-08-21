@@ -18,7 +18,7 @@ const { dialog } = require('electron').remote
 console.log(dialog)
 ```
 
-## Методи
+## Методиa
 
 The `dialog` module has the following methods:
 
@@ -189,7 +189,7 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
+  * `title` String (необов'язково) - Заголовок вікна повідомлення, деякі платформи не зможуть його відобразити.
   * `message` String - Content of the message box.
   * `detail` String (optional) - Extra information of the message.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
@@ -212,7 +212,7 @@ The `browserWindow` argument allows the dialog to attach itself to a parent wind
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
+  * `title` String (необов'язково) - Заголовок вікна повідомлення, деякі платформи не зможуть його відобразити.
   * `message` String - Content of the message box.
   * `detail` String (optional) - Extra information of the message.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.

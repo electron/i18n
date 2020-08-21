@@ -1,8 +1,8 @@
-# webContents
+# webİçeriği
 
 > Web sayfalarını oluşturun ve kontrol edin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter][event-emitter]. Bir web sayfasını oluşturma ve denetlemekle sorumludur ve [`BrowserWindow`](browser-window.md) nesnesinin bir öğesidir. `webContents` nesnesine erişmenin bir örneği:
 
@@ -16,7 +16,7 @@ let contents = win.webContents
 console.log(contents)
 ```
 
-## Metodlar
+## Yöntemler
 
 Bu yöntemlere `webContents` modülünden erişilebilir:
 
@@ -43,7 +43,7 @@ console.log(webContents)
 
 > Bir TarayıcıPenceresi örneğinin içeriğini oluşturun ve denetleyin.
 
-Süreç: [Ana](../glossary.md#main-process)
+Süreç: [Main](../glossary.md#main-process)
 
 ### Örnek Events
 
@@ -55,7 +55,7 @@ Gezinme yapılırken, yani sekmenin döner kısmı dönmeyi durduğunda ortaya �
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `errorCode` Tamsayı
 * `errorDescription` Koşul
 * `validatedURL` Koşul
@@ -81,9 +81,9 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 
 #### Olay: 'did-frame-finish-load'
 
-Dönüşler:
+Returns:
 
-* `event` Event
+* `event` Olay
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -102,7 +102,7 @@ Sekmenin döngüsü dönmeye başladığında puanlara karşılık gelir.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 
 Belirli bir çerçevedeki belge yüklendiğinde çıkar.
 
@@ -110,7 +110,7 @@ Belirli bir çerçevedeki belge yüklendiğinde çıkar.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `title` String
 * `explicitSet` Boolean
 
@@ -120,7 +120,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `favicons` String[] - URL'lerin dizilişleri.
 
 Sayfa sık kullanılan simge Url'lerini aldığında yayınlanır.
@@ -130,7 +130,7 @@ Sayfa sık kullanılan simge Url'lerini aldığında yayınlanır.
 Dönüşler:
 
 * `event` NewWindowWebContentsEvent
-* `url` String
+* `url` Dize
 * `frameName` Dize
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
@@ -173,7 +173,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 Dönüşler:
 
 * `event` Event
-* `url` String
+* `url` Dize
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
@@ -187,8 +187,8 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 
 Dönüşler:
 
-* `event` Event
-* `url` String
+* `event` Olay
+* `url` Dize
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -200,8 +200,8 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 Dönüşler:
 
-* `event` Event
-* `url` String
+* `event` Olay
+* `url` Dize
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -215,10 +215,10 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-Dönüşler:
+Dönütler:
 
-* `event` Event
-* `url` String
+* `event` Olay
+* `url` Dize
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -232,8 +232,8 @@ This event can not be prevented, if you want to prevent redirects you should che
 
 Dönüşler:
 
-* `event` Event
-* `url` String
+* `event` Etkinlik
+* `url` Dize
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations
 
@@ -245,8 +245,8 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Dönüşler:
 
-* `event` Event
-* `url` String
+* `event` Olay
+* `url` Dize
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations,
 * `isMainFrame` Boolean
@@ -261,8 +261,8 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Dönüşler:
 
-* `event` Event
-* `url` String
+* `event` Olay
+* `url` Dize
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -275,7 +275,7 @@ Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın 
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 
 `beforeunload` olay işleyicisi, bir sayfayı kaldırmayı denediğinde yayımlanır.
 
@@ -287,9 +287,9 @@ const win = new BrowserWindow({ width: 800, height: 600 })
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBoxSync(win, {
     type: 'question',
-    buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
+    buttons: ['Çık', 'Kal'],
+    title: 'Siteden çıkmak istediğinize emin misiniz?',
+    message: 'Yaptığınız değişikliler kaydedilmeyecektir.',
     defaultId: 0,
     cancelId: 1
   })
@@ -304,7 +304,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `killed` Boolean
 
 Oluşturucu işlemi çöker veya yok olduğunda yayımlanır.
@@ -315,7 +315,7 @@ Oluşturucu işlemi çöker veya yok olduğunda yayımlanır.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `details` Object
   * `reason` String - The reason the render process is gone.  Olası değerler:
     * `clean-exit` - Process exited with an exit code of zero
@@ -340,8 +340,8 @@ Yanıt vermeyen internet sayfası tekrar yanıt verdiğinde ortaya çıkmaktadı
 
 Dönüşler:
 
-* `event` Event
-* `name` String
+* `event` Olay
+* `name` Dizi
 * `versiyon` String
 
 Bir eklenti işlemi çöktüğünde ortaya çıkar.
@@ -354,7 +354,7 @@ Bir eklenti işlemi çöktüğünde ortaya çıkar.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `input` Object - Input properties.
   * `type` Dize - `keyUp` veya `keyDown`.
   * `key` Dize - Eşittir [KeyboardEvent.key][keyboardevent].
@@ -368,7 +368,7 @@ Dönüşler:
 
 Sayfada `keydown` ve `keyup` olaylarını göndermeden önce yayınlanır. `event.preventDefault` öğesinin çağrılması, `keydown`/`keyup` etkinliklerini ve menü kısayollarını engeller.
 
-To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
+Menü kısayollarını yalnızca engellemek için [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore) kullanın:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -393,7 +393,7 @@ Pencere, HTML API'sı tarafından tetiklenen bir tam ekran halinde bırakıldı�
 #### Event: 'zoom-changed'
 
 Dönüşler:
-* `event` Event
+* `event` Olay
 * `zoomDirection` String - Can be `in` or `out`.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
@@ -414,11 +414,11 @@ DevTools odaklandığında / açıldığında ortaya çıkar.
 
 Dönüşler:
 
-* `event` Event
-* `url` String
+* `event` Olay
+* `url` Dize
 * `error` Dizi - Hata Kodu.
 * `certificate` [sertifika](structures/certificate.md)
-* `callback` Fonksiyon
+* `callback` Function
   * `isTrusted` Boolean - Sertifikanın güvenilir olarak değerlendirilip değerlendirilemeyeceğini belirtir.
 
 Doğrulanamadığında ortaya çıkar `certificate` for `url`.
@@ -429,10 +429,10 @@ Kullanımı [the `certificate-error` olayı `app`](app.md#event-certificate-erro
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `url` URL
 * `certificateList` [Sertifika[]](structures/certificate.md)
-* `callback` Fonksiyon
+* `callback` Function
   * `certificate` [Certificate](structures/certificate.md) - Verilen listeden bir sertifika seçilmeli.
 
 Bir istemci sertifikası talep edildiğinde yayılır.
@@ -443,16 +443,16 @@ Kullanımı [the `select-client-certificate` olayı `app`](app.md#event-select-c
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
   * `isProxy` Boolean
-  * `scheme` Dizi
+  * `scheme` String
   * `host` Dizi
   * `port` Tamsayı
   * `realm` Dizi
-* `callback` Fonksiyon
+* `callback` Function
   * `username` String (optional)
   * `password` String (optional)
 
@@ -464,7 +464,7 @@ Kullanımı [the `login` olayı `app`](app.md#event-login) ile aynıdır.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `result` Object
   * `requestId` Tamsayı
   * `activeMatchOrdinal` Tamsayı - Etkin eşleşmenin konumu.
@@ -486,7 +486,7 @@ Medya duraklatıldığında veya oynatıldığında yaydır.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
@@ -499,8 +499,8 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Dönüşler:
 
-* `event` Event
-* `url` String
+* `event` Olay
+* `url` Dize
 
 Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odaklamasını sağladığı zaman yayımlanır.
 
@@ -508,7 +508,7 @@ Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odak
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `type` Dize
 * `image` [NativeImage](native-image.md) (isteğe bağlı)
 * `scale` Float (İsteğe Bağlı) Özel imleç için ölçekleme faktörü.
@@ -568,7 +568,7 @@ Dönüşler:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Fonksiyon
+* `callback` Function
   * `deviceId` String
 
 Bluetooth aygıtı `navigator.bluetooth.requestDevice` çağrı için seçilmesi gerektiğinde sinyal başlar. `navigator.bluetooth` api'sini kullanmak `webBluetooth`'u etkinleştirmelidir. Eğer `event.preventDefault` çağırılmazsa ilk bağlanılabilen alet seçilecektir. ` callback`, seçilecek `deviceId` ile çağırılmalıdır, `callback`'e boş string göndermek isteği iptal edecektir.
@@ -658,7 +658,7 @@ Emitted when the associated window logs a console message.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `preloadPath` String
 * `error` Error
 
@@ -668,9 +668,9 @@ Emitted when the preload script `preloadPath` throws an unhandled exception `err
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
 
@@ -678,9 +678,9 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
 
@@ -688,7 +688,7 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
@@ -735,17 +735,17 @@ Dönüşler:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Örnek yöntemleri
+### Örnek Metodlar
 
 #### `contents.loadURL(url[, options])`
 
-* `url` String
+* `url` Dize
 * `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Bu, yalnızca belirtilen `url` veri url'si ve diğer dosyaları yüklemek gerekiyorsa gereklidir.
+  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
 
@@ -785,7 +785,7 @@ win.loadFile('src/index.html')
 
 #### `contents.downloadURL(url)`
 
-* `url` String
+* `url` Dize
 
 Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
 
@@ -1144,17 +1144,17 @@ Sistemdeki yazıcıların listesini alır.
 #### `contents.print([options], [callback])`
 
 * `options` Object (optional)
-  * `silent` Boolean (optional) - Don't ask user for print settings. Varsayılanı `false`.
-  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Varsayılanı `false`.
+  * `silent` Boolean (optional) - Don't ask user for print settings. Varsayılan `false`'dur.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Varsayılan `false`'dur.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Varsayılanı `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Varsayılan `true`'dur.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
     * `left` Number (optional) - The left margin of the printed web page, in pixels.
     * `right` Number (optional) - The right margin of the printed web page, in pixels.
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Varsayılanı `false`.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Varsayılan `false`'dur.
   * `scaleFactor` Number (optional) - The scale factor of the web page.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
@@ -1252,7 +1252,7 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.addWorkSpace(path)`
 
-* `path` Dizgi
+* dizi `yolu`
 
 Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
@@ -1266,7 +1266,7 @@ win.webContents.on('devtools-opened', () => {
 
 #### `contents.removeWorkSpace(path)`
 
-* `path` Dizgi
+* dizi `yolu`
 
 Belirtilen yolu DevTools çalışma alanından kaldırır.
 
@@ -1387,7 +1387,7 @@ Servis işçisisi bağlamı için geliştirici araçları açar.
 #### `contents.send(channel, ...args)`
 
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
@@ -1398,7 +1398,7 @@ The renderer process can handle the message by listening to `channel` with the [
 Ana işlemden render işlemine gönderilen mesaj örneği:
 
 ```javascript
-// Ana işlem içinde.
+// Ana süreçte.
 const { app, BrowserWindow } = require('electron')
 let win = null
 
@@ -1427,7 +1427,7 @@ app.whenReady().then(() => {
 
 * `frameId` Integer
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
@@ -1501,7 +1501,7 @@ Verilen parametrelerle aygıt emülasyonuna izin verir.
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (İsteğe bağlı) - Varsayılan olarak `false`'tur.
-* `callback` Fonksiyon
+* `callback` Function
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1628,7 +1628,7 @@ Controls whether or not this WebContents will throttle animations and timers whe
 
 Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 #### `contents.audioMuted`
 

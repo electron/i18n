@@ -2,7 +2,7 @@
 
 > Administra las sesiones del navegador, cookies, cache, configuración del proxy, etc.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 El módulo `session` puede ser usado para crear nuevos objetos `session`.
 
@@ -46,7 +46,7 @@ Un objeto `Session`, es el objeto de session de la aplicación por defecto.
 
 > Obtener y configurar las propiedades de una sesión.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Puede crear un objeto `Session` en el módulo `session`:
 
@@ -96,7 +96,7 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 
 Devuelve:
 
-* `event` Event
+* `event` Evento
 * `languageCode` String - El código de idioma del archivo de diccionario
 
 Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
@@ -105,7 +105,7 @@ Emitted when a hunspell dictionary file has been successfully initialized. This 
 
 Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `languageCode` String - El código de idioma del archivo de diccionario
 
 Emitido cuando un archivo de diccionario hunspell se comienza a descargar
@@ -269,7 +269,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 * `proc` Function | null
   * Objeto `request`
     * `hostname` String
-    * `certificate` [Certificate](structures/certificate.md)
+    * `certificate` [certificate](structures/certificate.md)
     * `validatedCertificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Resultado de la verificación de chromium.
     * `errorCode` Integer - Código de error.

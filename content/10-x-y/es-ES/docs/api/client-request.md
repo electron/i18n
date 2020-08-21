@@ -2,7 +2,7 @@
 
 > Hace solicitudes HTTP/HTTPS.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `Peticiones del cliente` implementa la interfaz de [corriente de escritura](https://nodejs.org/api/stream.html#stream_writable_streams) y por lo tanto es un [emitidor de eventos][event-emitter].
 
@@ -43,7 +43,7 @@ Devuelve:
 
 * `respuesta` IncomingMessage - Un objeto representando el mensaje de respuesta de HTTP.
 
-#### Evento:'login'
+#### Evento: 'login'
 
 Devuelve:
 
@@ -91,7 +91,7 @@ Emitido justo antes de que el último paquete de los datos de la `solicitud` hay
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
-#### Evento: "error"
+#### Evento: 'error'
 
 Devuelve:
 
@@ -99,7 +99,7 @@ Devuelve:
 
 Emitido cuando el módulo `net` falla en emitir una solicitud de red. Típicamente cuando el objeto `solicitud` emite un evento `error`, un evento `cerrar` lo seguirá subsecuentemente y ningún objeto respuesta será proporcionado.
 
-#### Evento: "close"
+#### Evento: 'close'
 
 Emitido cuando el último evento en la transacción solicitud-respuesta HTTP. El evento `cerrar` indica que ningún otro evento será emitido en los objetos `solicitud` o `respuesta`.
 
@@ -115,11 +115,11 @@ Devuelve:
 
 Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 #### `request.chunkedEncoding`
 
-Un `Booleano` especificando cuando la solicitud usará el la codificación de transferencia del paquete HTTP o no. Por defecto es false. La propiedad es de lectura y escritura, sin embargo puede ser configurada antes de la primera operación de escritura debido a que el encabezado HTTP no se ha puesto en el hilo. Tratar de configurar la propiedad `codificación empaquetada` después de la primera escritura arrojará un error.
+Un `Booleano` especificando cuando la solicitud usará el la codificación de transferencia del paquete HTTP o no. Por defecto es falso. La propiedad es de lectura y escritura, sin embargo puede ser configurada antes de la primera operación de escritura debido a que el encabezado HTTP no se ha puesto en el hilo. Tratar de configurar la propiedad `codificación empaquetada` después de la primera escritura arrojará un error.
 
 Utilizar codificación empaquetada es fuertemente recomendado si no necesita enviar una solicitud grande dado que lo datos serán transmitidos en paquetes pequeños en lugar de ser cargados internamente en la memoria de proceso de Electron.
 
@@ -172,7 +172,7 @@ Continues any pending redirection. Can only be called during a `'redirect'` even
 
 #### `request.getUploadProgress()`
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
 * `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.

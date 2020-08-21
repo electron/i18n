@@ -11,7 +11,7 @@ The Electron team maintains [update.electronjs.org][], a free and open-source we
 - Les livrables sont publiés en tant que release sous Github
 - Les livrables sont signés
 
-The easiest way to use this service is by installing [update-electron-app][], a Node.js module preconfigured for use with update.electronjs.org.
+La façon la plus simple d'utiliser ce service est d'installer [update-electron-app][], un module Node.js pré-configuré pour être utilisé avec update.electronjs.org.
 
 Installer le module:
 
@@ -27,7 +27,7 @@ require('update-electron-app')()
 
 Par défaut, ce module vérifiera les mises à jour au démarrage de l'application, toutes les dix- minutes. Lorsqu’une mise à jour est trouvée, elle sera automatiquement téléchargée en arrière-plan. Une fois le téléchargement terminé, une boîte de dialogue s’affiche permettant à l’utilisateur de redémarrer l’application.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`][update-electron-app] or [use the update service directly][update.electronjs.org].
+Si vous avez besoin personnaliser votre configuration, vous pouvez [passer des paramètres à `update-electron-app`][update-electron-app] ou [utiliser le service de mise à jour directement][update.electronjs.org].
 
 ## Déploiement d’un serveur de mise à jour
 
@@ -35,10 +35,10 @@ Si vous développez une application Electron privée, ou si vous ne publiez pas 
 
 Selon vos besoins, vous pouvez choisir parmi l'un d'entre eux :
 
-- [Hazel][hazel] – Update server for private or open-source apps which can be deployed for free on [Now][now]. It pulls from [GitHub Releases][gh-releases] and leverages the power of GitHub's CDN.
-- [Nuts][nuts] – Also uses [GitHub Releases][gh-releases], but caches app updates on disk and supports private repositories.
-- [electron-release-server][electron-release-server] – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus][nucleus] – A complete update server for Electron apps maintained by Atlassian. Prend en charge plusieurs applications et canaux; utilise un magasin de fichiers statique pour minimiser le coût du serveur.
+- [Hazel][hazel] – Serveur de mise à jour pour des applications privées ou open-source qui peuvent être déployées gratuitement sur [Now][now]. Cela récupère les [releases GitHub][gh-releases] et exploite la puissance du CDN de GitHub.
+- [Nuts][nuts] – Utilise aussi les [releases GitHub][gh-releases], mais met en cache les mises à jour des applications sur le disque et prend en charge les dépôts privés.
+- [electron-release-server][electron-release-server] – Fournit un tableau de bord pour la gestion des releases et n'exige pas que les releases soient créés sur GitHub.
+- [Nucleus][nucleus] – Un serveur de mise à jour complet pour les applications Electron maintenues par Atlassian. Prend en charge plusieurs applications et canaux; utilise un magasin de fichiers statique pour minimiser le coût du serveur.
 
 ## Implémentation des mises à jour dans votre application
 
@@ -59,7 +59,7 @@ const url = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL({ url })
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Comme dernière étape, vérifiez les mises à jour. L'exemple ci-dessous vérifiera chaque minute:
 
 ```javascript
 setInterval(() => {
@@ -89,7 +89,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Assurez-vous également que les erreurs sont [gérées](../api/auto-updater.md#event-error). Voici un exemple pour les renvoyer sur `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {

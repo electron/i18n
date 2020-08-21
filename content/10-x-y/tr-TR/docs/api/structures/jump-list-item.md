@@ -1,6 +1,6 @@
 # AtlamaListesiÖğesi Nesnesi
 
-* `type` String (optional) - One of the following:
+* `türü` String (isteğe bağlı) - Aşağıdakilerden biri:
   * `task` - Bir görev özel argümanlarla bir uygulamayı açacak.
   * `separator` - Standart `Tasks` kategorisindeki öğeleri ayırmak için kullanılabilir.
   * `file` - Dosya uzantısı uygulamayı kullanarak Atlama Listesini oluşturan dosyayı açacak, bunun uygulamayı çalıştırması için bir dosya türü işleyicisi olarak kaydedilmesi gerekir (ancak varsayılan işleyici olmasına gerek yoktur).

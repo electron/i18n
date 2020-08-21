@@ -1,8 +1,8 @@
-# clipboard
+# pano
 
 > Kopyalama ve yapıştırma işlemlerini sistem panosunda gerçekleştirin.
 
-İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 
@@ -13,11 +13,11 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## Metodlar
+## Yöntemler
 
 Pano modülü aşağıdaki yöntemleri içerir:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Not:** Deneysel API'ler bu şekilde işaretlenir ve gelecekte kaldırılabilir.
 
 ### `clipboard.readText([type])`
 
@@ -126,19 +126,19 @@ clipboard.writeRTF(rtf)
 `Object` 'i geri getirir:
 
 * `title` String
-* `url` String
+* `url` Dize
 
 Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren bir nesne döndürür. Sayfa işaretçisi erişilemez olduğunda `title` ve `url` değerleri boş dizeler olacaktır.
 
 ### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
 * `title` String
-* `url` String
+* `url` Dize
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 `title` ve `url`'yi panoya sayfa işaretçisi olarak yazar.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Not:** Windows üzerindeki çoğu uygulama sayfa işaretçisi yapıştırmayı desteklememektedir. Panoya sayfa işaretçisi ve dönüş metni yazmak için `clipboard.write` kullanabilirsiniz.
 
 ```js
 const { clipboard } = require('electron')
@@ -181,7 +181,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` _Experimental_
+### `clipboard.has(format[, type])` _Deneysel_
 
 * `format` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` _Experimental_
+### `clipboard.read(format)` _Deneysel_
 
 * `format` String
 
 `String` - Panoya `format` tipinde okuma yapar.
 
-### `clipboard.readBuffer(format)` _Experimental_
+### `clipboard.readBuffer(format)` _Deneysel_
 
 * `format` String
 
@@ -220,10 +220,10 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
+### `clipboard.writeBuffer (biçim, arabellek [, tür])` _Deneysel_
 
 * `format` String
-* `arabellek` Arabellek
+* `arabellek` Arabelleği
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 `buffer`' ı `format` olarak panoya yazar.

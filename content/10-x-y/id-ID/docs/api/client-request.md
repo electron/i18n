@@ -33,7 +33,7 @@ permintaan Const = net.request ({metode: 'Mendapatkan', protokol: ' https:', nam
 
 #### Event: 'respon'
 
-Mengembalikan:
+Pengembalian:
 
 * `respon` IncomingMessage - sebuah objek yang mewakili pesan Respon HTTP.
 
@@ -77,7 +77,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Acara: 'kesalahan'
 
-Mengembalikan:
+Mengirimkan:
 
 * `kesalahan` Kesalahan - kesalahan objek menyediakan beberapa informasi tentang kegagalan.
 
@@ -90,7 +90,7 @@ Dipancarkan sebagai acara terakhir dalam transaksi permintaan-respon HTTP. `Menu
 
 #### Event: 'mengalihkan'
 
-Mengembalikan:
+Kembali:
 
 * `statusCode` Bilangan bulat
 * `method` String
@@ -99,7 +99,7 @@ Mengembalikan:
 
 Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Instance Properties
+### Contoh properti
 
 #### `request.chunkedEncoding`
 
@@ -107,7 +107,7 @@ Emitted when the server returns a redirect response (e.g. 301 Moved Permanently)
 
 Menggunakan chunked pengkodean sangat dianjurkan jika Anda perlu mengirim permintaan besar tubuh sebagai data akan dialirkan secara potongan kecil bukannya internal buffered dalam memori proses elektron.
 
-### Методы экземпляра
+### Metode Contoh
 
 #### `request.setHeader (nama, nilai)`
 

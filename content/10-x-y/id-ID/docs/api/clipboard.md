@@ -17,9 +17,9 @@ console.log(clipboard.readText('selection'))
 
 The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> Experimental APIs are marked as such and could be removed in future.</p>
+<p spaces-before="0"><strong x-id="1"> Catatan: </ 0> API Eksperimental ditandai seperti itu dan dapat dihapus di masa mendatang.</p>
 
-<h3 spaces-before="0"><code>clipboard.readText ( [type] )`</h3>
+<h3 spaces-before="0"><code>clipboard.baca teks ( [tipe] )`</h3>
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
@@ -108,8 +108,8 @@ console.log(rtf)
 
 ### `clipboard.writeRTF (teks [, jenis])`
 
-* `teks` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* ` teks </ 0>  String</li>
+<li><code>type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Menuliskan ` teks </ 0> ke clipboard di RTF.</p>
 
@@ -121,50 +121,50 @@ clipboard.writeRTF(rtf)
 
 
 
-### `clipboard.readBookmark()` _macOS_ _Windows_
+### ` clipboard.readBookmark () </ 0>  <em x-id="4"> macos </ 1>  <em x-id="4"> Windows </ 1></h3>
 
-Mengembalikan `Objek`:
+<p spaces-before="0">Mengembalikan <code>Objek`:</p> 
 
-* ` judul</ 0>  String</li>
-<li><code> url </ 0> String</li>
+* ` judul </ 0> String</li>
+<li><code> url </ 0> Tali</li>
 </ul>
 
 <p spaces-before="0">Mengembalikan objek yang berisi <code> judul </ 0> dan <code> url </ 0> yang mewakili penanda di clipboard. Nilai <code> judul</ 0> dan <code> url </ 0> akan menjadi string kosong bila bookmark tidak tersedia.</p>
 
-<h3 spaces-before="0"><code>clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_</h3> 
-  * ` judul</ 0>  String</li>
-<li><code> url </ 0> String</li>
-<li><code>type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+<h3 spaces-before="0"><code> clipboard.menulisBookmark (judul, url [, tipe]) </ 0>  <em x-id="4"> macos </ 1>  <em x-id="4"> jendela </ 1></h3>
+
+<ul>
+<li><code> judul</ 0>  String</li>
+<li><code>url` Tali
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
 Menulis ` judul </ 0> dan <code> url </ 0> ke clipboard sebagai bookmark.</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> Most apps on Windows don't support pasting bookmarks into them so
-you can use <code>clipboard.write` to write both a bookmark and fallback text to the clipboard.
+<p spaces-before="0"><strong x-id="1"> Catatan: </ 0> Sebagian besar aplikasi di Windows tidak mendukung penandaan bookmark ke dalamnya sehingga Anda dapat menggunakan <code> clipboard.write </ 1> untuk menulis teks bookmark dan fallback ke clipboard.</p>
 
-
-
-```js
-const { clipboard } = require('electron')
+<pre><code class="js">const { clipboard } = require('electron')
 
 clipboard.writeBookmark({
   text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
-```
+`</pre> 
 
 
 
+### ` clipboard.readFindText () </ 0>  <em x-id="4"> macos </ 1></h3>
 
-### `clipboard.readFindText()` _macOS_
-
-Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+<p spaces-before="0">Returns <code>String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.</p> 
 
 This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
 
 
-### `clipboard.writeFindText(text)` _macOS_
+### ` clipboard.writeFindText (teks) </ 0>  <em x-id="4"> macos </ 1></h3>
 
-* `teks` String
+<ul>
+<li><code>teks` String</li> </ul> 
+
 Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
 
 
@@ -172,6 +172,7 @@ Writes the `text` into the find pasteboard (the pasteboard that holds informatio
 ### `clipboard.clear ( [type] )`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
 Membersihkan konten clipboard.
 
 
@@ -179,6 +180,7 @@ Membersihkan konten clipboard.
 ### `clipboard.availableFormats ( [type] )`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
 Mengembalikan ` String [] </ 0> - Kumpulan format yang didukung untuk clipboard <code> ketik </ 0> .</p>
 
 <pre><code class="js">const { clipboard } = require('electron')
@@ -190,10 +192,11 @@ console.log(formats)
 
 
 
-### `clipboard.has(format[, type])` _Experimental_
+### ` clipboard.has (format [, tipe]) </ 0>  <em x-id="4"> Eksperimental </ 1></h3>
 
-* ` format </ 0>  String</li>
-<li><code>type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+<ul>
+<li><code> format </ 0>  String</li>
+<li><code>type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.</li> </ul> 
 
 Pengembalian ` Boolean </ 0> - Apakah clipboard mendukung ditentukan <code> Format </ 0> .</p>
 
@@ -206,15 +209,18 @@ console.log(hasFormat)
 
 
 
-### `clipboard.read(format)` _Experimental_
+### ` clipboard.read (format) </ 0>  <em x-id="4"> Eksperimental </ 1></h3>
 
-* ` format </ 0>  String</li>
+<ul>
+<li><code> format </ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Mengembalikan <code> String </ 0> - Membaca <code> format </ 0> ketik dari clipboard.</p>
 
-<h3 spaces-before="0"><code>clipboard.readBuffer(format)` _Experimental_</h3> 
-  * ` format </ 0>  String</li>
+<h3 spaces-before="0"><code> clipboard.readBuffer (format) </ 0>  <em x-id="4"> Eksperimental </ 1></h3>
+
+<ul>
+<li><code> format </ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Mengembalikan <code> Buffer </ 0> - Membaca <code> format </ 0> ketik dari clipboard.</p>
@@ -230,11 +236,16 @@ console.log(buffer.equals(out))
 // true
 `</pre> 
 
-### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
 
-* ` format </ 0>  String</li>
-<li><code>penyangga` Buffer
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
+### ` clipboard.writeBuffer (format, buffer [, tipe]) </ 0>  <em x-id="4"> Eksperimental </ 1></h3>
+
+<ul>
+<li><code> format </ 0>  String</li>
+<li><code>penyangga` Buffer</li> 
+
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.</ul> 
+
 Menulis ` penyangga </ 0> ke clipboard sebagai <code> Format </ 0> .</p>
 
 <pre><code class="js">const { clipboard } = require('electron')

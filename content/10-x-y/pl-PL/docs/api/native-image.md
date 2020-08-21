@@ -25,15 +25,15 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
-## Supported Formats
+## Obsługiwane formaty
 
 Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
 * Mała ikona
-  * 16x16 (100% DPI scale)
-  * 20x20 (125% DPI scale)
+  * 16x16 (100% w skali DPI)
+  * 20x20 (125% skala DPI)
   * 24x24 (150% DPI scale)
   * 32x32 (200% DPI scale)
 * Duża ikona
@@ -233,7 +233,7 @@ Returns `Boolean` - Whether the image is empty.
 
 * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns [`Size`](structures/size.md).
+Zwraca [`Size`](structures/size.md).
 
 If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 

@@ -46,15 +46,15 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 
-* `undo`
+* `ang ibalik sa dating ginawa`
 * `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
-* `redo`
-* `cut`
+* `gawin-ulit`
+* `putulin`
 * `kopyahin`
-* `paste`
+* `idikit`
 * `pasteAnd MatchStyle`
 * `selectAll`
-* `delete`
+* `idilit`
 * `minimize` - Paliitin ang kasalukuyang window.
 * `close` - Isara ang kasalukuyang window.
 * `quit` - Quit the application.
@@ -95,7 +95,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 **Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instansya
 
 Ang mga sumusunod na mga katangian ay makukuha sa mga instansya ng `MenuItem`:
 

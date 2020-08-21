@@ -2,7 +2,7 @@
 
 > Предотвращает переход системы в режим пониженного потребления питания.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Например:
 
@@ -29,7 +29,7 @@ powerSaveBlocker.stop(id)
 
 Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
 
-**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Вступает в силу только наиболее высокий тип приоритета. Другими словами, `prevent-display-sleep` всегда выше `prevent-app-suspension`.
+**Примечание:** `prevent-display-sleep` имеет более высокий приоритет перед `prevent-app-suspension`. Вступает в силу только наиболее высокий тип приоритета. Другими словами, `prevent-display-sleep` всегда выше `prevent-app-suspension`.
 
 Например, API-интерфейс, вызывающий запросы A для `prevent-app-suspension`, и другой вызов запросов B для `prevent-display-sleep`. `prevent-display-sleep` будет использоваться до тех пор, пока B не прекратит свой запрос. После этого, будет использоваться `prevent-app-suspension`.
 

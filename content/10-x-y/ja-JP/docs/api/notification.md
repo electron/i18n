@@ -1,6 +1,6 @@
 # 通知
 
-> OSのデスクトップ通知を作成します。
+> デスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -40,7 +40,7 @@
   * `sound` String (任意) _macOS_ - 通知が表示されるときに再生される音声ファイルの名前。
   * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (任意) _macOS_ - 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。
-  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `closeButtonText` String (任意) _macOS_ - 通知を閉じるボタンのカスタムタイトル。 空の文字列の場合は、既定のローカライズされたテキストが使用されます。
 
 ### インスタンスイベント
 
@@ -156,7 +156,7 @@ If `timeoutType` is set to 'never', the notification never expires. It stays ope
 
 ### サウンドの再生
 
-macOS では、通知が表示されたときに再生したいサウンドの名前を指定することができます。 Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. サウンドファイルがアプリバンドル (`YourApp.app/Contents/Resources` など) または以下のいずれかの場所にコピーされることに留意してください。
+macOS では、通知が表示されたときに再生したいサウンドの名前を指定することができます。 カスタムサウンドファイルに加えて、(システム環境設定 > サウンド にある) デフォルトサウンドのいずれかを使用することができます。 サウンドファイルがアプリバンドル (`YourApp.app/Contents/Resources` など) または以下のいずれかの場所にコピーされることに留意してください。
 
 * `~/ライブラリ/Sounds`
 * `/ライブラリ/Sounds`

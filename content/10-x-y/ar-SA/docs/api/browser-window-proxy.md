@@ -2,7 +2,7 @@
 
 > Manipulate the child browser window
 
-Process: [Renderer](../glossary.md#renderer-process)
+shliilhpltfrom
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
