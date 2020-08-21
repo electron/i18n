@@ -1,4 +1,4 @@
-# gambarasli
+# asli
 
 > Buat ikon nampan, dok , dan aplikasi menggunakan file PNG atau JPG.
 
@@ -100,7 +100,7 @@ To mark an image as a template image, its filename should end with the word `Tem
 
 
 
-## Methods
+## Metode
 
 Itu ` gambar asli </ 0> modul memiliki metode berikut, yang semuanya mengembalikan instance dari <code> NativeImage </ 0> kelas:</p>
 
@@ -114,13 +114,13 @@ Mengembalikan ` gambar asli </ 0></p>
 
 ### `nativeImage.createFromPath(jalur)`
 
-* `path` String
+* ` path </ 0>  String</li>
+</ul>
 
-Mengembalikan ` gambar asli </ 0></p>
+<p spaces-before="0">Mengembalikan <code> gambar asli </ 0></p>
 
-<p spaces-before="0">Membuat instance <code>NativeImage` baru dari sebuah file yang berada di `path`. Metode ini mengembalikan gambar kosong jika `path` tidak ada, tidak bisa dibaca, atau tidak gambar yang valid.
-
-
+<p spaces-before="0">Membuat instance <code>NativeImage` baru dari sebuah file yang berada di `path`. Metode ini mengembalikan gambar kosong jika `path` tidak ada, tidak bisa dibaca, atau tidak gambar yang valid.</p> 
+  
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -139,7 +139,6 @@ console.log(image)
     * ` width </ 0>  Integer</li>
 <li><code> tinggi </ 0>  Integer</li>
 <li><code>faktor skala`dua kali lipat (opsional) - Default ke 1.0.
-
 Mengembalikan ` gambar asli </ 0></p>
 
 <p spaces-before="0">Creates a new <code>NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
@@ -153,7 +152,6 @@ Mengembalikan ` gambar asli </ 0></p>
     * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
   * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
-
 Mengembalikan ` gambar asli </ 0></p>
 
 <p spaces-before="0">Membuat contoh<code>gambar baru` baru dari `penyangga`. Tries to decode as PNG or JPEG first.
@@ -163,7 +161,6 @@ Mengembalikan ` gambar asli </ 0></p>
 ### `gambar asli.buatdaridataURL(dataURL)`
 
 * ` dataURL ` tali
-
 Mengembalikan ` gambar asli </ 0></p>
 
 <p spaces-before="0">Menciptakan yang baru <code>Gambar Asli` contoh dari `dataURL`.
@@ -174,7 +171,6 @@ Mengembalikan ` gambar asli </ 0></p>
 
 * `imageName` String
 * `hslShift` Number[] (optional)
-
 Mengembalikan ` gambar asli </ 0></p>
 
 <p spaces-before="0">Creates a new <code>NativeImage` instance from the NSImage that maps to the given image name. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
@@ -186,7 +182,6 @@ The `hslShift` is applied to the image with the following rules:
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
 
 * `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
-
 This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
 
 In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
@@ -207,17 +202,16 @@ Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 
 
-### Методы экземпляра
+### Metode Instance
 
 Metode berikut tersedia pada contoh kelas ` Gambar asli`:
 
 
 
-#### `image.toPNG([options])`
+#### `gambar.untukPng([options])`
 
 * `options` Object (optional) 
     * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
-
 Mengembalikan `Penyangga` - A [ Penyangga][buffer]berisi data yang dikodekan` PNG </ 0>.</p>
 
 <h4 spaces-before="0"><code>image.toJPEG(quality)`</h4> 
@@ -275,7 +269,7 @@ Returns `Boolean` - Whether the image is empty.
 
 * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
 
-Returns [`Size`](structures/size.md).
+Mengembalikan [`Ukuran`](structures/size.md).
 
 If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
@@ -303,7 +297,7 @@ Mengembalikan `NativeImage` - Gambar yang dipotong.
 
 
 
-#### `image.resize(options)`
+#### `gambar.mengubah ukuran (pilihan)`
 
 * `options` Object 
     * `width` Integer (optional) - Defaults to the image's width.
@@ -346,7 +340,7 @@ Add an image representation for a specific scale factor. This can be used to exp
 
 
 
-### Instance Properties
+### Contoh properti
 
 
 

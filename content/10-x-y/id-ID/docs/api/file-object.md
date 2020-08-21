@@ -1,6 +1,7 @@
-# `File` Objek
+# ` File </ 0> Objek</h1>
 
-> Gunakan API HTML5 ` File </ 0>  untuk bekerja secara native dengan file pada file sistem.</p>
+<blockquote spaces-before="0">
+  <p spaces-before="0">Gunakan API HTML5 <code> File </ 0>  untuk bekerja secara native dengan file pada file sistem.</p>
 </blockquote>
 
 <p spaces-before="0">Antarmuka File DOM menyediakan abstraksi di sekitar file asli agar pengguna dapat mengerjakan file asli secara langsung dengan API file HTML5 . Elektron telah menambahkan atribut <code> path </ 0> ke antarmuka <code> File </ 0> yang menunjukkan path sebenarnya file pada file sistem.</p>

@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## Kejadian
 
 Objek `aplikasi` memancarkan kejadian-kejadian berikut:
 
@@ -41,7 +41,7 @@ Jika Anda tidak berlangganan acara ini dan semua jendela ditutup, perilaku defau
 
 <h3 spaces-before="0">Acara : 'sebelum-berhenti'</h3>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Returns:</p>
 
 <ul>
 <li><code>event` Sinyal</li> </ul>
@@ -54,24 +54,24 @@ Diterbitkan sebelum aplikasi mulai menutup jendelanya. Memanggil `event.preventD
 
 ### Acara : 'akan-berhenti'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `peristiwa` Peristiwa
 
 Terjadi ketika semua jendela telah ditutup dan aplikasi akan keluar. Memanggil `event.preventDefault()` akan menghambat perilaku default, sehingga menghentikan aplikasi.
 
 Lihat deskripsi ` jendela-semua-ditutup </ 0>  acara untuk perbedaan antara <code> akan-berhenti </ 0> dan <code> jendela-semua-ditutup </ 0> peristiwa.</p>
 
-<p spaces-before="0"><strong x-id="1">Catatan:</strong> Di Windows, acara ini tidak akan disiarkan jika aplikasi ditutup karena
-untuk mematikan/memulai ulang sistem atau pengguna keluar.</p>
+<p spaces-before="0"><strong x-id="1">Catatan:</strong> Di Windows, acara ini tidak akan disiarkan jika aplikasi ditutup bila disebakan karena 
+sistem dimatikan/dimulai ulang atau pengguna keluar.</p>
 
 <h3 spaces-before="0">Acara : 'berhenti'</h3>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Pengembalian:</p>
 
 <ul>
-<li><code>event` Sinyal</li>
-* ` exitCode </ 0> Integer</li>
+<li><code>event</ 0> Acara</li>
+<li><code> exitCode </ 0> Integer</li>
 </ul>
 
 <p spaces-before="0">Emitted saat aplikasi berhenti.</p>
@@ -81,13 +81,14 @@ untuk mematikan/memulai ulang sistem atau pengguna keluar.</p>
 
 <h3 spaces-before="0">Event : 'open-file' <em x-id="4"> macos </ 0></h3>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Pengembalian:</p>
 
 <ul>
-<li><code>event` Sinyal
-* `path` String</ul>
+<li><code>acara` Acara</li>
+* ` path </ 0>  String</li>
+</ul>
 
-Emitted saat pengguna ingin membuka file dengan aplikasi. The ` open-file yang </ 0> 
+<p spaces-before="0">Emitted saat pengguna ingin membuka file dengan aplikasi. The <code> open-file yang </ 0> 
 event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan kembali aplikasi untuk membuka file. <code> open-file </ 0> juga dipancarkan saat sebuah file diturunkan ke dok dan aplikasi belum berjalan. Pastikan untuk mendengarkan <code> open-file yang </ 0> acara sangat awal di startup aplikasi Anda untuk menangani kasus ini (bahkan sebelum <code> siap </ 0>  acara dipancarkan).</p>
 
 <p spaces-before="0">Anda harus menghubungi <code> event .preventDefault () </ 0> jika Anda ingin menangani acara ini .</p>
@@ -96,33 +97,31 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
 
 <h3 spaces-before="0">Acara: 'buka-url' <em x-id="4"> macos </em></h3>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Pengembalian:</p>
 
 <ul>
-<li><code>event` Sinyal</li>
-* ` url </ 0> String</li>
-</ul>
+<li><code>acara` Acara
+* `url` String</ul>
 
-<p spaces-before="0">Emitted saat pengguna ingin membuka URL dengan aplikasi. Your application's
-<code>Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.</p>
+Emitted saat pengguna ingin membuka URL dengan aplikasi. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 Anda harus menghubungi ` event .preventDefault () </ 0> jika Anda ingin menangani acara ini .</p>
 
 <h3 spaces-before="0">Acara: 'aktifkan' <em x-id="4">macOS</em></h3>
 
-<p spaces-before="0">Mengembalikan:</p>
+<p spaces-before="0">Pengembalian:</p>
 
 <ul>
-<li><code>event` Sinyal</li>
+<li><code>event` Acara</li>
 * `hasVisibleWindows` Boolean</ul>
 
 Emitted saat aplikasi diaktifkan. Berbagai tindakan dapat memicu acara ini, seperti meluncurkan aplikasi untuk pertama kalinya, mencoba meluncurkan ulang aplikasi saat sudah berjalan, atau mengklik ikon dok atau ikon taskbar.
 
 ### Acara: 'lanjutkan aktivitas' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
@@ -132,28 +131,28 @@ Aktivitas pengguna hanya dapat dilanjutkan di aplikasi yang memiliki ID Tim peng
 
 ### Acara: 'aktivitas-akan-dilanjutkan' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`][activity-type].
 
 Terjadi saat [ Handoff ][handoff] sebelum aktivitas dari perangkat lain diinginkan untuk dilanjutkan. Anda harus menghubungi `event.preventDefault()` jika Anda ingin menangani acara ini.
 
 ### Acara: 'aktivitas-error-dilanjutkan' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`][activity-type].
-* `error` String - A string with the error's localized description.
+* `error` String - String dengan deskripsi kesalahan yang dilokalkan.
 
 Terjadi saat [ Handoff ][handoff] sebelum aktivitas dari perangkat lain diinginkan untuk dilanjutkan.
 
 ### Acara: 'aktivitas-telah-dilanjutkan' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
@@ -161,66 +160,66 @@ Terjadi saat [ Handoff ][handoff] sebelum aktivitas dari perangkat lain diingink
 
 ### Acara: 'memperbarui-kondisi-aktivitas' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Terjadi saat [ Handoff ][handoff] akan dilanjutkan di perangkat lain. Jika Anda perlu memperbarui status yang akan ditransfer, Anda harus segera memanggil ` event.preventDefault() `, membuat kamus ` userInfo ` baru dan memanggil ` app.updateCurrentActivity() ` tepat waktu. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Terjadi saat [ Handoff ][handoff] akan dilanjutkan di perangkat lain. Jika Anda perlu memperbarui status yang akan ditransfer, Anda harus segera memanggil ` event.preventDefault() `, membuat kamus ` userInfo ` baru dan memanggil ` app.updateCurrentActivity() ` tepat waktu. Bila tidak, operasi akan gagal dan `continue-activity-error` akan dipanggil.
 
 ### Event: 'new-window-for-tab' _macOS_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
 ### Acara: 'browser-window-blur'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `window` [BrowserWindow](browser-window.md)
 
 Emitted ketika [browserWindow](browser-window.md) menjadi kabur.
 
 ### Acara: 'browser-window-focus'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `window` [BrowserWindow](browser-window.md)
 
 Emitted ketika [browserWindow](browser-window.md) terpusat.
 
 ### Acara: 'browser-window-created'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `window` [BrowserWindow](browser-window.md)
 
 Emitted ketika baru [browserWindow](browser-window.md) dibuat.
 
 ### Acara: 'isi web-dibuat'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
 
 Emitted ketika baru [webContents](web-contents.md) dibuat.
 
 ### Acara: 'sertifikat-kesalahan'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
-* ` url </ 0> String</li>
-<li><code>error` String - Kode kesalahan
+* `url` String
+* `error` String - Kode kesalahan
 * `sertifikat` [Sertifikat](structures/certificate.md)
 * `callback ` Fungsi
   * `isTrusted`  Boolean - Apakah akan mempertimbangkan sertifikat sebagai terpercaya
@@ -240,9 +239,9 @@ const { app } = require ('electron') app.on('certificate-error', (event, webCont
 
 ### Acara: 'pilih-klien-sertifikat'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Sertifikat[]](structures/certificate.md)
@@ -263,9 +262,9 @@ const { app } = require('electron') app.on('select-client-certificate', (event, 
 
 ### Acara: 'login'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
 * `authenticationResponseDetails` Object
   * `url` URL
@@ -300,18 +299,18 @@ Emitted whenever there is a GPU info update.
 
 ### Acara: 'proses-gpu-jatuh'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `terbunuh` Boolean
 
 Emitted when the GPU process crashes or is killed.
 
 ### Event: 'renderer-process-crashed' _Deprecated_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
 * `terbunuh` Boolean
 
@@ -321,9 +320,9 @@ Emitted when the renderer process of `webContents` crashes or is killed.
 
 #### Event: 'render-process-gone'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
   * `reason` String - The reason the render process is gone.  Nilai yang mungkin:
@@ -339,16 +338,16 @@ Emitted when the renderer process unexpectedly dissapears.  This is normally bec
 
 ### Event: 'aksesibilitas-support-changed' _macOS_ _Windows_
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `aksesibilitasSupportEnabled` Boolean - `true` saat dukungan aksesibilitas Chrome diaktifkan, `false` sebaliknya.
 
 Emitted saat dukungan aksesibilitas Chrome berubah. Peristiwa ini terjadi saat teknologi bantu, seperti pembaca layar, diaktifkan atau dinonaktifkan. Lihat https://www.chromium.org/developers/design-documents/accessibility untuk lebih jelasnya.
 
 ### Event: 'session-created'
 
-Mengembalikan:
+Pengembalian:
 
 * `session` [Session](session.md)
 
@@ -364,9 +363,9 @@ app.on('session-created', (session) => {
 
 ### Event: 'second-instance'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `argv` String[] - Sebuah array dari argumen baris perintah kedua
 * `workingDirectory` String - Direktori kerja contoh kedua
 
@@ -382,18 +381,18 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 ### Event: 'desktop-capturer-get-sources'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
 ### Event: 'remote-require'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
@@ -401,9 +400,9 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 
 ### Event: 'remote-get-global'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
@@ -411,9 +410,9 @@ Emitted when `remote.getGlobal()` is called in the renderer process of `webConte
 
 ### Event: 'remote-get-builtin'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
@@ -421,23 +420,23 @@ Emitted when `remote.getBuiltin()` is called in the renderer process of `webCont
 
 ### Event: 'remote-get-current-window'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ### Event: 'remote-get-current-web-contents'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-## Methods
+## Metode
 
 The `aplikasi` objek memiliki metode berikut:
 
@@ -547,8 +546,8 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 ### `app.getFileIcon(path[, options])`
 
-* `path` String
-* `options` Object (optional)
+* ` path </ 0>  String</li>
+<li><code>options` Object (optional)
   * `size` String
     * `kecil` - 16x16
     * `normal` - 32x32
@@ -567,10 +566,11 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 ### `app.setPath(nama, path)`
 
-* ` nama </ 0>  Deretan</li>
-<li><code>path` String
+* ` nama </ 0>  String</li>
+<li><code> path </ 0>  String</li>
+</ul>
 
-Menimpa `path` ke direktori khusus atau file yang terkait dengan `nama`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
+<p spaces-before="0">Menimpa <code>path` ke direktori khusus atau file yang terkait dengan `nama`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.</p>
 
 Anda hanya dapat menimpa jalur dari `nama` didefinisikan dalam `app.getPath`.
 
@@ -588,7 +588,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.setName(nama)`
 
-* ` nama </ 0>  Deretan</li>
+* ` nama </ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Mengabaikan nama aplikasi saat ini.</p>
@@ -613,9 +613,10 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 ### `app.addRecentDocument(path)` _macOS_ _Windows_
 
-* `path` String
+* ` path </ 0>  String</li>
+</ul>
 
-Menambahkan `path` ke daftar dokumen terbaru.
+<p spaces-before="0">Menambahkan <code>path` ke daftar dokumen terbaru.</p>
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
@@ -702,7 +703,8 @@ Mengatur atau menghapus Daftar Langsung kustom untuk aplikasi, dan mengembalikan
 
 Jika `kategori` adalah `null` daftar Jump kustom yang telah ditetapkan sebelumnya (jika ada) akan diganti oleh Daftar Langsung standar untuk aplikasi (dikelola oleh Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+** Catatan: </ 0> Jika objek ` JumpListCategory </ 1> tidak memiliki <code> tipe </ 1> atau <code> nama </ 1> 
+properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> . If the <code>name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.</p>
 
 **Catatan:** Pengguna dapat menghapus item dari kategori khusus, dan Windows tidak mengizinkan item yang dihapus ditambahkan ke dalam kategori khusus sampai **setelah** panggilan sukses berikutnya ke `app.setJumpList(kategori)`. Setiap usaha untuk menambahkan kembali item yang dihapus ke kategori khusus lebih awal dari pada itu akan mengakibatkan keseluruhan kategori khusus dihilangkan dari Daftar Langsung. Daftar item yang dihapus dapat diperoleh dengan menggunakan `app.getJumpListSettings()`.
 
@@ -823,15 +825,15 @@ Membuat `NSUserActivity` dan menetapkannya sebagai aktivitas saat ini. The activ
 
 Mengembalikan `String` - Jenis aktivitas yang sedang berjalan.
 
-### `app.invalidateCurrentActivity()` _macOS_
+### ` app.invalidateCurrentActivity () </ 0>  <em x-id="4"> macos </ 1></h3>
 
-Invalidates the current [Handoff][handoff] user activity.
+<p spaces-before="0">Invalidates the current <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html" f-id="handoff" fo="8">Handoff</a> user activity.</p>
 
-### `app.resignCurrentActivity()` _macOS_
+<h3 spaces-before="0"><code> app.resignCurrentActivity () </ 0>  <em x-id="4"> macos </ 1></h3>
 
-Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
+<p spaces-before="0">Marks the current <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html" f-id="handoff" fo="8">Handoff</a> user activity as inactive without invalidating it.</p>
 
-### `app.updateCurrentActivity(type, userInfo)` _macOS_
+<h3 spaces-before="0"><code>app.updateCurrentActivity(type, userInfo)` _macOS_
 
 * `ketik` String - Unik mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`][activity-type].
 * `userInfo` any - App-specific state to store for use by another device.
@@ -842,7 +844,7 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 * `id` String
 
-Changes the [Application User Model ID][app-user-model-id] to `id`.
+Ubah [User ID Model Aplikasi][app-user-model-id] menjadi `id`.
 
 ### `app.setActivationPolicy(policy)` Linux _macOS_
 
@@ -960,7 +962,7 @@ Mengembalikan `Objek`:
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
 * `settings` Object
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Default ke ` false </ 0>.</li>
+  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Default ke ` false </ 0> .</li>
 <li><code>openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Default ke `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds][mas-builds].
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
@@ -1009,7 +1011,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Tetapkan opsi tentang panel. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs][about-panel-options] for more details. On Linux, values must be set in order to be shown; there are no defaults.
+Tetapkan opsi tentang panel. This will override the values defined in the app's `.plist` file on macOS. Lihat [dokumentasi Apple][about-panel-options] untuk detail lebih lanjut. On Linux, values must be set in order to be shown; there are no defaults.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1044,9 +1046,9 @@ Enables full sandbox mode on the app. This means that all renderers will be laun
 
 Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
 
-### `app.isInApplicationsFolder()` _macOS_
+### ` app.isInApplicationsFolder () </ 0>  <em x-id="4"> macos </ 1></h3>
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+<p spaces-before="0">Returns <code>Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`</p>
 
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
@@ -1081,13 +1083,13 @@ app.moveToApplicationsFolder({
 
 Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
-### `app.isSecureKeyboardEntryEnabled()` _macOS_
+### ` app.isSecureKeyboardEntryEnabled () </ 0>  <em x-id="4"> macos </ 1></h3>
 
-Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+<p spaces-before="0">Returns <code>Boolean` - whether `Secure Keyboard Entry` is enabled.</p>
 
 By default this API will return `false`.
 
-### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
+### `app.setSecureKeyboardEntryEnabled(enabled)` Linux _macOS_
 
 * `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
 
@@ -1099,7 +1101,7 @@ See [Apple's documentation](https://developer.apple.com/library/archive/technote
 
 **Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
 
-## Properti/peralatan
+## properti
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
 
@@ -1121,7 +1123,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Note:** Unity launcher mensyaratkan adanya a `.desktop` file untuk bekerja, untuk informasi lebih lanjut silahkan baca [Desktop Environment Integration][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 

@@ -2,7 +2,7 @@
 
 > 운영체제의 알림을 생성합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 ## 렌더러 프로세스에서 사용하기
 
@@ -12,7 +12,7 @@
 
 > 운영체제의 알림을 생성합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter][event-emitter].
 
@@ -50,7 +50,7 @@ Objects created with `new Notification` emit the following events:
 
 #### Event: 'show'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -58,7 +58,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 #### Event: 'click'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -66,7 +66,7 @@ Emitted when the notification is clicked by the user.
 
 #### 이벤트: 'close'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -76,7 +76,7 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 #### Event: 'reply' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `reply` String - The string the user entered into the inline reply field.
@@ -85,12 +85,12 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 #### Event: 'action' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `index` Number - The index of the action that was activated.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 Objects created with `new Notification` have the following instance methods:
 
@@ -104,7 +104,7 @@ If the notification has been shown before, this method will dismiss the previous
 
 알림창을 닫습니다.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 #### `notification.title`
 

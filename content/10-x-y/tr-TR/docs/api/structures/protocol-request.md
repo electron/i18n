@@ -1,6 +1,6 @@
 # ProtocolRequest Object
 
-* `url` String
+* `url` Dize
 * `referrer` Dize
 * `method` Dizi
 * `uploadData` [UploadData[]](upload-data.md) (optional)

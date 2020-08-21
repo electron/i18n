@@ -8,7 +8,7 @@ This module cannot be used until the `ready` event of the `app` module is emitte
 
 `screen` ay isang [EventEmitter][event-emitter].
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
+**Note:** Sa tagapagtanghal / DevTools, `window.screen` ay isang ari-arian ng DOM na nakareserba, kaya nga ang pagsulat ng `let { screen } = require('elektron')` ay hindi gagana.
 
 Isang halimbawa ng paglikha ng isang window na pupuno sa buong screen:
 
@@ -46,22 +46,22 @@ app.whenReady().then(() => {
 })
 ```
 
-## Pangyayari
+## Mga event
 
 Ang `screen` na modyul na naglalabas ng mga sumusunod na pangyayari:
 
 ### Pangyayari: 'display-added'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `newDisplay` [Display](structures/display.md)
 
 Naglalabas kapag `newDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-removed'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` na Kaganapan
 * `oldDisplay` [Display](structures/display.md)
@@ -70,15 +70,15 @@ Naglalabas kapag `oldDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-metrics-changed'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` na Pangyayari
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
 Naglalabas kapag ang isa o maraming panukat ay nagbago sa isang `display`. Ang `changedMetrics` ay isang array ng mga strings na naglalarawan ng mga pagbabago. Mga posiblen pagbabago sa `bounds`, `workArea`, `scaleFactor` at `rotation`.
 
-## Mga Paraan
+## Mga Pamamaraan
 
 Ang `screen` na modyul ay may mga sumusunod na mga paraan:
 

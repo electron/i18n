@@ -2,7 +2,7 @@
 
 > Fügen Sie Symbole und Kontextmenüs in den Benachrichtigungsbereich des Systems hinzu.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 `Tray` ist ein [EventEmitter][event-emitter].
 
@@ -61,7 +61,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Instanz Events
+### Instanz-Ereignisse
 
 Das `Tray` Modul sendet folgende Ereignisse aus:
 
@@ -113,8 +113,8 @@ Emitted when any dragged items are dropped on the tray icon.
 
 Rückgabewert:
 
-* `event` Event
-* `files` String[] - The paths of the dropped files.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
@@ -122,8 +122,8 @@ Emitted when dragged files are dropped in the tray icon.
 
 Rückgabewert:
 
-* `event` Event
-* `text` String - the dropped text string.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>text` String - the dropped text string.
 
 Emitted when dragged text is dropped in the tray icon.
 

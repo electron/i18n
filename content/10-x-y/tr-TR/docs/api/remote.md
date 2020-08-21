@@ -1,4 +1,4 @@
-# remote
+# uzak
 
 > Oluşturucu işlemindeki ana işlem modüllerini kullanın.
 
@@ -143,7 +143,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getGlobal(name)`
 
-* `name` String
+* `name` Dizi
 
 `any` diner - Ana işlemin içindeki `name`'in evrensel değişkeni (örneğin `global[name]`).
 

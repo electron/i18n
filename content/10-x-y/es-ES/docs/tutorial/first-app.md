@@ -1,6 +1,6 @@
 # Escribiendo tu primera aplicación Electron
 
-Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un sistema de tiempo de ejecución con poderosas APIs nativas (sistema operativo). Puedes verlo como una variante del sistema de tiempo de ejecución Node.js enfocada en aplicaciones de escritorio en lugar de servidores web.
+Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un motor en tiempo de ejecución con poderosas APIs nativas (sistema operativo). You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
 
 Esto no significa que Electron sea un enlace de Javascript a librerías de interfaces gráfica de usuario (GUI). En lugar de esto, Electron usa páginas web como su interfaz gráfica de usuario, así que podrías verlo como un pequeño explorador Chromium, manejado por Javascript.
 
@@ -67,7 +67,7 @@ npm install --save-dev electron
 
 Existen otras formas de instalar Electron. Por favor, consulta la [guía de instalación](installation.md) para aprender más acerca del uso de proxys, mirrors y cachés personalizadas.
 
-## Desarrollo de Electron en pocas palabras
+## Desarrollo con Electron de un vistazo
 
 Las aplicaciones Electron se desarrollan en JavaScript usando los mismos principios y métodos utilizados en el desarrollo para Node.js. Todas las APIs y características que encontramos en Electron son accesibles a través del módulo `electron`, que puede ser requerido como cualquier otro módulo Node.js:
 
@@ -112,19 +112,19 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // y carga el index.html de la aplicación.
   win.loadFile('index.html')
 
   // Abre las herramientas de desarrollo (DevTools).
   win.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// Este método se llamará cuando Electron haya finalizado
+// la inicialización y esté preparado para crear la ventana del navegador.
 // Algunas APIs pueden usarse sólo después de que este evento ocurra.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// Finaliza cuando todas las ventanas estén cerradas.
 app.on('window-all-closed', () => {
   // En macOS es común para las aplicaciones y sus barras de menú
   // que estén activas hasta que el usuario salga explicitamente con Cmd + Q
@@ -141,8 +141,8 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. También puedes ponerlos en archivos separados y requerirlos aquí.
+// En este archivo puede incluir el resto del código del proceso principal específico
+// de su aplicación. También puedes ponerlos en archivos separados y requerirlos aquí.
 ```
 
 Finalmente el archivo `index.html` es la página web que quieres mostrar:

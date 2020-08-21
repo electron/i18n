@@ -38,7 +38,7 @@ O objeto `autoUpdater` emite os seguintes eventos:
 
 Retorna:
 
-* `error` Error
+* Erro `error`
 
 Emitido quando há um erro durante a atualização.
 
@@ -58,7 +58,7 @@ Emitido quando não há atualização disponível.
 
 Retorna:
 
-* `event` Event
+* Evento `event`
 * String `releaseNotes`
 * String `releaseName`
 * Data `releaseDate`

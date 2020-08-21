@@ -1,4 +1,4 @@
-# process-proces
+# proces
 
 > Extensions to process object.
 

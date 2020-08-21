@@ -1,8 +1,8 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`][] API.
+> [`navigator.mediaDevices.getUserMedia`][] APIを使用して、デスクトップからの音声と映像のキャプチャに利用できるメディアソース関連の情報にアクセスします。
 
-プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 以下の例では、タイトルが `Electron` であるデスクトップウインドウからビデオをキャプチャする方法を示します。
 
@@ -47,9 +47,9 @@ function handleError (e) {
 }
 ```
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+`desktopCapturer` が提供するソースから映像をキャプチャするには、[`navigator.mediaDevices.getUserMedia`][] に渡す制約に、`chromeMediaSource: 'desktop'` と `audio: false` を含める必要があります。
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+デスクトップ全体から音声と映像の両方をキャプチャするには、[`navigator.mediaDevices.getUserMedia`][] に渡す制約に、`audio` と `video` の両方に対して `chromeMediaSource: 'desktop'` を含める必要がありますが、`chromeMediaSourceId` 制約は不要です。
 
 ```javascript
 const constraints = {

@@ -105,7 +105,7 @@ Crea una instancia vacía `NativeImage`.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` String
+* `path` Cadena
 
 Devuelve `NativeImage`
 
@@ -233,7 +233,7 @@ Devuelve `Boolean` - Si la imagen está vacía.
 
 * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
-Returns [`Size`](structures/size.md).
+Devuelve [`Size`](structures/size.md).
 
 If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 

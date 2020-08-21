@@ -2,7 +2,7 @@
 
 > Customize the rendering of the current web page.
 
-Processo: [Renderizzatore](../glossary.md#renderer-process)
+Processo: [Renderer](../glossary.md#renderer-process)
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
@@ -59,7 +59,7 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 * `provider` Object
   * `spellCheck` Function
     * `words` String[]
-    * `callback` Function
+    * `callback` Funzione
       * `misspeltWords` String[]
 
 Sets a provider for spell checking in input fields and text areas.
@@ -114,11 +114,11 @@ Inserts `text` to the focused element.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `codice` Stringa
+* `code` Stringa
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
   * `result` Any
-  * `error` Error
+  * `errore` Errore
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
@@ -133,7 +133,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
   * `result` Any
-  * `error` Error
+  * `errore` Errore
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
 
@@ -152,7 +152,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)

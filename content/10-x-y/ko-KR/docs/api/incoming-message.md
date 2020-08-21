@@ -2,7 +2,7 @@
 
 > Handle responses to HTTP/HTTPS requests.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 `IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter][event-emitter].
 
@@ -10,7 +10,7 @@
 
 #### Event: 'data'
 
-반환:
+Returns:
 
 * `chunk` Buffer - A chunk of response body's data.
 
@@ -24,15 +24,15 @@ Indicates that response body has ended.
 
 Emitted when a request has been canceled during an ongoing HTTP transaction.
 
-#### 이벤트: 'error'
+#### Event: 'error'
 
-반환:
+Returns:
 
 `error` Error - Typically holds an error string identifying failure root cause.
 
 Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 An `IncomingMessage` instance has the following readable properties:
 

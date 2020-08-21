@@ -41,7 +41,7 @@ Otwiera dany plik w normalnym sposobie komputera.
   * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. Domyślnie jest `true`.
   * `workingDirectory` String (optional) _Windows_ - The working directory.
 
-Returns `Promise<void>`
+Zwraca `Promise<void>`
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 

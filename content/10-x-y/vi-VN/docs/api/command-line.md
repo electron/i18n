@@ -2,7 +2,7 @@
 
 > Manipulate the command line arguments for your app that Chromium reads
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 The following example shows how to check if the `--disable-gpu` flag is set.
 

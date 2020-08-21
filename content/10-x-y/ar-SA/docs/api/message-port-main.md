@@ -31,7 +31,7 @@ Disconnects the port, so it is no longer active.
 
 #### Event: 'message'
 
-Returns:
+تراجع:
 
 * `messageEvent` Object
   * `data` any

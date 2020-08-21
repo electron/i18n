@@ -44,9 +44,9 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### Acara : 'melepaskan'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `event` Event
 * ` alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
 </ul>
 
@@ -55,7 +55,7 @@ Mengembalikan:
 
 #### Acara : 'pesan'
 
-Mengembalikan:
+Pengembalian:
 
 * `event` Sinyal
 * ` metode </ 0> String - nama metode.</li>
@@ -66,7 +66,7 @@ Emitted whenever the debugging target issues an instrumentation event.
 
 
 
-### Методы экземпляра
+### Metode Instance
 
 
 

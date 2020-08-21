@@ -4,7 +4,7 @@
 
 快捷键可以包含多个功能键和一个键码的字符串，由符号`+`结合，用来定义你应用中的键盘快捷键
 
-示例：
+示例
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`

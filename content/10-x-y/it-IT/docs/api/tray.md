@@ -241,7 +241,7 @@ Returns `Boolean` - Whether double click events will be ignored.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `Titolo` Stringa
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Il valore predefinito è `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Di default `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
   * `noSound` Boolean (optional) - Do not play the associated sound. Di default è `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
   * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Di default è `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 
@@ -276,7 +276,7 @@ Sets the context menu for this icon.
 
 #### `tray.getBounds()` _macOS_ _Windows_
 
-Ritorna [`Rectangle`](structures/rectangle.md)
+Restituisce [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this tray icon as `Object`.
 

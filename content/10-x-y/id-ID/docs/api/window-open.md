@@ -10,8 +10,8 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 
 ### `window.open (url [, frameName] [, fitur])`
 
-* ` url </ 0> String</li>
-<li><code>frameName`String (opsional)
+* `url` String
+* `frameName`String (opsional)
 * `fitur` String (opsional)
 
 Mengembalikan [` BrowserWindowProxy `](browser-window-proxy.md) - Membuat jendela baru dan mengembalikan sebuah instance dari kelas ` BrowserWindowProxy `.
@@ -30,9 +30,9 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 * JavaScript akan selalu dinonaktifkan di jendela `yang terbuka` jika dinonaktifkan pada jendela induk.
 * Fitur non-standar (yang tidak ditangani oleh Chromium atau Elektron) yang diberikan pada `fitur` akan diteruskan ke jendela baru ` webContent `baru` `event handler dalam argumen `tambahanFeatures`.
 
-### `window.opener.postMessage(message, targetOrigin)`
+### `window.opener.postMessage (pesan, targetOrigin)`
 
-* `message` String
+* `pesan` String
 * `targetOrigin` String
 
 Mengirim pesan ke jendela induk dengan asal yang ditentukan atau `*` tanpa preferensi asal.

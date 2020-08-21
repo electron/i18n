@@ -83,7 +83,7 @@ Ridimensiona e muovi la vista ai limiti forniti relativamente alla finestra.
 
 #### `view.getBounds()` _Experimental_
 
-Ritorna [`Rectangle`](structures/rectangle.md)
+Restituisce [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 

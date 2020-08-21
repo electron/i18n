@@ -2,7 +2,7 @@
 
 > Create native application menus and context menus.
 
-Messages
+Messages </a>
 
 ### `new Menu()`
 

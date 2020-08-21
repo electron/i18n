@@ -1,4 +1,4 @@
-# ipcrenderer
+# ipcRenderer
 
 > Makipag-usap ng sabay-sabay mula sa prosesong tagasalin hanggang sa pangunahing proseso.
 
@@ -15,7 +15,7 @@ Ang modyul ng `ipcRenderer` ay mayroon ng mga sumusunod na pamamaraan para makin
 ### `ipcRenderer.on(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
   * `event` IpcRendererEvent
   * `...args` anuman[]
 
@@ -24,7 +24,7 @@ Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay
 ### `ipcRenderer.once(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
   * `event` IpcRendererEvent
   * `...args` anuman[]
 
@@ -33,7 +33,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcRenderer.removeListener(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
   * `...args` anuman[]
 
 Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.

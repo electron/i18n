@@ -32,7 +32,7 @@ app.whenReady().then(() => {
 
 En el código anterior el [`BrowserWindow`](browser-window.md) que fue creado tiene Node.js deshabilitado y solo puede comunicarse a través de IPC. El uso de esta opción impide que Electron cree un tiempo de ejecución de Node.js en el renderizador. Also, within this new window `window.open` follows the native behavior (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
-[`app.enableSandbox`](app.md#appenablesandbox) can be used to force `sandbox: true` for all `BrowserWindow` instances.
+[`app.enableSandbox`](app.md#appenablesandbox) puede ser usado para forzar `sandbox: true` para todas las instancias de`BrowserWindow`.
 
 ```js
 let win
@@ -44,7 +44,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Precarga
+## Precargado
 
 An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
@@ -109,7 +109,7 @@ Actualmente la function `require` proveída en el ambiente de precargado expone 
   - `crashReporter`
   - `desktopCapturer`
   - `ipcRenderer`
-  - `NativeImage`
+  - `nativeImage`
   - `remote`
   - `webFrame`
 - `eventos`

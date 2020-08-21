@@ -14,7 +14,7 @@ const { webFrame } = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## Metodlar
+## Yöntemler
 
 The `WebFrame` class has the following instance methods:
 
@@ -59,7 +59,7 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 * `provider` Object
   * `spellCheck` Function
     * `words` String[]
-    * `callback` Fonksiyon
+    * `callback` Function
       * `misspeltWords` String[]
 
 Giriş alanlarında ve metin alanlarında yazım denetimi için bir provider ayarlar.
@@ -198,7 +198,7 @@ Returns `WebFrame` - The frame element in `webFrame's` document selected by `sel
 
 ### `webFrame.findFrameByName(name)`
 
-* `name` String
+* `name` Dizi
 
 Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 

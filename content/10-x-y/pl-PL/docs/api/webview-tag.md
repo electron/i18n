@@ -1,6 +1,6 @@
 # Tag `<webview>`
 
-## Warning
+## Ostrzeżenie
 
 Electron's `webview` tag is based on [Chromium's `webview`][chrome-webview], which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
@@ -432,7 +432,7 @@ Executes editing command `replaceMisspelling` in page.
 
 * `text` String
 
-Returns `Promise<void>`
+Zwraca `Promise<void>`
 
 Inserts `text` to the focused element.
 
@@ -462,17 +462,17 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 ### `<webview>.print([options])`
 
 * `options` Object (optional)
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
+  * `silent` Boolean (optional) - Don't ask user for print settings. Domyślnie jest `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Domyślnie jest `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Domyślnie jest `true`.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
     * `left` Number (optional) - The left margin of the printed web page, in pixels.
     * `right` Number (optional) - The right margin of the printed web page, in pixels.
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Default is `false`.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Domyślnie jest `false`.
   * `scaleFactor` Number (optional) - The scale factor of the web page.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
@@ -488,7 +488,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `footer` String (optional) - String to be printed as page footer.
   * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
-Returns `Promise<void>`
+Zwraca `Promise<void>`
 
 Prints `webview`'s web page. Same as `webContents.print([options])`.
 
@@ -525,7 +525,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 * `channel` String
 * `...args` any[]
 
-Returns `Promise<void>`
+Zwraca `Promise<void>`
 
 Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -535,7 +535,7 @@ See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
 
 * `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-Returns `Promise<void>`
+Zwraca `Promise<void>`
 
 Sends an input `event` to the page.
 
@@ -566,7 +566,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+Zwraca `Promise<void>`
 
 Ustawia maksymalny i minimalny poziom pinch-to-zoom.
 

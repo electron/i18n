@@ -50,7 +50,7 @@ Les objets créés avec `new Notification` émettent les événements suivants :
 
 #### Événement : 'show'
 
-Retourne :
+Renvoie :
 
 * `event` Événement
 
@@ -68,7 +68,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Émis lorsque la notification est fermée manuellement par l'utilisateur.
 

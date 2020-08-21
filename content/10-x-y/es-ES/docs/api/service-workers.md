@@ -2,7 +2,7 @@
 
 > Query and receive events from a sessions active service workers.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
@@ -33,7 +33,7 @@ The following events are available on instances of `ServiceWorkers`:
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `messageDetails` Object - Information about the console message
   * `message` String - The actual console message
   * `versionId` Number - The version ID of the service worker that sent the log message

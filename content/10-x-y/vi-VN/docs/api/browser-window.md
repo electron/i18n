@@ -2,7 +2,7 @@
 
 > Create and control browser windows.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ```javascript
 // Trong tiến trình main.
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > Create and control browser windows.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter][event-emitter].
 

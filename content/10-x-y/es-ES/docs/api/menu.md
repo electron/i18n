@@ -2,7 +2,7 @@
 
 > Crea menús de aplicaciones nativas y menús contextuales.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### `new Menu()`
 
@@ -22,13 +22,13 @@ Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel s
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
-**Note:** The default menu will be created automatically if the app does not set one. Esto contiene los ítems estándares como `File`, `Edit`, `View`, `Window` y `Help`.
+**Note:** El menú por defecto será creado automáticamente si la aplicación no establece uno. Esto contiene los ítems estándares como `File`, `Edit`, `View`, `Window` y `Help`.
 
 #### `Menu.getApplicationMenu()`
 
 Devuelve `Menu | null` - El menú de aplicación, si se creó, o `null` en caso contrario.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) todavía puede ser modificada dinámicamente.
+**Nota:** La instancia devuelta `Menu` no soporta adiciones dinámicas o la eliminación de elementos del menú. [Instance properties](#instance-properties) todavía puede ser modificada dinámicamente.
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 
@@ -276,7 +276,7 @@ macOS ha proporcionado acciones estándares para algunos elementos del menú, co
 
 En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es su nombre de aplicación, sin importar la etiqueta que establezca. Para cambiarlo, modifique el archivo `Info.plist` file del conjunto de la app. Para mayor información, ver[About Information Property List Files][AboutInformationPropertyListFiles].
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Menú de configuración para la ventana del navegador específico (*Linux* *Windows*)
 
 El [`setMenu` method][setMenu] de las ventanas del navegador pueden configurar el menú de ciertas ventanas del navegador.
 

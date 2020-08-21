@@ -1,4 +1,4 @@
 # ExtensionInfo Object
 
-* `name` String
+* `name` Dizi
 * `versiyon` String

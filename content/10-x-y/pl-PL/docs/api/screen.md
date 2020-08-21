@@ -8,7 +8,7 @@ This module cannot be used until the `ready` event of the `app` module is emitte
 
 `screen` jest klasą [EventEmitter][event-emitter].
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
+**Uwaga:** W module renderowania / DevTools, `window.screen` jest zarezerwowaną właściwością DOM, więc napisanie `let{ screen } = require('electron')` nie będzie działać.
 
 Przykład tworzenia okna, które wypełnia cały ekran:
 

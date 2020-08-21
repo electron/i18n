@@ -1,5 +1,5 @@
 # WebSource Object
 
-* `code` String
+* `id` String
 * ` teks </ 0>  String (opsional)</li>
-<li><code>startLine` Integer (optional) - Default is 1.
+<li><code>startLine` Bilangan bulat (opsional) - Secara default adalah 1.

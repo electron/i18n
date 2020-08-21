@@ -33,7 +33,7 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ### `window.opener.postMessage(message, targetOrigin)`
 
 * Строка `message`
-* `targetOrigin` String
+* Строка `targetOrigin`
 
 Sends a message to the parent window with the specified origin or `*` for no origin preference.
 

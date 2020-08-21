@@ -8,4 +8,4 @@
 * `name` String (optioneel) - Moet worden ingesteld als `type` is `custom`, anders moet het worden weggelaten.
 * `items` JumpListItem[] (optioneel) - Array van [`JumpListItem`](jump-list-item.md) objecten als `type` is `tasks` of `custom`, anders moet het worden weggelaten.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Als de `name` eigenschap is ingesteld, maar de `type` eigenschap is weggelaten, dan wordt het `type` verondersteld `custom` te zijn.
+**Opmerking:** Als een `JumpListCategorie` object noch het `type` noch de `name` eigenschap heeft ingesteld, dan wordt het `type` verondersteld `tasks` te zijn. Als de `name` eigenschap is ingesteld, maar de `type` eigenschap is weggelaten, dan wordt het `type` verondersteld `custom` te zijn.

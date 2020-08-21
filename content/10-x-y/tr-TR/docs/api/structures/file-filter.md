@@ -1,4 +1,4 @@
 # FileFilter Nesnesi
 
-* `name` String
+* `name` Dizi
 * `extensions` String[]

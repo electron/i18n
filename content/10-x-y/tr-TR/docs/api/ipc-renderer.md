@@ -8,33 +8,33 @@ The `ipcRenderer` module is an  [EventEmitter][event-emitter]. İşleme sürecin
 
 Kod örnekleri için [ipcMain](ipc-main.md)' e bakın.
 
-## Metodlar
+## Yöntemler
 
 `ipcRenderer` modülü olayları dinlemek ve mesaj göndermek için aşağıdaki yöntemi içerir:
 
 ### `ipcRenderer.on(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function
+* `listener` fonksiyon
   * `event` IpcRendererEvent
-  * `...args` any[]
+  * `...args` herhangi[]
 
 `listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
 ### `ipcRenderer.once(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function
+* `listener` fonksiyon
   * `event` IpcRendererEvent
-  * `...args` any[]
+  * `...args` herhangi[]
 
 Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcRenderer.removeListener(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function
-  * `...args` any[]
+* `listener` fonksiyon
+  * `...args` herhangi[]
 
 Belirtilen `channel` öğesini belirtilen `listener` dizisinden kaldırır.
 
@@ -47,7 +47,7 @@ Tüm dinleyicileri kaldırır veya `channel` dizesini kaldırır.
 ### `ipcRenderer.send(channel, ...args)`
 
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 Send an asynchronous message to the main process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
@@ -62,7 +62,7 @@ If you want to receive a single response from the main process, like the result 
 ### `ipcRenderer.invoke(channel, ...args)`
 
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 Returns `Promise<any>` - Resolves with the response from the main process.
 
@@ -134,14 +134,14 @@ For more information on using `MessagePort` and `MessageChannel`, see the [MDN d
 
 * `webContentsId` Number
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 Sends a message to a window with `webContentsId` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel, ...args)`
 
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 `ipcRenderer.send` gibi ancak olay ana işlem yerine ana sayfadaki `<webview>` öğesine gönderilecektir.
 

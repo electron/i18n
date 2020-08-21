@@ -1,4 +1,4 @@
 # ExtensionInfo Object
 
-* `نام` رشته
+* PrinterInfo Object
 * `version` String

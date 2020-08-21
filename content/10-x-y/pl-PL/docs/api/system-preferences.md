@@ -224,7 +224,7 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-This API is only available on macOS 10.14 Mojave or newer.
+To API jest dostępne tylko na macOS 10.14 Mojave lub nowszym.
 
 ### `systemPreferences.getColor(color)` _Windows_ _macOS_
 
@@ -302,15 +302,15 @@ The following colors are only available on macOS 10.14: `find-highlight`, `selec
 ### `systemPreferences.getSystemColor(color)` _macOS_
 
 * `color` String - One of the following values:
-  * `blue`
-  * `brown`
-  * `gray`
-  * `green`
-  * `orange`
-  * `pink`
-  * `purple`
-  * `red`
-  * `yellow`
+  * `niebieski`
+  * `brązowy`
+  * `szary`
+  * `zielony`
+  * `pomarańczowy`
+  * `różowy`
+  * `fioletowy`
+  * `czerwony`
+  * `żółty`
 
 Returns `String` - The standard system color formatted as `#RRGGBBAA`.
 

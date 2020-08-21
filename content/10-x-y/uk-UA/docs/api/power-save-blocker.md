@@ -15,7 +15,7 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## Методи
+## Методиa
 
 The `powerSaveBlocker` module has the following methods:
 

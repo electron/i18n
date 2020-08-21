@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Zdarzenia instancji
+### Wydarzenia instancji
 
 #### Zdarzenie: 'detach'
 

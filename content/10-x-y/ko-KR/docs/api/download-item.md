@@ -2,7 +2,7 @@
 
 > 원격 소스에서 파일 다운로드를 제어합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 `DownloadItem` is an [EventEmitter][event-emitter] that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
@@ -39,7 +39,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### Event: 'updated'
 
-반환:
+Returns:
 
 * `event` Event
 * `state` String - Can be `progressing` or `interrupted`.
@@ -53,7 +53,7 @@ The `state` can be one of following:
 
 #### Event: 'done'
 
-반환:
+Returns:
 
 * `event` Event
 * `state` String - Can be `completed`, `cancelled` or `interrupted`.
@@ -66,7 +66,7 @@ The `state` can be one of following:
 * `cancelled` - The download has been cancelled.
 * `interrupted` - The download has interrupted and can not resume.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 `downloadItem` 객체에는 다음과 같은 메서드들이 있습니다:
 
@@ -166,7 +166,7 @@ Returns `String` - ETag header value.
 
 Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 #### `downloadItem.savePath`
 

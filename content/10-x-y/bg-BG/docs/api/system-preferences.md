@@ -24,7 +24,7 @@ The `systemPreferences` object emits the following events:
 
 Връща:
 
-* `event` Събитие
+* `event` Event
 
 ### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 

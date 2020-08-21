@@ -8,7 +8,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessagePortMain
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 ### Instance Methods (인스턴스 메소드)
 
@@ -31,7 +31,7 @@ Disconnects the port, so it is no longer active.
 
 #### Event: 'message'
 
-반환:
+Returns:
 
 * `messageEvent` Object
   * `data` any

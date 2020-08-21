@@ -1,7 +1,7 @@
 # Objeto ProcessMetric
 
-* `pid` Integer - Identificador del proceso.
-* `type` String - Process type. One of the following values:
+* `pid` Entero - (ProcessId) indicador del proceso.
+* `type` String - Tipo de proceso. Uno de los siguiente valores:
   * `Navegador`
   * `Tab`
   * `Utilidad`

@@ -1,4 +1,4 @@
-# remote
+# remote-de la distanță
 
 > Use main process modules from the renderer process.
 

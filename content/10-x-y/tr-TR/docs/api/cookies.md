@@ -2,7 +2,7 @@
 
 > Oturumdaki çerezleri sorgulayın veya değiştirin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `Cookies`'den türeyen objecler `Session'ın` `cookies` sembolü ile erişilir.
 
@@ -38,13 +38,13 @@ session.defaultSession.cookies.set(cookie)
   })
 ```
 
-### Örnek Events
+### Örnek olayları
 
 Aşağıdaki olaylar `Cookies` sınıfından türeyen objelerde mevcuttur:
 
 #### Olay: 'changed'
 
-* `event` Event
+* `event` Olay
 * `cookie` [Çerez](structures/cookie.md) - Değişen çerez.
 * `cause` String - The cause of the change with one of the following values:
   * `explicit` - Çerez direkt olarak kullanıcının bir aksiyonu tarafından değiştirildi.
@@ -56,7 +56,7 @@ Aşağıdaki olaylar `Cookies` sınıfından türeyen objelerde mevcuttur:
 
 Herhangi bir çerez eklenmiş, silinmiş, düzenlenmiş veya süresi bitmiş olduğunda gönderilir.
 
-### Örnek yöntemleri
+### Örnek yöntemler
 
 Aşağıdaki metodlar `Cookies` sınıfının örneklerinde mevcut:
 
@@ -83,7 +83,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `domain` Karakter (opsiyonel) - Çerezin alan adı; bu, önceki bir nokta ile normalleştirilir, böylece alt alanlar için de geçerlidir. Empty by default if omitted.
   * `path` Dize (opsiyonel) - Çerezin yolu. Empty by default if omitted.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Varsayılan olarak değer false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Varsayılan değer false.
+  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Varsayılan yanlış.
   * `expirationDate` Double (opsiyonel) - UNIX epoch başlangıcından itibaren saniyeler cinsinden çerezin geçerliliğini yitirme süresi. Eğer boş geçilirse, çerez bir oturum çerezi olarak algılanır ve farklı oturumlar arasında kalıcı olmaz.
   * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.  Default is `no_restriction`.
 

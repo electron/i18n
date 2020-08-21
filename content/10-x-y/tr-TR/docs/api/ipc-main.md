@@ -2,7 +2,7 @@
 
 > Ana süreçten işleyici süreçlerine zaman uyumsuz olarak iletişim kurun.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `ipcMain` modülü bir [olay yayıcıdır][event-emitter]. Ana işlem tarafından kullanıldığında eş zamansız işlemleri gerçekleştirir ve işleme sürecinden (web sayfası) senkronizasyon bilgisi alır. Bir işleyiciden gönderilecek mesajlar bu modüle yayılacaktır.
 
@@ -48,28 +48,28 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.on(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function
+* `listener` fonksiyon
   * `event` IpcMainEvent
-  * `...args` any[]
+  * `...args` herhangi[]
 
 `listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
 ### `ipcMain.once(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function
+* `listener` fonksiyon
   * `event` IpcMainEvent
-  * `...args` any[]
+  * `...args` herhangi[]
 
 Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcMain.removeListener(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function
-  * `...args` any[]
+* `listener` fonksiyon
+  * `...args` herhangi[]
 
-Belirtilen `channel` öğesini belirtilen `listener` dizisinden kaldırır.
+Belirtilen `listener` öğesini `channel` öğesi için kaldırır.
 
 ### `ipcMain.removeAllListeners([kanal])`
 
@@ -82,7 +82,7 @@ Belirtilen `kanalın` dinleyicilerini kaldırır.
 * `channel` Dizesi
 * `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
-  * `...args` any[]
+  * `...args` herhangi[]
 
 Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
 
@@ -109,7 +109,7 @@ The `event` that is passed as the first argument to the handler is the same as t
 * `channel` Dizesi
 * `listener` Function<Promise<void> | any>
   * `event` IpcMainInvokeEvent
-  * `...args` any[]
+  * `...args` herhangi[]
 
 Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
 

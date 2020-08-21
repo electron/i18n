@@ -10,7 +10,7 @@
   * `GPU`
   * `Pepper Plugin`
   * `Pepper Plugin Broker`
-  * `Unknown`
+  * `未知`
 * `cpu` [CPUUsage](cpu-usage.md) - CPU使用率
 * `creationTime` Number - Creation time for this process. The time is represented as number of milliseconds since epoch. Since the `pid` can be reused after a process dies, it is useful to use both the `pid` and the `creationTime` to uniquely identify a process.
 * `memory` [MemoryInfo](memory-info.md) - 进程的内存信息。
@@ -20,4 +20,4 @@
   * `低`
   * `medium`
   * `高`
-  * `unknown`
+  * `未知`

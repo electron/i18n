@@ -1,4 +1,4 @@
 # FileFilter Object
 
-* `نام` رشته
+* PrinterInfo Object
 * `extensions` String[]

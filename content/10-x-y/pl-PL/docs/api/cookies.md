@@ -38,7 +38,7 @@ session.defaultSession.cookies.set(cookie)
   })
 ```
 
-### Zdarzenia instancji
+### Wydarzenia instancji
 
 The following events are available on instances of `Cookies`:
 

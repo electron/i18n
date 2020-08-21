@@ -1,6 +1,6 @@
-## Class: DownloadItem
+## تحميل الملف
 
-> Control file downloads from remote sources.
+> التحكم في تنزيل الملفات من خلال المصادر البعيدة.
 
 العملية: [Main](../glossary.md#main-process)
 
@@ -39,7 +39,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### Event: 'updated'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `state` String - Can be `progressing` or `interrupted`.
@@ -53,7 +53,7 @@ The `state` can be one of following:
 
 #### Event: 'done'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `state` String - Can be `completed`, `cancelled` or `interrupted`.

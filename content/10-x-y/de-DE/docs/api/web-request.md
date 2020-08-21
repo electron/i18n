@@ -2,7 +2,7 @@
 
 > Intercept and modify the contents of a request at various stages of its lifetime.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
@@ -41,8 +41,8 @@ Die folgenden Methoden sind verfügbar in Instanzen von `WebRequest`:
 * `listener` Function | null
   * `details` Object
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -81,8 +81,8 @@ Some examples of valid `urls`:
 * `listener` Function | null
   * `details` Object
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -104,8 +104,8 @@ The `callback` has to be called with a `response` object.
 * `listener` Function | null
   * `details` Object
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -121,8 +121,8 @@ The `listener` will be called with `listener(details)` just before a request is 
 * `listener` Function | null
   * `details` Object
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -148,8 +148,8 @@ The `callback` has to be called with a `response` object.
 * `listener` Function | null
   * `details` Object
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -168,8 +168,8 @@ The `listener` will be called with `listener(details)` when first byte of the re
 * `listener` Function | null
   * `details` Object
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -190,8 +190,8 @@ The `listener` will be called with `listener(details)` when a server initiated r
 * `listener` Function | null
   * `details` Object
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -211,8 +211,8 @@ The `listener` will be called with `listener(details)` when a request is complet
 * `listener` Function | null
   * `details` Object
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String

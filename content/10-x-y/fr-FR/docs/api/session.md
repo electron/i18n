@@ -96,7 +96,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.

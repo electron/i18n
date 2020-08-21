@@ -9,7 +9,7 @@
 
 The number represented by `status` means different things on different platforms: on Windows it's potential values can be found [here](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2), and on Linux and macOS they can be found [here](https://www.cups.org/doc/cupspm.html).
 
-## Example
+## 예시
 
 다음은 각 플랫폼마다 다를수 있는 몇가지 추가 옵션의 예입니다.
 

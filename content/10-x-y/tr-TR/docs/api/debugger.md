@@ -2,7 +2,7 @@
 
 > Chrome'un uzaktan hata ayıklama protokolü içın alternatif bir geçiş noktası.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 Chrome Geliştirici Araçları'nın Javascript çalışma anında sayfalarla etkileşime geçme ve yönetmek üzerine [özel bir kütüphanesi][rdp] var.
 
@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Örnek Events
+### Örnek olayları
 
 #### Etkinlik: 'ayırmak'
 
@@ -46,14 +46,14 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `method` String - Yöntem adı.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 * `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
 
 Emitted whenever the debugging target issues an instrumentation event.
 
-### Örnek yöntemleri
+### Örnek yöntemler
 
 #### `debugger.attach([protocolVersion])`
 

@@ -1,3 +1,3 @@
-# Event Object extends `GlobalEvent`
+# Objek Acara meluas `AcaraGlobal`
 
-* `preventDefault` VoidFunction
+* `cegahKegagalan` FungsiVoid

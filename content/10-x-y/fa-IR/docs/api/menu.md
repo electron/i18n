@@ -48,7 +48,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Instance Methods
+### روشهای نمونه
 
 The `menu` object has the following instance methods:
 
@@ -88,7 +88,7 @@ Returns `MenuItem` the item with the specified `id`
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
-### Instance Events
+### رویدادها نمونه
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 

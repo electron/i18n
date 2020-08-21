@@ -72,10 +72,10 @@ The ` super </ 0> kunci dipetakan ke <code> Windows </ 0> tombol pada Windows da
 <li><code> VolumeUp </ 0> , <code> VolumeDown </ 0> dan <code> VolumeMute </ 0></li>
 <li><code> MediaNextTrack </ 0> , <code> MediaPreviousTrack </ 0> , <code> MediaStop </ 0> dan <code> MediaPlayPause </ 0></li>
 <li><code>Layar cetak`
-* NumPad Keys 
+* Tombol Papan Angka 
     * `num0` - `num9`
-  * `numdec` - decimal key
-  * `numadd` - numpad `+` key
-  * `numsub` - numpad `-` key
-  * `nummult` - numpad `*` key
-  * `numdiv` - numpad `÷` key
+  * `numdec` - tombol desimal
+  * `numadd` - tombol angka `+`
+  * `numsub` - tombol angka `-`
+  * `nummult` - tombl angka`*`
+  * `numdiv` - tombol angka `÷`

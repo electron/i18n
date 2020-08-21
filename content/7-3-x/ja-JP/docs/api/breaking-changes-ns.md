@@ -14,9 +14,9 @@ Electron で `NetworkService` を有効にするタイミングが決定され�
 API は同期になり、任意のコールバックは不要になりました。
 
 ```javascript
-// Deprecated
+// 非推奨
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Replace with
+// こちらに置換
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -34,9 +34,9 @@ protocol.unregisterProtocol(scheme)
 API は同期になり、任意のコールバックは不要になりました。
 
 ```javascript
-// Deprecated
+// 非推奨
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
+// こちらに置換
 protocol.registerFileProtocol(scheme, handler)
 ```
 
@@ -47,9 +47,9 @@ protocol.registerFileProtocol(scheme, handler)
 この API は非推奨です。ユーザーは、代わりに `protocol.isProtocolRegistered` および `protocol.isProtocolIntercepted` を使用する必要があります。
 
 ```javascript
-// Deprecated
+// 非推奨
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Replace with
+// こちらに置換
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```

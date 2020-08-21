@@ -3,4 +3,4 @@
 * `x` Number
 * `y` Number
 
-**Note:** Both `x` and `y` must be whole integers, when providing a point object as input to an Electron API we will automatically round your `x` and `y` values to the nearest whole integer.
+**ملاحظة:** كل من `x` و `y` يجب أن تكون أعداد صحيحة كاملة، عند تقديم point object كمدخل إلى واجهة برمجة تطبيقات إليكترون، سنقوم بتدوير قيم `x` و `y` تلقائيًا إلى أقرب عدد صحيح تمامًا.

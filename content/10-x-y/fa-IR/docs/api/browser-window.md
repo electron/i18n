@@ -233,7 +233,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
   * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
-### Instance Events
+### رویدادها نمونه
 
 Objects created with `new BrowserWindow` emit the following events:
 
@@ -244,7 +244,7 @@ Objects created with `new BrowserWindow` emit the following events:
 Returns:
 
 * `event` Event
-* `title` String
+* `عنوان` رشته
 * `explicitSet` Boolean
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file URL.
@@ -502,7 +502,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* `نام` رشته
+* PrinterInfo Object
 
 Remove a Chrome extension by name.
 
@@ -534,7 +534,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* `نام` رشته
+* PrinterInfo Object
 
 Remove a DevTools extension by name.
 
@@ -685,7 +685,7 @@ Menu.setApplicationMenu(menu)
 
 A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
-### Instance Methods
+### روشهای نمونه
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -1022,7 +1022,7 @@ Returns `Integer[]` - Contains the window's current position.
 
 #### `win.setTitle(title)`
 
-* `title` String
+* `عنوان` رشته
 
 Changes the title of native window to `title`.
 
@@ -1290,7 +1290,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` _Windows_
 
-* `options` Object
+* `گزینه های` ObjectIrN 98
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.

@@ -1,4 +1,4 @@
-# gupitin ng maikli ang mga litrato
+# nativeImage
 
 > Gumawa ng tray, dock, at aplikasyon na mga icon gamit ang PNG o JPG na mga file.
 
@@ -179,7 +179,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Mga Halimbawa ng Sistematikong Paraan
+### Mga Pamamaraan ng Instance
 
 Ang mga sumusunod na paraan ay magagamit sa mga pagkakataong `NativeImage` klase :
 
@@ -210,7 +210,8 @@ Nagbabalik `Buffer` - A [Buffer][buffer] na naglalaman ng kopya ng mga imaheng h
 
 Nagbabalik `String` - Ang data URL ng imahe.
 
-#### `image.getBitmap([options])`
+#### `image.getBitmap([options])
+ `
 
 * `options` Object (optional)
   * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
@@ -233,7 +234,7 @@ Returns `Boolean` - Whether the image is empty.
 
 * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
-Returns [`Size`](structures/size.md).
+Nagbabalik [`Size`](structures/size.md).
 
 If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
@@ -276,7 +277,8 @@ If `scaleFactor` is passed, this will return the aspect ratio corresponding to t
 
 Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
-#### `image.addRepresentation(options)`
+#### `image.addRepresentation(options)
+`
 
 * `options` Object
   * `scaleFactor` Double - The scale factor to add the image representation for.

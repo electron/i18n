@@ -1,8 +1,8 @@
 # app
 
-> 애플리케이션의 이벤트 생명 주기를 제어합니다.
+> application의 이벤트 생명주기를 제어합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 다음은 마지막 윈도우를 닫을 때 애플리케이션도 종료하는 예시입니다.
 
@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## 이벤트
 
 app 객체는 다음과 같은 이벤트를 가지고 있습니다:
 
@@ -25,7 +25,7 @@ app 객체는 다음과 같은 이벤트를 가지고 있습니다:
 
 ### 이벤트: 'ready'
 
-반환:
+Returns:
 
 * `launchInfo` unknown _macOS_
 
@@ -39,7 +39,7 @@ Emitted once, when Electron has finished initializing. On macOS, `launchInfo` ho
 
 ### 이벤트: 'before-quit'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -51,7 +51,7 @@ Emitted before the application starts closing its windows. `event.preventDefault
 
 ### 이벤트: 'will-quit'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -74,7 +74,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트: 'open-file' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `path` String
@@ -87,7 +87,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### Event: 'open-url' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -98,7 +98,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트: 'activate' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -107,7 +107,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트: 'continue-activity' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`][activity-type]와 맵핑됩니다.
@@ -119,7 +119,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트: 'will-continue-activity' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`][activity-type]와 맵핑됩니다.
@@ -128,7 +128,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트: 'continue-activity-error' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`][activity-type]와 맵핑됩니다.
@@ -138,7 +138,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트: 'activity-was-continued' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`][activity-type]와 맵핑됩니다.
@@ -148,7 +148,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트: 'update-activity-state' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`][activity-type]와 맵핑됩니다.
@@ -158,7 +158,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트: 'new-window-for-tab' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -166,7 +166,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트 'browser-window-blur'
 
-반환:
+Returns:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -175,7 +175,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트: 'browser-window-focus'
 
-반환:
+Returns:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -184,7 +184,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트: 'browser-window-created'
 
-반환:
+Returns:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -193,7 +193,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트: 'web-contents-created'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -202,7 +202,7 @@ Emitted when all windows have been closed and the application will quit. `event.
 
 ### 이벤트: 'certificate-error'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -230,7 +230,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### 이벤트: 'select-client-certificate'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -252,9 +252,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### 이벤트: 'login'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -291,7 +291,7 @@ GPU 정보 업데이트가 있을 때마다 발생합니다.
 
 ### 이벤트: 'gpu-process-crashed'
 
-반환:
+Returns:
 
 * `event` Event
 * `killed` Boolean
@@ -300,7 +300,7 @@ GPU 프로세스가 충돌하거나 종료될 때 발생합니다.
 
 ### Event: 'renderer-process-crashed' _Deprecated_
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -312,7 +312,7 @@ GPU 프로세스가 충돌하거나 종료될 때 발생합니다.
 
 #### Event: 'render-process-gone'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -330,7 +330,7 @@ Emitted when the renderer process unexpectedly dissapears.  This is normally bec
 
 ### 이벤트: 'accessibility-support-changed' _macOS_ _Windows_
 
-반환:
+Returns:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - Chrome의 접근성 지원이 활성화 됐을 땐 `true`, `false`는 그 이외.
@@ -339,7 +339,7 @@ Chrome의 accessibility 가 변경되면 발생합니다. 이 이벤트는 스�
 
 ### 이벤트: 'session-created'
 
-반환:
+Returns:
 
 * `session` [Session](session.md)
 
@@ -355,7 +355,7 @@ app.on('session-created', (session) => {
 
 ### 이벤트: 'second-instance'
 
-반환:
+Returns:
 
 * `event` Event
 * `argv` String[] - 두 번째 instance의 명령줄 매개 변수의 Array입니다.
@@ -373,7 +373,7 @@ app.on('session-created', (session) => {
 
 ### 이벤트: 'desktop-capturer-get-sources'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -382,7 +382,7 @@ app.on('session-created', (session) => {
 
 ### 이벤트: 'remote-require'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -392,7 +392,7 @@ app.on('session-created', (session) => {
 
 ### 이벤트: 'remote-get-global'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -402,7 +402,7 @@ app.on('session-created', (session) => {
 
 ### 이벤트 'remote-get-builtin'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -412,7 +412,7 @@ app.on('session-created', (session) => {
 
 ### 이벤트: 'remote-get-current-window'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -421,7 +421,7 @@ app.on('session-created', (session) => {
 
 ### 이벤트: 'remote-get-current-web-contents'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -536,7 +536,7 @@ Returns `String` - `name`과 연관된 디렉토리 또는 파일에 대한 경�
 
 If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
-### `app.getFileIcon(path[, options], callback)`
+### `app.getFileIcon(path[, options])`
 
 * `path` String
 * `options` Object (optional)
@@ -558,32 +558,32 @@ _Linux_와 _macOS_에서 아이콘은 mime type과 관련된 어플리케이션�
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* PrinterInfo Object
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
+`name`과 연결된 정의된 디렉터리 또는 파일로 `path` override 합니다. 해당 경로가 존재하지 않으면, `Error`를 throw 합니다. 이 경우 디렉터리(directory)는 `fs.mkdirSync` 또는 이와 유사하게 작성해야 합니다.
 
-You can only override paths of a `name` defined in `app.getPath`.
+`app.getPath에`정의된 `name`으로만 경로만 재정의할 수 있습니다.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+기본적으로 웹 페이지의 쿠키와 캐시는 사용자 데이터 아래에 `userData` 디렉터리에 저장됩니다. 이 위치를 변경하려면, `app` 모듈의 `ready` 이벤트가 발생되기 전의 `userData` 경로를 override 해야 합니다.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Returns `String` - 로딩된 어플리케이션의 버젼 어플리케이션의 `package.json`에 버전이 없는 경우 실행 파일 또는 현재 번들의 버전이 반환됩니다.
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+Returns `String` - `package.json `파일에 정의된 현재 어플리케이션의 이름.
 
 `package.json`의 `name` 필드는 npm 모듈 명세에 따라 대체로 짧은 소문자 문자열입니다. 애플리케이션 이름에 대문자를 포함하고 싶다면 `productName` 필드에 값을 설정하세요. 일렉트론을 이 필드의 값을 `name` 필드보다 우선 사용합니다.
 
 ### `app.setName(name)`
 
-* `name` String
+* PrinterInfo Object
 
 현재 애플리케이션의 이름을 덮어씁니다.
 
-**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+**참고:** 이 함수는 Electron 내부에서 쓰는 이름을 덮어씁니다. OS에서 사용하는 이름에는 영향을 주지 않습니다.
 
 ### `app.getLocale()`
 
@@ -692,7 +692,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. `name` 속성이 설정되었지만 `type` 속성이 생략된 경우, `type`은 `custom`으로 가정합니다.
+**참고:** `JumpListCategory` 객체가 `type`, `name` 속성 둘 다 없다면, `type`은 `tasks`로 가정합니다.  `name` 속성이 설정되었지만 `type` 속성이 생략된 경우, `type`은 `custom`으로 가정합니다.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
@@ -832,7 +832,7 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 * `id` String
 
-Changes the [Application User Model ID][app-user-model-id] to `id`.
+[애플리케이션 유저 모델 ID][app-user-model-id]를 `id`로 변경합니다.
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
@@ -1116,19 +1116,19 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합][unity-requirement]을 참조하세요.
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
-### `app.commandLine` _Readonly_
+### `app.commandLine` _읽기전용_
 
 A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
 
-### `app.dock` _macOS_ _Readonly_
+### `app.dock` _macOS_ _읽기전용_
 
 A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
 
-### `app.isPackaged` _Readonly_
+### `app.isPackaged` _읽기전용_
 
 앱이 패키지되었을 경우에는 `true`를, 그렇지 않을 경우에는 `false`을 반환하는 `Boolean` 속성입니다. 다수의 앱에서, 이 속성은 개발 환경과 제품 환경을 구분하는데 사용될 수 있습니다.
 
@@ -1158,6 +1158,7 @@ The intention is for these overrides to become disabled by default and then at s
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
+[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows

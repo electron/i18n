@@ -20,7 +20,7 @@ app.whenReady().then(() => {
 
 Ang kuwit ang nag hihiwalay sa listahan ng mga servers para paganahin ang integrated authentication.
 
-Halimbawa:
+Halimbawa ng:
 
 ```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'

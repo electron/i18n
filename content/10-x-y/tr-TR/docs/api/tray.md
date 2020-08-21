@@ -2,7 +2,7 @@
 
 > Sistem bildirim alanına simgeler ve bağlam menüleri ekleyin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `Tray` bir [EventEmitter][event-emitter]'dir.
 
@@ -67,7 +67,7 @@ Tray ile ilişkili yeni bir simge oluşturulur`image`.
 
 #### Olay: 'click'
 
-Dönüşler:
+Döndürür:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
@@ -113,7 +113,7 @@ Sürüklenen herhangi bir nesne tray simgesine düştüğünde ortaya çıkar.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `files` String[] - Düşürülen dosyaların yolları.
 
 Sürüklenen dosyalar yaydıklarında tray simgesine düşer.
@@ -122,7 +122,7 @@ Sürüklenen dosyalar yaydıklarında tray simgesine düşer.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `text` String - Düşürülen yazı stringi.
 
 Sürüklenen metin tepsi simgesine düştüğünde ortaya çıkar.
@@ -186,7 +186,7 @@ Dönüşler:
 
 Fare tepsi simgesini hareket ettirdikçe ortaya çıkar.
 
-### Örnek yöntemleri
+### Örnek Metodlar
 
 The `Tray` sınıfı aşağıdaki yöntemleri içerir:
 
@@ -241,9 +241,9 @@ Returns `Boolean` - Whether double click events will be ignored.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` Dizge
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Varsayılanı `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
-  * `noSound` Boolean (optional) - Do not play the associated sound. Varsayılanı `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
-  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Varsayılanı `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Varsayılan `true`'dur. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
+  * `noSound` Boolean (optional) - Do not play the associated sound. Varsayılan `false`'dur. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
+  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Varsayılan `false`'dur. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 
 Bir tepsi balonunu görüntüler.
 

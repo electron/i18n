@@ -2,7 +2,7 @@
 
 > Agregue elementos a los menús y menús de contexto de la aplicación nativa.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Vea [`Menú`](menu.md) para obtener ejemplos.
 
@@ -46,15 +46,15 @@ Cada elemento del menu deve tener un `role`, `label`, o en el caso de un separad
 
 La propiedad `role` puede tener los siguientes valores:
 
-* `undo`
+* `deshacer`
 * `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
-* `redo`
-* `cut`
-* `copy`
-* `paste`
+* `rehacer`
+* `cortar`
+* `copiar`
+* `pegar`
 * `pasteAndMatchStyle`
 * `selectAll`
-* `delete`
+* `eliminar`
 * `minimize` - Minimizar la venta actual.
 * `close` - Cerrar la ventana actual.
 * `quit` - Salir de la aplicación.
@@ -95,7 +95,7 @@ Al especificar un `role` en macOS, `label` y `accelerator` son las únicas opcio
 
 **Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Las siguientes propiedades están disponibles en instancias del `menú de elementos`:
 

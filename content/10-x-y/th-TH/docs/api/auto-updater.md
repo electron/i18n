@@ -2,7 +2,7 @@
 
 > Enable apps to automatically update themselves.
 
-Messages
+Messages </a>
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 

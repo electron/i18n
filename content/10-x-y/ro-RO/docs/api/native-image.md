@@ -1,4 +1,4 @@
-# nativeImage
+# nativeImage-ImagineNativă
 
 > Create tray, dock, and application icons using PNG or JPG files.
 

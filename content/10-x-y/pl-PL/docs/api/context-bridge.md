@@ -45,7 +45,7 @@ The `contextBridge` module has the following methods:
 
 ## Zużycie
 
-### API Objects
+### Obiekty API
 
 The `api` object provided to [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) must be an object whose keys are strings and values are a `Function`, `String`, `Number`, `Array`, `Boolean`, or another nested object that meets the same conditions.
 
@@ -79,7 +79,7 @@ contextBridge.exposeInMainWorld(
 )
 ```
 
-### API Functions
+### Funkcje API
 
 `Function` values that you bind through the `contextBridge` are proxied through Electron to ensure that contexts remain isolated.  This results in some key limitations that we've outlined below.
 

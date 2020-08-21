@@ -2,7 +2,7 @@
 
 > Make HTTP/HTTPS requests.
 
-Messages
+Messages </a>
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter][event-emitter].
 

@@ -24,7 +24,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Methods
+## روش ها
 
 The `contentTracing` module has the following methods:
 
@@ -42,7 +42,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
 
-Start recording on all processes.
+شروع به ضبط در تمام فرآیندها.
 
 Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
 

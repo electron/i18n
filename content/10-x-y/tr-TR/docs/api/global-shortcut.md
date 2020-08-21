@@ -1,8 +1,8 @@
-# globalShortcut
+# evrenselKısayol
 
 > Uygulamanın klavye odağı olmadığı zaman klavye etkinliklerini algılar.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `globalShortcut` modülü bir evrensel kısayolu işletim sistemi ile kaydedebilir/kaydetmeyebilir bu sayede çeşitli kısayollar için işlemleri özelleştirebilirsiniz.
 
@@ -34,14 +34,14 @@ app.on('will-quit', () => {
 })
 ```
 
-## Metodlar
+## Yöntemler
 
 `globalShortcut` modülü aşağıdaki yöntemlere sahiptir:
 
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Fonksiyon
+* `callback` Function
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
@@ -59,7 +59,7 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 ### `globalShortcut.registerAll(accelerators, callback)`
 
 * `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
-* `callback` Fonksiyon
+* `callback` Function
 
 Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 

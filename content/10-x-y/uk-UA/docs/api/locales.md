@@ -2,7 +2,7 @@
 
 > Код мови повертається функцією `app.getLocale()`.
 
-Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
+Electron використовує бібліотеку Chromium `l10n_util` для отримання мови. Можливі значення перераховані нижче:
 
 | Код мови | Назва мови                    |
 | -------- | ----------------------------- |
@@ -93,7 +93,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | no       | Норвезька                     |
 | oc       | Окситанська                   |
 | om       | Оромо                         |
-| чи       | Орія                          |
+| or       | Орія                          |
 | pa       | Пенджабська                   |
 | pl       | Польська                      |
 | ps       | Пушту                         |

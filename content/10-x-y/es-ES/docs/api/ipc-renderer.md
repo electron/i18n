@@ -15,7 +15,7 @@ El módulo `ipcRenderer` tiene los siguientes métodos para escuchar los eventos
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function
+* `listener` Función
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -24,7 +24,7 @@ Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `l
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function
+* `listener` Función
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -33,7 +33,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function
+* `listener` Función
   * `...args` any[]
 
 Elimina el `listener` especificado del arreglo del oyente para el `channel` especificado.

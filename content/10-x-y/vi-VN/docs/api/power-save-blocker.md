@@ -2,7 +2,7 @@
 
 > Block the system from entering low-power (sleep) mode.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 For example:
 
@@ -15,7 +15,7 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## Phương thức
+## Các phương thức
 
 The `powerSaveBlocker` module has the following methods:
 

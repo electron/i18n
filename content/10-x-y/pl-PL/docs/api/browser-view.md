@@ -9,7 +9,7 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 ### Przykład
 
 ```javascript
-// W procesie głównym.
+//W głównym procesie.
 const { BrowserView, BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })

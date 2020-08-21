@@ -8,4 +8,4 @@
 * `name` String (opcional) - Precisa ser definido se o `type` é `custom`, caso contrário deverá ser omitido.
 * `items` JumpListItem[] (opcional) - Matriz de [`JumpListItem`](jump-list-item.md) objetos que se `type` for `tasks` ou `custom`, caso contrário, deverá ser omitido.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Se a propriedade do `name` está definida mas a propriedade do `type` é omissa, então o `type` é assumido como `custom`.
+**Nota:** Se um objeto `JumpListCategory` não tem o `type` nem a propriedade do `name` definido, então seu `type` é assumido como `tasks`. Se a propriedade do `name` está definida mas a propriedade do `type` é omissa, então o `type` é assumido como `custom`.

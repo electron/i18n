@@ -8,4 +8,4 @@
 * `name` String (по избор) - Трябва да се определи, ако `type` е `custom`, в противен случай трябва да се пропусне.
 * `items` JumpListItem[] (по избор) - Списък от [`JumpListItem`](jump-list-item.md) обекти ако `type` е `tasks` или `custom`, в противен случай трябва да се пропусне.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Ако свойството на `name` е зададено, но `type` е пропуснато, тогава `type` се приема да бъде `custom`.
+**Забележка:** Ако обекта `JumpListCategory` няма нито `type`, нито `name` свойство, тогава неговия `type` се приема за `tasks`. Ако свойството на `name` е зададено, но `type` е пропуснато, тогава `type` се приема да бъде `custom`.

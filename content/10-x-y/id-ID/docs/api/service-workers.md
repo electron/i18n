@@ -31,9 +31,9 @@ The following events are available on instances of `ServiceWorkers`:
 
 #### Event: 'console-message'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
+* `event` Event
 * `messageDetails` Object - Information about the console message
   * `message` String - The actual console message
   * `versionId` Number - The version ID of the service worker that sent the log message
@@ -44,7 +44,7 @@ Mengembalikan:
 
 Emitted when a service worker logs something to the console.
 
-### Методы экземпляра
+### Metode Instance
 
 The following methods are available on instances of `ServiceWorkers`:
 

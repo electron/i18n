@@ -1,4 +1,4 @@
-# `window.open` Function
+# Funcția `window.open`
 
 > Open a new window and load a URL.
 

@@ -26,7 +26,7 @@ En el procesor renderer en sandbox el objeto `process` sólo contiene un subconj
 - `arch`
 - `platform`
 - `sandboxed`
-- `tipo`
+- `type`
 - `version`
 - `versions`
 - `mas`
@@ -70,7 +70,7 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 ### `process.noDeprecation`
 
-Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no a `stderr`. Establecer esto en `true` silenciará las advertencias de obsolescencia. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
+Un `Boolean` que controla si las advertencias de deprecación se imprimen o no a `stderr`. Modificar esta propiedad a `true` silenciará las advertencias de depreciación. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
 
 ### `process.resourcesPath` _Readonly_
 
@@ -82,7 +82,7 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 
 ### `proceso.desechoDegradación`
 
-Un `Booleano` que controla si las advertencias de degradación son consideradas como excepción. Ajustando este como `verdad` se producirán errores por degradación. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
+Un `Boolean` que controla si las advertencias de depreciación serán lanzadas como excepciones. Modificar esta propiedad a `true` lanzará errores para las depreciaciones. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
 
 ### `proceso.ubicarDegradación`
 
@@ -135,7 +135,7 @@ Devuelve [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `totalHeapSize` Integer
 * `totalHeapSizeExecutable` Integer
@@ -151,7 +151,7 @@ Returns an object with V8 heap statistics. Toma en cuenta que todas las estadís
 
 ### `process.getBlinkMemoryInfo()`
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `allocated` Integer - Size of all allocated objects in Kilobytes.
 * `marked` Integer - Size of all marked objects in Kilobytes.
@@ -169,7 +169,7 @@ Chromium no provee el valor `residentSet` para macOS. Esto es porque macOS reali
 
 ### `process.getSystemMemoryInfo()`
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `total` Entero - La cantidad total de memoria física en kilobytes de la que dispone el sistema.
 * `libre` entero - La cantidad de memoria que no está siendo usada por aplicaciones o caché de disco.

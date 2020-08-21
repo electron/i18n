@@ -2,7 +2,7 @@
 
 > Manipola la finestra browser figlia
 
-Processo: [Renderizzatore](../glossary.md#renderer-process)
+Processo: [Renderer](../glossary.md#renderer-process)
 
 L'oggetto `ProxyFinestraBrowser` è tornato da `apri.finestra` e fornisce una limitata funzionalità con la finestra figlia.
 
@@ -20,7 +20,7 @@ Chiude forzatamente la finestra figlia senza chiamare il suo evento scaricato.
 
 #### `win.eval(codice)`
 
-* `codice` Stringa
+* `code` Stringa
 
 Valuta il codice nella finestra figlia.
 

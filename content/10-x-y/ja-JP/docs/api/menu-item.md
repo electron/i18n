@@ -46,9 +46,9 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 
 `role` プロパティは、以下の値を持つことができます。
 
-* `元に戻します`
-* `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
-* `やり直します`
+* `undo`
+* `about` - ネイティブのこの App についてのパネル (専用のパネルを提供しない、Window 上のカスタムメッセージボックス) をトリガーします。
+* `redo`
 * `cut`
 * `copy`
 * `paste`

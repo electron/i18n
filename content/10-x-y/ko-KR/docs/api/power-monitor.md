@@ -2,9 +2,9 @@
 
 > Monitor power state changes.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
-## Events
+## 이벤트
 
 The `powerMonitor` module emits the following events:
 

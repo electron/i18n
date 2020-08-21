@@ -15,7 +15,7 @@ The following is a non-exhaustive list of why you may consider using the `net` m
 
 The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
 
-Example usage:
+Przykład zastosowania:
 
 ```javascript
 const { app } = require('electron')

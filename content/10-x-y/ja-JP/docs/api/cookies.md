@@ -83,7 +83,7 @@ session.defaultSession.cookies.set(cookie)
   * `domain` String (任意) - Cookie のドメインです。これはサブドメインでも有効になるように最初のドットで正規化されます。 省略された場合は既定で空になります。
   * `path` String (optional) - Cookie のパス。 省略された場合は既定で空になります。
   * `secure` Boolean (任意) - Cookie に Secure フラグがついているか。 省略値は false です。
-  * `httpOnly` Boolean (任意) - Cookie に HttpOnly フラグがついているか。 省略値は false 。
+  * `httpOnly` Boolean (任意) - Cookie に HttpOnly フラグがついているか。 省略値は、false です。
   * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 省略した場合、クッキーはセッションクッキーになり、セッション間では保持されなくなります。
   * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.  Default is `no_restriction`.
 

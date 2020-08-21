@@ -70,10 +70,10 @@ view.webContents.loadURL('https://electronjs.org')
 #### `view.setAutoResize(options)` _実験的_
 
 * `options` Object
-  * `width` Boolean (任意) - `true` の場合、ビューの横幅はウインドウと一緒に伸び縮みします。 省略値は `false` です。
+  * `width` Boolean (任意) - `true` の場合、ビューの横幅はウインドウと一緒に伸び縮みします。 既定値は `false` です。
   * `height` Boolean (任意) - `true` の場合、ビューの高さはウインドウと一緒に伸び縮みします。 省略値は `false` です。
-  * `horizontal` Boolean (任意) - `true` の場合、ビューの x 位置と幅はウィンドウに比例して増減します。 省略値は `false` です。
-  * `vertical` Boolean (任意) - `true` の場合、ビューの y 位置と高さはウィンドウに比例して増減します。 省略値は `false` です。
+  * `horizontal` Boolean (任意) - `true` の場合、ビューの x 位置と幅はウィンドウに比例して増減します。 既定値は `false` です。
+  * `vertical` Boolean (任意) - `true` の場合、ビューの y 位置と高さはウィンドウに比例して増減します。 既定値は `false` です。
 
 #### `view.setBounds(bounds)` _実験的_
 

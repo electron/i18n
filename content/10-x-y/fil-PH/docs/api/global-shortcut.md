@@ -1,4 +1,4 @@
-# putulin ng maikli ang global
+# globalShortcut
 
 > Tinutuklas ang mga pangyayari sa keyboard kung ang aplikasyon ay walang tumutuon na keyboard.
 
@@ -44,7 +44,7 @@ Ang `globalShortcut` na modyul ay may mga sumusunod na paraan:
 ### `globalShortcut.rehistro(aselerador, baliktawag)`
 
 * `aselerador` [Aselerador](accelerator.md)
-* `callback` na Function
+* `baliktawag` ginagawa
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 

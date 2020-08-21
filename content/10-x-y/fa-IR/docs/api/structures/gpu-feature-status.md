@@ -14,7 +14,7 @@
 * `webgl` String - WebGL.
 * `webgl2` String - WebGL2.
 
-مقادیر ممکن:
+Possible values:
 
 * `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - Disabled (red)

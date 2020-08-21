@@ -24,7 +24,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Методи
+## Методиa
 
 The `contentTracing` module has the following methods:
 

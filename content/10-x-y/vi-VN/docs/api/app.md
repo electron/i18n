@@ -2,7 +2,7 @@
 
 > Kiểm soát các vòng đời sự kiện trong ứng dụng của bạn.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Ví dụ sau cho thấy làm thế nào để thoát ứng dụng khi cửa sổ cuối cùng được đóng:
 
@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## Các sự kiện
 
 `app` object sẽ tạo ra các sự kiện sau đây:
 

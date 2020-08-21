@@ -1,4 +1,4 @@
 # IpcMainInvokeEvent Object extends `Event`
 
-* `frameId` Integer - The ID of the renderer frame that sent this message
-* `sender` WebContents - Returns the `webContents` that sent the message
+* `Bingkaiid` Integer-ID dari bingkai penyaji yang mengirim pesanan ini
+* `sender` KontenWeb - Mengembalikan `webContents` yang mengirimkan pesan

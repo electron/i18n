@@ -1,4 +1,4 @@
 # كائن FileFilter
 
-* `name` سلسلة نصية
+* `الإسم`String
 * `extensions` مصفوفة سلاسل نصية

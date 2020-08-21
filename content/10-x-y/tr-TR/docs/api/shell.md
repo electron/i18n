@@ -16,7 +16,7 @@ shell.openExternal('https://github.com')
 
 **Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
-## Metodlar
+## Yöntemler
 
 The `shell` modülünün aşağıdaki yöntemleri vardır:
 
@@ -28,7 +28,7 @@ Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openPath(path)`
 
-* `path` Dizgi
+* dizi `yolu`
 
 Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 

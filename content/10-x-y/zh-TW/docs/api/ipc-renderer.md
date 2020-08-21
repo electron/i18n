@@ -4,13 +4,13 @@
 
 處理序: [畫面轉譯器](../glossary.md#renderer-process)
 
-`ipcRenderer` 模組是一個 [EventEmitter][event-emitter] 類別實例。 It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+`ipcRenderer` 模組是一個 [EventEmitter][event-emitter] 類別實例。 它提供一些方法能讓你從渲染程序（網頁）到主程序途中傳遞同步和非同步的訊息。 你也可以用它來接收來自主程序的訊息。
 
-See [ipcMain](ipc-main.md) for code examples.
+其他範例請查閱 [ipcMain](ipc-main.md)。
 
 ## 方法
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+`ipcRenderer` 模組具有以下方法用來監聽事件和發送訊息：
 
 ### `ipcRenderer.on(channel, listener)`
 
@@ -19,7 +19,7 @@ The `ipcRenderer` module has the following method to listen for events and send 
   * `event` IpcRendererEvent
   * `...args` any[]
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+監聽 `channel`，當一個新的訊息抵達 `listener` 時將會呼叫 `listener(event, args...)`。
 
 ### `ipcRenderer.once(channel, listener)`
 
@@ -28,7 +28,7 @@ Listens to `channel`, when a new message arrives `listener` would be called with
   * `event` IpcRendererEvent
   * `...args` any[]
 
-對事件加入一次性的 `listener`。 此 `listener` 只有在下一次訊息發送到 `channel` 時才會被喚起，之後就會被移除。
+對事件加入一次性的 `listener`。 此 `listener` 只有在下一次訊息發送到 `channel` 時才會被調用，之後就會被移除。
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
@@ -36,24 +36,24 @@ Listens to `channel`, when a new message arrives `listener` would be called with
 * `listener` Function
   * `...args` any[]
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+從 `channel` 的 listener array 之中刪除特定的 `listener`。
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
 * `channel` String
 
-Removes all listeners, or those of the specified `channel`.
+刪除所有指定 `channel` 的 listener。
 
 ### `ipcRenderer.send(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the main process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+通過 `channel` 非同步的向主程序傳送訊息，還有引數。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. 傳遞任何 Function、Promise、Symbol、WeakMap 或 WeakSet 物件將會拋出錯誤。
 
 > **提醒：** 傳送非標準 JavaScript 型別的方法已經不推薦使用（例如 DOM 物件或者特殊的 Electron 物件），並且在 Electron 9 版本開始將會拋出錯誤。
 
-The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
+主程序透過 [`ipcMain`](ipc-main.md) 來監聽 `channel` 以接收此方法所發出的訊息。
 
 If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
 
@@ -64,22 +64,22 @@ If you want to receive a single response from the main process, like the result 
 * `channel` String
 * `...args` any[]
 
-Returns `Promise<any>` - Resolves with the response from the main process.
+返回 `Promise<any>` ─ 解決來自主程序的回應。
 
-Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+透過 `channel` 來傳送訊息給主程序，並且以非同步的方式返回結果。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. 傳遞任何 Function、Promise、Symbol、WeakMap 或 WeakSet 物件將會拋出錯誤。
 
 > **提醒：** 傳送非標準 JavaScript 型別的方法已經不推薦使用（例如 DOM 物件或者特殊的 Electron 物件），並且在 Electron 9 版本開始將會拋出錯誤。
 
-The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
+主程序應該透過 [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener) 監聽此 `channel`。
 
 For example:
 ```javascript
-// Renderer process
+// 渲染程序
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
   // ...
 })
 
-// Main process
+// 主程序
 ipcMain.handle('some-name', async (event, someArgument) => {
   const result = await doSomeWork(someArgument)
   return result
@@ -95,15 +95,15 @@ If you do not need a respons to the message, consider using [`ipcRenderer.send`]
 * `channel` String
 * `...args` any[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+返回 `any` ─ [`ipcMain`](ipc-main.md) handler 的回傳訊息。
 
-Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+透過 `channel` 來傳送訊息給主程序，並且以同步的方式返回結果。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. 傳遞任何 Function、Promise、Symbol、WeakMap 或 WeakSet 物件將會拋出錯誤。
 
 > **提醒：** 傳送非標準 JavaScript 型別的方法已經不推薦使用（例如 DOM 物件或者特殊的 Electron 物件），並且在 Electron 9 版本開始將會拋出錯誤。
 
-The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
+主進程透過 `ipcMain` 來監聽 [`channel`](ipc-main.md) 並接收訊息，接著藉由指定 `event.returnValue` 來回覆。
 
-> :warning: **警告** ：發起一個同步的訊息將會阻塞整個渲染程序直到收到回覆為止，所以，請將此方法視為最後的解決方案。 It's much better to use the asynchronous version, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
+> :warning: **警告** ：發起一個同步的訊息將會阻塞整個渲染程序直到收到回覆為止，所以，請將此方法視為最後的解決方案。 推薦使用非同步的 [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args)。
 
 ### `ipcRenderer.postMessage(channel, message, [transfer])`
 
@@ -136,18 +136,18 @@ For more information on using `MessagePort` and `MessageChannel`, see the [MDN d
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `webContentsId` via `channel`.
+透過 `channel` 發送訊息給一個具有 `webContentsId` 的視窗。
 
 ### `ipcRenderer.sendToHost(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+與 `ipcRenderer.send` 類似，但不同的是訊息會被發送到主頁面上的 `<webview>` 元素，而不是主程序。
 
 ## Event 物件
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
+傳遞 `event` object 到 `callback` 的文件描述在 [`ipc-renderer-event`](structures/ipc-renderer-event.md) 結構文件。
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
 [SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm

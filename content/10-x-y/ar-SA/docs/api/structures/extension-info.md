@@ -1,4 +1,4 @@
 # ExtensionInfo Object
 
-* `name` سلسلة نصية
+* `الإسم`String
 * `الإصدار` String

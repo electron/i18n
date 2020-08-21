@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 Instâncias da classe `Cookies` são acessadas através da propriedade `cookies` de uma `Sessão`.
 
-Como por exemplo:
+Por exemplo:
 
 ```javascript
 const { session } = require('electron')

@@ -2,9 +2,9 @@
 
 > In-app purchases on Mac App Store.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
-## Events
+## Etkinlikler
 
 The `inAppPurchase` module emits the following events:
 
@@ -14,7 +14,7 @@ Emitted when one or more transactions have been updated.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
 
 ## Metodlar

@@ -20,7 +20,7 @@ app.whenReady().then(() => {
 
 A comma-separated list of servers for which integrated authentication is enabled.
 
-For example:
+例如:
 
 ```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'

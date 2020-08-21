@@ -2,7 +2,7 @@
 
 > Создайте меню приложения и контекстное меню.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -16,19 +16,19 @@
 
 * `menu` Menu | null
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+Устанавливает `меню` в качестве меню приложения на macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
 Также на Windows и Linux, Вы можете использовать `&` в названии подменю верхнего списка, чтобы указать, какая буква должна получить сгенерированный акселератор( Accelerator ). Для примера, использование `&File` для меню файла в результате сгенерирует акселератор( Accelerator ) `Alt-F`, который открывает соответствующее меню. Указанный символ в названии кнопки будет подчеркнут. Символ `&` не отображается в названии кнопки.
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
-**Note:** The default menu will be created automatically if the app does not set one. Он содержит стандартные элементы, такие как `Файл`, `Редактировать`, `Вид`, `Окно` и `Помощь`.
+**Примечание:** Меню по умолчанию будет создано автоматически, если приложение не установит его. Он содержит стандартные элементы, такие как `Файл`, `Редактировать`, `Вид`, `Окно` и `Помощь`.
 
 #### `Menu.getApplicationMenu()`
 
 Возвращает `Menu | null` - меню приложения, если установлено, иначе `null`.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Параметры экземпляра](#instance-properties) все ещё могут быть динамически изменены.
+**Примечание:** Возвращенный экземпляр `Menu` не поддерживает динамическое добавление или удаление пунктов меню. [Параметры экземпляра](#instance-properties) все ещё могут быть динамически изменены.
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 
@@ -276,7 +276,7 @@ macOS представляет стандартные действия для н
 
 На macOS название первого элемента меню приложения - всегда название Вашего приложения, независимо от того, какое название элемента Вы установили. Чтобы изменить его, измените файл `Info.plist` Вашей сборки приложения. См. [О информации свойств списка файлов][AboutInformationPropertyListFiles] для большей информации.
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Настройка меню для конкретного окна браузера (*Linux* *Windows*)
 
 [Метод `setMenu`][setMenu] окна браузера может установить меню определенных окон браузера.
 

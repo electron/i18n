@@ -2,7 +2,7 @@
 
 > Создание уведомлений на рабочем столе ОС
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 ## Использование в Рендерер-процессе
 
@@ -12,7 +12,7 @@
 
 > Создание уведомлений на рабочем столе ОС
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 `Notification` является [EventEmitter][event-emitter].
 

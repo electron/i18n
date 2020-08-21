@@ -2,7 +2,7 @@
 
 > 브라우저 윈도우를 생성하고 제어합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 ```javascript
 // 메인 프로세스에서.
@@ -109,7 +109,7 @@ child.once('ready-to-show', () => {
 
 > 브라우저 윈도우를 생성하고 제어합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 `BrowserWindow`는 [EventEmitter][event-emitter]이다.
 
@@ -242,7 +242,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 #### 이벤트: 'page-title-updated'
 
-반환:
+Returns:
 
 * `event` Event
 * `title` String
@@ -252,7 +252,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 #### 이벤트: 'close'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -328,7 +328,7 @@ Emitted when the window is restored from a minimized state.
 
 #### Event: 'will-resize' _macOS_ _Windows_
 
-반환:
+Returns:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
@@ -343,7 +343,7 @@ Emitted after the window has been resized.
 
 #### Event: 'will-move' _macOS_ _Windows_
 
-반환:
+Returns:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
@@ -380,7 +380,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'always-on-top-changed'
 
-반환:
+Returns:
 
 * `event` Event
 * `isAlwaysOnTop` Boolean
@@ -389,7 +389,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-반환:
+Returns:
 
 * `event` Event
 * `command` String
@@ -428,7 +428,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `direction` String
@@ -439,7 +439,7 @@ The method underlying this event is built to handle older macOS-style trackpad s
 
 #### Event: 'rotate-gesture' _macOS_
 
-반환:
+Returns:
 
 * `event` Event
 * `rotation` Float
@@ -502,7 +502,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* `name` String
+* PrinterInfo Object
 
 Remove a Chrome extension by name.
 
@@ -534,7 +534,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* `name` String
+* PrinterInfo Object
 
 Remove a DevTools extension by name.
 
@@ -559,7 +559,7 @@ console.log(installed)
 
 **Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -685,7 +685,7 @@ Menu.setApplicationMenu(menu)
 
 A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -1451,7 +1451,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Note:** TouchBar API는 현재 시험 단계에 있으며 향후 전자 릴리스에서 변경되거나 제거 될 수 있습니다.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

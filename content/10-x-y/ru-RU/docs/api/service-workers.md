@@ -2,7 +2,7 @@
 
 > Query and receive events from a sessions active service workers.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
@@ -33,7 +33,7 @@ The following events are available on instances of `ServiceWorkers`:
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `messageDetails` Object - Information about the console message
   * `message` String - The actual console message
   * `versionId` Number - The version ID of the service worker that sent the log message

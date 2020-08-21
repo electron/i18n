@@ -34,7 +34,7 @@ The installer generated with Squirrel will create a shortcut icon with an [Appli
 
 `autoUpdater` 对象会触发以下的事件:
 
-### 事件: 'error'
+### Event: 'error'
 
 返回:
 

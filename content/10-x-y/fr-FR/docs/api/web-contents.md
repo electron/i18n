@@ -1,6 +1,6 @@
 # webContents
 
-> Contrôle et rendu des pages web.
+> Fait le rendu et contrôle des pages web.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -83,7 +83,7 @@ Cet événement est comme `did-fail-load` mais émis lorsque la charge a été a
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -172,7 +172,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `url` String
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
@@ -368,7 +368,7 @@ Retourne :
 
 Émis avant d'envoyer les événements `keydown` et `keyup` dans la page. Appeler `event.preventDefault` empêchera les événements `keydown`/`keyup` et les raccourcis du menu dans la page.
 
-To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
+Pour seulement empêcher les raccourcis du menu, utilisez [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore) :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -523,7 +523,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `params` Object
   * `x` Integer - coordonnée x.
   * `y` Integer - coordonée y.
@@ -566,7 +566,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function
   * `deviceId` String
@@ -599,7 +599,7 @@ app.whenReady().then(() => {
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - Les données de l'image du frame entier.
 
@@ -623,7 +623,7 @@ win.loadURL('http://github.com')
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -637,7 +637,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` WebContents - Les contenus web invités qui sont utilisés par `<webview>`.
 
 Émis quand un `<webview>` a été rattaché à ce contenu web.
@@ -646,9 +646,9 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `level` Integer
-* `message` Chaîne de caractères
+* `message` String
 * `line` Integer
 * `sourceId` String
 

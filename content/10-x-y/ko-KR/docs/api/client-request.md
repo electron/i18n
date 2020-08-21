@@ -2,7 +2,7 @@
 
 > HTTP/HTTPS 요청을 생성합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 `ClientRequest`는 [쓰기 가능한 스트림](https://nodejs.org/api/stream.html#stream_writable_streams) 인터페이스를 구현하므로, 하나의 [EventEmitter][event-emitter]입니다.
 
@@ -39,13 +39,13 @@ const request = net.request({
 
 #### Event: 'response'
 
-반환:
+Returns:
 
 * `response` IncomingMessage - HTTP 응답 메시지를 나타내는 객체입니다.
 
-#### Event: 'login'
+#### 이벤트: 'login'
 
-반환:
+Returns:
 
 * `authInfo` Object
   * `isProxy` Boolean
@@ -93,7 +93,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### 이벤트: 'error'
 
-반환:
+Returns:
 
 * `error` Error - an error object providing some information about the failure.
 
@@ -106,7 +106,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 #### 이벤트: 'redirect'
 
-반환:
+Returns:
 
 * `statusCode` Integer
 * `method` String
@@ -115,7 +115,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 #### `request.chunkedEncoding`
 
@@ -123,7 +123,7 @@ A `Boolean` specifying whether the request will use HTTP chunked transfer encodi
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 #### `request.setHeader(name, value)`
 

@@ -131,7 +131,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | uk            | Ukrainian               |
 | ur            | Urdu                    |
 | uz            | Uzbek                   |
-| vi            | Việt                    |
+| vi            | Tiếng Việt              |
 | xh            | Xhosa                   |
 | yi            | Yiddish                 |
 | yo            | Yoruba                  |

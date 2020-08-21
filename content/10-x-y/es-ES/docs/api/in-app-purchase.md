@@ -2,19 +2,19 @@
 
 > Compras In-app en Mac App Store.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ## Eventos
 
 El módulo `inAppPurchase` emite los siguientes eventos:
 
-### Event: 'transactions-updated'
+### Evento: 'transactions-updated'
 
 Emitido cuando una o más transacciones han sido actualizadas.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `transactions` Transaction[] - Un array de objetos [`Transaction`](structures/transaction.md).
 
 ## Métodos

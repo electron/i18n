@@ -1,4 +1,4 @@
-# Shortcutglobale
+# globalShortcut
 
 > Rileva eventi della tastiera quando l'applicazione non è in focus su di essa.
 
@@ -41,7 +41,7 @@ Il modulo `globalShortcut` ha i seguenti metodi:
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Function
+* `callback` Funzione
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
@@ -59,7 +59,7 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 ### `globalShortcut.registerAll(accelerators, callback)`
 
 * `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
-* `callback` Function
+* `callback` Funzione
 
 Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 

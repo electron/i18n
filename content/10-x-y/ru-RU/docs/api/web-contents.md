@@ -2,7 +2,7 @@
 
 > Render and control web pages.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter][event-emitter]. Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
 
@@ -43,7 +43,7 @@ console.log(webContents)
 
 > Рендерит и управляет контент экземпляра BrowserWindow.
 
-Процесс: [Основной](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ### События экземпляра
 
@@ -288,8 +288,8 @@ win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBoxSync(win, {
     type: 'question',
     buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
+    title: 'Вы действительно хотите покинуть этот сайт?',
+    message: 'Изменения не могут быть сохранены.',
     defaultId: 0,
     cancelId: 1
   })
@@ -330,7 +330,7 @@ Emitted when the renderer process unexpectedly dissapears.  This is normally bec
 
 #### Событие: 'unresponsive'
 
-Происходит, когда страница "не отвечает".
+Вызывается, когда страница "не отвечает".
 
 #### Событие: 'responsive'
 
@@ -435,7 +435,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `callback` Function
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
-Происходит, когда запрошен сертификат клиента.
+Возникает при запросе сертификата клиента.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
@@ -456,7 +456,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `username` String (опционально)
   * `password` String (опционально)
 
-Происходит, когда `webContents` выполняет базовую аутентификацию.
+Возникает `webContents`, когда делается базовый auth.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
@@ -648,7 +648,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 * `event` Event
 * `level` Integer
-* Строка `message`
+* `message` String
 * `line` Integer
 * `sourceId` String
 
@@ -741,11 +741,11 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 
 * `url` String
 * `options` Object (опционально)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - URL-адрес HTTP ссылки.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - HTTP Referrer.
   * `userAgent` String (опционально) - user-agent, создающий запрос.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n".
+  * `extraHeaders` String (опционально) - дополнительные заголовки, разделенные "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (опционально)
-  * `baseURLForDataURL` String (опционально) - Базовый Url (с разделителем пути), для файлов, которые будут загружены по Url данных. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `baseURLForDataURL` String (опционально) - Базовый URL (с разделителем пути), для файлов, которые будут загружены по URL данных. Это необходимо, только если указанный `url` это URL данных и необходимо загрузить другие файлы.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
 
@@ -762,8 +762,8 @@ webContents.loadURL('https://github.com', options)
 * `filePath` String
 * `options` Object (опционально)
   * `query` Record<String, String> (опционально) - переданная в `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `search` String (опционально) - переданная в `url.format()`.
+  * `hash` String (опционально) - переданная в `url.format()`.
 
 Возвращает `Promise<void>` - промис будет разрешен, когда страница завершит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет, если страница не удачно загрузилась (см. [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
@@ -957,7 +957,7 @@ Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 #### `contents.setIgnoreMenuShortcuts(ignore)`
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 
 Ignore application menu shortcuts while this web contents is focused.
 
@@ -1613,7 +1613,7 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
-Делает снимок кучи V8 и сохраняет его в `filePath`.
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 

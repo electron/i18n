@@ -8,7 +8,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessagePortMain
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### Métodos de Instancia
 
@@ -39,7 +39,7 @@ Devuelve:
 
 Emitted when a MessagePortMain object receives a message.
 
-#### Evento: "close"
+#### Evento: 'close'
 
 Emitted when the remote end of a MessagePortMain object becomes disconnected.
 

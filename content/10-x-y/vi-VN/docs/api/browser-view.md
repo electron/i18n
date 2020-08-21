@@ -2,7 +2,7 @@
 
 > Create and control views.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. Có thể xem nó là một sự lựa chọn khác với sử dụng tag `webview`.
 

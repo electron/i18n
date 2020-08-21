@@ -31,7 +31,7 @@ The following events are available on instances of `ServiceWorkers`:
 
 #### Event: 'console-message'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `messageDetails` Object - Information about the console message

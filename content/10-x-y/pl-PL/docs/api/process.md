@@ -1,4 +1,4 @@
-# proces
+# przetwórz
 
 > Extensions to process object.
 
@@ -26,8 +26,8 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 - `arch`
 - `platform`
 - `sandboxed`
-- `typ`
-- `version`
+- `type`
+- `wersja`
 - `versions`
 - `mas`
 - `windowsStore`

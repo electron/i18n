@@ -1,4 +1,4 @@
 # 扩展信息对象
 
-* `name` String
+* `name` 字符串
 * `version` String

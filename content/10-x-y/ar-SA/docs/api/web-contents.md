@@ -53,7 +53,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 #### Event: 'did-fail-load'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `errorCode` Integer
@@ -67,7 +67,7 @@ This event is like `did-finish-load` but emitted when the load failed. The full 
 
 #### Event: 'did-fail-provisional-load'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `errorCode` Integer
@@ -81,7 +81,7 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 
 #### Event: 'did-frame-finish-load'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `isMainFrame` Boolean
@@ -100,7 +100,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Event: 'dom-ready'
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -108,7 +108,7 @@ Emitted when the document in the given frame is loaded.
 
 #### Event: 'page-title-updated'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `title` String
@@ -118,7 +118,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 #### Event: 'page-favicon-updated'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `favicons` String[] - Array of URLs.
@@ -127,7 +127,7 @@ Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
-Returns:
+تراجع:
 
 * `event` NewWindowWebContentsEvent
 * `url` String
@@ -170,7 +170,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 #### Event: 'will-navigate'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `url` String
@@ -185,7 +185,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-start-navigation'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `url` String
@@ -198,7 +198,7 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 #### Event: 'will-redirect'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `url` String
@@ -215,7 +215,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `url` String
@@ -230,7 +230,7 @@ This event can not be prevented, if you want to prevent redirects you should che
 
 #### Event: 'did-navigate'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `url` String
@@ -243,7 +243,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-frame-navigate'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `url` String
@@ -259,7 +259,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `url` String
@@ -273,7 +273,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -302,7 +302,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed' _Deprecated_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `killed` Boolean
@@ -313,7 +313,7 @@ Emitted when the renderer process crashes or is killed.
 
 #### Event: 'render-process-gone'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `details` Object
@@ -338,10 +338,10 @@ Emitted when the unresponsive web page becomes responsive again.
 
 #### Event: 'plugin-crashed'
 
-Returns:
+تراجع:
 
 * `event` Event
-* `name` سلسلة نصية
+* `الإسم`String
 * `الإصدار` String
 
 Emitted when a plugin process has crashed.
@@ -352,7 +352,7 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `input` Object - Input properties.
@@ -392,7 +392,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'zoom-changed'
 
-Returns:
+تراجع:
 * `event` Event
 * `zoomDirection` String - Can be `in` or `out`.
 
@@ -412,7 +412,7 @@ Emitted when DevTools is focused / opened.
 
 #### Event: 'certificate-error'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `url` String
@@ -427,7 +427,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### Event: 'select-client-certificate'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `رابط` URL
@@ -441,7 +441,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 #### Event: 'login'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `authenticationResponseDetails` Object
@@ -462,7 +462,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `result` Object
@@ -484,7 +484,7 @@ Emitted when media is paused or done playing.
 
 #### Event: 'did-change-theme-color'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
@@ -497,7 +497,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `url` String
@@ -506,7 +506,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `type` String
@@ -521,7 +521,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `params` Object
@@ -564,7 +564,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
@@ -597,7 +597,7 @@ app.whenReady().then(() => {
 
 #### Event: 'paint'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -621,7 +621,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
@@ -635,7 +635,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### Event: 'did-attach-webview'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
@@ -644,7 +644,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 #### Event: 'console-message'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `level` Integer
@@ -656,7 +656,7 @@ Emitted when the associated window logs a console message.
 
 #### Event: 'preload-error'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `preloadPath` String
@@ -666,7 +666,7 @@ Emitted when the preload script `preloadPath` throws an unhandled exception `err
 
 #### Event: 'ipc-message'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `channel` String
@@ -676,7 +676,7 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 #### Event: 'ipc-message-sync'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `channel` String
@@ -686,7 +686,7 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 #### Event: 'desktop-capturer-get-sources'
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -694,7 +694,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 
 #### Event: 'remote-require'
 
-Returns:
+تراجع:
 
 * `event` IpcMainEvent
 * `moduleName` String
@@ -703,7 +703,7 @@ Emitted when `remote.require()` is called in the renderer process. Calling `even
 
 #### Event: 'remote-get-global'
 
-Returns:
+تراجع:
 
 * `event` IpcMainEvent
 * `globalName` String
@@ -712,7 +712,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Calling `ev
 
 #### Event: 'remote-get-builtin'
 
-Returns:
+تراجع:
 
 * `event` IpcMainEvent
 * `moduleName` String
@@ -721,7 +721,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `e
 
 #### Event: 'remote-get-current-window'
 
-Returns:
+تراجع:
 
 * `event` IpcMainEvent
 
@@ -729,7 +729,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Call
 
 #### Event: 'remote-get-current-web-contents'
 
-Returns:
+تراجع:
 
 * `event` IpcMainEvent
 

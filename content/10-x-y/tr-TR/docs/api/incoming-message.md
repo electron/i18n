@@ -2,11 +2,11 @@
 
 > HTTP/HTTPS isteklerininin cevaplarını halleder.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `IncomingMessage`, [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) arayüzünü gerçekler, bundan dolayı bir [EventEmitter][event-emitter]'dır.
 
-### Örnek Events
+### Örnek olayları
 
 #### Olay: 'data'
 
@@ -24,15 +24,15 @@ Dönen cevabının içeriğinin bittiğini belirtir.
 
 Devam eden bir HTTP işleminde, isteğin iptal edildiği durumda çagırılır.
 
-#### Event: 'error'
+#### Olay: 'error'
 
-Dönüşler:
+Döndürür:
 
 `error` Hata - Tipik olarak hatanın ana sebebini belirten bir katar tutar.
 
 Dönen cevabın veri olaylarını işlerken hata gelirse işleme girer. Örnek olarak, sunucu cevabı hala akıştayken eğer sunucu kapatılırsa, yanıt nesnesinde bir `hata` olayı yayınlanır ve istek nesnesinde bir `kapat` olayı takip edilir.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 Bir `IncomingMessage` örneğinde aşağıdaki okunabilir özellikler bulunur:
 

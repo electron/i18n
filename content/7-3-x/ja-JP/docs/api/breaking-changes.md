@@ -67,18 +67,18 @@ webFrame.setIsolatedWorldInfo(
 このプロパティは Chromium 77 で削除されたため、利用できなくなりました。
 
 ### `<input type="file"/>` の `webkitdirectory` 属性
-`webkitdirectory` プロパティは、HTML ファイル上の input でフォルダーを選択できるようにします。 以前の Electron のバージョンでは、input の `event.target.files` において、選択したフォルダーに対応する 1 つの `File` が入った `FileList` を返すという誤った実装がありました。 Electron 7 では、Chrome、Firefox、Edge と同様 ([MDNドキュメントへのリンク](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)) に、`FileList` はフォルダー内に含まれるすべてのファイルのリストになりました。 ￼ ￼As an illustration, take a folder with this structure: ￼`console
+`webkitdirectory` プロパティは、HTML ファイル上の input でフォルダーを選択できるようにします。 以前の Electron のバージョンでは、input の `event.target.files` において、選択したフォルダーに対応する 1 つの `File` が入った `FileList` を返すという誤った実装がありました。 Electron 7 では、Chrome、Firefox、Edge と同様 ([MDNドキュメントへのリンク](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)) に、`FileList` はフォルダー内に含まれるすべてのファイルのリストになりました。 ￼ ￼例として、このような構造のフォルダを見てみましょう。 ￼`console
 ￼folder
 ￼├── file1
 ￼├── file2
 ￼└── file3
-￼` ￼ ￼In Electron <=6, this would return a `FileList` with a `File` object for: ￼`console
+￼` ￼ ￼Electron <=6 では、以下の `File` 一つが入った `FileList` を返していました。 ￼`console
 ￼path/to/folder
-￼` ￼ ￼In Electron 7, this now returns a `FileList` with a `File` object for: ￼`console
+￼` ￼ ￼Electron 7では、以下の `File` が入った `FileList` を返します。 ￼`console
 ￼/path/to/folder/file3
 ￼/path/to/folder/file2
 ￼/path/to/folder/file1
-￼` ￼ ￼Note that `webkitdirectory` no longer exposes the path to the selected folder. フォルダーの内容ではなく選択したフォルダーへのパスが必要な場合は、`dialog.showOpenDialog` API ([リンク](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)) を参照してください。
+￼` ￼ ￼注意として、`webkitdirectory` では選択したフォルダへのパスを取得できなくなりました。 フォルダーの内容ではなく選択したフォルダーへのパスが必要な場合は、`dialog.showOpenDialog` API ([リンク](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)) を参照してください。
 
 ## 予定されている破壊的なAPIの変更 (6.0)
 
@@ -186,7 +186,7 @@ tray.setHighlightMode(mode)
 | `nodeIntegration`  | `true`                            | `false` |
 | `webviewTag`       | `nodeIntegration` を設定しなければ `true` | `false` |
 
-以下は例です。 Re-enabling the webviewTag
+以下は例です。 webviewTag を再有効化しています。
 
 ```js
 const w = new BrowserWindow({
@@ -245,11 +245,11 @@ webFrame.setSpellCheckProvider('en-US', {
 ### `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// 非推奨
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// Replace with
+// こちらに置換
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */

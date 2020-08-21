@@ -2,7 +2,7 @@
 
 > Create native application menus and context menus.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -88,7 +88,7 @@ Returns `MenuItem` the item with the specified `id`
 
 Füre das `menuItem` an der `pos` Position im Menü ein.
 
-### Instanz Events
+### Instanz-Ereignisse
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
@@ -98,17 +98,20 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 Rückgabewert:
 
-* `event` Event
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-Emitted when `menu.popup()` is called.
+<p spaces-before="0">Emitted when <code>menu.popup()` is called.</p>
 
 #### Event: 'menu-will-close'
 
 Rückgabewert:
 
-* `event` Event
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-Emitiert wenn ein Popup manuell oder mit `menu.closePopup()` geschlossen wird.
+<p spaces-before="0">Emitiert wenn ein Popup manuell oder mit
+<code>menu.closePopup()` geschlossen wird.</p>
 
 ### Instanz Eigenschaften
 

@@ -16,7 +16,7 @@ shell.openExternal('https://github.com')
 
 **Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
-## Methods
+## روش ها
 
 The `shell` module has the following methods:
 

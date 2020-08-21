@@ -317,7 +317,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  可选值：
+  * `reason` String - The reason the render process is gone.  可选值
     * `clean-exit` - Process exited with an exit code of zero
     * `abnormal-exit` - Process exited with a non-zero exit code
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
@@ -341,7 +341,7 @@ Emitted when the renderer process unexpectedly dissapears.  This is normally bec
 返回:
 
 * `event` Event
-* `name` String
+* `name` 字符串
 * `version` String
 
 当有插件进程崩溃时触发

@@ -469,7 +469,7 @@ Returns `Promise<void>` - Electron が初期化されるときに実行される
 
 ### `app.focus()`
 
-Linux では、最初の表示ウィンドウにフォーカスします。 On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Linux では、最初の表示ウィンドウにフォーカスします。 macOS では、アプリケーションがアクティブになります。 Windows では、アプリケーションの最初のウィンドウにフォーカスします。
 
 ### `app.hide()` _macOS_
 
@@ -679,52 +679,52 @@ const { app } = require('electron')
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Recent Projects',
+    name: '最近開いたプロジェクト',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
+  { // 名前があるため `type` は "custom" になります
+    name: 'ツール',
     items: [
       {
         type: 'task',
-        title: 'Tool A',
+        title: 'ツール A',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
+        description: 'ツール A を実行する'
       },
       {
         type: 'task',
-        title: 'Tool B',
+        title: 'ツール B',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool B'
+        description: 'ツール B を実行する'
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // 名前がないため `type` は "tasks" になります
     items: [
       {
         type: 'task',
-        title: 'New Project',
+        title: '新規プロジェクト',
         program: process.execPath,
         args: '--new-project',
-        description: 'Create a new project.'
+        description: '新規プロジェクトを作成します。'
       },
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Recover Project',
+        title: 'プロジェクトの復元',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recover Project'
+        description: 'プロジェクトを復元します。'
       }
     ]
   }
@@ -737,7 +737,7 @@ app.setJumpList([
 
 このメソッドの戻り値は、アプリケーションのこのインスタンスのロックが成功したかどうかを表します。  ロック状態にできなかった場合、アプリケーションの他のインスタンスが既にロックされており、ただちに終了すると想定できます。
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading.  既にロック状態にしたものとは別のインスタンスにパラメータを送信したためプロセスが直ちに終了する必要がある場合は、`false` を返します。
+つまり、 このメソッドは、プロセスがアプリケーションの 1 つ目のインスタンスで、アプリがロード処理を続行する必要がある場合に `true` を返します。  既にロック状態にしたものとは別のインスタンスにパラメータを送信したためプロセスが直ちに終了する必要がある場合は、`false` を返します。
 
 macOSの場合、ユーザがFinderでアプリの2番目のインスタンスを開こうとしたとき、システムは自動的にシングルインスタンスになるようにし、`open-file` と `open-url` イベントが発生します。 ただし、ユーザがアプリをコマンドラインで開始する場合、シングルインスタンスを強制するシステムの仕組みが迂回されるため、シングルインスタンスであることを保証するには、このメソッドを使う必要があります。
 
@@ -782,7 +782,7 @@ if (!gotTheLock) {
 * `userInfo` any - 別のデバイスで使用するために保存されたアプリ固有の情報。
 * `webpageURL` String (任意) - 継続されたデバイスに適切なアプリがインストールされていない場合にブラウザで読み込もうとしたウェブページ。 スキームは `http` もしくは `https` でなければなりません。
 
-`NSUserActivity` を作成し、現在のアクティビティとして設定します。 The activity is eligible for [Handoff][handoff] to another device afterward.
+`NSUserActivity` を作成し、現在のアクティビティとして設定します。 そのアクティビティは後に別のデバイスでの [ハンドオフ][handoff] に適用されます。
 
 ### `app.getCurrentActivityType()` _macOS_
 
@@ -790,11 +790,11 @@ if (!gotTheLock) {
 
 ### `app.invalidateCurrentActivity()` _macOS_
 
-Invalidates the current [Handoff][handoff] user activity.
+現在の [ハンドオフ][handoff] ユーザアクティビティを無効にします。
 
 ### `app.resignCurrentActivity()` _macOS_
 
-Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
+現在の [ハンドオフ][handoff] ユーザーアクティビティを、無効にせずに不活性化します。
 
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
@@ -807,7 +807,7 @@ Marks the current [Handoff][handoff] user activity as inactive without invalidat
 
 * `id` String
 
-Changes the [Application User Model ID][app-user-model-id] to `id`.
+[アプリケーションユーザモデル ID][app-user-model-id] を `id` に変更します。
 
 ### `app.importCertificate(options, callback)` _Linux_
 
@@ -881,11 +881,11 @@ machineModelVersion: '11.5' }
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
-Sets the counter badge for current app. Setting the count to `0` will hide the badge.
+現在のアプリのカウンターバッジを設定します。 カウントを `0` に設定すると、バッジを非表示にします。
 
 macOS では Dock アイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**注:** Unity ランチャーで動作させるには `.desktop` ファイルの存在が必要です。詳細は [デスクトップ環境への統合][unity-requirement] をお読みください。
 
 **[非推奨](modernization/property-updates.md)**
 
@@ -910,22 +910,22 @@ macOS では Dock アイコンに表示されます。 Linux では Unity ラン
 戻り値 `Object`:
 
 * `openAtLogin` Boolean - アプリがログイン時に開くように設定されている場合、`true`。
-* `openAsHidden` Boolean _macOS_ - アプリがログイン時に隠して開くように設定されている場合 `true` です。 This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAtLogin` Boolean _macOS_ - アプリがログイン時に自動的に開かれた場合 `true` です。 This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAsHidden` Boolean _macOS_ - アプリが非表示のログイン項目として開かれていた場合 `true` です。 これは、アプリが起動時に何もウインドウを開いてはいけないことを示します。 This setting is not available on [MAS builds][mas-builds].
-* `restoreState` Boolean _macOS_ - 以前のセッションから状態を復元する必要があるログイン項目としてアプリを開いた場合 `true` です。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 This setting is not available on [MAS builds][mas-builds].
+* `openAsHidden` Boolean _macOS_ - アプリがログイン時に隠して開くように設定されている場合 `true` です。 この設定は [MAS ビルド][mas-builds] では利用できません。
+* `wasOpenedAtLogin` Boolean _macOS_ - アプリがログイン時に自動的に開かれた場合 `true` です。 この設定は [MAS ビルド][mas-builds] では利用できません。
+* `wasOpenedAsHidden` Boolean _macOS_ - アプリが非表示のログイン項目として開かれていた場合 `true` です。 これは、アプリが起動時に何もウインドウを開いてはいけないことを示します。 この設定は [MAS ビルド][mas-builds] では利用できません。
+* `restoreState` Boolean _macOS_ - 以前のセッションから状態を復元する必要があるログイン項目としてアプリを開いた場合 `true` です。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は [MAS ビルド][mas-builds] では利用できません。
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
 * `settings` Object
   * `openAtLogin` Boolean (任意) - アプリをログイン時に開く場合は `true`、ログイン項目からアプリを外す場合は `false` にします。 省略値は `false` 。
-  * `openAsHidden` Boolean (任意) _macOS_ - アプリを非表示で開く場合 `true` にします。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができるので、現在の値を取得するために `app.getLoginItemSettings().wasOpenedAsHidden` をアプリが開かれたときに確認するようにしてください。 This setting is not available on [MAS builds][mas-builds].
+  * `openAsHidden` Boolean (任意) _macOS_ - アプリを非表示で開く場合 `true` にします。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができるので、現在の値を取得するために `app.getLoginItemSettings().wasOpenedAsHidden` をアプリが開かれたときに確認するようにしてください。 この設定は [MAS ビルド][mas-builds] では利用できません。
   * `path` String (任意) _Windows_ - ログイン時に起動する実行形式。 省略値は `process.execPath` です。
   * `args` String[] (任意) _Windows_ - 実行ファイルに渡すコマンドライン引数。 省略値は空の配列です。 パスはテンプレート文字列にするようにしましょう。
 
 アプリのログイン項目設定を設定します。
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. 例:
+Windows 上で Electron の `autoUpdater` を [Squirrel][Squirrel-Windows] を使って動かす場合、起動パスを Update.exe に設定し、渡す引数にアプリケーション名を指定してください。 例:
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -956,7 +956,7 @@ app.setLoginItemSettings({
 
 この API は `ready` イベントが発生した後で呼ばなければいけません。
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。 既定で有効にすべきではありません。
 
 **[非推奨](modernization/property-updates.md)**
 
@@ -970,13 +970,13 @@ app.setLoginItemSettings({
   * `applicationName` String (任意) - アプリの名前。
   * `applicationVersion` String (任意) - アプリのバージョン。
   * `copyright` String (任意) - 著作権情報。
-  * `version` String (optional) _macOS_ - The app's build version number.
-  * `credits` String (optional) _macOS_ - Credit information.
-  * `authors` String[] (optional) _Linux_ - List of app authors.
-  * `website` String (optional) _Linux_ - The app's website.
-  * `iconPath` String (optional) _Linux_ - Path to the app's icon. アスペクト比を保ったまま 64×64 ピクセルで表示されます。
+  * `version` String (任意) _macOS_ - アプリのビルドバージョン番号。
+  * `credits` String (任意) _macOS_ - クレジット情報。
+  * `authors` String[] (任意) _Linux_ - アプリの作者のリスト。
+  * `website` String (任意) _Linux_ - アプリのウェブサイト。
+  * `iconPath` String (任意) _Linux_ - アプリのアイコンへのパス。 アスペクト比を保ったまま 64×64 ピクセルで表示されます。
 
-Aboutパネルのオプションを設定します。 MacOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 See the [Apple docs][about-panel-options] for more details. Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
+Aboutパネルのオプションを設定します。 MacOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細は [Apple のドキュメント][about-panel-options] を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
 `credits` を設定していなくてもアプリに表示したい場合、AppKit は NSBundle の main クラスメソッドから返されたバンドル内で、"Credits.html"、"Credits.rtf"、"Credits.rtfd" の順番でファイルを探します。 最初に見つかったファイルが使用されます。見つからない場合、その情報の部分は空白のままです。 詳細は Apple の [ドキュメント](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) を参照してください。
 
@@ -997,9 +997,9 @@ Aboutパネルのオプションを設定します。 MacOS の場合、これ�
 ```js
 // ファイルアクセス開始
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 🎉
+// サンドボックス外のファイルにアクセスできるようになりました 🎉
 
-// Remember to stop accessing the file once you've finished with it.
+// ファイルへのアクセスが終わったらアクセス停止を忘れずに。
 stopAccessingSecurityScopedResource()
 ```
 
@@ -1058,7 +1058,7 @@ app.moveToApplicationsFolder({
 
 この API は `ready` イベントが発生した後で呼ばなければいけません。
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。 既定で有効にすべきではありません。
 
 ### `app.applicationMenu`
 
@@ -1066,7 +1066,7 @@ app.moveToApplicationsFolder({
 
 ### `app.badgeCount` _Linux_ _macOS_
 
-An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+`Integer` 型のプロパティです。現在のアプリのバッジカウントを返します。 カウントを `0` に設定するとバッジを非表示にします。
 
 macOS では、ゼロ以外の整数を設定すると、ドックアイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
@@ -1109,9 +1109,7 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 [CFBundleURLTypes]: https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
-[handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
-[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows

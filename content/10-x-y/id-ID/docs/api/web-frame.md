@@ -2,7 +2,7 @@
 
 > Sesuaikan render halaman web saat ini.
 
-Proses: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizador](../glossary.md#renderer-process)
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
@@ -114,15 +114,13 @@ Sisipan `teks` ke elemen yang terfokus.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
+* `id` String
 * `userGesture` Boolean (opsional) - Default adalah `false`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
   * `hasil` Ada
-  * ` error </ 0> Kesalahan</li>
-</ul></li>
-</ul>
+  * Kesalahan `kesalahan`
 
-<p spaces-before="0">Returns <code>Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.</p>
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
 Evaluasi `kode` di halaman.
 
@@ -135,11 +133,9 @@ Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipa
 * `userGesture` Boolean (opsional) - Default adalah `false`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
   * `hasil` Ada
-  * ` error </ 0> Kesalahan</li>
-</ul></li>
-</ul>
+  * Kesalahan `kesalahan`
 
-<p spaces-before="0">Returns <code>Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.</p>
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
 
 Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
@@ -202,7 +198,7 @@ Returns `WebFrame` - The frame element in `webFrame's` document selected by `sel
 
 ### `webFrame.findFrameByName(name)`
 
-* ` nama </ 0>  Deretan</li>
+* ` nama </ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Returns <code>WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.</p>

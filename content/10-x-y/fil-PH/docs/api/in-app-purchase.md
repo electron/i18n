@@ -4,7 +4,7 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-## Pangyayari
+## Mga event
 
 The `inAppPurchase` module emits the following events:
 
@@ -12,12 +12,12 @@ The `inAppPurchase` module emits the following events:
 
 Emitted when one or more transactions have been updated.
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
 
-## Mga Paraan
+## Mga Pamamaraan
 
 The `inAppPurchase` module has the following methods:
 

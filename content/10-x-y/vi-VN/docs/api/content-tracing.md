@@ -2,7 +2,7 @@
 
 > Thu thập dữ liệu theo dõi từ Crom để tìm tắc nghẽn hiệu suất và hoạt động chậm.
 
-Quá trình: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 This module does not include a web interface. To view recorded traces, use [trace viewer][], available at `chrome://tracing` in Chrome.
 
@@ -24,7 +24,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Phương thức
+## Các phương thức
 
 The `contentTracing` module has the following methods:
 

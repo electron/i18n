@@ -2,7 +2,7 @@
 
 > Se comunica de forma asincrónica desde el proceso principal a los procesos de renderizado.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 The `ipcMain` module is an [Event Emitter][event-emitter]. Cuando se utiliza en el proceso principal, maneja mensajes asincrónicos y sincrónicos enviados desde el proceso de renderizado (página web). Los mensajes enviados desde el renderizador serán emitidos a este módulo.
 
@@ -48,7 +48,7 @@ El módulo `ipcMain` tiene el siguiente método para escuchar los eventos:
 ### `ipcMain.on(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function
+* `listener` Función
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,7 +57,7 @@ Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `l
 ### `ipcMain.once(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function
+* `listener` Función
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -66,10 +66,10 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function
+* `listener` Función
   * `...args` any[]
 
-Elimina el `listener` especificado del arreglo del oyente para el `channel` especificado.
+Elimina el `listener` especificado del arreglo listener para el `channel` especificado.
 
 ### `ipcMain.removeAllListeners([channel])`
 

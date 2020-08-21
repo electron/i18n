@@ -2,7 +2,7 @@
 
 > 为mac os应用在touch bar中创建一个按钮组件
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarButton(options)`
 

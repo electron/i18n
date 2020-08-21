@@ -96,7 +96,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 #### Event: 'menu-will-show'
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -104,7 +104,7 @@ Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Returns:
+تراجع:
 
 * `event` Event
 

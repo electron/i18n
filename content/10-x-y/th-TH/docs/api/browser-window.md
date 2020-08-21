@@ -2,7 +2,7 @@
 
 > สร้างและควบคุม BrowserWindow
 
-Messages
+Messages </a>
 
 ```javascript
 // In the main process.
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > สร้างและควบคุม BrowserWindow
 
-Messages
+Messages </a>
 
 `BrowserWindow` is an [EventEmitter][event-emitter].
 

@@ -1,4 +1,4 @@
-# `window.open`関数
+# `window.open` 関数
 
 > 新しいウインドウを開き、URL をロードします。
 

@@ -4,7 +4,7 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-## Pangyayari
+## Mga event
 
 Ang modyul ng `powerMonitor` ay maglalabas ng mga sumusunod na event:
 
@@ -36,7 +36,7 @@ Emitted when the system is about to lock the screen.
 
 Emitted as soon as the systems screen is unlocked.
 
-## Mga Paraan
+## Mga Pamamaraan
 
 The `powerMonitor` module has the following methods:
 

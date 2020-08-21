@@ -14,7 +14,7 @@ A sandboxed renderer doesn't have a Node.js environment running and doesn't expo
 
 Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang alinman sa mga default ng mga API ng JavaScript. Consequently, some APIs such as `window.open` will work as they do in Chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
-## Mga halimbawa
+## Halimbawa
 
 To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
 
@@ -105,7 +105,7 @@ Ang `-x` na watawat ay dapat gamitin sa anumang modyul na kasalukuyang nka-ekspo
 Kasalukuyan ang `require` ng function na nakapagbibigay ng preload na saklaw na inilalantad sa mga sumusunod na mga modyul:
 
 - `electron`
-  - `crashReporter`
+  - `kalabog ng tagapagbalita`
   - `pagkakahuli sa tuktok ng desk`
   - `ipcrenderer`
   - `gupitin ng maikli ang mga litrato`

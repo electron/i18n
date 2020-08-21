@@ -62,7 +62,7 @@ The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
@@ -84,7 +84,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### Event: 'preconnect'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `preconnectUrl` String - The URL being requested for preconnection by the renderer.
@@ -94,7 +94,7 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 
 #### Event: 'spellcheck-dictionary-initialized'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -103,7 +103,7 @@ Emitted when a hunspell dictionary file has been successfully initialized. This 
 
 #### Event: 'spellcheck-dictionary-download-begin'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -112,7 +112,7 @@ Emitted when a hunspell dictionary file starts downloading
 
 #### Event: 'spellcheck-dictionary-download-success'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -121,7 +121,7 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 
 #### Event: 'spellcheck-dictionary-download-failure'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -500,7 +500,7 @@ app.on('ready', async () => {
 
 This API does not support loading packed (.crx) extensions.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** Loading extensions into in-memory (non-persistent) sessions is not supported and will throw an error.
 
@@ -510,7 +510,7 @@ This API does not support loading packed (.crx) extensions.
 
 Unloads an extension.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 #### `ses.getExtension(extensionId)`
 
@@ -518,13 +518,13 @@ Unloads an extension.
 
 Returns `Extension` | `null` - The loaded extension with the given ID.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 #### `ses.getAllExtensions()`
 
 Returns `Extension[]` - A list of all loaded extensions.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 ### Instance Properties
 

@@ -2,7 +2,7 @@
 
 > Отслеживает изменения состояния питания устройства.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 ## События
 
@@ -52,4 +52,4 @@ Calculate the system idle state. `idleThreshold` is the amount of time (in secon
 
 Возвращает `Integer` - время простоя в секундах
 
-Расчет времени простоя системы в секундах.
+Calculate system idle time in seconds.

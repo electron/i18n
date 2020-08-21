@@ -2,7 +2,7 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Messages
+Messages </a>
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 

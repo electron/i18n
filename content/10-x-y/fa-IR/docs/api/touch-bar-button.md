@@ -2,11 +2,11 @@
 
 > Create a button in the touch bar for native macOS applications
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Drive
 
 ### `new TouchBarButton(options)`
 
-* `options` Object
+* `گزینه های` ObjectIrN 98
   * `label` String (optional) - Button text.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.

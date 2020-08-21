@@ -21,15 +21,15 @@ powerSaveBlocker.stop(id)
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String - Power save blocker type.
-  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
-  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
+* `type` String - パワーセーブブロッカーの種類。
+  * `prevent-app-suspension` - アプリケーションが休止状態に入るのを防ぎます。 システムをアクティブに保ちますが、スクリーンは電源をオフにできます。 使用例: ファイルのダウンロードや音楽の再生。
+  * `prevent-display-sleep` - ディスプレイがスリープ状態に入るのを防ぎます。 システムとスクリーンをアクティブに保ちます。 使用例: ビデオの再生。
 
 戻り値 `Integer` - この powerSaveBlocker に割り当てられたブロッカー ID.
 
-Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
+システムが低電力モードに入るのを防ぎます。 パワーセーブブロッカーを識別する整数を返します。
 
-**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. 最も高い優先順位のタイプのみが有効になります。 つまり、`prevent-display-sleep` は `prevent-app-suspension` よりも常に優先されます。
+**注釈:** `prevent-display-sleep` は `prevent-app-suspension` よりも高い優先順位を持ちます。 最も高い優先順位のタイプのみが有効になります。 つまり、`prevent-display-sleep` は `prevent-app-suspension` よりも常に優先されます。
 
 たとえば、A が呼び出した API は `prevent-app-suspension` を要求し、もう1つの B の呼び出しは `prevent-display-sleep` を要求したとします。 B が要求を停止するまで、`prevent-display-sleep` が使用されます。 その後、`prevent-app-suspension` が使用されます。
 

@@ -216,7 +216,7 @@ child.once('ready-to-show', () => {
     * `disableHtmlFullscreenWindowResize` Boolean (任意) - HTML フルスクリーンになった時にウィンドウのサイズ変更を禁止するかどうか。 省略値は `false` です。
     * `accessibleTitle` String (任意) - スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトル文字列。 この文字列はユーザに直接表示されません。
     * `spellcheck` Boolean (任意) - 組み込みスペルチェックを有効にするかどうか。 省略値は `true` です。
-    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). 省略値は `true` です。
+    * `enableWebSQL` Boolean (任意) - [WebSQL API](https://www.w3.org/TR/webdatabase/) を有効にするかどうか。 省略値は `true` です。
     * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
       * `none` - Disables code caching
       * `code` - Heuristic based code caching
@@ -918,11 +918,11 @@ Returns `Boolean` - whether the window is enabled.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by the user.
+ウインドウがユーザによって手動でサイズ変更できるかどうかを設定します。
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by the user.
+戻り値 `Boolean` - ウインドウがユーザによって手動でサイズ変更できるかどうか。
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
@@ -944,7 +944,7 @@ Linuxでは常に `true` を返します。
 
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually minimized by the user.
+戻り値 `Boolean` - ウインドウがユーザによって手動で最小化できるかどうか。
 
 Linuxでは常に `true` を返します。
 
@@ -964,11 +964,11 @@ Linuxでは常に `true` を返します。
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるか、ウインドウを最大化するかを設定します。
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+戻り値 `Boolean` - ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるのか、それともウインドウを最大化するのか。
 
 #### `win.setClosable(closable)` _macOS_ _Windows_
 
@@ -1325,7 +1325,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 ウィンドウのメニューバーを自動的に非表示にするかどうかを設定します。 一度設定されると、メニューバーはユーザが単独で `Alt` キーを押したときのみに表示されます。
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+メニューバーが既に表示されている場合、`setAutoHideMenuBar(true)` を呼び出してもすぐに非表示にはなりません。
 
 #### `win.isMenuBarAutoHide()`
 
@@ -1335,7 +1335,7 @@ If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hid
 
 * `visible` Boolean
 
-メニューバーを表示するかどうかを設定します。 If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+メニューバーを表示するかどうかを設定します。 メニューバーが自動的に非表示にされている場合でも、ユーザが単に `Alt` キーを押下すれば、依然としてメニューバーを表示させることができます。
 
 #### `win.isMenuBarVisible()`
 

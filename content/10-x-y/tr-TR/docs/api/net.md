@@ -2,7 +2,7 @@
 
 > Chromium'un yerel ağ kütüphanesini kullanarak HTTP/HTTPS isteklerini yayınla
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `net` modülü HTTP(S) isteklerinin verilmesi için bir istemci tarafı olan API' dır. Node.js'nin [HTTP](https://nodejs.org/api/http.html) ve [HTTPS](https://nodejs.org/api/https.html) modüllerine benzer fakat web proxy'leri için daha iyi desteklenen Node.js uygulaması yerine Chromium'un yerel ağ kitaplığını kullanır.
 
@@ -38,7 +38,7 @@ app.whenReady().then(() => {
 
 The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
-## Metodlar
+## Yöntemler
 
 `ağ` modülü aşağıdaki yöntemleri içerir:
 

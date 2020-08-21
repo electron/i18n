@@ -35,7 +35,7 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### رویدادها نمونه
 
 #### Event: 'response'
 
@@ -123,7 +123,7 @@ A `Boolean` specifying whether the request will use HTTP chunked transfer encodi
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
-### Instance Methods
+### روشهای نمونه
 
 #### `request.setHeader(name, value)`
 

@@ -11,4 +11,4 @@
 * `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
 * `iconPath` Striing (opcjonalnie) - bezwzględna ścieżka to ikony, która ma zostać wyświetlona w Jump List, który może być dowolnym zasobem, który zawiera ikony (`.ico`, `.exe`, `.dll`). Zazwyczaj można określić `process.execPath`, aby wyświetlić ikonę programu.
 * `iconIndex` Number (opcjonalne) - indeks ikony w pliku zasobów. Jeśli plik zasobów zawiera wiele ikon ta wartość może służyć do określenia indeksu ikony, który ma być wyświetlany dla tego zadania. Jeśli plik zasobów zawiera tylko jedną ikone, ta właściwość powinna być równa zero.
-* `workingDirectory` String (optional) - The working directory. Default is empty.
+* `workingDirectory` String (opcjonalne) - katalog roboczy. Domyślnie jest pusty.

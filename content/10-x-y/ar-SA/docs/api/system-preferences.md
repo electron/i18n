@@ -15,20 +15,20 @@ The `systemPreferences` object emits the following events:
 
 ### Event: 'accent-color-changed' _Windows_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' _Windows_
 
-Returns:
+تراجع:
 
 * `event` Event
 
 ### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
@@ -37,7 +37,7 @@ Returns:
 
 ### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
@@ -408,7 +408,7 @@ Returns `Object`:
 
 Returns an object with system animation settings.
 
-## الخصائص
+## Properties
 
 ### `systemPreferences.appLevelAppearance` _macOS_
 

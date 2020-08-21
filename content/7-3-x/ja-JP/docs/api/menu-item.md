@@ -24,7 +24,7 @@
   * `acceleratorWorksWhenHidden` Boolean (任意) _macOS_ - 省略値は `true` です。`false` のときは、アイテムが表示されていない場合にアクセラレータがアイテムをトリガーするのを防ぎます。
   * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなる。
   * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要がある。
-  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. 省略値は true です。
+  * `registerAccelerator` Boolean (任意) _Linux_ _Windows_ - false の場合、アクセラレータはシステムに登録されませんが、それでも表示はされます。 省略値は true です。
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (任意) - `submenu` 型メニューアイテムを指定する必要があります。 もし `submenu` を指定した場合、`type: 'submenu'` は省略できます。 値が [`Menu`](menu.md) でない場合は、`Menu.buildFromTemplate` を用いて自動的に変換されます。
   * `id` String (任意) - 単一のメニューの中でユニーク。 宣言されている場合は、位置属性によってこのアイテムへの参照として使用できます。
   * `before` String[] (任意) - 指定したラベルの前にこのアイテムを挿入します。 参照された項目が存在しない場合、アイテムはメニューの最後に挿入されます。 また、与えられたメニューアイテムをそのアイテムと同じ「グループ」に配置する必要があることを意味します。
@@ -47,7 +47,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 `role` プロパティは、以下の値を持つことができます。
 
 * `undo`
-* `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
+* `about` - ネイティブのこの App についてのパネル (専用のパネルを提供しない、Window 上のカスタムメッセージボックス) をトリガーします。
 * `redo`
 * `cut`
 * `copy`

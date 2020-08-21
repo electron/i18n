@@ -674,7 +674,7 @@ Zwraca:
 
 Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
 
-#### Event: 'ipc-message-sync'
+#### Zdarzenie: 'ipc-message-sync'
 
 Zwraca:
 
@@ -1002,7 +1002,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+Zwraca `Promise<void>`
 
 Ustawia maksymalny i minimalny poziom pinch-to-zoom.
 
@@ -1071,7 +1071,7 @@ Executes the editing command `replaceMisspelling` in web page.
 
 * `text` String
 
-Returns `Promise<void>`
+Zwraca `Promise<void>`
 
 Inserts `text` to the focused element.
 
@@ -1144,17 +1144,17 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 #### `contents.print([options], [callback])`
 
 * `options` Object (optional)
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
+  * `silent` Boolean (optional) - Don't ask user for print settings. Domyślnie jest `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Domyślnie jest `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Domyślnie jest `true`.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
     * `left` Number (optional) - The left margin of the printed web page, in pixels.
     * `right` Number (optional) - The right margin of the printed web page, in pixels.
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Default is `false`.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Domyślnie jest `false`.
   * `scaleFactor` Number (optional) - The scale factor of the web page.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
@@ -1179,7 +1179,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Use `page-break-before: always;` CSS style to force to print to a new page.
 
-Example usage:
+Przykład zastosowania:
 
 ```js
 const options = { silent: true, deviceName: 'My-Printer' }
@@ -1398,7 +1398,7 @@ The renderer process can handle the message by listening to `channel` with the [
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// W procesie głównym.
+//W głównym procesie.
 const { app, BrowserWindow } = require('electron')
 let win = null
 

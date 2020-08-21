@@ -2,7 +2,7 @@
 
 > Control de descargas de archivos desde fuentes remotas.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `DownloadItem` es un [EventEmitter][event-emitter] que representa un elemento descargado en Electron. Se utiliza en el evento `will-download` de la clase `Session`, y permite a los usuarios controlar el elemento descargado.
 
@@ -41,7 +41,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `state` String - Puede ser `en progresso` o `interrumpido`.
 
 Aparece cuando la descara ha sido actualizada y no está terminada.
@@ -166,7 +166,7 @@ Devuelve `String` - El valor de cabecera Etag.
 
 Devuelve `Double` - Número de segundos desde el UNIX epoch cuando se inició la descarga.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 #### `downloadItem.savePath`
 

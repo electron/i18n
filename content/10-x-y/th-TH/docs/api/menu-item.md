@@ -2,7 +2,7 @@
 
 > Add items to native application menus and context menus.
 
-Messages
+Messages </a>
 
 See [`Menu`](menu.md) for examples.
 

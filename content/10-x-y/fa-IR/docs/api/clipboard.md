@@ -1,10 +1,10 @@
 # کلیپ بورد
 
-> Perform copy and paste operations on the system clipboard.
+> انجام عملیات کپی و چسباندن در کلیپ بورد سیستم.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+فرآیند: [اصلی](../glossary.md#main-process)، [رندر](../glossary.md#renderer-process)
 
-On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
+در لینوکس ، همچنین یک کلیپ بورد `انتخاب` وجود دارد. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -13,17 +13,17 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## Methods
+## روش ها
 
-The `clipboard` module has the following methods:
+ماژول `کلیپ بورد` دارای روش های زیر است:
 
 **Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+بازگرداندن `رشته` -محتوا در کلیپ بورد به عنوان متن ساده.
 
 ```js
 const { clipboard } = require('electron')
@@ -37,8 +37,8 @@ console.log(text)
 
 ### `clipboard.writeText(text[, type])`
 
-* `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `متنی` رشته
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Writes the `text` into the clipboard as plain text.
 
@@ -51,7 +51,7 @@ clipboard.writeText(text)
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Returns `String` - The content in the clipboard as markup.
 
@@ -68,7 +68,7 @@ console.log(html)
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Writes `markup` to the clipboard.
 
@@ -80,20 +80,20 @@ clipboard.writeHTML('<b>Hi</b')
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Writes `image` to the clipboard.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Returns `String` - The content in the clipboard as RTF.
 
@@ -109,8 +109,8 @@ console.log(rtf)
 
 ### `clipboard.writeRTF(text[, type])`
 
-* `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `متنی` رشته
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Writes the `text` into the clipboard in RTF.
 
@@ -125,16 +125,16 @@ clipboard.writeRTF(rtf)
 
 Returns `Object`:
 
-* `title` String
+* `عنوان` رشته
 * `url` String
 
 Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
 ### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
-* `title` String
+* `عنوان` رشته
 * `url` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Writes the `title` and `url` into the clipboard as a bookmark.
 
@@ -157,19 +157,19 @@ This method uses synchronous IPC when called from the renderer process. The cach
 
 ### `clipboard.writeFindText(text)` _macOS_
 
-* `text` String
+* `متنی` رشته
 
 Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
@@ -184,7 +184,7 @@ console.log(formats)
 ### `clipboard.has(format[, type])` _Experimental_
 
 * `format` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -224,7 +224,7 @@ console.log(buffer.equals(out))
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Writes the `buffer` into the clipboard as `format`.
 
@@ -243,7 +243,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the URL at `text`.
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` رشته (اختیاری)-می تواند `انتخاب` یا `کلیپ بورد`؛ به طور پیش فرض ' کلیپ بورد '. `selection` is only available on Linux.
 
 Writes `data` to the clipboard.
 

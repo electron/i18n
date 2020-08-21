@@ -2,4 +2,4 @@
 
 * `label` String (optional) - Teks yang ditampilkan di segmen ini.
 * `icon` NativeImage (optional) - Gambar yang akan ditampilkan di segmen ini.
-* `enabled` Boolean (optional) - Whether this segment is selectable. Default: true.
+* `enabled` Boolean (opsional) - Apakah segmen ini dapat dipilih. Default: benar.

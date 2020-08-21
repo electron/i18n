@@ -2,7 +2,7 @@
 
 > Get system preferences.
 
-Messages
+Messages </a>
 
 ```javascript
 const { systemPreferences } = require('electron')

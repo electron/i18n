@@ -33,7 +33,7 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ### `window.opener.postMessage(message, targetOrigin)`
 
 * `потребителско име` Низ
-* `targetOrigin` String
+* `description` String - Описание
 
 Изпраща съобщение до новия прозорец с определен произход или <0citybanamex perfiles >*</code>5256783105227699 ако няма предпочитание към произхода.
 

@@ -34,7 +34,7 @@ app.whenReady().then(() => {
 
 ### --disable-ntlm-v2
 
-Disables NTLM v2 for posix platforms, no effect elsewhere.
+POSIX プラットフォーム向けに NTLM v2 を無効化します。他プラットフォームでの効果はありません。
 
 ### --disable-http-cache
 
@@ -162,9 +162,9 @@ Pepper Flashプラグインの `version` を設定します。
 
 ### --vmodule=`pattern`
 
-`--v` で指定された値を上書きするモジュール単位の最大のVログレベルを指定します。 以下は例です。 `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+`--v` で指定された値を上書きするモジュール単位の最大のVログレベルを指定します。 以下は例です。 `my_module=2,foo*=3` は、`my_module.*` と `foo*.*` のソースファイルにあるすべてのコードのログレベルを変更します。
 
-スラッシュまたはバックスラッシュを含むパターンは、モジュールだけでなく全体のパス名に対してテストされます。 以下は例です。 `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+スラッシュまたはバックスラッシュを含むパターンは、モジュールだけでなく全体のパス名に対してテストされます。 以下は例です。 `*/foo/bar/*=2` は、`foo/bar` ディレクトリの下にあるソースファイルのすべてのコードのログレベルを変更します。
 
 このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
 

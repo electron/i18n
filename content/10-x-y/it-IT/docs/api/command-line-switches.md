@@ -166,7 +166,7 @@ Fornisce i livelli massimi di V-logging per modulo, per sovrascrivere il valore 
 
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. Per esempio `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
-Questa opzione funziona solo quando viene passato anche `--enable-logging`.
+Questa opzione funziona solo quando viene anche eseguito il *--enable-logging*.
 
 ## Node.js Flags
 

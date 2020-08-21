@@ -28,7 +28,7 @@ HTTP/2 および SPDY/3.1 プロトコルを無効にします。
 
 ### --disable-ntlm-v2
 
-Disables NTLM v2 for posix platforms, no effect elsewhere.
+POSIX プラットフォーム向けに NTLM v2 を無効化します。他プラットフォームでの効果はありません。
 
 ## --lang
 

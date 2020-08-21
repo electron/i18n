@@ -91,7 +91,7 @@ Linuxのグローバルメニューバーを使用しません。
 
 Linux でゴミの実装を設定します。 既定値は `gio` です。
 
-Options:
+オプション:
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`

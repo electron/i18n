@@ -241,7 +241,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 #### Event: 'page-title-updated'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `title` String
@@ -251,7 +251,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 #### Event: 'close'
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -328,7 +328,7 @@ Emitted when the window is restored from a minimized state.
 
 #### Event: 'will-resize' _macOS_ _Windows_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
@@ -343,7 +343,7 @@ Emitted after the window has been resized.
 
 #### Event: 'will-move' _macOS_ _Windows_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
@@ -380,7 +380,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'always-on-top-changed'
 
-Returns:
+تراجع:
 
 * `event` Event
 * `isAlwaysOnTop` Boolean
@@ -389,7 +389,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `command` String
@@ -428,7 +428,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `direction` String
@@ -439,42 +439,44 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 #### Event: 'rotate-gesture' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `rotation` Float
 
-Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
+المنبعث/ـة على إيماءة دوران لوحة التتبع. تنبعث باستمرار حتى لفتة التناوب انتهت. قيمة كل انبعاث هي الزاوية بدرجات دوارة منذ الانبعاثات الأخيرة. الحدث الأخير المنبعث على إيماءة التناوب سيكون دائما من قيمة `0/0> . قيم الدوران المعاكسة في اتجاه عقارب الساعة موجبة، في حين أن قيم عقارب الساعة هي السلبيه.</p>
 
-#### Event: 'sheet-begin' _macOS_
+<h4 spaces-before="0">Event: 'sheet-begin' <em x-id="4">macOS</em></h4>
 
-Emitted when the window opens a sheet.
+<p spaces-before="0">تنبعث عندما تفتح النافذة ورقة.</p>
 
-#### Event: 'sheet-end' _macOS_
+<h4 spaces-before="0">Event: 'sheet-end' <em x-id="4">macOS</em></h4>
 
-Emitted when the window has closed a sheet.
+<p spaces-before="0">تنبعث عندما تكون النافذة قد أغلقت ورقة.</p>
 
-#### Event: 'new-window-for-tab' _macOS_
+<h4 spaces-before="0">Event: 'new-window-for-tab' <em x-id="4">macOS</em></h4>
 
-Emitted when the native new tab button is clicked.
+<p spaces-before="0">تنبعث عند النقر فوق زر علامة التبويب الجديدة الأصلية.
+</p>
 
-### Static Methods
+<h3 spaces-before="0">Static Methods</h3>
 
-The `BrowserWindow` class has the following static methods:
+<p spaces-before="0">تحتوي فئة BrowserWindow على الأساليب الثابتة التالية:
+</p>
 
-#### `BrowserWindow.getAllWindows()`
+<h4 spaces-before="0"><code>BrowserWindow.getAllWindows()`</h4>
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+إرجاع `المتصفح ويندوز[]` - مجموعة من جميع نوافذ المتصفح المفتوحة.
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow | null` - The window that is focused in this application, otherwise returns `null`.
+إرجاع `BrowserWindow | فارغة` - الإطار الذي يركز في هذا التطبيق، وإلا إرجاع `فارغة`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
+إرجاع `BrowserWindow | فارغة` - النافذة التي تمتلك `webContents معين` أو `فارغة` إذا لم تكن المحتويات مملوكة من قبل إطار.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -486,35 +488,35 @@ Returns `BrowserWindow | null` - The window that owns the given `webContents` or
 
 * </code>
 
-Returns `BrowserWindow` - The window with the given `id`.
+إرجاع نافذة المتصفح | فارغة - النافذة التي تمتلك عرض المستعرض المعطى.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
 * `path` String
 
-Adds Chrome extension located at `path`, and returns extension's name.
+يضيف ملحق Chrome الموجود في `المسار`، ويعيد اسم الإضافة.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+لن يتم إرجاع الأسلوب أيضاً إذا كان بيان الملحق مفقوداً أو غير مكتمل.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* `name` سلسلة نصية
+* `الإسم`String
 
-Remove a Chrome extension by name.
+إزالة ملحق كروم بالاسم.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
 #### `BrowserWindow.getExtensions()` _Deprecated_
 
-Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+إرجاع `تسجيل<String, ExtensionInfo>` - المفاتيح هي أسماء الملحقات وكل قيمة هي كائن يحتوي على `اسم` و `إصدار ` خواص.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
@@ -522,31 +524,31 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+يضيف ملحق DevTools الموجود في `المسار`، وإرجاع اسم الملحق.
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+سيتم تذكر التمديد لذلك تحتاج فقط إلى استدعاء هذا API مرة واحدة، وهذا واجهة برمجة التطبيقات ليست للاستخدام البرمجي. إذا حاولت إضافة ملحق يحتوي بالفعل تم تحميل، لن ترجع هذه الطريقة وبدلاً من ذلك تسجيل تحذير إلى وحده التحكم.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+لن يتم إرجاع الأسلوب أيضاً إذا كان بيان الملحق مفقوداً أو غير مكتمل.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* `name` سلسلة نصية
+* `الإسم`String
 
-Remove a DevTools extension by name.
+إزالة ملحق DevTools بالاسم.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
 #### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
-Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+إرجاع تسجيل المفاتيح هي أسماء الملحقات وكل قيمة هي كائن يحتوي على اسم و إصدار خواص.
 
-To check if a DevTools extension is installed you can run the following:
+للتحقق مما إذا تم تثبيت ملحق DevTools يمكنك تشغيل ما يلي:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -555,13 +557,13 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 ### Instance Properties
 
-Objects created with `new BrowserWindow` have the following properties:
+الكائنات التي تم إنشاؤها مع متصفح جديد لها الخصائص التالية:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -574,17 +576,17 @@ win.loadURL('https://github.com')
 
 كائن المحتويات يملكه هذا النافذة. جميع الأحداث المتعلقة بصفحة الويب و سيتم إجراء العمليات عبرذلك.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+راجع وثائق محتويات الويب للاطلاع على الأساليب و الأحداث.
 
 #### `win.id` _Readonly_
 
-A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
+خاصية عدد صحيح تمثل المعرف الفريد للإطار. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
 
 #### `win.autoHideMenuBar`
 
 خاصية منطقية تحدد ما إذا كان يجب أن يخفي شريط قائمة الإطار نفسه تلقائيًا. بمجرد الضبط، سيظهر شريط القائمة فقط عند الضغط على مفتاح `Alt` واحد.
 
-If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+إذا كان شريط القائمة مرئيًا بالفعل، فلن يؤدي تعيين هذه الخاصية إلى `صواب` إخفائه على الفور.
 
 #### `win.simpleFullScreen`
 
@@ -632,35 +634,35 @@ A `String` property that determines the title of the native window.
 
 #### `win.minimizable`
 
-A `Boolean` property that determines whether the window can be manually minimized by user.
+خاصية منطقية تحدد ما إذا كان يجب أن يخفي شريط قائمة الإطار نفسه تلقائيًا.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+على لينوكس، واضع هو "لا" عملية, على الرغم من أن المصراع يعود صحيحاً.
 
 #### `win.maximizable`
 
-A `Boolean` property that determines whether the window can be manually maximized by user.
+خاصية منطقية تحدد ما إذا كان يجب أن يخفي شريط قائمة الإطار نفسه تلقائيًا.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+على لينوكس، واضع هو "لا" عملية, على الرغم من أن المصراع يعود صحيحاً.
 
 #### `win.fullScreenable`
 
-A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+خاصية منطقية تحدد ما إذا كان زر نافذة التكبير /التصغير الأقصى تبديل وضع ملء الشاشة أو يزيد من النافذة.
 
 #### `win.resizable`
 
-A `Boolean` property that determines whether the window can be manually resized by user.
+خاصية منطقية تحدد ما إذا كان يمكن تغيير حجم الإطار يدويًا بواسطة المستخدم.
 
 #### `win.closable`
 
-A `Boolean` property that determines whether the window can be manually closed by user.
+خاصية منطقية تحدد ما إذا كان يمكن إغلاق الإطار يدويًا من قبل المستخدم.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+على لينوكس، واضع هو "لا" عملية, على الرغم من أن المصراع يعود صحيحاً.
 
 #### `win.movable`
 
-A `Boolean` property that determines Whether the window can be moved by user.
+خاصية منطقية تحدد ما إذا كان يمكن إغلاق الإطار يدويًا من قبل المستخدم.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+على لينوكس، واضع هو "لا" عملية, على الرغم من أن المصراع يعود صحيحاً.
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
@@ -687,13 +689,13 @@ Menu.setApplicationMenu(menu)
 
 ### Instance Methods
 
-Objects created with `new BrowserWindow` have the following instance methods:
+الكائنات التي تم إنشاؤها مع متصفح جديد لها الخصائص التالية:
 
 ملاحظة: تتوفر بعض الطرق فقط على أنظمة تشغيل محددة ويتم تصنيفها على هذا النحو.
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+فرض إغلاق النافذة، لن يتم إصدار الحدث إلغاء التحميل وقبل إلغاء التفريغ لصفحة الويب، ولن يتم أيضًا إصدار حدث الإغلاق لهذه النافذة، ولكنه يضمن أن الحدث المغلق سيتم انبعاثه.
 
 #### `win.close()`
 
@@ -835,7 +837,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
+إرجاع المستطيل حدود الإطار ككائن.
 
 #### `win.getBackgroundColor()`
 
@@ -846,23 +848,23 @@ Returns `String` - Gets the background color of the window. See [Setting `backgr
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (optional) _macOS_
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+تغيير حجم منطقة عميل النافذة ونقلها (مثل صفحة الويب) إلى الحدود المتوفرة.
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
+إرجاع المستطيل حدود الإطار ككائن.
 
 #### `win.getNormalBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+إرجاع المستطيل - يحتوي على حدود الإطار للحالة العادية
 
-ملاحظة: مهما كانت الحالة الحالية للإطار: تكبير أو تصغير أو في ملء الشاشة، تقوم هذه الوظيفة دائمًا بإرجاع موضع وحجم الإطار في الحالة العادية. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
+ملاحظة: مهما كانت الحالة الحالية للإطار: تكبير أو تصغير أو في ملء الشاشة، تقوم هذه الوظيفة دائمًا بإرجاع موضع وحجم الإطار في الحالة العادية. في الحالة العادية، الحصول على حدود والحصول على حدود عادي إرجاع نفس المستطيل.
 
 #### `win.setEnabled(enable)`
 
 * `enable` Boolean
 
-Disable or enable the window.
+تعطيل أو تمكين النافذة.
 
 #### `win.isEnabled()`
 
@@ -878,7 +880,7 @@ Returns `Boolean` - whether the window is enabled.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+إرجاع [عدد صحيح] - يحتوي على عرض الإطار وارتفاعه.
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -886,33 +888,33 @@ Returns `Integer[]` - Contains the window's width and height.
 * `height` Integer
 * `animate` Boolean (optional) _macOS_
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+تغيير حجم منطقة عميل الإطار (مثل صفحة الويب) إلى العرض والارتفاع.
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+إرجاع [عدد صحيح] - يحتوي على عرض الإطار وارتفاعه.
 
 #### `win.setMinimumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+تعيين الحد الأدنى لحجم الإطار إلى العرض والارتفاع.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+[إرجاع عدد صحيح] : يحتوي على الحد الأدنى لعرض الإطار وارتفاعه.
 
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+تعيين الحد الأدنى لحجم الإطار إلى العرض والارتفاع.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+إرجاع ` عدد صحيح []` - يحتوي على أقصى عرض وطول للنوافذ.
 
 #### `win.setResizable(resizable)`
 
