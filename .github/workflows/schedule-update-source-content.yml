@@ -20,6 +20,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NODE_OPTIONS: --max_old_space_size=4096
         run: npm run update-source-content
+      - run: git pull origin master
       - name: Upload Content To Crowdin
         uses: crowdin/github-action@1.0.9
         with:
