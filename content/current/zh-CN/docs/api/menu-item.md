@@ -48,7 +48,7 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 * `undo`
 * `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
-* `重做`
+* `redo`
 * `cut`
 * `copy`
 * `paste`

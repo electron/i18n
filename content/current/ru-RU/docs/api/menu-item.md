@@ -73,23 +73,23 @@
 The following additional roles are available on _macOS_:
 
 * `appMenu` - Полное меню "App" по умолчанию (О программе, службах и т. д.)
-* `hide` -Сопоставляется с `hide`.
-* `hideOthers` - Сопоставляется с `hideOtherApplications`.
-* `unhide` - Сопоставляется с `unhideAllApplications`.
-* `startSpeaking` - Сопоставляется с `startSpeaking`.
-* `stopSpeaking` - Сопоставляется с `stopSpeaking`.
-* `front` - Сопоставляется с `arrangeInFront`.
-* `zoom` - Сопоставляется с `performZoom`.
-* `toggleTabBar` - Сопоставляется с `toggleTabBar`.
-* `selectNextTab` - Сопоставляется с `selectNextTab`.
-* `selectPreviousTab` - Сопоставляется с `selectPreviousTab`.
-* `mergeAllWindows` - Сопоставляется с `mergeAllWindows`.
-* `moveTabToNewWindow` - Сопоставляется с `moveTabToNewWindow`.
-* `window` - Подменю в меню "Окно".
-* `help` - Подменю в меню "Help".
+* `hide` - Map to the `hide` action.
+* `hideOthers` - Map to the `hideOtherApplications` action.
+* `unhide` - Map to the `unhideAllApplications` action.
+* `startSpeaking` - Map to the `startSpeaking` action.
+* `stopSpeaking` - Map to the `stopSpeaking` action.
+* `front` - Map to the `arrangeInFront` action.
+* `zoom` - Map to the `performZoom` action.
+* `toggleTabBar` - Map to the `toggleTabBar` action.
+* `selectNextTab` - Map to the `selectNextTab` action.
+* `selectPreviousTab` - Map to the `selectPreviousTab` action.
+* `mergeAllWindows` - Map to the `mergeAllWindows` action.
+* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
+* `window` - The submenu is a "Window" menu.
+* `help` - The submenu is a "Help" menu.
 * `services` - Подменю меню ["Сервисы"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Оно предназначено только для использования в Меню Приложений и *не* то же самое, что и подменю "Сервисы", используемое в контекстных меню приложений macOS, которое не реализовано в Electron.
-* `RecentDocuments` - Подменю представляет собой меню "Открыть недавние".
-* `clearRecentDocuments` - Сопоставляется с `clearRecentDocuments`.
+* `recentDocuments` - The submenu is an "Open Recent" menu.
+* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
 При задании `role` на macOS, `label` и `accelerator` являются единственными параметрами, которые влияют на пункт меню. Все остальные параметры будут проигнорированы. Нижний регистр `role`, например `toggledevtools`, все еще поддерживается.
 

@@ -463,24 +463,24 @@ webview.addEventListener('dom-ready', () => {
 
 * `options` Object (任意)
   * `silent` Boolean (任意) - プリンタの設定をユーザに尋ねないかどうか。 省略値は、`false` です。
-  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. 省略値は、`false` です。
-  * `deviceName` String (任意) - 使用するプリンタデバイスの名前をセットします。 Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. 省略値は `true` です。
-  * `margins` Object (optional)
+  * `printBackground` Boolean (任意) - ウェブページの背景色と画像を印刷するかどうか。 省略値は、`false` です。
+  * `deviceName` String (任意) - 使用するプリンタデバイスの名前をセットします。 '人間向けの' 名称ではなくシステム定義名である必要があります。例えば、'Brother QL-820NWB' ではなく 'Brother_QL_820NWB' とします。
+  * `color` Boolean (任意) - 印刷するウェブページをカラーにするかグレースケールにするかを設定します。 省略値は `true` です。
+  * `margins` Object (任意)
     * `marginType` String (任意) - `default`、`none`、`printableArea` か `custom` にできます。 `custom` を選択した場合、`top`、`bottom`、`left`、`right` も指定する必要があります。
     * `top` Number (任意) - 印刷されたウェブページの上側のマージン。ピクセル単位です。
     * `bottom` Number (任意) - 印刷されたウェブページの下側のマージン。ピクセル単位です。
     * `left` Number (任意) - 印刷されたウェブページの左側のマージン。ピクセル単位です。
     * `right` Number (任意) - 印刷されたウェブページの右側のマージン。ピクセル単位です。
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. 省略値は、`false` です。
+  * `landscape` Boolean (任意) - ウェブページを横向きモードで印刷するかどうか。 省略値は、`false` です。
   * `scaleFactor` Number (任意) - ウェブページのスケール係数。
   * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
+  * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
     * `from` Number - the start page.
     * `to` Number - the end page.
-  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (任意) - 水平 DPI。
     * `vertical` Number (任意) - 垂直 DPI。
@@ -499,9 +499,9 @@ webview.addEventListener('dom-ready', () => {
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
   * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
+  * `marginsType` Integer (optional) - 使用する余白の種類を指定します。 0 で既定値、1 で余白なし、2 で最小限の余白になります。 and `width` in microns.
   * `scaleFactor` Number (任意) - ウェブページのスケール係数。 Can range from 0 to 100.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
+  * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
     * `from` Number - the first page to print.
     * `to` Number - the last page to print (inclusive).
   * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
@@ -589,7 +589,7 @@ webview.addEventListener('dom-ready', () => {
 * `url` String
 * `isMainFrame` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+ロードを要求したときに発生します。 これには、現在のドキュメント内のナビゲーションとサブフレームのドキュメントレベルのロードが含まれますが、非同期のリソース読み込みは含まれません。
 
 ### イベント: 'did-finish-load'
 
@@ -729,7 +729,7 @@ webview.addEventListener('new-window', async (e) => {
 
 このイベントは、 `<webview>.loadURL` や `<webview>.back` のような、API によってプログラム上から開始されるナビゲーションのときには発行されません。
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. これを意図する場合は `did-navigate-in-page` を使用して下さい。
+アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでも発行されません。 これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
 `event.preventDefault()` を呼んでも効果は __ありません__。
 
@@ -827,7 +827,7 @@ webContents が破棄されたときに発生します。
 
 * `themeColor` String
 
-ページのテーマカラーが変わったときに発生します。 This is usually due to encountering a meta tag:
+ページのテーマカラーが変わったときに発生します。 これは通常、メタタグを発見すると起こります。
 
 ```html
 <meta name='theme-color' content='#ff0000'>

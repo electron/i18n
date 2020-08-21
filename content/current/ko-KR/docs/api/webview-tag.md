@@ -35,7 +35,7 @@ If you want to control the guest content in any way, you can write JavaScript th
     const indicator = document.querySelector('.indicator')
 
     const loadstart = () => {
-      indicator.innerText = 'loading...'
+      indicator.innerText = '로딩 중...'
     }
 
     const loadstop = () => {
@@ -584,7 +584,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-반환:
+Returns:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -597,7 +597,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-반환:
+Returns:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -637,7 +637,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-반환:
+Returns:
 
 * `favicons` String[] - Array of URLs.
 
@@ -653,7 +653,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-반환:
+Returns:
 
 * `level` Integer
 * `message` String
@@ -673,7 +673,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-반환:
+Returns:
 
 * `result` Object
   * `requestId` Integer
@@ -745,7 +745,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-반환:
+Returns:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -802,9 +802,9 @@ Fired when the renderer process is crashed.
 
 ### Event: 'plugin-crashed'
 
-반환:
+Returns:
 
-* `name` String
+* PrinterInfo Object
 * `version` String
 
 Fired when a plugin process is crashed.
@@ -835,7 +835,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-반환:
+Returns:
 
 * `url` String
 

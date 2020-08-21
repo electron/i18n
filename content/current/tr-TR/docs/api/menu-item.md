@@ -48,13 +48,13 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 * `undo`
 * `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
-* `yeniden yapmak`
-* `kes`
-* `kopyala`
+* `redo`
+* `cut`
+* `copy`
 * `paste`
 * `pasteAndMatchStyle`
 * `selectAll`
-* `sil`
+* `delete`
 * ` minimize ` - Geçerli pencereyi simge durumuna küçültme.
 * `close` - Geçerli pencereyi kapatma.
 * `quit` - Quit the application.

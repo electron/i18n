@@ -6,25 +6,25 @@ author:
 date: '2020-05-19'
 ---
 
-Electron 9.0.0 has been released! It includes upgrades to Chromium `83`, V8 `8.3`, and Node.js `12.14`. We've added several new API integrations for our spellchecker feature, enabled PDF viewer, and much more!
+Electron 9.0.0 がリリースされました! It includes upgrades to Chromium `83`, V8 `8.3`, and Node.js `12.14`. We've added several new API integrations for our spellchecker feature, enabled PDF viewer, and much more!
 
 ---
 
-The Electron team is excited to announce the release of Electron 9.0.0! `npm install electron@latest` から npm でインストールするか、[リリースウェブサイト](https://electronjs.org/releases/stable) からダウンロードできます。 このリリースには、アップグレード、修正、新機能が入っています。 新機能たちと共に何を作るのか、楽しみにしています! このリリースの詳細については下に続きます。是非ご意見をお聞かせください!
+Electron チームは、Electron 9.0.0 のリリース発表にワクワクしています! `npm install electron@latest` から npm でインストールするか、[リリースウェブサイト](https://electronjs.org/releases/stable) からダウンロードできます。 このリリースには、アップグレード、修正、新機能が含まれています。 新機能たちと共に何を作るのか、楽しみにしています! このリリースの詳細については下に続きます。是非ご意見をお聞かせください!
 
 ## 変更の目玉
 
 ### 累積的変更
 
 * Chromium `83.0.4103.64`
-    * [New in Chrome 81](https://developers.google.com/web/updates/2020/04/nic81)
+    * [Chrome 81 の新機能](https://developers.google.com/web/updates/2020/04/nic81)
     * [Chrome 82 was skipped](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html)
-    * [New in Chrome 83](https://developers.google.com/web/updates/2020/05/nic83)
+    * [Chrome 83 の新機能](https://developers.google.com/web/updates/2020/05/nic83)
 * Node.js `12.14.1`
-    * [Node 12.14.1 blog post](https://nodejs.org/en/blog/release/v12.14.1/)
+    * [Node 12.14.1 ブログ記事](https://nodejs.org/en/blog/release/v12.14.1/)
 * V8 `8.3`
-    * [V8 8.1 blog post](https://v8.dev/blog/v8-release-81)
-    * [V8 8.3 blog post](https://v8.dev/blog/v8-release-83)
+    * [V8 8.1 ブログ記事](https://v8.dev/blog/v8-release-81)
+    * [V8 8.3 ブログ記事](https://v8.dev/blog/v8-release-83)
 
 ### 注目の機能
 
@@ -32,7 +32,7 @@ The Electron team is excited to announce the release of Electron 9.0.0! `npm ins
 * Improved window events handler efficiency on Linux. [#23260](https://github.com/electron/electron/pull/23260).
 * Enable PDF viewer. [#22131](https://github.com/electron/electron/pull/22131).
 
-See the [9.0.0 release notes](https://github.com/electron/electron/releases/tag/v9.0.0) for a full list of new features and changes.
+新機能と変更の完全なリストは、[9.0.0 リリースノート](https://github.com/electron/electron/releases/tag/v9.0.0) を参照してください。
 
 ## 破壊的変更
 
@@ -66,13 +66,13 @@ The following APIs are now deprecated or removed:
 * `<webview>.getWebContents`, which was deprecated in Electron 8.0, is now removed.
 * `webFrame.setLayoutZoomLevelLimits`, which was deprecated in Electron 8.0, is now removed.
 
-## End of Support for 6.x.y
+## 6.x.y サポートの終了
 
-Electron 6.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). 開発者はアプリケーションを新しいバージョンの Electron にアップグレードすることを推奨します。
+Electron 6.x.y はプロジェクトの [サポートポリシー](https://electronjs.org/docs/tutorial/support#supported-versions) に則りサポート終了となりました。 開発者とアプリケーションは新しいバージョンの Electron にアップグレードすることを推奨します。
 
 ## 次回予告
 
-短期的には、Chromium、Node、V8 といった Electron を構成する主要コンポーネントの開発に遅れないように、チームが注力し続けるでしょう。 リリース日について約束しないように注意していますが、予定では約四半期ごとに新しいメジャーバージョンの Electron を、各コンポーネントの新しいバージョンに対してリリースします。 The [tentative 10.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 10.0 development life cycle. また、Electron のバージョン管理の詳細については [バージョン管理のドキュメントを参照](https://electronjs.org/docs/tutorial/electron-versioning) してください。
+短期的には、Chromium、Node、V8 といった Electron を構成する主要コンポーネントの開発に遅れないように、チームが注力し続けるでしょう。 リリース日について約束しないように注意していますが、予定では約四半期ごとに新しいメジャーバージョンの Electron を、各コンポーネントの新しいバージョンに対してリリースします。 [仮 10.0.0 スケジュール](https://electronjs.org/docs/tutorial/electron-timelines) では、Electron 10.0 開発ライフサイクルの主要な日付を示してあります。 また、Electron のバージョン管理の詳細については [バージョン管理のドキュメントを参照](https://electronjs.org/docs/tutorial/electron-versioning) してください。
 
 今後のバージョンの Electron で予定されている破壊的な変更の詳細については、[予定されている破壊的な変更のドキュメントを参照してください](https://github.com/electron/electron/blob/master/docs/breaking-changes.md)。
 

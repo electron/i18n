@@ -13,7 +13,7 @@ w.webContents.postMessage('port', null, [port2])
 port1.postMessage({ some: 'message' })
 ```
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 #### `channel.port1`
 
