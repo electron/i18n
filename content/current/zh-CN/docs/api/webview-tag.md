@@ -804,7 +804,7 @@ Fired when the renderer process is crashed.
 
 返回:
 
-* `name` String
+* `name` 字符串
 * `version` String
 
 Fired when a plugin process is crashed.

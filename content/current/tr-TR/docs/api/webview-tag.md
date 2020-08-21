@@ -586,7 +586,7 @@ Aşağıdaki DOM etkinlikleri `webview` etiketinde kullanılabilir:
 
 Dönüşler:
 
-* `url` String
+* `url` Dizgi
 * `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
@@ -698,7 +698,7 @@ console.log(requestId)
 
 Dönüşler:
 
-* `url` String
+* `url` Dize
 * `frameName` Dize
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
@@ -748,7 +748,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 Dönüşler:
 
 * `isMainFrame` Boolean
-* `url` String
+* `url` Dize
 
 Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
@@ -804,7 +804,7 @@ Renderer işlemi çöktüğünde tetiklenir.
 
 Dönüşler:
 
-* `name` String
+* `name` Dizi
 * `versiyon` String
 
 Plugin işlemi çöktüğünde tetiklenir.
@@ -837,7 +837,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Dönüşler:
 
-* `url` String
+* `url` Dize
 
 Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odaklamasını sağladığı zaman yayımlanır.
 

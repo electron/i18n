@@ -587,8 +587,8 @@ The following DOM events are available to the `webview` tag:
 
 Rückgabewert:
 
-* `url` String
-* `isMainFrame` Boolean
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -699,8 +699,8 @@ console.log(requestId)
 
 Rückgabewert:
 
-* `url` String
-* `frameName` String
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
@@ -753,11 +753,14 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
 Rückgabewert:
 
 * `isMainFrame` Boolean
-* `url` String
+* ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when an in-page navigation happened.
+<p spaces-before="0">Emitted when an in-page navigation happened.</p>
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+<p spaces-before="0">When in-page navigation happens, the page URL changes but does not cause
+navigation outside of the page. Examples of this occurring are when anchor links
+are clicked or when the DOM <code>hashchange` event is triggered.</p>
 
 ### Event: 'close'
 
@@ -842,18 +845,19 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Rückgabewert:
 
-* `url` String
+*  URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+<p spaces-before="0">Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
 
-### Event: 'devtools-opened'
+<h3 spaces-before="0">Event: 'devtools-opened'</h3>
 
-Emittiert wenn die DevTools geöffnet wurden.
+<p spaces-before="0">Emittiert wenn die DevTools geöffnet wurden.</p>
 
-### Event: 'devtools-closed'
+<h3 spaces-before="0">Event: 'devtools-closed'</h3>
 
-Emittiert wenn die DevTools geschlossen wurden.
+<p spaces-before="0">Emittiert wenn die DevTools geschlossen wurden.</p>
 
-### Event: 'devtools-focused'
+<h3 spaces-before="0">Event: 'devtools-focused'</h3>
 
-Emitted when DevTools is focused / opened.
+<p spaces-before="0">Emitted when DevTools is focused / opened.</p>

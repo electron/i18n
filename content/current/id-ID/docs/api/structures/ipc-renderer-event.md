@@ -1,5 +1,5 @@
-# IpcRendererEvent Object extends `Event`
+# Objek IpcRendererEvent memperluas `Event`
 
-* `sender` IpcRenderer - The `IpcRenderer` instance that emitted the event originally
-* `senderId` Integer - The `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.
+* `sender` IpcRenderer - `IpcRenderer` yang pada awalnya menyebebabkan kejadian tersebut
+* `senderId` Bilangan Bulat - `webContents.id` yang mengirimkan pesan, anda dapat menghubiungi `event.sender.sendTo(event.senderId, ...)` untuk membalas pesan, kunjungi [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) untuk informasi lebih lanjut. Ini hanya berlaku untuk pesan yang dikirim dari pengirim yang berbeda. Pesan yang dikirim langsung dari proses utama diatur dari `event.senderId` ke `0`.
 * `ports` MessagePort[] - A list of MessagePorts that were transferred with this message

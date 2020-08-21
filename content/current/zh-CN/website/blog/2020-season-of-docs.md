@@ -29,7 +29,7 @@ Aside from the proposal, we'll also be looking at your background as a technical
 
 If you want to discuss project proposals, shoot us an email at [season-of-docs@electronjs.org](mailto:season-of-docs@electronjs.org) and we can chat from there!
 
-# References
+# 引用
 * [Electron documentation](electronjs.org/docs)
 * [Project ideas document](https://github.com/electron/season-of-docs-2020/blob/master/project-ideas.md)
 * [Season of Docs tech writer guide](https://developers.google.com/season-of-docs/docs/tech-writer-guide)

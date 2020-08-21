@@ -947,13 +947,13 @@ Ritorna `Object`:
 * `openAsHidden` Boolean _macOS_ - `true` se l'app è impostata per aprirsi come nascosta al login. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAtLogin` Boolean _macOS_ - `true` se l'app era stata aperta automaticamente al login. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAsHidden` Boolean _macOS_ - `true` se l'app era stata aperta come un oggetto login nascosto. Questo indica che l'app potrebbe non aprire alcuna finestra all'avvio. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean _macOS_ - `true` se l'app era stata aperta come un oggetto login che dovrebbe ripristinare lo stato della sessione precedente. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Il valore predefinito è `false`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Di default `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (optional) _macOS_ - `true` per aprirew l'app come nascosta. Di default `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
@@ -988,7 +988,7 @@ Abilita manualmente il supporto accessibilità di Chrome permettendo di esporre 
 
 This API must be called after the `ready` event is emitted.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
 
 ### `app.showAboutPanel()`
 
@@ -1088,7 +1088,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 This API must be called after the `ready` event is emitted.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
 
 ### `app.applicationMenu`
 
@@ -1100,7 +1100,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Nota:** Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per ulteriori informazioni leggere [Desktop Integrazione Ambiente](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.commandLine` _Readonly_
 

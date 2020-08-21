@@ -499,15 +499,15 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
-  * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` para portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
     * `from` Number - the first page to print.
     * `to` Number - the last page to print (inclusive).
-  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
-  * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
-  * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
+  * `pageSize` String | Size (opcional) - Especifica el tamaño de la página del PDF generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
+  * `printBackground` Boolean (octional) - Si se va a imprimir los fondos CSS.
+  * `printSelectionOnly` Boolean (opcional) - Se va a imprimir solo la selección.
 
 Returns `Promise<Uint8Array>` - Se resuelve cuando los datos PDF son generados.
 
@@ -588,7 +588,7 @@ Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 Devuelve:
 
 * `url` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -603,7 +603,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 
 Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
 
@@ -611,7 +611,7 @@ Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es 
 
 Devuelve:
 
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 
 Disparado cuando un frame ha terminado la navegación.
 
@@ -627,11 +627,11 @@ Corresponde a los puntos en tiempo cuando el girador del tabulador termina de gi
 
 Disparado cuando el documento en el frame dado es cargado.
 
-### Evento: 'page-title-updated'
+### Evento: "page-title-updated"
 
 Devuelve:
 
-* `title` String
+* `title` Cadena
 * `explicitSet` Boolen
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
@@ -748,14 +748,14 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Devuelve:
 
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `url` String
 
 Emitido cuando una navegación dentro de la página sucede.
 
 Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
-### Evento: "close"
+### Evento: 'close'
 
 Disparado cuando la página de invitado intenta cerrarse.
 
