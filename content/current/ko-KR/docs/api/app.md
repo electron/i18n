@@ -1081,7 +1081,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 이 API는 `ready` 이벤트가 발생한 후에 호출해야 합니다.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**주의:** 접근성 트리를 렌더링하는 것은 당신앱의 성능에 중대한 영향을 줄 수 있습니다. 기본으로 활성화하지 마세요.
 
 ### `app.applicationMenu`
 
@@ -1093,7 +1093,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
 ### `app.commandLine` _Readonly_
 

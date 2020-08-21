@@ -48,13 +48,13 @@ La propiedad `role` puede tener los siguientes valores:
 
 * `deshacer`
 * `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
-* `redo`
-* `cut`
-* `copy`
-* `paste`
+* `rehacer`
+* `cortar`
+* `copiar`
+* `pegar`
 * `pasteAndMatchStyle`
 * `selectAll`
-* `delete`
+* `eliminar`
 * `minimize` - Minimizar la venta actual.
 * `close` - Cerrar la ventana actual.
 * `quit` - Salir de la aplicación.

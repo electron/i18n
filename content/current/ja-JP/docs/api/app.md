@@ -993,10 +993,10 @@ app.setLoginItemSettings({
   * `applicationName` String (任意) - アプリの名前。
   * `applicationVersion` String (任意) - アプリのバージョン。
   * `copyright` String (任意) - 著作権情報。
-  * `version` String (optional) _macOS_ - The app's build version number.
+  * `version` String (任意) _macOS_ - アプリのビルドバージョン番号。
   * `credits` String (任意) _macOS_ _Windows_ - クレジット情報。
-  * `authors` String[] (optional) _Linux_ - List of app authors.
-  * `website` String (optional) _Linux_ - The app's website.
+  * `authors` String[] (任意) _Linux_ - アプリの作者のリスト。
+  * `website` String (任意) _Linux_ - アプリのウェブサイト。
   * `iconPath` String (任意) _Linux_ _Windows_ - アプリのアイコンへのパス。 Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
 
 Aboutパネルのオプションを設定します。 This will override the values defined in the app's `.plist` file on macOS. 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
@@ -1091,7 +1091,7 @@ app.moveToApplicationsFolder({
 
 `Integer` 型のプロパティです。現在のアプリのバッジ数を返します。カウントを `0` にセットするとバッジを非表示にします。
 
-On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+macOS では、ゼロ以外の整数を設定すると、ドックアイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
 **注:** Unity ランチャーで動作させるには `.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) を読んでください。
 

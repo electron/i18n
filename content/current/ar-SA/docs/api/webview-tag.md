@@ -584,7 +584,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Returns:
+تراجع:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -597,7 +597,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Returns:
+تراجع:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -608,7 +608,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-Returns:
+تراجع:
 
 * `isMainFrame` Boolean
 
@@ -628,7 +628,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Returns:
+تراجع:
 
 * `title` String
 * `explicitSet` Boolean
@@ -637,7 +637,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-Returns:
+تراجع:
 
 * `favicons` String[] - Array of URLs.
 
@@ -653,7 +653,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+تراجع:
 
 * `level` Integer
 * `message` String
@@ -673,7 +673,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Returns:
+تراجع:
 
 * `result` Object
   * `requestId` Integer
@@ -696,7 +696,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Returns:
+تراجع:
 
 * `url` String
 * `frameName` String
@@ -721,7 +721,7 @@ webview.addEventListener('new-window', async (e) => {
 
 ### Event: 'will-navigate'
 
-Returns:
+تراجع:
 
 * `url` String
 
@@ -735,7 +735,7 @@ Calling `event.preventDefault()` does __NOT__ have any effect.
 
 ### Event: 'did-navigate'
 
-Returns:
+تراجع:
 
 * `url` String
 
@@ -745,7 +745,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-Returns:
+تراجع:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -769,7 +769,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Returns:
+تراجع:
 
 * `channel` String
 * `args` any[]
@@ -802,9 +802,9 @@ Fired when the renderer process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Returns:
+تراجع:
 
-* `name` سلسلة نصية
+* `الإسم`String
 * `الإصدار` String
 
 Fired when a plugin process is crashed.
@@ -823,7 +823,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Returns:
+تراجع:
 
 * `themeColor` String
 
@@ -835,7 +835,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Returns:
+تراجع:
 
 * `url` String
 

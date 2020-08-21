@@ -1,11 +1,11 @@
-# IpcMainEvent Object extends `Event`
+# AcaraUtamaIpc obyek meluas `Acara`
 
-* `frameId` Integer - The ID of the renderer frame that sent this message
+* `Bingkaiid` Integer-ID dari bingkai penyaji yang mengirim pesanan ini
 * `returnValue` any - Set this to the value to be returned in a synchronous message
-* `sender` WebContents - Returns the `webContents` that sent the message
+* `sender` KontenWeb - Mengembalikan `webContents` yang mengirimkan pesan
 * `ports` MessagePortMain[] - A list of MessagePorts that were transferred with this message
-* `reply` Function - A function that will send an IPC message to the renderer frame that sent the original message that you are currently handling.  You should use this method to "reply" to the sent message in order to guarantee the reply will go to the correct process and frame.
-  * `channel` String
-  *  ... args </ 0> ada []</li>
+* `balas` Function-fungsi yang akan mengirim pesan IPC ke frame renderer yang dikirim pesan asli yang sedang anda menangani.  You should use this method to "reply" to the sent message in order to guarantee the reply will go to the correct process and frame.
+  *  saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
 </ul></li>
 </ul>

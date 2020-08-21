@@ -668,7 +668,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 ### `app.getJumpListSettings()` _Windows_
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `minItems` Entero - El número mínimo de elementos que será mostrado en la lista (Para una descripción detallada de este valor vea el [documento MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
@@ -687,9 +687,9 @@ Configura o remueve una Jump list personalizada para la aplicación, y devuelve 
 
 Si la `categoría` es `nula` la configuración personalizada previa de la Jump List (si hay alguna) será reemplazada por la Jump List estándar para la aplicación (manejada por Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Si la propiedad `name` está establecida pero la propiedad `type` esta omitida entonces se asume que el `type` es `custom`.
+**Nota:** Si un objeto de `JumpListCategory` no tiene ni `type` ni el `name` en sus propiedades de objeto, se asume que su propiedad `type` será `tasks`. Si la propiedad `name` está establecida pero la propiedad `type` esta omitida entonces se asume que el `type` es `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Cualquier intento de añadir nuevamente el elemento a la categoría personalizada antes que eso resultará en que la categoría entera sea omitida de la Jump List. La lista de elemento removidos puede ser obtenida usando `app.getJumpListSettings()`.
+**Nota:** Usuarios pueden remover elementos de las categorías personalizadas y Windows no permitirá que un elemento removido sea añadido de nuevo a la categoría personalizada hasta **después** del siguiente llamado exitoso a `app.setJumpList(categories)`. Cualquier intento de añadir nuevamente el elemento a la categoría personalizada antes que eso resultará en que la categoría entera sea omitida de la Jump List. La lista de elemento removidos puede ser obtenida usando `app.getJumpListSettings()`.
 
 Aquí hay un ejemplo sencillo de cómo crear una Jump List personalizada:
 
@@ -915,9 +915,9 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 Establece el distintivo en contra para la aplicación actual. Establecer la cuenta a `0` esconderá el distintivo.
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+On macOS, it shows on the dock icon. En Linux, solo funciona para Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Nota:** El ejecutador de Unity requiere de la existencia de un archivo `.desktop` para hacerlo funcionar, para más información por favor leer [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -930,26 +930,26 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
 * `options` Object (opcional)
-  * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
+  * `path` String (optional) _Windows_ - The executable path to compare against. Por defecto a `process.execPath`.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Por defecto a un array vacío.
 
 Su proporcionas las opciones `path` y `args` a `app.setLoginItemSettings`, entonces necesitas pasar los mismos argumentos aquí para `openAtLogin` para que sea correctamente configurado.
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Esto indica que la aplicación no debería abrir ninguna ventana al inicio. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean _macOS_ - `true` si la aplicación es establecida para abrirse como oculta al login. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` si la aplicación fue abierto automáticamente al login. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` si la aplicación fue abierto como un artículo oculto de login. Esto indica que la aplicación no debería abrir ninguna ventana al inicio. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean _macOS_ - `true` si la aplicación fue abierto como un artículo de login que debería restaurar el estado de la sesión anterior. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Por defecto es `false`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Por defecto a `false`. El usuario puede editar esta configuración desde la Preferencias del Sistema, así que `app.getLoginItemSettings().wasOpenedAsHidden` debe ser comprobado cuanto la aplicación es abierta para conocer el valor actual. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
-  * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  * `openAsHidden` Boolean (optional) _macOS_ - `true` abrirse la aplicación como oculta. Por defecto a `false`. El usuario puede editar esta configuración desde la Preferencias del Sistema, así que `app.getLoginItemSettings().wasOpenedAsHidden` debe ser comprobado cuanto la aplicación es abierta para conocer el valor actual. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
+  * `path` String (optional) _Windows_ - The executable to launch at login. Por defecto a `process.execPath`.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Por defecto a un array vacío. Take care to wrap paths in quotes.
 
 Establece los objetos de inicio de ajuste de la aplicación.
 
@@ -982,7 +982,7 @@ Manualmente habilita el soporte de accesibilidad de Chrome, lo que permite expon
 
 Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Nota:** Renderizar el árbol de accesibilidad puede afectar significativamente al rendimiento de su aplicación. No debería estar activado por defecto.
 
 ### `app.showAboutPanel()`
 
@@ -1082,7 +1082,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Nota:** Renderizar el árbol de accesibilidad puede afectar significativamente al rendimiento de su aplicación. No debería estar activado por defecto.
 
 ### `app.applicationMenu`
 
@@ -1094,7 +1094,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Nota:** El ejecutador de Unity requiere de la existencia de un archivo `.desktop` para hacerlo funcionar, para más información por favor leer [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.commandLine` _Readonly_
 

@@ -48,7 +48,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 
 * `undo`
 * `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
-* `やり直します`
+* `redo`
 * `cut`
 * `copy`
 * `paste`

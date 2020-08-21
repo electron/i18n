@@ -168,7 +168,7 @@ or: 或
 pages:
   '/':
     title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    description: '使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式.'
   '/apps':
     title: Electron 應用程式
     description: 用 Electron 打造的應用程式

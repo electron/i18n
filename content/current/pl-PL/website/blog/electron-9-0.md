@@ -12,7 +12,7 @@ Electron 9.0.0 has been released! It includes upgrades to Chromium `83`, V8 `8.3
 
 The Electron team is excited to announce the release of Electron 9.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
 
-## Notable Changes
+## Znaczące zmiany
 
 ### Stack Changes
 
@@ -66,11 +66,11 @@ The following APIs are now deprecated or removed:
 * `<webview>.getWebContents`, which was deprecated in Electron 8.0, is now removed.
 * `webFrame.setLayoutZoomLevelLimits`, which was deprecated in Electron 8.0, is now removed.
 
-## End of Support for 6.x.y
+## Koniec wsparcia dla 6.x.y
 
 Electron 6.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
 
-## What's Next
+## Co dalej
 
 In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 10.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 10.0 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
 

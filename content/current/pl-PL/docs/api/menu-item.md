@@ -54,7 +54,7 @@ Wartość `role` może mieć następujące wartości:
 * `paste`
 * `pasteAndMatchStyle`
 * `selectAll`
-* `delete`
+* `usuń`
 * `minimize` - Minimalizuje obecne okno.
 * `close` - Zamyka obecne okno.
 * `quit` - Wychodzi z aplikacji.

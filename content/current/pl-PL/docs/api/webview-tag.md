@@ -465,14 +465,14 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `silent` Boolean (optional) - Don't ask user for print settings. Domyślnie jest `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Domyślnie jest `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Domyślnie jest `true`.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
     * `left` Number (optional) - The left margin of the printed web page, in pixels.
     * `right` Number (optional) - The right margin of the printed web page, in pixels.
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Default is `false`.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Domyślnie jest `false`.
   * `scaleFactor` Number (optional) - The scale factor of the web page.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
