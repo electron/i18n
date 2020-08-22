@@ -128,7 +128,7 @@ quick_start:
   dive_deeper: Atau menyelam lebih dalam dan membaca <a href='/docs'> dokumentasi</a>.
 need_help:
   title: Perlu bantuan?
-  description: <a href='https://discuss.atom.io/c/electron'>.
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Bahasa
 taglines:

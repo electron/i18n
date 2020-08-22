@@ -128,7 +128,7 @@ quick_start:
   dive_deeper: או צלול עמוק יותר <a href='/docs'>לתיעוד</a>.
 need_help:
   title: צריך/ה עזרה?
-  description: שאל שאלות <a href='https://discuss.atom.io/c/electron'>בפורום</a> או בערוץ <a href='http://atom-slack.herokuapp.com/'>Slack</a> שלנו. עקוב אחר<a href="https://twitter.com/electronjs"> @electronjs</a> בטוויטר. זקוק לסיוע בפרטי? צור קשר במייל <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: שפות
 taglines:

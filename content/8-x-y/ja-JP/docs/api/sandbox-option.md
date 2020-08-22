@@ -38,7 +38,7 @@ app.on('ready', () => {
 let win
 app.enableSandbox()
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
+  // `app.enableSandbox()` を呼び出したので、`sandbox: true` を渡す必要はありません。
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })

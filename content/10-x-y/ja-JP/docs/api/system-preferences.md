@@ -194,13 +194,13 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 const { BrowserWindow, systemPreferences } = require('electron')
 let browserOptions = { width: 1000, height: 800 }
 
-// Make the window transparent only if the platform supports it.
+// サポートされているプラットフォームでのみウインドウを透明にします。
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
 }
 
-// Create the window.
+// ウインドウを作成します。
 let win = new BrowserWindow(browserOptions)
 
 // 移動。
