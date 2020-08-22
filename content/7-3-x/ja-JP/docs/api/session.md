@@ -174,13 +174,13 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
 
-   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+   指定された範囲内の IP リテラルに一致する URL のマッチ。 IP の範囲は CIDR 表記で指定します。
 
    例: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
 
-   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+   ローカルアドレスのマッチ。 `<local>` の意味は、ホストが "127.0.0.1"、"::1"、"localhost" のいずれかに一致するかどうかです。
 
 #### `ses.resolveProxy(url)`
 
@@ -192,15 +192,15 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 * `path` String - ダウンロード位置.
 
-Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
+ダウンロードの保存ディレクトリを設定します。 デフォルトでは、ダウンロードディレクトリは各アプリフォルダの下の `ダウンロード (Downloads)` になります。
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (optional) - Whether to emulate network outage. 省略値は、false です。
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+  * `offline` Boolean (任意) - ネットワークの停止をエミュレートするかどうか。 省略値は、false です。
+  * `latency` Double (任意) - RTT ミリ秒。 省略値は 0 で、このときレイテンシのスロットルは無効化されます。
+  * `downloadThroughput` Double (任意) - 下りレート Bps。 省略値は 0 で、このときダウンロードのスロットルは無効化されます。
+  * `uploadThroughput` Double (任意) - 上りレート Bps。 省略値は 0 で、このときアップロードのスロットルは無効化されます。
 
 `session` の指定された構成でネットワークをエミュレートします。
 
@@ -219,14 +219,14 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 #### `ses.preconnect(options)` _実験的_
 
 * `options` Object
-  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
-  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. デフォルトは 1.
+  * `url` String - 事前接続する URL。 ソケットの開通に関係しているのはオリジンのみです。
+  * `numSockets` Number (任意) - 事前接続するソケット数。 1 から 6 にしてください。 デフォルトは 1.
 
 指定された数のソケットをオリジンに事前接続します。
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+`session` に対して既にアクティブなネットワークエミュレーションを無効にします。 元のネットワーク構成にリセットします。
 
 #### `ses.setCertificateVerifyProc(proc)`
 
@@ -237,7 +237,7 @@ Disables any network emulation already active for the `session`. Resets to the o
     * `verificationResult` String - Chromium からの認証結果。
     * `errorCode` Integer - エラーコード。
   * `callback` Function
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
+    * `verificationResult` Integer - [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の証明書エラーコードのうち一つの値を取ります。 証明書エラーコードの他に、以下の特殊コードを取ることがあります。
       * `0` - 成功を示し、証明書の透明性の検証を無効にします。
       * `-2` - 失敗を示します。
       * `-3` - Chromium からの認証結果を使用します。
@@ -267,7 +267,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `permission` String - 'media'、'geolocation'、'notifications'、'midiSysex'、'pointerLock'、'fullscreen'、'openExternal' のいずれか。
   * `callback` Function
     * `permissionGranted` Boolean - 権限の許可か拒否.
-  * `details` Object - Some properties are only available on certain permission types.
+  * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
     * `externalURL` String (任意) - `openExternal` リクエストの URL。
     * `mediaTypes` String[] (任意) - 要求されている、複数のメディアアクセスのタイプ。要素は `video` か `audio` にできます
     * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
@@ -292,7 +292,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
   * `webContents` [WebContents](web-contents.md) - 権限を確認する WebContents。  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
   * `permission` String - 'media' の列挙。
   * `requestingOrigin` String - 権限チェックのオリジン URL
-  * `details` Object - Some properties are only available on certain permission types.
+  * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
     * ` securityOrigin ` String - `media` チェックのセキュリティオリジン。
     * `mediaType` String - 要求されたメディアアクセスの型で、`video`、`audio` か `unknown` になります。
     * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL

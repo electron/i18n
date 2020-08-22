@@ -128,7 +128,7 @@ quick_start:
   dive_deeper: Hoặc xem xét kĩ hơn bằng cách đọc <a href='/docs'>tài liệu</a>.
 need_help:
   title: Cần trợ giúp?
-  description: 'Đặt câu hỏi trong diễn đàn <a href=''https://discuss.atom.io/c/electron''> Thảo luận </a> hoặc <a href = ''http: //atom-slack.herokuapp.com/'' của chúng tôi > Slack </a> kênh. Theo dõi <a href="https://twitter.com/electronjs"> @electronjs </a> trên Twitter để biết các thông báo quan trọng. Bạn cần liên hệ riêng tư? Gửi email tới <a href="mailto:info@electronjs.org"> info@electronjs.org </a>.'
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Ngôn ngữ
 taglines:

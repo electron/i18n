@@ -25,7 +25,7 @@ Używając `Quick Start` jako przykładu:
 
 ...
 
-## Run your app
+## Uruchom aplikację
 
 ...
 

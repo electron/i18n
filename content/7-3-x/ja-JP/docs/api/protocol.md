@@ -129,7 +129,7 @@ protocol.registerSchemesAsPrivileged([
 
 `request` を処理するには、`callback` を、ファイルのパスまたは `path` プロパティを持つオブジェクトのいずれかを使用して、例えば、`callback(filePath)` や `callback({ path: filePath })` で呼び出す必要があります。 オブジェクトは、レスポンスヘッダの値にヘッダのマップを与える `headers` プロパティ - 例えば `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})` - を持つこともできます。
 
-引数なし、数、または `error` プロパティを持つオブジェクトで `callback` が呼び出されると、 `request` は指定した `error` 番号で失敗します。 For the available error numbers you can use, please see the [net error list][net-error].
+引数なし、数、または `error` プロパティを持つオブジェクトで `callback` が呼び出されると、 `request` は指定した `error` 番号で失敗します。 使用できる有効なエラー番号は、[net error list][net-error] を参照してください。
 
 デフォルトでは、`scheme` は `http:` のように扱われます。これは、`file:` のような "Generic URI Syntax" に従うプロトコルとは違って解析されます。
 

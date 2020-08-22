@@ -6,7 +6,7 @@
 
 Electron はネイティブのデスクトップアプリケーションを開発するためのモジュールもいくつか追加しています。 一部のモジュールはメインプロセスでのみ使用でき、一部はレンダラープロセス (ウェブページ) でのみ使用でき、一部は両方のプロセスで使用できます。
 
-基本的なルールはとしては、モジュールが [GUI][gui] または低レベルのシステムに関わる場合、メインプロセスでのみ使用可能にする必要があります。 You need to be familiar with the concept of [main process vs. renderer process](../tutorial/application-architecture.md#main-and-renderer-processes) scripts to be able to use those modules.
+基本的なルールはとしては、モジュールが [GUI][gui] または低レベルのシステムに関わる場合、メインプロセスでのみ使用可能にする必要があります。 これらのモジュールを使いこなすには、[メインプロセスとレンダラープロセス](../tutorial/application-architecture.md#main-and-renderer-processes) のスクリプトの概念に精通している必要があります。
 
 メインプロセスのスクリプトは、通常の Node.js スクリプトとほぼ同じです。
 

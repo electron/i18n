@@ -157,7 +157,7 @@ V8ヒープの統計を持つオブジェクトを返します。 すべての�
 * `marked` Integer - キロバイト単位でのマークされたすべてのオブジェクトのサイズ。
 * `total` Integer - キロバイト単位での確保された空間の合計。
 
-Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+Blink のメモリ情報を持つオブジェクトを返します。 レンダリング/DOM 関連のメモリ問題のデバッグに役立ちます。 すべての数値はキロバイト単位で返ってくることに注意してください。
 
 ### `process.getProcessMemoryInfo()`
 

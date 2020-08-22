@@ -128,7 +128,7 @@ quick_start:
   dive_deeper: Sau scufundă-te mai adânc și citește <a href='/docs'>documentația</a>.
 need_help:
   title: Ai nevoie de ajutor?
-  description: Pune întrebări în forumul <a href='https://discuss.atom.io/c/electron'>Discuss</a> sau canalul nostru de <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Urmărește <a href="https://twitter.com/electronjs">@electronjs</a> pe Twitter pentru anunțurile importante. Ai nevoie de ceva în mod privat? Trimite un email la <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Limbi
 taglines:

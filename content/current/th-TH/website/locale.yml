@@ -128,7 +128,7 @@ quick_start:
   dive_deeper: หรือลงลึกเข้าไปอีกและอ่าน<a href='/docs'>เอกสาร</a>
 need_help:
   title: ต้องการความช่วยเหลือ
-  description: 'ถามคำถามในฟอรัม <a href=''https://discuss.atom.io/c/electron''> อภิปราย </a> หรือ <a href = ''http: //atom-slack.herokuapp.com/'' ของเรา > ช่องหย่อน </a> ติดตาม <a href="https://twitter.com/electronjs"> @electronjs </a> บน Twitter เพื่อประกาศที่สำคัญ ต้องการเข้าถึงแบบส่วนตัวหรือไม่ อีเมล <a href="mailto:info@electronjs.org"> info@electronjs.org </a>'
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: ภาษา
 taglines:
