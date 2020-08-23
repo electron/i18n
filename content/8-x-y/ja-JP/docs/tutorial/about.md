@@ -2,9 +2,9 @@
 
 [Electron](https://electronjs.org) は、HTML、CSS、JavaScript でクロスプラットフォームデスクトップアプリケーションを作成するために GitHub によって開発されたオープンソースライブラリです。 Electron は [Chromium](https://www.chromium.org/Home) と [Node.js](https://nodejs.org) を一つのランタイムとして組み合わせることでこれを達成しており、Mac、Windows、Linux 向けにアプリをパッケージすることが出来ます。
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Electron は、GitHub のカスタマイズ可能なテキストエディタである [Atom](https://atom.io) 用のフレームワークとして 2013 年に開発が始まりました。 Electron と Atom は 2014 年の春にオープンソースになっています。
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+そのときから、オープンソース開発者、ベンチャー企業、古参の企業で使われる人気のツールになっています。 [Electron で作られているものたちもぜひご覧ください](https://electronjs.org/apps)。
 
 Electron の貢献者とリリースについてもっと詳しく知りたい、もしくは Electron を始めたい場合については [クイックスタートガイド](quick-start.md) にあります。
 
@@ -14,7 +14,7 @@ Electron は、GitHub のチームとコミュニティの [積極的な貢献�
 
 ## リリース
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+頻繁に [Electron はリリースされます](https://github.com/electron/electron/releases)。 大きなバグ修正、新しい API、Chromium や Node.js のアップデート時に新しいバージョンがリリースされます。
 
 ### 依存関係の更新
 
@@ -22,7 +22,7 @@ Electron に含まれる Chromium のバージョンは、新しい安定版の 
 
 Node.js の新しいバージョンがリリースされたとき、より安定したバージョンを使用できるように、Electron の Node.js を更新するのを通常約1か月待ちます。
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this _just works_ but sometimes it means patching Node.js.
+Electron では、Node.js と Chromium で使用している V8 は同一のインスタンスです。これは通常、Chromium が使う物を共用します。 ほとんどの場合はこのアプローチで _うまく動作します_。しかし、時々 Node.js にパッチを当てる必要があります。
 
 ### バージョン管理
 

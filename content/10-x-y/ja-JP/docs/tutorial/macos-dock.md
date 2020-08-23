@@ -15,16 +15,16 @@ const { app, Menu } = require('electron')
 
 const dockMenu = Menu.buildFromTemplate([
   {
-    label: 'New Window',
+    label: '新規ウインドウ',
     click () { console.log('New Window') }
   }, {
-    label: 'New Window with Settings',
+    label: '設定から新規ウインドウ',
     submenu: [
       { label: 'Basic' },
       { label: 'Pro' }
     ]
   },
-  { label: 'New Command...' }
+  { label: '新規コマンド...' }
 ])
 
 app.dock.setMenu(dockMenu)

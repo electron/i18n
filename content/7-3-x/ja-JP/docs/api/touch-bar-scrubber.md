@@ -12,8 +12,8 @@
     * `selectedIndex` Integer - ユーザが選択したアイテムのインデックス.
   * `highlight` Function (任意) - ユーザが任意のアイテムをタップしたときに呼ばれます。
     * `highlightedIndex` Integer - ユーザがタッチしたアイテムのインデックス.
-  * `selectedStyle` String (任意) - 選択したアイテムのスタイル。 Defaults to `null`.
-  * `overlayStyle` String (任意) - 選択したオーバーレイアイテムのスタイル。 Defaults to `null`.
+  * `selectedStyle` String (任意) - 選択したアイテムのスタイル。 省略値は `null` です。
+  * `overlayStyle` String (任意) - 選択したオーバーレイアイテムのスタイル。 省略値は `null` です。
   * `showArrowButtons` Boolean (任意) - 省略値は、`false` になります。
   * `mode` String (任意) - 省略値は、`free` になります。
   * `continuous` Boolean (任意) - 省略値は、`true` になります。

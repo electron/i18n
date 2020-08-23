@@ -1,4 +1,4 @@
-# NewWindowWebContentsEvent Object extends `Event`
+# Object NewWindowWebContentsEvent расширяет `Event`
 
-* `newGuest` BrowserWindow (optional)
+* `newGuest` BrowserWindow (опционально)
 

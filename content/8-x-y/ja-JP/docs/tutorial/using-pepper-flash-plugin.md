@@ -16,7 +16,7 @@ Electron のコマンドラインに直接 `--ppapi-flash-path` と `--ppapi-fla
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// フラッシュのパスを、main.js と同じディレクトリ下にあると仮定して指定します。
 let pluginName
 switch (process.platform) {
   case 'win32':
@@ -31,7 +31,7 @@ switch (process.platform) {
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
+// 任意: v17.0.0.169 のように、フラッシュのバージョンを指定します。
 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
 app.on('ready', () => {
@@ -43,7 +43,7 @@ app.on('ready', () => {
     }
   })
   win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
+  // 他のこと
 })
 ```
 

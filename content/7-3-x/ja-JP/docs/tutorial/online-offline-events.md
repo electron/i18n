@@ -1,6 +1,6 @@
 # オンライン/オフライン イベントの検出
 
-標準 HTML5 API の一部である [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) 属性を使用して、[オンラインおよびオフラインイベント](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) の検出をレンダラープロセスに実装できます。 ネットワーク要求が失敗することが保証されている場合、つまり確実にオフライン (ネットワークから切断されている場合) の場合、`navigator.onLine` 属性は `false` を返します。 それ以外の状況では `true` を返します。 他のすべての条件では `true`が返されるので、`true` の値は必ずしも Electron がインターネットにアクセスできることを意味するとは限らないので、誤検出をすることに注意する必要があります。 Such as in cases where the computer is running a virtualization software that has virtual ethernet adapters that are always “connected.” Therefore, if you really want to determine the internet access status of Electron, you should develop additional means for checking.
+標準 HTML5 API の一部である [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) 属性を使用して、[オンラインおよびオフラインイベント](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) の検出をレンダラープロセスに実装できます。 ネットワーク要求が失敗することが保証されている場合、つまり確実にオフライン (ネットワークから切断されている場合) の場合、`navigator.onLine` 属性は `false` を返します。 それ以外の状況では `true` を返します。 他のすべての条件では `true`が返されるので、`true` の値は必ずしも Electron がインターネットにアクセスできることを意味するとは限らないので、誤検出をすることに注意する必要があります。 例えば、コンピュータが仮想化ソフトウェアを実行していて、その仮想イーサネットアダプタが常に "接続" されている場合などです。 したがって、本当に Electron のインターネットアクセス状況を判断したいのであれば、チェックするための追加の手段を開発する必要があります。
 
 サンプル:
 

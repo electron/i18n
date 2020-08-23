@@ -126,11 +126,11 @@ webFrame.setSpellCheckProvider('en-US', {
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (任意) - 省略値は `false`。
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
+戻り値 `Promise<any>` - コードの実行結果で resolve するか、実行を開始できずに reject する Promise。
 
 `executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
-Note that when the execution of script fails, the returned promise will not and the `result` would be `undefined`. This is because Chromium does not errors of isolated worlds to foreign worlds.
+スクリプトの実行そのものが失敗した場合、返された Promise の `result` は`undefined` になることに注意してください。 これは、Chromium が隔離されたワールドのエラーを外のワールドへ伝播しないためです。
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 * `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。

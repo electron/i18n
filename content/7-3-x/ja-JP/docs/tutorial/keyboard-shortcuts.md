@@ -4,7 +4,7 @@
 
 ## ローカルショートカット
 
-[Menu][] モジュールを使用して、アプリケーションにフォーカスがあるときにのみ起動されるキーボードショートカットを設定できます。 To do so, specify an [`accelerator`][] property when creating a [MenuItem][].
+[Menu][] モジュールを使用して、アプリケーションにフォーカスがあるときにのみ起動されるキーボードショートカットを設定できます。 これをするには、[MenuItem][] の作成時に [`accelerator`][] プロパティを指定します。
 
 ```js
 const { Menu, MenuItem } = require('electron')
@@ -58,22 +58,22 @@ Mousetrap.bind('4', () => { console.log('4') })
 Mousetrap.bind('?', () => { console.log('show shortcuts!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-// combinations
+// 組み合わせ
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// map multiple combinations to the same callback
+// 複数の組み合わせを同じコールバックに割り当て
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
-  // return false to prevent default behavior and stop event from bubbling
+  // false を返すと規定の動作を抑制してイベントの伝播を止める
   return false
 })
 
-// gmail style sequences
+// Gmail 式シーケンス
 Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
-// konami code!
+// コナミコマンド!
 Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('コナミコマンド')
 })

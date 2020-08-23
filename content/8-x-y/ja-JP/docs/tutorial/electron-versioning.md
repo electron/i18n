@@ -141,4 +141,4 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 - `master` ブランチは、常に `package.json` に次のメジャーバージョンの `X.0.0-nightly.DATE` を含みます。
 - リリースブランチが master にマージし戻されることはありません。
 - リリースブランチは `package.json` 内に正しいバージョンを含んで _います_
-- リリースブランチがメジャーのためにカットされるとすぐに、master は次のメジャーにバージョン上げされる必要があります。  I.e. `master` is always versioned as the next theoretical release branch
+- リリースブランチがメジャーのためにカットされるとすぐに、master は次のメジャーにバージョン上げされる必要があります。  つまり、 `master` は常に理論上次のリリースブランチとしてバージョン管理されます

@@ -20,8 +20,8 @@ Electron
 |   |   ├── api/ - メインプロセス API の実装。
 |   |   ├── net/ - ネットワークに関連したコード。
 |   |   ├── mac/ - Mac に関連した Objective-C のソースコード。
-|   |   └── resources/ - Icons, platform-dependent files, etc.
-|   ├── renderer/ - Code that runs in renderer process.
+|   |   └── resources/ - アイコン、プラットフォーム固有のファイルなど。
+|   ├── renderer/ - レンダラープロセスで動くコード。
 |   |   └── api/ - レンダラープロセス API の実装。
 |   └── common/ - Node のメッセージループを Chromium のメッセージループに
 |       |         統合するためのユーティリティ関数やコードなど、

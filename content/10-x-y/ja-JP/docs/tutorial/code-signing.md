@@ -144,7 +144,7 @@ Windows ビルドに署名する前に、以下のことをしなければなり
 
 - [`electron-winstaller`][] will generate an installer for windows and sign it for you
 - [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.
-- [`electron-builder`][] can sign some of its windows targets
+- [`electron-builder`][] ではその Windows ターゲットのいくつかに署名することができます
 
 ## Windows Store
 

@@ -86,9 +86,9 @@ Mac App Store にアプリを提出するには、Appleからまず証明書を�
 ```sh
 #!/bin/bash
 
-# Name of your app.
+# アプリの名前。
 APP="YourApp"
-# The path of your app to sign.
+# 署名するアプリのパス。
 APP_PATH="/path/to/YourApp.app"
 # 署名付きパッケージを配置する場所へのパス。
 RESULT_PATH="~/Desktop/$APP.pkg"
@@ -116,9 +116,9 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox][enable-app-sandbox] to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+macOS で初めてアプリをサンドボックス化するのであれば、Apple の [Enabling App Sandbox][enable-app-sandbox] を通読し、基本的な考え方を確認してから、権利ファイル (entitlement file) にアプリで必要なパーミッションキーを追加しましょう。
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign][electron-osx-sign] module to do the job.
+署名を手動で行う代わりに、[electron-osx-sign][electron-osx-sign] モジュールを使用することも出来ます。
 
 #### ネイティブ モジュールに署名
 
@@ -128,15 +128,15 @@ Apart from manually signing your app, you can also choose to use the [electron-o
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-また、ネイティブモジュールは中間ファイルを生成しているかもしれませんが、それらは含まれるべきではありません (それらもまた署名される必要があるので)。 If you use [electron-packager][electron-packager] before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. バージョン 8.1.0 以降ではこれらのファイルはデフォルトで無視されます。
+また、ネイティブモジュールは中間ファイルを生成しているかもしれませんが、それらは含まれるべきではありません (それらもまた署名される必要があるので)。 バージョン 8.1.0 より前の [electron-packager][electron-packager] を使用している場合は、ビルド手順に `--ignore=.+\.o$` を追加してこれらのファイルを無視してください。 バージョン 8.1.0 以降ではこれらのファイルはデフォルトで無視されます。
 
 ### App をアップロード
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
+アプリに署名後、iTunes Connect にアップロードするために Application Loader を使用できます。アップロードする前に [レコードを作成していること][create-record] を確認してください。
 
 ### アプリケーションを審査に提出
 
-After these steps, you can [submit your app for review][submit-for-review].
+これらのステップを終えれば、[アプリをレビュー登録][submit-for-review] できます。
 
 ## MAS Buildの制限
 
@@ -151,7 +151,7 @@ After these steps, you can [submit your app for review][submit-for-review].
 * 一部のアクセシビリティ機能が動作しないことがあります。
 * アプリはDNSの変更を認識しません。
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing][app-sandboxing] for more information.
+サンドボックスが使用されるため、アプリがアクセスできるリソースは厳密に制限されています。詳細は [App Sandboxing][app-sandboxing] を参照してください。
 
 ### 追加のエンタイトルメント
 
@@ -173,7 +173,7 @@ Also, due to the usage of app sandboxing, the resources which can be accessed by
 <true/>
 ```
 
-See the [Enabling Network Access documentation][network-access] for more details.
+詳細は [Enabling Network Access ドキュメント][network-access] を参照してください。
 
 #### dialog.showOpenDialog
 
@@ -182,7 +182,7 @@ See the [Enabling Network Access documentation][network-access] for more details
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation][user-selected] for more details.
+詳細は [Enabling User-Selected File Access ドキュメント][user-selected] を参照してください。
 
 #### dialog.showSaveDialog
 
@@ -191,11 +191,11 @@ See the [Enabling User-Selected File Access documentation][user-selected] for mo
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation][user-selected] for more details.
+詳細は [Enabling User-Selected File Access ドキュメント][user-selected] を参照してください。
 
 ## Electronが使用する暗号化アルゴリズム
 
-アプリをリリースする国によっては、ソフトウェアで使用されている暗号化アルゴリズムに関する情報を提供する必要があります。 See the [encryption export compliance docs][export-compliance] for more information.
+アプリをリリースする国によっては、ソフトウェアで使用されている暗号化アルゴリズムに関する情報を提供する必要があります。 詳細は [暗号輸出コンプライアンスドキュメント][export-compliance] を参照してください。
 
 Electron は次の暗号アルゴリズムを使用しています:
 

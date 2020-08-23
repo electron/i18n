@@ -24,10 +24,10 @@ macOS ビルドに署名する前に、以下のことをしなければなり�
 
 パッケージアプリケーションに署名するためのツールは以下のようにたくさんあります。
 
-- [`electron-osx-sign`][] is a standalone tool for signing macOS packages.
-- [`electron-packager`][] bundles `electron-osx-sign`. `electron-packager` そ使用している場合は、ビルドに署名するために `--osx-sign=true` フラグを渡してください。
-  - [`electron-forge`][] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
-- [`electron-builder`][] has built-in code-signing capabilities. [electron.build/code-signing](https://www.electron.build/code-signing) を参照してください
+- [`electron-osx-sign`][] は macOS パッケージに署名するためのスタンドアロンツールです。
+- [`electron-packager`][] は `electron-osx-sign` を同梱しています。 `electron-packager` そ使用している場合は、ビルドに署名するために `--osx-sign=true` フラグを渡してください。
+  - [`electron-forge`][] は内部で `electron-packager` を使用するので、forge コンフィグ内で `osxSign` オプションを設定できます。
+- [`electron-builder`][] には組み込みのコード署名機能があります。 [electron.build/code-signing](https://www.electron.build/code-signing) を参照してください
 
 更なる情報は、[Mac App Store Submission Guide][] を参照してください。
 
@@ -47,9 +47,9 @@ Windows ビルドに署名する前に、以下のことをしなければなり
 
 パッケージアプリケーションに署名するためのツールは以下のようにたくさんあります。
 
-- [`electron-winstaller`][] will generate an installer for windows and sign it for you
-- [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.
-- [`electron-builder`][] can sign some of its windows targets
+- [`electron-winstaller`][] は Windows 用インストーラを生成し、それに署名します。
+- [`electron-forge`][] は Squirrel.Windows または MSI ターゲットを通してそれが生成するインストーラに署名することができます。
+- [`electron-builder`][] ではその Windows ターゲットのいくつかに署名することができます
 
 ## Windows Store
 

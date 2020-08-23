@@ -24,7 +24,7 @@ Chrome の安定版のみを使用します。 重要な修正が beta や dev �
 
 ## どうやってウェブページ間でデータを共有するのでしょうか?
 
-ウェブページ (レンダラープロセス) 間でデータを共有する最も単純な方法は、ブラウザで既に提供されている HTML5 API を使用することです。 Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
+ウェブページ (レンダラープロセス) 間でデータを共有する最も単純な方法は、ブラウザで既に提供されている HTML5 API を使用することです。 [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], [IndexedDB][indexed-db] といった良い選択肢があります。
 
 もしくは、IPC システムも使用できます。これは Electron 特有の機能で、メインプロセスはグローバル変数としてオブジェクトを保存し、レンダラープロセスからは `electron` モジュールの `remote` プロパティを通じてそれにアクセスできます。
 
@@ -121,11 +121,11 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 [サブピクセルアンチエイリアス](http://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。 サンプル:
 
-![subpixel rendering example][]
+![サブピクセルレンダリングのサンプル][]
 
 サブピクセルアンチエイリアスは不透明なレイヤーの背景が必要で、そのレイヤーはフォントグリフを含みます。 (詳しくは [この issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) を参照してください)。
 
-To achieve this goal, set the background in the constructor for [BrowserWindow][browser-window]:
+この目的を達成するには、[BrowserWindow][browser-window] のコンストラクタで背景を設定します。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -134,7 +134,7 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. 違いが見えなくても、ユーザーの中には違って見える人がいるかもしれません。 こうしてはいけない理由がなければ、背景は基本的にこのように設定するのが良いでしょう。
+この効果は (一部の?) 液晶画面でしか見られません。 違いが見えなくても、ユーザーの中には違って見える人がいるかもしれません。 こうしてはいけない理由がなければ、背景は基本的にこのように設定するのが良いでしょう。
 
 CSS で背景を設定するだけでは期待する効果はないことに注意してください。
 
@@ -145,4 +145,4 @@ CSS で背景を設定するだけでは期待する効果はないことに注�
 [session-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
 [indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 [browser-window]: api/browser-window.md
-[subpixel rendering example]: images/subpixel-rendering-screenshot.gif
+[サブピクセルレンダリングのサンプル]: images/subpixel-rendering-screenshot.gif

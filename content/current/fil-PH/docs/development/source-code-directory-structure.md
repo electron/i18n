@@ -95,5 +95,28 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
 * **tools** - Helper scripts used by GN files.
   * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - Source code for some third party dependencies.
+* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
 
+## Pagpapanatili ng "Git Submodules" sa Tamang Oras
+
+Ang Electron repository ay mayroon ilang "vendored dependencies", at matatagpuan sa direktoryo na [/vendor](https://github.com/electron/electron/tree/master/vendor). Paminsan-minsan, maaari mong makita ang mensahe tulad nito kapag tumatakbo ang `git status`:
+
+```sh
+$ git status
+
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
+```
+
+Upang hindi mahuli ang mga "vendored dependency", patakbuhin ang mga sumusunod na "command":
+
+```sh
+git submodule update --init --recursive
+```
+
+Kung ang "command" na ito ay iyong parating pinapatakbo, maaari kang lumikha ng "alias" para dito sa iyong payl na `~/.gitconfig`:
+
+```sh
+[alias]
+    su = submodule update --init --recursive
+```

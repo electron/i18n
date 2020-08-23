@@ -621,7 +621,7 @@ win.loadURL('http://github.com')
 * `line` Integer
 * `sourceId` String
 
-関連付けられたウインドウがコンソールメッセージを出力すると発生します。 Will not be emitted for windows with *offscreen rendering* enabled.
+関連付けられたウインドウがコンソールメッセージを出力すると発生します。 *オフスクリーンレンダリング* が有効化されたウインドウでは発生しません。
 
 #### イベント: 'preload-error'
 
@@ -1598,7 +1598,7 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 #### `contents.devToolsWebContents` _読み出し専用_
 
-A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
+`WebContents | null` 型のプロパティ。その `WebContents` に関連付けられたデベロッパー ツール の `WebContents` を表します。
 
 **注釈:** 開発者向けツールが閉じられたときに `null` になる可能性があるので、このオブジェクトは決して格納しないで下さい。
 

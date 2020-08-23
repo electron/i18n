@@ -120,8 +120,8 @@ class Parser {
   }
 
   async getParsedFiles () {
-    // Our fictitious foo-parser is a big and expensive module to load, so
-    // defer that work until we actually need to parse files.
+    // この架空の foo-parser は大きくて重いモジュールであり
+    // 実際にファイルを解析する必要があるまで動作を後回しにします。
     // `require()` にはモジュールキャッシュが付属しているため、
     // この `require()` 呼び出しは 1 回だけ重く、
     // 後続の `getParsedFiles()` 呼び出しはより高速になります。
@@ -142,13 +142,13 @@ module.exports = { parser }
 
 ## 3) メインプロセスをブロックしている
 
-Electron のメインプロセス ("ブラウザプロセス" と呼ばれることもあります) は特別です。これは、アプリの他のすべてのプロセスの親プロセスであり、オペレーティングシステムが相互作用する一次プロセスです。 It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
+Electron のメインプロセス ("ブラウザプロセス" と呼ばれることもあります) は特別です。これは、アプリの他のすべてのプロセスの親プロセスであり、オペレーティングシステムが相互作用する一次プロセスです。 ウィンドウ、インタラクション、アプリ内のさまざまなコンポーネント間の通信を処理します。 UI スレッドも保持します。
 
 どんな状況でも、このプロセスと UI スレッドを長い実行時間の操作でブロックしてはなりません。 UI スレッドをブロックすると、メインプロセスが処理を続行できる状態になるまで、アプリ全体がフリーズします。
 
 ### なぜ？
 
-The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. ウィンドウがぬるぬるした滑らかなアニメーションをレンダリングしている場合、それについて GPU プロセスとやり取りする必要があって―もう一度メインプロセスを通過します。
+メインプロセスとその UI スレッドは、基本的にアプリ内の主要な操作の制御塔です。 オペレーティングシステムがマウスクリックについてアプリに通知すると、そのクリックはウィンドウに到達する前にメインプロセスを通過します。 ウィンドウがぬるぬるした滑らかなアニメーションをレンダリングしている場合、それについて GPU プロセスとやり取りする必要があって―もう一度メインプロセスを通過します。
 
 Electron と Chromium は、UI スレッドのブロックを回避するために、新しいスレッドに重いディスク I/O および CPU バウンド操作を配置するよう配慮します。 あなたもおなじようにしましょう。
 

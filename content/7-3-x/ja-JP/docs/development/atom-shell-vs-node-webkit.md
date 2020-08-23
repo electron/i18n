@@ -12,7 +12,7 @@ NW.js アプリケーションのメインエントリポイントはウェブ�
 
 Electron では、エントリポイントは JavaScript スクリプトです。 URL を直接指定するのではなく、手動でブラウザウインドウを作成し、API を用いて HTML ファイルを読み込みます。 また、アプリケーションをいつ終了するかを決定するためにウインドウイベントを監視する必要があります。
 
-Electron は Node.js ランタイムのように動作します。 Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
+Electron は Node.js ランタイムのように動作します。 Electron の API はローレベルなので、[PhantomJS](http://phantomjs.org/) の代わりにブラウザテストに使用できます。
 
 __2. ビルドシステム__
 
@@ -24,7 +24,7 @@ NW.js では、ウェブページ内の Node integration では Chromium のパ�
 
 __4. マルチコンテキスト__
 
-If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
+NW.js の経験者であれば、Node コンテキストやウェブコンテキストの概念をご存知でしょう。 これらの概念は、NW.js の実装手法から考案されたものです。
 
 Node の [マルチコンテキスト](https://github.com/nodejs/node-v0.x-archive/commit/756b622) 機能を使用すると、Electron はウェブページ内に新しい JavaScript コンテキストを導入しません。
 

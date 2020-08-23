@@ -36,7 +36,7 @@ IPC は Inter-Process Communication、プロセス間通信の略です。 Elect
 
 ### メインプロセス (main process)
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. また、メニュー、メニューバー、ドック、タスクトレイなどのネイティブ要素の管理も担当します。 The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+メインプロセスは通常 `main.js` というファイル名で配置され、Electron アプリのエントリポイントになります。 これはアプリが開始してから終了するまでを制御します。 また、メニュー、メニューバー、ドック、タスクトレイなどのネイティブ要素の管理も担当します。 メインプロセスは、アプリ内のレンダラプロセスの作成も担います。 完全な Node API を使用できます。
 
 各アプリのメインプロセスファイルは、`package.json` の `main` プロパティに指定します。 `electron .` はここから起動時に実行するファイルを取得します。
 
@@ -80,7 +80,7 @@ Node.jsとElectronでは、実行中のプロセスは、`process`オブジェ�
 
 ### レンダラプロセス (renderer process)
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. また、非表示にもできます。
+レンダラープロセスは、アプリ内のブラウザウインドウです。 メインプロセスと違って複数存在でき、それぞれ別のプロセスとして動作します。 また、非表示にもできます。
 
 通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electronを使用している場合は、Node.js APIをウェブページ内で使用して、OSへ作用できる低レベルAPIを使用することが出来ます。
 
@@ -110,7 +110,7 @@ V8 のバージョンは必ず Google Chrome のバージョンに対応して�
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. あなたのウェブページとは同じ権限はもっておらず、アプリと埋め込まれたコンテンツのやりとりは非同期的な物になります。 アプリはこれにより埋め込みコンテンツから安全を保たれます。
+`webview` タグは、Electron アプリに 'ゲスト' コンテンツ (外部のウェブページなど) を埋め込むために使用します。 これらは `iframe` に似ていますが、それぞれの webview が別のプロセスで実行されるという点が異なります。 あなたのウェブページとは同じ権限はもっておらず、アプリと埋め込まれたコンテンツのやりとりは非同期的な物になります。 アプリはこれにより埋め込みコンテンツから安全を保たれます。
 
 [アドオン]: https://nodejs.org/api/addons.html
 [asar]: https://github.com/electron/asar
