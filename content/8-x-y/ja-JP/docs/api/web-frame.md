@@ -138,7 +138,7 @@ webFrame.setSpellCheckProvider('en-US', {
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (任意) - 省略値は `false`。
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
+戻り値 `Promise<any>` - コードの実行結果で resolve するか、実行を開始できずに reject する Promise。
 
 `executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 

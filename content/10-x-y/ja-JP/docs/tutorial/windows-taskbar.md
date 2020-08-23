@@ -1,6 +1,6 @@
 # Windows のタスクバー
 
-Electron には Windows のタスクバー中のアプリアイコンを設定するための API があります。 Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
+Electron には Windows のタスクバー中のアプリアイコンを設定するための API があります。 [`ジャンプリスト` の作成](#jumplist)、[カスタムサムネイルとツールバー](#thumbnail-toolbars)、[アイコンオーバーレイ](#icon-overlays-in-taskbar) と、いわゆる ["枠点滅" エフェクト](#flash-frame) をサポートしていますが、Electron はアプリのドックアイコンを [最近使った書類][recent-documents] や [アプリケーションの進捗][progress-bar] のようなクロスプラットフォーム機能の実装にも使用しています。
 
 ## ジャンプ リスト
 
@@ -16,7 +16,7 @@ __Internet Explorer のタスク:__
 
 実際のメニューである macOS のドックメニューとは異なり、Windows のユーザータスクはアプリケーションショートカットのように機能し、ユーザーがタスクをクリックするとプログラムが指定された引数で実行されます。
 
-To set user tasks for your application, you can use [app.setUserTasks][setusertaskstasks] API:
+アプリケーションにユーザタスクを設定するには、以下のように [app.setUserTasks][setusertaskstasks] API を使用します。
 
 ```javascript
 const { app } = require('electron')
@@ -56,7 +56,7 @@ __Windows Media Player のサムネイルツールバー:__
 
 ![Windows Media Player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons][setthumbarbuttons] to set thumbnail toolbar in your application:
+アプリケーションでサムネイルツールバーを設定するには、[BrowserWindow.setThumbarButtons][setthumbarbuttons] が使用できます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -98,7 +98,7 @@ __タスクバーボタン上のオーバーレイ:__
 
 ![タスクバーボタン上のオーバーレイ](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon][setoverlayicon] API:
+ウインドウのオーバーレイアイコンを設定するには、[BrowserWindow.setOverlayIcon][setoverlayicon] API を使用できます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -113,7 +113,7 @@ Windows では、タスクバーボタンをハイライトしてユーザの注
 
 > 通常、ウィンドウは注意が必要でも現在キーボードフォーカスがないことをユーザーに知らせるために点滅します。
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame][flashframe] API:
+BrowserWindow タスクバーボタンを点滅するには、[BrowserWindow.flashFrame][flashframe] API を使用できます。
 
 ```javascript
 const { BrowserWindow } = require('electron')

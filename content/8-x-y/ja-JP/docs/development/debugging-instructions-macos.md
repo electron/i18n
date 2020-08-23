@@ -86,9 +86,9 @@ Process 25244 stopped
 今、Electron の開発者ツールを開いて `setName` を呼び出すと、もう一度ブレークポイントにヒットします。
 
 ### 参考リンク
-LLDB は素晴らしいドキュメントを備えた強力なツールです。 To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference][lldb-command-structure] or the introduction to [Using LLDB as a Standalone Debugger][lldb-standalone].
+LLDB は素晴らしいドキュメントを備えた強力なツールです。 詳細については、[LLDB コマンド構造リファレンス][lldb-command-structure] や [LLDB をスタンドアロンデバッガとして使用する方法][lldb-standalone] などの Apple のデバッグドキュメントを参照してください。
 
-You can also check out LLDB's fantastic [manual and tutorial][lldb-tutorial], which will explain more complex debugging scenarios.
+さらに複雑なデバッグシナリオについて説明している、LLDB の素晴らしい [マニュアルとチュートリアル][lldb-tutorial] もご参考にどうぞ。
 
 [lldb-command-structure]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2
 [lldb-standalone]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html

@@ -562,7 +562,7 @@ const mainWindow = new BrowserWindow({
 ### どうすればいいの？
 
 ```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+const readOnlyFsProxy = require(/* ... */) // ファイル読み取り機能のみを公開する
 
 const allowedModules = new Set(['crypto'])
 const proxiedModules = new Map(['fs', readOnlyFsProxy])

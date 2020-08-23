@@ -95,5 +95,28 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
 * **tools** - Helper scripts used by GN files.
   * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - Source code for some third party dependencies.
+* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
 
+## Git Submodules güncel tutma
+
+Electron deposunda birkaç satıcı bağımlılığı vardır. [/satıcı](https://github.com/electron/electron/tree/master/vendor) rehber. Bazen böyle bir mesaj görebilirsiniz. Koşarken `git durumu`:
+
+```sh
+$ git status
+
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
+```
+
+Bu satılan bağımlılıkları güncellemek için aşağıdaki komutu çalıştırın:
+
+```sh
+git submodule güncelleme --init - tekrar başlatma
+```
+
+Kendinizi bu komutu sık sık çalıştırıyorsa, onun için bir takma ad oluşturabilirsiniz senin içinde `~/.gitconfig` dosya:
+
+```sh
+[takma ad]
+su = alt modül güncelleme - init - tekrar başlatma
+```

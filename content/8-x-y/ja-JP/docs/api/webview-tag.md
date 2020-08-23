@@ -14,9 +14,9 @@ Electron の `webview` タグは [Chromium の `webview`][chrome-webview] に基
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. アプリ内の埋め込みページは、ゲストコンテンツのレイアウトとレンダリングの方法を制御します。
+`webview`タグを使用して、Electron アプリに 'ゲスト' コンテンツ (ウェブページなど) を埋め込むことができます。 ゲストコンテンツは `webview` コンテナに含まれています。 アプリ内の埋め込みページは、ゲストコンテンツのレイアウトとレンダリングの方法を制御します。
 
-Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. これにより、埋め込みコンテンツからアプリが保護されます。 **注釈:** ホストページから webview 上で呼び出されるほとんどのメソッドは、メインプロセスへの同期呼び出しを必要とします。
+`iframe` と異なり、 `webview` はアプリとは別のプロセスで実行されます。 これはウェブページと同じ権限を持っておらず、アプリと埋め込みコンテンツの間のやりとりは全て非同期になります。 これにより、埋め込みコンテンツからアプリが保護されます。 **注釈:** ホストページから webview 上で呼び出されるほとんどのメソッドは、メインプロセスへの同期呼び出しを必要とします。
 
 ## サンプル
 

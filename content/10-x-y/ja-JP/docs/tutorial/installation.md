@@ -116,11 +116,11 @@ ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 
 ほとんどの場合、このエラーはネットワークによるもので、`electron` の npm パッケージに問題はありません。 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET`、`ETIMEDOUT` といったエラーは、ネットワーク上の問題を示しています。 最善の解決策は、ネットワークを切り替えるか、少し待ってからもう一度インストールしてることです。
 
-You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
+`npm` でのインストールに失敗する場合、Electron を [electron/electron/releases][releases] から直接ダウンロードすることもできます。
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
+`EACCESS` エラーでインストールが失敗した場合は、おそらく [npmの権限を修正する][npm-permissions] 必要があります。
 
-If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
+上記のエラーが継続する場合は、 [unsafe-perm][unsafe-perm] フラグをtrueにする必要があるかもしれません。
 
 ```sh
 sudo npm install electron --unsafe-perm=true

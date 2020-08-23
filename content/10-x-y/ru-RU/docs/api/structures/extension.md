@@ -1,7 +1,7 @@
-# Extension Object
+# Object расширений
 
 * `id` String
-* `manifest` any - Copy of the [extension's manifest data](https://developer.chrome.com/extensions/manifest).
+* `manifest` любой - Копировать [манифест расширения](https://developer.chrome.com/extensions/manifest).
 * `name` String
 * `path` String - The extension's file path.
 * `version` String

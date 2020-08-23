@@ -136,8 +136,8 @@ const finishSpin = () => {
     result.label = '💰 ジャックポット!'
     result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
-    // 2 values are the same
-    result.label = '😍 Winner!'
+    // 2 つの値が同じ場合
+    result.label = '😍 やったね!'
     result.textColor = '#FDFF00'
   } else {
     // No values are the same

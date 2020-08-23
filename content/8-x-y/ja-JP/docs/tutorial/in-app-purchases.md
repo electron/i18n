@@ -91,7 +91,7 @@ if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }
 
-// Retrieve and display the product descriptions.
+// 製品の説明を探して表示します。
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   // 引数を確認します。
   if (!Array.isArray(products) || products.length <= 0) {
@@ -99,7 +99,7 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
     return
   }
 
-  // Display the name and price of each product.
+  // 各製品の名前と価格を表示します。
   products.forEach(product => {
     console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
   })

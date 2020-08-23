@@ -115,7 +115,7 @@ $ ninja -C out/Debug electron
 $ ninja -C out/Release electron
 ```
 
-This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
+これは、先に "libchromiumcontent" (` chromium` の `content/` ディレクトリと WebKit や V8 を含む依存関係) のすべてをビルドします。そのため時間がかかります。
 
 次回以降のビルドを高速化するには、[sccache][sccache] が使用できます。 GN 引数 `cc_wrapper = "sccache"` を追加して `gn args out/Debug` を実行するように、エディタで開いてファイルの末尾に追加してください。
 
@@ -160,7 +160,7 @@ $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 
 他の組み合わせをテストしてうまく動作することがわかれば、このドキュメントを更新してください :)
 
-See the GN reference for allowable values of [`target_os`][target_os values] and [`target_cpu`][target_cpu values].
+[`target_os`][target_os values] と [`target_cpu`][target_cpu values] の許可されている値については、 GN リファレンスを参照してください。
 
 #### Arm 上で Windows (実験的)
 Arm 上の Windows 用にクロスコンパイルするには、[Chromium のガイドに従って](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio) 必要な依存関係、SDK およびライブラリを取得し、`gclient sync` を実行する前に環境内で `ELECTRON_BUILDING_WOA=1` でビルドします。

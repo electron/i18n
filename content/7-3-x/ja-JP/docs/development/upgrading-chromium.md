@@ -18,23 +18,23 @@
   $ ./script/bootstrap -v
   ```
 2. Chromium スナップショットを更新します
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it
+  - [OmahaProxy](https://omahaproxy.appspot.com/) からバージョン番号を選択し、`VERSION` ファイルを更新します。
     - これはブラウザで OmahaProxy に手動でアクセスするか、以下のようにして自動的に行うことができます。
     - 最新の安定 mac 版は一行でこのようになります。`curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - 最新のベータ win64 版は一行でこのようになります。`curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
-  - run `$ ./script/update`
+  - `$ ./script/update` を実行します
     - お茶でも淹れましょう。これは30分以上かかります。
     - おそらく、パッチ適用には失敗するでしょう。
 3. `patches/` と `patches-mas/` フォルダの `*.patch` ファイルを修正します。
-4. (Optional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches`
-  - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
+4. (任意) `script/update` でパッチを適用できますが、複数回試行する必要があれば、以下のように `update` が呼び出すスクリプトを手動で実行できます。 `$ ./script/apply-patches`
+  - もう一つ有用なスクリプト `script/patch.py` があります。 より詳しくは `./script/patch.py -h` を読んでください。
 5. すべてのパッチをエラーなく適用できれば、ビルドを実行します
   - `$ ./script/build`
-  - If some patches are no longer compatible with the Chromium code, fix compilation errors.
-6. When the build succeeds, create a `dist` for Electron
+  - 一部のパッチが Chromium コードと互換性がなくなった場合は、コンパイルエラーを修正してください。
+6. ビルドに成功したら、Electron の `dist` を作成します
   - `$ ./script/create-dist --no_zip`
-    - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
-7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. このアーカイブは必要ありません。)
+    - libcc リポジトリのルートに `dist/main` フォルダが作成されます。 Electron をビルドするには、これが必要です。
+7. (任意) 削除または名前を変更したファイルが原因でエラーがある場合は、スクリプトの内容を更新してください。 (`--no-zip` はスクリプトが `dist` アーカイブを作成しないようにします。 このアーカイブは必要ありません。)
 
 
 ## Electron のコードを更新する
@@ -44,17 +44,17 @@
   $ git clone git@github.com:electron/electron.git
   $ cd electron
   ```
-2. If you have libcc built on your machine in its own repo, tell Electron to use it:
+2. マシン上に独自のリポジトリで libcc をビルドしている場合は、以下のように Electron にそれを使用するよう伝えてください。
   ```sh
   $ ./script/bootstrap.py -v \
     --libcc_source_path <libcc_folder>/src \
     --libcc_shared_library_path <libcc_folder>/shared_library \
     --libcc_static_library_path <libcc_folder>/static_library
   ```
-3. If you haven't yet built libcc but it's already supposed to be upgraded to a new Chromium, bootstrap Electron as usual `$ ./script/bootstrap.py -v`
+3. まだ libcc をビルドしていないのにすでに新しい Chromium にアップグレードする予定がある場合は、通常通り Electron をブートストラップしてください。`$ ./script/bootstrap.py -v`
   - libcc サブモジュール (`vendor/libchromiumcontent`) が正しいリビジョンを指していることを確認します
 
-4. Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium is using.
+4. `script/update-clang.sh` 内の `CLANG_REVISION` を Chromium が使用しているバージョンに一致するようにセットします。
   - `electron/libchromiumcontent/src/tools/clang/scripts/update.py` にあります。
 
 5. まだチェックアウトしていない場合は Chromium をチェックアウトしてください。
@@ -90,7 +90,7 @@ Crashpad に関連するコンパイルエラーがある場合は、フォー�
 
 ## NodeJS の更新
 
-Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
+`vendor/node` を、新しい Chromium リリースで使用される v8 バージョンに対応する Node リリースにアップグレードします。 Node の v8 バージョンを確認してください。
 
 これについては、[Node の更新](upgrading-node.md) を参照してください。
 

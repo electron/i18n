@@ -11,13 +11,13 @@ macOS 版 Electron のビルドについては、以下のガイドラインに�
 
 ## Python
 
-Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. クイックテストをするには以下を実行します。
+あなたのシステムと Python が少くとも TLS 1.2 をサポートしていることを確認してください。 これは、macOS と Python 両方のバージョンに依存します。 クイックテストをするには以下を実行します。
 
 ```sh
 $ npx @electron/check-python-tls
 ```
 
-If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
+スクリプトが古い構成のセキュリティプロトコルを使用していると応答した場合、macOS を High Sierra に更新するか、新しいバージョンの Python 2.7.x をインストールすることができます。 Python をアップグレードするために、以下では [Homebrew](https://brew.sh/) を使用します。
 
 ```sh
 $ brew install python@2 && brew link python@2 --force
