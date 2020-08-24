@@ -153,7 +153,7 @@ child.once('ready-to-show', () => {
   * `backgroundColor` String(可选) - 窗口的背景颜色为十六进制值，例如`#66CD00`, `#FFF`, `#80FFFFFF` (设置`transparent`为`true`方可支持alpha属性，格式为#AARRGGBB)。 默认值为 `#FFF`（白色）。
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. 默认值为 `true`。
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. 默认值为 `false`.
+  * `darkTheme` Boolean (optional) - 强制窗口使用深色主题，只在部分GTK+3桌面环境下有效。 默认值为 `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 默认值为 `false`. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are:

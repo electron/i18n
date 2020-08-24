@@ -128,7 +128,7 @@ quick_start:
   dive_deeper: 或开始钻研<a href='/docs'>文档</a>。
 need_help:
   title: 需要帮助？
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: 欢迎到 <a href='https://discuss.atom.io/c/electron'>Discuss</a> 论坛提问。关注Twitter <a href="https://twitter.com/electronjs">@electronjs</a> 以接收重要的公告。想要联系我们？可以发送电子邮件到 <a href="mailto:info@electronjs.org">electron@github.com</a>。
 headings:
   languages: 语言
 taglines:

@@ -1,5 +1,5 @@
 ---
-title: 'Electron Internals: Building Chromium as a Library'
+title: 'Electron の舞台裏: Chromium をライブラリとしてビルドする'
 author: zcbenz
 date: '2017-03-03'
 ---
@@ -68,17 +68,17 @@ Electron では、デバッグ版を libchromiumcontent の `shared_library` 版
 
 世界的に見ても最大級のプロジェクトであるため、通常のビルドシステムはほとんど Chromium のビルドには適していません。Chromium チームは独自のビルドツールを開発しています。
 
-Earlier versions of Chromium were using `gyp` as a build system, but it suffers from being slow, and its configuration file becomes hard to understand for complex projects. After years of development, Chromium switched to `gn` as a build system, which is much faster and has a clear architecture.
+初期バージョンの Chromium はビルドシステムとして `gyp` を使用していましたが、動作が遅く、複雑なプロジェクトでは設定ファイルがわかりづらくなるという問題がありました。 何年もの開発の後に、Chromium はビルドシステムを `gn` に切り替えました。こちらの方がはるかに高速で明確なアーキテクチャとなっています。
 
-One of the improvements of `gn` is to introduce `source_set`, which represents a group of object files. In `gyp`, each module was represented by either `static_library` or `shared_library`, and for the normal build of Chromium, each module generated a static library and they were linked together in the final executable. By using `gn`, each module now only generates a bunch of object files, and the final executable just links all the object files together, so the intermediate static library files are no longer generated.
+`gn` の改良点の一つは、オブジェクトファイルのグループを表す `source_set` を導入したことです。 `gyp` では、各モジュールは `static_library` か `shared_library` のいずれかで表現されます。Chromium の通常のビルドでは、各モジュールの静的ライブラリを生成し、最終的な実行ファイルへリンクしていました。 `gn` を使うと、各モジュールはオブジェクトファイルの集まりだけを生成し、最終的な実行ファイルには全オブジェクトファイルをリンクするだけなので、中間の静的ライブラリファイルは生成されなくなります。
 
-This improvement however made great trouble to libchromiumcontent, because the intermediate static library files were actually needed by libchromiumcontent.
+しかし、この改善は libchromiumcontent に大きなお世話でした。なぜなら、中間の静的ライブラリファイルは libchromiumcontent が実際に必要としていたのです。
 
-The first try to solve this was to [patch `gn` to generate static library files](https://github.com/electron/libchromiumcontent/pull/239), which solved the problem, but was far from a decent solution.
+これを解決する最初の試みは、[静的ライブラリファイルを生成するように `gn` にパッチを当てる](https://github.com/electron/libchromiumcontent/pull/239) ことでした、これで問題は解決しましたが、まともな解決策には程遠いものでした。
 
-The second try was made by [@alespergl](https://github.com/alespergl) to [produce custom static libraries from the list of object files](https://github.com/electron/libchromiumcontent/pull/249). It used a trick to first run a dummy build to collect a list of generated object files, and then actually build the static libraries by feeding `gn` with the list. It only made minimal changes to Chromium's source code, and kept Electron's building architecture still.
+2 つ目の試みは、[@alespergl](https://github.com/alespergl) による、[オブジェクトファイルのリストからカスタムの静的ライブラリを生成する](https://github.com/electron/libchromiumcontent/pull/249) ものでした。 これは、最初にダミービルドを実行して生成されたオブジェクトファイルのリストを収集してから、`gn` にそのリストを与えて静的ライブラリを実際にビルドするという仕掛けでした。 これは Chromium のソースコードを最小限変更しただけで、Electron のビルドアーキテクチャはそのままです。
 
 ## 概要
 
-As you can see, compared to building Electron as part of Chromium, building Chromium as a library takes greater efforts and requires continuous maintenance. However the latter removes the requirement of powerful hardware to build Electron, thus enabling a much larger range of developers to build and contribute to Electron. The effort is totally worth it.
+このように、Electron を Chromium の一部として構築するのに比べて、ライブラリとして Chromium を構築するにはより多くの労力と継続的なメンテナンスが必要になります。 しかし、後者は Electron のビルドに強力なハードウェアが不要となるため、より多くの開発者が Electron をビルドして貢献できるようになります。 この努力はそれだけの価値があります。
 
