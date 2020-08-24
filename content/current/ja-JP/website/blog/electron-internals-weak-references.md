@@ -1,20 +1,20 @@
 ---
-title: 'Electron Internals&#58; Weak References'
+title: 'Electron の舞台裏&#58; 弱参照'
 author: zcbenz
 date: '2016-09-20'
 ---
 
-As a language with garbage collection, JavaScript frees users from managing resources manually. But because Electron hosts this environment, it has to be very careful avoiding both memory and resources leaks.
+ガベージコレクションがある言語 JavaScript は、ユーザーがリソースを手動で管理しなくてよくなります。 しかし、Electron はこの環境をホストしているため、メモリリークとリソースリークの両方を避けようと非常に慎重にならざるをえません。
 
-This post introduces the concept of weak references and how they are used to manage resources in Electron.
+この記事では、弱参照の概念と、それが Electron のリソース管理でどのように使われているかを紹介します。
 
 ---
 
-## Weak references
+## 弱参照
 
-In JavaScript, whenever you assign an object to a variable, you are adding a reference to the object. As long as there is a reference to the object, it will always be kept in memory. Once all references to the object are gone, i.e. there are no longer variables storing the object, the JavaScript engine will recoup the memory on next garbage collection.
+JavaScript でオブジェクトを変数に代入するというのは、必ずオブジェクトへの参照を追加していることになります。 オブジェクトへの参照がある限り、そのオブジェクトはずっとメモリに保持されます。 オブジェクトへのすべての参照がなくなる、例えばオブジェクトを格納する変数がなくなると、JavaScript エンジンは次のガベージコレクションでそのメモリを回収します。
 
-A weak reference is a reference to an object that allows you to get the object without effecting whether it will be garbage collected or not. You will also get notified when the object is garbage collected. It then becomes possible to manage resources with JavaScript.
+弱参照とは、ガベージコレクションされるかどうかに影響せずオブジェクトを取得できるようにする参照です。 オブジェクトがガベージコレクションされたときにその通知もされます。 これにより、JavaScript でリソース管理を可能にします。
 
 Using the `NativeImage` class in Electron as an example, every time you call the `nativeImage.create()` API, a `NativeImage` instance is returned and it is storing the image data in C++. Once you are done with the instance and the JavaScript engine (V8) has garbage collected the object, code in C++ will be called to free the image data in memory, so there is no need for users manage this manually.
 
