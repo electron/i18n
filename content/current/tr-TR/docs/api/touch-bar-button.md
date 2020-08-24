@@ -13,6 +13,7 @@
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * `iconPosition` String (isteğe bağlı) - `left`, `right` yada `overlay` olabilir. Defaults to `overlay`.
   * `click` Fonksiyon (isteğe bağlı) - Tuşa tıklandığında aranan fonksiyon.
+  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Varsayılan `true`'dur.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
@@ -35,3 +36,7 @@ A `String` hex code representing the button's current background color. Changing
 #### `touchBarButton.icon`
 
 A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+
+#### `touchBarButton.enabled`
+
+A `Boolean` representing whether the button is in an enabled state.

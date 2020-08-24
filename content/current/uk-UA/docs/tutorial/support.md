@@ -7,7 +7,7 @@ If you have a security concern, please see the [security document](https://githu
 If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
 - [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 - `#atom-shell` channel on Freenode
-- `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
+- `#electron` канал на [Atom Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 - [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
 - [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
 - [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
 ### Currently supported versions
-- 8.1.x
-- 7.1.x
-- 6.1.x
+- 9.x.y
+- 8.x.y
+- 7.x.y
 
 ### End-of-life
 

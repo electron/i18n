@@ -128,12 +128,12 @@ quick_start:
   dive_deeper: Hoặc xem xét kĩ hơn bằng cách đọc <a href='/docs'>tài liệu</a>.
 need_help:
   title: Cần trợ giúp?
-  description: 'Đặt câu hỏi trong diễn đàn <a href=''https://discuss.atom.io/c/electron''> Thảo luận </a> hoặc <a href = ''http: //atom-slack.herokuapp.com/'' của chúng tôi > Slack </a> kênh. Theo dõi <a href="https://twitter.com/electronjs"> @electronjs </a> trên Twitter để biết các thông báo quan trọng. Bạn cần liên hệ riêng tư? Gửi email tới <a href="mailto:info@electronjs.org"> info@electronjs.org </a>.'
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Ngôn ngữ
 taglines:
   languages: Nội dung được dịch từ cộng đồng các developer tuyệt vời của chúng tôi.
-  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "Tham gia dịch"
 footer:
   see_the_faq: Xem các câu hỏi thường gặp
@@ -215,6 +215,8 @@ pages:
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: Nhà tài trợ
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: Bắt đầu
   fiddle:

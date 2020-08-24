@@ -21,4 +21,3 @@
 * [在 macOS 中调试](debugging-instructions-macos.md)
 * [在调试器中设置 Symbol 服务器](setting-up-symbol-server.md)
 * [Patches](patches.md)
-* [升级 Node](upgrading-node.md)

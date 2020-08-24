@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b> Iniziamo</b></a> costruendo un app leggendo la guida inizio rapido <a href='/docs/tutorial/first-app'></a>."
     updates: "<a href='https://twitter.com/electronjs'>Resta aggiornato</b></a> seguendo <a href='https://twitter.com/electronjs'>@electronjs</a> su Twitter ed iscrivendoti al feed del blog<a href='/blog'></a>."
     localized_docs: "<a href='/languages'>Leggi documenti nella tua lingua nativa</b></a> visitando la pagina lingue<a href='/languages'></a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'>Ottieni aiuto e feedback</b></a> entrando nel <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, postando su <a href='https://discuss.atom.io/c/electron'>Discuti</a> o visitando<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'>Riporta bug</b></a> aprendo problemi sulla repository <a href='https://github.com/electron/electron/issues'>electron/electron."
     feature_requests: "<a href='https://github.com/electron/electron/issues'>Richiedi funzioni</a> aprendo problemi sulla repository <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
@@ -128,12 +128,12 @@ quick_start:
   dive_deeper: O dai un'occhiata alla <a href='/docs'>documentazione</a>.
 need_help:
   title: Hai bisogno di aiuto?
-  description: Puoi fare domande nella <a href='https://discuss.atom.io/c/electron'> Discussione </a> sul forum o nel nostro canale <a href='http://atom-slack.herokuapp.com/'>Slack.</a> Segui <a href="https://twitter.com/electronjs">@electronjs</a> su Twitter per gli annunci importanti. Hai bisogno di contattarci in privato? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Lingue
 taglines:
   languages: Contenuti localizzati dalla nostra fantastica comunità di sviluppatori globali.
-  announcement: Electron si è appena unito alla Fondazione OpenJS. Vedi <a href="/blog/electron-joins-openjsf">l'annuncio</a> per ulteriori informazioni!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "Aiuta a tradurre"
 footer:
   see_the_faq: Vedi le domande frequenti
@@ -215,6 +215,8 @@ pages:
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: Donatori
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: Per iniziare
   fiddle:

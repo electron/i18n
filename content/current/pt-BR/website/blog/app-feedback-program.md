@@ -6,6 +6,8 @@ date: '2018-10-02'
 
 Electron is working on making its release cycles faster and more stable. To make that possible, we've started the App Feedback Program for large-scale Electron apps to test our beta releases and report app-specific issues to us. This helps us to prioritize work that will get applications upgraded to our next stable release sooner.
 
+Edit (2020-05-21): This program has been retired.
+
 ---
 
 ## Who can join?
@@ -32,5 +34,5 @@ Your app's bugs will be tracked and be on the core Electron team's radar. Your f
 ## Will my application's info be shared publicly? Who gets to see this info?
 No, your application's information will not be shared with the general public. Information is kept in a private GitHub repo that is only viewable to members of the App Feedback Program and [Electron Governance](https://github.com/electron/governance). All members have agreed to follow Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
 
-## Sign up
+## inscrever
 We are currently accepting a *limited number* of signups. If you are interested and are able to fulfill the above requirements, please fill out this [form](https://goo.gl/forms/OpMEKV75ScN6we7g1).

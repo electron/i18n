@@ -22,24 +22,24 @@ $ ./out/Testing/electron.exe ~/my-electron-app/
 
 ### Setting Breakpoints
 
-Після цього, відкрийте Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+Після цього, відкрийте Visual Studio. Electron не зібраний з Visual Studio, а, отже, не містить файл проєкту; тим не менш, ви можете відкрити вихідні файли "як файл", тобто Visual Studio відкриє їх самі по собі. Тим не менш, ви можете ставити контрольні точки - Visual Studio автоматично визначить, що цей вихідний код відповідає виконуваного коду в підключеному процесі, і зупиниться на зазначеній контрольній точці.
 
 Relevant code files can be found in `./shell/`.
 
 ### Attaching
 
-You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
+You can attach the Visual Studio debugger to a running process on a local or remote computer. Після запуску процесу, натисніть Debug / Attach to Process (або натисніть `CTRL+ALT+P`), щоб відкрити діалогове вікно «Attach to Process». Ви можете використовувати цю можливість для налагодження додатків, що запускаються на локальному або віддаленому комп'ютері, і для налагодження декількох процесів одночасно.
 
-If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+Якщо Electron працює під обліковим записом іншого користувача, встановіть прапорець `Show processes from all users`. Зверніть увагу, що ви побачите кілька процесів; їх кількість залежить від того, скільки BrowserWindows відкрито у вашому додатку. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
 
-### Which Process Should I Attach to?
+### До якого процесу мені слід приєднатися?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
+Код, що виконується в рамках основного процесу (тобто, код знаходиться в вашому основному JavaScript файлі або викликається з нього), а також код, що викликається за допомогою remote (`require('electron').remote`), буде виконуватися всередині основного процесу, в той час як інший код буде виконуватися всередині відповідного процесу візуалізації.
 
-You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+Ви можете бути підключені до кількох програм для налагодження, але тільки одна програма буде активна у відлагоджувачі в будь-який час. Ви можете встановити активну програму в панелі інструментів `Debug Location` або у вікні `Processes`.
 
 ## Using ProcMon to Observe a Process
 
-While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+У той час як Visual Studio відмінно підходить для вивчення конкретних шляхів виконання, ProcMon дійсно сильний в спостереженні за всім, що робить ваш додаток з операційною системою - включаючи файл, реєстр, мережу, процес і детальне профілювання процесів. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
 
-For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
+В якості введення в базові та розширені можливості налагодження ProcMon, перейдіть до [цієї відео-інструкції](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) від Microsoft.

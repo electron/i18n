@@ -6,7 +6,8 @@ macOS 10.15 Catalina にて、Apple は新しい "自動" ダークモードオ�
 
 ## ネイティブインターフェースを自動的に更新する
 
-"ネイティブインターフェイス" には、ファイルピッカー、ウィンドウの縁、ダイアログ、右クリックメニューなど、基本的にアプリではなく macOS から提供される UI にあたります。Electron 7.0.0 では、OS の自動テーマ設定に合わせるのがデフォルトの動作です。 Electron &gt; 8.0.0 を使用しており、テーマに合わせたい場合、`Info.plist` ファイルの `NSRequiresAquaSystemAppearance` キーを `true` にする必要があります。 Electron 8.0.0 以降では macOS 10.14 SDK を使用しているため、このテーマ設定をする必要があることに注意してください。
+"Native Interfaces" include the file picker, window border, dialogs, context menus, and more; basically, anything where the UI comes from macOS and not your app. As of Electron 7.0.0, the default behavior is to opt into this automatic theming from the OS. If you wish to opt-out and are using Electron
+&gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let you opt-out of this theming, due to the use of the macOS 10.14 SDK.
 
 ## 自作のインターフェースを自動的に更新する
 

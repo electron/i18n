@@ -5,12 +5,12 @@
 **توجه داشته باشید:** از آنجایی که این یک HTML5 API است، فقط در فرآیند رندرینگ موجود می باشد. اگر شما به دنبال نمایش اعلان ها در فرآیند اصلی هستید، لطفا ماژول [اعلان ها](../api/notification.md) بررسی کنید.
 
 ```javascript
-let myNotification = new Notification('عنوان', {
-  body: 'لورم اپسام'
+const myNotification = new Notification('Title', {
+  body: 'Lorem Ipsum Dolor Sit Amet'
 })
 
-myNotification. => {
-  console.log('اعلان کلیک خورد')
+myNotification.onclick = () => {
+  console.log('Notification clicked')
 }
 ```
 
@@ -39,7 +39,7 @@ While notifications including buttons work with `electron-windows-notifications`
 
 ## مک‌اواس
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+اعلان ها در مک‌اواس مستقیم اجرا می شود، با این حال مشا باید از [دستورالعمل رابط کاربری اپل در مورد اعلان ها](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/) مطلع شوید.
 
 توجه کنید که اندازه اعلان ها محدود به 256 بایت می باشد و اگر از این محدوده عبور کنید، خودکار متن شما کم می شود.
 

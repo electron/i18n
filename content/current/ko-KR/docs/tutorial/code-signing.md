@@ -2,7 +2,7 @@
 
 코드 서명(code signing)은 이 앱을 당신이 만들었다고 인증하는데 사용하는 보안 기술입니다.
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+MacOS는 원인이 개발자의 실수이든 악의적인 공격이든 상관 없이, 어플리케이션의 변화를 감지할 수 있습니다.
 
 On Windows, the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low, will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
 
@@ -11,9 +11,9 @@ On Windows, the system assigns a trust level to your code signing certificate wh
 ![macOS Catalina Gatekeeper warning: The app cannot be opened because the
 developer cannot be verified](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
+위에 사진에서 볼 수 있듯이 사용자가 제공받는 옵션은 어플리케이션을 삭제해 버리거나 실행을 포기하는 것 뿐입니다. 사용자에게 보여주고 싶은 창은 아니죠.
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed.
+작성 중인 Electron 어플리케이션을 패키징 및 배포하고 싶은 경우, 코드 서명하는 것이 좋습니다.
 
 # Signing & notarizing macOS builds
 
@@ -76,6 +76,24 @@ The `plist` file referenced here needs the following macOS-specific entitlements
 
 To see all of this in action, check out Electron Fiddle's source code, [especially its `electron-forge` configuration file](https://github.com/electron/fiddle/blob/master/forge.config.js).
 
+If you plan to access the microphone or camera within your app using Electron's APIs, you'll also need to add the following entitlements:
+
+```xml
+<key>com.apple.security.device.audio-input</key>
+<true/>
+<key>com.apple.security.device.camera</key>
+<true/>
+```
+
+If these are not present in your app's entitlements when you invoke, for example:
+
+```js
+const { systemPreferences } = require('electron')
+
+const microphone = systemPreferences.askForMediaAccess('microphone')
+```
+
+Your app may crash. See the Resource Access section in [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) for more information and entitlements you may need.
 
 ## `electron-builder`
 
@@ -125,7 +143,7 @@ The `plist` file referenced here needs the following macOS-specific entitlements
 
 ## Mac App Store
 
-See the [Mac App Store Guide](mac-app-store-submission-guide.md).
+[Mac App Store Guide](mac-app-store-submission-guide.md)를 참고하세요.
 
 # Signing Windows builds
 

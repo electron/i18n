@@ -12,7 +12,7 @@
 ```javascript
 const { app, powerMonitor } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
@@ -23,11 +23,11 @@ app.on('ready', () => {
 
 Модуль `powerMonitor` выдает следующие события:
 
-### Событие: 'suspend'
+### Event: 'suspend' _Linux_ _Windows_
 
 Возникает, когда система приостановлена.
 
-### Событие: 'resume'
+### Event: 'resume' _Linux_ _Windows_
 
 Возникает при возобновлении работы системы.
 

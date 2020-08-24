@@ -70,7 +70,7 @@ Since Electron 8, stabilization branches are always **major** version lines, and
 * `~2.0.0`을 사용하면 `2.0.0` 출시 버전에는 안정화, 보안과 관련된 수정사항만 허락됩니다.
 * `^2.0.0`을 사용하면 보안, 버그 수정 뿐만 아니라 큰 변화를 초래하지는 않으면서도 _상당히 안정적인_ 기능도 추가할 수 있습니다.
 
-두 번째 항목에서 중요한 점은 `^`을 사용하는 앱에서도 상당한 수준의 안정성이 보장되어야 한다는 것입니다. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+두 번째 항목에서 중요한 점은 `^`을 사용하는 앱에서도 상당한 수준의 안정성이 보장되어야 한다는 것입니다. 이를 위해, semver는 아직 _안전하거나_ _안정적이지 않은_ 특정 버전을 나타내기 위해 _pre-release 식별자(identifier)_를 제공합니다.
 
 어떤 것을 선택하든지, Chromium은 큰 변화가 자주 발생하기 때문에 `package.json` 안의 버전을 주기적으로 증가시켜야 합니다.
 
@@ -85,7 +85,7 @@ Since Electron 8, stabilization branches are always **major** version lines, and
 
 특히 위의 의미는 다음과 같습니다.
 
-1. 베타주기에서 3주 전까지 파괴적이지 않은 API 변경 사항을 승인해도 괜찮습니다. 이러한 변경 사항으로 인해 중간 정도의 부작용이 발생할 수 있습니다.
+1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
 3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
 
@@ -133,7 +133,7 @@ Since Electron 8, stabilization branches are always **major** version lines, and
 * semver **마이너** 버전 증가로 이어지는 커밋은 `feat:` 로 시작해야 합니다.
 * semver **패치** 버전 증가로 이어지는 커밋은 `fix:`로 시작해야 합니다.
 
-* 커밋 스쿼싱(sqaushing)은 허용되며, 스쿼시된 메시지는 앞에서 언급한 메시지 포맷을 따라야 합니다.
+* We allow squashing of commits, provided that the squashed message adheres to the above message format.
 * 풀 리퀘스트의 몇몇 커밋이 시맨틱 선행자를 가지지 않는 것은 괜찮습니다. 풀 리퀘스트 타이틀이 시맨틱한 의미를 전달하기만 한다면요.
 
 # 버전이 지정된 `master`

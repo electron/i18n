@@ -84,7 +84,6 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * Releases d'Electron & Feedback
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Calendrier de release99](tutorial/electron-timelines.md)
-  * [Programme de feedback](tutorial/app-feedback-program.md)
 * [Empaqueter le code source de l'App avec asar](tutorial/application-packaging.md)
   * [Génerer des archives asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Lire une archive asar](tutorial/application-packaging.md#using-asar-archives)

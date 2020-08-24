@@ -239,13 +239,9 @@ Returns `Boolean` - Whether the image is empty.
 
 Görüntüyü şablon görüntüsü olarak işaretler.
 
-**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
-
 #### `image.isTemplateImage()`
 
 `Boolean` - Görüntünün şablon görüntüsü olup olmadığını gösterir.
-
-**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 

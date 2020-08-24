@@ -4,7 +4,7 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. Ito ay ginagamit sa `will-download` na nangyayari sa klase ng `Session`, at hinahayaan ang mga gumagamit na kontrolin ang "download item".
+`DownloadItem` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) na kumakatawan sa "download item" sa Elektron. Ito ay ginagamit sa `will-download` na nangyayari sa klase ng `Session`, at hinahayaan ang mga gumagamit na kontrolin ang "download item".
 
 ```javascript
 // Sa mga pangunahing proseso.
@@ -76,13 +76,9 @@ Ang `downloadItem` ay may mga sumusunod na paraan:
 
 Ang API ay ang natatanging posibleng gamitin sa sesyon ng `will-download` na maaaring muling gamitin. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
 
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
-
 #### `downloadItem.getSavePath()`
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
-
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 

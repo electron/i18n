@@ -51,15 +51,6 @@ Returns `Number` - The current zoom level.
 > `js
   webFrame.setVisualZoomLevelLimits(1, 3)`
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
-
-* `minimumLevel` Number
-* `maximumLevel` Number
-
-设置最大和最小基于布局(例如非图像)的缩放级别。
-
-**Deprecated:** This API is no longer supported by Chromium.
-
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `language` String
@@ -119,26 +110,34 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 插入`text` 到焦点元素
 
-### `webFrame.executeJavaScript(code[, userGesture])`
+### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
+* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
+  * `result` Any
+  * `error` Error
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
 在页面中执行 `code`。
 
 在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
 
-### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature.  You can provide any integer here.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default main world (where content runs), `999` is the world used by Electron's `contextIsolation` feature. Accepts values in the range 1..536870911.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (optional) - Default is `false`.
+* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
+  * `result` Any
+  * `error` Error
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
 
 Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+
+Note that when the execution of script fails, the returned promise will not reject and the `result` would be `undefined`. This is because Chromium does not dispatch errors of isolated worlds to foreign worlds.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.

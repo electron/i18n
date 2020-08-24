@@ -20,7 +20,7 @@ Pour créer une fenêtre en bac à sable, passez `bac à sable : true` à `webPr
 
 ```js
 let win
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true
@@ -30,14 +30,14 @@ app.on('ready', () => {
 })
 ```
 
-Dans le code ci-dessus, le [`BrowserWindow`](browser-window.md) qui a été créé a Node.js désactivé et ne peut communiquer que via IPC. L'utilisation de cette option empêche Electron de créer un runtime Node.js dans le moteur de rendu. Aussi, dans cette nouvelle fenêtre `fenêtre. pen` suit le comportement natif (Electron crée par défaut un [`BrowserWindow`](browser-window.md) et retourne un proxy via `window.open`).
+Dans le code ci-dessus, le [`BrowserWindow`](browser-window.md) qui a été créé a Node.js désactivé et ne peut communiquer que via IPC. L'utilisation de cette option empêche Electron de créer un runtime Node.js dans le moteur de rendu. Also, within this new window `window.open` follows the native behavior (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
 [`app.enableSandbox`](app.md#appenablesandbox-experimental) peut être utilisé pour forcer `sandbox: true` pour toutes les instances `BrowserWindow`.
 
 ```js
 let win
 app.enableSandbox()
-app.on('ready', () => {
+app.whenReady().then(() => {
   // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
@@ -49,12 +49,12 @@ app.on('ready', () => {
 An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
 ```js
-laisser gagner
-application. n('prêt', () => {
+let win
+app.whenReady().then(() => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true,
-      preload: chemin. oin(app.getAppPath(), 'preload.js')
+      preload: path.join(app.getAppPath(), 'preload.js')
     }
   })
   win.loadURL('http://google.com')

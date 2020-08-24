@@ -31,20 +31,9 @@ npm size basit bir `package.json` dosyası oluşturacaktır. `main` bölümünü
 }
 ```
 
-__Not__: Eğer `main` alanı `package.json` dosyası içinde mevcut değilse, Electron bir `index.js` yüklemeye çalışacaktır (Node.js'de olduğu gibi). Bu aslında basit bir Node uylamasıysa, `node`'a geçerli paketi yürütmesini bildiren bir `start` komut dosyası eklersiniz:
+__Not__: Eğer `main` alanı `package.json` dosyası içinde mevcut değilse, Electron bir `index.js` yüklemeye çalışacaktır (Node.js'de olduğu gibi).
 
-```json
-{
-  "name": "uygulamanın-adı",
-  "version": "0.1.0",
-  "main": "main.js",
-  "scripts": {
-    "start": "node ."
-  }
-}
-```
-
-Bir Node uygulamasını Electron uygulamasına dönüştürmek oldukça basittir. Yalnızca `node` çalışma zamanını `electron` çalışma zamanı ile değiştiriyoruz.
+By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
 
 ```json
 {
@@ -82,7 +71,7 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Tarayıcı penceresini oluştur.
-  let win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -90,7 +79,7 @@ function createWindow () {
     }
   })
 
-  // ve uygulamanın index.html dosyasını yükle.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 
@@ -124,18 +113,18 @@ function createWindow () {
 // Bazı API'ler sadece bu olayın gerçekleşmesinin ardından kullanılabilir.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  // MacOS'de kullanıcı CMD + Q ile çıkana dek uygulamaların ve menü barlarının
-  // aktif kalmaya devam etmesi normaldir.
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // MacOS'de dock'a tıklandıktan sonra eğer başka pencere yoksa
-  // yeni pencere açılması normaldir.
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
@@ -173,7 +162,7 @@ Kesin olarak göstermek istediğiniz web sayfası `index.html`:
 
 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) deposunu (repository) klonlayın ve bu eğitimdeki kodu kullanarak çalıştırın.
 
-**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
+**Not**: Bunu çalıştırmak [Git](https://git-scm.com) ve [npm](https://www.npmjs.com/) gerektirir.
 
 ```sh
 # Depoyı klonla

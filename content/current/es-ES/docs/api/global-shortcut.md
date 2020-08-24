@@ -11,8 +11,8 @@ El módulo `globalShortcut` puede registrar o quitar un atajo del teclado global
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
-  // Regista un grabador de atajo 'CommandOrControl+X'.
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })

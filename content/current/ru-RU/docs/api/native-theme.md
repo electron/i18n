@@ -22,7 +22,7 @@
 
 ### `nativeTheme.themeSource`
 
-Свойство `String` может быть `system`, `light` или `dark`.  Используется для переопределения и замены значения, которое Chromium выбрал для внутреннего использования.
+Свойство `String` может быть `system`, `light` или `dark`.  It is used to override and supersede the value that Chromium has chosen to use internally.
 
 Установка этого свойства на `system` удалит переопределение и все будет сброшено на установленное ОС по умолчанию.  По умолчанию `themeSource` является `system`.
 

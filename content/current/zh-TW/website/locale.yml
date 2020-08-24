@@ -1,4 +1,4 @@
-tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
+tagline: 使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式
 nav:
   apps: 應用程式
   blog: 部落格
@@ -88,8 +88,8 @@ releases:
   all_releases: 所有發行版本
   back_to_index: 回到索引
 electron_is_good:
-  title: Apps users love, built with Electron
-  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
+  title: 大家愛的應用程式，使用 Electron 打造
+  description: 各行各業成千上萬個組織使用 Electron 來打造跨平臺軟體。
 electron_is_easy:
   title: 比你想像的更容易
   description: 如果你有能力寫網站，就寫得出桌面應用程式。 Electron 是個用 JavaScript、HTML 及 CSS 等網頁技術開發原生應用程式的框架。鳥事它都包了，專注在你的核心功能吧。
@@ -128,12 +128,12 @@ quick_start:
   dive_deeper: 或是深入閱讀<a href='/docs'>說明文件</a>。
 need_help:
   title: 需要協助嗎?
-  description: 到 <a href='https://discuss.atom.io/c/electron'>Discuss</a> 論壇或我們的 <a href='http://atom-slack.herokuapp.com/'>Slack</a> 頻道上發問。 在 Twitter 上跟隨 <a href="https://twitter.com/electronjs">@electronjs</a> ，不錯過任何重大消息。不想那麼公開嗎? Email 到 <a href="mailto:info@electronjs.org">info@electronjs.org</a>。
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: 語言
 taglines:
   languages: 由我們強大的全球開發者社群提供的在地化內容。
-  announcement: Electron剛加入OpenJS基金會，請看 <a href="/blog/electron-joins-openjsf">公告</a>了解更多資訊
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "幫忙翻譯"
 footer:
   see_the_faq: 看看常見問題集
@@ -168,7 +168,7 @@ or: 或
 pages:
   '/':
     title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    description: '使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式.'
   '/apps':
     title: Electron 應用程式
     description: 用 Electron 打造的應用程式
@@ -215,6 +215,8 @@ pages:
     description: Electron 治理系統是由多個「工作小組」所組成，每個小組負責監管 Electron 生態系的各個面向，並設有「管理」工作小組，在不同工作小組意見相左時居中協調。
   '/donors':
     title: 贊助者
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: 開始使用
   fiddle:

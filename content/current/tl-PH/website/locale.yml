@@ -128,12 +128,12 @@ quick_start:
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
   title: Need Help?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Languages
 taglines:
   languages: Localized content from our awesome global developer community.
-  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "Help translate"
 footer:
   see_the_faq: See the frequently asked questions
@@ -215,6 +215,8 @@ pages:
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: Donors
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: Get started
   fiddle:

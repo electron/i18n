@@ -9,8 +9,8 @@ const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
-app.on('ready', () => {
-  // ここにあなたのコード
+app.whenReady().then(() => {
+  // Your code here
 })
 ```
 
@@ -25,6 +25,10 @@ HTTPリクエストに対するディスクキャッシュを無効にします�
 ## --disable-http2
 
 HTTP/2 および SPDY/3.1 プロトコルを無効にします。
+
+### --disable-ntlm-v2
+
+POSIX プラットフォーム向けに NTLM v2 を無効化します。他プラットフォームでの効果はありません。
 
 ## --lang
 
@@ -161,7 +165,6 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 - `remote.getBuiltin()` / `remote-get-global`
 - `remote.getCurrentWindow()` / `remote-get-current-window`
 - `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
-- `remote.getGuestWebContents()` / `remote-get-guest-web-contents`
 
 ## --no-sandbox
 

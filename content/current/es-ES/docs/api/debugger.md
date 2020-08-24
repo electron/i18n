@@ -2,7 +2,7 @@
 
 > Un transporte alternativo para el protocolo de depuración remoto de Chrome.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Las herramientas para desarrolladores de Chrome tiene un [special binding](https://chromedevtools.github.io/devtools-protocol/) disponible en JavaScript runtime que permite interactuar con las páginas y equiparlas.
 
@@ -37,7 +37,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `reason` Cadena - Razón para desasociar el depurador.
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
@@ -49,6 +49,7 @@ Devuelve:
 * `event` Event
 * `method` Cadena- Nombre del método.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
 
 Emitted whenever the debugging target issues an instrumentation event.
 
@@ -68,10 +69,11 @@ Devuelve `Boolean` - Si un depurador se adjunta o no a la `webContents`.
 
 Desasocia el depurador de la `webContents`.
 
-#### `debugger.sendCommand(method[, commandParams])`
+#### `debugger.sendCommand(method[, commandParams, sessionId])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `method` String - Nombre del método, debe ser un de los métodos definido por el [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` any (optional) - JSON object with request parameters.
+* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) message.
 
 Devuelve `Promise<any>` - Una promesa que resuelve con la respuesta definida por el atributo 'returns' del comando de descripción en el protocolo de depuración remoto o es rechazada indicando el fallo del comando.
 

@@ -88,7 +88,7 @@ Use a module from the archive:
 
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+require('./path/to/example.asar/dir/module.js')
 ```
 
 

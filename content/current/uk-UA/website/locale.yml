@@ -128,12 +128,12 @@ quick_start:
   dive_deeper: Або пірніть глибше та прочитайте <a href='/docs'>документацію</a>.
 need_help:
   title: Потрібна допомога?
-  description: Задавайте питання на форумі <a href='https://discuss.atom.io/c/electron'>Discuss</a> або нашому <a href='http://atom-slack.herokuapp.com/'>Slack</a> каналі. Слідкуйте за важливими оголошеннями <a href="https://twitter.com/electronjs">@electronjs</a> в Twitter. Потрібно звернутися приватно? Напишіть на <a href="mailto:info@electronjs.org">snfo@electronjs.org</a>.
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Мови
 taglines:
   languages: Локалізований контент від нашої крутої глобальної спільноти.
-  announcement: Electron нещодавно приєднався до OpenJS Foundation. Дізнайтеся більше в <a href="/blog/electron-joins-openjsf">оголошені</a>!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "Допоможіть з перекладами"
 footer:
   see_the_faq: Перегляньте FAQ
@@ -215,12 +215,14 @@ pages:
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: Благодійники
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: Почати зараз
   fiddle:
     lead_desc: Найпростіший спосіб розпочати з Electron
     create_app: Створи свій додаток
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
+    description: Electron Fiddle дозволяє створювати та проводити невеликі експерименти з Electron. При відкритті, Вас вітає шаблон прискореного запуску - Ви можете змінити кілька установок, вибрати бажану версію Electron і пограти з різними варіантами. Після цього, збережіть Ваш Fiddle як GitHub Gist або в локальну папку. При опублікуванні в GitHub, Ваш Fiddle доступний кожному і все, що потрібно зробити, щоб спробувати Ваш Fiddle - це ввести його в адресний рядок браузера.
     explore: Дослідити Electron
     explore_desc: "Спробуйте Electron без встановлення будь-яких залежностей: Fiddle включає все, що необхідно для дослідження платформи. Він також включає приклади для кожного API, доступного в Electron, тому якщо ви хочете побачити, що таке BrowserView, або як працює desktopCapturer, Fiddle вам допоможе."
     code_with_types: Код з типами

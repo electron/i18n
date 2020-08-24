@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files:
+下面是一个选择多个文件的对话框示例：
 
 ```javascript
 const { dialog } = require('electron')
@@ -26,8 +26,8 @@ console.log(dialog)
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `options` Object
-  * `title` String (可选)
-  * `defaultPath` String (可选)
+  * `title` String (可选) - 对话框窗口的标题
+  * `defaultPath` String (可选) - 对话框的默认展示路径
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
   * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
@@ -74,8 +74,8 @@ dialog.showOpenDialogSync(mainWindow, {
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `options` Object
-  * `title` String (可选)
-  * `defaultPath` String (可选)
+  * `title` String (可选) - 对话框窗口的标题
+  * `defaultPath` String (可选) - 对话框的默认展示路径
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
   * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
@@ -131,7 +131,7 @@ dialog.showOpenDialog(mainWindow, {
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `options` Object
-  * `title` String (可选)
+  * `title` String (可选) - 对话框窗口的标题
   * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
@@ -156,7 +156,7 @@ Returns `String | undefined`, the path of the file chosen by the user; if the di
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `options` Object
-  * `title` String (可选)
+  * `title` String (可选) - 对话框窗口的标题
   * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)

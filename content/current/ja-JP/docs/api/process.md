@@ -54,27 +54,23 @@ process.once('loaded', () => {
 
 ### `process.defaultApp` _読み出し専用_
 
-`Boolean`。 When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+`Boolean`。 デフォルトアプリに、引数として渡されてアプリが起動されると、このプロパティはメインプロセス内で `true` になります。それ以外では `undefined` です。
 
 ### `process.isMainFrame` _読み出し専用_
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+`Boolean`で、現在のレンダラーコンテキストが"main"レンダラー フレームの場合`true`。 現在のフレームの ID が必要な場合、`webFrame.routingId` を使用すべきです。
 
 ### `process.mas` _読み出し専用_
 
-`Boolean`。 For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+`Boolean`。 Mac App Store ビルドの場合、このプロパティは `true`、他のビルドでは `undefined` です。
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+アプリケーション内の ASAR サポートを制御する `Boolean` 。 これを`true`に設定した場合、Nodeのビルトインモジュールの`asar`アーカイブのサポートが無効になります。
 
 ### `process.noDeprecation`
 
 非推奨の警告が `stderr` へ出力されるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨の警告が無効になります。 `--no-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
-
-### `process.enablePromiseAPIs`
-
-非推奨の警告を `stderr` に出力するかどうかを制御する `Boolean`。 Promise に変換された以前のコールバックベースの API は、コールバックを使用して呼び出されます。 これを `true` に設定すると非推奨警告が有効になります。
 
 ### `process.resourcesPath` _読み出し専用_
 
@@ -82,7 +78,7 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 ### `process.sandboxed` _読み出し専用_
 
-`Boolean`。 When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+`Boolean`。 レンダラープロセスがサンドボックス化されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
 
 ### `process.throwDeprecation`
 
@@ -109,7 +105,7 @@ Electron のバージョン文字列を表す `String`。
 
 ### `process.windowsStore` _読み出し専用_
 
-`Boolean`。 If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+`Boolean`。 アプリが Windows Store アプリ (appx) として実行されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
 
 ## メソッド
 
@@ -121,9 +117,9 @@ Electron のバージョン文字列を表す `String`。
 
 ### `process.getCreationTime()`
 
-戻り値 `Number | null` - 発生からのミリ秒数です。情報が利用できない場合は `null` を返します。
+`Number | null`を返します。 - 発生からのミリ秒数、もし情報がない場合は`null`を返します。
 
-Indicates the creation time of the application. 時間はエポックからのミリ秒数として表されます。 It returns null if it is unable to get the process creation time.
+アプリケーションの作成時間を示します。 時間はエポックからのミリ秒数として表されます。 プロセスの作成時間を取得できない場合は null を返します。
 
 ### `process.getCPUUsage()`
 
@@ -147,7 +143,7 @@ Indicates the creation time of the application. 時間はエポックからの�
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Returns an object with V8 heap statistics. すべての統計情報はキロバイト単位で返ってくることに注意してください。
+V8ヒープの統計を持つオブジェクトを返します。 すべての統計情報はキロバイト単位で返ってくることに注意してください。
 
 ### `process.getBlinkMemoryInfo()`
 
@@ -157,13 +153,13 @@ Returns an object with V8 heap statistics. すべての統計情報はキロバ�
 * `marked` Integer - キロバイト単位でのマークされたすべてのオブジェクトのサイズ。
 * `total` Integer - キロバイト単位での確保された空間の合計。
 
-Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+Blink のメモリ情報を持つオブジェクトを返します。 レンダリング/DOM 関連のメモリ問題のデバッグに役立ちます。 すべての数値はキロバイト単位で返ってくることに注意してください。
 
 ### `process.getProcessMemoryInfo()`
 
 戻り値 `Promise<ProcessMemoryInfo>` - [ProcessMemoryInfo](structures/process-memory-info.md) で実行されます
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
+現在のプロセスについてのメモリ使用量の統計情報を与えるオブジェクトを返します。 すべての統計情報はキロバイト単位で返ってくることに注意してください。 このAPIはアプリの準備ができた後に呼び出されるべきです。
 
 Chromium は macOS には `residentSet` の値を提供しません。 これは直近の使用されていないページを macOS がメモリ内で圧縮するためです。 結果として、residentSet の値は期待されるものではありません。 `private` メモリは、macOS でのプロセスの実際の圧縮前のメモリ使用量をよりよく表しています。
 
@@ -173,10 +169,10 @@ Chromium は macOS には `residentSet` の値を提供しません。 これは
 
 * `total` Integer - システムで利用可能な物理メモリの合計量 (キロバイト)。
 * `free` Integer - アプリケーションまたはディスクキャッシュで使用されていないメモリの合計量。
-* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
+* `swapTotal` Integer _Windows_ _Linux_ - システムが使用できるスワップメモリの合計量 (キロバイト) 。
+* `swapFree` Integer _Windows_ _Linux_ - システムが使用できるスワップメモリの空き容量 (キロバイト)。
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+システム全体についてのメモリ使用量の統計情報を与えるオブジェクトを返します。 すべての統計情報はキロバイト単位で返ってくることに注意してください。
 
 ### `process.getSystemVersion()`
 
@@ -200,7 +196,7 @@ console.log(version)
 
 戻り値 `Boolean` - スナップショットの作成が成功したかどうかを示します。
 
-V8 ヒープのスナップショットを撮り、それを `filePath` に保存します。
+V8ヒープを取得して、`filePath`にそれを保存します。
 
 ### `process.hang()`
 

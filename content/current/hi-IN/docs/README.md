@@ -84,7 +84,6 @@ These individual tutorials expand on topics discussed in the guide above.
 * इलेक्ट्रॉन विज्ञप्ति & डेवलपर फीडबैक
   * [वर्जन नीति](tutorial/electron-versioning.md)
   * [टाइमलाइन जारी करें](tutorial/electron-timelines.md)
-  * [ऐप फीडबैक प्रोग्राम](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md)
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)

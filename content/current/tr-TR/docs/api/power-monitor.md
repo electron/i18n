@@ -12,7 +12,7 @@ This module cannot be used until the `ready` event of the `app` module is emitte
 ```javascript
 const { app, powerMonitor } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
@@ -23,11 +23,11 @@ app.on('ready', () => {
 
 `powerMonitor` modülü aşağıdaki olayları yayar:
 
-### Olay: 'askıya alındı'
+### Event: 'suspend' _Linux_ _Windows_
 
 Sistem askıya alındığında yayıldı.
 
-### Olay: 'devam'
+### Event: 'resume' _Linux_ _Windows_
 
 Sistem devam ettiğinde yayılan.
 

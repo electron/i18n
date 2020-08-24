@@ -7,7 +7,7 @@ Com o [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_AP
 É possível usar os recursos de Node.js em Electron Web Workers,para fazer issso use a opção `nodeIntegrationInWorker` deve ser definida como `true` em `webPreferences`.
 
 ```javascript
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegrationInWorker: true
   }
@@ -30,7 +30,7 @@ A única maneira de carregar um módulo nativo, com segurança, por enquanto, é
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('Módulo nativo não é seguro')
+  throw new Error('Load native module is not safe')
 }
-let worker = new Worker('script.js')
+const worker = new Worker('script.js')
 ```

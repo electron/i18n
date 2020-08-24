@@ -29,7 +29,7 @@ app.on('window-all-closed', () => {
 
 * `launchInfo` unknown _macOS_
 
-Electronが初期化処理を完了したときに発生します。 macOS では、通知センターから起動された場合、`launchInfo` はアプリケーションを開くのに使用された `NSUserNotification` の `userInfo` を保持しています。 `app.isReady()` を呼び出すことで、このイベントが既に発生しているかを確認することができます。
+Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
 ### イベント: 'window-all-closed'
 
@@ -154,7 +154,7 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 * `userInfo` unknown - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
+[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
 ### イベント: 'new-window-for-tab' _macOS_
 
@@ -308,6 +308,24 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 
 `webContents` のレンダラープロセスがクラッシュ、または強制終了されたときに発行されます。
 
+#### Event: 'render-process-gone'
+
+戻り値:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `details` Object
+  * `reason` String - The reason the render process is gone.  取りうる値:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failure` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+
+Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+
 ### イベント: 'accessibility-support-changed' _macOS_ _Windows_
 
 戻り値:
@@ -406,16 +424,6 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-### イベント: 'remote-get-guest-web-contents'
-
-戻り値:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `guestWebContents` [WebContents](web-contents.md)
-
-`webContents` のレンダラープロセス内で `<webview>.getWebContents()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
 ## メソッド
 
 `app` オブジェクトには以下のメソッドがあります。
@@ -461,15 +469,20 @@ app.exit(0)
 
 ### `app.isReady()`
 
-戻り値 `Boolean` - Electronの初期化が完了している場合、`true`、そうでない場合、`false`。
+戻り値 `Boolean` - Electronの初期化が完了している場合、`true`、そうでない場合、`false`。 See also `app.whenReady()`.
 
 ### `app.whenReady()`
 
 Returns `Promise<void>` - Electron が初期化されるときに実行される Promise。 `app.isReady()` を確認してアプリの準備がまだできていないときに `ready` イベントに登録するための、便利な代替手段として使用できます。
 
-### `app.focus()`
+### `app.focus([options])`
+
+* `options` Object (任意)
+  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
 Linux では、最初の表示ウィンドウにフォーカスします。 macOS ではアプリケーションをアクティブなアプリにします。Windows では、アプリケーションの最初のウインドウにフォーカスを当てます。
+
+You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macOS_
 
@@ -512,6 +525,7 @@ Linux では、最初の表示ウィンドウにフォーカスします。 macO
   * `videos` ユーザのビデオのディレクトリ。
   * `logs` アプリのログフォルダのディレクトリ。
   * `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
+  * `crashDumps` Directory where crash dumps are stored.
 
 戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。 失敗した場合、`Error` が送出されます。
 
@@ -558,8 +572,6 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 
 通常、`package.json` の `name` フィールドは、npm のモジュール仕様に基づいて小文字だけの短い名前が設定されます。 通常、すべて大文字で始まるアプリケーションの名前となる `productName` フィールドも指定してください。Electronによって、`name` よりも優先されます。
 
-**[非推奨](modernization/property-updates.md)**
-
 ### `app.setName(name)`
 
 * `name` String
@@ -567,8 +579,6 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 現在のアプリケーションの名前を上書きします。
 
 **注釈:** この関数は、Electron 内で使用する名前を上書きします。OS が使用する名前には影響しません。
-
-**[非推奨](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -771,7 +781,7 @@ if (!gotTheLock) {
   })
 
   // myWindow を作成したり、アプリの残りをロードしたり、...
-  app.on('ready', () => {
+  app.whenReady().then(() => {
   })
 }
 ```
@@ -819,6 +829,17 @@ if (!gotTheLock) {
 
 [アプリケーションユーザモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)を `id` に変更します。
 
+### `app.setActivationPolicy(policy)` _macOS_
+
+* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+
+Sets the activation policy for a given app.
+
+Activation policy types:
+* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
+* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
+* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+
 ### `app.importCertificate(options, callback)` _Linux_
 
 * `options` Object
@@ -837,7 +858,7 @@ if (!gotTheLock) {
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-既定では、GPU プロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで Chromium は 3D API (例えばWebGL) を無効にします。 この関数はこの振る舞いを無効にします。
+既定では、GPU プロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで Chromium は 3D API (例えばWebGL) を無効にします。 This function disables that behavior.
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
@@ -897,13 +918,9 @@ macOS では Dock アイコンに表示されます。 Linux では Unity ラン
 
 **注:** Unity ランチャーで動作させるには `.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) を読んでください。
 
-**[非推奨](modernization/property-updates.md)**
-
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
 戻り値 `Integer` - カウンターバッジに表示されている現在の値。
-
-**[非推奨](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` _Linux_
 
@@ -956,8 +973,6 @@ app.setLoginItemSettings({
 
 戻り値 `Boolean` - Chromeのユーザ補助機能が有効な場合、`true`、そうでない場合、`false`。 このAPIは、スクリーンリーダーなどの支援技術を使っていることが検出された場合、`true` を返します。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。
 
-**[非推奨](modernization/property-updates.md)**
-
 ### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
 
 * `enabled` Boolean - [アクセシビリティツリー](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)レンダリングを有効もしくは無効にします。
@@ -967,8 +982,6 @@ app.setLoginItemSettings({
 この API は `ready` イベントが発生した後で呼ばなければいけません。
 
 **注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
-
-**[非推奨](modernization/property-updates.md)**
 
 ### `app.showAboutPanel()`
 
@@ -986,7 +999,7 @@ app.setLoginItemSettings({
   * `website` String (任意) _Linux_ - アプリのウェブサイト。
   * `iconPath` String (任意) _Linux_ _Windows_ - アプリのアイコンへのパス。 Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
 
-Aboutパネルのオプションを設定します。 MacOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
+Aboutパネルのオプションを設定します。 This will override the values defined in the app's `.plist` file on macOS. 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
 `credits` を設定していなくてもアプリに表示したい場合、AppKit は NSBundle の main クラスメソッドから返されたバンドル内で、"Credits.html"、"Credits.rtf"、"Credits.rtfd" の順番でファイルを探します。 最初に見つかったファイルが使用されます。見つからない場合、その情報の部分は空白のままです。 詳細は Apple の [ドキュメント](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) を参照してください。
 
@@ -1088,7 +1101,7 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 
 ### `app.dock` _macOS_ _読み出し専用_
 
-[`Dock`](./dock.md) オブジェクトです。macOS のユーザーの Dock 内のアプリアイコンにおけるアクションを実行できます。
+A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
 
 ### `app.isPackaged` _読み出し専用_
 
@@ -1108,6 +1121,6 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 
 ### `app.allowRendererProcessReuse`
 
-この `Boolean` が `true` のとき、ナビゲーションごとにレンダラープロセスが確実に再起動されるように Electron が設定している、そのオーバーライドを無効にします。  このプロパティの現在の既定値は `false` です。
+この `Boolean` が `true` のとき、ナビゲーションごとにレンダラープロセスが確実に再起動されるように Electron が設定している、そのオーバーライドを無効にします。  The current default value for this property is `true`.
 
 これらのオーバーライドがデフォルトで無効になることを意図しているので、将来的にはこのプロパティは削除される予定です。  このプロパティはレンダラープロセス内で使用できるネイティブモジュールに影響します。  Electron がレンダラープロセスを再起動して、レンダラープロセスでネイティブモジュールを使用する方針についての詳細は、この [Tacking Issue](https://github.com/electron/electron/issues/18397) をご覧ください。

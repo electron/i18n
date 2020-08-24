@@ -84,7 +84,6 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 * Electron uitgaven & Feedback van de ontwikkelaar
   * [Versiebeleid](tutorial/electron-versioning.md)
   * [Tijdlijn van uitgaves](tutorial/electron-timelines.md)
-  * [App Feedback programma](tutorial/app-feedback-program.md)
 * [De broncode van de app inpakken met asar](tutorial/application-packaging.md)
   * [Genereren asar archieven](tutorial/application-packaging.md#generating-asar-archives)
   * [Het gebruik maken van asar archieven](tutorial/application-packaging.md#using-asar-archives)

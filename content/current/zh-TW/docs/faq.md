@@ -4,7 +4,7 @@
 
 執行 `npm install electron` 時，有些人會遇到安裝錯誤。
 
-大多數情況下，這些錯誤是來自於網路問題，而不是 `electron` npm 套件本身的問題。 諸如 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` 及 `ETIMEDOUT` 全都是網路方面的問題。 The best resolution is to try switching networks, or wait a bit and try installing again.
+大多數情況下，這些錯誤是來自於網路問題，而不是 `electron` npm 套件本身的問題。 諸如 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` 及 `ETIMEDOUT` 全都是網路方面的問題。 turkısh
 
 如果用 `npm` 怎樣都裝不起來的話，你也可以直接由 [electron/electron/releases](https://github.com/electron/electron/releases) 下載 Electron。
 
@@ -26,26 +26,9 @@ Only the stable channel of Chrome is used. If an important fix is in beta or dev
 
 要在不同網頁 (畫面轉譯處理序) 之間共用資料，最簡單的方法就是使用瀏覽器早就提供的 HTML5 API。 [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 以及 [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 都是不錯的選擇。
 
-你也可以使用 Electron 特有的 IPC 系統，將物件以全域變數的型式存到主處理序中，再由畫面轉譯器中透過 `electron` 模組的 `remote` 屬性存取:
+Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
-```javascript
-// 在主處理序裡。
-global.sharedObject = {
-  someProperty: 'default value'
-}
-```
-
-```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
-```
-
-```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
-```
-
-## My app's tray disappeared after a few minutes.
+## 我應用程式的視窗或工作列圖示幾分鐘後消失了。
 
 This happens when the variable which is used to store the tray gets garbage collected.
 
@@ -84,7 +67,7 @@ app.whenReady().then(() => {
 ```javascript
 // 在主處理序裡。
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
   }
@@ -129,7 +112,7 @@ To achieve this goal, set the background in the constructor for [BrowserWindow](
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   backgroundColor: '#fff'
 })
 ```

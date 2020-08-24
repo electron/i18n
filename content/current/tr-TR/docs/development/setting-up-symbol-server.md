@@ -4,20 +4,20 @@ Hata ayıklama simgeleri daha iyi hata ayıklama oturumları yapmanızı sağlar
 
 Yayınlanan Elektron yapıları ağır şekilde optimize edildiğinden, hata ayıklama her zaman kolay olmaz. Hata ayıklayıcı, tüm değişkenlerin içeriğini görüntüleyemez ve yürütme yolu, satır içi yerleştirme, kuyruğu çağırma ve diğer çizicileri optimize etme nedeniyle garip görünebilir. Tek geçici çözüm, optimize edilmemiş bir yerel yapı oluşturmaktır.
 
-Elektron için resmi simge sunucusu URL'si https://electron-symbols.githubapp.com. Bu URL'yi doğrudan ziyaret edemezsiniz, onu hata ayıklama aracınızın sembol yoluna eklemelisiniz. Aşağıdaki örneklerde, yerel bir önbellek dizini, PDB'nin sunucudan defalarca alınmasını önlemek için kullanılır. `c:\code\symbols`'ü makinenizdeki uygun önbellek diziniyle değiştirin.
+Elektron için resmi simge sunucusu URL'si https://symbols.electronjs.org. Bu URL'yi doğrudan ziyaret edemezsiniz, onu hata ayıklama aracınızın sembol yoluna eklemelisiniz. Aşağıdaki örneklerde, yerel bir önbellek dizini, PDB'nin sunucudan defalarca alınmasını önlemek için kullanılır. `c:\code\symbols`'ü makinenizdeki uygun önbellek diziniyle değiştirin.
 
 ## Windbg'de Sembol Sunucusunu Kullanma
 
 Windbg sembol yolu, yıldız işareti karakterleriyle sınırlandırılmış bir dize değeri ile yapılandırılmıştır. Yalnızca Electron simgesi sunucusunu kullanmak için, sembol yolunuza aşağıdaki girişi ekleyin (**Not:** indirilen simgeler için farklı bir konum tercih ederseniz, `c:\code\symbols`'ü bilgisayarınızdaki yazılabilir bir dizinle değiştirebilirsiniz):
 
 ```powershell
-SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+SRV*c:\code\symbols\*https://symbols.electronjs.org
 ```
 
 Bu dizeyi ortamda, Windbg menülerini kullanarak veya `.sympath` komutunu yazarak `_NT_SYMBOL_PATH` olarak ayarlayın. Microsoft'un sembol sunucusundan sembol almak isterseniz, önce şunu listelemeniz gerekir:
 
 ```powershell
-SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://symbols.electronjs.org
 ```
 
 ## Sembol sunucusunu Visual Studio'da kullanma

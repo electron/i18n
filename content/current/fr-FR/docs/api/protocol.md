@@ -10,12 +10,12 @@ Un exemple d'implémentation d'un protocole qui a le même effet que le protocol
 const { app, protocol } = require('electron')
 const path = require('path')
 
-application. n('ready', () => {
+app.whenReady().then(() => {
   protocol.registerFileProtocol('atom', (request, callback) => {
-    const url = request. rl.substr(7)
-    callback({ path: path. ormalize(`${__dirname}/${url}`) })
+    const url = request.url.substr(7)
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
-    if (error) console. rror('Échec de l'enregistrement du protocole)
+    if (error) console.error('Failed to register protocol')
   })
 })
 ```
@@ -32,21 +32,21 @@ Pour que votre protocole personnalisé fonctionne en combinaison avec une sessio
 const { session, app, protocol } = require('electron')
 const path = require('path')
 
-application. n('ready', () => {
+app.whenReady().then(() => {
   const partition = 'persist:example'
-  const ses = session. romPartition(partition)
+  const ses = session.fromPartition(partition)
 
   ses.protocol.registerFileProtocol('atom', (request, callback) => {
-    const url = request.url. ubstr(7)
-    callback({ path: path. ormalize(`${__dirname}/${url}`) })
+    const url = request.url.substr(7)
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
-    if (error) console. rror('Échec de l'enregistrement du protocole)
+    if (error) console.error('Failed to register protocol')
   })
 
   mainWindow = new BrowserWindow({
     width: 800,
-    hauteur: 600,
-    webpréférences : {
+    height: 600,
+    webPreferences: {
       partition: partition
     }
   })

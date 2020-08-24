@@ -10,7 +10,7 @@ Deux modes de rendu peuvent être utilisés et la zone sale est passée à l’�
 
 ### Accélération GPU
 
-Le rendu par l'acceleration GPU signifie que le GPU est utilisé pour la composition. Puisque cette fenêtre doit être copiée depuis le GPU, cela require plus de performances. Donc ce mode est légèrement plus lent que l'autre. The benefit of this mode is that WebGL and 3D CSS animations are supported.
+Le rendu par l'acceleration GPU signifie que le GPU est utilisé pour la composition. Puisque cette fenêtre doit être copiée depuis le GPU, cela require plus de performances. Donc ce mode est légèrement plus lent que l'autre. L’avantage de ce mode est que WebGL et les animations CSS 3D sont prises en charge.
 
 ### Logiciel de périphérique sortant
 
@@ -21,23 +21,5 @@ Pour activer ce mode, l'accélération GPU doit être désactivé en appelant l'
 ## Utilisation
 
 ``` javascript
-const { app, BrowserWindow } = require('electron')
-
-app.disableHardwareAcceleration()
-
-let win
-
-app.whenReady().then(() => {
-  win = new BrowserWindow({
-    webPreferences: {
-      offscreen: true
-    }
-  })
-
-  win.loadURL('http://github.com')
-  win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
-  })
-  win.webContents.setFrameRate(30)
-})
+{ app, BrowserWindow }
 ```

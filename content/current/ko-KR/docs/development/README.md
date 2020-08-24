@@ -21,4 +21,3 @@
 * [MacOS 에서 디버깅하기](debugging-instructions-macos.md)
 * [디버거에서 디버그 심볼 서버 설정](setting-up-symbol-server.md)
 * [패치](patches.md)
-* [Node 업그레이드](upgrading-node.md)

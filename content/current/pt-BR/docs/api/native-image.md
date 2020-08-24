@@ -239,13 +239,9 @@ Retorna [`Size`](structures/size.md)
 
 Marca a imagem como uma imagem padrão.
 
-**[Deprecated](modernization/property-updates.md)**
-
 #### `image.isTemplateImage()`
 
 Retorna `Boolean` - sendo a imagem uma imagem padrão ou não.
-
-**[Deprecated](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 

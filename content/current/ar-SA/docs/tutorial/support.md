@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
 ### Currently supported versions
-- 8.1.x
-- 7.1.x
-- 6.1.x
+- 9.x.y
+- 8.x.y
+- 7.x.y
 
 ### End-of-life
 

@@ -11,10 +11,7 @@ const { BrowserWindow } = require('electron')
 // Or use `remote` from the renderer process.
 // const { BrowserWindow } = require('electron').remote
 
-let win = new BrowserWindow({ width: 800, height: 600 })
-win.on('closed', () => {
-  win = null
-})
+const win = new BrowserWindow({ width: 800, height: 600 })
 
 // Load a remote URL
 win.loadURL('https://github.com')
@@ -142,7 +139,7 @@ child.once('ready-to-show', () => {
   * `fullscreenable` Boolean (선택) - 창이 전체화면 모드가 될 수 있는지 여부. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. 기본값은 `true`이다.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. 기본값은 `false`이다.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. 기본값은 `false`이다.
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. 기본값은 `false`이다.
   * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
   * `show` Boolean (optional) - Whether window should be shown when created. 기본값은 `true`이다.
@@ -157,14 +154,14 @@ child.once('ready-to-show', () => {
   * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. 기본값은 `true`이다.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. 기본값은 `false`이다.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. 기본값은 `false`이다.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 기본값은 `false`이다. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are:
     * `default` - Results in the standard gray opaque Mac title bar.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
-    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
+    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **참고:** 이 옵션은 현재 실험적입니다.
   * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. 기본값은 `false`이다.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. 기본값은 `true`이다.
@@ -181,7 +178,7 @@ child.once('ready-to-show', () => {
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. 기본값은 `true`이다.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
-    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _This property is experimental_
+    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _Deprecated_
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. 기본값은 `true`이다.
     * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. 기본값은 `true`이다.
@@ -208,7 +205,8 @@ child.once('ready-to-show', () => {
     * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
+    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`.  The default is `false`. In Electron 12, the default will be changed to `true`. _Deprecated_
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **참고:** 이 옵션은 현재 실험적입니다.
     * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to `false`. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. 기본값은 `false`이다.
@@ -218,7 +216,13 @@ child.once('ready-to-show', () => {
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
     * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. 기본값은 `false`이다.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. 기본값은 `true`이다.
+    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). 기본값은 `true`이다.
+    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
+      * `none` - Disables code caching
+      * `code` - Heuristic based code caching
+      * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
+      * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
@@ -227,7 +231,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 * On Linux, possible types are `desktop`, `dock`, `toolbar`, `splash`, `notification`.
 * On macOS, possible types are `desktop`, `textured`.
   * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
-  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.김기태71
+  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
 ### 인스턴스 이벤트
@@ -244,7 +248,7 @@ Returns:
 * `title` String
 * `explicitSet` Boolean
 
-문서의 타이틀이 변경될때 발생하고, `event.preventDefault()`는 네이티브 윈도우의 타이틀이 변경되는 것을 방지합니다. `explicitSet` is false when title is synthesized from file URL.김기태 동찬 도아
+문서의 타이틀이 변경될때 발생하고, `event.preventDefault()`는 네이티브 윈도우의 타이틀이 변경되는 것을 방지합니다. `explicitSet` is false when title is synthesized from file URL.
 
 #### 이벤트: 'close'
 
@@ -268,7 +272,7 @@ window.onbeforeunload = (e) => {
 ```
 _**참고**: `window.onbeforeunload = handler` 와 `window.addEventListener('beforeunload', handler)`의 동작에는 약간의 차이가 있습니다. 전자가보다 일관되게 일렉트론 내에서 작동하므로 항상 값을 반환하는 대신 `event.returnValue`를 명시 적으로 설정하는 것이 좋습니다._
 
-#### Event: 'closed' 대한민국 국민 김기태
+#### Event: 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
@@ -484,7 +488,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 Returns `BrowserWindow` - The window with the given `id`.
 
-#### `BrowserWindow.addExtension(path)`
+#### `BrowserWindow.addExtension(path)` _Deprecated_
 
 * `path` String
 
@@ -494,7 +498,9 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **참고:** 이 API는 `app` 모듈의 `ready` 이벤트가 호출되기 전까진 사용할 수 없습니다.
 
-#### `BrowserWindow.removeExtension(name)`
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+
+#### `BrowserWindow.removeExtension(name)` _Deprecated_
 
 * PrinterInfo Object
 
@@ -502,13 +508,17 @@ Remove a Chrome extension by name.
 
 **참고:** 이 API는 `app` 모듈의 `ready` 이벤트가 호출되기 전까진 사용할 수 없습니다.
 
-#### `BrowserWindow.getExtensions()`
+**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+
+#### `BrowserWindow.getExtensions()` _Deprecated_
 
 Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 **참고:** 이 API는 `app` 모듈의 `ready` 이벤트가 호출되기 전까진 사용할 수 없습니다.
 
-#### `BrowserWindow.addDevToolsExtension(path)`
+**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+
+#### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
 * `path` String
 
@@ -520,7 +530,9 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **참고:** 이 API는 `app` 모듈의 `ready` 이벤트가 호출되기 전까진 사용할 수 없습니다.
 
-#### `BrowserWindow.removeDevToolsExtension(name)`
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+
+#### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
 * PrinterInfo Object
 
@@ -528,7 +540,9 @@ Remove a DevTools extension by name.
 
 **참고:** 이 API는 `app` 모듈의 `ready` 이벤트가 호출되기 전까진 사용할 수 없습니다.
 
-#### `BrowserWindow.getDevToolsExtensions()`
+**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+
+#### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
 Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
@@ -542,6 +556,8 @@ console.log(installed)
 ```
 
 **참고:** 이 API는 `app` 모듈의 `ready` 이벤트가 호출되기 전까진 사용할 수 없습니다.
+
+**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 ### Instance Properties (인스턴스 속성)
 
@@ -562,13 +578,57 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 #### `win.id` _읽기전용_
 
-A `Integer` property representing the unique ID of the window.
+A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
 
 #### `win.autoHideMenuBar`
 
 A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
 
 If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+
+#### `win.simpleFullScreen`
+
+A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.
+
+#### `win.fullScreen`
+
+A `Boolean` property that determines whether the window is in fullscreen mode.
+
+#### `win.visibleOnAllWorkspaces`
+
+A `Boolean` property that determines whether the window is visible on all workspaces.
+
+**Note:** Always returns false on Windows.
+
+#### `win.shadow`
+
+A `Boolean` property that determines whether the window has a shadow.
+
+#### `win.menuBarVisible` _Windows_ _Linux_
+
+A `Boolean` property that determines whether the menu bar should be visible.
+
+**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+
+#### `win.kiosk`
+
+A `Boolean` property that determines whether the window is in kiosk mode.
+
+#### `win.documentEdited` _macOS_
+
+A `Boolean` property that specifies whether the window’s document has been edited.
+
+The icon in title bar will become gray when set to `true`.
+
+#### `win.representedFilename` _macOS_
+
+A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+
+#### `win.title`
+
+A `String` property that determines the title of the native window.
+
+**Note:** The title of the web page can be different from the title of the native window.
 
 #### `win.minimizable`
 
@@ -715,7 +775,7 @@ Returns `Boolean` - Whether the window is in fullscreen mode.
 
 Enters or leaves simple fullscreen mode.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
 
 #### `win.isSimpleFullScreen()` _macOS_
 
@@ -725,16 +785,15 @@ Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
 
 Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_
+#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_ _Linux_
 
 * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
+ * `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
 
 This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
 
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.
-
-Calling this function with a value of `0` will remove any previously set aspect ratios.
+Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
+{ width: 40, height: 50 }. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.
 
 #### `win.setBackgroundColor(backgroundColor)`
 
@@ -778,6 +837,10 @@ console.log(win.getBounds())
 
 Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
+#### `win.getBackgroundColor()`
+
+Returns `String` - Gets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
@@ -803,7 +866,7 @@ Disable or enable the window.
 
 #### `win.isEnabled()`
 
-Returns Boolean - whether the window is enabled.
+Returns `Boolean` - whether the window is enabled.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -855,15 +918,11 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
-
-**[더이상 사용하지 않음](modernization/property-updates.md)**
+Sets whether the window can be manually resized by the user.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
-
-**[더이상 사용하지 않음](modernization/property-updates.md)**
+Returns `Boolean` - Whether the window can be manually resized by the user.
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
@@ -871,15 +930,11 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 Sets whether the window can be moved by user. On Linux does nothing.
 
-**[더이상 사용하지 않음](modernization/property-updates.md)**
-
 #### `win.isMovable()` _macOS_ _Windows_
 
 Returns `Boolean` - Whether the window can be moved by user.
 
 On Linux always returns `true`.
-
-**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setMinimizable(minimizable)` _macOS_ _Windows_
 
@@ -887,15 +942,11 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually minimized by user. On Linux does nothing.
 
-**[더이상 사용하지 않음](modernization/property-updates.md)**
-
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+Returns `Boolean` - Whether the window can be manually minimized by the user.
 
 On Linux always returns `true`.
-
-**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setMaximizable(maximizable)` _macOS_ _Windows_
 
@@ -903,15 +954,11 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually maximized by user. On Linux does nothing.
 
-**[더이상 사용하지 않음](modernization/property-updates.md)**
-
 #### `win.isMaximizable()` _macOS_ _Windows_
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
 On Linux always returns `true`.
-
-**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -919,13 +966,9 @@ On Linux always returns `true`.
 
 Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
-**[더이상 사용하지 않음](modernization/property-updates.md)**
-
 #### `win.isFullScreenable()`
 
 Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
-
-**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setClosable(closable)` _macOS_ _Windows_
 
@@ -933,15 +976,11 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 Sets whether the window can be manually closed by user. On Linux does nothing.
 
-**[더이상 사용하지 않음](modernization/property-updates.md)**
-
 #### `win.isClosable()` _macOS_ _Windows_
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
 On Linux always returns `true`.
-
-**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
@@ -991,7 +1030,7 @@ Changes the title of native window to `title`.
 
 Returns `String` - The title of the native window.
 
-**Note:** The title of the web page can be different from the title of the native window.
+**참고:** 웹 페이지의 제목은 네이티브 창의 제목과 다를 수 있습니다.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` _macOS_
 
@@ -1024,7 +1063,7 @@ Makes the window not show in the taskbar.
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Enters or leaves kiosk mode.
 
 #### `win.isKiosk()`
 
@@ -1226,16 +1265,16 @@ The `buttons` is an array of `Button` objects:
   * `icon` [NativeImage](native-image.md) - 썸네일 도구 모음에 표시되는 아이콘입니다.
   * `click` Function
   * `tooltip` String (optional) - 버튼의 툴팁 텍스트
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `flags` String[] (optional) - 버튼의 특정 상태 및 동작을 제어. 기본값은 `['enabled']`.
 
 `flags`는 다음 `String`을 포함할 수 있는  array입니다.
 
 * `enabled` - 버튼이 활성화되어 있으며 사용자가 사용할  수 있습니다.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `disabled` - 버튼을 비활성화합니다. 존재하지만 사용자의 액션에 반응하지 않는 시각적 상태를 나타냅니다.
 * `dismissonclick` - 버튼을 클릭하면 바로 축소판 창이 닫힙니다.
 * `nobackground` - 버튼 테두리를 그리지 말고 이미지만 사용하세요.
 * `hidden` - 버튼이 사용자에게 보이지 않습니다.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `noninteractive` - 버튼이 활성화되어있더라도 반응하지 않습니다; 눌려진 버튼 상태로 표시되지 않습니다. 이 값은 버튼이 알림에 사용되는 경우에 사용됩니다.
 
 #### `win.setThumbnailClip(region)` _Windows_
 
@@ -1288,13 +1327,9 @@ Sets whether the window menu bar should hide itself automatically. Once set the 
 
 If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
-**[더이상 사용하지 않음](modernization/property-updates.md)**
-
 #### `win.isMenuBarAutoHide()`
 
 Returns `Boolean` - Whether menu bar automatically hides itself.
-
-**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setMenuBarVisibility(visible)` _Windows_ _Linux_
 
@@ -1306,11 +1341,9 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 Returns `Boolean` - Whether the menu bar is visible.
 
-#### `win.setVisibleOnAllWorkspaces(visible[, options])`
+#### `win.setVisibleOnAllWorkspaces(visible)`
 
 * `visible` Boolean
-* `options` Object (optional)
-  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows _deprecated_
 
 Sets whether the window should be visible on all workspaces.
 

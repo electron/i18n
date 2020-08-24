@@ -11,7 +11,7 @@ This module does not include a web interface. To view recorded traces, use [trac
 ```javascript
 const { app, contentTracing } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   (async () => {
     await contentTracing.startRecording({
       include_categories: ['*']
@@ -33,6 +33,8 @@ El módulo `contentTracing` tiene los siguientes métodos:
 Devuelve `Promise<String[]>` - resuelve con un array de grupos de categorías una vez que todos los procesos hijos han confirmado la solicitud `getCategories`
 
 Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
+
+> **NOTE:** Electron adds a non-default tracing category called `"electron"`. This category can be used to capture Electron-specific tracing events.
 
 ### `contentTracing.startRecording(options)`
 

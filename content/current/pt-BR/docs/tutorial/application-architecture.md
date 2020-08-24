@@ -20,7 +20,8 @@ Em páginas web, chamar APIs nativas relacionadas à interface gráfica de usuá
 
 > #### Aparte: Comunicação entre processos
 > 
-> No Electron, existem várias maneiras pelas quais o processo principal e os de renderização podem se comunicar, tais como os módulos [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md), para enviar mensagens,  e o módulo [remote](../api/remote.md), para comunicação no estilo RPC. Também existe um tópico de perguntas frequentes sobre [como compartilhar dados entre páginas web](../faq.md#how-to-share-data-between-web-pages).
+> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+
 
 ## Usando APIs do Electron
 
@@ -42,17 +43,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Como a comunicação entre os processos é possível, um processo de renderização pode usar o processo principal para realizar tarefas. O Electron vem com um módulo chamado `remote`, que expõe APIs que normalmente estariam disponíveis apenas no processo principal. Para poder criar uma `BrowserWindow` a partir de um processo de renderização, usaríamos o remote como intermediário:
+Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
 
 ```javascript
-// Isso vai funcionar em um processo de renderização, mas no
-// processo principal, a constante seria inicializada como
-// `undefined`:
-const { remote } = require('electron')
-const { BrowserWindow } = remote
+// In the main process:
+const { ipcMain } = require('electron')
 
-const win = new BrowserWindow()
+ipcMain.handle('perform-action', (event, ...args) => {
+  // ... do something on behalf of the renderer ...
+})
+
+// In the renderer process:
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.invoke('perform-action', ...args)
 ```
+
+Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
 
 ## Usando Node.js APIs
 

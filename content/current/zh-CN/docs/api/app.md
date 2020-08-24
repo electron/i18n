@@ -29,7 +29,7 @@ app.on('window-all-closed', () => {
 
 * `launchInfo` unknown _macOS_
 
-当 Electron 完成初始化时被触发。 在 macOS 中, 如果从通知中心中启动，那么 `launchInfo` 中的 `userInfo` 包含用来打开应用程序的 `NSUserNotification` 信息。 你可以通过调用 `app.isReady()` 方法来检查此事件是否已触发。
+Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
 ### 事件: 'window-all-closed'
 
@@ -45,7 +45,7 @@ app.on('window-all-closed', () => {
 
 Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**注意：** 如果由 `autoUpdater.quitAndInstal()` 退出应用程序 ，那么在所有窗口触发 `close` *之后* 才会触发 `before-quit` 并关闭所有窗口。
 
 **注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
@@ -55,7 +55,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
 关于 ` window-all-closed` 和 ` will-quit ` 事件之间的差异, 请参见 `window-all-closed ` 事件的说明。
 
@@ -154,7 +154,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 如果需要更新要传输的状态, 应立即调用 ` 事件. preventDefault () `, 构造新的 ` 用户信息 ` 字典, 并及时调用 ` 应用程序 updateCurrentActiviy () `。 否则，操作会失败，并且触发 `continue-activity-error`
+当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. 否则，操作会失败，并且触发 `continue-activity-error`
 
 ### 事件: 'new-window-for-tab' _macOS_
 
@@ -296,7 +296,7 @@ Emitted whenever there is a GPU info update.
 * `event` Event
 * `killed` Boolean
 
-Emitted when the GPU process crashes or is killed.
+当gpu进程崩溃或关闭（杀死）时触发
 
 ### Event: 'renderer-process-crashed'
 
@@ -306,7 +306,25 @@ Emitted when the GPU process crashes or is killed.
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+当渲染器进程`webContents`崩溃或关闭（杀死）时触发。
+
+#### Event: 'render-process-gone'
+
+返回:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `details` Object
+  * `reason` String - The reason the render process is gone.  可选值
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failure` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+
+Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
 
 ### 事件: "accessibility-support-changed" _ macOS _ _ Windows _
 
@@ -406,16 +424,6 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 在 `webContents` 的渲染器进程中调用 `remote.getCurrentWebContents()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
-### 事件: 'remote-get-guest-web-contents'
-
-返回:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `guestWebContents` [WebContents](web-contents.md)
-
-在`webContents`的渲染进程中调用`getWebContents`时触发 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
-
 ## 方法
 
 ` app ` 对象具有以下方法:
@@ -461,15 +469,20 @@ app.exit(0)
 
 ### `app.isReady()`
 
-返回 `Boolean` 类型 - 如果 Electron 已经完成初始化，则返回 `true`, 其他情况为 `false`
+返回 `Boolean` 类型 - 如果 Electron 已经完成初始化，则返回 `true`, 其他情况为 `false` See also `app.whenReady()`.
 
 ### `app.whenReady()`
 
 返回 `Promise<void>` - 当Electron 初始化完成。 可用作检查 `app.isReady()` 的方便选择，假如应用程序尚未就绪，则订阅`ready`事件。
 
-### `app.focus()`
+### `app.focus([options])`
+
+* `options` Object (optional)
+  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+
+You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macOS_
 
@@ -512,6 +525,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
   * `videos` 用户视频目录的路径
   * ` logs `应用程序的日志文件夹
   * `pepperFlashSystemPlugin` Pepper Flash 插件的系统版本的完成路径。
+  * `crashDumps` Directory where crash dumps are stored.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
@@ -524,7 +538,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
   * `size` String
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on _Linux_, 32x32 on _Windows_, unsupported on _macOS_.
+    * `large` - _Linux_上是 48x48, _Windows_ 上是 32x32, _macOS_ 中无效
 
 返回 `Promise<NativeImage>` - 完成后返回当前应用的图标, 类型是 [NativeImage](native-image.md).
 
@@ -558,8 +572,6 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
 
-**[过时的](modernization/property-updates.md)**
-
 ### `app.setName(name)`
 
 * `name` 字符串
@@ -567,8 +579,6 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 设置当前应用程序的名字
 
 **Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
-
-**[过时的](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -679,7 +689,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 
 ** 注意: **如果 ` JumpListCategory ` 对象既没有 ` type `, 也没有 ` name ` 属性设置, 则其 ` type ` 被假定为 ` tasks `。 如果设置了 ` name ` 属性, 但省略了 ` type ` 属性, 则假定 ` type ` 为 ` custom`。
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. 尝试提前将删除的项目重新添加 到自定义类别中，将导致整个自定义类别被隐藏。 删除的项目可以使用 `app.getJumpListSettings()` 获取。
+**注意:** 用户可以从自定义类别中移除项目， **after** 调用 `app.setJumpList(categories)` 方法之前， Windows不允许删除的项目添加回自定义类别。 尝试提前将删除的项目重新添加 到自定义类别中，将导致整个自定义类别被隐藏。 删除的项目可以使用 `app.getJumpListSettings()` 获取。
 
 下面是创建自定义跳转列表的一个非常简单的示例:
 
@@ -771,7 +781,7 @@ if (!gotTheLock) {
   })
 
   // 创建 myWindow, 加载应用的其余部分, etc...
-  app.on('ready', () => {
+  app.whenReady().then(() => {
   })
 }
 ```
@@ -819,6 +829,17 @@ Marks the current [Handoff](https://developer.apple.com/library/ios/documentatio
 
 改变当前应用的 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 为 `id`.
 
+### `app.setActivationPolicy(policy)` _macOS_
+
+* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+
+Sets the activation policy for a given app.
+
+Activation policy types:
+* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
+* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
+* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+
 ### `app.importCertificate(options, callback)` _Linux_
 
 * `options` Object
@@ -837,7 +858,7 @@ Marks the current [Handoff](https://developer.apple.com/library/ios/documentatio
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
@@ -857,7 +878,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 Returns `Promise<unknown>`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). 这包括 `chrome://gpu` 页面上显示的版本和驱动程序信息。
+对于` infoType `等于` complete `： Promise 将包含所有GPU信息的` Object `正如 [ chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc)。 这包括 `chrome://gpu` 页面上显示的版本和驱动程序信息。
 
 对于` infoType `等于` basic `： Promise 至少包含当请求`complete`时的属性`Object`。 下面是一个基础响应示例：
 ```js
@@ -897,13 +918,9 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 ** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher)。
 
-**[过时的](modernization/property-updates.md)**
-
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
 Returns `Integer` - 获取计数器提醒(badge) 中显示的当前值
-
-**[过时的](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` _Linux_
 
@@ -957,8 +974,6 @@ app.setLoginItemSettings({
 Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true</0。 查看更多细节，请查阅
 https://www.chromium.org/developers/design-documents/accessibility</p>
 
-<p spaces-before="0"><strong x-id="1"><a href="modernization/property-updates.md">过时的</a></strong></p>
-
 <h3 spaces-before="0"><code>app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_</h3>
 
 * `enable` 逻辑值 - 启用或禁用[访问权限树](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)视图。
@@ -968,8 +983,6 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 此 API 必须在 `ready` 事件触发后调用
 
 **注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
-
-**[过时的](modernization/property-updates.md)**
 
 ### `app.showAboutPanel()`
 
@@ -987,17 +1000,17 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-设置 "关于" 面板选项。 This will override the values defined in the app's `.plist` file on MacOS. 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 在 Linux 上，没有默认值，所以必须设置值才能显示。
+设置 "关于" 面板选项。 This will override the values defined in the app's `.plist` file on macOS. 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 在 Linux 上，没有默认值，所以必须设置值才能显示。
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
 ### `app.isEmojiPanelSupported()`
 
-Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+返回 `布尔值` - 当前操作系统版本是否允许使用本机emoji选取器。
 
 ### `app.showEmojiPanel()` _macOS_ _Windows_
 
-Show the platform's native emoji picker.
+打开系统自身的emjio选取器。
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` _mas_
 
@@ -1089,7 +1102,7 @@ A [`CommandLine`](./command-line.md) object that allows you to read and manipula
 
 ### `app.dock` _macOS_ _Readonly_
 
-A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
 
 ### `app.isPackaged` _Readonly_
 
@@ -1109,6 +1122,6 @@ This is the user agent that will be used when no user agent is set at the `webCo
 
 ### `app.allowRendererProcessReuse`
 
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `false`.
+A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
 
 The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).

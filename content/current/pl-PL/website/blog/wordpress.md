@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: WordPress Desktop'
+title: 'Projekt tygodnia: WordPress Desktop'
 author:
   - mkaz
   - johngodley

@@ -5,14 +5,14 @@
 进程：[主进程](../glossary.md#main-process)
 
 
-This module cannot be used until the `ready` event of the `app` module is emitted.
+在 ` app ` 模块 `emitted ready ` 事件之前，您不能使用此模块。
 
 例如：
 
 ```javascript
 const { app, powerMonitor } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
@@ -23,11 +23,11 @@ app.on('ready', () => {
 
 ` powerMonitor ` 模块触发以下事件:
 
-### Event: 'suspend'
+### Event: 'suspend' _Linux_ _Windows_
 
 在系统挂起时触发。
 
-### Event: 'resume'
+### Event: 'resume' _Linux_ _Windows_
 
 在系统恢复时触发。
 

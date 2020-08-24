@@ -4,20 +4,20 @@ I simboli di debug ti consentono di avere migliori sessioni di debug. Hanno info
 
 Nota che poiché le build rilasciate di Electron sono altamente ottimizzate, il debug non è sempre facile. Il debugger non potrà mostrarti il contenuto di tutte le variabili ed il percorso di esecuzione può sembrare strano per le chiamata in entrate, di coda ed altre ottimizzazioni del compilatore. L'unica soluzione è costruire una build locale non ottimizzata.
 
-L'URL server symbol ufficiale per Electron è https://electron-symbols.githubapp.com. Non puoi visitare questo URL direttamente, devi aggiungerlo al percorso symbol del tuo strumento di debug. Negli esempi sotto, una directory di cache locale è usata per evitare ripetutamente lo scaricamento del PDB dal server. Rimpiazza `c:\code\symbols` con una directory della cache appropriata sulla tua macchina.
+L'URL server symbol ufficiale per Electron è https://symbols.electronjs.org. Non puoi visitare questo URL direttamente, devi aggiungerlo al percorso symbol del tuo strumento di debug. Negli esempi sotto, una directory di cache locale è usata per evitare ripetutamente lo scaricamento del PDB dal server. Rimpiazza `c:\code\symbols` con una directory della cache appropriata sulla tua macchina.
 
 ## Usare il Server Symbol in Windbg
 
 Il percorso symbol Windbg è configurato con un valore stringa delimitato con caratteri asterisco. Per usare solo il server symbol di Electron, aggiungi la voce seguente al tuo percorso symbol (**Nota:** puoi rimpiazzare `c:\code\symbols` con qualsiasi directory scrivibile sul tuo computere, se preferisci aggiungere una posizione differente per i symbols scaricati):
 
 ```powershell
-SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+SRV*c:\code\symbols\*https://symbols.electronjs.org
 ```
 
 Imposta questa stringa come `_NT_SYMBOL_PATH` nell'ambiente, usando i menu Windbg, o digitando il comando `.sympath`. Se desideri ottenere symbols dal server symbol Microsoft, dovresti prima elencare:
 
 ```powershell
-SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://symbols.electronjs.org
 ```
 
 ## Usare il server dei simboli in Visual Studio

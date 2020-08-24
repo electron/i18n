@@ -29,7 +29,7 @@ Restituisce:
 
 * `launchInfo` unknown _macOS_
 
-Emesso quando Electron ha concluso l'inizializzazione. Su macOS `launchInfo` detiene le `userInfo` della `NSUserNotification` usata per aprire l'applicazione, se lanciata dal Centro Notifiche. Puoi chiamare `app.isReady()` per controllare se gli eventi sono già stati generati.
+Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
 ### Evento: 'window-all-closed'
 
@@ -45,7 +45,7 @@ Restituisce:
 
 Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Nota:** Se l'uscita dell'applicazione è stata iniziata da `autoUpdater.quitAndInstall()`, allora `before-quit` viene emesso *dopo* aver emesso l'evento `close` su tutte le finestre e dopo averle chiuse.
 
 **Nota:** In Windows, questo evento non verrà emesso se l'applicazione viene chiusa a causa di a un arresto/riavvio del sistema oppure del logout da parte dell'utente.
 
@@ -55,7 +55,7 @@ Restituisce:
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
 Vedi la descrizione dell'evento `window-all-closed` per le differenze tra gli eventi `will-quit` e `window-all-closed`.
 
@@ -154,7 +154,7 @@ Restituisce:
 * `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. Se necessiti di aggiornare lo stato da trasferire, devi chiamare subito `event.preventDefault()`, costruisci un nuovo dizionario `userInfo` e chiama tempestivamente `app.updateCurrentActiviy()`. Altrimenti l'operazione fallirà e verrà chiamato `continue-activity-error`.
+Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. Se necessiti di aggiornare lo stato da trasferire, devi chiamare subito `event.preventDefault()`, costruisci un nuovo dizionario `userInfo` e chiama tempestivamente `app.updateCurrentActivity()`. Altrimenti l'operazione fallirà e verrà chiamato `continue-activity-error`.
 
 ### Evento: 'nuova-finestra-per-scheda' _macOS_
 
@@ -309,6 +309,24 @@ Restituisce:
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
+#### Event: 'render-process-gone'
+
+Restituisce:
+
+* `event` Event
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
+* `details` Object
+  * `reason` String - The reason the render process is gone.  Possibili valori:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failure` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+
+Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+
 ### Evento: 'accessibilità-supporto-cambiata' _macOS_ _Windows_
 
 Restituisce:
@@ -407,16 +425,6 @@ Restituisce:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-guest-web-contents'
-
-Restituisce:
-
-* `event` Event
-* `ContenutiWeb` [ContenutiWeb](web-contents.md)
-* `guestWebContents` [WebContents](web-contents.md)
-
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
-
 ## Metodi
 
 L'oggetto `app` ha i seguenti metodi:
@@ -462,15 +470,20 @@ app.exit(0)
 
 ### `app.isPronta()`
 
-Restituisce `Booleano` - `true` se Electron ha finito l'inizializzazione, `falso` viceversa.
+Restituisce `Booleano` - `true` se Electron ha finito l'inizializzazione, `falso` viceversa. See also `app.whenReady()`.
 
 ### `app.whenReady()`
 
 Returns `Promise<void>` - fulfilled when Electron is initialized. Può essere usata come alternativa conveniente per controllare `app.isReady()` e sottoscrivendo all'evento `ready` se l'applicazione non è ancora pronta.
 
-### `app.focalizza()`
+### `app.focus([options])`
+
+* `options` Object (optional)
+  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+
+You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.nascondi()` _macOS_
 
@@ -513,6 +526,7 @@ Restituisce `Stringa` - La directory dell'app corrente.
   * `video` La directory per i video dell'utente.
   * `logs` La directory per la cartella registro della tua app.
   * `pepperFlashSystemPlugin` Percorso completo alla versione di sistema del plugin Pepper Flash.
+  * `crashDumps` Directory where crash dumps are stored.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
@@ -525,9 +539,12 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
   * `size` String
     * `piccola` - 16x16
     * `normale` - 32x32
-    * `large` - 48x48 on _Linux_, 32x32 on _Windows_, unsupported on _macOS_.
+    * `grande - 48x48 su <em x-id="4">Linux</em>, 32x32 su <em x-id="4">Windows</em>, non supportato su <em x-id="4">macOS</em>.</li>
+</ul></li>
+</ul></li>
+</ul>
 
-Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+<p spaces-before="0">Returns <code>Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).</p>
 
 Recupera un'icona associata al percorso.
 
@@ -559,8 +576,6 @@ Restituisce `Stringa`. Il nome attuale dell'app, che è il nome nel file dell'ap
 
 Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Di solito si dovrebbe anche specificare un campo `NomeProdotto`, che è il nome in maiuscolo della tua applicazione, e che sarà preferito al `nome` da Electron.
 
-**[Deprecato](modernization/property-updates.md)**
-
 ### `app.impostaNome(nome)`
 
 * `name` Stringa
@@ -568,8 +583,6 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 Sostituisce l'attuale nome dell'app.
 
 **Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
-
-**[Deprecato](modernization/property-updates.md)**
 
 ### `app.ottieniLocale()`
 
@@ -680,7 +693,7 @@ Se le `categories` sono `null` la precedentemente impostata Jump List (se esiste
 
 **Note:** Se un oggetto `JumpListCategory` non ha nè `type` nè `name` impostati, il suo `type` diventa `tasks`. Se la proprietà `name` è impostata ma la proprietà `type` é omessa, il `type` sarà considerato `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Qualsiasi tentativo di aggiunta di un elemento rimosso ad una categoria personalizzata prima che questo risulterà nell'intera categoria personalizzata sarà omesso dalla Jump List. La lista degli elementi rimossi può essere ottenuta usando `app.ottieniImpostazioniJumpList()`.
+**Note:** Gli utenti possono rimuovere gli elementi dalle categorie personalizzate, e Windows non permetterà ad un elemento rimosso di essere ri-aggiunto in una categoria personalizzata fino a **dopo** la successiva chiamata di successo a `app.impostaJumpList(categorie)`. Qualsiasi tentativo di aggiunta di un elemento rimosso ad una categoria personalizzata prima che questo risulterà nell'intera categoria personalizzata sarà omesso dalla Jump List. La lista degli elementi rimossi può essere ottenuta usando `app.ottieniImpostazioniJumpList()`.
 
 Questo è un esempio molto semplice di come creare una Jump List personalizzata:
 
@@ -775,7 +788,7 @@ if (myWindow) {
   })
 
   // Crea myWindow, carica il resto dell'app, ecc...
-  app.on('ready', () => {
+  app.whenReady().then(() => {
   })
 }
 ```
@@ -823,6 +836,17 @@ Aggiorna l'attività corrente se il suo tipo corrisponde al `type`, fondendo le 
 
 Cambia il [Modello Id Applicazione Utente](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) ad `id`.
 
+### `app.setActivationPolicy(policy)` _macOS_
+
+* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+
+Sets the activation policy for a given app.
+
+Activation policy types:
+* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
+* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
+* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+
 ### `app.importCertificate(options, callback)` _Linux_
 
 * `options` Object
@@ -841,7 +865,7 @@ Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
 ### `app.disabilitaBloccaggioDominioPerAPI3D()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
 
 Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
@@ -901,13 +925,9 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Nota:** Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per ulteriori informazioni leggere [Desktop Integrazione Ambiente](../tutorial/desktop-environment-integration.md#unity-launcher).
 
-**[Deprecato](modernization/property-updates.md)**
-
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
 Restituisce `Intero` - Il valore attuale è mostrato nel contatore di badge.
-
-**[Deprecato](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` _Linux_
 
@@ -960,8 +980,6 @@ app.setLoginItemSettings({
 
 Restituisci `Booleano` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
-**[Deprecato](modernization/property-updates.md)**
-
 ### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
 
 * `enabled` Boolean - Abilita o disabilita il rendering dell'[albero accessibilità](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
@@ -971,8 +989,6 @@ Abilita manualmente il supporto accessibilità di Chrome permettendo di esporre 
 This API must be called after the `ready` event is emitted.
 
 **Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
-
-**[Deprecato](modernization/property-updates.md)**
 
 ### `app.showAboutPanel()`
 
@@ -990,7 +1006,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Vedi il pannello delle opzioni. This will override the values defined in the app's `.plist` file on MacOS. Vedi i [documenti Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) per altri dettagli. On Linux, values must be set in order to be shown; there are no defaults.
+Vedi il pannello delle opzioni. This will override the values defined in the app's `.plist` file on macOS. Vedi i [documenti Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) per altri dettagli. On Linux, values must be set in order to be shown; there are no defaults.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1092,7 +1108,7 @@ A [`CommandLine`](./command-line.md) object that allows you to read and manipula
 
 ### `app.dock` _macOS_ _Readonly_
 
-A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
 
 ### `app.isPackaged` _Readonly_
 
@@ -1112,6 +1128,6 @@ This is the user agent that will be used when no user agent is set at the `webCo
 
 ### `app.allowRendererProcessReuse`
 
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `false`.
+A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
 
 The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).

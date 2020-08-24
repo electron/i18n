@@ -133,7 +133,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional)
+* `options` Object (опционально)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (опционально) - требуется для буферов растровых изображений.
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
@@ -185,7 +185,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит закодированные данные изображения `PNG`.
@@ -198,21 +198,21 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит копию сырых данных растровых пикселей изображения.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `String` - данные URL изображения.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит сырые данные растровых пикселей изображения.
@@ -239,13 +239,9 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 Помечает изображение как шаблон изображения.
 
-**[Устарело](modernization/property-updates.md)**
-
 #### `image.isTemplateImage()`
 
-Возвращает `Boolean` - признак того что изображение является шаблоном.
-
-**[Устарело](modernization/property-updates.md)**
+Returns `Boolean` - Whether the image is a template image.
 
 #### `image.crop(rect)`
 
@@ -260,9 +256,9 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
   * `height` Integer (опционально) - По умолчанию высота изображения.
   * `quality` String (опционально) - Желаемое качество изображения при изменения размера. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
-Возвращает `NativeImage` - измененый размер изображения.
+Returns `NativeImage` - The resized image.
 
-Если указаны только `height` или `width`, то текущее соотношение сторон будет сохранено в изображении.
+If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
 #### `image.getAspectRatio()`
 

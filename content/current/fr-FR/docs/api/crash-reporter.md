@@ -4,17 +4,12 @@
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Voici un exemple d'envoi automatique d'un rapport de plantage à un serveur distant :
+The following is an example of setting up Electron to automatically submit crash reports to a remote server:
 
 ```javascript
 const { crashReporter } = require('electron')
 
-crashReporter.start({
-  productName: 'YourName',
-  companyName: 'YourCompany',
-  submitURL: 'https://your-domain.com/url-to-submit',
-  uploadToServer: true
-})
+crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 ```
 
 Pour configurer un serveur pour accepter et traiter les rapports de plantage, vous pouvez utiliser projets suivants :
@@ -28,7 +23,9 @@ Ou utilisez une solution hébergée par un tiers :
 * [Sentinelle](https://docs.sentry.io/clients/electron)
 * [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
-Les rapports de plantage sont enregistrés localement dans un dossier de répertoire temporaire spécifique à l'application. Pour un `productName` de `VotreNom`, les rapports de plantage seront stockés dans un dossier nommé `Écrasement` dans le répertoire temp. Vous pouvez personnaliser cet emplacement de répertoire temporaire pour votre application en appelant l'API `app.setPath('temp', '/my/custom/temp')` avant de démarrer le rapport de plantage.
+Crash reports are stored temporarily before being uploaded in a directory underneath the app's user data directory (called 'Crashpad' on Windows and Mac, or 'Crash Reports' on Linux). You can override this directory by calling `app.setPath('crashDumps', '/path/to/crashes')` before starting the crash reporter.
+
+On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to monitor and report crashes. On Linux, Electron uses [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.
 
 ## Méthodes
 
@@ -37,27 +34,33 @@ Le module `crashReporter` dispose des méthodes suivantes :
 ### `crashReporter.start(options)`
 
 * `options` Object
-  * `companyName` String
   * `submitURL` String - URL à laquelle les rapports de plantage seront envoyés en tant que POST.
   * `productName` String (facultatif) - `app.name`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. La valeur par défaut est `true`.
-  * `ignoreSystemCrashHandler` Boolean (facultatif) - La valeur par défaut est `false`.
-  * `extra` Enregistrement<String, String> (facultatif) - Un objet que vous pouvez définir qui sera envoyé avec le rapport . Seules les propriétés de la chaîne sont envoyées correctement. Les objets imbriqués ne sont pas supportés . Lorsque vous utilisez Windows, les noms et valeurs des propriétés doivent être inférieurs à 64 caractères.
-  * `crashesDirectory` String (facultatif) - Répertoire pour stocker temporairement les rapports de plantage (uniquement utilisé lorsque le reporter de plantage est démarré via `process.crashReporter.start`).
+  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }` .
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. La valeur par défaut est `true`.
+  * `ignoreSystemCrashHandler` Boolean (optional) - If true, crashes generated in the main process will not be forwarded to the system crash handler. Par défaut la valeur est `false`.
+  * `rateLimit` Boolean (optional) _macOS_ _Windows_ - If true, limit the number of crashes uploaded to 1/hour. Par défaut la valeur est `false`.
+  * `compress` Boolean (optional) _macOS_ _Windows_ - If true, crash reports will be compressed and uploaded with `Content-Encoding: gzip`. Not all collection servers support compressed payloads. Par défaut la valeur est `false`.
+  * `extra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with crash reports that are generated in the main process. Only string values are supported. Crashes generated in child processes will not contain these extra parameters to crash reports generated from child processes, call [`addExtraParameter`](#crashreporteraddextraparameterkey-value) from the child process.
+  * `globalExtra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with any crash reports generated in any process. These annotations cannot be changed once the crash reporter has been started. If a key is present in both the global extra parameters and the process-specific extra parameters, then the global one will take precedence. By default, `productName` and the app version are included, as well as the Electron version.
 
-Vous devez appeler cette méthode avant d'utiliser toute autre API `crashReporter` et dans chaque processus (principal/renderer) dont vous souhaitez recueillir les rapports d'accident. Vous pouvez passer différentes options à `crashReporter.start` lors d'un appel de différents processus.
+This method must be called before using any other `crashReporter` APIs. Once initialized this way, the crashpad handler collects crashes from all subsequently created processes. The crash reporter cannot be disabled once started.
 
-**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Par conséquent, pour collecter les rapports de plantage, utilisez `process.crashReporter.start` à la place. Passez les mêmes options que celles ci-dessus avec une autre appelée `crashesDirectory` qui devrait pointer vers un répertoire pour stocker temporairement le crash . Vous pouvez tester cela en appelant `process.crash()` pour faire planter le processus fils.
+This method should be called as early as possible in app startup, preferably before `app.on('ready')`. If the crash reporter is not initialized at the time a renderer process is created, then that renderer process will not be monitored by the crash reporter.
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**Note:** You can test out the crash reporter by generating a crash using `process.crash()`.
 
-**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. Si vous voulez activer le rapport de plantage, initialisant `crashpad` depuis le processus principal en utilisant `crashReporter. tart` est requis quel que soit le processus à partir duquel vous voulez collecter des plantages. Une fois initialisé de cette façon, le gestionnaire de crashpad collecte plantages de tous les processus. Vous devez toujours appeler `crashReporter. tart` depuis le rendu ou le processus fils, sinon les plantages de d'eux seront signalés sans `companyName`, `productName` ou n'importe quelle information `extra`.
+**Note:** If you need to send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter`.
+
+**Note:** Parameters passed in `extra`, `globalExtra` or set with `addExtraParameter` have limits on the length of the keys and values. Key names must be at most 39 bytes long, and values must be no longer than 127 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
+
+**Note:** Calling this method from the renderer process is deprecated.
 
 ### `crashReporter.getLastCrashReport()`
 
-Retourne [`CrashReport`](structures/crash-report.md) :
+Returns [`CrashReport`](structures/crash-report.md) - The date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. Dans le cas où il n'y a pas de rapports téléchargés, `null` est retourné.
 
-Renvoi la date et l'identifiant du dernier crash. Seuls les rapports de plantages qui ont étés téléchargés seront renvoyés ; même si un rapport de plantages est présent sur le disque, il ne sera pas renvoyé avant qu'il soit téléchargé. Dans le cas où il n'y a pas de rapports téléchargés, `null` est retourné.
+**Note:** Calling this method from the renderer process is deprecated.
 
 ### `crashReporter.getUploadedReports()`
 
@@ -65,40 +68,50 @@ Retourne [`CrashReport[]`](structures/crash-report.md) :
 
 Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
+**Note:** Calling this method from the renderer process is deprecated.
+
 ### `crashReporter.getUploadToServer()`
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Note:** This API can only be called from the main process.
+**Note:** Calling this method from the renderer process is deprecated.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean _macOS_ - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean - Whether reports should be submitted to the server.
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Note:** This API can only be called from the main process.
+**Note:** Calling this method from the renderer process is deprecated.
 
-### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
+### `crashReporter.getCrashesDirectory()` _Deprecated_
 
-* `clé` Chaîne - Le paramètre de clé, doit contenir moins de 64 caractères.
-* `valeur` Chaîne - La valeur du paramètre, doit contenir moins de 64 caractères.
+Returns `String` - The directory where crashes are temporarily stored before being uploaded.
 
-Définit un paramètre supplémentaire à envoyer avec le rapport de plantage. Les valeurs spécifiées ici seront envoyées en plus de toutes les valeurs définies via l'option `extra` lorsque `start` a été appelé. Cette API n'est disponible que sur macOS et windows, si vous devez ajouter/mettre à jour des paramètres supplémentaires sur Linux après votre premier appel à `start` vous pouvez appeler à nouveau `start` avec les options `extra` mises à jour.
+**Note:** This method is deprecated, use `app.getPath('crashDumps')` instead.
 
-### `crashReporter.removeExtraParameter(key)` _macOS_ _Windows_
+### `crashReporter.addExtraParameter(key, value)`
 
-* `clé` Chaîne - Le paramètre de clé, doit contenir moins de 64 caractères.
+* `key` String - Parameter key, must be no longer than 39 bytes.
+* `value` String - Parameter value, must be no longer than 127 bytes.
 
-Supprime un paramètre supplémentaire de l'ensemble de paramètres courant afin qu'il ne soit pas envoyé avec le rapport de plantage.
+Définit un paramètre supplémentaire à envoyer avec le rapport de plantage. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called.
+
+Parameters added in this fashion (or via the `extra` parameter to `crashReporter.start`) are specific to the calling process. Adding extra parameters in the main process will not cause those parameters to be sent along with crashes from renderer or other child processes. Similarly, adding extra parameters in a renderer process will not result in those parameters being sent with crashes that occur in other renderer processes or in the main process.
+
+**Note:** Parameters have limits on the length of the keys and values. Key names must be no longer than 39 bytes, and values must be no longer than 20320 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
+
+**Note:** On linux values that are longer than 127 bytes will be chunked into multiple keys, each 127 bytes in length.  E.g. `addExtraParameter('foo', 'a'.repeat(130))` will result in two chunked keys `foo__1` and `foo__2`, the first will contain the first 127 bytes and the second will contain the remaining 3 bytes.  On your crash reporting backend you should stitch together keys in this format.
+
+### `crashReporter.removeExtraParameter(key)`
+
+* `key` String - Parameter key, must be no longer than 39 bytes.
+
+Remove a extra parameter from the current set of parameters. Future crashes will not include this parameter.
 
 ### `crashReporter.getParameters()`
 
-Voir tous les paramètres actuels passés au rapport de plantage.
-
-### `crashReporter.getCrashesDirectory()`
-
-Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+Returns `Record<String, String>` - The current 'extra' parameters of the crash reporter.
 
 ## Payload du Crash Report
 

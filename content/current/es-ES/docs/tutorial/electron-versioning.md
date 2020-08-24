@@ -70,7 +70,7 @@ Los desarrolladores quieren saber cuáles publicaciones son _seguras_. Hasta car
 * Usar `~2.0.0` para admitir solo arreglo relacionados con la estabilidad o seguridad de su publicación `2.0.0`.
 * Use `^2.0.0` para admitir características no frágiles y _razonablemente estables_ que trabajen tanto en seguridad como en arreglo de errores.
 
-Lo que es importante del segundo punto es que las aplicaciones que usan `^` aún deben ser capaces de esperar cierto nivel de estabilidad. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+Lo que es importante del segundo punto es que las aplicaciones que usan `^` aún deben ser capaces de esperar cierto nivel de estabilidad. Para lograr esto, semver le permite a _identificador pre-lanzamiento_ indicar que una versión particular no es _segura_ o _estable_ todavía.
 
 Sin importar lo que elija, periódicamente tendrá que golpear su versión en su `package.json` como cambios que son un hecho en la vida útil de Chromium.
 
@@ -85,7 +85,7 @@ El proceso es el siguiente:
 
 Específicamente, lo anterior significa:
 
-1. Admitir cambios no-rompibles de la API antes de la semana 3 en el ciclo beta está bien, incluso si esos cambios tienen el potencial de causar efectos secundarios moderados
+1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
 3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
 
@@ -133,7 +133,7 @@ Buscamos aumentar la claridad en todos los niveles del proceso de actualización
 * Los commits que resultarían en un **minor** sember deben empezar con `feat:`.
 * Los commits que resultarían en un **patch** semver deben empezar con `fix:`.
 
-* Permitimos el aplastamiento de commits, siempre que el mensaje aplastado se adhiera al formato de mensaje anterior.
+* We allow squashing of commits, provided that the squashed message adheres to the above message format.
 * Es aceptable que algunos compromisos en una solicitud de pull no incluyan un prefijo semántico, siempre que el título de pull request contenga un mensaje semántico significativo.
 
 # Versioned `master`

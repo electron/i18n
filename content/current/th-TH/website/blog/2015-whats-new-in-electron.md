@@ -52,7 +52,7 @@ After the Google Summer of Code we have merged patches by [@hokein](https://gith
 
 Related issues: [electron/electron#2677](https://github.com/electron/electron/pull/2677), [electron/electron#1935](https://github.com/electron/electron/pull/1935), [electron/electron#1532](https://github.com/electron/electron/pull/1532), [electron/electron#805](https://github.com/electron/electron/issues/805), [electron/electron#1669](https://github.com/electron/electron/pull/1669), [electron/electron#1835](https://github.com/electron/electron/pull/1835).
 
-## Atom
+## อะตอม (Automatic Translation)
 
 Atom has now upgraded to Electron `v0.30.6` running Chrome 44. An upgrade to `v0.33.0` is in progress on [atom/atom#8779](https://github.com/atom/atom/pull/8779).
 

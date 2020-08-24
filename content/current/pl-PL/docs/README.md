@@ -84,7 +84,6 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * Wydania Electrona & Developerski Feedback
   * [Polityka Wersjonowania](tutorial/electron-versioning.md)
   * [Oś czasu poszczególnych wydań](tutorial/electron-timelines.md)
-  * [Program Feedbacku Aplikacji](tutorial/app-feedback-program.md)
 * [Szczegółowo: Pakowanie Kodu Źródłowego z asar](tutorial/application-packaging.md)
   * [Generowanie Archiwów asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Używanie Archiwów asar](tutorial/application-packaging.md#using-asar-archives)

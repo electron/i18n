@@ -11,15 +11,12 @@ const { BrowserWindow } = require('electron')
 // レンダラープロセスからは `remote` を使用します。
 // const { BrowserWindow } = require('electron').remote
 
-let win = new BrowserWindow({ width: 800, height: 600 })
-win.on('closed', () => {
-  win = null
-})
+const win = new BrowserWindow({ width: 800, height: 600 })
 
-// リモートURLをロード
+// Load a remote URL
 win.loadURL('https://github.com')
 
-// または、ローカルファイルをロード
+// Or load a local HTML file
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -141,7 +138,7 @@ child.once('ready-to-show', () => {
   * `fullscreenable` Boolean (任意) - ウインドウをフルスクリーンモードにすることができるかどうか。 macOSでは、さらに、最大化/ズームボタンが、フルスクリーンモードまたはウインドウ最大化に切り替わるかどうか。 省略値は `true` です。
   * `simpleFullscreen` Boolean (任意) - macOS で Lion より前のフルスクリーンを使用します。 省略値は、`false` です。
   * `skipTaskbar` Boolean (任意) - ウインドウをタスクバーに表示するかどうか。 省略値は `false` です。
-  * `kiosk` Boolean (optional) - キオスクモード。 省略値は、`false` です。
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. 省略値は、`false` です。
   * `title` String (任意) - デフォルトのウインドウタイトル。 省略値は `"Electron"` です。 HTML タグの `<title>` が `loadURL()` でロードされた HTML ファイル内で定義されている場合、このプロパティは無視されます。
   * `icon` ([NativeImage](native-image.md) | String) (任意) - ウインドウのアイコン。 Windowsでは、最高の視覚効果を得るためには、`ICO` アイコンを使うことを推奨します。未定義のままにすることもできますが、その場合、実行可能ファイルのアイコンが使われます。
   * `show` Boolean (任意) - 生成時にウインドウを表示するかどうか。 省略値は `true` です。
@@ -156,7 +153,7 @@ child.once('ready-to-show', () => {
   * `backgroundColor` String (任意) - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にセットすれば #AARRGGBB 形式のアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
   * `hasShadow` Boolean (任意) - ウインドウに影を付けるかどうか。 省略値は `true` です。
   * `opacity` Number (任意) - ウインドウの初期透明度を 0.0 (完全に透明) から 1.0 (完全に不透明) の間で設定します。 これは Windows と macOS でのみ実装されています。
-  * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマの使用を強制します。いくつかの GTK+3 デスクトップ環境でしか動作しません。 省略値は、`false` です。
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. 省略値は、`false` です。
   * `transparent` Boolean (任意) - ウインドウを [透明](frameless-window.md#transparent-window) にします。 省略値は、`false` です。 Windows では、ウィンドウがフレームレスでない限り機能しません。
   * `type` String (任意) - ウインドウのタイプで、省略すると通常のウインドウになります。 詳しくは後述します。
   * `titleBarStyle` String (任意) - ウインドウタイトルバーのスタイル。 省略値は `default` です。 以下は取りうる値です。
@@ -180,7 +177,7 @@ child.once('ready-to-show', () => {
     * `enableRemoteModule` Boolean (任意) - [`remote`](remote.md) モジュールを有効にするかどうか。 省略値は `true` です。
     * `session` [Session](session.md#class-session) (任意) - ページで使用されるセッションを設定します。 Session オブジェクトを直接引き渡す代わりに、パーティション文字列を受け付ける `partition` オプションを使用することを選択することもできます。 `session` と `partition` の両方が指定されたときは、`session` が優先されます。 省略値は、既定のセッションです。
     * `partition` String (任意) - セッションのパーティション文字列に従って、ページで使用されるセッションを設定します。 `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 省略値は、既定のセッションです。
-    * `affinity` String (任意) - 指定されると、同じ `affinity` のウェブページは同じレンダラープロセス内で実行します。 レンダラープロセスを再利用することにより、`preload`、`sandbox`、`nodeIntegration` などの異なる値を指定した場合でも、特定の `webPreferences` オプションがウェブページ間で共有されることに注意してください。 したがって、同じ `affinity` を持つウェブページに対しては、全く同じ `webPreferences` を使用することをお勧めします。 _このプロパティは実験的機能です_
+    * `affinity` String (任意) - 指定されると、同じ `affinity` のウェブページは同じレンダラープロセス内で実行します。 レンダラープロセスを再利用することにより、`preload`、`sandbox`、`nodeIntegration` などの異なる値を指定した場合でも、特定の `webPreferences` オプションがウェブページ間で共有されることに注意してください。 したがって、同じ `affinity` を持つウェブページに対しては、全く同じ `webPreferences` を使用することをお勧めします。 _Deprecated_
     * `zoomFactor` Number (任意) - ページの既定のズーム倍率で、`3.0` は `300%` を表します。 省略値は `1.0` です。
     * `javascript` Boolean (任意) - JavaScript サポートを有効にします。 省略値は `true` です。
     * `webSecurity` Boolean (任意) - `false` のとき、同一オリジンポリシー (通常、テスト用Webサイトを使用します) が無効になり、ユーザによって設定されない場合、`allowRunningInsecureContent` が `true` に設定されます。 省略値は `true` です。
@@ -207,6 +204,7 @@ child.once('ready-to-show', () => {
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は `false` 。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
     * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されているコンテキストは、依然として `document` と `window` のグローバル変数にフルアクセスできますが、独自のJavaScriptの組み込みコマンドのセット (`Array`、`Object`、`JSON` など) を使用し、ロードされたページによってグローバル環境に加えられたいかなる変更からも分離されます。 Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、潜在的に信頼できないリモートコンテンツをロードする際、ロードされたコンテンツが `preload` スクリプトや使用されているElectron APIを悪用することができないようにするときに使用する必要があります。 このオプションは、[Chromeのコンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment)で使用されているのと同じ手法を使用します。 Consoleタブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスすることができます。
+    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`.  The default is `false`. In Electron 12, the default will be changed to `true`. _Deprecated_
     * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 現在、これは実験的な機能です。
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は `false` 。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
     * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。少量のデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
@@ -217,7 +215,13 @@ child.once('ready-to-show', () => {
     * `autoplayPolicy` String (任意) - ウインドウ内のコンテンツに適用される自動再生ポリシーで、`no-user-gesture-required`、`user-gesture-required`、`document-user-activation-required` にできます。 省略値は `no-user-gesture-required` です。
     * `disableHtmlFullscreenWindowResize` Boolean (任意) - HTML フルスクリーンになった時にウィンドウのサイズ変更を禁止するかどうか。 省略値は `false` です。
     * `accessibleTitle` String (任意) - スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトル文字列。 この文字列はユーザに直接表示されません。
-    * `spellcheck` Boolean (任意) - 組み込みスペルチェックを有効にするかどうか。 省略値は、`false` です。
+    * `spellcheck` Boolean (任意) - 組み込みスペルチェックを有効にするかどうか。 省略値は `true` です。
+    * `enableWebSQL` Boolean (任意) - [WebSQL API](https://www.w3.org/TR/webdatabase/) を有効にするかどうか。 省略値は `true` です。
+    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
+      * `none` - Disables code caching
+      * `code` - Heuristic based code caching
+      * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
+      * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
@@ -484,7 +488,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 戻り値 `BrowserWindow` - 指定された `id` のウインドウ。
 
-#### `BrowserWindow.addExtension(path)`
+#### `BrowserWindow.addExtension(path)` _Deprecated_
 
 * `path` String
 
@@ -494,7 +498,9 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-#### `BrowserWindow.removeExtension(name)`
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+
+#### `BrowserWindow.removeExtension(name)` _Deprecated_
 
 * `name` String
 
@@ -502,13 +508,17 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-#### `BrowserWindow.getExtensions()`
+**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+
+#### `BrowserWindow.getExtensions()` _Deprecated_
 
 戻り値 `Record<String, ExtensionInfo>` - キーは拡張機能の名前で、それぞれの値は、`name` と `version` プロパティを含むObjectです。
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-#### `BrowserWindow.addDevToolsExtension(path)`
+**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+
+#### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
 * `path` String
 
@@ -520,7 +530,9 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-#### `BrowserWindow.removeDevToolsExtension(name)`
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+
+#### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
 * `name` String
 
@@ -528,7 +540,9 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-#### `BrowserWindow.getDevToolsExtensions()`
+**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+
+#### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
 戻り値 `Record<string, ExtensionInfo>` - キーは拡張機能の名前で、それぞれの値は、`name` と `version` プロパティを含むObjectです。
 
@@ -542,6 +556,8 @@ console.log(installed)
 ```
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
+
+**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 ### インスタンスプロパティ
 
@@ -562,13 +578,57 @@ win.loadURL('https://github.com')
 
 #### `win.id` _読み出し専用_
 
-`Integer` 型のプロパティです。そのウインドウの一意な ID を表します。
+`Integer` 型のプロパティです。そのウインドウの一意な ID を表します。 Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
 
 #### `win.autoHideMenuBar`
 
 ウインドウがユーザーによって手動で最小化できるかどうかを決定する `Boolean` 型のプロパティ。 一度設定されると、メニューバーはユーザが単独で `Alt` キーを押したときのみに表示されます。
 
 メニューバーが既に表示されている場合、このプロパティを `true` にセットしてもすぐに非表示にはなりません。
+
+#### `win.simpleFullScreen`
+
+A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.
+
+#### `win.fullScreen`
+
+A `Boolean` property that determines whether the window is in fullscreen mode.
+
+#### `win.visibleOnAllWorkspaces`
+
+A `Boolean` property that determines whether the window is visible on all workspaces.
+
+**Note:** Always returns false on Windows.
+
+#### `win.shadow`
+
+A `Boolean` property that determines whether the window has a shadow.
+
+#### `win.menuBarVisible` _Windows_ _Linux_
+
+A `Boolean` property that determines whether the menu bar should be visible.
+
+**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+
+#### `win.kiosk`
+
+A `Boolean` property that determines whether the window is in kiosk mode.
+
+#### `win.documentEdited` _macOS_
+
+A `Boolean` property that specifies whether the window’s document has been edited.
+
+The icon in title bar will become gray when set to `true`.
+
+#### `win.representedFilename` _macOS_
+
+A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+
+#### `win.title`
+
+A `String` property that determines the title of the native window.
+
+**Note:** The title of the web page can be different from the title of the native window.
 
 #### `win.minimizable`
 
@@ -604,7 +664,7 @@ Linux ではセッターは何もしませんが、ゲッターは `true` を返
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 省略値は `false` です。
+ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 既定値は `false` です。
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -715,7 +775,7 @@ Menu.setApplicationMenu(menu)
 
 簡易フルスクリーンモードに設定したり、解除したりします。
 
-Mac OS X Lion (10.7) より前のバージョンで見られる簡易フルスクリーンモードはネイティブのフルスクリーン動作をエミュレートします。
+Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
 
 #### `win.isSimpleFullScreen()` _macOS_
 
@@ -725,16 +785,15 @@ Mac OS X Lion (10.7) より前のバージョンで見られる簡易フルス�
 
 Returns `Boolean` - ウィンドウが通常の状態 (最大化されていない、最小化されていない、フルスクリーンモードではない) かどうか。
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_
+#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_ _Linux_
 
 * `aspectRatio` Float - コンテンツビューの一部を維持するためのアスペクト比。
-* `extraSize` [Size](structures/size.md) (任意) - アスペクト比を維持する際に含まれない追加のサイズ。
+ * `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
 
 これはウインドウのアスペクト比を維持します。 ピクセルで指定した追加のサイズによって、開発者は、アスペクト比の計算に含まれないスペースを確保することができます。 このAPIはウインドウのサイズとそのコンテンツのサイズの差異も考慮しています。
 
-HDビデオプレーヤーと関連したコントロールを持つ通常のウインドウを考えてみましょう。 ひょっとすると、左端に15ピクセルのコントロール、右端に25ピクセルのコントロール、プレーヤーの下部に50ピクセルのコントロールがあるかもしれません。 プレーヤー内で、16:9のアスペクト比 (HD @1920x1280の標準的なアスペクト比) を維持するためには、この関数を16/9と[ 40, 50 ]の引数で呼び出します。 2番目の引数は、追加の幅と高さがコンテンツビューの中に収まるかを気にしません。それらはただ存在しているだけです。 全体のコンテンツビュー内にある余分な幅と高さの領域を単純に足し合わせます。
-
-`0` の値でこの関数を呼ぶと、以前に設定したアスペクト比が削除されます。
+HDビデオプレーヤーと関連したコントロールを持つ通常のウインドウを考えてみましょう。 ひょっとすると、左端に15ピクセルのコントロール、右端に25ピクセルのコントロール、プレーヤーの下部に50ピクセルのコントロールがあるかもしれません。 In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
+{ width: 40, height: 50 }. 2番目の引数は、追加の幅と高さがコンテンツビューの中に収まるかを気にしません。それらはただ存在しているだけです。 全体のコンテンツビュー内にある余分な幅と高さの領域を単純に足し合わせます。
 
 #### `win.setBackgroundColor(backgroundColor)`
 
@@ -778,6 +837,10 @@ console.log(win.getBounds())
 
 戻り値 [`Rectangle`](structures/rectangle.md) - ウインドウの `bounds` が `Object` になったもの。
 
+#### `win.getBackgroundColor()`
+
+Returns `String` - Gets the background color of the window. [`backgroundColor` 設定](#setting-backgroundcolor) を参照してください。
+
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
@@ -803,7 +866,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 #### `win.isEnabled()`
 
-戻り値 Boolean - ウインドウが有効化されているかどうか。
+Returns `Boolean` - whether the window is enabled.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -855,15 +918,11 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 * `resizable` Boolean
 
-ウインドウがユーザーによって手動でサイズを変更できるかどうかを設定します。
-
-**[非推奨](modernization/property-updates.md)**
+ウインドウがユーザによって手動でサイズ変更できるかどうかを設定します。
 
 #### `win.isResizable()`
 
-戻り値 `Boolean` - ウインドウがユーザーによって手動でサイズを変更できるかどうか。
-
-**[非推奨](modernization/property-updates.md)**
+戻り値 `Boolean` - ウインドウがユーザによって手動でサイズ変更できるかどうか。
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
@@ -871,15 +930,11 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 ウインドウがユーザーによって手動で移動できるかどうかを設定します。 Linux では何もしません。
 
-**[非推奨](modernization/property-updates.md)**
-
 #### `win.isMovable()` _macOS_ _Windows_
 
 戻り値 `Boolean` - ウインドウがユーザーによって移動できるかどうか。
 
 Linuxでは常に `true` を返します。
-
-**[非推奨](modernization/property-updates.md)**
 
 #### `win.setMinimizable(minimizable)` _macOS_ _Windows_
 
@@ -887,15 +942,11 @@ Linuxでは常に `true` を返します。
 
 ウインドウがユーザーによって手動で最小化できるかどうかを設定します。 Linux では何もしません。
 
-**[非推奨](modernization/property-updates.md)**
-
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-戻り値 `Boolean` - ウインドウがユーザーによって手動で最小化できるかどうか
+戻り値 `Boolean` - ウインドウがユーザによって手動で最小化できるかどうか。
 
 Linuxでは常に `true` を返します。
-
-**[非推奨](modernization/property-updates.md)**
 
 #### `win.setMaximizable(maximizable)` _macOS_ _Windows_
 
@@ -903,15 +954,11 @@ Linuxでは常に `true` を返します。
 
 ウインドウがユーザーによって手動で最大化できるかどうかを設定します。 Linux では何もしません。
 
-**[非推奨](modernization/property-updates.md)**
-
 #### `win.isMaximizable()` _macOS_ _Windows_
 
 戻り値 `Boolean` - ウインドウがユーザーによって手動で最大化できるかどうか。
 
 Linuxでは常に `true` を返します。
-
-**[非推奨](modernization/property-updates.md)**
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -919,13 +966,9 @@ Linuxでは常に `true` を返します。
 
 ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるか、ウインドウを最大化するかを設定します。
 
-**[非推奨](modernization/property-updates.md)**
-
 #### `win.isFullScreenable()`
 
-戻り値 `Boolean` - ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるか、ウインドウを最大化するか。
-
-**[非推奨](modernization/property-updates.md)**
+戻り値 `Boolean` - ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるのか、それともウインドウを最大化するのか。
 
 #### `win.setClosable(closable)` _macOS_ _Windows_
 
@@ -933,15 +976,11 @@ Linuxでは常に `true` を返します。
 
 ウインドウがユーザーによって手動で閉じられるかどうかを設定します。 Linux では何もしません。
 
-**[非推奨](modernization/property-updates.md)**
-
 #### `win.isClosable()` _macOS_ _Windows_
 
 戻り値 `Boolean` - ウインドウをユーザーが手動で閉じられるかどうか。
 
 Linuxでは常に `true` を返します。
-
-**[非推奨](modernization/property-updates.md)**
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
@@ -1024,7 +1063,7 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-キオスクモードに入ったり、出たりします。
+Enters or leaves kiosk mode.
 
 #### `win.isKiosk()`
 
@@ -1288,29 +1327,23 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 メニューバーが既に表示されている場合、`setAutoHideMenuBar(true)` を呼び出してもすぐに非表示にはなりません。
 
-**[非推奨](modernization/property-updates.md)**
-
 #### `win.isMenuBarAutoHide()`
 
 戻り値 `Boolean` - メニューバーを自動的に非表示にするかどうか。
-
-**[非推奨](modernization/property-updates.md)**
 
 #### `win.setMenuBarVisibility(visible)` _Windows_ _Linux_
 
 * `visible` Boolean
 
-メニューバーを表示するかどうかを設定します。 メニューバーが自動的に非表示にされている場合でも、ユーザは単独で `Alt` キーを押下することで、依然としてメニューバーを表示させることができます。
+メニューバーを表示するかどうかを設定します。 メニューバーが自動的に非表示にされている場合でも、ユーザが単に `Alt` キーを押下すれば、依然としてメニューバーを表示させることができます。
 
 #### `win.isMenuBarVisible()`
 
 戻り値 `Boolean` - メニューバーを表示しているかどうか。
 
-#### `win.setVisibleOnAllWorkspaces(visible[, options])`
+#### `win.setVisibleOnAllWorkspaces(visible)`
 
 * `visible` Boolean
-* `options` Object (任意)
-  * `visibleOnFullScreen` Boolean (任意) _macOS_ - ウインドウをフルスクリーンウィンドウの上でも表示するかどうかを設定します _非推奨_
 
 ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 

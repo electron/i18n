@@ -51,13 +51,15 @@ Las opciones no respaldadas son:
 
 ### `GOOGLE_API_KEY`
 
-Usted puede proveer una clave de API para hacer solicitudes al servicio web de geocodificación de Google. Para hacer esto, coloque el siguiente código en el archivo del proceso principal, antes de abrir cualquier ventana de navegador que hará solicitudes de geocodificación:
+Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'TU_CLAVE_AQUI'
 ```
 
-Para instrucciones sobre cómo adquirir una clave de Google API, visite [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Por defecto, una clave API de Google recién generada podría no funcionar al hacer solicitudes geocoding. Para habilitar las solicitudes de geocodificación., visite [esta página](https://developers.google.com/maps/documentation/geocoding/get-api-key).
+By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+
+N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
 ### `ELECTRON_NO_ASAR`
 
@@ -79,7 +81,7 @@ No utilizar la barra de menú global en Linux.
 
 Set the trash implementation on Linux. Default is `gio`.
 
-Options:
+Opciones:
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -115,5 +117,13 @@ Esta variable de entorno no funcionará si se inicia el `crashReporter`.
 Cuando corre desde el paquete `electron`, esta variable dice al comando `electron` para usar la instancia especificada del constructor de Electron en lugar de uno descargado por `npm install`. Uso:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```
+
+## Establecido por Electron
+
+Electron define algunas variables en su entorno en el momento de ejecución.
+
+### `ORIGINAL_XDG_CURRENT_DESKTOP`
+
+Esta variable es establecida con al valor de `XDG_CURRENT_DESKTOP` con el que originalmente tu aplicación fue lanzada.  A veces, Electron modifica el valor de `XDG_CURRENT_DESKTOP` para afectar otra lógica dentro de Chromium, así que si quieres acceder al valor original _original_ en su lugar deberías buscar esta variable de entorno.

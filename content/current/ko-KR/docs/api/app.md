@@ -29,7 +29,7 @@ Returns:
 
 * `launchInfo` unknown _macOS_
 
-Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. macOS에서는 알림 센터를 통해 앱이 시작된 경우 `launchInfo`에 앱을 여는데 사용된 `NSUserNotification`의 `userInfo`가 할당됩니다. `app.isReady()`를 사용해서 event가 해제되었는지 확인할 수 있습니다.
+Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
 ### 이벤트: 'window-all-closed'
 
@@ -45,7 +45,7 @@ Returns:
 
 Emitted before the application starts closing its windows. `event.preventDefault()`를 호출하면 기본 동작의 수행 (애플리케이션 종료) 을 막습니다.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**참고:** 만약 어플리케이션이 `autoUpdater.quitAndInstall()`에 의해 종료되는 경우 모든 윈도우에서 `close`이벤트를 발생한 *후* `before-quit` 가 발생되고 윈도우를 닫습니다.
 
 **참고**: Window 운영체제에서는 시스템 종료, 재시작 또는 로그아웃으로 앱이 종료되는 경우 해당 이벤트가 발생하지 않습니다.
 
@@ -55,7 +55,7 @@ Returns:
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitted when all windows have been closed and the application will quit. `event.preventDefault()`를 호출하면 기본 동작의 수행 (애플리케이션 종료) 을 막습니다.
 
 `will-quit` 와 `window-all-closed` 이벤트들의 차이점에 대해서는 `window-all-closed`이벤트 설명을 참조하세요.
 
@@ -154,7 +154,7 @@ Returns:
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
 * `userInfo` unknown - 활동에 의해 저장된 앱별 상태를 포함합니다.
 
-[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)가 다른 기기에서 재시작될 때 발생합니다. 송신된 정보를 업데이트할 필요가 있다면, 즉시 `event.preventDefault()`를 호출해주십시오. 그리고, 새 `userInfo` 딕셔너리를 구성하여, `app.updateCurrentActivity()`를 시의적절하게 호출해주십시오. 그렇지 않으면 명령이 실패하여, `continue-activity-error` 가 호출됩니다.
+[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)가 다른 기기에서 재시작될 때 발생합니다. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. 그렇지 않으면 명령이 실패하여, `continue-activity-error` 가 호출됩니다.
 
 ### 이벤트: 'new-window-for-tab' _macOS_
 
@@ -308,6 +308,24 @@ Returns:
 
 `webContents`의 렌더러 프로세스가 충돌하거나 종료될 때 발생합니다.
 
+#### Event: 'render-process-gone'
+
+Returns:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `details` Object
+  * `reason` String - The reason the render process is gone.  가능한 값:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failure` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+
+Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+
 ### 이벤트: 'accessibility-support-changed' _macOS_ _Windows_
 
 Returns:
@@ -406,16 +424,6 @@ Returns:
 
 `webContents`의 렌더러 프로세스에서 `remote.getCurrentWebContents()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
-### 이벤트: 'remote-get-guest-web-contents'
-
-Returns:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `guestWebContents` [WebContents](web-contents.md)
-
-`webContents`의 렌더러 프로세스에서 `<webview>.getWebContents()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
-
 ## 메소드
 
 `app` 객체에서 사용할 수 있는 메서드입니다:
@@ -461,15 +469,20 @@ app.exit(0)
 
 ### `app.isReady()`
 
-`Boolean`을 반환 - 일렉트론이 초기화를 끝냈으면 `true`를, 그렇지 않으면 `false`를 반환합니다.
+`Boolean`을 반환 - 일렉트론이 초기화를 끝냈으면 `true`를, 그렇지 않으면 `false`를 반환합니다. See also `app.whenReady()`.
 
 ### `app.whenReady()`
 
 일렉트론이 초기화될 때 이행(fulfilled)되는 `Promise<void>`를 반환합니다. `app.isReady()`를 확인하고 앱이 준비되지 않았을 때 `ready` 이벤트를 구독하는 작업 대신 편리하게 사용할 수 있습니다.
 
-### `app.focus()`
+### `app.focus([options])`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+* `options` Object (optional)
+  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
+
+리눅스에서는 눈에 보이는 최상단의 윈도우에 포커스를 줍니다. MacOS에서는 해당 어플리케이션을 active 앱으로 만듭니다. Windows에서는 어플리케이션 중에 최상단 window에 포커스를 줍니다.
+
+You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macOS_
 
@@ -481,11 +494,11 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.setAppLogsPath([path])`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (선택) - 로그를 저장하기 위한 사용자 경로. 절대경로여야 함.
 
 이후에 `app.getPath()` 또는 `app.setPath(pathName, newPath)`를 사용해서 다룰 수 있는, 사용자 앱의 로그를 저장하기 위한 디렉토리를 지정하거나 만듭니다.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on _macOS_, and inside the `userData` directory on _Linux_ and _Windows_.
+`path` 파라미터없이 `app.setAppLogsPath()`를 호출하면, _macOS_에서는 `~/Library/Logs/YourAppName`으로 설정되고, _Linux_와 _Windows_에서는 `userData` 디렉토리 내부로 설정이 됩니다.
 
 ### `app.getAppPath()`
 
@@ -495,7 +508,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 * `name` String - You can request the following paths by the name:
   * `home` User의 home 디렉토리.
-  * `appData` Per-user application data directory, which by default points to:
+  * `appData` 사용자별 어플리케이션 데이터 디렉토리, 기본 값은 아래와 같다.
     * Windows에서 `%APPDATA%`
     * Linux에서 `$XDG_CONFIG_HOME` 또는 `~/.config`
     * macOS에서 `~/Library/Application Support`
@@ -512,12 +525,13 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
   * `videos` 사용자의 videos 폴더 경로.
   * `logs` 사용자의 log 폴더 경로.
   * `pepperFlashSystemPlugin` Pepper Flash 플러그인의 시스템 버전에 대한 전체 경로.
+  * `crashDumps` Directory where crash dumps are stored.
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+Returns `String` - `name`과 연관된 디렉토리 또는 파일에 대한 경로입니다. 실패시, `Error`가 throw 됩니다.
 
 If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
-### `app.getFileIcon(path[, options], callback)`
+### `app.getFileIcon(path[, options])`
 
 * `path` String
 * `options` Object (optional)
@@ -542,23 +556,21 @@ _Linux_와 _macOS_에서 아이콘은 mime type과 관련된 어플리케이션�
 * PrinterInfo Object
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
+`name`과 연결된 정의된 디렉터리 또는 파일로 `path` override 합니다. 해당 경로가 존재하지 않으면, `Error`를 throw 합니다. 이 경우 디렉터리(directory)는 `fs.mkdirSync` 또는 이와 유사하게 작성해야 합니다.
 
-You can only override paths of a `name` defined in `app.getPath`.
+`app.getPath에`정의된 `name`으로만 경로만 재정의할 수 있습니다.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+기본적으로 웹 페이지의 쿠키와 캐시는 사용자 데이터 아래에 `userData` 디렉터리에 저장됩니다. 이 위치를 변경하려면, `app` 모듈의 `ready` 이벤트가 발생되기 전의 `userData` 경로를 override 해야 합니다.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Returns `String` - 로딩된 어플리케이션의 버젼 어플리케이션의 `package.json`에 버전이 없는 경우 실행 파일 또는 현재 번들의 버전이 반환됩니다.
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+Returns `String` - `package.json `파일에 정의된 현재 어플리케이션의 이름.
 
 `package.json`의 `name` 필드는 npm 모듈 명세에 따라 대체로 짧은 소문자 문자열입니다. 애플리케이션 이름에 대문자를 포함하고 싶다면 `productName` 필드에 값을 설정하세요. 일렉트론을 이 필드의 값을 `name` 필드보다 우선 사용합니다.
-
-**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `app.setName(name)`
 
@@ -568,23 +580,21 @@ Returns `String` - The current application's name, which is the name in the appl
 
 **Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
 
-**[더이상 사용하지 않음](modernization/property-updates.md)**
-
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Returns `String` - 현재 애플리케이션 locale. 가능한 반환 값은 [여기](locales.md)에서 문서화되어 있습니다.
 
 로케일을 설정하려면, [여기](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md)에 쓰여있는 대로 앱 시작 시에 명령줄 switch를 사용하는 것이 좋습니다.
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**참고:** 패키징 된 앱을 배포할 때는 `locales` 폴더도 포함해야 합니다.
 
-**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+**참고:** Windows에서는 `ready` 이벤트가 호출된 뒤에 호출해야 합니다.
 
 ### `app.getLocaleCountryCode()`
 
 Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
-**Note:** When unable to detect locale country code, it returns empty string.
+**참고:** 국가 로캘 코드를 감지할 수 없으면 빈 문자열을 반환합니다.
 
 ### `app.addRecentDocument(path)` _macOS_ _Windows_
 
@@ -771,7 +781,7 @@ if (!gotTheLock) {
   })
 
   // myWindow를 만들고 나머지 과정을 처리한다.
-  app.on('ready', () => {
+  app.whenReady().then(() => {
   })
 }
 ```
@@ -819,6 +829,17 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 [애플리케이션 유저 모델 ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)를 `id`로 변경합니다.
 
+### `app.setActivationPolicy(policy)` _macOS_
+
+* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+
+Sets the activation policy for a given app.
+
+Activation policy types:
+* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
+* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
+* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+
 ### `app.importCertificate(options, callback)` _Linux_
 
 * `options` Object
@@ -837,7 +858,7 @@ This method can only be called before app is ready.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
 
 This method can only be called before app is ready.
 
@@ -855,7 +876,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `infoType` String - `basic` 또는 `complete`.
 
-`Promise<unknown>`를 반환합니다.
+Returns `Promise<unknown>`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
@@ -897,13 +918,9 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
-**[더이상 사용하지 않음](modernization/property-updates.md)**
-
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
 Returns `Integer` - The current value displayed in the counter badge.
-
-**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` _Linux_
 
@@ -956,8 +973,6 @@ app.setLoginItemSettings({
 
 Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-**[더이상 사용하지 않음](modernization/property-updates.md)**
-
 ### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
 
 * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
@@ -967,8 +982,6 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 이 API는 `ready` 이벤트가 발생한 후에 호출해야 합니다.
 
 **주의:** 접근성 트리를 렌더링하는 것은 당신앱의 성능에 중대한 영향을 줄 수 있습니다. 기본으로 활성화하지 마세요.
-
-**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `app.showAboutPanel()`
 
@@ -986,7 +999,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Set the about panel options. 이는 맥OS에서 앱의 `.plist`에 정의된 값을 덮어쓸 것입니다. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
+Set the about panel options. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
 
 만약 `credits`을 설정하지 않았지만 계속해서 앱에 표시하려면 AppKit은 "Credits.html", "Credits.rtf", "Credits.rtfd"의 순서로 NSBundle클래스의 main 메소드에서 리턴된 번들에서 이를 찾는다. 첫번째 파일을 사용하고 만약 없다면 정보 영역을 비어있게 된다. 더 많은 정보는 애플의 [문서](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc)를 확인하세요.
 
@@ -1007,9 +1020,9 @@ Returns `Function` - This function **must** be called once you have finished acc
 ```js
 // 파일 접근을 시작합니다.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 🎉
+// 이제 샌드박스 외부에서 파일에 접근할 수 있습니다 🎉
 
-// Remember to stop accessing the file once you've finished with it.
+// 끝났으면 파일 접근을 중지해야 할 것을 명심하세요.
 stopAccessingSecurityScopedResource()
 ```
 
@@ -1088,7 +1101,7 @@ A [`CommandLine`](./command-line.md) object that allows you to read and manipula
 
 ### `app.dock` _macOS_ _Readonly_
 
-A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
 
 ### `app.isPackaged` _Readonly_
 
@@ -1108,6 +1121,6 @@ This is the user agent that will be used when no user agent is set at the `webCo
 
 ### `app.allowRendererProcessReuse`
 
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `false`.
+A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
 
 The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).

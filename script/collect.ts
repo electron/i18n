@@ -13,7 +13,6 @@ import { execSync } from 'child_process'
 import { Octokit } from '@octokit/rest'
 import { roggy, IResponse as IRoggyResponse } from 'roggy'
 import { generateCrowdinConfig } from '../lib/generate-crowdin-config'
-import * as packageJson from '../package.json'
 const currentEnglishBasePath = path.join(
   __dirname,
   '..',
@@ -36,6 +35,9 @@ interface IResponse {
 }
 
 let release: IResponse
+// This used to share `supportedVersions` between this file,
+// and not use the cached version from package.json.
+let supportedVersions: string[] = []
 
 main().catch((err: Error) => {
   console.log('Something goes wrong. Error: ', err)
@@ -45,8 +47,8 @@ main().catch((err: Error) => {
 async function main() {
   await fetchRelease()
   await getSupportedBranches(release.tag_name)
-  await deleteUnsupportedBranches(packageJson.supportedVersions)
-  await deleteContent(packageJson.supportedVersions)
+  await deleteUnsupportedBranches(supportedVersions)
+  await deleteContent(supportedVersions)
   await fetchAPIDocsFromLatestStableRelease()
   await fetchAPIDocsFromSupportedVersions()
   await fetchApiData()
@@ -80,25 +82,35 @@ async function getSupportedBranches(current: string) {
   const resp = await github.repos.listBranches({
     owner: 'electron',
     repo: 'electron',
+    protected: true,
   })
 
-  const branches = resp.data
-    .filter((branch) => {
-      return (
-        branch.protected &&
-        branch.name.match(/(\d)+-(?:(?:[0-9]+-x$)|(?:x+-y$))/)
-      )
-    })
-    .map((b) => b.name)
+  const releaseBranches = resp.data.filter((branch) => {
+    return branch.name.match(/^(\d)+-(?:(?:[0-9]+-x$)|(?:x+-y$))$/)
+  })
 
   const filtered: Record<string, string> = {}
-  branches.sort().forEach((branch) => (filtered[branch.charAt(0)] = branch))
+  releaseBranches
+    .sort((a, b) => {
+      const aParts = a.name.split('-')
+      const bParts = b.name.split('-')
+      for (let i = 0; i < aParts.length; i += 1) {
+        if (aParts[i] === bParts[i]) continue
+        return parseInt(aParts[i], 10) - parseInt(bParts[i], 10)
+      }
+      return 0
+    })
+    .forEach((branch) => {
+      return (filtered[branch.name.split('-')[0]] = branch.name)
+    })
+
   const filteredBranches = Object.values(filtered)
-    .sort()
+    .sort((a, b) => parseInt(a, 10) - parseInt(b, 10))
     .slice(-NUM_SUPPORTED_VERSIONS)
     .filter((arr) => arr !== currentVersion && arr !== 'current')
 
   writeToPackageJSON('supportedVersions', filteredBranches)
+  supportedVersions = filteredBranches
   console.log('Successfully written `supportedVersions` into package.json')
 }
 
@@ -144,7 +156,7 @@ async function fetchAPIDocsFromLatestStableRelease() {
 async function fetchAPIDocsFromSupportedVersions() {
   console.log('Fetching API docs from supported branches')
 
-  for (const version of packageJson.supportedVersions) {
+  for (const version of supportedVersions) {
     console.log(`  - from electron/electron#${version}`)
     const docs = await roggy(version, {
       owner: 'electron',
@@ -220,7 +232,7 @@ async function fetchTutorialsFromMasterBranch() {
 async function fetchTutorialsFromSupportedBranch() {
   console.log(`Feching tutorial docs from supported branches`)
 
-  for (const version of packageJson.supportedVersions) {
+  for (const version of supportedVersions) {
     console.log(`  - from electron/electron#${version}`)
     const docs = await roggy(version, {
       owner: 'electron',

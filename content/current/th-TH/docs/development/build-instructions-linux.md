@@ -13,26 +13,26 @@
   $ npx @electron/check-python-tls
   ```
 
-  https://c.realme.com/in/checkin Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+  https://c.realme.com/in/checkin หรือแวะที่https://www.python.org/downloads/ สําหรับคําแนะนําโดยละเอียด
 
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Development headers of GTK 3 and libnotify.
+* Node.js. มีหลายวิธีในการติดตั้งโหนด คุณสามารถดาวน์โหลด รหัสแหล่งที่มาจาก[nodejs.org](https://nodejs.org)และรวบรวมมัน Doing so permits installing Node on your own home directory as a standard user. หรือลองที่เก็บข้อมูล เช่น[NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)
+* [clang](https://clang.llvm.org/get_started.html) 3.4 หรือใหม่กว่า
+* หัวการพัฒนาของ GTK 3 และ libnotify
 
-On Ubuntu, install the following libraries:
+On Fedora, install the following libraries:
 
 ```sh
-$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
-                       libnotify-dev libgnome-keyring-dev \
-                       libasound2-dev libcap-dev libcups2-dev libxtst-dev \
-                       libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison python-dbusmock openjdk-8-jre
+$ sudo ฉลาด- ได้รับการติดตั้งสร้างจําเป็น libdbus - 1 - dev libgtk - 3 - dev \
+                       ลิบปลิวเด-
+                       2-dev libcap-dev libcups2-dev - dev - dev \
+                       1000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                       กระทิงหลางไพธอน-dbusmock
 ```
 
-On RHEL / CentOS, install the following libraries:
+On Fedora, install the following libraries:
 
 ```sh
-$ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
+$ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    nss-devel python-dbusmock openjdk-8-jre
@@ -49,56 +49,56 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
 
 Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
-### Cross compilation
+### บังคับการรวบรวม
 
-If you want to build for an `arm` target you should also install the following dependencies:
-
-```sh
-$ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
-                       g++-arm-linux-gnueabihf
-```
-
-Similarly for `arm64`, install the following:
+ถ้าคุณต้องการสร้างเป้าหมาย`แขน`คุณควรติดตั้งต่อไปนี้ อ้าง อิง:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cpu` parameter to `gn gen`:
+ในทํานองเดียวกัน`arm64`ติดตั้งต่อไปนี้:
 
 ```sh
-$ gn gen out/Testing --args='import(...) target_cpu="arm"'
+$ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
+                       g++-aarch64-linux-gnu
+```
+
+และข้ามรวบรวมสําหรับ`แขน`หรือ`ia32`เป้าหมายคุณควรผ่าน `พารามิเตอร์target_cpu` `gn gen`:
+
+```sh
+$ gn gen ออก / ทดสอบ --args ='นําเข้า (...) target_cpu ="แขน"'
 ```
 
 ## สิ่งก่อสร้าง
 
-See [Build Instructions: GN](build-instructions-gn.md)
+ดู [ คำแนะนำในการสร้าง: GN ](build-instructions-gn.md)
 
 ## วิธีแก้ปัญหาเบื้องต้น
 
-### Error While Loading Shared Libraries: libtinfo.so.5
+### ข้อผิดพลาดขณะกําลังโหลดไลบรารีที่ใช้ร่วมกัน: libtinfo.so.5
 
 Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
-$ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
+$ sudo - s / usr / lib / libncurses.so.5 /usr / lib / libtinfo.so.5
 ```
 
-## Advanced topics
+## หัวข้อขั้นสูง
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
-### Using system `clang` instead of downloaded `clang` binaries
+### การใช้`ระบบ clang`แทนไบนารี`clang`ที่ดาวน์โหลด
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
+โดยเริ่มต้นอิเล็กตรอนถูกสร้างขึ้นด้วยการสร้างไว้ล่วงหน้า ไบนารี[`clang`](https://clang.llvm.org/get_started.html)ที่จัดโดย โครงการโครเมียม ถ้าด้วยเหตุผลบางอย่างที่คุณต้องการที่จะสร้างด้วย`clang` ติดตั้งในระบบของคุณ คุณสามารถระบุอาร์กิวเมนต์`clang_base_path`ใน 08/08/2014
 
-For example if you installed `clang` under `/usr/local/bin/clang`:
+ตัวอย่างเช่นถ้าคุณติดตั้ง`clang`ภายใต้`usr / ท้องถิ่น / bin / clang`:
 
 ```sh
-$ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_base_path = "/usr/local/bin"'
+$ gn gen ออก / ทดสอบ --args ='นําเข้า ("/อิเล็กตรอน / สร้าง / args / ทดสอบ gn") clang_base_path = "/ usr / ท้องถิ่น / bin"'
 ```
 
-### Using compilers other than `clang`
+### การใช้คอมไพเลอร์อื่นที่ไม่ใช่`clang`
 
 Building Electron with compilers other than `clang` is not supported.

@@ -84,7 +84,6 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * Electron Sürümleri & Geliştirici geri bildirimi
   * [Sürüm oluşturma ilkesi](tutorial/electron-versioning.md)
   * [Sürüm zaman çizelgeleri](tutorial/electron-timelines.md)
-  * [Uygulama Geri Bildirim Programı](tutorial/app-feedback-program.md)
 * [Asar ile kaynak kodu paketlemek](tutorial/application-packaging.md)
   * [asar Arşivleri Üretmek](tutorial/application-packaging.md#generating-asar-archives)
   * [Arşivleri asar kullanma](tutorial/application-packaging.md#using-asar-archives)

@@ -18,7 +18,7 @@ Electron
 |   ├── development/ - Documentation to aid in developing for and with Electron.
 |   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
 |   ├── images/ - Images used in documentation.
-|   └── tutorial/ - Tutorial documents for various aspects of Electron.
+|   └── допоміжні інструкції/ - Навчальні документи з різних аспектів Electron.
 ├── lib/ - JavaScript/TypeScript source code.
 |   ├── browser/ - Main process initialization code.
 |   |   ├── api/ - API implementation for main process modules.
@@ -81,7 +81,7 @@ Electron
 * **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
 * **node_modules** - Third party node modules used for building.
-* **npm** - Logic for installation of Electron via npm.
+* **npm** - Логіка для встановлення Electron через npm.
 * **out** - Temporary output directory of `ninja`.
 * **script** - Scripts used for development purpose like building, packaging, testing, etc.
 ```diff

@@ -4,20 +4,20 @@ Ang mga debug na simbolo ay nagpapahintulot sa iyo na magkaroon ng mas mabuting 
 
 Tandaan na dahil ang inilathalang mga build ng Electron ay lubos na na-optimize, ang debugging ay hindi palaging madali. Ang debugger ay hindi kayang ipapakita sa iyo ang nilalaman ng lahat ng mga variable at landas ng pagpapatupad ay maaaring mukhang kakaiba dahil sa inlining, hulihang tawag, at iba pang mga pag-optimize ng compiler. Ang tanging workaround ay upang bumuo ng isang hindi na-optimize na lokal na build.
 
-Ang opisyal na simbolong server na URL para sa Electron ay https://electron-symbols.githubapp.com. Hindi mo direktang mabisita ang URL na ito, dapat mong idagdag ito sa landas ng simbolo ng iyong kagamitan sa pag-debug. Sa mga halimbawa sa ibaba, ginagamit ang isang lokal na direktoryo ng cache upang maiwasan ang paulit-ulit na pagkuha ng PDB mula sa server. Palitan ang ` c:\code\symbols` ng isang angkop na direktoryo ng cache sa iyong makina.
+Ang opisyal na simbolong server na URL para sa Electron ay https://symbols.electronjs.org. Hindi mo direktang mabisita ang URL na ito, dapat mong idagdag ito sa landas ng simbolo ng iyong kagamitan sa pag-debug. Sa mga halimbawa sa ibaba, ginagamit ang isang lokal na direktoryo ng cache upang maiwasan ang paulit-ulit na pagkuha ng PDB mula sa server. Palitan ang ` c:\code\symbols` ng isang angkop na direktoryo ng cache sa iyong makina.
 
 ## Pagamit ng Simbolong Server sa Windbg
 
 Ang simbolong landas ng Windbg ay na-configure gamit ang halaga ng string na nalimitahan ng mga asterisk na karakter. Upang magamit lamang ang simbolong server ng Electron, idagdag ang sumusunod na entry sa iyong simbolong landas (**Tandaan:**maaari mong palitan` c:\code\symbols` sa anumang masusulatang direktoryo sa iyong kompyuter, kung gusto mo ng ibang lokasyon para na-download na mga simbolo):
 
 ```powershell
-SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+SRV*c:\code\symbols\*https://symbols.electronjs.org
 ```
 
 Itakda ang string na ito bilang `_NT_SYMBOL_PATH ` sa kapaligiran, gamit ang mga Windbg na menu, o sa pamamagitan ng pag-type ng `sympath` na utos. Kung nais mong makakuha ng mga simbolo mula sa simbolong server ng Microsoft, dapat mong ilista muna ito:
 
 ```powershell
-SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://symbols.electronjs.org
 ```
 
 ## Paggamit ng simbolong server sa Visual Studio

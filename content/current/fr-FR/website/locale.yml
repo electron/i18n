@@ -1,4 +1,4 @@
-tagline: Développez des applications desktop multi-plateformes avec JavaScript, HTML et CSS
+tagline: Développez des applications de bureau multi-plateformes avec JavaScript, HTML et CSS
 nav:
   apps: Apps
   blog: Blog
@@ -88,8 +88,8 @@ releases:
   all_releases: Toutes les versions
   back_to_index: Retour à l'accueil
 electron_is_good:
-  title: Apps users love, built with Electron
-  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
+  title: Applications construites avec Electron que les utilisateurs adorent
+  description: Des milliers d’organisations couvrant toutes les industries utilisent Electron pour construire des logiciels multiplateformes.
 electron_is_easy:
   title: C'est plus facile que vous ne le pensez
   description: Si vous savez développer un site, alors vous savez développer une application desktop. Electron est un framework pour créer des applications natives avec les technologies web comme JavaScript, HTML et CSS. Electron s'occupe de la partie technique pour que vous puissiez vous concentrer sur le cœur de votre application.
@@ -128,12 +128,12 @@ quick_start:
   dive_deeper: Ou allez plus loin en lisant la <a href='/docs'>documentation</a>.
 need_help:
   title: Besoin d'aide ?
-  description: Posez vos questions sur le forum <a href='https://discuss.atom.io/c/electron'>Discuss</a> ou sur notre channel <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Suivez <a href="https://twitter.com/electronjs">@electronjs</a> sur Twitter pour les annonces importantes. Besoin de nous contacter directement ? Envoyez un mail à <a href="mailto:electron@github.com">electron@github.com</a>.
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Langues
 taglines:
   languages: Contenu multilingue de notre fantastique communauté mondiale de développeurs.
-  announcement: Electron vient juste de rejoindre la fondation OpenJS. Voir <a href="/blog/electron-joins-openjsf">l'annonce</a> pour plus d'informations !
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "Aider à traduire"
 footer:
   see_the_faq: Consulter la foire aux questions
@@ -215,6 +215,8 @@ pages:
     description: Le système de gouvernance d'Electron est composé de groupes de travail qui supervisent différents aspects de l'écosystème d'Electron, et d'un groupe de travail administratif s'occupant de résoudre les conflits entre eux.
   '/donors':
     title: Donateurs
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: Premiers pas
   fiddle:

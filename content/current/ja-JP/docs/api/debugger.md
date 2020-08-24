@@ -49,6 +49,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 * `event` Event
 * `method` String - メソッド名。
 * `params` any - リモートデバッグプロトコルの 'parameters' 属性で定義されたイベントパラメータ。
+* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
 
 デバッグ対象で計測イベントが生じる毎に発生します。
 
@@ -68,10 +69,11 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 `webContents` からデバッガーをデタッチします。
 
-#### `debugger.sendCommand(method[, commandParams])`
+#### `debugger.sendCommand(method[, commandParams, sessionId])`
 
 * `method` String - メソッド名。[リモートデバッグプロトコル](https://chromedevtools.github.io/devtools-protocol/)で定義されているいずれかのメソッドになります。
 * `commandParams` any (任意) - リクエストパラメータの JSON オブジェクト。
+* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) message.
 
 戻り値 `Promise<any>` - リモートデバッグプロトコル内のコマンドの説明の 'returns' 属性で定義されたレスポンスで解決されるか、またはコマンドの失敗を示すために拒否されるプロミス。
 

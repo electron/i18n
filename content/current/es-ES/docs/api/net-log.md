@@ -7,7 +7,7 @@ Proceso: [principal](../glossary.md#main-process)</0>
 ```javascript
 const { netLog } = require('electron')
 
-app.on('ready', async () => {
+app.whenReady().then(async () => {
   await netLog.startLogging('/path/to/net-log')
   // After some network events
   const path = await netLog.stopLogging()

@@ -29,7 +29,7 @@ Pagbabalik:
 
 * `launchInfo` unknown _macOS_
 
-Lalabas kapag ang Electron ay tapos ng mag-initialize. Sa macOS, hawak ng `launchinfo` ang `userinfo` ng `NSUserNotification` na ginamit para buksan ang aplikasyon, kung ito ay ini-launch mula sa Notification Center. Maaari mong tawagin ang `app.isReady()` para suriin kung ang event ay nagsimula na.
+Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
 ### Event: 'window-all-closed'
 
@@ -55,7 +55,7 @@ Ibinabalik ang:
 
 * `event` na Pangyayari
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
 Tingnan ang deskripsyon ng event ng `window-all-closed` para sa mga pagkakaiba sa pagitan ng mga event ng `will-quit` at `window-all-closed`.
 
@@ -154,7 +154,7 @@ Ibinabalik ang:
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ay malapit na ipagpatuloy sa isa pang device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ay malapit na ipagpatuloy sa isa pang device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
 ### Event: 'new-window-for-tab' _macOS_
 
@@ -308,6 +308,24 @@ Ibinabalik ang:
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
+#### Event: 'render-process-gone'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
+* `details` Object
+  * `reason` String - The reason the render process is gone.  Posibleng halaga:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failure` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+
+Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+
 ### Event: 'accessibility-support-changed' _macOS_ _Windows_
 
 Ibinabalik ang:
@@ -337,7 +355,7 @@ app.on('session-created', (session) => {
 
 Ibinabalik ang:
 
-* `kaganapan`Kaganapan
+* `kaganapan` Kaganapan
 * `argv` String[] - Isang hanay ng mga argumento sa linya ng command sa ikalawang pagkakataon
 * `workingDirectory` String - Ang working directory ng ikalawang pagkakataon
 
@@ -406,16 +424,6 @@ Ibinabalik ang:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-guest-web-contents'
-
-Ibinabalik ang:
-
-* `kaganapan` Kaganapan
-* `webContents` [WebContents](web-contents.md)
-* `guestWebContents` [WebContents](web-contents.md)
-
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
-
 ## Mga Pamamaraan
 
 Ang `app` na object ay maroong mga sumusunod na mga method:
@@ -461,15 +469,20 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` kung ang Electron ay tapos na sa pagsisimula, `false` kung hindi man.
+Returns `Boolean` - `true` kung ang Electron ay tapos na sa pagsisimula, `false` kung hindi man. See also `app.whenReady()`.
 
 ### `app.whenReady()`
 
 Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
-### `app.focus()`
+### `app.focus([options])`
+
+* `options` Object (optional)
+  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+
+You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macOS_
 
@@ -512,6 +525,7 @@ Returns`String` - Ang kasalukuyang direktoryo ng aplikasyon.
   * `videos` Direktoryo ng mga video para sa gumagamit.
   * `logs` Directory for your app's log folder.
   * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+  * `crashDumps` Directory where crash dumps are stored.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
@@ -524,7 +538,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
   * `size` String
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on _Linux_, 32x32 on _Windows_, unsupported on _macOS_.
+    * `large` - 48x48 sa _Linux_, 32x32 sa _Windows_, hindi suportado sa _macOS_.
 
 Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
 
@@ -558,8 +572,6 @@ Magbabalik ng `String` - Ang pangalan ng kasalukuyang aplikasyon, kung saan ito 
 
 Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Dapat mo ring tukuyin ang karaniwang field ng `productName`, kung saan ito ang buong malalaking titik na pangalan ng iyong aplikasyon, at kung saan ay mas gugustuhin na `name` nang Electron.
 
-**[Deprecated](modernization/property-updates.md)**
-
 ### `app.setName(pangalan)`
 
 * `name` String
@@ -567,8 +579,6 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 Ino-override ang pangalan ng kasalukuyang aplikasyon.
 
 **Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
-
-**[Deprecated](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -679,7 +689,7 @@ Kung ang `categories` ay `null`, ang dati ng naitakda na pasadyang Jump List (ku
 
 **Note:** Kung ang `JumpListCategory` ang bagay ay hindi ang `type` o ang `name` itinakda ang katangian pagkatapos ito ay `type` ay ipinapalagay na `tasks`. Kung ang `name` ang katangian ay itinakda ngunit ang `type` ang katangian ay tinanggal pagkatapos ang `type` ay ipinalagay na `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Kahit na anong pagtatangka na muling idagdag ang isang tinanggal na aytem nang mas maaga pa ay magreresulta na ang buong pasadyang kategorya ay tinanggal na mula sa Jump List. Ang listahan ng mga natanggal na aytem ay maaring makuha gamit ang `app.getJumpListSettings()`.
+**Note:** Ang mga user ay maaaring magtanggal ng mga item mula sa mga pasadyang kategorya, at ang Windows ay hindi pinapayagan na ang tinggal na aytem ay ibalik na muli sa pasadyang kategorya hanggang **after**ang susunod na matagumpay na pagtawag sa `app.setJumpList(categories)`. Kahit na anong pagtatangka na muling idagdag ang isang tinanggal na aytem nang mas maaga pa ay magreresulta na ang buong pasadyang kategorya ay tinanggal na mula sa Jump List. Ang listahan ng mga natanggal na aytem ay maaring makuha gamit ang `app.getJumpListSettings()`.
 
 Narito ang isang napakasimpleng halimbawa ng paggawa ng isang pasadyang Jump List:
 
@@ -771,7 +781,7 @@ if (!gotTheLock) {
   })
 
   // Create myWindow, load the rest of the app, etc...
-  app.on('ready', () => {
+  app.whenReady().then(() => {
   })
 }
 ```
@@ -819,6 +829,17 @@ Ini-update ang kasalukuyang aktibidad kung tumutugma ito`type`, pinagsamasama an
 
 Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) tungo sa `id`.
 
+### `app.setActivationPolicy(policy)` _macOS_
+
+* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+
+Sets the activation policy for a given app.
+
+Activation policy types:
+* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
+* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
+* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+
 ### `app.importCertificate(options, callback)` _Linux_
 
 * `options` Object
@@ -837,7 +858,7 @@ Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
 
 Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
@@ -897,13 +918,9 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Note:** Ang tagalunsad ng Unity ay nangangailangan ng pagkakaroon ng isang file na `.desktop` para gumana, para sa karagdagan impormasyon mangyaring basahin ang [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
-**[Deprecated](modernization/property-updates.md)**
-
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
 Nagbabalik ang `Integer` - Ang kasalukuyang halaga ay ipinapakita sa mga tagabilang ng badge.
-
-**[Deprecated](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` _Linux_
 
@@ -958,8 +975,6 @@ Context | Request Context
 
 Returns `Boolean` - `true` kung ang parating na supota ng Chrome ay pinagana, `false` kung hindi naman. Ang API na ito ay babalik sa `true` kung ang paggamit ng nakatutulong na teknolohiya, tulad ng mga screen reader, ay nakita. Tingnan ang https://www.chrmium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
 
-**[Deprecated](modernization/property-updates.md)**
-
 ### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
 
 * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
@@ -969,8 +984,6 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
-
-**[Deprecated](modernization/property-updates.md)**
 
 ### `app.showAboutPanel()`
 
@@ -988,7 +1001,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-I-set ang mga pagpipilian tungkol sa panel. This will override the values defined in the app's `.plist` file on MacOS. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye. On Linux, values must be set in order to be shown; there are no defaults.
+I-set ang mga pagpipilian tungkol sa panel. This will override the values defined in the app's `.plist` file on macOS. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye. On Linux, values must be set in order to be shown; there are no defaults.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1090,7 +1103,7 @@ A [`CommandLine`](./command-line.md) object that allows you to read and manipula
 
 ### `app.dock` _macOS_ _Readonly_
 
-A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
 
 ### `app.isPackaged` _Readonly_
 
@@ -1110,6 +1123,6 @@ This is the user agent that will be used when no user agent is set at the `webCo
 
 ### `app.allowRendererProcessReuse`
 
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `false`.
+A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
 
 The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).

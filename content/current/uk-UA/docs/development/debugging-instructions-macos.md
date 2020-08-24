@@ -70,7 +70,7 @@ To show the arguments and local variables for the current frame, run `frame vari
 }
 ```
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. Для того, щоб продовжити та зробити крок, запустіть `потім` (або `n`).
 
 ```sh
 (lldb) step

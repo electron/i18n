@@ -26,24 +26,7 @@ Nowe funkcje Node.js są zazwyczaj wdrażane przez aktualizacje silnika V8, dlat
 
 Aby udostępniać dane między stronami internetowymi (procesy renderowania) najlepiej jest użyć HTML5 API, które są dostępne w przeglądarkach. Dobrymi kandydatami są [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage),[`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), i [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Możesz również użyć systemu IPC, wyszczególnionego dla Electronu, aby przechowywać obiekty w głównym procesie jako zmienna globalna, a potem uzyskać do nich dostęp w procesie renderowania za pomocą `remote` property of `electron` module:
-
-```javascript
-//W głównym procesie.
-global.sharedObject = {
-  someProperty: 'default value'
-}
-```
-
-```javascript
-// Na stronie 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
-```
-
-```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
-```
+Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
 ## Okno/pole mojej aplikacji zniknęło po kilku minutach.
 
@@ -84,7 +67,7 @@ Aby to rozwiązać, możesz wyłączyć integrację node w Electronie:
 ```javascript
 //W głównym procesie.
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
   }
@@ -129,7 +112,7 @@ Aby osiągnąć oczekiwany wynik, ustaw właściwość background w konstruktorz
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+const win = new BrowserWindow({
   backgroundColor: '#fff'
 })
 ```

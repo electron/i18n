@@ -23,7 +23,7 @@ You are also impacted if you open any of your windows with the `nativeWindowOpen
 
 ## Mitigation
 
-We've published new versions of Electron which include fixes for  this vulnerability: [`3.0.0-beta.7`](https://github.com/electron/electron/releases/tag/v3.0.0-beta.7), [`2.0.8`](https://github.com/electron/electron/releases/tag/v2.0.8), [`1.8.8`](https://github.com/electron/electron/releases/tag/v1.8.8), and [`1.7.16`](https://github.com/electron/electron/releases/tag/v1.7.16). We urge all Electron developers to update their apps to the latest stable version immediately.
+Ми опублікували нові версії Electron, які містять виправлення для цієї уразливості: [`3.0.0-beta.7`](https://github.com/electron/electron/releases/tag/v3.0.0-beta.7), [`2.0.8`](https://github.com/electron/electron/releases/tag/v2.0.8), [`1.8.8`](https://github.com/electron/electron/releases/tag/v1.8.8), та [`1.7.16`](https://github.com/electron/electron/releases/tag/v1.7.16). We urge all Electron developers to update their apps to the latest stable version immediately.
 
 If for some reason you are unable to upgrade your Electron version, you can protect your app by blanket-calling `event.preventDefault()` on the `new-window` event for all  `webContents`'. If you don't use `window.open` or any child windows at all then this is also a valid mitigation for your app.
 

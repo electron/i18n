@@ -128,12 +128,12 @@ quick_start:
   dive_deeper: หรือลงลึกเข้าไปอีกและอ่าน<a href='/docs'>เอกสาร</a>
 need_help:
   title: ต้องการความช่วยเหลือ
-  description: 'ถามคำถามในฟอรัม <a href=''https://discuss.atom.io/c/electron''> อภิปราย </a> หรือ <a href = ''http: //atom-slack.herokuapp.com/'' ของเรา > ช่องหย่อน </a> ติดตาม <a href="https://twitter.com/electronjs"> @electronjs </a> บน Twitter เพื่อประกาศที่สำคัญ ต้องการเข้าถึงแบบส่วนตัวหรือไม่ อีเมล <a href="mailto:info@electronjs.org"> info@electronjs.org </a>'
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: ภาษา
 taglines:
   languages: เนื้อหาที่แปลเป็นภาษาท้องถิ่นจากชุมชนนักพัฒนาระดับโลกของเรา
-  announcement: Electron เพิ่งเข้าร่วมกับมูลนิธิ OpenJS ดู <a href="/blog/electron-joins-openjsf"> ประกาศ </a> สำหรับข้อมูลเพิ่มเติม!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "ช่วยแปลภาษา"
 footer:
   see_the_faq: คำถามที่พบบ่อยๆ
@@ -215,6 +215,8 @@ pages:
     description: ระบบการกำกับดูแล Electron ประกอบด้วยคณะทำงานที่ดูแลด้านต่าง ๆ ของระบบนิเวศของอิเล็กตรอนและคณะทำงานด้านการบริหารที่ทำหน้าที่แก้ไขความขัดแย้งระหว่างกัน
   '/donors':
     title: ผู้บริจาค
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: เริ่มต้น
   fiddle:

@@ -1,4 +1,4 @@
-# Supporting macOS Dark Mode
+# Mendukung Mode Gelap macOS
 
 In macOS 10.14 Mojave, Apple introduced a new [system-wide dark mode](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) for all macOS computers.  If your Electron app has a dark mode, you can make it follow the system-wide dark mode setting using [the `nativeTheme` api](../api/native-theme.md).
 
@@ -6,8 +6,8 @@ In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for
 
 ## Automatically updating the native interfaces
 
-"Native Interfaces" include the file picker, window border, dialogs, context menus and more; basically, anything where the UI comes from macOS and not your app. As of Electron 7.0.0, the default behavior is to opt in to this automatic theming from the OS. If you wish to opt out and are using Electron
-&gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let your opt out of this theming, due to the use of the macOS 10.14 SDK.
+"Native Interfaces" include the file picker, window border, dialogs, context menus, and more; basically, anything where the UI comes from macOS and not your app. As of Electron 7.0.0, the default behavior is to opt into this automatic theming from the OS. If you wish to opt-out and are using Electron
+&gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let you opt-out of this theming, due to the use of the macOS 10.14 SDK.
 
 ## Automatically updating your own interfaces
 

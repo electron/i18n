@@ -117,9 +117,9 @@ project/
 ```
 
 ```js
-// 主處理序: main/index.js
+// main process: main/index.js
 const { app } = require('electron')
-app.on('ready', () => { /* ... */ })
+app.whenReady().then(() => { /* ... */ })
 ```
 
 ```js

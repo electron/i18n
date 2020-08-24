@@ -6,7 +6,7 @@ All of [Node.js's built-in modules](https://nodejs.org/api/) are available in El
 
 O Electron também fornece alguns módulos extras para o desenvolvimento de aplicativos desktop. Alguns módulos só estão disponíveis no processo principal, alguns só estão disponíveis no processo de renderização (página web), e alguns podem ser usados em ambos os processos.
 
-A regra básica é: se um módulo for [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) ou relacionado ao sistema de baixo nível, então deve estar disponível apenas no processo principal. You need to be familiar with the concept of [main process vs. processo de renderização ](../tutorial/application-architecture.md#main-and-renderer-processes) scripts para poder usar esses módulos.
+A regra básica é: se um módulo for [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) ou relacionado ao sistema de baixo nível, então deve estar disponível apenas no processo principal. Você precisa estar familiarizado com o conceito de [ processo principal vs. processo de renderização ](../tutorial/application-architecture.md#main-and-renderer-processes) scripts para poder usar esses módulos.
 
 The main process script is like a normal Node.js script:
 
@@ -14,7 +14,7 @@ The main process script is like a normal Node.js script:
 const { app, BrowserWindow } = require('electron')
 let win = null
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL('https://github.com')
 })
@@ -45,7 +45,7 @@ const { app, BrowserWindow } = require('electron')
 
 let win
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.loadURL('https://github.com')
 })
@@ -59,7 +59,7 @@ const { app, BrowserWindow } = electron
 
 let win
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.loadURL('https://github.com')
 })
@@ -73,7 +73,7 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 let win
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.loadURL('https://github.com')
 })

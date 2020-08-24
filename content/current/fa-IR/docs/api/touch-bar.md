@@ -2,11 +2,11 @@
 
 > Create TouchBar layouts for native macOS applications
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Drive
 
 ### `new TouchBar(options)` _Experimental_
 
-* `options` Object
+* `گزینه های` ObjectIrN 98
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
 
@@ -159,7 +159,7 @@ const touchBar = new TouchBar({
 
 let window
 
-app.once('ready', () => {
+app.whenReady().then(() => {
   window = new BrowserWindow({
     frame: false,
     titleBarStyle: 'hiddenInset',

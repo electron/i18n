@@ -52,61 +52,48 @@ Unsupported options are:
 ### `GOOGLE_API_KEY
 `
 
-You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Bilang default, maaaring hindi pinapayagan ang isang bagong nabuong Google API key para gumawa ng mga kahilingan sa geocoding. Upang paganahin ang mga kahilingan sa geocoding, bisitahin ang ang pahinang ito </ 0>.</p> 
+By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
 
-
+N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
 ### `ELECTRON_NO_ASAR
 `
 
 Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
-
-
 ### `ELECTRON_RUN_AS_NODE
 `
 
 Nagsisimula ang proseso bilang isang normal na proseso ng Node.js.
 
-
-
-### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_ 
+### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 Huwag ilakip sa kasalukuyang session ng console.
 
-
-
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_ 
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
 
 Huwag gamitin ang global menu bar sa Linux.
-
-
 
 ### `ELECTRON_TRASH` _Linux_
 
 Set the trash implementation on Linux. Default is `gio`.
 
 Options:
-
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
 * `kioclient`
 
-
-
-## Development Variables 
+## Development Variables
 
 Ang mga sumusunod na variable ng kapaligiran ay inilaan lalo na para sa pag-unlad at mga layunin ng pag-debug.
-
-
 
 
 ### `ELECTRON_ENABLE_LOGGING
@@ -114,14 +101,10 @@ Ang mga sumusunod na variable ng kapaligiran ay inilaan lalo na para sa pag-unla
 
 Ini-print ang Chrome's internal logging sa console.
 
-
-
 ### `ELECTRON_LOG_ASAR_READS
 `
 
 When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
-
-
 
 ### `ELECTRON_ENABLE_STACK_DUMPING
 `
@@ -130,18 +113,24 @@ Ini-print ang stack trace sa console kapag nag-crash ang Electron.
 
 Ang variable ng kapaligiran na ito ay hindi gagana kung ang ` crashReporter </ 0> ay nagsimula.</p>
 
-<h3 spaces-before="0"><code>ELECTRON_DEFAULT_ERROR_MODE` _Windows_ </h3> 
+<h3 spaces-before="0"><code>ELECTRON_DEFAULT_ERROR_MODE` _Windows_ </h3>
 
 Ipinapakita ang dialog ng pag-crash ng Windows kapag nag-crash ang Electron.
 
 Ang variable ng kapaligiran na ito ay hindi gagana kung ang ` crashReporter </ 0> ay nagsimula.</p>
 
-<h3 spaces-before="0"><code>ELECTRON_OVERRIDE_DIST_PATH`</h3> 
+<h3 spaces-before="0"><code>ELECTRON_OVERRIDE_DIST_PATH`</h3>
 
 When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Paggamit:
 
-
-
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```
+
+## Set By Electron
+
+Electron sets some variables in your environment at runtime.
+
+### `ORIGINAL_XDG_CURRENT_DESKTOP`
+
+This variable is set to the value of `XDG_CURRENT_DESKTOP` that your application originally launched with.  Electron sometimes modifies the value of `XDG_CURRENT_DESKTOP` to affect other logic within Chromium so if you want access to the _original_ value you should look up this environment variable instead.

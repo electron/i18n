@@ -129,7 +129,7 @@ Dibunyikan saat halaman menerima url favicon.
 
 Pengembalian:
 
-* `acara` Acara
+* `event` NewWindowEvent
 * `url` String
 * `nama bingkai` tali
 * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
@@ -277,7 +277,7 @@ Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler
 const { BrowserWindow, dialog } = require ('electron') const win = new BrowserWindow ({ width: 800, height: 600 }) win.webContents.on ('akan-mencegah-membongkar', (event) = > { const choice = dialog.showMessageBox (menang, {type: 'question', buttons: ['Leave', 'Stay'], title: 'Apakah Anda ingin meninggalkan situs ini?', pesan: 'Perubahan yang Anda buat mungkin tidak disimpan. ', defaultId: 0, cancelId: 1}) const leave = (pilihan === 0) if (leave) {event.preventDefault ()}})
 ```
 
-#### Peristiwa: 'jatuh'
+#### Event: 'crashed' _Deprecated_
 
 Pengembalian:
 
@@ -285,6 +285,25 @@ Pengembalian:
 * `terbunuh` Boolean
 
 Dipancarkan ketika proses perender penembak atau terbunuh.
+
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+
+#### Event: 'render-process-gone'
+
+Pengembalian:
+
+* `acara` Acara
+* `details` Object
+  * `reason` String - The reason the render process is gone.  Nilai yang mungkin:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failure` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+
+Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
 
 #### Acara : 'tidak responsif'
 
@@ -318,6 +337,7 @@ Pengembalian:
   * `kunci` String - setara dengan [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
   * `kode` String - setara dengan [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
   * `isAutoRepeat` Boolean - setara dengan [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
   * `pergeseran` Boolean - setara dengan [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
   * `kontrol` Boolean - setara dengan [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
   * `Alt` Boolean - setara dengan [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
@@ -534,7 +554,7 @@ const { app, BrowserWindow } = require('electron')
 let win = null
 app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
@@ -599,11 +619,11 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 #### Event: 'console-message'
 
-Pengembalian:
+Kembali
 
 * `acara` Acara
 * `level` Integer
-* `pesan` String
+* `message` String
 * `line` Integer
 * `sourceId` String
 
@@ -692,15 +712,6 @@ Pengembalian:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-guest-web-contents'
-
-Pengembalian:
-
-* `event` IpcMainEvent
-* `guestWebContents` [WebContents](web-contents.md)
-
-Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
-
 ### Metode Instance
 
 #### `contents.loadURL (url [, opsi])`
@@ -761,7 +772,12 @@ win.loadFile('src/index.html')
 Mengembalikan `String` - URL laman web saat ini.
 
 ```javascript
-const { BrowserWindow } = require('electron') membiarkan memenangkan = baru BrowserWindow({ width: 800, height: 600 }) win.loadURL ('http://github.com') Biarkan currentURL = win.webContents.getURL() console.log(currentURL)
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600 })
+win.loadURL('http://github.com').then(() => {
+  const currentURL = win.webContents.getURL()
+  console.log(currentURL)
+})
 ```
 
 #### `contents.getTitle()`
@@ -852,13 +868,9 @@ Mengembalikan `Boolean` - Apakah proses renderer telah jatuh.
 
 Mengganti agen pengguna untuk halaman web ini.
 
-**[Tidak berlaku lagi](modernization/property-updates.md)**
-
 #### `contents.getUserAgent()`
 
 Mengembalikan `String` - Agen pengguna untuk halaman web ini.
-
-**[Tidak berlaku lagi](modernization/property-updates.md)**
 
 #### `contents.insertCSS(css[, options])`
 
@@ -871,7 +883,7 @@ Returns `Promise<String>` - A promise that resolves with a key for the inserted 
 Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ```js
-contents.on('did-finish-load', function () {
+contents.on('did-finish-load', () => {
   contents.insertCSS('html, body { background-color: #f00; }')
 })
 ```
@@ -885,7 +897,7 @@ Returns `Promise<void>` - Resolves if the removal was successful.
 Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
-contents.on('did-finish-load', async function () {
+contents.on('did-finish-load', async () => {
   const key = await contents.insertCSS('html, body { background-color: #f00; }')
   contents.removeInsertedCSS(key)
 })
@@ -933,13 +945,9 @@ Abaikan shortcut menu aplikasi sementara konten web ini difokuskan.
 
 Sesuaikan render halaman web saat ini.
 
-**[Tidak berlaku lagi](modernization/property-updates.md)**
-
 #### `isi.isAudioMuted()`
 
 Mengembalikan `Boolean` - Apakah halaman ini telah dibungkam.
-
-**[Tidak berlaku lagi](modernization/property-updates.md)**
 
 #### `contents.isCurrentlyAudible()`
 
@@ -953,13 +961,9 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 The factor must be greater than 0.0.
 
-**[Tidak berlaku lagi](modernization/property-updates.md)**
-
 #### `contents.getZoomFactor()`
 
 Returns `Number` - the current zoom factor.
-
-**[Tidak berlaku lagi](modernization/property-updates.md)**
 
 #### `contents.setZoomLevel(level)`
 
@@ -967,13 +971,9 @@ Returns `Number` - the current zoom factor.
 
 Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan. The formula for this is `scale := 1.2 ^ level`.
 
-**[Tidak berlaku lagi](modernization/property-updates.md)**
-
 #### `contents.getZoomLevel()`
 
 Returns `Number` - the current zoom level.
-
-**[Tidak berlaku lagi](modernization/property-updates.md)**
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -988,17 +988,6 @@ Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
 > 
 > `js
   contents.setVisualZoomLevelLimits(1, 3)`
-
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
-
-* `minimalLevel` Nomor
-* `maksimalLevel` Nomor
-
-Returns `Promise<void>`
-
-Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
-
-**Deprecated:** This API is no longer supported by Chromium.
 
 #### `contents.undo()`
 
@@ -1141,16 +1130,21 @@ Mengembalikan [`membuatinfo[]`](structures/printer-info.md)
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print. Should have two keys: `from` and `to`.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the start page.
+    * `to` Number - the end page.
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
-  * `dpi` Object (optional)
+  * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
   * `header` String (optional) - String to be printed as page header.
   * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 * `callback` Fungsi (opsional)
   * `success` Boolean - Indicates success of the print call.
   * `failureReason` String - Error description called back if the print fails.
+
+When a custom `pageSize` is passed, Chromium attempts to validate platform specific minumum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
 
 Mencetak halaman web jendela. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
@@ -1168,11 +1162,18 @@ win.webContents.print(options, (success, errorType) => {
 #### `contents.printToPDF(options)`
 
 * `options` Object
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the first page to print.
+    * `to` Number - the last page to print (inclusive).
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
 Returns `Promise<Buffer>` - Resolves with the generated PDF data.
 
@@ -1183,7 +1184,14 @@ The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
 By default, an empty `options` will be regarded as:
 
 ```javascript
-{marginsType: 0, printBackground: false, printSelectionOnly: false, landscape: false}
+{
+  marginsType: 0,
+  printBackground: false,
+  printSelectionOnly: false,
+  landscape: false,
+  pageSize: 'A4',
+  scaleFactor: 100
+}
 ```
 
 Gunakan `halaman-break-before: always;` Gaya CSS untuk memaksa mencetak ke halaman baru.
@@ -1253,13 +1261,20 @@ An example of showing devtools in a `<webview>` tag:
 </head>
 <body>
   <webview id="browser" src="https://github.com"></webview>
-  <webview id="devtools"></webview>
+  <webview id="devtools" src="about:blank"></webview>
   <script>
+    const { webContents } = require('electron').remote
+    const emittedOnce = (element, eventName) => new Promise(resolve => {
+      element.addEventListener(eventName, event => resolve(event), { once: true })
+    })
     const browserView = document.getElementById('browser')
     const devtoolsView = document.getElementById('devtools')
-    browserView.addEventListener('dom-ready', () => {
-      const browser = browserView.getWebContents()
-      browser.setDevToolsWebContents(devtoolsView.getWebContents())
+    const browserReady = emittedOnce(browserView, 'dom-ready')
+    const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
+    Promise.all([browserReady, devtoolsReady]).then(() => {
+      const browser = webContents.fromId(browserView.getWebContentsId())
+      const devtools = webContents.fromId(devtoolsView.getWebContentsId())
+      browser.setDevToolsWebContents(devtools)
       browser.openDevTools()
     })
   </script>
@@ -1275,7 +1290,7 @@ const { app, BrowserWindow } = require('electron')
 let win = null
 let devtools = null
 
-app.once('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   devtools = new BrowserWindow()
   win.loadURL('https://github.com')
@@ -1354,7 +1369,7 @@ Contoh pengiriman pesan dari proses utama ke proses renderer:
 const { app, BrowserWindow } = require('electron')
 let win = null
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL(`file://${__dirname}/index.html`)
   win.webContents.on('did-finish-load', () => {
@@ -1403,6 +1418,29 @@ You can also read `frameId` from all incoming IPC messages in the main process.
 // In the main process
 ipcMain.on('ping', (event) => {
   console.info('Message came from frameId:', event.frameId)
+})
+```
+
+#### `contents.postMessage(channel, message, [transfer])`
+
+* ` saluran </ 0>  String</li>
+<li><code>message` any
+* `transfer` MessagePortMain[] (optional)
+
+Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
+
+The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
+
+Sebagai contoh:
+```js
+// Main process
+const { port1, port2 } = new MessageChannelMain()
+webContents.postMessage('port', { message: 'hello' }, [port1])
+
+// Renderer process
+ipcRenderer.on('port', (e, msg) => {
+  const [port] = e.ports
+  // ...
 })
 ```
 
@@ -1506,13 +1544,9 @@ Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is cu
 
 If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
 
-**[Tidak berlaku lagi](modernization/property-updates.md)**
-
 #### `contents.getFrameRate()`
 
 Mengembalikan `Integer` - Jika *rendering offscreen* diaktifkan mengembalikan frame rate saat ini.
-
-**[Tidak berlaku lagi](modernization/property-updates.md)**
 
 #### `contents.invalidate()`
 
@@ -1590,7 +1624,7 @@ Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` _Readonly_
 
-A `Integer` mewakili ID unik dari Konten Web ini.
+A `Integer` mewakili ID unik dari Konten Web ini. Each ID is unique among all `WebContents` instances of the entire Electron application.
 
 #### `contents.session` _Readonly_
 

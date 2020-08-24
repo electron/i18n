@@ -21,4 +21,3 @@ Te poradniki zostały stworzone dla ludzi współtworzących projekt Electron. P
 * [Debugowanie na systemie macOS](debugging-instructions-macos.md)
 * [Ustawianie Serwera Symboli w Debuggerze](setting-up-symbol-server.md)
 * [Patches](patches.md)
-* [Aktualizowanie Node](upgrading-node.md)

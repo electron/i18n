@@ -76,13 +76,9 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。 ユーザがこのAPIを経由して保存先のパスを設定しない場合、Electron は、保存先のパスを決定するために独自のルーチンを使用します。通常は保存ダイアログを表示します。
 
-**[非推奨](modernization/property-updates.md): 代わりに `savePath` プロパティを使用してください。**
-
 #### `downloadItem.getSavePath()`
 
 戻り値 `String` - ダウンロードアイテムの保存先パス。 これは `downloadItem.setSavePath(path)` で設定されたものか、保存ダイアログで選択されたものになります。
-
-**[非推奨](modernization/property-updates.md): 代わりに `savePath` プロパティを使用してください。**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 

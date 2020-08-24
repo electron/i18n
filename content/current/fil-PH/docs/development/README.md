@@ -21,4 +21,3 @@ These guides are intended for people working on the Electron project itself. For
 * [Pagde-debug sa macOS](debugging-instructions-macos.md)
 * [Pagtatakda ng Simbolong Server sa Debugger](setting-up-symbol-server.md)
 * [Patches](patches.md)
-* [Pag-upgrade ng node](upgrading-node.md)

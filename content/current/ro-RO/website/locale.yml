@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Începe</b></a> să construiești o aplicație citind <a href='/docs/tutorial/first-app'>ghidul de inițiere rapidă</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Rămâi la curent</b></a> urmărind <a href='https://twitter.com/electronjs'>@electronjs</a> pe Twitter și abonându-te la <a href='/blog'>fluxul blogului</a>."
     localized_docs: "<a href='/languages'><b>Citește documentele în limba ta maternă</b></a> vizitând <a href='/languages'>pagina limbilor</a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Obține ajutor și feedback</b></a> intrând în <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio pe Slack</a>, postând pe <a href='https://discuss.atom.io/c/electron'>Discuss</a> sau vizitând <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Raportează erori</b></a> deschizând probleme în depozitarul <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Solicită funcționalități</b></a> deschizând probleme în depozitarul <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
@@ -128,12 +128,12 @@ quick_start:
   dive_deeper: Sau scufundă-te mai adânc și citește <a href='/docs'>documentația</a>.
 need_help:
   title: Ai nevoie de ajutor?
-  description: Pune întrebări în forumul <a href='https://discuss.atom.io/c/electron'>Discuss</a> sau canalul nostru de <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Urmărește <a href="https://twitter.com/electronjs">@electronjs</a> pe Twitter pentru anunțurile importante. Ai nevoie de ceva în mod privat? Trimite un email la <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Limbi
 taglines:
   languages: Conținut localizat de la o minunată comunitate dezvoltatoare globală.
-  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "Ajută la traducere"
 footer:
   see_the_faq: Vezi întrebările frecvente
@@ -215,6 +215,8 @@ pages:
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: Donatori
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: Începe
   fiddle:

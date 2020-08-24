@@ -1,4 +1,4 @@
-# Build Instructions
+# 构建说明
 
 请遵循以下指南来构建Electron。
 
@@ -10,6 +10,10 @@
   * [Linux](build-instructions-linux.md#prerequisites)
   * [Windows](build-instructions-windows.md#prerequisites)
 
+## Build Tools
+
+[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
+
 ## 前置知识
 
 此外，你还需要安装[`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)，这是一个用于获取Chromium，及其相关依赖工具。
@@ -17,30 +21,30 @@
 另外，如果使用Windows系统, 你需要设置环境变量`DEPOT_TOOLS_WIN_TOOLCHAIN=0`。 依次打开 `Control Panel` → `System and
 Security` → `System` → `Advanced system settings` ，然后添加系统变量 `DEPOT_TOOLS_WIN_TOOLCHAIN` ，并设置默认值为 `0`.  这将促使`depot_tools` 使用本地已安装的Visual Studio(默认状态下，`depot_tools`将会下载一个只有谷歌内部员工有权限使用的内部版本)。
 
-### Setting up the git cache
+### 设置 git 缓存
 
-If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
+如果您想 checkout 多份 Electron 源码 (例如多个并行目录 checkout 到不同的分支)， 推荐使用 git 缓存来加速后续对 `gclient`的调用。 为此，设置 `GIT_CACHE_PATH` 环境变量：
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# This will use about 16G.
+# 这将使用大约16G
 ```
 
-## Getting the code
+## 获取代码
 
 ```sh
 $ mkdir electron && cd electron
-$ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
-$ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+$ gclient config --name "src/electron" --unmanaged https://github. om/electron/electron
+$ gclient sync --with_branch_head--with_tags
+# 这将需要一段时间，喝杯咖啡休息一下。
 ```
 
-> Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
+> 除了使用 `https://github.com/electron/electron`， 你也可以使用你自己的 fork  (形如 `https://github.com/<username>/electron`)。
 
-#### A note on pulling/pushing
+#### 拉/推的注意事项
 
-If you intend to `git pull` or `git push` from the official `electron` repository in the future, you now need to update the respective folder's origin URLs.
+如果您将来打算从 `electron` 官方地址进行 `git pull` 或 `git push`，那么您需要更新相应文件夹的源 URL。
 
 ```sh
 $ cd src/electron
@@ -51,9 +55,9 @@ $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
 
-:memo: `gclient` works by checking a file called `DEPS` inside the `src/electron` folder for dependencies (like Chromium or Node.js). Running `gclient sync -f` ensures that all dependencies required to build Electron match that file.
+:memo: `gclient` 会检查 `src/electron` 目录下的 `DEPS` 文件，从中获取依赖信息 (就像 Chromium 或 Node.js 那样)。 运行 `gclient sync -f` 确保所有用来构建 Electron 的依赖都符合该文件的描述。
 
-So, in order to pull, you'd run the following commands:
+运行以下命令拉取源码：
 ```sh
 $ cd src/electron
 $ git pull
@@ -65,16 +69,16 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
-$ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
-$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
+# 下一行只有在使用 scache 构建时才需要
+$ exporter GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
+$ gn gen out/testing --args="import(\"//electron/build/args/testing. n\") $GN_EXTRA_ARGS"
 ```
 
-Or on Windows (without the optional argument):
+若在 Windows 上 (没有可选参数)：
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
-$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
+$ gn out/testing --args="import(\"//electron/build/args/testing.gn\")
 ```
 
 This will generate a build directory `out/Testing` under `src/` with the testing build configuration. You can replace `Testing` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.

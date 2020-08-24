@@ -24,11 +24,11 @@ Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
 Show the given file in a file manager. If possible, select the file.
 
-### `shell.openItem(fullPath)`
+### `shell.openPath(path)`
 
-* `fullPath` String
+* `path` String
 
-Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
+Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 

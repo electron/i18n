@@ -9,8 +9,8 @@ const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
-app.on('ready', () => {
-  // Ваш код здесь
+app.whenReady().then(() => {
+  // Your code here
 })
 ```
 
@@ -26,13 +26,17 @@ app.on('ready', () => {
 
 Отключить HTTP/2 и SPDY/3.1 протоколы.
 
+### --disable-ntlm-v2
+
+Disables NTLM v2 for posix platforms, no effect elsewhere.
+
 ## --lang
 
 Установить пользовательский язык.
 
 ## --inspect=`порт` и --inspect-brk=`порт`
 
-Связанные с отладкой флаги, смотрите руководство по [отладке основного процесса](../tutorial/debugging-main-process.md) для подробностей.
+Связанные с отладкой флаги, смотрите [Отладка основного процесса](../tutorial/debugging-main-process.md) для деталей.
 
 ## --remote-debugging-port=`порт`
 
@@ -40,7 +44,7 @@ app.on('ready', () => {
 
 ## --disk-cache-size=`размер`
 
-Максимальный размер кэша на жёстком диске в байтах.
+Максимальный размер кеша на жёстком диске в байтах.
 
 ## --js-flags=`флаги`
 
@@ -54,7 +58,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ## --proxy-server=`адрес:порт`
 
-Использовать указанный прокси-сервер, переопределив системные настройки. Этот параметр влияет только на запросы протокола HTTP, включая HTTPS и WebSocket запросы. Примечательно также, что не все прокси-сервера поддерживают запросы HTTPS и WebSocket. В URL для прокси не поддерживается указание имени пользователя и пароля для аутентификации, [из-за проблемы в Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
+Использует указанный proxy сервер, который перезаписывает системные настройки. Этот параметр влияет только на запросы HTTP протокола, включая HTTPS и WebSocket. Примечательно также, что не все proxy серверы поддерживают HTTPS и WebSocket протоколы. В URL для прокси не поддерживается указание имени пользователя и пароля для аутентификации, [из-за проблемы в Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ## --proxy-bypass-list=`хосты`
 
@@ -67,11 +71,11 @@ const { app } = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-Будет использовать прокси-сервер для всех хостов, за исключением локальных адресов (`localhost`, `127.0.0.1` и т.д.), поддоменов `google.com`, хостов, которые содержат `foo.com` и `1.2.3.4:5678`.
+Будет использовать прокси сервер для всех хостов, за исключением локальных адресов (`localhost`, `127.0.0.1` и т. д.), `google.com` поддоменов, хостов которые содержат `foo.com` и `1.2.3.4:5678`.
 
 ## --proxy-pac-url=`ссылка`
 
-Использовать PAC скрипт для указанной `ссылки`.
+Использовать PAC скрипт для указанного `url`.
 
 ## --no-proxy-server
 
@@ -161,7 +165,6 @@ Enables caller stack logging for the following APIs (filtering events):
 - `remote.getBuiltin()` / `remote-get-global`
 - `remote.getCurrentWindow()` / `remote-get-current-window`
 - `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
-- `remote.getGuestWebContents()` / `remote-get-guest-web-contents`
 
 ## --no-sandbox
 

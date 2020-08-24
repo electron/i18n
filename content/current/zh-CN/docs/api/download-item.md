@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
+在Electron中，`DownloadItem` 是一个代表下载项目的[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)。 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
 
 ```javascript
 // 在主进程中.
@@ -76,13 +76,9 @@ Emitted when the download is in a terminal state. This includes a completed down
 
 该API仅能在`will-download` 方法的回调中使用。 If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
 
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
-
 #### `downloadItem.getSavePath()`
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
-
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
@@ -100,11 +96,11 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.isPaused()`
 
-返回`Boolean` - 下载是否暂停。
+Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-恢复已暂停的下载。
+Resumes the download that has been paused.
 
 **Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
 

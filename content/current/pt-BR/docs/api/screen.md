@@ -16,7 +16,7 @@ Um exemplo de criação de uma janela que preenche a tela inteira:
 const { app, BrowserWindow, screen } = require('electron')
 
 let win
-app.on('ready', () => {
+app.whenReady().then(() => {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize
   win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
@@ -30,7 +30,7 @@ const { app, BrowserWindow, screen } = require('electron')
 
 let win
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   let displays = screen.getAllDisplays()
   let externalDisplay = displays.find((display) => {
     return display.bounds.x !== 0 || display.bounds.y !== 0

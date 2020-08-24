@@ -10,15 +10,15 @@ Processus : [Main](../glossary.md#main-process)
 const { app, Menu, Tray } = require('electron')
 
 let tray = null
-app.on('ready', () => {
-  tray = new Tray('/chemin/vers/mon/icone')
+app.whenReady().then(() => {
+  tray = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' },
     { label: 'Item3', type: 'radio', checked: true },
     { label: 'Item4', type: 'radio' }
   ])
-  tray.setToolTip('Ceci est mon application.')
+  tray.setToolTip('This is my application.')
   tray.setContextMenu(contextMenu)
 })
 ```
@@ -35,17 +35,17 @@ __Limitations selon les plateformes :__
 const { app, Menu, Tray } = require('electron')
 
 let appIcon = null
-app.on('ready', () => {
-  appIcon = new Tray('/chemin/vers/mon/icone')
+app.whenReady().then(() => {
+  appIcon = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' }
   ])
 
-  // Fait un changement au menu contextuel
+  // Make a change to the context menu
   contextMenu.items[1].checked = false
 
-  // Appelé à nouveau pour Linux car nous avons modifié le menu contextuel
+  // Call this again for Linux because we modified the context menu
   appIcon.setContextMenu(contextMenu)
 })
 ```
@@ -54,9 +54,10 @@ app.on('ready', () => {
 Si vous souhaitez conserver les mêmes comportements sur toutes les plateformes, vous ne devriez pas vous appuyez sur l'événement `click` et toujours fixer un menu contextuel sur l'icône.
 
 
-### `new Tray(image)`
+### `new Tray(image, [guid])`
 
 * `image` ([NativeImage](native-image.md) | String)
+* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
 
 Créer une nouvelle icône dans la barre de notification avec l'`image`.
 
@@ -137,6 +138,26 @@ Retourne :
 #### Événement : 'drag-end' _macOS_
 
 Émis lorsqu’une opération glisser se termine sur l'icône ou à un autre emplacement.
+
+#### Event: 'mouse-up' _macOS_
+
+Retourne :
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Point](structures/point.md) - la position de l’événement.
+
+Emitted when the mouse is released from clicking the tray icon.
+
+Note: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.
+
+#### Event: 'mouse-down' _macOS_
+
+Retourne :
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Point](structures/point.md) - la position de l’événement.
+
+Emitted when the mouse clicks the tray icon.
 
 #### Événement : 'mouse-enter' _macOS_
 
@@ -242,6 +263,10 @@ Returns focus to the taskbar notification area. Notification area icons should u
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
 La `position` n’est disponible que sur Windows, et c’est (0, 0) par défaut.
+
+#### `tray.closeContextMenu()` _macOS_ _Windows_
+
+Closes an open context menu, as set by `tray.setContextMenu()`.
 
 #### `tray.setContextMenu(menu)`
 

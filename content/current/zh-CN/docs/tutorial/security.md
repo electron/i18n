@@ -29,7 +29,7 @@ It is important to remember that the security of your Electron application is th
 
 每当你从不被信任的来源(如一个远程服务器)获取代码并在本地执行，其中就存在安全性问题。 例如在默认的 [`BrowserWindow`](../api/browser-window.md)中显示一个远程网站. 如果攻击者以某种方式设法改变所述内容 (通过直接攻击源或者通过在应用和实际目的地之间进行攻击) ，他们将能够在用户的机器上执行本地代码。
 
-> :warning:无论如何，在启用Node.js集成的情况下，你都不该加载并执行远程代码。 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
+> :warning:无论如何，在启用Node.js集成的情况下，你都不该加载并执行远程代码。 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 如果你想要显示远程内容，请使用 [`<webview>`](../api/webview-tag.md) Tag或者 [`BrowserView`](../api/browser-view.md)，并确保禁用 `nodeIntegration` 并启用 `contextIsolation`
 
 ## Electron 安全警告
 
@@ -59,7 +59,7 @@ It is important to remember that the security of your Electron application is th
 16. [限制 `remote` 模块](#16-filter-the-remote-module)
 17. [使用当前版本的 Electron](#17-use-a-current-version-of-electron)
 
-To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
+如果你想要自动检测错误的配置或是不安全的模式，可以使用[electronegativity](https://github.com/doyensec/electronegativity) 关于在使用Electron进行应用程序开发中的潜在薄弱点或者bug，您可以参考[开发者与审核人员指南](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
 ## 1) 仅加载安全内容
 
@@ -91,13 +91,13 @@ browserWindow.loadURL ('https://example.com')
 ```
 
 
-## 2) Do not enable Node.js Integration for Remote Content
+## 2) 不要为远程内容启用 Node.js 集成
 
 _This recommendation is the default behavior in Electron since 5.0.0._
 
-It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
+加载远程内容时，不论使用的是哪一种渲染器（[`BrowserWindow`](../api/browser-window.md)，[`BrowserView`](../api/browser-view.md) 或者 [`<webview>`](../api/webview-tag.md)），最重要的就是绝对不要启用 Node.js 集成。 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
-在此之后，你可以为指定的主机授予附加权限。 For example, if you are opening a BrowserWindow pointed at `https://example.com/`, you can give that website exactly the abilities it needs, but no more.
+在此之后，你可以为指定的主机授予附加权限。 举例来说，如果你正在打开一个指向 `https://example.com/` 的 BrowserWindow，那么你可以给他刚刚好足够的权限，但是绝对不要超出这个范围。
 
 ### 为什么？
 
@@ -106,7 +106,7 @@ It is paramount that you do not enable Node.js integration in any renderer ([`Br
 ### 怎么做？
 
 ```js
-// Bad
+// 不推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: true,
@@ -118,7 +118,7 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// Good
+// 推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     preload: path.join(app.getAppPath(), 'preload.js')
@@ -156,7 +156,7 @@ window.readConfig = function () {
 
 Electron使用了和Chromium相同的[Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment)技术来开启这个行为。
 
-Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+即使您使用选项 `nodeIntegration: false` 进行强制隔离并防止其使用Node原语，`contextIsolation` 也必须被启用。
 
 ### Why & How?
 
@@ -184,13 +184,13 @@ session
     const url = webContents.getURL()
 
     if (permission === 'notifications') {
-      // Approves the permissions request
+      // 通过许可请求
       callback(true)
     }
 
     // Verify URL
     if (!url.startsWith('https://example.com/')) {
-      // Denies the permissions request
+      // 拒绝许可请求
       return callback(false)
     }
   })
@@ -347,7 +347,7 @@ Blink是Chromium里的渲染引擎名称。 就像`experimentalFeatures`一样�
 
 ### 怎么做？
 ```js
-// Bad
+// 不推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: 'ExecCommandInJavaScript'

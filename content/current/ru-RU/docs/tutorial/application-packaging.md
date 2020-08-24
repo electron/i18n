@@ -59,7 +59,7 @@ fs.readdirSync('/path/to/example.asar')
 Использовать модуль из архива:
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+require('./path/to/example.asar/dir/module.js')
 ```
 
 Также вы можете открыть веб-страницу из `asar` архива с помощью `BrowserWindow`:

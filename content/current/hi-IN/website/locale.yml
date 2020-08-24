@@ -128,12 +128,12 @@ quick_start:
   dive_deeper: या फिर ज्यादा गहराई में जायें और <a href='/docs'>प्रलेख</a> पढ़ें |
 need_help:
   title: सहायता की आवश्यकता है?
-  description: <a href='https://discuss.atom.io/c/electron'>डिस्कस</a> फोरम पर या हमारे<a href='http://atom-slack.herokuapp.com/'>स्लैक</a> चैनल पर सवाल पूछें | महत्वपूर्ण सूचनाओं के लिए <a href="https://twitter.com/electronjs">@electronjs</a> को ट्विटर पर फॉलो करें | क्या आप हमसे निजी संपर्क करना चाहते हैं? ईमेल <a href="mailto:info@electronjs.org">electron@github.com</a>.
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: भाषायें
 taglines:
   languages: हमारे वैश्विक डेवलपर समुदाय की और से स्थानीय सामग्री |
-  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "अनुवाद करने में मद्द करें"
 footer:
   see_the_faq: अक्सर पूछे जाने वाले सवाल (एफएक्यू) पढ़ें
@@ -215,6 +215,8 @@ pages:
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: दाताओं
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: प्रारंभ करें
   fiddle:

@@ -2,7 +2,7 @@
 
 > Альтернативный транспорт для удаленной отладки протокола Chrome.
 
-Процесс: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Инструменты разработчика Chrome имеют [специальную привязку](https://chromedevtools.github.io/devtools-protocol/) доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и управлять ими.
 
@@ -37,7 +37,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `reason` String - причина отсоединения отладчика.
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
@@ -49,6 +49,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 * `event` Event
 * `method` String - имя метода.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
 
 Возникает при отладке инструментальных событий.
 
@@ -68,10 +69,11 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Отключает отладчик от `webContents`.
 
-#### `debugger.sendCommand(method[, commandParams])`
+#### `debugger.sendCommand(method[, commandParams, sessionId])`
 
 * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` any (опционально) - JSON объект с параметрами запроса.
+* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) message.
 
 Возвращает `Promise<any>` - Promise, которое разрешается с ответом, определенным атрибутом 'returns' описания команды в протоколе удаленной отладки, или отклоняется, указывая на сбой команды.
 

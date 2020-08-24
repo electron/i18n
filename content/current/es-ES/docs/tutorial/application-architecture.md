@@ -20,7 +20,8 @@ En páginas web, llamar APIs nativas relacionadas a GUI no está permitido porqu
 
 > #### A un lado: Comunicación entre Procesos
 > 
-> En Electron hay varias formas de establecer una comunicación entre el proceso principal y el proceso renderizador, como los módulos [`ipcRenderer`](../api/ipc-renderer.md) y [`ipcMain`](../api/ipc-main.md) para enviar mensajes, y el módulo [remote](../api/remote.md) para una comunicación de tipo RPC. Existe también una entrada de FAQ en [como compartir data entre páginas web](../faq.md#how-to-share-data-between-web-pages).
+> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+
 
 ## Usando APIs de Electron
 
@@ -42,15 +43,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Desde que la comunicación entre procesos es posible, un proceso visualizador puede llamar el proceso principal para realizar tareas. Electron viene con un módulo llamado `remote` que expone las APIs usualmente solo disponibles en el proceso principal. Con el fin de crear un `BrowserWindow` desde un proceso visualizador, usaremos el remoto como un intermediario:
+Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
 
 ```javascript
-// Esto trabajará en un proceso renderer, pero será `undefined` en el proceso principal
-const { remote } = require('electron')
-const { BrowserWindow } = remote
+// In the main process:
+const { ipcMain } = require('electron')
 
-const win = new BrowserWindow()
+ipcMain.handle('perform-action', (event, ...args) => {
+  // ... do something on behalf of the renderer ...
+})
+
+// In the renderer process:
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.invoke('perform-action', ...args)
 ```
+
+Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
 
 ## Uso de APIs de Node.js
 

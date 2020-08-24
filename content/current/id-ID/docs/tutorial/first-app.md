@@ -31,20 +31,9 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does).
 
-```json
-{
-  "name": "your-app",
-  "version": "0.1.0",
-  "main": "main.js",
-  "scripts": {
-    "start": "node ."
-  }
-}
-```
-
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
 
 ```json
 {
@@ -82,7 +71,7 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create the browser window.
-  let win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -124,18 +113,18 @@ function createWindow () {
 // Beberapa API hanya dapat digunakan setelah event ini terjadi.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  // Di macOS ini biasa digunakan untuk aplikasi dan menu bar
-  // tetap aktif sampai pengguna keluar secara eksplisit menggunakan perintah Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // Di macOS biasanya digunakan untuk membuat ulang jendela pada aplikasi ketika 
-  // dock icon di klik dan tidak ada jendela lain disana.
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }

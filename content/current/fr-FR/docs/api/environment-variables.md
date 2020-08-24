@@ -51,13 +51,15 @@ Les options non supportées sont :
 
 ### `GOOGLE_API_KEY`
 
-Vous pouvez fournir une clé API pour faire des requêtes au service Web de géocodage de Google. Pour cela, placez le code suivant dans votre fichier de processus principal, avant d'ouvrir des fenêtres de navigateur qui feront des requêtes de géocodage :
+Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'VOTRE_CLE_ICI'
 ```
 
-Pour savoir comment obtenir une clé API Google, vous pouvez aller [sur cette page](https://developers.google.com/maps/documentation/javascript/get-api-key). Par défaut, une nouvelle clé API Google générée ne peut pas faire de requêtes geocoding. Pour activer les requêtes geocoding, veuillez voir [cette page](https://developers.google.com/maps/documentation/geocoding/get-api-key).
+By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+
+N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
 ### `ELECTRON_NO_ASAR`
 
@@ -115,5 +117,13 @@ Cette variable d'environnement ne fonctionnera pas si vous avez démarré `crash
 Quand lancée depuis le paquet `electron` , cette variable dit à la commande d'`electron` d'utiliser la version spécifiée au lieu de celle intallée avec `npm install`. Utilisation:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```
+
+## Set By Electron
+
+Electron sets some variables in your environment at runtime.
+
+### `ORIGINAL_XDG_CURRENT_DESKTOP`
+
+This variable is set to the value of `XDG_CURRENT_DESKTOP` that your application originally launched with.  Electron sometimes modifies the value of `XDG_CURRENT_DESKTOP` to affect other logic within Chromium so if you want access to the _original_ value you should look up this environment variable instead.

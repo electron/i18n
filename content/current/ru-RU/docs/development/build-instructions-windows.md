@@ -8,8 +8,8 @@
 * Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
   * Смотрите [документацию по сборке Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) для получения более подробной информации о том, какие компоненты Visual Studio необходимы.
   * Если ваша Visual Studio установлена в каталог, отличающийся от стандартного, вам нужно установить несколько переменных среды, чтобы указать инструментам на путь установки.
-    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Often, this will be `C:`.
-    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Often, this will be `C:`.
+    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Обычно, это `C:`.
+    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Обычно, это `C:`.
 * [Python 2.7.10 или выше](http://www.python.org/download/releases/2.7/)
   * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). Для этого убедитесь, что в **PATH**, ваш локально установленный Python находиться перед папкой `depot_tools`. Сейчас `depot_tools` все еще поставляется с Python 2.7.6, что приведёт к ошибке команды `gclient` (см. https://crbug.com/868864).
   * [Дополнения Python для Windows (pywin32)](https://pypi.org/project/pywin32/#files) также нужны для запуска процесса сборки.
@@ -89,6 +89,6 @@ This can happen during build, when Debugging Tools for Windows has been installe
 
 Убедитесь, что вы установили `pywin32` при помощи `pip install pywin32`.
 
-### Build Scripts Hang Until Keypress
+### Строить сценарии повесить до Keypress
 
-This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+Эта ошибка является "функцией" командной строки Windows. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.

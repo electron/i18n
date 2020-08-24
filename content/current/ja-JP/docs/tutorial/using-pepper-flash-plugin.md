@@ -31,11 +31,11 @@ switch (process.platform) {
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// 任意: Flash のバージョンを指定します。v17.0.0.169 であればこのようにします。
+// Optional: Specify flash version, for example, v17.0.0.169
 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
 app.whenReady().then(() => {
-  let win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -43,7 +43,7 @@ app.whenReady().then(() => {
     }
   })
   win.loadURL(`file://${__dirname}/index.html`)
-  // 他のすること
+  // Something else
 })
 ```
 

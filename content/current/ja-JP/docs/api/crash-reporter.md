@@ -2,19 +2,14 @@
 
 > クラッシュレポートをリモートサーバーに送信します。
 
-プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
-以下は、リモートサーバーにクラッシュレポートを自動的に送信する例です。
+The following is an example of setting up Electron to automatically submit crash reports to a remote server:
 
 ```javascript
 const { crashReporter } = require('electron')
 
-crashReporter.start({
-  productName: 'YourName',
-  companyName: 'YourCompany',
-  submitURL: 'https://your-domain.com/url-to-submit',
-  uploadToServer: true
-})
+crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 ```
 
 クラッシュレポートを受信して処理するサーバーをセットアップするには、以下のプロジェクトを使用することができます。
@@ -28,7 +23,9 @@ crashReporter.start({
 * [Sentry](https://docs.sentry.io/clients/electron)
 * [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
-クラッシュレポートは、アプリケーション固有の一時ディレクトリフォルダーの中にローカルで保存されます。 `YourName` という `productName` の場合、クラッシュレポートは一時ディレクトリの中の `YourName Crashes` という名前のフォルダに保存されます。 クラッシュレポーターを開始する前に `app.setPath('temp', '/my/custom/temp')` APIを呼び出すことで、アプリのこの一時ディレクトリをカスタマイズすることができます。
+Crash reports are stored temporarily before being uploaded in a directory underneath the app's user data directory (called 'Crashpad' on Windows and Mac, or 'Crash Reports' on Linux). You can override this directory by calling `app.setPath('crashDumps', '/path/to/crashes')` before starting the crash reporter.
+
+On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to monitor and report crashes. On Linux, Electron uses [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.
 
 ## メソッド
 
@@ -37,27 +34,33 @@ crashReporter.start({
 ### `crashReporter.start(options)`
 
 * `options` Object
-  * `companyName` String
   * `submitURL` String - POSTでクラッシュレポートが送信されるURL。
   * `productName` String (任意) - 省略値は、`app.name` です。
-  * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバーに送信するかどうか。 省略値は `true` です。
-  * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は、`false` です。
-  * `extra` Record&lt;String, String&gt; (任意) - レポートと一緒に送信される、自由に定義できるオブジェクト。 文字列のプロパティだけしか正しく送信されません。 ネストしたオブジェクトはサポートしていません。 Windows を使用する場合、プロパティ名と値は 64 文字未満でなければなりません。
-  * `crashesDirectory` String (任意) - クラッシュレポートを一時的に保存するディレクトリ (クラッシュレポーターが `process.crashReporter.start` 経由で起動されたときのみ使用されます)。
+  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. 省略値は `true` です。
+  * `ignoreSystemCrashHandler` Boolean (optional) - If true, crashes generated in the main process will not be forwarded to the system crash handler. 省略値は `false` です。
+  * `rateLimit` Boolean (optional) _macOS_ _Windows_ - If true, limit the number of crashes uploaded to 1/hour. 省略値は、`false` です。
+  * `compress` Boolean (optional) _macOS_ _Windows_ - If true, crash reports will be compressed and uploaded with `Content-Encoding: gzip`. Not all collection servers support compressed payloads. 省略値は、`false` です。
+  * `extra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with crash reports that are generated in the main process. Only string values are supported. Crashes generated in child processes will not contain these extra parameters to crash reports generated from child processes, call [`addExtraParameter`](#crashreporteraddextraparameterkey-value) from the child process.
+  * `globalExtra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with any crash reports generated in any process. These annotations cannot be changed once the crash reporter has been started. If a key is present in both the global extra parameters and the process-specific extra parameters, then the global one will take precedence. By default, `productName` and the app version are included, as well as the Electron version.
 
-他の `crashReporter` APIを使用する前に、クラッシュレポートを収集したい各プロセス (メイン/レンダラー) で、このメソッドを呼び出す必要があります。 異なるプロセスから呼び出すときは、`crashReporter.start` に異なるオプションを渡すことができます。
+This method must be called before using any other `crashReporter` APIs. Once initialized this way, the crashpad handler collects crashes from all subsequently created processes. The crash reporter cannot be disabled once started.
 
-**注:** `child_process` モジュール経由で作成された子プロセスは、Electronモジュールにアクセスすることはできません。 それ故、それらからクラッシュレポートを収集するため、代わりに `process.crashReporter.start` を使用してください。 クラッシュレポートを一時的に保存するディレクトリを指す `crashesDirectory` と呼ばれる追加のオプションと一緒に上記と同じオプションを渡してください。 子プロセスをクラッシュさせる `process.crash()` を呼び出すことで、これをテストすることができます。
+This method should be called as early as possible in app startup, preferably before `app.on('ready')`. If the crash reporter is not initialized at the time a renderer process is created, then that renderer process will not be monitored by the crash reporter.
 
-**注:** 最初の `start` の呼び出しの後、追加・更新した `extra` パラメーターを送信する必要がある場合、macOS では、`addExtraParameter` を呼び出してください。Linux と Windows では、追加/更新した `extra` パラメーターとともに `start` を再度、呼び出してください。
+**Note:** You can test out the crash reporter by generating a crash using `process.crash()`.
 
-**注:** macOS と Windows では、Electron はクラッシュの収集と報告に新しい `crashpad` クライアントを使用します。 クラッシュレポートを有効にしたい場合、どのプロセスからクラッシュを収集したいかに関わらず、メインプロセスから `crashReporter.start` を使用して `crashpad` を初期化する必要があります。 一度、この方法で初期化されると、crashpadのハンドラーはすべてのプロセスからクラッシュを収集します。 依然として、レンダラーや子プロセスから `crashReporter.start` を呼び出す必要があります。そうでない場合、それらからのクラッシュは、`companyName`、`productName` やすべての `extra` 情報なしでレポートされます。
+**Note:** If you need to send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter`.
+
+**Note:** Parameters passed in `extra`, `globalExtra` or set with `addExtraParameter` have limits on the length of the keys and values. Key names must be at most 39 bytes long, and values must be no longer than 127 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
+
+**Note:** Calling this method from the renderer process is deprecated.
 
 ### `crashReporter.getLastCrashReport()`
 
-戻り値 [`CrashReport`](structures/crash-report.md):
+Returns [`CrashReport`](structures/crash-report.md) - The date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. アップロードされたレポートがない場合これは、`null` を返します。
 
-ひとつ前のクラッシュレポートのIDとその日付を返します。 アップロードされたクラッシュレポートだけを返します。例え、クラッシュレポートがディスク上に存在したとしてもそれはアップロードされるまで返しません。 アップロードされたレポートがない場合これは、`null` を返します。
+**Note:** Calling this method from the renderer process is deprecated.
 
 ### `crashReporter.getUploadedReports()`
 
@@ -65,40 +68,50 @@ crashReporter.start({
 
 アップロードされたすべてのクラッシュレポートを返します。 各レポートには、日付とアップロードされた ID が含まれています。
 
+**Note:** Calling this method from the renderer process is deprecated.
+
 ### `crashReporter.getUploadToServer()`
 
 戻り値 `Boolean` - レポートがサーバに送信されるべきかどうか。 `start` メソッドまたは `setUploadToServer` を通して設定されます。
 
-**注:** このAPIは、メインプロセスからしか呼び出すことができません。
+**Note:** Calling this method from the renderer process is deprecated.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean _macOS_ - レポートがサーバに送信されるべきかどうか.
+* `uploadToServer` Boolean - Whether reports should be submitted to the server.
 
 これは通常、ユーザーの設定によって制御されます。 `start` が呼ばれるまでは何もしません。
 
-**注:** このAPIは、メインプロセスからしか呼び出すことができません。
+**Note:** Calling this method from the renderer process is deprecated.
 
-### `crashReporter.addExtraParameter(key, value)` _macOS_ _Windows_
+### `crashReporter.getCrashesDirectory()` _Deprecated_
 
-* `key` String - パラメータキー。長さは、64文字未満でなければなりません。
-* `value` String - パラメータの値。長さは、64文字未満でなければなりません。
+戻り値 `String` - クラッシュディレクトリは、アップロードされる前に一時保存されます。
 
-クラッシュレポートで送信される追加のパラメータを設定します。 ここで指定された値は、`start` が呼び出されたときに `extra` オプション経由で設定された値と一緒に送信されます。 この API は macOS と Windows でのみ利用可能です。Linux で最初の `start` の呼び出し後に追加/更新した追加のパラメーターを送信する必要がある場合、更新した `extra` オプションと一緒に、`start` を再度呼び出してください。
+**Note:** This method is deprecated, use `app.getPath('crashDumps')` instead.
 
-### `crashReporter.removeExtraParameter(key)` _macOS_ _Windows_
+### `crashReporter.addExtraParameter(key, value)`
 
-* `key` String - パラメータキー。長さは、64文字未満でなければなりません。
+* `key` String - Parameter key, must be no longer than 39 bytes.
+* `value` String - Parameter value, must be no longer than 127 bytes.
 
-クラッシュレポートと一緒に送信されないように、現在のパラメータセットから追加したパラメータを削除します。
+クラッシュレポートで送信される追加のパラメータを設定します。 The values specified here will be sent in addition to any values set via the `extra` option when `start` was called.
+
+Parameters added in this fashion (or via the `extra` parameter to `crashReporter.start`) are specific to the calling process. Adding extra parameters in the main process will not cause those parameters to be sent along with crashes from renderer or other child processes. Similarly, adding extra parameters in a renderer process will not result in those parameters being sent with crashes that occur in other renderer processes or in the main process.
+
+**Note:** Parameters have limits on the length of the keys and values. Key names must be no longer than 39 bytes, and values must be no longer than 20320 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
+
+**Note:** On linux values that are longer than 127 bytes will be chunked into multiple keys, each 127 bytes in length.  E.g. `addExtraParameter('foo', 'a'.repeat(130))` will result in two chunked keys `foo__1` and `foo__2`, the first will contain the first 127 bytes and the second will contain the remaining 3 bytes.  On your crash reporting backend you should stitch together keys in this format.
+
+### `crashReporter.removeExtraParameter(key)`
+
+* `key` String - Parameter key, must be no longer than 39 bytes.
+
+Remove a extra parameter from the current set of parameters. Future crashes will not include this parameter.
 
 ### `crashReporter.getParameters()`
 
-クラッシュレポーターに渡されているすべての現在のパラメータを参照します。
-
-### `crashReporter.getCrashesDirectory()`
-
-戻り値 `String` - クラッシュディレクトリは、アップロードされる前に一時保存されます。
+Returns `Record<String, String>` - The current 'extra' parameters of the crash reporter.
 
 ## クラッシュレポートの内容
 

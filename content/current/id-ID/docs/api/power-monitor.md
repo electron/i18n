@@ -12,7 +12,7 @@ Sebagai contoh:
 ```javascript
 const { app, powerMonitor } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
@@ -23,11 +23,11 @@ app.on('ready', () => {
 
 Modul`powerMonitor` memancarkan peristiwa berikut:
 
-### Acara: 'menangguhkan'
+### Event: 'suspend' _Linux_ _Windows_
 
 Emitted saat sistem sedang menangguhkan.
 
-### Acara: 'resume'
+### Event: 'resume' _Linux_ _Windows_
 
 Emitted saat sistem dilanjutkan.
 

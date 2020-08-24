@@ -84,7 +84,6 @@
 * Electron のリリース & 開発者のフィードバック
   * [バージョンポリシー](tutorial/electron-versioning.md)
   * [リリースタイムライン](tutorial/electron-timelines.md)
-  * [App のフィードバックプログラム](tutorial/app-feedback-program.md)
 * [asar でアプリソースコードのパッケージ](tutorial/application-packaging.md)
   * [asar アーカイブの生成](tutorial/application-packaging.md#generating-asar-archives)
   * [asar アーカイブを使用する](tutorial/application-packaging.md#using-asar-archives)

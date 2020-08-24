@@ -73,20 +73,20 @@ const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar
 
 let spinning = false
 
-// 回るラベル
+// Reel labels
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// 回した結果のラベル
+// Spin result label
 const result = new TouchBarLabel()
 
-// 回すボタン
+// Spin button
 const spin = new TouchBarButton({
   label: '🎰 Spin',
   backgroundColor: '#7851A9',
   click: () => {
-    // 回っている間はクリックを無視する
+    // Ignore clicks if already spinning
     if (spinning) {
       return
     }
@@ -95,7 +95,7 @@ const spin = new TouchBarButton({
     result.label = ''
 
     let timeout = 10
-    const spinLength = 4 * 1000 // 4 秒
+    const spinLength = 4 * 1000 // 4 seconds
     const startTime = Date.now()
 
     const spinReels = () => {
@@ -104,7 +104,7 @@ const spin = new TouchBarButton({
       if ((Date.now() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // 回る毎に少し遅くなる
+        // Slow down a bit on each spin
         timeout *= 1.1
         setTimeout(spinReels, timeout)
       }
@@ -128,15 +128,15 @@ const updateReels = () => {
 const finishSpin = () => {
   const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
   if (uniqueValues === 1) {
-    // 3 つの値すべてが同じ
+    // All 3 values are the same
     result.label = '💰 Jackpot!'
     result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
-    // 2 つの値が同じ
+    // 2 values are the same
     result.label = '😍 Winner!'
     result.textColor = '#FDFF00'
   } else {
-    // どの値も異なる
+    // No values are the same
     result.label = '🙁 Spin Again'
     result.textColor = null
   }
@@ -159,7 +159,7 @@ const touchBar = new TouchBar({
 
 let window
 
-app.once('ready', () => {
+app.whenReady().then(() => {
   window = new BrowserWindow({
     frame: false,
     titleBarStyle: 'hiddenInset',

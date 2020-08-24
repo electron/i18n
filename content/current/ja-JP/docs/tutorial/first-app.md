@@ -31,20 +31,9 @@ npm が基本的な `package.json` ファイルを作るガイドをします。
 }
 ```
 
-__注釈__: もし `main` フィールドが `package.json` 内に記載されていない場合、 Electron は (Node.js のように) `index.js` の読み込みを試みます。 もしこれがただのNodeアプリケーションならば、現在のパッケージを実行するように `node` に指示する `start` スクリプトを追加します。
+__注釈__: もし `main` フィールドが `package.json` 内に記載されていない場合、 Electron は (Node.js のように) `index.js` の読み込みを試みます。
 
-```json
-{
-  "name": "your-app",
-  "version": "0.1.0",
-  "main": "main.js",
-  "scripts": {
-    "start": "node ."
-  }
-}
-```
-
-このNodeアプリケーションをElectronアプリケーションにするのは非常に簡単で、単に `node` ランタイムを `electron` ランタイムに置き換えるだけです。
+By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
 
 ```json
 {
@@ -82,7 +71,7 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // ブラウザウインドウを作成
-  let win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -124,18 +113,18 @@ function createWindow () {
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
 app.whenReady().then(createWindow)
 
-// 全てのウィンドウが閉じられた時に終了します。
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  // macOSでは、ユーザが Cmd + Q で明示的に終了するまで、
-  // アプリケーションとそのメニューバーは有効なままにするのが一般的です。
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // macOSでは、ユーザがドックアイコンをクリックしたとき、
-  // そのアプリのウインドウが無かったら再作成するのが一般的です。
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }

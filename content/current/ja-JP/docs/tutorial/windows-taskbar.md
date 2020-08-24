@@ -102,7 +102,7 @@ __タスクバーボタン上のオーバーレイ:__
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
@@ -117,7 +117,7 @@ BrowserWindow タスクバーボタンを点滅するには、[BrowserWindow.fla
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```

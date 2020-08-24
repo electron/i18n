@@ -136,7 +136,7 @@ const options = {
   }
 }
 
-let client = webdriverio.remote(options)
+const client = webdriverio.remote(options)
 
 client
   .init()
@@ -149,7 +149,7 @@ client
   .end()
 ```
 
-## Workflow
+## Fluxo de trabalho
 
 To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
 

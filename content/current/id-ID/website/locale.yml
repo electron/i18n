@@ -1,4 +1,4 @@
-tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
+tagline: Buat aplikasi desktop lintas platform dengan JavaScript, HTML, dan CSS
 nav:
   apps: Aplikasi
   blog: Blog
@@ -13,29 +13,29 @@ nav:
   releases: Rilis
   search: pencarian
   userland: Userland
-  governance: Governance
+  governance: Pemerintahan
 keyboard_modal:
   title: Cara pintas keyboard
   key: Tombol
   action: Aksi
   focus_search: Fokus pada kotak pencarian
   focus_and_clear: Fokus pada kotak pencarian dan mengosongkannya
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  scroll_down: "Select the next search result\nPilih hasil pencarian berikutnya"
+  scroll_up: Pilih hasil pencarian sebelumnya
+  open: Membuka hasil pencarian yang dipilih
+  open_new_tab: Buka hasil pencarian di tab baru
 docs:
   title: Dokumentasi Electron
   description: Lihat semua <a href="/docs/all">dokumentasi di satu halaman</a> atau lihat <a href="/docs/faq">FAQ</a>.
-  guides: "Guides: Getting Started with Electron"
+  guides: "Panduan: Memulai dengan Elektron"
   api_reference: Referensi API
-  api_structures: API Structures
+  api_structures: Struktur API
   advanced: Peningkatan
-  detailed: In Detail
+  detailed: Secara Terperinci
   custom_dom: Elemen DOM Khusus
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
-  both_proc_modules: Modules for Both Process Types
+  main_proc_modules: Modul Proses Utama
+  renderer_proc_modules: Modul proses renderer
+  both_proc_modules: Modul untuk kedua proses
   footer:
     propose_change: Meningkatkan sebuah dokumen
     version_history: Riwayat cerita
@@ -43,26 +43,26 @@ docs:
     view_all_docs: Semua dokumentasi di satu halaman
 languages:
   choose_language: Pilih Bahasa Situs Anda
-  view_more_details: View More Language Details
+  view_more_details: Lihat detail bahasa lainnya
   translation_progress: alur terjemahan
   current: pilihan saat ini
 community:
   title: Komunitas Electron
-  description: Resources for connecting with people working on Electron.
+  description: Sumber daya untuk menghubungkan dengan orang yang bekerja pada elektron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>memulai</b></a> membuat aplikasi dengan membaca panduan mulai cepat <a href='/docs/tutorial/first-app'></a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>tetap up to date</b></a> dengan mengikuti <a href='https://twitter.com/electronjs'>@electronjs</a> di Twitter dan berlangganan feed blog <a href='/blog'></a>."
+    localized_docs: "<a href='/languages'><b>membaca dokumen dalam bahasa asli Anda</b></a> dengan mengunjungi halaman bahasa <a href='/languages'></a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Dapatkan bantuan dan umpan balik</b></a> dengan bergabung dengan <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio slack</a>, posting di <a href='https://discuss.atom.io/c/electron'>Diskusikan</a>, atau mengunjungi <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Laporkan masalah keamanan</b></a> dengan mengirim email <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    bugs: "<a href='https://github.com/electron/electron/issues'><b>Laporkan bug</b></a> dengan membuka masalah pada repositori <a href='https://github.com/electron/electron/issues'>Electron/Electron</a>."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Laporkan bug</b></a> dengan membuka masalah pada repositori <a href='https://github.com/electron/electron/issues'>Electron/Electron</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Laporkan masalah keamanan</b></a> dengan mengirim email <a href='mailto:coc@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>donasi</b></a> di <a href='/donors'>halaman OpenCollective</a>."
+    other: "Untuk semua pertanyaan lainnya, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    title: Komunitas Bahasa
+    description: "Komunitas elektron meliputi dunia, dan bahasa Inggris bukanlah bahasa pertama semua orang. Temukan dokumentasi <a href='/languages'>dalam bahasa Anda</a>, atau bergabunglah dengan salah satu komunitas bahasa di bawah ini:"
   tools: Alat
   boilerplates: Piring boiler
   components: Komponen
@@ -71,22 +71,22 @@ community:
   awesome_notice: Daftar ini dihasilkan dari gudang <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's mengagumkan elektron </a>. <br> ada yang hilang <a href="https://github.com/sindresorhus/mengagumkan-elektron/blob/master/contributing.md"> Buat permintaan tarik </a>.
   meetup_notice: Untuk menambahkan pertemuan, edit <code> data / meetups.json </ code> dan <a href="https://github.com/electron/electronjs.org/tree/master/data/pertemuan.json"> buat permintaan tarik </a>
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
-  all_releases: All Releases
-  back_to_index: Back to index
+  show_releases: "Tampilkan Releases:"
+  show_only_releases_from: "Tampilkan hanya rilis dari:"
+  all_versions: Semua Versi
+  stable_releases: Rilis Stabil
+  stable_desc: Dukungan rilis, reguler
+  beta_releases: Rilis beta
+  beta_desc: Menguji aplikasi Anda dengan perubahan yang akan datang
+  nightly_releases: Rilis malam
+  nightly_desc: Rasakan fitur terbaru kami
+  next: Lanjut
+  next_page: Halaman berikutnya
+  previous: Sebelumnya
+  previous_page: Halaman sebelumnya
+  page: Halaman
+  all_releases: Semua rilisan
+  back_to_index: Kembali ke Indeks
 electron_is_good:
   title: Apps users love, built with Electron
   description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
@@ -116,7 +116,7 @@ explore:
   title: Jelajahi API Elektron
   description: "<a href='https://github.com/electron/electron-api-demos'> app elektron API demo</a> interaktif menunjukkan fitur yang paling penting dari API elektron. Melihat apa yang mungkin dengan elektron dengan sampel kode dan tips untuk membangun aplikasi Anda."
   fiddle_title: Try more powerful experiments with Electron Fiddle
-  see_more_info: See more info
+  see_more_info: Lihat info lebih lanjut
 download_from_github: Unduh dari GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> Lihat semua rilis</a> di GitHub
 quick_start:
@@ -128,26 +128,26 @@ quick_start:
   dive_deeper: Atau menyelam lebih dalam dan membaca <a href='/docs'> dokumentasi</a>.
 need_help:
   title: Perlu bantuan?
-  description: <a href='https://discuss.atom.io/c/electron'>.
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Bahasa
 taglines:
   languages: Localized content from our awesome global developer community.
-  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "Bantu terjemahkan"
 footer:
   see_the_faq: Lihat pertanyaan yang sering diajukan
 apps:
   something_missing: Ada yang hilang
   edit_this_app: Edit aplikasi ini
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  search_app: Filter aplikasi dengan nama, deskripsi, dll…
+  categories: Kategori
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">buat pull request</a> untuk menambahkan aplikasi Anda.'
   #App show page specific localization strings
   website: Situs Web
   repository: Repositori
-  category: Category
-  downloads: Downloads
+  category: Kategori
+  downloads: Unduh
   keywords: Kata Kunci
   license: Lisensi
   latest_release: Rilis Terakhir
@@ -162,13 +162,13 @@ clipboard:
   copy_to_clipboard: Menyalin ke clipboard
   copied: Disalin
 fiddle_launch_button:
-  launch: Launch
-  launch_in_fiddle: Launch in Fiddle
+  launch: Jalankan
+  launch_in_fiddle: Peluncuran di fiddle
 or: atau
 pages:
   '/':
-    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Elektron | Buat aplikasi desktop lintas platform dengan JavaScript, HTML, dan CSS.
+    description: 'Buat aplikasi desktop lintas platform dengan JavaScript, HTML, dan CSS.'
   '/apps':
     title: Aplikasi Elektronika
     description: Aplikasi Dibangun di Elektron
@@ -215,6 +215,8 @@ pages:
     description: Sistem tata kelola Elektron terdiri dari Kelompok Kerja yang mengawasi berbagai aspek ekosistem Elektron, dan ada satu kelompok kerja Administratif yang berfungsi untuk menyelesaikan konflik di antara aspek tersebut.
   '/donors':
     title: Penyumbang
+  '/blacklivesmatter':
+    title: Black Lives Matter
 landing:
   get_started: Memulai
   fiddle:
@@ -234,29 +236,29 @@ governance:
   description: Sistem tata kelola Elektron terdiri dari Kelompok Kerja yang mengawasi berbagai aspek ekosistem Elektron, dan ada satu kelompok kerja Administratif yang berfungsi untuk menyelesaikan konflik di antara aspek tersebut.
   wgs: Kelompok Kerja
   ecosystem:
-    title: Ecosystem
-    description: Oversees the projects that make Electron app development easier.
+    title: Ekosistem
+    description: Mengawasi proyek yang membuat pengembangan aplikasi Electron lebih mudah.
   outreach:
     title: Diluar Jangkauan
     description: Menumbuhkan komunitas Elektron
   releases:
     title: Rilis
-    description: Oversees all release branches, and tooling to support releases.
+    description: Mengawasi semua cabang rilis, dan perkakas untuk mendukung rilis.
   upgrades:
     title: Upgrade
-    description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
+    description: Mengawasi peningkatan dependensi hulu; khusus Chromium dan Node.
   cmsf:
     title: Komunitas & Keselamatan
-    description: Oversees removal/bans from community.
+    description: Mengawasi penghapusan/larangan dari komunitas.
   security:
     title: Keamanan
-    description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
+    description: Secara proaktif memastikan keamanan elektron sebagai sebuah proyek, merespon insiden yang masuk, dan mengawasi peluncuran perbaikan.
   admins:
     title: Administratif
     description: Kelompok Kerja Administratif mengawasi seluruh tata kelola dan proyek.
   api:
     title: API
-    description: Oversees public API design based on project principles.
+    description: Mengawasi desain API publik berdasarkan prinsip proyek.
   global:
     overview: Sekilas
     associated_repos: Repositori Terkait
@@ -264,21 +266,21 @@ governance:
   definitions:
     title: Definisi
     list:
-      - A <i>maintainer</i> is anyone who plays an active role in governance.
-      - A <i>collaborator</i> is active in the community, but not in governance.
-      - A <i>participant</i> is anyone who is a maintainer or collaborator.
-      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
-      - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
+      - <i>Pengelola</i> adalah mereka yang berperan aktif dalam pemerintahan.
+      - <i> kolaborator </i> aktif di komunitas, tetapi tidak dalam tata kelola.
+      - <i> Peserta </i> adalah siapa saja yang merupakan pengelola atau kolaborator.
+      - <i> Kelompok kerja </i> adalah sekelompok pengelola yang dibentuk untuk bertanggung jawab atas aspek tertentu dari proyek Elektron. Biasanya kelompok-kelompok ini akan bertemu secara teratur tetapi dalam beberapa kasus hanya akan bertemu sesuai kebutuhan untuk memenuhi tanggung jawab mereka.
+      - 'Seorang <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership"> ketua</a> memimpin kelompok kerja.'
   responsibilities:
-    title: Responsibilities
-    listdescription: "All Working Groups have these core responsibilities:"
+    title: Tanggung jawab
+    listdescription: "Semua kelompok kerja memiliki tanggung jawab utama:"
     list:
-      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
-      - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
-      - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
-      - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
-    see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
-  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
+      - Mereka harus memutuskan sendiri, dan mempublikasikan aturan mereka, misalnya bagaimana keputusan dibuat, kapan pertemuan diadakan, dan siapa yang boleh hadir.
+      - 'Mereka akan <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection"> memilih </a> ketua untuk <a href = ''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibility''> mewakili </a> grup.'
+      - Mereka harus menyimpan catatan pertemuan, termasuk item agenda, poin diskusi, dan hasil untuk ditinjau oleh semua orang.
+      - 'Mereka akan kolaboratif dan bekerja <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">dengan itikad baik</a> dengan kelompok kerja lainnya.'
+    see_charter: Lihat <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> untuk informasi lebih lanjut.
+  code_of_conduct: Organisasi elektron dan semua repo di dalamnya mematuhi Kode Etik <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">berikut ini.</a>
   license: Electron dilisensi dengan <a href="https://github.com/electron/electron/blob/master/LICENSE">Lisensi MIT</a>.
   repository: Silahkan kunjungi <a href="https://github.com/electron/governance">Tatakelola Repositori</a> untuk mendapatkan informasi lebih lengkap mengenai struktur tatakelola.
 _404:

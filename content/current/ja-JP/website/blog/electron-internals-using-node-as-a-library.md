@@ -1,58 +1,58 @@
 ---
-title: 'Electron Internals&#58; Using Node as a Library'
+title: 'Electron の舞台裏&#58: Node をライブラリとして使用する'
 author: zcbenz
 date: '2016-08-08'
 ---
 
-This is the second post in an ongoing series explaining the internals of Electron. Check out the [first post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) about event loop integration if you haven't already.
+Electron の舞台裏について説明するシリーズ、第二弾です。 イベントループの統合についてまだ読んでいない方は [最初の記事](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) をご覧ください。
 
-Most people use [Node](https://nodejs.org) for server-side applications, but because of Node's rich API set and thriving community, it is also a great fit for an embedded library. This post explains how Node is used as a library in Electron.
+ほとんどの人は [Node](https://nodejs.org) をサーバサイドアプリケーションに使っていますが、Node の豊富な API セットと活発なコミュニティのおかげで組み込みライブラリにも最適です。 この記事では、Electron のライブラリとして Node がどのように使われているかを解説します。
 
 ---
 
-## Build system
+## ビルドシステム
 
-Both Node and Electron use [`GYP`](https://gyp.gsrc.io) as their build systems. If you want to embed Node inside your app, you have to use it as your build system too.
+Node も Electron も [`GYP`](https://gyp.gsrc.io) をビルドシステムとして使用しています。 アプリ内に Node を埋め込みたい場合は、あなたもビルドシステムとして GYP を使用する必要があります。
 
-New to `GYP`? Read [this guide](https://gyp.gsrc.io/docs/UserDocumentation.md) before you continue further in this post.
+`GYP` は初めてですか? そうであれば、この記事を読み進める前に [このガイド](https://gyp.gsrc.io/docs/UserDocumentation.md) を読んでからにしてください。
 
-## Node's flags
+## Node のフラグ
 
-The [`node.gyp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) file in Node's source code directory describes how Node is built, along with lots of [`GYP`](https://gyp.gsrc.io) variables controlling which parts of Node are enabled and whether to open certain configurations.
+Node のソースコードディレクトリにある [`node.gyp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) ファイルには、Node をどのように構築するかが記述されており、多くの [`GYP`](https://gyp.gsrc.io) 変数とともに Node のどの部分を有効にするのか、特定の設定ファイルを開くかどうかを制御しています。
 
-To change the build flags, you need to set the variables in the `.gypi` file of your project. The `configure` script in Node can generate some common configurations for you, for example running `./configure --shared` will generate a `config.gypi` with variables instructing Node to be built as a shared library.
+ビルドフラグを変更するには、プロジェクトの `.gypi` ファイルに変数を設定する必要があります。 Node の `configure` スクリプトは、いくつかの一般的な設定ファイルを生成できます。例えば、`./configure --shared` を実行すると、Node を共有ライブラリとしてビルドするように指示する変数を含んだ `config.gypi` が生成されます。
 
-Electron does not use the `configure` script since it has its own build scripts. The configurations for Node are defined in the [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) file in Electron's root source code directory.
+Electron は独自のビルドスクリプトを持っているので、この `configure` スクリプトは使いません。 Node の設定は、Electron のルートソースコードディレクトリにある [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) ファイルで定義されています。
 
-## Link Node with Electron
+## Electron と Node のリンク
 
-In Electron, Node is being linked as a shared library by setting the `GYP` variable `node_shared` to `true`, so Node's build type will be changed from `executable` to `shared_library`, and the source code containing the Node's `main` entry point will not be compiled.
+Electron では、`GYP` 変数 `node_shared` を `true` に設定することで Node を共有ライブラリとしてリンクしています。このため、Node のビルドタイプは `executable` から `shared_library` に変更され、Node の `main` エントリポイントを含むソースコードはコンパイルされません。
 
-Since Electron uses the V8 library shipped with Chromium, the V8 library included in Node's source code is not used. This is done by setting both `node_use_v8_platform` and `node_use_bundled_v8` to `false`.
+Electron は Chromium に同梱されている V8 ライブラリを使用しているため、Node のソースコードに含まれている V8 ライブラリは使用しません。 これは `node_use_v8_platform` と `node_use_bundled_v8` の両方を `false` に設定することで実現しています。
 
-## Shared library or static library
+## 共有ライブラリか静的ライブラリか
 
-When linking with Node, there are two options: you can either build Node as a static library and include it in the final executable, or you can build it as a shared library and ship it alongside the final executable.
+Node とリンクする際には 2 つの選択肢があります。静的ライブラリとしてビルドし最終的な実行ファイルにインクルードするか、共有ライブラリとしてビルドし最終的な実行ファイルと一緒に頒布するかです。
 
-In Electron, Node was built as a static library for a long time. This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
+Electron では、Node は長い間静的ライブラリとしてビルドしていました。 これはビルドがシンプルで、高水準なコンパイラの最適化が可能で、余分な `node.dll` ファイルいらずで Electron を頒布できました。
 
-However, this changed after Chrome switched to use [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL is a fork of [OpenSSL](https://www.openssl.org) that removes several unused APIs and changes many existing interfaces. Because Node still uses OpenSSL, the compiler would generate numerous linking errors due to conflicting symbols if they were linked together.
+しかし、これは Chrome が [BoringSSL](https://boringssl.googlesource.com/boringssl) を使うようになってから変わりました。 BoringSSL は [OpenSSL](https://www.openssl.org) のフォークで、いくつかの未使用の API を削除し、多くの既存のインターフェースを変更しています。 Node は依然 OpenSSL を使用しているため、コンパイラがそれらをリンクすると、矛盾するシンボルのために多数のリンクエラーを発生させてしまいます。
 
-Electron couldn't use BoringSSL in Node, or use OpenSSL in Chromium, so the only option was to switch to building Node as a shared library, and [hide the BoringSSL and OpenSSL symbols](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) in the components of each.
+Electron では、Node で BoringSSL を使うことも Chromium で OpenSSL を使うこともできませんでした。そのため、Node を共有ライブラリとしてビルドするように切り替え、[BoringSSL と OpenSSL のシンボルをそれぞれのコンポーネントで隠す](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) という選択肢しかありませんでした。
 
-This change brought Electron some positive side effects. Before this change, you could not rename the executable file of Electron on Windows if you used native modules because the name of the executable was hard coded in the import library. After Node was built as a shared library, this limitation was gone because all native modules were linked to `node.dll`, whose name didn't need to be changed.
+この変化は、Electron にいくぶんかプラスの副作用をもたらしました。 この変更以前は、Windows 上でネイティブモジュールを使用している場合、インポートライブラリ内で実行ファイル名をハードコーディングしていたため、実行ファイル名を変更できませんでした。 Node が共有ライブラリとして構築されてからは、すべてのネイティブモジュールを `node.dll` にリンクしたため、この制限がなくなりました。
 
-## Supporting native modules
+## ネイティブモジュールのサポート
 
-[Native modules](https://nodejs.org/api/addons.html) in Node work by defining an entry function for Node to load, and then searching the symbols of V8 and libuv from Node. This is a bit troublesome for embedders because by default the symbols of V8 and libuv are hidden when building Node as a library and native modules will fail to load because they cannot find the symbols.
+[Node のネイティブモジュール](https://nodejs.org/api/addons.html) は、Node がロードするエントリ関数を定義し、Node から V8 や libuv のシンボルを検索することで動作します。 これは組み込み開発者にとっては少し面倒です。なぜなら、デフォルトではライブラリとして Node をビルドする際に V8 と libuv のシンボルが隠されており、ネイティブモジュールはシンボルを見つけられずロードに失敗するからです。
 
-So in order to make native modules work, the V8 and libuv symbols were exposed in Electron. For V8 this is done by [forcing all symbols in Chromium's configuration file to be exposed](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). For libuv, it is achieved by [setting the `BUILDING_UV_SHARED=1` definition](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
+そこで、ネイティブモジュールを動作させるために Electron では V8 と libuv のシンボルを公開しました。 V8 では、[Chromium の設定ファイル内の全シンボルを強制的に公開する](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122) ことで実現しています。 libuv の場合、[`BUILDING_UV_SHARED=1` 定義を設定する](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228) ことで実現しています。
 
-## Starting Node in your app
+## アプリで Node を起動する
 
-After all the work of building and linking with Node, the final step is to run Node in your app.
+Node をビルドしてリンクする全作業の後は、最後の段階としてアプリで Node を実行します。
 
-Node doesn't provide many public APIs for embedding itself into other apps. Usually, you can just call [`node::Start` and `node::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) to start a new instance of Node. However, if you are building a complex app based on Node, you have to use APIs like `node::CreateEnvironment` to precisely control every step.
+Node は、自分自身を他のアプリに組み込むための公開 API は多く提供していません。 通常は、[`node::Start` と `node::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) を呼び出すだけで Node の新しいインスタンスを起動できます。 しかし、Node ベースで複雑なアプリを構築する場合は、`node::CreateEnvironment` のような API を使用して全ステップを正確に制御する必要があります。
 
-In Electron, Node is started in two modes: the standalone mode that runs in the main process, which is similar to official Node binaries, and the embedded mode which inserts Node APIs into web pages. The details of this will be explained in a future post.
+Electron で Node を起動する際には、公式の Node バイナリに近いメインプロセスで動作するスタンドアロンモードと、ウェブページに Node API を挿入する組み込みモードの、2 つのモードがあります。 この詳細は後々の記事で解説する予定です。
 

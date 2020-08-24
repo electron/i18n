@@ -21,4 +21,3 @@
 * [Отладка под macOS](debugging-instructions-macos.md)
 * [Настройка сервера символов в отладчике](setting-up-symbol-server.md)
 * [Патчи](patches.md)
-* [Обновление Node](upgrading-node.md)

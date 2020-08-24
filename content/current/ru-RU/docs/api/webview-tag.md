@@ -209,7 +209,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (optional)
+* `options` Object (опционально)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - URL-адрес HTTP ссылки.
   * `userAgent` String (опционально) - user-agent, создающий запрос.
   * `extraHeaders` String (опционально) - Дополнительные заголовки, разделенные "\n"
@@ -439,7 +439,7 @@ Executes editing command `replaceMisspelling` in page.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional)
+* `options` Object (опционально)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -461,10 +461,32 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (optional)
+* `options` Object (опционально)
   * `silent` Boolean (optional) - Don't ask user for print settings. По умолчанию - `false`.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. По умолчанию - `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. По умолчанию - `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. По умолчанию - `true`.
+  * `margins` Object (optional)
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. По умолчанию - `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the start page.
+    * `to` Number - the end page.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional)
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
 Возвращает `Promise<void>`
 
@@ -473,11 +495,18 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 ### `<webview>.printToPDF(options)`
 
 * `options` Object
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - the first page to print.
+    * `to` Number - the last page to print (inclusive).
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
 Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
 
@@ -541,26 +570,9 @@ Returns `Number` - the current zoom level.
 
 Устанавливает максимальный и минимальный уровень пинч-маштабирования.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` _Deprecated_
-
-* `minimumLevel` Number
-* `maximumLevel` Number
-
-Возвращает `Promise<void>`
-
-Устанавливает максимальный и минимальный на основе слоя (т.е. невизуальный) уровень масштаба.
-
-**Deprecated:** This API is no longer supported by Chromium.
-
 ### `<webview>.showDefinitionForSelection()` _macOS_
 
 Shows pop-up dictionary that searches the selected word on the page.
-
-### `<webview>.getWebContents()` _Deprecated_
-
-Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
-
-It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 ### `<webview>.getWebContentsId()`
 

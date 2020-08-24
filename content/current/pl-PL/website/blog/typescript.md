@@ -18,7 +18,7 @@ TypeScript solves this problem with **definition files**. A TypeScript definitio
 
 Many popular projects like [Angular](https://angularjs.org/), [Vue.js](http://vuejs.org/), [node-github](https://github.com/mikedeboer/node-github) (and now Electron!) compile their own definition file and bundle it with their published npm package. For projects that don't bundle their own definition file, there is [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), a third-party ecosystem of community-maintained definition files.
 
-## Instalacja
+## Pag-install
 
 Starting at version 1.6.10, every release of Electron includes its own TypeScript definition file. When you install the `electron` package from npm, the `electron.d.ts` file is bundled automatically with the installed package.
 
