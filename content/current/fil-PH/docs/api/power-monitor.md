@@ -4,21 +4,6 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-
-This module cannot be used until the `ready` event of the `app` module is emitted.
-
-Halimbawa ng:
-
-```javascript
-const { app, powerMonitor } = require('electron')
-
-app.whenReady().then(() => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
-})
-```
-
 ## Mga event
 
 Ang modyul ng `powerMonitor` ay maglalabas ng mga sumusunod na event:

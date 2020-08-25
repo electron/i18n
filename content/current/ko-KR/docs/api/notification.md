@@ -26,7 +26,7 @@ It creates a new `Notification` with native properties as set by the `options`.
 
 `Boolean` 값을 반환합니다 - 현재 시스템에서 알림을 지원하는지 여부를 반환합니다.
 
-### `new Notification([options])` _실험적_
+### `new Notification([options])`
 
 * `options` Object (optional)
   * `title` String - 알림 윈도우가 표시될 때 상단에 나타나는, 알림의 타이틀입니다.

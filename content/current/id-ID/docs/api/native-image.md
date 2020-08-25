@@ -265,9 +265,13 @@ Returns `Boolean` - Whether the image is empty.
 
 
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Mengembalikan [`Ukuran`](structures/size.md)
+* `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
+
+Mengembalikan [`Ukuran`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 
 
@@ -310,18 +314,28 @@ to be mapped to the same algorithm on a given platform.</li>
 
 <p spaces-before="0">Jika hanya <code> tinggi </ 0> atau <code> lebar</ 0> </ 0> yang ditentukan maka rasio aspek saat ini akan dipertahankan dalam gambar ukurannya.</p>
 
-<h4 spaces-before="0"><code>image.getAspectRatio()`</h4> 
-    Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
+<h4 spaces-before="0"><code>image.getAspectRatio([scaleFactor])`</h4> 
+    * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
+Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
 
-<h4 spaces-before="0"><code>image.addRepresentation(options)`</h4> 
-    
-    * `options` Object 
+<p spaces-before="0">If <code>scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
+
+
+
+#### `image.addRepresentation(options)`
+
+* `options` Object 
     * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (opsional) - Default ke 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (optional) - Default ke 0. Required if a bitmap buffer is specified as `buffer`.
   * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
-
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
 

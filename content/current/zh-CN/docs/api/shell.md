@@ -2,7 +2,7 @@
 
 > 使用默认应用程序管理文件和 url。
 
-进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
 ` shell ` 模块提供与桌面集成相关的功能。
 
@@ -13,6 +13,8 @@ const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
+
+**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
 ## 方法
 

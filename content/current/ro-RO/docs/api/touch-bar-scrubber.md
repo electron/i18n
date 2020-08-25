@@ -2,9 +2,9 @@
 
 > Create a scrubber (a scrollable selector)
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Proces-ul: [Main](../tutorial/application-architecture.md#main-and-renderer-processes) - Principal</0>
 
-### `new TouchBarScrubber(options)` _Experimental_
+### `new TouchBarScrubber(options)`
 
 * `options` Object
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.

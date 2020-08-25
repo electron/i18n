@@ -298,7 +298,7 @@ Ibinabalik ang:
 
 Emitted when the GPU process crashes or is killed.
 
-### Event: 'renderer-process-crashed'
+### Event: 'renderer-process-crashed' _Deprecated_
 
 Ibinabalik ang:
 
@@ -308,9 +308,11 @@ Ibinabalik ang:
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+
 #### Event: 'render-process-gone'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
@@ -328,7 +330,7 @@ Emitted when the renderer process unexpectedly dissapears.  This is normally bec
 
 ### Event: 'accessibility-support-changed' _macOS_ _Windows_
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `accessibilitySupportEnabled` Boolean - `true` kapag ang parating na suporta ng Chrome ay pinagana, `false` kung hindi.
@@ -337,7 +339,7 @@ Lalabas kapag ang parating na suporta ng Chrome ay nabago. Ang event na ito ay s
 
 ### Event: 'session-created'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `session` [Session](session.md)
 
@@ -353,7 +355,7 @@ app.on('session-created', (session) => {
 
 ### Event: 'second-instance'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `argv` String[] - Isang hanay ng mga argumento sa linya ng command sa ikalawang pagkakataon
@@ -362,6 +364,8 @@ Ibinabalik ang:
 This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
 
 `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Kadalasan ang mga application ay magrerespond nito sa pamamagitan ng pag-focus pag-non-minimize ng kanilang primary window.
+
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
@@ -417,7 +421,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process of `w
 
 ### Event: 'remote-get-current-web-contents'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
@@ -523,6 +527,7 @@ Returns`String` - Ang kasalukuyang direktoryo ng aplikasyon.
   * `music` Direktoryo ng musika para sa gumagamit.
   * `pictures` Direktoryo ng mga larawan para sa gumagamit.
   * `videos` Direktoryo ng mga video para sa gumagamit.
+  * `recent` Directory for the user's recent files (Windows only).
   * `logs` Directory for your app's log folder.
   * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
   * `crashDumps` Directory where crash dumps are stored.
@@ -668,7 +673,7 @@ Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
 ### `app.getJumpListSettings()` _Windows_
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `minItems` Integer - Ang pinakamaliit na bilang ng mga item na ipapakita sa Jump List (para sa mas detalyadong deskripsyon ng halaga nito tingnan ang [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Ang mga item na ito ay hindi dapat maidagdag na muli sa Jump List sa **next** na tawag sa `app.setJumpList()`, ang Windows ay hindi magpapakita ng kahit anong pasadyang kategorya na maglalaman ng kahit anong natanggal ng mga item.
@@ -934,7 +939,7 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
 
 If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `openAtLogin` Boolean - `true` kung ang app ay naka-set na bumukas sa pag-login.
 * `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
@@ -1030,9 +1035,9 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.enableSandbox()` _Experimental_
+### `app.enableSandbox()`
 
-Enables full sandbox mode on the app.
+Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
@@ -1073,6 +1078,24 @@ app.moveToApplicationsFolder({
 
 Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
+### `app.isSecureKeyboardEntryEnabled()` _macOS_
+
+Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+
+By default this API will return `false`.
+
+### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
+
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+
+Set the `Secure Keyboard Entry` is enabled in your application.
+
+By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+
+See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+
+**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+
 ## Mga Katangian
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
@@ -1096,6 +1119,8 @@ An `Integer` property that returns the badge count for current app. Setting the 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
 **Note:** Ang tagalunsad ng Unity ay nangangailangan ng pagkakaroon ng isang file na `.desktop` para gumana, para sa karagdagan impormasyon mangyaring basahin ang [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
 ### `app.commandLine` _Readonly_
 

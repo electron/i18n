@@ -93,7 +93,11 @@ process.once('loaded', () => {
 
 ### `process.type` _読み出し専用_
 
-現在のプロセスの種類を表す `String` で、 `"browser"` (すなわちメインプロセス)、`"renderer"` または `"worker"` (すなわち web worker) の値をとります。
+A `String` representing the current process's type, can be:
+
+* `browser` - The main process
+* `renderer` - A renderer process
+* `worker` - In a web worker
 
 ### `process.versions.chrome` _読み出し専用_
 

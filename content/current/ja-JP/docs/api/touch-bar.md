@@ -4,7 +4,7 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBar(options)` _（実験的）_
+### `new TouchBar(options)`
 
 * `options` Object
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (任意)
@@ -53,6 +53,10 @@
 #### `TouchBarSpacer`
 
 [`typeof TouchBarSpacer`](./touch-bar-spacer.md) であり、`TouchBarSpacer` クラスの参照です。
+
+#### `TouchBarOtherItemsProxy`
+
+A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference to the `TouchBarOtherItemsProxy` class.
 
 ### インスタンスプロパティ
 

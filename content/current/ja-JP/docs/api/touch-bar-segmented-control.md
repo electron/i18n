@@ -4,7 +4,7 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSegmentedControl(options)` _実験的_
+### `new TouchBarSegmentedControl(options)`
 
 * `options` Object
   * `segmentStyle` String (任意) - 以下のセグメントのスタイルのいずれかです。

@@ -2,7 +2,7 @@
 
 > 기본 애플리케이션을 이용해 파일과 URL을 관리합니다.
 
-프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
 ` shell` 모듈은 데스크톱 통합과 연관된 함수를 제공합니다.
 
@@ -13,6 +13,8 @@ const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
+
+**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
 ## 메서드
 

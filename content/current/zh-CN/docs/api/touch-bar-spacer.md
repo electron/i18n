@@ -2,9 +2,9 @@
 
 > 在mac os应用中，为touch bar中的相邻项之间留白
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new BrowserView(可选)` _实验功能_
+### `new TouchBarSpacer(options)`
 
 * `options` Object
   * `size` String (optional) - Size of spacer, possible values are:

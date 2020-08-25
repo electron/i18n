@@ -4,7 +4,7 @@
 
 Processo: <3>Main</7><9>
 
-### `new TouchBarButton(options)` _Experimental_
+### `new TouchBarButton(options)`
 
 * `options` Object
   * `label` String (optional) - Button text.

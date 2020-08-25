@@ -4,21 +4,6 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-
-`app` モジュールの `ready` イベントが発生するまでは、このモジュールは使用できません。
-
-例:
-
-```javascript
-const { app, powerMonitor } = require('electron')
-
-app.whenReady().then(() => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
-})
-```
-
 ## イベント
 
 `powerMonitor` モジュールでは以下のイベントが発生します。

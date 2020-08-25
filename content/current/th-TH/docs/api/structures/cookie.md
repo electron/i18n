@@ -9,3 +9,4 @@
 * `httpOnly` Boolean (optional) - ระบุว่าคุกกี้นั้นจะทำเครื่องหมายเป็น HTTP เท่านั้นหรือไม่.
 * `session` Boolean (optional) - คุกกี้นั้นเป็นคุกกี้เซสชันหรือไม่ คุกกี้ที่มีวันหมดอายุ.
 * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.

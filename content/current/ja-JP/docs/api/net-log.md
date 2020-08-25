@@ -34,7 +34,7 @@ app.whenReady().then(async () => {
 
 ### `netLog.stopLogging()`
 
-戻り値 `Promise<String>` - ネットワークログが記録されたファイルパスで実行されます。
+Returns `Promise<void>` - resolves when the net log has been flushed to disk.
 
 ネットワークイベントの記録を停止します。 もし呼ばれなければ、ネットロギングはアプリ終了時に自動的に終了します。
 
@@ -42,8 +42,4 @@ app.whenReady().then(async () => {
 
 ### `netLog.currentlyLogging` _読み出し専用_
 
-ネットワークログが記録されていたかどうかを表す `Boolean` プロパティ。
-
-### `netLog.currentlyLoggingPath` _読み出し専用_ _非推奨_
-
-現在のログファイルへのパスを返す `String` プロパティ。
+A `Boolean` property that indicates whether network logs are currently being recorded.

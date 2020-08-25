@@ -229,9 +229,13 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 Returns `Boolean` - Whether the image is empty.
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Çevirme [`Size`](structures/size.md)
+* `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
+
+Çevirme [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -260,9 +264,17 @@ Returns `NativeImage` - Kırpılan resim.
 
 Sadece `height` veya `width` belirtilirse yeniden boyutlandırılmış resimde mevcut en boy oranı korunur.
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `Float` Döner - Resmin en boy oranı.
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 

@@ -2,7 +2,7 @@
 
 > Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
 
-프로세스: [Renderer](../glossary.md#renderer-process)
+프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
 The following example shows how to capture video from a desktop window whose title is `Electron`:
 

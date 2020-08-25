@@ -4,7 +4,7 @@
 
 Processo: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `nuovo GruppoBarraTocco(opzioni)` _Sperimentale_
+### `new TouchBarGroup(options)`
 
 * `options` Object
   * `elementi` [BarraTocco](touch-bar.md) - Elementi da mostrare come un gruppo.

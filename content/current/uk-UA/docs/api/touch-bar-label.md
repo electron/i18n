@@ -4,7 +4,7 @@
 
 Процес: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)` _Експериментальний_
+### `new TouchBarLabel(options)`
 
 * `options` Object
   * `label` String (опціонально) - Текст для відображення.

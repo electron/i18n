@@ -69,6 +69,16 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 当做普通Node.js进程启动。
 
+In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
+
+* "--openssl-config"
+* "--use-bundled-ca"
+* "--use-openssl-ca",
+* "--force-fips"
+* "--enable-fips"
+
+These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
+
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 不附加到当前控制台会话。
@@ -81,7 +91,7 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 Set the trash implementation on Linux. Default is `gio`.
 
-选项:
+Options:
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -114,7 +124,7 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-由 ` electron ` 包运行时，该变量告知 ` electron `命令使用指定构件代替由`npm install`下载的构件。 用法：
+当 `electron` 包运行时，该变量告知 `electron` 命令使用指定Electron的构建代替由 `npm install` 下载的构建。 用法:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing

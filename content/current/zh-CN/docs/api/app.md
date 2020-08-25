@@ -298,7 +298,7 @@ Emitted whenever there is a GPU info update.
 
 当gpu进程崩溃或关闭（杀死）时触发
 
-### Event: 'renderer-process-crashed'
+### Event: 'renderer-process-crashed' _Deprecated_
 
 返回:
 
@@ -307,6 +307,8 @@ Emitted whenever there is a GPU info update.
 * `killed` Boolean
 
 当渲染器进程`webContents`崩溃或关闭（杀死）时触发。
+
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -362,6 +364,8 @@ app.on('session-created', (session) => {
 当第二个实例被执行并且调用 `app.requestSingleInstanceLock()` 时，这个事件将在你的应用程序的首个实例中触发
 
 ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
+
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
 
 保证在 `app` 的 `ready` 事件发出后发出此事件。
 
@@ -523,6 +527,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
   * `music` 用户音乐目录的路径
   * `pictures` 用户图片目录的路径
   * `videos` 用户视频目录的路径
+  * `recent` Directory for the user's recent files (Windows only).
   * ` logs `应用程序的日志文件夹
   * `pepperFlashSystemPlugin` Pepper Flash 插件的系统版本的完成路径。
   * `crashDumps` Directory where crash dumps are stored.
@@ -687,7 +692,7 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 
 如果 `categories` 的值为 `null`， 之前设定的自定义跳转列表(如果存在) 将被替换为标准的应用跳转列表(由windows生成)
 
-** 注意: **如果 ` JumpListCategory ` 对象既没有 ` type `, 也没有 ` name ` 属性设置, 则其 ` type ` 被假定为 ` tasks `。 如果设置了 ` name ` 属性, 但省略了 ` type ` 属性, 则假定 ` type ` 为 ` custom`。
+** 注意: **如果 ` JumpListCategory ` 对象既没有 ` type `, 也没有 ` name ` 属性设置, 则其 ` type ` 被假定为 ` tasks `。 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
 
 **注意:** 用户可以从自定义类别中移除项目， **after** 调用 `app.setJumpList(categories)` 方法之前， Windows不允许删除的项目添加回自定义类别。 尝试提前将删除的项目重新添加 到自定义类别中，将导致整个自定义类别被隐藏。 删除的项目可以使用 `app.getJumpListSettings()` 获取。
 
@@ -1029,9 +1034,9 @@ stopAccessingSecurityScopedResource()
 
 开始访问安全范围内的资源。 通过这个方法，Electron 应用被打包为可到达Mac App Store沙箱之外访问用户选择的文件。 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
-### `app.enableSandbox()` _实验功能_
+### `app.enableSandbox()`
 
-在应用程序上启用完全沙盒模式。
+Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
@@ -1072,6 +1077,24 @@ app.moveToApplicationsFolder({
 
 Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
+### `app.isSecureKeyboardEntryEnabled()` _macOS_
+
+Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+
+By default this API will return `false`.
+
+### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
+
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+
+Set the `Secure Keyboard Entry` is enabled in your application.
+
+By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+
+See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+
+**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+
 ## 属性
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
@@ -1095,6 +1118,8 @@ An `Integer` property that returns the badge count for current app. Setting the 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
 ** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher)。
+
+**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
 ### `app.commandLine` _Readonly_
 

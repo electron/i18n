@@ -4,7 +4,7 @@
 
 Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `Nueva etiqueta en la barra táctil(opciones)` _Experimental_
+### `new TouchBarLabel(options)`
 
 * `options` Object
   * `etiqueta` Cadena (opcional) - texto a mostrar.

@@ -1,4 +1,5 @@
 # MimeTypedBuffer Object
 
-* `mimeType` String - 전송 중인 mimeType 버퍼.
+* `mimeType` String (optional) - MIME type of the buffer.
+* `charset` String (optional) - Charset of the buffer.
 * `data` Buffer - 실제 버퍼 컨텐츠.

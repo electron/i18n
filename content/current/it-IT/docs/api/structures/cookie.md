@@ -9,3 +9,4 @@
 * `httpOnly` Booleano (opzionale) - Indica se il cookie è segnato come solo HTTP.
 * `session` Booleano (opzionale) - Indica se si tratta di un cookie di sessione o di uno persistente con data di scadenza.
 * `expirationDate` Double (opzionale) - La data di scadenza del cookie come numero di secondi dall'epoca UNIX. Non fornito per i cookie di sessione.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.

@@ -4,7 +4,7 @@
 
 Processo: <3>Main</7><9>
 
-### `new TouchBarScrubber(options)` _Experimental_
+### `new TouchBarScrubber(options)`
 
 * `options` Object
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.

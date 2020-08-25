@@ -6,6 +6,8 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessageChannelMain
 
+Quá trình: [Main](../glossary.md#main-process)
+
 Ví dụ:
 ```js
 const { port1, port2 } = new MessageChannelMain()

@@ -4,7 +4,7 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `bagong diinangPagitangBar(pamimilian)`_Eksperimento_
+### `new TouchBarSpacer(options)`
 
 * `options` Object
   * `size` String (optional) - Size of spacer, possible values are:

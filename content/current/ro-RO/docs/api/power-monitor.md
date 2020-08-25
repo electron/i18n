@@ -4,21 +4,6 @@
 
 Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
-
-This module cannot be used until the `ready` event of the `app` module is emitted.
-
-For example:
-
-```javascript
-const { app, powerMonitor } = require('electron')
-
-app.whenReady().then(() => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
-})
-```
-
 ## Events-Evenimente
 
 The `powerMonitor` module emits the following events:

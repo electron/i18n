@@ -85,6 +85,7 @@ Envía una solicitud para obtener todas las cookies que coincidan con `filter`, 
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Por defecto a false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Por defecto es falso.
   * `expirationDate` Doble (opcional) - La fecha de vencimiento de la cookie como el número de segundos desde la época UNIX. Si se omite, entonces la cookie cambia a una cookie de sesión y no se conservará entre sesiones.
+  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.  Default is `no_restriction`.
 
 Returns `Promise<void>` - Una promesa que resuelve cuando la cookie ha sido establecida
 

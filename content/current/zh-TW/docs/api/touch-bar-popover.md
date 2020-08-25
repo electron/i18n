@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarPopover(options)` _試驗中_
+### `new TouchBarPopover(options)`
 
 * `options` Object
   * `label` String (optional) - Popover button text.

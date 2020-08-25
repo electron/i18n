@@ -4,7 +4,7 @@
 
 İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarButton(options)` _Deneysel_
+### `new TouchBarButton(options)`
 
 * `options` Object
   * `label` String (İsteğe bağlı) - Görüntülenecek metin.

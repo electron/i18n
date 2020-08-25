@@ -167,7 +167,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String - 参见 [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 * `value` String
 
 设置 `NSUserDefaults` 中 `key` 的值.

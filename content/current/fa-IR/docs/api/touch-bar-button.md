@@ -4,7 +4,7 @@
 
 Drive
 
-### `new TouchBarButton(options)` _Experimental_
+### `new TouchBarButton(options)`
 
 * `گزینه های` ObjectIrN 98
   * `label` String (optional) - Button text.

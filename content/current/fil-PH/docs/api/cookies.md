@@ -85,6 +85,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Mga default sa false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. I-default sa false
   * `expirationDate` Double (opsyunal) - Ang expiration na petsa ng isang cookie ng bilang ng segundo dahil sa UNIX epoch. Kung ito ay tatanggalin ang cookie ay magiging isang sesyon cookie at hindi na ito mananatili sa pagitan ng mga sesyon.
+  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.  Default is `no_restriction`.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been set
 

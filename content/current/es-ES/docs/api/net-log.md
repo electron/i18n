@@ -34,7 +34,7 @@ Comienza la agravación de eventos de red en `path`.
 
 ### `netLog.stopLogging()`
 
-Devuelve `Promise<String>` - resuelve con una rula de archivo en la que se registraron los registros de red.
+Returns `Promise<void>` - resolves when the net log has been flushed to disk.
 
 Detener la grabación de los eventos de red. Si no se llama, la grabación de los registros de red terminará automáticamente cuando la aplicación se cierre.
 
@@ -42,8 +42,4 @@ Detener la grabación de los eventos de red. Si no se llama, la grabación de lo
 
 ### `netLog.currentlyLogging` _Readonly_
 
-Un propiedad `Boolean` que indica si los registros de red están configurados o no.
-
-### `netLog.currentlyLoggingPath` _Readonly_ _Deprecated_
-
-Un propiedad `String` que devuelve la ruta del archivo de registro actual.
+A `Boolean` property that indicates whether network logs are currently being recorded.

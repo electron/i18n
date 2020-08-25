@@ -26,7 +26,7 @@ The `Notification` class has the following static methods:
 
 Returns `Boolean` - Whether or not desktop notifications are supported on the current system
 
-### `new Notification([options])` _Experimental_
+### `new Notification([options])`
 
 * `options` Object (optional)
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
@@ -50,7 +50,7 @@ Objects created with `new Notification` emit the following events:
 
 #### Event: 'show'
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -58,7 +58,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 #### Event: 'click'
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -66,7 +66,7 @@ Emitted when the notification is clicked by the user.
 
 #### Event: 'close'
 
-Returns:
+تراجع:
 
 * `event` Event
 
@@ -76,7 +76,7 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 #### Event: 'reply' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `reply` String - The string the user entered into the inline reply field.
@@ -85,7 +85,7 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 #### Event: 'action' _macOS_
 
-Returns:
+تراجع:
 
 * `event` Event
 * `index` Number - The index of the action that was activated.

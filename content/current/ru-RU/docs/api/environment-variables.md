@@ -69,6 +69,16 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 Начинает процесс как Node.js процесс.
 
+In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
+
+* "--openssl-config"
+* "--use-bundled-ca"
+* "--use-openssl-ca",
+* "--force-fips"
+* "--enable-fips"
+
+These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
+
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 Не присоединяться к текущей сессии терминала.
@@ -114,7 +124,7 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
+При запуске из `electron` пакета, эта переменная дает команду `electron` использовать указанную сборку Electron вместо загруженной по `npm install`. Использование:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing

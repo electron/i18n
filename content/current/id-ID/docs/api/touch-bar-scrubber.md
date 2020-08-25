@@ -4,7 +4,7 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `TouchBarScrubberbaru(pilihan) ` _ Eksperimental _
+### `new TouchBarScrubber(options)`
 
 * `options` Object
   * `item` [ScrubberItem[] ](structures/scrubber-item.md) - Kumpulan item yang akan ditempatkan di scrubber ini.

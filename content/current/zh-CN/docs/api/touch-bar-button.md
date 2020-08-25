@@ -4,7 +4,7 @@
 
 进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new BrowserView(可选)` _实验功能_
+### `new TouchBarButton(options)`
 
 * `options` Object
   * ` label `String (可选) 按钮文本。

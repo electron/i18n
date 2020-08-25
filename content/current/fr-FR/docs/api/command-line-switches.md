@@ -14,74 +14,63 @@ app.whenReady().then(() => {
 })
 ```
 
-## --ignore-connections-limit=`domains`
+## Electron CLI Flags
 
-Ignore la limite de connexion pour la liste de `domains` séparés par `,`.
+### --auth-server-whitelist=`url`
 
-## --disable-http-cache
+Une liste de serveurs séparés par des virgules pour lesquels l'authentification intégrée est activée.
 
-Désactive le cache disque pour les requêtes HTTP.
+Par exemple :
 
-## --disable-http2
+```sh
+--auth-server-whitelist='*example.com, *foobar.com, *baz'
+```
 
-Désactive les protocoles HTTP/2 et SPDY/3.1.
+puis toute `url` finissant par `example.com`, `foobar.com`, `baz` se verra appliquer une authentification intégrée. Sans le préfixe `*` l'URL doit correspondre exactement.
+
+### --auth-negotiate-delegate-whitelist=`url`
+
+A comma-separated list of servers for which delegation of user credentials is required. Sans le préfixe `*` l'URL doit correspondre exactement.
 
 ### --disable-ntlm-v2
 
 Disables NTLM v2 for posix platforms, no effect elsewhere.
 
-## --lang
+### --disable-http-cache
 
-Permet de mettre une langue personnalisée.
+Désactive le cache disque pour les requêtes HTTP.
 
-## --inspect=`port` et --inspect-brk=`port`
+### --disable-http2
 
-Indicateurs relatifs au débogage, reportez-vous au guide [Déboguer le processus principal](../tutorial/debugging-main-process.md) pour plus de détails.
+Désactive les protocoles HTTP/2 et SPDY/3.1.
 
-## --remote-debugging-port=`port`
+### --disable-renderer-backgrounding
 
-Active le débogage distant via HTTP sur le `port` spécifié.
+Empêche Chromium d'abaisser la priorité des processus de rendu des pages invisibles.
 
-## --disk-cache-size=`size`
+Ce commutateur est global à tous les processus de rendu, si vous voulez seulement désactiver l'ajustement d'une fenêtre, vous pouvez passer par la modification de [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+
+### --disk-cache-size=`size`
 
 Force l'espace disque maximum à utiliser par le cache disque, en octets.
 
-## --js-flags=`flags`
+### --enable-api-filtering-logging
 
-Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Enables caller stack logging for the following APIs (filtering events):
+- `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
+- `remote.require()` / `remote-require`
+- `remote.getGlobal()` / `remote-get-builtin`
+- `remote.getBuiltin()` / `remote-get-global`
+- `remote.getCurrentWindow()` / `remote-get-current-window`
+- `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
 
-```sh
-$ electron --js-flags="--harmony_proxies --harmony_collections" votre-app
-```
+### --enable-logging
 
-Consultez la documentation [Node.js](https://nodejs.org/api/cli.html) ou exécutez `node --help` dans votre terminal pour une liste des drapeaux disponibles. De plus, exécutez `node --v8-options` pour voir une liste de drapeaux qui se réfèrent spécifiquement au moteur JavaScript V8 de Node.js.
+Envoie les traces de Chromium à la console.
 
-## --proxy-server=`address:port`
+Ce commutateur ne peut pas être utilisé dans `app.commandLine.appendSwitch` car il est pris en compte avant que l'app utilisateur soit chargée, mais vous pouvez activer la variable d'environnement `ELECTRON_ENABLE_LOGGING` pour obtenir le même résultat.
 
-Utilise le serveur proxy spécifié, qui remplace le paramètre système. Cet indicateur n'affecte que les requêtes avec le protocole HTTP, y compris les requêtes HTTPS et WebSocket. Il est également intéressant de noter que tous les serveurs proxy ne supportent pas les requêtes HTTPS et WebSocket. L'url du proxy ne supporte pas l'authentification par nom d'utilisateur et mot de passe [selon un bug Chronium](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
-
-## --proxy-bypass-list=`hosts`
-
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
-
-Par exemple :
-
-```javascript
-const { app } = require('electron')
-app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
-```
-
-Utilise le serveur proxy pour tous les hôtes sauf les adresses locales (`localhost`, `127.0.0.1`, etc.), les sous-domaines `google.com`, les hôtes qui contiennent le suffixe `foo. com` et tout ce qui est à `1.2.3.4:5678`.
-
-## --proxy-pac-url=`url`
-
-Utilise le script PAC à l'`url` spécifiée.
-
-## --no-proxy-server
-
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
-
-## --host-rules=`rules`
+### --host-rules=`rules`
 
 Une liste séparée par des virgules de `rules` qui contrôle comment les noms d'hôtes sont mappés.
 
@@ -94,61 +83,84 @@ Par exemple :
 
 Ces mappages s'appliquent à l'hôte ciblé dans une requête réseau (le résolveur de connexion et d'hôte TCP dans une connexion directe, et l'hôte `CONNECT` dans une connexion avec proxy HTTP, et l'hôte du point terminal dans une connexion proxy `SOCKS`).
 
-## --host-resolver-rules=`rules`
+### --host-resolver-rules=`rules`
 
 Comme `--host-rules` mais ces `rules` ne s'appliquent qu'au résolveur hôte.
 
-## --auth-server-whitelist=`url`
-
-Une liste de serveurs séparés par des virgules pour lesquels l'authentification intégrée est activée.
-
-Par exemple :
-
-```sh
---auth-server-whitelist='*example.com, *foobar.com, *baz'
-```
-
-puis toute `url` finissant par `example.com`, `foobar.com`, `baz` se verra appliquer une authentification intégrée. Sans le préfixe `*` l'URL doit correspondre exactement.
-
-## --auth-negotiate-delegate-whitelist=`url`
-
-A comma-separated list of servers for which delegation of user credentials is required. Sans le préfixe `*` l'URL doit correspondre exactement.
-
-## --ignore-certificate-errors
+### --ignore-certificate-errors
 
 Ignore les erreurs relatives au certificat.
 
-## --ppapi-flash-path=`path`
+### --ignore-connections-limit=`domains`
 
-Définit le chemin (`path`) du plugin pepper flash.
+Ignore la limite de connexion pour la liste de `domains` séparés par `,`.
 
-## --ppapi-flash-version=`version`
+### --js-flags=`flags`
 
-Définit la `version` du plugin pepper flash.
+Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
-## --log-net-log=`path`
+```sh
+$ electron --js-flags="--harmony_proxies --harmony_collections" votre-app
+```
+
+Consultez la documentation [Node.js](https://nodejs.org/api/cli.html) ou exécutez `node --help` dans votre terminal pour une liste des drapeaux disponibles. De plus, exécutez `node --v8-options` pour voir une liste de drapeaux qui se réfèrent spécifiquement au moteur JavaScript V8 de Node.js.
+
+### --lang
+
+Permet de mettre une langue personnalisée.
+
+### --log-net-log=`path`
 
 Permet que les événements réseau net log soient sauvés et les écrit dans `path`.
 
-## --disable-renderer-backgrounding
+### --no-proxy-server
 
-Empêche Chromium d'abaisser la priorité des processus de rendu des pages invisibles.
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
-Ce commutateur est global à tous les processus de rendu, si vous voulez seulement désactiver l'ajustement d'une fenêtre, vous pouvez passer par la modification de [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+### --no-sandbox
 
-## --enable-logging
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
 
-Envoie les traces de Chromium à la console.
+### --proxy-bypass-list=`hosts`
 
-Ce commutateur ne peut pas être utilisé dans `app.commandLine.appendSwitch` car il est pris en compte avant que l'app utilisateur soit chargée, mais vous pouvez activer la variable d'environnement `ELECTRON_ENABLE_LOGGING` pour obtenir le même résultat.
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
-## --v=`log_level`
+Par exemple :
+
+```javascript
+const { app } = require('electron')
+app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
+```
+
+Utilise le serveur proxy pour tous les hôtes sauf les adresses locales (`localhost`, `127.0.0.1`, etc.), les sous-domaines `google.com`, les hôtes qui contiennent le suffixe `foo. com` et tout ce qui est à `1.2.3.4:5678`.
+
+### --proxy-pac-url=`url`
+
+Utilise le script PAC à l'`url` spécifiée.
+
+### --proxy-server=`address:port`
+
+Utilise le serveur proxy spécifié, qui remplace le paramètre système. Cet indicateur n'affecte que les requêtes avec le protocole HTTP, y compris les requêtes HTTPS et WebSocket. Il est également intéressant de noter que tous les serveurs proxy ne supportent pas les requêtes HTTPS et WebSocket. L'url du proxy ne supporte pas l'authentification par nom d'utilisateur et mot de passe [selon un bug Chronium](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
+
+### --remote-debugging-port=`port`
+
+Active le débogage distant via HTTP sur le `port` spécifié.
+
+### --ppapi-flash-path=`path`
+
+Définit le chemin (`path`) du plugin pepper flash.
+
+### --ppapi-flash-version=`version`
+
+Définit la `version` du plugin pepper flash.
+
+### --v=`log_level`
 
 Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
 
-## --vmodule=`pattern`
+### --vmodule=`pattern`
 
 Permet que les niveaux maximum par module de V-logging puisse dépasser la valeur donnée par `--v`. Par exemple `my_module=2,foo*=3` changera le niveau de logging pour tout le code source des fichiers `my_module.*` à 2 et `foo*.*` à 3.
 
@@ -156,16 +168,35 @@ Tout pattern contenant un slash ou un anti-slash sera testé pour tout le chemin
 
 Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
 
-## --enable-api-filtering-logging
+## Node.js Flags
 
-Enables caller stack logging for the following APIs (filtering events):
-- `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
-- `remote.require()` / `remote-require`
-- `remote.getGlobal()` / `remote-get-builtin`
-- `remote.getBuiltin()` / `remote-get-global`
-- `remote.getCurrentWindow()` / `remote-get-current-window`
-- `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
+Electron supports some of the [CLI flags](https://nodejs.org/api/cli.html) supported by Node.js.
 
-## --no-sandbox
+**Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+### --inspect-brk[=[host:]port]
+
+Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
+
+Aliased to `--debug-brk=[host:]port`.
+
+### --inspect-port=[host:]port
+
+Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
+
+Aliased to `--debug-port=[host:]port`.
+
+### --inspect[=[host:]port]
+
+Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
+
+V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
+
+See the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for more details.
+
+Aliased to `--debug[=[host:]port`.
+
+### --inspect-publish-uid=stderr,http
+Specify ways of the inspector web socket url exposure.
+
+By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.

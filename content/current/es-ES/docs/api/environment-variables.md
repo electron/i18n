@@ -69,6 +69,16 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 Inicia el proceso como un proceso normal de Node.js.
 
+In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
+
+* "--openssl-config"
+* "--use-bundled-ca"
+* "--use-openssl-ca",
+* "--force-fips"
+* "--enable-fips"
+
+These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
+
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 No se adjunta a la sesión de la consola actual.
@@ -81,7 +91,7 @@ No utilizar la barra de menú global en Linux.
 
 Set the trash implementation on Linux. Default is `gio`.
 
-Opciones:
+Options:
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`

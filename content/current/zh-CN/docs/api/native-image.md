@@ -229,9 +229,13 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 返回 ` Boolean `-图像是否为空。
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Returns [`Size`](structures/size.md)
+* `scaleFactor` Double (optional) - Defaults to 1.0.
+
+Returns [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -260,9 +264,17 @@ Returns [`Size`](structures/size.md)
 
 如果只指定` height `或` width `，那么当前的长宽比将保留在缩放图像中。
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 `Float` - 图像的长宽比.
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 

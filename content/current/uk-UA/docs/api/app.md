@@ -298,7 +298,7 @@ Emitted whenever there is a GPU info update.
 
 Emitted when the GPU process crashes or is killed.
 
-### Подія: 'renderer-process-crashed'
+### Event: 'renderer-process-crashed' _Deprecated_
 
 Повертає:
 
@@ -307,6 +307,8 @@ Emitted when the GPU process crashes or is killed.
 * `killed` Boolean
 
 Викликається коли рендер процес `webContents` ламається чи зупиняється примусово.
+
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -363,6 +365,8 @@ app.on('session-created', (session) => {
 
 `argv` це Array аргументів командного рядка другорядного інстансу, `workingDirectory` його поточна робоча директорія. Зазвичай застосунок відповідає на це, розгортаючи головне вікно на перводячи на нього фокус.
 
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
+
 Ця подія гарантовано викличеться після події `ready` модуля `app`.
 
 **Примітка:** Додаткові аргументи командного рядку можуть бути додані Chromium, такі як `--original-process-start-time`.
@@ -394,7 +398,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Виконується коли викликається `remote.getGlobal()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню глобального значення. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
+Виконується коли викликається `remote.getGlobal()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню глобального значення. Користувацьке значення може бути повернене встановленням `event.returnValue`.
 
 ### Подія: 'remote-get-builtin'
 
@@ -404,7 +408,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Виконується коли викликаєтсья `remote.getBuiltin()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню модуля. Користувацьке значення може бути повернене встановленням `event.returnValue`.
+Виконується коли викликаєтсья `remote.getBuiltin()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню модуля. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
 ### Подія: 'remote-get-current-window'
 
@@ -523,6 +527,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
   * `music` Дректорія для музики користувача.
   * `pictures` Директорія для зображень користувача.
   * `videos` Директорія для відео користувача.
+  * `recent` Directory for the user's recent files (Windows only).
   * `logs` Директорія для логів вашого застосунку.
   * `pepperFlashSystemPlugin` Повний шлях до системної версії плагіну Pepper Flash.
   * `crashDumps` Directory where crash dumps are stored.
@@ -1028,9 +1033,9 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. За допомогою цієї функції застосунки Electron, що зроблені для Mac App Store, можуть отримувати доступ поза їх пісочницею для доступу до файлів обраних користувачем. Дивіться [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) для опису того як ця система працює.
 
-### `app.enableSandbox()` _Експериментальний_
+### `app.enableSandbox()`
 
-Вмикає повний режим пісочниці для app.
+Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 Цей метод може викликатися лише до готовності застосунку.
 
@@ -1071,6 +1076,24 @@ app.moveToApplicationsFolder({
 
 Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
+### `app.isSecureKeyboardEntryEnabled()` _macOS_
+
+Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+
+By default this API will return `false`.
+
+### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
+
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+
+Set the `Secure Keyboard Entry` is enabled in your application.
+
+By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+
+See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+
+**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+
 ## Властивості (Properties)
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
@@ -1094,6 +1117,8 @@ An `Integer` property that returns the badge count for current app. Setting the 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
 **Примітка:** Unity вимагає існування файлу `.desktop` для роботи, для детальнішої інформації прочитайте [Інтеграція в Середовище Робочого Столу](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
 ### `app.commandLine` _Readonly_
 

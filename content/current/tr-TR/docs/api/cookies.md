@@ -85,6 +85,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Varsayılan olarak değer false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Varsayılan yanlış.
   * `expirationDate` Double (opsiyonel) - UNIX epoch başlangıcından itibaren saniyeler cinsinden çerezin geçerliliğini yitirme süresi. Eğer boş geçilirse, çerez bir oturum çerezi olarak algılanır ve farklı oturumlar arasında kalıcı olmaz.
+  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.  Default is `no_restriction`.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been set
 

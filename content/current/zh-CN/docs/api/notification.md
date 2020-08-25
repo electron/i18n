@@ -26,7 +26,7 @@
 
 Returns ` Boolean `-当前系统是否支持桌面通知
 
-### `new Notification([options])` _实验功能_
+### `new Notification([options])`
 
 * `options` Object (optional)
   * ` title `String - 通知的标题, 将在通知窗口的顶部显示.

@@ -4,21 +4,6 @@
 
 Процесс: [Главный](../glossary.md#main-process)
 
-
-Этот модуль нельзя использовать до тех пор, пока событие `ready` в `app` не будет готово к использованию.
-
-Например:
-
-```javascript
-const { app, powerMonitor } = require('electron')
-
-app.whenReady().then(() => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
-})
-```
-
 ## События
 
 Модуль `powerMonitor` выдает следующие события:

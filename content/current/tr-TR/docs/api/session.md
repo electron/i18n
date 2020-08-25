@@ -381,6 +381,10 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `webContents.setUserAgent` yapısını oturum genelinde kullanıcı aracısını geçersiz kılmak için kullanabilir.
 
+#### `ses.isPersistent()`
+
+Returns `Boolean` - Whether or not this session is a persistent one. The default `webContents` session of a `BrowserWindow` is persistent. When creating a session from a partition, session prefixed with `persist:` will be persistent, while others will be temporary.
+
 #### `ses.getUserAgent()`
 
 `String` döndürür - Bu oturum için kullanıcı aracısı.
@@ -413,9 +417,7 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 
 Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. [DownloadItem](download-item.md) ile ilişkili herhangi bir `WebContents` yok ve başlangıç durumu `interrupted` olacak. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
 
-#### `ses.clearAuthCache(options)`
-
-* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+#### `ses.clearAuthCache()`
 
 Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
@@ -481,7 +483,7 @@ Returns `Promise<Extension>` - resolves when the extension is loaded.
 
 This method will raise an exception if the extension could not be loaded. If there are warnings when installing the extension (e.g. if the extension requests an API that Electron does not support) then they will be logged to the console.
 
-Note that Electron does not support the full range of Chrome extensions APIs.
+Note that Electron does not support the full range of Chrome extensions APIs. See [Supported Extensions APIs](extensions.md#supported-extensions-apis) for more details on what is supported.
 
 Note that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
@@ -499,6 +501,8 @@ app.on('ready', async () => {
 This API does not support loading packed (.crx) extensions.
 
 **Note:** BU API  `hazır` olayı  `app` modülü yayılmadan çağrılamaz.
+
+**Note:** Loading extensions into in-memory (non-persistent) sessions is not supported and will throw an error.
 
 #### `ses.removeExtension(extensionId)`
 

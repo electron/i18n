@@ -1,4 +1,5 @@
 # Oggetto BufferMimoDigitato
 
-* `Tipomimo` Stringa - Il tipo di mimo del buffer che si sta inviando.
+* `mimeType` String (optional) - MIME type of the buffer.
+* `charset` String (optional) - Charset of the buffer.
 * `dati` Buffer - Il contenuto buffer attuale.

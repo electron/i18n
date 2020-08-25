@@ -26,7 +26,7 @@ La clase `Notification` tiene los siguientes métodos estáticos:
 
 Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en el sistema actual
 
-### `new Notification([options])` _Experimental_
+### `new Notification([options])`
 
 * `options` Object (opcional)
   * `title` String - Un título para la notificación, el cual será mostrado en la parte superior de la ventana de notificación.

@@ -4,7 +4,7 @@
 
 İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `yeni DokunmatikYüzeyKaydırıcı(seçenekler)` _Deneysel_
+### `new TouchBarSlider(options)`
 
 * `options` Object
   * `label` Dize (İsteğe bağlı) - Görüntülenecek metin.

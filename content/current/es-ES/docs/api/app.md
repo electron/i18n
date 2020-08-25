@@ -298,7 +298,7 @@ Devuelve:
 
 Emitido cuando el proceso de la GPU se crashea o es terminado.
 
-### Evento: 'renderer-process-crashed'
+### Event: 'renderer-process-crashed' _Deprecated_
 
 Devuelve:
 
@@ -307,6 +307,8 @@ Devuelve:
 * `killed` Booleano
 
 Emitido cuando el proceso render de `webContents` se bloquea o es matado.
+
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -363,6 +365,8 @@ Este evento será emitido dentro de la primera instancia de tu aplicación cuand
 
 `argv` Es un Array los argumentos de la línea de comando de la segunda instancia y `workingDirectory` es su actual directorio de trabajo. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
 
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
+
 Este evento garantiza que se ejecute después del evento `ready` de `app` para ser emitido.
 
 **Note:** Chromium podría agregar argumentos extras de línea de comando, por ejemplo `--original-process-start-time`.
@@ -404,7 +408,7 @@ Devuelve:
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 * `moduleName` String
 
-Emitido cuando `remote.getBuiltin()` es llamado en el proceso renderizador del `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getBuiltin()` es llamado en el proceso renderizador del `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. El valor personalizado puede ser retornado por la configuración `event.returnValue`.
 
 ### Evento: 'remote-get-current-window'
 
@@ -413,7 +417,7 @@ Devuelve:
 * `event` Event
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 
-Emitido cuando `remote.getCurrentWindow()` es llamado en el renderer process de `webContents`. Llamando `event.preventDefault()` evetará que el objeto sea retornado. El valor personalizado puede ser retornado por la configuración `event.returnValue`.
+Emitido cuando `remote.getCurrentWindow()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` evitará que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 ### Evento: 'remote-get-current-web-contents'
 
@@ -422,7 +426,7 @@ Devuelve:
 * `event` Event
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 
-Emitido cuando `remote.getCurrentWebContents()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` evitará que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getCurrentWebContents()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` impedirá que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 ## Métodos
 
@@ -490,7 +494,7 @@ Oculta todas la ventanas de la aplicación sin minimizar estas.
 
 ### `app.show()` _macOS_
 
-Muestra las ventanas de la aplicación después que fueron ocultadas. No los enfoca automáticamente.
+Muestra las ventanas de la aplicación luego de que se ocultaron. No los enfoca automáticamente.
 
 ### `app.setAppLogsPath([path])`
 
@@ -523,6 +527,7 @@ Devuelve `String` - al directorio de la aplicación actual.
   * `musica` Directorio para la música del usuario.
   * `imágenes` Directorio para las imágenes del usuario.
   * `videos` Directorio para las imágenes del usuario.
+  * `recent` Directory for the user's recent files (Windows only).
   * `logs` Directorio para los archivos de registro de la aplicación.
   * `pepperFlashSystemPlugin` Ruta completa a la versión del sistema del plugin Pepper Flash.
   * `crashDumps` Directory where crash dumps are stored.
@@ -668,7 +673,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 ### `app.getJumpListSettings()` _Windows_
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `minItems` Entero - El número mínimo de elementos que será mostrado en la lista (Para una descripción detallada de este valor vea el [documento MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
@@ -935,7 +940,7 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
 
 Su proporcionas las opciones `path` y `args` a `app.setLoginItemSettings`, entonces necesitas pasar los mismos argumentos aquí para `openAtLogin` para que sea correctamente configurado.
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
 * `openAsHidden` Boolean _macOS_ - `true` si la aplicación es establecida para abrirse como oculta al login. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
@@ -1029,9 +1034,9 @@ stopAccessingSecurityScopedResource()
 
 Empezar a acceder un recurso de ámbito de seguridad. Con este método las aplicaciones Electron que están empaquetadas para la Mac App Store pueden llegar fuera de su caja de arena para acceder a los archivos elegidos por el usuario. Ver a [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) por una descripción de cómo funciona este sistema.
 
-### `app.enableSandbox()` _Experimental_
+### `app.enableSandbox()`
 
-Habilita el modo sandbox completo en la aplicación.
+Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 Este método solo puede ser llamado despues de iniciada la aplicación.
 
@@ -1072,6 +1077,24 @@ app.moveToApplicationsFolder({
 
 Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
+### `app.isSecureKeyboardEntryEnabled()` _macOS_
+
+Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+
+By default this API will return `false`.
+
+### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
+
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+
+Set the `Secure Keyboard Entry` is enabled in your application.
+
+By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+
+See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+
+**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+
 ## Propiedades
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
@@ -1095,6 +1118,8 @@ An `Integer` property that returns the badge count for current app. Setting the 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
 **Nota:** El ejecutador de Unity requiere de la existencia de un archivo `.desktop` para hacerlo funcionar, para más información por favor leer [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
 ### `app.commandLine` _Readonly_
 

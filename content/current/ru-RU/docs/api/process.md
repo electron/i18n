@@ -93,7 +93,11 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 
 ### `process.type` _Только чтение_
 
-`String`, представляющая тип текущего процесса, может быть `"browser"` (основной процесс), `"renderer"`, или `"worker"` (т.е. веб-работник).
+A `String` representing the current process's type, can be:
+
+* `browser` - The main process
+* `renderer` - A renderer process
+* `worker` - In a web worker
 
 ### `process.versions.chrome` _Только чтение_
 
@@ -167,8 +171,8 @@ Chromium не предоставляет значение `residentSet` для m
 
 Возвращает `Object`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
+* `total` Integer - Общий объем физической памяти в килобайтах, доступный системе.
+* `free` Integer - Общий объем памяти, не используемый приложениями или дисковым кэшем.
 * `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
 * `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
 

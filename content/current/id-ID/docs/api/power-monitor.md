@@ -4,21 +4,6 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-
-This module cannot be used until the `ready` event of the `app` module is emitted.
-
-Sebagai contoh:
-
-```javascript
-const { app, powerMonitor } = require('electron')
-
-app.whenReady().then(() => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
-})
-```
-
 ## Kejadian
 
 Modul`powerMonitor` memancarkan peristiwa berikut:

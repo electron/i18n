@@ -229,9 +229,13 @@ Note que le pointeur retourné est un pointeur faible vers l'image native sous-j
 
 Retourne `Boolean` - Si l'image est vide.
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Retourne [`Size`](structures/size.md)
+* `scaleFactor` Double (facultatif) - 1.0 par défaut.
+
+Retourne [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -260,9 +264,17 @@ Retourne `NativeImage` - L'image redimensionnée.
 
 Si seulement la `hauteur` ou la `largeur` sont spécifiées, alors le ratio d'aspect actuel sera préservé dans l'image redimensionnée.
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Float` - Le ratio d'aspect de l'image.
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 

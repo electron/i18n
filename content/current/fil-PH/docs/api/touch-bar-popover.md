@@ -4,7 +4,7 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `bagong TouchBarPopover(pagpipilian)` _Pangeksperimento_
+### `new TouchBarPopover(options)`
 
 * `options` Object
   * `label` Pisi (opsyonal) - Popover na pindutan ng teksto.

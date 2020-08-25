@@ -2,9 +2,9 @@
 
 > 为macOS原生应用在触摸栏中创建一个弹出控件
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSlider(options)` _实验功能_
+### `new TouchBarPopover(options)`
 
 * `options` Object
   * ` label `String (可选) 弹出按钮文本。

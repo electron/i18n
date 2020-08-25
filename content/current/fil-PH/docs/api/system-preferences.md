@@ -167,7 +167,7 @@ Ang ilang mga sikat na `key` at `type` ay:
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 * `value` na String
 
 Itakda ang halaga ng `key` sa `NSUserDefaults`.

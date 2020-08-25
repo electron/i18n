@@ -167,7 +167,7 @@ Certaines `clé` populaires et `type`s sont:
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String - Voir [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 * `value` String
 
 Définit la valeur de `clé` dans `NSUserDefaults`.

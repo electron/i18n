@@ -4,7 +4,7 @@
 
 Processo: <3>Main</7><9>
 
-### `new TouchBarGroup(options)` _Experimental_
+### `new TouchBarGroup(options)`
 
 * `options` Object
   * `items` [TouchBar](touch-bar.md) - Items to display as a group.

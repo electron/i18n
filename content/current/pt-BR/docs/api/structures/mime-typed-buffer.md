@@ -1,4 +1,5 @@
 # Objeto MimeTypedBuffer
 
-* `mimeType` String - mimeType do buffer que você está enviando.
+* `mimeType` String (optional) - MIME type of the buffer.
+* `charset` String (optional) - Charset of the buffer.
 * `data` Buffer - o conteúdo real do Buffer.

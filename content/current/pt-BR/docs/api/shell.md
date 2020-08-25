@@ -2,7 +2,7 @@
 
 > Gerencia arquivos e URLs usando seus aplicativos padrão.
 
-Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
 O módulo `shell` fornece funções relacionadas à integração com a área de trabalho.
 
@@ -13,6 +13,8 @@ const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
+
+**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
 ## Métodos
 
