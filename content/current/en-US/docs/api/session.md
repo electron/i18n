@@ -439,6 +439,13 @@ example `"en-US,fr,de,ko,zh-CN,ja"`.
 This doesn't affect existing `WebContents`, and each `WebContents` can use
 `webContents.setUserAgent` to override the session-wide user agent.
 
+#### `ses.isPersistent()`
+
+Returns `Boolean` - Whether or not this session is a persistent one. The default
+`webContents` session of a `BrowserWindow` is persistent. When creating a session
+from a partition, session prefixed with `persist:` will be persistent, while others
+will be temporary.
+
 #### `ses.getUserAgent()`
 
 Returns `String` - The user agent for this session.
@@ -479,9 +486,7 @@ event. The [DownloadItem](download-item.md) will not have any `WebContents` asso
 the initial state will be `interrupted`. The download will start only when the
 `resume` API is called on the [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache(options)`
-
-* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+#### `ses.clearAuthCache()`
 
 Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
@@ -566,6 +571,8 @@ requests an API that Electron does not support) then they will be logged to the
 console.
 
 Note that Electron does not support the full range of Chrome extensions APIs.
+See [Supported Extensions APIs](extensions.md#supported-extensions-apis) for
+more details on what is supported.
 
 Note that in previous versions of Electron, extensions that were loaded would
 be remembered for future runs of the application. This is no longer the case:
@@ -587,6 +594,9 @@ This API does not support loading packed (.crx) extensions.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module
 is emitted.
+
+**Note:** Loading extensions into in-memory (non-persistent) sessions is not
+supported and will throw an error.
 
 #### `ses.removeExtension(extensionId)`
 
