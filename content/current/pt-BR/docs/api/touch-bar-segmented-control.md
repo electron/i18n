@@ -4,7 +4,7 @@
 
 Processo: <3>Main</7><9>
 
-### `new TouchBarSegmentedControl(options)` _Experimental_
+### `new TouchBarSegmentedControl(options)`
 
 * `options` Object
   * `segmentStyle` String (optional) - Style of the segments:

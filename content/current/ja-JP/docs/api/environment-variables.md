@@ -69,6 +69,16 @@ ASAR サポートを無効にします。 この変数は、`ELECTRON_RUN_AS_NOD
 
 通常のNode.jsプロセスとしてプロセスを開始します。
 
+In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
+
+* "--openssl-config"
+* "--use-bundled-ca"
+* "--use-openssl-ca",
+* "--force-fips"
+* "--enable-fips"
+
+These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
+
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 現在のコンソールセッションにアタッチしません。
@@ -81,7 +91,7 @@ Linuxのグローバルメニューバーを使用しません。
 
 Linux でゴミの実装を設定します。 既定値は `gio` です。
 
-オプション:
+Options:
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`

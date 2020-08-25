@@ -2,7 +2,7 @@
 
 > 取得桌面上可透過 [`navigator.mediaDevices.getUserMedia`] API 擷取影片或音訊的媒體來源資訊。
 
-處理序: [畫面轉譯器](../glossary.md#renderer-process)
+處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
 下列範例展示如何將桌面上標題為 `Electron` 的視窗擷取為影像檔:
 

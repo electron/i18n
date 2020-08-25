@@ -229,9 +229,13 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 Возвращает `Boolean` - признак того что изображение пустое.
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Возвращает [`Size`](structures/size.md)
+* `scaleFactor` Double (опционально) - По умолчанию 1.0.
+
+Возвращает [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -241,7 +245,7 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+Возвращает `Boolean` - признак того что изображение является шаблоном.
 
 #### `image.crop(rect)`
 
@@ -256,13 +260,21 @@ Returns `Boolean` - Whether the image is a template image.
   * `height` Integer (опционально) - По умолчанию высота изображения.
   * `quality` String (опционально) - Желаемое качество изображения при изменения размера. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
-Returns `NativeImage` - The resized image.
+Возвращает `NativeImage` - измененый размер изображения.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Если указаны только `height` или `width`, то текущее соотношение сторон будет сохранено в изображении.
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `Float` - пропорции изображения.
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 

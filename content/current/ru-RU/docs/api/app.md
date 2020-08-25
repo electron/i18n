@@ -298,7 +298,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 Возникает, когда процесс GPU аварийно завершает работу или завершается принудительно.
 
-### Событие: 'renderer-process-crashed'
+### Event: 'renderer-process-crashed' _Deprecated_
 
 Возвращает:
 
@@ -307,6 +307,8 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 * `killed` Boolean
 
 Происходит, когда графический процесс `webContents` аварийно завершает работу или является убитым.
+
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -363,6 +365,8 @@ app.on('session-created', (session) => {
 
 `argv` это массив аргументов командной строки второго экземпляра, а `workingDirectory` это текущая рабочая директория. Обычно приложения реагируют на это, делая их основное окно сфокусированным и развернутым.
 
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
+
 Это событие гарантировано происходит после события `ready` в `app`.
 
 **Примечание:** Дополнительные аргументы командной строки могут быть добавлены Chromium, такие как `--original-process-start-time`.
@@ -384,7 +388,7 @@ app.on('session-created', (session) => {
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Происходит, когда функция `remote.require()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.require()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-global'
 
@@ -394,7 +398,7 @@ app.on('session-created', (session) => {
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Происходит, когда функция `remote.getGlobal()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.getGlobal()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-builtin'
 
@@ -523,8 +527,9 @@ Shows application windows after they were hidden. Does not automatically focus t
   * `music` каталог пользователя "Music".
   * `pictures` каталог пользователя для фотографии.
   * `videos` каталог пользователя для видео.
-  * `logs` директория для логов Вашего приложения.
-  * `pepperFlashSystemPlugin` полный путь к системной версии плагина Pepper Flash.
+  * `recent` Directory for the user's recent files (Windows only).
+  * `logs` директория для логов вашего приложения.
+  * `pepperFlashSystemPlugin` путь к плагину Pepper Flash.
   * `crashDumps` Directory where crash dumps are stored.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
@@ -677,7 +682,7 @@ This method returns the application name of the default handler for the protocol
 
 * `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - массив типа `JumpListCategory`, состоящий из объектов.
 
-Задает или удаляет настраиваемый список переходов для приложения и возвращает одну из следующих строк:
+Задает или удаляет пользовательский список переходов для приложения и возвращает одну из следующих строк:
 
 * `ok` - ничего не случилось.
 * `error` - произошла одна или несколько ошибок, включите ведение журнала выполнения, чтобы выяснить возможную ошибку.
@@ -759,7 +764,7 @@ app.setJumpList([
 
 Т.е. этот метод возвращает `true`, если Ваш процесс является основным экземпляром Вашего приложения, а Ваше приложение должно продолжать загружаться.  Возвращает `false`, если Ваш процесс должен немедленно завершиться, так как он отправил свои параметры другому экземпляру, которые уже приобрел блокировку.
 
-На macOS система автоматически обеспечивает единственный экземпляр, когда пользователи пытаются открыть второй экземпляра Вашего приложения в Finder, для этого будут происходить события `open-file` и `open-url`. Так или иначе, когда пользователи запустят Ваше приложение через командную строку, системный механизм единственного экземпляра будет обойден, и Вы должны использовать этот метод, чтобы обеспечить единственный экземпляр.
+На macOS система автоматически обеспечивает единственный экземпляр, когда пользователи пытаются открыть второй экземпляра Вашего приложения в Finder, для этого будут происходить `open-file` и `open-url` события. Так или иначе, когда пользователи запустят Ваше приложение через командную строку, системный механизм единственного экземпляра будет обойден, и Вы должны использовать этот метод, чтобы обеспечить единственный экземпляр.
 
 Пример активации окна единственного экземпляра, при запуске второго экземпляра:
 
@@ -1028,9 +1033,9 @@ stopAccessingSecurityScopedResource()
 
 Начать доступ в области безопасности ресурса. С помощью этого метода Electron приложения, которые упакованы для Mac App Store, могут выходить на пределы их песочницы, чтобы получить файлы, выбранные пользователем. Подробное описание как работает эта система, смотри [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16).
 
-### `app.enableSandbox()` _Experimental_
+### `app.enableSandbox()`
 
-Включает полноценный режим песочницы в приложении.
+Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 Этот метод может быть вызван только до того, как приложение будет готово.
 
@@ -1071,6 +1076,24 @@ app.moveToApplicationsFolder({
 
 Будет означать, что если приложение уже существует в каталоге пользователя, если пользователь выберет 'Continue Move', то эта функция будет продолжена с поведением по умолчанию, и существующее приложение будет удалено и активное приложение будет перемещено на место.
 
+### `app.isSecureKeyboardEntryEnabled()` _macOS_
+
+Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+
+By default this API will return `false`.
+
+### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
+
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+
+Set the `Secure Keyboard Entry` is enabled in your application.
+
+By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+
+See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+
+**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+
 ## Свойства
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
@@ -1094,6 +1117,8 @@ A `Menu | null`свойство, которое возвращает [`Menu`](me
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
 **Примечание:** Unity требует существования файла `.desktop` для работы, для получения дополнительной информации, пожалуйста, прочитайте [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
 ### `app.commandLine` _Readonly_
 

@@ -9,3 +9,4 @@
 * `httpOnly` Boolean (opsyonal) - Depende kung ang cookie ay markado na HTTP lamang.
 * `session` Boolean (opsyonal) - Depende kung ang cookie ay isang sesyon na cookie o isang matatag na cookie na may petsa ng ekspirasyon.
 * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.

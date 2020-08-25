@@ -298,7 +298,7 @@ Returns:
 
 GPU 프로세스가 충돌하거나 종료될 때 발생합니다.
 
-### 이벤트: 'renderer-process-crashed'
+### Event: 'renderer-process-crashed' _Deprecated_
 
 Returns:
 
@@ -308,9 +308,11 @@ Returns:
 
 `webContents`의 렌더러 프로세스가 충돌하거나 종료될 때 발생합니다.
 
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+
 #### Event: 'render-process-gone'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -328,7 +330,7 @@ Emitted when the renderer process unexpectedly dissapears.  This is normally bec
 
 ### 이벤트: 'accessibility-support-changed' _macOS_ _Windows_
 
-Returns:
+반환:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - Chrome의 접근성 지원이 활성화 됐을 땐 `true`, `false`는 그 이외.
@@ -337,7 +339,7 @@ Chrome의 accessibility 가 변경되면 발생합니다. 이 이벤트는 스�
 
 ### 이벤트: 'session-created'
 
-Returns:
+반환:
 
 * `session` [Session](session.md)
 
@@ -353,7 +355,7 @@ app.on('session-created', (session) => {
 
 ### 이벤트: 'second-instance'
 
-Returns:
+반환:
 
 * `event` Event
 * `argv` String[] - 두 번째 instance의 명령줄 매개 변수의 Array입니다.
@@ -362,6 +364,8 @@ Returns:
 이 이벤트는 어플리케이션의 두번째 인스턴스가 실행되고 `app.requestSingleInstanceLock()`를 호출하면 첫번째 인스턴스에서 발생한다.
 
 `argv`는 두번째 인스턴스의 명령행 인수의 배열입니다. `workingDirectory`는 이 인스턴스의 작업 디렉토리입니다. 일반적으로 어플리케이션은 기본 창에 초점을 맞추고 최소화하지 않도록하여 이에 응답합니다.
+
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
 
 이 이벤트는 `앱`의 `준비`이벤트가 생성된 후에 생성됩니다.
 
@@ -417,7 +421,7 @@ Returns:
 
 ### 이벤트: 'remote-get-current-web-contents'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -523,6 +527,7 @@ You should seek to use the `steal` option as sparingly as possible.
   * `music` User의 music 폴더 경로.
   * `pictures` 사용자의 pictures 폴더 경로.
   * `videos` 사용자의 videos 폴더 경로.
+  * `recent` Directory for the user's recent files (Windows only).
   * `logs` 사용자의 log 폴더 경로.
   * `pepperFlashSystemPlugin` Pepper Flash 플러그인의 시스템 버전에 대한 전체 경로.
   * `crashDumps` Directory where crash dumps are stored.
@@ -578,7 +583,7 @@ Returns `String` - `package.json `파일에 정의된 현재 어플리케이션�
 
 현재 애플리케이션의 이름을 덮어씁니다.
 
-**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+**참고:** 이 함수는 Electron 내부에서 쓰는 이름을 덮어씁니다. OS에서 사용하는 이름에는 영향을 주지 않습니다.
 
 ### `app.getLocale()`
 
@@ -1028,9 +1033,9 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.enableSandbox()` _실험적_
+### `app.enableSandbox()`
 
-Enables full sandbox mode on the app.
+Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 This method can only be called before app is ready.
 
@@ -1071,6 +1076,24 @@ app.moveToApplicationsFolder({
 
 Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
+### `app.isSecureKeyboardEntryEnabled()` _macOS_
+
+Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+
+By default this API will return `false`.
+
+### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
+
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+
+Set the `Secure Keyboard Entry` is enabled in your application.
+
+By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+
+See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+
+**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+
 ## 속성
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
@@ -1095,15 +1118,17 @@ On macOS, setting this with any nonzero integer shows on the dock icon. On Linux
 
 **주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
-### `app.commandLine` _Readonly_
+**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
+
+### `app.commandLine` _읽기전용_
 
 A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
 
-### `app.dock` _macOS_ _Readonly_
+### `app.dock` _macOS_ _읽기전용_
 
 A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
 
-### `app.isPackaged` _Readonly_
+### `app.isPackaged` _읽기전용_
 
 앱이 패키지되었을 경우에는 `true`를, 그렇지 않을 경우에는 `false`을 반환하는 `Boolean` 속성입니다. 다수의 앱에서, 이 속성은 개발 환경과 제품 환경을 구분하는데 사용될 수 있습니다.
 

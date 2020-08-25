@@ -2,7 +2,7 @@
 
 > Kelola file dan URL menggunakan aplikasi bawaan mereka.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
 The `shell` modul menyediakan fungsi yang berkaitan dengan integrasi desktop.
 
@@ -11,6 +11,8 @@ Contoh membuka URL di browser default pengguna:
 ```javascript
 const { shell } = require('electron') shell.openExternal ('https://github.com')
 ```
+
+**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
 ## Methods
 

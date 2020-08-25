@@ -4,7 +4,7 @@
 
 Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSlider(options)` _Experimental_
+### `new TouchBarSlider(options)`
 
 * `options` Object
   * `label` String (facultatif) - Texte du label.

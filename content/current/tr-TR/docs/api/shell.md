@@ -2,7 +2,7 @@
 
 > Varsayılan uygulamalarını kullanarak dosyaları ve URL'leri yönetin.
 
-İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
 `shell` modülü, masaüstü entegrasyonuyla ilgili işlevler sunar.
 
@@ -13,6 +13,8 @@ const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
+
+**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
 ## Yöntemler
 

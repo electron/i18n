@@ -298,7 +298,7 @@ Dönüşler:
 
 Emitted when the GPU process crashes or is killed.
 
-### Event: 'renderer-process-crashed'
+### Event: 'renderer-process-crashed' _Deprecated_
 
 Dönüşler:
 
@@ -307,6 +307,8 @@ Dönüşler:
 * `killed` Boolean
 
 Emitted when the renderer process of `webContents` crashes or is killed.
+
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -362,6 +364,8 @@ Dönüşler:
 This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
 
 `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Genellikle uygulama, ana penceresinin odağını küçültecek ve odaklaştıracak şekilde yanıtlar.
+
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
@@ -523,6 +527,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
   * `Müzik`Bir kullanıcının "Müziklerim" dizini.
   * `pictures` Bir kullanıcının "Resimlerim" dizini.
   * `videos` Bir kullanıcının "Videolarım" dizini.
+  * `recent` Directory for the user's recent files (Windows only).
   * Uygulamanızın günlük klasörü için `logs` dizini.
   * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
   * `crashDumps` Directory where crash dumps are stored.
@@ -1067,9 +1072,9 @@ Start accessing a security scoped resource. With this method Electron applicatio
 
 
 
-### `app.enableSandbox()` _Experimental_
+### `app.enableSandbox()`
 
-Enables full sandbox mode on the app.
+Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
 
@@ -1119,6 +1124,28 @@ Would mean that if an app already exists in the user directory, if the user choo
 
 
 
+### `app.isSecureKeyboardEntryEnabled()` _macOS_
+
+Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+
+By default this API will return `false`.
+
+
+
+### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
+
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+
+Set the `Secure Keyboard Entry` is enabled in your application.
+
+By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+
+See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+
+**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+
+
+
 ## Özellikler
 
 
@@ -1148,6 +1175,9 @@ An `Integer` property that returns the badge count for current app. Setting the 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
 **Not:** Birlik Başlatıcısı çalışması için `. Masaüstü dosyasının olması gerekir. Daha fazla bilgi için lütfen <a href="../tutorial/desktop-environment-integration.md#unity-launcher"> masaüstü ortamı entegrasyonu bölümünü okuyun</a>.</p>
+
+<p spaces-before="0"><strong x-id="1">Note:</strong> On macOS, you need to ensure that your application has the permission
+to display notifications for this property to take effect.</p>
 
 <h3 spaces-before="0"><code>app.commandLine` _Readonly_</h3> 
 

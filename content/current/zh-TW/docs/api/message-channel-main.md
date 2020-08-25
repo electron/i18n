@@ -6,6 +6,8 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessageChannelMain
 
+處理序: [主處理序](../glossary.md#main-process)
+
 範例:
 ```js
 const { port1, port2 } = new MessageChannelMain()

@@ -4,7 +4,7 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### ` TouchBarPopover(pilihan) baru` _Eksperimental_
+### `new TouchBarPopover(options)`
 
 * `options` Object
   * `label` String (tidak wajib diisi) - tombol teks Popover.

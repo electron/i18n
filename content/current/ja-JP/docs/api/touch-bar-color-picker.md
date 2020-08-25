@@ -4,7 +4,7 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarColorPicker(options)` _実験的_
+### `new TouchBarColorPicker(options)`
 
 * `options` Object
   * `availableColors` String[] (任意) - 選択可能な色として表示される、16進数の色の文字列の配列。

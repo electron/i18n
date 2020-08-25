@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSlider(options)` _試驗中_
+### `new TouchBarSlider(options)`
 
 * `options` Object
   * `label` String (optional) - Label text.

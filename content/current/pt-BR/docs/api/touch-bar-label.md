@@ -4,7 +4,7 @@
 
 Processo: <3>Main</7><9>
 
-### `new TouchBarLabel(options)` _Experimental_
+### `new TouchBarLabel(options)`
 
 * `options` Object
   * `label` String (optional) - Text to display.

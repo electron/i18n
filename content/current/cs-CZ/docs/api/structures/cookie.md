@@ -9,3 +9,4 @@
 * `httpOnly` Boolean (volitelné) – značí, jestli je cookie označena jako HTTP only.
 * `session` Boolean (volitelné) – značí, jestli je cookie session cookie, anebo časově omezenou cookie s datem vypršení.
 * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.

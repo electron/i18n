@@ -298,7 +298,7 @@ Retorna:
 
 Emitted when the GPU process crashes or is killed.
 
-### Evento: 'renderer-process-crashed'
+### Event: 'renderer-process-crashed' _Deprecated_
 
 Retorna:
 
@@ -307,6 +307,8 @@ Retorna:
 * `killed` Boolean
 
 Emitido quando o processo de renderização do `webContents` trava ou é interrompido.
+
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -362,6 +364,8 @@ Retorna:
 This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
 
 `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
+
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
 
 Esse evento é garantido que será emitido após o evento `ready` do objeto `app` ser emitido.
 
@@ -523,6 +527,7 @@ Retorna `String` - O diretório da aplicação atual.
   * `music` Diretório para a música de um usuário.
   * `pictures` Diretório para as imagens de um usuário.
   * `videos` Diretório para os vídeos de um usuário.
+  * `recent` Directory for the user's recent files (Windows only).
   * `logs` Diretório que armazena os logs da aplicação.
   * `pepperFlashSystemPlugin` Caminho completo para a versão do sistema do plug-in do Pepper Flash.
   * `crashDumps` Directory where crash dumps are stored.
@@ -630,7 +635,7 @@ The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internal
 * `path` String (opcional) _Windows_ - O padrão é `process.execPath`
 * `args` String[] (opcional) _Windows_ - O padrão é um array vazio
 
-Retorna `Boolean` - Se a chamada foi realizada com sucesso ou não.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
 This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
@@ -1028,9 +1033,9 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.enableSandbox()` _Experimental_
+### `app.enableSandbox()`
 
-Enables full sandbox mode on the app.
+Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
@@ -1071,6 +1076,24 @@ app.moveToApplicationsFolder({
 
 Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
+### `app.isSecureKeyboardEntryEnabled()` no _macOS_
+
+Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+
+By default this API will return `false`.
+
+### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
+
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+
+Set the `Secure Keyboard Entry` is enabled in your application.
+
+By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+
+See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+
+**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+
 ## Propriedades
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
@@ -1094,6 +1117,8 @@ An `Integer` property that returns the badge count for current app. Setting the 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
 **Nota:** O lançador Unity requer a existência de um arquivo `.desktop` para que isso funcione. Para mais detalhes, leia a [Integração com Ambiente de Trabalho](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
 ### `app.commandLine` _Readonly_
 

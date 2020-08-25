@@ -4,7 +4,7 @@
 
 Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `nuevo botón en la barra tactil(opciones)` _Experimental_
+### `new TouchBarButton(options)`
 
 * `options` Object
   * `Etiqueta` cadena (opcional) - Texto del fondo.

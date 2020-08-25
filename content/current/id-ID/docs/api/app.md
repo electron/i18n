@@ -306,7 +306,7 @@ Pengembalian:
 
 Emitted when the GPU process crashes or is killed.
 
-### Event: 'renderer-process-crashed'
+### Event: 'renderer-process-crashed' _Deprecated_
 
 Pengembalian:
 
@@ -316,9 +316,11 @@ Pengembalian:
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+
 #### Event: 'render-process-gone'
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `webContents` [WebContents](web-contents.md)
@@ -336,7 +338,7 @@ Emitted when the renderer process unexpectedly dissapears.  This is normally bec
 
 ### Event: 'aksesibilitas-support-changed' _macOS_ _Windows_
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `aksesibilitasSupportEnabled` Boolean - `true` saat dukungan aksesibilitas Chrome diaktifkan, `false` sebaliknya.
@@ -345,7 +347,7 @@ Emitted saat dukungan aksesibilitas Chrome berubah. Peristiwa ini terjadi saat t
 
 ### Event: 'session-created'
 
-Pengembalian:
+Mengembalikan:
 
 * `session` [Session](session.md)
 
@@ -361,7 +363,7 @@ app.on('session-created', (session) => {
 
 ### Event: 'second-instance'
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `argv` String[] - Sebuah array dari argumen baris perintah kedua
@@ -370,6 +372,8 @@ Pengembalian:
 This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
 
 `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Biasanya aplikasi merespon hal ini dengan membuat jendela utama mereka fokus dan tidak diminimalisir.
+
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
@@ -425,7 +429,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process of `w
 
 ### Event: 'remote-get-current-web-contents'
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `webContents` [WebContents](web-contents.md)
@@ -531,6 +535,7 @@ Mengembalikan `String` - Direktori aplikasi saat ini.
   * `musik` Direktori untuk musik pengguna.
   * `gambar` Direktori untuk gambar pengguna.
   * `video` Direktori untuk video pengguna.
+  * `recent` Directory for the user's recent files (Windows only).
   * `logs` Directory for your app's log folder.
   * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
   * `crashDumps` Directory where crash dumps are stored.
@@ -1035,9 +1040,9 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.enableSandbox()` _Experimental_
+### `app.enableSandbox()`
 
-Enables full sandbox mode on the app.
+Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
 
@@ -1078,6 +1083,24 @@ app.moveToApplicationsFolder({
 
 Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
+### ` app.isSecureKeyboardEntryEnabled () </ 0>  <em x-id="4"> macos </ 1></h3>
+
+<p spaces-before="0">Returns <code>Boolean` - whether `Secure Keyboard Entry` is enabled.</p>
+
+By default this API will return `false`.
+
+### `app.setSecureKeyboardEntryEnabled(enabled)` Linux _macOS_
+
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+
+Set the `Secure Keyboard Entry` is enabled in your application.
+
+By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+
+See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+
+**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+
 ## properti
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
@@ -1101,6 +1124,8 @@ An `Integer` property that returns the badge count for current app. Setting the 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
 **Note:** Unity launcher mensyaratkan adanya a `.desktop` file untuk bekerja, untuk informasi lebih lanjut silahkan baca [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
 ### `app.commandLine` _Readonly_
 

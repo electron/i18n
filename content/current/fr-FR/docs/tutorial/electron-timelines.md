@@ -79,10 +79,17 @@
   <td>2020-05-21</td>
   <td>2020-08-25</td>
   <td>M85</td>
-  <td>v12.x</td>
+  <td>v12.16</td>
 </tr>
 <tr>
   <td>11.0.0</td>
+  <td>2020-08-27</td>
+  <td>2020-11-17</td>
+  <td>M87</td>
+  <td>v12.x</td>
+</tr>
+<tr>
+  <td>12.0.0</td>
   <td>TBD</td>
   <td>TBD</td>
   <td>TBD</td>

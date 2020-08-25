@@ -229,9 +229,13 @@ Perceba que o ponteiro retornado é um ponteiro fraco para a imagem nativa subja
 
 Returns `Boolean` - Whether the image is empty.
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Retorna [`Size`](structures/size.md)
+* `scaleFactor` Double (opcional) - Padrão sendo 1.0.
+
+Retorna [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -260,9 +264,17 @@ Retorna `NativeImage` - A imagem redimensionada.
 
 Se apenas o `height` ou o `width` forem definidos então a atual proporção de tela da imagem será preservada na imagem redimensionada.
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Float` - A proporção de tela da imagem.
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 

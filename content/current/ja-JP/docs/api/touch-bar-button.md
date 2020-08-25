@@ -4,7 +4,7 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarButton(options)` _実験的_
+### `new TouchBarButton(options)`
 
 * `options` Object
   * `label` String (任意) - ボタンのテキスト。

@@ -26,7 +26,7 @@ La classe `Notification` dispose des méthodes statiques suivantes :
 
 Retourne `Boolean` - Si le système actuel prend en charge les notification bureau ou non
 
-### `new Notification([options])` _Experimental_
+### `new Notification([options])`
 
 * `options` Object (optional)
   * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'elle est affichée.

@@ -4,7 +4,7 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `TouchBarLabel baru (pilihan)` _Eksperimental_
+### `new TouchBarLabel(options)`
 
 * `options` Object
   * `label` String (opsional) - Teks untuk ditampilkan.

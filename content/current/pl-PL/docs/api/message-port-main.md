@@ -8,6 +8,8 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessagePortMain
 
+Proces: [Main](../glossary.md#main-process)
+
 ### Metody instancji
 
 #### `port.postMessage(message, [transfer])`
@@ -36,6 +38,10 @@ Zwraca:
   * `ports` MessagePortMain[]
 
 Emitted when a MessagePortMain object receives a message.
+
+#### Zdarzenie: 'close'
+
+Emitted when the remote end of a MessagePortMain object becomes disconnected.
 
 [`MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
 [Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API

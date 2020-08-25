@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)` _試驗中_
+### `new TouchBarLabel(options)`
 
 * `options` Object
   * `label` String (optional) - Text to display.

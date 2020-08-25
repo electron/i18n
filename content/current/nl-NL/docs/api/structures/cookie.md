@@ -9,3 +9,4 @@
 * `httpOnly` Boolean (optioneel) - of de cookie is gemarkeerd als alleen HTTP.
 * `sessie` Boolean (optioneel) - Of de cookie een sessie-cookie is of een permanente cookie met een vervaldatum.
 * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.

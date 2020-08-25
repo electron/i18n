@@ -4,7 +4,7 @@
 
 Processo: <3>Main</7><9>
 
-### `new TouchBarPopover(options)` _Experimental_
+### `new TouchBarPopover(options)`
 
 * `options` Object
   * `label` String (optional) - Popover button text.

@@ -9,3 +9,4 @@
 * ` httpOnly ` Boolean (वैकल्पिक) - क्या Cookie केवल HTTP के रूप में चिह्नित है ।
 * ` सत्र ` Boolean (वैकल्पिक) - क्या Cookie एक सत्र Cookie या एक समय सीमा समाप्ति की तारीख के साथ एक निर्बाध Cookie है ।
 * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.

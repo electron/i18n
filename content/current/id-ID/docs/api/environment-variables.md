@@ -68,6 +68,16 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 Mulai proses sebagai proses Node.js normal.
 
+In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
+
+* "--openssl-config"
+* "--use-bundled-ca"
+* "--use-openssl-ca",
+* "--force-fips"
+* "--enable-fips"
+
+These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
+
 ### ` ELECTRON_tidak_melapirkan_menghibur </ 0>  <em x-id="4"> jendela</ 1></h3>
 
 <p spaces-before="0">Jangan lampirkan sesi konsol saat ini.</p>

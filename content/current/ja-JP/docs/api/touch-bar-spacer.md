@@ -4,7 +4,7 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSpacer(options)` _実験的_
+### `new TouchBarSpacer(options)`
 
 * `options` Object
   * `size` String (任意) - スペーサのサイズ。以下は設定可能な値です。

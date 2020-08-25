@@ -229,9 +229,13 @@ console.log(image)
 
 戻り値 `Boolean` - 画像が空かどうか。
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-戻り値 [`Size`](structures/size.md)
+* `scaleFactor` Double (任意) - 省略値は 1.0。
+
+戻り値 [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -260,9 +264,17 @@ console.log(image)
 
 `height` または `width` のどちらかのみが指定された場合、アスペクト比はリサイズされた画像でも保持されます。
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `Float` - イメージのアスペクト比。
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 

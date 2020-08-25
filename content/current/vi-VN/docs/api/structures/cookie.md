@@ -9,3 +9,4 @@
 * `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
 * `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
 * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.

@@ -167,7 +167,7 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String - [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos) を参照してください。
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 * `value` String
 
 `NSUserDefaults` 内の `key` の値を設定します。
@@ -182,7 +182,7 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 
 * `key` String
 
-`NSUserDefaults` 内のその `key` を削除します。 This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+`NSUserDefaults` 内のその `key` を削除します。 これは、以前に `setUserDefault`で設定された `key` のデフォルトまたはグローバル値を復元するために使用できます。
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
@@ -228,15 +228,15 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` _Windows_ _macOS_
 
-* `color` String - One of the following values:
-  * On **Windows**:
+* `color` String - 以下の値のいずれか。
+  * **Windows** の場合:
     * `3d-dark-shadow` - 3D 表示要素の暗い影の色。
     * `3d-face` - 3D 表示要素とダイアログボックスの背景の表面の色。
     * `3d-highlight` - 3D 表示要素のハイライト色。
     * `3d-light` - 3D 表示要素の光源色。
     * `3d-shadow` - 3D 表示要素の影の色。
     * `active-border` - アクティブなウインドウの縁の色。
-    * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+    * `active-caption` - アクティブなウインドウのタイトルバーの色。 グラデーション効果が有効な場合は、その左側の色になります。
     * `active-caption-gradient` - アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
     * `app-workspace` - マルチドキュメントインターフェース (MDI) アプリケーションの背景色。
     * `button-text` - 押しボタンのテキスト色。
@@ -247,7 +247,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `highlight-text` - コントロール内で選択されたアイテムのテキスト色。
     * `hotlight` - ハイパーリンクかホットトラックされたアイテムの色。
     * `inactive-border` - 非アクティブなウインドウの縁の色。
-    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+    * `inactive-caption` - 非アクティブなウインドウのタイトルバーの色。 グラデーション効果が有効な場合は、その左側の色になります。
     * `inactive-caption-gradient` - 非アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
     * `inactive-caption-text` - 非アクティブなキャプション内のテキストの色。
     * `info-background` - ツールチップコントロールの背景色。
@@ -260,7 +260,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `window` - ウインドウの背景色。
     * `window-frame` - ウインドウフレームの色。
     * `window-text` - ウインドウ内のテキスト色。
-  * On **macOS**
+  * **macOS** の場合
     * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。 _deprecated_
     * `control-background` - ブラウザやテーブルなど、大きなインターフェイス要素の背景。
     * `control` - コントロールの表面。
@@ -301,7 +301,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getSystemColor(color)` _macOS_
 
-* `color` String - One of the following values:
+* `color` String - 以下の値のいずれか。
   * `blue`
   * `brown`
   * `gray`

@@ -298,7 +298,7 @@ Retourne :
 
 Émis lorsque le processus GPU plante ou est tué.
 
-### Événement : 'renderer-process-crashed'
+### Event: 'renderer-process-crashed' _Deprecated_
 
 Retourne :
 
@@ -307,6 +307,8 @@ Retourne :
 * `killed` Boolean
 
 Émis lorsque le processus de rendu de `webContents` plante ou est tué.
+
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -362,6 +364,8 @@ Retourne :
 Cet événement sera émis dans l'instance principale de votre application quand une seconde instance a été exécutée et appelle `app.requestSingleInstanceLock()`.
 
 `argv` est un tableau des arguments de la ligne de commande de la seconde instance, et `workingDirectory` est son répertoire de travail actuel. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
+
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
 
 Cet évènement est garanti d'être émis après que l'évènement `ready` de `app` soit émis.
 
@@ -520,6 +524,7 @@ Retourne `String` - Répertoire courant de l'application.
   * `music` Dossier de musique de l’utilisateur.
   * `pictures` Dossier des images de l’utilisateur.
   * `videos` Dossier des vidéos de l’utilisateur.
+  * `recent` Directory for the user's recent files (Windows only).
   * `logs` Répertoire du dossier de log de votre application.
   * `pepperFlashSystemPlugin` Chemin d’accès complet à la version du système du plugin Pepper Flash.
   * `crashDumps` Directory where crash dumps are stored.
@@ -575,7 +580,7 @@ Habituellement, le champ `name` de `package.json` est un nom court en minuscule,
 
 Remplace le nom de l'application actuelle.
 
-**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+**Note:** Cette fonction remplace le nom utilisé en interne par Electron; elle n'affecte pas le nom que l'OS utilise.
 
 ### `app.getLocale()`
 
@@ -1025,9 +1030,9 @@ stopAccessingSecurityScopedResource()
 
 Commencez à accéder à une ressource périmée de sécurité. Avec cette méthode, les applications Electron qui sont empaquetées pour le Mac App Store peuvent atteindre en dehors de leur sandbox pour accéder aux fichiers choisis par l'utilisateur. Voir la documentation de [Apple](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) pour une description du fonctionnement de ce système.
 
-### `app.enableSandbox()` _Expérimental_
+### `app.enableSandbox()`
 
-Active le mode "full sandbox" dans l'application.
+Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 Cette méthode peut seulement être appelée avant que app soit prêt.
 
@@ -1068,6 +1073,24 @@ app.moveToApplicationsFolder({
 
 Cela signifierait que si une application existe déjà dans le répertoire de l'utilisateur, si l'utilisateur choisit de "Continuer le déplacement", alors la fonction continuera avec son comportement par défaut et l'application existante sera mise à la corbeille et l'application active sera déplacée à sa place.
 
+### `app.isSecureKeyboardEntryEnabled()` _macOS_
+
+Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+
+By default this API will return `false`.
+
+### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
+
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+
+Set the `Secure Keyboard Entry` is enabled in your application.
+
+By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+
+See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+
+**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+
 ## Propriétés
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
@@ -1091,6 +1114,8 @@ Une propriété `Integer` qui retourne le nombre de badges pour l'application co
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
 **Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
 ### `app.commandLine` _Readonly_
 

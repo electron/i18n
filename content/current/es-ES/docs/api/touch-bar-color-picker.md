@@ -4,7 +4,7 @@
 
 Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `Nuevo seleccionador de color de la barra táctil(opciones)` _Experimental_
+### `new TouchBarColorPicker(options)`
 
 * `options` Object
   * `Colores disponibles` Cadena[] (opcional) - arreglo de códigos hexadecimales de los colores a aparecer como colores posibles a seleccionar.

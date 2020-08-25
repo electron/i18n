@@ -85,10 +85,9 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Default ke false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Default ke false.
   * ` kadaluarsaDate </ 0>  Double (opsional) - Tanggal kadaluarsa cookie sebagai jumlah detik sejak zaman UNIX. Jika dihilangkan maka cookie menjadi cookie sesi dan tidak akan disimpan di antara sesi.</li>
-</ul></li>
-</ul>
+<li><code>sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.  Default is `no_restriction`.
 
-<p spaces-before="0">Returns <code>Promise<void>` - A promise which resolves when the cookie has been set</p>
+Returns `Promise<void>` - A promise which resolves when the cookie has been set
 
 Sets a cookie with `details`.
 

@@ -4,7 +4,7 @@
 
 Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `nueva notificación en la barra táctil(opciones)` _Experimental_
+### `new TouchBarPopover(options)`
 
 * `options` Object
   * `Etiqueta` Cadena (opcional) - tecto del botón en la notificación.

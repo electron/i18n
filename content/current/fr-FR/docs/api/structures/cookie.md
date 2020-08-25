@@ -8,4 +8,5 @@
 * `secure` Boolean (optional) - Si le cookie est marqué comme étant sécurisé.
 * `httpOnly` Boolean (facultatif) - Si le cookie est marqué comme HTTP uniquement.
 * `session` Boolean (facultatif) - Si le cookie est un cookie de session ou un cookie persistant avec une date d'expiration.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `expirationDate` Double (facultatif) - La date d'expiration du cookie en nombre de secondes depuis l'epoch UNIX. Non fournie pour les cookies de session.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.

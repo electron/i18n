@@ -356,7 +356,7 @@ bersama dengan notifikasi. The &lt;code>object</code> is the sender of the notif
     <code>kunci</code> senar
   </li>
   <li>
-    <code>type</code> String - See <a href="#systempreferencesgetuserdefaultkey-type-macos"><code>getUserDefault</code></a>.
+    <code>type</code> String - Can be <code>string</code>, <code>boolean</code>, <code>integer</code>, <code>float</code>, <code>double</code>, <code>url</code>, <code>array</code> or <code>dictionary</code>.
   </li>
   <li>
     <code>nilai</code> Senar

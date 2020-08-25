@@ -2,9 +2,9 @@
 
 > Create a label in the touch bar for native macOS applications
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Proces-ul: [Main](../tutorial/application-architecture.md#main-and-renderer-processes) - Principal</0>
 
-### `new TouchBarLabel(options)` _Experimental_
+### `new TouchBarLabel(options)`
 
 * `options` Object
   * `label` String (optional) - Text to display.

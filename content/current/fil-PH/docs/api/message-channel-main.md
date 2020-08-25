@@ -6,6 +6,8 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessageChannelMain
 
+Proseso:[Pangunahi](../glossary.md#main-process)
+
 Halimbawa:
 ```js
 const { port1, port2 } = new MessageChannelMain()

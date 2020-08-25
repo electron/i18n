@@ -22,7 +22,7 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-Show the given file in a file manager. If possible, select the file.
+指定したファイルをファイルマネージャに表示します。 可能であれば、ファイルを選択します。
 
 ### `shell.openItem(fullPath)`
 
@@ -36,12 +36,12 @@ Show the given file in a file manager. If possible, select the file.
 
 * `url` String - Windows では最大2081文字です。
 * `options` Object (任意)
-  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. 省略値は `true` です。
+  * `activate` Boolean (任意) _macOS_ - `true` で開いたアプリケーションを前面に表示します。 省略値は `true` です。
   * `workingDirectory` String (任意) _Windows_ - 作業ディレクトリ。
 
 戻り値 `Promise<void>`
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+指定した外部プロトコルの URL をデスクトップ既定の方法で開きます。 (例えば、mailto: の URL はユーザのデフォルトのメールエージェントになります)。
 
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
@@ -59,7 +59,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following:
+* `operation` String (任意) - 省略値は `create` で、以下の値のいずれかにできます。
   * `create` - 新しいショートカットを作成し、必要であれば上書きします。
   * `update` - 既にあるショートカットのみを、指定したプロパティで更新します。
   * `replace` - 既にあるショートカットを上書きし、存在しなければ失敗します。

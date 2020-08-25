@@ -2,7 +2,7 @@
 
 > Gère des fichiers et URLs à l'aide de leurs applications par défaut.
 
-Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
 Le module `shell` fournit des fonctions liées à l'intégration bureau.
 
@@ -13,6 +13,8 @@ const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
+
+**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
 ## Méthodes
 

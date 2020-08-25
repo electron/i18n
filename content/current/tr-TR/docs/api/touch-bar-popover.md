@@ -4,7 +4,7 @@
 
 İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarPopover(options)` _Experimental_
+### `new TouchBarPopover(options)`
 
 * `options` Object
   * `label` Dizge (isteğe bağlı) - açılır düğme metni.

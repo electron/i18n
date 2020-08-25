@@ -32,12 +32,10 @@ Ini menciptakan baru ` Pemberitahuan </ 0> dengan sifat asli yang ditetapkan ole
 
 Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada sistem saat ini atau tidak</p>
 
-<h3 spaces-before="0"><code> Pemberitahuan baru ( [pilihan] ) </ 0>  <em x-id="4"> Eksperimental </ 1></h3>
+<h3 spaces-before="0"><code>new Notification([options])`</h3> 
 
-<ul>
-<li><code>options` Object (optional) 
-
-  * ` judul </ 0>  String - Judul untuk pemberitahuan, yang akan ditampilkan di bagian atas jendela pemberitahuan saat ditampilkan.</li>
+* `options` Object (optional) 
+    * ` judul </ 0>  String - Judul untuk pemberitahuan, yang akan ditampilkan di bagian atas jendela pemberitahuan saat ditampilkan.</li>
 <li><code>subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
   * ` tubuh </ 0> String - bahasa teks visual, yang akan ditampilkan di bawah judul atau subjudul.</li>
 <li><code>silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
@@ -48,7 +46,7 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
   * `sound` String (optional) _macOS_ - The name of the sound file to play when the notification is shown.
   * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.</li> </ul> 
+  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 
 

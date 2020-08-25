@@ -34,7 +34,7 @@ app.whenReady().then(async () => {
 
 ### `netLog.stopLogging()`
 
-Возвращает `Promise<String>` - разрешает путь к файлу, в который были записаны сетевые журналы.
+Returns `Promise<void>` - resolves when the net log has been flushed to disk.
 
 Остановка записи сетевых событий. Если не вызвано, ведение сетевого журнала автоматически закроется при выходе из приложения.
 
@@ -42,8 +42,4 @@ app.whenReady().then(async () => {
 
 ### `netLog.currentlyLogging` _Только чтение_
 
-Свойство `Boolean`, указывающее на запись сетевых журналов.
-
-### `netLog.currentlyLoggingPath` _Только чтение_ _Устарело_
-
-Свойство `String`, которое возвращает путь к текущему файлу журнала.
+A `Boolean` property that indicates whether network logs are currently being recorded.

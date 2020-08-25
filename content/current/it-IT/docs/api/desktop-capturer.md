@@ -2,7 +2,7 @@
 
 > Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
 
-Processo: [Renderizzatore](../glossary.md#renderer-process)
+Vedi anche: [Principale](../glossary.md#main-process), [Rendering](../glossary.md#renderer-process)
 
 The following example shows how to capture video from a desktop window whose title is `Electron`:
 

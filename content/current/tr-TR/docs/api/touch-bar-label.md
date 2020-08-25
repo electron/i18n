@@ -4,7 +4,7 @@
 
 İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `yeni DokunmatikÇubukEtiketi(seçenekler)` _Deneysel_
+### `new TouchBarLabel(options)`
 
 * `options` Object
   * `label` Dize (opsiyonel) - Görüntülenecek metin.

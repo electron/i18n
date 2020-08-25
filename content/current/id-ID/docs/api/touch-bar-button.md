@@ -4,7 +4,7 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `TouchBarButtonbaru(pilihan)`_Eksperimental_
+### `new TouchBarButton(options)`
 
 * `options` Object
   * `label` String (opsional) - Teks tombol.

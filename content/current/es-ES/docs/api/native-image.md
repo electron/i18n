@@ -229,9 +229,13 @@ Observe que el puntero devuelto es un puntero debil a la imagen nativa subyacent
 
 Devuelve `Boolean` - Si la imagen está vacía.
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Devuelve [`Size`](structures/size.md)
+* `scaleFactor` Doble (opcional) -Por defecto es 1.0.
+
+Devuelve [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -260,9 +264,17 @@ Devuelve `NativeImage` - La imagen redimensionada.
 
 Si solo la `height` o la `width` son especificadas, entonces la relación de aspecto actual se conservará en la imagen redimensionada.
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
 Devuelve `Float` - La relación de aspecto de la imagen.
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 

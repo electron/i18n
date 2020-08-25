@@ -26,7 +26,7 @@ Ang klase ng `Notification` ay may mga sumusunod na mga istatikong pamamaraan:
 
 Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusuportahan sa kasalukuyang sistema
 
-### Ang `new Notification([options])` ay _Experimental_
+### `new Notification([options])`
 
 * `options` Object (optional)
   * Ang `title` String - Ang isang pamagat sa mga paunawa, kung saan ay ipinakita sa ibabaw ng window ng paunawa kung saan ito ipinakita.

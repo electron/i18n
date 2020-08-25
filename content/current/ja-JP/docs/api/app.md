@@ -298,7 +298,7 @@ GPU 情報の更新がある場合に発生します。
 
 GPU プロセスがクラッシュしたり、強制終了されたりしたときに発生します。
 
-### イベント: 'renderer-process-crashed'
+### Event: 'renderer-process-crashed' _Deprecated_
 
 戻り値:
 
@@ -307,6 +307,8 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 * `killed` Boolean
 
 `webContents` のレンダラープロセスがクラッシュ、または強制終了されたときに発行されます。
+
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -362,6 +364,8 @@ app.on('session-created', (session) => {
 このイベントは、2 つ目のインスタンスが実行され `app.requestSingleInstanceLock()` が実行されたとき、アプリケーションの1つ目のインスタンス内で発火されます。
 
 `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
+
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
 
 このイベントは `app` の `ready` イベントが発生した後で実行されることが保証されます。
 
@@ -523,6 +527,7 @@ You should seek to use the `steal` option as sparingly as possible.
   * `music` ユーザのミュージックのディレクトリ。
   * `pictures` ユーザのピクチャのディレクトリ。
   * `videos` ユーザのビデオのディレクトリ。
+  * `recent` Directory for the user's recent files (Windows only).
   * `logs` アプリのログフォルダのディレクトリ。
   * `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
   * `crashDumps` Directory where crash dumps are stored.
@@ -1028,9 +1033,9 @@ stopAccessingSecurityScopedResource()
 
 セキュリティスコープ付きリソースへのアクセスを開始します。 このメソッドでは、Mac App Store 用にパッケージ化された Electron アプリケーションが、ユーザーが選択したファイルにアクセスするためにサンドボックスの外部にアクセスすることがあります。 このシステムの動作の詳細は、[Apple のドキュメント](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を参照してください。
 
-### `app.enableSandbox()` _実験的_
+### `app.enableSandbox()`
 
-アプリで完全サンドボックスモードを有効にします。
+Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
@@ -1071,6 +1076,24 @@ app.moveToApplicationsFolder({
 
 そのユーザーディレクトリにアプリが既に存在する場合、ユーザーが '移動を続行' を選択すると、関数は既定の動作を続行し、既存のアプリは破棄され、新たなアプリはその場所に移動します。
 
+### `app.isSecureKeyboardEntryEnabled()` _macOS_
+
+Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+
+By default this API will return `false`.
+
+### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
+
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+
+Set the `Secure Keyboard Entry` is enabled in your application.
+
+By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+
+See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+
+**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+
 ## プロパティ
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
@@ -1094,6 +1117,8 @@ app.moveToApplicationsFolder({
 macOS では、ゼロ以外の整数を設定すると、ドックアイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
 **注:** Unity ランチャーで動作させるには `.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) を読んでください。
+
+**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
 ### `app.commandLine` _読み出し専用_
 

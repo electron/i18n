@@ -8,6 +8,8 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessagePortMain
 
+Süreç: [Ana](../glossary.md#main-process)
+
 ### Örnek yöntemleri
 
 #### `port.postMessage(message, [transfer])`
@@ -29,13 +31,17 @@ Disconnects the port, so it is no longer active.
 
 #### Etkinlik: 'mesaj'
 
-Döndürür:
+Dönüşler:
 
 * `messageEvent` Object
   * `data` any
   * `ports` MessagePortMain[]
 
 Emitted when a MessagePortMain object receives a message.
+
+#### Etkinlik: 'kapalı'
+
+Emitted when the remote end of a MessagePortMain object becomes disconnected.
 
 [`MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
 [Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API

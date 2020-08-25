@@ -4,21 +4,6 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-
-在 ` app ` 模块 `emitted ready ` 事件之前，您不能使用此模块。
-
-例如：
-
-```javascript
-const { app, powerMonitor } = require('electron')
-
-app.whenReady().then(() => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
-})
-```
-
 ## 事件
 
 ` powerMonitor ` 模块触发以下事件:
@@ -41,7 +26,7 @@ app.whenReady().then(() => {
 
 ### Event: 'shutdown' _Linux_ _macOS_
 
-当系统即将重启或关机时出发 如果事件调用`e.preventDefault()`, Electron 将会尝试延迟系统关机，以便 app 完全退出。 如果`e.preventDefault()`被调用，在调用类似 `app.quit()` 后，app 会很快地退出。
+当系统即将重启或关机时触发。 如果事件调用`e.preventDefault()`, Electron 将会尝试延迟系统关机，以便 app 完全退出。 如果`e.preventDefault()`被调用，在调用类似 `app.quit()` 后，app 会很快地退出。
 
 ### Event: 'lock-screen' _macOS_ _Windows_
 

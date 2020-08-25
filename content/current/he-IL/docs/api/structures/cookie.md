@@ -9,3 +9,4 @@
 * `httpOnly` ‏Boolean (רשות) - האם העוגייה סומנה כ־HTTP בלבד.
 * `session` ‏Boolean (רשות) - האם העוגייה היא עוגייה זמנית או עוגייה עם תאריך תפוגה.
 * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.
