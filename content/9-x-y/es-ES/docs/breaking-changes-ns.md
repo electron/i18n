@@ -1,22 +1,22 @@
-# Breaking changes (NetworkService) (Draft)
+# Cambios de ruptura (NetworkService) (Borrador)
 
-This document describes changes to Electron APIs after migrating network code to NetworkService API.
+Este documento describe los cambios en las APIs de Electron después de migrar el código de network a API NetworkService.
 
-We don't currently have an estimate of when we will enable `NetworkService` by default in Electron, but as Chromium is already removing non-`NetworkService` code, we might switch before Electron 10.
+Actualmente no tenemos una estimación de cuando activaremos el `NetworkService` por defecto en Electron, pero como Chromium está quitando código no `NetworkService`, puede que cambiemos antes de Electron 10.
 
-The content of this document should be moved to `breaking-changes.md` once we have determined when to enable `NetworkService` in Electron.
+El contenido de este documento debería ser movido a `breaking-changes.md` una ves que hayamos determinado cuando activar `NetworkService` en Electron.
 
 ## Cambios planificados de API
 
 ### `protocol.unregisterProtocol`
 ### `protocol.uninterceptProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+Las APIs ahora son síncronas y el callback opcional ya no es necesario.
 
 ```javascript
-// Deprecated
+// Obsoleto
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Replace with
+// Reemplazar con 
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -31,25 +31,25 @@ protocol.unregisterProtocol(scheme)
 ### `protocol.interceptHttpProtocol`
 ### `protocol.interceptStreamProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+Las APIs ahora son síncronas y el callback opcional ya no es necesario.
 
 ```javascript
-// Deprecated
+// Obsoleto
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
+// Reemplazar con 
 protocol.registerFileProtocol(scheme, handler)
 ```
 
-The registered or intercepted protocol does not have effect on current page until navigation happens.
+El protocolo registrado o interceptado no tiene efecto en la página actual hasta que ocurra la navegación.
 
 ### `protocol.isProtocolHandled`
 
-This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
+Esta API está obsoleta y los usuarios deberían usar `protocol.isProtocolRegistered` y `protocol.isProtocolIntercepted` en su lugar.
 
 ```javascript
-// Deprecated
+// Obsoleto
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Replace with
+// Reemplazar con
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```

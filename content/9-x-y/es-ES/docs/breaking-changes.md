@@ -2,14 +2,14 @@
 
 Los cambios de ruptura se documentaran aquí y se agregaran advertencias de desaprobación al código JS cuando sea posible, al menos [una versión superior](tutorial/electron-versioning.md#semver) se publicará, antes de que se realice cualquier cambio.
 
-### Types of Breaking Changes
+### Tipos de cambios de ruptura
 
-This document uses the following convention to categorize breaking changes:
+Este documento usa la siguiente convención para clasificar los cambios de ruptura:
 
 - **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
 - **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.
-- **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. The old behavior can be restored by explicitly specifying the value.
-- **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
+- **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. El comportamiento antiguo puede ser restaurado especificando explícitamente el valor.
+- **Obsoleto:** Una API fue marcada como obsoleta. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
 - **Removed:** An API or feature was removed, and is no longer supported by Electron.
 
 ## Cambios planeados en la API(12.0)
@@ -163,14 +163,14 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
 
 ```js
-// Deprecated
+// Obsoleto
 webview.getWebContents()
-// Replace with
+// Reemplazar con
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-However, it is recommended to avoid using the `remote` module altogether.
+Sin embargo, es recomendado evitar el uso por completo del modulo `remote`.
 
 ```js
 // main
@@ -198,13 +198,13 @@ const { ipcRenderer } = require('electron')
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 ```
 
-### Deprecated: `webFrame.setLayoutZoomLevelLimits()`
+### Obsoleto: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. La función emitirá una advertencia en Electron 8.x, y dejará de existir en Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ## Cambios planeados en la API(7.0)
 
-### Deprecated: Atom.io Node Headers URL
+### Obsoleto: Atom.io Node Headers URL
 
 Este es el URL especificado como `disturl` en un archivo `.npmrc` o como el comando de linea `--dist-url` al construir los módulos nativos de nodo.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
@@ -217,38 +217,38 @@ Reemplazar con: https://electronjs.org/headers
 The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-// Deprecated
+// Obsoleto
 session.clearAuthCache({ type: 'password' })
-// Replace with
+// Reemplazar con 
 session.clearAuthCache()
 ```
 
-### API Changed: `powerMonitor.querySystemIdleState` is now `powerMonitor.getSystemIdleState`
+### API Cambiada: `powerMonitor.querySystemIdleState` ahora es `powerMonitor.getSystemIdleState`
 
 ```js
-// Removed in Electron 7.0
+// Eliminado en Electron 7.0 
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// Reemplazar con API síncrona
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleState`
+### API Cambiada: `powerMonitor.querySystemIdleTime` ahora es `powerMonitor.getSystemIdleState`
 
 ```js
-// Removed in Electron 7.0
+// Eliminada en Electron 7.0
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// Reemplazar con API síncrona
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
-### API Changed: `webFrame.setIsolatedWorldInfo` replaces separate methods
+### API cambiada: `webFrame.setIsolatedWorldInfo` reemplaza métodos separados
 
 ```js
-// Removed in Electron 7.0
+// Eliminado en  Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// Reemplazar con 
 webFrame.setIsolatedWorldInfo(
   worldId,
   {

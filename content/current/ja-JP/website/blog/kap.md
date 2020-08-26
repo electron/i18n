@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: Kap'
+title: '今週のプロジェクト: Kap'
 author:
   - skllcrn
   - sindresorhus
@@ -7,17 +7,17 @@ author:
 date: '2017-01-31'
 ---
 
-The Electron community is growing quickly, and people are creating powerful new apps and tools at an astounding rate. To celebrate this creative momentum and keep the community informed of some of these new projects, we've decided to start a weekly blog series featuring noteworthy Electron-related projects.
+Electron のコミュニティは急速に成長しており、協力な新しいアプリやツールが驚異的速さで開発されています。 この創造的な勢いを祝い、この新しいプロジェクトらをいくつかコミュニティにお知らせするため、注目の Electron 関連プロジェクトを取り上げた週刊ブログシリーズを始めることにしました。
 
 ---
 
-This post is the first in the series, and features [Kap](https://getkap.co/), an open-source screen recording app built by [Wulkano](https://wulkano.com/), a geodistributed team of freelance designers and developers.
+このシリーズの第一回目の記事では、フリーランスのデザイナーと開発者で構成される世界中に分かれたチーム [Wulkano](https://wulkano.com/) が開発したオープンソースの画面録画アプリ [Kap](https://getkap.co/) を特集します。
 
 [![Kap Screencast](https://cloud.githubusercontent.com/assets/2289/22439463/8f1e509e-e6e4-11e6-9c32-3a9db63fc9a1.gif)](https://getkap.co/)
 
-## What is Kap?
+## Kap とは何ですか?
 
-[Kap is an open-source screen recorder](https://getkap.co) built primarily for designers and developers to easily capture their work. People use it to share animated prototypes, document bugs, create silly GIFs and everything in-between.
+[Kap はオープンソースの画面録画機](https://getkap.co) です。主にデザイナーや開発者が自分の作品を簡単にキャプチャするために作りました。 People use it to share animated prototypes, document bugs, create silly GIFs and everything in-between.
 
 We've seen people of all ages and backgrounds use it in educational settings, screencasts, tutorials... the list goes on. Even to create production assets! We're completely blown away by how well received our little side project has been.
 

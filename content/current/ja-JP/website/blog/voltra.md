@@ -85,7 +85,7 @@ We handle very large collections pretty well at this point. Large collections me
 
 We would like to see Electron endorse a single packager. The packager is as important to Electron what the package manager is to Node. There are multiple packagers in user-land, each with interesting features but each with bugs. Consensus by the community would help to direct the energy being spent by contributors.
 
-## What's coming next?
+## 今後の予定は何ですか?
 
 We‘re currently developing a mobile app, and working with artists and labels to add their music to the Voltra shop. Hey! If you’re an artist or label, [sign up now](https://admin.voltra.co/signup)! We plan on opening up the shop when we reach our goal of 10 million tracks.
 
