@@ -104,9 +104,9 @@ ipcMain.on('FREE', function (event, id) {
 
 先述の単純な実装では、`remote` モジュールを呼び出すたびにメインプロセスが新しいリモートオブジェクトを返し、各リモートオブジェクトがメインプロセスのオブジェクトへの参照を表します。
 
-The design itself is fine, but the problem is when there are multiple calls to receive the same object, multiple proxy objects will be created and for complicated objects this can add huge pressure on memory usage and garbage collection.
+デザイン自体は問題ないのですが、同じオブジェクトを受信するために複数回呼び出すと、複数のプロキシオブジェクトが作成され、複雑なオブジェクトの場合にメモリ使用量とガベージコレクションを圧迫するという問題があります。
 
-For example, the following code:
+以下のようなコードがあったとします。
 
 ```javascript
 const {remote} = require('electron')
@@ -116,41 +116,41 @@ for (let i = 0; i < 10000; ++i) {
 }
 ```
 
-It first uses a lot of memory creating proxy objects and then occupies the CPU (Central Processing Unit) for garbage collecting them and sending IPC messages.
+まずプロキシオブジェクトを作成するためにメモリを多く使用し、そのガベージコレクションと IPC メッセージの送信に CPU(Central Processing Unit) を占有します。
 
-An obvious optimization is to cache the remote objects: when there is already a remote object with the same ID, the previous remote object will be returned instead of creating a new one.
+明白な最適化としては、リモートオブジェクトのキャッシュがあります。すなわち、すでに同じ ID のリモートオブジェクトが存在する場合、新しいオブジェクトを作成するのではなく以前のリモートオブジェクトを返すようにします。
 
-This is not possible with the API in JavaScript core. Using the normal map to cache objects will prevent V8 from garbage collecting the objects, while the [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) class can only use objects as weak keys.
+これは JavaScript コアの API ではできません。 通常の辞書配列を使ってオブジェクトをキャッシュすれば V8 によるオブジェクトのガベージコレクションを防げますが、[WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) クラスではオブジェクトのみが弱参照のキーに使えます。
 
-To solve this, a map type with values as weak references is added, which is perfect for caching objects with IDs. Now the `remote.require` looks like this:
+これを解決するために、値を弱参照として持つマップ型を追加しました。ID を持つオブジェクトのキャッシュに最適です。 これで、`remote.require` は以下のようになります。
 
 ```javascript
 const remoteObjectCache = v8Util.createIDWeakMap()
 
 remote.require = function (name) {
-  // Tell the main process to return the meta data of the module.
+  // モジュールのメタデータを返すようにメインプロセスに伝えます。
   ...
   if (remoteObjectCache.has(meta.id))
     return remoteObjectCache.get(meta.id)
-  // Create a proxy object.
+  // プロキシオブジェクトを作成します。
   ...
   remoteObjectCache.set(meta.id, object)
   return object
 }
 ```
 
-Note that the `remoteObjectCache` stores objects as weak references, so there is no need to delete the key when the object is garbage collected.
+注意として、`remoteObjectCache` はオブジェクトを弱参照として保管するので、オブジェクトがガベージコレクトされたときでもキーの削除は不要です。
 
-## Native code
+## ネイティブコード
 
-For people interested in the C++ code of weak references in Electron, it can be found in following files:
+Electron の弱参照の C++ コードに興味がある方は、以下のファイルを参照してください。
 
-The `setDestructor` API:
+`setDestructor` API:
 
 * [`object_life_monitor.cc`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/object_life_monitor.cc)
 * [`object_life_monitor.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/object_life_monitor.h)
 
-The `createIDWeakMap` API:
+`createIDWeakMap` API:
 
 * [`key_weak_map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/key_weak_map.h)
 * [`atom_api_key_weak_map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/atom_api_key_weak_map.h)

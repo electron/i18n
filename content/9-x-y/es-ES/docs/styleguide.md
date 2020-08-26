@@ -13,27 +13,27 @@ Estas son las directrices para escribir documentación de Electron.
 Usando `Quick Start` como ejemplo:
 
 ```markdown
-# Quick Start
+# Inicio rápido
 
 ...
 
-## Main process
+## Proceso principal
 
 ...
 
-## Renderer process
+## Proceso Renderer
 
 ...
 
-## Run your app
+## Ejecuta tu aplicación
 
 ...
 
-### Run as a distribution
+### Ejecuta como una distribución
 
 ...
 
-### Manually downloaded Electron binary
+### Binario Electron descargado manualmente
 
 ...
 ```
@@ -95,10 +95,10 @@ Usando `autoUpdater` como ejemplo:
 * Los constructores deben ser listrados con títulos de nivel `#`-.
 * Los [Métodos Estáticos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) deben ser listados bajo un capítulo de`### Métodos Estáticos`.
 * Los [Métodos de Instancia](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) deben ser listados bajo un capítulo de `### Métodos de Instancia`.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
+* Todos los métodos que tienen un valor de retorno deben empezar su descripción con "Returns `[TYPE]` - Return description"
   * Si el método devuelve un `Objeto`, su estructura puede ser especificada usando una coma seguida de un salto de línea y luego una lista desordenada de propiedades en el mismo estilo como parámetros de la función.
 * Los Eventos de Instancia deben aparecer listados bajo un capítulo de `### Eventos de Instancia`.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* Las Propiedades de Instancia deben ser listadas bajo un capitulo `### Instance Properties`.
   * Las propiedades de instancia deben empezar con "Un [Tipo de Propiedad]..."
 
 Usando las clases `Session` y `Cookies` como ejemplo:
@@ -140,17 +140,17 @@ Usando las clases `Session` y `Cookies` como ejemplo:
 El capítulo de métodos debe estar de la siguiente forma:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `nombreDeObjeto.nombreDeMetodo(required[, opcional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - Una descripción del parámetro.
+* `opcional` Integer (opcional) - Otra descripción del parámetro.
 
 ...
 ```
 
 El título puede ser `###` o `####`-niveles dependiendo de si es un método de un módulo o una clase.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Para módulos, el `objectName` es el nombre del módulo. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Por ejemplo, los métodos de la clase `Session` bajo el módulo `session` deben usar `ses` como el `objectName`.
 
