@@ -810,11 +810,11 @@ if (!gotTheLock) {
 
 ### `app.invalidateCurrentActivity()` _macOS_
 
-現在の [ハンドオフ][handoff] ユーザアクティビティを無効にします。
+現在の[ハンドオフ][handoff]ユーザアクティビティを無効にします。
 
 ### `app.resignCurrentActivity()` _macOS_
 
-現在の [ハンドオフ][handoff] ユーザーアクティビティを、無効にせずに不活性化します。
+現在の [ハンドオフ][handoff] ユーザーアクティビティを、無効にせずに非アクティブにします。
 
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
@@ -827,7 +827,7 @@ if (!gotTheLock) {
 
 * `id` String
 
-[アプリケーションユーザモデル ID][app-user-model-id] を `id` に変更します。
+[アプリケーションユーザモデルID][app-user-model-id]を `id` に変更します。
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
@@ -999,7 +999,7 @@ app.setLoginItemSettings({
   * `website` String (任意) _Linux_ - アプリのウェブサイト。
   * `iconPath` String (任意) _Linux_ _Windows_ - アプリのアイコンへのパス。 Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
 
-Aboutパネルのオプションを設定します。 This will override the values defined in the app's `.plist` file on macOS. 詳細は [Apple のドキュメント][about-panel-options] を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
+Aboutパネルのオプションを設定します。 This will override the values defined in the app's `.plist` file on macOS. 詳細については、[Apple社のドキュメント][about-panel-options] を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
 `credits` を設定していなくてもアプリに表示したい場合、AppKit は NSBundle の main クラスメソッドから返されたバンドル内で、"Credits.html"、"Credits.rtf"、"Credits.rtfd" の順番でファイルを探します。 最初に見つかったファイルが使用されます。見つからない場合、その情報の部分は空白のままです。 詳細は Apple の [ドキュメント](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) を参照してください。
 

@@ -817,7 +817,7 @@ Restituisce `Stringa` - Il tipo di attività al momento in esecuzione.
 
 ### `app.invalidateCurrentActivity()` _macOS_
 
-Invalidates the current [Handoff][handoff] user activity.
+Invalida l'attività [Handoff][handoff] corrente dell'utente.
 
 ### `app.resignCurrentActivity()` _macOS_
 

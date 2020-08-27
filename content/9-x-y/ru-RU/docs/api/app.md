@@ -810,11 +810,11 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 ### `app.invalidateCurrentActivity()` _macOS_
 
-Invalidates the current [Handoff][handoff] user activity.
+Аннулирует текущую [Handoff][handoff] активность пользователя.
 
 ### `app.resignCurrentActivity()` _macOS_
 
-Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
+Помечает текущую [Handoff][handoff] активность пользователя как неактивную без ее отмены.
 
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 

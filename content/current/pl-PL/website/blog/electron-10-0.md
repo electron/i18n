@@ -6,7 +6,7 @@ author:
 date: '2020-08-25'
 ---
 
-Electron 10.0.0 has been released! It includes upgrades to Chromium `85`, V8 `8.5`, and Node.js `12.16`. We've added several new API integrations and improvements. Read below for more details!
+Electron 10.0.0 został wydany! It includes upgrades to Chromium `85`, V8 `8.5`, and Node.js `12.16`. We've added several new API integrations and improvements. Read below for more details!
 
 ---
 
@@ -21,8 +21,8 @@ We can't wait to see what you build with them! Continue reading for details abou
 ### Stack Changes
 
 * Chromium `85.0.4183.84`
-    * [New in Chrome 84](https://developers.google.com/web/updates/2020/07/nic84)
-    * [New in Chrome 85](https://chromereleases.googleblog.com/2020/08/stable-channel-update-for-desktop_25.html)
+    * [Nowość w Chrome 84](https://developers.google.com/web/updates/2020/07/nic84)
+    * [Nowość w Chrome 85](https://chromereleases.googleblog.com/2020/08/stable-channel-update-for-desktop_25.html)
 * Node.js `12.16.3`
     * [Node 12.16.3 blog post](https://nodejs.org/en/blog/release/v12.16.3/)
 * V8 `8.5`

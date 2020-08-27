@@ -66,7 +66,7 @@ const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-The following suffixes for DPI are also supported:
+Les suffixes suivants pour le DPI sont également pris en charge :
 
 * `@1x`
 * `@1.25x`
@@ -101,7 +101,7 @@ The `nativeImage` module has the following methods, all of which return an insta
 
 Retourne `NativeImage`
 
-Creates an empty `NativeImage` instance.
+Crée une instance `NativeImage` vide.
 
 ### `nativeImage.createFromPath(path)`
 
@@ -258,7 +258,7 @@ Retourne `NativeImage` - L'image recadrée.
 * `options` Object
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (facultatif) - La hauteur de l'image par défaut.
-  * `Qualité` String (facultatif) - La qualité souhaitée de l'image de retaille. Possible values are `good`, `better`, or `best`. La valeur par défaut est `meilleur`. Ces valeurs expriment un compromis qualité/vitesse souhaité. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `Qualité` String (facultatif) - La qualité souhaitée de l'image de retaille. Les valeurs possibles sont `good`, `better`, ou `best`. La valeur par défaut est `meilleur`. Ces valeurs expriment un compromis qualité/vitesse souhaité. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Retourne `NativeImage` - L'image redimensionnée.
 

@@ -807,11 +807,11 @@ Retourne `String` - le type de l’activité en cours d’exécution.
 
 ### `app.invalidateCurrentActivity()` _macOS_
 
-Invalidates the current [Handoff][handoff] user activity.
+Invalide l'activité [Handoff][handoff] courante de l'utilisateur.
 
 ### `app.resignCurrentActivity()` _macOS_
 
-Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
+Marque l'activité actuelle de l'utilisateur [Handoff][handoff] comme inactive sans l'invalider.
 
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
