@@ -812,13 +812,13 @@ Döndür ` Dizgi </ 0> - Halen çalışan etkinliğin türü.</p>
 
 <h3 spaces-before="0"><code>app.invalidateCurrentActivity()` _macOS_</h3>
 
-Invalidates the current [Handoff][handoff] user activity.
+Geçerli [Handoff][handoff] kullanıcı etkinliğini geçersiz kılar.
 
 ### `app.resignCurrentActivity()` _macOS_
 
 Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
 
-### `app.updateCurrentActivity(type, userInfo)` _macOS_
+### `systemPapp.updateCurrentActivity(type, userInfo)` _macOS_
 
 * `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`][activity-type]'a haritalar.
 * `userInfo` any - App-specific state to store for use by another device.

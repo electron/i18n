@@ -810,9 +810,9 @@ Retorna `String` - O tipo da atividade atualmente em execução.
 
 ### `app.invalidateCurrentActivity()` _macOS_
 
-Invalidates the current [Handoff][handoff] user activity.
+Invalida a atividade de usuário atual do [Handoff][handoff].
 
-### `app.resignCurrentActivity()` _macOS_
+### `app.resignCurrentActivity()` no _macOS_
 
 Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
 

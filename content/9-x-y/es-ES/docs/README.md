@@ -4,7 +4,7 @@ Por favor, asegúrese de utilizar los documentos que correspondan con la versió
 
 ## Preguntas más frecuentes
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un tema:
 
 * [Preguntas Frecuentes sobre Electron](faq.md)
 

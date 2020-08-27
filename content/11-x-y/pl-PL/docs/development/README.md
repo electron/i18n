@@ -1,0 +1,23 @@
+# Praca z Electronem
+
+Te poradniki zostały stworzone dla ludzi współtworzących projekt Electron. Poradniki przy tworzeniu aplikacji, możesz znaleźć w [/docs/README.md](../README.md#guides-and-tutorials)
+
+* [Kodeks postępowania](../../CODE_OF_CONDUCT.md)
+* [Współtworzenie Electron’a](../../CONTRIBUTING.md)
+* [Problemy](issues.md)
+* [Oczekujące zmiany](pull-requests.md)
+* [Formatowanie Dokumentacji](coding-style.md#documentation)
+* [Struktura Ścieżki Kodu Źródłowego](source-code-directory-structure.md)
+* [Styl Kodowania](coding-style.md)
+* [Używanie formatu clang w kodzie C++](clang-format.md)
+* [Przegląd Systemu Budowania](build-system-overview.md)
+* [Instrukcje Budowania (macOS)](build-instructions-macos.md)
+* [Instrukcje Budowania (Windows)](build-instructions-windows.md)
+* [Instrukcje Budowania (Linux)](build-instructions-linux.md)
+* [Programowanie Chrome](chromium-development.md)
+* [Rozwój V8](v8-development.md)
+* [Testowanie](testing.md)
+* [Debugowanie na systemie Windows](debug-instructions-windows.md)
+* [Debugowanie na systemie macOS](debugging-instructions-macos.md)
+* [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
+* [Patches](patches.md)

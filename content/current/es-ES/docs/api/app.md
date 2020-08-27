@@ -494,7 +494,7 @@ Oculta todas la ventanas de la aplicación sin minimizar estas.
 
 ### `app.show()` _macOS_
 
-Muestra las ventanas de la aplicación luego de que se ocultaron. No los enfoca automáticamente.
+Muestra las ventanas de la aplicación después que fueron ocultadas. No los enfoca automáticamente.
 
 ### `app.setAppLogsPath([path])`
 
@@ -597,7 +597,7 @@ Para establecer la localización, necesitas usar un cambio de línea de comandos
 
 ### `app.getLocaleCountryCode()`
 
-Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. El valor es tomado desde la APIs nativas de sistema operativo.
+Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. El valor es tomado desde APIs nativas del sistema operativo.
 
 **Note:** Cuando no se puede detectar el código de país local, devuelve una cadena vacía.
 
@@ -607,7 +607,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 Añade la `ruta` a la lista de documentos recientes.
 
-Esta lista es manejada por el sistema operativo. En Windows, puede visitar la lista desde la barra de tarea y en macOS, puede visitar la desde el menu dock.
+Esta lista es administrada por el sistema operativo. En Windows, puede visitar la lista desde la barra de tarea y en macOS, puede visitar la desde el menu dock.
 
 ### `app.clearRecentDocuments()` _macOS_ _Windows_
 

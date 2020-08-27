@@ -819,15 +819,15 @@ Membuat `NSUserActivity` dan menetapkannya sebagai aktivitas saat ini. The activ
 
 Mengembalikan `String` - Jenis aktivitas yang sedang berjalan.
 
-### `app.invalidateCurrentActivity()` _macOS_
+### ` app.invalidateCurrentActivity () </ 0>  <em x-id="4"> macos </ 1></h3>
 
-Invalidates the current [Handoff][handoff] user activity.
+<p spaces-before="0">Invalidates the current <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html" f-id="handoff" fo="8">Handoff</a> user activity.</p>
 
-### `app.resignCurrentActivity()` _macOS_
+<h3 spaces-before="0"><code> app.resignCurrentActivity () </ 0>  <em x-id="4"> macos </ 1></h3>
 
-Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
+<p spaces-before="0">Marks the current <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html" f-id="handoff" fo="8">Handoff</a> user activity as inactive without invalidating it.</p>
 
-### `app.updateCurrentActivity(type, userInfo)` _macOS_
+<h3 spaces-before="0"><code>app.updateCurrentActivity(type, userInfo)` _macOS_
 
 * `ketik` String - Unik mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`][activity-type].
 * `userInfo` any - App-specific state to store for use by another device.

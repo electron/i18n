@@ -17,13 +17,13 @@ Electron のコミュニティは急速に成長しており、協力な新し�
 
 ## Kap とは何ですか?
 
-[Kap はオープンソースの画面録画機](https://getkap.co) です。主にデザイナーや開発者が自分の作品を簡単にキャプチャするために作りました。 People use it to share animated prototypes, document bugs, create silly GIFs and everything in-between.
+[Kap はオープンソースの画面録画機](https://getkap.co) です。主にデザイナーや開発者が自分の作品を簡単にキャプチャするために作りました。 プロトタイプのアニメーションを共有したり、バグを文書化したり、ネタ GIF を作成したりといったことに使われています。
 
-We've seen people of all ages and backgrounds use it in educational settings, screencasts, tutorials... the list goes on. Even to create production assets! We're completely blown away by how well received our little side project has been.
+老若男女の方々が、教育現場、スクリーンキャスト、チュートリアル などで使用しているようです。 製品のアセット作成にも使われています! この小さなサイドプロジェクトがこれだけ受け入れられていることに、ただただ圧倒されるばかりです。
 
-## Why did you build it?
+## どうしてこのアプリを構築したのですか?
 
-That's a very good question, it's not like there's a lack of screen recorders out there! We felt the alternatives were either too complex, too expensive or too limited. Nothing felt *just right* for our everyday needs. We also think it's great when the tools we use to do our work are open-source, that way everyone can help shape them. [Building Kap ended up being just as much about what we didn't do](https://medium.com/wulkano-friends/from-idea-to-product-and-beyond-a12850403c38). It's all in the details, an accumulation of small improvements that became the outline of a tool we wanted to use.
+非常に良い質問ですね。画面録画機が無いからといったわけではありません! 私たちは、画面録画機の代替物が複雑すぎたり、高価すぎたり、限定的すぎたりしていると感じました。 常用としては、*ちょうどいい* と感じるものが何もなかったのです。 また、仕事に使うツールはオープンソースであったほうが素晴らしいとも思います。 [Kap の構築は、特に何もしなかったようなものです](https://medium.com/wulkano-friends/from-idea-to-product-and-beyond-a12850403c38)。 自分たちが使いたいと思うツールのイメージになるように、小さな改良を積み重ねてこだわりました。
 
 However, and maybe most importantly, Kap has become a place for us to leave our worries at the door and just have fun building something for ourselves and people like us. It's so important to create an environment where you get to just vent, try new thins and enjoy your craft. No requirements, no pressure, no expectations. Should designers and developers side project? Why, yes. Yes, they should.
 

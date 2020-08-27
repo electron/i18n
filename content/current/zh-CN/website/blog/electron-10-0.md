@@ -6,13 +6,13 @@ author:
 date: '2020-08-25'
 ---
 
-Electron 10.0.0 has been released! It includes upgrades to Chromium `85`, V8 `8.5`, and Node.js `12.16`. We've added several new API integrations and improvements. Read below for more details!
+Electron 10.0.0 已发布！ 它包括升级到 Chromium `85`, V8 `8.5`, 和 Node.js `12.16`。 We've added several new API integrations and improvements. 请阅读下文了解更多详情！
 
 ---
 
-The Electron team is excited to announce the release of Electron 10.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features.
+Electron 团队很高兴发布了 Electron 10.0.0.0！ 您可以通过 `npm 安装electron@later` 或者从我们的 [发布网站](https://electronjs.org/releases/stable) 下载它。 这次发布包含升级、修复和新功能。
 
-In the Electron 10 release, we also made a change to our release notes. To make it easier to tell what's brand new in Electron 10 and what may have changed between Electron 10 and past releases, we now also include changes that were introduced to Electron 10, but backported to previous releases. We hope this makes it easier to apps to find new features and bug fixes when upgrading Electron.
+在 Electron 10 发布版中，我们还修改了我们的版本说明。 To make it easier to tell what's brand new in Electron 10 and what may have changed between Electron 10 and past releases, we now also include changes that were introduced to Electron 10, but backported to previous releases. We hope this makes it easier to apps to find new features and bug fixes when upgrading Electron.
 
 We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
 
