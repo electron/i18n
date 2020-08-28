@@ -28,7 +28,7 @@ Node.js 的新特性通常是由新版本的 V8 带来的。由于 Electron 使�
 
 Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`][message-port] from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
-## My app's tray disappeared after a few minutes.
+## 我的程序的托盘一段时间后消失了？
 
 This happens when the variable which is used to store the tray gets garbage collected.
 
@@ -98,7 +98,7 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-It is very likely you are using the module in the wrong process. 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
+很可能是你在过程中使用了错误的模块。 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
 
 ## 文字看起来很模糊，这是什么原因造成的？怎么解决这个问题呢？
 

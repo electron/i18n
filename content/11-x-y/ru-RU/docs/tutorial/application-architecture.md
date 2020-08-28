@@ -43,7 +43,7 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
+Поскольку связь между процессами возможна, процесс рендеринга может призвать основной процесс для выполнения задач через IPC.
 
 ```javascript
 // In the main process:

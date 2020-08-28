@@ -7,4 +7,5 @@
 * `أطوال المحتوى`Number[] - الحجم الإجمالي للمحتوى بالبايت.
 * `السعر` Number - سعر المنتج بالعملة المحلية.
 * `السعر المحدد`String - السعر المحدد المحلي للمنتج.
+* `currencyCode` String - 3 character code presenting a product's currency based on the ISO 4217 standard.
 * `isDownloadable` Boolean - A Boolean value that indicates whether the App Store has downloadable content for this product. `true` if at least one file has been associated with the product.
