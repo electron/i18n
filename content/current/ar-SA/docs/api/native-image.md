@@ -103,6 +103,13 @@ Returns `NativeImage`
 
 Creates an empty `NativeImage` instance.
 
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+
+* `path` String - path to a file that we intend to construct a thumbnail out of.
+* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+
+Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+
 ### `nativeImage.createFromPath(path)`
 
 * `path` String
@@ -177,18 +184,26 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 > Natively wrap images such as tray, dock, and application icons.
 
-Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+العملية:
+
+ الرئيسية </ 0> ،  العارض </ 1></p> 
+
+
 
 ### Instance Methods
 
 The following methods are available on instances of the `NativeImage` class:
 
+
+
 #### `image.toPNG([options])`
 
-* `options` Object (optional)
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+    * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+
+
 
 #### `image.toJPEG(quality)`
 
@@ -196,28 +211,36 @@ Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_bu
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
 
+
+
 #### `image.toBitmap([options])`
 
-* `options` Object (optional)
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+    * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
 
+
+
 #### `image.toDataURL([options])`
 
-* `options` Object (optional)
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+    * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `String` - The data URL of the image.
 
+
+
 #### `image.getBitmap([options])`
 
-* `options` Object (optional)
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+    * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
 
 The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
+
+
 
 #### `image.getNativeHandle()` _macOS_
 
@@ -225,9 +248,13 @@ Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_bu
 
 Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you _must_ ensure that the associated `nativeImage` instance is kept around.
 
+
+
 #### `image.isEmpty()`
 
 Returns `Boolean` - Whether the image is empty.
+
+
 
 #### `image.getSize([scaleFactor])`
 
@@ -237,15 +264,21 @@ Returns [`Size`](structures/size.md).
 
 If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
+
+
 #### `image.setTemplateImage(option)`
 
 * `option` Boolean
 
 Marks the image as a template image.
 
+
+
 #### `image.isTemplateImage()`
 
 Returns `Boolean` - Whether the image is a template image.
+
+
 
 #### `image.crop(rect)`
 
@@ -253,16 +286,20 @@ Returns `Boolean` - Whether the image is a template image.
 
 Returns `NativeImage` - The cropped image.
 
+
+
 #### `image.resize(options)`
 
-* `options` Object
-  * `width` Integer (optional) - Defaults to the image's width.
+* `options` Object 
+    * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (optional) - Defaults to the image's height.
   * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Returns `NativeImage` - The resized image.
 
 If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+
+
 
 #### `image.getAspectRatio([scaleFactor])`
 
@@ -272,14 +309,18 @@ Returns `Float` - The image's aspect ratio.
 
 If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
 
+
+
 #### `image.getScaleFactors()`
 
 Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
+
+
 #### `image.addRepresentation(options)`
 
-* `options` Object
-  * `scaleFactor` Double - The scale factor to add the image representation for.
+* `options` Object 
+    * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `buffer` Buffer (optional) - The buffer containing the raw image data.
@@ -287,7 +328,11 @@ Returns `Float[]` - An array of all scale factors corresponding to representatio
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
+
+
 ### Instance Properties
+
+
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 

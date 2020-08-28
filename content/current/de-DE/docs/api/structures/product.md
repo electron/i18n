@@ -7,4 +7,5 @@
 * `contentLengths` Number[] - Gesamtgröße des Contents in Bytes.
 * `price` Number - Produktkosten in Landeswährung.
 * `formattedPrice` String - länderspezifisch formatierter Preis.
+* `currencyCode` String - 3 character code presenting a product's currency based on the ISO 4217 standard.
 * `isDownloadable` Boolean - Ein boolescher Wert, der angibt, ob der App Store herunterladbare Inhalte für dieses Produkt hat. `true` wenn mindestens eine Datei mit dem Produkt verknüpft wurde.

@@ -7,4 +7,5 @@
 * `contentLengths` Number[] - 内容的总大小，以字节为单位。
 * `price` Number - 以本地货币计算的产品成本。
 * `formattedPrice` String - 本地格式化的产品价格。
+* `currencyCode` String - 3 character code presenting a product's currency based on the ISO 4217 standard.
 * `isDownloadable` Boolean - 一个布尔值，指示应用商店是否有该产品的可下载内容。 `true` 如果至少有一个文件与产品关联。

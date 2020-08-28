@@ -62,6 +62,6 @@ npm -v
 
 ## A Good Editor
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+# This command should print the version of Node.js node -v # This command should print the version of npm npm -v Both of them have excellent JavaScript support.
 
 If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.

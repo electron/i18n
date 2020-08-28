@@ -103,6 +103,13 @@ Nagbabalik ng `NativeImage`
 
 Gumawa ng bakanteng `NativeImage` na instance.
 
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+
+* `path` String - path to a file that we intend to construct a thumbnail out of.
+* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+
+Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+
 ### `nativeImage.createFromPath(path)`
 
 * `path` na String
@@ -179,7 +186,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Mga Pamamaraan ng Instance
+### Mga Halimbawa ng Sistematikong Paraan
 
 Ang mga sumusunod na paraan ay magagamit sa mga pagkakataong `NativeImage` klase :
 
@@ -288,7 +295,7 @@ Returns `Float[]` - An array of all scale factors corresponding to representatio
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
-### Mga Katangian ng Instance
+### Katangian ng pagkakataon
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 
