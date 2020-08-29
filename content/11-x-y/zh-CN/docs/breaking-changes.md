@@ -2,9 +2,9 @@
 
 这里将记录重大更改,并在可能的情况下向JS代码添加弃用警告,在这更改之前至少会有[一个重要版本](tutorial/electron-versioning.md#semver).
 
-### Types of Breaking Changes
+### 重大更改的类型
 
-This document uses the following convention to categorize breaking changes:
+本文档使用以下约定对重大更改进行分类：
 
 - **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
 - **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.

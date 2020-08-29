@@ -664,7 +664,7 @@ A `String` property that determines the title of the native window.
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. По умолчанию `false`.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -1341,9 +1341,11 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 Возвращает `Boolean` - видна ли панель меню.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (опционально)
+  * `visibleOnFullScreen` Boolean (опционально) _macOS_ - устанавливает видимость панели меню в полноэкранном режиме окна
 
 Устанавливает видимость окна на всех рабочих местах.
 

@@ -7,10 +7,10 @@ Làm theo hướng dẫn dưới đây để xây dựng Electron trên Linux.
 * Ít nhất là 25GB ổ cứng và 8GB bộ nhớ RAM.
 * Python phiên bản 2.7.x. Một số bản phân phối như CentOS 6.x vẫn sử dụng Python 2.6.x vì vậy bạn có thể cần phải kiểm tra phiên bản Python của bạn với `python -V`.
 
-  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+  Cũng vui lòng đảm bảo rằng hệ thống và phiên bản Python của bạn hỗ trợ ít nhất TLS 1,2. để kiểm tra nhanh, hãy chạy lệnh sau:
 
   ```sh
-  $ npx @electron/check-python-tls
+  $ npx @electron/Check-Python-TLS
   ```
 
   If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.

@@ -1341,9 +1341,11 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 `Boolean` komutu menünün görünür olup olmadığını gösterir.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (optional)
+  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows
 
 Pencerenin tüm çalışma alanlarında görünüp görünmeyeceğini ayarlamaktadır.
 

@@ -1,6 +1,6 @@
 # Отладка под macOS
 
-Если вы наблюдаете аварии или проблемы в работе Electron, которые, как вы считаете, вызваны самим Electron, а не приложением на JavaScript, отладка может быть немного сложной, особенно для разработчиков ранее не занимавшихся отладкой кода на C++. However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
+Если вы наблюдаете аварии или проблемы в работе Electron, которые, как вы считаете, вызваны самим Electron, а не приложением на JavaScript, отладка может быть немного сложной, особенно для разработчиков ранее не занимавшихся отладкой кода на C++. Однако, используя lldb и исходный код Electron, вы можете включить отладку с точками останова внутри исходного кода Electron. Если вы предпочитаете графический интерфейс, Вы также можете использовать [XCode для отладки](debugging-instructions-macos-xcode.md).
 
 ## Требования
 
