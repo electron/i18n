@@ -1732,9 +1732,11 @@ Kembali `Boolean` - Apakah menu bar terlihat.
 
 
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `terlihat` Boolean
+* `options` Object (optional) 
+    * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows
 
 Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
 

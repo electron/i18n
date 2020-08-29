@@ -1342,9 +1342,11 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 Ibinabalik ang `Boolean` - Kung saan ang menu bar ay makikita.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (optional)
+  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows
 
 Itakda kung ang window ay dapat na makikita sa lahat ng workspaces.
 

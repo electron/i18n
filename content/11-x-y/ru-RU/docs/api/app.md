@@ -29,7 +29,7 @@ app.on('window-all-closed', () => {
 
 * `launchInfo` unknown _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+Происходит единожды при завершении инициализации Electron. На macOS `launchInfo` содержит `userInfo` из `NSUserNotification`, которое было использовано для открытия приложения, если оно было запущено из центра уведомлений. Вы также можете вызвать `app.isReady()` для проверки того, что событие уже произошло и `app.whenReady()` чтобы получить Promise, который выполнится, когда Electron будет инициализирован.
 
 ### Событие: 'window-all-closed'
 
@@ -105,13 +105,13 @@ Emitted once, when Electron has finished initializing. On macOS, `launchInfo` ho
 
 Происходит при активации приложения. Различные действия могут запускать это событие, например, запуск приложения в первый раз, попытка перезапустить приложение, когда оно уже запущено, или клик на иконку приложения на панели dock или панели задач.
 
-### Event: 'did-become-active' _macOS_
+### Событие: 'did-become-active' _macOS_
 
 Возвращает:
 
 * `event` Event
 
-Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+Происходит при активации приложения. Отличие от события `activate` в том, что `did-become-active` происходит после каждой активации приложения, а не только при нажатии на иконку на панели задач или перезапуске приложения.
 
 ### Событие: 'continue-activity' _macOS_
 
@@ -162,7 +162,7 @@ Emitted when mac application become active. Difference from `activate` event is 
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - содержит специфичное, для приложения, состояние, сохраненное в хранилище по активности.
 
-Происходит во время [Handoff][handoff], когда вот-вот возобновится на другом устройстве. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Иначе, операция завершится ошибкой и будет вызвано `continue-activity-error`.
+Происходит во время [Handoff][handoff], когда вот-вот возобновится на другом устройстве. Если Вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Иначе, операция завершится ошибкой и будет вызвано `continue-activity-error`.
 
 ### Событие: 'new-window-for-tab' _macOS_
 

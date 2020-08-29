@@ -1339,9 +1339,11 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 Retourne `Boolean` - Si la barre de menu est visible.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (optional)
+  * `visibleOnFullScreen` Booléen (facultatif) _macOS_ - Définit si la fenêtre doit être visible au-dessus des fenêtres plein écran
 
 Définit si la fenêtre doit être visible sur tous les espaces de travail.
 

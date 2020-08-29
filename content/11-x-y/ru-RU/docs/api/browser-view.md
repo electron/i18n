@@ -40,10 +40,10 @@ view.webContents.loadURL('https://electronjs.org')
 #### `view.setAutoResize(options)` _Экспериментально_
 
 * `options` Object
-  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
-  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
-  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
+  * `width` Boolean (опционально) - если `true`, то ширина будет увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
+  * `height` Boolean (опционально) - если `true`, то высота будет увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
+  * `horizontal` Boolean (опционально) - если `true`, то положение по X и ширина будут увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
+  * `vertical` Boolean (опционально) - если `true`, то положение по Y и высота будут увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
 
 #### `view.setBounds(bounds)` _Экспериментально_
 
@@ -59,4 +59,4 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `view.setBackgroundColor(color)` _Экспериментально_
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - цвет вида `#aarrggbb` или `#argb`. Альфа-канал является опциональным.

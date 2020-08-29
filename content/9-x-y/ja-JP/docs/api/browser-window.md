@@ -1341,9 +1341,11 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 戻り値 `Boolean` - メニューバーを表示しているかどうか。
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (任意)
+  * `visibleOnFullScreen` Boolean (任意) _macOS_ - ウインドウをフルスクリーンウィンドウの上で表示するかどうかを設定します。
 
 ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 
