@@ -16,7 +16,7 @@ In the Electron 10 release, we also made a change to our release notes. To make 
 
 新機能たちと共に何を作るのか、楽しみにしています! このリリースの詳細については下に続きます。是非ご意見をお聞かせください!
 
-## 変更の目玉
+## 注目すべき変更
 
 ### 累積的変更
 

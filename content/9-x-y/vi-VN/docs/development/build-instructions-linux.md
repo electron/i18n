@@ -1,8 +1,8 @@
 # Hướng dẫn build (Linux)
 
-Làm theo hướng dẫn dưới đây để xây dựng Electron trên Linux.
+Follow the guidelines below for building Electron on Linux.
 
-## Điều kiện yêu cầu
+## Prerequisites
 
 * Ít nhất là 25GB ổ cứng và 8GB bộ nhớ RAM.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.

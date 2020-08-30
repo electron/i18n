@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on Windows.
 
-## Điều kiện yêu cầu
+## Prerequisites
 
 * Windows 10 / Server 2012 R2 or higher
 * Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)

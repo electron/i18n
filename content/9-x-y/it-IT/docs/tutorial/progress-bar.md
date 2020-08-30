@@ -10,7 +10,7 @@ __Progress bar nel pulsante della taskbar:__
 
 ![Taskbar Progress Bar][1]
 
-Tutti e tre i casi sono coperti dalla stessa API, il metodo `impostaBarraProgtrsso()` disponibile su instanze di `FinestreBrowser`. Chiamalo con un numero tra `0` e `1` per indicare il tuo progresso. Se hai una mansione a lunga esecuzione che è attualmente al 63% dal completamento, la chiamerai con `impostaBarraProgresso(0.63)`.
+Tutti e tre i casi sono coperti dalla stessa API, il metodo `setProgressBar()` disponibile su instanze di `BrowserWindows`. Chiamalo con un numero tra `0` e `1` per indicare il tuo progresso. Se hai una mansione a lunga esecuzione che è attualmente al 63% dal completamento, la chiamerai con `setProgressBar(0.63)`.
 
 Generalmente parlando, impostare il parametro ad un valore sotto zero (come `-1`) rimuoverà la barra del progresso, mentre impostandolo ad un valore più alto di uno (come `2`) sposterà la barra del progresso alla modalità intermedia.
 
