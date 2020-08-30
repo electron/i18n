@@ -1343,7 +1343,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
-* `options` Object (optional)
+* `options` Object (可选)
   * `visibleOnFullScreen` Boolean (可选) _macOS_ - 设置是否窗口可以在全屏窗口之上显示。
 
 设置窗口是否在所有工作空间上可见
