@@ -160,7 +160,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are:
+  * `titleBarStyle` String (optional) - The style of window title bar. Domyślnie jest `default`. Possible values are:
     * `default` - Results in the standard gray opaque Mac title bar.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
