@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "68226",
-    "translated": "33818",
+    "translated": "33820",
     "approved": "18070",
     "words": "659902",
-    "words_translated": "258019",
+    "words_translated": "258036",
     "words_approved": "144727",
     "translated_progress": 39,
     "approved_progress": 21,
-    "qa_issues": 2335
+    "qa_issues": 2340
   },
   {
     "name": "Ukrainian",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "68226",
-    "translated": "10202",
+    "translated": "10346",
     "approved": "5109",
     "words": "659902",
-    "words_translated": "49481",
+    "words_translated": "50768",
     "words_approved": "22464",
     "translated_progress": 7,
     "approved_progress": 3,
-    "qa_issues": 694
+    "qa_issues": 705
   }
 ]
