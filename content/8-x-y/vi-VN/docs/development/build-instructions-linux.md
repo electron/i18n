@@ -73,7 +73,7 @@ $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 
 ## Build
 
-See [Build Instructions: GN](build-instructions-gn.md)
+Xem [Build Instructions: GN](build-instructions-gn.md)
 
 ## Xử lý sự cố
 
@@ -85,7 +85,7 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Advanced topics
+## Chủ đề nâng cao
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
@@ -101,4 +101,4 @@ $ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_p
 
 ### Using compilers other than `clang`
 
-Building Electron with compilers other than `clang` is not supported.
+Xây dựng Electron với trình biên dịch khác không phải `clang` sẽ không được hỗ trợ.

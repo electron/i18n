@@ -8,19 +8,19 @@ Proceso: [Main](../glossary.md#main-process)
 
 El módulo `powerMonitor` emite los siguientes eventos:
 
-### Evento: "suspend"
+### Event: 'suspend' _macOS_ _Windows_
 
 Se emite cuando se suspende el sistema.
 
-### Evento: "resume"
+### Event: 'resume' _macOS_ _Windows_
 
 Se emite cuando se reanuda el sistema.
 
-### Evento: "on-ac" _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Se emite cuando el sistema se cambia a la corriente alterna.
 
-### Evento: "on-battery" _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Se emite cuando el sistema se cambia a la energía de batería.
 

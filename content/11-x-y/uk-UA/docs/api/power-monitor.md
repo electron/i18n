@@ -8,19 +8,19 @@
 
 The `powerMonitor` module emits the following events:
 
-### Event: 'suspend'
+### Подія: 'suspend' _macOS_ _Windows_
 
 Emitted when the system is suspending.
 
-### Event: 'resume'
+### Подія: 'resume' _macOS_ _Windows_
 
 Emitted when system is resuming.
 
-### Event: 'on-ac' _Windows_
+### Подія: 'on-ac' _macOS_ _Windows_
 
 Emitted when the system changes to AC power.
 
-### Event: 'on-battery' _Windows_
+### Подія: 'on-battery' _macOS_  _Windows_
 
 Emitted when system changes to battery power.
 

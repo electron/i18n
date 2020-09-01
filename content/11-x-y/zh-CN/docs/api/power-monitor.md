@@ -8,19 +8,19 @@
 
 ` powerMonitor ` 模块触发以下事件:
 
-### Event: 'suspend'
+### Event: 'suspend' _macOS_ _Windows_
 
 在系统挂起时触发。
 
-### Event: 'resume'
+### Event: 'resume' _macOS_ _Windows_
 
 在系统恢复时触发。
 
-### Event: 'on-ac' _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 当系统变为交流电源时触发。
 
-### Event: 'on-battery' _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 当系统更改为电池电量时触发。
 

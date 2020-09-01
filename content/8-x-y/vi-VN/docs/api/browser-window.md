@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Tạo và điều khiển cửa sổ trình duyệt.
 
 Process: [Main](../glossary.md#main-process)
 

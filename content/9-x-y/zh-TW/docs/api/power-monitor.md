@@ -23,19 +23,19 @@ app.whenReady().then(() => {
 
 ` powerMonitor ` 模組發出以下事件:
 
-### Event: 'suspend' _Linux_ _Windows_
+### Event: 'suspend' _macOS_ _Windows_
 
 Emitted when the system is suspending.
 
-### Event: 'resume' _Linux_ _Windows_
+### Event: 'resume' _macOS_ _Windows_
 
 在系統復原時發出。
 
-### 事件: 'on-ac' _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 當系統變為用交流電作電源時發出。
 
-### 事件: 'on-battery' _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 當系統變為用電池作電源時發出。
 

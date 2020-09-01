@@ -8,19 +8,19 @@ Proses: [Main](../glossary.md#main-process)
 
 Modul`powerMonitor` memancarkan peristiwa berikut:
 
-### Acara: 'menangguhkan'
+### Event: 'suspend' _macOS_ _Windows_
 
 Emitted saat sistem sedang menangguhkan.
 
-### Acara: 'resume'
+### Event: 'resume' _macOS_ _Windows_
 
 Emitted saat sistem dilanjutkan.
 
-### Event: 'on-ac' _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Emitted saat sistem berubah menjadi AC power.
 
-### Acara: 'di-baterai' _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Emitted saat sistem berubah menjadi daya baterai.
 

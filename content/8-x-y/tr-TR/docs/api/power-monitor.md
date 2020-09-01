@@ -23,19 +23,19 @@ app.on('ready', () => {
 
 `powerMonitor` modülü aşağıdaki olayları yayar:
 
-### Event: 'suspend' _Linux_ _Windows_
+### Event: 'suspend' _macOS_ _Windows_
 
 Sistem askıya alındığında yayıldı.
 
-### Event: 'resume' _Linux_ _Windows_
+### Event: 'resume' _macOS_ _Windows_
 
 Sistem devam ettiğinde yayılan.
 
-### Etinlik: 'on-ac' _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Sistem AC güç değiştiğinde yayılan.
 
-### Olay: 'pilde' _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Sistem pil gücü değiştiğinde yayılan.
 

@@ -1,10 +1,10 @@
 # Hướng dẫn build (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Thực hiện theo các hướng dẫn dưới đây để xây dựng electron trên Windows.
 
 ## Prerequisites
 
-* Windows 10 / Server 2012 R2 or higher
+* Windows 10/Server 2012 R2 hoặc cao hơn
 * Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
   * See [the Chromium build documentation](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) for more details on which Visual Studio components are required.
   * If your Visual Studio is installed in a directory other than the default, you'll need to set a few environment variables to point the toolchains to your installation path.
@@ -27,7 +27,7 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 ## Build
 
-See [Build Instructions: GN](build-instructions-gn.md)
+Xem [Build Instructions: GN](build-instructions-gn.md)
 
 ## 32bit Build
 
@@ -91,4 +91,4 @@ Make sure you have installed `pywin32` with `pip install pywin32`.
 
 ### Build Scripts Hang Until Keypress
 
-This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+Lỗi này là một "tính năng" của command prompt của Windows. Nó xảy ra khi nhấp vào bên trong của sổ prompt với `QuickEdit` được bật và được thiết kế để bạn có thể dễ dàng sao chép dữ liệu đầu ra. Khi mỗi cái nhấp lỗi sẽ tạm dừng quá trình xây dựng, bạn có thể muốn vô hiệu tính năng này trong command prompt properties.

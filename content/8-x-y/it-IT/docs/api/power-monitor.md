@@ -23,19 +23,19 @@ app.on('ready', () => {
 
 Il modulo `Monitorapotenza` emette i seguenti eventi:
 
-### Event: 'suspend' _Linux_ _Windows_
+### Event: 'suspend' _macOS_ _Windows_
 
 Emesso quando il sistema è in sospensione.
 
-### Event: 'resume' _Linux_ _Windows_
+### Event: 'resume' _macOS_ _Windows_
 
 Emesso quando il sistema sta ripartendo.
 
-### Evento: 'on-ac' _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Emesso quando il sistema cambia potenza AC.
 
-### Evento: 'su-batteria' _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Emesso quando il sistema cambia a potenza batteria.
 

@@ -23,19 +23,19 @@ app.whenReady().then(() => {
 
 Ang modyul ng `powerMonitor` ay maglalabas ng mga sumusunod na event:
 
-### Event: 'suspend' _Linux_ _Windows_
+### Event: 'suspend' _macOS_ _Windows_
 
 Ay lalabas kapag ang sistema ay sususpindihin.
 
-### Event: 'resume' _Linux_ _Windows_
+### Event: 'resume' _macOS_ _Windows_
 
 Ay lalabas kapag ang sistema ay nagpapatuloy.
 
-### Event: 'on-ac' sa _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Ay lalabas kapag ang sistema ay nagbago sa AC power.
 
-### Event: 'on-battery' sa _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Ay lalabas kapag ang sistema ay nagbago sa power ng baterya.
 
