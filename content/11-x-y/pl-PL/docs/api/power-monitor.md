@@ -8,19 +8,19 @@ Proces: [Main](../glossary.md#main-process)
 
 Modułu `powerMonitor` emituje następujące zdarzenia:
 
-### Zdarzenie: 'suspend'
+### Event: 'suspend' _macOS_ _Windows_
 
 Emitowane, gdy praca systemu jest zawieszana.
 
-### Zdarzenie: 'resume'
+### Event: 'resume' _macOS_ _Windows_
 
 Emitowane, gdy praca systemu jest wznawiana.
 
-### Zdarzenie: 'ac' _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Emitowane, gdy system znajduje się na zasilaniu sieciowym.
 
-### Zdarzenie: 'bateria' _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Emitowane, gdy system znajduje się na zasilaniu z baterii.
 

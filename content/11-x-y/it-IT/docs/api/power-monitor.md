@@ -8,19 +8,19 @@ Processo: [Main](../glossary.md#main-process)
 
 Il modulo `Monitorapotenza` emette i seguenti eventi:
 
-### Evento: 'sospendi'
+### Event: 'suspend' _macOS_ _Windows_
 
 Emesso quando il sistema è in sospensione.
 
-### Evento: "riprendi'
+### Event: 'resume' _macOS_ _Windows_
 
 Emesso quando il sistema sta ripartendo.
 
-### Evento: 'on-ac' _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Emesso quando il sistema cambia potenza AC.
 
-### Evento: 'su-batteria' _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Emesso quando il sistema cambia a potenza batteria.
 

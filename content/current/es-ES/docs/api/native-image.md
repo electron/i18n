@@ -300,4 +300,4 @@ Add an image representation for a specific scale factor. This can be used to exp
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
-Please note that this property only has an effect on macOS.
+Ten en cuenta que esta propiedad solo tiene un efecto en macOS.

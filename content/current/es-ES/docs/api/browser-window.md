@@ -157,7 +157,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Por defecto es `false`. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Los valores posibles son:
-    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
+    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. Este es el valor predeterminado.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Los valores posibles son:

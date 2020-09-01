@@ -8,19 +8,19 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang modyul ng `powerMonitor` ay maglalabas ng mga sumusunod na event:
 
-### Event: 'isuspindi'
+### Event: 'suspend' _macOS_ _Windows_
 
 Ay lalabas kapag ang sistema ay sususpindihin.
 
-### Event: 'magpatuloy'
+### Event: 'resume' _macOS_ _Windows_
 
 Ay lalabas kapag ang sistema ay nagpapatuloy.
 
-### Event: 'on-ac' sa _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Ay lalabas kapag ang sistema ay nagbago sa AC power.
 
-### Event: 'on-battery' sa _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Ay lalabas kapag ang sistema ay nagbago sa power ng baterya.
 

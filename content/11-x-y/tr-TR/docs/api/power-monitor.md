@@ -8,19 +8,19 @@ Süreç: [Ana](../glossary.md#main-process)
 
 `powerMonitor` modülü aşağıdaki olayları yayar:
 
-### Olay: 'askıya alındı'
+### Event: 'suspend' _macOS_ _Windows_
 
 Sistem askıya alındığında yayıldı.
 
-### Olay: 'devam'
+### Event: 'resume' _macOS_ _Windows_
 
 Sistem devam ettiğinde yayılan.
 
-### Etinlik: 'on-ac' _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Sistem AC güç değiştiğinde yayılan.
 
-### Olay: 'pilde' _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Sistem pil gücü değiştiğinde yayılan.
 
