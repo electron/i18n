@@ -4,7 +4,7 @@
 
 العملية: [Main](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**راجع أيضاً: [دليل تفصيلي حول كيفية تنفيذ التحديثات في التطبيق الخاص بك](../tutorial/updates.md).**
 
 `autoUpdater` is an [EventEmitter][event-emitter].
 
