@@ -44,7 +44,7 @@ Rückgabewert:
 * `event` Event
 * `state` String - Can be `progressing` or `interrupted`.
 
-Emitted when the download has been updated and is not done.
+Ausgelöst, wenn sich der Status des Downloads geändert hat, aber der Download nicht fertig ist.
 
 The `state` can be one of following:
 
@@ -58,7 +58,7 @@ Rückgabewert:
 * `event` Event
 * `state` String - Can be `completed`, `cancelled` or `interrupted`.
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Ausgelöst, wenn der Download beendet wurde. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
 The `state` can be one of following:
 
