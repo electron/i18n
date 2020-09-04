@@ -1,26 +1,39 @@
-# Breaking Changes
+# Ultime modifiche
 
 I cambiamenti delle API assieme agli avvisi di deprecazione aggiunti al codice JavaScript, dove possibile, saranno qui documentati almeno [una versione maggiore](tutorial/electron-versioning.md#semver) prima che il cambiamento sia implementato.
 
-### Types of Breaking Changes
+### Tipi di Ultime Modifiche
 
-This document uses the following convention to categorize breaking changes:
+Questo documento usa la seguente convenzione per categorizzare le ultime modifiche:
 
-- **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
-- **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.
-- **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. The old behavior can be restored by explicitly specifying the value.
-- **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
-- **Removed:** An API or feature was removed, and is no longer supported by Electron.
+- **API Modificata:** Un API è stata modificata in modo tale che il codice che non è stato aggiornato è garantito di lanciare un'eccezione.
+- **Comportamento Modificato:** Il comportamento di Electron è cambiato, ma non in modo tale che un'eccezione sarà necessariamente lanciata.
+- **Predefinito Modificato:** Il codice dipendente dal vecchio predefinito potrebbe rompersi, non necessariamente lanciando un'eccezione. Il vecchio comportamento può essere ripristinato specificando esplicitamente il valore.
+- **Deprecato:** Un'API è stata contrassegnata come deprecata. L'API continuerà a funzionare, ma emetterà un avviso di deprecazione e sarà rimossa in una versione futura.
+- **Rimossa:** Un'API o funzione è stata rimossa, o non è più supportata da Electron.
+
+## Cambiamenti Pianificati API (13.0)
+
+### Removed: `shell.moveItemToTrash()`
+
+The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+
+```js
+// Removed in Electron 13
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
+```
 
 ## Cambiamenti Pianificati API (12.0)
 
-### Default Changed: `contextIsolation` defaults to `true`
+### Predefinito Modificato: `contextIsolation` è predefinito a `true`
 
-In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
+In Electron 12, `contextIsolation` sarà abilitata di default.  Per ripristinare il comportamento precedente, deve essere specificato `contextIsolation: false` in WebPreferences.
 
-We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+[Raccomandiamo di avere contextIsolation abilitato](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) per la sicurezza della tua applicazione.
 
-For more details see: https://github.com/electron/electron/issues/23506
+Per ulteriori dettagli vedi: https://github.com/electron/electron/issues/23506
 
 ### Rimosso: metodi del `crashReporter` nel processo di rendering
 
@@ -37,15 +50,26 @@ Dovrebbero essere chiamati solo dal processo principale.
 
 Vedi [#23265](https://github.com/electron/electron/pull/23265) per maggiori dettagli.
 
-### Default Changed: `crashReporter.start({ compress: true })`
+### Predefinito Modificato: `crashReporter.start({ compress: true })`
 
 The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
 
-If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
+Se il tuo server di ingestione dei crash non supporta i carichi utili compressi, puoi spegnere la compressione specificando `{ compress: false }` nelle opzioni del segnalatore dei crash.
+
+### Deprecated: `shell.moveItemToTrash()`
+
+The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
+
+```js
+// Deprecated in Electron 12
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
+```
 
 ## Cambiamenti Pianificati API (11.0)
 
-There are no breaking changes planned for 11.0.
+Non ci sono ultime modifiche pianificate per la 11.0.
 
 ## Cambiamenti Pianificati API (10.0)
 

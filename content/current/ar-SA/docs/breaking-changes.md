@@ -12,6 +12,19 @@ This document uses the following convention to categorize breaking changes:
 - **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
 - **Removed:** An API or feature was removed, and is no longer supported by Electron.
 
+## Planned Breaking API Changes (13.0)
+
+### Removed: `shell.moveItemToTrash()`
+
+The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+
+```js
+// Removed in Electron 13
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
+```
+
 ## Planned Breaking API Changes (12.0)
 
 ### Default Changed: `contextIsolation` defaults to `true`
@@ -42,6 +55,17 @@ See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
+
+### Deprecated: `shell.moveItemToTrash()`
+
+The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
+
+```js
+// Deprecated in Electron 12
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
+```
 
 ## Planned Breaking API Changes (11.0)
 
@@ -511,7 +535,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 The following list includes the breaking API changes in Electron 3.0.
 
-### `تطبيق`
+### `التطبيقات`
 
 ```js
 // Deprecated
@@ -548,7 +572,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `الحافظة`
+### `لوحة القُصاصات`
 
 ```js
 // Deprecated
@@ -600,7 +624,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `عملية`
+### `process`
 
 ```js
 // Deprecated
@@ -732,7 +756,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `عملية`
+### `process`
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 

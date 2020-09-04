@@ -2,15 +2,28 @@
 
 这里将记录重大更改,并在可能的情况下向JS代码添加弃用警告,在这更改之前至少会有[一个重要版本](tutorial/electron-versioning.md#semver).
 
-### Types of Breaking Changes
+### 重大更改的类型
 
-This document uses the following convention to categorize breaking changes:
+本文档使用以下约定对重大更改进行分类：
 
 - **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
 - **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.
 - **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. The old behavior can be restored by explicitly specifying the value.
 - **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
 - **Removed:** An API or feature was removed, and is no longer supported by Electron.
+
+## 计划重写的 API (13.0)
+
+### Removed: `shell.moveItemToTrash()`
+
+The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+
+```js
+// Removed in Electron 13
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
+```
 
 ## 计划重写的 API (12.0)
 
@@ -42,6 +55,17 @@ See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
+
+### Deprecated: `shell.moveItemToTrash()`
+
+The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
+
+```js
+// Deprecated in Electron 12
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
+```
 
 ## 计划重写的 API (11.0)
 
@@ -548,7 +572,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `clipboard`
+### `剪贴板`
 
 ```js
 // 弃用
@@ -600,7 +624,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `process`
+### `进程`
 
 ```js
 // 弃用
@@ -732,7 +756,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `process`
+### `进程`
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 

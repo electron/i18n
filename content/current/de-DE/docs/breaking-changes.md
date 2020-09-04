@@ -12,6 +12,19 @@ This document uses the following convention to categorize breaking changes:
 - **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
 - **Removed:** An API or feature was removed, and is no longer supported by Electron.
 
+## Planned Breaking API Changes (13.0)
+
+### Removed: `shell.moveItemToTrash()`
+
+The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+
+```js
+// Removed in Electron 13
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
+```
+
 ## Planned Breaking API Changes (12.0)
 
 ### Default Changed: `contextIsolation` defaults to `true`
@@ -42,6 +55,17 @@ See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
+
+### Deprecated: `shell.moveItemToTrash()`
+
+The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
+
+```js
+// Deprecated in Electron 12
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
+```
 
 ## Planned Breaking API Changes (11.0)
 
@@ -220,7 +244,7 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### Deprecated: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium hat die Unterstützung für das Ändern des Layout-Zoomniveaus entfernt und es übersteigt die Möglichkeiten von uns, dies zu pflegen. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ## Planned Breaking API Changes (7.0)
 
@@ -524,7 +548,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Deprecated property
 ```
 
-### `Browserfenster`
+### `BrowserWindow`
 
 ```js
 // Deprecated
@@ -548,7 +572,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `clipboard`
+### `Zwischenablage (clipboard)`
 
 ```js
 // Veraltet
@@ -698,7 +722,7 @@ Replace with: https://atom.io/download/electron
 
 The following list includes the breaking API changes made in Electron 2.0.
 
-### `Browserfenster`
+### `BrowserWindow`
 
 ```js
 // Deprecated
