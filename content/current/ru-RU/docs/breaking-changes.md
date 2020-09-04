@@ -12,6 +12,19 @@
 - **Устарело:** API был помечен как устаревший. API продолжит функционировать, но будет появляться предупреждающее сообщение о том, что API будет удален в будущем релизе.
 - **Удалено:** API или функция была удалена и больше не поддерживается Electron.
 
+## Запланированные критические изменения API (13.0)
+
+### Removed: `shell.moveItemToTrash()`
+
+The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+
+```js
+// Removed in Electron 13
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
+```
+
 ## Запланированные критические изменения API (12.0)
 
 ### Default Changed: `contextIsolation` defaults to `true`
@@ -42,6 +55,17 @@ See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
+
+### Deprecated: `shell.moveItemToTrash()`
+
+The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
+
+```js
+// Deprecated in Electron 12
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
+```
 
 ## Запланированные критические изменения API (11.0)
 
@@ -499,13 +523,13 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Теперь ведет себя так же с `basic` в macOS
+// Теперь ведет себя так же, как `basic` на macOS
 app.getGPUInfo('basic')
 ```
 
 ### `win_delay_load_hook`
 
-При создании нативных модулей для Windows, переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, тогда нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
+При создании нативных модулей для Windows, переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
 
 ## Критические изменения API (3.0)
 
@@ -516,12 +540,12 @@ app.getGPUInfo('basic')
 ```js
 // Устарело
 app.getAppMemoryInfo()
-// Заменено на
+// Заменить на
 app.getAppMetrics()
 
 // Устарело
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Свойство устарело
+const { memory } = metrics[0] // свойство устарело
 ```
 
 ### `BrowserWindow`
@@ -553,22 +577,22 @@ window.on('app-command', (e, cmd) => {
 ```js
 // Устарело
 clipboard.readRtf()
-// Заменено на
+// Заменить на
 clipboard.readRTF()
 
 // Устарело
 clipboard.writeRtf()
-// Заменено на
+// Заменить на
 clipboard.writeRTF()
 
 // Устарело
 clipboard.readHtml()
-// Заменено на
+// Заменить на
 clipboard.readHTML()
 
 // Устарело
 clipboard.writeHtml()
-// Заменено на
+// Заменить на
 clipboard.writeHTML()
 ```
 
@@ -581,7 +605,7 @@ crashReporter.start({
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Заменено на
+// Заменить на
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -634,12 +658,12 @@ ses.setCertificateVerifyProc((request, callback) => {
 ```js
 // Устарело
 tray.setHighlightMode(true)
-// Заменено на
+// Заменить на
 tray.setHighlightMode('on')
 
 // Устарело
 tray.setHighlightMode(false)
-// Заменено на
+// Заменить на
 tray.setHighlightMode('off')
 ```
 
@@ -648,7 +672,7 @@ tray.setHighlightMode('off')
 ```js
 // Устарело
 webContents.openDevTools({ detach: true })
-// Заменено на
+// Заменить на
 webContents.openDevTools({ mode: 'detach' })
 
 // Удалено
@@ -661,12 +685,12 @@ webContents.setSize(options)
 ```js
 // Устарело
 webFrame.registerURLSchemeAsSecure('app')
-// Заменить на
+// Заменено на
 protocol.registerStandardSchemes(['app'], { secure: true })
 
 // Устарело
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Заменить на
+// Заменено на
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
@@ -681,12 +705,12 @@ webview.setAttribute('disableguestresize', '')
 webview.setAttribute('guestinstance', instanceId)
 // Нет замены для этого API
 
-// Слушатели клавиатуры больше не работают в теге webview
+// Слушатели клавиатуры больше не работают в webview теге
 webview.onkeydown&nbsp;= () => { /* обработчик */ }
 webview.onkeyup&nbsp;= () => { /* обработчик */ }
 ```
 
-### URL заголовков Node
+### Node Headers URL
 
 Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node.
 
@@ -714,7 +738,7 @@ const windowB = new BrowserWindow(optionsB)
 ```js
 // Удалено
 menu.popup(browserWindow, 100, 200, 2)
-// Заменено на
+// Заменить на
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
@@ -723,12 +747,12 @@ menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```js
 // Удалено
 nativeImage.toPng()
-// Заменено на
+// Заменить на
 nativeImage.toPNG()
 
 // Удалено
 nativeImage.toJpeg()
-// Заменено на
+// Заменить на
 nativeImage.toJPEG()
 ```
 
@@ -759,11 +783,11 @@ webFrame.setVisualZoomLevelLimits(1, 2)
 ```js
 // Удалено
 webview.setZoomLevelLimits(1, 2)
-// Заменено на
+// Заменить на
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-### Двойные ресурсы ARM
+### Двойные ARM ресурсы
 
 Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурс с префиксом `v7l` был добавлен, чтобы уточнить для пользователей, какую версию ARM он поддерживает, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
 
