@@ -1,4 +1,4 @@
-# ServiceWorkerInfo Object
+# Объект ServiceWorkerInfo
 
 * `scriptUrl` String - The full URL to the script that this service worker runs
 * `scope` String - The base URL that this service worker is active for.
