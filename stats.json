@@ -211,7 +211,7 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "68236",
-    "translated": "21958",
+    "translated": "21960",
     "approved": "14564",
     "words": "659969",
     "words_translated": "102330",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "68236",
-    "translated": "40934",
+    "translated": "40970",
     "approved": "27963",
     "words": "659969",
-    "words_translated": "330397",
+    "words_translated": "330894",
     "words_approved": "222736",
     "translated_progress": 50,
     "approved_progress": 33,
-    "qa_issues": 1824
+    "qa_issues": 1843
   },
   {
     "name": "Spanish",
