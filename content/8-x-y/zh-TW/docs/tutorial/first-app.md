@@ -6,7 +6,7 @@ Electron 讓你可以使用 JavaScript 呼叫豐富的原生 (作業系統) APIs
 
 **注意**：這個範例同時是一個 repo，你可以立即[下載並執行](#trying-this-example)。
 
-就開發而言，Electron 應用程式本質上就是 Node.js 應用程式 The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+就開發而言，Electron 應用程式本質上就是 Node.js 應用程式 起始點為 `package.json`，就和 Node.js 中的 Module 相同。 最基本的 Electron 應用將具有以下資料夾結構：
 
 ```plaintext
 your-app/
@@ -15,13 +15,13 @@ your-app/
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+為你的 Electron App 建一個新的資料夾。 打開終端機，然後從該資料夾執行 `npm init ` 。
 
 ```sh
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm 將會引導你建立基本的 `package.json` 檔。 程式中的 `main` 就是你的 app 的起始點，也就是主程式執行的地方。 你的 `package.json` 看起來可能會像這樣：
 
 ```json
 {
@@ -59,7 +59,7 @@ Turning this Node application into an Electron application is quite simple - we 
 
 ## 安裝 Electron
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+重頭戲來了，安裝 `electron`！ 推薦的安裝方法是將其在你的專案中安裝為 development dependency，此舉可讓你開發多個 app 的同時使用多個不同的 Electron 版本。 要這麼做，在你的專案資料夾執行下列指令：
 
 ```sh
 npm install --save-dev electron
@@ -180,11 +180,11 @@ app.on('activate', () => {
 
 ## 執行你的應用程式
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+當你建立好基本的 `main.js`、`index.html` 和 `package.json` 後，你可以在專案資料夾執行 `npm start` 將 app 跑起來。
 
 ## 試試這個範例
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`][quick-start] repository.
+你可以在 [`electron/electron-quick-start`][quick-start] 儲存庫中 Clone 並執行此頁所示範例
 
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 

@@ -161,7 +161,7 @@ Once you've created your initial `main.js`, `index.html`, and `package.json` fil
 
 ## 試試這個範例
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`][quick-start] repository.
+你可以在 [`electron/electron-quick-start`][quick-start] 儲存庫中 Clone 並執行此頁所示範例
 
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
