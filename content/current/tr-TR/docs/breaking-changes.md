@@ -120,9 +120,9 @@ Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all
 
 The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
 
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+Daha ayrıntılı bilgi için [#18397](https://github.com/electron/electron/issues/18397).
 
-### Default Changed: `enableRemoteModule` defaults to `false`
+### Varsayılan Değiştirildi: `Uzaktan Modül` varsayılan `için`etkinleştirinbtc
 
 In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
 
