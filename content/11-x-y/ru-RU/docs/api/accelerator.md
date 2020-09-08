@@ -46,7 +46,7 @@ app.whenReady().then(() => {
 * `0` - `9`
 * `A` - `Z`
 * `F1` - `F24`
-* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
+* Символы `~`, `!`, `@`, `#`, `$` и т.д.
 * `Plus`
 * `Space`
 * `Tab`
