@@ -1,12 +1,12 @@
 # 協助工具
 
-應用程式的易用性很重要，所以我們在 [Devtron](https://electronjs.org/devtron) 及 [Spectron](https://electronjs.org/spectron) 中加入了新功能，讓開發人員更容易打造出適用每個人的應用程式。
+Making accessible applications is important and we're happy to provide functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
 
 ---
 
 Electron 應用程式中的易用性考量與網站類似，畢竟兩者都是 HTML。 然而，你不能用線上的資源來稽查 Electron 應用程式的易用性，畢竟應用程式根本沒有網址可以給稽查程式用。
 
-這些新功能讓你能稽查 Electron 應用程式。你可以用 Spectron 將稽查項目放進測試案例裡，或是透過 Devtron 直接在 DevTools 中使用。 Read on for a summary of the tools.
+These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools.
 
 ## Spectron
 
@@ -24,7 +24,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 ## Devtron
 
-Devtron 中有新的「協助工具」頁籤，讓你能稽查應用程式中的頁面，並能排序或篩選結果。
+In Devtron, there is an accessibility tab which will allow you to audit a page in your app, sort and filter the results.
 
 ![devtron 擷圖](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
@@ -32,19 +32,21 @@ Devtron 中有新的「協助工具」頁籤，讓你能稽查應用程式中的
 
 If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
 
-## 啟用協助工具
+## Manually enabling accessibility features
 
-基於效能考量，Electron 預設是停用協助工具的，但提供了多種方式來啟用。
+Electron applications will automatically enable accessibility features in the presence of assistive technology (e.g. [JAWS](https://www.freedomscientific.com/products/software/jaws/) on Windows or [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) on macOS). 細節可參考 Chrome 的 [協助工具文件](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)。
 
-### 在應用程式中
+You can also manually toggle these features either within your Electron application or by setting flags in third-party native software.
 
-透過 [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows)，你可以把協助工具的開關放在應用程式喜好設定中，讓使用者自行決定。 使用者系統上的輔助工具優先權更高，會蓋過這項設定值。
+### Using Electron's API
 
-### 輔具
+By using the [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API, you can manually expose Chrome's accessibility tree to users in the application preferences. Note that the user's system assistive utilities have priority over this setting and will override it.
 
-Electron 應用程式偵測到輔助技術 (Windows) 或 VoiceOver (macOS) 時，會自動開啟協助工具。 細節可參考 Chrome 的 [協助工具文件](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)。
+### Within third-party software
 
-在 macOS 裡，第三方輔具可以程式化設定 `AXManualAccessibility` 屬性來開啟或關閉 Electron 應用程式中的協助工具:
+#### macOS
+
+On macOS, third-party assistive technology can toggle accessibility features inside Electron applications by setting the `AXManualAccessibility` attribute programmatically:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

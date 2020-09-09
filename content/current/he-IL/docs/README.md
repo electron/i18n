@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [נגישות](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [איפשור נגישות](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [בדיקה ואיתור באגים](tutorial/application-debugging.md)
   * [איתור באגים בתהליך העיקרי](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)

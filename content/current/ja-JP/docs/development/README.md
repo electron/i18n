@@ -2,8 +2,8 @@
 
 これらのガイドは、Electron プロジェクトそのものに取り組む人を対象にしています。 Electron アプリ開発のガイドについては、[/docs/README.md](../README.md#guides-and-tutorials) を参照してください。
 
-* [行動規範](../../CODE_OF_CONDUCT.md)
-* [Electron にコントリビュートする](../../CONTRIBUTING.md)
+* [行動規範](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [Electron にコントリビュートする](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [Issues](issues.md)
 * [プルリクエスト](pull-requests.md)
 * [ドキュメントガイド](coding-style.md#documentation)

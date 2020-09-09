@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [協助工具](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [啟用協助工具](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [記錄與除錯](tutorial/application-debugging.md)
   * [Debug 主處理序](tutorial/debugging-main-process.md)
   * [使用 Visual Studio Code debug 主處理序](tutorial/debugging-main-process-vscode.md)

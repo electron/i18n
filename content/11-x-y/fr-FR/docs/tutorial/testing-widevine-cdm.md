@@ -28,7 +28,7 @@ The library file `widevinecdm.dll` will be under `Program Files(x86)/Google/Chro
 
 ### Sur macOS 
 
-The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` directory.
+Le fichier de bibliothèque `libwidevinecdm.dylib` sera sous `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` dossier
 
 **Note:** Make sure that chrome version used by Electron is greater than or equal to the `min_chrome_version` value of Chrome's widevine cdm component. The value can be found in `manifest.json` under `WidevineCdm` directory.
 
@@ -55,9 +55,9 @@ app.whenReady().then(() => {
 })
 ```
 
-## Verifying Widevine CDM support
+## Vérification de la prise en charge de Widevine CDM
 
-To verify whether widevine works, you can use following ways:
+Pour vérifier si Widevine fonctionne, vous pouvez utiliser les méthodes suivantes:
 
 * Ouvrez https://shaka-player-demo.appspot.com/ et charger un manifeste qui utilise `Widevine`.
 * Ouvrez http://www.dash-player.com/demo/drm-test-area/, vérifier que la page indique `bitdash uses Widevine in your browser`, puis lancez la vidéo.

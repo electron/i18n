@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Aksesibilidad](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [DevtronDevtron](tutorial/accessibility.md#devtron)
-  * [Paganahin ang aksesibilidad](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testing and Debugging](tutorial/application-debugging.md)
   * ["Debugging" ang Pangunahing Proseso](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)

@@ -1,12 +1,12 @@
 # Доступность
 
-Создание доступных приложений важно и мы рады представить новые функции [Devtron](https://electronjs.org/devtron) и [Spectron](https://electronjs.org/spectron), которые дают разработчикам возможность делать свои приложения лучше для всех.
+Making accessible applications is important and we're happy to provide functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
 
 ---
 
 Проблемы с доступностью в приложениях Electron аналогичны веб-сайтам, поскольку они оба в конечном итоге являются HTML. Однако, в приложениях на Electron мы не можем использовать онлайн-ресурсы для аудита доступности, поскольку ваше приложение не имеет URL-адреса.
 
-Эти новые возможности приносят средства аудита для приложения на Electron. Вы можете добавить их в тесты с Spectron или использовать в рамках DevTools с Devtron. Читайте далее ознакомление с инструментами.
+These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Читайте далее ознакомление с инструментами.
 
 ## Spectron
 
@@ -24,7 +24,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 ## Devtron
 
-В Devtron есть новая вкладка доступности, которая позволит вам совершить аудит страницы в вашем приложении, сортировать и фильтровать результаты.
+In Devtron, there is an accessibility tab which will allow you to audit a page in your app, sort and filter the results.
 
 ![devtron скриншот](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
@@ -32,19 +32,21 @@ app.client.auditAccessibility().then(function (audit) {
 
 Если вы знаете другие средства для поверки доступности в Electron, добавите их в документацию через pull request.
 
-## Включение доступности
+## Manually enabling accessibility features
 
-Electron приложения держат доступность отключенной по умолчанию для производительности, но есть несколько способов ее включения.
+Electron applications will automatically enable accessibility features in the presence of assistive technology (e.g. [JAWS](https://www.freedomscientific.com/products/software/jaws/) on Windows or [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) on macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
 
-### Внутри приложения
+You can also manually toggle these features either within your Electron application or by setting flags in third-party native software.
 
-С помощью [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), вы можете открыть переключатель доступности для пользователей в настройках приложения. Вспомогательные утилиты системы пользователя имеют приоритет перед этим параметром и будут переопределять его.
+### Using Electron's API
 
-### Assistive Technology
+By using the [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API, you can manually expose Chrome's accessibility tree to users in the application preferences. Note that the user's system assistive utilities have priority over this setting and will override it.
 
-В приложениях на Electron можно включить проверку доспупности автоматически, когда обнаруживается Assistive Technology (Windows) or VoiceOver (macOS). Смотрите [документацию по доступности](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) Chrome для дополнительных сведений.
+### Within third-party software
 
-Сторонние вспомогательные утилиты на macOS могут включать средства доступности программным способом, изменяя параметр `AXManualAccessibility`:
+#### macOS
+
+On macOS, third-party assistive technology can toggle accessibility features inside Electron applications by setting the `AXManualAccessibility` attribute programmatically:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

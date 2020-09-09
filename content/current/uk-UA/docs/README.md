@@ -48,7 +48,7 @@
 * [Доступність](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Увімкнення Спеціальних Можливостей](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Тестування та відлагодження](tutorial/application-debugging.md)
   * [Відлагодження Головного Процесу](tutorial/debugging-main-process.md)
   * [Відладка Головного Процесу з Visual Studio Code](tutorial/debugging-main-process-vscode.md)

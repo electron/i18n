@@ -48,7 +48,7 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
 * [Barrierefreiheit](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Barrierefreiheit aktivieren](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testen und Debuggen](tutorial/application-debugging.md)
   * [Debuggen des Hauptprozesses](tutorial/debugging-main-process.md)
   * [Debuggen des Hauptprozesses mit Visual Studio Code](tutorial/debugging-main-process-vscode.md)

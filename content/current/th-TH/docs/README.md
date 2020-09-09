@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [การเข้าถึง](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [เปิดใช้งานการเข้าถึง](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [การทดสอบและการดีบัก](tutorial/application-debugging.md)
   * [การดีบักกระบวนการหลัก](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Codeo](tutorial/debugging-main-process-vscode.md)

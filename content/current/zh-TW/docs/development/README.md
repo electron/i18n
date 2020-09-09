@@ -2,8 +2,8 @@
 
 These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [行為準則](../../CODE_OF_CONDUCT.md)
-* [貢獻 Electron](../../CONTRIBUTING.md)
+* [行為準則](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [貢獻 Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [議題](issues.md)
 * [合併請求 (PR)](pull-requests.md)
 * [文件編寫風格](coding-style.md#documentation)

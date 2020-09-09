@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [إمكانية الوصول](tutorial/accessibility.md)
   * [سبيكترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [تمكين امكانيات الوصول](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [اختبار وتصحيح](tutorial/application-debugging.md)
   * [تصحيح عملية الرئيسية](tutorial/debugging-main-process.md)
   * [Visual Studio Code에서 메인 프로세스 디버깅하기](tutorial/debugging-main-process-vscode.md)

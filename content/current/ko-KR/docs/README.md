@@ -48,7 +48,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 * [접근성](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [접근성 활성화](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [테스팅과 디버깅](tutorial/application-debugging.md)
   * [메인 프로세스 디버깅하기](tutorial/debugging-main-process.md)
   * [Visual Studio Code에서 메인 프로세스 디버깅하기](tutorial/debugging-main-process-vscode.md)

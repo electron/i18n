@@ -2,8 +2,8 @@
 
 Deze handleidingen zijn bedoeld voor mensen die aan het Electron project werken. Voor handleidingen over het maken van een Electron app, ga naar [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [Gedragscode](../../CODE_OF_CONDUCT.md)
-* [Bijdragen aan Electron](../../CONTRIBUTING.md)
+* [Gedragscode](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [Bijdragen aan Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [Problemen](issues.md)
 * [Pull Requests](pull-requests.md)
 * [Documentatie Styleguide](coding-style.md#documentation)

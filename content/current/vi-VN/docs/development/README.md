@@ -2,8 +2,8 @@
 
 These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [Quy tắc ứng xử](../../CODE_OF_CONDUCT.md)
-* [Đóng góp cho Electron](../../CONTRIBUTING.md)
+* [Quy tắc ứng xử](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [Đóng góp cho Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [Các vấn đề](issues.md)
 * [Yêu cầu kéo về](pull-requests.md)
 * [Tài liệu về Styleguide](coding-style.md#documentation)

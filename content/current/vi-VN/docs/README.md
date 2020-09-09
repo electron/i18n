@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Accessibility](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Kích hoạt khả năng tiếp cận](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [اختبار وتصحيح](tutorial/application-debugging.md)
   * [Debugging tiến trình chính](tutorial/debugging-main-process.md)
   * [Debugging tiến trình chính với Visual studio code](tutorial/debugging-main-process-vscode.md)

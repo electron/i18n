@@ -48,7 +48,7 @@
 * [アクセシビリティ](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [アクセシビリティの有効化](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [テストとデバッグ](tutorial/application-debugging.md)
   * [メインプロセスのデバッグ](tutorial/debugging-main-process.md)
   * [VS Code におけるメインプロセスのデバッグ](tutorial/debugging-main-process-vscode.md)

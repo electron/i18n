@@ -2,8 +2,8 @@
 
 These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [आचार संहिता](../../CODE_OF_CONDUCT.md)
-* [इलेक्ट्रॉन के लिए योगदान](../../CONTRIBUTING.md)
+* [आचार संहिता](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [इलेक्ट्रॉन के लिए योगदान](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [Issues](issues.md)
 * [Pull Requests](pull-requests.md)
 * [प्रलेखन स्टाइलगाइड](coding-style.md#documentation)

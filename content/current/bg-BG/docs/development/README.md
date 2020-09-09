@@ -2,8 +2,8 @@
 
 These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [Кодекс за поведение](../../CODE_OF_CONDUCT.md)
-* [Допринасяне към Електрон](../../CONTRIBUTING.md)
+* [Кодекс за поведение](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [Допринасяне към Електрон](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [Проблеми](issues.md)
 * [Заявки за сливане](pull-requests.md)
 * [Стилове за писане на Electron документацията](coding-style.md#documentation)
