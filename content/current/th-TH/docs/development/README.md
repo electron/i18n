@@ -3,8 +3,8 @@
 คู่มือเหล่านี้มีไว้สำหรับผู้ที่ทำงานในโครงการ Electron สำหรับคำแนะนำเกี่ยวกับการพัฒนาแอพ Electron โปรดดู
  /docs/README.md </ 0></p> 
 
-* [จรรยาบรรณ](../../CODE_OF_CONDUCT.md)
-* [บริจาคให้อิเล็กตรอน](../../CONTRIBUTING.md)
+* [จรรยาบรรณ](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [บริจาคให้อิเล็กตรอน](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [ปัญหา](issues.md)
 * [ดึงคำขอ](pull-requests.md)
 * [เอกสารประกอบแนวทางลักษณะ](coding-style.md#documentation)

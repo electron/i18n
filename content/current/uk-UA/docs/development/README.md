@@ -2,8 +2,8 @@
 
 Ці інстуркції призначені для людей, які працюють безпосередньо з проектом Electron. Для інтструкцій по розробці застосунків на Electron, дивіться [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [Норми поведінки](../../CODE_OF_CONDUCT.md)
-* [Доповнення до Electron](../../CONTRIBUTING.md)
+* [Норми поведінки](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [Доповнення до Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [Проблеми](issues.md)
 * [Пул Реквести](pull-requests.md)
 * [Стиль документації](coding-style.md#documentation)

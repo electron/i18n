@@ -48,7 +48,7 @@ Lütfen, Electron sürümünüzle eşleşen belgeleri kullandığınızdan, emin
 * [Erişilebilirlik](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Erişilebilirliği Etkinleştirmek](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Test ve Hata Ayıklama](tutorial/application-debugging.md)
   * [Ana İşlem Hata Ayıklama](tutorial/debugging-main-process.md)
   * [Ana işlemi Visual Studio Code ile debuglamak](tutorial/debugging-main-process-vscode.md)

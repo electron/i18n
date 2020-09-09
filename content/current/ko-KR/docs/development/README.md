@@ -2,8 +2,8 @@
 
 이 가이드는 Electron 프로젝트 자체에 대해 작업하는 사람들을 위해 작성되었습니다. Electron을 사용해서 앱을 개발하는 가이드에 대해서는 [/docs/README.md](../README.md#guides-and-tutorials) 문서를 읽어주십시오.
 
-* [행동 규칙](../../CODE_OF_CONDUCT.md)
-* [Electron에 기여하기](../../CONTRIBUTING.md)
+* [행동 규칙](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [Electron에 기여하기](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [문제](issues.md)
 * [풀 리퀘스트](pull-requests.md)
 * [문서 스타일 안내](coding-style.md#documentation)

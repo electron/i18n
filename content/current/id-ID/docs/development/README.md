@@ -2,8 +2,8 @@
 
 These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [Kode etik](../../CODE_OF_CONDUCT.md)
-* [berkontribusi ke electron](../../CONTRIBUTING.md)
+* [Kode etik](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [berkontribusi ke electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [Isu](issues.md)
 * [Ajukan Permintaan](pull-requests.md)
 * [Dokumentasi Styleguide](coding-style.md#documentation)

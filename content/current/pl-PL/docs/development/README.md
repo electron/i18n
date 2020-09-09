@@ -2,8 +2,8 @@
 
 Te poradniki zostały stworzone dla ludzi współtworzących projekt Electron. Poradniki przy tworzeniu aplikacji, możesz znaleźć w [/docs/README.md](../README.md#guides-and-tutorials)
 
-* [Kodeks postępowania](../../CODE_OF_CONDUCT.md)
-* [Współtworzenie Electron’a](../../CONTRIBUTING.md)
+* [Kodeks postępowania](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [Współtworzenie Electron’a](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [Problemy](issues.md)
 * [Oczekujące zmiany](pull-requests.md)
 * [Formatowanie Dokumentacji](coding-style.md#documentation)

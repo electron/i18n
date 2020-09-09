@@ -48,7 +48,7 @@ To są pytania, które są zadawane dość często. Sprawdź to przed utworzenie
 * [Dostępność](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Włączanie ułatwień dostępu](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testowania i debugowanie](tutorial/application-debugging.md)
   * [Debugowanie w Procesie Głównym](tutorial/debugging-main-process.md)
   * [Debugowanie Głównego Wątku przy użyciu Visual Studio Code](tutorial/debugging-main-process-vscode.md)

@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [دسترسی](tutorial/accessibility.md)
   * [اسپکترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [فعال کردن قابلیت](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [تست و اشکال زدایی](tutorial/application-debugging.md)
   * [اشکال زدایی فرآیند اصلی ](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)

@@ -2,8 +2,8 @@
 
 Эти руководства предназначены для людей, которые работают над Electron самостоятельно. Для руководств по разработке приложения Electron, посетите [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [Кодекс поведения](../../CODE_OF_CONDUCT.md)
-* [Вклад в Elecetron](../../CONTRIBUTING.md)
+* [Кодекс поведения](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [Вклад в Elecetron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [Вопросы](issues.md)
 * [Запросы на слияние](pull-requests.md)
 * [Руководство по написанию документации](coding-style.md#documentation)

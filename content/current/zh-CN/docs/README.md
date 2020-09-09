@@ -48,7 +48,7 @@
 * [辅助功能](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [启用辅助功能](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [测试和调试](tutorial/application-debugging.md)
   * [调试主进程](tutorial/debugging-main-process.md)
   * [Débogguer le Main Process avec Visual Studio Code](tutorial/debugging-main-process-vscode.md)

@@ -2,8 +2,8 @@
 
 Dieses Handbuch wendet sich an Entwickler des Electron Projekts. Guides zur App-Entwicklung für Electron finden sie auf [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [Verhaltenskodex](../../CODE_OF_CONDUCT.md)
-* [Zu Electron beitragen](../../CONTRIBUTING.md)
+* [Verhaltenskodex](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [Zu Electron beitragen](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [Issues](issues.md)
 * [Pull Requests](pull-requests.md)
 * [Gestaltungsrichtlinien für die Dokumentation](coding-style.md#documentation)

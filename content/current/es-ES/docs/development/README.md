@@ -2,8 +2,8 @@
 
 Estas guías están pensadas para gente que trabaja en el proyecto Electron. Para guías sobre el desarrollo de aplicaciones Electron, visita [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [Código de conducta](../../CODE_OF_CONDUCT.md)
-* [Contribuyendo a Electron](../../CONTRIBUTING.md)
+* [Código de conducta](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [Contribuyendo a Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [Problemas](issues.md)
 * [Pull Requests](pull-requests.md)
 * [Documentación guía de estilos](coding-style.md#documentation)

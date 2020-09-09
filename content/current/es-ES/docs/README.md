@@ -4,7 +4,7 @@ Por favor, asegúrese de utilizar los documentos que correspondan con la versió
 
 ## Preguntas más frecuentes
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un tema:
 
 * [Preguntas más frecuentes sobre Electron](faq.md)
 
@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Accesibilidad](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Habilitar la accesibilidad](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Pruebas y depuración](tutorial/application-debugging.md)
   * [Depuración del proceso principal](tutorial/debugging-main-process.md)
   * [Depuración del proceso principal con el Visual Studio Code](tutorial/debugging-main-process-vscode.md)

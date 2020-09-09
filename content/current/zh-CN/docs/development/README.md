@@ -2,8 +2,8 @@
 
 这些指南是为希望修改 Electron 自身的人准备的。 For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [行为准则](../../CODE_OF_CONDUCT.md)
-* [贡献到 Electron](../../CONTRIBUTING.md)
+* [行为准则](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [贡献到 Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [问题](issues.md)
 * [拉取请求](pull-requests.md)
 * [文档风格指南](coding-style.md#documentation)

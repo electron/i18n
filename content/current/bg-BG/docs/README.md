@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Accessibility](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Разрешаване на достъпността](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [5256783105227699](tutorial/application-debugging.md)
   * [Отстраняване на грешк](tutorial/debugging-main-process.md)
   * [5256783105227699](tutorial/debugging-main-process-vscode.md)

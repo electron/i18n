@@ -2,8 +2,8 @@
 
 Bu rehberler Elecron projesinin kökü üzerinde çalışan kişiler içindir. Electon ile uygulama geliştirme rehberleri için [/docs/README.md](../README.md#guides-and-tutorials) kısmına göz atın.
 
-* [Davranış Kodu](../../CODE_OF_CONDUCT.md)
-* [Elektrona Katkıda Bulunmak](../../CONTRIBUTING.md)
+* [Davranış Kodu](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+* [Elektrona Katkıda Bulunmak](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 * [Sorunlar](issues.md)
 * [Değişiklik İsteği](pull-requests.md)
 * [Stil Kılavuz Dokümantasyonu](coding-style.md#documentation)

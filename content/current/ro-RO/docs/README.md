@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Accesibilitate](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Activarea accesibilității](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testare și depanare](tutorial/application-debugging.md)
   * [Depanarea procesului principal](tutorial/debugging-main-process.md)
   * [Debugarea procesului principal cu Visual Studio Code](tutorial/debugging-main-process-vscode.md)
