@@ -4,9 +4,9 @@
 
 Processus : [Rendu](../glossary.md#renderer-process)
 
-Le module `distant` fournit un moyen simple de faire une communication entre les processus d'inter-processus (IPC) entre le processus de rendu (page Web) et le processus principal.
+Le module `remote` fournit un moyen simple de faire une communication entre les processus d'inter-processus (IPC) entre le processus de rendu (page Web) et le processus principal.
 
-Dans Electron, les modules liés à l'interface graphique (comme `dialogue`, `menu` etc.) ne sont disponibles que dans le processus principal, pas dans le processus de rendu. Afin de les utiliser depuis le processus de rendu, le module `ipc` est nécessaire pour envoyer des messages inter-processus au processus principal. Avec le module `distant`, vous pouvez appeler les méthodes de l'objet principal du processus sans envoyer explicitement des messages inter-processus, similaires à la [RMI][rmi]de Java. Un exemple de création d'une fenêtre de navigateur à partir d'un processus de rendu :
+Dans Electron, les modules liés à l'interface graphique (comme `dialog`, `menu` etc.) ne sont disponibles que dans le processus principal et pas dans le processus de rendu. Afin de les utiliser depuis le processus de rendu, le module `ipc` est nécessaire pour envoyer des messages inter-processus au processus principal. Avec le module `distant`, vous pouvez appeler les méthodes de l'objet principal du processus sans envoyer explicitement des messages inter-processus, similaires à la [RMI][rmi]de Java. Un exemple de création d'une fenêtre de navigateur à partir d'un processus de rendu :
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
@@ -23,7 +23,7 @@ win.loadURL('https://github.com')
 
 <h2 spaces-before="0">Objet remote</h2>
 
-<p spaces-before="0">Chaque objet (y compris les fonctions) retourné par le module <code>distance` représente un objet dans le processus principal (nous l'appelons un objet distant ou une fonction distante). Lorsque vous appelez des méthodes d'un objet distant, appelez une fonction distante, ou créez un nouvel objet avec le constructeur distant (fonction), vous envoyez en fait messages inter-processus synchrones.</p>
+<p spaces-before="0">Chaque objet (y compris les fonctions) retourné par le module <code>remote` représente un objet dans le processus principal (nous l'appelons un objet distant ou une fonction distante). Lorsque vous appelez des méthodes d'un objet distant, appelez une fonction distante, ou créez un nouvel objet avec le constructeur distant (fonction), vous envoyez en fait des messages inter-processus synchrones.</p>
 
 Dans l'exemple ci-dessus, [`BrowserWindow`](browser-window.md) et `win` étaient des objets distants et `new BrowserWindow` n'a pas créé d'objet `BrowserWindow` dans le processus de rendu . Au lieu de cela, il a créé un objet `BrowserWindow` dans le processus principal et a renvoyé l'objet distant correspondant dans le processus de rendu, soit l'objet `win`.
 
@@ -88,7 +88,7 @@ Pour éviter ce problème, assurez-vous de nettoyer toutes les références pour
 
 ## Accès aux modules intégrés dans le processus principal
 
-Les modules intégrés dans le processus principal sont ajoutés en tant que récupérateurs dans le module `distance` , ainsi vous pouvez les utiliser directement comme le module `electron`.
+Les modules intégrés dans le processus principal sont ajoutés en tant que récupérateurs dans le module `remote` , ainsi vous pouvez les utiliser directement comme le module `electron`.
 
 ```javascript
 const app = require('electron').remote.app

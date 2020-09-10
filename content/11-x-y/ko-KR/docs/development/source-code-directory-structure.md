@@ -9,13 +9,12 @@ Electron의 소스 코드는 몇 개의 파트로 분리되어 있습니다. 그
 ```diff
 Electron
 ├── build/ - GN으로 빌드하는데 필요한 빌드 구성 파일
-├── buildflags/ - Determines the set of features that can be conditionally built.
-├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
-├── default_app/ - A default app run when Electron is started without
-|                  providing a consumer app.
+Www.marketplace.com
+Www.coinbase.com
+Www.bitcoin.api
 ├── docs/ - Electron 문서
-|   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
-|   ├── development/ - Documentation to aid in developing for and with Electron.
+Www.lili.com
+Www.goooglepay.com
 |   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
 |   ├── images/ - 문서에 사용되는 이미지
 |   └── tutorial/ - Tutorial documents for various aspects of Electron.
