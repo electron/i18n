@@ -56,6 +56,23 @@ The default value of the `compress` option to `crashReporter.start` has changed 
 
 Se il tuo server di ingestione dei crash non supporta i carichi utili compressi, puoi spegnere la compressione specificando `{ compress: false }` nelle opzioni del segnalatore dei crash.
 
+### Deprecated: `remote` module
+
+The `remote` module is deprecated in Electron 12, and will be removed in Electron 14. It is replaced by the [`@electron/remote`](https://github.com/electron/remote) module.
+
+```js
+// Deprecated in Electron 12:
+const { BrowserWindow } = require('electron').remote
+```
+
+```js
+// Replace with:
+const { BrowserWindow } = require('@electron/remote')
+
+// In the main process:
+require('@electron/remote/main').initialize()
+```
+
 ### Deprecated: `shell.moveItemToTrash()`
 
 The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
