@@ -1,6 +1,6 @@
-## Class: BrowserWindowProxy
+## Classe: ProxyFinestraBrowser
 
-> Manipulate the child browser window
+> 處理子瀏覽器視窗。
 
 shliilhpltfrom
 

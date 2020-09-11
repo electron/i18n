@@ -56,6 +56,23 @@ The default value of the `compress` option to `crashReporter.start` has changed 
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
 
+### Deprecated: `remote` module
+
+The `remote` module is deprecated in Electron 12, and will be removed in Electron 14. It is replaced by the [`@electron/remote`](https://github.com/electron/remote) module.
+
+```js
+// Deprecated in Electron 12:
+const { BrowserWindow } = require('electron').remote
+```
+
+```js
+// Replace with:
+const { BrowserWindow } = require('@electron/remote')
+
+// In the main process:
+require('@electron/remote/main').initialize()
+```
+
 ### Deprecated: `shell.moveItemToTrash()`
 
 The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
@@ -124,7 +141,7 @@ For more detailed information see [#18397](https://github.com/electron/electron/
 
 ### Default Changed: `enableRemoteModule` defaults to `false`
 
-In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. Electron 10에서는 remote 모듈은 기본으로 비활성화됩니다. remote 모듈을 사용하기 위해서는 반드시 WebPreferences에서 `enableRemoteModule: true`를 설정해야합니다.
+Electron9에서 `enableRemoteModule` WebPreferences 옵션을 명시적으로 활성화하지 않고 remote모듈을 사용하면 경고 발생됩니다. Electron 10에서는 remote 모듈은 기본으로 비활성화됩니다. remote 모듈을 사용하기 위해서는 반드시 WebPreferences에서 `enableRemoteModule: true`를 설정해야합니다.
 
 ```js
 const w = new BrowserWindow({
