@@ -1,6 +1,6 @@
 # screen
 
-> Retrieve information about screen size, displays, cursor position, etc.
+> Отримати інформацію про розмір екрана, дисплея, положення курсору і т.д.
 
 Процес: [Main](../glossary.md#main-process)
 
