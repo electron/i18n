@@ -2,7 +2,7 @@
 
 Thực hiện theo các hướng dẫn dưới đây để xây dựng electron trên Windows.
 
-## Prerequisites
+## Kiện tiên quyết
 
 * Windows 10/Server 2012 R2 hoặc cao hơn
 * Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
