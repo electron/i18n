@@ -30,7 +30,7 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
 
 * `options` Object (optional)
   * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'elle est affichée.
-  * `sous-titre` String (facultatif) _macOS_ - Un sous-titre pour la notification, qui sera affiché sous le titre.
+  * `subtitle` String (facultatif) _macOS_ - Un sous-titre pour la notification, qui sera affiché sous le titre.
   * `body` String - Le corps de texte de la notification, qui s'affichera sous le titre ou le sous-titre.
   * `silencieux` Booléen (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
   * `icône` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.

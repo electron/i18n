@@ -14,7 +14,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 Process: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 It creates a new `Notification` with native properties as set by the `options`.
 
