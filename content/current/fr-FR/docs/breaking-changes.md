@@ -56,49 +56,49 @@ The default value of the `compress` option to `crashReporter.start` has changed 
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
 
-### Deprecated: `remote` module
+### Déprécié : module` remote `
 
-The `remote` module is deprecated in Electron 12, and will be removed in Electron 14. It is replaced by the [`@electron/remote`](https://github.com/electron/remote) module.
+Le module `remote` est déprécié dans Electron 12, et sera supprimé dans Electron 14. Il est remplacé par le module [`@electron/remote`](https://github.com/electron/remote).
 
 ```js
-// Deprecated in Electron 12:
+// Déprécié dans Electron 12 :
 const { BrowserWindow } = require('electron').remote
 ```
 
 ```js
-// Replace with:
+Remplacer par :
 const { BrowserWindow } = require('@electron/remote')
 
-// In the main process:
+// Dans le processus principal:
 require('@electron/remote/main').initialize()
 ```
 
-### Deprecated: `shell.moveItemToTrash()`
+### Déprécié : `shell.moveItemToTrash()`
 
-The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
+La méthode synchrone `shell.moveItemToTrash() ` a été remplacée par une asynchrone `shell.trashItem() `.
 
 ```js
-// Deprecated in Electron 12
+Déprécié dans Electron 12
 shell.moveItemToTrash(path)
-// Replace with
+// Remplacer par
 shell.trashItem(path).then(/* ... */)
 ```
 
 ## Changements majeurs prévus de l'API (11.0)
 
-There are no breaking changes planned for 11.0.
+Il n’y a pas de changement entraînant des modifications prévus pour 11.0.
 
 ## Changements majeurs prévus de l'API (10.0)
 
-### Deprecated: `companyName` argument to `crashReporter.start()`
+### Déprécié : l'argument `companyName` de `crashReporter.start()`
 
-The `companyName` argument to `crashReporter.start()`, which was previously required, is now optional, and further, is deprecated. To get the same behavior in a non-deprecated way, you can pass a `companyName` value in `globalExtra`.
+L'argument `companyName` de `crashReporter.start()`, qui était auparavant requis, est maintenant optionnel et de plus déprécié. Pour obtenir le même comportement de manière non dépréciée, vous pouvez passer une valeur `companyName` dans `globalExtra`.
 
 ```js
-// Deprecated in Electron 10
+// Déprécié dans Electron 10
 crashReporter.start({ companyName: 'Umbrella Corporation' })
-// Replace with
-crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
+// Remplacé par
+crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' }})
 ```
 
 ### Deprecated: `crashReporter.getCrashesDirectory()`
@@ -157,31 +157,31 @@ We [recommend moving away from the remote module](https://medium.com/@nornagon/e
 
 ### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
 
-As of Electron 9 we do not allow loading of non-context-aware native modules in the renderer process.  This is to improve security, performance and maintainability of Electron as a project.
+À partir d’Electron 9, nous n’autorisons plus le chargement de modules natifs insensibles au contexte dans le processus de rendu.  This is to improve security, performance and maintainability of Electron as a project.
 
-If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
+If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  Ce drapeau ne sera une option que jusqu'à Electron 11 donc vous devriez planifier de mettre à jour vos modules natifs pour être sensible au contexte.
 
 For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
 
-### Removed: `<webview>.getWebContents()`
+### Supprimé: `<webview>.getWebContents()`
 
 This API, which was deprecated in Electron 8.0, is now removed.
 
 ```js
-// Removed in Electron 9.0
+// Supprimé dans Electron 9.0
 webview.getWebContents()
-// Replace with
+// Remplacé par
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
 ### Removed: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. La fonction a été dépréciée avec Electron 8.x et supprimée avec Electron 9.x. Les limites de niveau de zoom de mise en page sont maintenant fixées à un minimum de 0. 5 et un maximum de 5.0, tel que défini [ici](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
-### Behavior Changed: Sending non-JS objects over IPC now throws an exception
+### Comportement modifié : l’envoi d’objets non-JS au travers d' IPC déclenche maintenant une exception
 
-In Electron 8.0, IPC was changed to use the Structured Clone Algorithm, bringing significant performance improvements. To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Whenever the old algorithm was invoked, a deprecation warning was printed.
+Dans Electron 8.0, l'IPC a été modifié pour utiliser l'algorithme Structured Clone , apportant des améliorations significatives des performances. To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Whenever the old algorithm was invoked, a deprecation warning was printed.
 
 In Electron 9.0, the old serialization algorithm has been removed, and sending such non-serializable objects will now throw an "object could not be cloned" error.
 
@@ -261,7 +261,7 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### Deprecated: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chrome a supprimé la prise en charge pour modifier les limites de niveau de zoom de mise en page et il n'est plus possible pour Electron de le maintenir. La fonction emettra un warning avec Electron 8.x et sera supprimée avec Electron 9.x. Les limites de niveau de zoom de mise en page sont maintenant fixées à un minimum de 0. 5 et un maximum de 5.0, tel que défini [ici](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ## Changements majeurs prévus de l'API (7.0)
 
@@ -321,7 +321,7 @@ webFrame.setIsolatedWorldInfo(
 
 ### Removed: `marked` property on `getBlinkMemoryInfo`
 
-This property was removed in Chromium 77, and as such is no longer available.
+Cette propriété a été supprimée dans Chromium 77 et n'est donc plus disponible.
 
 ### Behavior Changed: `webkitdirectory` attribute for `<input type="file"/>` now lists directory contents
 
@@ -342,7 +342,7 @@ In Electron <=6, this would return a `FileList` with a `File` object for:
 chemin/vers/dossier
 ```
 
-In Electron 7, this now returns a `FileList` with a `File` object for:
+Dans Electron 7, cela renvoie maintenant une` FileList` avec un objet` File `pour :
 ```console
 /chemin/vers/dossier/fichier3
 /chemin/vers/dossier/fichier2
@@ -356,9 +356,9 @@ Note that `webkitdirectory` no longer exposes the path to the selected folder. I
 ### API Changed: `win.setMenu(null)` is now `win.removeMenu()`
 
 ```js
-// Deprecated
+// Déprécié
 win.setMenu(null)
-// Replace with
+// Remplacé par
 win.removeMenu()
 ```
 
@@ -467,9 +467,9 @@ const w = new BrowserWindow({
 })
 ```
 
-### Behavior Changed: `nodeIntegration` in child windows opened via `nativeWindowOpen`
+### Comportement modifié : `nodeIntegration` dans les fenêtres enfants ouvertes via `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true`.
+Les fenêtres enfants ouvertes avec l'option `nativeWindowOpen` auront toujours Node.js integration désactivée, sauf si `nodeIntegrationInSubFrames` est à `true`.
 
 ### API Changed: Registering privileged schemes must now be done before app ready
 

@@ -26,10 +26,11 @@
 通过下面的例子来了解如何在Electron中使用应用内购买功能。 您必须使用通过ITunes Connect创建的产品的唯一标识 （ID）来替换掉下面示例中的PRODUCT_IDS。( `com.example.app.product1` 的ID是 `product1`)。 请注意，您必须尽可能早的在你的应用中监听`transactions-updated`事件。
 
 ```javascript
-const { inAppPurchase } = require('electron').remote
+// Main process
+const { inAppPurchase } = require('electron')
 const PRODUCT_IDS = ['id1', 'id2']
 
-// 尽早监听transactions事件.
+// Listen for transactions as soon as possible.
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return

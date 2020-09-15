@@ -34,7 +34,7 @@ Si Electron s’exécute sous un compte d’utilisateur différent, sélectionne
 
 ### Quel processus dois-je attacher ?
 
-Le code exécuté dans le processus principal (qui est le code se trouvant ou est lancé par votre fichier JavaScript main) ainsi que de code appelé à l’aide de remote (`require('electron').remote`) se lancera à l’intérieur du processus principale, tandis que le reste du code s’exécutera à l’intérieur de son processus de rendu respectifs.
+Le code exécuté dans le processus principal (qui est le code se trouvant ou est lancé par votre fichier JavaScript main) s'exécutera à l’intérieur du processus principal, tandis que les autres morceaux de code s’exécuteront à l’intérieur de leur processus de rendu respectif.
 
 Vous pouvez être attaché à plusieurs programmes lorsque vous déboguez, mais un seul programme est actif dans le débogueur à tout moment. Vous pouvez configurer le programme actif dans la barre d’outils `Emplacement de débogage` ou de la `fenêtre de processus`.
 

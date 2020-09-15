@@ -2,15 +2,15 @@
 
 หากคุณพบปัญหาหรือปัญหาในอิเล็กตรอนที่คุณเชื่อว่าไม่ได้เกิดขึ้น โดยโปรแกรม JavaScript ของคุณ แต่โดยอิเล็กตรอนตัวเอง, การแก้จุดบกพร่องสามารถ จะยุ่งยากเล็กน้อย, โดยเฉพาะอย่างยิ่งสําหรับนักพัฒนาไม่ได้ใช้พื้นเมือง / C ++ ตรวจ แก้ จุด บกพร่อง However, using Visual Studio, Electron's hosted Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
 
-**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+**ดูเพิ่มเติม**: มีความมั่งคั่งของข้อมูลเกี่ยวกับการแก้จุดบกพร่องโครเมียม, มากซึ่งยังใช้กับอิเล็กตรอน, บนเว็บไซต์ของนักพัฒนาโครเมี่ยม:[การแก้จุดบกพร่องโครเมี่ยมใน Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
 ## ข้อกําหนด
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). ในขณะที่คุณสามารถ แนบและแก้ปัญหาอิเล็กตรอนที่คุณสามารถดาวน์โหลดได้โดยตรงคุณจะ พบว่ามันเป็นอย่างมากเพิ่มประสิทธิภาพการแก้จุดบกพร่องมากขึ้น ยาก: ดีบักเกอร์จะไม่สามารถแสดงเนื้อหาของทุก ตัวแปรและเส้นทางการดําเนินการอาจดูแปลกเพราะ inlining, หางโทรและเพิ่มประสิทธิภาพคอมไพเลอร์อื่น ๆ
+* **สร้างการแก้ปัญหาของอิเล็กตรอน**: วิธีที่ง่ายที่สุดคือมักจะสร้างมัน โดยใช้เครื่องมือและข้อกําหนดเบื้องต้นที่ระบุไว้ใน [คําแนะนําในการสร้างสําหรับ Windows](build-instructions-windows.md) ในขณะที่คุณสามารถ แนบและแก้ปัญหาอิเล็กตรอนที่คุณสามารถดาวน์โหลดได้โดยตรงคุณจะ พบว่ามันเป็นอย่างมากเพิ่มประสิทธิภาพการแก้จุดบกพร่องมากขึ้น ยาก: ดีบักเกอร์จะไม่สามารถแสดงเนื้อหาของทุก ตัวแปรและเส้นทางการดําเนินการอาจดูแปลกเพราะ inlining, หางโทรและเพิ่มประสิทธิภาพคอมไพเลอร์อื่น ๆ
 
-* **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Once installed, [configure Visual Studio to use Electron's Symbol server](setting-up-symbol-server.md). มันจะเปิดใช้งาน Visual Studio ที่จะได้รับความเข้าใจที่ดีขึ้นของสิ่งที่เกิดขึ้น ภายในอิเล็กตรอนทําให้ง่ายต่อการนําเสนอตัวแปรในมนุษย์อ่าน รูป แบบ
+* **Visual Studio ด้วย C ++ เครื่องมือ**: ชุมชนรุ่นฟรีของ Visual สตูดิโอ 2013 และ 2015 Studio แสดงผลทั้งสองงาน Once installed, [configure Visual Studio to use Electron's Symbol server](setting-up-symbol-server.md). มันจะเปิดใช้งาน Visual Studio ที่จะได้รับความเข้าใจที่ดีขึ้นของสิ่งที่เกิดขึ้น ภายในอิเล็กตรอนทําให้ง่ายต่อการนําเสนอตัวแปรในมนุษย์อ่าน รูป แบบ
 
-* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
+* **ProcMon**:[เครื่องมือ SysInternals ฟรี](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx)ช่วยให้คุณสามารถตรวจสอบ พารามิเตอร์กระบวนการ การจัดการไฟล์ และการดําเนินการรีจิสทรี
 
 ## การแนบและการแก้จุดบกพร่องอิเล็กตรอน
 
@@ -34,7 +34,7 @@ $ ./ออก / ทดสอบ / อิเล็กตรอน exe ~/my-อิ
 
 ### กระบวนการใดที่ฉันควรแนบไป?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
+Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
 
 You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
 

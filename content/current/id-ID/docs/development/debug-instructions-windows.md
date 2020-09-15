@@ -34,7 +34,7 @@ Jika Elektron berjalan di bawah account pengguna yang berbeda, pilih `Tampilkan 
 
 ### Proses Yang Harus Saya Lampirkan ke?
 
-Kode dieksekusi dalam proses utama (yaitu, kode yang ditemukan di atau akhirnya dijalankan oleh utama Anda JavaScript file) serta kode yang disebut menggunakan remote (`require('electron').remote`) akan dijalankan di dalam proses utama, sementara kode lainnya akan mengeksekusi dalam proses penyaji masing-masing.
+Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
 
 Anda dapat dilampirkan ke beberapa program ketika Anda debugging, tetapi hanya satu program yang aktif di debugger setiap saat. Anda dapat mengatur program aktif dalam `Debug Lokasi` toolbar atau `Proses window`.
 

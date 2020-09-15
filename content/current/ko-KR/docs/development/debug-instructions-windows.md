@@ -34,7 +34,7 @@ $ ./out/Testing/electron.exe ~/my-electron-app/
 
 ### 어떤 프로세스에 디버거를 적용해야 하나요?
 
-코드는 메인 프로세스 내에서 실행되며 (이는 코드를 안에서 찾을 수 있거나, 결국 메인 Javascript 파일에 의해 실행) remote (`require('electron').remote`)를 사용하여 코드를 실행하는 것 또한 메인 프로세스 내에서 실행됩니다. 다른 코드는 각각의 렌더러 프로세스 내에서 실행됩니다.
+Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
 
 디버깅할 때 여러 프로그램에 디버거를 적용할 수 있지만, 언제나 한 개의 프로그램만 디버거에서 활성화되어야 합니다. `디버그 경로` 툴바 또는 `프로세스 창`에서 활성화 프로그램을 설정할 수 있습니다.
 

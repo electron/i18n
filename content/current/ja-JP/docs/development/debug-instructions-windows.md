@@ -34,7 +34,7 @@ Electron が異なるユーザアカウントで実行されている場合、`�
 
 ### どのプロセスにアタッチするべきか
 
-メインの JavaScript ファイルで検出されるコードとリモート (`require('electron').remote`) を使用して呼び出されるコードは、最終的にメインプロセス内で実行され、他のコードはそれぞれのレンダラープロセス内で実行されます。
+Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
 
 デバッグ中は複数のプログラムにアタッチすることができますが、随時1つのプログラムだけがデバッガでアクティブになります。 `デバッグの場所` ツールバーか `プロセスウインドウ` 内でアクティブなプログラムをセットできます。
 

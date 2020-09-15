@@ -11,7 +11,7 @@ const { dialog } = require('electron')
 console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+Le Dialog est ouvert à partir du thread principal d’Electron. Si vous souhaitez utiliser l'objet dialog à partir d’un processus de rendu, n’oubliez pas d’y accéder à l’aide de remote :
 
 ```javascript
 const { dialog } = require('electron').remote
@@ -30,7 +30,7 @@ Le module `dialog` dispose des méthodes suivantes :
   * `defaultPath` String (facultatif)
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `propriétés` String[] (facultatif) - Contient les fonctionnalités que la boîte de dialogue utilise. The following values are supported:
     * `openFile` - Permet la sélection de fichiers.
     * `openDirectory` - Permet la sélection de dossiers.
     * `multiSelections` - Permet la sélection de multiples chemins.
