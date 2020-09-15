@@ -34,7 +34,7 @@ Elektron farklı bir kullanıcı hesabı altında çalışıyorsa, ` Tüm kullan
 
 ### Hangi işlemi eklemeliyim?
 
-Ana süreç içinde çalıştırılan kod (yani, ana JavaScript dosyanız tarafından bulunan veya sonuçta çalışan kod) yanı sıra uzaktan kumanda kullanılarak (` require ('electron'). Remote `) ana işlemin içinde çalışırken, diğer kodu ilgili oluşturucu işleminde yürütülecektir.
+Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
 
 Hata ayıklarken birden çok program eklenebilir, ancak yalnızca bir program aynı anda etkin olabilir. Etkin programı `Debug Location` araç çubuğunda veya `Processes window`'da ayarlayabilirsiniz.
 

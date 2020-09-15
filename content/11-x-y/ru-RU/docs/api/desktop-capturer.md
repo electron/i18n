@@ -66,50 +66,6 @@ const constraints = {
 }
 ```
 
-This example shows how to capture a video from a [WebContents](web-contents.md)
-
-```javascript
-// В графическом процессе.
-const { desktopCapturer, remote } = require('electron')
-
-desktopCapturer.getMediaSourceIdForWebContents(remote.getCurrentWebContents().id).then(async mediaSourceId => {
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({
-      audio: {
-        mandatory: {
-          chromeMediaSource: 'tab',
-          chromeMediaSourceId: mediaSourceId
-        }
-      },
-      video: {
-        mandatory: {
-          chromeMediaSource: 'tab',
-          chromeMediaSourceId: mediaSourceId,
-          minWidth: 1280,
-          maxWidth: 1280,
-          minHeight: 720,
-          maxHeight: 720
-        }
-      }
-    })
-    handleStream(stream)
-  } catch (e) {
-    handleError(e)
-  }
-})
-
-function handleStream (stream) {
-  const video = document.querySelector('video')
-  video.srcObject = stream
-  video.onloadedmetadata = (e) => video.play()
-}
-
-function handleError (e) {
-  console.log(e)
-}
-```
-
-
 ## Методы
 
 `desktopCapturer` имеет следующие методы:
@@ -124,12 +80,6 @@ function handleError (e) {
 Возвращает `Promise<DesktopCapturerSource[]>` - разрешается с массивом объектов [`DesktopCapturerSource`](structures/desktop-capturer-source.md), каждый `DesktopCapturerSource ` представляет экран или отдельное окно, которое может быть захвачено.
 
 **Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`][].
-
-### `desktopCapturer.getMediaSourceIdForWebContents(webContentsId)`
-
-* `webContentsId` number - Id of the WebContents to get stream of
-
-Returns `Promise<string>` - Resolves with the identifier of a WebContents stream, this identifier can be used with [`navigator.mediaDevices.getUserMedia`][]. The identifier is **only valid for 10 seconds**. The identifier may be empty if not requested from a renderer process.
 
 ## Предупреждения
 

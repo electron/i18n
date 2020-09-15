@@ -66,57 +66,13 @@ const constraints = {
 }
 ```
 
-This example shows how to capture a video from a [WebContents](web-contents.md)
-
-```javascript
-// In the renderer process.
-const { desktopCapturer, remote } = require('electron')
-
-desktopCapturer.getMediaSourceIdForWebContents(remote.getCurrentWebContents().id).then(async mediaSourceId => {
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({
-      audio: {
-        mandatory: {
-          chromeMediaSource: 'tab',
-          chromeMediaSourceId: mediaSourceId
-        }
-      },
-      video: {
-        mandatory: {
-          chromeMediaSource: 'tab',
-          chromeMediaSourceId: mediaSourceId,
-          minWidth: 1280,
-          maxWidth: 1280,
-          minHeight: 720,
-          maxHeight: 720
-        }
-      }
-    })
-    handleStream(stream)
-  } catch (e) {
-    handleError(e)
-  }
-})
-
-function handleStream (stream) {
-  const video = document.querySelector('video')
-  video.srcObject = stream
-  video.onloadedmetadata = (e) => video.play()
-}
-
-function handleError (e) {
-  console.log(e)
-}
-```
-
-
 ## 方法
 
 ` desktopCapturer ` 模块有以下方法:
 
 ### `desktopCapturer.getSources(options)`
 
-* `options` Object
+* `选项` 对象
   * ` 类型`String[]-列出要捕获的桌面源类型的字符串数组, 可用类型为 ` screen ` 和 ` window `。
   * `thumbnailSize`[Size](structures/size.md)(可选) - 媒体源缩略图应缩放到的尺寸大小。 默认是 `150` x `150`。 当您不需要缩略图时，设置宽度或高度为0。 这将节省用于获取每个窗口和屏幕内容时的处理时间。
   * `fetchWindowIcons` Boolean (可选) - 设置为true以便启用获取窗口图标。 默认值为false。 当值为false时，源的appIcon属性返回null。 Same if a source has the type screen.
@@ -124,12 +80,6 @@ function handleError (e) {
 Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
 
 **Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`][].
-
-### `desktopCapturer.getMediaSourceIdForWebContents(webContentsId)`
-
-* `webContentsId` number - Id of the WebContents to get stream of
-
-Returns `Promise<string>` - Resolves with the identifier of a WebContents stream, this identifier can be used with [`navigator.mediaDevices.getUserMedia`][]. The identifier is **only valid for 10 seconds**. The identifier may be empty if not requested from a renderer process.
 
 ## 注意事项
 

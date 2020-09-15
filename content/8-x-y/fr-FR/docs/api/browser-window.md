@@ -29,7 +29,7 @@ Pour créer une fenêtre sans chrome, ou une fenêtre transparente en forme arbi
 
 ## Afficher des fenêtres avec élégance
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Lors du chargement direct d'une page dans la fenêtre, les utilisateurs peuvent voir la page se charger progressivement, ce qui n'est pas une bonne expérience pour une application native. Pour rendre l'affichage de la fenêtre exempt de flash visuel, il y a deux solutions selon la situation.
 
 ## À l'aide de l'événement `ready-to-show`
 
@@ -808,7 +808,7 @@ Active ou désactive la fenêtre.
 
 #### `win.isEnabled()`
 
-Returns `Boolean` - whether the window is enabled.
+Retourne `Boolean` - Si la fenêtre est activée.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -816,7 +816,7 @@ Returns `Boolean` - whether the window is enabled.
 * `height` Integer
 * `animate` Boolean (facultatif) _macOS_
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+Redimensionne la fenêtre à `width` x `height`. Si la largeur `width` ou la hauteur `height` sont inférieures aux minima définis, la fenêtre se limitera à sa taille minimale.
 
 #### `win.getSize()`
 
@@ -860,17 +860,17 @@ Retourne `Integer[]` - Contient la largeur et la hauteur maximale de la fenêtre
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by the user.
+Définit si la fenêtre peut être redimensionnée ou pas par l’utilisateur.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by the user.
+Retourne `Boolean` - Si la fenêtre peut être redimensionnée manuellement par l'utilisateur.
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Définit si la fenêtre peut être déplacée par l’utilisateur. N'a aucun effet sous Linux.
 
 #### `win.isMovable()` _macOS_ _Windows_
 
@@ -882,11 +882,11 @@ Sous Linux, retourne toujours `true`.
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Définit si la fenêtre peut être minimisée par l’utilisateur. N'a aucun effet sous Linux.
 
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually minimized by the user.
+Retourne `Boolean` - Si la fenêtre peut être minimisée par l'utilisateur.
 
 Sous Linux, retourne toujours `true`.
 
@@ -894,7 +894,7 @@ Sous Linux, retourne toujours `true`.
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Définit si la fenêtre peut être maximalisée par l’utilisateur. N'a aucun effet sous Linux.
 
 #### `win.isMaximizable()` _macOS_ _Windows_
 
@@ -916,7 +916,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Sets whether the window can be manually closed by user. N'a aucun effet sous Linux.
 
 #### `win.isClosable()` _macOS_ _Windows_
 
@@ -1027,7 +1027,7 @@ Le type natif du handle est `HWND` sous Windows, `NSView*` sur macOS, et `Window
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Hooks a windows message. La `callback` est appelée lorsque le message est reçu dans le WndProc.
 
 #### `win.isWindowMessageHooked(message)` _Windows_
 

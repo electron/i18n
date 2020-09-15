@@ -26,10 +26,11 @@ Para testar las compras dentro de la App, tienes que cambiar el `CFBundleIdentif
 Aquí hay un ejemplo de como usar las compras dentro de la App en Electron. Tienes que reemplazar las IDs de los productos por los identificadores de los productos creados con iTunes Connect (el identificador de `com.example.app.product1` es `product1`). Nota que tienes que escuchar al evento `transactions-updated` tan pronto como sea posible en tu App.
 
 ```javascript
-const { inAppPurchase } = require('electron').remote
+// Main process
+const { inAppPurchase } = require('electron')
 const PRODUCT_IDS = ['id1', 'id2']
 
-// Escucha las transacciones tan pronto com sea posible.
+// Listen for transactions as soon as possible.
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return

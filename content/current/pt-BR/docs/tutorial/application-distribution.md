@@ -78,12 +78,12 @@ Veja como ficaria a estrutura de um aplicativo renomeado:
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
@@ -92,7 +92,7 @@ Você pode renomear o executável `electron` para qualquer nome que você quiser
 
 ## Personalizar a marca recompilando o Electron direto da fonte
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+Também é possível remarcar o Electron mudando o nome do produto e construindo a partir fonte. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Criando um fork personalizado do Electron
 

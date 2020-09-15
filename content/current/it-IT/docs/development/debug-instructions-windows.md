@@ -34,7 +34,7 @@ Se Electron è in esecuzione sotto un diverso profilo utente, seleziona la casel
 
 ### A Quale Processo Dovrei Allegarlo?
 
-Il codice eseguito entro il processo principale (che è, trovato nel codice o in un file JavaScript principale eventualmente eseguito) così come il codice richiamato usando il remoto (`require('electron').remote`) sarà eseguito all'interno del processo principale, mentre altro codice sarà eseguito all'interno dei suoi processi di render rispettivi.
+Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
 
 Puoi essere allegato a programmi multipli quando stai facendo il debug, ma solo un programma è attivo nel debugger in ogni momento. Puoi impostare il programma attivo nella barra degli strumenti `Posizione di Debug` o nella `finestra Processi`.
 

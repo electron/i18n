@@ -34,7 +34,7 @@ Kung ang Electron ay gumagana sa ilalim ng iba't-ibang user account, piliin ang 
 
 ### Alin sa mga proseso ang dapat ikabit?
 
-Maipapalabas ang code sa loob ng main process ( ito ay ang code na matatagpuan o sa kalaunan ay mapapagana gamit ang file ng main JavaScript) tulad ng code na tinatawag na gamit ang remote (`require('electron').remote`) na gagana sa loob ng main process habang ang isang code naman ay gagana sa loob ng renderer process.
+Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
 
 Ito ay maaaring ikabit sa karamihan ng programs kapag isinasagawa ang debugging, ngunit para sa anumang oras, isang program lang ang maaaring gumana sa debugger. Maaaring itakda ang program na gumagana sa toolbar na `Debug Location` o ang `Processes window`.
 
