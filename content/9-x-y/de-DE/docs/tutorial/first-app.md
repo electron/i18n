@@ -1,4 +1,4 @@
-# Schreiben Ihrer ersten Electron App
+# Deine erste Electron-App
 
 Electron ermöglicht Ihnen Desktop-Applikationen mittels reinem JavaScript zu erstellen. Es wird eine Laufzeitumgebung mit umfangreichen nativen (auf Betriebssystemebene) APIs bereitgestellt. Sie können sich Electron als eine Variante der Node.js-Runtime vorstellen, die sich auf Desktop-Apps anstatt auf Webserver fokussiert.
 
@@ -57,7 +57,7 @@ Diese Node-Anwendung in eine Electron-Anwendung umzuwandeln, ist ganz einfach - 
 }
 ```
 
-## Installiere Electron
+## Electron installieren
 
 An dieser Stelle müssen Sie das `electron` installieren. Der empfohlene Weg dies zu tun ist, es als Abhängigkeit (dependency) in Ihrer Anwendung zu installieren. Dies erlaubt Ihnen an mehreren Anwendungen mit verschiedenen Electron-Versionen zu arbeiten. Führen Sie dazu den folgenden Befehl aus dem Verzeichnis Ihrer Anwendung aus:
 

@@ -1,11 +1,11 @@
-# MouseWheelInputEvent Object extends `MouseInputEvent`
+# El objeto MouseWheelInputEvent extiende `MouseInputEvent`
 
-* `type` String - The type of the event, can be `mouseWheel`.
-* `deltaX` Integer (optional)
-* `deltaY` Integer (optional)
-* `wheelTicksX` Integer (optional)
-* `wheelTicksY` Integer (optional)
-* `accelerationRatioX` Integer (optional)
-* `accelerationRatioY` Integer (optional)
-* `hasPreciseScrollingDeltas` Boolean (optional)
-* `canScroll` Boolean (optional)
+* `type` String - El tipo del evento puede ser `mouseWheel`.
+* `deltaX` Entero (opcional)
+* `deltaY` Entero (opcional)
+* `wheelTicksX` Entero (opcional)
+* `wheelTicksY` Entero (opcional)
+* `accelerationRatioX` Entero (opcional)
+* `accelerationRatioY` Entero (opcional)
+* `hasPreciseScrollingDeltas` Boolean (opcional)
+* `canScroll` Boolean (opcional)

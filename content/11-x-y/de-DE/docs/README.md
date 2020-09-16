@@ -16,7 +16,7 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
   * [Einrichtung auf Linux](tutorial/development-environment.md#setting-up-linux)
   * [Wähle einen Editor](tutorial/development-environment.md#a-good-editor)
 * [Erstelle deine erste App](tutorial/first-app.md)
-  * [Installiere Electron](tutorial/first-app.md#installing-electron)
+  * [Electron installieren](tutorial/first-app.md#installing-electron)
   * [Electron-Entwicklung auf einen Blick](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Ihre App ausführen](tutorial/first-app.md#running-your-app)
 * [Boilerplates und CLIs](tutorial/boilerplates-and-clis.md)
@@ -77,7 +77,7 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
 
 Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weiter oben diskutiert wurden.
 
-* [Installiere Electron](tutorial/installation.md)
+* [Electron installieren](tutorial/installation.md)
   * [Proxys](tutorial/installation.md#proxies)
   * [Benutzerdefinierte Mirrors und Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Problemlösungen](tutorial/installation.md#troubleshooting)
