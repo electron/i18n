@@ -1,4 +1,4 @@
-# Schreiben Ihrer ersten Electron App
+# Deine erste Electron-App
 
 Electron ermöglicht Ihnen Desktop-Applikationen mittels reinem JavaScript zu erstellen. Es wird eine Laufzeitumgebung mit umfangreichen nativen (auf Betriebssystemebene) APIs bereitgestellt. Sie können sich Electron als eine Variante der Node.js-Runtime vorstellen, die sich auf Desktop-Apps anstatt auf Webserver fokussiert.
 
@@ -33,11 +33,11 @@ npm wird dich schrittweise durch die Erstellung einer `package.json`-Datei führ
 
 __Bemerkung__: Wenn das `main`-Feld in der `package.json`-Datei nicht angegeben ist, wird Electron (so wie Node.js) versuchen, eine `index.js`-Datei zu laden.
 
-By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
+Normalerweise führt `npm start` den main script mit Node.js aus. Um dies zu vermeiden und das Script mit Electron zu starten, kann folgendes `start` script eingestellt werden:
 
 ```json
 {
-  "name": "your-app",
+  "name": "deine-app",
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
@@ -46,7 +46,7 @@ By default, `npm start` would run the main script with Node.js. in order to make
 }
 ```
 
-## Installiere Electron
+## Electron installieren
 
 An dieser Stelle müssen Sie das `electron` installieren. Der empfohlene Weg dies zu tun ist, es als Abhängigkeit (dependency) in Ihrer Anwendung zu installieren. Dies erlaubt Ihnen an mehreren Anwendungen mit verschiedenen Electron-Versionen zu arbeiten. Führen Sie dazu den folgenden Befehl aus dem Verzeichnis Ihrer Anwendung aus:
 
@@ -79,7 +79,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // und lade den Inhalt von index.html
   win.loadFile('index.html')
 }
 
@@ -101,21 +101,21 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // und lade den Inhalt von index.html
   win.loadFile('index.html')
 
   // Öffnen der DevTools.
   win.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// Diese Methode wird aufgerufen, wenn Electron das Starten abgeschlossen hat und bereit ist, 
+// ein Browser Fenster zu erstellen.
 // Einige APIs können nur nach dem Auftreten dieses Events genutzt werden.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+// Schließt die App, sobald alle Fenster geschlossen werden, außer auf macOS. Dort ist es nämlich
+// üblich, dass Apps und ihre Menüs aktiv bleiben, bis der Benutzer diese
+// explizit mit Cmd + Q beendet.
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
@@ -123,15 +123,14 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // Auf macOs ist es üblich, ein neues Fenster zu erstellen, wenn
+  // das dock Icon angeklickt wird und kein anderes Fenster offen ist.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. Sie können den Code auch 
+// In dieser Datei kann der Rest des App-Codes für den main proccess eingefügt werden. Sie können den Code auch 
 // auf mehrere Dateien aufteilen und diese hier einbinden.
 ```
 
@@ -142,15 +141,15 @@ Zu guter Letzt, die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Hallo Welt!</title>
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1>Hallo Welt!</h1>
+    Aktuell wird die node version <script>document.write(process.versions.node)</script>,
+    Chrome in der Version <script>document.write(process.versions.chrome)</script>,
+     und Electron in der Version <script>document.write(process.versions.electron)</script> benutzt.
   </body>
 </html>
 ```
