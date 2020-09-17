@@ -112,19 +112,19 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // und lade den Inhalt von index.html.
   win.loadFile('index.html')
 
   // Öffnen der DevTools.
   win.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// Diese Methode wird aufgerufen, wenn Electron das Starten abgeschlossen hat und bereit ist, 
+// ein Browser Fenster zu erstellen.
 // Einige APIs können nur nach dem Auftreten dieses Events genutzt werden.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// Schließt die App, sobald alle Fenster geschlossen werden, außer auf macOS.
 app.on('window-all-closed', () => {
   // Unter macOS ist es üblich, für Apps und ihre Menu Bar
   // aktiv zu bleiben, bis der Nutzer explizit mit Cmd + Q die App beendet.
@@ -141,8 +141,7 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. Sie können den Code auch 
+// In dieser Datei kann der Rest des App-Codes für den main proccess eingefügt werden. Sie können den Code auch 
 // auf mehrere Dateien aufteilen und diese hier einbinden.
 ```
 

@@ -1,14 +1,14 @@
-# Recent Documents (Windows & macOS)
+# Zuletzt geöffnete Dokumente (Windows & macOS)
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windos und macOS bieten die Möglichkeit für Apps, die zuletzt geöffneten Dateien in der Taskbar per JumpList oder dock menu anzuzeigen.
 
 __JumpList:__
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![JumpList Zuletzt geöffnete Dateien](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 __Dock Menu einer Anwendung:__
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![macOS Dock Menü](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
 Um eine Datei zu den zuletzt verwendeten Dokumenten hinzuzufügen können Sie die [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API verwenden:
 
