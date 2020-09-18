@@ -23,7 +23,7 @@ If the script returns that your configuration is using an outdated security prot
 $ brew install python@2 && brew link python@2 --force
 ```
 
-If you are using Python as provided by Homebrew, you also need to install the following Python modules:
+Если вы используете Python предоставленный Homebrew, вам также необходимо установить следующие модули Python:
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 

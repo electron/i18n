@@ -38,7 +38,7 @@ Electron applications will automatically enable accessibility features in the pr
 
 You can also manually toggle these features either within your Electron application or by setting flags in third-party native software.
 
-### Using Electron's API
+### Używanie API Electrona
 
 By using the [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API, you can manually expose Chrome's accessibility tree to users in the application preferences. Note that the user's system assistive utilities have priority over this setting and will override it.
 

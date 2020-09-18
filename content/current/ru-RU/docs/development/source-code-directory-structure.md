@@ -56,12 +56,12 @@ Electron
 |   |   |          pages.
 |   |   ├── ui/ - Implementation of UI stuff for different platforms.
 |   |   |   ├── cocoa/ - Cocoa specific source code.
-|   |   |   ├── win/ - Windows GUI specific source code.
-|   |   |   └── x/ - X11 specific source code.
+|   |   |   ├── win/ - исходный код специфичный для Windows GUI.
+|   |   ├── net/ - исходный код специфичный для X11.
 |   |   ├── api/ - The implementation of the main process APIs.
-|   |   ├── net/ - Network related code.
-|   |   ├── mac/ - Mac specific Objective-C source code.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
+|   |   ├── net/ - Код, связанный с сетью.
+|   |   ├── mac/ - Исходный код на Objective-C специфичный для Mac.
+|   |   └── resources/ - Иконки, платформозависимые файлы и т.д.
 |   ├── renderer/ - Code that runs in renderer process.
 |   |   └── api/ - The implementation of renderer process APIs.
 |   └── common/ - Code that used by both the main and renderer processes,
