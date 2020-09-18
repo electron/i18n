@@ -1,6 +1,6 @@
-# Entorno del desarrollador
+# Entorno de programador
 
-El desarrollo en Electron es esencialmente un desarrollo de Node.js. Para convertir su sistema operativo en un entorno capaz de construir aplicaciones para escritorio con Electron, simplemente necesita Node.js, npm, un editor de códigos de su elección, y un entendimiento rudimentario de su cliente de linea de comando del sistema operativo.
+El desarrollo de electrones es esencialmente un desarrollo de node. js. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
 
 ## Configurar macOS
 
