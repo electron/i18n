@@ -41,7 +41,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [خصص إجراءات سطح المكتب المخصص لـ Linux](tutorial/linux-desktop-actions.md)
   * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
   * [إكتشاف المتصل/ غير المتصل](tutorial/online-offline-events.md)
-  * [الملف الممثّل في نافذة المستعرض في نظام ماك أو إس](tutorial/represented-file.md)
+  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
   * [سحب الملفات الأصلية & Drop&](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
