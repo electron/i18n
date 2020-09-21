@@ -42,10 +42,10 @@
     "name": "Chinese Traditional",
     "code": "zh-TW",
     "phrases": "68263",
-    "translated": "20398",
+    "translated": "20399",
     "approved": "10437",
     "words": "659972",
-    "words_translated": "98890",
+    "words_translated": "98901",
     "words_approved": "50771",
     "translated_progress": 14,
     "approved_progress": 7,
@@ -146,14 +146,14 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "68263",
-    "translated": "33895",
+    "translated": "33910",
     "approved": "18278",
     "words": "659972",
-    "words_translated": "258678",
+    "words_translated": "258793",
     "words_approved": "145930",
     "translated_progress": 39,
     "approved_progress": 22,
-    "qa_issues": 2671
+    "qa_issues": 2672
   },
   {
     "name": "Italian",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "68263",
-    "translated": "10383",
+    "translated": "10388",
     "approved": "5094",
     "words": "659972",
-    "words_translated": "50943",
+    "words_translated": "50953",
     "words_approved": "22447",
     "translated_progress": 7,
     "approved_progress": 3,
-    "qa_issues": 706
+    "qa_issues": 707
   }
 ]
