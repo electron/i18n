@@ -1,8 +1,8 @@
-# Extension Object
+# Extension 对象
 
 * `id` String
-* `manifest` any - Copy of the [extension's manifest data](https://developer.chrome.com/extensions/manifest).
+* `manifest` any - [扩展程序清单数据](https://developer.chrome.com/extensions/manifest)的副本。
 * `name` String
-* `path` String - The extension's file path.
+* `path` String - 扩展程序路径。
 * `version` String
-* `url` String - The extension's `chrome-extension://` URL.
+* `url` String - 扩展程序的 `chrome-extension://` URL。
