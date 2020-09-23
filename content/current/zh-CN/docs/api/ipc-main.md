@@ -12,7 +12,7 @@
 
 * 发送消息时，事件名称为`channel `。
 * 回复同步信息时，需要设置`event.returnValue`。
-* 可以使用`event.sender.send(...)`将异步消息发送回发送者。  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* 可以使用`event.reply(...)`将异步消息发送回发送者。  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 下面是在渲染和主进程之间发送和处理消息的一个例子：
 

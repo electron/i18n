@@ -1,4 +1,4 @@
-# ProtocolResponse Object
+# Objeto ProtocolResponse
 
 * `error` Integer (optional) - When assigned, the `request` will fail with the `error` number . Para números de errores que puede usar, por favor vea la [lista de errores de red][net-error].
 * `statusCode` Number (optional) - The HTTP response code, default is 200.
