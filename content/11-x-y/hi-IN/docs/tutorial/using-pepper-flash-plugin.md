@@ -4,7 +4,7 @@ Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Ele
 
 ## फ़्लैश प्लगइन की एक कॉपी तैयार करें
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://flash` in the Chrome browser. उसकी लोकेशन और संस्करण, इलेक्ट्रॉन के पेप्पर फ़्लैश प्लगइन के समर्थन के लिए बहुत उपयोगी है | आप उसे किसी दूसरी लोकेशन पर भी कॉपी कर सकते हैं |
+On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://version` in the Chrome browser. उसकी लोकेशन और संस्करण, इलेक्ट्रॉन के पेप्पर फ़्लैश प्लगइन के समर्थन के लिए बहुत उपयोगी है | आप उसे किसी दूसरी लोकेशन पर भी कॉपी कर सकते हैं |
 
 ## इलेक्ट्रॉन स्विच जोड़ें
 

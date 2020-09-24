@@ -4,7 +4,7 @@ Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Ele
 
 ## Flash 플러그인 복사본 준비
 
-맥OS와 리눅스에서 Pepper Flash 플러그인에 대한 자세한 내용은 Chrome 브라우저에서 `chrome://flash`에 접근하여 확인할 수 있습니다. 그것의 위치와 버전은 Electron's Pepper Flash 지원에 필요합니다. 다른 위치로 복사 할 수도 있습니다.
+On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://version` in the Chrome browser. 그것의 위치와 버전은 Electron's Pepper Flash 지원에 필요합니다. 다른 위치로 복사 할 수도 있습니다.
 
 ## Electron Switch 추가
 
