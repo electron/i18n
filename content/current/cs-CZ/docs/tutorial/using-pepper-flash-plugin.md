@@ -2,22 +2,21 @@
 
 Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
-## Prepare a Copy of Flash Plugin
+## Příprava a kopírování Flash Pluginu
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://version` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://version` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. Můžete ho také zkopírovat do jiného umístění.
 
-## Add Electron Switch
+## Přidání Přepínače Electron
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+Můžete také zkusit načíst systém, který obsahuje Pepper Flash plugin místo hledání pluginu samotného, jeho cesta může být zadána callingem: app.getPath`pepperFlashSystemPlugin<code>. Pluginy lze také přidat z příkazového Electronu příkazem <code>--ppapi-flash-path<0>a<0>--ppapi-flash-version<0> nebo příkazem <0>app.commandLine.appendSwitch<0>zadaným v okně prohlížeče před událostí připtavenou pro aplikaci. Přidat<code>pluginy<code>můžete také <0>z<0>okna prohlížeče<0>.</p>
 
-Například:
+<p spaces-before="0">Například:</p>
 
-```javascript
-const { app, BrowserWindow } = require('electron')
+<pre><code class="javascript">const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
-let pluginName
+// Zadejte flash path, za předpokladu, že je umístěna ve stejném adresáři jako main.js.
+et pluginName
 switch (process.platform) {
   case 'win32':
     pluginName = 'pepflashplayer.dll'
@@ -31,25 +30,13 @@ switch (process.platform) {
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
+//Chcete specifikovat flash verzi označenou jako v17.0.0.169
 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
+`</pre>
 
-app.whenReady().then(() => {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      plugins: true
-    }
-  })
-  win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
-})
-```
+Můžete také zkusit načíst systémový doplněk Pepper Flash namísto odeslání pluginu samotného, jeho cesta může být zadána voláním `app.getPath('pepperFlashSystemPlugin')`.
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
-
-## Enable Flash Plugin in a `<webview>` Tag
+## Jak povolit flash plugin v <webview>Tag Přidejte atribut pluginu do <webview>tag. Webview src="https://www.adobe.com/software/flash/about/" pluginy></webview> Můžete zkontrolovat, zda Pepper Flash plugin byl načten kontrolou navigator.plugins v konzoli devtools (i když nemůžete vědět, jestli plugin cesta je správná). Architektura Pepper Flash plugin musí odpovídat Electronu. V systému Windows je běžnou chybou použití 32bit verze pluginu Flash proti 64bit verzi Electronu. V systému Windows cesta předaná --ppapi-flash-path musí používána '' jako oddělovač cesty, pomocí cest ve stylu POSIX nebude funkční. Pro některé operace, jako je například streamování médií pomocí RTMP, je nutné udělit širší oprávnění  souborům .swf hráčů. Jedním ze způsobů, jak toho dosáhnout, je použít nw-flash-trust.
 
 Add `plugins` attribute to `<webview>` tag.
 
@@ -63,6 +50,6 @@ You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins
 
 The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
-On Windows the path passed to `--ppapi-flash-path` has to use `\` as path delimiter, using POSIX-style paths will not work.
+Ve Windowsu k určení path`--ppapi-flash-path`musí být použit znak`\` jako oddělovač, ale jeho použití v POSIX-style nebude funkční.
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+Pro některé operace používané streamovacími médii RTMP je nezbytné přehrávačům udělit větší oprávnění v přístupu k souborům`.swf` files. Jednou z cest, jak toho lze dosáhnout je použít[nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
