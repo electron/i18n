@@ -29,10 +29,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "68263",
-    "translated": "41348",
+    "translated": "41350",
     "approved": "21899",
     "words": "659972",
-    "words_translated": "348465",
+    "words_translated": "348479",
     "words_approved": "189460",
     "translated_progress": 52,
     "approved_progress": 28,
@@ -55,14 +55,14 @@
     "name": "Czech",
     "code": "cs",
     "phrases": "68263",
-    "translated": "5591",
+    "translated": "5606",
     "approved": "2128",
     "words": "659972",
-    "words_translated": "15249",
+    "words_translated": "15511",
     "words_approved": "5680",
     "translated_progress": 2,
     "approved_progress": 0,
-    "qa_issues": 301
+    "qa_issues": 310
   },
   {
     "name": "Dutch",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "68263",
-    "translated": "22672",
+    "translated": "22702",
     "approved": "11489",
     "words": "659972",
-    "words_translated": "165063",
+    "words_translated": "165445",
     "words_approved": "85029",
     "translated_progress": 25,
     "approved_progress": 12,
-    "qa_issues": 833
+    "qa_issues": 847
   },
   {
     "name": "Romanian",
