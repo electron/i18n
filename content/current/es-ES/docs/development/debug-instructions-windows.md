@@ -34,7 +34,7 @@ Si Electron se ejecuta con una cuenta de usuario diferente, seleccione `mostrar 
 
 ### ¿A qué proceso debo adjuntarme?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
+Código ejecutado dentro del proceso principal (es decir, código encontrado en o eventualmente ejecutado por su archivo JavaScript principal) se ejecutara dentro del proceso principal, mientras que otro código se ejecutara dentro de su respectivo proceso renderer.
 
 Puede estar conectado a varios programas cuando se está depurando, pero solamente un programa está activo en el depurador en cualquier momento. Puedes configurar el programa activo en la barra de herramientas `Ubicación de depuración` o en la `ventana de procesos`.
 

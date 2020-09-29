@@ -6,7 +6,7 @@ Electron's `webview` tag is based on [Chromium's `webview`][chrome-webview], whi
 
 ## Enabling
 
-By default the `webview` tag is disabled in Electron >= 5.  You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
+Par défaut, la balise `webview` est désactivée dans Electron >= 5.  You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
 
 ## Vue d'ensemble
 
@@ -16,7 +16,7 @@ Processus : [Renderer](../glossary.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
-Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
+Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Remarque :** La plupart des méthodes appelées sur la webview à partir de la page hôte nécessitent un appel synchrone au processus principal.
 
 ## Example
 
@@ -72,7 +72,7 @@ La balise `webview` possède les attributs suivants :
 <webview src="https://www.github.com/"></webview>
 ```
 
-A `String` representing the visible URL. Writing to this attribute initiates top-level navigation.
+Un `String` représentant l'URL visible. Writing to this attribute initiates top-level navigation.
 
 Assigning `src` its own value will reload the current page.
 
@@ -120,7 +120,7 @@ A `String` that specifies a script that will be loaded before other scripts run 
 
 When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
 
-**Note:** This option will appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
+**Note :** Cette option apparaîtra comme `preloadURL` (et non `preload`) dans `webPréferences` spécifiées à l’événement `will-attach-webview `.
 
 ### `httpreferrer`
 

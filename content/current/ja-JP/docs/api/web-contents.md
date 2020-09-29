@@ -1158,9 +1158,9 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
-  * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only one range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (任意) - 水平 DPI。
@@ -1197,8 +1197,8 @@ win.webContents.print(options, (success, errorType) => {
   * `marginsType` Integer (optional) - 使用する余白の種類を指定します。 0 で既定値、1 で余白なし、2 で最小限の余白になります。
   * `scaleFactor` Number (任意) - ウェブページのスケール係数。 Can range from 0 to 100.
   * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
