@@ -14,26 +14,26 @@ Este documento usa la siguiente convención para clasificar los cambios de ruptu
 
 ## Cambios planeados en la API(13.0)
 
-### Removed: `shell.moveItemToTrash()`
+### Eliminado: `shell.moveItemToTrash()`
 
-The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+Se ha eliminado la API síncrona `shell.moveItemToTrash()` obsoleta. Utilice en su lugar `shell.trashItem()`.
 
 ```js
-// Removed in Electron 13
+// Eliminado en Electron 13
 shell.moveItemToTrash(path)
-// Replace with
+// Reemplazar con 
 shell.trashItem(path).then(/* ... */)
 ```
 
 ## Cambios planeados en la API(12.0)
 
-### Default Changed: `contextIsolation` defaults to `true`
+### Valor por defecto modificado: `contextIsolation` por defecto a `true`
 
-In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
+En Electron 12, `contextIsolation` será activado por defecto.  Para restaurar el comportamiento anterior `contextIsolation: false` debe ser especificado en WebPreferences.
 
-We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+Nosotros [recomendamos tener contextIsolation activado](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) por la seguridad de su aplicación.
 
-For more details see: https://github.com/electron/electron/issues/23506
+Para más detalles ver: https://github.com/electron/electron/issues/23506
 
 ### Eliminado: métodos `crashReporter` en el render process
 
@@ -56,7 +56,7 @@ The default value of the `compress` option to `crashReporter.start` has changed 
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
 
-### Deprecated: `remote` module
+### Obsoleto: módulo `remote`
 
 The `remote` module is deprecated in Electron 12, and will be removed in Electron 14. It is replaced by the [`@electron/remote`](https://github.com/electron/remote) module.
 
@@ -73,7 +73,7 @@ const { BrowserWindow } = require('@electron/remote')
 require('@electron/remote/main').initialize()
 ```
 
-### Deprecated: `shell.moveItemToTrash()`
+### Obsoleto: `shell.moveItemToTrash()`
 
 The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
 
@@ -129,7 +129,7 @@ Todos los métodos anteriores permanecen no desaprobados cuando son llamados des
 
 Vea [#23265](https://github.com/electron/electron/pull/23265) para mas detalles.
 
-### Deprecated: `crashReporter.start({ compress: false })`
+### Obsoleto: `crashReporter.start({ compress: false })`
 
 Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
 
@@ -221,7 +221,7 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 
 ### Obsoleto: `<webview>.getWebContents()`
 
-This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
+Esta API está implementada usando el módulo `remote`, que tiene implicaciones de rendimiento y seguridad. Por lo tanto, su uso debe ser explícito.
 
 ```js
 // Obsoleto
@@ -321,15 +321,15 @@ webFrame.setIsolatedWorldInfo(
 
 ### Eliminado: propiedad `marked` en `getBlinkMemoryInfo`
 
-This property was removed in Chromium 77, and as such is no longer available.
+Esta propiedad fue removida en Chromium 77, y como tal ya no está disponible.
 
-### Behavior Changed: `webkitdirectory` attribute for `<input type="file"/>` now lists directory contents
+### Comportamiento Cambiado: atributo `webkitdirectory` a `<input type="file"/>` ahora lista el contenido del directorio
 
 La propiedad `webkitdirectory` en las entradas de archivos HTML les permite seleccionar carpetas. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
 
 As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
-As an illustration, take a folder with this structure:
+Como una ilustración, toma una carpeta con esta estructura:
 ```console
 direcotrio
 ├── archivo1

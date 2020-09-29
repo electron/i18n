@@ -740,7 +740,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional)
+* `options` Object (可选)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - 一个 HTTP Referrer url。
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -760,7 +760,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (optional)
+* `options` Object (可选)
   * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (可选) - 传递给 `url.format()`.
   * `hash` String (可选) - 传递给 `url.format()`.
@@ -897,7 +897,7 @@ Returns `Boolean` - Whether the renderer process has crashed.
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
-* `options` Object (optional)
+* `options` Object (可选)
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
@@ -1077,7 +1077,7 @@ Returns `Promise<void>`
 #### `contents.findInPage(text[, options])`
 
 * `text` String - 要搜索的内容，必须非空。
-* `options` Object (optional)
+* `options` Object (可选)
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1142,7 +1142,7 @@ Decrease the capturer count by one. The page will be set to hidden or occluded s
 
 #### `contents.print([options], [callback])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `silent` Boolean (optional) - Don't ask user for print settings. 默认值为 `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. 默认值为 `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
@@ -1158,9 +1158,9 @@ Decrease the capturer count by one. The page will be set to hidden or occluded s
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only one range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
@@ -1189,7 +1189,7 @@ win.webContents.print(options, (success, errorType) => {
 
 #### `contents.printToPDF(options)`
 
-* `options` Object
+* `选项` 对象
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
@@ -1197,8 +1197,8 @@ win.webContents.print(options, (success, errorType) => {
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
@@ -1334,7 +1334,7 @@ app.whenReady().then(() => {
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. 默认值为 `true`。
 

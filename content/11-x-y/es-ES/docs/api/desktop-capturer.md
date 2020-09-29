@@ -79,7 +79,7 @@ El módulo `desktopCapturer` tiene los siguientes métodos:
 
 Devuelve `Promise<DesktopCapturerSource[]>` - Resuelve con un array de objetos [`DesktopCapturerSource`](structures/desktop-capturer-source.md), cada `DesktopCapturerSource` representa una pantalla o una ventana individual que puede ser capturada.
 
-**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`][].
+**Nota** La capturar del contenido de la pantalla requiere el consentimiento del usuario en macOS 10.15 Catalina o superior, el cual puede ser detectado por [`systemPreferences.getMediaAccessStatus`][].
 
 ## Advertencias
 
