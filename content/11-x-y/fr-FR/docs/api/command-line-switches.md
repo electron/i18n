@@ -168,21 +168,29 @@ Tout pattern contenant un slash ou un anti-slash sera testé pour tout le chemin
 
 Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
 
+### --force_high_performance_gpu
+
+Force using discrete GPU when there are multiple GPUs available.
+
+### --force_low_power_gpu
+
+Force using integrated GPU when there are multiple GPUs available.
+
 ## Node.js Flags
 
-Electron supports some of the [CLI flags][node-cli] supported by Node.js.
+Electron prend en charge certains des [drapeaux CLI][node-cli] pris en charge par Node.js.
 
-**Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
+**Remarque :** Le passage d'options de ligne de commande non supportées n'aura aucun effet lorsque Electron ne s'exécute pas en mode `ELECTRON_RUN_AS_NODE`.
 
 ### --inspect-brk[=[host:]port]
 
-Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
+Activate inspector on host:port and break at start of user script. Configuration par défaut pour host:port 127.0.0.1:9229.
 
 Aliased to `--debug-brk=[host:]port`.
 
 ### --inspect-port=[host:]port
 
-Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
+Set the `host:port` to be used when the inspector is activated. Utile lors de l’activation de l’inspecteur en envoyant le signal SIGUSR1. Default host is `127.0.0.1`.
 
 Aliased to `--debug-port=[host:]port`.
 
@@ -199,7 +207,7 @@ Aliased to `--debug[=[host:]port`.
 ### --inspect-publish-uid=stderr,http
 Specify ways of the inspector web socket url exposure.
 
-By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.
+Par défaut, l'url du websocket de l'inspecteur est disponible dans stderr et dans /json/list endpoint sur http://host:port/json/list.
 
 [app]: app.md
 [append-switch]: app.md#appcommandlineappendswitchswitch-value

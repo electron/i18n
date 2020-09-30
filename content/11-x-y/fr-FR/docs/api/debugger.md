@@ -75,7 +75,7 @@ Détache le débogueur depuis le `webContents`.
 * `commandParams` n'importe quel objet (facultatif) - JSON avec les paramètres de la requête.
 * `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
 
-Retourne `Promise<any>` - Une promesse qui résout avec la réponse définie par l'attribut 'returns' de la description de la commande dans le protocole de débogage distant ou qui est rejetée indiquant l'échec de la commande.
+Retourne `Promise<any>` - Une promesse qui se résout avec la réponse définie par l'attribut 'returns' de la description de la commande dans le protocole de débogage distant ou qui est rejetée indiquant l'échec de la commande.
 
 Envoi une commande au débogueur.
 

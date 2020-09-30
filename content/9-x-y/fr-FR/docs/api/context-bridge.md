@@ -1,10 +1,10 @@
 # contextBridge
 
-> Create a safe, bi-directional, synchronous bridge across isolated contexts
+> Crée un pont synchrone sécurisé, bidirectionnel entre des contextes isolés
 
 Processus : [Rendu](../glossary.md#renderer-process)
 
-An example of exposing an API to a renderer from an isolated preload script is given below:
+Exemple d’une API exposée à un rendu à partir d’un script de preload:
 
 ```javascript
 // Preload (Isolated World)
@@ -28,15 +28,15 @@ window.electron.doThing()
 
 ### Main World
 
-The "Main World" is the JavaScript context that your main renderer code runs in. By default, the page you load in your renderer executes code in this world.
+« Main World » est le contexte JavaScript dans lequel votre code de rendu principal s'exécute. Par défaut, la page que vous chargez dans votre moteur de rendu exécute son code dans cet univers.
 
 ### Isolated World
 
-When `contextIsolation` is enabled in your `webPreferences`, your `preload` scripts run in an "Isolated World".  You can read more about context isolation and what it affects in the [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content) docs.
+Si`contextIsolation` est activé dans votre `webPreferences`, vos scripts `preload` s'exécutent dans un "Isolated World".  Vous pourrez en savoir plus sur l'isolement du contexte et ce qu'il affecte dans la partie [sécurité](../tutorial/security.md#3-enable-context-isolation-for-remote-content) de la documentation. .
 
 ## Méthodes
 
-The `contextBridge` module has the following methods:
+Le module `contextBridge` possède les méthodes suivantes :
 
 ### `contextBridge.exposeInMainWorld(apiKey, api)` _Experimental_
 

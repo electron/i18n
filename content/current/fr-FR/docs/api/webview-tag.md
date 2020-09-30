@@ -478,7 +478,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
   * `pageRanges` Object[] (facultatif) - La plage de page à imprimer. On macOS, only the first range is honored.
-    * `from` Number - Index of the first page to print (0-based).
+    * `from` Number - Index de la première page à imprimer (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
@@ -502,7 +502,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - Index of the first page to print (0-based).
+    * `from` Number - Index de la première page à imprimer (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
