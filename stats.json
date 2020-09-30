@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "68269",
-    "translated": "65002",
+    "translated": "65040",
     "approved": "32925",
     "words": "660043",
-    "words_translated": "617085",
+    "words_translated": "617455",
     "words_approved": "304262",
     "translated_progress": 93,
     "approved_progress": 46,
-    "qa_issues": 357
+    "qa_issues": 360
   },
   {
     "name": "Korean",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "68269",
-    "translated": "41066",
+    "translated": "41072",
     "approved": "27950",
     "words": "660043",
-    "words_translated": "331847",
+    "words_translated": "331856",
     "words_approved": "222511",
     "translated_progress": 50,
     "approved_progress": 33,
-    "qa_issues": 1869
+    "qa_issues": 1870
   },
   {
     "name": "Spanish",
@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "68269",
-    "translated": "33809",
+    "translated": "33825",
     "approved": "18045",
     "words": "660043",
-    "words_translated": "257976",
+    "words_translated": "258099",
     "words_approved": "144637",
     "translated_progress": 39,
     "approved_progress": 21,
-    "qa_issues": 2340
+    "qa_issues": 2342
   },
   {
     "name": "Ukrainian",
