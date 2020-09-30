@@ -168,6 +168,14 @@ Gives the default maximal active V-logging level; 0 is the default. Normally pos
 
 Этот параметр работает только когда `--enable-logging` также указан.
 
+### --force_high_performance_gpu
+
+Force using discrete GPU when there are multiple GPUs available.
+
+### --force_low_power_gpu
+
+Force using integrated GPU when there are multiple GPUs available.
+
 ## Node.js Flags
 
 Electron supports some of the [CLI flags][node-cli] supported by Node.js.
