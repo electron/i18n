@@ -309,7 +309,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 レンダラープロセスがクラッシュしたり、強制終了されたりしたときに発行されます。
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -326,7 +326,7 @@ win.webContents.on('will-prevent-unload', (event) => {
     * `launch-failure` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
-Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+renderer processが予期せず消えたときに発生します。  This is normally because it was crashed or killed.
 
 #### イベント: 'unresponsive'
 

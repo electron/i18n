@@ -95,28 +95,5 @@ script/ - L'ensemble de tous les scripts que Electron exécute pour une variét�
 * **tools** - Helper scripts used by GN files.
   * Les scripts mis ici ne devraient jamais être invoqués par les utilisateurs directement, contrairement à ceux de `script`.
 * **typings** - Types TypeScript pour le code interne d'Electron.
-* **vendor** - Code source pour certaines dépendances de tiers, y compris `boto` et `requests`.
+* **vendor** - Source code for some third party dependencies.
 
-## Garder les sous-modules Git à jour
-
-Le repository d'Electron a quelques dépendances tierces, se trouvant dans le dossier [/vendor](https://github.com/electron/electron/tree/master/vendor). Parfois, vous pourriez voir un message comme celui ci lors de l'exécution de `git status`:
-
-```sh
-$ git status
-
-    modified:   vendor/depot_tools (new commits)
-    modified:   vendor/boto (new commits)
-```
-
-Pour mettre à jour ces dependances tierces, exécutez cette commande:
-
-```sh
-git submodule update --init --recursive
-```
-
-Si vous utilisez souvent cette commande, vous pouvez créer un alias dans votre fichier `~/.gitconfig`:
-
-```sh
-[alias]
-    su = submodule update --init --recursive
-```
