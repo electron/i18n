@@ -7,7 +7,7 @@ author:
 date: '2018-06-21'
 ---
 
-The Electron website has a new search engine that delivers instant results for API docs, tutorials, Electron-related npm packages, and more.
+Electron のウェブサイトに、APIドキュメント、チュートリアル、Electron 関連の npm パッケージなどを瞬時に検索できる新しい検索エンジンを導入しました。
 
 <figure>
   <a href="https://electronjs.org/?query=resize" style="display: block; text-align: center;">
@@ -17,17 +17,17 @@ The Electron website has a new search engine that delivers instant results for A
 
 ---
 
-Learning a new technology or framework like Electron can be intimidating. Once you get past the [quick-start](https://github.com/electron/electron-quick-start) phase, it can be difficult to learn best practices, find the right APIs, or discover the tools that will help you build the app of your dreams. We want the Electron website to be a better tool for finding the resources you need to build apps faster and more easily.
+Electron のような新しい技術やフレームワークを覚えるのは大変なことです。 [クイックスタート](https://github.com/electron/electron-quick-start) の段階を過ぎると、ベストプラクティスを学んだり、適切な API を見つけたり、夢のアプリを構築するのに役立つツールを発見したりするのが難しくなっていきます。 Electron のウェブサイトを、より早く、より簡単なアプリ構築のために必要なリソースを探せるより良いツールにしたいと考えています。
 
-Visit any page on [electronjs.org](https://electronjs.org) and you'll find the new search input at the top of the page.
+[electronjs.org](https://electronjs.org) の任意のページにアクセスすると、ページ上部に新しい検索欄が表示されます。
 
-## The Search Engine
+## 検索エンジン
 
-When we first set about adding search to the website, we rolled our own search engine using GraphQL as a backend. GraphQL was fun to work with and the search engine was performant, but we quickly realized that building a search engine is not a trivial task. Things like multi-word search and typo detection require a lot of work to get right. Rather than reinventing the wheel, we decided to use an existing search solution: [Algolia](https://algolia.com).
+ウェブサイトに検索を追加しようと思った当初は、バックエンドに GraphQL を使った独自の検索エンジンを試運転しました。 GraphQL の作業は楽しく、検索エンジンは高パフォーマンスでしたが、この構築は分かりきった作業ではないとすぐに気づきました。 複数語での検索やタイプミス検出のようなものは、正しく動くために多くの作業を必要とします。 車輪を再発明するのではなく、既存の検索ソリューション [アAlgolia](https://algolia.com) を使用することにしました。
 
-Algolia is a hosted search service that has quickly become the search engine of choice among popular open source projects like React, Vue, Bootstrap, Yarn, and [many others](https://community.algolia.com/docsearch/).
+Algolia は、React、Vue、Bootstrap、Yarn、[その他多数](https://community.algolia.com/docsearch/) の人気オープンソースプロジェクトの間で急速に選ばれる検索エンジンとなったホスト型検索サービスです。
 
-Here are some of the features that made Algolia a good fit for the Electron project:
+ここでは、Algolia が Electron プロジェクトに適していた機能をいくつか紹介します。
 
 - [InstantSearch.js](https://community.algolia.com/instantsearch.js) provides results as you type, usually in about 1ms.
 - [Typo tolerance](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) means you'll still get results even when you type [`widnow`].

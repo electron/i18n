@@ -1,5 +1,5 @@
 # MimeTypedBuffer オブジェクト
 
-* `mimeType` String (optional) - MIME type of the buffer.
-* `charset` String (optional) - Charset of the buffer.
+* `mimeType` String (任意) - バッファの MIME タイプ。
+* `charset` String (任意) - バッファの文字集合。
 * `data` Buffer - 実際の中身の Buffer.

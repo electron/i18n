@@ -13,7 +13,7 @@ Electron のコミュニティは急速に成長しており、協力な新し�
 
 このシリーズの第一回目の記事では、フリーランスのデザイナーと開発者で構成される世界中に分かれたチーム [Wulkano](https://wulkano.com/) が開発したオープンソースの画面録画アプリ [Kap](https://getkap.co/) を特集します。
 
-[![Kap Screencast](https://cloud.githubusercontent.com/assets/2289/22439463/8f1e509e-e6e4-11e6-9c32-3a9db63fc9a1.gif)](https://getkap.co/)
+[![Kap スクリーンキャスト](https://cloud.githubusercontent.com/assets/2289/22439463/8f1e509e-e6e4-11e6-9c32-3a9db63fc9a1.gif)](https://getkap.co/)
 
 ## Kap とは何ですか?
 
@@ -25,61 +25,61 @@ Electron のコミュニティは急速に成長しており、協力な新し�
 
 非常に良い質問ですね。画面録画機が無いからといったわけではありません! 私たちは、画面録画機の代替物が複雑すぎたり、高価すぎたり、限定的すぎたりしていると感じました。 常用としては、*ちょうどいい* と感じるものが何もなかったのです。 また、仕事に使うツールはオープンソースであったほうが素晴らしいとも思います。 [Kap の構築は、特に何もしなかったようなものです](https://medium.com/wulkano-friends/from-idea-to-product-and-beyond-a12850403c38)。 自分たちが使いたいと思うツールのイメージになるように、小さな改良を積み重ねてこだわりました。
 
-However, and maybe most importantly, Kap has become a place for us to leave our worries at the door and just have fun building something for ourselves and people like us. It's so important to create an environment where you get to just vent, try new thins and enjoy your craft. No requirements, no pressure, no expectations. Should designers and developers side project? Why, yes. Yes, they should.
+しかし、一番大切なのはきっと、私たちのように悩みを捨ててものづくりを楽しむ場所に Kap がなっていることでしょう。 ベンチャーのように、新しいことに挑戦して創作を楽しむ環境を作ることはとても重要です。 要件も、圧力も、期待もありません。 デザイナーとデベロッパはプロジェクトの味方であるべきでしょうか? もちろん、そうです。 そうあるべきでしょう。
 
-## Why did you choose to build Kap on Electron?
+## Electron で Kap を構築することにしたのはなぜですか?
 
-There were a number of reasons:
+いくつか理由がありました。
 
-* Web tech
-* Most of the team are web developers
-* We're invested in JavaScript
-* It opens the door for more people to contribute
-* Electron itself is open-source
-* The power and easily maintainable modularity of `node_modules`
-* Cross-platform possibilities
+* ウェブ技術
+* チームの殆どがウェブ開発者
+* JavaScript に投資している
+* コントリビュートの門戸を開いている
+* Electron 自体がオープンソース
+* `node_modules` のモジュール性により強力で保守が容易
+* クロスプラットフォーム化可能
 
-We think the future of apps are in the browser, but we're not quite there yet. Electron is an important step in the journey towards that future. It not only makes the apps themselves more accessible, but also the code they're built with. An interesting thought is imagining a future where the OS is a browser, and the tabs are essentially Electron apps.
+私たちはアプリの未来がブラウザにあると考えていますが、まだそこまでではありません。 Electron は、その未来に向けての大事な一歩です。 アプリ自体だけでなく、そのアプリを作るコードにもアクセスしやすくなります。 OS がブラウザ、タブは基本的に Electron アプリという面白そうな未来のアイデアも想像しています。
 
-Additionally, being primarily web developers, we're big fans of the isomorphic nature of JavaScript, in that you can run JS on the client, server, and now the desktop. With web tech (HTML, CSS and JS), many things are much simpler than native: Faster prototyping, less code, flexbox > auto-layout (macOS/iOS).
+さらに、主にウェブ開発者である私たちは、クライアント、サーバー、そして今ではデスクトップで JavaSscript を実行できるという点で JS の同型性が大好きです。 ウェブ技術 (HTML、CSS、JS) を使えば、プロトタイピングの高速化、コードの削減、フレックスボックス > 自動レイアウト (macOS/iOS) といった大抵のことがネイティブよりもはるかにシンプルになります。
 
-## What are some challenges you've faced while building Kap?
+## Kap 構築の際に直面した課題はありますか?
 
-Using the resources Electron has available to record the screen was the biggest challenge. They simply weren't performant enough to meet our requirements and would render the project a failure in our eyes. Though at no fault of Electron itself, there's still a gap between native development and building desktop apps with web tech.
+Electron から利用できるリソースで画面録画することが最大の課題でした。 それは私たちの要件を満たすだけの性能がなく、プロジェクトは失敗に終わったかに見えました。 Electron 自体に非はありませんが、ネイティブ開発とウェブ技術でのデスクトップアプリ構築にはまだ隔たりがあります。
 
-We spent a lot of time trying to work around the poor performance of the `getUserMedia` API, an issue originating in Chromium. One of our main goals when we set out to make Kap was to build the entire app with web tech. After trying everything we could to get it working (the minimum requirement being 30 FPS on a Retina screen), we eventually had to find another solution.
+私たちは `getUserMedia` API のパフォーマンス低下を避けるために多くの時間を費やしました。 Kap を作ろうとしたときの主な目標の一つが、ウェブ技術でアプリ全体を構築することでした。 それを動作させる (最低でも Retina スクリーンで 30 FPS にする) ためにできる限りのことを試した後、最終的には別の解決策を見つけることになりました。
 
-## I see some Swift code in the repo. What's that about?
+## レポジトリに Swift のコードがあるようです。 いったいどういうことでしょうか?
 
-Being forced to look for alternatives to `getUserMedia`, we started experimenting with `ffmpeg`. Besides being one of the best tools for audio and video conversion it has the functionality of recording the screen in almost any OS, and we were able to record crispy video meeting our minimum requirement of 30 FPS on a Retina screen. 問題? The performance was ":weary:", the CPU usage was going haywire. So we went back to the drawing board, discussed our options and realised that we had to make a compromise. That resulted in [Aperture](https://github.com/wulkano/aperture), our own screen recording library for macOS written in Swift.
+`getUserMedia` の代替品を探すことを余儀なくされ、私たちは `ffmpeg` で実験を始めました。 オーディオとビデオ変換の最高のツールであることに加えて、ほぼすべての OS で画面を記録する機能があります。そして Retina スクリーン上で 30 FPS という最低要件を満たすサクサクの映像を録画できました。 問題? パフォーマンスは ":weary:" で、CPU の使用率はぐちゃぐちゃでした。 そこで、私たちは振り出しに戻って選択肢を話し合い、妥協しなければならないと気付きました。 その結果、[Aperture](https://github.com/wulkano/aperture) という独自の macOS 用画面録画ライブラリが誕生しました。
 
 ## Electron はどういった領域で改善されるべきでしょうか?
 
-We all know that Electron apps can have a thing for using RAM, but again, that's really a Chromium thing. It's part of how it works and it really depends on what you're running, for example Kap and Hyper typically use less than 100MB of memory.
+Electron アプリが RAM を食うというのは知っていますが、これは Chromium の問題です。 これは動作の一部であり、実行対象に依存します。例えば、Kap や Hyper なら通常 100MB 以下のメモリしか使用しません。
 
-One of the biggest areas of improvement that we see is payload, particularly how Electron distributes Chromium. One idea would be to have a shared Electron core and make app installers check if it's already present on the system.
+私たちが関心のある最大の改善点の一つはペイロード、特に Electron が Chromium を頒布する手段です。 システムで共有の Electron コアがあり、それがシステム上に既に存在するかどうかをアプリのインストーラーにチェックさせるというアイデアを一つ考えています。
 
-Creating cross-platform Electron apps could be a better experience. Right now there are too many inconsistencies, platform-specific APIs, and missing features between platforms, making your codebase littered with if-else statements. For example, vibrancy is only supported on macOS, the auto-updater works differently on macOS and Windows, and is not even supported on Linux. Transparency is a hit or miss on Linux, usually miss.
+クロスプラットフォームの Electron アプリを作れば、より良い体験が得られるかもしれません。 現在は、不整合、プラットフォーム固有の API、プラットフォーム間の機能の欠落が多すぎて、コードベースが if-else 文だらけになってしまいます。 例えば、振動は macOS でしかサポートされておらず、自動アップデーターは macOS と Windows で動作が異なり Linux ではサポートされていません。 透過は Linux 上だとヒットするかしないかになり、通常はヒットしません。
 
-It should also be easier to call native system APIs. Electron comes with a very good set of APIs, but sometimes you need functionality it doesn't provide. Creating a native Node.js addon is an option, but it's painful to work with. Ideally Electron would ship with a good [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) API, like [`fastcall`](https://github.com/cmake-js/fastcall). This would have enabled us to write the Swift part in JavaScript instead.
+また、ネイティブシステムの API を簡単に呼び出せるようにするべきです。 Electron には非常に優れた API が用意されていますが、時には提供されていない機能が必要になることもあります。 ネイティブ Node.js アドオンを作るのも選択肢の一つですが、この作業は苦痛です。 理想的には、例えば [`fastcall`](https://github.com/cmake-js/fastcall) のような [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) API を搭載したものが Electron にはあるべきでしょう。 これにより、JavaScript で Swift の部分を代わりに書けるようになります。
 
 ## Electron の好きなところは何ですか?
 
-Our favorite thing is easily the fact that anyone with knowledge of creating for the web can build and contribute to multi-platform native experiences. Not to mention the ease and joy of developing on it, the excellent documentation and the thriving ecosystem.
+私たちのお気に入りは、ウェブ制作の知識があれば誰でもマルチプラットフォームのネイティブ作品を構築して貢献できるという点です。 優れたドキュメントと活気に満ちたエコシステム。そこで開発することの容易さと喜びは言うまでもありません。
 
-From a front-end perspective, building Kap felt no different than building a simple website using browser APIs. Electron does a really great job of making app development similar (basically identical) to web development. So simple in fact that there was no need for frameworks or similar to help us, just clean and modular JS and CSS.
+フロントエンドの観点からすると、Kap の構築はブラウザの API を使ったシンプルなウェブサイト構築と何ら変わらないように感じました。 Electron はアプリ開発をウェブ開発と似たような (基本的には同じような) ものにする、本当に素晴らしい仕事をしてくださっています。 実際には、フレームワークなどは必要なく、簡潔にモジュール化された JS と CSS だけで済むシンプルなものでしたが。
 
-We are also huge fans of the team building it, their dedication and support, and the active and friendly community they maintain. Hugs to all of you!
+私たちは、構築、コントリビュート、サポート、メンテナンスにおいて活発でフレンドリーなチームが集まるこのコミュニティも大好きです。 みなさんにハグを!
 
-## What's coming next in Kap?
+## Kap の今後の予定は何ですか?
 
-The next step for us is to review the app in preparation for our 2.0.0 milestone, which includes a React re-write in addition to support for plugins, allowing developers to extend the functionality of Kap! We invite everyone to follow to project and contribute on our [GitHub repository](https://github.com/wulkano/kap). We're listening and want to hear from as many of you as possible, [let us know how we can make Kap the best possible tool it can be for you](https://wulkano.typeform.com/to/BIvJKz)!
+次のステップは、2.0.0 のマイルストーンに向けてアプリをレビューすることです。これはプラグインのサポートに加えて React の書き換えが含まれており、開発者は Kap の機能を拡張できるようになります! プロジェクトに賛同し私たちの [GitHub リポジトリ](https://github.com/wulkano/kap) に貢献するすべての人を招待します。 私たちはできる限り多くの方のお声を耳にしたいと思っています。[Kap を少しでも最高のツールにするあなただけの方法を教えてください](https://wulkano.typeform.com/to/BIvJKz)!
 
-## What is Wulkano?
+## Wulkano とは何ですか?
 
-[Wulkano](https://wulkano.com) is a design studio and digital collective, a team of remote technologists who love working together on both client gigs and our own projects. We're a distributed but tight knit group of people from different places and backgrounds, sharing knowledge, ideas, experiences, but most importantly silly GIFs and memes, in our virtual office (which happens to be the Electron based Slack!).
+[Wulkano](https://wulkano.com) はデザインスタジオ兼デジタル共同体です。クライアントの仕事と自分たちのプロジェクトの両方で一緒に仕事をすることが大好きなリモート技師のチームです。 私たちはバラバラの土地や経歴ですが、緊密に結びついたグループです。知識、アイデア、経験をバーチャルオフィスで共有しています。でも大事なのは、くだらない GIF やミームの共有でしょうか (これは偶然にも Electron ベースの Slack で行われています!)。
 
 ## 他の開発者に役立つ Electron のノウハウはありますか?
 
-Take advantage of and get involved in the fantastic [community](https://discuss.atom.io/c/electron), check out [Awesome Electron](https://github.com/sindresorhus/awesome-electron), look at [examples](https://github.com/electron/electron-api-demos) and make use of the great [docs](https://electronjs.org/docs/)!
+[コミュニティ](https://discuss.atom.io/c/electron) に参加したり、[Awesome Electron](https://github.com/sindresorhus/awesome-electron) をチェックしたり、[サンプル](https://github.com/electron/electron-api-demos) を見たり、[ドキュメント](https://electronjs.org/docs/) を活用したりしましょう。
 

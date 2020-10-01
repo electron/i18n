@@ -1,6 +1,6 @@
 # ProcessMetric オブジェクト
 
-* `pid` Integer - プロセスのプロセス ID。
+* `pid` Integer - そのプロセスのプロセス ID。
 * `type` String - プロセスの種別。 以下の値のいずれかです。
   * `Browser`
   * `Tab`
@@ -11,7 +11,7 @@
   * `Pepper Plugin`
   * `Pepper Plugin Broker`
   * `Unknown`
-* `name` String (optional) - The name of the process. i.e. for plugins it might be Flash. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+* `name` String (任意) - そのプロセスの名前。 つまり、プラグインの場合はFlashになります。 ユーティリティの例: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`など
 * `cpu` [CPUUsage](cpu-usage.md) - プロセスの CPU 使用率。
 * `creationTime` Number - このプロセスの作成時間。 時間はエポックからのミリ秒数として表されます。 `pid` はプロセスの終了後に再利用される可能性があるため、`pid` と `creationTime` の両方を使用してプロセスを一意に識別すると良いでしょう。
 * `memory` [MemoryInfo](memory-info.md) - プロセスのメモリ情報。

@@ -29,7 +29,7 @@ app.on('window-all-closed', () => {
 
 * `launchInfo` unknown _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+Electronが一度、初期化処理を完了したときに発生します。 macOS では、通知センターから起動された場合、`launchInfo` はアプリケーションを開くのに使用された `NSUserNotification` の `userInfo` を保持しています。 また、`app.isReady()` を呼び出して、このイベントがすでに起動されているかどうかを確認し、`app.whenReady()` を呼び出して、Electronが初期化されたときに満たされる Promise を取得することもできます。
 
 ### イベント: 'window-all-closed'
 
@@ -105,13 +105,13 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 
 アプリケーションがアクティブになったときに発生します。 アプリケーションが最初に起動される、既に実行中のときにアプリケーションを再起動しようとする、アプリケーションの Dock やタスクバーのアイコンをクリックするなど、いろいろなアクションがこのイベントの引き金となり得ます。
 
-### Event: 'did-become-active' _macOS_
+### イベント: 'did-become-active' _macOS_
 
 戻り値:
 
 * `event` Event
 
-Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+macOS のアプリケーションがアクティブになったときに発生します。 `activate`イベントとの違い: `did-become-active` が発生するのはアプリがアクティブになる度に発生します。Dock アイコンがクリックしたり、アプリが再起動したときだけではありません。
 
 ### イベント: 'continue-activity' _macOS_
 
@@ -162,7 +162,7 @@ Emitted when mac application become active. Difference from `activate` event is 
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 * `userInfo` unknown - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
-[ハンドオフ][handoff] が別のデバイスでまさに継続されようとしているときに発生します。 If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
+[ハンドオフ][handoff] が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
 ### イベント: 'new-window-for-tab' _macOS_
 
@@ -297,7 +297,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 GPU 情報の更新がある場合に発生します。
 
-### Event: 'gpu-process-crashed' _Deprecated_
+### イベント: 'gpu-process-crashed' _非推奨_
 
 戻り値:
 
@@ -306,9 +306,9 @@ GPU 情報の更新がある場合に発生します。
 
 GPU プロセスがクラッシュしたり、強制終了されたりしたときに発生します。
 
-**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**非推奨:** このイベントは `child-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 それはいつも、クラッシュしたから、ではありません。 `killed` boolean をイベントに切り替えたときに `reason === 'killed'` をチェックすることに置き換えることができます。
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### イベント: 'renderer-process-crashed' _Deprecated_
 
 戻り値:
 
@@ -318,27 +318,27 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 
 `webContents` のレンダラープロセスがクラッシュ、または強制終了されたときに発行されます。
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 それはいつも、クラッシュしたから、ではありません。  `killed` boolean をイベントに切り替えたときに `reason === 'killed'` をチェックすることに置き換えることができます。
 
-#### Event: 'render-process-gone'
+#### イベント: 'render-process-gone'
 
 戻り値:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
-  * `reason` String - The reason the render process is gone.  取りうる値:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
+  * `reason` String - レンダリングプロセスがなくなった理由。  取りうる値:
+    * `clean-exit` - 終了コードが0でプロセスが終了した
+    * `abnormal-exit` - ゼロでない終了コードでプロセスを終了しました。
+    * `killed` - プロセスへSIGTERMシグナルが送信されたか、その他の方法で殺されました。
+    * `crashed` - プロセスがクラッシュした
+    * `oom` - プロセスがメモリ不足になった
+    * `launch-failure` - プロセスは決して正常に起動されていません
+    * `integrity-failure` - Windows コードの整合性チェックに失敗しました
 
-Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やまたは殺された場合、これは正常です。
 
-#### Event: 'child-process-gone'
+#### イベント: 'child-process-gone'
 
 戻り値:
 
@@ -352,18 +352,18 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
     * `Pepper Plugin`
     * `Pepper Plugin Broker`
     * `Unknown`
-  * `reason` String - The reason the child process is gone. 取りうる値:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
+  * `reason` String - 子プロセスがなくなった理由。 取りうる値:
+    * `clean-exit` - 終了コードが0でプロセスが終了した
+    * `abnormal-exit` - ゼロでない終了コードでプロセスを終了しました。
+    * `killed` - プロセスへSIGTERMシグナルが送信されたか、その他の方法で殺されました。
+    * `crashed` - プロセスがクラッシュした
+    * `oom` - プロセスがメモリ不足になった
+    * `launch-failure` - プロセスは決して正常に起動されていません
+    * `integrity-failure` - Windows コードの整合性チェックに失敗しました
   * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
   * `name` String (optional) - The name of the process. i.e. for plugins it might be Flash. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 
-Emitted when the child process unexpectedly disappears. This is normally because it was crashed or killed. It does not include renderer processes.
+子 processが予期せず消えたときに発生します。 プロセスがクラッシュした場合やまたは殺された場合、これは正常です。 It does not include renderer processes.
 
 ### イベント: 'accessibility-support-changed' _macOS_ _Windows_
 

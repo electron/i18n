@@ -7,5 +7,5 @@
 * `contentLengths` Number[] - コンテンツのバイト単位の総ファイルサイズ。
 * `price` Number - 現地通貨における製品の価格。
 * `formattedPrice` String - 製品の価格形式のロケール。
-* `currencyCode` String - 3 character code presenting a product's currency based on the ISO 4217 standard.
+* `currencyCode` String - ISO 4217規格に基づく製品の通貨単位を示す3文字コード。
 * `isDownloadable` Boolean - この製品が App Store でダウンロード可能かどうかを表す Boolean の値。 少なくとも 1 つのファイルが製品に関連付けられている場合は `true` です。

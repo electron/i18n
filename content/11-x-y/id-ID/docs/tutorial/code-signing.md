@@ -1,10 +1,10 @@
 # Penandatanganan Kode
 
-Code signing is a security technology that you use to certify that an app was created by you.
+Penandatanganan kode merupakan sebuah teknologi keamanan yang Anda bisa gunakan untuk menyatakan bahwa aplikasi tersebut telah dibuat oleh Anda.
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+Pada macOS, sistem dapat mendeteksi perubahan apa pun pada aplikasi, apapun perubahan yang dilakukan tersebut secara tidak sengaja atau dengan kode berbahaya.
 
-On Windows, the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low, will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+Pada Windows, sistem menetapkan tingkat kepercayaan ke sertifikat penandatanganan kode yang jika Anda tidak memiliki, atau jika tingkat kepercayaan Anda rendah, akan menyebabkan dialog keamanan muncul ketika pengguna mulai menggunakan aplikasi Anda.  Tingkat kepercayaan terbangun seiring dengan berjalannya waktu, jadi lebih baik untuk memulai penandatanganan kode sedini mungkin.
 
 While it is possible to distribute unsigned apps, it is not recommended. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
 

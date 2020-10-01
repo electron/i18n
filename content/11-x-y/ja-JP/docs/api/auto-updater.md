@@ -85,7 +85,7 @@ Windowsでは `releaseName` のみ利用可能です。
 * `options` Object
   * `url` String
   * `headers` Record&lt;String, String&gt; (任意) _macOS_ - HTTP リクエストのヘッダ。
-  * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.
+  * `serverType` String (任意) _macOS_ - `json`、`default` のいずれかです。詳細は [Squirrel.Mac][squirrel-mac] README を参照してください。
 
 `url` を設定して自動更新を初期化します。
 
