@@ -24,7 +24,7 @@ contextBridge.exposeInMainWorld(
 window.electron.doThing()
 ```
 
-## Bảng thuật ngữ
+## Dich
 
 ### Main World
 
