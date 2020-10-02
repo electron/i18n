@@ -11,7 +11,7 @@ Electron のウェブサイトに、APIドキュメント、チュートリア�
 
 <figure>
   <a href="https://electronjs.org/?query=resize" style="display: block; text-align: center;">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/41683719-417ca80a-7490-11e8-9a52-fb145f4251ba.png" alt="Electron Search Screenshot">
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/41683719-417ca80a-7490-11e8-9a52-fb145f4251ba.png" alt="Electron 検索のスクリーンショット">
   </a>
 </figure>
 
@@ -29,72 +29,72 @@ Algolia は、React、Vue、Bootstrap、Yarn、[その他多数](https://communi
 
 ここでは、Algolia が Electron プロジェクトに適していた機能をいくつか紹介します。
 
-- [InstantSearch.js](https://community.algolia.com/instantsearch.js) provides results as you type, usually in about 1ms.
-- [Typo tolerance](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) means you'll still get results even when you type [`widnow`].
-- [Advanced query syntax](https://www.algolia.com/doc/api-reference/api-parameters/advancedSyntax/) enables `"exact quoted matches"` and `-exclusion`.
-- [API clients](https://www.algolia.com/doc/api-client/javascript/getting-started/) are open source and with well-documented.
-- [Analytics](https://www.algolia.com/doc/guides/analytics/analytics-overview/) tell us what people are searching for most, as well as what they're searching for but not finding. This will give us valuable insight into how Electron's documentation can be improved.
-- Algolia is [free for open source projects](https://www.algolia.com/for-open-source).
+- [InstantSearch.js](https://community.algolia.com/instantsearch.js) はタイプして通常 1ms 以内に結果を提供します。
+- [タイプミス寛容性](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) により [`widnow`] と入力しても結果が得られます。
+- [高度なクエリ構文](https://www.algolia.com/doc/api-reference/api-parameters/advancedSyntax/) により `"引用符で囲まれた完全一致"` と `-除外` ができます。
+- [API クライアント](https://www.algolia.com/doc/api-client/javascript/getting-started/) はオープンソースで、十分にドキュメント化されています。
+- [分析](https://www.algolia.com/doc/guides/analytics/analytics-overview/) により頻繁に検索されるものや、検索しても見つけらないものがわかります。 これにより、Electron のドキュメントの改善策について、貴重な知見を得ることができます。
+- Algolia は [オープンソースプロジェクトのための無料](https://www.algolia.com/for-open-source) です。
 
-## API Docs
+## APIドキュメント
 
-Sometimes you know *what* you want to accomplish, but you don't know exactly *how* to do it. Electron has over 750 API methods, events, and properties. No human can easily remember all of them, but computers are good at this stuff. Using Electron's [JSON API docs](https://electronjs.org/blog/api-docs-json-schema), we indexed all of this data in Algolia, and now you can easily find the exact API you're looking for.
+時折、*何を達成したいか* 分かっていても、*どのように* それを行うかが正確に分からないことがあります。 Electron には 750 以上の API メソッド、イベント、プロパティがあります。 人間は簡単に全部覚えられませんが、コンピュータにとっては得意分野です。 Electron の [JSON API ドキュメント](https://electronjs.org/blog/api-docs-json-schema) を利用して、Algolia にあるすべてのデータをインデックス化し、探している APIを簡単に見つけられます。
 
-Trying to resize a window? Search for [`resize`] and jump straight to the method you need.
+ウインドウをサイズ変更してみたいのですか? [`resize`] で検索して、必要なメソッドに直接ジャンプしましょう。
 
 ## チュートリアル
 
-Electron has an ever-growing collection of tutorials to complement its API documentation. Now you can more easily find tutorials on a given topic, right alongside related API documentation.
+Electron では、API ドキュメントを補完するチュートリアルのコレクションが増え続けています。 これで、関連する API ドキュメントと一緒に、特定トピックのチュートリアルもより簡単に見つけられるようになりました。
 
-Looking for security best practices? Search for [`security`].
+セキュリティのベストプラクティスをお探しですか? [`security`] と検索しましょう。
 
-## npm Packages
+## npm パッケージ
 
-There are now over 700,000 packages in the npm registry and it's not always easy to find the one you need. To make it easier to discover these modules, we've created [`electron-npm-packages`], a collection of the 3400+ modules in the registry that are built specifically for use with Electron.
+npm レジストリには現在 70 万以上のパッケージがあり、必要なパッケージを見つけるのは簡単ではありません。 これらのモジュールをより簡単に探せるように、Electron 向けに特別に作られた 3400 以上のモジュールを集めた [`electron-npm-packages`] を作成しました。
 
-The folks at [Libraries.io](https://libraries.io) have created [SourceRank](https://docs.libraries.io/overview.html#sourcerank), a system for scoring software projects based on a combination of metrics like code, community, documentation, and usage. We created a [`sourceranks`] module that includes the score of every module in the npm registry, and we use these scores to sort the package results.
+[Libraries.io](https://libraries.io) の方々は、コード、コミュニティ、ドキュメント、使用状況などのメトリクスの組み合わせに基づいてソフトウェアプロジェクトをスコアリングするシステム、[SourceRank](https://docs.libraries.io/overview.html#sourcerank) を作成しています。 これらのスコアを使って、npm レジストリ内のすべてのモジュールのスコアを含む [`sourceranks`] モジュールを作成しパッケージの結果をソートしています。
 
-Want alternatives to Electron's built-in IPC modules? Search for [`is:package ipc`].
+Electron 内蔵の IPC モジュールの代替品をお探しですか? [`is:package ipc`] と検索しましょう。
 
 ## Electron アプリ
 
-It's [easy to index data with Algolia](https://github.com/electron/algolia-indices), so we added the existing apps list from [electron/apps](https://github.com/electron/apps).
+[Algolia でデータをインデックスするのが簡単](https://github.com/electron/algolia-indices) なので、[electron/apps](https://github.com/electron/apps) から既存のアプリリストを追加しました。
 
-Try a search for [`music`] or [`homebrew`].
+[`music`] や [`homebrew`] と検索してみてください。
 
-## Filtering Results
+## 結果のフィルタリング
 
-If you've used GitHub's [code search](https://github.com/search) before, you're probably aware of its colon-separated key-value filters like `extension:js` or `user:defunkt`. We think this filtering technique is pretty powerful, so we've added an `is:` keyword to Electron's search that lets you filter results to only show a single type:
+GitHub の [コード検索](https://github.com/search) を使ったことがある人なら、`extension:js` や `user:defunkt` のようなコロンで区切られたキーバリューフィルタが存在すると気づいているでしょう。 このフィルタリング技術は非常に強力なものであると考えており、Electron の検索に `is:` キーワードを追加しました。これにより、一種類の結果のみを表示するようにフィルタできます。
 
 - [`is:api thumbnail`]
 - [`is:tutorial security`]
 - [`is:package ipc`]
 - [`is:app graphql`]
 
-## Keyboard Navigation
+## キーボードナビゲーション
 
-People love keyboard shortcuts! The new search can be used without taking your fingers off the keyboard:
+キーボードショートカットはみんな大好き! キーボードから指を離さずに検索できるようになっています。
 
-- <kbd>/</kbd> focuses the search input
-- <kbd>esc</kbd> focuses the search input and clears it
-- <kbd>down</kbd> moves to the next result
-- <kbd>up</kbd> moves to the previous result, or the search input
-- <kbd>enter</kbd> opens a result
+- <kbd>/</kbd> 検索欄にフォーカス
+- <kbd>esc</kbd> 検索欄にフォーカスしてそれを消去
+- <kbd>down</kbd> 次の結果に移動
+- <kbd>up</kbd> 前の結果か検索欄に移動
+- <kbd>enter</kbd> 結果を開く
 
-We also open-sourced the [module](https://github.com/electron/search-with-your-keyboard/) that enables this keyboard interaction. It's designed for use with Algolia InstantSearch, but is generalized to enable compatibility with different search implementations.
+また、このキーボード操作を可能にする [モジュール](https://github.com/electron/search-with-your-keyboard/) もオープンソース化しました。 Algolia InstantSearch 用に設計されていますが、他の検索実装と互換になるように一般化してあります。
 
-## We want your feedback
+## フィードバック募集中
 
-If you encounter any issues with the new search tool, we want to hear about it!
+新しい検索ツールで何か問題が発生した場合は、それについてお聞かせください!
 
-The best way to submit your feedback is by filing an issue on GitHub in the appropriate repository:
+フィードバックを提出する最善の方法は、GitHub で適切なリポジトリに Issue を提出することです。
 
-- [electron/electronjs.org](https://github.com/electron/electronjs.org) is the Electron website. If you don't know where to file an issue, this your best bet.
-- [electron/algolia-indices](https://github.com/electron/algolia-indices) is where all the searchable Electron data is compiled.
-- [electron/search-with-your-keyboard](https://github.com/electron/search-with-your-keyboard) makes the search interface navigable by keyboard.
-- [algolia/instantsearch.js](https://github.com/algolia/instantsearch.js) is the browser-side client that enables find-as-you-type search.
-- [algolia/algoliasearch-client-javascript](https://github.com/algolia/algoliasearch-client-javascript) is the Node.js client for uploading data to Algolia's servers.
+- [electron/electronjs.org](https://github.com/electron/electronjs.org) は Electron のウェブサイトです。 どこに問題を提出すればよいかわからない場合は、これが最善の方法です。
+- [electron/algolia-indices](https://github.com/electron/algolia-indices) は検索可能な Electron データすべてをコンパイルしてあります。
+- [electron/search-with-your-keyboard](https://github.com/electron/search-with-your-keyboard) が検索インターフェイスをキーボードでナビゲーション可能にします。
+- [algolia/instantsearch.js](https://github.com/algolia/instantsearch.js) はタイプして検索を有効にするブラウザ側のクライアントです。
+- [algolia/algoliasearch-client-javascript](https://github.com/algolia/algoliasearch-client-javascript) はデータを Algolia のサーバーにアップロードする Node.js クライアントです。
 
 ## 謝辞
 
-Special thanks to [Emily Jordan](https://github.com/echjordan) and [Vanessa Yuen](https://github.com/vanessayuenn) for building these new search capabilities, to [Libraries.io](https://libraries.io) for providing [SourceRank](https://docs.libraries.io/overview.html#sourcerank) scores, and to the team at Algolia for helping us get started. 🍹
+これらの新しい検索機能を構築してくださった [Emily Jordan](https://github.com/echjordan) と [Vanessa Yuen](https://github.com/vanessayuenn)、[Libraries.io](https://libraries.io) のスコアを提供してくださった [SourceRank](https://docs.libraries.io/overview.html#sourcerank) 、そして私たちの活動を支援してくださった Algolia のチームに感謝します。 🍹

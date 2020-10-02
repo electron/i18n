@@ -1,4 +1,4 @@
-# Bảng thuật ngữ
+# Dich
 
 Trang này định nghĩa một số thuật ngữ thường được sử dụng trong Electron.
 

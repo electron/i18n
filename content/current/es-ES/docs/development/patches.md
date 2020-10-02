@@ -75,7 +75,7 @@ $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 
 Note that `git-import-patches` will mark the commit that was `HEAD` when it was run as `refs/patches/upstream-head`. This lets you keep track of which commits are from Electron patches (those that come after `refs/patches/upstream-head`) and which commits are in upstream (those before `refs/patches/upstream-head`).
 
-#### Resolving conflicts
+#### Resolviendo conflictos
 When updating an upstream dependency, patches may fail to apply cleanly. Often, the conflict can be resolved automatically by git with a 3-way merge. You can instruct `git-import-patches` to use the 3-way merge algorithm by passing the `-3` argument:
 
 ```bash
