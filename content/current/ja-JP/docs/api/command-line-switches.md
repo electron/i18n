@@ -10,11 +10,11 @@ app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.whenReady().then(() => {
-  // Your code here
+  // コードをここに
 })
 ```
 
-## Electron CLI Flags
+## Electron CLI フラグ
 
 ### --auth-server-whitelist=`url`
 
@@ -168,35 +168,35 @@ Pepper Flashプラグインの `version` を設定します。
 
 このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
 
-## Node.js Flags
+## Node.js フラグ
 
-Electron supports some of the [CLI flags](https://nodejs.org/api/cli.html) supported by Node.js.
+Electron は Node.js でサポートされている [CLI フラグ](https://nodejs.org/api/cli.html) の一部をサポートしています。
 
-**Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
+**注:** `ELECTRON_RUN_AS_NODE` で実行していないときに未サポートのコマンドラインスイッチを Electron に渡しても、効果はありません。
 
 ### --inspect-brk[=[host:]port]
 
-Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
+host:port でインスペクタを起動し、ユーザスクリプトの開始時にブレークします。 host:port の省略値は 127.0.0.1:9229 です。
 
-Aliased to `--debug-brk=[host:]port`.
+`--debug-brk=[host:]port` のエイリアスです。
 
 ### --inspect-port=[host:]port
 
-Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
+インスペクタが起動したときに使用する `host:port` を設定します。 SIGUSR1 シグナルを送信してインスペクタを起動するときに便利です。 host の省略値は `127.0.0.1` です。
 
-Aliased to `--debug-port=[host:]port`.
+`--debug-port=[host:]port` のエイリアスです。
 
 ### --inspect[=[host:]port]
 
-Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
+`host:port` でインスペクタを有効にします。 省略値は `127.0.0.1:9229` です。
 
-V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
+V8 インスペクタの統合により、Chrome デベロッパー ツールや IDE などのツールで Electron インスタンスのデバッグやプロファイルが可能になりました。 ツールは TCP ポートを介して Electron インスタンスにアタッチし、[Chrome デベロッパー ツールプロトコル](https://chromedevtools.github.io/devtools-protocol/) を使用して通信します。
 
-See the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for more details.
+詳細は [メインプロセスのデバッグ](../tutorial/debugging-main-process.md) ガイドを参照してください。
 
-Aliased to `--debug[=[host:]port`.
+`--debug[=[host:]port]` のエイリアスです。
 
 ### --inspect-publish-uid=stderr,http
-Specify ways of the inspector web socket url exposure.
+インスペクタの WebSocket URL の公開方法を指定します。
 
-By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.
+デフォルトでは、インスペクタの WebSocket URL は標準エラーで、http://host:port/json/list の /json/list エンドポイント下にあります。

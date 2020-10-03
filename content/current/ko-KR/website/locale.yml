@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'>빠르게 시작하기 문서</a>를 읽고 앱 만들기를 <a href='/docs/tutorial/first-app'><b>시작해 보세요</b></a>."
     updates: "트위터에서 <a href='https://twitter.com/electronjs'>@electronjs</a>를 팔로우하고 <a href='/blog'>블로그 피드</a>를 구독해서 <a href='https://twitter.com/electronjs'><b>최근 소식을 확인하세요</b></a>."
     localized_docs: "<a href='/languages'>언어 페이지</a> 설정을 통해 <a href='/languages'><b>모국어로 번역된 문서를 읽어보세요</b></a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>도움을 받거나 피드백을 주시려면</b></a> <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>에 참여하거나, <a href='https://discuss.atom.io/c/electron'>토론</a>에 게시하거나, 혹은 <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>에 방문해보세요."
+    help: "<b>Get help and feedback</b> by joining the <a href='https://discord.gg/electron'>Discord server</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>보안 이슈 제보</b></a>는 <a href='mailto:security@electronjs.org'>security@electronjs.org</a>로 해주세요."
     bugs: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>버그를 알려</b></a>주세요."
     feature_requests: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>기능을 요청</b></a>해보세요."

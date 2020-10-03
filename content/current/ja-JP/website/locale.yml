@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>はじめる</b></a>: <a href='/docs/tutorial/first-app'>クイックスタートガイド</a>アプリを読みながら、はじめてのElectronアプリを開発することができます。"
     updates: "<a href='https://twitter.com/electronjs'><b>最新情報を入手</b></a>: Twitter で<a href='https://twitter.com/electronjs'>@electronjs</a> \n をフォローしたり、<a href='/blog'>ブログのフィード</a>をご購読ください。"
     localized_docs: "<a href='/languages'><b>翻訳されたドキュメント</b></a>: <a href='/languages'>言語ページ</a>からアクセスできます。"
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>ヘルプとフィードバック</b></a> を得るには <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a> に参加したり、<a href='https://discuss.atom.io/c/electron'>Discuss</a> に投稿したり、<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a> を訪れたりしましょう。"
+    help: "<a href='https://discord.gg/electron'>Discord サーバー</a>、<a href='https://discuss.atom.io/c/electron'>Discuss</a>、<a href='https://stackoverflow.com/questions/tagged/electron'>スタック・オーバーフロー</a> などで <b>ヘルプとフィードバック</b> を受けられます。"
     security: "<a href='mailto:security@electronjs.org'><b>セキュリティの問題を報告する</b></a>: <a href='mailto:security@electronjs.org'>security@electronjs.org</a> までメールでお知らせください。"
     bugs: "<a href='https://github.com/electron/electron/issues'><b>バグの報告</b></a>: <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>機能の要望</b></a>: GitHub の <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"

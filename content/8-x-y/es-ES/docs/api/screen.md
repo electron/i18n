@@ -4,7 +4,7 @@
 
 Proceso: [principal](../glossary.md#main-process)</0>
 
-This module cannot be used until the `ready` event of the `app` module is emitted.
+Este módulo no puede ser utilizado hasta que el evento `ready` del módulo `app` es emitido.
 
 `screen` es un [EventEmitter][event-emitter].
 
@@ -114,7 +114,7 @@ Devuelve [`Display`](structures/display.md) - La muestra que es más cercana int
 
 Devuelve [`Point`](structures/point.md)
 
-Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+Convierte un punto físico en la pantalla a un punto DIP en la pantalla. La escala DPI es ejecutada relativa a la visualización que contiene el punto físico.
 
 ### `screen.dipToScreenPoint(point)` _Windows_
 
@@ -122,7 +122,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 Devuelve [`Point`](structures/point.md)
 
-Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+Convierte un punto DIP en la pantalla a un punto físico en la pantalla. La escala DPI es ejecutada relativa a la visualización que contiene el punto DIP.
 
 ### `screen.screenToDipRect(window, rect)` _Windows_
 

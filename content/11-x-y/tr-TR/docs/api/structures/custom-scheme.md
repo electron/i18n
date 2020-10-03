@@ -8,4 +8,4 @@
   * `allowServiceWorkers` Boolean (opsiyonel) - Varsayılan false.
   * `supportFetchAPI` Boolean (opsiyonel) - Varsayılan false.
   * `corsEnabled` Boolean (opsiyonel) - Varsayılan false.
-  * `stream` Boolean (optional) - Default false.
+  * `stream` Boolean (opsiyonel) - Varsayılan false.

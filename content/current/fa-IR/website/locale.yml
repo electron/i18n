@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>شروع کار با الکترون</b></a> با خواندن <a href='/docs/tutorial/first-app'>ساختن یک برنامه با خواندن</a> راهنمای شروع کار با الکترون."
     updates: "<a href='https://twitter.com/electronjs'>با دنبال کردن</a><a href='https://twitter.com/electronjs'>@electronjs</a> در توییتر و عضویت در <a href='/blog'>بلاگ</a> <b> به روز باشید</b>."
     localized_docs: "<a href='/languages'><b>مستندات را با زبان اصلی </b></a> در <a href='/languages'>صفحه زبان ها</a>بخوانید."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<b>Get help and feedback</b> by joining the <a href='https://discord.gg/electron'>Discord server</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'>گزارش مسائل امنیتی<b>با ایمیل کردن به</b></a><a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."

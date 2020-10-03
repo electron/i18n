@@ -333,7 +333,7 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
     * `killed` - プロセスへSIGTERMシグナルが送信されたか、その他の方法で殺されました。
     * `crashed` - プロセスがクラッシュした
     * `oom` - プロセスがメモリ不足になった
-    * `launch-failure` - プロセスは決して正常に起動されていません
+    * `launch-failed` - プロセスが正常に起動されなかった
     * `integrity-failure` - Windows コードの整合性チェックに失敗しました
 
 renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やまたは殺された場合、これは正常です。
@@ -358,12 +358,12 @@ renderer processが予期せず消えたときに発生します。  プロセ�
     * `killed` - プロセスへSIGTERMシグナルが送信されたか、その他の方法で殺されました。
     * `crashed` - プロセスがクラッシュした
     * `oom` - プロセスがメモリ不足になった
-    * `launch-failure` - プロセスは決して正常に起動されていません
+    * `launch-failed` - プロセスが正常に起動されなかった
     * `integrity-failure` - Windows コードの整合性チェックに失敗しました
-  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
-  * `name` String (optional) - The name of the process. i.e. for plugins it might be Flash. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+  * `exitCode` Number - プロセスの終了コード (例: posix の場合は waitpid からのステータス、Windowsの場合は GetExitCodeProcess) 。
+  * `name` String (任意) - そのプロセスの名前。 つまり、プラグインの場合はFlashになります。 ユーティリティの例: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`など
 
-子 processが予期せず消えたときに発生します。 プロセスがクラッシュした場合やまたは殺された場合、これは正常です。 It does not include renderer processes.
+子 processが予期せず消えたときに発生します。 プロセスがクラッシュした場合やまたは殺された場合、これは正常です。 レンダラープロセスを含みません。
 
 ### イベント: 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -402,7 +402,7 @@ app.on('session-created', (session) => {
 
 `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
 
-**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
+**注意:** 2 番目のインスタンスが最初のインスタンスとは別のユーザーによって起動された場合、 `argv` 配列には引数が含まれません。
 
 このイベントは `app` の `ready` イベントが発生した後で実行されることが保証されます。
 
@@ -510,7 +510,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-戻り値 `Boolean` - Electronの初期化が完了している場合、`true`、そうでない場合、`false`。 See also `app.whenReady()`.
+戻り値 `Boolean` - Electronの初期化が完了している場合、`true`、そうでない場合、`false`。 `app.whenReady()` も参照してください。
 
 ### `app.whenReady()`
 
@@ -519,11 +519,11 @@ Returns `Promise<void>` - Electron が初期化されるときに実行される
 ### `app.focus([options])`
 
 * `options` Object (任意)
-  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
+  * `steal` Boolean _macOS_ - 他のアプリが現在アクティブな場合でも、受信者をアクティブなアプリにします。
 
 Linux では、最初の表示ウィンドウにフォーカスします。 macOS では、アプリケーションがアクティブになります。 Windows では、アプリケーションの最初のウィンドウにフォーカスします。
 
-You should seek to use the `steal` option as sparingly as possible.
+できるだけ慎重に `steal` オプションを使用してください。
 
 ### `app.hide()` _macOS_
 
@@ -564,10 +564,10 @@ You should seek to use the `steal` option as sparingly as possible.
   * `music` ユーザのミュージックのディレクトリ。
   * `pictures` ユーザのピクチャのディレクトリ。
   * `videos` ユーザのビデオのディレクトリ。
-  * `recent` Directory for the user's recent files (Windows only).
+  * `recent` ユーザーの最近のファイルのめのディレクトリ(Windows のみ)。
   * `logs` アプリのログフォルダのディレクトリ。
   * `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
-  * `crashDumps` Directory where crash dumps are stored.
+  * `crashDumps` クラッシュダンプが格納されているディレクトリ。
 
 戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。 失敗した場合、`Error` が送出されます。
 
@@ -701,9 +701,9 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 * `url` String - 確認するプロトコル名が付いた URL。 類似の他メソッドとは異なり、少なくとも `://` までを含む URL 全体を受け付けます (例: `https://`)。
 
 戻り値 `Promise<Object>` - 以下を含むオブジェクトで実行されます。
-  * `icon` NativeImage - the display icon of the app handling the protocol.
-  * `path` String  - installation path of the app handling the protocol.
-  * `name` String - display name of the app handling the protocol.
+  * `icon` NativeImage - プロトコルを処理するアプリの表示アイコン。
+  * `path` String - プロトコルを扱うアプリのインストールパス。
+  * `name` String - プロトコルを扱うアプリの表示名。
 
 This method returns a promise that contains the application name, icon and path of the default handler for the protocol (aka URI scheme) of a URL.
 
@@ -885,14 +885,14 @@ if (!gotTheLock) {
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
-* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+* `policy` String - 'regular', 'accessory', 'formited' のいずれか。
 
-Sets the activation policy for a given app.
+アプリのアクティベーションポリシーを設定します。
 
-Activation policy types:
-* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
-* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
-* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+アクティベーションポリシーの種類:
+* 'regular' - アプリケーションはDockに表示される通常のアプリで、ユーザーインターフェイスを持っている可能性があります。
+* 'accessory' - このアプリケーションはドックに表示されませんし、メニューバーも持ちません。プログラムまたはウィンドウの1つをクリックすることでアクティベートできます。
+* 'prohibited' - アプリケーションはドックに表示できないし、ウィンドウを作成できないし、アクティベートできません。
 
 ### `app.importCertificate(options, callback)` _Linux_
 
@@ -912,7 +912,7 @@ Activation policy types:
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-既定では、GPU プロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで Chromium は 3D API (例えばWebGL) を無効にします。 This function disables that behavior.
+既定では、GPU プロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで Chromium は 3D API (例えばWebGL) を無効にします。 この関数はこの振る舞いを無効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
@@ -999,12 +999,12 @@ macOS では Dock アイコンに表示されます。 Linux では Unity ラン
 * `wasOpenedAtLogin` Boolean _macOS_ - アプリがログイン時に自動的に開かれた場合 `true` です。 この設定は [MAS ビルド][mas-builds] では利用できません。
 * `wasOpenedAsHidden` Boolean _macOS_ - アプリが非表示のログイン項目として開かれていた場合 `true` です。 これは、アプリが起動時に何もウインドウを開いてはいけないことを示します。 この設定は [MAS ビルド][mas-builds] では利用できません。
 * `restoreState` Boolean _macOS_ - 以前のセッションから状態を復元する必要があるログイン項目としてアプリを開いた場合 `true` です。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は [MAS ビルド][mas-builds] では利用できません。
-* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
+* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` アプリはログイン時に開くように設定されており、その実行キーが無効化されていない場合。 This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
 * `launchItems` Object[] _Windows_
-  * `name` String _Windows_ - name value of a registry entry.
-  * `path` String _Windows_ - The executable to an app that corresponds to a registry entry.
-  * `args` String[] _Windows_ - the command-line arguments to pass to the executable.
-  * `scope` String _Windows_ - one of `user` or `machine`. Indicates whether the registry entry is under `HKEY_CURRENT USER` or `HKEY_LOCAL_MACHINE`.
+  * `name` String _Windows_ - レジストリエントリの名前の値。
+  * `path` String _Windows_ - レジストリエントリに対応するアプリの実行可能ファイル。
+  * `args` String[] (任意) _Windows_ - 実行ファイルに渡すコマンドライン引数。
+  * `scope` String _Windows_ - `user` または `machine` のどちらか。 レジストリエントリが `HKEY_CURRENT USER` または `HKEY_LOCAL_MACHINE` の下にあるかどうかを示します。
   * `enabled` Boolean _Windows_ - `true` if the app registry key is startup approved and therefore shows as `enabled` in Task Manager and Windows settings.
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
@@ -1064,7 +1064,7 @@ app.setLoginItemSettings({
   * `website` String (任意) _Linux_ - アプリのウェブサイト。
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
 
-Aboutパネルのオプションを設定します。 This will override the values defined in the app's `.plist` file on macOS. 詳細については、[Apple社のドキュメント][about-panel-options] を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
+Aboutパネルのオプションを設定します。 macOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント][about-panel-options] を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
 `credits` を設定していなくてもアプリに表示したい場合、AppKit は NSBundle の main クラスメソッドから返されたバンドル内で、"Credits.html"、"Credits.rtf"、"Credits.rtfd" の順番でファイルを探します。 最初に見つかったファイルが使用されます。見つからない場合、その情報の部分は空白のままです。 詳細は Apple の [ドキュメント](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) を参照してください。
 
@@ -1138,21 +1138,21 @@ app.moveToApplicationsFolder({
 
 ### `app.isSecureKeyboardEntryEnabled()` _macOS_
 
-Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+戻り値 `Boolean` - `キーボード入力のセキュリティを保護` が有効になっているかどうか。
 
-By default this API will return `false`.
+この API は既定で `false` を返します。
 
 ### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
 
-* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+* `enabled` Boolean - `キーボード入力のセキュリティを保護` を有効にするかどうか
 
-Set the `Secure Keyboard Entry` is enabled in your application.
+アプリケーションの `キーボード入力のセキュリティを保護` の有効化を設定します。
 
-By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+この API を利用すると、パスワードなどの重要な情報や機密情報を他のプロセスの傍受から防げます。
 
-See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+詳しくは [Apple のドキュメント](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) を参照してください。
 
-**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+**注意:** `キーボード入力のセキュリティを保護` は必要なときにのみ有効にし、不要なときには無効にしてください。
 
 ## プロパティ
 
@@ -1178,7 +1178,7 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 
 **注:** Unity ランチャーで動作させるには `.desktop` ファイルの存在が必要です。詳細は [デスクトップ環境への統合][unity-requirement] をお読みください。
 
-**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
+**注意:** macOS でこのプロパティを有効にするには、アプリケーションに通知を表示する権限があるかどうか確認する必要があります。
 
 ### `app.commandLine` _読み出し専用_
 
@@ -1186,7 +1186,7 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 
 ### `app.dock` _macOS_ _読み出し専用_
 
-A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
+[`Dock`](./dock.md) `| undefined` 型のオブジェクトです。macOS のユーザーの Dock 内のアプリアイコンにおけるアクションを実行できます。
 
 ### `app.isPackaged` _読み出し専用_
 
@@ -1206,7 +1206,7 @@ A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on
 
 ### `app.allowRendererProcessReuse`
 
-この `Boolean` が `true` のとき、ナビゲーションごとにレンダラープロセスが確実に再起動されるように Electron が設定している、そのオーバーライドを無効にします。  The current default value for this property is `true`.
+この `Boolean` が `true` のとき、ナビゲーションごとにレンダラープロセスが確実に再起動されるように Electron が設定している、そのオーバーライドを無効にします。  このプロパティの現在の既定値は `true` です。
 
 これらのオーバーライドがデフォルトで無効になることを意図しているので、将来的にはこのプロパティは削除される予定です。  このプロパティはレンダラープロセス内で使用できるネイティブモジュールに影響します。  Electron がレンダラープロセスを再起動して、レンダラープロセスでネイティブモジュールを使用する方針についての詳細は、この [Tacking Issue](https://github.com/electron/electron/issues/18397) をご覧ください。
 

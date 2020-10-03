@@ -309,24 +309,24 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 レンダラープロセスがクラッシュしたり、強制終了されたりしたときに発行されます。
 
-**非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 それはいつも、クラッシュしたから、ではありません。  `killed` boolean をイベントに切り替えたときに `reason === 'killed'` をチェックすることに置き換えることができます。
 
-#### Event: 'render-process-gone'
+#### イベント: 'render-process-gone'
 
 戻り値:
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  取りうる値:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
+  * `reason` String - レンダリングプロセスがなくなった理由。  取りうる値:
+    * `clean-exit` - 終了コードが0でプロセスが終了した
+    * `abnormal-exit` - ゼロでない終了コードでプロセスを終了しました。
+    * `killed` - プロセスへSIGTERMシグナルが送信されたか、その他の方法で殺されました。
+    * `crashed` - プロセスがクラッシュした
+    * `oom` - プロセスがメモリ不足になった
+    * `launch-failed` - プロセスが正常に起動されなかった
+    * `integrity-failure` - Windows コードの整合性チェックに失敗しました
 
-renderer processが予期せず消えたときに発生します。  This is normally because it was crashed or killed.
+renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やまたは殺された場合、これは正常です。
 
 #### イベント: 'unresponsive'
 

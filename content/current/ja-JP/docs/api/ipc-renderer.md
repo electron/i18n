@@ -49,15 +49,15 @@
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してメインプロセスに非同期メッセージを送信します。 Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`window.postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+引数と共に、`channel` を介してメインプロセスに非同期メッセージを送信します。 引数は [`window/postMessage`][] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
 
 メインプロセスは [`ipcMain`](ipc-main.md) モジュールで `channel` を聴いてそれを処理します。
 
-If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
+[`MessagePort`][] をメインプロセスに転送する必要がある場合は、[`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer) を使用します。
 
-If you want to receive a single response from the main process, like the result of a method call, consider using [`ipcRenderer.invoke`](#ipcrendererinvokechannel-args).
+メソッド呼び出しの結果のようにメインプロセスから応答を一つだけ受け取りたい場合は、[`ipcRenderer.invoke`](#ipcrendererinvokechannel-args) の使用を検討してください。
 
 ### `ipcRenderer.invoke(channel, ...args)`
 
@@ -66,7 +66,7 @@ If you want to receive a single response from the main process, like the result 
 
 戻り値 `Promise<any>` - メインプロセスからの応答で解決します。
 
-`channel` を介して非同期でメインプロセスにメッセージを送信し、結果を待ちます。 Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`window.postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+`channel` を介して非同期でメインプロセスにメッセージを送信し、結果を待ちます。 引数は [`window/postMessage`][] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
 
@@ -86,9 +86,9 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 })
 ```
 
-If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
+[`MessagePort`][] をメインプロセスに転送する必要がある場合は、[`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer) を使用します。
 
-If you do not need a respons to the message, consider using [`ipcRenderer.send`](#ipcrenderersendchannel-args).
+メッセージの応答が必要ない場合は、[`ipcRenderer.send`](#ipcrenderersendchannel-args) の使用を検討してください。
 
 ### `ipcRenderer.sendSync(channel, ...args)`
 
@@ -97,7 +97,7 @@ If you do not need a respons to the message, consider using [`ipcRenderer.send`]
 
 戻り値 `any` - [`ipcMain`](ipc-main.md) ハンドラから返された値。
 
-`channel` を介して同期でメインプロセスにメッセージを送信し、結果を待ちます。 Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`window.postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+`channel` を介して同期でメインプロセスにメッセージを送信し、結果を待ちます。 引数は [`window/postMessage`][] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
 
@@ -109,9 +109,9 @@ If you do not need a respons to the message, consider using [`ipcRenderer.send`]
 
 * `channel` String
 * `message` any
-* `transfer` MessagePort[] (optional)
+* `transfer` MessagePort[] (任意)
 
-Send a message to the main process, optionally transferring ownership of zero or more [`MessagePort`][] objects.
+メインプロセスにメッセージを送信し、任意でゼロ個以上の [`MessagePort`][] オブジェクトの所有権を転送します。
 
 The transferred `MessagePort` objects will be available in the main process as [`MessagePortMain`](message-port-main.md) objects by accessing the `ports` property of the emitted event.
 

@@ -1,13 +1,13 @@
 # PrinterInfo オブジェクト
 
-* `name` String - the name of the printer as understood by the OS.
-* `displayName` String - the name of the printer as shown in Print Preview.
-* `description` String - a longer description of the printer's type.
-* `status` Number - the current status of the printer.
-* `isDefault` Boolean - whether or not a given printer is set as the default printer on the OS.
-* `options` Object - an object containing a variable number of platform-specific printer information.
+* `name` String - OS が把握したプリンタ名。
+* `displayName` String - 印刷プレビューに表示されるプリンタ名。
+* `description` String - プリンタ種別の長い説明。
+* `status` Number - このプリンタの現在の状態。
+* `isDefault` Boolean - このプリンタが OS のデフォルトプリンタかどうか。
+* `options` Object - プラットフォーム固有のプリンタ情報の数値をいくつか含んだオブジェクト。
 
-The number represented by `status` means different things on different platforms: on Windows it's potential values can be found [here](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2), and on Linux and macOS they can be found [here](https://www.cups.org/doc/cupspm.html).
+`status` で表される数値は、プラットフォームごとに異なる意味を持ちます。Windows での値の意味は [こちら](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2) を参照してください。Linux や macOS は [こちら](https://www.cups.org/doc/cupspm.html) を参照してください。
 
 ## サンプル
 
