@@ -95,5 +95,5 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
 * **tools** - Helper scripts used by GN files.
   * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - Source code for some third party dependencies.
+* **vendor** - Kod źródłowy dla niektórych zależności od firm trzecich.
 

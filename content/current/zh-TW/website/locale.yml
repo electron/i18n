@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>開始使用</b></a> Electron 建立 <a href='/docs/tutorial/first-app'>Quick Start 快速入門導引</a> 應用程式。"
     updates: "追蹤 Twitter 上的 <a href='https://twitter.com/electronjs'>@electronjs</a> 並訂閱 <a href='/blog'>Blog 摘要</a>以便<a href='https://twitter.com/electronjs'><b>了解最新消息</b></a>。"
     localized_docs: "拜訪 <a href='/languages'>語言頁</a>，<a href='/languages'><b>用你的母語閱讀文件</b></a>。"
-    help: "加入 <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>，在 <a href='https://discuss.atom.io/c/electron'>Discuss</a> 貼文或是拜訪 <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a> 可以<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>得到幫忙與回饋</b></a>。"
+    help: "<b>Get help and feedback</b> by joining the <a href='https://discord.gg/electron'>Discord server</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>將資安問題回報到</b></a>電子郵件信箱 <a href='mailto:security@electronjs.org'>security@electronjs.org</a>。"
     bugs: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 以<a href='https://github.com/electron/electron/issues'><b>回報 bug</b></a>。"
     feature_requests: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 來<a href='https://github.com/electron/electron/issues'><b>請求新增功能</b></a>。"

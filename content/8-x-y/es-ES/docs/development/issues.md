@@ -1,12 +1,12 @@
 # Problemas en Electron
 
-* [How to Contribute to Issues](#how-to-contribute-to-issues)
+* [Cómo contribuir mediante los Issues](#how-to-contribute-to-issues)
 * [Pedir ayuda general](#asking-for-general-help)
 * [Presentar un informe de error](#submitting-a-bug-report)
 * [Seguimiento de un Informe de Error](#triaging-a-bug-report)
 * [Resolviendo un informe de error](#resolving-a-bug-report)
 
-## How to Contribute to Issues
+## Cómo contribuir mediante los Issues
 
 Para cualquier problema, existen fundamentalmente tres maneras en las que un individuo puede contribuir:
 
@@ -58,7 +58,7 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 
 Si cree que ha encontrado un fallo en Electron, por favor rellene este formulario lo mejor posible.
 
-Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. It is easier to fix a bug if it can be reproduced.
+Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. Es más fácil arreglar un fallo que puede ser reproducido.
 
 Véase [Como crear un Mínimo, Completo y Verificable ejemplo](https://stackoverflow.com/help/mcve).
 
@@ -68,7 +68,7 @@ Es común que los problemas abiertos se acompañen con un debate. Algunos contri
 
 Respuestas bruscas que no proveen contexto adiciona o detalles de apoyo, no son útiles o profesionales. Para muchos, tales respuestas son molestas y dañinas.
 
-Los contribuyentes están animados a resolver problemas de manera colaborativa y ayudarse mutuamente a progresar. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. Al hacerlo, podemos a menudo alcanzar la solución correcta de manera rápida.
+Los contribuyentes están animados a resolver problemas de manera colaborativa y ayudarse mutuamente a progresar. Si encuentras un fallo que crees que es inválido o que contiene información errónea, explica *por qué* crees eso añadiendo contexto adicional y estando dispuesto a convencerse de que puedes estar equivocado. Al hacerlo, podemos a menudo alcanzar la solución correcta de manera rápida.
 
 ## Resolviendo un informe de error
 

@@ -57,7 +57,7 @@
 
 If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
 
-If you want to receive a single response from the main process, like the result of a method call, consider using [`ipcRenderer.invoke`](#ipcrendererinvokechannel-args).
+メソッド呼び出しの結果のようにメインプロセスから応答を一つだけ受け取りたい場合は、[`ipcRenderer.invoke`](#ipcrendererinvokechannel-args) の使用を検討してください。
 
 ### `ipcRenderer.invoke(channel, ...args)`
 
@@ -109,7 +109,7 @@ If you do not need a response to the message, consider using [`ipcRenderer.send`
 
 * `channel` String
 * `message` any
-* `transfer` MessagePort[] (optional)
+* `transfer` MessagePort[] (任意)
 
 Send a message to the main process, optionally transferring ownership of zero or more [`MessagePort`][] objects.
 

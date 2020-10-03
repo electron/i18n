@@ -51,13 +51,13 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 
 ### `GOOGLE_API_KEY`
 
-Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
+Electron での地理位置情報サポートには、Google Cloud Platform の地理位置情報ウェブサービスの利用が必要です。 この機能を有効にするには、[Google API キー](https://developers.google.com/maps/documentation/geolocation/get-api-key) を取得し、ジオロケーション要求を行うブラウザウィンドウを開く前に、以下のコードをメインプロセスファイルに配置してください。
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+デフォルトでは、新しく生成された Google API キーではジオロケーションリクエストを行えない場合があります。 プロジェクトで地理位置情報ウェブサービスを有効にするには、[API ライブラリ](https://console.cloud.google.com/apis/library) から有効にしてください。
 
 N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 

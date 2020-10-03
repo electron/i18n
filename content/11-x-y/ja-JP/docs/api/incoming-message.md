@@ -46,13 +46,13 @@ HTTPステータスメッセージを表す `String`。
 
 #### `response.headers`
 
-A `Record<string, string | string[]>` representing the HTTP response headers. `headers` オブジェクトは以下のようにフォーマットされます:
+`Record<string, string | string[]>` 型。HTTP レスポンスヘッダを表します。 `headers` オブジェクトは以下のようにフォーマットされます:
 
 * すべてのヘッダ名は小文字です。
-* Duplicates of `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, or `user-agent` are discarded.
-* `set-cookie` is always an array. Duplicates are added to the array.
-* For duplicate `cookie` headers, the values are joined together with '; '.
-* For all other headers, the values are joined together with ', '.
+* `age`、`authorization`、`content-length`、`content-type`、`etag`、`expires`、`from`、`host`、`if-modified-since`、`if-unmodified-since`、`last-modified`、`location`、`max-forwards`、`proxy-authorization`、`referer`、`retry-after`、`server`、`user-agent` の重複は破棄されます。
+* `set-cookie` は常に配列です。 重複は配列へと追加されます。
+* 重複した `cookie` ヘッダは、値を '; ' で結合します。
+* 他の重複したヘッダはすべて、値を ', ' で結合します。
 
 #### `response.httpVersion`
 

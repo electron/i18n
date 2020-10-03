@@ -22,7 +22,7 @@ El módulo `shell` tiene los siguientes métodos:
 
 * `fullPath` Cadena
 
-Show the given file in a file manager. If possible, select the file.
+Muestra el archivo dado en un gestor de archivos. Si es posible, seleccione el archivo.
 
 ### `shell.openPath(path)`
 
@@ -41,7 +41,7 @@ Abre el archivo determinado en el escritorio por defecto.
 
 Devuelve `Promise<void>`
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+Abre el protocolo URL externo dado de manera predeterminada en el escritorio. (Por ejemplo, mailto: URLs en el agente de correo predeterminado del usuario).
 
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 

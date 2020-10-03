@@ -1,12 +1,12 @@
-# PostData Object
+# PostData オブジェクト
 
-* `type` String - One of the following:
-  * `rawData` - The data is available as a `Buffer`, in the `rawData` field.
-  * `file` - The object represents a file. The `filePath`, `offset`, `length` and `modificationTime` fields will be used to describe the file.
-  * `blob` - The object represents a `Blob`. The `blobUUID` field will be used to describe the `Blob`.
-* `bytes` String (optional) - The raw bytes of the post data in a `Buffer`. Required for the `rawData` type.
-* `filePath` String (optional) - The path of the file being uploaded. Required for the `file` type.
-* `blobUUID` String (optional) - The `UUID` of the `Blob` being uploaded. Required for the `blob` type.
-* `offset` Integer (optional) - The offset from the beginning of the file being uploaded, in bytes. Only valid for `file` types.
-* `length` Integer (optional) - The length of the file being uploaded, in bytes. If set to `-1`, the whole file will be uploaded. Only valid for `file` types.
-* `modificationTime` Double (optional) - The modification time of the file represented by a double, which is the number of seconds since the `UNIX Epoch` (Jan 1, 1970). Only valid for `file` types.
+* `type` String - 以下のいずれかです。
+  * `rawData` - このデータは `rawData` フィールドの `Buffer` として利用できます。
+  * `file` - このオブジェクトはファイルを表します。 `filePath`、`offset`、`length`、`modificationTime` フィールドでファイルを記述します。
+  * `Blob` - このオブジェクトは `Blob` を表します。 `Blob` の説明に `blobUUID` フィールドを使います。
+* `bytes` String (任意) - `Buffer` 型の送信データの生バイト。 type が `rawData` である必要があります。
+* `filePath` String (任意) - アップロードされるファイルのパス。 type が `file` である必要があります。
+* `blobUUID` String (任意) - アップロードされる `Blob` の `UUID`。 type が `blob` である必要があります。
+* `offset` Integer (任意) - アップロードするファイルの先頭からのバイト単位オフセット。 type が `file` の場合のみ有効です。
+* `length` Integer (任意) - アップロードされるファイルのバイト長。 `-1` にすると、ファイル全体がアップロードされます。 type が `file` の場合のみ有効です。
+* `modificationTime` Double (任意) - `UNIX エポック` (1970年1月1日) からの秒数で表したファイルの最終変更時刻です。 type が `file` の場合のみ有効です。
