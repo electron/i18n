@@ -46,7 +46,7 @@ shell.openExternal('https://github.com')
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
+* `deleteOnFail` Boolean (任意) - ゴミ箱が無効、またはそのボリュームでサポートされていない場合、その項目を一方的に削除するかどうか。 _macOS_
 
 戻り値 `Boolean` - その項目が正常にゴミ箱に移動されたかどうか.
 

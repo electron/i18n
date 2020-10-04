@@ -1356,7 +1356,7 @@ Abre las herramientas de desarrollador para el contexto de los trabajadores comp
 
 #### `contents.inspectSharedWorkerById(workerId)`
 
-* `workerId` String
+* Cadena `workerId`
 
 Inspects the shared worker based on its ID.
 

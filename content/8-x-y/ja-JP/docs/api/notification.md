@@ -35,10 +35,10 @@
   * `silent` Boolean (任意) - 通知を表示するときにOSが通知音を鳴らすかどうか。
   * `icon` (String | [NativeImage](native-image.md)) (任意) - 通知に使用されるアイコン。
   * `hasReply` Boolean (任意) _macOS_ - 通知に埋め込み返信オプションを追加するかどうか。
-  * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
+  * `timeoutType` String (任意) _Linux_ _Windows_ - 通知の消失までの時間。 'default' か 'never' にできます。
   * `replyPlaceholder` String (任意) _macOS_ - 埋め込み返信入力フィールド内に書かれるプレースホルダ。
   * `sound` String (任意) _macOS_ - 通知が表示されるときに再生される音声ファイルの名前。
-  * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+  * `urgency` String (任意) _Linux_ - 通知の緊急度レベル。 'normal'、'critical'、'low' のいずれかにできます。
   * `actions` [NotificationAction[]](structures/notification-action.md) (任意) _macOS_ - 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。
   * `closeButtonText` String (任意) _macOS_ - 通知を閉じるボタンのカスタムタイトル。 空の文字列の場合は、既定のローカライズされたテキストが使用されます。
 
@@ -140,15 +140,15 @@ HTML5 Notification の実装とは異なり、`new Notification` でインスタ
 
 #### `notification.urgency` _Linux_
 
-A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+通知の緊急度を表す `String` プロパティ。 'normal'、'critical'、'low' のいずれかにできます。
 
 省略値は 'low' - この詳細は [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) を参照してください。
 
 #### `notification.timeoutType` _Linux_ _Windows_
 
-A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
+通知がタイムアウトする種別を表す `String` プロパティ。 'default' か 'never' にできます。
 
-If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
+`timeoutType` が 'never' に設定されている場合、通知は自動的に閉じられません。 呼び出し元の API かユーザによって閉じられるまで開いたままになります。
 
 #### `notification.actions`
 

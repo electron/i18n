@@ -566,7 +566,7 @@ Depende del módulo [`remote`](remote.md), por lo tanto no esta disponible cuand
 
 Devuelve `Number` - El ID de WebContents de este `webview`.
 
-## DOM Events
+## Eventos DOM
 
 Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 

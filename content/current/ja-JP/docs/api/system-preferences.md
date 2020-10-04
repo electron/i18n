@@ -167,7 +167,7 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `type` String - `string`、`boolean`、`integer`、`float`、`double`、`url`、`array`、`dictionary` のいずれかにできます。
 * `value` String
 
 `NSUserDefaults` 内の `key` の値を設定します。
@@ -261,7 +261,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `window-frame` - ウインドウフレームの色。
     * `window-text` - ウインドウ内のテキスト色。
   * **macOS** の場合
-    * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。 _deprecated_
+    * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。 _非推奨_
     * `control-background` - ブラウザやテーブルなど、大きなインターフェイス要素の背景。
     * `control` - コントロールの表面。
     * `control-text` - 無効にされていないコントロールのテキスト。
@@ -295,7 +295,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `window-background` - ウィンドウの背景
     * `window-frame-text` - ウィンドウのタイトルバー領域のテキスト。
 
-戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳しくは、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx)と [macOS のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors)をご覧ください。
 
 次の色は macOS 10.14 でのみ使用可能です。`find-highlight`、`selected-content-background`、`separator`、`unemphasized-selected-content-background`、`unemphasized-selected-text-background`、`unemphasized-selected-text`。
 
@@ -326,7 +326,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 戻り値 `Boolean` - ハイコントラストテーマがアクティブの場合は `true`、それ以外の場合は `false` です。
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
+**非推奨:** 新しい [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API を使用する必要があります。
 
 ### `systemPreferences.getEffectiveAppearance()` _macOS_
 

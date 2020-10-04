@@ -323,7 +323,7 @@ Zwraca:
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - Proces nigdy nie został uruchomiony
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.

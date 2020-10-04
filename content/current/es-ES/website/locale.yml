@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Empieza</b></a> a crear una aplicación leyendo la <a href='/docs/tutorial/first-app'>guía de inicio rápido</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Mantente al día</b></a> siguiendo a <a href='https://twitter.com/electronjs'>@electronjs</a> en Twitter y suscribiendote a nuestro <a href='/blog'>blog</a>."
     localized_docs: "<a href='/languages'><b>Lee la documentación en tu idioma</b></a> visitando la <a href='/languages'>página de idiomas</a>."
-    help: "<b>Get help and feedback</b> by joining the <a href='https://discord.gg/electron'>Discord server</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<b>Obtén ayuda y retroalimentación </b> uniéndote al <a href='https://discord.gg/electron'>servidor de Discord</a>, publicando en <a href='https://discuss.atom.io/c/electron'>Discuta</a>, o visitando <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Reporte problemas de seguridad</b></a> enviando un correo electrónico<a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Reporta errores</b></a> abriendo un issue en el repositorio de <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Solicita características</b></a> abriendo un issue en el repositorio de <a href='https://github.com/electron/electron/issues'>electron/electron</a>."

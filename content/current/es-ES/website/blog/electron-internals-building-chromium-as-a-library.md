@@ -38,7 +38,7 @@ By using libchromiumcontent and brightray together, developers can quickly build
 
 Apart from Electron, there were also other Chromium-based projects built in this way, like the [Breach browser](https://www.quora.com/Is-Breach-Browser-still-in-development).
 
-## Filtering exported symbols
+## Filtrando símbolos exportados
 
 On Windows there is a limitation of how many symbols one shared library can export. As the codebase of Chromium grew, the number of symbols exported in libchromiumcontent soon exceeded the limitation.
 

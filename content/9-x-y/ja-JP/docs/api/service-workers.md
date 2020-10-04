@@ -1,20 +1,20 @@
 ## Class: ServiceWorkers
 
-> Query and receive events from a sessions active service workers.
+> session のアクティブなサービスワーカーからのイベントを問い合わせて受信します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
+`ServiceWorkers` クラスのインスタンスは、`Session` の `serviceWorkers` プロパティを使用してアクセスします。
 
 例:
 
 ```javascript
 const { session } = require('electron')
 
-// Get all service workers.
+// すべてのサービスワーカーを取得します。
 console.log(session.defaultSession.serviceWorkers.getAllRunning())
 
-// Handle logs and get service worker info
+// ログを処理してサービスワーカー情報を取得します
 session.defaultSession.serviceWorkers.on('console-message', (event, messageDetails) => {
   console.log(
     'Got service worker message',
@@ -27,35 +27,35 @@ session.defaultSession.serviceWorkers.on('console-message', (event, messageDetai
 
 ### インスタンスイベント
 
-The following events are available on instances of `ServiceWorkers`:
+`ServiceWorkers` のインスタンスでは、以下のイベントが利用できます。
 
 #### Event: 'console-message'
 
 戻り値:
 
 * `event` Event
-* `messageDetails` Object - Information about the console message
-  * `message` String - The actual console message
-  * `versionId` Number - The version ID of the service worker that sent the log message
-  * `source` String - The type of source for this message.  Can be `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` or `other`.
-  * `level` Number - The log level, from 0 to 3.  In order it matches `verbose`, `info`, `warning` and `error`.
-  * `sourceUrl` String - The URL the message came from
-  * `lineNumber` Number - The line number of the source that triggered this console message
+* `messageDetails` Object - コンソールメッセージに関する情報
+  * `message` String - 実際のコンソールメッセージ
+  * `versionId` Number - ログメッセージを送信したサービスワーカーのバージョン ID
+  * `source` String - このメッセージのソースの種別。  `javascript`、`xml`、`network`、`console-api`、`storage`、`app-cache`、`rendering`、`security`、`deprecation`、`worker`、`violation`、`intervention`、`recommendation`、`other` のいずれかにできます。
+  * `level` Number - 0 から 3 のログレベル。  順に `verbose`、`info`、`warning`、`error` に対応します。
+  * `sourceUrl` String - メッセージが送られてきた URL
+  * `lineNumber` Number - このコンソールメッセージのトリガーとなったソースの行番号
 
-Emitted when a service worker logs something to the console.
+サービスワーカーがコンソールに何かをロギングしたときに発生します。
 
 ### インスタンスメソッド
 
-The following methods are available on instances of `ServiceWorkers`:
+`ServiceWorkers` のインスタンスでは、以下のメソッドが利用できます。
 
 #### `serviceWorkers.getAllRunning()`
 
-Returns `Record<Number, ServiceWorkerInfo>` - A [ServiceWorkerInfo](structures/service-worker-info.md) object where the keys are the service worker version ID and the values are the information about that service worker.
+戻り値 `Record<Number, ServiceWorkerInfo>` - キーはサービスワーカーのバージョン ID、値は [ServiceWorkerInfo](structures/service-worker-info.md) オブジェクトで、そのサービスワーカーに関する情報です。
 
 #### `serviceWorkers.getFromVersionID(versionId)`
 
 * `versionId` Number
 
-Returns [`ServiceWorkerInfo`](structures/service-worker-info.md) - Information about this service worker
+戻り値 [`ServiceWorkerInfo`](structures/service-worker-info.md) - このサービスワーカーについての情報
 
-If the service worker does not exist or is not running this method will throw an exception.
+サービスワーカーが存在しないか動作していない場合、このメソッドは例外を送出します。

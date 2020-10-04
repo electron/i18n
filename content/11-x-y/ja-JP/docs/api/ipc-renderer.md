@@ -113,22 +113,22 @@ If you do not need a response to the message, consider using [`ipcRenderer.send`
 
 Send a message to the main process, optionally transferring ownership of zero or more [`MessagePort`][] objects.
 
-The transferred `MessagePort` objects will be available in the main process as [`MessagePortMain`](message-port-main.md) objects by accessing the `ports` property of the emitted event.
+転送した `MessagePort` オブジェクトは、発生したイベントの `ports` プロパティにアクセスすることで、[`MessagePortMain`](messageport-main.md) オブジェクトとしてメインプロセスで利用可能になります。
 
 例:
 ```js
-// Renderer process
+// レンダラープロセス
 const { port1, port2 } = new MessageChannel()
 ipcRenderer.postMessage('port', { message: 'hello' }, [port1])
 
-// Main process
+// メインプロセス
 ipcMain.on('port', (e, msg) => {
   const [port] = e.ports
   // ...
 })
 ```
 
-For more information on using `MessagePort` and `MessageChannel`, see the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel).
+`MessagePort` と `MessageChannel` の使用方法の詳細については [MDN ドキュメント](https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel) を参照してください。
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 

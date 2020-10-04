@@ -9,7 +9,7 @@ const { netLog } = require('electron')
 
 app.whenReady().then(async () => {
   await netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // ネットワークイベントの後
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })

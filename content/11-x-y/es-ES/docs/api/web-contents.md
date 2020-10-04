@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter][event-emitter]. Ese es responsable de renderizar y controlar la página web y es el propietario del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso del objeto `webContents`:
+`webContents` es un [EventEmitter][event-emitter]. Es responsable del renderizar y el controlar una página web y es una propiedad del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso del objeto `webContents`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -63,9 +63,9 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-finish-load` but emitted when the load failed. La lista completa de errores de código y su significado está disponible [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Este evento es como `did-finish-load` pero emitido cuando la carga falló. La lista completa de los códigos de error y su significado está disponible [aquí](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-fail-provisional-load'
+#### Evento: 'did-fail-provisional-load'
 
 Devuelve:
 
@@ -77,7 +77,7 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
+Este evento es como `did-fail-load` pero emitido cuando la carga fue cancelada (e.g. `window.stop()` fue invocado).
 
 #### Evento: 'did-frame-finish-load'
 
@@ -114,7 +114,7 @@ Devuelve:
 * `title` String
 * `explicitSet` Boolen
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Disparado cuando el título de la página se configura durante la navegación. `explicitSet` es false cuando el título es sincronizado desde el archivo url.
 
 #### Evento: 'page-favicon-updated'
 
@@ -133,12 +133,12 @@ Devuelve:
 * `url` String
 * `frameName` String
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - Las opciones que serán usadas para crear la nueva [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - Las características no estándar (características no manejadas por Chromium o Electron) pasadas a `window.open()`.
 * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. Puede resultar o no en la cabecera `Referer` siendo enviado, dependiendo de la política de referencia.
-* `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
+* `postBody` [PostBody](structures/post-body.md) (opcional) - Los datos que serán enviados a la nueva ventana, junto con las cabeceras apropiadas que se establecerán. Si no hay datos para enviar, el valor será `null`. Solo se define cuando la ventana está siendo creada por un formulario que establece `target=_blank`.
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Emitido cuando la página solicita abrir una nueva ventana para una `url`. Puede ser requerido por `window.open` o un link externo como `<a target='_blank'>`.
 
 Por defecto se creará un nuevo `BrowserWindow` para la `dirección url`.
 
@@ -175,7 +175,7 @@ Devuelve:
 * `event` Event
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Emitido cuando un usuario o l página quiere empezar la navegación. Puede ocurrir cuando el objeto `window.location` se cambia o un usuario hace clic en un enlace en la página.
 
 Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `webContents.loadURL` y `webContents.back`.
 
@@ -323,7 +323,7 @@ Devuelve:
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - El proceso nunca se ha ejecutado correctamente
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
@@ -1379,7 +1379,7 @@ Abre las herramientas de desarrollador para el contexto de los trabajadores comp
 
 #### `contents.inspectSharedWorkerById(workerId)`
 
-* `workerId` String
+* Cadena `workerId`
 
 Inspects the shared worker based on its ID.
 
