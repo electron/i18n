@@ -20,7 +20,7 @@ For more info on CSS custom properties, see the [MDN article](https://developer.
 
 #### CSS Variables In Action
 
-Let's walk through a simple variable example that can be tweaked live in your app.
+Veamos un ejemplo de variable simple que puede modificarse sobre la marcha en tu app.
 
 ```css
 :root {

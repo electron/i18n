@@ -28,7 +28,7 @@ shell.openExternal('https://github.com')
 
 * `path` String
 
-Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+戻り値 `Promise<String>` - 障害が発生した場合、その障害に対応するエラーメッセージを含む文字列で解決します。それ以外では "" になります。
 
 指定したファイルをデスクトップの既定の方法で開きます。
 
@@ -46,7 +46,7 @@ Returns `Promise<String>` - Resolves with an string containing the error message
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
+* `deleteOnFail` Boolean (任意) - ゴミ箱が無効、またはそのボリュームでサポートされていない場合、その項目を一方的に削除するかどうか。 _macOS_
 
 戻り値 `Boolean` - その項目が正常にゴミ箱に移動されたかどうか.
 

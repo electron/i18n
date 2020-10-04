@@ -99,7 +99,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 * `event` Event
 * `languageCode` String - 辞書ファイルの言語コード
 
-Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
+hunspell 辞書ファイルの初期化に成功したときに発生します。 これはファイルをダウンロードした後に発生します。
 
 #### イベント: 'spellcheck-dictionary-download-begin'
 
@@ -126,7 +126,7 @@ hunspell 辞書ファイルのダウンロードに成功したときに発生�
 * `event` Event
 * `languageCode` String - 辞書ファイルの言語コード
 
-Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
+hunspell 辞書ファイルのダウンロードが失敗したときに発生します。  失敗の詳細は、netlog を収集してダウンロードリクエストを調べる必要があります。
 
 ### インスタンスメソッド
 
@@ -146,8 +146,8 @@ Emitted when a hunspell dictionary file download fails.  For details on the fail
 
 * `options` Object (任意)
   * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
-  * `storages` String[] (任意) - クリアするストレージの種類。`appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage` を含めることができます。 If not specified, clear all storage types.
-  * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。 If not specified, clear all quotas.
+  * `storages` String[] (任意) - クリアするストレージの種類。`appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage` を含めることができます。 指定しない場合は、全種類のストレージをクリアします。
+  * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。 指定しない場合は、全てのクオータをクリアします。
 
 戻り値 `Promise<void>` - ストレージデータがクリアされると実行されます。
 
@@ -383,7 +383,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 #### `ses.isPersistent()`
 
-Returns `Boolean` - Whether or not this session is a persistent one. The default `webContents` session of a `BrowserWindow` is persistent. When creating a session from a partition, session prefixed with `persist:` will be persistent, while others will be temporary.
+戻り値 `Boolean` - このセッションが持続的なものであるかどうか。 `BrowserWindow` のデフォルトの `webContents` セッションは持続的です。 パーティションからセッションを作成する場合、`persist:` で始まるセッションは持続化され、他のセッションは一時的なものになります。
 
 #### `ses.getUserAgent()`
 
@@ -437,13 +437,13 @@ Returns `Boolean` - Whether or not this session is a persistent one. The default
 
 組み込みスペルチェッカーは、ユーザーが入力している言語を自動的に検出しません。  スペルチェッカーが単語を正しくチェックするには、言語コードの配列でこの API を呼び出す必要があります。  `ses.availableSpellCheckerLanguages` プロパティで、サポートしている言語コードのリストを取得できます。
 
-**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
+**注意:** macOS では、OS のスペルチェッカーが使用されて言語が自動的に検出されます。  この API は、macOS では何もしません。
 
 #### `ses.getSpellCheckerLanguages()`
 
 戻り値 `String[]` - スペルチェッカーが有効になっている言語コードの配列。  このリストが空の場合、スペルチェッカーは `en-US` の使用へフォールバックします。  この設定が空のリストである場合、Electron は起動時に既定で現在の OS ロケールをこの設定に追加しようとします。  この設定は再起動後も持続します。
 
-**Note:** On macOS the OS spellchecker is used and has it's own list of languages.  This API is a no-op on macOS.
+**注意:** macOS では、OS のスペルチェッカーが使用されて独自の言語リストを返します。  この API は、macOS では何もしません。
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
@@ -453,39 +453,39 @@ Returns `Boolean` - Whether or not this session is a persistent one. The default
 
 `hunspell_dictionaries.zip` が `https://example.com/dictionaries/language-code.bdic` に存在して利用できる場合、`ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')` を呼び出すことになります。  末尾のスラッシュに注意してください。  辞書への URL は、`${url}${filename}` の形式になります。
 
-**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
+**注意:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。  この API は、macOS では何もしません。
 
 #### `ses.listWordsInSpellCheckerDictionary()`
 
-Returns `Promise<String[]>` - An array of all words in app's custom dictionary. Resolves when the full dictionary is loaded from disk.
+戻り値 `Promise<String[]>` - アプリのカスタム辞書の全単語の配列。 ディスクから完全な辞書が読み込まれたときに解決されます。
 
 #### `ses.addWordToSpellCheckerDictionary(word)`
 
 * `word` String - 辞書に追加したい単語
 
-戻り値 `Boolean` - 単語がカスタム辞書に正常に書き込まれたかどうか。 This API will not work on non-persistent (in-memory) sessions.
+戻り値 `Boolean` - 単語がカスタム辞書に正常に書き込まれたかどうか。 この API は、持続的でない (一時的な) セッションでは動作しません。
 
 **注釈:** macOS と Windows 10 では、この単語は OS カスタム辞書にも書き込まれます
 
 #### `ses.removeWordFromSpellCheckerDictionary(word)`
 
-* `word` String - The word you want to remove from the dictionary
+* `word` String - 辞書から削除したい単語
 
-Returns `Boolean` - Whether the word was successfully removed from the custom dictionary. This API will not work on non-persistent (in-memory) sessions.
+戻り値 `Boolean` - 単語がカスタム辞書から正常に削除されたかどうか。 この API は、持続的でない (一時的な) セッションでは動作しません。
 
-**Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well
+**注釈:** macOS と Windows 10 では、この単語は OS カスタム辞書からも削除されます
 
 #### `ses.loadExtension(path)`
 
-* `path` String - Path to a directory containing an unpacked Chrome extension
+* `path` String - 解凍されていない Chrome 拡張機能を含んだディレクトリへのパス
 
-Returns `Promise<Extension>` - resolves when the extension is loaded.
+戻り値 `Promise<Extension>` - 拡張機能が読み込まれたときに解決されます。
 
-This method will raise an exception if the extension could not be loaded. If there are warnings when installing the extension (e.g. if the extension requests an API that Electron does not support) then they will be logged to the console.
+このメソッドは、拡張機能を読み込めなかった場合に例外を発生させます。 拡張機能のインストール時に警告が発生した場合 (Electron が未サポートの API を拡張機能が要求した場合など) は、コンソールにログが記録されます。
 
-Note that Electron does not support the full range of Chrome extensions APIs. See [Supported Extensions APIs](extensions.md#supported-extensions-apis) for more details on what is supported.
+注意として、Electron は Chrome 拡張機能の API のすべてをサポートしていません。 サポート内容の詳細については、[サポートしている拡張機能 API](extensions.md#supported-extensions-apis) を参照してください。
 
-Note that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
+注意として、以前のバージョンの Electron では、読み込まれた拡張機能は以降のアプリケーション実行のために記憶されます。 現在はそうなっていません。拡張機能を読み込みたい場合は、アプリを起動するたびに `loadExtension` を呼び出す必要があります。
 
 ```js
 const { app, session } = require('electron')
@@ -493,36 +493,36 @@ const path = require('path')
 
 app.on('ready', async () => {
   await session.defaultSession.loadExtension(path.join(__dirname, 'react-devtools'))
-  // Note that in order to use the React DevTools extension, you'll need to
-  // download and unzip a copy of the extension.
+  // 注意として、この React デベロッパー ツール拡張機能を使用するには、
+  // 拡張機能のコピーをダウンロードして解凍する必要があります
 })
 ```
 
-This API does not support loading packed (.crx) extensions.
+この API は、パッケージした (.crx) 拡張機能の読み込みをサポートしていません。
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-**Note:** Loading extensions into in-memory (non-persistent) sessions is not supported and will throw an error.
+**注:** インメモリ (一時的な) セッションでの拡張機能読み込みはサポートされておらず、エラーが送出されます。
 
 #### `ses.removeExtension(extensionId)`
 
-* `extensionId` String - ID of extension to remove
+* `extensionId` String - 削除する拡張機能の ID
 
-Unloads an extension.
+拡張機能を取り除きます。
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 #### `ses.getExtension(extensionId)`
 
-* `extensionId` String - ID of extension to query
+* `extensionId` String - クエリする拡張機能の ID
 
-Returns `Extension` | `null` - The loaded extension with the given ID.
+戻り値 `Extension` | `null` - 指定した ID である読み込まれた拡張機能。
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 #### `ses.getAllExtensions()`
 
-Returns `Extension[]` - A list of all loaded extensions.
+戻り値 `Extension[]` - 読み込まれた拡張機能のリスト。
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
@@ -540,7 +540,7 @@ Returns `Extension[]` - A list of all loaded extensions.
 
 #### `ses.serviceWorkers` _読み出し専用_
 
-A [`ServiceWorkers`](service-workers.md) object for this session.
+このセッションの [`ServiceWorkers`](service-workers.md) オブジェクト。
 
 #### `ses.webRequest` _読み出し専用_
 
@@ -575,7 +575,7 @@ const { app, session } = require('electron')
 app.whenReady().then(async () => {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // ネットワークイベントの後
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })

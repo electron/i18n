@@ -579,7 +579,7 @@ Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
 
 Devuelve `Number` - El ID de WebContents de este `webview`.
 
-## DOM Events
+## Eventos DOM
 
 Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 

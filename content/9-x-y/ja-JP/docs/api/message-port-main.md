@@ -1,10 +1,10 @@
 # MessagePortMain
 
-`MessagePortMain` is the main-process-side equivalent of the DOM [`MessagePort`][] object. It behaves similarly to the DOM version, with the exception that it uses the Node.js `EventEmitter` event system, instead of the DOM `EventTarget` system. This means you should use `port.on('message', ...)` to listen for events, instead of `port.onmessage = ...` or `port.addEventListener('message', ...)`
+`MessagePortMain` は、メインプロセス側における DOM の [`MessagePort`][] オブジェクトです。 DOM の `EventTarget` イベントシステムの代わりに Node.js の `EventEmitter` システムを使用していることを除けば、DOM のものと同様の動作をします。 これは、イベントをリッスンする際には `port.onmessage = ...` や `port.addEventListener('message', ...)` の代わりに `port.on('message', ...)` を使うべきであるということです。
 
-See the [Channel Messaging API][] documentation for more information on using channel messaging.
+チャンネルメッセージングの使用方法の詳細については、[チャンネルメッセージング API][] のドキュメントを参照してください。
 
-`MessagePortMain` is an \[EventEmitter\]\[event-emitter\].
+`MessagePortMain` は \[EventEmitter\]\[event-emitter\] を継承しています。
 
 ## Class: MessagePortMain
 
@@ -13,17 +13,17 @@ See the [Channel Messaging API][] documentation for more information on using ch
 #### `port.postMessage(message, [transfer])`
 
 * `message` any
-* `transfer` MessagePortMain[] (optional)
+* `transfer` MessagePortMain[] (任意)
 
-Sends a message from the port, and optionally, transfers ownership of objects to other browsing contexts.
+ポートからメッセージを送信し、任意でオブジェクトの所有権を他のブラウジングコンテキストに転送します。
 
 #### `port.start()`
 
-Starts the sending of messages queued on the port. Messages will be queued until this method is called.
+ポートのキューに入れられたメッセージを送信し始めます。 このメソッドが呼び出されるまで、メッセージはキューに溜められます。
 
 #### `port.close()`
 
-Disconnects the port, so it is no longer active.
+ポートを切断し、これを無効にします。
 
 ### インスタンスイベント
 
@@ -35,7 +35,7 @@ Disconnects the port, so it is no longer active.
   * `data` any
   * `ports` MessagePortMain[]
 
-Emitted when a MessagePortMain object receives a message.
+MessagePortMain オブジェクトがメッセージを受信したときに発生します。
 
 [`MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
-[Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
+[チャンネルメッセージング API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API

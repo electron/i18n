@@ -9,7 +9,7 @@ const { netLog } = require('electron')
 
 app.whenReady().then(async () => {
   await netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // ネットワークイベントの後
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })
@@ -34,7 +34,7 @@ app.whenReady().then(async () => {
 
 ### `netLog.stopLogging()`
 
-Returns `Promise<void>` - resolves when the net log has been flushed to disk.
+戻り値 `Promise<void>` - ネットログがディスクに書き込まれたときに解決されます。
 
 ネットワークイベントの記録を停止します。 もし呼ばれなければ、ネットロギングはアプリ終了時に自動的に終了します。
 
@@ -42,4 +42,4 @@ Returns `Promise<void>` - resolves when the net log has been flushed to disk.
 
 ### `netLog.currentlyLogging` _読み出し専用_
 
-A `Boolean` property that indicates whether network logs are currently being recorded.
+`Boolean` 型のプロパティです。ネットワークログが現在記録されているかどうかを示します。

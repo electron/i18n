@@ -2,7 +2,7 @@
 
 > デフォルトのアプリケーションを使用してファイルと URL を管理します。
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process) (非サンドボックス時のみ)
 
 `shell` モジュールは、デスクトップの統合に関する機能を提供します。
 
@@ -14,7 +14,7 @@ const { shell } = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
+**注:** `shell` モジュールはレンダラープロセスで使用できますが、サンドボックス化されたレンダラーでは機能しません。
 
 ## メソッド
 
@@ -48,7 +48,7 @@ Returns `Promise<String>` - Resolves with a string containing the error message 
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
+* `deleteOnFail` Boolean (任意) - ゴミ箱が無効、またはそのボリュームでサポートされていない場合、その項目を一方的に削除するかどうか。 _macOS_
 
 戻り値 `Boolean` - その項目が正常にゴミ箱に移動されたかどうか.
 

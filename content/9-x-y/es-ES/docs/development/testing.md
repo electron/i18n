@@ -36,7 +36,7 @@ Para correr solo pruebas especificas que coincidan con un patrón, corra `npm ru
    copy electron.lib gen\node_headers\Release\node.lib
    ```
 
-#### Missing fonts
+#### Fuentes no encontradas
 
 [Algunos dispositivos Windows 10](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) no se incluye la fuente Meiryo instalada, lo que puede causar que falle una prueba. Para instalar Meiryo:
 1. Presione la tecla Windows y busca _Administrar herramientas opcionales_.

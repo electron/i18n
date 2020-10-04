@@ -167,7 +167,7 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `type` String - `string`、`boolean`、`integer`、`float`、`double`、`url`、`array`、`dictionary` のいずれかにできます。
 * `value` String
 
 `NSUserDefaults` 内の `key` の値を設定します。
@@ -261,7 +261,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `window-frame` - ウインドウフレームの色。
     * `window-text` - ウインドウ内のテキスト色。
   * **macOS** の場合
-    * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。 _deprecated_
+    * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。 _非推奨_
     * `control-background` - ブラウザやテーブルなど、大きなインターフェイス要素の背景。
     * `control` - コントロールの表面。
     * `control-text` - 無効にされていないコントロールのテキスト。

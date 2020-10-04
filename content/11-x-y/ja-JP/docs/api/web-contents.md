@@ -647,8 +647,8 @@ win.loadURL('http://github.com')
 戻り値:
 
 * `event` Event
-* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
-* `message` String - The actual console message
+* `level` Integer - The log level, from 0 to 3. 順に `verbose`、`info`、`warning`、`error` に対応します。
+* `message` String - 実際のコンソールメッセージ
 * `line` Integer - The line number of the source that triggered this console message
 * `sourceId` String
 
@@ -1463,7 +1463,7 @@ ipcMain.on('ping', (event) => {
 
 * `channel` String
 * `message` any
-* `transfer` MessagePortMain[] (optional)
+* `transfer` MessagePortMain[] (任意)
 
 Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 

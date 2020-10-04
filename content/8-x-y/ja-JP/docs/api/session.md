@@ -99,7 +99,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 * `event` Event
 * `languageCode` String - 辞書ファイルの言語コード
 
-Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
+hunspell 辞書ファイルの初期化に成功したときに発生します。 これはファイルをダウンロードした後に発生します。
 
 #### イベント: 'spellcheck-dictionary-download-begin'
 
@@ -126,7 +126,7 @@ hunspell 辞書ファイルのダウンロードに成功したときに発生�
 * `event` Event
 * `languageCode` String - 辞書ファイルの言語コード
 
-Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
+hunspell 辞書ファイルのダウンロードが失敗したときに発生します。  失敗の詳細は、netlog を収集してダウンロードリクエストを調べる必要があります。
 
 ### インスタンスメソッド
 
