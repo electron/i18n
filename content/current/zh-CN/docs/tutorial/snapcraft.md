@@ -10,13 +10,7 @@
 
 1) 使用 [`electron-forge`](https://github.com/electron-userland/electron-forge) 或 [`electron-builder`](https://github.com/electron-userland/electron-builder), 与 `snap` 支持的两个工具都不在该框中。 这是最简单的选择。 2) 使用 `electron-installer-snap`, 它采用 `electron-packager` 的输出。 3) 使用已经创建的 `.deb` 包。
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
-
-```sh
-snap install snapcraft --classic
-```
-
-虽然 _ 可以 _ 在使用自制程序的 macOS 上安装 ` snapcraft `, 但它无法生成 ` snap ` 包, 并且集中于管理存储中的包。
+In some cases, you will need to have the `snapcraft` tool installed. Instructions to install `snapcraft` for your particular distribution are available [here](https://snapcraft.io/docs/installing-snapcraft).
 
 ## 使用 `electron-installer-snap`
 

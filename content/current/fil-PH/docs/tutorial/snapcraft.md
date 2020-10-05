@@ -10,13 +10,7 @@ Mayroong tatlong paraan upang lumikha ng file na `.snap`:
 
 1) Gamit ang [`electron-forge`](https://github.com/electron-userland/electron-forge) o [` electron-builder`](https://github.com/electron-userland/electron-builder), parehong mga tool na may `snap` na suportado sa labas ng kahon. Ito ang pinakamadaling opsyon. 2) Paggamit ng ` electron-installer-snap `, na tumatagal ang output ng ` electron-packager `. 3) Gamit ang nilikha na `.deb` na package.
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
-
-```sh
-snap install snapcraft --classic
-```
-
-Habang ito ay _is posible _to install`snapcraft ` sa macOS gamit ang Homebrew, ito ay hindi nakakagawa ng mga packages ng `snap ` at nakatuon sa pamamahala ng mga packages sa tindahan.
+In some cases, you will need to have the `snapcraft` tool installed. Instructions to install `snapcraft` for your particular distribution are available [here](https://snapcraft.io/docs/installing-snapcraft).
 
 ## Paggamit ng ` electron-installer-snap `
 

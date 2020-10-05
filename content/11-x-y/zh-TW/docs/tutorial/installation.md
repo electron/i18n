@@ -1,12 +1,12 @@
 # 安裝
 
-To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
+要安裝預建的 Electron 二進位檔案，請使用 [`npm`][npm]。 建議的方式是將其在你的應用程式中以開發相依套件安裝：
 
 ```sh
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc][versioning] for info on how to manage Electron versions in your apps.
+請參考[Electron 版號規則][versioning]，了解該怎麼管理你應用程式中的 Electron 版本。
 
 ## 全域安裝
 
@@ -32,18 +32,18 @@ npm install --platform=win32 electron
 
 ## 代理伺服器
 
-If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
+如果需要使用 HTTP 代理，則需要將 `ELECTRON_GET_USE_PROXY` 變數設置為任何值，其他環境變數則具體取決於主機系統的 Node 版本：
 
-* [Node 10 and above][proxy-env-10]
-* [Before Node 10][proxy-env]
+* [Node 10 及以上版本][proxy-env-10]
+* [Node 10 之前版本][proxy-env]
 
 ## 自訂鏡像及快取
-During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. 它會連到 GitHub 的發行下載頁(`https://github.com/electron/electron/releases/tag/v$VERSION`，當中的 `$VERSION` 替換成 Electron 確切的版本) 下載。
+安裝過程中，`electron` 模組會呼叫並使用 [`electron-download`][electron-get] 來下載符合你平台的 Electron 預建二進位檔。 它會連到 GitHub 的發行下載頁(`https://github.com/electron/electron/releases/tag/v$VERSION`，當中的 `$VERSION` 替換成 Electron 確切的版本) 下載。
 
 如果你連不到 GitHub，或是需要使用客製化的版本，可以提供鏡像或是既有的快取目錄來安裝。
 
 #### 鏡像
-你可以使用環境變數蓋掉 Electron 尋找二位檔的根 URL 及檔名。 The URL used by `@electron/get` is composed as follows:
+你可以使用環境變數蓋掉 Electron 尋找二位檔的根 URL 及檔名。 `electron-download` 用來下載的 Url 是這樣組出來的:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -55,7 +55,7 @@ For instance, to use the China CDN mirror:
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
-By default, `ELECTRON_CUSTOM_DIR` is set to `v$VERSION`. To change the format, use the `{{ version }}` placeholder. For example, `version-{{ version }}` resolves to `version-5.0.0`, `{{ version }}` resolves to `5.0.0`, and `v{{ version }}` is equivalent to the default. As a more concrete example, to use the China non-CDN mirror:
+預設情況下， `ELECTRON_CUSTOM_DIR` 會設定為 `v$VERSION`。 若要更改格式，可使用 `{{ version }}` 字串。 例如，`version-{{ version }}` 會解析為 `version-5.0.0`，而 `{{ version }}` 解析為 `5.0.0`，`v{{ version }}` 則等於預設值。 As a more concrete example, to use the China non-CDN mirror:
 
 ```shell
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
@@ -73,7 +73,7 @@ The above configuration will download from URLs such as `https://npm.taobao.org/
 
 在使用舊版 Electron 的環境中，快取可能放在 `~/.electron` 裡。
 
-You can also override the local cache location by providing a `electron_config_cache` environment variable.
+你也可以透過 `electron_config_cache` 環境變數來覆蓋本機快取位置的預設值。
 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
@@ -100,10 +100,10 @@ The cache contains the version's official zip file as well as a checksum, stored
     └── SHASUMS256.txt
 ```
 
-## Skip binary download
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+## 跳過二進位檔案下載
+在安裝 `electron` NPM 套件時，也會自動下載 Electron 二進位檔案。
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+有些時候，例如在測試其他元件時的 CI 環境中在可能是不必要的。
 
 To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
 ```sh

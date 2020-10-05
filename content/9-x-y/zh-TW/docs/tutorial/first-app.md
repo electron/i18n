@@ -6,7 +6,7 @@ Electron 讓你可以使用 JavaScript 呼叫豐富的原生 (作業系統) APIs
 
 **注意**：這個範例同時是一個 repo，你可以立即[下載並執行](#trying-this-example)。
 
-就開發而言，Electron 應用程式本質上就是 Node.js 應用程式 The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+就開發而言，Electron 應用程式本質上就是 Node.js 應用程式。 在開始的時候，會見到與 Node.js 模組相同，名為 `package.json` 的檔案。 最基本的 Electron 應用程式將具有以下資料夾結構：
 
 ```plaintext
 your-app/
@@ -15,13 +15,13 @@ your-app/
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+請為你的 Electron 應用程式建立一個新的資料夾。 然後打開命令列用戶端，從該資料夾執行 `npm init `。
 
 ```sh
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm 將會引導你建立基本 `package.json` 檔案。 程式中的 `main` 就是你的程式的啟動指令碼，也就是執行主處理序的地方。 你的 `package.json` 看起來可能會像這樣：
 
 ```json
 {
@@ -31,7 +31,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). 如果這是一個簡單的 Node 應用程式，則可以加入一個 `start` 指令碼，指示 `node` 執行目前套件：
 
 ```json
 {
@@ -44,7 +44,7 @@ __Note__: If the `main` field is not present in `package.json`, Electron will at
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+將 Node 應用程式轉換至 Electron 應用程式是非常簡單的 - 只需要將 `node` 執行環境取代為 `electron` 執行環境則可。
 
 ```json
 {
@@ -59,17 +59,17 @@ Turning this Node application into an Electron application is quite simple - we 
 
 ## 安裝 Electron
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+在這個時候，你需要安裝 `electron`。 較推薦的安裝方式是將其在你的應用程式專案中以開發相依套件安裝，此舉可讓你使用多個不同的 Electron 版本來開發多個應用程式。 若要這樣做，請在你的應用程式專案資料夾中執行下列指令：
 
 ```sh
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+有其他安裝 Electron 的方法。 請參閱[安裝](installation.md)部份以了解有關代理、鏡像及自訂快取。
 
 ## 使用 Nutshell 開發 Electron
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron 是基於 JavaScript 開發的，使用了 Node.js 開發的相同原理及方式。 所有 Electron 的 API 及功能都可以通過 `electron` 模組來使用，就像其他 Node.js 模組需要的：
 
 ```javascript
 const electron = require('electron')
@@ -81,7 +81,7 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // 建立瀏覽器視窗...
   let win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -90,7 +90,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // ...並載入程式包含的 index.html。
   win.loadFile('index.html')
 }
 
@@ -103,8 +103,8 @@ The `main.js` should create windows and handle all the system events your applic
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
-  const win = new BrowserWindow({
+  // 建立瀏覽器視窗...
+  let win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -112,19 +112,19 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // ...並載入程式包含的 index.html。
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // 開啟 DevTools。
   win.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// 當 Electron 完成初始化，並且準備好建立瀏覽器視窗時
+// 會呼叫這的方法
 // 有些 API 只能在這個事件發生後才能用。
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// 在所有視窗都關閉時結束程式。
 app.on('window-all-closed', () => {
   // 在 macOS 中，一般會讓應用程式及選單列繼續留著，
   // 除非使用者按了 Cmd + Q 確定終止它們
@@ -142,8 +142,7 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. 
+// 你可以在這個檔案中繼續寫應用程式主程序要執行的程式碼。 
 // 你也可以將它們放在別的檔案裡，再由這裡 require 進來。
 ```
 
@@ -169,7 +168,7 @@ app.on('activate', () => {
 
 ## 執行你的應用程式
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+當你建立好基本的 `main.js`、`index.html` 和 `package.json` 後，你可以在專案資料夾執行 `npm start` 指令以執行應用程式。
 
 ## 試試這個範例
 

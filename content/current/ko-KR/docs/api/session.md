@@ -4,9 +4,9 @@
 
 프로세스: [Main](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+새로운 `Session` 오브젝트를 생성하기 위해 사용되는 `session` 모듈입니다.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+기존 페이지에서 사용하던 [`WebContents`](web-contents.md)의 `session` property 혹은 `session` 모듈로부터 `session`에 접근할 수도 있습니다.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -20,27 +20,27 @@ console.log(ses.getUserAgent())
 
 ## 메서드
 
-The `session` module has the following methods:
+`session` 메서드:
 
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
 * `options` Object (optional)
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Boolean - cache 활성화 여부
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+`Session` 반환 - `patition`의 session 인스턴스. 동일 `patition`의 `Session`이 있으면, 그것을 반환하고, 그렇지 않으면 새로운 `Session` 인스턴스를 `options`로 생성하여 반환한다.
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. `persist:` prefix, 해당 페이지가 in-memory session을 사용합니다. 만약 `patition`이 비어있으면, app의 default session을 반환합니다.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+`options`대로 `Session`을 생성하기 위해서는 `patition`의 `Session`이 이전에 한번도 사용되지 않아야 합니다. 기존 `Session` 오브젝트의 `options`를 변경할 수 없습니다.
 
 ## 속성
 
-The `session` module has the following properties:
+`session`모듈의 속성은 다음과 같습니다:
 
 ### `session.defaultSession`
 
-A `Session` object, the default session object of the app.
+`Session` 오브젝트, 앱의 기본 session 오브젝트.
 
 ## Class: Session
 
