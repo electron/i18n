@@ -10,13 +10,7 @@
 
 1) [`इलेक्ट्रॉन-फोर्ज`](https://github.com/electron-userland/electron-forge) या [`इलेक्ट्रॉन-बिल्डर`](https://github.com/electron-userland/electron-builder) का इस्तेमाल कर, ये दोनों `स्नेप` सपोर्ट के साथ आउट ऑफ़ दा बॉक्स आते हैं | यह सबसे आसान विकल्प है | 2) `इलेक्ट्रॉन-इंस्टालर-स्नेप` का इस्तेमाल कर, जो कि `इलेक्ट्रॉन-पैकेजर` का आउटपुट लेता है | 3) पहले से निर्मित एक `.deb` पैकेज का इस्तेमाल कर |
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
-
-```sh
-snap install snapcraft --classic
-```
-
-हालाँकि _यह संभव_ है कि `स्नेपक्राफ्ट` को होमब्रिऊ का इस्तेमाल कर मैकओएस पर इनस्टॉल किया जा सके, पर वह `स्नेप` पैकेजेस का निर्माण करने में सक्षम नहीं है और उसका ध्यान स्टोर में पैकेजेस का प्रबंधन करने पर केन्द्रित है |
+In some cases, you will need to have the `snapcraft` tool installed. Instructions to install `snapcraft` for your particular distribution are available [here](https://snapcraft.io/docs/installing-snapcraft).
 
 ## `इलेक्ट्रॉन-इंस्टालर-स्नेप` का इस्तेमाल
 

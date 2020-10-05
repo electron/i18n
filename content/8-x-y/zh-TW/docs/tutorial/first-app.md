@@ -31,7 +31,7 @@ npm 將會引導你建立基本的 `package.json` 檔。 程式中的 `main` 就
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). 如果這是一個簡單的 Node 應用程式，則可以加入一個 `start` 指令碼，指示 `node` 執行目前套件：
 
 ```json
 {
@@ -44,7 +44,7 @@ __Note__: If the `main` field is not present in `package.json`, Electron will at
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+將 Node 應用程式轉換至 Electron 應用程式是非常簡單的 - 只需要將 `node` 執行環境取代為 `electron` 執行環境則可。
 
 ```json
 {
@@ -65,11 +65,11 @@ Turning this Node application into an Electron application is quite simple - we 
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+有其他安裝 Electron 的方法。 請參閱[安裝](installation.md)部份以了解有關代理、鏡像及自訂快取。
 
 ## 使用 Nutshell 開發 Electron
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron 是基於 JavaScript 開發的，使用了 Node.js 開發的相同原理及方式。 所有 Electron 的 API 及功能都可以通過 `electron` 模組來使用，就像其他 Node.js 模組需要的：
 
 ```javascript
 const electron = require('electron')
@@ -81,7 +81,7 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // 建立瀏覽器視窗...
   let win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -90,7 +90,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // ...並載入程式包含的 index.html。
   win.loadFile('index.html')
 }
 
@@ -119,7 +119,7 @@ function createWindow () {
   // and load the index.html of the app.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // 開啟 DevTools。
   win.webContents.openDevTools()
 
   // 視窗關閉時會觸發。

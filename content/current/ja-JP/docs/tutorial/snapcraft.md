@@ -10,13 +10,7 @@
 
 1) [`electron-forge`](https://github.com/electron-userland/electron-forge) または [`electron-builder`](https://github.com/electron-userland/electron-builder)の使用、両方のツールは `snap`ですぐに使用できます。 これは最も簡単な選択肢です。 2) `electron-installer-snap`の使用、これは`electron-packager`のアウトプットを使用します。 3) 作成した`.deb`パッケージの使用
 
-いずれにしても、`snapcraft` ツールをインストールしている必要があります。 Ubuntu 16.04 (または現在の LTS) でのビルドを推奨します。
-
-```sh
-snap install snapcraft --classic
-```
-
-一方でmacOS上ではHomebrewを使用することで_一応_ 、`snapcraft`をインストールすることはできます。しかし、これは`snap` パッケージをビルドできます。このツールは、ストアでのパッケージの管理用です。
+In some cases, you will need to have the `snapcraft` tool installed. Instructions to install `snapcraft` for your particular distribution are available [here](https://snapcraft.io/docs/installing-snapcraft).
 
 ## `electron-installer-snap`の使用
 

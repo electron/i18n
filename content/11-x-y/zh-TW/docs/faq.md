@@ -12,7 +12,7 @@
 
 通常在 Chrome 穩定版本發佈後一至兩周內會升級， 但實際需時取決於升級 Chrome 所涉及的工作量。
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+只使用 Chrome 的穩定版本。 如果其中一個重要的修復仍處於測試或開發階段，我們則將其修復作向後移植。
 
 詳情請參閱[安全簡介](tutorial/security.md)。
 
@@ -24,13 +24,13 @@ Only the stable channel of Chrome is used. If an important fix is in beta or dev
 
 ## 不同頁面之間怎麼共用資料?
 
-要在不同網頁 (畫面轉譯處理序) 之間共用資料，最簡單的方法就是使用瀏覽器早就提供的 HTML5 API。 Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
+要在不同網頁 (畫面轉譯處理序) 之間共用資料，最簡單的方法就是使用瀏覽器早就提供的 HTML5 API。 方式包括 [Storage API][storage] 、 [`localStorage`][local-storage] 、 [`sessionStorage`][session-storage] ，以及 [IndexedDB][indexed-db]。
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`][message-port] from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+或者你可以使用由 Electron 提供的跨處理序通訊 (IPC) 基元。 若要在主處理序及畫面轉譯處理序之間共用資料，可以使用 [`ipcMain`](api/ipc-main.md) 及 [`ipcRenderer`](api/ipc-renderer.md) 模組。 To communicate directly between web pages, you can send a [`MessagePort`][message-port] from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
 ## 我應用程式的視窗或工作列圖示幾分鐘後消失了。
 
-This happens when the variable which is used to store the tray gets garbage collected.
+當儲存工作列圖示的變數被垃圾回收後就會這樣。
 
 如果你遇到這個問題，以下文章應該能幫上忙:
 
@@ -98,11 +98,11 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-It is very likely you are using the module in the wrong process. 例如 `electron.app` 只能在主處理序中用，而 `electron.webFrame` 只能在畫面轉譯處理序裡用。
+很可能你在使用模組的過程出錯了。 例如 `electron.app` 只能在主處理序中用，而 `electron.webFrame` 只能在畫面轉譯處理序裡用。
 
-## The font looks blurry, what is this and what can I do?
+## 字體看起來模糊不清。這是為甚麼？我又能做甚麼？
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 範例:
+若關掉[字體平滑](http://alienryderflex.com/sub_pixel/)功能，LCD螢幕上的字體則可能會看起來模糊不清。 範例:
 
 ![subpixel rendering example][]
 
