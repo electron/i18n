@@ -70,15 +70,14 @@ Si vous n’avez pas déjà un package `.deb`, utiliser `electron-installer-snap
 
 ### Étape 2 : Créer un snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Examinons un exemple :
 
 ```yaml
 name: myApp
 version: '2.0.0'
-summary: Une breve description de mon apli.
+summary: Une brève description de mon application.
 description: |
- You know what? This app is amazing! It does all the things
- for you. Some say it keeps you young, maybe even happy.
+ You know what? Cette application est incroyable! Elle fait tout à votre place. D'aucuns disent que cela vous permet de rester jeune et peut-être même heureux.
 
 grade: stable
 confinement: classic
@@ -115,7 +114,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
+Comme vous pouvez le voir, le `snapcraft.yaml` demande au système d'exécuter le fichier nommé `electron-launch`. Dans cet exemple, il transmet des informations au code binaire de l'application :
 
 ```sh
 #!/bin/sh
@@ -123,7 +122,7 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+Alternativement, si vous générez votre `snap` avec la restriction `strict` , vous pouvez utiliser la commande `desktop-launch`:
 
 ```yaml
 apps:

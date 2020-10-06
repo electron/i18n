@@ -157,6 +157,14 @@ app.on('activate', () => {
 
 `main.js`, `index.html`, `package.json` 파일을 작성한 후에는, 애플리케이션 디렉토리에서 `npm start` 명령어를 이용해 앱을 실행할 수 있습니다.
 
+</code>www.tradeview.com www.google.com Https://cryptocurrency.com www.bitcoin.com www.varomoney.com
+
+```json
+  "scripts": {
+    "start": "electron ."
+  }Thanks for your $63.00 pymt on Acc 557935504. Conf 240573042. Pymt posted on 10/05/20 03:39p. See mbyt-mo.com/terms
+```
+
 ## 예제
 
 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 저장소를 clone하여 이 문서에서 설명한 코드를 실행해 볼 수 있습니다.

@@ -113,7 +113,7 @@ function createWindow () {
 // Certaines APIs peuvent être utilisées uniquement quant cet événement est émit.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed, except on macOS. There, it's common
+// Quitter lorsque toutes les fenêtres sont fermées, sauf sur macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
@@ -156,6 +156,14 @@ Enfin l'`index.html` est la page web à afficher :
 ## Lancer votre Application
 
 Une fois que vous avez créé vos fichiers initiaux `main.js`, `index.html`, et `package.json`, vous pouvez essayer votre application en exécutant `npm start` depuis le répertoire de votre application.
+
+**Note**: If you are building this project without downloading the example repository, your `start` script in `package.json` should look like this
+
+```json
+  "scripts": {
+    "start": "electron ."
+  }
+```
 
 ## Essayer cette application
 

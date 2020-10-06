@@ -31,7 +31,7 @@ npm 將會引導你建立基本 `package.json` 檔案。 程式中的 `main` 就
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does).
+__注意__：如果沒有在 `package.json` 定義 `main`，則 Electron 會與 Node.js 一樣優先載入 `index.js`。
 
 By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
 
@@ -157,6 +157,14 @@ app.on('activate', () => {
 ## 執行你的應用程式
 
 當你建立好基本的 `main.js`、`index.html` 和 `package.json` 後，你可以在專案資料夾執行 `npm start` 指令以執行應用程式。
+
+**Note**: If you are building this project without downloading the example repository, your `start` script in `package.json` should look like this
+
+```json
+  "scripts": {
+    "start": "electron ."
+  }
+```
 
 ## 試試這個範例
 

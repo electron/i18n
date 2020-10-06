@@ -10,7 +10,7 @@ Ci sono tre modi per creare un file `.snap`:
 
 1) Usando [`forgia-electron`](https://github.com/electron-userland/electron-forge) o [`builder-electron`](https://github.com/electron-userland/electron-builder), entrambi strumenti con supporto `snap` fuori dalla scatola. Questa è l'opzione più facile. 2) Usando `electron-istallatore-snap`, che prende l'output dell'`electron-impacchettatore`. 3) Usando un pacchetto `.deb` preesistente.
 
-In some cases, you will need to have the `snapcraft` tool installed. Instructions to install `snapcraft` for your particular distribution are available [here](https://snapcraft.io/docs/installing-snapcraft).
+In alcuni casi, dovrai avere lo strumento `snapcraft` installato. Le istruzioni per installare `snapcraft` per la tua particolare distribuzione sono disponibili [qui](https://snapcraft.io/docs/installing-snapcraft).
 
 ## Usando `electron-installatore-snap`
 
@@ -22,7 +22,7 @@ npm install --save-dev electron-installer-snap
 
 ### Fase 1: Impacchetta La Tua App Electron
 
-Impacchetta l'app usando [electron-impacchettatore](https://github.com/electron/electron-packager) (o uno strumento simile). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Impacchetta l'app usando [electron-impacchettatore](https://github.com/electron/electron-packager) (o uno strumento simile). Assicurati di rimuovere `node_modules` che non necessiti nella tua applicazione finale, poiché ogni modulo che non ti serve realmente aumenterà le dimensioni della tua applicazione.
 
 L'output dovrebbe sembrare questo:
 
@@ -70,7 +70,7 @@ Se non hai già un pacchetto `.deb`, usando `electron-installatore-snap` potrebb
 
 ### Fase 2: Crea uno snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+Per ulteriori informazioni sulle opzioni di configurazione disponibili, vedi la [documentazione sulla sintassi di snapcraft](https://docs.snapcraft.io/build-snaps/syntax). Diamo un'occhiata ad un esempio:
 
 ```yaml
 nome: miaApp
@@ -115,7 +115,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
+Come puoi vedere, `snapcraft.yaml` istruisce il sistema di avviare un file chiamato `electron-launch`. In questo esempio, passa le informazioni sul binario dell'app:
 
 ```sh
 #!/bin/sh

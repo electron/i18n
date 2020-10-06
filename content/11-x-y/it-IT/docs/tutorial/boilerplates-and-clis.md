@@ -8,7 +8,7 @@ Questo livello di modularità ed estensibilità garantisce che tutti gli svilupp
 
 I boilerplate sono dei punti di partenza da cui iniziare a costruire la propria applicazione. Di solito si trovano sotto forma di repository che possono essere clonati e modificati a piacere.
 
-Gli strumenti da riga di comando invece possono essere utilizzati sia nello sviluppo che nel rilascio. Sono più utili, ma definiscono delle linee guida su come il codice deve essere strutturato. *Especially for beginners, using a command line tool is likely to be helpful*.
+Gli strumenti da riga di comando invece possono essere utilizzati sia nello sviluppo che nel rilascio. Sono più utili, ma definiscono delle linee guida su come il codice deve essere strutturato. *Specialmente per i principianti, l'utilizzo di uno strumento da riga di comando è probabilmente più d'aiuto*.
 
 ## electron-forge
 
