@@ -159,14 +159,14 @@
     "name": "Italian",
     "code": "it",
     "phrases": "68288",
-    "translated": "24014",
+    "translated": "24259",
     "approved": "12512",
     "words": "660412",
-    "words_translated": "172175",
+    "words_translated": "177412",
     "words_approved": "97395",
     "translated_progress": 26,
     "approved_progress": 14,
-    "qa_issues": 1364
+    "qa_issues": 1422
   },
   {
     "name": "Japanese",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "68288",
-    "translated": "48755",
+    "translated": "48757",
     "approved": "28152",
     "words": "660412",
-    "words_translated": "420923",
+    "words_translated": "420938",
     "words_approved": "244072",
     "translated_progress": 63,
     "approved_progress": 36,
-    "qa_issues": 3055
+    "qa_issues": 3056
   },
   {
     "name": "Tagalog",
