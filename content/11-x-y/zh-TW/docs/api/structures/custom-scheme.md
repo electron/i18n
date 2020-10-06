@@ -1,4 +1,4 @@
-# CustomScheme Object
+# CustomScheme 物件
 
 * `scheme` String - Custom schemes to be registered with options.
 * `privileges` Object (optional)

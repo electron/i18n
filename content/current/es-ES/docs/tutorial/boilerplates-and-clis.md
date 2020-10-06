@@ -14,7 +14,7 @@ Por otro, lado una herramienta de línea de comandos sigue para apoyarle a lo la
 
 Una "herramienta completa para las construcción de aplicaciones Electron modernas". Electron Forge unifica las herramientas de construcción existentes (y bien mantenidas) para el desarrollo de Electron en un paquete cohesivo de manera que cualquiera pueda saltar directamente al desarrollo en Electron.
 
-Forge viene con [a ready-to-use template](https://electronforge.io/templates) usando Webpack como empaquetador. Incluye una configuración de tipo typescript y proporciona dos archivos de configuración para permitir una personalización fácil. Utiliza los mismos módulos de núcleo usados por la gran mayoría en la comunidad Electron (como [`electron-packager`](https://github.com/electron/electron-packager)) - los cambios hechos por los mantenedores a cargo de Electron (como Slack), benefician también a los usuarios de Forge.
+Forge viene con [a ready-to-use template](https://electronforge.io/templates) usando Webpack como empaquetador. Incluye una configuración de tipo typescript y proporciona dos archivos de configuración para permitir una personalización fácil. Utiliza los mismos módulos de núcleo usados por la gran comunidad Electron (como [`electron-packager`](https://github.com/electron/electron-packager)) -los cambios hechos por los mantenedores a cargo de Electron (como Slack), benefician también a los usuarios de Forge.
 
 Puede encontrar información y documentación en [electronforge.io](https://electronforge.io/).
 

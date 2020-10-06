@@ -113,7 +113,7 @@ function createWindow () {
 // Einige APIs können nur nach dem Auftreten dieses Events genutzt werden.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed, except on macOS. There, it's common
+// Schließt die App, sobald alle Fenster geschlossen werden, außer auf macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
@@ -141,15 +141,15 @@ Zu guter Letzt, die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Hallo Welt!</title>
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1>Hallo Welt!</h1>
+    Aktuell wird die node version <script>document.write(process.versions.node)</script>,
+    Chrome in der Version <script>document.write(process.versions.chrome)</script>,
+     und Electron in der Version <script>document.write(process.versions.electron)</script> benutzt.
   </body>
 </html>
 ```
@@ -157,6 +157,14 @@ Zu guter Letzt, die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 ## Starten deiner Anwendung
 
 Sobald Sie Ihre ersten `main.js`, `index.html` und `package.json` Dateien erstellt haben, können Sie Ihre Anwendung testen, indem Sie `npm start` aus dem Verzeichnis Ihrer Anwendung ausführen.
+
+**Note**: If you are building this project without downloading the example repository, your `start` script in `package.json` should look like this
+
+```json
+  "scripts": {
+    "start": "electron ."
+  }
+```
 
 ## Beispiel-Anwendung
 

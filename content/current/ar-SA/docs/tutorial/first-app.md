@@ -189,9 +189,23 @@ app.on('activate', () => {
 الملفات ، يمكنك تجربة التطبيق الخاص بك عن طريق تشغيل <code> npm start </ 0> من التطبيق الخاص بك
 دليل.</p>
 
-<h2 spaces-before="0">جرب هذا المثال</h2>
+<p spaces-before="0"><strong x-id="1">Note</strong>: If you are building this project without downloading the example
+repository, your <code>start` script in `package.json` should look like this
 
-<p spaces-before="0">استنساخ وتشغيل الكود في هذا البرنامج التعليمي باستخدام <a href="https://github.com/electron/electron-quick-start"><code>electron/electron-quick-start`</a> repository.
+
+
+```json
+  "scripts": {
+    "start": "electron ."
+  }
+```
+
+
+
+
+## جرب هذا المثال
+
+استنساخ وتشغيل الكود في هذا البرنامج التعليمي باستخدام [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 

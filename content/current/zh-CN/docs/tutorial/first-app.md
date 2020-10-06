@@ -157,6 +157,14 @@ app.on('activate', () => {
 
 在创建并初始化完成 `main.js`、 `index.html`和`package.json`之后，您就可以在当前工程的根目录执行 `npm start` 命令来启动刚刚编写好的Electron程序了。
 
+**Note**: If you are building this project without downloading the example repository, your `start` script in `package.json` should look like this
+
+```json
+  "scripts": {
+    "start": "electron ."
+  }
+```
+
 ## 尝试此例
 
 复制并运行这个库 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start)。

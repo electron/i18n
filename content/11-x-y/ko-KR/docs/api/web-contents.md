@@ -884,6 +884,27 @@ Navigates to the specified offset from the "current entry".
 
 Returns `Boolean` - Whether the renderer process has crashed.
 
+#### `내용.강제 충돌 렌더러 ()`
+
+Tradeview balance thread Tradeview balance 일부 webContents는 렌더러 프로세스를 공유하므로 이 메서드를 호출하면 다른 웹 콘텐츠에 대한 호스트 프로세스 충돌할 수도 있습니다.
+
+Www. bitcoin. com Coinbase.com
+
+```js
+contents.on('unresponsive', async () => {
+  const { response } = await dialog.showMessageBox({
+    message: 'App X has become unresponsive',
+    title: 'Do you want to try forcefully reloading the app?',
+    buttons: ['OK', 'Cancel'],
+    cancelId: 1
+  })
+  if (response === 0) {
+    contents.forcefullyCrashRenderer()
+    contents.reload()
+  }
+})
+```
+
 #### `contents.setUserAgent(userAgent)`
 
 * `userAgent` String

@@ -98,7 +98,7 @@ Quando si utilizza il modulo integrato di Electron si potrebbe verificare un err
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-It is very likely you are using the module in the wrong process. Per esempio `elettron.app` può essere utilizzato solo nel processo principale, mentre `elettron.webFrame` è disponibile solo nei processi di rendering.
+È molto probabile che si sta utilizzando il modulo nel processo sbagliato. Per esempio `elettron.app` può essere utilizzato solo nel processo principale, mentre `elettron.webFrame` è disponibile solo nei processi di rendering.
 
 ## Il carattere sembra sfocato, che cos'è e cosa posso fare?
 

@@ -158,6 +158,14 @@ Kesin olarak göstermek istediğiniz web sayfası `index.html`:
 
 `main.js`, `index.html`, ve `package.json` dosyalarını oluşturduktan sonra, Uygulamayı dizinindeyken `npm start` komutunu çalıştırarak deneyebilirsiniz.
 
+**Note**: If you are building this project without downloading the example repository, your `start` script in `package.json` should look like this
+
+```json
+  "scripts": {
+    "start": "electron ."
+  }
+```
+
 ## Bu Örneği Deneyin
 
 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) deposunu (repository) klonlayın ve bu eğitimdeki kodu kullanarak çalıştırın.

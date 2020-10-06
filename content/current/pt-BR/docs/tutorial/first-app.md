@@ -159,6 +159,14 @@ Finalmente, o `index.html` é a pagina da web que você quer mostrar:
 
 Depois de criar seus arquivos iniciais `main.js`,`index.html` e `package.json`, você pode tentar executar seu aplicativo com `npm start` no diretório do seu aplicativo.
 
+**Note**: If you are building this project without downloading the example repository, your `start` script in `package.json` should look like this
+
+```json
+  "scripts": {
+    "start": "electron ."
+  }
+```
+
 ## Experimente esse Exemplo
 
 Clone e execute o código nesse tutorial utilizando o repositório [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
