@@ -154,7 +154,7 @@ For modules, the `objectName` is the module's name. For classes, it must be the 
 
 Por exemplo, os métodos da classe `Session` sob o módulo `session` usa `ses` como `objectName`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Os argumentos opcionais são indicados por colchetes `[]` em torno do argumento opcional, bem como da vírgula necessária se este argumento opcional seguir outro argumento:
 
 ```sh
 obrigatório[, opcional]
