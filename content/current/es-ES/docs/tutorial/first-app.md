@@ -158,7 +158,7 @@ Finalmente el archivo `index.html` es la página web que quieres mostrar:
 
 Una vez que hayas creado tus ficheros iniciales `main.js`, `index.html` y `package.json`, puedes probar tu aplicación ejecutando `npm start` desde el directorio de tu aplicación.
 
-**Note**: If you are building this project without downloading the example repository, your `start` script in `package.json` should look like this
+**Nota**: Si estás construyendo este proyecto sin descargar el repositorio de ejemplo, tu `start` script en `package.json` se debería ver así
 
 ```json
   "scripts": {

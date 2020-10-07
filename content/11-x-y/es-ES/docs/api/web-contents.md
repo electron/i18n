@@ -886,15 +886,15 @@ Devuelve `Boolean` - Si el proceso de renderizado ha fallado.
 
 #### `contents.forcefullyCrashRenderer()`
 
-Forcefully terminates the renderer process that is currently hosting this `webContents`. This will cause the `render-process-gone` event to be emitted with the `reason=killed || reason=crashed`. Please note that some webContents share renderer processes and therefore calling this method may also crash the host process for other webContents as well.
+Forzosamente termina el renderer process que actualmente aloja este `webContents`. Esto hará que sea emitido el evento `render-process-gone` con el `reason=killed || reason=crashed`. Tenga en cuenta que algunos webContents comparten el renderer process y por lo tanto llamar a este método puede causar que se bloque el proceso también para otros wevContents.
 
-Calling `reload()` immediately after calling this method will force the reload to occur in a new process. This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
+Llamar a `reload()` inmediatamente después de llamar a este método forzará que la recarga ocurra en un nuevo proceso. Esto debería ser usado cuando el proceso es inestable o inutilizable, por ejemplo parar recuperar del evento `unresponsive`.
 
 ```js
 contents.on('unresponsive', async () => {
   const { response } = await dialog.showMessageBox({
     message: 'App X has become unresponsive',
-    title: 'Do you want to try forcefully reloading the app?',
+    title: '¿Quieres intentar volver a cargar la aplicación a la fuerza?',
     buttons: ['OK', 'Cancel'],
     cancelId: 1
   })
@@ -921,9 +921,9 @@ Devuelve `String` - El agente usuario para esta página web.
 * `options` Object (opcional)
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
-Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
+Devuelve `Promise<String>` - Una promesa que resuelve con una llave para el CSS insertado que puede ser usado más tarde prar quitar el CSS vía `contents.removeInsertedCSS(key)`.
 
-Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+Inyecta CSS en la página web actual y devuelve una llave única para la hoja de estilo insertada.
 
 ```js
 contents.on('did-finish-load', () => {
@@ -935,7 +935,7 @@ contents.on('did-finish-load', () => {
 
 * `llave` Cadena
 
-Returns `Promise<void>` - Resolves if the removal was successful.
+Devuelve `Promise<void>` - Se resuelve si la eliminación fue exitosa.
 
 Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
@@ -1146,7 +1146,7 @@ Returns `Boolean` - Whether this page is being captured. It returns true when th
 * `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
 * `stayHidden` Boolean (optional) -  Keep the page hidden instead of visible.
 
-Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+Incrementa el recuento del capturador en uno. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
 
 This also affects the Page Visibility API.
 
@@ -1205,7 +1205,7 @@ Ejemlo de uso:
 ```js
 const options = {
   silent: true,
-  deviceName: 'My-Printer',
+  deviceName: 'Mi-Impresora',
   pageRanges: {
     from: 0,
     to: 1
@@ -1270,10 +1270,10 @@ win.webContents.on('did-finish-load', () => {
     const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
     fs.writeFile(pdfPath, data, (error) => {
       if (error) throw error
-      console.log(`Wrote PDF successfully to ${pdfPath}`)
+      console.log(`PDF escrito con éxito en  ${pdfPath}`)
     })
   }).catch(error => {
-    console.log(`Failed to write PDF to ${pdfPath}: `, error)
+    console.log(`Falla al escibir el PDF en ${pdfPath}: `, error)
   })
 })
 ```
@@ -1282,7 +1282,7 @@ win.webContents.on('did-finish-load', () => {
 
 * `path` String
 
-Adds the specified path to DevTools workspace. Must be used after DevTools creation:
+Agrega la ruta especificada al workspace de DevTools. Must be used after DevTools creation:
 
 ```javascript
 const { BrowserWindow } = require('electron')
