@@ -8,4 +8,4 @@
   * `allowServiceWorkers` Boolean (opcional) - Predeterminado falso.
   * `supportFetchAPI` Boolean (opcional) - Predeterminado falso.
   * `corsEnabled` Boolean (opcional) - Predeterminado falso.
-  * `stream` Boolean (optional) - Default false.
+  * `Stream` Boolean (opcional) - Por defecto false.
