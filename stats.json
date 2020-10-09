@@ -237,27 +237,27 @@
     "name": "Romanian",
     "code": "ro",
     "phrases": "68297",
-    "translated": "5555",
+    "translated": "5602",
     "approved": "3679",
     "words": "660559",
-    "words_translated": "33716",
+    "words_translated": "34263",
     "words_approved": "22797",
     "translated_progress": 5,
     "approved_progress": 3,
-    "qa_issues": 217
+    "qa_issues": 219
   },
   {
     "name": "Russian",
     "code": "ru",
     "phrases": "68297",
-    "translated": "41079",
+    "translated": "41087",
     "approved": "27948",
     "words": "660559",
-    "words_translated": "331937",
+    "words_translated": "332123",
     "words_approved": "222450",
     "translated_progress": 50,
     "approved_progress": 33,
-    "qa_issues": 1875
+    "qa_issues": 1876
   },
   {
     "name": "Spanish",
