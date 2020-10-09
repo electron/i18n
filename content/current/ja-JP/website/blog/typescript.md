@@ -1,42 +1,42 @@
 ---
-title: "Announcing TypeScript support in Electron"
+title: "Electron での TypeScript サポートを発表"
 author: zeke
 date: '2017-06-01'
 ---
 
-The `electron` npm package now includes a TypeScript definition file that provides detailed annotations of the entire Electron API. These annotations can improve your Electron development experience **even if you're writing vanilla JavaScript**. Just `npm install electron` to get up-to-date Electron typings in your project.
+`Electron` npm パッケージに、Electron API 全体の詳細なアノテーションを提供する TypeScript 定義ファイルが含まれるようになりました。 これらのアノテーションは、たとえ純粋なJavaScriptを書いていていても、Electron の**開発エクスペリエンスを向上させることができます**。 ただ`npm install electron` を実行して、あなたのプロジェクトに最新の Electron の入力を取得できます。
 
 ---
 
-TypeScript is an open-source programming language created by Microsoft. It's a superset of JavaScript that extends the language by adding support for static types. The TypeScript community has grown quickly in recent years, and TypeScript was ranked among the [most loved programming languages](https://stackoverflow.com/insights/survey/2017#technology-most-loved-dreaded-and-wanted-languages) in a recent Stack Overflow developer survey.  TypeScript is described as "JavaScript that scales", and teams at [GitHub](https://githubengineering.com/how-four-native-developers-wrote-an-electron-app/), [Slack](https://slack.engineering/typescript-at-slack-a81307fa288d), and [Microsoft](https://github.com/Microsoft/vscode) are all using it to write scalable Electron apps that are used by millions of people.
+TypeScript は、Microsoft が作成したオープンソースのプログラミング言語です。 これは、静的型をサポート追加することで言語を拡張する JavaScript のスーパーセットです。 TypeScript のコミュニティは近年急速に成長しています。そしてTypeScriptは、最近のStack Overflow開発者調査で [最も愛されているプログラミング言語](https://stackoverflow.com/insights/survey/2017#technology-most-loved-dreaded-and-wanted-languages)にランクインしました。  TypeScript は「スケールする JavaScript」と説明されています。[GitHub](https://githubengineering.com/how-four-native-developers-wrote-an-electron-app/)、[Slack](https://slack.engineering/typescript-at-slack-a81307fa288d)と[Microsoft](https://github.com/Microsoft/vscode)のチームはこれを使って数百万人が使用する、スケーラブルな Electron アプリを作成しています。
 
-TypeScript supports many of the newer language features in JavaScript like classes, object destructuring, and async/await, but its real differentiating feature is **type annotations**. Declaring the input and output datatypes expected by your program can [reduce bugs](https://slack.engineering/typescript-at-slack-a81307fa288d) by helping you find errors at compile time, and the annotations can also serve as a formal declaration of [how your program works](https://staltz.com/all-js-libraries-should-be-authored-in-typescript.html).
+TypeScript は、JavaScript により新しい多くの言語機能を提供しています。クラス、オブジェクトの破棄、非同期/待機などです。しかしその本当の差別化機能は**型アノテーション **です。 プログラムに期待される入出力データ型を宣言すると、コンパイル時にエラーを見つけることができ、[バグを減らすことができます](https://slack.engineering/typescript-at-slack-a81307fa288d)。そしてアノテーションは[プログラムがどのように動作するか](https://staltz.com/all-js-libraries-should-be-authored-in-typescript.html)を形式的に説明することになります。
 
-When libraries are written in vanilla Javascript, the types are often vaguely defined as an afterthought when writing documentation. Functions can often accept more types than what was documented, or a function can have invisible constraints that are not documented, which can lead to runtime errors.
+純粋な Javascript でライブラリが書かれている場合、ドキュメントを書くときには、その型はしばしば漠然と定義されます。 関数は、多くの場合、ドキュメントで指定された型よりも多くの型を受け入れることもありますし、関数にドキュメント化されていない、暗黙の型の制約を持つ場合があります。そのためにランタイムエラーが発生する可能性もあります。
 
-TypeScript solves this problem with **definition files**. A TypeScript definition file describes all the functions of a library and its expected input and output types. When library authors bundle a TypeScript definition file with their published library, consumers of that library can [explore its API right inside their editor](https://code.visualstudio.com/docs/editor/intellisense) and start using it right away, often without needing to consult the library's documentation.
+TypeScript は **定義ファイル** でこの問題を解決します。 TypeScript の定義ファイルには、ライブラリのすべての関数と、それらの関数で期待される入出力の型が記述されています。 ライブラリの作成者が公開ライブラリに TypeScript 定義ファイルをバンドルする場合、そのライブラリを使って開発するユーザーは、[そのライブラリのAPIをエディタ内ですぐに調べ](https://code.visualstudio.com/docs/editor/intellisense)られるようになります。そして、ライブラリのドキュメントを参照することなく、すぐに開発を開始できます。
 
-Many popular projects like [Angular](https://angularjs.org/), [Vue.js](http://vuejs.org/), [node-github](https://github.com/mikedeboer/node-github) (and now Electron!) compile their own definition file and bundle it with their published npm package. For projects that don't bundle their own definition file, there is [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), a third-party ecosystem of community-maintained definition files.
+[Angular](https://angularjs.org/)や[Vue.js](http://vuejs.org/)や[node-github](https://github.com/mikedeboer/node-github)(そして Electron も!)のように多くの人気の高いプロジェクトは自身の定義ファイルをコンパイルし、それをnpm の公開パッケージにバンドルしています。 独自の定義ファイルをバンドルしていないプロジェクトのために、[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) というコミュニティがメンテナンスする定義ファイルを扱う、サードパーティのエコシステムがあります。
 
 ## インストール
 
-Starting at version 1.6.10, every release of Electron includes its own TypeScript definition file. When you install the `electron` package from npm, the `electron.d.ts` file is bundled automatically with the installed package.
+バージョン 1.6.10 以降の、Electron のすべてのリリースには独自の TypeScript 定義ファイルが含まれています。 Npm から `electron` パッケージをインストールすると、 `electron.d.ts` ファイルがインストールパッケージに自動的にバンドルされます。
 
-The [safest way](https://electronjs.org/docs/tutorial/electron-versioning/) to install Electron is using an exact version number:
+Electron をインストールする [最も安全な方法は](https://electronjs.org/docs/tutorial/electron-versioning/) であり、正確なバージョン番号を使用することです:
 
 ```sh
 npm install electron --save-dev --save-exact
 ```
 
-Or if you're using [yarn](https://yarnpkg.com/lang/en/docs/migrating-from-npm/#toc-cli-commands-comparison):
+または、 [yarn](https://yarnpkg.com/lang/en/docs/migrating-from-npm/#toc-cli-commands-comparison) を使っているなら：
 
 ```sh
 yarn add electron --dev --exact
 ```
 
-If you were already using third-party definitions like `@types/electron` and `@types/node`, you should remove them from your Electron project to prevent any collisions.
+`@types/electron` や `@types/node`などのサードパーティの定義を既に使用している場合は、衝突しないように、Electronプロジェクトからそれらの定義ファイルを削除する必要があります。
 
-The definition file is derived from our [structured API documentation](https://electronjs.org/blog/2016/09/27/api-docs-json-schema), so it will always be consistent with [Electron's API documentation](https://electronjs.org/docs/api/). Just install `electron` and you'll always get TypeScript definitions that are up to date with the version of Electron you're using.
+定義ファイルは、[構造化 API ドキュメント](https://electronjs.org/blog/2016/09/27/api-docs-json-schema)から導出します。そのため、[Electron の API ドキュメント](https://electronjs.org/docs/api/)と常に 一致します。 `Electron` をインストールするだけで、使用している Electron のバージョンの最新の TypeScript 定義が得られます。
 
 ## 使い方
 
