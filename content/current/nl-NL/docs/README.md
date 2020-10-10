@@ -137,6 +137,7 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Modules voor het proces van de Renderer (webpagina):
 

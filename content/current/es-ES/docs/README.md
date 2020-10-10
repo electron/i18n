@@ -137,6 +137,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [Barra táctil](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Módulos para el proceso de renderizado (Página Web):
 

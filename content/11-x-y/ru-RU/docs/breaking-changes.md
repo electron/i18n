@@ -16,7 +16,7 @@
 
 ### Default Changed: `contextIsolation` defaults to `true`
 
-In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
+` `  ` `
 
 We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
 
@@ -30,7 +30,7 @@ The following `crashReporter` methods are no longer available in the renderer pr
 - `crashReporter.getLastCrashReport`
 - `crashReporter.getUploadedReports`
 - `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
+- `вылетать Reporter.setUploadToServer`
 - `crashReporter.getCrashesDirectory`
 
 They should be called only from the main process.
@@ -60,7 +60,7 @@ crashReporter.start({ companyName: 'Umbrella Corporation' })
 crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
 ```
 
-### Deprecated: `crashReporter.getCrashesDirectory()`
+### Obsoleto: `crashReporter.getCrashesDirectory()`
 
 The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
 

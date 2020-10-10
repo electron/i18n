@@ -10,7 +10,7 @@ Se a instalação via `npm` falhar, você também pode tentar baixar o Electron 
 
 ## Quando o Electron será atualizado para a versão mais recente do Chrome?
 
-A versão do Chrome usada no Electron é geralmente disponibilizada dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é garantida, depende da quantidade de trabalho envolvido na atualização.
+A versão do Chrome utilizada no Electron normalmente é disponibilizada dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é garantida, depende da quantidade de trabalho envolvido na atualização.
 
 Somente a versão estável do Chrome é usada. If an important fix is in beta or dev channel, we will back-port it.
 
@@ -41,9 +41,9 @@ Se você quer uma solução rápida, você pode fazer as variáveis globais, alt
 
 ```javascript
 const { app, Tray } = require('electron')
-app.whenReady().then(() => {
-  const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+app.whenReady().then(() =>{
+ const tray = new Tray('/path/to/icon.png')
+ tray.setTitle('hello world')
 })
 ```
 

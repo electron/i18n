@@ -109,7 +109,7 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [Obiectul `File`](api/file-object.md)
 * [Eticheta `<webview>`](api/webview-tag.md)
 * [Funcția `window.open`](api/window-open.md)
-* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
+* [Obiect`BrowserWindowProxy`](api/browser-window-proxy.md)
 
 ### Module pentru procesul principal:
 

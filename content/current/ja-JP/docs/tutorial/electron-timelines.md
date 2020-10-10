@@ -4,7 +4,7 @@
 * 私たちは毎週ベータ版のリリースを目指しますが、予定より多くのベータ版をリリースすることがよくあります。
 * これら全ての日付は私たちの目標ですが、セキュリティバグなど、安定版リリースの期限を調整する理由があるかもしれません。
 * リリース日の公表に関する情報については、[5.0.0 タイムラインのブログ記事](https://electronjs.org/blog/electron-5-0-timeline) をご覧ください。
-* Since Electron 6.0, we've been targetting every other Chromium version and releasing our stable on the same day as Chrome stable. You can reference Chromium's release schedule [here](https://chromiumdash.appspot.com/schedule). See [Electron's new release cadence blog post](https://www.electronjs.org/blog/12-week-cadence) for more details on our release schedule.
+* Since Electron 6.0, we've been targeting every other Chromium version and releasing our stable on the same day as Chrome stable. You can reference Chromium's release schedule [here](https://chromiumdash.appspot.com/schedule). See [Electron's new release cadence blog post](https://www.electronjs.org/blog/12-week-cadence) for more details on our release schedule.
 
 | バージョン  | ベータ初版      | 安定版        | Chrome | Node   |
 | ------ | ---------- | ---------- | ------ | ------ |

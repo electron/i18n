@@ -102,7 +102,7 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [Obiectul procesului](api/process.md)
 * [Comutatoare de linie de comandă acceptate](api/command-line-switches.md)
 * [Variabile de mediu](api/environment-variables.md)
-* [Chrome Extensions Support](api/extensions.md)
+* [Suport Extensii Chrome](api/extensions.md)
 * [Ruperea modificărilor API](breaking-changes.md)
 
 ### Elemente DOM personalizate:
@@ -110,7 +110,7 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [Obiectul `File`](api/file-object.md)
 * [Eticheta `<webview>`](api/webview-tag.md)
 * [Funcția `window.open`](api/window-open.md)
-* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
+* [Obiect`BrowserWindowProxy`](api/browser-window-proxy.md)
 
 ### Module pentru procesul principal:
 
@@ -123,7 +123,7 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [globalShortcut](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
+* [Meniu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)

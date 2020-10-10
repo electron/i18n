@@ -2,21 +2,21 @@
 
 > Открывает новое окно и загружает URL.
 
-When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+Когда `window.open` вызывается для создания нового окна на веб-странице, будет создаваться новый экземпляр [`BrowserWindow`](browser-window.md) по `url` и прокси возвратит `window.open` и позволить странице иметь ограниченный контроль над ним.
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+Прокси имеет ограниченный набор стандартных функций для совместимости с традиционными веб-страницами. Для полного контроля над новым окном вы должны создать `BrowserWindow` напрямую.
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+Только что созданный `BrowserWindow` будет по умолчанию наследовать свойства родительского окна. Для переопределения наследованных параметров вы можете установить их в параметре `features`.
 
 ### `window.open(url[, frameName][, features])`
 
 * `url` String
-* `frameName` String (опиционально)
-* `features` String (опиционально)
+* `frameName` String (опционально)
+* `features` String (опционально)
 
 Возвращает [`BrowserWindowProxy`](browser-window-proxy.md) - создает новое окно и возвращает экземпляр класса `BrowserWindowProxy`.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
+Форматирование параметра `features` следует формату стандартного браузера, но каждая функция должна быть полем `BrowserWindow`. Вы можете установить с помощью параметра `features` следующие функции: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 Например:
 ```js
@@ -25,31 +25,31 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 
 **Замечания:**
 
-* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
-* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
-* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
-* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
+* Интеграция с Node будет всегда выключена в открытых `window` если она была выключена в родительском окне.
+* Изоляция контекста будет всегда включена в открытых `window` если она была включена в родительском окне.
+* JavaScript будет всегда включен в открытых `window` если он был включен в родительском окне.
+* Нестандартные функции (которые не обрабатываются Chromium или Electron), указанные в `features` будут переданы любому зарегистрированному в `webContent` объекта `new-window` обработчику событий в виде `additionalFeatures` аргумента.
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
 * Строка `message`
 * `targetOrigin` String
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+Отправить сообщение родительскому окну можно с указанием получателя или `*` для отправки без указания.
 
 ### С помощью Chrome `window.open()` реализации
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+Если вы хотите использовать встроенную в Chrome реализацию `window.open()`, установите параметр `nativeWindowOpen` объекта `webPreferences` на `true`.
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+Встроенный `window.open()` допускает синхронный доступ к открытым окнам. Так что, это хороший выбор, если вам нужно открыть диалоговое окно или окно настроек.
 
-This option can also be set on `<webview>` tags as well:
+Параметр также может быть установлен на `<webview>` теге:
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+Создание `BrowserWindow` настраивается с помощью `new-window` события `WebContents`.
 
 ```javascript
 // основной процесс
@@ -76,7 +76,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// renderer process (mainWindow)
+// процесс рендера (mainWindow)
 const modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```

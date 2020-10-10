@@ -4,27 +4,27 @@
 
 Când rulezi `npm install electron</ 0>, unii utilizatori întâlnesc ocazional erori de instalare.</p>
 
-<p spaces-before="0">Când rulezi <code>npm instalează electroni`, unii utilizatori întâlnesc ocazional erori de instalare. Errori ca `ELIFECYCLE`,`EAI_AGAIN`, `ECONNRESET`, si `ETIMEDOUT` sunt indicatii ca exista probleme de retea. The best resolution is to try switching networks, or wait a bit and try installing again.
+<p spaces-before="0">Când rulezi <code>npm instalează electroni`, unii utilizatori întâlnesc ocazional erori de instalare. Errori ca `ELIFECYCLE`,`EAI_AGAIN`, `ECONNRESET`, si `ETIMEDOUT` sunt indicatii ca exista probleme de retea. Cea mai bună rezoluție este să încercați să schimbați rețelele, sau să așteptați puțin și să instalați din nou.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Puteți încerca să descărcați Electron direct de pe [electron/electron/releases](https://github.com/electron/electron/releases) dacă instalarea via `npm` eșuează.
 
-## When will Electron upgrade to latest Chrome?
+## Când va face upgrade Electron la cel mai recent Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. Această estimare nu este garantată și depinde de volumul de muncă implicat în modernizare.
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Pentru mai multe informații, vă rugăm să consultați [introducerea de securitate](tutorial/security.md).
 
 ## Când va trece Electron la ultimul Node.js?
 
-Atunci când o versiune nouă a Node.js este lansată, așteptăm de obicei aproximativ o lună înainte de a-l moderniza pe cel din Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Atunci când o versiune nouă a Node.js este lansată, așteptăm de obicei aproximativ o lună înainte de a-l moderniza pe cel din Electron. Așa că putem evita să fim afectați de bug-uri introduși în versiunile noi de Node.js, ceea ce se întâmplă foarte des.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Noile caracteristici ale Node.js sunt, de obicei, aduse de upgrade-urile V8, deoarece Electron folosește V8-ul adus de browserul Chrome, nou-nouța caracteristică JavaScript a unei versiuni noi Node.js este, de obicei, deja în Electron.
 
-## How to share data between web pages?
+## Cum se partajează datele între paginile web?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Pentru a partaja date între pagini web (procesele de redare), cea mai ușoară cale este de a utiliza API-urile HTML5 care sunt deja disponibile în browsere. Candidații buni sunt [Stocarea API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), și [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
 Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 

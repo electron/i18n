@@ -91,4 +91,4 @@ This can happen during build, when Debugging Tools for Windows has been installe
 
 ### Строить сценарии повесить до Keypress
 
-Эта ошибка является "функцией" командной строки Windows. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+Эта ошибка является "функцией" командной строки Windows. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Puisque chaque clic accidentel met en pause le processus de construction, vous pouvez désactiver cette fonctionnalité dans les propriétés de l'invite de commande.

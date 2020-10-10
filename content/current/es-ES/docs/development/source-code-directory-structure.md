@@ -32,8 +32,8 @@ Electron
 |   |   ├── api/ - Implementación de la API para los módulos del proceso renderer.
 |   |   ├── extension/ - Código relacionado con el uso de las Extenciones de Chrome
 |   |   |                en el proceso renderer de Electron.
-|   |   ├── remote/ - Lógica que maneja el uso del módulo remoto en el 
-|   |   |             proceso principal.
+|   |   ├── remote/ - Lógica que controla el uso del módulo remoto
+|   |   |             en el proceso principal.
 |   |   └── web-view/ - Lógica que maneja el uso de los webviews en el 
 |   |                   proceso renderer.
 |   ├── sandboxed_renderer/ - Lógica que maneja la creación de procesos 

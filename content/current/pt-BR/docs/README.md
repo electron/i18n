@@ -137,6 +137,7 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Módulos para o Processo de Renderização (Página Web):
 

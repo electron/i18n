@@ -137,6 +137,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [TouchBar](api/touch-bar.md)
 * [ถาด](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### โมดูลสำหรับกระบวนการเรนเดอร์ (หน้าเว็บ):
 

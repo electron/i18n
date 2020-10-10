@@ -1,15 +1,15 @@
-# Обновление приложений
+# Updating Applications
 
 Существует несколько способов по обновлению Electron приложений. Самый простой и официально поддерживаемый - воспользоваться встроенным [Squirrel](https://github.com/Squirrel) фреймворком и модулем Electron [autoUpdater](../api/auto-updater.md).
 
 ## Используя `update.electronjs.org`
 
-The Electron team maintains [update.electronjs.org][], a free and open-source webservice that Electron apps can use to self-update. Сервис разработан для приложений Electron, отвечающих следующим критериям:
+The Electron team maintains [update.electronjs.org][], a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
 
 - Приложение работает на macOS или Windows
-- Приложение имеет публичный GitHub репозиторий
+- App has a public GitHub repository
 - Сборки публикуются в GitHub Releases
-- Сборки с кодовой подписью
+- Builds are code-signed
 
 Самый простой способ использовать этот сервис - установить [update-electron-app][], модуль Node.js, сконфигурированный для использования с update.electronjs.org.
 

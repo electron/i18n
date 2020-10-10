@@ -4,7 +4,7 @@
 * Nos esforzamos por liberar versiones beta semanalmente, sin embargo a menudo liberamos mas betas que las programadas.
 * Todas las fechas son nuestras metas pero puede haber razones para ajustar el plazo de la versión estable, tales como errores de seguridad.
 * Echa un vistazo a [5.0.0 Timeline blog post](https://electronjs.org/blog/electron-5-0-timeline) para información acerca de publicación de nuestras fechas de lanzamiento.
-* Since Electron 6.0, we've been targetting every other Chromium version and releasing our stable on the same day as Chrome stable. You can reference Chromium's release schedule [here](https://chromiumdash.appspot.com/schedule). See [Electron's new release cadence blog post](https://www.electronjs.org/blog/12-week-cadence) for more details on our release schedule.
+* Since Electron 6.0, we've been targeting every other Chromium version and releasing our stable on the same day as Chrome stable. You can reference Chromium's release schedule [here](https://chromiumdash.appspot.com/schedule). See [Electron's new release cadence blog post](https://www.electronjs.org/blog/12-week-cadence) for more details on our release schedule.
 
 | Versión | -beta.1    | Estable    | Chrome | Node   |
 | ------- | ---------- | ---------- | ------ | ------ |

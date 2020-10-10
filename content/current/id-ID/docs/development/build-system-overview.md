@@ -4,7 +4,7 @@ Electron menggunakan [GN](https://gn.googlesource.com/gn) untuk proyek generasi 
 
 ## Berkas GN
 
-Berkas `gn` berisi aturan utama untuk membangun Electron:
+` `
 
 * `BUILD.gn` defines how Electron itself is built and includes the default configurations for linking with Chromium.
 * `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.

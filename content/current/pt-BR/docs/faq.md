@@ -41,9 +41,9 @@ Se você quer uma solução rápida, você pode fazer as variáveis globais, alt
 
 ```javascript
 const { app, Tray } = require('electron')
-app.whenReady().then(() => {
-  const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+app.whenReady().then(() =>{
+ const tray = new Tray('/path/to/icon.png')
+ tray.setTitle('hello world')
 })
 ```
 

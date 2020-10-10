@@ -19,7 +19,7 @@ app.on('window-all-closed', () => {
 
 ### イベント: 'will-finish-launching'
 
-アプリケーションが基本的な起動処理を完了したときに発生します。 WindowsとLinuxでは、`will-finish-launching` イベントは `ready` イベントと同じですが、macOSでは、このイベントは、`NSApplication` の `applicationWillFinishLaunching` 通知に相当します。 通常、ここでは、`open-file` や `open-url` イベントのリスナーを設定したり、クラッシュレポーターや自動アップデーターを開始したりします。
+アプリケーションが基本的な起動処理を完了したときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では、このイベントは`NSApplication` の `applicationWillFinishLaunching` 通知を表しています。 通常、ここでは、`open-file` や `open-url` イベントのリスナーを設定したり、クラッシュレポーターや自動アップデーターを開始したりします。
 
 ほとんどの場合、`ready` イベントハンドラーですべてのことを行うようにするべきです。
 
@@ -705,7 +705,7 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
   * `path` String - プロトコルを扱うアプリのインストールパス。
   * `name` String - プロトコルを扱うアプリの表示名。
 
-This method returns a promise that contains the application name, icon and path of the default handler for the protocol (aka URI scheme) of a URL.
+このメソッドは、URL のプロトコル (別名 URI スキーム) のデフォルトハンドラーであるアプリケーション名、アイコン、パスを含むPromiseを返します。
 
 ### `app.setUserTasks(tasks)` _Windows_
 
@@ -999,13 +999,13 @@ macOS では Dock アイコンに表示されます。 Linux では Unity ラン
 * `wasOpenedAtLogin` Boolean _macOS_ - アプリがログイン時に自動的に開かれた場合 `true` です。 この設定は [MAS ビルド][mas-builds] では利用できません。
 * `wasOpenedAsHidden` Boolean _macOS_ - アプリが非表示のログイン項目として開かれていた場合 `true` です。 これは、アプリが起動時に何もウインドウを開いてはいけないことを示します。 この設定は [MAS ビルド][mas-builds] では利用できません。
 * `restoreState` Boolean _macOS_ - 以前のセッションから状態を復元する必要があるログイン項目としてアプリを開いた場合 `true` です。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は [MAS ビルド][mas-builds] では利用できません。
-* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` アプリはログイン時に開くように設定されており、その実行キーが無効化されていない場合。 This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
+* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` アプリはログイン時に開くように設定されており、その実行キーが無効化されていない場合。 `openAtLogin`は`args` オプションを無視する点が異なっています。与えられた実行ファイルがログイン時**なんらか**の引数が与えれた場合にこのプロパティは 真 になります。
 * `launchItems` Object[] _Windows_
   * `name` String _Windows_ - レジストリエントリの名前の値。
   * `path` String _Windows_ - レジストリエントリに対応するアプリの実行可能ファイル。
   * `args` String[] (任意) _Windows_ - 実行ファイルに渡すコマンドライン引数。
   * `scope` String _Windows_ - `user` または `machine` のどちらか。 レジストリエントリが `HKEY_CURRENT USER` または `HKEY_LOCAL_MACHINE` の下にあるかどうかを示します。
-  * `enabled` Boolean _Windows_ - `true` if the app registry key is startup approved and therefore shows as `enabled` in Task Manager and Windows settings.
+  * `enabled` Boolean _Windows_ - 次の場合`true`になります。アプリレジストリキーが承認されているため、タスクマネージャと Windows 設定で `enabled` として表示されている場合。
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
@@ -1014,8 +1014,8 @@ macOS では Dock アイコンに表示されます。 Linux では Unity ラン
   * `openAsHidden` Boolean (任意) _macOS_ - アプリを非表示で開く場合 `true` にします。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができるので、現在の値を取得するために `app.getLoginItemSettings().wasOpenedAsHidden` をアプリが開かれたときに確認するようにしてください。 この設定は [MAS ビルド][mas-builds] では利用できません。
   * `path` String (任意) _Windows_ - ログイン時に起動する実行形式。 省略値は `process.execPath` です。
   * `args` String[] (任意) _Windows_ - 実行ファイルに渡すコマンドライン引数。 省略値は空の配列です。 パスはテンプレート文字列にするようにしましょう。
-  * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. 省略値は `true` です。
-  * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). アプリのログイン項目設定を設定します。
+  * `enabled` Boolean (任意) _Windows_ - `true` の場合、スタートアップが承認したレジストリキーを変更し、 `タスクマネージャと Windows 設定で` アプリを有効/無効にします。 省略値は `true` です。
+  * `name` String (任意) _Windows_ - レジストリに書きこむ値の名前。 デフォルトはアプリの AppUserModelId() です。 アプリのログイン項目設定を設定します。
 
 Windows 上で Electron の `autoUpdater` を [Squirrel][Squirrel-Windows] を使って動かす場合、起動パスを Update.exe に設定し、渡す引数にアプリケーション名を指定してください。 例:
 
@@ -1062,7 +1062,7 @@ app.setLoginItemSettings({
   * `credits` String (任意) _macOS_ _Windows_ - クレジット情報。
   * `authors` String[] (任意) _Linux_ - アプリの作者のリスト。
   * `website` String (任意) _Linux_ - アプリのウェブサイト。
-  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
+  * `iconPath` String (任意) _Linux_ _Windows_ - JPEGまたはPNGフォーッマットの、アプリのアイコンへのパス。 Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
 
 Aboutパネルのオプションを設定します。 macOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント][about-panel-options] を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
@@ -1095,7 +1095,7 @@ stopAccessingSecurityScopedResource()
 
 ### `app.enableSandbox()`
 
-アプリで完全サンドボックスモードを有効にします。 This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
+アプリで完全サンドボックスモードを有効にします。 これは、WebPreferences の `sandbox` フラグの値に関係なく、すべてのレンダラーがサンドボックスで起動されることを意味します。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
@@ -1115,7 +1115,7 @@ stopAccessingSecurityScopedResource()
 
 **注:** このメソッドはユーザ以外が移動の失敗を引き起こした場合にもエラーをスローします。 例えば、ユーザが承認ダイアログをキャンセルした場合、このメソッドは false を返します。 コピーの実行に失敗した場合、このメソッドはエラーをスローします。 エラーのメッセージは意味の分かるものにする必要があり、何が間違っているのかを正確に知らせるようにしてください。
 
-既定では、移動するアプリと同じ名前のアプリがアプリケーションディレクトリに存在し _実行されていない_ 場合、既存のアプリはゴミ箱に移動され、新たなアプリがその場所に移動します。 If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. この挙動は、オプションの競合ハンドラを提供することで変更できます。この場合、ハンドラによって返されるブール値によって、移動の競合がデフォルトの動作で解決されるかどうかを決定します。  つまり、`false` を返すとそれ以上のアクションは行われなくなります。`true` を返すとデフォルトの動作になり、メソッドが続行されます。
+既定では、移動するアプリと同じ名前のアプリがアプリケーションディレクトリに存在し _実行されていない_ 場合、既存のアプリはゴミ箱に移動され、新たなアプリがその場所に移動します。 _実行されている_ 場合、既存の実行中のアプリはフォーカスを引き継ぎ、新たなアプリは自動的に終了します。 この挙動は、オプションの競合ハンドラを提供することで変更できます。この場合、ハンドラによって返されるブール値によって、移動の競合がデフォルトの動作で解決されるかどうかを決定します。  つまり、`false` を返すとそれ以上のアクションは行われなくなります。`true` を返すとデフォルトの動作になり、メソッドが続行されます。
 
 例:
 

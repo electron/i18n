@@ -33,7 +33,7 @@ Electron
 | | | ─ api/ - Implémentation d'API pour les modules de processus de rendu.
 | | | ── extension/ - Code relatif à l'utilisation des extensions Chrome
 | | | dans le processus de rendu d'Electron.
-| | | ─ remote/ - Logique qui met à la disposition du module distant dans
+| | | ─ remote/ - Logique qui gère l'usage du module remote dans
 | | | | le processus principal.
 | | <unk> ─ web-view/ - Logique qui gère l'utilisation des webviews dans le processus
 | | renderer.

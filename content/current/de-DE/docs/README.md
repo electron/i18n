@@ -137,6 +137,7 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 * [TouchBar](api/touch-bar.md)
 * [Fach](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Module für den Renderer-Prozess (Webseite):
 
