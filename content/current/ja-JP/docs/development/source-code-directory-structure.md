@@ -33,8 +33,8 @@ Electron
 |   |   ├── api/ - レンダラープロセスモジュール API の実装。
 |   |   ├── extension/ - Electron レンダラープロセスでの
 |   |   |                Chrome 拡張機能の使用に関連したコード。
-|   |   ├── remote/ - メインプロセスでの remote モジュールの
-|   |   |             使用を処理するロジック。
+|   |   ├── remote/ - Logic that handles use of the remote module in
+|   |   |             the main process.
 |   |   └── web-view/ - レンダラープロセスでの webview の
 |   |                   使用を処理するロジック。
 |   ├── sandboxed_renderer/ - サンドボックスレンダラープロセスの作成を処理する

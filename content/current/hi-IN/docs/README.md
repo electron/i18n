@@ -137,6 +137,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [TouchBar](api/touch-bar.md)
 * [ट्रे](api/tray.md)
 * [वेबसामग्री](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### रेंदेरेर प्रकिया (वेबपेज) हेतु मोड्यूलस
 

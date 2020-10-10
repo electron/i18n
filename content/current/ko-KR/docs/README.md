@@ -137,6 +137,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### 렌더러 프로세스 (웹 페이지) 에 대한 모듈:
 

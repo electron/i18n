@@ -137,6 +137,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [觸控條](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### 畫面轉譯處理序 (網頁) 可用的模組:
 

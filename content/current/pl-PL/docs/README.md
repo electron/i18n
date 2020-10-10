@@ -137,6 +137,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Moduły Procesu Renderowania (Strony Internetowej):
 

@@ -137,6 +137,7 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Các Module của Renderer Process (trên Web Page):
 

@@ -36,8 +36,8 @@ Example Use Case:
 5. Spin up a new VM using the [Create Master VM from VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
     * From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
     * You will need the credential information available in the AppVeyor build cloud definition.
-        * This includes:
-            * Client ID
+        * Isto inclui:
+            * ID do cliente
             * Client Secret
             * Tenant ID
             * Subscription ID
@@ -49,7 +49,7 @@ Example Use Case:
         * Master VHD URI - use URI obtained @ end of previous step
         * Location use `East US`
 
-6. Log back into Azure and find the VM you just created in Homee < Virtual Machines < `$YOUR_NEW_VM`
+6. Log back into Azure and find the VM you just created in Home < Virtual Machines < `$YOUR_NEW_VM`
     * You can download a RDP (Remote Desktop) file to access the VM.
 
 7. Using Microsoft Remote Desktop, click `Connect` to connect to the VM.

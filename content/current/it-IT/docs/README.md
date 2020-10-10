@@ -137,6 +137,7 @@ I tutorial seguenti approfondiscono temi discussi nelle guide sopra elencate.
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Moduli del processo Renderer (pagina Web):
 

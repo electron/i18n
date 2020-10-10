@@ -15,14 +15,14 @@
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+  // Регистрирует слушателя сочетания клавиш 'CommandOrControl+Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Сделайте что-нибудь, когда Y и Command/Control нажаты.
   })
 })
 ```
 
-## Платформа заметок
+## Замечания для отдельных систем
 
 На Linux и Windows, клавиша `Command` не имеет никакого эффекта, так что используйте `CommandOrControl`, который представляет собой `Command` на macOS и `Control` на Linux и Windows для определения некоторых акселераторов.
 

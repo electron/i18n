@@ -6,7 +6,7 @@ Two modes of rendering can be used and only the dirty area is passed in the `'pa
 
 **Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-## Режими рендеринга
+## Режимы рендеринга
 
 ### Аппаратное ускорение
 

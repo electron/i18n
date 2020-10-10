@@ -137,6 +137,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Modulo para sa renderer ng proseso (bahay-alalawa sa pahina):
 

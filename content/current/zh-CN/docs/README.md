@@ -137,6 +137,7 @@
 * [触控板](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### 渲染进程（网页）可用的模块:
 
