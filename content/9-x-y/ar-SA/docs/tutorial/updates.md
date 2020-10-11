@@ -75,7 +75,7 @@ Once your application is [packaged](../tutorial/application-distribution.md), it
 
 ## تطبيق التحديثات
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+الآن بعد أن قمت بتكوين آلية التحديث الأساسية لتطبيقك، أنت بحاجة إلى التأكد من أن المستخدم سيتم إعلامه عندما يكون هناك تحديث. يمكن تحقيق هذا باستخدام أحداث API التحديث التلقائي [](../api/auto-updater.md#events):
 
 ```javascript
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
