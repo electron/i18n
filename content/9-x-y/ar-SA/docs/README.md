@@ -42,7 +42,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
   * [إكتشاف المتصل/ غير المتصل](tutorial/online-offline-events.md)
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [سحب الملفات الأصلية & Drop&](tutorial/native-file-drag-drop.md)
+  * [سحب الملف الأصلي & إسقاط](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)

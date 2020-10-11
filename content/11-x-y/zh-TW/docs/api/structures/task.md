@@ -1,6 +1,6 @@
-# Task 物件
+# Task Object
 
-* `program` String - Path of the program to execute, usually you should specify `process.execPath` which opens the current program.
+* `程式` 字串 - 要執行的程式的路徑，通常 指定 `.execPath` 打開目前程式。
 * `arguments` String - The command line arguments when `program` is executed.
 * `title` String - The string to be displayed in a JumpList.
 * `description` String - Description of this task.

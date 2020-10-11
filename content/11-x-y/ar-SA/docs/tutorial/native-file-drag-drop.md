@@ -1,8 +1,8 @@
-# سحب الملفات الأصلية & Drop&
+# سحب الملف الأصلي & إسقاط
 
-Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
+قد تحتاج أنواع معينة من التطبيقات التي تعالج الملفات إلى دعم سحب الملف الأصلي لنظام التشغيل & ميزة الإفلات. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
 
-To implement this feature in your app, you need to call `webContents.startDrag(item)` API in response to the `ondragstart` event.
+لتطبيق هذه الميزة في التطبيق الخاص بك، تحتاج إلى استدعاء `webContents.startDrag(item)` API استجابة للحدث `ondragstart`.
 
 In your renderer process, handle the `ondragstart` event and forward the information to your main process.
 
