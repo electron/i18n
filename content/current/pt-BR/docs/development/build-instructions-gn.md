@@ -211,8 +211,5 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## Solução de Problemas
 
-### Stale locks in the git cache
-If `gclient sync` is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the `--ignore_locks` argument to `gclient sync`.
-
 ### I'm being asked for a username/password for chromium-internal.googlesource.com
 If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Abra `Painel de Controle` → `Sistema e Segurança` → `Sistema` → `Configurações avançadas do sistema` e adicione uma variável de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` com valor `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
