@@ -147,7 +147,7 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 Not all combinations of source and target CPU/OS are supported by Chromium.
 
 <table>
-<tr><th>Host</th><th>Target</th><th>状态</th></tr>
+<tr><th>Host</th><th>目标</th><th>状态</th></tr>
 <tr><td>Windows x64</td><td>Windows arm64</td><td>实验功能</td>
 <tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
 <tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
@@ -210,9 +210,6 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 ```
 
 ## 故障排查
-
-### Stale locks in the git cache
-If `gclient sync` is interrupted while using the git cache, it will leave the cache locked. 如需移除锁，请将`--ignore_locks`参数传递至 `gclient sync`。
 
 ### I'm being asked for a username/password for chromium-internal.googlesource.com
 If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  这将促使`depot_tools` 使用本地已安装的Visual Studio(默认状态下，`depot_tools`将会下载一个只有谷歌内部员工有权限使用的内部版本)。

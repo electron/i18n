@@ -210,8 +210,5 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## Problemas
 
-### Bloqueos anticuados en la caché de git
-Si `gclient sync` se interrumpe mientras se usa la caché git, dejará la caché bloqueada. Para quitar el bloqueo, pase el argumento `--ignore_locks` a `gclient sync`.
-
 ### Se me está pidiendo un nombre de usuario/contraseña para chromium-internal.googlesource.com
 Si ve un prompt para `Username for 'https://chrome-internal.googlesource.com':` cuando corre `gclient sync` en Windows, es probable que la variable de entorno `DEPOT_TOOLS_WIN_TOOLCHAIN` no esta establecida a 0. Abra `Control Panel` → `System and Security` → `System` → `Advanced system settings` y agregue un variable de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` con valor `0`.  Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
