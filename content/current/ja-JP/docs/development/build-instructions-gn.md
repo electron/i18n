@@ -209,5 +209,24 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## トラブルシューティング
 
+### gclient sync complains about rebase
+
+If `gclient sync` is interrupted the git tree may be left in a bad state, leading to a cryptic message when running `gclient sync` in the future:
+
+```plaintext
+2> Conflict while rebasing this branch.
+2> Fix the conflict and run gclient again.
+2> See man git-rebase for details.
+```
+
+If there are no git conflicts or rebases in `src/electron`, you may need to abort a `git am` in `src`:
+
+```sh
+$ cd ../
+$ git am --abort
+$ cd electron
+$ gclient sync -f
+```
+
 ### chromium-internal.googlesource.com のユーザー名/パスワードを聞かれる
 Windows 上で `gclient sync` を実行しているときに `Username for 'https://chrome-internal.googlesource.com':` のプロンプトが表示された場合、おそらく `DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数が 0 に設定されていないからです。 `コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。  これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。

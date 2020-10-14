@@ -7,7 +7,7 @@ Wenn Ihre App keine nativen Module verwendet, ist es wirklich einfach, eine Arm-
 
 1. Stelle sicher, dass das `node_modules` Verzeichnis deiner App leer ist.
 2. Using a _Command Prompt_, run `set npm_config_arch=arm64` before running `npm install`/`yarn install` as usual.
-3. [Wenn Sie Elektron als Entwicklungsabhängigkeit installiert haben](first-app.md), wird npm die arm64-Version herunterladen und entpacken. You can then package and distribute your app as normal.
+3. [If you have Electron installed as a development dependency](quick-start.md#prerequisites), npm will download and unpack the arm64 version. You can then package and distribute your app as normal.
 
 ## Allgemeine Überlegungen
 

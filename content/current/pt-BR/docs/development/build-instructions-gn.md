@@ -211,5 +211,24 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## Solução de Problemas
 
-### I'm being asked for a username/password for chromium-internal.googlesource.com
-If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Abra `Painel de Controle` → `Sistema e Segurança` → `Sistema` → `Configurações avançadas do sistema` e adicione uma variável de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` com valor `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+### gclient sync complains about rebase
+
+If `gclient sync` is interrupted the git tree may be left in a bad state, leading to a cryptic message when running `gclient sync` in the future:
+
+```plaintext
+2> Conflict while rebasing this branch.
+2> Fix the conflict and run gclient again.
+2> See man git-rebase for details.
+```
+
+If there are no git conflicts or rebases in `src/electron`, you may need to abort a `git am` in `src`:
+
+```sh
+$ cd ../
+$ git am --abort
+$ cd electron
+$ gclient sync -f
+```
+
+### Estão me Solicitando um nome de Usuário/Senha para o chromium-interno.googlesource.com
+Se você ver um prompt solicitando o `Usuário em 'https://chrome-internal.googlesource.com':` ao executar o `gclient sync` no Windows, Provavelmente é porque a variável de ambiente `DEPOT_TOOLS_WIN_TOOLCHAIN` não está definida como 0. Abra `Painel de Controle` → `Sistema e Segurança` → `Sistema` → `Configurações avançadas do sistema` e adicione uma variável de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` com valor `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).

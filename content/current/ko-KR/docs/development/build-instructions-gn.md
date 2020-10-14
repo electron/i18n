@@ -210,5 +210,24 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## 문제 해결
 
+### gclient sync complains about rebase
+
+If `gclient sync` is interrupted the git tree may be left in a bad state, leading to a cryptic message when running `gclient sync` in the future:
+
+```plaintext
+2> Conflict while rebasing this branch.
+2> Fix the conflict and run gclient again.
+2> See man git-rebase for details.
+```
+
+If there are no git conflicts or rebases in `src/electron`, you may need to abort a `git am` in `src`:
+
+```sh
+$ cd ../
+$ git am --abort
+$ cd electron
+$ gclient sync -f
+```
+
 ### chromium-internal.googlesource.com에 대한 사용자이름/비밀번호를 물어보는 경우
 Windows에서 `gclient sync`를 실행했을 때 `'https://chrome-internal.googlesource.com':에 대한 사용자 이름` 을 요청하는 창이 나타났다면, `DEPOT_TOOLS_WIN_TOOLCHAIN` 환경 변수를 0으로 설정하지 않았기 때문일 것입니다. `제어판`→`시스템과 보안`→`시스템`→`고급 시스템 설정`을 열고, 그 값이 `0` 인 시스템 변수 `DEPOT_TOOLS_WIN_TOOLCHAIN`을 추가합니다.  이것은 로컬에 설치된 Visual Studio 버전을 사용하라고 `depot_tools`에게 알려주는 설정입니다. (이같은 설정이 없다면, `depot_tools`는 구글 직원들만 이용할 수 있는 구글 내부 Visual Studio 버전을 다운로드할 것입니다).
