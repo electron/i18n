@@ -94,7 +94,7 @@ name: myApp
 version: '2.0.0'
 summary: A little description for the app.
 description: |
- You know what? This app is amazing! It does all the things
+ You know what? Ta aplikacja jest niesamowita! It does all the things
  for you. Some say it keeps you young, maybe even happy.
 
 grade: stable

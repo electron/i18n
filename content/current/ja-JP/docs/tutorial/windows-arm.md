@@ -7,7 +7,7 @@
 
 1. アプリの `node_modules` ディレクトリが空であることを確認してください。
 2. _コマンドプロンプト_ を使用して、`set npm_config_arch = arm64` を実行してから、同じように `npm install` / `yarn install` を実行します。
-3. [Electron を開発用依存関係としてインストールしている場合](first-app.md)、npm は arm64 版をダウンロードして解凍します。 その後、通常どおりアプリをパッケージ化して配布できます。
+3. [If you have Electron installed as a development dependency](quick-start.md#prerequisites), npm will download and unpack the arm64 version. その後、通常どおりアプリをパッケージ化して配布できます。
 
 ## 一般的な考慮事項
 

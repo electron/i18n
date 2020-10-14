@@ -210,5 +210,24 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## Problemas
 
+### gclient sync complains about rebase
+
+If `gclient sync` is interrupted the git tree may be left in a bad state, leading to a cryptic message when running `gclient sync` in the future:
+
+```plaintext
+2> Conflict while rebasing this branch.
+2> Corrija el conflicto y ejecute gclient de nuevo.
+2> Consulte man git-rebase para más detalles.
+```
+
+If there are no git conflicts or rebases in `src/electron`, you may need to abort a `git am` in `src`:
+
+```sh
+$ cd ../
+$ git am --abort
+$ cd electron
+$ gclient sync -f
+```
+
 ### Se me está pidiendo un nombre de usuario/contraseña para chromium-internal.googlesource.com
 Si ve un prompt para `Username for 'https://chrome-internal.googlesource.com':` cuando corre `gclient sync` en Windows, es probable que la variable de entorno `DEPOT_TOOLS_WIN_TOOLCHAIN` no esta establecida a 0. Abra `Control Panel` → `System and Security` → `System` → `Advanced system settings` y agregue un variable de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` con valor `0`.  Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
