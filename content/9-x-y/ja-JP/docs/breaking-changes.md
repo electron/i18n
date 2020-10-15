@@ -92,6 +92,52 @@ const w = new BrowserWindow({
 
 私たちは [remote モジュールから離れるように推奨しています](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)。
 
+### `protocol.unregisterProtocol`
+### `protocol.uninterceptProtocol`
+
+API は同期になり、任意のコールバックは不要になりました。
+
+```javascript
+// 非推奨
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// こちらに置換
+protocol.unregisterProtocol(scheme)
+```
+
+### `protocol.registerFileProtocol`
+### `protocol.registerBufferProtocol`
+### `protocol.registerStringProtocol`
+### `protocol.registerHttpProtocol`
+### `protocol.registerStreamProtocol`
+### `protocol.interceptFileProtocol`
+### `protocol.interceptStringProtocol`
+### `protocol.interceptBufferProtocol`
+### `protocol.interceptHttpProtocol`
+### `protocol.interceptStreamProtocol`
+
+API は同期になり、任意のコールバックは不要になりました。
+
+```javascript
+// 非推奨
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// こちらに置換
+protocol.registerFileProtocol(scheme, handler)
+```
+
+登録または干渉されたプロトコルは、ナビゲーションが発生するまで現在のページに影響しません。
+
+### `protocol.isProtocolHandled`
+
+この API は非推奨です。ユーザーは、代わりに `protocol.isProtocolRegistered` および `protocol.isProtocolIntercepted` を使用する必要があります。
+
+```javascript
+// 非推奨
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// こちらに置換
+const isRegistered = protocol.isProtocolRegistered(scheme)
+const isIntercepted = protocol.isProtocolIntercepted(scheme)
+```
+
 ## 予定されている破壊的なAPIの変更 (9.0)
 
 ### 省略値変更: レンダラープロセス内でコンテキスト未対応のネイティブモジュールのロードがデフォルトで無効に

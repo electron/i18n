@@ -153,6 +153,52 @@ const w = new BrowserWindow({
 
 We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
+### `protocol.unregisterProtocol`
+### `protocol.uninterceptProtocol`
+
+Diese Schnittstelle ist jetzt Synchron und der optionale callback wird nicht länger gebraucht.
+
+```javascript
+// Veraltet
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// Ersetzen durch
+protocol.unregisterProtocol(scheme)
+```
+
+### `protocol.registerFileProtocol`
+### `protocol.registerBufferProtocol`
+### `protocol.registerStringProtocol`
+### `protocol.registerHttpProtocol`
+### `protocol.registerStreamProtocol`
+### `protocol.interceptFileProtocol`
+### `protocol.interceptStringProtocol`
+### `protocol.interceptBufferProtocol`
+### `protocol.interceptHttpProtocol`
+### `protocol.interceptStreamProtocol`
+
+Diese Schnittstelle ist jetzt Synchron und der optionale callback wird nicht länger gebraucht.
+
+```javascript
+// Veraltet
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// Ersetzt durch
+protocol.registerFileProtocol(scheme, handler)
+```
+
+Das registrierte oder abgefangene Protokoll hat keine Auswirkungen auf die aktuelle Seite, bis eine Navigation stattfindet.
+
+### `protocol.isProtocolHandled`
+
+Diese Schnittstelle ist veraltet anstatt dessen sollten Benutzer `protocol.isProtocolRegistered` und `protocol.isProtocolIntercepted` nutzen.
+
+```javascript
+// Veraltet
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// Ersetzen mit
+const isRegistered = protocol.isProtocolRegistered(scheme)
+const isIntercepted = protocolIntercepted(scheme)
+```
+
 ## Planned Breaking API Changes (9.0)
 
 ### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default

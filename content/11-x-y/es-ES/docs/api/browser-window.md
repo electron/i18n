@@ -157,7 +157,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Por defecto es `false`. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Los valores posibles son:
-    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
+    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. Este es el valor predeterminado.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Los valores posibles son:
@@ -461,6 +461,17 @@ Aparece cuando la ventana cierra una hoja.
 #### Evento: 'new-window-for-tab' _macOS_
 
 Aparece cuando se hace clic al botón de nueva pestaña nativa.
+
+#### Event: 'system-context-menu' _Windows_
+
+Devuelve:
+
+* `event` Event
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
 
 ### Métodos Estáticos
 
@@ -992,7 +1003,7 @@ En Linux siempre devuelve `true`.
 * `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs][window-levels] for more details.
 * `relativeLevel` Integer (opcional) _macOS_ - El número de capas más alto para configurar esta ventana con respecto al `level` determinado. Por defecto es `0`. Tenga en cuenta que Apple desalienta establecer niveles superiores a 1 sobre `screen-saver`.
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+Sets whether the window should show always on top of other windows. Después de configurar esto, la ventana seguirá siendo una ventana normal, y no una ventana de herramientas que no puede enfocarse.
 
 #### `win.isAlwaysOnTop()`
 
@@ -1067,7 +1078,7 @@ Hace que la ventana no se muestre en la barra de tareas.
 
 * `flag` Boolean
 
-Enters or leaves kiosk mode.
+Entra / sale del modo Kiosko.
 
 #### `win.isKiosk()`
 

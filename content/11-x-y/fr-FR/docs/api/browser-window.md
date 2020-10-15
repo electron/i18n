@@ -461,6 +461,17 @@ Retourne :
 
 Émis lorsque le bouton natif du nouvel onglet est cliqué.
 
+#### Event: 'system-context-menu' _Windows_
+
+Retourne :
+
+* `event` Événement
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
+
 ### Méthodes statiques
 
 La classe `BrowserWindow` a les méthodes statiques suivantes :

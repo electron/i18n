@@ -463,6 +463,17 @@ Windows'un bir sayfa yaprağını kapattığını ifade eder.
 
 Doğal yeni sekme tuşunun tıklanıldığını ifade eder.
 
+#### Event: 'system-context-menu' _Windows_
+
+Dönüşler:
+
+* `event` Event
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
+
 ### Statik Metodlar
 
 `BrowserWindow` sınıfı aşağıdaki sabit yöntemlere sahiptir:

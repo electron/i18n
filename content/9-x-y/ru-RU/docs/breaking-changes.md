@@ -22,7 +22,7 @@ The following `crashReporter` methods are no longer available in the renderer pr
 - `crashReporter.getLastCrashReport`
 - `crashReporter.getUploadedReports`
 - `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
+- `вылетать Reporter.setUploadToServer`
 - `crashReporter.getCrashesDirectory`
 
 They should be called only from the main process.
@@ -44,7 +44,7 @@ crashReporter.start({ companyName: 'Umbrella Corporation' })
 crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
 ```
 
-### Deprecated: `crashReporter.getCrashesDirectory()`
+### Obsoleto: `crashReporter.getCrashesDirectory()`
 
 The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
 
@@ -63,7 +63,7 @@ Calling the following `crashReporter` methods from the renderer process is depre
 - `crashReporter.getLastCrashReport`
 - `crashReporter.getUploadedReports`
 - `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
+- `вылетать Reporter.setUploadToServer`
 - `crashReporter.getCrashesDirectory`
 
 The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
@@ -91,6 +91,52 @@ const w = new BrowserWindow({
 ```
 
 We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+
+### `protocol.unregisterProtocol`
+### `protocol.uninterceptProtocol`
+
+API теперь синхронизируются, и необязательный обратный вызов больше не требуется.
+
+```javascript
+// Deprecated
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// Replace with
+protocol.unregisterProtocol(scheme)
+```
+
+### `protocol.registerFileProtocol`
+### `protocol.registerBufferProtocol`
+### `protocol.registerStringProtocol`
+### `protocol.registerHttpProtocol`
+### `protocol.registerStreamProtocol`
+### `protocol.interceptFileProtocol`
+### `protocol.interceptStringProtocol`
+### `protocol.interceptBufferProtocol`
+### `protocol.interceptHttpProtocol`
+### `protocol.interceptStreamProtocol`
+
+API теперь синхронизируются, и необязательный обратный вызов больше не требуется.
+
+```javascript
+// Deprecated
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// Replace with
+protocol.registerFileProtocol(scheme, handler)
+```
+
+Зарегистрированный или перехваченный протокол не влияет на текущую страницу до тех пор, пока не произойдет навигация.
+
+### `protocol.isProtocolHandled`
+
+Этот API является устаревшим, пользователи должны использовать `protocol.isProtocolRegistered` и `protocol.isProtocolIntercepted`.
+
+```javascript
+// Deprecated
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// Replace with
+const isRegistered = protocol.isProtocolRegistered(scheme)
+const isIntercepted = protocol.isProtocolIntercepted(scheme)
+```
 
 ## Запланированные критические изменения API (9.0)
 
@@ -281,14 +327,14 @@ In Electron <=6, this would return a `FileList` with a `File` object for:
 path/to/folder
 ```
 
-В Electron 7, теперь он вернет `FileList` с объектом `File` для:
+In Electron 7, this now returns a `FileList` with a `File` object for:
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
 /path/to/folder/file1
 ```
 
-Обратите внимание, что `webkitdirectory` больше не возвращает путь к выбранной папке. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## Запланированные критические изменения API (6.0)
 
