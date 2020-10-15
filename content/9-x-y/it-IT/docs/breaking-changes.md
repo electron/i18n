@@ -1,16 +1,16 @@
-# Breaking Changes
+# Ultime modifiche
 
 I cambiamenti delle API assieme agli avvisi di deprecazione aggiunti al codice JavaScript, dove possibile, saranno qui documentati almeno [una versione maggiore](tutorial/electron-versioning.md#semver) prima che il cambiamento sia implementato.
 
-### Types of Breaking Changes
+### Tipi di Ultime Modifiche
 
-This document uses the following convention to categorize breaking changes:
+Questo documento usa la seguente convenzione per categorizzare le ultime modifiche:
 
-- **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
-- **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.
-- **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. The old behavior can be restored by explicitly specifying the value.
-- **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
-- **Removed:** An API or feature was removed, and is no longer supported by Electron.
+- **API Modificata:** Un API è stata modificata in modo tale che il codice che non è stato aggiornato è garantito di lanciare un'eccezione.
+- **Comportamento Modificato:** Il comportamento di Electron è cambiato, ma non in modo tale che un'eccezione sarà necessariamente lanciata.
+- **Predefinito Modificato:** Il codice dipendente dal vecchio predefinito potrebbe rompersi, non necessariamente lanciando un'eccezione. Il vecchio comportamento può essere ripristinato specificando esplicitamente il valore.
+- **Deprecato:** Un'API è stata contrassegnata come deprecata. L'API continuerà a funzionare, ma emetterà un avviso di deprecazione e sarà rimossa in una versione futura.
+- **Rimossa:** Un'API o funzione è stata rimossa, o non è più supportata da Electron.
 
 ## Cambiamenti Pianificati API (12.0)
 
@@ -91,6 +91,52 @@ const w = new BrowserWindow({
 ```
 
 We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+
+### `protocol.unregisterProtocol`
+### `protocol.uninterceptProtocol`
+
+The APIs are now synchronous and the optional callback is no longer needed.
+
+```javascript
+// Deprecated
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// Replace with
+protocol.unregisterProtocol(scheme)
+```
+
+### `protocol.registerFileProtocol`
+### `protocol.registerBufferProtocol`
+### `protocol.registerStringProtocol`
+### `protocol.registerHttpProtocol`
+### `protocol.registerStreamProtocol`
+### `protocol.interceptFileProtocol`
+### `protocol.interceptStringProtocol`
+### `protocol.interceptBufferProtocol`
+### `protocol.interceptHttpProtocol`
+### `protocol.interceptStreamProtocol`
+
+The APIs are now synchronous and the optional callback is no longer needed.
+
+```javascript
+// Deprecated
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// Replace with
+protocol.registerFileProtocol(scheme, handler)
+```
+
+The registered or intercepted protocol does not have effect on current page until navigation happens.
+
+### `protocol.isProtocolHandled`
+
+This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
+
+```javascript
+// Deprecated
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// Replace with
+const isRegistered = protocol.isProtocolRegistered(scheme)
+const isIntercepted = protocol.isProtocolIntercepted(scheme)
+```
 
 ## Cambiamenti Pianificati API (9.0)
 

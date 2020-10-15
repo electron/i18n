@@ -151,13 +151,59 @@ const w = new BrowserWindow({
 })
 ```
 
-We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+Nous vous recommandons d'éviter d'utiliser le module [distant](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+
+### `protocol.unregisterProtocol`
+### `protocol.uninterceptProtocol`
+
+Les API sont désormais synchrones donc la callback qui était facultative n'est plus nécessaire.
+
+```javascript
+// Déprécié
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// Remplacé par
+protocol.unregisterProtocol(scheme)
+```
+
+### `protocol.registerFileProtocol`
+### `protocol.registerBufferProtocol`
+### `protocol.registerStringProtocol`
+### `protocol.registerHttpProtocol`
+### `protocol.registerStreamProtocol`
+### `protocol.interceptFileProtocol`
+### `protocol.interceptStringProtocol`
+### `protocol.interceptBufferProtocol`
+### `protocol.interceptHttpProtocol`
+### `protocol.interceptStreamProtocol`
+
+Les API sont désormais synchrones donc la callback qui était facultative n'est plus nécessaire.
+
+```javascript
+// Déprécié
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// Remplacé par
+protocol.registerFileProtocol(scheme, handler)
+```
+
+The registered or intercepted protocol does not have effect on current page until navigation happens.
+
+### `protocol.isProtocolHandled`
+
+Cette API est dépréciée et les utilisateurs doivent utiliser à la place `protocol.isProtocolRegistered` et `protocol.isProtocolIntercepted`.
+
+```javascript
+// Déprécié
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// Remplacé par
+const isRegistered = protocol.isProtocolRegistered(scheme)
+const isIntercepted = protocol.isProtocolIntercepted(scheme)
+```
 
 ## Changements majeurs prévus de l'API (9.0)
 
-### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
+### Fonctionnement par défaut modifié : le chargement des modules natifs non contextuels dans le processus de rendu est désactivé par défaut
 
-À partir d’Electron 9, nous n’autorisons plus le chargement de modules natifs insensibles au contexte dans le processus de rendu.  This is to improve security, performance and maintainability of Electron as a project.
+À partir d’Electron 9, nous n’autorisons plus le chargement de modules natifs insensibles au contexte dans le processus de rendu.  Ceci est pour améliorer la sécurité, les performances et la maintenabilité d'Electron en tant que projet.
 
 If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  Ce drapeau ne sera une option que jusqu'à Electron 11 donc vous devriez planifier de mettre à jour vos modules natifs pour être sensible au contexte.
 
@@ -165,7 +211,7 @@ For more detailed information see [#18397](https://github.com/electron/electron/
 
 ### Supprimé: `<webview>.getWebContents()`
 
-This API, which was deprecated in Electron 8.0, is now removed.
+Cette API, qui a été dépréciée dans Electron 8.0, est désormais supprimée.
 
 ```js
 // Supprimé dans Electron 9.0
@@ -177,7 +223,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### Removed: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. La fonction a été dépréciée avec Electron 8.x et supprimée avec Electron 9.x. Les limites de niveau de zoom de mise en page sont maintenant fixées à un minimum de 0. 5 et un maximum de 5.0, tel que défini [ici](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chrome a supprimé la prise en charge pour modifier les limites de niveau de zoom de mise en page et il n'est plus possible pour Electron de le maintenir. La fonction a été dépréciée avec Electron 8.x et supprimée avec Electron 9.x. Les limites de niveau de zoom de mise en page sont maintenant fixées à un minimum de 0. 5 et un maximum de 5.0, tel que défini [ici](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Comportement modifié : l’envoi d’objets non-JS au travers d' IPC déclenche maintenant une exception
 

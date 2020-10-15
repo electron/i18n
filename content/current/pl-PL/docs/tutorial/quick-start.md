@@ -267,7 +267,7 @@ ipcRenderer.invoke('perform-action', ...args)
 
 > NOTE: Because Renderer processes may run untrusted code (especially from third parties), it is important to carefully validate the requests that come to the Main process.
 
-##### Node.js API
+##### Nodej.js API
 
 > NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true`.
 

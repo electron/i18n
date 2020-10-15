@@ -28,7 +28,7 @@ To są pytania, które są zadawane dość często. Sprawdź to przed utworzenie
 * [Architektura aplikacji](tutorial/quick-start.md#application-architecture)
   * [Proces główny i renderer](tutorial/quick-start.md#main-and-renderer-processes)
   * [Electron API](tutorial/quick-start.md#electron-api)
-  * [Node.js API](tutorial/quick-start.md#nodejs-api)
+  * [Nodej.js API](tutorial/quick-start.md#nodejs-api)
   * [Używanie Natywnych Modułów Node.js](tutorial/using-native-node-modules.md)
   * [Strategie skuteczności](tutorial/performance.md)
 * Dodawanie funkcji do twojej aplikacji

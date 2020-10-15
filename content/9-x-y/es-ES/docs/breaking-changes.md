@@ -92,6 +92,52 @@ const w = new BrowserWindow({
 
 We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
+### `protocol.unregisterProtocol`
+### `protocol.uninterceptProtocol`
+
+Las APIs ahora son síncronas y el callback opcional ya no es necesario.
+
+```javascript
+// Obsoleto
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// Reemplazar con 
+protocol.unregisterProtocol(scheme)
+```
+
+### `protocol.registerFileProtocol`
+### `protocol.registerBufferProtocol`
+### `protocol.registerStringProtocol`
+### `protocol.registerHttpProtocol`
+### `protocol.registerStreamProtocol`
+### `protocol.interceptFileProtocol`
+### `protocol.interceptStringProtocol`
+### `protocol.interceptBufferProtocol`
+### `protocol.interceptHttpProtocol`
+### `protocol.interceptStreamProtocol`
+
+Las APIs ahora son síncronas y el callback opcional ya no es necesario.
+
+```javascript
+// Obsoleto
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// Reemplazar con 
+protocol.registerFileProtocol(scheme, handler)
+```
+
+El protocolo registrado o interceptado no tiene efecto en la página actual hasta que ocurra la navegación.
+
+### `protocol.isProtocolHandled`
+
+Esta API está obsoleta y los usuarios deberían usar `protocol.isProtocolRegistered` y `protocol.isProtocolIntercepted` en su lugar.
+
+```javascript
+// Obsoleto
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// Reemplazar con
+const isRegistered = protocol.isProtocolRegistered(scheme)
+const isIntercepted = protocol.isProtocolIntercepted(scheme)
+```
+
 ## Cambios planeados en la API(9.0)
 
 ### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
@@ -116,7 +162,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### Eliminada: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Comportamiento Modificado: Enviando objetos no JS sobre IPC ahora lanza una excepción
 
@@ -160,7 +206,7 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 
 ### Obsoleto: `<webview>.getWebContents()`
 
-This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
+Esta API está implementada usando el módulo `remote`, que tiene implicaciones de rendimiento y seguridad. Por lo tanto, su uso debe ser explícito.
 
 ```js
 // Obsoleto
@@ -260,15 +306,15 @@ webFrame.setIsolatedWorldInfo(
 
 ### Eliminado: propiedad `marked` en `getBlinkMemoryInfo`
 
-This property was removed in Chromium 77, and as such is no longer available.
+Esta propiedad fue removida en Chromium 77, y como tal ya no está disponible.
 
-### Behavior Changed: `webkitdirectory` attribute for `<input type="file"/>` now lists directory contents
+### Comportamiento Cambiado: atributo `webkitdirectory` a `<input type="file"/>` ahora lista el contenido del directorio
 
 La propiedad `webkitdirectory` en las entradas de archivos HTML les permite seleccionar carpetas. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
 
 As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
-As an illustration, take a folder with this structure:
+Como una ilustración, toma una carpeta con esta estructura:
 ```console
 direcotrio
 ├── archivo1
