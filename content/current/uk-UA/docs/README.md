@@ -90,7 +90,6 @@
   * [Обмеження](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Додавання Нерозпакованих Файлів в asar Архів](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Тестування Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Використання Плагіну Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 

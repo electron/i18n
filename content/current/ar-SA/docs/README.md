@@ -90,7 +90,6 @@ There are questions that are asked quite often. Check this out before creating a
   * [القيود](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [إضافة ملفات غير مخزنة إلى أرشيفات asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [اختبار Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 ---
 

@@ -1,22 +1,34 @@
 # Función nativa arrastrar & soltar archivo
 
+## Descripción general
+
 Ciertos tipos de aplicaciones que manipulan archivos podrían querer soportar la función nativa de arrastrar & soltar archivos del sistema operativo. Arrastrar archivos dentro de un web content es común y soportado por muchos sitios web. Adicionalmente Electron soporta arrastre de archivos fuera del web content dentro del mundo del sistema.
 
-Para implementar esta característica en tu aplicación usted necesita llamar a la API `webContents.startDrag(item)` en respuesta al evento `ondragstart`.
+To implement this feature in your app, you need to call the [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) API in response to the `ondragstart` event.
 
-En tu renderer process, maneja el evento `ondragstart` y reenvíe la información a tu main process.
+## Ejemplo
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `index.html` file:
 
 ```html
-<a href="#" id="drag">item</a>
-<script type="text/javascript" charset="utf-8">
-  document.getElementById('drag').ondragstart = (event) => {
-    event.preventDefault()
-    ipcRenderer.send('ondragstart', '/path/to/item')
-  }
-</script>
+<a href="#" id="drag">Drag me</a>
+<script src="renderer.js"></script>
 ```
 
-Luego, en el proceso principal, aumente el evento con una ruta al archivo que se está arrastrando y un icono.
+and add the following lines to the `renderer.js` file:
+
+```js
+const { ipcRenderer } = require('electron')
+
+document.getElementById('drag').ondragstart = (event) => {
+  event.preventDefault()
+  ipcRenderer.send('ondragstart', '/absolute/path/to/the/item')
+}
+```
+
+The code above instructs the Renderer process to handle the `ondragstart` event and forward the information to the Main process.
+
+In the Main process(`main.js` file), expand the received event with a path to the file that is being dragged and an icon:
 
 ```javascript
 const { ipcMain } = require('electron')
@@ -28,3 +40,7 @@ ipcMain.on('ondragstart', (event, filePath) => {
   })
 })
 ```
+
+After launching the Electron application, try to dragging and dropping the item from the BroswerWindow onto your desktop. In this guide, the item is a Markdown file located in the root of the project:
+
+![Drag and drop](../images/drag-and-drop.gif)

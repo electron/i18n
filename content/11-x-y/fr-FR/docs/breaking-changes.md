@@ -182,7 +182,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### Removed: `webFrame.setLayoutZoomLevelLimits()`
 
-Chrome a supprimé la prise en charge pour modifier les limites de niveau de zoom de mise en page et il n'est plus possible pour Electron de le maintenir. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chrome a supprimé la prise en charge pour modifier les limites de niveau de zoom de mise en page et il n'est plus possible pour Electron de le maintenir. La fonction a été dépréciée dans Electron 8.x, et supprimée dans Electron 9.x. Les limites de niveau de zoom de mise en page sont maintenant fixées à un minimum de 0. 5 et un maximum de 5.0, tel que défini [ici](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Comportement modifié : l’envoi d’objets non-JS au travers d' IPC déclenche maintenant une exception
 

@@ -27,6 +27,10 @@ shell.trashItem(path).then(/* ... */)
 
 ## Planned Breaking API Changes (12.0)
 
+### Removed: Pepper Flash support
+
+Chromium has removed support for Flash, and so we must follow suit. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+
 ### Default Changed: `contextIsolation` defaults to `true`
 
 W Electron 12 `contextIsolation` będzie domyślnie włączone.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.

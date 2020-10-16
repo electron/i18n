@@ -90,7 +90,6 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
   * [Mga limitasyon](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Pagdagdag ng na unpack na mga file sa asar Archive](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Paggamit ng ekstensyong Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
