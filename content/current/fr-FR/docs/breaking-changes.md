@@ -27,6 +27,10 @@ shell.trashItem(path).then(/* ... */)
 
 ## Changements majeurs prévus de l'API (12.0)
 
+### Removed: Pepper Flash support
+
+Chromium has removed support for Flash, and so we must follow suit. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+
 ### Default Changed: `contextIsolation` defaults to `true`
 
 In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
@@ -133,15 +137,15 @@ See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
 Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
 
-### Removed: Browser Window Affinity
+### Suppression : Browser Window Affinity
 
-The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+L'option `affinity` lors de l'instanciation d'une nouvelle `BrowserWindow` sera supprimée dans le cadre de notre plan d'alignement sur le modèle de processus de Chromium à des fins de sécurité, performances et maintenabilité.
 
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+Pour des informations plus détaillées, voir [#18397](https://github.com/electron/electron/issues/18397).
 
-### Default Changed: `enableRemoteModule` defaults to `false`
+### Valeur par défaut modifié : `enableRemoteModule`est par défaut à `false`
 
-In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
+Dans Electron 9, l'utilisation du module remote sans l'activer explicitement via l'option `enableRemoteModule` de WebPreferences émet dès maintenant un avertissement. Avec Electron 10, le module remote est dès maintenant désactivé par défaut. Pour utiliser le module remote, on doit spécifier `enableRemoteModule : true` dans les WebPreferences:
 
 ```js
 const w = new BrowserWindow({
@@ -185,7 +189,7 @@ protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
 protocol.registerFileProtocol(scheme, handler)
 ```
 
-The registered or intercepted protocol does not have effect on current page until navigation happens.
+Le protocole enregistré ou intercepté n'a pas d'effet sur la page actuelle tant que la navigation n'a pas eu lieu.
 
 ### `protocol.isProtocolHandled`
 
@@ -205,9 +209,9 @@ const isIntercepted = protocol.isProtocolIntercepted(scheme)
 
 À partir d’Electron 9, nous n’autorisons plus le chargement de modules natifs insensibles au contexte dans le processus de rendu.  Ceci est pour améliorer la sécurité, les performances et la maintenabilité d'Electron en tant que projet.
 
-If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  Ce drapeau ne sera une option que jusqu'à Electron 11 donc vous devriez planifier de mettre à jour vos modules natifs pour être sensible au contexte.
+Si cela vous affecte, vous pouvez définir temporairement `app.allowRendererProcessReuse` pour `faux` pour revenir à l’ancien comportement.  Ce drapeau ne sera une option que jusqu'à Electron 11 donc vous devriez planifier de mettre à jour vos modules natifs pour être sensible au contexte.
 
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+Pour des informations plus détaillées, voir [#18397](https://github.com/electron/electron/issues/18397).
 
 ### Supprimé: `<webview>.getWebContents()`
 
@@ -233,13 +237,13 @@ In Electron 9.0, the old serialization algorithm has been removed, and sending s
 
 ### API Changed: `shell.openItem` is now `shell.openPath`
 
-The `shell.openItem` API has been replaced with an asynchronous `shell.openPath` API. You can see the original API proposal and reasoning [here](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
+The `shell.openItem` API has been replaced with an asynchronous `shell.openPath` API. Vous pouvez voir la proposition initiale de l'API et le raisonnement [ici](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
 
 ## Changements majeurs prévus de l'API (8.0)
 
 ### Behavior Changed: Values sent over IPC are now serialized with Structured Clone Algorithm
 
-The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
+L'algorithme utilisé pour sérialiser les objets envoyés par IPC (via `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents. les méthodes de fin` et associées) est passé d'un algorithme personnalisé à l'algorithme intégré de V8 [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) qui est déja utilisé pour sérialiser les messages dans `postMessage`. Cela entraîne une amélioration dans un rapport 2 des performances en ce qui concerne les messages de grande taille, mais apporte également quelques changements de rupture dans le comportement.
 
 - Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 ```js
@@ -267,7 +271,7 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 
 ### Deprecated: `<webview>.getWebContents()`
 
-This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
+This API is implemented using the `remote` module, which has both performance and security implications. Par conséquent, son utilisation doit être explicite.
 
 ```js
 // Deprecated
@@ -277,7 +281,7 @@ const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-However, it is recommended to avoid using the `remote` module altogether.
+Cependant, il est recommandé d'éviter d'utiliser le module `remote`.
 
 ```js
 // main
@@ -371,11 +375,11 @@ Cette propriété a été supprimée dans Chromium 77 et n'est donc plus disponi
 
 ### Behavior Changed: `webkitdirectory` attribute for `<input type="file"/>` now lists directory contents
 
-The `webkitdirectory` property on HTML file inputs allows them to select folders. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
+The `webkitdirectory` property on HTML file inputs allows them to select folders. Dans les versions précédentes d'Electron l'implémentation était incorrecte et la propriété `event.target.files` de l'input retournait une `FileList` qui retournait un objet `File` correspondant au dossier sélectionné.
 
 As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
-As an illustration, take a folder with this structure:
+En guise d'illustration, considérez un dossier avec cette structure :
 ```console
 dossier
 ├── fichier1
@@ -383,7 +387,7 @@ dossier
 └── fichier3
 ```
 
-In Electron <=6, this would return a `FileList` with a `File` object for:
+Dans Electron < 6, cela renverrait une` FileList` avec un objet` File `pour :
 ```console
 chemin/vers/dossier
 ```

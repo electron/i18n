@@ -90,7 +90,6 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
   * [Ograniczenia](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Dodawanie rozpakowanych Plików do Archiwów asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testowanie Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Używanie Pluginu Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 

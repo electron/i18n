@@ -90,7 +90,6 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
   * [Kısıtlamalar](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [asar Arşivlerine Paketlenmemiş Dosyaları Eklemek](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Widevine CDM’inin Test Edilmesi](tutorial/testing-widevine-cdm.md)
-* [Pepper Flash Eklentisini Kullanma](tutorial/using-pepper-flash-plugin.md)
 
 ---
 

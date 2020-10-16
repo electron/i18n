@@ -27,6 +27,10 @@ shell.trashItem(path).then(/* ... */)
 
 ## Запланированные критические изменения API (12.0)
 
+### Removed: Pepper Flash support
+
+Chromium has removed support for Flash, and so we must follow suit. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+
 ### Default Changed: `contextIsolation` defaults to `true`
 
 ` `  ` `
@@ -388,14 +392,14 @@ In Electron <=6, this would return a `FileList` with a `File` object for:
 path/to/folder
 ```
 
-In Electron 7, this now returns a `FileList` with a `File` object for:
+В Electron 7, теперь он вернет `FileList` с объектом `File` для:
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
 /path/to/folder/file1
 ```
 
-Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Обратите внимание, что `webkitdirectory` больше не возвращает путь к выбранной папке. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## Запланированные критические изменения API (6.0)
 

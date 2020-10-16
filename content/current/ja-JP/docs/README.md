@@ -90,7 +90,6 @@
   * [制限事項](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [asar アーカイブへパックされていないファイルを追加](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Widevine CDM のテスト](tutorial/testing-widevine-cdm.md)
-* [Pepper Flash プラグインを使用する](tutorial/using-pepper-flash-plugin.md)
 
 ---
 

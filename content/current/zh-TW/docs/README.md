@@ -90,7 +90,6 @@ There are questions that are asked quite often. Check this out before creating a
   * [限制](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [將無法封存的檔案與 asar 封存檔整合](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [測試寬文 CDM](tutorial/testing-widevine-cdm.md)
-* [使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
 
 ---
 

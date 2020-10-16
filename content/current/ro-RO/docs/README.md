@@ -90,7 +90,6 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
   * [Limitări](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adăugarea fișierelor despachetate în arhivele asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testarea Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Utilizarea pluginului Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 

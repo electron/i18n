@@ -27,6 +27,10 @@ shell.trashItem(path).then(/* ... */)
 
 ## Alterações planejadas na API (12.0)
 
+### Removed: Pepper Flash support
+
+Chromium has removed support for Flash, and so we must follow suit. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+
 ### Default Changed: `contextIsolation` defaults to `true`
 
 In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
@@ -233,11 +237,11 @@ In Electron 9.0, the old serialization algorithm has been removed, and sending s
 
 ### API Changed: `shell.openItem` is now `shell.openPath`
 
-The `shell.openItem` API has been replaced with an asynchronous `shell.openPath` API. You can see the original API proposal and reasoning [here](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
+The `shell.openItem` API has been replaced with an asynchronous `shell.openPath` API. Você pode ver a proposta original da API e o raciocínio [aqui](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
 
 ## Alterações planejadas na API (8.0)
 
-### Behavior Changed: Values sent over IPC are now serialized with Structured Clone Algorithm
+### Comportamento alterado: os valores enviados por IPC agora são serializados com Algoritmo de Clone Estruturado
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 

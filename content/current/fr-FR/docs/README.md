@@ -90,7 +90,6 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Ajouter des fichiers non empaquetés dans des archives asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Tester le CDM Widevine](tutorial/testing-widevine-cdm.md)
-* [Utilisation du plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 

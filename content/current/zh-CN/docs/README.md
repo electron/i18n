@@ -90,7 +90,6 @@
   * [局限性](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [添加未打包的文件到 asar 档案](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [测试 Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [使用 Pepper Flash 插件](tutorial/using-pepper-flash-plugin.md)
 
 ---
 

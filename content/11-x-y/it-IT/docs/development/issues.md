@@ -6,13 +6,13 @@
 * [Triaging a Bug Report](#triaging-a-bug-report)
 * [Resolving a Bug Report](#resolving-a-bug-report)
 
-## How to Contribute to Issues
+## Come contribuire alle issues
 
-For any issue, there are fundamentally three ways an individual can contribute:
+Per ogni issue, ci sono fondamentalmente 3 modi con cui ognuno può contribuire:
 
-1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
-2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
-3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
+1. Aprendo l'issue per una discussione: Se credi di aver trovato un nuovo bug in Electron, dovresti segnalarlo creando una nuova issue nel [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
+2. Aiutando il riconoscimento della issue: Puoi farlo sia fornendo dettagli per l'assistenza (una prova riproducibile che dimostri il problema) oppure fornendo suggerimenti su come affrontare il problema.
+3. Aiutando a risolvere la issue: Questo può essere fatto dimostrando che la issue non è un problema o è stata sistemata; più spesso, aprendo una pull request che cambi il sorgente in `electron/electron` in modo concreto e revisionabile.
 
 ## Asking for General Help
 

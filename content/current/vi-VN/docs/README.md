@@ -90,7 +90,6 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
   * [Hạn chế](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Huan](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Thử nghiệm Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Việc sử dụng Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 ---
 

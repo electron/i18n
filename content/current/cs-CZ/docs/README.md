@@ -90,7 +90,6 @@ These individual tutorials expand on topics discussed in the guide above.
   * [Omezení](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Používání Pepper Flash Pluginu](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
