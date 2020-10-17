@@ -10,7 +10,7 @@ Puteți încerca să descărcați Electron direct de pe [electron/electron/relea
 
 ## Când va face upgrade Electron la cel mai recent Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. Această estimare nu este garantată și depinde de volumul de muncă implicat în modernizare.
+Versiunea de Chrome al Electron este de obicei bătută în una sau două săptămâni după o nouă versiune de Chrome stabilă. Această estimare nu este garantată și depinde de volumul de muncă implicat în modernizare.
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
@@ -49,12 +49,12 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 This happens when the variable which is used to store the window/tray gets garbage collected.
 
-If you encounter this problem, the following articles may prove helpful:
+Dacă întâmpinați această problemă, următoarele articole se pot dovedi utile:
 
-* [Memory Management][memory-management]
-* [Variable Scope][variable-scope]
+* [Gestionare memorie][memory-management]
+* [Domeniu variabil][variable-scope]
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Dacă vrei o rezolvare rapidă, poți face variabilele globale schimbând codul tău din asta:
 
 ```javascript
 const { app, Tray } = require('electron')

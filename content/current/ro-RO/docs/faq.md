@@ -10,7 +10,7 @@ Puteți încerca să descărcați Electron direct de pe [electron/electron/relea
 
 ## Când va face upgrade Electron la cel mai recent Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. Această estimare nu este garantată și depinde de volumul de muncă implicat în modernizare.
+Versiunea de Chrome al Electron este de obicei bătută în una sau două săptămâni după o nouă versiune de Chrome stabilă. Această estimare nu este garantată și depinde de volumul de muncă implicat în modernizare.
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
@@ -28,16 +28,16 @@ Pentru a partaja date între pagini web (procesele de redare), cea mai ușoară 
 
 Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
-## My app's tray disappeared after a few minutes.
+## Bara pentru aplicațiile mele a dispărut după câteva minute.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+Acest lucru se întâmplă atunci când variabila care este utilizată pentru a stoca bara devine gunoi colectat.
 
-If you encounter this problem, the following articles may prove helpful:
+Dacă întâmpinați această problemă, următoarele articole se pot dovedi utile:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Gestionare memorie](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Domeniu variabil](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Dacă vrei o rezolvare rapidă, poți face variabilele globale schimbând codul tău din asta:
 
 ```javascript
 const { app, Tray } = require('electron')
