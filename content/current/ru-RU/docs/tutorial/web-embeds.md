@@ -1,10 +1,10 @@
 # Встраивание веб в Electron
 
-If you want to embed (third party) web content in an Electron `BrowserWindow`, there are three options available to you: `<iframe>` tags, `<webview>` tags, and `BrowserViews`. Each one offers slightly different functionality and is useful in different situations. To help you choose between these, this guide will explain the differences and capabilities of each.
+Если вы хотите встроить (сторонний) веб-контент в Electron `BrowserWindow`, то вам доступны три варианта: тег `<iframe>`, тег `<webview>`, и `BrowserViews`. Каждый из них предлагает немного различную функциональность и полезны в разных ситуациях. Чтобы помочь вам выбрать между ними, это руководство объяснит различия и возможности каждого из них.
 
 ## Iframes
 
-Iframes in Electron behave like iframes in regular browsers. An `<iframe>` element in your page can show external web pages, provided that their [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) allows it. To limit the amount of capabilities a site in an `<iframe>` tag, it's recommended to use the [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) and only allow the capabilities you want to support.
+Iframe в Electron ведет себя так же, как iframe в обычных браузерах. Элемент `<iframe>` на вашей странице может показывать внешние веб-страницы, при условии, что их [политика безопасности содержимого](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) позволяет это. Чтобы ограничить количество возможностей сайта в теге `<iframe>`, рекомендуется использовать [атрибут `sandbox`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) и разрешать только те возможности, которые вы хотите поддерживать.
 
 ## WebViews
 
