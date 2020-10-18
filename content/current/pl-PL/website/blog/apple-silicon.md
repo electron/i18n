@@ -10,7 +10,7 @@ With Apple Silicon hardware being released later this year, what does the path l
 
 With the release of Electron 11.0.0-beta.1, the Electron team is now shipping builds of Electron that run on the new Apple Silicon hardware that Apple plans on shipping later this year. You can grab the latest beta with `npm install electron@beta` or download it directly from our [releases website](https://electronjs.org/releases/stable).
 
-## How does it work?
+## Jak to działa?
 
 As of Electron 11, we will be shipping separate versions of Electron for Intel Macs and Apple Silicon Macs. Prior to this change, we were already shipping two artifacts, `darwin-x64` and `mas-x64`, with the latter being for Mac App Store compatibility usage. We are now shipping another two artifacts, `darwin-arm64` and `mas-arm64`, which are the Apple Silicon equivalents of the aforementioned artifacts.
 
@@ -26,9 +26,9 @@ In the future, we will release a package that allows you to "merge" your `arm64`
 
 As you are targeting a new architecture, you'll need to update several dependencies which may cause build issues. The minimum version of certain dependencies are included below for your reference.
 
-| Dependency          | Version Requirement |
+| Zależność           | Version Requirement |
 | ------------------- | ------------------- |
-| Xcode               | `>=12.0.0`       |
+| XCode               | `>=12.0.0`       |
 | `node-gyp`          | `>=7.1.0`        |
 | `electron-rebuild`  | `>=1.12.0`       |
 | `electron-packager` | `>=15.1.0`       |

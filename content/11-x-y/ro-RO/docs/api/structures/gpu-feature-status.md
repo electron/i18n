@@ -14,16 +14,16 @@
 * `webgl` String - WebGL.
 * `webgl2` String - WebGL2.
 
-Possible values:
+Valorile posibile sunt:
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
-* `disabled_off` - Disabled (red)
-* `disabled_off_ok` - Disabled (yellow)
-* `unavailable_software` - Software only, hardware acceleration unavailable (yellow)
-* `unavailable_off` - Unavailable (red)
-* `unavailable_off_ok` - Unavailable (yellow)
-* `enabled_readback` - Hardware accelerated but at reduced performance (yellow)
-* `enabled_force` - Hardware accelerated on all pages (green)
-* `enabled` - Hardware accelerated (green)
-* `enabled_on` - Enabled (green)
-* `enabled_force_on` - Force enabled (green)
+* `disabled_software` - Numai software. Accelerare hardware dezactivată (galben)
+* `disabled_off` - Dezactivat (roșu)
+* `disabled_off_ok` - Dezactivat (galben)
+* `unavailable_software` - Numai software, accelerare hardware indisponibilă (galben)
+* `unavailable_off` - Indisponibil (roșu)
+* `unavailable_off_ok` - Indisponibil (galben)
+* `enabled_readback` - Hardware accelerat, dar la performanță redusă (galben)
+* `enabled_force` - Hardware accelerat pe toate paginile (verde)
+* `enabled` - Hardware accelerat (verde)
+* `enabled_on` - Activat (verde)
+* `enabled_force_on` - Forța activată (cu verde)

@@ -1,4 +1,4 @@
-# Build Instructions (Windows)
+# Instrucțiuni de generare (Windows)
 
 Follow the guidelines below for building Electron on Windows.
 
@@ -12,16 +12,16 @@ Follow the guidelines below for building Electron on Windows.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Often, this will be `C:`.
 * [Python 2.7.10 or higher](http://www.python.org/download/releases/2.7/)
   * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
-  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
+  * [Extensiile Python pentru Windows (pywin32)](https://pypi.org/project/pywin32/#files) este, de asemenea, necesară pentru a executa procesul de compilare.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
-  * Different versions of the SDK can be installed side by side. To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
-  * The SDK Debugging Tools must also be installed. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
+  * Diferite versiuni ale SDK pot fi instalate una lângă alta. To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. O altă opțiune ar fi să se uite la [Windows SDK și arhiva emulator](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) și pentru a descărca versiunea independentă a SDK, respectiv.
+  * De asemenea, trebuie instalate instrumentele de depanare SDK. Dacă Windows 10 SDK a fost instalat prin programul de instalare Visual Studio, atunci acestea pot fi instalate accesând: `Panou de control` → `Programe` → `Programe și Caracteristici` → Selectați "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools for Windows" → `Change`. Sau puteți descărca instalatorul SDK și să-l folosiți pentru a instala instrumente de depanare.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+Dacă nu aveți în prezent o instalare Windows, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) are versiuni de Windows cu bombă temporală pe care le puteți utiliza pentru a construi Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Construirea Electron se face în întregime cu script-uri de linie de comandă și nu se poate face cu Visual Studio. Puteți dezvolta Electron cu orice editor, dar suport pentru clădire cu Visual Studio va veni în viitor.
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 

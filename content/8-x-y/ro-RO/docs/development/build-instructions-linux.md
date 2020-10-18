@@ -49,7 +49,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
 
 Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
-### Cross compilation
+### Compilație încrucișată
 
 If you want to build for an `arm` target you should also install the following dependencies:
 
@@ -85,13 +85,13 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Advanced topics
+## Subiecte complexe
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### Using system `clang` instead of downloaded `clang` binaries
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
+În mod implicit, Electron este construit cu fișiere binare prebuilt [`clang`](https://clang.llvm.org/get_started.html) furnizate de proiectul Chromium. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
 
 For example if you installed `clang` under `/usr/local/bin/clang`:
 

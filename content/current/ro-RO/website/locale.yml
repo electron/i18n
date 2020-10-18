@@ -1,4 +1,4 @@
-tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
+tagline: Construiți aplicații desktop pe mai multe platforme cu JavaScript, HTML și CSS
 nav:
   apps: Aplicații
   blog: Blog
@@ -13,29 +13,29 @@ nav:
   releases: Lansări
   search: Caută
   userland: Spațiu utilizator
-  governance: Governance
+  governance: Management
 keyboard_modal:
   title: Scurtături tastatură
-  key: Key
-  action: Action
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  key: Tastă
+  action: Acţiune
+  focus_search: Focalizează pe caseta de căutare
+  focus_and_clear: Focalizează bara de căutare și o șterge
+  scroll_down: Selectați următorul rezultat al căutării
+  scroll_up: Selectați rezultatul căutării anterioare
+  open: Deschideți rezultatul căutării selectat
+  open_new_tab: Deschideți rezultatul căutării selectat într-o filă nouă
 docs:
   title: Documentație Electron
   description: Vezi toate <a href="/docs/all">documentele pe o pagină</a> sau verifică secțiunea <a href="/docs/faq">FAQ</a>.
-  guides: "Guides: Getting Started with Electron"
+  guides: "Ghiduri: Noțiuni introductive despre Electron"
   api_reference: Referință API
   api_structures: Structuri API
   advanced: Avansate
-  detailed: In Detail
+  detailed: În detaliu
   custom_dom: Elemente DOM personalizate
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
-  both_proc_modules: Modules for Both Process Types
+  main_proc_modules: Modulele procesului principal
+  renderer_proc_modules: Afișare module de proces
+  both_proc_modules: Module pentru ambele procese
   footer:
     propose_change: Îmbunătățește acest document
     version_history: Istoric versiune
@@ -75,11 +75,11 @@ releases:
   show_only_releases_from: "Arată doar lansări de la:"
   all_versions: Toate versiunile
   stable_releases: Lansări stabile
-  stable_desc: Regular, supported releases
+  stable_desc: Partajări regulate suportate
   beta_releases: Lansări beta
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
+  beta_desc: Testați aplicația cu modificările viitoare
+  nightly_releases: Lansări nocturne
+  nightly_desc: Experimentați cu cele mai recente caracteristici
   next: Înainte
   next_page: Pagina următoare
   previous: Înapoi
@@ -115,8 +115,8 @@ get_started:
 explore:
   title: Explorează API-urile Electron
   description: "<a href='https://github.com/electron/electron-api-demos'>Aplicația demouri API Electron</a> demonstrează în mod interactiv cele mai importante caracteristici ale API-ului Electron. Vezi ce este posibil cu Electron cu un cod exemplu și sfaturi utile pentru construirea aplicației tale."
-  fiddle_title: Try more powerful experiments with Electron Fiddle
-  see_more_info: See more info
+  fiddle_title: Încercați experimente mai puternice cu Electron Fiddle
+  see_more_info: Vedeți mai multe informații
 download_from_github: Descarcă de pe GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Vezi toate lansările</a> pe GitHub
 quick_start:
@@ -162,13 +162,13 @@ clipboard:
   copy_to_clipboard: Copiere în clipboard
   copied: Copiat
 fiddle_launch_button:
-  launch: Launch
-  launch_in_fiddle: Launch in Fiddle
+  launch: Lansați
+  launch_in_fiddle: Lansare în Fiddle
 or: sau
 pages:
   '/':
-    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | Construiți aplicații desktop pe mai multe platforme cu JavaScript, HTML și CSS.
+    description: 'Construiți aplicații desktop pe mai multe platforme cu JavaScript, HTML și CSS.'
   '/apps':
     title: Aplicații Electron
     description: Aplicații create cu Electron
@@ -209,10 +209,10 @@ pages:
     description: Spectron este un cadru cu sursă deschisă pentru scrierea cu ușurință a testelor de integrare pentru aplicația ta Electron. Construit pe partea de sus a ChromeDriver și WebDriverIO.
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: Cel mai simplu mod de a începe cu Electron
   '/governance':
-    title: Electron Governance
-    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+    title: Guvernanța Electron
+    description: Sistemul de guvernanță Electron este format din grupuri de lucru care supraveghează diferite aspecte ale ecosistemului Electron și un grup de lucru administrativ care funcționează pentru a rezolva conflictele dintre ele.
   '/donors':
     title: Donatori
   '/blacklivesmatter':
@@ -220,26 +220,26 @@ pages:
 landing:
   get_started: Începe
   fiddle:
-    lead_desc: The easiest way to get started with Electron
+    lead_desc: Cel mai simplu mod de a începe cu Electron
     create_app: Creează propria aplicație
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
+    description: Electron Fiddle vă permite să creați și să vă jucați cu mici experimente Electron. Vă întâmpină cu un șablon de pornire rapidă după deschidere – schimbați câteva lucruri, alegeți versiunea de Electron cu care doriți să o rulați și jucați-vă. Apoi, salvați Fiddle fie ca gist GitHub, fie într-un folder local. Odată împins la GitHub, oricine poate încerca rapid Fiddle afară doar introducerea în bara de adrese.
     explore: Explorează Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
-    code_with_types: Code with Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
-    easy_start: Start with Fiddle, Continue Wherever
-    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+    explore_desc: "Încercați Electron fără a instala dependențe: Fiddle include tot ce aveți nevoie pentru a explora platforma. Acesta include, de asemenea, exemple pentru fiecare API disponibil în Electron, deci, dacă doriți să vedeți rapid ce este un BrowserView sau cum funcționează desktopCapturer, Fiddle te-a acoperit."
+    code_with_types: Cod cu tipuri
+    code_with_types_desc: Fiddle include excelentul Editor Monaco de la Microsoft, același editor alimentând Visual Studio Code. De asemenea, instalează automat definițiile de tip pentru versiunea selectată în prezent de Electron, asigurându-vă că aveți întotdeauna toate API-urile Electron la doar câteva apăsări de taste distanță.
+    compile_and_package: Compilare și partajare pachet
+    compile_and_package_desc: Fiddle poate transforma automat experimentul în binare pe care le puteți partaja cu prietenii, colegii sau bunicii. Aceasta face acest lucru datorită <a href="https://electronforge.io/">electron-forge</a>, permițându-vă să pachet vioara ca o aplicație pentru Windows, macOS, sau Linux.
+    easy_start: Începeți cu Fiddle, Continuați oriunde
+    easy_start_desc: Fiddle nu este un IDE - este totuși un excelent punct de plecare. Odată ce vioara ta a crescut, exportați-l ca un proiect cu sau fără <a href="https://electronforge.io/">electron-forge</a>. Apoi, utilizați editorul preferat și să ia pe lume!
 governance:
-  title: Electron Governance
-  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
-  wgs: Working Groups
+  title: Guvernanța Electron
+  description: Sistemul de guvernanță Electron este format din grupuri de lucru care supraveghează diferite aspecte ale ecosistemului Electron și un grup de lucru administrativ care funcționează pentru a rezolva conflictele dintre ele.
+  wgs: Grupuri de lucru
   ecosystem:
-    title: Ecosystem
-    description: Oversees the projects that make Electron app development easier.
+    title: Ecosistem
+    description: Supraveghează proiectele care facilitează dezvoltarea aplicațiilor Electron.
   outreach:
-    title: Outreach
+    title: Expediere
     description: Grows the Electron community
   releases:
     title: Lansări

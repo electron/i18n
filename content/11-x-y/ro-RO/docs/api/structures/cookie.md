@@ -1,12 +1,12 @@
 # Cookie Object
 
-* `name` String - The name of the cookie.
-* `value` String - The value of the cookie.
-* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
-* `path` String (optional) - The path of the cookie.
-* `secure` Boolean (optional) - Whether the cookie is marked as secure.
-* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
-* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
-* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.
+* `name` String - Numele cookie-ului.
+* `value` String - Valoarea cookie-ului.
+* `domain` String (optional) - Domeniul cookie-ului; acest lucru va fi normalizat cu un punct precedent, astfel încât să fie valabil și pentru subdomenii.
+* `hostOnly` Boolean (optional) - Dacă cookie-ul este un cookie doar pentru gazdă; acest lucru va fi `` adevărat numai în cazul în care nu a fost trecut nici un domeniu.
+* `path` String (optional) - Destinația cookie-ului.
+* `secure` Boolean (optional) - Dacă cookie-ul este marcat ca fiind sigur.
+* `httpOnly` Boolean (optional) - Dacă cookie-ul este marcat doar ca HTTP.
+* `session` Boolean (optional) - Dacă cookie-ul este o sesiune sau un cookie persistent cu o dată de expirare.
+* `expirationDate` Double (optional) - Data de expirare a cookie-ului ca numarul de secunde de la epoca UNIX. Nu sunt furnizate pentru cookie-urile de sesiune. Nu sunt furnizate pentru cookie-urile de sesiune.
+* `sameSite` String - Politica [același site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) aplicată acestui cookie.  Poate fi `unspecified` (nespecificat), `no_restriction`, `lax` sau `strict`.
