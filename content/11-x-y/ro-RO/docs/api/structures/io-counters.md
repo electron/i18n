@@ -1,6 +1,6 @@
 # IOCounters Object
 
-* `readOperationCount` Number - The number of I/O read operations.
+* `readOperationCount` Number - Numărul de operațiuni de citire I/O.
 * `writeOperationCount` Number - The number of I/O write operations.
 * `otherOperationCount` Number - Then number of I/O other operations.
 * `readTransferCount` Number - The number of I/O read transfers.

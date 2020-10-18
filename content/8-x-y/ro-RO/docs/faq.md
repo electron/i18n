@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+în acest sens:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -75,11 +75,11 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Nu pot folosi jQuery/RequireJS/Meteor/AngularJS în Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Datorită integrării Node.js a Electron, există unele simboluri suplimentare inserate în DOM ca `module`, `exports`, `require`. Acest lucru cauzează probleme pentru unele biblioteci, deoarece vor să introducă simboluri cu aceleași nume.
 
-To solve this, you can turn off node integration in Electron:
+Pentru a rezolva acest lucru, puteți dezactiva integrarea nodurilor în Electron:
 
 ```javascript
 // În procesul principal-main.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Dar dacă doriți să păstrați abilitățile de a utiliza API-uri Node.js și Electron, trebui să redenumiți simbolurile din pagină înainte de a include alte biblioteci:
 
 ```html
 <head>
@@ -108,7 +108,7 @@ delete window.module;
 
 ## `require('electron').xxx` is undefined.
 
-When using Electron's built-in module you might encounter an error like this:
+Când utilizați modulul încorporat Electron este posibil să întâlniți o eroare ca aceasta:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
