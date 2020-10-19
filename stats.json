@@ -29,10 +29,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "68506",
-    "translated": "41376",
+    "translated": "41384",
     "approved": "21900",
     "words": "662633",
-    "words_translated": "348128",
+    "words_translated": "348292",
     "words_approved": "188958",
     "translated_progress": 52,
     "approved_progress": 28,
@@ -146,14 +146,14 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "68506",
-    "translated": "33911",
+    "translated": "33926",
     "approved": "18222",
     "words": "662633",
-    "words_translated": "258922",
+    "words_translated": "259107",
     "words_approved": "145258",
     "translated_progress": 39,
     "approved_progress": 21,
-    "qa_issues": 2689
+    "qa_issues": 2692
   },
   {
     "name": "Italian",
@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "68506",
-    "translated": "22017",
+    "translated": "22029",
     "approved": "14576",
     "words": "662633",
-    "words_translated": "102126",
+    "words_translated": "102145",
     "words_approved": "66078",
     "translated_progress": 15,
     "approved_progress": 9,
-    "qa_issues": 857
+    "qa_issues": 859
   },
   {
     "name": "Portuguese, Brazilian",
@@ -237,14 +237,14 @@
     "name": "Romanian",
     "code": "ro",
     "phrases": "68506",
-    "translated": "5616",
+    "translated": "6730",
     "approved": "3674",
     "words": "662633",
-    "words_translated": "34598",
+    "words_translated": "45222",
     "words_approved": "22784",
-    "translated_progress": 5,
+    "translated_progress": 6,
     "approved_progress": 3,
-    "qa_issues": 220
+    "qa_issues": 388
   },
   {
     "name": "Russian",
