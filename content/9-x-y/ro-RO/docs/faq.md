@@ -26,7 +26,7 @@ Noile caracteristici ale Node.js sunt, de obicei, aduse de upgrade-urile V8, deo
 
 Pentru a partaja date între pagini web (procesele de redare), cea mai ușoară cale este de a utiliza API-urile HTML5 care sunt deja disponibile în browsere. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Sau poți folosi sistemul IPC, care este specific Electron, pentru a stoca obiecte în procesul principal ca variabilă globală, și apoi pentru a le accesa din dispozitive de redare prin `de la distanță` proprietatea `modulului de electroni`:
 
 ```javascript
 // În procesul principal-main.

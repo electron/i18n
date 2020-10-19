@@ -184,9 +184,9 @@ The title can be `###` or `####`-levels depending on whether it is an event of a
 
 The arguments of an event follow the same rules as methods.
 
-### Properties
+### Proprietăți
 
-The properties chapter must be in following form:
+Metodele capitolului trebuie să fie sub următoarea formă:
 
 ```markdown
 ### session.defaultSession
@@ -194,8 +194,8 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Titlul poate fi la nivelul `###` sau ` ####` depinzând dacă este o metodă a unui modul sau o clasă.
 
-## Documentation Translations
+## Traduceri documentație
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Vezi [electron/i18n](https://github.com/electron/i18n#readme)

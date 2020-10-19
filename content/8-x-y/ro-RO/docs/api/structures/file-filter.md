@@ -1,4 +1,4 @@
-# FileFilter Object
+# Obiect FileFilter
 
 * `name` String
 * `extensions` String[]

@@ -1,18 +1,18 @@
 # Display Object
 
-* `id` Number - Unique identifier associated with the display.
-* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
-* `scaleFactor` Number - Output device's pixel scale factor.
-* `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
-* `monochrome` Boolean - Whether or not the display is a monochrome display.
-* `accelerometerSupport` String - Can be `available`, `unavailable`, `unknown`.
-* `colorSpace` String -  represent a color space (three-dimensional object which contains all realizable color combinations) for the purpose of color conversions
-* `colorDepth` Number - The number of bits per pixel.
-* `depthPerComponent` Number - The number of bits per color component.
+* `id` Number - Identificator unic asociat cu afișajul.
+* `rotation` Number - Poate fi 0, 90, 180, 270, reprezintă rotirea ecranului în grade în ceas.
+* `scaleFactor` Number - Factor de scală pixel al dispozitivului de ieșire.
+* `touchSupport` String - Poate fi `disponibil`, `indisponibil`, `necunoscut`.
+* `monochrome` Boolean - Indiferent dacă ecranul este sau nu un ecran monocrom.
+* `accelerometerSupport` String - Poate fi `disponibil`, `indisponibil`, `necunoscut`.
+* `colorSpace` String - reprezintă un spațiu de culoare (object tridimensional care conține toate combinațiile de culori realizabile) în scopul conversiilor de culori
+* `colorDepth` Number - Numărul de biți per pixel.
+* `depthPerComponent` Number - Numărul de biți per componentă de culoare.
 * `bounds` [Rectangle](rectangle.md)
-* `size` [Size](size.md)
-* `workArea` [Rectangle](rectangle.md)
-* `workAreaSize` [Size](size.md)
-* `internal` Boolean - `true` for an internal display and `false` for an external display
+* `size` [Dimensiune](size.md)
+* `workArea` [Dreptunghi](rectangle.md)
+* `workAreaSize` [Dimensiune](size.md)
+* `internal` Boolean - `true` pentru un afișaj intern și `false` pentru un afișaj extern
 
-The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+Obiectul `Display` reprezintă un afișaj fizic conectat la sistem. Un fals `Display` poate exista pe un sistem fără cap sau un `Display` poate corespunde un ecran de la distanță, virtuale.

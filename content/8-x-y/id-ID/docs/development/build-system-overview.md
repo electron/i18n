@@ -6,8 +6,8 @@ Electron menggunakan [GN](https://gn.googlesource.com/gn) untuk proyek generasi 
 
 ` `
 
-* `BUILD.gn` defines how Electron itself is built and includes the default configurations for linking with Chromium.
-* `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.
+* 0> BUILD.gn </code> mendefinisikan bagaimana Electron itu sendiri dibangun dan menyertakan konfigurasi perangkat utama untuk menautkan dengan Chromium.
+* ` membangun / args / {debug, rilis, semua}.gn ` berisi argumen membangun perangkat utama untuk membangun Electron.
 
 ## Component Build
 
@@ -37,7 +37,7 @@ Whenever you make changes to Electron source code, you'll need to re-run the bui
 $ npm run build && npm test
 ```
 
-Anda dapat membuat test suite berjalan lebih cepat dengan mengisolasi tes atau blok tertentu Anda sedang mengerjakan penggunaan Mocha's [tes eksklusif](https://mochajs.org/#exclusive-tests) fitur. Append `.only` to any `describe` or `it` function call:
+Anda dapat membuat test suite berjalan lebih cepat dengan mengisolasi tes atau blok tertentu Anda sedang mengerjakan penggunaan Mocha's [tes eksklusif](https://mochajs.org/#exclusive-tests) fitur. ` .hanya ` untuk pemanggilan fungsi ` deskripsikan ` atau ` fungsinya itu`:
 
 ```js
 describe.only('some feature', function () {

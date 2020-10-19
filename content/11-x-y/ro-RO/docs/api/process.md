@@ -50,7 +50,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## Proprietăți
 
 ### `process.defaultApp` _Readonly_
 

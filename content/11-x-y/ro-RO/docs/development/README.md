@@ -13,7 +13,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Build System Overview](build-system-overview.md)
 * [Build Instructions (macOS)](build-instructions-macos.md)
 * [Instrucțiuni de generare (Windows)](build-instructions-windows.md)
-* [Build Instructions (Linux)](build-instructions-linux.md)
+* [Instrucțiuni de generare (Windows)](build-instructions-linux.md)
 * [Dezvoltare Chromium](chromium-development.md)
 * [V8 Development](v8-development.md)
 * [Testing](testing.md)

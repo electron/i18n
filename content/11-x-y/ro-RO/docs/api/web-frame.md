@@ -208,7 +208,7 @@ Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` woul
 
 Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
-## Properties
+## Proprietăți
 
 ### `webFrame.top` _Readonly_
 

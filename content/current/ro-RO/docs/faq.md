@@ -107,7 +107,7 @@ If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivate
 
 Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+Pentru a atinge acest obiectiv, setează fundalul în constructor pentru [BrowserWindow](api/browser-window.md):
 
 ```javascript
 const { BrowserWindow } = require('electron')
