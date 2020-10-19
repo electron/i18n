@@ -16,7 +16,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Configurarea Linux](tutorial/development-environment.md#setting-up-linux)
   * [Alegerea unui editor](tutorial/development-environment.md#a-good-editor)
 * [Crearea primei tale aplicații](tutorial/quick-start.md)
-  * [Prerequisites](tutorial/quick-start.md#prerequisites)
+  * [Cerințe preliminare](tutorial/quick-start.md#prerequisites)
   * [Create a basic application](tutorial/quick-start.md#create-a-basic-application)
   * [Package and distribute the application](tutorial/quick-start.md#package-and-distribute-the-application)
 * [Boilerplates și CLI-uri](tutorial/boilerplates-and-clis.md)

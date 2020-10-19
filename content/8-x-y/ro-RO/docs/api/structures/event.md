@@ -1,3 +1,3 @@
-# Event Object extends `GlobalEvent`
+# Obiectul evenimentului extindere `GlobalEvent`
 
-* `preventDefault` VoidFunction
+* `preventDefault` Funcție VoidFunction

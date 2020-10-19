@@ -1,7 +1,7 @@
-# DesktopCapturerSource Object
+# Obiectul DesktopCapturerSource
 
-* `id` String - The identifier of a window or screen that can be used as a `chromeMediaSourceId` constraint when calling [`navigator.webkitGetUserMedia`]. The format of the identifier will be `window:XX` or `screen:XX`, where `XX` is a random generated number.
-* `name` String - A screen source will be named either `Entire Screen` or `Screen <index>`, while the name of a window source will match the window title.
-* `thumbnail` [NativeImage](../native-image.md) - A thumbnail image. **Note:** There is no guarantee that the size of the thumbnail is the same as the `thumbnailSize` specified in the `options` passed to `desktopCapturer.getSources`. The actual size depends on the scale of the screen or window.
-* `display_id` String - A unique identifier that will correspond to the `id` of the matching [Display](display.md) returned by the [Screen API](../screen.md). On some platforms, this is equivalent to the `XX` portion of the `id` field above and on others it will differ. It will be an empty string if not available.
-* `appIcon` [NativeImage](../native-image.md) - An icon image of the application that owns the window or null if the source has a type screen. The size of the icon is not known in advance and depends on what the the application provides.
+* `id` String - Identificatorul unei ferestre sau al unui ecran care poate fi utilizat ca `` de la apelarea [`navigator.webkitGetUserMedia`]. Formatul identificatorului va fi `window:XX` sau `screen:XX`, unde `XX` este un număr generat aleatoriu.
+* `name` String - O sursă a ecranului va fi numită `Întregul Ecran` sau `Ecran <index>`, în timp ce numele sursei ferestrei se va potrivi cu titlul.
+* `thumbnail` [NativeImage](../native-image.md) - O imagine în miniatură. **Notă:** Nu există nici o garanție că dimensiunea miniaturii este aceeași cu miniatura `Size` specificată în `opțiunile` de trecut la `desktopCapturer.getSources`. Dimensiunea reală depinde de scara ecranului sau a ferestrei.
+* `display_id` String - Un identificator unic care va corespunde cu `id-ul` al potrivirii [Display](display.md) returnat de [Screen API](../screen.md). Pe unele platforme, acest lucru este echivalent cu `XX` porțiune din câmpul `id` de mai sus, iar pe alte părți va fi diferit. Va fi un șir gol dacă nu este disponibil.
+* `appIcon` [NativeImage](../native-image.md) - O imagine pictogramă a aplicației care deține fereastra sau null dacă sursa are un ecran de tip. Dimensiunea pictogramei nu este cunoscută în avans și depinde de ceea ce furnizează aplicația.

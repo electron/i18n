@@ -1094,7 +1094,7 @@ See [Apple's documentation](https://developer.apple.com/library/archive/technote
 
 **Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
 
-## Properties
+## Proprietăți
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
 

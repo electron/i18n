@@ -1069,7 +1069,7 @@ app.moveToApplicationsFolder({
 
 Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
-## Properties
+## Proprietăți
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
 

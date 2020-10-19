@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on macOS.
 
-## Prerequisites
+## Cerințe preliminare
 
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
@@ -33,7 +33,7 @@ You can use `pip` to install it:
 $ pip install pyobjc
 ```
 
-## macOS SDK
+## SDK macOS
 
 Dacă dezvoltați Electron și nu intenționați să redistribuiți Electron personalizat construit, puteți sări peste această secțiune.
 
@@ -41,4 +41,4 @@ Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.c
 
 ## Construirea Electron
 
-See [Build Instructions: GN](build-instructions-gn.md).
+Vezi [Instrucțiuni de construcție: GN](build-instructions-gn.md).
