@@ -1,20 +1,20 @@
-# Breaking Changes
+# Modifications importantes
 
 Les changements cassants seront documentés ici, et des avertissements de dépréciations ajoutés au code JS quand possible, au moins [une version majeur](tutorial/electron-versioning.md#semver) avant que le changement soit fait.
 
-### Types of Breaking Changes
+### Types de modifications majeures
 
-This document uses the following convention to categorize breaking changes:
+Ce document utilise la convention suivante pour catégoriser les modifications majeures :
 
-- **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
-- **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.
-- **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. The old behavior can be restored by explicitly specifying the value.
-- **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
-- **Removed:** An API or feature was removed, and is no longer supported by Electron.
+- **API modifiée :** Une API a été modifiée avec la garantie que du code non modifié déclenchera une exception.
+- **Comportement modifié :** Le comportement d'Electron a changé, mais pas de telle manière qu'une exception soit nécessairement déclenchée.
+- **Valeur par défaut modifiée :** Le code dépendant de l'ancienne valeur par défaut peut ne plus fonctionner, sans nécessairement déclencher une exception. Le comportement d'origine peut être restauré en spécifiant explicitement la valeur.
+- **Déprécié :** une API a été marquée comme étant dépréciée. L'API continuera à fonctionner, mais émettra une alerte de dépréciation, et sera supprimée dans une prochaine version.
+- **Supprimé:** Une API ou une fonctionnalité a été supprimée et n'est plus prise en charge par Electron.
 
 ## Changements majeurs prévus de l'API (13.0)
 
-### Removed: `shell.moveItemToTrash()`
+### Supprimé: `shell.moveItemToTrash()`
 
 The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
 

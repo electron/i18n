@@ -249,12 +249,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- 錯誤示範 --><webview disablewebsecurity src="page.html"></webview><!-- 正確寫法 --><webview src="page.html"></webview>
 ```
 
 
@@ -400,12 +395,7 @@ If you do not need popups, you are better off not allowing the creation of new [
 
 ### 怎麼做?
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- 錯誤示範 --><webview allowpopups src="page.html"></webview><!-- 正確寫法 --><webview src="page.html"></webview>
 ```
 
 

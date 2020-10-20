@@ -1,6 +1,8 @@
 # macOS Dock
 
-Electron有API来配置macOS Dock中的应用程序图标。 可以使用API用来创建一个自定义的Dock菜单项，这个API是macOS独占的，但是Electron也会默认使用应用的Dock图标来实现一些可以跨平台的功能，例如[最近文件](./recent-documents.md)和[应用程序进度](./progress-bar.md)
+## 概览
+
+Electron有API来配置macOS Dock中的应用程序图标。 A macOS-only API exists to create a custom dock menu, but Electron also uses the app dock icon as the entry point for cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
 
 一个自定义的Dock项也普遍用于为那些用户不愿意为之打开整个应用窗口的任务添加快捷方式。
 
@@ -8,7 +10,11 @@ __Terminal.app 的 Dock 菜单:__
 
 ![Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
-若要设置自定义的dock菜单, 可以使用 ` app.dock.setMenu ` API, 它仅在 macOS 上可用:
+To set your custom dock menu, you need to use the [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API, which is only available on macOS.
+
+## 示例
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -27,5 +33,11 @@ const dockMenu = Menu.buildFromTemplate([
   { label: 'New Command...' }
 ])
 
-app.dock.setMenu(dockMenu)
+app.whenReady().then(() => {
+  app.dock.setMenu(dockMenu)
+})
 ```
+
+After launching the Electron application, right click the application icon. You should see the custom menu you just defined:
+
+![macOS dock menu](../images/macos-dock-menu.png)

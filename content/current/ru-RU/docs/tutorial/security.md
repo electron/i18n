@@ -16,7 +16,7 @@ Electron keeps up to date with alternating Chromium releases. For more informati
 
 ## Безопасность - это ответственность каждого
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. Поэтому вы обязаны следовать нескольким важным рекомендациям:
+Важно помнить, что безопасность вашего Electron приложения является результатом общей безопасности основы платформы (*Chromium*, *Node.js*), самого Electron, всех NPM-зависимостей и вашего кода. Поэтому вы обязаны следовать нескольким важным рекомендациям:
 
 * **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application. For more information, see "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
 
@@ -81,13 +81,8 @@ browserWindow.loadURL('http://example.com')
 browserWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://example.com/react.js"></script>
+```html<!-- Плохо --><script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css"><!-- Хорошо --><script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -479,11 +474,11 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) Do not use `openExternal` with untrusted content
 
-Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
 ### Почему?
 
-Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
 
 ### Как?
 

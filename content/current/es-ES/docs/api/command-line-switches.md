@@ -168,6 +168,14 @@ Cualquier patrón que contenga una barra hacia adelante o una barra hacia atras 
 
 Esta opción solo funciona cuando `--enable-logging` es también pasada.
 
+### --force_high_performance_gpu
+
+Force using discrete GPU when there are multiple GPUs available.
+
+### --force_low_power_gpu
+
+Force using integrated GPU when there are multiple GPUs available.
+
 ## Node.js Flags
 
 Electron supports some of the [CLI flags](https://nodejs.org/api/cli.html) supported by Node.js.

@@ -1,6 +1,8 @@
 # macOS Dock
 
-Electron tiene APIs para configurar el icono de la aplicación en el Dock de macOS. Un sistema sólo de macOS La API existe para crear un menú de acoplamiento personalizado, pero Electron también utiliza el icono de la aplicación para implementar funciones multiplataforma. como [documentos recientes](./recent-documents.md) y [progreso de la aplicación ](./progress-bar.md).
+## Descripción general
+
+Electron tiene APIs para configurar el icono de la aplicación en el Dock de macOS. A macOS-only API exists to create a custom dock menu, but Electron also uses the app dock icon as the entry point for cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
 
 La base de acoplamiento personalizada se utiliza habitualmente para añadir accesos directos a las tareas para las que el usuario no desea abrir toda la ventana de la aplicación.
 
@@ -8,24 +10,34 @@ __Menú Dock de Terminal.app:__
 
 ![Menu Dock](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
-Para configurar su menú de base personalizada, puede utilizar la API `app.dock.setMenu`, que sólo está disponible en macOS:
+To set your custom dock menu, you need to use the [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API, which is only available on macOS.
+
+## Ejemplo
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { app, Menu } = require('electron')
 
 const dockMenu = Menu.buildFromTemplate([
   {
-    label: 'Nueva ventana',
+    label: 'New Window',
     click () { console.log('New Window') }
   }, {
-    label: 'Nueva ventana con Configuración',
+    label: 'New Window with Settings',
     submenu: [
-      { label: 'Básico' },
+      { label: 'Basic' },
       { label: 'Pro' }
     ]
   },
-  { label: 'Nuevo comando...' }
+  { label: 'New Command...' }
 ])
 
-app.dock.setMenu(dockMenu)
+app.whenReady().then(() => {
+  app.dock.setMenu(dockMenu)
+})
 ```
+
+After launching the Electron application, right click the application icon. You should see the custom menu you just defined:
+
+![macOS dock menu](../images/macos-dock-menu.png)

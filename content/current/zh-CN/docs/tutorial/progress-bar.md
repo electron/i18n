@@ -14,7 +14,7 @@ __任务栏按钮中的进度栏:__
 
 一般来说，将参数设置为 0 以下的值（例如 `-1`）将会去掉进度条，而设置为 1 以上（例如 `2`）将会切换这个进度条为不确定的进度。
 
-参见 [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress)。
+参见 [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress-options)。
 
 ```javascript
 const { BrowserWindow } = require('electron')

@@ -4,7 +4,7 @@
 
 Certains types d'applications manipulant des fichiers peuvent prendre en charge la fonction de glisser-déplacer native du système d'exploitation. Le déplacement de fichiers dans le contenu Web est courant et est supporté par de nombreux sites Web. Electron prend également en charge le déplacement des fichiers et du contenu du contenu Web vers le monde du système d'exploitation.
 
-To implement this feature in your app, you need to call the [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) API in response to the `ondragstart` event.
+Pour implémenter cette fonctionnalité dans votre application, vous devez appeler l'API [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) dans la réponse à l'événement `ondragstart`.
 
 ## Example
 
@@ -15,7 +15,7 @@ Starting with a working application from the [Quick Start Guide](quick-start.md)
 <script src="renderer.js"></script>
 ```
 
-and add the following lines to the `renderer.js` file:
+ajoutez ensuite les lignes suivantes au fichier `render.js`:
 
 ```js
 const { ipcRenderer } = require('electron')
@@ -26,9 +26,9 @@ document.getElementById('drag').ondragstart = (event) => {
 }
 ```
 
-The code above instructs the Renderer process to handle the `ondragstart` event and forward the information to the Main process.
+Le code ci-dessus indique au processus Renderer de gérer l'événement `ondragstart` et de transférer les informations vers le processus Main.
 
-In the Main process(`main.js` file), expand the received event with a path to the file that is being dragged and an icon:
+Dans le processus principal (fichier `main.js` ), étendrel'événement reçu en lui ajoutant le chemin du fichier en train d'être glissé et une icône :
 
 ```javascript
 const { ipcMain } = require('electron')
@@ -41,6 +41,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-After launching the Electron application, try to dragging and dropping the item from the BroswerWindow onto your desktop. In this guide, the item is a Markdown file located in the root of the project:
+Après avoir lancé l'application Electron, essayez de glisser-déposer l'élément depuis la BroswerWindow jusqu'à votre bureau. Dans ce guide, l'élément est un fichier Markdown situé à la racine du projet :
 
 ![Drag and drop](../images/drag-and-drop.gif)

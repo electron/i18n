@@ -168,6 +168,14 @@ Pepper Flashプラグインの `version` を設定します。
 
 このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
 
+### --force_high_performance_gpu
+
+Force using discrete GPU when there are multiple GPUs available.
+
+### --force_low_power_gpu
+
+Force using integrated GPU when there are multiple GPUs available.
+
 ## Node.js フラグ
 
 Electron は Node.js でサポートされている [CLI フラグ](https://nodejs.org/api/cli.html) の一部をサポートしています。

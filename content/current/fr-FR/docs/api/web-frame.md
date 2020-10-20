@@ -47,7 +47,7 @@ Retourne `Number` - Le niveau de zoom actuel.
 
 Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **NOTE**: Le zoom visuel est désactivé par défaut dans Electron. To re-enable it, call:
 > 
 > `js
   webFrame.setVisualZoomLevelLimits(1, 3)`

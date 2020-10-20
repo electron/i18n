@@ -317,13 +317,13 @@ Returns:
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  Possible values:
+  * `reason` String - The reason the render process is gone.  Valori posibile:
     * `clean-exit` - Process exited with an exit code of zero
     * `abnormal-exit` - Process exited with a non-zero exit code
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
+    * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
@@ -569,7 +569,7 @@ Returns:
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function
-  * `deviceId` String
+  * `deviceId` String - Id dispozitiv
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 

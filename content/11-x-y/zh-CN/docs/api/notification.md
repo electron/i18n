@@ -28,7 +28,7 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 
 ### `new Notification([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * ` title `String - 通知的标题, 将在通知窗口的顶部显示.
   * ` subtitle `String (可选) 通知的副标题, 显示在标题下面。_ macOS _
   * ` body `String 通知的正文文本, 将显示在标题或副标题下面.

@@ -317,13 +317,13 @@ Returns:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
-  * `reason` String - The reason the render process is gone.  Possible values:
+  * `reason` String - The reason the render process is gone.  Valori posibile:
     * `clean-exit` - Process exited with an exit code of zero
     * `abnormal-exit` - Process exited with a non-zero exit code
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
+    * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
@@ -830,7 +830,7 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 ### `app.setAppUserModelId(id)` _Windows_
 
-* `id` String
+* `id` String Identificare
 
 Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
 

@@ -16,7 +16,7 @@ Electron keeps up to date with alternating Chromium releases. For more informati
 
 ## La sécurité est la responsabilité de tous
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. Ainsi, il est de votre responsabilité de suivre quelques pratiques essentielles de test :
+Il est important de se rappeler que la sécurité de votre application Electron dépend de la sécurité globalement de la fondation du framework (*Chromium*, *Node.js*), Electron lui-même, toutes les dépendances NPM et votre code. Ainsi, il est de votre responsabilité de suivre quelques pratiques essentielles de test :
 
 * **Gardez votre application à jour avec la dernière version de framework Electron. /0> Lorsque vous libérez votre produit, vous expédiez également un paquet composé d'Electron, bibliothèque partagée Chromium et Node.js. Les vulnérabilités affectant ces composants peuvent affecter la sécurité de votre application. En mettant à jour Electron vers la dernière version vous vous assurez que les vulnérabilités critiques (telles que *nodeIntegration bypasses*) sont déjà corrigées et ne peuvent pas être exploitées dans votre application. Pour plus d'informations, voir "[Utiliser une version actuelle d'Electron](#17-use-a-current-version-of-electron)".</p></li>
 
@@ -86,13 +86,8 @@ browserWindow.loadURL('https://example.com')
 
 
 
-```html
-<!-- Bad -->
-<script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://example.com/react.js"></script>
+```html<!-- Incorrect --><script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css"><!-- Correct --><script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -142,12 +137,7 @@ mainWindow.loadURL('https://example.com')
 
 
 
-```html
-<!-- Bad -->
-<webview nodeIntegration src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Incorrect --><webview nodeIntegration src="page.html"></webview><!-- Correct --><webview src="page.html"></webview>
 ```
 
 
@@ -250,12 +240,7 @@ const mainWindow = new BrowserWindow()
 
 
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Incorrect --><webview disablewebsecurity src="page.html"></webview><!-- Correct --><webview src="page.html"></webview>
 ```
 
 
@@ -424,12 +409,7 @@ Si vous n'avez pas besoin de popups, il vaut mieux ne pas autoriser la création
 
 
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Incorrect --><webview allowpopups src="page.html"></webview><!-- Correct --><webview src="page.html"></webview>
 ```
 
 
@@ -540,11 +520,11 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) N'utilisez pas `openExternal` avec du contenu non fiable
 
-Le [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) de Shell permet d'ouvrir un URI de protocole donné avec les utilitaires natifs du bureau. Sur macOS, par exemple, cette fonction est similaire à l'utilitaire de commande terminal `open` et ouvrira l'application spécifique basée sur l'URI et l'association de type fichier.
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options) allows opening a given protocol URI with the desktop's native utilities. Sur macOS, par exemple, cette fonction est similaire à l'utilitaire de commande terminal `open` et ouvrira l'application spécifique basée sur l'URI et l'association de type fichier.
 
 ### Pourquoi ?
 
-L'utilisation incorrecte de [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) peut être utilisée pour compromettre l'hôte de l'utilisateur. Lorsque openExternal est utilisé avec du contenu non fiable, il peut être exploité pour exécuter des commandes arbitraires.
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) can be leveraged to compromise the user's host. Lorsque openExternal est utilisé avec du contenu non fiable, il peut être exploité pour exécuter des commandes arbitraires.
 
 ### Comment ?
 
@@ -603,12 +583,7 @@ const mainWindow = new BrowserWindow({
 
 
 
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- Mauvais si le moteur de rendu peut exécuter du contenu non fiable --><webview src="page.html"></webview><!-- Bon --><webview enableremotemodule="false" src="page.html"></webview>
 ```
 
 

@@ -14,7 +14,7 @@ All three cases are covered by the same API - the `setProgressBar()` method avai
 
 Sa madaling salita, ang pagsetup ng parameter patungo sa isang halaga mababa pa sa zero (halimbawa `-1`) ay makakauha sa progress bar habang isiniset ito sa mas mataas na halaga maliban sa isa (halimbawa `-1`) ay makakaiba sa progress bar patungo sa intermediate mode.
 
-Tingnan ang [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress).
+Tingnan ang [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress-options).
 
 ```javascript
 const { BrowserWindow } = require('electron')

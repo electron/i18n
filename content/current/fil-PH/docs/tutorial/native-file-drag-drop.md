@@ -34,6 +34,6 @@ In the Main process(`main.js` file), expand the received event with a path to th
 const {ipcMain} = kailangan (' elektron ') ipcMain. on (' ondragstart ', (kaganapan, mga pelikula. = & gt; {event. nagpadala. startDrag ({file: mga pelikula, icon: '/Path/to/icon.png '})})
 ```
 
-After launching the Electron application, try to dragging and dropping the item from the BroswerWindow onto your desktop. In this guide, the item is a Markdown file located in the root of the project:
+After launching the Electron application, try dragging and dropping the item from the BroswerWindow onto your desktop. In this guide, the item is a Markdown file located in the root of the project:
 
 ![Drag and drop](../images/drag-and-drop.gif)

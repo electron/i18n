@@ -114,7 +114,7 @@ Devuelve:
 * `title` Cadena
 * `explicitSet` Boolen
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Disparado cuando el título de la página se configura durante la navegación. `explicitSet` es false cuando el título es sincronizado desde el archivo url.
 
 #### Evento: 'page-favicon-updated'
 
@@ -137,7 +137,7 @@ Devuelve:
 * `additionalFeatures` String[] - Las características no estándar (características no manejadas por Chromium o Electron) pasadas a `window.open()`.
 * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. Puede resultar o no en la cabecera `Referer` siendo enviado, dependiendo de la política de referencia.
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Emitido cuando la página solicita abrir una nueva ventana para una `url`. Puede ser requerido por `window.open` o un link externo como `<a target='_blank'>`.
 
 Por defecto se creará un nuevo `BrowserWindow` para la `dirección url`.
 
@@ -165,7 +165,7 @@ Devuelve:
 * `event` Event
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Emitido cuando un usuario o l página quiere empezar la navegación. Puede ocurrir cuando el objeto `window.location` se cambia o un usuario hace clic en un enlace en la página.
 
 Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `webContents.loadURL` y `webContents.back`.
 

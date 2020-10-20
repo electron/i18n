@@ -16,7 +16,7 @@ Electron keeps up to date with alternating Chromium releases. For more informati
 
 ## La seguridad es la responsabilidad de Todos
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. Por tanto, es tu responsabilidad seguir algunas importantes mejores prácticas:
+Es importante recordar que la seguridad de tu aplicación Electron es el resultado de la seguridad general de la base de framework (*Chromium*, *Node.js*), Electron mismo, todas las dependencias NPM y tu código. Por tanto, es tu responsabilidad seguir algunas importantes mejores prácticas:
 
 * **Mantenga su aplicación actualizada con la última versión liberada de Electron.** Cuando libere su producto, también está compartiendo un conjunto compuesto de Electron, librerías compartidas de Chromium y Node.js. Vulnerabilidades afectando a estos componentes pueden impactar en la seguridad de su aplicación. Actualizando Electron a la última versión, asegura que las vulnerabilidades críticas (tales como *nodeIntegration bypasses*) ya estén reparadas y no puedan ser explotadas en su aplicación. Para más informacón, vea "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
 
@@ -81,13 +81,8 @@ browserWindow.loadURL('http://example.com')
 browserWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://example.com/react.js"></script>
+```html<!-- Malo --><script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css"><!-- Bueno --><script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -129,12 +124,7 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<webview nodeIntegration src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Incorrecto --><webview nodeIntegration src="page.html"></webview><!-- Correcto --><webview src="page.html"></webview>
 ```
 
 Cuando desactivas la integración Node.js, todavía puedes exponer APIs a tu página web que consume módulos Node.js o características. Guiones precargados continúan teniendo acceso a `require` y otras características de Node.js, permitiendo que los desarrolladores expongan un API personalizado para cargar contenido de manera remota.
@@ -225,12 +215,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Malo --><webview disablewebsecurity src="page.html"></webview><!-- Bueno --><webview src="page.html"></webview>
 ```
 
 
@@ -374,12 +359,7 @@ Si usted no necesita ventanas emergentes, le conviene no permitir la creación d
 
 ### ¿Còmo?
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Malo --><webview allowpopups src="page.html"></webview><!-- Bueno --><webview src="page.html"></webview>
 ```
 
 
@@ -479,11 +459,11 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) No use `openExternal` con contenido no confiable
 
-El [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) de Shell permite abrir un protocolo URI dado con las utilidades nativas del escritorio. En macOS, a modo de ejemplo, esta función es similar a la utilidad de comando de terminal `open` y abrirá la aplicación especifica basado en la URI y en el tipo de archivo asociado.
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options) allows opening a given protocol URI with the desktop's native utilities. En macOS, a modo de ejemplo, esta función es similar a la utilidad de comando de terminal `open` y abrirá la aplicación especifica basado en la URI y en el tipo de archivo asociado.
 
 ### ¿Por què?
 
-El uso indebido de [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) puede ser apalancado para comprometer el host del usuario. Cuando openExternal se usa con contenido no confiable, puede ser apalancado para ejecutar comandos arbitrarios.
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) can be leveraged to compromise the user's host. Cuando openExternal se usa con contenido no confiable, puede ser apalancado para ejecutar comandos arbitrarios.
 
 ### ¿Còmo?
 
@@ -528,12 +508,7 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- Malo si el renderizador puede ejecutar contenido no confiable  --><webview src="page.html"></webview><!-- Bueno --><webview enableremotemodule="false" src="page.html"></webview>
 ```
 
 ## 16) Filtrar el módulo `remote`
