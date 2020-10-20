@@ -4,8 +4,8 @@
     "description": "> Control your application's event lifecycle.\n\nProcess: Main\n\nThe following example shows how to quit the application when the last window is closed:",
     "slug": "app",
     "websiteUrl": "http://electronjs.org/docs/api/app",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/app.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/app.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -2294,7 +2294,7 @@
                     "description": "Process ran out of memory"
                   },
                   {
-                    "value": "launch-failure",
+                    "value": "launch-failed",
                     "description": "Process never successfully launched"
                   },
                   {
@@ -2535,8 +2535,8 @@
     "description": "> Enable apps to automatically update themselves.\n\nProcess: Main\n\n**See also: A detailed guide about how to implement updates in your application.**\n\n`autoUpdater` is an EventEmitter.\n\n### Platform Notices\n\nCurrently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.\n\nIn addition, there are some subtle differences on each platform:\n\n### macOS\n\nOn macOS, the `autoUpdater` module is built upon Squirrel.Mac, meaning you don't need any special setup to make it work. For server-side requirements, you can read Server Support. Note that App Transport Security (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.\n\n**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.\n\n### Windows\n\nOn Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the electron-winstaller, electron-forge or the grunt-electron-installer package to generate a Windows installer.\n\nWhen using electron-winstaller or electron-forge make sure you do not try to update your app the first time it runs (Also see this issue for more info). It's also recommended to use electron-squirrel-startup to get desktop shortcuts for your app.\n\nThe installer generated with Squirrel will create a shortcut icon with an Application User Model ID in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. You have to use the same ID for your app with `app.setAppUserModelId` API, otherwise Windows will not be able to pin your app properly in task bar.\n\nUnlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of Squirrel.Windows to get more details about how Squirrel.Windows works.",
     "slug": "auto-updater",
     "websiteUrl": "http://electronjs.org/docs/api/auto-updater",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/auto-updater.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/auto-updater.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -2725,8 +2725,8 @@
     "description": "> Create and control views.\n\nProcess: Main\n\nA `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.\n\n### Example\n\n```\n// In the main process.\nconst { BrowserView, BrowserWindow } = require('electron')\n\nconst win = new BrowserWindow({ width: 800, height: 600 })\n\nconst view = new BrowserView()\nwin.setBrowserView(view)\nview.setBounds({ x: 0, y: 0, width: 300, height: 300 })\nview.webContents.loadURL('https://electronjs.org')\n```",
     "slug": "browser-view",
     "websiteUrl": "http://electronjs.org/docs/api/browser-view",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/browser-view.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/browser-view.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -2969,8 +2969,8 @@
     "description": "",
     "slug": "browser-window-proxy",
     "websiteUrl": "http://electronjs.org/docs/api/browser-window-proxy",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/browser-window-proxy.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/browser-window-proxy.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": false,
@@ -3072,8 +3072,8 @@
     "description": "> Create and control browser windows.\n\nProcess: Main\n\n### Frameless window\n\nTo create a window without chrome, or a transparent window in arbitrary shape, you can use the Frameless Window API.\n\n### Showing window gracefully\n\nWhen loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.\n\n### Using `ready-to-show` event\n\nWhile loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:\n\n```\nconst { BrowserWindow } = require('electron')\nlet win = new BrowserWindow({ show: false })\nwin.once('ready-to-show', () => {\n  win.show()\n})\n```\n\nThis event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.\n\nPlease note that using this event implies that the renderer will be considered \"visible\" and paint even though `show` is false.  This event will never fire if you use `paintWhenInitiallyHidden: false`\n\n### Setting `backgroundColor`\n\nFor a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:\n\n```\nconst { BrowserWindow } = require('electron')\n\nlet win = new BrowserWindow({ backgroundColor: '#2e2c29' })\nwin.loadURL('https://github.com')\n```\n\nNote that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.\n\n### Parent and child windows\n\nBy using `parent` option, you can create child windows:\n\n```\nconst { BrowserWindow } = require('electron')\n\nlet top = new BrowserWindow()\nlet child = new BrowserWindow({ parent: top })\nchild.show()\ntop.show()\n```\n\nThe `child` window will always show on top of the `top` window.\n\n### Modal windows\n\nA modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:\n\n```\nconst { BrowserWindow } = require('electron')\n\nlet child = new BrowserWindow({ parent: top, modal: true, show: false })\nchild.loadURL('https://github.com')\nchild.once('ready-to-show', () => {\n  child.show()\n})\n```\n\n### Page visibility\n\nThe Page Visibility API works as follows:\n\n* On all platforms, the visibility state tracks whether the window is hidden/minimized or not.\n* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.\n* If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.\n* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.\n\nIt is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.\n\n### Platform notices\n\n* On macOS modal windows will be displayed as sheets attached to the parent window.\n* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.\n* On Linux the type of modal windows will be changed to `dialog`.\n* On Linux many desktop environments do not support hiding a modal window.\n\n### Class: BrowserWindow\n\n> Create and control browser windows.\n\nProcess: Main\n\n`BrowserWindow` is an EventEmitter.\n\nIt creates a new `BrowserWindow` with native properties as set by the `options`.",
     "slug": "browser-window",
     "websiteUrl": "http://electronjs.org/docs/api/browser-window",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/browser-window.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/browser-window.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -7198,8 +7198,8 @@
     "description": "> Make HTTP/HTTPS requests.\n\nProcess: Main\n\n`ClientRequest` implements the Writable Stream interface and is therefore an EventEmitter.",
     "slug": "client-request",
     "websiteUrl": "http://electronjs.org/docs/api/client-request",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/client-request.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/client-request.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -7738,8 +7738,8 @@
     "description": "> Perform copy and paste operations on the system clipboard.\n\nProcess: Main, Renderer\n\nOn Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:",
     "slug": "clipboard",
     "websiteUrl": "http://electronjs.org/docs/api/clipboard",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/clipboard.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/clipboard.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -8384,8 +8384,8 @@
     "description": "",
     "slug": "command-line",
     "websiteUrl": "http://electronjs.org/docs/api/command-line",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/command-line.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/command-line.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -8488,8 +8488,8 @@
     "description": "> Collect tracing data from Chromium to find performance bottlenecks and slow operations.\n\nProcess: Main\n\nThis module does not include a web interface. To view recorded traces, use trace viewer, available at `chrome://tracing` in Chrome.\n\n**Note:** You should not use this module until the `ready` event of the app module is emitted.",
     "slug": "content-tracing",
     "websiteUrl": "http://electronjs.org/docs/api/content-tracing",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/content-tracing.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/content-tracing.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -8620,8 +8620,8 @@
     "description": "> Create a safe, bi-directional, synchronous bridge across isolated contexts\n\nProcess: Renderer\n\nAn example of exposing an API to a renderer from an isolated preload script is given below:\n\n```\n// Preload (Isolated World)\nconst { contextBridge, ipcRenderer } = require('electron')\n\ncontextBridge.exposeInMainWorld(\n  'electron',\n  {\n    doThing: () => ipcRenderer.send('do-a-thing')\n  }\n)\n```\n\n### Glossary\n\n\n\n### Main World\n\nThe \"Main World\" is the JavaScript context that your main renderer code runs in. By default, the page you load in your renderer executes code in this world.\n\n### Isolated World\n\nWhen `contextIsolation` is enabled in your `webPreferences`, your `preload` scripts run in an \"Isolated World\".  You can read more about context isolation and what it affects in the security docs.",
     "slug": "context-bridge",
     "websiteUrl": "http://electronjs.org/docs/api/context-bridge",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/context-bridge.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/context-bridge.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": false,
@@ -8675,8 +8675,8 @@
     "description": "",
     "slug": "cookies",
     "websiteUrl": "http://electronjs.org/docs/api/cookies",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/cookies.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/cookies.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -8955,8 +8955,8 @@
     "description": "> Submit crash reports to a remote server.\n\nProcess: Main, Renderer\n\nThe following is an example of setting up Electron to automatically submit crash reports to a remote server:\n\n```\nconst { crashReporter } = require('electron')\n\ncrashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })\n```\n\nFor setting up a server to accept and process crash reports, you can use following projects:\n\n* socorro\n* mini-breakpad-server\n\nOr use a 3rd party hosted solution:\n\n* Backtrace\n* Sentry\n* BugSplat\n\nCrash reports are stored temporarily before being uploaded in a directory underneath the app's user data directory (called 'Crashpad' on Windows and Mac, or 'Crash Reports' on Linux). You can override this directory by calling `app.setPath('crashDumps', '/path/to/crashes')` before starting the crash reporter.\n\nOn Windows and macOS, Electron uses crashpad to monitor and report crashes. On Linux, Electron uses breakpad. This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.",
     "slug": "crash-reporter",
     "websiteUrl": "http://electronjs.org/docs/api/crash-reporter",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/crash-reporter.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/crash-reporter.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -9223,8 +9223,8 @@
     "description": "",
     "slug": "debugger",
     "websiteUrl": "http://electronjs.org/docs/api/debugger",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/debugger.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/debugger.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -9381,8 +9381,8 @@
     "description": "> Access information about media sources that can be used to capture audio and video from the desktop using the `navigator.mediaDevices.getUserMedia` API.\n\nProcess: Main, Renderer\n\nThe following example shows how to capture video from a desktop window whose title is `Electron`:\n\n```\n// In the renderer process.\nconst { desktopCapturer } = require('electron')\n\ndesktopCapturer.getSources({ types: ['window', 'screen'] }).then(async sources => {\n  for (const source of sources) {\n    if (source.name === 'Electron') {\n      try {\n        const stream = await navigator.mediaDevices.getUserMedia({\n          audio: false,\n          video: {\n            mandatory: {\n              chromeMediaSource: 'desktop',\n              chromeMediaSourceId: source.id,\n              minWidth: 1280,\n              maxWidth: 1280,\n              minHeight: 720,\n              maxHeight: 720\n            }\n          }\n        })\n        handleStream(stream)\n      } catch (e) {\n        handleError(e)\n      }\n      return\n    }\n  }\n})\n\nfunction handleStream (stream) {\n  const video = document.querySelector('video')\n  video.srcObject = stream\n  video.onloadedmetadata = (e) => video.play()\n}\n\nfunction handleError (e) {\n  console.log(e)\n}\n```\n\nTo capture video from a source provided by `desktopCapturer` the constraints passed to `navigator.mediaDevices.getUserMedia` must include `chromeMediaSource: 'desktop'`, and `audio: false`.\n\nTo capture both audio and video from the entire desktop the constraints passed to `navigator.mediaDevices.getUserMedia` must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.",
     "slug": "desktop-capturer",
     "websiteUrl": "http://electronjs.org/docs/api/desktop-capturer",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/desktop-capturer.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/desktop-capturer.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -9451,8 +9451,8 @@
     "description": "> Display native system dialogs for opening and saving files, alerting, etc.\n\nProcess: Main\n\nAn example of showing a dialog to select multiple files:\n\n```\nconst { dialog } = require('electron')\nconsole.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))\n```\n\nThe Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:",
     "slug": "dialog",
     "websiteUrl": "http://electronjs.org/docs/api/dialog",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/dialog.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/dialog.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -10470,8 +10470,8 @@
     "description": "",
     "slug": "dock",
     "websiteUrl": "http://electronjs.org/docs/api/dock",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/dock.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/dock.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -10702,8 +10702,8 @@
     "description": "",
     "slug": "download-item",
     "websiteUrl": "http://electronjs.org/docs/api/download-item",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/download-item.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/download-item.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -11059,8 +11059,8 @@
     "description": "> Detect keyboard events when the application does not have keyboard focus.\n\nProcess: Main\n\nThe `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.\n\n**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.",
     "slug": "global-shortcut",
     "websiteUrl": "http://electronjs.org/docs/api/global-shortcut",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/global-shortcut.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/global-shortcut.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -11174,8 +11174,8 @@
     "description": "> In-app purchases on Mac App Store.\n\nProcess: Main",
     "slug": "in-app-purchase",
     "websiteUrl": "http://electronjs.org/docs/api/in-app-purchase",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/in-app-purchase.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/in-app-purchase.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -11314,8 +11314,8 @@
     "description": "",
     "slug": "incoming-message",
     "websiteUrl": "http://electronjs.org/docs/api/incoming-message",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/incoming-message.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/incoming-message.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -11437,8 +11437,8 @@
     "description": "> Communicate asynchronously from the main process to renderer processes.\n\nProcess: Main\n\nThe `ipcMain` module is an Event Emitter. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.\n\n### Sending Messages\n\nIt is also possible to send messages from the main process to the renderer process, see webContents.send for more information.\n\n* When sending a message, the event name is the `channel`.\n* To reply to a synchronous message, you need to set `event.returnValue`.\n* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.\n\nAn example of sending and handling messages between the render and main processes:\n\n```\n// In main process.\nconst { ipcMain } = require('electron')\nipcMain.on('asynchronous-message', (event, arg) => {\n  console.log(arg) // prints \"ping\"\n  event.reply('asynchronous-reply', 'pong')\n})\n\nipcMain.on('synchronous-message', (event, arg) => {\n  console.log(arg) // prints \"ping\"\n  event.returnValue = 'pong'\n})\n```\n\n```\n// In renderer process (web page).\nconst { ipcRenderer } = require('electron')\nconsole.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints \"pong\"\n\nipcRenderer.on('asynchronous-reply', (event, arg) => {\n  console.log(arg) // prints \"pong\"\n})\nipcRenderer.send('asynchronous-message', 'ping')\n```",
     "slug": "ipc-main",
     "websiteUrl": "http://electronjs.org/docs/api/ipc-main",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/ipc-main.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/ipc-main.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -11723,8 +11723,8 @@
     "description": "> Communicate asynchronously from a renderer process to the main process.\n\nProcess: Renderer\n\nThe `ipcRenderer` module is an  EventEmitter. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.\n\nSee ipcMain for code examples.",
     "slug": "ipc-renderer",
     "websiteUrl": "http://electronjs.org/docs/api/ipc-renderer",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/ipc-renderer.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/ipc-renderer.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": false,
@@ -12044,8 +12044,8 @@
     "description": "> Add items to native application menus and context menus.\n\nProcess: Main\n\nSee `Menu` for examples.",
     "slug": "menu-item",
     "websiteUrl": "http://electronjs.org/docs/api/menu-item",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/menu-item.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/menu-item.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -12841,8 +12841,8 @@
     "description": "> Create native application menus and context menus.\n\nProcess: Main",
     "slug": "menu",
     "websiteUrl": "http://electronjs.org/docs/api/menu",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/menu.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/menu.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -13133,8 +13133,8 @@
     "description": "",
     "slug": "message-channel-main",
     "websiteUrl": "http://electronjs.org/docs/api/message-channel-main",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/message-channel-main.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/message-channel-main.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -13170,8 +13170,8 @@
     "description": "",
     "slug": "message-port-main",
     "websiteUrl": "http://electronjs.org/docs/api/message-port-main",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/message-port-main.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/message-port-main.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -13269,8 +13269,8 @@
     "description": "> Create tray, dock, and application icons using PNG or JPG files.\n\nProcess: Main, Renderer\n\nIn Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.\n\nFor example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:\n\n```\nconst { BrowserWindow, Tray } = require('electron')\n\nconst appIcon = new Tray('/Users/somebody/images/icon.png')\nconst win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })\nconsole.log(appIcon, win)\n```\n\nOr read the image from the clipboard, which returns a `NativeImage`:\n\n### Supported Formats\n\nCurrently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.\n\nOn Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:\n\n* Small icon\n  * 16x16 (100% DPI scale)\n  * 20x20 (125% DPI scale)\n  * 24x24 (150% DPI scale)\n  * 32x32 (200% DPI scale)\n* Large icon\n  * 32x32 (100% DPI scale)\n  * 40x40 (125% DPI scale)\n  * 48x48 (150% DPI scale)\n  * 64x64 (200% DPI scale)\n  * 256x256\n\nCheck the *Size requirements* section in this article.\n\n### High Resolution Image\n\nOn platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.\n\nFor example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.\n\nIf you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:\n\n```\nimages/\n├── icon.png\n├── icon@2x.png\n└── icon@3x.png\n```\n\n```\nconst { Tray } = require('electron')\nconst appIcon = new Tray('/Users/somebody/images/icon.png')\nconsole.log(appIcon)\n```\n\nThe following suffixes for DPI are also supported:\n\n* `@1x`\n* `@1.25x`\n* `@1.33x`\n* `@1.4x`\n* `@1.5x`\n* `@1.8x`\n* `@2x`\n* `@2.5x`\n* `@3x`\n* `@4x`\n* `@5x`\n\n### Template Image\n\nTemplate images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.\n\nThe most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.\n\n**Note:** Template image is only supported on macOS.\n\nTo mark an image as a template image, its filename should end with the word `Template`. For example:\n\n* `xxxTemplate.png`\n* `xxxTemplate@2x.png`",
     "slug": "native-image",
     "websiteUrl": "http://electronjs.org/docs/api/native-image",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/native-image.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/native-image.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -13507,8 +13507,8 @@
     "description": "",
     "slug": "native-image",
     "websiteUrl": "http://electronjs.org/docs/api/native-image",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/native-image.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/native-image.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -13899,8 +13899,8 @@
     "description": "> Read and respond to changes in Chromium's native color theme.\n\nProcess: Main",
     "slug": "native-theme",
     "websiteUrl": "http://electronjs.org/docs/api/native-theme",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/native-theme.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/native-theme.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -13980,8 +13980,8 @@
     "description": "> Logging network events for a session.\n\nProcess: Main\n\n```\nconst { netLog } = require('electron')\n\napp.whenReady().then(async () => {\n  await netLog.startLogging('/path/to/net-log')\n  // After some network events\n  const path = await netLog.stopLogging()\n  console.log('Net-logs written to', path)\n})\n```\n\nSee `--log-net-log` to log network events throughout the app's lifecycle.\n\n**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.",
     "slug": "net-log",
     "websiteUrl": "http://electronjs.org/docs/api/net-log",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/net-log.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/net-log.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -14091,8 +14091,8 @@
     "description": "> Issue HTTP/HTTPS requests using Chromium's native networking library\n\nProcess: Main\n\nThe `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the HTTP and HTTPS modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.\n\nThe following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:\n\n* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.\n* Automatic tunneling of HTTPS requests.\n* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.\n* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.\n\nThe API components (including classes, methods, properties and event names) are similar to those used in Node.js.\n\nExample usage:\n\n```\nconst { app } = require('electron')\napp.whenReady().then(() => {\n  const { net } = require('electron')\n  const request = net.request('https://github.com')\n  request.on('response', (response) => {\n    console.log(`STATUS: ${response.statusCode}`)\n    console.log(`HEADERS: ${JSON.stringify(response.headers)}`)\n    response.on('data', (chunk) => {\n      console.log(`BODY: ${chunk}`)\n    })\n    response.on('end', () => {\n      console.log('No more data in response.')\n    })\n  })\n  request.end()\n})\n```\n\nThe `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.",
     "slug": "net",
     "websiteUrl": "http://electronjs.org/docs/api/net",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/net.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/net.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -14138,8 +14138,8 @@
     "description": "> Create OS desktop notifications\n\nProcess: Main\n\n### Using in the renderer process\n\nIf you want to show Notifications from a renderer process you should use the HTML5 Notification API\n\n### Class: Notification\n\n> Create OS desktop notifications\n\nProcess: Main\n\n`Notification` is an EventEmitter.\n\nIt creates a new `Notification` with native properties as set by the `options`.\n\n### Static Methods\n\nThe `Notification` class has the following static methods:\n\n### `Notification.isSupported()`\n\nReturns `Boolean` - Whether or not desktop notifications are supported on the current system",
     "slug": "notification",
     "websiteUrl": "http://electronjs.org/docs/api/notification",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/notification.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/notification.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -14567,8 +14567,8 @@
     "description": "> Monitor power state changes.\n\nProcess: Main",
     "slug": "power-monitor",
     "websiteUrl": "http://electronjs.org/docs/api/power-monitor",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/power-monitor.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/power-monitor.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -14696,8 +14696,8 @@
     "description": "> Block the system from entering low-power (sleep) mode.\n\nProcess: Main\n\nFor example:",
     "slug": "power-save-blocker",
     "websiteUrl": "http://electronjs.org/docs/api/power-save-blocker",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/power-save-blocker.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/power-save-blocker.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -14778,8 +14778,8 @@
     "description": "> Extensions to process object.\n\nProcess: Main, Renderer\n\nElectron's `process` object is extended from the Node.js `process` object. It adds the following events, properties, and methods:\n\n### Sandbox\n\nIn sandboxed renderers the `process` object contains only a subset of the APIs:\n\n* `crash()`\n* `hang()`\n* `getCreationTime()`\n* `getHeapStatistics()`\n* `getBlinkMemoryInfo()`\n* `getProcessMemoryInfo()`\n* `getSystemMemoryInfo()`\n* `getSystemVersion()`\n* `getCPUUsage()`\n* `getIOCounters()`\n* `argv`\n* `execPath`\n* `env`\n* `pid`\n* `arch`\n* `platform`\n* `sandboxed`\n* `type`\n* `version`\n* `versions`\n* `mas`\n* `windowsStore`",
     "slug": "process",
     "websiteUrl": "http://electronjs.org/docs/api/process",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/process.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/process.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -15253,8 +15253,8 @@
     "description": "> Register a custom protocol and intercept existing protocol requests.\n\nProcess: Main\n\nAn example of implementing a protocol that has the same effect as the `file://` protocol:\n\n```\nconst { app, protocol } = require('electron')\nconst path = require('path')\n\napp.whenReady().then(() => {\n  protocol.registerFileProtocol('atom', (request, callback) => {\n    const url = request.url.substr(7)\n    callback({ path: path.normalize(`${__dirname}/${url}`) })\n  })\n})\n```\n\n**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.\n\n### Using `protocol` with a custom `partition` or `session`\n\nA protocol is registered to a specific Electron `session` object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.\n\nTo have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.\n\n```\nconst { session, app, protocol } = require('electron')\nconst path = require('path')\n\napp.whenReady().then(() => {\n  const partition = 'persist:example'\n  const ses = session.fromPartition(partition)\n\n  ses.protocol.registerFileProtocol('atom', (request, callback) => {\n    const url = request.url.substr(7)\n    callback({ path: path.normalize(`${__dirname}/${url}`) })\n  })\n\n  mainWindow = new BrowserWindow({ webPreferences: { partition } })\n})\n```",
     "slug": "protocol",
     "websiteUrl": "http://electronjs.org/docs/api/protocol",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/protocol.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/protocol.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -15983,8 +15983,8 @@
     "description": "> Use main process modules from the renderer process.\n\nProcess: Renderer\n\nThe `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.\n\nIn Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only available in the main process, not in the renderer process. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's RMI. An example of creating a browser window from a renderer process:\n\n```\nconst { BrowserWindow } = require('electron').remote\nlet win = new BrowserWindow({ width: 800, height: 600 })\nwin.loadURL('https://github.com')\n```\n\n**Note:** For the reverse (access the renderer process from the main process), you can use webContents.executeJavaScript.\n\n**Note:** The remote module can be disabled for security reasons in the following contexts:\n\n* `BrowserWindow` - by setting the `enableRemoteModule` option to `false`.\n* `<webview>` - by setting the `enableremotemodule` attribute to `false`.\n\n### Remote Objects\n\nEach object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.\n\nIn the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.\n\n**Note:** Only enumerable properties which are present when the remote object is first referenced are accessible via remote.\n\n**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.\n\n### Lifetime of Remote Objects\n\nElectron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.\n\nIf the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.\n\nPrimary value types like strings and numbers, however, are sent by copy.\n\n### Passing callbacks to the main process\n\nCode in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.\n\nFirst, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.\n\nFor instance you can't use a function from the renderer process in an `Array.map` called in the main process:\n\n```\n// main process mapNumbers.js\nexports.withRendererCallback = (mapper) => {\n  return [1, 2, 3].map(mapper)\n}\n\nexports.withLocalCallback = () => {\n  return [1, 2, 3].map(x => x + 1)\n}\n```\n\n```\n// renderer process\nconst mapNumbers = require('electron').remote.require('./mapNumbers')\nconst withRendererCb = mapNumbers.withRendererCallback(x => x + 1)\nconst withLocalCb = mapNumbers.withLocalCallback()\n\nconsole.log(withRendererCb, withLocalCb)\n// [undefined, undefined, undefined], [2, 3, 4]\n```\n\nAs you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.\n\nSecond, the callbacks passed to the main process will persist until the main process garbage-collects them.\n\nFor example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:\n\n```\nrequire('electron').remote.getCurrentWindow().on('close', () => {\n  // window was closed...\n})\n```\n\nBut remember the callback is referenced by the main process until you explicitly uninstall it. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.\n\nTo make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.\n\nTo avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to dereference callbacks that came from a renderer process that is exiting.\n\n### Accessing built-in modules in the main process\n\nThe built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.\n\n```\nconst app = require('electron').remote.app\nconsole.log(app)\n```",
     "slug": "remote",
     "websiteUrl": "http://electronjs.org/docs/api/remote",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/remote.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/remote.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": false,
@@ -16074,8 +16074,8 @@
     "description": "> Retrieve information about screen size, displays, cursor position, etc.\n\nProcess: Main\n\nThis module cannot be used until the `ready` event of the `app` module is emitted.\n\n`screen` is an EventEmitter.\n\n**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.\n\nAn example of creating a window that fills the whole screen:\n\n```\nconst { app, BrowserWindow, screen } = require('electron')\n\nlet win\napp.whenReady().then(() => {\n  const { width, height } = screen.getPrimaryDisplay().workAreaSize\n  win = new BrowserWindow({ width, height })\n  win.loadURL('https://github.com')\n})\n```\n\nAnother example of creating a window in the external display:",
     "slug": "screen",
     "websiteUrl": "http://electronjs.org/docs/api/screen",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/screen.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/screen.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -16351,8 +16351,8 @@
     "description": "",
     "slug": "service-workers",
     "websiteUrl": "http://electronjs.org/docs/api/service-workers",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/service-workers.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/service-workers.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -16544,8 +16544,8 @@
     "description": "> Manage browser sessions, cookies, cache, proxy settings, etc.\n\nProcess: Main\n\nThe `session` module can be used to create new `Session` objects.\n\nYou can also access the `session` of existing pages by using the `session` property of `WebContents`, or from the `session` module.",
     "slug": "session",
     "websiteUrl": "http://electronjs.org/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/session.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/session.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -16608,8 +16608,8 @@
     "description": "",
     "slug": "session",
     "websiteUrl": "http://electronjs.org/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/session.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/session.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -17879,8 +17879,8 @@
     "description": "> Manage files and URLs using their default applications.\n\nProcess: Main, Renderer (non-sandboxed only)\n\nThe `shell` module provides functions related to desktop integration.\n\nAn example of opening a URL in the user's default browser:\n\n```\nconst { shell } = require('electron')\n\nshell.openExternal('https://github.com')\n```\n\n**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.",
     "slug": "shell",
     "websiteUrl": "http://electronjs.org/docs/api/shell",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/shell.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/shell.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -18104,8 +18104,8 @@
     "description": "> Get system preferences.\n\nProcess: Main",
     "slug": "system-preferences",
     "websiteUrl": "http://electronjs.org/docs/api/system-preferences",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/system-preferences.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/system-preferences.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -19530,8 +19530,8 @@
     "description": "> Create a button in the touch bar for native macOS applications\n\nProcess: Main",
     "slug": "touch-bar-button",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-button",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/touch-bar-button.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/touch-bar-button.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -19692,8 +19692,8 @@
     "description": "> Create a color picker in the touch bar for native macOS applications\n\nProcess: Main",
     "slug": "touch-bar-color-picker",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-color-picker",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/touch-bar-color-picker.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/touch-bar-color-picker.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -19781,8 +19781,8 @@
     "description": "> Create a group in the touch bar for native macOS applications\n\nProcess: Main",
     "slug": "touch-bar-group",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-group",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/touch-bar-group.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/touch-bar-group.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -19822,8 +19822,8 @@
     "description": "> Create a label in the touch bar for native macOS applications\n\nProcess: Main",
     "slug": "touch-bar-label",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-label",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/touch-bar-label.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/touch-bar-label.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -19910,8 +19910,8 @@
     "description": "> Instantiates a special \"other items proxy\", which nests TouchBar elements inherited from Chromium at the space indicated by the proxy. By default, this proxy is added to each TouchBar at the end of the input. For more information, see the AppKit docs on NSTouchBarItemIdentifierOtherItemsProxy\n\nNote: Only one instance of this class can be added per TouchBar.\n\nProcess: Main",
     "slug": "touch-bar-other-items-proxy",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-other-items-proxy",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/touch-bar-other-items-proxy.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/touch-bar-other-items-proxy.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -19933,8 +19933,8 @@
     "description": "> Create a popover in the touch bar for native macOS applications\n\nProcess: Main",
     "slug": "touch-bar-popover",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-popover",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/touch-bar-popover.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/touch-bar-popover.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -20017,8 +20017,8 @@
     "description": "> Create a scrubber (a scrollable selector)\n\nProcess: Main",
     "slug": "touch-bar-scrubber",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-scrubber",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/touch-bar-scrubber.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/touch-bar-scrubber.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -20259,8 +20259,8 @@
     "description": "> Create a segmented control (a button group) where one button has a selected state\n\nProcess: Main",
     "slug": "touch-bar-segmented-control",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-segmented-control",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/touch-bar-segmented-control.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/touch-bar-segmented-control.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -20423,8 +20423,8 @@
     "description": "> Create a slider in the touch bar for native macOS applications\n\nProcess: Main",
     "slug": "touch-bar-slider",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-slider",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/touch-bar-slider.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/touch-bar-slider.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -20541,8 +20541,8 @@
     "description": "> Create a spacer between two items in the touch bar for native macOS applications\n\nProcess: Main",
     "slug": "touch-bar-spacer",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar-spacer",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/touch-bar-spacer.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/touch-bar-spacer.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -20596,8 +20596,8 @@
     "description": "> Create TouchBar layouts for native macOS applications\n\nProcess: Main",
     "slug": "touch-bar",
     "websiteUrl": "http://electronjs.org/docs/api/touch-bar",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/touch-bar.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/touch-bar.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -20813,8 +20813,8 @@
     "description": "> Add icons and context menus to the system's notification area.\n\nProcess: Main\n\n`Tray` is an EventEmitter.\n\n```\nconst { app, Menu, Tray } = require('electron')\n\nlet tray = null\napp.whenReady().then(() => {\n  tray = new Tray('/path/to/my/icon')\n  const contextMenu = Menu.buildFromTemplate([\n    { label: 'Item1', type: 'radio' },\n    { label: 'Item2', type: 'radio' },\n    { label: 'Item3', type: 'radio', checked: true },\n    { label: 'Item4', type: 'radio' }\n  ])\n  tray.setToolTip('This is my application.')\n  tray.setContextMenu(contextMenu)\n})\n```\n\n__Platform limitations:__\n\n* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.\n* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.\n* App indicator will only be shown when it has a context menu.\n* When app indicator is used on Linux, the `click` event is ignored.\n* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:\n\n```\nconst { app, Menu, Tray } = require('electron')\n\nlet appIcon = null\napp.whenReady().then(() => {\n  appIcon = new Tray('/path/to/my/icon')\n  const contextMenu = Menu.buildFromTemplate([\n    { label: 'Item1', type: 'radio' },\n    { label: 'Item2', type: 'radio' }\n  ])\n\n  // Make a change to the context menu\n  contextMenu.items[1].checked = false\n\n  // Call this again for Linux because we modified the context menu\n  appIcon.setContextMenu(contextMenu)\n})\n```\n\n* On Windows it is recommended to use `ICO` icons to get best visual effects.\n\nIf you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.",
     "slug": "tray",
     "websiteUrl": "http://electronjs.org/docs/api/tray",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/tray.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/tray.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -21520,8 +21520,8 @@
     "description": "> Render and control web pages.\n\nProcess: Main\n\n`webContents` is an EventEmitter. It is responsible for rendering and controlling a web page and is a property of the `BrowserWindow` object. An example of accessing the `webContents` object:",
     "slug": "web-contents",
     "websiteUrl": "http://electronjs.org/docs/api/web-contents",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/web-contents.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/web-contents.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": true,
@@ -21579,8 +21579,8 @@
     "description": "",
     "slug": "web-contents",
     "websiteUrl": "http://electronjs.org/docs/api/web-contents",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/web-contents.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/web-contents.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -24687,7 +24687,7 @@
                     "description": "Process ran out of memory"
                   },
                   {
-                    "value": "launch-failure",
+                    "value": "launch-failed",
                     "description": "Process never successfully launched"
                   },
                   {
@@ -26036,8 +26036,8 @@
     "description": "> Customize the rendering of the current web page.\n\nProcess: Renderer\n\n`webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).\n\nAn example of zooming current page to 200%.",
     "slug": "web-frame",
     "websiteUrl": "http://electronjs.org/docs/api/web-frame",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/web-frame.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/web-frame.md",
+    "version": "10.1.4",
     "type": "Module",
     "process": {
       "main": false,
@@ -26655,8 +26655,8 @@
     "description": "",
     "slug": "web-request",
     "websiteUrl": "http://electronjs.org/docs/api/web-request",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/web-request.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/web-request.md",
+    "version": "10.1.4",
     "type": "Class",
     "process": {
       "main": true,
@@ -28020,8 +28020,8 @@
     "description": "\n\n### Warning\n\nElectron's `webview` tag is based on Chromium's `webview`, which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.\n\n### Enabling\n\nBy default the `webview` tag is disabled in Electron >= 5.  You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the BrowserWindow constructor docs.\n\n### Overview\n\n> Display external web content in an isolated frame and process.\n\nProcess: Renderer\n\nUse the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.\n\nUnlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.\n\n### Example\n\nTo embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:\n\n```\n<webview id=\"foo\" src=\"https://www.github.com/\" style=\"display:inline-flex; width:640px; height:480px\"></webview>\n```\n\nIf you want to control the guest content in any way, you can write JavaScript that listens for `webview` events and responds to those events using the `webview` methods. Here's sample code with two event listeners: one that listens for the web page to start loading, the other for the web page to stop loading, and displays a \"loading...\" message during the load time:\n\n```\n<script>\n  onload = () => {\n    const webview = document.querySelector('webview')\n    const indicator = document.querySelector('.indicator')\n\n    const loadstart = () => {\n      indicator.innerText = 'loading...'\n    }\n\n    const loadstop = () => {\n      indicator.innerText = ''\n    }\n\n    webview.addEventListener('did-start-loading', loadstart)\n    webview.addEventListener('did-stop-loading', loadstop)\n  }\n</script>\n```\n\n### Internal implementation\n\nUnder the hood `webview` is implemented with Out-of-Process iframes (OOPIFs). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.\n\nSo the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:\n\n* When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.\n* You can not add keyboard, mouse, and scroll event listeners to `webview`.\n* All reactions between the embedder frame and `webview` are asynchronous.\n\n### CSS Styling Notes\n\nPlease note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.\n\n### Tag Attributes\n\nThe `webview` tag has the following attributes:\n\n### `src`\n\n```\n<webview src=\"https://www.github.com/\"></webview>\n```\n\nA `String` representing the visible URL. Writing to this attribute initiates top-level navigation.\n\nAssigning `src` its own value will reload the current page.\n\nThe `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.\n\n### `nodeintegration`\n\n```\n<webview src=\"http://www.google.com/\" nodeintegration></webview>\n```\n\nA `Boolean`. When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.\n\n### `nodeintegrationinsubframes`\n\n```\n<webview src=\"http://www.google.com/\" nodeintegrationinsubframes></webview>\n```\n\nA `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.\n\n### `enableremotemodule`\n\n```\n<webview src=\"http://www.google.com/\" enableremotemodule=\"false\"></webview>\n```\n\nA `Boolean`. When this attribute is `false` the guest page in `webview` will not have access to the `remote` module. The remote module is available by default.\n\n### `plugins`\n\n```\n<webview src=\"https://www.github.com/\" plugins></webview>\n```\n\nA `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.\n\n### `preload`\n\n```\n<webview src=\"https://www.github.com/\" preload=\"./test.js\"></webview>\n```\n\nA `String` that specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.\n\nWhen the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.\n\n**Note:** This option will appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.\n\n### `httpreferrer`\n\n```\n<webview src=\"https://www.github.com/\" httpreferrer=\"http://cheng.guru\"></webview>\n```\n\nA `String` that sets the referrer URL for the guest page.\n\n### `useragent`\n\n```\n<webview src=\"https://www.github.com/\" useragent=\"Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko\"></webview>\n```\n\nA `String` that sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.\n\n### `disablewebsecurity`\n\n```\n<webview src=\"https://www.github.com/\" disablewebsecurity></webview>\n```\n\nA `Boolean`. When this attribute is present the guest page will have web security disabled. Web security is enabled by default.\n\n### `partition`\n\n```\n<webview src=\"https://github.com\" partition=\"persist:github\"></webview>\n<webview src=\"https://electronjs.org\" partition=\"electron\"></webview>\n```\n\nA `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.\n\nThis value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.\n\n### `allowpopups`\n\n```\n<webview src=\"https://www.github.com/\" allowpopups></webview>\n```\n\nA `Boolean`. When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.\n\n### `webpreferences`\n\n```\n<webview src=\"https://github.com\" webpreferences=\"allowRunningInsecureContent, javascript=no\"></webview>\n```\n\nA `String` which is a comma separated list of strings which specifies the web preferences to be set on the webview. The full list of supported preference strings can be found in BrowserWindow.\n\nThe string follows the same format as the features string in `window.open`. A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `0` are interpreted as `false`.\n\n### `enableblinkfeatures`\n\n```\n<webview src=\"https://www.github.com/\" enableblinkfeatures=\"PreciseMemoryInfo, CSSVariables\"></webview>\n```\n\nA `String` which is a list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the RuntimeEnabledFeatures.json5 file.\n\n### `disableblinkfeatures`\n\n```\n<webview src=\"https://www.github.com/\" disableblinkfeatures=\"PreciseMemoryInfo, CSSVariables\"></webview>\n```\n\nA `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the RuntimeEnabledFeatures.json5 file.",
     "slug": "webview-tag",
     "websiteUrl": "http://electronjs.org/docs/api/webview-tag",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/webview-tag.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/webview-tag.md",
+    "version": "10.1.4",
     "type": "Element",
     "process": {
       "main": false,
@@ -29998,8 +29998,8 @@
     "description": "",
     "slug": "bluetooth-device",
     "websiteUrl": "http://electronjs.org/docs/api/structures/bluetooth-device",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/bluetooth-device.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/bluetooth-device.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "deviceName",
@@ -30027,8 +30027,8 @@
     "description": "",
     "slug": "certificate-principal",
     "websiteUrl": "http://electronjs.org/docs/api/structures/certificate-principal",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/certificate-principal.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/certificate-principal.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "commonName",
@@ -30092,8 +30092,8 @@
     "description": "",
     "slug": "certificate",
     "websiteUrl": "http://electronjs.org/docs/api/structures/certificate",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/certificate.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/certificate.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "data",
@@ -30188,8 +30188,8 @@
     "description": "",
     "slug": "cookie",
     "websiteUrl": "http://electronjs.org/docs/api/structures/cookie",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/cookie.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/cookie.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "name",
@@ -30301,8 +30301,8 @@
     "description": "",
     "slug": "cpu-usage",
     "websiteUrl": "http://electronjs.org/docs/api/structures/cpu-usage",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/cpu-usage.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/cpu-usage.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "percentCPUUsage",
@@ -30328,8 +30328,8 @@
     "description": "",
     "slug": "crash-report",
     "websiteUrl": "http://electronjs.org/docs/api/structures/crash-report",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/crash-report.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/crash-report.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "date",
@@ -30356,8 +30356,8 @@
     "description": "",
     "slug": "custom-scheme",
     "websiteUrl": "http://electronjs.org/docs/api/structures/custom-scheme",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/custom-scheme.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/custom-scheme.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "scheme",
@@ -30434,8 +30434,8 @@
     "description": "",
     "slug": "desktop-capturer-source",
     "websiteUrl": "http://electronjs.org/docs/api/structures/desktop-capturer-source",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/desktop-capturer-source.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/desktop-capturer-source.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "id",
@@ -30488,8 +30488,8 @@
     "description": "The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.",
     "slug": "display",
     "websiteUrl": "http://electronjs.org/docs/api/structures/display",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/display.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/display.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "id",
@@ -30641,8 +30641,8 @@
     "description": "",
     "slug": "event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/event",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/event.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/event.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "preventDefault",
@@ -30660,8 +30660,8 @@
     "description": "",
     "slug": "extension-info",
     "websiteUrl": "http://electronjs.org/docs/api/structures/extension-info",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/extension-info.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/extension-info.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "name",
@@ -30689,8 +30689,8 @@
     "description": "",
     "slug": "extension",
     "websiteUrl": "http://electronjs.org/docs/api/structures/extension",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/extension.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/extension.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "id",
@@ -30753,8 +30753,8 @@
     "description": "",
     "slug": "file-filter",
     "websiteUrl": "http://electronjs.org/docs/api/structures/file-filter",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/file-filter.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/file-filter.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "name",
@@ -30782,8 +30782,8 @@
     "description": "",
     "slug": "file-path-with-headers",
     "websiteUrl": "http://electronjs.org/docs/api/structures/file-path-with-headers",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/file-path-with-headers.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/file-path-with-headers.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "path",
@@ -30820,8 +30820,8 @@
     "description": "Possible values:\n\n* `disabled_software` - Software only. Hardware acceleration disabled (yellow)\n* `disabled_off` - Disabled (red)\n* `disabled_off_ok` - Disabled (yellow)\n* `unavailable_software` - Software only, hardware acceleration unavailable (yellow)\n* `unavailable_off` - Unavailable (red)\n* `unavailable_off_ok` - Unavailable (yellow)\n* `enabled_readback` - Hardware accelerated but at reduced performance (yellow)\n* `enabled_force` - Hardware accelerated on all pages (green)\n* `enabled` - Hardware accelerated (green)\n* `enabled_on` - Enabled (green)\n* `enabled_force_on` - Force enabled (green)",
     "slug": "gpu-feature-status",
     "websiteUrl": "http://electronjs.org/docs/api/structures/gpu-feature-status",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/gpu-feature-status.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/gpu-feature-status.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "2d_canvas",
@@ -30948,8 +30948,8 @@
     "description": "",
     "slug": "input-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/input-event",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/input-event.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/input-event.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "modifiers",
@@ -31033,8 +31033,8 @@
     "description": "",
     "slug": "io-counters",
     "websiteUrl": "http://electronjs.org/docs/api/structures/io-counters",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/io-counters.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/io-counters.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "readOperationCount",
@@ -31093,8 +31093,8 @@
     "description": "",
     "slug": "ipc-main-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/ipc-main-event",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/ipc-main-event.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/ipc-main-event.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "frameId",
@@ -31163,8 +31163,8 @@
     "description": "",
     "slug": "ipc-main-invoke-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/ipc-main-invoke-event",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/ipc-main-invoke-event.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/ipc-main-invoke-event.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "frameId",
@@ -31191,8 +31191,8 @@
     "description": "",
     "slug": "ipc-renderer-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/ipc-renderer-event",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/ipc-renderer-event.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/ipc-renderer-event.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "sender",
@@ -31226,8 +31226,8 @@
     "description": "**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.",
     "slug": "jump-list-category",
     "websiteUrl": "http://electronjs.org/docs/api/structures/jump-list-category",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/jump-list-category.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/jump-list-category.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "type",
@@ -31280,8 +31280,8 @@
     "description": "",
     "slug": "jump-list-item",
     "websiteUrl": "http://electronjs.org/docs/api/structures/jump-list-item",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/jump-list-item.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/jump-list-item.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "type",
@@ -31385,8 +31385,8 @@
     "description": "",
     "slug": "keyboard-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/keyboard-event",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/keyboard-event.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/keyboard-event.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "ctrlKey",
@@ -31437,8 +31437,8 @@
     "description": "",
     "slug": "keyboard-input-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/keyboard-input-event",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/keyboard-input-event.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/keyboard-input-event.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "type",
@@ -31479,8 +31479,8 @@
     "description": "Note that all statistics are reported in Kilobytes.",
     "slug": "memory-info",
     "websiteUrl": "http://electronjs.org/docs/api/structures/memory-info",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/memory-info.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/memory-info.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "workingSetSize",
@@ -31516,8 +31516,8 @@
     "description": "",
     "slug": "memory-usage-details",
     "websiteUrl": "http://electronjs.org/docs/api/structures/memory-usage-details",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/memory-usage-details.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/memory-usage-details.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "count",
@@ -31551,8 +31551,8 @@
     "description": "",
     "slug": "mime-typed-buffer",
     "websiteUrl": "http://electronjs.org/docs/api/structures/mime-typed-buffer",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/mime-typed-buffer.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/mime-typed-buffer.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "mimeType",
@@ -31589,8 +31589,8 @@
     "description": "",
     "slug": "mouse-input-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/mouse-input-event",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/mouse-input-event.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/mouse-input-event.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "type",
@@ -31717,8 +31717,8 @@
     "description": "",
     "slug": "mouse-wheel-input-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/mouse-wheel-input-event",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/mouse-wheel-input-event.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/mouse-wheel-input-event.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "type",
@@ -31807,8 +31807,8 @@
     "description": "",
     "slug": "new-window-web-contents-event",
     "websiteUrl": "http://electronjs.org/docs/api/structures/new-window-web-contents-event",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/new-window-web-contents-event.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/new-window-web-contents-event.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "newGuest",
@@ -31826,8 +31826,8 @@
     "description": "",
     "slug": "notification-action",
     "websiteUrl": "http://electronjs.org/docs/api/structures/notification-action",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/notification-action.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/notification-action.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "type",
@@ -31860,8 +31860,8 @@
     "description": "**Note:** Both `x` and `y` must be whole integers, when providing a point object as input to an Electron API we will automatically round your `x` and `y` values to the nearest whole integer.",
     "slug": "point",
     "websiteUrl": "http://electronjs.org/docs/api/structures/point",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/point.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/point.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "x",
@@ -31887,8 +31887,8 @@
     "description": "Note that keys starting with `--` are not currently supported. For example, this will errantly submit as `multipart/form-data` when `nativeWindowOpen` is set to `false` in webPreferences:",
     "slug": "post-body",
     "websiteUrl": "http://electronjs.org/docs/api/structures/post-body",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/post-body.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/post-body.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "data",
@@ -31930,8 +31930,8 @@
     "description": "",
     "slug": "post-data",
     "websiteUrl": "http://electronjs.org/docs/api/structures/post-data",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/post-data.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/post-data.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "type",
@@ -32014,8 +32014,8 @@
     "description": "",
     "slug": "printer-info",
     "websiteUrl": "http://electronjs.org/docs/api/structures/printer-info",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/printer-info.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/printer-info.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "name",
@@ -32077,8 +32077,8 @@
     "description": "",
     "slug": "process-memory-info",
     "websiteUrl": "http://electronjs.org/docs/api/structures/process-memory-info",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/process-memory-info.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/process-memory-info.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "residentSet",
@@ -32115,8 +32115,8 @@
     "description": "",
     "slug": "process-metric",
     "websiteUrl": "http://electronjs.org/docs/api/structures/process-metric",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/process-metric.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/process-metric.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "pid",
@@ -32247,8 +32247,8 @@
     "description": "",
     "slug": "product",
     "websiteUrl": "http://electronjs.org/docs/api/structures/product",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/product.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/product.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "productIdentifier",
@@ -32336,8 +32336,8 @@
     "description": "",
     "slug": "protocol-request",
     "websiteUrl": "http://electronjs.org/docs/api/structures/protocol-request",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/protocol-request.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/protocol-request.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "url",
@@ -32402,8 +32402,8 @@
     "description": "",
     "slug": "protocol-response-upload-data",
     "websiteUrl": "http://electronjs.org/docs/api/structures/protocol-response-upload-data",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/protocol-response-upload-data.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/protocol-response-upload-data.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "contentType",
@@ -32440,8 +32440,8 @@
     "description": "",
     "slug": "protocol-response",
     "websiteUrl": "http://electronjs.org/docs/api/structures/protocol-response",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/protocol-response.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/protocol-response.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "error",
@@ -32586,8 +32586,8 @@
     "description": "",
     "slug": "rectangle",
     "websiteUrl": "http://electronjs.org/docs/api/structures/rectangle",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/rectangle.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/rectangle.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "x",
@@ -32629,8 +32629,8 @@
     "description": "",
     "slug": "referrer",
     "websiteUrl": "http://electronjs.org/docs/api/structures/referrer",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/referrer.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/referrer.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "url",
@@ -32691,8 +32691,8 @@
     "description": "",
     "slug": "scrubber-item",
     "websiteUrl": "http://electronjs.org/docs/api/structures/scrubber-item",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/scrubber-item.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/scrubber-item.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "label",
@@ -32719,8 +32719,8 @@
     "description": "",
     "slug": "segmented-control-segment",
     "websiteUrl": "http://electronjs.org/docs/api/structures/segmented-control-segment",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/segmented-control-segment.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/segmented-control-segment.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "label",
@@ -32755,8 +32755,8 @@
     "description": "",
     "slug": "service-worker-info",
     "websiteUrl": "http://electronjs.org/docs/api/structures/service-worker-info",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/service-worker-info.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/service-worker-info.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "scriptUrl",
@@ -32792,8 +32792,8 @@
     "description": "",
     "slug": "shared-worker-info",
     "websiteUrl": "http://electronjs.org/docs/api/structures/shared-worker-info",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/shared-worker-info.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/shared-worker-info.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "id",
@@ -32821,8 +32821,8 @@
     "description": "",
     "slug": "shortcut-details",
     "websiteUrl": "http://electronjs.org/docs/api/structures/shortcut-details",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/shortcut-details.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/shortcut-details.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "target",
@@ -32894,8 +32894,8 @@
     "description": "",
     "slug": "size",
     "websiteUrl": "http://electronjs.org/docs/api/structures/size",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/size.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/size.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "width",
@@ -32921,8 +32921,8 @@
     "description": "",
     "slug": "task",
     "websiteUrl": "http://electronjs.org/docs/api/structures/task",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/task.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/task.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "program",
@@ -32994,8 +32994,8 @@
     "description": "The `flags` is an array that can include following `String`s:\n\n* `enabled` - The button is active and available to the user.\n* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.\n* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.\n* `nobackground` - Do not draw a button border, use only the image.\n* `hidden` - The button is not shown to the user.\n* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.",
     "slug": "thumbar-button",
     "websiteUrl": "http://electronjs.org/docs/api/structures/thumbar-button",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/thumbar-button.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/thumbar-button.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "icon",
@@ -33041,8 +33041,8 @@
     "description": "",
     "slug": "trace-categories-and-options",
     "websiteUrl": "http://electronjs.org/docs/api/structures/trace-categories-and-options",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/trace-categories-and-options.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/trace-categories-and-options.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "categoryFilter",
@@ -33070,8 +33070,8 @@
     "description": "An example TraceConfig that roughly matches what Chrome DevTools records:",
     "slug": "trace-config",
     "websiteUrl": "http://electronjs.org/docs/api/structures/trace-config",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/trace-config.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/trace-config.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "recording_mode",
@@ -33185,8 +33185,8 @@
     "description": "",
     "slug": "transaction",
     "websiteUrl": "http://electronjs.org/docs/api/structures/transaction",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/transaction.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/transaction.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "transactionIdentifier",
@@ -33297,8 +33297,8 @@
     "description": "",
     "slug": "upload-blob",
     "websiteUrl": "http://electronjs.org/docs/api/structures/upload-blob",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/upload-blob.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/upload-blob.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "type",
@@ -33326,8 +33326,8 @@
     "description": "",
     "slug": "upload-data",
     "websiteUrl": "http://electronjs.org/docs/api/structures/upload-data",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/upload-data.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/upload-data.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "bytes",
@@ -33363,8 +33363,8 @@
     "description": "",
     "slug": "upload-file",
     "websiteUrl": "http://electronjs.org/docs/api/structures/upload-file",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/upload-file.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/upload-file.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "type",
@@ -33416,8 +33416,8 @@
     "description": "",
     "slug": "upload-raw-data",
     "websiteUrl": "http://electronjs.org/docs/api/structures/upload-raw-data",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/upload-raw-data.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/upload-raw-data.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "type",
@@ -33444,8 +33444,8 @@
     "description": "",
     "slug": "web-source",
     "websiteUrl": "http://electronjs.org/docs/api/structures/web-source",
-    "repoUrl": "https://github.com/electron/electron/blob/10.1.3/docs/api/docs/api/structures/web-source.md",
-    "version": "10.1.3",
+    "repoUrl": "https://github.com/electron/electron/blob/10.1.4/docs/api/docs/api/structures/web-source.md",
+    "version": "10.1.4",
     "properties": [
       {
         "name": "code",
