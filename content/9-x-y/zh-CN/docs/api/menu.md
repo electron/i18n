@@ -54,7 +54,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 #### `menu.popup([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `window` [BrowserWindow](browser-window.md) (可选) - 默认为选中窗口.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.

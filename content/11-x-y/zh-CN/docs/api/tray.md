@@ -215,7 +215,7 @@ Emitted when the mouse clicks the tray icon.
 #### `tray.setTitle(title[, options])` _macOS_
 
 * `title` String
-* `options` Object (optional)
+* `options` Object (可选)
   * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
 
 Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).

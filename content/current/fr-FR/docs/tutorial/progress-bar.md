@@ -14,7 +14,7 @@ Les trois cas sont couverts par la même API - la méthode `setProgressBar()` di
 
 D'une manière générale, régler le paramètre sur une valeur inférieure à zéro (comme `-1`) supprimera la barre de progression, alors qu'en réglant sur une valeur supérieure à un (comme `2`) cela basculera la barre de progression dans un mode intermédiaire.
 
-Voir la [documentation API pour plus d'options et de modes](../api/browser-window.md#winsetprogressbarprogress).
+Voir la [documentation API pour plus d'options et de modes](../api/browser-window.md#winsetprogressbarprogress-options).
 
 ```javascript
 const { BrowserWindow } = require('electron')

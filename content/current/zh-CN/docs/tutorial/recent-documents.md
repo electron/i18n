@@ -1,5 +1,7 @@
 # 最近文档 (Windows & macOS)
 
+## 概览
+
 Windows 和 macOS 分别通过打开跳转列表和dock菜单使应用程序能够快速的访问最近打开的文档列表。
 
 __JumpList:__
@@ -10,33 +12,47 @@ __应用 dock 菜单__
 
 ![macOS Dock 菜单](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-若要增加一个文件到最近文件列表，你可以使用[app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
+To add a file to recent documents, you need to use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
+
+## 示例
+
+### Add an item to recent documents
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
 
 ```javascript
 const { app } = require('electron')
+
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-你也可以使用 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API 来清空最近文件列表。
+After launching the Electron application, right click the application icon. You should see the item you just added. In this guide, the item is a Markdown file located in the root of the project:
+
+![Recent document](../images/recent-documents.png)
+
+### Clear the list of recent documents
+
+To clear the list of recent documents, you need to use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API in the `main.js` file:
 
 ```javascript
-const { app } = require('electron')app.clearRecentDocuments', () = { ()
-})
+const { app } = require('electron')
+
+app.clearRecentDocuments()
 ```
 
-## Windows 注意事项
+## Additional information
 
-为了在 Windows 上使用这个特性，你的应用需要被注册为这类文件的处理程序，否则，在你注册之前，文件是不会出现在跳转列表里的。 你可以在 [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx) 里找到所有关于注册事宜的说明。
+### Windows 注意事项
+
+To use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. 你可以在 [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx) 里找到所有关于注册事宜的说明。
 
 当用户点击“跳转列表”上的一个文件时，系统会启动一个新的应用程序的实例 ，而文件的路径将作为一个命令行参数被传入这个实例。
 
-## macOS 注意事项
+### macOS 注意事项
 
-### Adding the Recent Documents list to the application menu:
+#### Add the Recent Documents list to the application menu
 
-![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
-
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
 
 ```json
 {
@@ -54,5 +70,7 @@ You can add menu items to access and clear recent documents by adding the follow
   ]
 }
 ```
+
+![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
 
 从 "最近文档" 菜单中请求文件时, 将为其发出 ` app ` 模块的 ` open-file ` 事件。

@@ -25,7 +25,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([可选])` _实验功能_
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `webPreferences` Object (可选) - 详情请看 [BrowserWindow](browser-window.md).
 
 ### 静态方法

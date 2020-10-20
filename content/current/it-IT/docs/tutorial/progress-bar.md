@@ -14,7 +14,7 @@ Tutti e tre i casi sono coperti dalla stessa API, il metodo `impostaBarraProgtrs
 
 Generalmente parlando, impostare il parametro ad un valore sotto zero (come `-1`) rimuoverà la barra del progresso, mentre impostandolo ad un valore più alto di uno (come `2`) sposterà la barra del progresso alla modalità intermedia.
 
-Consulta la [documentazione dell'API per ulteriori opzioni e modalità](../api/browser-window.md#winsetprogressbarprogress).
+Consulta la [documentazione dell'API per ulteriori opzioni e modalità](../api/browser-window.md#winsetprogressbarprogress-options).
 
 ```javascript
 const { BrowserWindow } = require('electron')

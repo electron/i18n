@@ -573,20 +573,20 @@ const { memory } = metrics[0] // Propiedad Obsoleta
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// Obsoleto
 const optionsA = { webPreferences: { blinkFeatures: '' } }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// Reemplazar con
 const optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 const windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Obsoleto
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// Reemplazar con
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -747,10 +747,10 @@ La siguiente lista incluye cambios efectuados en la API 2.0 de Electrón.
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// Obsoleto
 const optionsA = { titleBarStyle: 'hidden-inset' }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// Reemplazar con
 const optionsB = { titleBarStyle: 'hiddenInset' }
 const windowB = new BrowserWindow(optionsB)
 ```

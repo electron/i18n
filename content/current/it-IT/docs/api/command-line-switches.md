@@ -168,6 +168,14 @@ Any pattern containing a forward or backward slash will be tested against the wh
 
 Questa opzione funziona solo quando viene passato anche `--enable-logging`.
 
+### --force_high_performance_gpu
+
+Force using discrete GPU when there are multiple GPUs available.
+
+### --force_low_power_gpu
+
+Force using integrated GPU when there are multiple GPUs available.
+
 ## Node.js Flags
 
 Electron supports some of the [CLI flags](https://nodejs.org/api/cli.html) supported by Node.js.

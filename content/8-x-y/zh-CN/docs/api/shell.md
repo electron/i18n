@@ -35,7 +35,7 @@ Show the given file in a file manager. If possible, select the file.
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Max 2081 characters on windows.
-* `options` Object (optional)
+* `options` Object (可选)
   * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. 默认值为 `true`。
   * `workingDirectory` String (optional) _Windows_ - The working directory.
 

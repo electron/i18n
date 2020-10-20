@@ -245,12 +245,7 @@ Buruk const mainWindow = BrowserWindow baru ({webPreferences: {
 const mainWindow = new BrowserWindow()
 ```
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!--buruk--><webview disablewebsecurity src="page.html"></webview><!--baik--><webview src="page.html"></webview>
 ```
 
 
@@ -394,12 +389,7 @@ If you do not need popups, you are better off not allowing the creation of new [
 
 ### Bagaimana?
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!--buruk--><webview allowpopups src="page.html"></webview><!--baik--><webview src="page.html"></webview>
 ```
 
 

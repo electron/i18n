@@ -140,7 +140,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional)
+* `options` Object (可选)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
   * `scaleFactor` Double (optional) - Defaults to 1.0.
@@ -192,7 +192,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像 ` PNG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
@@ -205,21 +205,21 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像的原始位图像素数据副本的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` String `-图像的数据 URL。
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。

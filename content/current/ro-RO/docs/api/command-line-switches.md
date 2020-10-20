@@ -168,11 +168,19 @@ Any pattern containing a forward or backward slash will be tested against the wh
 
 This switch only works when `--enable-logging` is also passed.
 
+### --forteaza_performanta_inalta_gpu
+
+Forțați utilizarea GPU discret atunci când există mai multe GPU-uri disponibile.
+
+### --forteaza_puterea_redusa_gpu
+
+Forțați utilizarea GPU-ului integrat atunci când există mai multe GPU-uri disponibile.
+
 ## Node.js Flags
 
-Electron supports some of the [CLI flags](https://nodejs.org/api/cli.html) supported by Node.js.
+Electron acceptă unele dintre [ CLI flags ](https://nodejs.org/api/cli.html) acceptate de Node.js.
 
-**Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
+** Notă: ** Trecerea liniei de comandă neacceptate trece la Electron când acesta nu rulează în ` ELECTRON_RUN_AS_NODE ` nu va avea niciun efect.
 
 ### --inspect-brk[=[host:]port]
 
@@ -186,15 +194,15 @@ Set the `host:port` to be used when the inspector is activated. Useful when acti
 
 Aliased to `--debug-port=[host:]port`.
 
-### --inspect[=[host:]port]
+### --inspectează[=[host:]port]
 
-Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
+Activate inspector on `host:port`. Valoarea implicită este ` 127.0.0.1:9229 `.
 
-V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
+V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. Instrumentele se atașează instanțelor Electron printr-un port TCP și comunică utilizând [ Protocolul Chrome DevTools ](https://chromedevtools.github.io/devtools-protocol/).
 
-See the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for more details.
+Consultați ghidul [ Depanarea procesului principal ](../tutorial/debugging-main-process.md) pentru mai multe detalii.
 
-Aliased to `--debug[=[host:]port`.
+Aliasat la ` --debug [= [host:] port `.
 
 ### --inspect-publish-uid=stderr,http
 Specify ways of the inspector web socket url exposure.

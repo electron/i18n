@@ -1,8 +1,8 @@
 # Security, Native Capabilities, and Your Responsibility
 
-As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+Là nhà phát triển web, chúng tôi thường thưởng thức lưới bảo mật mạnh mẽ của trình duyệt- những rủi ro liên quan đến Code mà chúng ta viết là tương đối nhỏ. Trang web của chúng tôi được cấp quyền hạn trong một sandbox, và chúng tôi tin tưởng rằng người dùng của chúng tôi tận hưởng một trình duyệt được xây dựng bởi một đội ngũ kỹ sư lớn có thể nhanh chóng đáp ứng với mối đe dọa bảo mật mới được phát hiện.
 
-When working with Electron, it is important to understand that Electron is not a web browser. It allows you to build feature-rich desktop applications with familiar web technologies, but your code wields much greater power. JavaScript can access the filesystem, user shell, and more. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+Khi làm việc với electron, điều quan trọng là phải hiểu rằng electron không phải là trình duyệt web. Nó cho phép bạn xây dựng các ứng dụng máy tính để bàn giàu tính năng với công nghệ web quen thuộc, nhưng code của bạn có sức mạnh lớn hơn nhiều. Javascript có thể truy cập hệ thống tập tin, thông tin người dùng, và nhiều hơn nữa. Điều này cho phép bạn xây dựng ứng dụng bản địa chất lượng cao, nhưng các rủi ro bảo mật tăng lên rất nhiều.
 
 With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
 
@@ -479,11 +479,11 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) Do not use `openExternal` with untrusted content
 
-Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
 ### Why?
 
-Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
 
 ### How?
 

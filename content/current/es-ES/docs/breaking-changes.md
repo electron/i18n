@@ -27,9 +27,9 @@ shell.trashItem(path).then(/* ... */)
 
 ## Cambios planeados en la API(12.0)
 
-### Removed: Pepper Flash support
+### Eliminado: Soporte de Pepper Flash
 
-Chromium has removed support for Flash, and so we must follow suit. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+Chromium a eliminado el soporte para Flash, por lo tanto nosotros debemos seguir el ejemplo. Vea el [Flash Roadmap](https://www.chromium.org/flash-roadmap) de Chromium para más detalles.
 
 ### Valor por defecto modificado: `contextIsolation` por defecto a `true`
 
@@ -54,43 +54,43 @@ Deberían ser llamados solo desde el proceso principal.
 
 Vea [#23265](https://github.com/electron/electron/pull/23265) para mas detalles.
 
-### Default Changed: `crashReporter.start({ compress: true })`
+### Valor por defecto modificado: `crashReporter.start({ compress: true })`
 
-The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
+El valor por defecto de la opción `compress` a `crashReporter.start` ha cambiado de `false` a `true`. Esto significa que los volcados se subirán al servidor de ingestión de errores con el encabezado `Content-Encoding: gzip` y el cuerpo será comprimido.
 
-If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
+Si su servidor de gestión de fallos no soporta cargas comprimidas, puedes desactivar la compresión especificando `{ compress: false }` en las opciones del reportero de errores .
 
 ### Obsoleto: módulo `remote`
 
-The `remote` module is deprecated in Electron 12, and will be removed in Electron 14. It is replaced by the [`@electron/remote`](https://github.com/electron/remote) module.
+El módulo `remote` está obsoleto en Electron 12 y sera eliminado en Electron 14. Es reemplazado por el módulo [`@electron/remote`](https://github.com/electron/remote).
 
 ```js
-// Deprecated in Electron 12:
+// Obsoleto en Electron 12:
 const { BrowserWindow } = require('electron').remote
 ```
 
 ```js
-// Replace with:
+// Reemplazar con:
 const { BrowserWindow } = require('@electron/remote')
 
-// In the main process:
+// En el proceso principal:
 require('@electron/remote/main').initialize()
 ```
 
 ### Obsoleto: `shell.moveItemToTrash()`
 
-The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
+El síncrono `shell.moveItemToTrash()` ha sido reemplazado por el nuevo asíncrono `shell.trashItem()`.
 
 ```js
-// Deprecated in Electron 12
+// Obsoleto en Electron 12
 shell.moveItemToTrash(path)
-// Replace with
+// Reemplazar con
 shell.trashItem(path).then(/* ... */)
 ```
 
 ## Cambios planeados en la API(11.0)
 
-There are no breaking changes planned for 11.0.
+No hay cambios de ruptura planeados para 11.0.
 
 ## Cambios planeados en la API(10.0)
 
@@ -135,7 +135,7 @@ Vea [#23265](https://github.com/electron/electron/pull/23265) para mas detalles.
 
 ### Obsoleto: `crashReporter.start({ compress: false })`
 
-Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
+Establecer `{ compress: false }` en `crashReporter.start` está obsoleto. Casi todos los servidores de gestión de fallos soportan compresión gzip. Esta opción será eliminada en una versión futura de Electron.
 
 ### Eliminado: Browser Window Affinity
 
@@ -143,9 +143,9 @@ La opción `affinity` al construir una nueva `BrowserWindow` se eliminará como 
 
 Para información más detallada vea [#18397](https://github.com/electron/electron/issues/18397).
 
-### Default Changed: `enableRemoteModule` defaults to `false`
+### Valor por defecto modificado: `enableRemoteModule` por defecto a `false`
 
-In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
+En Electron 9, usar el módulo remoto sin habilitarlo explícitamente a través de la opción `enableRemoteModule` WebPreferences comenzó a emitir una advertencia. En Electron 10, el módulo remote está deshabilitado por defecto. Para usar el módulo remote debe especificarse `enableRemoteModule: true` en WebPreferences:
 
 ```js
 const w = new BrowserWindow({
@@ -155,7 +155,7 @@ const w = new BrowserWindow({
 })
 ```
 
-We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+Nosotros [recomendamos alejarse del módulo remote](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
 ### `protocol.unregisterProtocol`
 ### `protocol.uninterceptProtocol`
@@ -163,9 +163,9 @@ We [recommend moving away from the remote module](https://medium.com/@nornagon/e
 Las APIs ahora son síncronas y el callback opcional ya no es necesario.
 
 ```javascript
-// Deprecated
+// Obsoleto
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Replace with
+// Reemplazar con
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -183,9 +183,9 @@ protocol.unregisterProtocol(scheme)
 Las APIs ahora son síncronas y el callback opcional ya no es necesario.
 
 ```javascript
-// Deprecated
+// Obsoleto
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
+// Reemplazar con
 protocol.registerFileProtocol(scheme, handler)
 ```
 
@@ -196,9 +196,9 @@ El protocolo registrado o interceptado no tiene efecto en la página actual hast
 Esta API está obsoleta y los usuarios deberían usar `protocol.isProtocolRegistered` y `protocol.isProtocolIntercepted` en su lugar.
 
 ```javascript
-// Deprecated
+// Obsoleto
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Replace with
+// Reemplazar con
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
@@ -517,7 +517,7 @@ const w = new BrowserWindow({
 })
 ```
 
-### Behavior Changed: `nodeIntegration` in child windows opened via `nativeWindowOpen`
+### Comportamiento Modificado: `nodeIntegration` en ventanas hijas abiertas a través de `nativeWindowOpen`
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true`.
 
@@ -545,13 +545,13 @@ webFrame.setIsolatedWorldInfo(
 ### API Changed: `webFrame.setSpellCheckProvider` now takes an asynchronous callback
 The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
 ```js
-// Deprecated
+// Obsoleto
 webFrame.setSpellCheckProvider('en-US', true, {
   spellCheck: (text) => {
     return !spellchecker.isMisspelled(text)
   }
 })
-// Replace with
+// Reemplazar con
 webFrame.setSpellCheckProvider('en-US', {
   spellCheck: (words, callback) => {
     callback(words.filter(text => spellchecker.isMisspelled(text)))
@@ -618,20 +618,20 @@ const { memory } = metrics[0] // Propiedad Obsoleta
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// Obsoleto
 const optionsA = { webPreferences: { blinkFeatures: '' } }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// Reemplazar con
 const optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 const windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Obsoleto
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// Reemplazar con
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -792,10 +792,10 @@ La siguiente lista incluye cambios efectuados en la API 2.0 de Electrón.
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// Obsoleto
 const optionsA = { titleBarStyle: 'hidden-inset' }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// Reemplazar con
 const optionsB = { titleBarStyle: 'hiddenInset' }
 const windowB = new BrowserWindow(optionsB)
 ```

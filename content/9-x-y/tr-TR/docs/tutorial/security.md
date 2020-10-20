@@ -285,12 +285,7 @@ const mainWindow = new BrowserWindow()
 
 
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- İyi--><webview disablewebsecurity src="page.html"></webview><!-- Kötü--><webview src="page.html"></webview>
 ```
 
 
@@ -492,12 +487,7 @@ If you do not need popups, you are better off not allowing the creation of new [
 
 
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- İyi--><webview allowpopups src="page.html"></webview><!-- Kötü--><webview src="page.html"></webview>
 ```
 
 

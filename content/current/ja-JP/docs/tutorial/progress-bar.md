@@ -14,7 +14,7 @@ __タスクバーのボタンにプログレスバーを表示する__
 
 一般的に、パラメーターを 0 未満の値 (`-1` など) にすると、プログレスバーが削除されます。1 より大きい値 (`2` など) にすると、プログレスバーが中間モードに切り替わります。
 
-[より多くのオプションやモードについては API ドキュメント](../api/browser-window.md#winsetprogressbarprogress) を参照してください。
+[より多くのオプションやモードについては API ドキュメント](../api/browser-window.md#winsetprogressbarprogress-options) を参照してください。
 
 ```javascript
 const { BrowserWindow } = require('electron')

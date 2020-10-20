@@ -43,7 +43,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+在程序关闭窗口前发信号。 Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
 **注意：** 如果由 `autoUpdater.quitAndInstal()` 退出应用程序 ，那么在所有窗口触发 `close` *之后* 才会触发 `before-quit` 并关闭所有窗口。
 
@@ -456,7 +456,7 @@ Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `args` String[] (可选)
   * `execPath` String (可选)
 
@@ -487,7 +487,7 @@ app.exit(0)
 
 ### `app.focus([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
@@ -543,7 +543,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` Object (optional)
+* `options` Object (可选)
   * `size` String
     * `small` - 16x16
     * `normal` - 32x32
@@ -926,7 +926,7 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -1039,7 +1039,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `conflictHandler` Function<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 

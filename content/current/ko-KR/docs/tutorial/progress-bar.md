@@ -14,7 +14,7 @@ __작업 표시줄 버튼의 프로그레스 바:__
 
 일반적으로, 매개 변수를 0보다 작은 값(예:`-1`)으로 설정하면 진행 표시줄을 삭제하고, 1보다 큰 값(예:`2`)으로 설정하면 intermediate mode(미완료상태) 가 됩니다.
 
-자세한 것은 [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress) 을 확인하십시요
+자세한 것은 [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress-options) 을 확인하십시요
 
 ```javascript
 const { BrowserWindow } = require('electron')

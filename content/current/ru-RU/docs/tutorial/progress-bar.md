@@ -14,7 +14,7 @@ All three cases are covered by the same API - the `setProgressBar()` method avai
 
 Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
 
-Просмотрите [документацию по API для большего количества опций и режимов](../api/browser-window.md#winsetprogressbarprogress).
+Просмотрите [документацию по API для большего количества опций и режимов](../api/browser-window.md#winsetprogressbarprogress-options).
 
 ```javascript
 const { BrowserWindow } = require('electron')
