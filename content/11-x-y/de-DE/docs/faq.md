@@ -26,9 +26,9 @@ Neue Funktionalitäten von Node.js werden in der Regel durch V8 Upgrades ermögl
 
 Um Daten zwischen Web-Seiten (Renderer-Prozesse) zu teilen, ist der einfachste Weg, HTML5-APIs zu verwenden, die bereits in Browsern zur Verfügung stehen. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`][message-port] from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+Alternativ können Sie auch die von Electron zur Verfügung gestellten IPC-Primitive verwenden. Um Daten zwischen Haupt- und Renderer-Prozessen zu teilen, Sie können die [`ipcMain`](api/ipc-main.md) und [`ipcRenderer`](api/ipc-renderer.md) Module verwenden. Um direkt zwischen den Webseiten zu kommunizieren, können Sie einen [`MessagePort`][message-port] von einem zur anderen senden möglicherweise über den Hauptprozess mit [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Nachträgliche Kommunikation über Nachrichten-Ports ist direkt und zieht nicht durch den Hauptprozess um.
 
-## My app's tray disappeared after a few minutes.
+## Meine App ist nach ein paar Minuten verschwunden.
 
 Dies geschieht, wenn die Variable die das Fenster speichert abgeräumt wird.
 
@@ -102,13 +102,13 @@ Es ist sehr wahrscheinlich, dass das Modul im falschen Prozess verwendet wird. B
 
 ## Die Schrift sieht verschwommen aus, was ist das und was kann ich tun?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Beispiel:
+Wenn [Unterpixel Anti-Aliasing](http://alienryderflex.com/sub_pixel/) deaktiviert ist, können Schriftarten auf LCD-Bildschirmen verschwommen werden. Beispiel:
 
-![subpixel rendering example][]
+![Unterpixel-Rendering-Beispiel][]
 
 Subpixel Antialiasing benötigt einen nicht-transparenten Hintergrund der Ebene, die die Schrift-Glyphen enthält. (Siehe [dieses Problem](https://github.com/electron/electron/issues/6344#issuecomment-420371918) für weitere Informationen).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow][browser-window]:
+Um dieses Ziel zu erreichen, setzen Sie den Hintergrund im Konstruktor für [BrowserWindow][browser-window]:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -117,7 +117,7 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Auch wenn Sie keinen Unterschied sehen, dürfen einige Ihrer Benutzer dies tun. Es ist am besten, den Hintergrund auf diese Weise zu setzen, es sei denn, Sie haben Gründe dafür, dies nicht zu tun.
 
 Beachten Sie, dass nur die Einstellung des Hintergrunds in der CSS nicht den gewünschten Effekt hat.
 
@@ -129,4 +129,4 @@ Beachten Sie, dass nur die Einstellung des Hintergrunds in der CSS nicht den gew
 [indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 [message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
 [browser-window]: api/browser-window.md
-[subpixel rendering example]: images/subpixel-rendering-screenshot.gif
+[Unterpixel-Rendering-Beispiel]: images/subpixel-rendering-screenshot.gif

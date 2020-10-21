@@ -112,8 +112,8 @@ const fs = require('fs')
 class Parser {
   async getFiles () {
     // Touch the disk as soon as `getFiles` is called, not sooner.
-    // Also, ensure that we're not blocking other operations by using
-    // the asynchronous version.
+    // 另外，请确保我们不会使用
+    // 异步版本来阻止其他操作。
     this.files = this.files || await fs.readdir('.')
 
     return this.files
@@ -122,20 +122,20 @@ class Parser {
   async getParsedFiles () {
     // Our fictitious foo-parser is a big and expensive module to load, so
     // defer that work until we actually need to parse files.
-    // Since `require()` comes with a module cache, the `require()` call
-    // will only be expensive once - subsequent calls of `getParsedFiles()`
-    // will be faster.
+    // 既然`require()` 里有一个模块缓存， `require()`调用
+    // 只会花费一次——其后的 `getParsedFiles()`
+    // 将会更快。
     const fooParser = require('foo-parser')
-    const files = await this.getFiles()
+    const files = required this.getFiles()
 
-    return fooParser.parse(files)
+    return fooParser。 arse(files)
   }
 }
 
-// This operation is now a lot cheaper than in our previous example
-const parser = new Parser()
+// 此操作现在比我们以前的示例
+const 解析器 = 新的 Parser()
 
-module.exports = { parser }
+模块便宜得多。 xports = { parser }
 ```
 
 简而言之，只有当需要的时候才分配资源，而不是在你的应用启动时分配所有。
@@ -160,7 +160,7 @@ Electron强大的多进程架构随时准备帮助你完成你的长期任务，
 
 2) 尽可能避免使用同步IPC 和 `remote` 模块。 虽然有合法的使用案例，但使用`remote`模块的时候非常容易不知情地阻塞 UI线程。
 
-3) Avoid using blocking I/O operations in the main process. 简而言之，每当Node.js的核心模块 (如`fs` 或 `child_process`) 提供一个同步版本或 异步版本，你更应该使用异步和非阻塞式的变量。
+3) 避免在主进程中使用阻止I/O操作。 简而言之，每当Node.js的核心模块 (如`fs` 或 `child_process`) 提供一个同步版本或 异步版本，你更应该使用异步和非阻塞式的变量。
 
 
 ## 4) 阻塞渲染进程

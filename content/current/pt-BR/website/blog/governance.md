@@ -2,37 +2,37 @@
 title: Governança do Electron
 author:
   - ckerr
-  - sofianguy
+  - sofiangria
 date: '2019-03-18'
 ---
 
-As Electron grows in popularity for desktop applications, the team working on it has also grown: we have more fulltime maintainers who work for different companies, live in different timezones, and have different interests. We're introducing a governance structure so we can keep growing smoothly.
+À medida que o Electron cresce em popularidade para aplicações desktops, a equipa que está a trabalhar nisso também cresceu: temos mais mantenedores a tempo inteiro que trabalham para diferentes empresas. viva em fusos horários diferentes e tenha interesses diferentes. Estamos introduzindo uma estrutura de governança para que possamos continuar a crescer sem problemas.
 
 ---
 
-## Why are things changing?
+## Por que as coisas estão a mudar?
 
-People in the Electron project coordinate in timezones around the world with volunteers, with full-time maintainers, and with several companies who all rely on Electron. Until now, we've been successful with informal coordination; but as the team has grown, we've found that the approach doesn't scale. We also want to make it easier for new contributors to find a place to call home in the project.
+Pessoas no projeto Electron coordenam em fusos horários ao redor do mundo com voluntários, com mantenedores em tempo integral e com várias empresas que dependem todas da Electron. Até agora, fomos bem-sucedidos com coordenação informal; mas como a equipe cresceu, descobrimos que a abordagem não escala. Também queremos tornar mais fácil para novos contribuintes encontrar um lugar onde possam chamar a atenção para o projecto.
 
 ## Grupos de Trabalho
 
-Electron governance includes working groups that are responsible for different parts of the project. We're starting out with seven groups:
- * Community & Safety: Handles [Code of Conduct](https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md) issues.
- * Docs & Tooling: Oversees externally-focused tooling (e.g. [Fiddle](https://electronjs.org/fiddle), [Forge](https://electronforge.io/)) and the Electron [documentation](https://electronjs.org/docs).
- * Outreach: Helps grow the Electron community.
- * Releases: Ensures releases are stable and on schedule.
- * Security: Performs security testing and responds to security issues.
- * Upgrades: Integrates upstream upgrades, such as new versions of V8, Chromium, and Node.
- * Website: Maintains and improves [the Electron website](https://electronjs.org/).
+A governação do Electron inclui grupos de trabalho responsáveis por diferentes partes do projecto. Estamos começando com sete grupos:
+ * Comunidade & segurança: Gerencia o [Código de Conduta](https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md) problemas.
+ * Documentação & Ferramenta: Representa ferramentas focadas externamente (por exemplo, [Fiddle](https://electronjs.org/fiddle), [Forge](https://electronforge.io/)) e a documentação [Electron](https://electronjs.org/docs).
+ * Outreach: Ajuda a crescer a comunidade do Electron.
+ * Versões: Garante que os lançamentos são estáveis e dentro do horário.
+ * Segurança: Realiza testes de segurança e responde a problemas de segurança.
+ * Upgrades: Integra atualizações a montante, como novas versões do V8, Chrome e Node.
+ * Site: Mantem e melhora [o site Electron](https://electronjs.org/).
 
-These groups will coordinate with each other, but each has their own meeting schedules and agendas to be productive on their own. More details on these groups are available at the [governance repository](https://github.com/electron/governance/blob/master/README.md).
+Estes grupos coordenar-se-ão entre si, mas cada um tem os seus próprios calendários de reuniões e agendas para ser produtivo por si só. Mais detalhes sobre estes grupos estão disponíveis no [repositório de governança](https://github.com/electron/governance/blob/master/README.md).
 
-## Does this change the Electron project's direction?
+## Isso muda a direção do projeto do Electron?
 
-This shouldn't have any direct effect on Electron's direction. If our strategy is successful, working groups will make it easier for new contributors to find topics that interest them, and make maintainers' lives simpler by moving discussion unrelated to their day-to-day work to other groups. If that happens, it may indirectly affect things by having more unblocked people working together.
+Isto não deve ter nenhum efeito direto na direção do Electron. Se a nossa estratégia for bem-sucedida, grupos de trabalho facilitarão para novos colaboradores encontrar tópicos que os interessam, e tornar a vida dos mantenedores mais simples fazendo com que a discussão não esteja relacionada com o seu trabalho quotidiano para outros grupos. Se isso acontecer, poderá afectar indirectamente as coisas se houver mais pessoas desbloqueadas a trabalhar em conjunto.
 
-## Where can I learn more?
+## Onde posso aprender mais?
 
- * The governance [repo](https://github.com/electron/governance/) and [charter](https://github.com/electron/governance/tree/master/charter) have information about the new governance structure.
- * Each working group has its own page: [Community](https://github.com/electron/governance/tree/master/wg-community-safety), [Docs & Tools](https://github.com/electron/governance/tree/master/wg-docs-tools), [Outreach](https://github.com/electron/governance/tree/master/wg-outreach), [Releases](https://github.com/electron/governance/tree/master/wg-releases), [Security](https://github.com/electron/governance/tree/master/wg-security), [Upgrades](https://github.com/electron/governance/tree/master/wg-upgrades), and [Website](https://github.com/electron/governance/tree/master/wg-website).
- * You can contact the maintainers by [opening an issue](https://github.com/electron/governance/issues) or mailing us at [info@electronjs.org](mailto:info@electronjs.org).
+ * A [repo de governação](https://github.com/electron/governance/) e [charter](https://github.com/electron/governance/tree/master/charter) têm informações sobre a nova estrutura de governança.
+ * Cada grupo de trabalho tem sua própria página: [Comunidade](https://github.com/electron/governance/tree/master/wg-community-safety), [Documentos & Ferramentas](https://github.com/electron/governance/tree/master/wg-docs-tools), [Outreach](https://github.com/electron/governance/tree/master/wg-outreach), [Lançamentos](https://github.com/electron/governance/tree/master/wg-releases), [Segurança](https://github.com/electron/governance/tree/master/wg-security), [Atualização](https://github.com/electron/governance/tree/master/wg-upgrades)e [Site](https://github.com/electron/governance/tree/master/wg-website).
+ * Você pode entrar em contato com os mantenedores [abrindo uma issue](https://github.com/electron/governance/issues) ou enviando-nos em [info@electronjs.org](mailto:info@electronjs.org).

@@ -8,12 +8,12 @@ Electron アプリの自動テストを作成するには、アプリケーシ�
 const childProcess = require('child_process')
 const electronPath = require('electron')
 
-// spawn the process
+// プロセスをスポーンさせる
 const env = { /* ... */ }
-const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+const stdio = ['継承', '継承', 'ipc']
+const appProcess = childProcess.spawn(electronPath, ['. app'], { stdio, env })
 
-// listen for IPC messages from the app
+// アプリから IPC メッセージをリッスンする
 appProcess.on('message', (msg) => {
   // ...
 })

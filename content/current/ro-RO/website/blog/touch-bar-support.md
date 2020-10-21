@@ -1,67 +1,67 @@
 ---
-title: Touch Bar Support
+title: Atingeți suportul barei
 author: kevinsawicki
 date: '2017-03-08'
 ---
 
-The Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) beta release contains initial support for the macOS [Touch Bar](https://developer.apple.com/macos/touch-bar).
+Versiunea Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) beta conține suport inițial pentru bara de atingere macOS [](https://developer.apple.com/macos/touch-bar).
 
 ---
 
-The new Touch Bar API allows you to add buttons, labels, popovers, color pickers, sliders, and spacers. These elements can be dynamically updated and also emit events when they are interacted with.
+The new Touch Bar API allows you to add buttons, labels, popovers, color pickers, sliders, and spacers. Aceste elemente pot fi actualizate dinamic și emit, de asemenea, evenimente atunci când sunt interacționate.
 
-This is the first release of this API so it will be evolving over the next few Electron releases. Please check out the release notes for further updates and open [issues](https://github.com/electron/electron/issues) for any problems or missing functionality.
+Aceasta este prima versiune a acestui API așa că va evolua peste următoarele versiuni Electron. Vă rugăm să verificați notele de lansare pentru actualizări suplimentare și să deschideți [probleme](https://github.com/electron/electron/issues) pentru orice probleme sau funcționalitate lipsă.
 
-You can install this version via `npm install electron@beta` and learn more about it in the [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) and [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron docs.
+Puteți instala această versiune prin intermediul `npm instalați electron@beta` și să aflați mai multe despre ea în [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) și [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Documente Electron.
 
-Big thanks to [@MarshallOfSound](https://github.com/MarshallOfSound) for contributing this to Electron. :tada:
+Mulţumiri mari pentru [@MarshallOfSound](https://github.com/MarshallOfSound) pentru contribuţia la Electron. :tada:
 
-## Touch Bar Example
+## Exemplu bară de atingere
 
-![Touch Bar Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
+![Atingeți Gif din bară](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
 
-Below is an example of creating a simple slot machine game in the touch bar. It demonstrates how to create a touch bar, style the items, associate it with a window, handle button click events, and update the labels dynamically.
+Dedesubt este un exemplu de creare a unui joc simplu de masinarie slot in bara de atingere. Aceasta demonstrează cum să creezi o bară de atingere, să stilizezi elementele, să îl asociezi cu o fereastră, să dai click pe evenimente și să actualizezi etichetele în mod dinamic.
 
 ```js
 const {app, BrowserWindow, TouchBar} = require('electron')
 
 const {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
 
-let spinning = false
+let roting = false
 
 // Reel labels
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// Spin result label
-const result = new TouchBarLabel()
+// Se învârte eticheta de rezultat
+const rezultat = new TouchBarLabel()
 
-// Spin button
-const spin = new TouchBarButton({
-  label: '🎰 Spin',
-  backgroundColor: '#7851A9',
-  click: () => {
-    // Ignore clicks if already spinning
-    if (spinning) {
+// / Buton rotire
+const învârte = noul TouchBarton({
+  etichetă: '🎰 Spin',
+  Culoare fundal: '#7851A9',
+  clic: () => {
+    // Ignore click-uri dacă se învârte deja
+    dacă (se rotește) {
       return
     }
 
-    spinning = true
-    result.label = ''
+    rotire = adevărat
+    . abel = ''
 
     let timeout = 10
-    const spinLength = 4 * 1000 // 4 seconds
-    const startTime = Date.now()
+    const lungime spinLlength = 4 * 1000 // 4 secunde
+    const start Time = Data. ow()
 
     const spinReels = () => {
       updateReels()
 
-      if ((Date.now() - startTime) >= spinLength) {
+      dacă ((Date. ow() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // Slow down a bit on each spin
-        timeout *= 1.1
+        // Slow un pic la fiecare rotire
+        timeout *= 1.
         setTimeout(spinReels, timeout)
       }
     }
@@ -71,57 +71,57 @@ const spin = new TouchBarButton({
 })
 
 const getRandomValue = () => {
-  const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
-  return values[Math.floor(Math.random() * values.length)]
+  valori const = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
+  valori returnate[Matema. loor(Math.random() * values.length)]
 }
 
 const updateReels = () => {
-  reel1.label = getRandomValue()
+  reel1. abel = getRandomValue()
   reel2.label = getRandomValue()
-  reel3.label = getRandomValue()
+  reel3. abel = getRandomValue()
 }
 
 const finishSpin = () => {
-  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
-  if (uniqueValues === 1) {
-    // All 3 values are the same
-    result.label = '💰 Jackpot!'
-    result.textColor = '#FDFF00'
-  } else if (uniqueValues === 2) {
-    // 2 values are the same
-    result.label = '😍 Winner!'
-    result.textColor = '#FDFF00'
-  } else {
-    // No values are the same
-    result.label = '🙁 Spin Again'
-    result.textColor = null
+  const uniqueValues = new Set([reel1. abel, reel2.label, reel3.label]). ize
+  if the uniqueValues === 1) {
+    // All 3 values are same
+    result. abel = '💰 Jackpot!'
+    rezultat. extColor = '#FDFF00'
+  } altfel dacă (valori unique=== 2) {
+    // / 2 valori sunt aceleași
+    . abel = '😍 Rezultatul câştigătorului!'
+    . extColor = '#FDFF00'
+  } altfel {
+    // Nici o valoare nu este acelaşi rezultat
+    . abel = '🙁 Învârtire din nou'
+    rezultat. extColor = null
   }
-  spinning = false
+  rotire = false
 }
 
 const touchBar = new TouchBar([
-  spin,
-  new TouchBarSpacer({size: 'large'}),
+  rotire,
+  noi TouchBarSpacer({size: 'large'}),
   reel1,
-  new TouchBarSpacer({size: 'small'}),
+  TouchBarSpacer({size: 'small'}),
   reel2,
   new TouchBarSpacer({size: 'small'}),
   reel3,
-  new TouchBarSpacer({size: 'large'}),
-  result
+  noi TouchBarSpacer({size: 'large'}),
+  rezultat
 ])
 
-let window
+let fereastra
 
-app.once('ready', () => {
-  window = new BrowserWindow({
-    frame: false,
+app. nce('ready', () => {
+  fereastră = new BrowserWindow({
+    cadru: false,
     titleBarStyle: 'hidden-inset',
-    width: 200,
-    height: 200,
-    backgroundColor: '#000'
+    lățime: 200,
+    înălțime: 200,
+    culoare fundal: '#000'
   })
-  window.loadURL('about:blank')
+  fereastră. oadURL('about:blank')
   window.setTouchBar(touchBar)
 })
 ```

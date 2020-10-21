@@ -12,7 +12,7 @@
 
 Chrome для Electron обычно выпускается в течение одной или двух недель после выпуска стабильной версии Chrome. Этот срок не является гарантированным и зависит от объема работ, связанных с обновлением.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Используется только стабильный канал Chrome. Если важное исправление находится в бета-версии или в канале , мы вернем его порт.
 
 Для получения дополнительной информации, пожалуйста, просмотрите [введение в обеспечение безопасности](tutorial/security.md).
 
@@ -140,7 +140,7 @@ npm uninstall -g electron
 
 ## Шрифт выглядит размытым, что это и что я могу с этим сделать?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Пример:
+Если [подпиксельное сглаживание](http://alienryderflex.com/sub_pixel/) отключено, то шрифты на ЖК экранах могут выглядеть размытыми. Пример:
 
 ![subpixel rendering example][]
 
@@ -155,7 +155,7 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Даже если вы не видите различия, некоторые из ваших пользователей могут. Лучше всегда установить фон таким образом, если у вас нет причин не делать этого.
 
 Обратите внимание, что только настройка фона в CSS не имеет желаемого эффекта.
 

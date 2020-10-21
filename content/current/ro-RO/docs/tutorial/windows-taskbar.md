@@ -1,84 +1,84 @@
-# Windows Taskbar
+# Bară de activități Windows
 
-Electron has APIs to configure the app's icon in the Windows taskbar. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron are API-uri pentru a configura pictograma aplicației în bara de activități Windows. Acceptat sunt [crearea `JumpList`](#jumplist), [miniaturi și benzi de instrumente personalizate](#thumbnail-toolbars), [pictograme se suprapun](#icon-overlays-in-taskbar), și așa-numitul efect ["Flash Frame"](#flash-frame), Electron folosește și pictograma dock a aplicației pentru a implementa caracteristici cross-platform ca [documente recente](./recent-documents.md) și [progresul aplicației](./progress-bar.md).
 
-## JumpList
+## JumpListă
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the task bar. That context menu is called `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Windows permite aplicațiilor să definească un meniu de context personalizat care apare atunci când utilizatorii dau click dreapta pe pictograma aplicației în bara de activitate. Acea meniu de context se numește `JumpList`. Specificați acțiuni personalizate în categoria `Sarcini` din JumpList, așa cum sunt citate de MSDN:
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+> Aplicațiile definesc sarcinile în funcție de caracteristicile programului și de cheia lucruri pe care un utilizator le poate face cu ele. Sarcinile ar trebui să fie fără context, în că aplicația nu trebuie să ruleze pentru ca ei să funcționeze. Ei ar trebui, de asemenea, să fie cele mai comune acțiuni din punct de vedere statistic pe care un utilizator normal le-ar realiza într-o aplicație, cum ar fi compune un mesaj de e-mail sau deschide calendarul într-un program de e-mail, creează un document nou într-un procesor de cuvinte lansează o aplicație într-un anumit mod, sau lansează una dintre sub-comenzile sale. O aplicație nu ar trebui să ascundă meniul cu caracteristici avansate pe care utilizatorii standard nu vor avea nevoie sau acțiuni o singură dată, cum ar fi înregistrarea. Nu folosi sarcini pentru elemente promoționale cum ar fi upgrade-uri sau oferte speciale.
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+> Se recomandă cu tărie ca lista de sarcini să fie statică. Ar trebui să rămână la fel indiferent de starea sau starea aplicației. Deşi este posibil să variezi lista în mod dinamic, ar trebui să considerați că acest lucru ar putea să confunde utilizatorul care nu se așteaptă ca acea parte din lista de destinații să se modifice modifice.
 
-__Tasks of Internet Explorer:__
+__Sarcini ale Internet Explorer:__
 
-![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
+![NR](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+Spre deosebire de meniul de andocare din macOS care este un meniu real, sarcinile utilizatorului în Windows funcţionează ca nişte comenzi rapide ale aplicaţiei astfel încât atunci când utilizatorul apasă o sarcină, un program va fi executat cu argumentele specificate.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+Pentru a seta sarcinile utilizatorului pentru aplicație, puteți utiliza API-ul [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) I:
 
 ```javascript
 const { app } = require('electron')
 app.setUserTasks([
   {
-    program: process.execPath,
+    program: proces. xecPath,
     arguments: '--new-window',
-    iconPath: process.execPath,
+    iconPath: process. xecPath,
     iconIndex: 0,
-    title: 'New Window',
-    description: 'Create a new window'
+    titl: 'Fereastră nouă',
+    Descriere: 'Creează o fereastră nouă'
   }
 ])
 ```
 
-To clean your tasks list, call `app.setUserTasks` with an empty array:
+Pentru a curăța lista de sarcini, apelați `app.setUserTasks` cu un array gol:
 
 ```javascript
 const { app } = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+Sarcinile utilizatorilor vor fi afișate în continuare chiar și după închiderea aplicației tale, așa că pictograma și calea programului specificată pentru o sarcină ar trebui să existe până când aplicația ta este dezinstalată.
 
 
 ## Thumbnail Toolbars
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+Pe Windows puteţi adăuga o bară de instrumente miniatură cu butoanele specificate într-o bară de activităţi a unei ferestre a aplicaţiei. Acesta oferă utilizatorilor o modalitate de a accesa o anumită fereastră fără a restaura sau a activa fereastra.
 
-From MSDN, it's illustrated:
+De la MSDN, este ilustrat:
 
-> This toolbar is the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Această bară de instrumente este controlul comun standard al barei de instrumente. Are maxim şapte butoane. ID-ul fiecărui buton, imaginea, setarea și starea sunt definite într-o structură, care este apoi transmisă la bara de taskar. Aplicația poate afișa, activa, dezactiva, sau ascunde butoanele din bara de instrumente miniatură după cum este necesar starea sa curentă.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> De exemplu, Windows Media Player poate oferi comenzi standard de transport media cum ar fi joacă, pauză, sunet şi oprire.
 
-__Thumbnail toolbar of Windows Media Player:__
+__Bara de miniaturi a Windows Media Player:__
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![jucător](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+Puteţi utiliza [BrowserWindow.setThumbarButton](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) pentru a seta bara de miniaturi în aplicaţie:
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const path = require('path')
+cale de const = require('path')
 
 const win = new BrowserWindow()
 
-win.setThumbarButtons([
+câștigă. etThumbarButtons([
   {
     tooltip: 'button1',
-    icon: path.join(__dirname, 'button1.png'),
-    click () { console.log('button1 clicked') }
+    icon: cale. oin(__dirname, 'button1.png'),
+    click () { consolă. og('button1 clicked') }
   }, {
     tooltip: 'button2',
-    icon: path.join(__dirname, 'button2.png'),
-    flags: ['enabled', 'dismissonclick'],
-    click () { console.log('button2 clicked.') }
+    icon: path.join(__dirname, 'button2. ng'),
+    steaguri: ['enabled', 'dismissonclick'],
+    click () { consolă. og('button2 clic.') }
   }
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Pentru a curăța butoanele din bara de unelte miniatură, doar apelează `BrowserWindow.setThumbarButton` cu un array gol:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -88,17 +88,17 @@ win.setThumbarButtons([])
 ```
 
 
-## Icon Overlays in Taskbar
+## Suprapuneri pictograme în bara de activități
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+Pe Windows un buton din bara de activități poate folosi o mică suprapunere pentru a afișa starea aplicației așa cum este citat de MSDN:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Suprapunerile pictogramelor servesc ca o notificare contextuală a stării și sunt destinate să nege necesitatea unei pictograme separate de stare a zonei de notificare pentru a comunica acea informație utilizatorului. De exemplu, noua adresă de mail în Microsoft Outlook, afișată în prezent în zona de notificare, acum poate fi indicat printr-o suprapunere pe bara de sarcini. Din nou, trebuie să decideți în timpul ciclului de dezvoltare care metodă este cea mai bună pentru aplicația ta. Pictogramele suprapuse sunt destinate să furnizeze o stare importantă, de lungă durată sau notificări, cum ar fi starea rețelei, starea mesagerului sau mesaje noi. Utilizatorul nu ar trebui să fie prezentat cu suprapuneri sau animații care se schimbă constant.
 
-__Overlay on taskbar button:__
+__Suprapunere pe butonul bară de activitate:__
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Suprapunere pe butonul din bara de activități](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
+Pentru a seta pictograma suprapusă pentru o fereastră, puteţi folosi [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -107,11 +107,11 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
 
-## Flash Frame
+## Cadru Flash
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+Pe Windows poți evidenția butonul bară de activități pentru a atrage atenția utilizatorului. Acest lucru este similar cu înregistrarea pictogramei de andocare pe macOS. Din documentația de referință MSDN:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> De obicei, o fereastră este instalată pentru a informa utilizatorul că fereastra necesită atenție, dar că nu are în prezent focalizarea tastaturii.
 
 To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
@@ -122,4 +122,4 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Nu uitați să apelați metoda `flashFrame` cu `false` pentru a opri intermitența. În exemplul de mai sus, este apelată când fereastra vine în focalizare, dar ai putea folosi o pauză sau un alt eveniment pentru a o dezactiva.

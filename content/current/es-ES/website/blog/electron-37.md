@@ -1,24 +1,24 @@
 ---
-title: What's new in Electron 0.37
+title: Novedades en Electron 0.37
 author: zeke
 date: '2016-03-25'
 ---
 
-Electron `0.37` was recently [released](https://github.com/electron/electron/releases) and included a major upgrade from Chrome 47 to Chrome 49 and also several new core APIs. This latest release brings in all the new features shipped in [Chrome 48](http://blog.chromium.org/2015/12/chrome-48-beta-present-to-cast-devices_91.html) and [Chrome 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html). This includes CSS custom properties, increased [ES6](http://www.ecma-international.org/ecma-262/6.0/) support, `KeyboardEvent` improvements, `Promise` improvements, and many other new features now available in your Electron app.
+Electron `0. 7` recientemente [liberó](https://github.com/electron/electron/releases) e incluyó una actualización importante de Chrome 47 a Chrome 49 y también varias API de núcleo nuevas. Esta última versión trae todas las nuevas características que se envían en [Chrome 48](http://blog.chromium.org/2015/12/chrome-48-beta-present-to-cast-devices_91.html) y [Chrome 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html). Esto incluye propiedades personalizadas CSS, incrementadas [ES6](http://www.ecma-international.org/ecma-262/6.0/) de soporte, `mejoras de KeyboardEvent` , `Promesa` mejoras, y muchas otras nuevas características ahora disponibles en su aplicación Electron.
 
 ---
 
-## What's New
+## Novedades
 
 ### CSS Custom Properties
 
-If you've used preprocessed languages like Sass and Less, you're probably familiar with *variables*, which allow you to define reusable values for things like color schemes and layouts. Variables help keep your stylesheets DRY and more maintainable.
+Si has usado lenguajes preprocesados como Sass y Less, probablemente estés familiarizado con *variables*, que le permiten definir valores reutilizables para cosas como esquemas de color y diseños. Las variables ayudan a mantener tus hojas de estilo DRY y más mantenibles.
 
-CSS custom properties are similar to preprocessed variables in that they are reusable, but they also have a unique quality that makes them even more powerful and flexible: **they can be manipulated with JavaScript**. This subtle but powerful feature allows for dynamic changes to visual interfaces while still benefitting from [CSS's hardware acceleration](https://developer.mozilla.org/en-US/Apps/Fundamentals/Performance/Performance_fundamentals#Use_CSS_animations_and_transitions), and reduced code duplication between your frontend code and stylesheets.
+Las propiedades personalizadas CSS son similares a las variables preprocesadas en que son reutilizables, pero también tienen una calidad única que los hace aún más poderosos y flexibles: **pueden ser manipulados con JavaScript**. Esta sutil pero potente característica permite cambios dinámicos a las interfaces visuales mientras se beneficia de [la aceleración de hardware](https://developer.mozilla.org/en-US/Apps/Fundamentals/Performance/Performance_fundamentals#Use_CSS_animations_and_transitions)de CSS, y duplicación de código reducida entre el código del frontend y las hojas de estilos.
 
-For more info on CSS custom properties, see the [MDN article](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) and the [Google Chrome demo](https://googlechrome.github.io/samples/css-custom-properties/).
+Para obtener más información sobre las propiedades personalizadas de CSS, consulte el [artículo MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) y la [demo de Google Chrome](https://googlechrome.github.io/samples/css-custom-properties/).
 
-#### CSS Variables In Action
+#### Variables CSS en acción
 
 Veamos un ejemplo de variable simple que puede modificarse sobre la marcha en tu app.
 
@@ -32,55 +32,55 @@ body {
 }
 ```
 
-The variable value can be retrieved and changed directly in JavaScript:
+El valor de la variable puede ser recuperado y cambiado directamente en JavaScript:
 
 ```js
-// Get the variable value ' #A5ECFA'
+// Obtener el valor de la variable ' #A5ECFA'
 let color = window.getComputedStyle(document.body).getPropertyValue('--awesome-color')
 
-// Set the variable value to 'orange'
+// Establecer el valor de la variable a 'narange'
 document.body.style.setProperty('--awesome-color', 'orange')
 ```
 
-The variable values can be also edited from the **Styles** section of the development tools for quick feedback and tweaks:
+Los valores de las variables también pueden editarse desde la sección **Estilos** de las herramientas de desarrollo para comentarios y ajustes rápidos:
 
-![CSS properties in Styles tab](https://cloud.githubusercontent.com/assets/671378/13991612/1d10eb9c-f0d6-11e5-877b-c4dbc59f1209.gif){: .screenshot }
+![Propiedades CSS en pestaña Estilos](https://cloud.githubusercontent.com/assets/671378/13991612/1d10eb9c-f0d6-11e5-877b-c4dbc59f1209.gif){: .screenshot }
 
-### `KeyboardEvent.code` Property
+### `KeyboardEvent.code` Propiedad
 
-Chrome 48 added the new `code` property available on `KeyboardEvent` events that will be the physical key pressed independent of the operating system keyboard layout.
+Chrome 48 agregó la nueva propiedad de `código` disponible en los eventos `KeyboardEvent` que serán la tecla física presionada independientemente de la disposición del teclado del sistema operativo.
 
-This should make implementing custom keyboard shortcuts in your Electron app more accurate and consistent across machines and configurations.
+Esto debería hacer que la implementación de atajos de teclado personalizados en su aplicación Electron sea más precisa y consistente entre máquinas y configuraciones.
 
 ```js
 window.addEventListener('keydown', function(event) {
-  console.log(`${event.code} was pressed.`)
+  console.log(`${event.code} fue presionado.`)
 })
 ```
 
-Check out [this example](https://googlechrome.github.io/samples/keyboardevent-code-attribute/) to see it in action.
+Mira [este ejemplo](https://googlechrome.github.io/samples/keyboardevent-code-attribute/) para verlo en acción.
 
-### Promise Rejection Events
+### Eventos de rechazo de promesas
 
-Chrome 49 added two new `window` events that allow you to be notified when an rejected [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) goes unhandled.
+Chrome 49 agregó dos nuevos eventos de `ventana` que le permiten ser notificado cuando una [Promise rechazada](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) no se gestiona.
 
 ```js
 window.addEventListener('unhandledrejection', function (event) {
-  console.log('A rejected promise was unhandled', event.promise, event.reason)
+  console.log('Una promesa rechazada no fue manejada', event.promise, event.reason)
 })
 
-window.addEventListener('rejectionhandled', function (event) {
-  console.log('A rejected promise was handled', event.promise, event.reason)
+ventana. ddEventListener('rejectionhandled', function (event) {
+  console.log('Una promesa rechazada fue manejada', event.promise, event.reason)
 })
 ```
 
-Check out [this example](https://googlechrome.github.io/samples/promise-rejection-events/index.html) to see it in action.
+Mira [este ejemplo](https://googlechrome.github.io/samples/promise-rejection-events/index.html) para verlo en acción.
 
-### ES2015 Updates in V8
+### Actualizaciones ES2015 en V8
 
-The version of V8 now in Electron incorporates [91% of ES2015](https://kangax.github.io/compat-table/es6/#chrome49). Here are a few interesting additions you can use out of the box—without flags or pre-compilers:
+La versión de V8 ahora en Electron incorpora [91% de ES2015](https://kangax.github.io/compat-table/es6/#chrome49). Aquí tienes algunas adiciones interesantes que puedes usar fuera de la caja—sin banderas ni precompiladores:
 
-#### Default parameters
+#### Parámetros por defecto
 
 ```js
 function multiply(x, y = 1) {
@@ -92,87 +92,87 @@ multiply(5) // 5
 
 #### Asignación de desestructuración
 
-Chrome 49 added [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make assigning variables and function parameters much easier.
+Chrome 49 agregó [asignación de desestructuración](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) para facilitar la asignación de variables y parámetros de función.
 
-This makes Electron requires cleaner and more compact to assign now:
+Esto hace que Electron necesite más limpio y compacto para asignar ahora:
 
-##### Browser Process Requires
+##### El proceso del navegador requiere
 
 ```js
 const {app, BrowserWindow, Menu} = require('electron')
 ```
 
-##### Renderer Process Requires
+##### Requiere Proceso de Renderer
 
 ```js
-const {dialog, Tray} = require('electron').remote
+const {dialog, Tray} = require('electron').remoto
 ```
 
-##### Other Examples
+##### Otros ejemplos
 
 ```js
-// Destructuring an array and skipping the second element
-const [first, , last] = findAll()
+// Destructurando un arreglo y omitiendo el segundo elemento
+const [primero, , last] = findAll()
 
-// Destructuring function parameters
+// Destructurando parámetros de función
 function whois({displayName: displayName, fullName: {firstName: name}}){
-  console.log(`${displayName} is ${name}`)
+  consola. og(`${displayName} es ${name}`)
 }
 
 let user = {
   displayName: "jdoe",
   fullName: {
       firstName: "John",
-      lastName: "Doe"
+      apellido: "Doe"
   }
 }
 whois(user) // "jdoe is John"
 
-// Destructuring an object
+// Destructurando un objeto
 let {name, avatar} = getUser()
 ```
 
-## New Electron APIs
+## Nuevas API de Electron
 
-A few of the new Electron APIs are below, you can see each new API in the release notes for [Electron releases](https://github.com/electron/electron/releases).
+Algunas de las nuevas APIs de Electron están debajo, puede ver cada nueva API en las notas de lanzamiento para [lanzamientos de Electron](https://github.com/electron/electron/releases).
 
-#### `show` and `hide` events on `BrowserWindow`
+#### `mostrar` y `ocultar` eventos en `Navegador Ventana`
 
-These events are emitted when the window is either shown or hidden.
+Estos eventos se emiten cuando se muestra u oculta la ventana.
 
 ```js
 const {BrowserWindow} = require('electron')
 
 let window = new BrowserWindow({width: 500, height: 500})
-window.on('show', function () { console.log('Window was shown') })
-window.on('hide', function () { console.log('Window was hidden') })
+window. n('mostrar', function () { console.log('Ventana se mostró') })
+window.on('oculto', function () { console.log('Ventana estaba oculta') })
 ```
 
-#### `platform-theme-changed` on `app` for `OS X`
+#### `plataforma cambiada` en `aplicación` para `OS X`
 
-This event is emitted when the system’s [Dark Mode](https://discussions.apple.com/thread/6661740) theme is toggled.
+Este evento se emite cuando el tema [Modo Oscuro](https://discussions.apple.com/thread/6661740) del sistema está activado.
 
 ```js
 const {app} = require('electron')
 
 app.on('platform-theme-changed', function () {
-  console.log(`Platform theme changed. In dark mode? ${app.isDarkMode()}`)
+  console.log(`Platform theme changed. ¿En modo oscuro? ${app.isDarkMode()}`)
 })
 ```
 
-#### `app.isDarkMode()` for `OS X`
+#### `app.isDarkMode()` para `OS X`
 
-This method returns `true` if the system is in Dark Mode, and `false` otherwise.
+Este método devuelve `verdadero` si el sistema está en modo oscuro, y `falso` de lo contrario.
 
-#### `scroll-touch-begin` and `scroll-touch-end` events to BrowserWindow for `OS X`
+#### `scroll-touch-begin` y `scroll-touch-end` eventos a BrowserWindow `OS X`
 
-These events are emitted when the scroll wheel event phase has begun or has ended.
+Estos eventos se emiten cuando la fase del evento de la rueda de desplazamiento ha comenzado o ha terminado.
 
 ```js
 const {BrowserWindow} = require('electron')
 
 let window = new BrowserWindow({width: 500, height: 500})
-window.on('scroll-touch-begin', function () { console.log('Scroll touch started') })
-window.on('scroll-touch-end', function () { console.log('Scroll touch ended') })
+window.on('scroll-touch-begin', function () { console. og('Toque de desplazamiento iniciado') })
+window.on('scroll-touch-end', function () { console.log('Toque de desplazamiento terminado') })
 ```
 

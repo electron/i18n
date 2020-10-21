@@ -1,26 +1,26 @@
 ---
-title: Atom Shell is now Electron
+title: Атом Шелл тепер Electron
 author: kevinsawicki
 date: '2015-04-23'
 ---
 
-Atom Shell is now called Electron. You can learn more about Electron and what people are building with it at its new home [electronjs.org](https://electronjs.org).
+Атом Шелл тепер називається Електрон. Ви можете дізнатися більше про Electron і те, що люди будують з ним в новому будинку [electronjs.org](https://electronjs.org).
 
 ---
 
 [![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)](https://electronjs.org)
 
-Electron is the cross-platform application shell we originally built for the [Atom editor](https://atom.io) to handle the Chromium/Node.js event loop integration and native APIs.
+Electron це крос-платформна оболонка застосунків, яку ми спочатку побудували для роботи з [Atom editor](https://atom.io) для роботи з інтеграцією події Chromium/Node.js та нативними API.
 
-When we got started, our goal wasn't just to support the needs of a text editor. We also wanted to create a straightforward framework that would allow people to use web technologies to build cross-platform desktop apps with all of the native trimmings.
+Коли ми почали, наша мета - не просто підтримувати потреби текстового редактора. Ми також хотіли створити простий фреймворк, який дозволить людям використовувати крос-платформенні додатки з усіма рідними дрібницями.
 
-In two years, Electron has grown immensely. It now includes automatic app updates, Windows installers, crash reporting, notifications, and other useful native app features &mdash; all exposed through JavaScript APIs. And we have more in the works. We plan to extract even more libraries from Atom to make building a native app with web technologies as easy as possible.
+Через два роки Electron безмежно зростав. Тепер він включає автоматичні оновлення додатків, звіти про збої, сповіщення про падіння та інші корисні функції застосунків &mdash; всі викриті через API JavaScript. І в наших роботах ще більше. Ми плануємо витягти ще більше бібліотек з Atom для легкого створення власної програми з веб-технологіями, наскільки це можливо.
 
-So far, individual developers, early-stage startups, and large companies have built apps on Electron. They've created a huge range of apps &mdash; including chat apps, database explorers, map designers, collaborative design tools, and mobile prototyping apps.
+Поки що окремі розробники, стартапи на ранній стадії, і великі компанії створили додатки для Electron. Вони створили велику кількість додатків &mdash; зокрема програми для чату, дослідження баз даних, дизайнерів карт, інструменти спільного дизайну та додатки для мобільних прототипів.
 
-Check out the new [electronjs.org](https://electronjs.org) to see more of the apps people have built on Electron or take a look at the [docs](https://github.com/electron/electron/tree/master/docs#readme) to learn more about what else you can make.
+Подивіться нові [електрони. rg](https://electronjs.org) щоб побачити більше застосунків, які люди побудували на Electron або погляньте на [документацію](https://github.com/electron/electron/tree/master/docs#readme) , щоб дізнатися більше про те, що ще ви можете зробити.
 
-If you've already gotten started, we'd love to chat with you about the apps you're building on Electron. Email [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) to tell us more. You can also follow the new [@ElectronJS](https://twitter.com/electronjs) Twitter account to stay connected with the project.
+Якщо ви вже розпочали, ми будемо спілкуватися з вами про додатки, які ви розробляєте на Electron. Напишіть [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) щоб розповісти нам більше. Ви також можете перейти до нового [@ElectronJS](https://twitter.com/electronjs) облікового запису в Twitter, щоб залишатися на зв'язку з проектом.
 
 :zap: :blue_heart: :electric_plug:
 

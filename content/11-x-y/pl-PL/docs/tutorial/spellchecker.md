@@ -1,10 +1,10 @@
 # SpellChecker
 
-Electron has built-in support for Chromium's spellchecker since Electron 8.  On Windows and Linux this is powered by Hunspell dictionaries, and on macOS it makes use of the native spellchecker APIs.
+Electron posiada wbudowane wsparcie dla sprawdzania pisowni Chromium od Electron 8.  W systemie Windows i Linux jest to obsługiwane przez słowniki Hunspell, a na macOS korzysta z natywnych API walidatora.
 
-## How to enable the spellchecker?
+## Jak włączyć sprawdzanie pisowni?
 
-For Electron 9 and higher the spellchecker is enabled by default.  For Electron 8 you need to enable it in `webPreferences`.
+Dla Electron 9 i wyższych, sprawdzacz pisowni jest domyślnie włączony.  Dla Electron 8 musisz włączyć go w `webPreferences`.
 
 ```js
 const myWindow = new BrowserWindow({
@@ -14,46 +14,46 @@ const myWindow = new BrowserWindow({
 })
 ```
 
-## How to set the languages the spellchecker uses?
+## Jak ustawić języki używane przez sprawdzacz pisowni?
 
-On macOS as we use the native APIs there is no way to set the language that the spellchecker uses. By default on macOS the native spellchecker will automatically detect the language being used for you.
+W systemie macOS, ponieważ używamy natywnych API, nie ma sposobu na ustawienie języka używanego przez walidatora. Domyślnie na macOS natywny sprawdzacz pisowni automatycznie wykryje język używany dla Ciebie.
 
-For Windows and Linux there are a few Electron APIs you should use to set the languages for the spellchecker.
+Dla Windows i Linux istnieje kilka API Electron powinieneś używać do ustawiania języków dla sprawdzania pisowni.
 
 ```js
-// Sets the spellchecker to check English US and French
-myWindow.session.setSpellCheckerLanguages(['en-US', 'fr'])
+// Ustawia sprawdzacz pisowni na angielski i francuski
+myWindow.session. etSpellCheckerLanguages(['pl-US', 'fr'])
 
-// An array of all available language codes
+// tablica wszystkich dostępnych kodów językowych
 const possibleLanguages = myWindow.session.availableSpellCheckerLanguages
 ```
 
-By default the spellchecker will enable the language matching the current OS locale.
+Domyślnie sprawdzacz pisowni włączy język pasujący do aktualnej lokalizacji systemu operacyjnego.
 
-## How do I put the results of the spellchecker in my context menu?
+## Jak umieścić wyniki sprawdzania pisowni w moim menu kontekstowym?
 
-All the required information to generate a context menu is provided in the [`context-menu`](../api/web-contents.md#event-context-menu) event on each `webContents` instance.  A small example of how to make a context menu with this information is provided below.
+Wszystkie informacje wymagane do wygenerowania menu kontekstowego są podane w [`menu kontekstowym`](../api/web-contents.md#event-context-menu) zdarzenie na każdej instancji `zawartości web`.  Poniżej przedstawiono mały przykład jak utworzyć menu kontekstowe z tymi informacjami.
 
 ```js
 const { Menu, MenuItem } = require('electron')
 
-myWindow.webContents.on('context-menu', (event, params) => {
-  const menu = new Menu()
+myWindow.webContents. n('kontekst-menu', (zdarzenie), params) => {
+  menu const = nowe menu()
 
-  // Add each spelling suggestion
-  for (const suggestion of params.dictionarySuggestions) {
-    menu.append(new MenuItem({
+  // Dodaj każdą sugestię pisowni
+  dla (const suggestion of params. menu ictionarySuggestions) {
+    . ppend(new MenuItem({
       label: suggestion,
-      click: () => mainWindow.webContents.replaceMisspelling(suggestion)
+      click: () => mainWindow.webContents. eplaceMisspelling(suggestion)
     }))
   }
 
-  // Allow users to add the misspelled word to the dictionary
-  if (params.misspelledWord) {
-    menu.append(
+  // Zezwól użytkownikom na dodanie błędnego słowa do słownika
+  jeśli (paramy. isspelledWord) {
+    menu. ppend(
       new MenuItem({
         label: 'Add to dictionary',
-        click: () => mainWindow.webContents.session.addWordToSpellCheckerDictionary(params.misspelledWord)
+        kliknięcie: () => mainWindow. ebContent. ession.addWordToSpellCheckerDictionary(params.misspelledWord)
       })
     )
   }
@@ -62,12 +62,12 @@ myWindow.webContents.on('context-menu', (event, params) => {
 })
 ```
 
-## Does the spellchecker use any Google services?
+## Czy sprawdzacz pisowni używa usług Google?
 
-Although the spellchecker itself does not send any typings, words or user input to Google services the hunspell dictionary files are downloaded from a Google CDN by default.  If you want to avoid this you can provide an alternative URL to download the dictionaries from.
+Chociaż sam sprawdzacz pisowni nie wysyła żadnych typów, słowa lub dane wejściowe użytkownika do usług Google pliki słownika polowania są domyślnie pobierane z Google CDN.  Jeśli chcesz tego uniknąć, możesz podać alternatywny adres URL do pobrania słowników.
 
 ```js
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.
+Sprawdź dokumentację dla [`sesji. etSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) aby uzyskać więcej informacji o tym, skąd pobrać pliki słownikowe i jak chcesz je przechowywać.

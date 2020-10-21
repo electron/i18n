@@ -1,85 +1,85 @@
 ---
-title: 'Project of the Week: Beaker Browser'
+title: 'Projet de la Semaine : Navigateur Beaker'
 author:
   - pfrazee
   - zeke
 date: '2017-02-07'
 ---
 
-This week we caught up with [Paul Frazee](http://pfrazee.github.io/), creator of [Beaker Browser](https://beakerbrowser.com/). Beaker is an experimental peer-to-peer web browser that uses the Dat protocol to host sites from users’ devices.
+Cette semaine, nous avons rattrapé [Paul Frazee](http://pfrazee.github.io/), créateur de [Navigateur Beaker](https://beakerbrowser.com/). Beaker est un navigateur expérimental peer-to-peer qui utilise le protocole Dat pour héberger les sites des périphériques des utilisateurs.
 
 ---<iframe width="100%" height="420" src="https://www.youtube.com/embed/Bem9nRpyPEs" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-## What is Beaker and why did you create it?
+## Qu'est-ce que Beaker et pourquoi l'avez-vous créé ?
 
-Beaker is a participatory browser. It's a browser for indie hackers.
+Beaker est un navigateur participatif. C'est un navigateur pour les pirates indépendants.
 
-The Web is closed source. If you want to influence how social media works, you have to work at Facebook or Twitter. For search, Google. Control is in the hands of companies, rather than the users themselves.
+Le Web est une source fermée. Si vous voulez influencer le fonctionnement des médias sociaux, vous devez travailler sur Facebook ou Twitter. Pour la recherche, Google. Le contrôle est entre les mains des entreprises, plutôt que des utilisateurs eux-mêmes.
 
-With Beaker, we have a new Web protocol: the [Decentralized Archive Transport](https://datprotocol.com). "Dat." It creates sites on demand, for free, and then shares them from the device. No servers required. That's our innovation.
+Avec Beaker, nous avons un nouveau protocole Web : le [transport d'archives décentralisé](https://datprotocol.com). "Dat". Il crée des sites à la demande, gratuitement, et ensuite les partage à partir de l'appareil. Aucun serveur requis. C'est notre innovation.
 
-![Beakers Protocols](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
+![Protocoles Beakers](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
-When you visit a Dat site in Beaker, you download the files. The site is yours, forever. You can save it, fork it, modify it, and share your new version for free. It's all open-source.
+Lorsque vous visitez un site Dat à Beaker, vous téléchargez les fichiers. Le site vous appartient, pour toujours. Vous pouvez le sauvegarder, le forker, le modifier et partager gratuitement votre nouvelle version. Tout est open-source.
 
-So that's what it's about: We're making a browser for open-source Websites. We want it to be a toolkit for social hacking.
+C'est donc de cela qu'il s'agit : nous créons un navigateur pour les sites Web open-source. Nous voulons que ce soit une boîte à outils pour le piratage social.
 
-## Who should be using Beaker?
+## Qui devrait utiliser Beaker?
 
-Hackers. Modders. Creative types. People who like to tinker.
+Hackers. Modeurs. Types de création. Des gens qui aiment bricoler.
 
-## How do I create a new project that uses Dat?
+## Comment créer un nouveau projet qui utilise Data?
 
-We've got [a command-line tool called bkr](https://github.com/beakerbrowser/bkr) that's kind of like git + npm. Here's creating a site:
+Nous avons [un outil en ligne de commande appelé bkr](https://github.com/beakerbrowser/bkr) qui ressemble à git + npm. Voici la création d'un site :
 
 ```bash
-$ cd ~/my-site
+$ cd ~/mon-site
 $ bkr init
-$ echo "Hello, world!" > index.html
+$ echo "Bonjour, monde!" > index.html
 $ bkr publish
 ```
 
-And here's forking a site:
+Et voici le forking d'un site :
 
 ```bash
 $ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
 $ cd ~/my-fork
-$ echo "My fork has no regard for the previous index.html!" > index.html
-$ bkr publish
+$ echo "Mon fork n'a aucune considération pour l'index précédent. tml!" > index.html
+$ bkr publier
 ```
 
-Those sites then get hosted out of your browser. It's a little like BitTorrent; you share the sites in a P2P mesh.
+Ces sites sont ensuite hébergés à partir de votre navigateur. C'est un peu comme BitTorrent; vous partagez les sites dans un maillage P2P.
 
-If you want a GUI, we have some basic tools built into the browser, but we're pushing those tools into userland. It's all going to be moddable user apps.
+Si vous voulez une interface graphique, nous avons quelques outils de base intégrés dans le navigateur, mais nous poussons ces outils dans le monde des utilisateurs. Tout cela va être des applications utilisateur modables.
 
-## Why did you choose to build Beaker on Electron?
+## Pourquoi avez-vous choisi de construire Beaker sur Electron?
 
-It was obvious for this project. If I forked Chrome myself, I'd be writing C++ right now! Nobody wants to do that. I know the Web stack, and I can work quickly with it. It's a no-brainer.
+Il était évident pour ce projet. Si j'ai forked Chrome moi-même, j'écrirais en C++ dès maintenant ! Personne ne veut le faire. Je connais la pile Web, et je peux y travailler rapidement. C'est un exercice sans cerveau.
 
-The truth is, I'm not sure I could do any of this without Electron. It's a great piece of software.
+La vérité est, je ne suis pas sûr que je pourrais faire tout cela sans Electron. C'est un excellent logiciel.
 
-## What are some challenges you've faced while building Beaker?
+## Quels sont les défis que vous avez rencontrés lors de la construction de Beaker?
 
-Half of it is poking at the tools and figuring out how much I can get away with.
+La moitié de la somme est de mettre les outils et de comprendre à quel point je peux m'en tirer.
 
-Making the browser itself was pretty easy. Electron is practically a toolkit for making browsers. ...Except for the browser tabs; that took me forever to get right. I finally broke down and learned how to do SVGs. It's much better looking, but it took 3 or 4 iterations before I got that right.
+Il était assez facile de rendre le navigateur lui-même. Electron est pratiquement une boîte à outils pour créer des navigateurs. ... Sauf pour les onglets du navigateur; cela m'a pris pour toujours pour me mettre au bon pied. Je me suis finalement cassé et j'ai appris à faire des SVG. C'est bien plus beau, mais il a fallu 3 ou 4 itérations avant que je me sois bien sorti.
 
-## In what areas should Electron be improved?
+## Dans quels domaines faut-il améliorer Electron ?
 
-It'd be really great if I could dock the devtools inside a webview.
+Ce serait vraiment génial si je pouvais amarrer les devtools dans une webview.
 
-## What's coming next in Beaker?
+## Que se passe-t-il à Beaker ?
 
-Secure DNS names for Dat sites. A socially configurable URL scheme, called the ["app scheme."](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) More Dat APIs.
+Noms DNS sécurisés pour les sites Dat. Un schéma d'URL socialement configurable, appelé le ["schéma d'application".](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) Plus d'API Dat.
 
-## For folks who may be interested in contributing to the project, in what areas does Beaker need help?
+## Pour les gens qui pourraient être intéressés à contribuer au projet, dans quels domaines Beaker a-t-il besoin d'aide?
 
-We have lots of open issues. Don't be afraid to ping me. #beakerbrowser on freenode. We keep a [page for contributors](https://beakerbrowser.com/docs/team.html) and we'll add you to it. And if you visit Austin, I'll buy you a beer.
+Nous avons beaucoup de questions ouvertes. « N'ayez pas peur de me donner. » #beakerbrowser sur freenode. Nous gardons une page [pour les contributeurs](https://beakerbrowser.com/docs/team.html) et nous vous ajouterons. Et si vous visitez Austin, je vais vous acheter une bière.
 
-## Any Electron tips that might be useful to other developers?
+## Des conseils d'Electron qui pourraient être utiles aux autres développeurs ?
 
-1. Use the build tooling that's out there. You don't want to wrestle with your own solutions, trust me. Use electron-builder. Use a boilerplate repo.
-2. If you need to open an issue in the Electron repo, go the extra mile to make it easy to reproduce. You'll get a response much more quickly, and the team will appreciate it. Even better, try fixing it yourself. It's actually pretty interesting to see the innards.
-3. Read through all the guides and advanced docs at least once.
-4. Don't build a browser, it's a saturated market.
+1. Utilisez l'outillage de construction qui se trouve là. Vous ne voulez pas vous battre avec vos propres solutions, croyez-moi. Utilisez electron-builder. Utilisez une chaudière repo.
+2. Si vous avez besoin d'ouvrir un problème dans le dépôt Electron, allez dans le coin supérieur droit pour le rendre facile à reproduire. Vous obtiendrez une réponse beaucoup plus rapidement, et l'équipe l'appréciera. Mieux encore, essayez de le réparer vous-même. Il est en fait assez intéressant de voir les intérieurs.
+3. Lisez tous les guides et documents avancés au moins une fois.
+4. Ne construisez pas un navigateur, c'est un marché saturé.
 

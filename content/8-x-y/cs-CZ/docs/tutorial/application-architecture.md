@@ -1,94 +1,94 @@
-# Electron Application Architecture
+# Architektura aplikace Electron
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Než se budeme moci ponořit do Electronových API, musíme diskutovat o dvou typech dostupných v Electronu. Jsou zásadně odlišné a důležité pro pochopit.
 
-## Main and Renderer Processes
+## Hlavní a zobrazovací procesy
 
-In Electron, the process that runs `package.json`'s `main` script is called __the main process__. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+V Electronu se proces, který spouští `package.json`'s `main` script nazývá __hlavní proces__. Skript, který běží v hlavním procesu, může zobrazit GUI vytvořením webových stránek. Electron aplikace má vždy jeden hlavní proces, ale nikdy více.
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called __the renderer process__.
+Vzhledem k tomu, že Electron používá k zobrazování webových stránek Chromium , používá se také vícestupňová architektura. Každá webová stránka v Electronu běží v jeho vlastním procesu, který se nazývá __proces renderer__.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+V běžných prohlížečích webové stránky obvykle běží v pískovacím prostředí a nemají přístup k původním zdrojům. Uživatelé Electronu však mají sílu používat Node.js API na webových stránkách, které umožňují interakce s operačním systémem na nižší úrovni .
 
-### Differences Between Main Process and Renderer Process
+### Rozdíly mezi hlavním procesem a procesem Renderer
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+Hlavní proces vytváří webové stránky vytvořením instancí `BrowserWindow`. Každá instance `BrowserWindow` spustí webovou stránku ve svém vlastním přehrávání. Když je zničena instance `BrowserWindow` , je ukončen také odpovídající proces vykreslování .
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Hlavní proces spravuje všechny webové stránky a jejich odpovídající renderer procesy. Každý proces rendereru je izolovaný a zajímá se pouze o webovou stránku , která v něm běží.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+Na webových stránkách, volání nativní API související s GUI není povoleno, protože správa nativních zdrojů GUI na webových stránkách je velmi nebezpečná a je snadné uvolnit zdroje. Pokud chcete provést operace GUI na webové stránce, proces vykreslování webové stránky musí komunikovat s hlavním procesem, aby požadoval, aby hlavní proces tyto operace provedl.
 
-> #### Aside: Communication Between Processes
+> #### Postoj: Komunikace mezi procesy
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages][share-data].
+> V Electronu máme několik způsobů, jak komunikovat mezi hlavním procesem a procesy rendering, jako moduly [`ipcRenderer`](../api/ipc-renderer.md) a [`ipcMain`](../api/ipc-main.md) pro odesílání zpráv, a vzdálený modul [](../api/remote.md) pro komunikaci ve stylu RPC. There is also an FAQ entry on [how to share data between web pages][share-data].
 
-## Using Electron APIs
+## Používání Electron API
 
-Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
+Electron nabízí řadu API, která podporuje vývoj desktopové aplikace jak v hlavním procesu, tak v procesu renderování. V obou procesech budete mít přístup k Electronovým API tím, že budete vyžadovat zahrnutý modul:
 
 ```javascript
-const electron = require('electron')
+const elektronron = vyžadováno ('elektron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for each individual API will state which process it can be used from.
+Všem Electron API je přiřazen typ procesu. Mnohé z nich mohou být použity pouze z hlavního procesu a některé pouze z procesu renderer, některé z nich. Dokumentace každého jednotlivého API bude uvádět, ze kterého procesu lze použít.
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+Okno v Electronu je vytvořeno pomocí `BrowserWindow` . Je k dispozici pouze v hlavním procesu.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// Toto bude fungovat v hlavním procesu, ale buďte `undefined` v
+// renderer procesu:
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+Vzhledem k tomu, že komunikace mezi procesy je možná, proces rendereru může zavolat hlavní proces k plnění úkolů. Electron přichází s modulem nazývaným `vzdálený` , který odhaluje API obvykle dostupné pouze v hlavním procesu . Pro vytvoření `BrowserWindow` z procesu vykreslování použijeme vzdálený jako prostřední.
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// Toto bude fungovat v procesu vykreslování, ale být `nedefinovaný` v
+// hlavním procesu:
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
 const win = new BrowserWindow()
 ```
 
-## Using Node.js APIs
+## Použití Node.js API
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron vystavuje plný přístup k Node.js jak v hlavním procesu, tak v procesu vykreslování. To má dva důležité důsledky:
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1) Všechny API dostupné v Node.js jsou k dispozici v Electronu. Volání následujícího kódu z aplikace Electron:
 
 ```javascript
 const fs = require('fs')
 
-const root = fs.readdirSync('/')
+const root = fs. eaddirSync('/')
 
-// This will print all files at the root-level of the disk,
-// either '/' or 'C:\'.
+// Toto vytiskne všechny soubory na úrovni root-level disku,
+// buď '/' nebo 'C:\'.
 console.log(root)
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation][security].
+Jak už možná budete moci odhadnout, to má důležité bezpečnostní důsledky , pokud se někdy pokusíte nahrát vzdálený obsah. You can find more information and guidance on loading remote content in our [security documentation][security].
 
-2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) Ve vaší aplikaci můžete použít moduly Node.js. Vyberte si svůj oblíbený npm modul. npm v současné době nabízí největší světové úložiště open-source kódu – schopnost používat dobře udržovaný a testovaný kód, který byl vyhrazen pro serverové aplikace, je jedním z klíčových vlastností Electronu.
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+Jako příklad použijte oficiální AWS SDK ve vaší aplikaci, byste ji nainstalovali jako závislost:
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+Potom ve vaší Electronové aplikaci vyžadujte a používejte modul, jako byste vytvořili aplikaci Node.js:
 
 ```javascript
-// A ready-to-use S3 Client
-const S3 = require('aws-sdk/clients/s3')
+// připravený klient S3
+const S3 = vyžadováno ('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+Je zde jedno důležité upozornění: Node. s moduly (tj. moduly, které vyžadují kompilaci nativního kódu před jejich použitím), budou muset být zkompilovány pro použití s Electronem.
 
-The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron][native-node].
+The vast majority of Node.js modules are _not_ native. Pouze 400 z ~650,000 modulů je nativní. However, if you do need native modules, please consult [this guide on how to recompile them for Electron][native-node].
 
 [security]: ./security.md
 [native-node]: ./using-native-node-modules.md

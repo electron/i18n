@@ -1,50 +1,50 @@
 # Оновлення Додатків
 
-Існує кілька способів оновити Electron додаток. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+Існує кілька способів оновити Electron додаток. Найпростіший та офіційно підтримувані можуть скористатися вбудованим модулем [Squirrel](https://github.com/Squirrel) фреймворком Electron [autoUpdater](../api/auto-updater.md).
 
 ## Використання `update.electronjs.org`
 
-The Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+Команда Electron підтримує [update.electronjs.org](https://github.com/electron/update.electronjs.org), безкоштовний та open-source веб-сервіс, який застосунки Electron можуть використовувати для самооновлення. Служба створена для застосунків Electron, які відповідають наступним критеріям:
 
-- App runs on macOS or Windows
-- App has a public GitHub repository
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- Додаток працює на macOS або Windows
+- Додаток має публічний репозиторій GitHub
+- Збірки публікуються в релізи GitHub
+- Склади - це підписані
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+Найлегшим способом використання цієї служби є встановлення [update-electron-app](https://github.com/electron/update-electron-app), модуль Node.js попередньо налаштований для використання з update.electronjs.org.
 
-Install the module:
+Встановити модуль:
 
 ```sh
-npm install update-electron-app
+npm встановити update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+Викликати оновлювача в основному процесі ваших програм:
 
 ```js
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+За замовчуванням, цей модуль буде перевіряти наявність оновлень при запуску програми, потім кожні десять хвилин. При знайденні оновлення він буде завантажений у фоновому режимі. Коли завантаження закінчиться, відображається діалогове вікно , що дозволяє користувачеві перезапустити додаток.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+Якщо вам потрібно налаштувати конфігурацію, ви можете [передати варіанти `update-electron-app`](https://github.com/electron/update-electron-app) або [використовуючи службу оновлення безпосередньо](https://github.com/electron/update.electronjs.org).
 
 ## Розгортання на Сервері для Оновлень
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Якщо ви розробляєте приватний застосунок Electron, або ви не публікуєте релізи на GitHub реліз, можливо необхідно запустити власний сервер оновлення.
 
-Depending on your needs, you can choose from one of these:
+Залежно від ваших потреб, ви можете вибрати один з цих:
 
-- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Hazel](https://github.com/zeit/hazel) – Оновлення сервера для особистих або відкритих програм з відкритим вихідним кодом, які можуть бути розгорнуті безкоштовно на [Тепер](https://zeit.co/now). Вона тягне з [вивільнення GitHub](https://help.github.com/articles/creating-releases/) і використовує силу CDN-коду GitHub.
+- [горіхи](https://github.com/GitbookIO/nuts) - також використовує [GitHub Releases](https://help.github.com/articles/creating-releases/), але кешує оновлення на диску та підтримує приватні репозиторії.
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) - надає головну панель для релізів і не вимагає вивільнення релізів для походження на GitHub.
+- [Нуклеус](https://github.com/atlassian/nucleus) - Сервер повного оновлення для застосунків, які підтримуються Atlassian. Підтримує декілька застосунків та каналів; використовує статичний магазин файлів для мінімізації вартості сервера.
 
 ## Реалізація Оновлення в Вашому Застосунку
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+Після розгортання сервера оновлень, продовжуйте імпортувати обов'язкові модулі у коді. Даний код може відрізнятися в іншому сервері програмному забезпеченні, але він працює так, як описано при використанні [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Важливо:** Будь ласка, переконайтеся, що нижче код буде виконаний лише в встановленому застосунку, а не в розробці. Можна використовувати [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) для перевірки середовища.
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
@@ -59,7 +59,7 @@ const url = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL({ url })
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Як останній крок, перевірте оновлення. Приклад нижче перевірятиме кожну хвилину:
 
 ```javascript
 setInterval(() => {
@@ -67,20 +67,20 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Як тільки ваша програма [запакована](../tutorial/application-distribution.md), він буде отримувати оновлення для кожного нового [GitHub Релізу](https://help.github.com/articles/creating-releases/) який ви публікуєте.
 
 ## Застосування Оновлень
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Тепер, коли ви налаштували основний механізм оновлення для вашого додатку, ви повинні переконатися, що користувач буде повідомлений про необхідність оновлення. Цей можна досягти за допомогою автооновлення API [подій](../api/auto-updater.md#events):
 
 ```javascript
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+autoUpdater. n('update-downloaded', (event, releaseNotes, releaseName) => {
   const dialogOpts = {
     type: 'info',
-    buttons: ['Restart', 'Later'],
+    кнопки: ['Реставра', 'Later'],
     title: 'Application Update',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    повідомлення: процес. latform === 'win32' ? releaseNotes : releaseName,
+    detail: 'Нова версія було завантажено. Перезапустіть програму, щоб застосувати оновлення.
   }
 
   dialog.showMessageBox(dialogOpts).then((returnValue) => {
@@ -89,15 +89,15 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Також переконайтеся, що помилки [обробляються](../api/auto-updater.md#event-error). Ось приклад для журналювання на `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
+  console.error('Виникла помилка оновлення застосунку')
   console.error(message)
 })
 ```
 
-## Handling Updates Manually
+## Оновлення обробки вручну
 
-Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
+Оскільки запити, зроблені авто-оновленням, не знаходяться під вашим безпосереднім контролем, ви можете знайти ситуації, які важко впоратися (наприклад, якщо сервер оновлення стоїть за автентифікацією). Поле `url` підтримує файли, а це означає що з деякими зусиллями, ви можете стати стороною аспекту зв'язку серверу. [Ось приклад того, як це може працювати](https://github.com/electron/electron/issues/5020#issuecomment-477636990).

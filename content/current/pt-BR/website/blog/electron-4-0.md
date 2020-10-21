@@ -4,19 +4,19 @@ author: BinaryMuse
 date: '2018-12-20'
 ---
 
-The Electron team is excited to announce that the stable release of Electron 4 is now available! You can install it from [electronjs.org](https://electronjs.org/) or from npm via `npm install electron@latest`. The release is packed with upgrades, fixes, and new features, and we can't wait to see what you build with them. Read more for details about this release, and please share any feedback you have as you explore!
+A equipe do Electron está animada em anunciar que a versão estável do Electron 4 está disponível! É possível instalá-lo a partir do [electronjs.org](https://electronjs.org/) ou do npm via `npm install electron@latest`. A versão está cheia de atualizações, correções e novos recursos, e mal podemos esperar para ver o que você constrói com elas. Leia mais detalhes sobre esta versão, e por favor compartilhe qualquer comentário que você tenha como explorar!
 
 ---
 
-## What's New?
+## Quais as novidades?
 
-A large part of Electron's functionality is provided by Chromium, Node.js, and V8, the core components that make up Electron. As such, a key goal for the Electron team is to keep up with changes to these projects as much as possible, providing developers who build Electron apps access to new web and JavaScript features. To this end, Electron 4 features major version bumps to each of these components; Electron v4.0.0 includes Chromium `69.0.3497.106`, Node `10.11.0`, and V8 `6.9.427.24`.
+Uma grande parte das funcionalidades do Electron é fornecida pelo Chromium, Node.js e V8, os componentes principais que compõem o Electron. Como tal, um objetivo fundamental para a equipe do Electron é acompanhar as mudanças desses projetos o mais possível fornecendo aos desenvolvedores que criam aplicativos Electron acesso a novos recursos de web e JavaScript. Para esse fim, o Electron 4 apresenta explosões de versão principal para cada um desses componentes; o Electron v4.0.0 inclui o Chromium `69. .3497.106`, Node `10.11.0`, e V8 `6.9.427.24`.
 
-In addition, Electron 4 includes changes to Electron-specific APIs. You can find a summary of the major changes in Electron 4 below; for the full list of changes, check out the [Electron v4.0.0 release notes](https://github.com/electron/electron/releases/tag/v4.0.0).
+Além disso, o Electron 4 inclui alterações nas APIs específicas da Electron. Você pode encontrar um resumo das principais mudanças no Electron 4 abaixo; para a lista completa das alterações, confira o [Electron v4. .0 notas de lançamento](https://github.com/electron/electron/releases/tag/v4.0.0).
 
-### Disabling the `remote` Module
+### Desativando o módulo</code> remoto `</h3>
 
-You now have the ability to disable the `remote` module for security reasons. The module can be disabled for `BrowserWindow`s and for `webview` tags:
+<p spaces-before="0">Agora você tem a habilidade de desativar o módulo remoto <code>` por razões de segurança. O módulo pode ser desativado para `BrowserWindow`s e tags `webview`:</p>
 
 ```javascript
 // BrowserWindow
@@ -30,116 +30,116 @@ new BrowserWindow({
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-See the [BrowserWindow](https://electronjs.org/docs/api/browser-window) and [`<webview>` Tag](https://electronjs.org/docs/api/webview-tag) documentation for more information.
+Consulte a documentação [BrowserWindow](https://electronjs.org/docs/api/browser-window) e [`<webview>` Tag](https://electronjs.org/docs/api/webview-tag) para obter mais informações.
 
-### Filtering `remote.require()` / `remote.getGlobal()` Requests
+### Filtrando `remote.require()` / `remote.getGlobal()` Solicitações
 
-This feature is useful if you don't want to completely disable the `remote` module in your renderer process or `webview` but would like additional control over which modules can be required via `remote.require`.
+Esse recurso é útil se você não quer desativar completamente o módulo</code> remoto `no seu processo de renderização ou <code>webview` mas gostaria de controle adicional sobre quais módulos podem ser necessários via `controle remoto. equiparação`.
 
-When a module is required via `remote.require` in a renderer process, a `remote-require` event is raised on the [`app` module](https://electronjs.org/docs/api/app). You can call `event.preventDefault()` on the the event (the first argument) to prevent the module from being loaded. The [`WebContents` instance](https://electronjs.org/docs/api/web-contents) where the require occurred is passed as the second argument, and the name of the module is passed as the third argument. The same event is also emitted on the `WebContents` instance, but in this case the only arguments are the event and the module name. In both cases, you can return a custom value by setting the value of `event.returnValue`.
+Quando um módulo é necessário através do comando `equipare` em um processo de renderização, um evento remoto `requer` é criado no [`módulo` app](https://electronjs.org/docs/api/app). Você pode chamar `event.preventDefault()` no evento (o primeiro argumento) para impedir que o módulo seja carregado. A [`instância` do WebContents](https://electronjs.org/docs/api/web-contents) onde ocorreu a exigência é passada como o segundo argumento, e o nome do módulo é passado como terceiro argumento. O mesmo evento também é emitido na instância `WebContents` , mas neste caso os únicos argumentos são o evento e o nome do módulo. Em ambos os casos, você pode retornar um valor personalizado definindo o valor de `event.returnValue`.
 
 ```javascript
-// Control `remote.require` from all WebContents:
+// Controle `remote.require` de todos os WebContents:
 app.on('remote-require', function (event, webContents, requestedModuleName) {
   // ...
 })
 
-// Control `remote.require` from a specific WebContents instance:
+// Controle `remote.require` de uma instância específica do WebContents:
 browserWin.webContents.on('remote-require', function (event, requestedModuleName) {
   // ...
 })
 ```
 
-In a similar fashion, when `remote.getGlobal(name)` is called, a `remote-get-global` event is raised. This works the same way as the `remote-require` event: call `preventDefault()` to prevent the global from being returned, and set `event.returnValue` to return a custom value.
+De forma similar, quando o evento `remote.getGlobal(name)` é chamado, um evento `remote-get-global` é gerado. Isso funciona da mesma forma que o evento `remoto-requer` : chame `preventDefault()` para evitar que o global seja retornado, e defina o evento `. valor eturn` para retornar um valor personalizado.
 
 ```javascript
-// Control `remote.getGlobal` from all WebContents:
+// Controle `remote.getGlobal` de todos os WebContents:
 app.on('remote-get-global', function (event, webContents, requrestedGlobalName) {
   // ...
 })
 
-// Control `remote.getGlobal` from a specific WebContents instance:
+// Controle `remote.getGlobal` de uma instância específica de WebContents :
 browserWin.webContents.on('remote-get-global', function (event, requestedGlobalName) {
   // ...
 })
 ```
 
-For more information, see the following documentation:
+Para obter mais informações, consulte a seguinte documentação:
 
-* [`remote.require`](https://electronjs.org/docs/api/remote#remoterequiremodule)
+* [`remoto.necessário`](https://electronjs.org/docs/api/remote#remoterequiremodule)
 * [`remote.getGlobal`](https://electronjs.org/docs/api/remote#remotegetglobalname)
 * [`app`](https://electronjs.org/docs/api/app)
-* [`WebContents`](https://electronjs.org/docs/api/web-contents)
+* [`WebConteúdos`](https://electronjs.org/docs/api/web-contents)
 
-### JavaScript Access to the About Panel
+### Acesso JavaScript ao Painel Sobre
 
-On macOS, you can now call `app.showAboutPanel()` to programmatically show the About panel, just like clicking the menu item created via `{role: 'about'}`. See the [`showAboutPanel` documentation](https://electronjs.org/docs/api/app?query=show#appshowaboutpanel-macos) for more information
+No macOS, agora você pode chamar o aplicativo `. howAboutPanel()` para mostrar programaticamente o painel Sobre , como clicar no item de menu criado via `{role: 'about'}`. Veja o [`showAboutPanel` documentação](https://electronjs.org/docs/api/app?query=show#appshowaboutpanel-macos) para obter mais informações
 
-### Controlling `WebContents` Background Throttling
+### Controlando `WebContents` Limite do Fundo
 
-`WebContents` instances now have a method `setBackgroundThrottling(allowed)` to enable or disable throttling of timers and animations when the page is backgrounded.
+`instâncias do WebContents` agora têm um método `setBackgroundThrottling(permitido)` para ativar ou desativar a redução de temporizadores e animações quando a página está com back-ground.
 
 ```javascript
 let win = new BrowserWindow(...)
 win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
 ```
 
-See [the `setBackgroundThrottling` documentation](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) for more information.
+Consulte [a `setBackgroundThrottling` documentação](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) para obter mais informações.
 
 ## Breaking Changes
 
-### No More macOS 10.9 Support
+### Não há mais suporte para macOS 10.9
 
-Chromium no longer supports macOS 10.9 (OS X Mavericks), and as a result [Electron 4.0 and beyond does not support it either](https://github.com/electron/electron/pull/15357).
+Chromium não suporta mais o macOS 10.9 (OS X Mavericks), e como resultado [Electron 4.0 e além disso não suporta nem o](https://github.com/electron/electron/pull/15357).
 
-### Single Instance Locking
+### Bloqueio da Instância Única
 
-Previously, to make your app a Single Instance Application (ensuring that only one instance of your app is running at any given time), you could use the `app.makeSingleInstance()` method. Starting in Electron 4.0, you must use `app.requestSingleInstanceLock()` instead. The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
+Anteriormente, para fazer do seu app um Único Aplicativo de Instância (garantindo que apenas uma instância do seu aplicativo seja executada a qualquer momento), você pode usar o aplicativo `. método akeSingleInstance()`. Começando no Electron 4.0, você deve usar `app.requestSingleInstanceLock()`. O valor de retorno deste método indica se essa instância da sua aplicação obteve com sucesso o bloqueio. Se não conseguir obter o bloqueio, você pode assumir que outra instância do seu aplicativo já está rodando com o bloqueio e saída imediatamente.
 
-For an example of using `requestSingleInstanceLock()` and information on nuanced behavior on various platforms, [see the documentation for `app.requestSingleInstanceLock()` and related methods](https://electronjs.org/docs/api/app#apprequestsingleinstancelock) and [the `second-instance` event](https://electronjs.org/docs/api/app#event-second-instance).
+Por exemplo de usar `requestSingleInstanceLock()` e informações sobre comportamento diferenciado em várias plataformas, [veja a documentação do aplicativo `. equestSingleInstanceLock()` e métodos relacionados](https://electronjs.org/docs/api/app#apprequestsingleinstancelock) e [o `segundo evento`](https://electronjs.org/docs/api/app#event-second-instance).
 
 ### `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. [See the native module guide](https://electronjs.org/docs/tutorial/using-native-node-modules#a-note-about-win_delay_load_hook) for more information.
+Ao construir módulos nativos para janelas, a variável `win_delay_load_hook` no módulo `binding.gyp` deve ser verdadeira (que é o padrão). Se este hook não estiver presente, então o módulo nativo falhará em carregar no Windows com uma mensagem de erro como `Não foi possível encontrar o módulo`. [Veja o guia de módulos nativos](https://electronjs.org/docs/tutorial/using-native-node-modules#a-note-about-win_delay_load_hook) para mais informações.
 
-## Deprecations
+## Depreciações
 
-The following breaking changes are planned for Electron 5.0, and thus are deprecated in Electron 4.0.
+As seguintes alterações de quebra estão planejadas para Electron 5.0, portanto estão obsoletas no Electron 4.0.
 
-### Node.js Integration Disabled for `nativeWindowOpen`-ed Windows
+### Integração de Node.js Desativada para `nativeWindowOpen`-ed Windows
 
-Starting in Electron 5.0, child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+Começando no Electron 5.0, janelas filhas abertas com a opção `nativeWindowOpen` sempre terá a integração do Node.js desativada.
 
-### `webPreferences` Default Values
+### `webPreferences` Valores Padrão
 
-When creating a new `BrowserWindow` with the `webPreferences` option set, the following `webPreferences` option defaults are deprecated in favor of new defaults listed below:
+Ao criar um novo `BrowserWindow` com as opções `webPreferences` definidas, as seguintes opções de `webPreferences` padrões estão obsoletas em favor de novos padrões listados abaixo:
 
 <div class="table table-ruled table-full-width">
 
-| Property | Deprecated Default | New Default |
-|----------|--------------------|-------------|
-| `contextIsolation` | `false` | `true` |
-| `nodeIntegration` | `true` | `false` |
-| `webviewTag` | value of `nodeIntegration` if set, otherwise `true` | `false` |
+UkProperty 「Property Padrão deploated ├New Default ├
+├---------------------------------├
+├`contextIsolation` ├`false` alone. `true` ek 'true` ，
+├`nodeIntegration` ├`true` ├`false` ├
+├`webviewTag` ede valor de `nodeIntegration` se definido, caso contrário, `true` econtra-se `false` ├
 
 </div>
 
-Please note: there is currently [a known bug (#9736)](https://github.com/electron/electron/issues/9736) that prevents the `webview` tag from working if `contextIsolation` is on. Keep an eye on the GitHub issue for up-to-date information!
+Observe: atualmente há [um bug conhecido (#9736)](https://github.com/electron/electron/issues/9736) que impede que a tag `webview` funcione se `contextIsolação` estiver ligada. Fique de olho no problema do GitHub para informações atualizadas!
 
-Learn more about context isolation, Node integration, and the `webview` tag in [the Electron security document](https://electronjs.org/docs/tutorial/security).
+Saiba mais sobre o isolamento de contexto, integração do Node e a tag `da webview` no [documento de segurança do Electron](https://electronjs.org/docs/tutorial/security).
 
-Electron 4.0 will still use the current defaults, but if you don't pass an explicit value for them, you'll see a deprecation warning. To prepare your app for Electron 5.0, use explicit values for these options. [See the `BrowserWindow` docs](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions) for details on each of these options.
+Electron 4.0 ainda usará os padrões atuais, mas se você não passar um valor explícito para eles, verá um aviso de depreciação. Para preparar seu aplicativo para Electron 5.0, use valores explícitos para essas opções. [Veja a documentação da `janela de navegador`](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions) para detalhes sobre cada uma dessas opções.
 
-### `webContents.findInPage(text[, options])`
+### `webContents.findInPage(texto[, opções])`
 
-The `medialCapitalAsWordStart` and `wordStart` options have been deprecated as they have been removed upstream.
+As opções `medialCapitalAsWordStart` e `wordStart` foram descontinuadas pois foram removidas a montante.
 
 ## Programa de Feedback de Aplicativos
 
-The [App Feedback Program](https://electronjs.org/blog/app-feedback-program) we instituted during the development of Electron 3.0 was successful, so we've continued it during the development of 4.0 as well. We'd like to extend a massive thank you to Atlassian, Discord, MS Teams, OpenFin, Slack, Symphony, WhatsApp, and the other program members for their involvement during the 4.0 beta cycle. To learn more about the App Feedback Program and to participate in future betas, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+O [Programa de Feedback de Aplicativos](https://electronjs.org/blog/app-feedback-program) que instituímos durante o desenvolvimento do Electron 3. foi bem sucedido, então continuamos durante o desenvolvimento de 4.0 também. Gostaríamos de estender um enorme agradecimento a Atlassian, Discord, MS Teams, OpenFin, Slack, Symphony, WhatsApp e os outros membros do programa para seu envolvimento durante o 4. ciclo beta. Para saber mais sobre o Programa de Feedback do App e para participar de apostas futuras, [confira nosso blog sobre o programa](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Próximos passos
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. [See our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+No curto prazo você pode esperar que a equipe continue focando em acompanhar o desenvolvimento dos principais componentes que compõem o Electron, incluindo Chromium, Node e V8. Embora tenhamos o cuidado de não fazer promessas sobre datas de lançamento, nosso plano é lançar novas versões principais do Electron com novas versões desses componentes aproximadamente trimestralmente. [Veja nosso documento de versão](https://electronjs.org/docs/tutorial/electron-versioning) para informações mais detalhadas sobre versão no Electron.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+Para informações sobre mudanças planejadas em futuras versões do Electron, [veja nosso Documento de Interrupção Planejada (Alterações de Abertura)](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).

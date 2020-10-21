@@ -7,114 +7,114 @@ author:
 date: '2019-04-23'
 ---
 
-The Electron team is excited to announce the release of Electron 5.0.0! You can install it with npm via `npm install electron@latest` or download the tarballs from [our releases page](https://github.com/electron/electron/releases/tag/v5.0.0). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Echipa Electron este încântată să anunțe lansarea Electron 5.0.0! Îl puteți instala cu npm prin `npm instalați electron@latest` sau descărcați tarballs din [pagina noastră de lansări](https://github.com/electron/electron/releases/tag/v5.0.0). Versiunea este împachetată cu upgrade-uri, reparaţii şi noi caracteristici. Abia așteptăm să vedem ce construiești cu ei! Continuă să citești pentru detalii despre această lansare și împărtășește-ți feedback-ul pe care îl ai!
 
 ---
 
-## What's New?
+## Ce este nou?
 
-Much of Electron's functionality is provided by the core components of Chromium, Node.js, and V8. Electron keeps up-to-date with these projects to provide our users with new JavaScript features, performance improvements, and security fixes. Each of these packages has a major version bump in Electron 5:
+O mare parte din funcţionalitatea Electron este asigurată de componentele centrale ale Cromiului, Node.js şi V8. Electron ține la curent cu aceste proiecte pentru a oferi utilizatorilor noștri noi caracteristici JavaScript, îmbunătățiri de performanță și soluții de securitate. Fiecare pachet are o versiune majoră în Electron 5:
 
-- Chromium `73.0.3683.119`
-  - [New in 70](https://developers.google.com/web/updates/2018/10/nic70)
-  - [New in 71](https://developers.google.com/web/updates/2018/12/nic71)
-  - [New in 72](https://developers.google.com/web/updates/2019/01/nic72)
-  - [New in 73](https://developers.google.com/web/updates/2019/03/nic73)
+- Crom `73.0.3683.119`
+  - [Nou în 70](https://developers.google.com/web/updates/2018/10/nic70)
+  - [Nou în 71](https://developers.google.com/web/updates/2018/12/nic71)
+  - [Nou în 72](https://developers.google.com/web/updates/2019/01/nic72)
+  - [Nou în 73](https://developers.google.com/web/updates/2019/03/nic73)
 - Node.js `12.0.0`
-  - [Node 12 Blog Post](https://nodejs.org/en/blog/release/v12.0.0/)
+  - [Nod 12 postare pe blog](https://nodejs.org/en/blog/release/v12.0.0/)
 - V8 `7.3.492.27`.
-  - [New JS Features](https://twitter.com/mathias/status/1120700101637353473)
+  - [Caracteristici JS noi](https://twitter.com/mathias/status/1120700101637353473)
 
-Electron 5 also includes improvements to Electron-specific APIs. A summary of the major changes is below; for the full list of changes, check out the [Electron v5.0.0 release notes](https://github.com/electron/electron/releases/tag/v5.0.0).
+Electron 5 include, de asemenea, îmbunătățiri ale API-urilor specifice Electron. Un rezumat al modificărilor majore este mai jos; pentru lista completă de modificări, verifică [Notele de lansare Electron v5.0.0](https://github.com/electron/electron/releases/tag/v5.0.0).
 
 ### Promisification
 
-Electron 5 continues [Promisification initiative](https://github.com/electron/electron/blob/5-0-x/docs/api/promisification.md) initiative to convert Electron's callback-based API to use Promises. These APIs were converted for Electron 5:
+Electron 5 continuă [Iniţiativa de multiplicare](https://github.com/electron/electron/blob/5-0-x/docs/api/promisification.md) pentru a converti API-ul apelant al Electron pentru a utiliza Promises. Aceste API au fost convertite pentru Electron 5:
 * `app.getFileIcon`
-* `contentTracing.getCategories`
-* `contentTracing.startRecording`
-* `contentTracing.stopRecording`
+* `contentTracing.getCategorii`
+* `contentTracing.startÎnregistrare`
+* `contentTracing.stopÎnregistrare`
 * `debugger.sendCommand`
-* Cookies API
-* `shell.openExternal`
+* API Cookie-uri
+* `shell.openExtern`
 * `webContents.loadFile`
 * `webContents.loadURL`
 * `webContents.zoomLevel`
 * `webContents.zoomFactor`
-* `win.capturePage`
+* `curs.capturePage`
 
-### System colors access for macOS
+### Acces culori sistem pentru macOS
 
-These functions were changed or added to `systemPreferences` to access macOS systems' colors:
-* `systemPreferences.getAccentColor`
-* `systemPreferences.getColor`
-* `systemPreferences.getSystemColor`
+Aceste funcții au fost modificate sau adăugate la `sistemul Preferințe` pentru a accesa culorile sistemelor macOS:
+* `Preferințe sistem.getAccentColor`
+* `Preferințe sistem.getColor`
+* `Preferințe sistem.getSystemColor`
 
-### Process memory information
+### Informații despre memorie
 
-The function `process.getProcessMemoryInfo` has been added to get memory usage statistics about the current process.
+Funcţia `process.getProcessMemoryInfo` a fost adăugată pentru a obţine statistici de utilizare a memoriei despre procesul curent.
 
-### Additional filtering for remote APIs
+### Filtrare suplimentară pentru API-uri la distanță
 
-To improve security in the `remote` API, new remote events have been added so that `remote.getBuiltin`, `remote.getCurrentWindow`, `remote.getCurrentWebContents` and `<webview>.getWebContents` can be [filtered](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#13-disable-or-limit-creation-of-new-windows).
+Pentru a îmbunătăți securitatea în `API-ul la distanță` , noi evenimente izolate au fost adăugate astfel încât `telecomandă. etBuiltin`, `distant. Fereastra`, `remote.getCurrent WebContent` și `<webview>.getWebContent` pot fi [filtrate](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#13-disable-or-limit-creation-of-new-windows).
 
-### Multiple BrowserViews on BrowserWindow
+### Mai multe vizualizări pe BrowserFereastră
 
-BrowserWindow now supports managing multiple BrowserViews within the same BrowserWindow.
+BrowserWindow acceptă acum gestionarea mai multor BrowserView-uri în cadrul aceleiași BrowserWindow.
 
 ## Ruperea modificărilor
 
-### Defaults for packaged apps
+### Implicit pentru aplicațiile împachetate
 
-Packaged apps will now behave the same as the default app: a default application menu will be created unless the app has one and the `window-all-closed` event will be automatically handled unless the app handles the event.
+Aplicațiile ambalate se vor comporta acum la fel ca aplicația implicită: un meniu implicit va fi creat cu excepția cazului în care aplicația are unul și evenimentul `închis pentru toate ferestre` va fi gestionat automat cu excepția cazului în care aplicația se ocupă de eveniment.
 
-### Mixed sandbox
+### Cutie de nisip mixtă
 
-Mixed sandbox mode is now enabled by default. Renderers launched with `sandbox: true` will now be actually sandboxed, where previously they would only be sandboxed if mixed-sandbox mode was also enabled.
+Modul sandbox mixt este acum activat în mod implicit. Randatoare lansate cu `sandbox: adevărat` va fi acum sandbox, unde anterior vor fi inserate doar dacă modul cu sandbox mixt va fi activat.
 
-### Security improvements
-The default values of `nodeIntegration` and `webviewTag` are now `false` to improve security.
+### Îmbunătățiri de securitate
+Valorile implicite ale `nodeIntegration` și `webviewTag` sunt acum `false` pentru a îmbunătăți securitatea.
 
-### Spellchecker now asynchronous
+### Spellchecker acum asincron
 
-The SpellCheck API has been changed to provide [asynchronous results](https://github.com/electron/electron/blob/5-0-x/docs/api/web-frame.md#webframesetspellcheckproviderlanguage-provider).
+API-ul SpellCheck a fost schimbat pentru a oferi [rezultate asincrone](https://github.com/electron/electron/blob/5-0-x/docs/api/web-frame.md#webframesetspellcheckproviderlanguage-provider).
 
-## Deprecations
+## Dezaprobată
 
-The following APIs are newly deprecated in Electron 5.0.0 and planned for removal in 6.0.0:
+Următoarele API sunt învechite de curând în Electron 5.0.0 și sunt planificate pentru eliminare la 6.0.0:
 
-### Mksnapshot binaries for arm and arm64
-Native binaries of mksnapshot for arm and arm64 are deprecated and will be removed in 6.0.0. Snapshots can be created for arm and arm64 using the x64 binaries.
+### Binare de Mksnapshot pentru braț și arm64
+Binarele native de mksnapshot pentru braț și arm64 sunt învechite și vor fi eliminate în 6. .0. Pot fi create imagini pentru braț și arme64 folosind binarele x64.
 
-### ServiceWorker APIs on WebContents
-Deprecated ServiceWorker APIs on WebContents in preparation for their removal.
-* `webContents.hasServiceWorker`
-* `webContents.unregisterServiceWorker`
+### ServiceWorker API-uri pe WebContent
+ServiceWorker API-uri învechite pe WebContent în pregătire pentru eliminarea lor.
+* `webContents.hasServiceLucrător`
+* `webContents.unregisterServiceLucrător`
 
-### Automatic modules with sandboxed webContents
-In order to improve security, the following modules are being deprecated for use directly via `require` and will instead need to be included via `remote.require` in a sandboxed webcontents:
+### Module automate cu conținut web sandboxed
+Pentru îmbunătățirea securității, următoarele module sunt depreciate pentru a fi utilizate direct prin intermediul `necesită` și în schimb va trebui să fie incluse prin `telecomandă. echipez` într-un conținut inserat web:
 * `electron.screen`
-* `child_process`
+* `copil_process`
 * `fs`
-* `os`
-* `path`
+* `o`
+* `cale`
 
 ## webFrame API-urile lumii izolate
-`webFrame.setIsolatedWorldContentSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` have been deprecated in favor of `webFrame.setIsolatedWorldInfo`.
+`webFrame.setIsolatedWorldContentSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` au fost învechite în favoarea `webFrame.setIsolatedWorldInfo`.
 
-### Mixed sandbox
-`enableMixedSandbox` and the `--enable-mixed-sandbox` command-line switch still exist for compatibility, but are deprecated and have no effect.
+### Cutie de nisip mixtă
+`enableMixedSandbox` și comutatorul `--enable-mixed-sandbox` încă există pentru compatibilitate, dar sunt învechite și nu au niciun efect.
 
-## End of support for 2.0.x
+## Sfârșitul suportului pentru 2.0.x
 
-Per our [supported versions policy](https://electronjs.org/docs/tutorial/support#supported-versions), 2.0.x has reached end of life.
+Pe [politica noastră suportată în versiunile noastre](https://electronjs.org/docs/tutorial/support#supported-versions), 2.0.x a ajuns la sfârșitul vieții.
 
 ## Program de FeedBack a Aplicațiilor
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+Continuăm să folosim [Programul nostru de Feedback pentru aplicații](https://electronjs.org/blog/app-feedback-program) pentru testare. Proiecte care participă la acest program testează Electron betas pe aplicațiile lor; iar în schimb, noile erori descoperite de ei sunt prioritare pentru eliberarea stabilă. Dacă vrei să participi sau să înveți mai multe, [verifică postarea noastră pe blog despre program](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Ce urmează
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 6.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule) maps out key dates in the Electron 6 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+Pe termen scurt, vă puteţi aştepta ca echipa să continue să se concentreze pe a ţine pasul cu dezvoltarea componentelor majore care formează Electron, inclusiv crom, nod și V8. Deşi suntem atenţi să nu facem promisiuni cu privire la data eliberării, planul nostru este să lansăm noi versiuni majore ale Electron cu versiuni noi ale acestor componente aproximativ trimestrial. Programul [6.0.0 provizoriu](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule) trasează datele cheie din ciclul de viață de dezvoltare Electron 6. De asemenea, [consultaţi documentul nostru de versionare](https://electronjs.org/docs/tutorial/electron-versioning) pentru informaţii mai detaliate despre versionare în Electron.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+Pentru informații despre schimbările planificate de rupere în versiunile viitoare de Electron, [a se vedea documentul nostru Planificat Breaking Change](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).

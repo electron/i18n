@@ -1,18 +1,18 @@
 # Fortschrittsanzeige in der Taskleiste (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Unter Windows kann ein Taskleisten-Button verwendet werden, um einen Fortschrittsbalken anzuzeigen. This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Auf macOS wird der Fortschrittsbalken als Teil des Dock-Symbols angezeigt.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Der Unity DE hat auch eine ähnliche Funktion, mit der Sie den Fortschritt im Launcher angeben können.
 
-__Progress bar in taskbar button:__
+__Fortschrittsbalken in Taskleiste:__
 
-![Taskbar Progress Bar][1]
+![Taskbar Fortschrittsleiste][1]
 
-All three cases are covered by the same API - the `setProgressBar()` method available on instances of `BrowserWindows`. Call it with a number between `0` and `1` to indicate your progress. If you have a long-running task that's currently at 63% towards completion, you'd call it with `setProgressBar(0.63)`.
+Alle drei Fälle werden von der gleichen API abgedeckt - die `setProgressBar()` Methode die auf Instanzen von `BrowserWindows` verfügbar ist. Rufen Sie es mit einer Nummer zwischen `0` und `1` auf, um Ihren Fortschritt anzuzeigen. Wenn Sie eine langwierige Aufgabe haben, die derzeit bei 63% zur Fertigstellung liegt, würden Sie sie mit `setProgressBar(0.63)` aufrufen.
 
-Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
+Allgemein gesprochen Wenn der Parameter auf einen Wert unter Null gesetzt wird (wie `-1`) wird der Fortschrittsbalken entfernt, während er auf einen Wert höher als einen Wert gesetzt wird (wie `2`) wird der Fortschrittsbalken in den Zwischenmodus wechseln.
 
 See the [API documentation for more options and modes][setprogressbar].
 

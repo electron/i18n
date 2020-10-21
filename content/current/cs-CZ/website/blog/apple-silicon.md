@@ -1,49 +1,49 @@
 ---
-title: Apple Silicon Support
-author: MarshallOfSound
+title: Podpora Apple Silicon
+author: Marshallovo zvuk
 date: '2020-10-15'
 ---
 
-With Apple Silicon hardware being released later this year, what does the path look like for you to get your Electron app running on the new hardware?
+Vzhledem k tomu, že hardware Apple Silicon bude vydán později v letošním roce, Jaká cesta vypadá tak, aby vaše Electron aplikace běžela na novém hardwaru?
 
 ---
 
-With the release of Electron 11.0.0-beta.1, the Electron team is now shipping builds of Electron that run on the new Apple Silicon hardware that Apple plans on shipping later this year. You can grab the latest beta with `npm install electron@beta` or download it directly from our [releases website](https://electronjs.org/releases/stable).
+S vydáním Electron 11.0.0-beta. , Electron tým je nyní lodní stavba Electronu, která běží na novém Apple Silicon hardwaru, který Apple plánuje na dopravu později v tomto roce. Nejnovější beta verzi si můžete vzít pomocí `npm nainstalovat electron@beta` nebo ji stáhnout přímo z našich [webových stránek s release](https://electronjs.org/releases/stable).
 
-## How does it work?
+## Jak to funguje?
 
-As of Electron 11, we will be shipping separate versions of Electron for Intel Macs and Apple Silicon Macs. Prior to this change, we were already shipping two artifacts, `darwin-x64` and `mas-x64`, with the latter being for Mac App Store compatibility usage. We are now shipping another two artifacts, `darwin-arm64` and `mas-arm64`, which are the Apple Silicon equivalents of the aforementioned artifacts.
+Od Electronu 11 budeme zasílat samostatné verze Electronu pro Intel Macs a Apple Silicon Macs. Před touto změnou jsme již přepravovali dva artefakty, `darwin-x64` a `mas-x64`. s tím, že je to pro využití kompatibility s Mac App Store. Nyní přepravujeme další dva artefakty, `darwin-arm64` a `mas-arm64`, které jsou ekvivalenty Apple Silicon uvedených artefaktů.
 
-## What do I need to do?
+## Co potřebuji udělat?
 
-You will need to ship two versions of your app: one for x64 (Intel Mac) and one for arm64 (Apple Silicon). The good news is that [`electron-packager`](https://github.com/electron/electron-packager/), [`electron-rebuild`](https://github.com/electron/electron-rebuild/) and [`electron-forge`](https://github.com/electron-userland/electron-forge/) already support targeting the `arm64` architecture. As long as you're running the latest versions of those packages, your app should work flawlessly once you update the target architecture to `arm64`.
+Budete muset odeslat dvě verze vaší aplikace: jednu pro x64 (Intel Mac) a jednu pro arm64 (Apple Silicon). Dobrá zpráva je, že [`elektronický balík`](https://github.com/electron/electron-packager/), [`elektronické rebuild`](https://github.com/electron/electron-rebuild/) a [`elektronická forge`](https://github.com/electron-userland/electron-forge/) již podporují zaměření na architekturu `arm64`. Dokud používáte nejnovější verze těchto balíčků, vaše aplikace by měla fungovat bezchybně, jakmile aktualizujete cílovou architekturu na `arm64`.
 
-In the future, we will release a package that allows you to "merge" your `arm64` and `x64` apps into a single universal binary, but it's worth noting that this binary would be _huge_ and probably isn't ideal for shipping to users.
+V budoucnu vydáme balíček, který vám umožní "sloučit" vaše `arm64` a `x64` aplikace do jediného univerzálního binárního souboru, ale stojí za zmínku, že tento binární soubor by byl _velký_ a pravděpodobně není ideální pro dopravu uživatelům.
 
-## Potential Issues
+## Potenciální problémy
 
-### Native Modules
+### Nativní moduly
 
-As you are targeting a new architecture, you'll need to update several dependencies which may cause build issues. The minimum version of certain dependencies are included below for your reference.
+Při zaměřování na novou architekturu budete muset aktualizovat několik závislostí, které mohou způsobit problémy při sestavování. Minimální verze určitých závislostí je pro váš odkaz uvedena níže.
 
-| Dependency          | Version Requirement |
-| ------------------- | ------------------- |
-| Xcode               | `>=12.0.0`       |
-| `node-gyp`          | `>=7.1.0`        |
-| `electron-rebuild`  | `>=1.12.0`       |
-| `electron-packager` | `>=15.1.0`       |
+| Závislost                   | Požadavek na verzi |
+| --------------------------- | ------------------ |
+| Xcode                       | `>=12.0.0`      |
+| `uzlová tělíska`            | `>=7.1.0`       |
+| `elektronická rekonstrukce` | `>=1.12.0`      |
+| `elektronický balík`        | `>=15.1.0`      |
 
-As a result of these dependency version requirements, you may have to fix/update certain native modules.  One thing of note is that the Xcode upgrade will introduce a new version of the macOS SDK, which may cause build failures for your native modules.
+V důsledku těchto požadavků na verzi závislosti, možná budete muset opravit/aktualizovat některé nativní moduly.  Jednou z poznámek je, že Xcode upgrade zavede novou verzi macOS SDK, což může způsobit selhání sestavení vašich nativních modulů.
 
 
-## How do I test it?
+## Jak to testovat?
 
-Currently, Apple Silicon applications only run on Apple Silicon hardware, which isn't commercially available at the time of writing this blog post. If you have a [Developer Transition Kit](https://developer.apple.com/programs/universal/), you can test your application on that. Otherwise, you'll have to wait for the release of production Apple Silicon hardware to test if your application works.
+Aplikace Apple Silicon v současné době běží pouze na hardwaru Apple Silicon Apple, který není komerčně dostupný v době psaní tohoto blogu. Pokud máte [vývojářskou sadu](https://developer.apple.com/programs/universal/), můžete vyzkoušet svou aplikaci. V opačném případě budete muset počkat na vydání hardwaru Apple Silicon pro testování, pokud vaše aplikace funguje.
 
-## What about Rosetta 2?
+## A co Rosetta 2?
 
-Rosetta 2 is Apple's latest iteration of their [Rosetta](https://en.wikipedia.org/wiki/Rosetta_(software)) technology, which allows you to run x64 Intel applications on their new arm64 Apple Silicon hardware. Although we believe that x64 Electron apps will run under Rosetta 2, there are some important things to note (and reasons why you should ship a native arm64 binary).
+Rosetta 2 je nejnovější iterace své [Rosetta](https://en.wikipedia.org/wiki/Rosetta_(software)) technologie Apple, který vám umožňuje spouštět x64 Intel aplikace na jejich novém hardwaru arm64 Apple Silicon software. Ačkoli jsme přesvědčeni, že x64 Electron aplikace budou spuštěny pod Rosetta 2, jsou zde některé důležité věci, které můžete zaznamenat (a důvody, proč byste měli odeslat nativní binární arm64).
 
-* Your app's performance will be significantly degraded. Electron / V8 uses [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) compilation for JavaScript, and due to how Rosetta works, you will effectively be running JIT twice (once in V8 and once in Rosetta).
-* You lose the benefit of new technology in Apple Silicon, such as the increased memory page size.
-* Did we mention that the performance will be **significantly** degraded?
+* Výkon aplikace bude výrazně snížen. Electron / V8 používá [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) kompilaci pro JavaScript a kvůli tomu, jak funguje Rosetta, budete účinně běžet JIT dvakrát (jednou ve V8 a jednou v Rosetta).
+* Ztrácíte výhodu nových technologií v Apple Silicon, jako je větší velikost stránky paměti.
+* Zmínili jsme, že výkon **bude výrazně** zhoršen?

@@ -1,20 +1,20 @@
-# Progress Bar in Taskbar (Windows, macOS, Unity)
+# Voortgangsbalk in de taakbalk (Windows, macOS, eenheid)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Op Windows kan een taakbalkknop worden gebruikt om een voortgangsbalk weer te geven. Dit stelt een venster in staat om voortgangsinformatie aan de gebruiker te geven zonder dat de gebruiker hoeft over te schakelen naar het venster zelf.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Op macOS wordt de voortgangsbalk weergegeven als onderdeel van het dock icoon.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Unity DE heeft ook een vergelijkbare functie waarmee u de voortgang balk in de launcher kunt opgeven.
 
-__Progress bar in taskbar button:__
+__Voortgangsbalk in taakbalk knop:__
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![Taakbalk Voortgangsbalk](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-All three cases are covered by the same API - the `setProgressBar()` method available on instances of `BrowserWindows`. Call it with a number between `0` and `1` to indicate your progress. If you have a long-running task that's currently at 63% towards completion, you'd call it with `setProgressBar(0.63)`.
+Alle drie gevallen vallen onder dezelfde API - de `setProgressBar()` methode beschikbaar op instanties van `BrowserWindows`. Bel het met een nummer tussen `0` en `1` om uw voortgang aan te geven. Als je een langlopende taak hebt die momenteel op 63% is in de richting van voltooiing, zou je het noemen met `setProgressBar(0.63)`.
 
-Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
+Algemeen gesproken de parameter instellen op een waarde onder nul (zoals `-1`) zal de voortgangsbalk verwijderen terwijl deze wordt ingesteld op een waarde hoger dan één (zoals `2`) zal de voortgangsbalk veranderen in de tussenmodus.
 
-See the [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress-options).
+Zie de [API documentatie voor meer opties en modi](../api/browser-window.md#winsetprogressbarprogress-options).
 
 ```javascript
 const { BrowserWindow } = require('electron')

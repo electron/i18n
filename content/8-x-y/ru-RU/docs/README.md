@@ -4,7 +4,7 @@
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Есть вопросы, которые довольно часто задаваются. Проверьте это перед созданием задачи:
 
 * [FAQ по Electron](faq.md)
 

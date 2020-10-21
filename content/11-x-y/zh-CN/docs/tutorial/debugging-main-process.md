@@ -8,7 +8,7 @@ Electron 浏览器窗口中的 DevTools 只能调试 在该窗口中执行的 Ja
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Electron 将在指定的 `端口`上监听V8 检查员协议消息 外部调试器需要连接到这个端口。 默认 `端口` 是 `5858`。
 
 ```shell
 electron --inspect=5858 your/app

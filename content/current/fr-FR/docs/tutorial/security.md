@@ -12,7 +12,7 @@ Pour plus d’informations sur la façon de communiquer correctement une vulnér
 
 ## Problèmes de sécurité et mises à jour de Chromium
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron se tient à jour avec les versions alternatives de Chromium. Pour plus d'informations, voir le blog [Electron Release Cadence](https://electronjs.org/blog/12-week-cadence).
 
 ## La sécurité est la responsabilité de tous
 
@@ -165,9 +165,9 @@ L'électron utilise la même technologie que le chrome [Content Scripts](https:/
 
 Même lorsque vous utilisez `nodeIntegration: false` pour imposer une isolation forte et empêcher l'utilisation des primitives de Node, `contextIsolation` doit également être utilisé.
 
-### Why & How?
+### Pourquoi & Comment ?
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
+Pour plus d'informations sur ce qu'est `contextIsolation` et comment l'activer, veuillez voir notre document dédié [Isolation de contexte](context-isolation.md).
 
 ## 4) Gérer les demandes d'autorisation de session à partir du contenu distant
 
@@ -338,7 +338,7 @@ Les utilisateurs avancés d'Electron peuvent activer les fonctionnalités expér
 
 ### Pourquoi ?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+Les fonctionnalités expérimentales sont, comme le nom le suggère, expérimentales et n'ont pas été activées pour tous les utilisateurs de Chromium. De plus, leur impact sur Electron dans son ensemble n'a probablement pas été testé.
 
 Il est parfois légitime de les implémenter, mais à moins que vous sachiez vraiment ce que vous faites, vous ne devriez pas autoriser ces fonctionnalités.
 
@@ -452,7 +452,7 @@ app.on('web-contents-created', (event, contents) => {
 ```
 
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+Encore une fois, cette liste ne fait que minimiser le risque, elle ne le supprime pas. Si votre objectif est d'afficher un site web, un navigateur sera une option plus sûre.
 
 ## 12) Désactiver ou limiter la navigation
 
@@ -520,11 +520,11 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) N'utilisez pas `openExternal` avec du contenu non fiable
 
-Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options) allows opening a given protocol URI with the desktop's native utilities. Sur macOS, par exemple, cette fonction est similaire à l'utilitaire de commande terminal `open` et ouvrira l'application spécifique basée sur l'URI et l'association de type fichier.
+Shell [`openExternal`](../api/shell.md#shellopenexternalurl-options) permet d'ouvrir une URI de protocole donnée avec les utilitaires natifs du bureau. Sur macOS, par exemple, cette fonction est similaire à l'utilitaire de commande terminal `open` et ouvrira l'application spécifique basée sur l'URI et l'association de type fichier.
 
 ### Pourquoi ?
 
-Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) can be leveraged to compromise the user's host. Lorsque openExternal est utilisé avec du contenu non fiable, il peut être exploité pour exécuter des commandes arbitraires.
+Une mauvaise utilisation de [`openExternal`](../api/shell.md#shellopenexternalurl-options) peut être utilisée pour compromettre l'hôte de l'utilisateur. Lorsque openExternal est utilisé avec du contenu non fiable, il peut être exploité pour exécuter des commandes arbitraires.
 
 ### Comment ?
 
@@ -557,7 +557,7 @@ Cependant, si votre application peut exécuter du contenu non approuvé et même
 
 De plus, il est possible pour les scripts de préchargement de fuir accidentellement des modules vers un moteur de rendu en bac à sable. La fuite de `distance` armee du code malveillant avec une multitude de modules de processus principaux avec lesquels effectuer une attaque.
 
-Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+La désactivation du module `distant` élimine ces vecteurs d'attaque. L'activation de l'isolation de contexte empêche également les attaques "prototype de pollution" de réussies.
 
 ### Comment ?
 
@@ -642,7 +642,7 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 ## 17) Utiliser une version actuelle d'Electron
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+Vous devriez toujours vous efforcer d'utiliser la dernière version disponible d'Electron. Chaque fois qu'une nouvelle version majeure est publiée, vous devriez essayer de mettre à jour votre application le plus rapidement possible.
 
 ### Pourquoi ?
 

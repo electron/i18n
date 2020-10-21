@@ -1,8 +1,8 @@
 # Автоматичне тестування за допомогою користувацького драйвера
 
-To write automated tests for your Electron app, you will need a way to "drive" your application. [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](http://webdriver.io/). However, it's also possible to write your own custom driver using node's builtin IPC-over-STDIO. The benefit of a custom driver is that it tends to require less overhead than Spectron, and lets you expose custom methods to your test suite.
+Щоб записати автоматичні тести для вашого застосунку, вам знадобиться спосіб "диску" вашого додатку. [Спектран](https://electronjs.org/spectron) - це спільне рішення, яке дозволяє вам імітувати дії користувачів за допомогою [WebDriver](http://webdriver.io/). Однак, також можна написати власний драйвер з використанням вбудованого вузла IPC-over-STDIO. Перевага від користувальницького водія полягає в тому, що він вимагає менше накладних витрат, ніж Spectron, і дозволяє розкрити користувацькі методи для вашого набору тестів.
 
-To create a custom driver, we'll use Node.js' [child_process](https://nodejs.org/api/child_process.html) API. The test suite will spawn the Electron process, then establish a simple messaging protocol:
+Щоб створити користувальницький драйвер, ми будемо використовувати Node.js' [child_process](https://nodejs.org/api/child_process.html) API. Цей тестовий набір генерує процес Electron та встановить простий протокол обміну повідомленнями:
 
 ```js
 const childProcess = require('child_process')
@@ -18,25 +18,25 @@ appProcess.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the app
+// відправити повідомлення IPC у додаток
 appProcess.send({ my: 'message' })
 ```
 
-From within the Electron app, you can listen for messages and send replies using the Node.js [process](https://nodejs.org/api/process.html) API:
+З додатку Electron, ви можете слухати повідомлення та надсилати відповіді за допомогою модуля Node.js [процес](https://nodejs.org/api/process.html) API:
 
 ```js
-// listen for IPC messages from the test suite
+// слухайте IPC повідомлення з тестового набору
 process.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the test suite
+// відправити повідомлення IPC до тестового набору
 process.send({ my: 'message' })
 ```
 
-We can now communicate from the test suite to the Electron app using the `appProcess` object.
+Тепер ми можемо спілкуватися з комплекту тестів до програми Electron, використовуючи об'єкт `appProcess`.
 
-For convenience, you may want to wrap `appProcess` in a driver object that provides more high-level functions. Here is an example of how you can do this:
+Для зручності, вам може захотіти обгорнути `додаток` в об'єкті водія, який надає більше функцій високого рівня. Ось приклад того, як ви можете це зробити:
 
 ```js
 class TestDriver {
@@ -81,39 +81,39 @@ class TestDriver {
 }
 ```
 
-In the app, you'd need to write a simple handler for the RPC calls:
+У програмі слід написати простий обробник для RPC дзвінків:
 
 ```js
-if (process.env.APP_TEST_DRIVER) {
-  process.on('message', onMessage)
+якщо (process.env.APP_TEST_DRIVER) {
+  процес. n('повідомлення', onMessage)
 }
 
-async function onMessage ({ msgId, cmd, args }) {
-  let method = METHODS[cmd]
-  if (!method) method = () => new Error('Invalid method: ' + cmd)
-  try {
-    let resolve = await method(...args)
-    process.send({ msgId, resolve })
-  } catch (err) {
+async функція onMessage ({ msgId, cmd, args }) {
+  let = METHODS[cmd]
+  якщо (! ethod) method = () = () => new Error('Неприпустимий метод: ' + cmd)
+  спробуйте {
+    let resolve = await method(. .args)
+    процес. кінець({ msgId, resolve })
+  } ловити (помилка) {
     let reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
     }
-    process.send({ msgId, reject })
+    процесу. end({ msgId, reject })
   }
 }
 
 const METHODS = {
   isReady () {
-    // do any setup needed
+    // внести будь-які налаштування, необхідні
     return true
   }
-  // define your RPC-able methods here
+  // задайте ваші методи RPC-можна використати тут
 }
 ```
 
-Then, in your test suite, you can use your test-driver as follows:
+Тоді, у вашому комплексі тестів, ви можете використовувати вашого тестового драйвера наступним чином:
 
 ```js
 const test = require('ava')
@@ -121,15 +121,15 @@ const electronPath = require('electron')
 
 let app = new TestDriver({
   path: electronPath,
-  args: ['./app'],
+  args: ['. app'],
   env: {
     NODE_ENV: 'test'
   }
 })
-test.before(async t => {
+тест.before(async t => {
   await app.isReady
 })
-test.after.always('cleanup', async t => {
+тестів. fter.always('cleanup', async t => {
   await app.stop()
 })
 ```

@@ -2,14 +2,14 @@
 
 From [ChromeDriver - WebDriver for Chrome][chrome-driver]:
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver - це інструмент з відкритим кодом для автоматизації тестування веб-додатків через багато браузерів. Він надає можливості для навігації по веб-сторінках, введення користувачем, виконання JavaScript і багато іншого. ChromeDriver - це автономний сервер, який реалізує протокол дроту WebDriver, для Chromium. Розробляється членами команди Chromium та WebDriver.
 
-## Setting up Spectron
+## Налаштування Spectron
 
-[Spectron][spectron] is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron][spectron] is the officially supported ChromeDriver testing framework for Electron. Він побудований на вершині [WebdriverIO](http://webdriver.io/) і має помічників для доступу до Electron API у ваших тестах та вузлах ChromeDriver.
 
 ```sh
-$ npm install --save-dev spectron
+$ npm встановити - save-dev спектр
 ```
 
 ```javascript
@@ -43,22 +43,22 @@ const verifyWindowIsVisibleWithTitle = async (app) => {
 verifyWindowIsVisibleWithTitle(myApp)
 ```
 
-## Setting up with WebDriverJs
+## Налаштування з WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) надає пакет Node для тестування з веб-драйвером, ми будемо використовувати його як приклад.
 
-### 1. Start ChromeDriver
+### 1. Запустити ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Спочатку потрібно завантажити двійковий файл `chromedrik` і запустити його:
 
 ```sh
-$ npm install electron-chromedriver
+$ npm встановити electron-chromedriver
 $ ./node_modules/.bin/chromedriver
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+Починаючи ChromeDriver (v2.10.291558) на порт 9515
+дозволено лише локальні підключення.
 ```
 
-Remember the port number `9515`, which will be used later
+Запам'ятайте номер порту `9515`, який буде використовуватись пізніше
 
 ### 2. Install WebDriverJS
 
@@ -66,94 +66,94 @@ Remember the port number `9515`, which will be used later
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. Підключення до ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+Використання `selenium-webdriver` з Electron однакове з upstream, за винятком випадків, коли потрібно вручну вказати як підключити chrome драйвер та де знайти двійковий код Electron:
 
 ```javascript
-const webdriver = require('selenium-webdriver')
+const webdriver = require('selenium-driver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+  // "9515" - порт, відкритий драйвером chrome.
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
-      // Here is the path to your Electron binary.
+      // Ось шлях до двійкового файлу Electron.
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
   .forBrowser('electron')
-  .build()
+  . uild()
 
 driver.get('http://www.google.com')
-driver.findElement(webdriver.By.name('q')).sendKeys('webdriver')
-driver.findElement(webdriver.By.name('btnG')).click()
+driver.findElement(webdriver.By.name('q').sendKeys('webdriver')
+. indElement(webdriver.By.name('btnG').click()
 driver.wait(() => {
-  return driver.getTitle().then((title) => {
-    return title === 'webdriver - Google Search'
+  return driver.getTitle(). hen((title) => {
+    return === 'webdriver - Google Search'
   })
 }, 1000)
 
-driver.quit()
+водія. uit()
 ```
 
-## Setting up with WebdriverIO
+## Налаштування за допомогою WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/) забезпечує пакет вузла для тестування з веб драйвером.
 
-### 1. Start ChromeDriver
+### 1. Запустити ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Спочатку потрібно завантажити двійковий файл `chromedrik` і запустити його:
 
 ```sh
-$ npm install electron-chromedriver
+$ npm встановити electron-chromedriver
 $ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+Починаючи ChromeDriver (v2.10.291558) на порт 9515
+Дозволені тільки місцеві з’єднання.
 ```
 
-Remember the port number `9515`, which will be used later
+Запам'ятайте номер порту `9515`, який буде використовуватись пізніше
 
-### 2. Install WebdriverIO
+### 2. Встановити WebdriverIO
 
 ```sh
-$ npm install webdriverio
+$ npm встановити webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. Підключитися до драйвера chrome
 
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" is the port opened by chrome driver.
-  desiredCapabilities: {
+  host: 'localhost', // Використовувати localhost як сервер драйвера chrome
+  порт: 9515, // "9515" - порт, відкритий драйвером chrome.
+  бажані можливості: {
     browserName: 'chrome',
     'goog:chromeOptions': {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/Path-to-Your-App/electron', // Шлях до вашого виконуваного Electron binary.
+      args: [/* cli аргументи */] // Необов'язковий, можливо 'app=' + /path/to/your/app/
     }
   }
-}
 
-const client = webdriverio.remote(options)
 
-client
+const client = webdriverio. емоції (необов'язково)
+
+клієнт
   .init()
-  .url('http://google.com')
+  . rl('http://google.com')
   .setValue('#q', 'webdriverio')
   .click('#btnG')
-  .getTitle().then((title) => {
-    console.log('Title was: ' + title)
+  .getTitle(). hen((title) => {
+    console.log('Title було: ' + title)
   })
   .end()
 ```
 
-## Workflow
+## Робочий процес
 
-To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Щоб перевірити вашу програму без перебудови Electron, [розмістіть](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) джерело додатків у каталог ресурсів Electron.
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Крім того, пройдіть аргумент для запуску з вашим двійковим кодом Electron що вказує на папку вашого застосунку. Це усуває необхідність копіювання вашого додатку на ресурсний каталог Electron.
 
 [chrome-driver]: https://sites.google.com/a/chromium.org/chromedriver/
 [spectron]: https://electronjs.org/spectron

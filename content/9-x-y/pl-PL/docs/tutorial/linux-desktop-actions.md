@@ -1,12 +1,12 @@
-# Custom Linux Desktop Launcher Actions
+# Własne działania na pulpicie Linux
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
+W wielu środowiskach systemu Linux możesz dodać własne wpisy do jego launchera modyfikując plik `.desktop`. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
 
-__Launcher shortcuts of Audacious:__
+__Skróty programu Audacious:__
 
-![audacious][3]
+![nieśmiałe][3]
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+Ogólnie rzecz biorąc, skróty są dodawane poprzez podanie właściwości `Name` i `Exec` dla każdego wpisu w menu skrótów. Jednolity wykona pole `Exec` po kliknięciu przez użytkownika. Format jest następujący:
 
 ```plaintext
 Actions=PlayPause;Next;Previous
@@ -27,7 +27,7 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+Preferowany przez jednostkę sposób na poinformowanie swojej aplikacji o tym, co zrobić, to użyć parametrów. Możesz je znaleźć w swojej aplikacji w zmiennej globalnej `process.argv`.
 
 [3]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png
 

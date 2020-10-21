@@ -7,7 +7,7 @@
 * `是默认值` 布尔值 - 是否将给定的打印机设置为 OS 上的默认打印机。
 * `选项` 对象 - 包含不同数量的平台打印机信息的对象。
 
-`状态` 所代表的数字意味着不同平台上的不同东西：在Windows上，其潜在值可以在这里 [](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2)在 Linux 和 macOS 上，可以在这里找到 [](https://www.cups.org/doc/cupspm.html)。
+由 `状态表示的数字` 在不同的平台上表示不同的东西：在 Windows 上可以找到它的潜在值 [在这里](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2)，在 Linux 和 macOS 上，可以在这里找到 [它们](https://www.cups.org/doc/cupspm.html)。
 
 ## 例子
 

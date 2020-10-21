@@ -47,7 +47,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) 是一个可以配合 WebDriver 做测试的 node 模块，我们会用它来做个演示。
 
-### 1. Start ChromeDriver
+### 1. 启动 ChromeDriver
 
 首先，你要下载 `chromedriver`，然后运行以下命令：
 
@@ -66,7 +66,7 @@ Only local connections are allowed.
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. 连接到 ChromeDriver
 
 在 Electron 下使用 `selenium-webdriver` 和其平时的用法并没有大的差异，只是你需要手动设置连接 ChromeDriver，以及 Electron 的路径：
 
@@ -101,7 +101,7 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) 也是一个配合 WebDriver 用来测试的 node 模块.
 
-### 1. Start ChromeDriver
+### 1. 启动 ChromeDriver
 
 首先，你要下载 `chromedriver`，然后运行以下命令：
 
@@ -114,37 +114,37 @@ Only local connections are allowed.
 
 记住 `9515` 这个端口号，我们后面会用到
 
-### 2. Install WebdriverIO
+### 2. 安装 WebdriverIO
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. 连接到chrome驱动
 
 ```javascript
 const webdriverio = require('webdriverio')
-const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" is the port opened by chrome driver.
+const options = format@@
+  host: 'localhost', // 使用本地主机作为chrome驱动程序
+  端口：9515, // "9515" 是由chrome驱动程序打开的端口。
   desiredCapabilities: {
     browserName: 'chrome',
     'goog:chromeOptions': {
       binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
+      args: [/* cli 参数 */] // 可选， 也许'app=' + /path/to/your/app/
     }
-  }
-}
 
-let client = webdriverio.remote(options)
 
-client
+
+let client = webdriverio。 emote(选项)
+
+客户端
   .init()
-  .url('http://google.com')
+  . rl('http://google.com')
   .setValue('#q', 'webdriverio')
   .click('#btnG')
-  .getTitle().then((title) => {
-    console.log('Title was: ' + title)
+  .getTitle(). hen(title) => @un.org
+    console.log('title was: ' + title)
   })
   .end()
 ```
@@ -153,7 +153,7 @@ client
 
 无需重新编译 Electron，只要把 app 的源码[放到](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) Electron的资源目录 里就可直接开始测试了。
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+或者，传递一个参数，与您的 Electron 二进制运行，指向您的 个应用文件夹。 这就消除了将您的应用复制粘贴到 Electron资源目录的必要性。
 
 [chrome-driver]: https://sites.google.com/a/chromium.org/chromedriver/
 [spectron]: https://electronjs.org/spectron

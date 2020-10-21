@@ -1,12 +1,12 @@
 # アクセシビリティ
 
-Making accessible applications is important and we're happy to provide functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+アクセスしやすいアプリケーションを作ることは重要であり、 [Devtron](https://electronjs.org/devtron) と [Spectron](https://electronjs.org/spectron) に 機能を提供することで、開発者は誰にとってもアプリをより良いものにすることができます。
 
 ---
 
 Electron アプリケーションのアクセシビリティに関する懸念は、どちらも最終的に HTML であるため、ウェブサイトと同様です。 しかし、Electron アプリケーションでは、アプリケーションに監査機を指す URL がないため、アクセシビリティ監査にオンラインリソースを使用することはできません。
 
-These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. ツールの概要については、以下を参照してください。
+これらの機能は、これらの監査ツールを Electron アプリにもたらします。 Spectronでテストに監査を追加するか、Devtronでテストツール 内で監査を使用するかを選択できます。 ツールの概要については、以下を参照してください。
 
 ## Spectron
 
@@ -24,7 +24,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 ## Devtron
 
-In Devtron, there is an accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+Devtronには、アプリ内の ページを監査し、結果を並べ替えてフィルタリングできるアクセシビリティタブがあります。
 
 ![devtron スクリーンショット](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
@@ -32,21 +32,21 @@ In Devtron, there is an accessibility tab which will allow you to audit a page i
 
 Electron 向けの他の優れたアクセシビリティツールについて知っている場合は、アクセシビリティドキュメントにプルリクエストを加えてください。
 
-## Manually enabling accessibility features
+## アクセシビリティ機能を手動で有効にする
 
-Electron applications will automatically enable accessibility features in the presence of assistive technology (e.g. [JAWS](https://www.freedomscientific.com/products/software/jaws/) on Windows or [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) on macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+Electron アプリケーションは、 支援技術の存在下で自動的にアクセシビリティ機能を有効にします(e. をクリックします。 [Windows では JAWS](https://www.freedomscientific.com/products/software/jaws/) または macOS では [VoiceOver](https://help.apple.com/voiceover/mac/10.15/))。 詳細は Chrome の [アクセシビリティドキュメント](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) を参照してください。
 
-You can also manually toggle these features either within your Electron application or by setting flags in third-party native software.
+これらの機能は Electron アプリケーション 内で手動で切り替えることも、サードパーティのネイティブソフトウェアにフラグを設定することもできます。
 
-### Using Electron's API
+### Electron の API を使用する
 
-By using the [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API, you can manually expose Chrome's accessibility tree to users in the application preferences. Note that the user's system assistive utilities have priority over this setting and will override it.
+[`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API を使用すると、アプリケーション環境設定でChromeのアクセシビリティツリーをユーザーに手動で公開できます。 ユーザのシステム支援ユーティリティはこの設定よりも優先され、 はそれを上書きします。
 
-### Within third-party software
+### サードパーティ製ソフトウェア内
 
 #### macOS
 
-On macOS, third-party assistive technology can toggle accessibility features inside Electron applications by setting the `AXManualAccessibility` attribute programmatically:
+macOS では、サードパーティーの支援技術は Electron アプリケーション内で、 `AXManualAccessibility` 属性 をプログラム的に設定することでアクセシビリティ機能を切り替えることができます。
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

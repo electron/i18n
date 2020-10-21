@@ -43,11 +43,11 @@ _main.js_
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
-let onlineStatusWindow
+laisser onlineStatusWindow
 
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
-  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
+app.whenReady(). hen(() => {
+  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, 0, show: false, webPreferences: { nodeIntegration: true } })
+  onlineStatusWindow. oadURL(`file://${__dirname}/online-status.html`)
 })
 
 ipcMain.on('online-status-changed', (event, status) => {

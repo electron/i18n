@@ -8,7 +8,7 @@ Check the build prerequisites for your platform before proceeding
 
   * [macOS](build-instructions-macos.md#prerequisites)
   * [Linux](build-instructions-linux.md#prerequisites)
-  * [Windows](build-instructions-windows.md#prerequisites)
+  * [Ferestre](build-instructions-windows.md#prerequisites)
 
 ## Build Tools
 

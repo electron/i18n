@@ -46,7 +46,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) fournit un ensemble de package Node pour tester avec des pilotes web, nous l’utiliserons comme exemple.
 
-### 1. Start ChromeDriver
+### 1. Lancer ChromeDriver
 
 Tout d’abord, téléchargez `chromedriver`, puis exécutez-le :
 
@@ -65,7 +65,7 @@ N'oubliez pas le numéro du port `9515`, qui servira plus tard
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. Se connecter à ChromeDriver
 
 L’utilisation de ` selenium-webdriver` avec Electron est pratiquement la même chose qu'avec upstream, sauf que vous devez spécifier manuellement comment connecter le driver chrome et où trouver le fichier binaire d'Electron :
 
@@ -100,7 +100,7 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) fournit un package Node pour tester avec le pilote web.
 
-### 1. Start ChromeDriver
+### 1. Lancer ChromeDriver
 
 Tout d’abord, téléchargez `chromedriver`, puis exécutez-le :
 
@@ -113,13 +113,13 @@ Seulement les connexions locales sont autorisées.
 
 N'oubliez pas le numéro du port `9515`, qui servira plus tard
 
-### 2. Install WebdriverIO
+### 2. Installer WebdriverIO
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. Se connecter au pilote chrome
 
 ```javascript
 const webdriverio = require('webdriverio')
@@ -152,4 +152,4 @@ client
 
 Pour tester votre application sans re-compiler Electron, il suffit de [placer](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) la source de votre app dans le dossier des ressources d'Electron.
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Sinon, passez un argument à exécuter avec votre binaire Electron qui pointe vers le dossier de votre application. Cela élimine le besoin de copier-coller votre application dans le répertoire de ressources de Electron.

@@ -1,26 +1,26 @@
 ---
-title: Atom Shell is now Electron
+title: Atom Shell 现在是Electron
 author: kevinsawicki
 date: '2015-04-23'
 ---
 
-Atom Shell is now called Electron. You can learn more about Electron and what people are building with it at its new home [electronjs.org](https://electronjs.org).
+Atom Shell 现在叫做Electron。 您可以了解更多关于 Electron 以及人们正在其新家居 [electron](https://electronjs.org) 的构建。
 
 ---
 
 [![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)](https://electronjs.org)
 
-Electron is the cross-platform application shell we originally built for the [Atom editor](https://atom.io) to handle the Chromium/Node.js event loop integration and native APIs.
+Electron 是我们原先为 [Atom 编辑器](https://atom.io) 构建的跨平台应用程序外壳，以处理Chromium/Node.js 事件循环集成和原生API。
 
-When we got started, our goal wasn't just to support the needs of a text editor. We also wanted to create a straightforward framework that would allow people to use web technologies to build cross-platform desktop apps with all of the native trimmings.
+当我们开始时，我们的目标不仅仅是支持文本编辑器的需要。 我们还希望建立一个简单明了的框架，使人们能够使用网络技术来构建具有所有本机修剪的跨平台桌面应用。
 
-In two years, Electron has grown immensely. It now includes automatic app updates, Windows installers, crash reporting, notifications, and other useful native app features &mdash; all exposed through JavaScript APIs. And we have more in the works. We plan to extract even more libraries from Atom to make building a native app with web technologies as easy as possible.
+在两年时间里，Electron公司已经大量增长。 现在它包括自动应用程序更新、Windows安装、崩溃报告、通知和其他有用的本机应用程序功能 &mdash; 所有通过 JavaScript API暴露的功能。 我们在工作中拥有更多的东西。 我们计划从Atom中提取更多的库，以便尽可能轻松地构建一个拥有网络技术的本地应用程序。
 
-So far, individual developers, early-stage startups, and large companies have built apps on Electron. They've created a huge range of apps &mdash; including chat apps, database explorers, map designers, collaborative design tools, and mobile prototyping apps.
+迄今为止，个人开发者、早期启动者和大公司已经在 Electron 上构建了应用。 他们创建了大量应用 &mdash; ，包括聊天应用、数据库探索者、地图设计者、协作设计工具和移动原型应用。
 
-Check out the new [electronjs.org](https://electronjs.org) to see more of the apps people have built on Electron or take a look at the [docs](https://github.com/electron/electron/tree/master/docs#readme) to learn more about what else you can make.
+看看新的 [electronjs. rg](https://electronjs.org) 查看更多人们在 Electron 上构建的应用，或查看 [文档](https://github.com/electron/electron/tree/master/docs#readme) 以了解更多关于您可以做什么的信息。
 
-If you've already gotten started, we'd love to chat with you about the apps you're building on Electron. Email [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) to tell us more. You can also follow the new [@ElectronJS](https://twitter.com/electronjs) Twitter account to stay connected with the project.
+如果您已经开始了，我们很乐意与您聊天，了解您在 Electron 上正在开发的应用程序。 电子邮件 [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) 告诉我们更多。 您也可以关注新的 [@ElectronJS](https://twitter.com/electronjs) Twitter 帐户以保持与项目的连接。
 
 :zap: :blue_heart: :electric_plug:
 

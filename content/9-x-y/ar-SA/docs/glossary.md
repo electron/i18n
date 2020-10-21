@@ -38,9 +38,9 @@ IPC stands for Inter-Process Communication. Electron uses IPC to send serialized
 
 The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. وتدير أيضا العناصر الأصلية مثل القائمة وشريط القوائم،إلخ. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+كل ملف معالجة رئيسي في التطبيق محدد في الخاصية الرئيسية `` في `package.json`. This is how `electron .` knows what file to execute at startup.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+في Chromium، يشار إلى هذه العملية باسم "عملية المتصفح". It is renamed in Electron to avoid confusion with renderer processes.
 
 راجع أيضا:
 
@@ -50,7 +50,7 @@ In Chromium, this process is referred to as the "browser process". It is renamed
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide][].
+Acronym لمتجر تطبيقات Mac الخاص بآبل. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide][].
 
 
 
@@ -80,7 +80,7 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+يمكن استخدام OSR (عرض الشاشة) لتحميل الصفحة الثقيلة في الخلفية ثم عرضها بعد ذلك (سيكون أسرع بكثير). يسمح لك بتقديم الصفحة دون عرضها على الشاشة.
 
 
 
@@ -96,7 +96,7 @@ See also: [main process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. كما يمكن إخفاؤها.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
@@ -120,11 +120,11 @@ See also: [process](#process), [main process](#main-process)
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 هو محرك جافا سكريبت مفتوح المصدر الخاص بجوجل. يكتب في C++ ويستخدم في Google Chrome. V8 يمكن تشغيل المحتويات بمفردها، أو يمكن إدماجها في أي تطبيق C+++.
 
 بني الإلكترون V8 كجزء من كروميوم ثم يشير node إلى V8 عندما تم البناء.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+أرقام الإصدار V8 تتوافق دائما مع أرقام Google Chrome. يحتوي Chrome 59 V8 5.9, Chrome 58 على V8 5.8, الخ.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)

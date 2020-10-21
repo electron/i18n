@@ -15,7 +15,7 @@
   electron --interactive
   ```
 
-This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+这只能为主要进程创建一个REPL。 你可以使用开发工具的 控制台来获取渲染器流程的 REPL。
 
 **注意:** `electron --interactive` 在 Windows 上不可用.
 

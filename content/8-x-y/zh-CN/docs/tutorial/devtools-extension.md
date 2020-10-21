@@ -20,7 +20,7 @@ Electron支持[Chrome  DevTools 扩展程序][devtools-extension]，可增强开
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * 在 macOS下为`~/Library/Application Support/Google/Chrome/Default/Extensions`。
-1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+1. 将扩展的位置传递到 `BrowserWindow.addDevToolsExtension` API，用于React开发者工具，这样做很好：
    ```javascript
    const path = require('path')
    const os = require('os')
@@ -32,11 +32,11 @@ Electron支持[Chrome  DevTools 扩展程序][devtools-extension]，可增强开
 
 **注意：**只有在app模块的ready事件触发之后，才可以调用`BrowserWindow.addDevToolsExtension` API
 
-The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+这个扩展将被记住，所以你只需要在 扩展中调用此 API 一次。 如果您试图添加一个已加载的扩展， 这个方法 不会返回，而是将警告记录到控制台。
 
 ### 如何移除一个 DevTools 扩展程序
 
-您可以传递扩展程序的名称到 `BrowserWindow.removeDevToolsExtension` API 移除它。 The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
+您可以传递扩展程序的名称到 `BrowserWindow.removeDevToolsExtension` API 移除它。 扩展名名由 `BrowserWindow返回. ddDevToolsExtension` 您可以通过 `BrowserWindow.getDevToolsExtenes` API获取所有已安装的 DevTools 扩展的名称。
 
 ## 支持的 DevTools 扩展程序
 

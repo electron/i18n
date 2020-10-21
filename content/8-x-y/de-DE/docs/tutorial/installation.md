@@ -1,6 +1,6 @@
 # Installation
 
-To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
+To install prebuilt Electron binaries, use [`npm`][npm]. Die bevorzugte Methode ist Electron als Entwicklungsabhängigkeit in Ihrer App zu installieren:
 
 ```sh
 npm install electron --save-dev
@@ -32,18 +32,18 @@ npm install --platform=win32 electron
 
 ## Proxys
 
-If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
+Wenn Sie einen HTTP-Proxy verwenden möchten, müssen Sie die `ELECTRON_GET_USE_PROXY` Variable auf jeden Wert setzen plus zusätzliche Umgebungsvariablen, abhängig von der Knotenversion Ihres Host-Systems:
 
-* [Node 10 and above][proxy-env-10]
-* [Before Node 10][proxy-env]
+* [Knoten 10 und höher][proxy-env-10]
+* [Vor Knoten 10][proxy-env]
 
 ## Benutzerdefinierte Mirrors und Caches
-During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. Sie wird dies tun, indem Sie GitHubs Release-Download-Seite (`https://github. om/electron/releases/tag/v$VERSION`, wobei `$VERSION` die exakte Version von Electronic ist).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Wenn du nicht auf GitHub zugreifen kannst oder eine benutzerdefinierte Version bereitstellen musst, du kannst das tun, indem du entweder einen Mirror oder ein existierendes Cache-Verzeichnis bereitstellst.
 
-#### Mirror
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `@electron/get` is composed as follows:
+#### Spiegeln
+Sie können Umgebungsvariablen verwenden, um die Basis-URL zu überschreiben, den Pfad, mit dem Sie nach Electron-Binärdateien suchen und den Binärdateinamen überschreiben. The url used by `@electron/get` is composed as follows:
 
 ```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -56,49 +56,49 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
 #### Cache
-Alternatively, you can override the local cache. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Alternativ können Sie den lokalen Cache überschreiben. `@electron/get` speichert heruntergeladene Binärdateien in einem lokalen Verzeichnis, um Ihr Netzwerk nicht zu belasten. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
-* Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
+* Linux: `$XDG_CACHE_HOME` oder `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* Fenster: `$LOCALAPPDATA/electron/Cache` oder `~/AppData/Lokal/Elektronik/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+Auf Umgebungen, die ältere Versionen von Electron verwendet haben, könnte der Cache auch in `~/.electron` gefunden werden.
 
 You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+Der Cache enthält die offizielle Zip-Datei der Version sowie eine Prüfsumme, die als eine Textdatei gespeichert wird. Ein typischer Cache könnte so aussehen:
 
 ```sh
-├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
-│   └── electron-v1.7.9-darwin-x64.zip
-├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9SHASUMS256.txt
-│   └── SHASUMS256.txt
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1electron-v1.8.1-darwin-x64.zip
-│   └── electron-v1.8.1-darwin-x64.zip
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1SHASUMS256.txt
-│   └── SHASUMS256.txt
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1electron-v1.8.2-beta.1-darwin-x64.zip
-│   └── electron-v1.8.2-beta.1-darwin-x64.zip
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1SHASUMS256.txt
-│   └── SHASUMS256.txt
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2electron-v1.8.2-beta.2-darwin-x64.zip
-│   └── electron-v1.8.2-beta.2-darwin-x64.zip
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2SHASUMS256.txt
-│   └── SHASUMS256.txt
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3electron-v1.8.2-beta.3-darwin-x64.zip
-│   └── electron-v1.8.2-beta.3-darwin-x64.zip
-└── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3SHASUMS256.txt
-    └── SHASUMS256.txt
+<unk> 文<unk> httpsgithub.comelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
+<unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> electron-v1.7.9-darwin-x64.zip
+<unk> httpsgithub.comelectronreleasesdownloadv1.7.9SHASUMS256.txt
+<unk> <unk> <unk> <unk> SHASUMS256.txt
+<unk> httpsgithub.comelectronreleasesdownloadv1.8.1electron-v1.8.1-darwin-x64. ip
+<unk> <unk> <unk> <unk> <unk> <unk> electron-v1.8.1-darwin-x64.zip
+<unk> 本<unk> httpsgithub.comelectronreleasesdownloadv1.8.1SHASUMS256.txt
+<unk> <unk> 日<unk> SHASUMS256.txt
+<unk> httpsgiub. omelectronelectronreleasesdownloadv1.8.2-beta.1electron-v1.8.2-beta.1-darwin-x64.zip
+<unk> <unk> <unk> <unk> <unk> electron-v1.8.2-beta.1-darwin-x64.zip
+<unk> httpsgithub. omelectronelectronreleasesdownloadv1.8.2-beta.1SHASUMS256.txt
+<unk> <unk> 本<unk> SHASUMS256.txt
+<unk> httpsgithub.comelectronreleasesdownloadv1.8.2-beta.2electron-v1.8.2-beta.2-beta.2-darwin-x64.zip
+<unk> <unk> <unk> <unk> <unk> <unk> electron-v1.8.2-beta.2-darwin-x64.zip
+<unk> httpsgithub.comelectronreleasesdownloadv1.8.2-beta. SHASUMS256.txt
+<unk> <unk> <unk> <unk> <unk> SHASUMS256.txt
+<unk> 本<unk> httpsgithub.comelectronreleasesdownloadv1.8.2-beta.3electron-v1.8.2-beta.3-darwin-x64. ip
+<unk> <unk> <unk> <unk> <unk> Electron-v1.8.2-beta.3-darwin-x64.zip
+<unk> httpsgithub.comelectronreleasesdownloadv1.8.2-beta.3SHASUMS256.txt
+    <unk> 日<unk> SHASUMS256.txt
 ```
 
-## Skip binary download
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+## Binärdownload überspringen
+Beim Installieren des `Elektron` NPM-Pakets wird das Elektron Programm automatisch heruntergeladen.
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+Dies kann manchmal unnötig sein, z.B. in einer CI-Umgebung, wenn eine andere Komponente getestet wird.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+Um zu verhindern, dass das Programm heruntergeladen wird, wenn Sie alle npm Abhängigkeiten installieren, können Sie die Umgebungsvariable `ELECTRON_SKIP_BINARY_DOWNLOAD` setzen. Z.B.:
 ```sh
-ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm Installation
 ```
 
 ## Problemlösungen
@@ -117,13 +117,13 @@ If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be 
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+In langsameren Netzwerken kann es ratsam sein, das `--verbose` Flag zu verwenden, um den Downloadfortschritt anzuzeigen:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+Wenn Sie einen erneuten Download des Assets und der SHASUM-Datei erzwingen müssen, setzen Sie die `force_no_cache` Umgebungsvariable auf `true`.
 
 [npm]: https://docs.npmjs.com
 [versioning]: ./electron-versioning.md

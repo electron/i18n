@@ -2,15 +2,15 @@
 
 ## 概览
 
-Electron有API来配置macOS Dock中的应用程序图标。 A macOS-only API exists to create a custom dock menu, but Electron also uses the app dock icon as the entry point for cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron有API来配置macOS Dock中的应用程序图标。 一个 macOS-only API 用于创建一个自定义的Dock 菜单， 但Electron也使用应用Dock 图标作为跨平台功能的入口，如 [最近的文档](./recent-documents.md) 和 [应用程序进度](./progress-bar.md)。
 
 一个自定义的Dock项也普遍用于为那些用户不愿意为之打开整个应用窗口的任务添加快捷方式。
 
 __Terminal.app 的 Dock 菜单:__
 
-![Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+![基座菜单](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
-To set your custom dock menu, you need to use the [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API, which is only available on macOS.
+要设置您的自定义基座菜单，您需要使用 [`app.dock.setmenu`](../api/dock.md#docksetmenumenu-macos) API， 它仅在 macOS 上可用。
 
 ## 示例
 
@@ -38,6 +38,6 @@ app.whenReady().then(() => {
 })
 ```
 
-After launching the Electron application, right click the application icon. You should see the custom menu you just defined:
+启动 Electron 应用程序后，右键点击应用程序图标。 您应该看到您刚刚定义的自定义菜单：
 
-![macOS dock menu](../images/macos-dock-menu.png)
+![macOS 停靠菜单](../images/macos-dock-menu.png)

@@ -1,68 +1,68 @@
 ---
-title: 'Project of the Week: Ghost'
+title: 'Proiectul săptămânii: Ghost'
 author:
   - felixrieseberg
   - zeke
 date: '2017-02-14'
 ---
 
-This week we chatted with [Felix Rieseberg](https://felixrieseberg.com/), desktop engineer at [Slack](https://slack.com/) and maintainer of [Ghost Desktop](https://ghost.org/downloads/), an Electron client for the [Ghost](https://ghost.org/) publishing platform.
+Săptămâna aceasta am discutat cu [Felix Rieseberg](https://felixrieseberg.com/), inginer desktop la [Slack](https://slack.com/) și susținător al [Ghost Desktop](https://ghost.org/downloads/), un client Electron pentru platforma de publicare [Ghost](https://ghost.org/).
 
 ---
 
 <div class="pt-5">
-  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Ghost Desktop Screenshot"> 
+  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Screenshot Ghost Desktop"> 
 </div>
 
-## What is Ghost?
+## Ce este Ghost?
 
-Ghost is a fully open source, hackable platform for building and running a modern online publication. We power blogs, magazines and journalists from Zappos to Sky News.
+Gazda este o platformă complet deschisă pentru construirea și rularea unei publicații online moderne. Putem bloguri, reviste şi jurnalişti de la Zappos la Sky News.
 
-## What makes it different from other publishing platforms?
+## Ce face să fie diferit de alte platforme de publicare?
 
-Ghost was founded in April 2013, after a very successful Kickstarter campaign to create a new platform focused solely on professional publishing. Our mission is to create the best open source tools for independent journalists and writers across the world, and have a real impact on the future of online media. It offers a simpler, more focussed experience: Our editor is designed solely around providing the best possible writing experience.
+Ghost a fost fondat în aprilie 2013, după o campanie de succes lansată de Kickstarter pentru crearea unei noi platforme axate exclusiv pe editarea profesionistă. Misiunea noastră este de a crea cele mai bune instrumente deschise pentru jurnaliștii și scriitorii independenți din întreaga lume, și au un impact real asupra viitorului mass-mediei online. Aceasta oferă o experiență mai simplă și mai bine orientată: editorul nostru este conceput exclusiv pentru a oferi cea mai bună experiență de scriere.
 
-Compared to the all-time classic WordPress, it offers a simpler, more streamlined experience - it is easier to setup and maintain, comes with all important features out-of-the-box, and is dramatically faster. Compared to other online platforms, Ghost gives writers full ownership and control over their content, allows full customization, and enables authors to build a business around their publication.
+Comparativ cu WordPress-urile clasice clasice, oferă o experiență mai simplă, mai raționalizată - este mai ușor de configurat și menținut, vine cu toate caracteristicile importante în afara cutiei, şi este dramatic de rapid. În comparație cu alte platforme online, Ghost oferă autorilor dreptul de proprietate și control deplin asupra conținutului lor; permite personalizarea completă și permite autorilor să construiască o afacere în jurul publicării lor.
 
-## Is Ghost a for-profit company?
+## Este Ghost o companie cu scop lucrativ?
 
-This one is important to us: Ghost is an independent non-profit organisation. We build publishing tools for modern journalism & blogging because we believe freedom of speech is important. Our software is released under a [free open source license](https://github.com/TryGhost/Ghost), our business model is [completely transparent](https://blog.ghost.org/year-3/), and our legal structure means that 100% of the money we make is reinvested into making Ghost better.
+Aceasta este importantă pentru noi: Ghost este o organizaţie independentă non-profit. Construim instrumente de publicare pentru jurnalismul modern & blogging pentru că noi credem că libertatea de exprimare este importantă. Software-ul nostru este pus la dispoziție sub [o licență cu sursă deschisă gratuit](https://github.com/TryGhost/Ghost), modelul nostru de afaceri este [complet transparent](https://blog.ghost.org/year-3/), iar structura noastră juridică înseamnă că 100 % din banii pe care îi facem sunt reinvestiţi pentru a îmbunătăţi gazda.
 
-## What is Ghost Desktop?
+## Ce este Ghost Desktop?
 
-Ghost Desktop allows writers to manage multiple blogs at once - and to focus on their writing. Simple things like common writing shortcuts can't be realized in a browser, but are available in our desktop app. It allows other applications to communicate directly [with the blog via deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
+Ghost Desktop permite autorilor să gestioneze mai multe bloguri simultan - și să se concentreze pe scrierea lor. Lucruri simple cum ar fi comenzi rapide comune nu pot fi realizate într-un browser, dar sunt disponibile în aplicația noastră pentru desktop. Permite altor aplicații să comunice direct [cu blogul prin intermediul deep plinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
 
-## What is Ghost for Journalism?
+## Ce este Ghost for Journalism?
 
-This year we're very excited to be dedicating our entire 10 person full-time Ghost team to helping grow three independent publications, along with $45,000 in resources toward their efforts. We're calling it [Ghost for Journalism](https://ghost.org/journalism/).
+Anul acesta suntem foarte încântaţi să dedicăm întreaga noastră echipă de 10 persoane Ghost cu normă întreagă ajutând la dezvoltarea a trei publicaţii independente, alături de resurse de 45 000 USD pentru eforturile lor. O numim [Ghost for Journalism](https://ghost.org/journalism/).
 
-We've been building Ghost as the web's next great platform for independent publishers for about three and half years now, and we've now reached a really interesting inflection point. We started this journey to create a simple, well designed blogging platform which could be used by just about anyone. That was always going to be step one.
+Construim Ghost ca următoarea mare platformă web pentru editori independenţi de aproximativ trei ani şi jumătate, şi acum am ajuns la un punct de inflaţie foarte interesant. Am început această călătorie pentru a crea o platformă de blogging simplă, bine proiectată, care ar putea fi folosită de aproape oricine. Acesta va fi întotdeauna pasul unu.
 
-Long term, we want Ghost to be an incredible platform for the world's best journalism, and that means we need to build features to attract exactly those people. This year we're making a very conscious decision to focus on just that.
+Pe termen lung, vrem ca Ghost să fie o platformă incredibilă pentru cel mai bun jurnalism din lume, și asta înseamnă că trebuie să construim caracteristici care să atragă exact acei oameni. Anul acesta luăm o decizie foarte conştientă să ne concentrăm pe asta.
 
-## Why did you choose to build Ghost Desktop on Electron?
+## De ce ai ales să construiești Ghost Desktop pe Electron?
 
-Ghost uses JavaScript and Node.js on both the backend and frontend, so being able to utilize the same technology and skillset enables our team to move faster, build more, and ultimately deliver a better experience. In addition, being able to share more than 95% of code between the macOS, Windows, and Linux version of the app allows us to focus on building a great core user experience, without having to maintain one code base for each platform.
+Fantoma foloseste JavaScript si Node. s pe backend și frontend, așa că fiind în măsură să utilizeze aceeași tehnologie și același talent îi permite echipei noastre să se deplaseze mai repede, construiește mai mult și oferă în cele din urmă o experiență mai bună. În plus, pentru a putea partaja peste 95% din cod între macOS, Windows, iar versiunea Linux a aplicației ne permite să ne concentrăm pe construirea unei experiențe de bază a utilizatorului, fără a trebui să se întrețină o bază de cod pentru fiecare platformă.
 
-## What are some challenges you've faced while building Ghost Desktop?
+## Care sunt unele provocări cu care te confrunți în timp ce construiești Ghost Desktop?
 
-Spellchecking is likely still one of the most difficult services offered - we could easily utilize one of the many online services, but correctly spellchecking text in multiple languages while guarding the privacy and autonomy of our users is not an easy task.
+Spellcheck este probabil încă unul dintre cele mai dificile servicii oferite - am putea utiliza cu ușurință unul dintre multele servicii online, dar ortografia corectă a textului în mai multe limbi, în timp ce protejarea confidenţialităţii şi autonomiei utilizatorilor noştri nu este o sarcină uşoară.
 
-## In what areas should Electron be improved?
+## În ce domenii ar trebui îmbunătățit Electron?
 
-We would love to see Electron bring the operating system's native spellchecking capabilities to their apps. We're dreaming about a world in which an `<input>` field receives the same services as a `NSTextView`, but we are also intimately aware how difficult that is.
+Ne-ar plăcea să vedem că Electron aduce capacitățile native de ortografie ale sistemului de operare în aplicațiile lor. Visăm la o lume în care un câmp `<input>` primește aceleași servicii ca un `NSTextView`, dar suntem de asemenea conştienţi de cât de dificil este acest lucru.
 
-## What are your favorite things about Electron?
+## Care sunt lucrurile tale preferate despre Electron?
 
-JavaScript is famous for being a vast ecosystem, involving countless tools and frameworks - but the convenience it affords us is hard to overstate. Building an app with Electron is only _slightly_ harder than building a web app, which is an amazing  feat.
+JavaScript este faimos pentru că este un ecosistem vast, care implică nenumărate instrumente şi cadre - dar confortul pe care ni îl permite este greu de suprastat. Construirea unei aplicații cu Electron este doar _ușor_ mai dificilă decât construirea unei aplicații web, ceea ce este un lucru uimitor.
 
-## Is Ghost done? If not, what's coming next?
+## Ghost este terminat? Dacă nu, ce urmează?
 
-Ghost Desktop is also an ongoing project - we're pretty far from being done. We have been talking for a while about bringing a full offline mode to our users, and we're getting fairly close. Other notable work areas are the extension and integration with other text editing apps (like Word or Atom), ultimately allowing people to write posts using their favorite tools. In general, once we've shipped the offline mode feature, we're looking for deeper integration with the operating system. If that sounds interesting to you, [join us](https://github.com/tryghost/ghost-desktop)!
+Ghost Desktop este, de asemenea, un proiect în derulare - suntem destul de departe de a fi făcut. Vorbim de ceva timp despre aducerea unui mod complet offline utilizatorilor noștri și ne apropiem destul de mult. Alte domenii de lucru notabile sunt extinderea și integrarea cu alte aplicații de editare a textului (cum ar fi Word sau Atom), în cele din urmă, să permită oamenilor să scrie postări folosind instrumentele lor preferate. În general, odată ce am expediat funcționalitatea modului offline, căutăm o integrare mai profundă cu sistemul de operare. Dacă vi se pare interesant, [alăturați-vă nouă](https://github.com/tryghost/ghost-desktop)!
 
-## What are some of your favorite Electron apps?
+## Care sunt unele dintre aplicațiile tale Electron preferate?
 
-I'm a big fan of [Kap](https://getkap.co/), [Felony](https://github.com/henryboldi/felony), and [Visual Studio Code](https://code.visualstudio.com).
+Sunt un mare fan al [Kap](https://getkap.co/), [Felony](https://github.com/henryboldi/felony), şi [Visual Studio Code](https://code.visualstudio.com).
 
 👻
 

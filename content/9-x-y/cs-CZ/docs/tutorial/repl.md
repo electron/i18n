@@ -1,22 +1,22 @@
-# REPL
+# ODEBRAT
 
-Read-Eval-Print-Loop (REPL) is a simple, interactive computer programming environment that takes single user inputs (i.e. single expressions), evaluates them, and returns the result to the user.
+Read-Eval-Print-Loop (REPL) je jednoduché, interaktivní počítačové programování prostředí, které přijímá jeden uživatel vstupy. . jediné výrazy), vyhodnotí a vrátí výsledek uživateli.
 
-The `repl` module provides a REPL implementation that can be accessed using:
+Modul `repl` poskytuje REPL implementaci, ke které lze přistupovat pomocí:
 
-* Assuming you have `electron` or `electron-prebuilt` installed as a local project dependency:
+* Předpokládejme, že máte `Electron` nebo `elektron-prebuilt` nainstalovaný jako lokální závislost na projektu:
 
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
-* Assuming you have `electron` or `electron-prebuilt` installed globally:
+* Předpokládejme, že máte `elektronický` nebo `elektron-prebuilt` nainstalovaný globálně:
 
   ```sh
   electron --interactive
   ```
 
-This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+To vytváří REPL pouze pro hlavní proces. Chcete-li získat REPL pro procesy vykreslování, můžete použít kartu Dev Tools.
 
-**Note:** `electron --interactive` is not available on Windows.
+**Poznámka:** `electron --interactive` není v systému Windows k dispozici.
 
-More information can be found in the [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html).
+Více informací naleznete v [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html).

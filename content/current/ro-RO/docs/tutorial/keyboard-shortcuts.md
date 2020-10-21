@@ -1,23 +1,23 @@
 # Scurtături tastatură
 
-> Configure local and global keyboard shortcuts
+> Configurați scurtăturile locale și globale ale tastaturii
 
-## Local Shortcuts
+## Scurtături locale
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+Puteți utiliza modulul [Meniu](../api/menu.md) pentru a configura scurtăturile tastaturii care vor fi declanșate numai când aplicația este concentrată. Pentru a face acest lucru, specificați o proprietate de [`accelerator`] atunci când creați un [Element de meniu](../api/menu-item.md).
 
 ```js
 const { Menu, MenuItem } = require('electron')
-const menu = new Menu()
+meniul de const = meniu nou()
 
-menu.append(new MenuItem({
+ppend(new MenuItem({
   label: 'Print',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  click: () => { consolă. og ('timp pentru tipărire') }
 }))
 ```
 
-You can configure different key combinations based on the user's operating system.
+Puteți configura diferite combinații de chei pe baza sistemului de operare al utilizatorului.
 
 ```js
 {
@@ -25,9 +25,9 @@ You can configure different key combinations based on the user's operating syste
 }
 ```
 
-## Global Shortcuts
+## Comenzi rapide globale
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+Puteți utiliza modulul [GlobalShortcut](../api/global-shortcut.md) pentru a detecta evenimentele de la tastatură chiar și atunci când aplicația nu are focalizare tastatură.
 
 ```js
 const { app, globalShortcut } = require('electron')
@@ -39,42 +39,42 @@ app.whenReady().then(() => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Scurtături în fereastra Browser-ului
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+Dacă vrei să te ocupi de tastatură pentru o [Fereastră Browser](../api/browser-window.md), poți utiliza `tastatura` și `tastatura` a ascultătorilor pe obiectul fereastră în interiorul procesului de redare.
 
 ```js
-window.addEventListener('keyup', doSomething, true)
+window.addEventListener('keyup', doceva, adevărat)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Țineți cont de al treilea parametru `adevarat` ceea ce înseamnă că ascultătorul va primi întotdeauna apăsări cheie înaintea altor ascultători astfel încât aceștia nu pot avea `stopPropagation()` apelat pe ei.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+Evenimentul [`before-input-event`](../api/web-contents.md#event-before-input-event) este emis înainte de dispatching `keydown` and `keyup` events in the page. Poate fi folosit pentru a prinde și gestiona scurtături personalizate care nu sunt vizibile în meniu.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+Dacă nu vrei să faci analiza manuală a scurtăturilor există biblioteci care fac detectarea avansată a tastelor, cum ar fi [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('show shortcuts!') })
-Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
+Mousetrap.bind('?', () => { consolă. og('show shortcuts!') })
+Mousetrap.bind('esc', () => { consolă. og('escape') }, 'keyup')
 
-// combinations
-Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
+// combinații
+Mousetrap.bind('command+shift+k', () => { consolă. og('shift comandă k') })
 
-// map multiple combinations to the same callback
-Mousetrap.bind(['command+k', 'ctrl+k'], () => {
-  console.log('command k or control k')
+// mapează mai multe combinații la același callback
+Mousetrap. ind(['command+k', 'ctrl+k'], () => {
+  consolă. og('comandă sau control k')
 
-  // return false to prevent default behavior and stop event from bubbling
-  return false
+  // returnează fals pentru a preveni comportamentul implicit şi oprirea evenimentului de la bulă
+  returnează false
 })
 
-// gmail style sequences
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
+// secvenţe de stil gmail
+Mousetrap. ind('g i', () => { console.log('go to inbox') })
+Mousetrap. ind('* a', () => { console.log('select all') })
 
 // konami code!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
-  console.log('konami code')
+Mousetrap.bind('în sus în jos, la stânga stânga stânga stânga b o enter', () => {
+  console.log('cod konami')
 })
 ```

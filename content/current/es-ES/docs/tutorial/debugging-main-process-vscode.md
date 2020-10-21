@@ -1,6 +1,6 @@
 # Depurando el Proceso Principal en VSCode
 
-### 1. Open an Electron project in VSCode.
+### 1. Abrir un proyecto Electron en VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
@@ -32,6 +32,6 @@ $ code electron-quick-start
 
 ### 3. Depurar
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+Establece algunos puntos de interrupción en `main.js`, y comienza a depurar en la [Vista de depuración](https://code.visualstudio.com/docs/editor/debugging). Debería ser capaz de golpear los puntos de interrupción.
 
 Aquí hay un proyecto preconfigurado que puede descargar y depurar directamente en VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start

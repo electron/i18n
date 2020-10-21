@@ -210,17 +210,17 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## Problemas
 
-### gclient sync complains about rebase
+### gclient sync se queja sobre rebase
 
-If `gclient sync` is interrupted the git tree may be left in a bad state, leading to a cryptic message when running `gclient sync` in the future:
+Si `gclient sync` es interrumpido el arbol de git puede quedar en mal estado, lo que conduce a un mensaje críptico cuando se ejecuta `gclient sync` en el futuro:
 
 ```plaintext
-2> Conflict while rebasing this branch.
+2> Conflicto mietras se hace rebase de esta rama.
 2> Corrija el conflicto y ejecute gclient de nuevo.
 2> Consulte man git-rebase para más detalles.
 ```
 
-If there are no git conflicts or rebases in `src/electron`, you may need to abort a `git am` in `src`:
+Si no hay conflictos de git o rebases en `src/electron`, puede necesitar abortar un `git am` en `src`:
 
 ```sh
 $ cd ../

@@ -1,31 +1,31 @@
 ---
-title: 'Electron 2.0 and Beyond - Semantic Versioning'
-author: groundwater
+title: 'Electron 2.0 a Beyond - sémantické verze'
+author: podzemní vody
 date: '2017-12-06'
 ---
 
-A new major version of Electron is in the works, and with it some changes to our versioning strategy. As of version 2.0.0, Electron will strictly adhere to Semantic Versioning.
+Nová hlavní verze Electronu je v dílech a s ní některé změny naší strategie verzí. Od verze 2.0.0, Electron bude striktně dodržovat sémantické Versioning.
 
 ---
 
-This change means you'll see the major version bump more often, and it will usually be a major update to Chromium. Patch releases will also be more stable, as they will now only contain bug fixes with no new features.
+Tato změna znamená, že budete častěji vidět hlavní verzi a obvykle to bude hlavní aktualizace Chromium. Platební verze budou také stabilnější, protože nyní budou obsahovat pouze opravy chyb bez nových funkcí.
 
-**Major Version Increments**
+**Nárůsty hlavní verze**
 
-* Chromium version updates
-* Node.js major version updates
-* Electron breaking API changes
+* Aktualizace verze Chromium
+* Aktualizace hlavních verzí Node.js
+* Electron rozbití změn API
 
-**Minor Version Increments**
+**Drobné přírůstky verze**
 
-* Node.js minor version updates
-* Electron non-breaking API changes
+* Aktualizace menších verzí Node.js
+* Electron nerozbitné změny API
 
-**Patch Version Increments**
+**Přírůstky patch verze**
 
-* Node.js patch version updates
-* fix-related chromium patches
-* Electron bug fixes
+* Aktualizace novější verze Node.js
+* fixní chromozómové náplasti
+* Opravy chyb Electronu
 
 Because Electron's semver ranges will now be more meaningful, we recommend installing Electron using npm's default `--save-dev` flag, which will prefix your version with `^`, keeping you safely up to date with minor and patch updates:
 
@@ -33,6 +33,6 @@ Because Electron's semver ranges will now be more meaningful, we recommend insta
 npm install --save-dev electron
 ```
 
-For developers interested only in bug fixes, you should use the tilde semver prefix e.g. `~2.0.0`, which which will never introduce new features, only fixes to improve stability.
+Pro vývojáře, kteří se zajímají pouze o opravy chyb, byste měli použít prefix tilde semver např. `~2. .0`, který nikdy nezavede nové funkce, pouze opraví pro zlepšení stability.
 
-For more details, see [electronjs.org/docs/tutorial/electron-versioning](https://electronjs.org/docs/tutorial/electron-versioning).
+Více informací naleznete v [electronjs.org/docs/tutorial/electron-versioning](https://electronjs.org/docs/tutorial/electron-versioning).

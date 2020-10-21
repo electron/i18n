@@ -6,7 +6,7 @@
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
-For example:
+وعلى سبيل المثال:
 
 ```javascript
 const { session } = require('electron')

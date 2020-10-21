@@ -1,138 +1,138 @@
 ---
-title: 'Project of the Week: WebTorrent'
+title: 'Projekt týdne: WebTorrent'
 author:
   - feross
   - zeke
 date: '2017-03-14'
 ---
 
-This week we caught up with [@feross](https://github.com/feross) and [@dcposch](https://github.com/dcposch) to talk about WebTorrent, the web-powered torrent client that connects users together to form a distributed, decentralized browser-to-browser network.
+Tento týden jsme dohnali [@feross](https://github.com/feross) a [@dcposch](https://github.com/dcposch) a mluvili jsme o WebTorrent, webovým torrentovým klientem, který spojuje uživatele a vytváří distribuční, decentralizovanou síť prohlížeče.
 
 ---
 
-## What is WebTorrent?
+## Co je to WebTorrent?
 
-[WebTorrent](https://webtorrent.io) is the first torrent client that works in the browser. It's written completely in JavaScript and it can use WebRTC for peer-to-peer transport. No browser plugin, extension, or installation is required.
+[WebTorrent](https://webtorrent.io) je první torrent klient, který funguje v prohlížeči. Je napsáno zcela v JavaScriptu a může používat WebRTC pro peer-to-peer transport . Není vyžadován žádný zásuvný modul, rozšíření ani instalace.
 
-Using open web standards, WebTorrent connects website users together to form a distributed, decentralized browser-to-browser network for efficient file transfer.
+Používá otevřené webové standardy, WebTorrent spojuje uživatele webových stránek společně, aby vytvořil distribuovanou decentralizovanou síť prohlížeče pro efektivní přenos souborů.
 
-You can see a demo of WebTorrent in action here: [webtorrent.io](https://webtorrent.io/).
+Ukázka WebTorrentu můžete vidět zde: [webtorrent.io](https://webtorrent.io/).
 
 <a href="https://webtorrent.io/">
-  <img alt="webtorrent homepage" src="https://cloud.githubusercontent.com/assets/2289/23912149/1543d2ce-089c-11e7-8519-613740c82b47.jpg">
+  <img alt="webtorrent domovská stránka" src="https://cloud.githubusercontent.com/assets/2289/23912149/1543d2ce-089c-11e7-8519-613740c82b47.jpg">
 </a>
 
-## Why is this cool?
+## Proč je tato chladná?
 
-Imagine a video site like YouTube, but where visitors help to host the site's content. The more people that use a WebTorrent-powered website, the faster and more resilient it becomes.
+Představte si video stránky, jako je YouTube, ale kde návštěvníci pomáhají hostit obsah webu. Čím více lidí používá webovou stránku na WebTorrentu, tím rychleji a pružněji.
 
-Browser-to-browser communication cuts out the middle-man and lets people communicate on their own terms. No more client/server – just a network of peers, all equal. WebTorrent is the first step in the journey to re-decentralize the Web.
+Komunikace mezi prohlížeči snižuje středního člověka a umožňuje lidem komunikovat za vlastních podmínek. Už žádný klient/server – jen síť partnerů, to vše je rovné. WebTorrent je prvním krokem na cestě k redecentralizaci webu.
 
-## Where does Electron come into the picture?
+## Kde do obrázku přichází Electron?
 
-About one year ago, we decided to build [WebTorrent Desktop](https://webtorrent.io/desktop/), a version of WebTorrent that runs as a desktop app.
+Asi před rokem jsme se rozhodli vytvořit [WebTorrent Desktop](https://webtorrent.io/desktop/), verzi WebTorrentu, která běží jako desktopová aplikace.
 
-[![WebTorrent Desktop player window](https://cloud.githubusercontent.com/assets/2289/23912152/154aef0a-089c-11e7-8544-869b0cd642b1.jpg)](https://webtorrent.io/desktop/)
+[![Okno přehrávače WebTorrent](https://cloud.githubusercontent.com/assets/2289/23912152/154aef0a-089c-11e7-8544-869b0cd642b1.jpg)](https://webtorrent.io/desktop/)
 
-We created WebTorrent Desktop for three reasons:
+Vytvořili jsme WebTorrent Desktop ze tří důvodů:
 
-1. We wanted a clean, lightweight, ad-free, open source torrent app
-2. We wanted a torrent app with good streaming support
-3. We need a "hybrid client" that connects the BitTorrent and WebTorrent networks
+1. Chtěli jsme čistou, lehkou a bez reklam, open source torrent aplikaci
+2. Chtěli jsme torrent aplikace s dobrou podporou streamování
+3. Potřebujeme "hybridního klienta", který propojí sítě BitTorrent a WebTorrent
 
-## If we can already download torrents in my web browser, why a desktop app?
+## Pokud již můžeme stáhnout torrenty v mém webovém prohlížeči, proč je to desktopová aplikace?
 
-First, a bit of background on the design of WebTorrent.
+Za prvé, trochu pozadí na designu WebTorrent.
 
 <a href="https://webtorrent.io/desktop/">
-  <img alt="webtorrent desktop logo" src="https://cloud.githubusercontent.com/assets/2289/23912151/154657e2-089c-11e7-9889-6914ce71ebc9.png" width="200" align="right">
+  <img alt="logo plochy webtorrent" src="https://cloud.githubusercontent.com/assets/2289/23912151/154657e2-089c-11e7-9889-6914ce71ebc9.png" width="200" align="right">
 </a>
 
-In the early days, BitTorrent used TCP as its transport protocol. Later, uTP came along promising better performance and additional advantages over TCP. Every mainstream torrent client eventually adopted uTP, and today you can use BitTorrent over either protocol. The WebRTC protocol is the next logical step. It brings the promise of interoperability with web browsers – one giant P2P network made up of all desktop BitTorrent clients and millions of web browsers.
+BitTorrent použil v prvních dnech TCP jako přepravní protokol. Později uTP přinesl slibný lepší výkon a další výhody oproti TCP. Každý hlavní torrent klient nakonec přijal uTP a dnes můžete použít BitTorrent nad kterýmkoliv protokolem. Dalším logickým krokem je WebRTC protokol. Přináší příslib interoperability s webovými prohlížeči – jedna obrovská síť P2P tvořená všemi desktopovými klienty BitTorrent a miliony webových prohlížečů.
 
-“Web peers” (torrent peers that run in a web browser) make the BitTorrent network stronger by adding millions of new peers, and spreading BitTorrent to dozens of new use cases. WebTorrent follows the BitTorrent spec as closely as possible, to make it easy for existing BitTorrent clients to add support for WebTorrent.
+„Weboví klienti“ (torrentoví klienti, kteří provozují webový prohlížeč) posilují síť BitTorrent přidáním milionů nových klientů, a rozšíření BitTorrent na desítky nových případů použití. WebTorrent sleduje co nejblíže spec BitTorrentu a usnadňuje stávajícím BitTorrent přidávání podpory pro WebTorrent.
 
-Some torrent apps like [Vuze](https://www.vuze.com/) already support web peers, but we didn't want to wait around for the rest to add support. **So basically, WebTorrent Desktop was our way to speed up the adoption of the WebTorrent protocol.** By making an awesome torrent app that people really want to use, we increase the number of peers in the network that can share torrents with web peers (i.e. users on websites).
+Některé torrent aplikace jako [Vuze](https://www.vuze.com/) již podporují webové klienty, ale nechtěli jsme čekat na zbytek a podporu přidat. **Takže WebTorrent Desktop byl naší cestou, jak urychlit přijetí protokolu WebTorrent.** Vytvořením úžasné torrentové aplikace, kterou lidé opravdu chtějí používat, zvyšujeme počet klientů v síti, kteří mohou sdílet torrenty s webovými klienty (tj. . uživatelé na webových stránkách).
 
-## What are some interesting use cases for torrents beyond what people already know they can do?
+## Jaké jsou zajímavé případy použití torrentů nad rámec toho, co už lidé vědí, že mohou dělat?
 
-One of the most exciting uses for WebTorrent is peer-assisted delivery. Non-profit projects like [Wikipedia](https://www.wikipedia.org/) and the [Internet Archive](https://archive.org/) could reduce bandwidth and hosting costs by letting visitors chip in. Popular content can be served browser-to-browser, quickly and cheaply. Rarely-accessed content can be served reliably over HTTP from the origin server.
+Jedním z nejzajímavějších způsobů využití WebTorrentu je peer-aided. Neziskové projekty jako [Wikipedia](https://www.wikipedia.org/) a [internetový archiv](https://archive.org/) by mohly snížit náklady na připojení a hostování tím, že by se návštěvníkům nechaly čip. Oblíbený obsah může být podáván v prohlížeči do prohlížeče, rychle a levně. Naprosto přístupný obsah lze spolehlivě obsluhovat přes HTTP ze serveru původu.
 
-The Internet Archive actually already updated their torrent files so they work great with WebTorrent. So if you want to embed Internet Archive content on your site, you can do it in a way that reduces hosting costs for the Archive, allowing them to devote more money to actually archiving the web!
+Internetový archiv již aktualizoval své torrent soubory, takže s WebTorrent fungují skvěle. Takže pokud chcete vložit internetový archiv na vaše stránky, můžete to udělat způsobem, který sníží náklady na hostování archivu, umožňují jim vynakládat více peněz na skutečnou archivaci webu!
 
-There are also exciting business use cases, from CDNs to app delivery over P2P.
+Existují také vzrušující případy používání podniků, od CDN po doručení aplikace přes P2P.
 
-## What are some of your favorite projects that use WebTorrent?
+## Jaké jsou některé z vašich oblíbených projektů, které používají WebTorrent?
 
-![gaia app screenshot](https://cloud.githubusercontent.com/assets/2289/23912148/154392c8-089c-11e7-88a8-3d4bcb1d2a94.jpg)
+![screenshot aplikace gaia](https://cloud.githubusercontent.com/assets/2289/23912148/154392c8-089c-11e7-88a8-3d4bcb1d2a94.jpg)
 
-The coolest thing built with WebTorrent, hands down, is probably [Gaia 3D Star Map](http://charliehoey.com/threejs-demos/gaia_dr1.html). It's a slick 3D interactive simulation of the Milky Way. The data loads from a torrent, right in your browser. It's awe-inspiring to fly through our star system and realize just how little we humans are compared to the vastness of our universe.
+Nejúžasnější věc postavená s WebTorrent, ruce dolů, je pravděpodobně [Gaia 3D Star Map](http://charliehoey.com/threejs-demos/gaia_dr1.html). Je to úchvatná 3D interaktivní simulace Mléčné cesty. Data se načítají z torrentu, přímo ve vašem prohlížeči. Je inspirativní létat skrze náš hvězdný systém a uvědomit si, jak málo jsme my lidé porovnáni s obrovským množstvím našeho vesmíru.
 
-You can read about how this was made in [Torrenting The Galaxy](https://medium.com/@flimshaw/torrenting-the-galaxy-extracting-2-million-3d-stars-from-180gb-of-csvs-457ff70c0f93), a blog post where the author, Charlie Hoey, explains how he built the star map with WebGL and WebTorrent.
+Přečtěte si, jak to bylo provedeno v [Torrenting The Galaxy](https://medium.com/@flimshaw/torrenting-the-galaxy-extracting-2-million-3d-stars-from-180gb-of-csvs-457ff70c0f93), blogový příspěvek, kde autor, Charlie Hoey, vysvětluje, jak postavil hvězdnou mapu s WebGL a WebTorrent.
 
 <a href="https://brave.com/">
-  <img alt="brave logo" src="https://cloud.githubusercontent.com/assets/2289/23912147/1542ad4a-089c-11e7-8106-15c8e34298a9.png" width="150" align="left">
+  <img alt="statkové logo" src="https://cloud.githubusercontent.com/assets/2289/23912147/1542ad4a-089c-11e7-8106-15c8e34298a9.png" width="150" align="left">
 </a>
 
-We're also huge fans of [Brave](https://brave.com/). Brave is a browser that automatically blocks ads and trackers to make the web faster and safer. Brave recently added torrent support, so you can [view traditional torrents without using a separate app](https://torrentfreak.com/brave-a-privacy-focused-browser-with-built-in-torrent-streaming-170219/). That feature is powered by WebTorrent.
+Jsme také velcí fanoušci [Brave](https://brave.com/). Hroba je prohlížeč, který automaticky blokuje reklamy a sledovače, aby byl web rychlejší a bezpečnější. Hrave nedávno přidala podporu torrentu, takže můžete [zobrazit tradiční torrenty bez použití samostatné aplikace](https://torrentfreak.com/brave-a-privacy-focused-browser-with-built-in-torrent-streaming-170219/). Tato funkce je poháněna WebTorrent.
 
-So, just like how most browsers can render PDF files, Brave can render magnet links and torrent files. They're just another type of content that the browser natively supports.
+Takže, stejně jako většina prohlížečů může vykreslit PDF soubory, Brave může vykreslit odkazy magnetu a torrent souborů. Jsou jen dalším druhem obsahu, který prohlížeč nativně podporuje.
 
-One of the co-founders of Brave is actually Brendan Eich, the creator of JavaScript, the language we wrote WebTorrent in, so we think it's pretty cool that Brave chose to integrate WebTorrent.
+Jedním ze zakladatelů Brave je ve skutečnosti Brendan Eich, tvůrce JavaScript, jazyk, ve kterém jsme napsali WebTorrent, takže si myslíme, že je docela skvělé, že Brave se rozhodl integrovat WebTorrent.
 
-## Why did you choose to build WebTorrent Desktop on Electron?
+## Proč jste se rozhodli vytvořit WebTorrent Desktop na Electronu?
 
 <a href="https://webtorrent.io/desktop/">
-  <img alt="WebTorrent Desktop main window" src="https://cloud.githubusercontent.com/assets/2289/23912150/15444542-089c-11e7-91ab-7fe3f1e5ee43.jpg" align="right" width="450">
+  <img alt="Okno plochy WebTorrent" src="https://cloud.githubusercontent.com/assets/2289/23912150/15444542-089c-11e7-91ab-7fe3f1e5ee43.jpg" align="right" width="450">
 </a>
 
-There is a meme that Electron apps are "bloated" because they include the entire Chrome content module in every app. In some cases, this is partially true (an Electron app installer is usually ~40MB, where an OS-specific app installer is usually ~20MB).
+Existuje meme že Electron aplikace jsou "bloated", protože obsahují celý modul obsahu Chrome v každé aplikaci. V některých případech to platí částečně (instalační program Electron je obvykle ~40 MB, kde instalátor pro konkrétní operační systém je obvykle ~20 MB).
 
-However, in the case of WebTorrent Desktop, we use nearly every Electron feature, and many dozens of Chrome features in the course of normal operation. If we wanted to implement these features from scratch for each platform, it would have taken months or years longer to build our app, or we would have only been able to release for a single platform.
+Nicméně v případě WebTorrent Desktopu používáme téměř každou funkci Electron a mnoho desítek funkcí Chrome v průběhu běžného provozu. Pokud jsme chtěli tyto funkce implementovat od nuly pro každou platformu, Vytváření naší aplikace by trvalo měsíce nebo roky déle, nebo bychom mohli uvolnit pouze pro jedinou platformu.
 
-Just to get an idea, we use Electron's [dock integration](https://electronjs.org/docs/api/app/#appdockbouncetype-macos) (to show download progress), [menu bar integration](https://electronjs.org/docs/api/menu) (to run in the background), [protocol handler registration](https://electronjs.org/docs/api/app/#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) (to open magnet links), [power save blocker](https://electronjs.org/docs/api/power-save-blocker/) (to prevent sleep during video playback), and [automatic updater](https://electronjs.org/docs/api/auto-updater). As for Chrome features, we use plenty: the `<video>` tag (to play many different video formats), the `<track>` tag (for closed captions support), drag-and-drop support, and WebRTC (which is non-trivial to use in a native app).
+Pro získání nápadu použijeme [integraci doku Electronu](https://electronjs.org/docs/api/app/#appdockbouncetype-macos) (abychom ukázali průběh stahování), [integrace panelu nabídek](https://electronjs.org/docs/api/menu) (pro běh na pozadí), [registrace zpracovatele protokolu](https://electronjs.org/docs/api/app/#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) (pro otevření magnetických vazeb), [vypínat blokátor ušetříte](https://electronjs.org/docs/api/power-save-blocker/) (aby se zabránilo spánku při přehrávání videa) a [automatický aktualizátor](https://electronjs.org/docs/api/auto-updater). Pokud jde o funkce Chrome, používáme hoj: značku `<video>` (pro přehrávání mnoha různých formátů videa), značka `<track>` (pro podporu uzavřených titulků), Přetáhněte podporu a WebRTC (která není triviální k použití v nativní aplikaci).
 
-Not to mention: our torrent engine is written in JavaScript and assumes the existence of lots of Node APIs, but especially `require('net')` and `require('dgram')` for TCP and UDP socket support.
+Ne zmínit: náš torrent engine je napsán v JavaScriptu a předpokládá existenci spousty Node API, ale zejména `vyžadujte ('net')` a `vyžadováno ('dgram')` pro podporu TCP a UDP socketu.
 
-Basically, Electron is just what we needed and had the exact set of features we needed to ship a solid, polished app in record time.
+Electron je v podstatě to, co jsme potřebovali, a měl přesnou sadu funkcí, které jsme potřebovali k odeslání pevné a leštěné aplikace v rekordním čase.
 
-## What are your favorite things about Electron?
+## Co jsou vaše oblíbené věci o Electronu?
 
-The WebTorrent library has been in development as an open source side project for two years. **We made WebTorrent Desktop in four weeks.** Electron is the primary reason that we were able to build and ship our app so quickly.
+Knihovna WebTorrent je ve vývoji jako open source projekt po dobu dvou let. **Vytvořili jsme WebTorrent plochu za čtyři týdny.** Electron je hlavním důvodem, proč jsme byli schopni vybudovat a odeslat naši aplikaci tak rychle.
 
-Just as Node.js made server programming accessible to a generation of jQuery-using front-end programmers, Electron makes native app development accessible to anyone familiar with Web or Node.js development. Electron is extremely empowering.
+Stejně jako Node. s zpřístupnil programování serveru generaci front-endových programátorů, kteří používají jQuery, Electron zpřístupňuje vývoj nativní aplikace komukoliv, kdo je obeznámen s webem nebo Nodem. s vývoj. Elektron je extrémně posilující.
 
-## Do the website and the Desktop client share code?
+## Chcete sdílet webové stránky a kód pro desktopový klient?
 
-Yes, the [`webtorrent` npm package](https://npmjs.com/package/webtorrent) works in Node.js, in the browser, and in Electron. The exact same code can run in all environments – this is the beauty of JavaScript. It's today's universal runtime. Java Applets promised "Write Once, Run Anywhere" apps, but that vision never really materialized for a number of reasons. Electron, more than any other platform, actually gets pretty darn close to that ideal.
+Ano, [`webtorrent` npm balíček](https://npmjs.com/package/webtorrent) funguje v Node.js, v prohlížeči a v Electron. Přesně stejný kód může běžet ve všech prostředích - to je krása JavaScript. Je to dnešní univerzální runtime. Java Applets přislíbil aplikace "Write Once, Run anywhere", ale tato vize se nikdy z mnoha důvodů neuskutečnila. Elektron, více než kterákoliv jiná platforma, se ve skutečnosti docela temný blíží tomuto ideálu.
 
-## What are some challenges you've faced while building WebTorrent?
+## Jaké jsou některé výzvy, kterým jste čelili při budování WebTorrentu?
 
-In early versions of the app, we struggled to make the UI performant. We put the torrent engine in the same renderer process that draws the main app window which, predictably, led to slowness anytime there was intense CPU activity from the torrent engine (like verifying the torrent pieces received from peers).
+V raných verzích aplikace jsme se snažili učinit UI představitelem. Vložili jsme torrent do stejného renderovacího procesu, který vykresluje hlavní okno aplikace, které, jak se dá předvídat, vedlo k pomalosti vždy, když došlo k intenzivní aktivitě CPU z torrentového motoru (jako je ověření kousků torrentu obdržených od klientů).
 
-We fixed this by moving the torrent engine to a second, invisible renderer process that we communicate with over [IPC](https://electronjs.org/docs/api/ipc-main/). This way, if that process briefly uses a lot of CPU, the UI thread will be unaffected. Buttery-smooth scrolling and animations are so satisfying.
+Opravili jsme to přesunutím torrentu do druhého, neviditelného procesu renderu, který komunikujeme s více než [IPC](https://electronjs.org/docs/api/ipc-main/). Tímto způsobem, pokud tento proces krátce používá spoustu procesoru, bude uživatelské rozhraní nedotčeno. Máslo hladké rolování a animace jsou tak uspokojivé.
 
-Note: we had to put the torrent engine in a renderer process, instead of a "main" process, because we need access to WebRTC (which is only available in the renderer.)
+Poznámka: museli jsme vložit torrentový engine do procesu renderer místo "hlavního" procesu, protože potřebujeme přístup k WebRTC (který je k dispozici pouze v renderru)
 
-## In what areas should Electron be improved?
+## V jakých oblastech by měl být Electron vylepšen?
 
-One thing we'd love to see is better documentation about how to build and ship production-ready apps, especially around tricky subjects like code signing and auto-updating. We had to learn about best practices by digging into source code and asking around on Twitter!
+Jedna věc, kterou bychom rádi viděli, je lepší dokumentace o tom, jak stavět a dodávat aplikace, které jsou připraveny na výrobu, zejména kolem složitých předmětů, jako je podepisování kódu a automatická aktualizace. Museli jsme se dozvědět o osvědčených postupech tím, že jsme se vrhli do zdrojového kódu a ptali se na Twitteru!
 
-## Is WebTorrent Desktop done? If not, what's coming next?
+## Je WebTorrent hotov? Pokud ne, co přijde dál?
 
-We think the current version of WebTorrent Desktop is excellent, but there's always room for improvement. We're currently working on improving polish, performance, subtitle support, and video codec support.
+Myslíme si, že aktuální verze WebTorrent Desktop je vynikající, ale vždy je prostor pro zlepšení. V současné době pracujeme na vylepšení podpory leštění, výkonu, podtitulků a video kodeku.
 
-If you're interested in getting involved in the project, check out [our GitHub page](https://github.com/feross/webtorrent-desktop)!
+Pokud máte zájem zapojit se do projektu, podívejte se na [naši GitHub stránku](https://github.com/feross/webtorrent-desktop)!
 
-## Any Electron development tips that might be useful to other developers?
+## Jakékoliv tipy pro vývoj Electronu, které by mohly být užitečné pro ostatní vývojáře?
 
-[Feross](http://feross.org/), one of the WebTorrent Desktop contributors, recently gave a talk *"Real world Electron: Building Cross-platform desktop apps with JavaScript"* at NodeConf Argentina that contains useful tips for releasing a polished Electron app. The talk is especially useful if you're at the stage where you have a basic working app and you're trying to take it to the next level of polish and professionalism.
+[Feross](http://feross.org/), jeden z přispěvatelů WebTorrent Desktop nedávno přednesl hovor *"Real world Electron: Building Cross-platform-desktop apps with JavaScript"* at NodeConf Argentina, který obsahuje užitečné tipy pro vydání leštěné Electron aplikace. Hovořit je zvláště užitečné, pokud jste ve stadiu, kde máte základní pracovní aplikaci a snažíte se ji přesunout na další úroveň leštění a profesionality.
 
-[Watch here](https://www.youtube.com/watch?v=YLExGgEnbFY): <iframe width="100%" height="360" src="https://www.youtube.com/embed/YLExGgEnbFY?rel=0" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
+[Sledujte zde](https://www.youtube.com/watch?v=YLExGgEnbFY): <iframe width="100%" height="360" src="https://www.youtube.com/embed/YLExGgEnbFY?rel=0" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-[Slides here](https://speakerdeck.com/feross/real-world-electron):
+[Slides zde](https://speakerdeck.com/feross/real-world-electron):
 
 <script async class="speakerdeck-embed" data-id="5aae08bb7c5b4dbd89060cff11bb1300" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 
-[DC](https://dcpos.ch/), another WebTorrent contributor, wrote [a checklist of things you can do](https://blog.dcpos.ch/how-to-make-your-electron-app-sexy) to make your app feel polished and native. It comes with code examples and covers things like macOS dock integration, drag-and-drop, desktop notifications, and making sure your app loads quickly.
+[DC](https://dcpos.ch/), další přispěvatel WebTorrentu napsal [kontrolní seznam věcí, které můžete udělat](https://blog.dcpos.ch/how-to-make-your-electron-app-sexy) pro to, aby se vaše aplikace cítila leštěná a domorodá. Obsahuje příklady kódů a pokrývá věci, jako je integrace macOS doků, přetažení a shození, stolní oznámení a zkontrolujte, zda se aplikace rychle načítá.
 

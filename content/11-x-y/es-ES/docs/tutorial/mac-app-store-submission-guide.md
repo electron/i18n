@@ -1,6 +1,6 @@
 # Guía de publicación en la Mac App Store
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+Como v0.34.0, Electron permite enviar aplicaciones empaquetadas a la Mac App Store (MAS). Esta guía proporciona información sobre: cómo enviar tu aplicación y las limitaciones de la compilación de MAS.
 
 **Note:** Para enviar un aplicación a la App Store de Mac es necesario inscribirse en el [Apple Developer Program][developer-program], el cual cuesta dinero.
 
@@ -70,10 +70,10 @@ Luego, necesita preparar 3 archivos con los derechos.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//ES" "http://www.apple.com/DTDs/PropertyList-1.0. td">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.app-sandbox</key>
+    <key>com.apple.security. pp-sandbox</key>
     <true/>
   </dict>
 </plist>
@@ -122,7 +122,7 @@ Apart from manually signing your app, you can also choose to use the [electron-o
 
 #### Firmar módulos nativos
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Los módulos nativos utilizados en tu aplicación también necesitan ser firmados. Si utiliza electron-osx-sign, asegúrese de incluir la ruta a los binarios construidos en la lista de argumentos :
 
 ```sh
 Electron-osx-signo YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule

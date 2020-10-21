@@ -1,49 +1,49 @@
 ---
-title: Apple Silicon Support
+title: Suport Apple Silicon
 author: MarshallOfSound
 date: '2020-10-15'
 ---
 
-With Apple Silicon hardware being released later this year, what does the path look like for you to get your Electron app running on the new hardware?
+Cu hardware Apple Silicon lansat mai târziu în acest an, cum arată calea pentru tine pentru a face aplicația ta Electron să ruleze pe noul hardware?
 
 ---
 
-With the release of Electron 11.0.0-beta.1, the Electron team is now shipping builds of Electron that run on the new Apple Silicon hardware that Apple plans on shipping later this year. You can grab the latest beta with `npm install electron@beta` or download it directly from our [releases website](https://electronjs.org/releases/stable).
+Cu eliberarea de Electron 11,0.0-beta. , echipa Electron este acum construită de Electron care rulează pe noul hardware Apple Silicon pe care Apple plănuiește să îl transporte mai târziu în acest an. Poți apuca cea mai recentă versiune beta cu `npm instalați electron@beta` sau să o descărcați direct de pe site-ul nostru [lansează](https://electronjs.org/releases/stable).
 
-## How does it work?
+## Cum funcționează?
 
-As of Electron 11, we will be shipping separate versions of Electron for Intel Macs and Apple Silicon Macs. Prior to this change, we were already shipping two artifacts, `darwin-x64` and `mas-x64`, with the latter being for Mac App Store compatibility usage. We are now shipping another two artifacts, `darwin-arm64` and `mas-arm64`, which are the Apple Silicon equivalents of the aforementioned artifacts.
+Începând cu Electron 11, vom expedia versiuni separate de Electron pentru Intel Macs și Apple Silicon Macs. Înainte de această schimbare, deja livram două artefacte, `darwin-x64` și `mas-x64`, cu cea din urmă utilizare pentru utilizarea compatibilității Mac App Store. Acum livrăm alte două artefacte, `darwin-arm64` și `mas-arm64`, care sunt echivalentele Apple Silicon ale artefactelor menționate anterior.
 
-## What do I need to do?
+## Ce trebuie să fac?
 
-You will need to ship two versions of your app: one for x64 (Intel Mac) and one for arm64 (Apple Silicon). The good news is that [`electron-packager`](https://github.com/electron/electron-packager/), [`electron-rebuild`](https://github.com/electron/electron-rebuild/) and [`electron-forge`](https://github.com/electron-userland/electron-forge/) already support targeting the `arm64` architecture. As long as you're running the latest versions of those packages, your app should work flawlessly once you update the target architecture to `arm64`.
+Va trebui să expediați două versiuni ale aplicației: una pentru x64 (Intel Mac) și una pentru arm64 (Apple Silicon). Vestea bună este că [`electron-packer`](https://github.com/electron/electron-packager/), [`Electron-rebuild`](https://github.com/electron/electron-rebuild/) și [`electron-forge`](https://github.com/electron-userland/electron-forge/) suportă deja țintind arhitectura `arm64`. Atâta timp cât rulați ultimele versiuni ale acestor pachete, aplicația ta ar trebui să funcționeze fără greșeală odată ce actualizezi arhitectura țintă la `arm64`.
 
-In the future, we will release a package that allows you to "merge" your `arm64` and `x64` apps into a single universal binary, but it's worth noting that this binary would be _huge_ and probably isn't ideal for shipping to users.
+În viitor, vom lansa un pachet care vă permite să "fuzionaţi" aplicaţiile dvs. `arm64` şi `x64` într-un singur binar universal, dar merită menţionat că acest binar ar fi _imens_ şi probabil nu este ideal pentru livrarea către utilizatori.
 
-## Potential Issues
+## Probleme potențiale
 
-### Native Modules
+### Module native
 
-As you are targeting a new architecture, you'll need to update several dependencies which may cause build issues. The minimum version of certain dependencies are included below for your reference.
+Pe măsură ce țintești o nouă arhitectură, va trebui să actualizezi mai multe dependențe care pot cauza probleme de construcție. Versiunea minimă a anumitor dependențe este inclusă mai jos pentru referința dvs.
 
-| Dependency          | Version Requirement |
-| ------------------- | ------------------- |
-| Xcode               | `>=12.0.0`       |
-| `node-gyp`          | `>=7.1.0`        |
-| `electron-rebuild`  | `>=1.12.0`       |
-| `electron-packager` | `>=15.1.0`       |
+| Dependenţă                  | Cerința Versiunii |
+| --------------------------- | ----------------- |
+| Xcode                       | `>=12.0.0`     |
+| `ciupă`                     | `>=7.1.0`      |
+| `reconstruire de electroni` | `>=1.12.0`     |
+| `ambalator de electroni`    | `>=15.1.0`     |
 
-As a result of these dependency version requirements, you may have to fix/update certain native modules.  One thing of note is that the Xcode upgrade will introduce a new version of the macOS SDK, which may cause build failures for your native modules.
+Ca urmare a acestor cerințe de versiune de dependență, poate fi necesar să reparați/actualizați anumite module native.  Un lucru de notat este că versiunea Xcode va introduce o nouă versiune a macOS SDK, care poate cauza erori de construire pentru modulele tale native.
 
 
-## How do I test it?
+## Cum testez asta?
 
-Currently, Apple Silicon applications only run on Apple Silicon hardware, which isn't commercially available at the time of writing this blog post. If you have a [Developer Transition Kit](https://developer.apple.com/programs/universal/), you can test your application on that. Otherwise, you'll have to wait for the release of production Apple Silicon hardware to test if your application works.
+În prezent, aplicațiile Apple Silicon rulează numai pe dispozitivul Apple Silicon hardware, care nu este disponibil în scop comercial la momentul scrierii acestui post de blog. Dacă aveți un [Kit de tranziție pentru dezvoltatori](https://developer.apple.com/programs/universal/), puteți testa aplicația dvs. pe acest lucru. În caz contrar, va trebui să aștepți ca aplicația ta să funcționeze pentru producția de hardware Apple Silicon pentru a testa dacă funcționează.
 
-## What about Rosetta 2?
+## Ce se întâmplă cu Rosetta 2?
 
-Rosetta 2 is Apple's latest iteration of their [Rosetta](https://en.wikipedia.org/wiki/Rosetta_(software)) technology, which allows you to run x64 Intel applications on their new arm64 Apple Silicon hardware. Although we believe that x64 Electron apps will run under Rosetta 2, there are some important things to note (and reasons why you should ship a native arm64 binary).
+Rosetta 2 este cea mai recentă iterație a tehnologiei lor [Rosetta](https://en.wikipedia.org/wiki/Rosetta_(software)) , care vă permite să rulați aplicații x64 Intel pe noua lor aplicație arm64 Apple Silicon hardware. Deși credem că x64 de aplicații Electron vor rula sub Rosetta 2, sunt câteva lucruri importante de luat în considerare (şi motivele pentru care ar trebui să livraţi un binar nativ arm64).
 
-* Your app's performance will be significantly degraded. Electron / V8 uses [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) compilation for JavaScript, and due to how Rosetta works, you will effectively be running JIT twice (once in V8 and once in Rosetta).
-* You lose the benefit of new technology in Apple Silicon, such as the increased memory page size.
-* Did we mention that the performance will be **significantly** degraded?
+* Performanța aplicației tale va fi degradată semnificativ. Electron / V8 folosește compilația [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) pentru JavaScript, și datorită modului în care funcționează Rosetta, veţi rula JIT de două ori (o dată în V8 şi o dată în Rosetta).
+* Pierzi beneficiul noii tehnologii în Apple Silicon, cum ar fi dimensiunea mărită a paginilor de memorie.
+* Am menţionat că performanţa va fi **semnificativ** degradată?

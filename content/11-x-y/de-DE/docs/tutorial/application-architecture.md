@@ -20,7 +20,7 @@ Auf Webseiten ist das Aufrufen von APIs, die auf native GUI-Elemente zugreifen, 
 
 > #### Anmerkung: Kommunikation zwischen Prozessen
 > 
-> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages][share-data].
+> In Electron, Kommunikation zwischen Hauptprozess- und Renderer-Prozesse, wird über die [`ipcRenderer`](../api/ipc-renderer.md) und [`ipcMain`](../api/ipc-main.md) Module durchgeführt. Es gibt auch einen FAQ-Eintrag auf [wie Daten zwischen Webseiten geteilt werden können][share-data].
 
 
 ## Benutzung der Electron's APIs
@@ -43,23 +43,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
+Da die Kommunikation zwischen den Prozessen möglich ist, kann ein Renderer-Prozess den Hauptprozess aufrufen, um Aufgaben über IPC auszuführen.
 
 ```javascript
-// In the main process:
+// Im Hauptprozess:
 const { ipcMain } = require('electron')
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do something on behalf of the renderer ...
+ipcMain. andle('perform-action', (event, ...args) => {
+  // ... etwas für den Renderer tun ...
 })
 
-// In the renderer process:
+// Im Renderer-Prozess:
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('perform-action', ...args)
 ```
 
-Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
+Beachten Sie, dass Code im Renderer möglicherweise nicht vertrauenswürdig ist, also ist es wichtig, dass die wichtigsten Prozessanfragen, die von Renderer kommen, sorgfältig prüft insbesondere, wenn sie Inhalte Dritter beherbergen.
 
 ## Node.js APIs verwenden
 

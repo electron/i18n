@@ -1,25 +1,25 @@
 ---
-title: Node.js Native Addons and Electron 5.0
+title: Complementos nativos de Node.js y Electron 5.0
 author: BinaryMuse
 date: '01-02-2019'
 ---
 
-If you're having trouble using a native Node.js addon with Electron 5.0, there's a chance it needs to be updated to work with the most recent version of V8.
+Si tiene problemas al usar un complemento nativo de Node.js con Electron 5. , hay una posibilidad de que necesite ser actualizado para trabajar con la versión más reciente de V8.
 
 ---
 
-## Goodbye `v8::Handle`, Hello `v8::Local`
+## Budbye `v8::Maneja`, Hola `v8::Local`
 
-In 2014, the V8 team deprecated `v8::Handle` in favor of `v8::Local` for local handles. Electron 5.0 includes a version of V8 that has finally removed `v8::Handle` for good, and native Node.js addons that still use it will need to be updated before they can be used with Electron 5.0.
+En 2014, el equipo de V8 desaprobado `v8::Handle` a favor de `v8::Local` para asas locales. Electron 5.0 incluye una versión de V8 que finalmente ha eliminado `v8::Handle` para el bien y Node nativo. s addons que aún lo usen tendrán que ser actualizados antes de que puedan ser usados con Electron 5.0.
 
-The required code change is minimal, but *every* native Node module that still uses `v8::Handle` will fail to build with Electron 5.0 and will need to be modified. The good news is that Node.js v12 will also include this V8 change, so any modules that use `v8::Handle` will need to be updated *anyway* to work with the upcoming version of Node.
+El cambio de código requerido es mínimo, pero *cada* módulo nativo de nodo que todavía usa `v8::Handle` fallará en compilar con Electron 5. y tendrá que ser modificado. La buena noticia es ese Nodo. s v12 también incluirá este cambio de V8, por lo que cualquier módulo que use `v8::Handle` tendrá que actualizarse *de todos modos* para trabajar con la próxima versión del Nodo.
 
-## I maintain a native addon, how can I help?
+## Mantengo un complemento nativo, ¿cómo puedo ayudar?
 
-If you maintain a native addon for Node.js, ensure you replace all occurrences of `v8::Handle` with `v8::Local`. The former was just an alias of the latter, so no other changes need to be made to address this specific issue.
+Si mantiene un complemento nativo para Node.js, asegúrese de reemplazar todas las ocurrencias de `v8::Handle` por `v8::Local`. La primera era sólo un alias de la segunda, por lo que no es necesario hacer otros cambios para abordar esta cuestión específica.
 
-You may also be interested in looking into [N-API](https://nodejs.org/api/n-api.html), which is maintained separately from V8 as a part of Node.js itself, and aims to insulate native addons from changes in the underlying JavaScript engine. You can find more information [in the N-API documentation on the Node.js website](https://nodejs.org/api/n-api.html#n_api_n_api).
+También puede estar interesado en ver [N-API](https://nodejs.org/api/n-api.html), que se mantiene por separado de V8 como parte de Node. , y tiene como objetivo aislar los complementos nativos de los cambios en el motor JavaScript subyacente. Puede encontrar más información [en la documentación de N-API en el sitio web de Node.js](https://nodejs.org/api/n-api.html#n_api_n_api).
 
-## Help! I use a native addon in my app and it won't work!
+## ¡Ayuda! ¡Utilizo un complemento nativo en mi aplicación y no funcionará!
 
-If you're consuming a native addon for Node.js in your app and the native addon will not build because of this issue, check with the author of the addon to see if they've released a new version that fixes the problem. If not, reaching out to the author (or [opening a Pull Request!](https://help.github.com/articles/about-pull-requests/)) is probably your best bet.
+Si estás consumiendo un complemento nativo para Node. s en tu aplicación y el complemento nativo no se construirá debido a este problema, compruebe con el autor del complemento para ver si han liberado una nueva versión que corrige el problema. Si no, puedes apostar mejor al autor (o [abrir una Pull Request!](https://help.github.com/articles/about-pull-requests/)).

@@ -1,38 +1,38 @@
 ---
-title: 'Electron 2.0 and Beyond - Semantic Versioning'
-author: groundwater
+title: 'Electron 2.0 e além - Versionamento Semântico'
+author: águas subterrâneas
 date: '2017-12-06'
 ---
 
-A new major version of Electron is in the works, and with it some changes to our versioning strategy. As of version 2.0.0, Electron will strictly adhere to Semantic Versioning.
+Uma nova versão principal do Electron está em funcionamento, e com isso algumas mudanças na nossa estratégia de versionamento. A partir da versão 2.0.0, o Electron obedecerá estritamente à versão Semântica.
 
 ---
 
-This change means you'll see the major version bump more often, and it will usually be a major update to Chromium. Patch releases will also be more stable, as they will now only contain bug fixes with no new features.
+Esta mudança significa que você verá a versão principal explodir com mais frequência, e normalmente será uma grande atualização para o Chromium. Versões de atualização também serão mais estáveis, uma vez que agora só conterão correções de bugs sem novas funcionalidades.
 
-**Major Version Increments**
+**Incrementos maiores de versão**
 
-* Chromium version updates
-* Node.js major version updates
-* Electron breaking API changes
+* Atualizações da versão do Chromium
+* Atualizações principais da versão do Node.js
+* Alterações na API do Electron
 
-**Minor Version Increments**
+**Incrementos de versão secundária**
 
-* Node.js minor version updates
-* Electron non-breaking API changes
+* Atualizações de versão menor do Node.js
+* Alterações na API do Electron
 
-**Patch Version Increments**
+**Incrementos da versão de correção**
 
-* Node.js patch version updates
-* fix-related chromium patches
-* Electron bug fixes
+* Atualizações da versão do Node.js patch
+* correção de crómio
+* Correções de bugs do Electron
 
-Because Electron's semver ranges will now be more meaningful, we recommend installing Electron using npm's default `--save-dev` flag, which will prefix your version with `^`, keeping you safely up to date with minor and patch updates:
+Como os intervalos semver do Electron agora serão mais significativos, recomendamos instalar o Electron usando o padrão do npm `--save-dev` bandeira, que irá prefixar sua versão com `^`, mantendo-o atualizado com segurança com atualizações menores e corretas :
 
 ```sh
 npm install --save-dev electron
 ```
 
-For developers interested only in bug fixes, you should use the tilde semver prefix e.g. `~2.0.0`, which which will never introduce new features, only fixes to improve stability.
+Para desenvolvedores interessados apenas em correções de erros, você deve usar o prefixo semver do tilde, por exemplo, `~2. .0`, que nunca irá introduzir novos recursos, apenas corrige para melhorar a estabilidade.
 
-For more details, see [electronjs.org/docs/tutorial/electron-versioning](https://electronjs.org/docs/tutorial/electron-versioning).
+Para obter mais detalhes, consulte [electronjs.org/docs/tutorial/electron-versioning](https://electronjs.org/docs/tutorial/electron-versioning).

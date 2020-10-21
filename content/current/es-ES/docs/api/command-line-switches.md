@@ -178,7 +178,7 @@ Force using integrated GPU when there are multiple GPUs available.
 
 ## Node.js Flags
 
-Electron supports some of the [CLI flags](https://nodejs.org/api/cli.html) supported by Node.js.
+Electron soporta algunas de las [CLI flags](https://nodejs.org/api/cli.html) soportadas por Node.js.
 
 **Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
 
@@ -200,7 +200,7 @@ Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
 V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
 
-See the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for more details.
+Vea la guía de [Debugging the Main Process](../tutorial/debugging-main-process.md) para más detalles.
 
 Aliased to `--debug[=[host:]port`.
 

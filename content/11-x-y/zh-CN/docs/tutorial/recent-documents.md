@@ -32,11 +32,11 @@ const { app } = require('electron')app.clearRecentDocuments', () = { ()
 
 ## macOS 注意事项
 
-### Adding the Recent Documents list to the application menu:
+### 将最近的文档列表添加到应用程序菜单：
 
-![macOS Recent Documents menu item][6]
+![macOS 最近文档菜单项][6]
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+您可以添加菜单项来访问和清除最近的文档，添加以下代码片段到您的菜单模板。
 
 ```json
 {

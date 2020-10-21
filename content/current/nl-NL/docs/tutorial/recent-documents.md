@@ -1,24 +1,24 @@
-# Recent Documents (Windows & macOS)
+# Recente Documenten (Windows & macOS)
 
 ## Overview
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows en macOS bieden toegang tot een lijst van recente documenten die geopend zijn door de applicatie via respectievelijk JumpList of dock menu.
 
 __JumpList:__
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![JumpList Recente Bestanden](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-__Application dock menu:__
+__Programma dock menu:__
 
 ![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-To add a file to recent documents, you need to use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
+Om een bestand toe te voegen aan recente documenten, moet u de API [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) gebruiken.
 
 ## Voorbeeld
 
-### Add an item to recent documents
+### Een item toevoegen aan recente documenten
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
+Vanaf een werkende applicatie uit de [Snelstartgids](quick-start.md), voeg de volgende regels toe aan het `main.js` bestand:
 
 ```javascript
 const { app } = require('electron')
@@ -26,13 +26,13 @@ const { app } = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-After launching the Electron application, right click the application icon. You should see the item you just added. In this guide, the item is a Markdown file located in the root of the project:
+Na het starten van de Electron applicatie, klik met de rechtermuisknop op het toepassingspictogram. Je zou het item dat je net hebt toegevoegd moeten zien. In deze handleiding, is het artikel een Markdown bestand gelegen in de hoofdmap van het project:
 
 ![Recent document](../images/recent-documents.png)
 
-### Clear the list of recent documents
+### Leeg de lijst van recente documenten
 
-To clear the list of recent documents, you need to use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API in the `main.js` file:
+Om de lijst van recente documenten te wissen, moet u [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API gebruiken in het `main.js` bestand:
 
 ```javascript
 const { app } = require('electron')
@@ -40,17 +40,17 @@ const { app } = require('electron')
 app.clearRecentDocuments()
 ```
 
-## Additional information
+## Extra informatie
 
-### Windows Notes
+### Windows Notities
 
-To use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+Om deze functie te gebruiken in Windows, moet de applicatie geregistreerd zijn als een handler van het bestandstype van het document, anders wordt het bestand niet weergegeven in de JumpList zelfs als je het hebt toegevoegd. U vindt alles bij het registreren van uw applicatie in [Toepassingsregistratie](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Wanneer een gebruiker op een bestand klikt van de JumpList, een nieuwe instantie van uw applicatie zal worden gestart met het pad van het bestand dat is toegevoegd als opdrachtregelargument.
 
-### macOS Notes
+### macOS notities
 
-#### Add the Recent Documents list to the application menu
+#### Voeg de recente documentenlijst toe aan het applicatie menu
 
 You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
 
@@ -59,10 +59,10 @@ You can add menu items to access and clear recent documents by adding the follow
   "submenu":[
     {
       "label":"Open Recent",
-      "role":"recentdocuments",
+      "role":"recentdocumenten",
       "submenu":[
         {
-          "label":"Clear Recent",
+          "label":"Verwijder Recent",
           "role":"clearrecentdocuments"
         }
       ]
@@ -71,6 +71,6 @@ You can add menu items to access and clear recent documents by adding the follow
 }
 ```
 
-![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+![macOS Recente Documenten menu-item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Wanneer een bestand wordt aangevraagd uit het menu recente documenten, de `open-file` event van `app` module zal worden uitgestoten.

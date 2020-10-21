@@ -1,10 +1,10 @@
 # Natywne przeciąganie i upuszczanie plików
 
-Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
+Niektóre rodzaje aplikacji, które manipulują plikami mogą chcieć obsługiwać natywnych plików systemu operacyjnego przeciągnij & funkcję upuszczania. Przeciąganie plików do zawartości stron internetowych jest powszechne i obsługiwane przez wiele stron. Electron dodatkowo obsługuje przeciąganie plików i treści z treści internetowych do świata systemu operacyjnego.
 
-To implement this feature in your app, you need to call `webContents.startDrag(item)` API in response to the `ondragstart` event.
+Aby zaimplementować tę funkcję w aplikacji, musisz wywołać `webContents.startDrag(item)` API w odpowiedzi na zdarzenie `ondragstart`.
 
-In your renderer process, handle the `ondragstart` event and forward the information to your main process.
+W procesie renderowania zajmij zdarzenie `ondragstart` i przekaż informacje do głównego procesu.
 
 ```html
 <a href="#" id="drag">item</a>
@@ -16,7 +16,7 @@ In your renderer process, handle the `ondragstart` event and forward the informa
 </script>
 ```
 
-Then, in the main process, augment the event with a path to the file that is being dragged and an icon.
+Następnie, w głównym procesie, zwiększa wydarzenie ścieżką do pliku, który jest ciągnięty i ikonę.
 
 ```javascript
 const { ipcMain } = require('electron')

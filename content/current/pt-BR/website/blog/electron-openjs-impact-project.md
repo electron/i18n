@@ -1,20 +1,20 @@
 ---
-title: Electron becomes an OpenJS Foundation Impact Project
+title: Electron se torna um projeto de impacto da Fundação OpenJS
 author:
   - VerteDinde
 date: '2020-06-23'
 ---
 
-At [OpenJS World](https://events.linuxfoundation.org/openjs-world/) this morning, we announced that Electron has officially graduated from the [OpenJS Foundation's](https://openjsf.org/) incubation program, and is now an OpenJS Foundation Impact Project.
+No [Mundo OpenJS](https://events.linuxfoundation.org/openjs-world/) esta manhã anunciamos que o Electron se graduou oficialmente do programa de incubação da [OpenJS Foundation da](https://openjsf.org/) e agora é um Projeto de Impacto da OpenJS.
 
-Electron [entered incubation in December of 2019](https://openjsf.org/blog/2019/12/11/electron-joins-the-openjs-foundation/), at the last OpenJS Foundation global conference in Montreal. We're excited to take a larger role in the JavaScript community as an Impact Project, and continue our partnership with the OpenJS Foundation.
+Electron [entrou em incubação em dezembro de 2019](https://openjsf.org/blog/2019/12/11/electron-joins-the-openjs-foundation/), na última conferência global da Fundação OpenJS em Montreal. Estamos animados para assumir um papel mais importante na comunidade JavaScript como um Projeto de Impacto e continuar nossa parceria com a Fundação OpenJS.
 
 ---
 
-## Learning more
+## Aprender mais
 
-You can read up on the foundation, its mission, and its members on the [OpenJSF website](https://www.notion.so/Electron-joins-the-OpenJS-Foundation-d898f12480874e56abe78f29b041fb91#0801fd7e9fa340afbcdce0510ba05f8a). The OpenJS Foundation is host to a number of open source JavaScript projects including jQuery, Node.js, and webpack. It's supported by 30 corporate and end-user members, including GoDaddy, Google, IBM, Intel, Joyent, and Microsoft.
+Você pode ler na fundação, sua missão e seus membros no site [OpenJSF](https://www.notion.so/Electron-joins-the-OpenJS-Foundation-d898f12480874e56abe78f29b041fb91#0801fd7e9fa340afbcdce0510ba05f8a). A Fundação OpenJS está hospedando uma série de projetos JavaScript de código aberto, incluindo jQuery, Node.js e webpack. É suportado por 30 membros corporativos e de usuário, incluindo GoDaddy, Google, IBM, Intel, Joyent e Microsoft.
 
-Electron is an open–source framework for building cross-platform desktop applications with web technologies. To learn more about the humans behind Electron and how they work together, take a look at our [Governance page](https://electronjs.org/governance).
+Electron é um framework de código aberto para a construção de aplicações desktop multiplataforma com tecnologias da web. Para saber mais sobre os humanos por trás do Electron e como eles trabalham em conjunto, dê uma olhada em nossa página de [Governança](https://electronjs.org/governance).
 
-To get started with Electron itself, take a peek at [our documentation](https://electronjs.org/docs).
+Para começar com o Electron em si, dê uma olhada [na nossa documentação](https://electronjs.org/docs).

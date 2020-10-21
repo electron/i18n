@@ -103,7 +103,7 @@ To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayI
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Description pour superposition')
 ```
 
 

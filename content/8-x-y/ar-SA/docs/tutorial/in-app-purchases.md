@@ -1,41 +1,41 @@
-# In-App Purchase (macOS)
+# شراء داخل التطبيق (macOS)
 
-## Preparing
+## تحضير
 
-### Paid Applications Agreement
-If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
+### اتفاقية التطبيقات المدفوعة
+إذا لم تكن قد فعلت ذلك بالفعل، فستحتاج إلى توقيع اتفاقية تطبيقات الدفع وإعداد المعلومات المصرفية والضريبية الخاصة بك في iTunes Connect.
 
-[iTunes Connect Developer Help: Agreements, tax, and banking overview](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
+[مساعدة مطور توصيل iTunes : الاتفاقات، والجباية الضريبية، والمصرفية](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
-### Create Your In-App Purchases
-Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
+### إنشاء عمليات الشراء الخاصة بك في التطبيق
+بعد ذلك، ستحتاج إلى تكوين مشترياتك داخل التطبيق في iTunes Connect، وإدراج تفاصيل مثل الاسم، التسعير، والوصف الذي يسلط الضوء على ميزات ووظائف الشراء داخل التطبيق.
 
-[iTunes Connect Developer Help: Create an in-app purchase](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
+[مساعدة مطور توصيل iTunes : إنشاء شراء داخل التطبيق](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
 
-### Change the CFBundleIdentifier
+### تغيير الـ CFBundleIdentifier
 
-To test In-App Purchase in development with Electron you'll have to change the `CFBundleIdentifier` in `node_modules/electron/dist/Electron.app/Contents/Info.plist`. You have to replace `com.github.electron` by the bundle identifier of the application you created with iTunes Connect.
+لاختبار عملية الشراء في التطبيق في التطوير باستخدام Electron ، يجب عليك تغيير `CFBundleID` في `node_modules/electron/dist/Electron.app/Contents/Info.plist`. يجب عليك استبدال `com.github.electron` بمعرف الحزمة للتطبيق الذي أنشأته مع اتصال iTunes.
 
 ```xml
 <key>CFBundleIdentifier</key>
 <string>com.example.app</string>
 ```
 
-## Code example
+## مثال الكود
 
-Here is an example that shows how to use In-App Purchases in Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
+هنا مثال يوضح كيفية استخدام عمليات الشراء في التطبيق في إلكترون. يجب عليك استبدال معارف المنتج بمعرفات المنتجات التي تم إنشاؤها بواسطة iTunes Connect (معرف `com. xample.app.product1` هو `منتج1`). لاحظ أنه يجب عليك الاستماع إلى حدث `المعاملات` الذي تم تحديثه في أقرب وقت ممكن في التطبيق الخاص بك.
 
 ```javascript
-const { inAppPurchase } = require('electron').remote
+const { inAppPurchase } = مطلوب('electron').بعد
 const PRODUCT_IDS = ['id1', 'id2']
 
-// Listen for transactions as soon as possible.
-inAppPurchase.on('transactions-updated', (event, transactions) => {
-  if (!Array.isArray(transactions)) {
+// الاستماع للمعاملات في أقرب وقت ممكن.
+inAppPurchase.on('المعاملات-updated'، (الحدث، المعاملات) => {
+  إذا (!Array.isArray(المعاملات)) {
     return
   }
 
-  // Check each transaction.
+  // تحقق من كل معاملة.
   transactions.forEach(function (transaction) {
     var payment = transaction.payment
 
@@ -48,45 +48,45 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
         console.log(`${payment.productIdentifier} purchased.`)
 
         // Get the receipt url.
-        let receiptURL = inAppPurchase.getReceiptURL()
+        اسمح باستلام URL = inAppPurchase.getReceiptURL()
 
-        console.log(`Receipt URL: ${receiptURL}`)
+        console.log(`receieipt URL: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
-        // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
+        / أرسل ملف الإيصال إلى الخادم و تحقق مما إذا كان صحيحا.
+        // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStorereceieipt/Chapters/ValidateRemotely.html
         // ...
-        // If the receipt is valid, the product is purchased
+        // إذا كان الإيصال صحيحاً، يتم شراء المنتج
         // ...
 
-        // Finish the transaction.
-        inAppPurchase.finishTransactionByDate(transaction.transactionDate)
+        // إنهاء المعاملة.
+        InAppPurchase.finishTransactionByDate(المعاملة.transactionDate)
 
-        break
-      case 'failed':
+        توقف
+      حالة 'فشل':
 
-        console.log(`Failed to purchase ${payment.productIdentifier}.`)
+        console.log('فشل في شراء ${payment.productIdentifier}.`)
 
-        // Finish the transaction.
-        inAppPurchase.finishTransactionByDate(transaction.transactionDate)
+        // إنهاء المعاملة.
+        معاملة inAppPurchase.finishTransactionByDate(معاملة). تاريخ الاستراحة)
 
-        break
-      case 'restored':
+        استراحة
+      حالة 'استعادة':
 
-        console.log(`The purchase of ${payment.productIdentifier} has been restored.`)
+        وحدة التحكم. og(`تم استعادة شراء ${payment.productIdentifier} ). )
 
-        break
-      case 'deferred':
+        استراحة
+      حالة 'تأجيل':
 
-        console.log(`The purchase of ${payment.productIdentifier} has been deferred.`)
+        وحدة بيانات. og(`تم تأجيل شراء ${payment.productIdentifier} ). )
 
-        break
-      default:
-        break
-    }
+        استراحة
+      الافتراضي:
+        استراحة
+
   })
 })
 
-// Check if the user is allowed to make in-app purchase.
+// تحقق مما إذا كان للمستخدم حق الشراء داخل التطبيق.
 if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }

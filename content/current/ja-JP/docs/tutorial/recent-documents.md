@@ -12,13 +12,13 @@ __アプリケーションの Dock メニュー:__
 
 ![macOS の Dock メニュー](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-To add a file to recent documents, you need to use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
+最近のドキュメントにファイルを追加するには、 [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API を使用する必要があります。
 
 ## サンプル
 
-### Add an item to recent documents
+### 最近使ったドキュメントに項目を追加
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
+[クイックスタートガイド](quick-start.md)の作業アプリケーションから始めて、次の行を `main.js` ファイルに追加します。
 
 ```javascript
 const { app } = require('electron')
@@ -26,13 +26,13 @@ const { app } = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-After launching the Electron application, right click the application icon. You should see the item you just added. In this guide, the item is a Markdown file located in the root of the project:
+Electron アプリケーションを起動した後、アプリケーションアイコンを右クリックします。 追加したばかりのアイテムが表示されます。 このガイドでは、項目はプロジェクトのルートにある Markdown ファイルです:
 
-![Recent document](../images/recent-documents.png)
+![最近のドキュメント](../images/recent-documents.png)
 
-### Clear the list of recent documents
+### 最近使ったドキュメントのリストをクリアする
 
-To clear the list of recent documents, you need to use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API in the `main.js` file:
+最近のドキュメントのリストをクリアするには、 main.js[ファイルの](../api/app.md#appclearrecentdocuments-macos-windows) `app.clearRecentDocuments` API を使用する必要があります。
 
 ```javascript
 const { app } = require('electron')
@@ -40,7 +40,7 @@ const { app } = require('electron')
 app.clearRecentDocuments()
 ```
 
-## Additional information
+## 追加情報
 
 ### Windows での注意
 
@@ -50,9 +50,9 @@ To use this feature on Windows, your application has to be registered as a handl
 
 ### macOS での注意
 
-#### Add the Recent Documents list to the application menu
+#### アプリメニューに「最近使用したドキュメント」リストを追加
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
+メニューテンプレートに 以下のコードスニペットを追加することで、メニューアイテムにアクセスし、最近のドキュメントを消去することができます。
 
 ```json
 {
@@ -71,6 +71,6 @@ You can add menu items to access and clear recent documents by adding the follow
 }
 ```
 
-![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+![macOS 最近使ったドキュメントメニュー項目](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
 
 最近使った書類メニューからファイルが要求されると、それに対して `app` モジュールの `open-file` イベントが発生します。

@@ -1,31 +1,31 @@
 # Гарячі Клавіші
 
-> Configure local and global keyboard shortcuts
+> Налаштувати локальні і глобальні клавіші швидкого запуску
 
-## Local Shortcuts
+## Локальні ярлики
 
 You can use the [Menu][] module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`][] property when creating a [MenuItem][].
 
 ```js
 const { Menu, MenuItem } = require('electron')
-const menu = new Menu()
+const меню = new Menu()
 
-menu.append(new MenuItem({
+меню. ppend(new MenuItem({
   label: 'Print',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  click: () => { консоль. og('time to print stuff') }
 }))
 ```
 
-You can configure different key combinations based on the user's operating system.
+Ви можете налаштувати різні комбінації клавіш на основі операційної системи користувача.
 
 ```js
 {
   accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
-}
+
 ```
 
-## Global Shortcuts
+## Глобальні комбінації клавіш
 
 You can use the [globalShortcut][] module to detect keyboard events even when the application does not have keyboard focus.
 
@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Ярлики в вікні браузера
 
 If you want to handle keyboard shortcuts for a [BrowserWindow][], you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
@@ -47,9 +47,9 @@ If you want to handle keyboard shortcuts for a [BrowserWindow][], you can use th
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Зверніть увагу на третій параметр `true` , це означає, що слухач завжди отримуватиме натискання клавіш перед іншими слухачами, щоб вони не могли мати `stopPropagation()` викликані на них.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. Можна використовувати , щоб зловити і обробити користувацькі ярлики, які не відображаються в меню.
 
 If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap][].
 
@@ -74,7 +74,7 @@ Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
 // konami code!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
+Mousetrap.bind('вгору вниз праворуч ліворуч ліворуч b a enter', () => {
   console.log('konami code')
 })
 ```

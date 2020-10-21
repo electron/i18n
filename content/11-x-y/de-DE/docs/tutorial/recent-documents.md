@@ -32,22 +32,22 @@ Sobald ein Nutzer auf eine Datei in der JumpList klickt, wird eine neue Instanz 
 
 ## Bemerkungen zu macOS
 
-### Adding the Recent Documents list to the application menu:
+### Hinzufügen der Liste der letzten Dokumente in das Anwendungsmenü:
 
-![macOS Recent Documents menu item][6]
+![macOS Letzte Dokumente Menüpunkt][6]
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+Sie können Menüeinträge hinzufügen, um auf neue Dokumente zuzugreifen und zu löschen, indem Sie das folgende Code-Snippet in die Vorlage Ihres Menüs einfügen.
 
 ```json
 {
-  "submenu":[
+  "Untermenü":[
     {
-      "label":"Open Recent",
-      "role":"recentdocuments",
-      "submenu":[
+      "label":"Kürzlich geöffnet",
+      "Rolle":"Letzte Dokumente",
+      "Untermenü":[
         {
-          "label":"Clear Recent",
-          "role":"clearrecentdocuments"
+          "label":"Kürzlich löschen",
+          "Rolle":"clearrecentdocuments"
         }
       ]
     }

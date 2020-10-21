@@ -1,5 +1,5 @@
 ---
-title: Electron becomes an OpenJS Foundation Impact Project
+title: Electron が OpenJS Foundation Impact Project になる
 author:
   - VerteDinde
 date: '2020-06-23'
@@ -7,7 +7,7 @@ date: '2020-06-23'
 
 At [OpenJS World](https://events.linuxfoundation.org/openjs-world/) this morning, we announced that Electron has officially graduated from the [OpenJS Foundation's](https://openjsf.org/) incubation program, and is now an OpenJS Foundation Impact Project.
 
-Electron [entered incubation in December of 2019](https://openjsf.org/blog/2019/12/11/electron-joins-the-openjs-foundation/), at the last OpenJS Foundation global conference in Montreal. We're excited to take a larger role in the JavaScript community as an Impact Project, and continue our partnership with the OpenJS Foundation.
+Electron [は 2019 年 12 月にインキュベーションに入りました](https://openjsf.org/blog/2019/12/11/electron-joins-the-openjs-foundation/), モントリオールでの最後のOpenJS Foundation のグローバルカンファレンスで. インパクト・プロジェクトとしてJavaScriptコミュニティでより大きな役割を果たすことを楽しみにしており、OpenJS財団とのパートナーシップを継続しています。
 
 ---
 

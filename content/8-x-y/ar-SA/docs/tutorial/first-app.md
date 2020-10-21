@@ -1,4 +1,4 @@
-# Writing Your First Electron App
+# كتابة أول تطبيق إلكترون
 
 يمكنك الكترون من إنشاء تطبيقات لأجهزة الحاسب المكتبي باستخدام الجافا سكريبت (JavaScript) بشكل خالص عن طريق تزويد المطور ببيئة تشغيلية غنية بمكونات أصلية (API) لكل نظام تشغيل. تستطيع اعتبار إلكترون كنكهة مختلفة من نود. جي اس (Node.js) تركز على انشاء تطبيقات سطح المكتب بدلاً من سيرفرات الويب. سيرفرات الويب هي من اختصاص نود. جي اس، بينما تطبيقات سطح المكتب هي من اختصاص إلكترون.
 
@@ -13,10 +13,10 @@
 
 
 ```plaintext
-your-app/
-├── package.json
-├── main.js
-└── index.html
+تطبيقك
+<unk> <unk> <unk> <unk> <unk> <unk> <unk> package.json
+<unk> <unk> <unk> ', main.js
+<unk> <unk> <unk> ', index.html
 ```
 
 
@@ -29,14 +29,14 @@ npm init
 ```
 
 
-سوف يرشدك npm من خلال إنشاء `package.json` في الملف الأساسي . النص البرمجي المحدد بواسطة `main` الملف الأساسي لتشغيل تطبيقك ، والذي سيشغل العملية الرئيسية. An example of your `package.json` might look like this:
+سوف يرشدك npm من خلال إنشاء `package.json` في الملف الأساسي . النص البرمجي المحدد بواسطة `main` الملف الأساسي لتشغيل تطبيقك ، والذي سيشغل العملية الرئيسية. مثال على `package.json` قد يبدو مثل هذا:
 
 
 
 ```json
 {
   "name": "your-app",
-  "version": "0.1.0",
+  "الإصدار": "0.1.0",
   "main": "main.js"
 }
 ```
@@ -98,7 +98,7 @@ npm install --save-dev electron
 
 
 ```javascript
-const electron = require('electron')
+إلكترون = مطلوبة ('electron')
 ```
 
 
@@ -111,15 +111,15 @@ const electron = require('electron')
   
   function createWindow () {
     // إنشاء نافذة طولها 800 وعرضها 600.
-  let win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
+  اسمح للفوز = متصفح ويندوز جديد ({
+    عرض: 800,
+    طول: 600,
+    تفضيلات الويب: {
       nodeIntegration: true
     }
   })
 
-  // and load the index.html of the app.
+  // وتحميل الفهرس .html من التطبيق.
   win.loadFile('index.html')
 }
 
@@ -224,14 +224,14 @@ app.on('activate', () => {
 
 
 ```sh
-# Clone the repository
-$ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-$ cd electron-quick-start
-# Install dependencies
-$ npm install
-# Run the app
-$ npm start
+# استنساخ المستودع
+$ git نسخة https://github. om/electron/electron-quick-start
+# انتقل إلى المستودع
+$ cd electron-start
+# تثبيت الإعتمادات
+$ npm مثبت
+# تشغيل التطبيق
+$ npm
 ```
 
 

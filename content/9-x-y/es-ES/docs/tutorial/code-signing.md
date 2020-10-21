@@ -12,7 +12,7 @@ Si bien es posible distribuir aplicaciones sin firmar, no es recomendable. Tanto
 
 Como puedes ver, los usuarios tienen dos opciones: Mover la aplicación directamente a la papelera o cancelar la ejecución. Tú no quieres que tus usuarios vean ese diálogo.
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed. Las tiendas de aplicaciones de Mac y Windows no permiten aplicaciones no firmadas.
+Si está construyendo una aplicación Electron que tiene la intención de empaquetar y distribuir, debería estar firmada con el código. Las tiendas de aplicaciones de Mac y Windows no permiten aplicaciones no firmadas.
 
 # Firmando compilaciones Mac
 
@@ -29,11 +29,11 @@ Hay una serie de herramientas para firmar su aplicación empaquetada:
   - [`electron-forge`][] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
 - [`electron-builder`][] has built-in code-signing capabilities. Mira [electron.build/code-signing](https://www.electron.build/code-signing)
 
-## Notarization
+## Notarización
 
-Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
+A partir de macOS Catalina, Apple requiere que las aplicaciones sean notarializadas. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
 
-To automate this process, you can use the [`electron-notarize`][] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+To automate this process, you can use the [`electron-notarize`][] module. Tú no necesitas necesariamente completar este paso por cada compilación que hagas, solo las construcciones que planeas enviar a los usuarios.
 
 ## Mac App Store
 

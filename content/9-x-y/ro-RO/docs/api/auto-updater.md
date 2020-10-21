@@ -20,7 +20,7 @@ On macOS, the `autoUpdater` module is built upon [Squirrel.Mac][squirrel-mac], m
 
 **Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
-### Windows
+### Ferestre
 
 On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller][installer-lib], [electron-forge][electron-forge-lib] or the [grunt-electron-installer][installer] package to generate a Windows installer.
 

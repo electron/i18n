@@ -1,6 +1,6 @@
 # Instalación
 
-To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
+To install prebuilt Electron binaries, use [`npm`][npm]. El método preferido es instalar Electron como una dependencia de desarrollo en tu aplicación :
 
 ```sh
 npm install electron -save-dev
@@ -32,10 +32,10 @@ npm install --platform=win32 electron
 
 ## Proxies
 
-If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
+Si necesita utilizar un proxy HTTP, necesita establecer la variable `ELECTRON_GET_USE_PROXY` a cualquier valor además de variables de entorno adicionales dependiendo de la versión del nodo del sistema host:
 
-* [Node 10 and above][proxy-env-10]
-* [Before Node 10][proxy-env]
+* [Nodo 10 o superior][proxy-env-10]
+* [Antes del Nodo 10][proxy-env]
 
 ## Espejos y cachés personalizados
 During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. Lo hará poniéndose en contacto con la página de descarga de versiones de GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, donde `$VERSION` es la versión exacta de Electron).
@@ -66,7 +66,7 @@ En entornos que han estado usando versiones anteriores de Electron, también pod
 
 También se puede anular la ubicación de almacenamiento en caché local al proporcionar una variable de entorno `ELECTRON_CACHE`.
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+La caché contiene el archivo zip oficial de la versión, así como una suma de comprobación, almacenada como un archivo de texto. Un caché típico podría verse así:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -96,7 +96,7 @@ Cuando instale el paquete `electron` NPM, automáticamente descarga el archivo b
 
 Esto puede ser innecesario, por ejemplo en un entorno CI, cuando se prueba otro componente.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+Para evitar que el binario se descargue cuando instale todas las dependencias de npm, puede establecer la variable de entorno `ELECTRON_SKIP_BINARY_DOWNLOAD`. Ej.:
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```

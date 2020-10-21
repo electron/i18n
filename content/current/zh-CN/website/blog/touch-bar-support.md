@@ -1,26 +1,26 @@
 ---
-title: Touch Bar Support
+title: 触摸条支持
 author: kevinsawicki
 date: '2017-03-08'
 ---
 
-The Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) beta release contains initial support for the macOS [Touch Bar](https://developer.apple.com/macos/touch-bar).
+Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) beta 版本包含对macOS [Touch Bar](https://developer.apple.com/macos/touch-bar) 的初始支持。
 
 ---
 
-The new Touch Bar API allows you to add buttons, labels, popovers, color pickers, sliders, and spacers. These elements can be dynamically updated and also emit events when they are interacted with.
+新的 Touch Bar API 允许您添加按钮、标签、弹出窗口、颜色 选取器、滑块和空格。 这些元素可以动态地更新， 当它们与之互动时，也会释放事件。
 
-This is the first release of this API so it will be evolving over the next few Electron releases. Please check out the release notes for further updates and open [issues](https://github.com/electron/electron/issues) for any problems or missing functionality.
+这是此 API 的第一个版本，因此它将在下一个 个少量Electron 版本中演变。 请查看版本说明以获取更多更新 并打开 [个问题](https://github.com/electron/electron/issues) 以获取任何问题 或缺失的功能。
 
 You can install this version via `npm install electron@beta` and learn more about it in the [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) and [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron docs.
 
-Big thanks to [@MarshallOfSound](https://github.com/MarshallOfSound) for contributing this to Electron. :tada:
+非常感谢 [@MarshallOfSound](https://github.com/MarshallOfSound) 为Electron做出贡献。 :tada:
 
-## Touch Bar Example
+## 触摸条示例
 
-![Touch Bar Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
+![触摸条边框](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
 
-Below is an example of creating a simple slot machine game in the touch bar. It demonstrates how to create a touch bar, style the items, associate it with a window, handle button click events, and update the labels dynamically.
+下面是在触摸条中创建一个简单的栏位游戏的例子。 它演示如何创建一个触摸栏，样式条目，将其与 窗口关联， 按键点击事件并动态更新标签。
 
 ```js
 const {app, BrowserWindow, TouchBar} = require('electron')

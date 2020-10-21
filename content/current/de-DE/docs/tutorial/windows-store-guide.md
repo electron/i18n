@@ -24,69 +24,69 @@ npm install -g electron-windows-store
 
 ## Schritt 1: Die Electron Anwendung packen
 
-Packen Sie die Anwendung mittels des [Electron-Packagers](https://github.com/electron/electron-packager) (oder einer vergleichbaren Anwendung). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Packen Sie die Anwendung mittels des [Electron-Packagers](https://github.com/electron/electron-packager) (oder einer vergleichbaren Anwendung). Achten Sie darauf, `node_modules` zu entfernen, die Sie in Ihrer endgültigen Anwendung nicht benötigen da jedes Modul, das Sie nicht benötigen, die Größe Ihrer Anwendung vergrößert.
 
 Die Ausgabe sollte etwa wie folgt aussehen:
 
 ```plaintext
-├── Ghost.exe
-├── LICENSE
-├── content_resources_200_percent.pak
-├── content_shell.pak
-├── d3dcompiler_47.dll
-├── ffmpeg.dll
-├── icudtl.dat
-├── libEGL.dll
-├── libGLESv2.dll
-├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
-├── node.dll
-├── resources
-│   └── app.asar
-├── v8_context_snapshot.bin
-├── squirrel.exe
-└── ui_resources_200_percent.pak
+<unk> 本<unk> Ghost.exe
+<unk> 本<unk> LICENSE
+<unk> 本<unk> content_resources_200_percent.pak
+<unk> 本<unk> content_shell.pak
+<unk> 本<unk> d3dcompiler_47. ll
+<unk> 本<unk> ffmpeg.dll
+<unk> 本<unk> icudtl.dat
+<unk> 本<unk> libEGL.dll
+<unk> 本<unk> libGLESv2.dll
+<unk> 文<unk> locales
+<unk> <unk> <unk> <unk> am. Leg
+<unk> <unk> <unk> 本<unk> ar.pak
+<unk> <unk> 本<unk> [...]
+<unk> 本<unk> node. ll
+<unk> 本<unk> resources
+<unk> <unk> <unk> <unk> <unk> App. sar
+<unk> 本<unk> v8_context_snapshot.bin
+<unk> 本<unk> squirrel.exe
+<unk> 本<unk> ui_resources_200_percent.pak
 ```
 
 ## Schritt 2: Ausführen des Electron-Windows-Store
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+Führen Sie aus einer erhöhten PowerShell (als Administrator) `Elektron-Windows-store` mit den erforderlichen Parametern aus sowohl die Eingabe als auch die Ausgabeverzeichnisse, den Namen und die Version der App übergeben und bestätigen, dass `node_modules` abgeflacht werden sollen.
 
 ```powershell
 electron-windows-store `
     --input-directory C:\myelectronapp `
     --output-directory C:\output\myelectronapp `
-    --package-version 1.0.0.0 `
+    --package-version 1.0.0 `
     --package-name myelectronapp
 ```
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+Sobald das Werkzeug ausgeführt wurde, wird es zur Arbeit: Es akzeptiert Ihre Electron-App als Eingabe, verfacht die `node_modules`. Anschließend archiviert es Ihre Anwendung als `app.zip`. Mit Hilfe eines Installers und eines Windows-Containers erstellt das Tool ein "erweitertes" AppX Paket - einschließlich des Windows Application Manifest (`AppXManifest. ml`) sowie sowie das virtuelle Dateisystem und die virtuelle Registry in Ihrem Output Ordner.
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+Sobald die erweiterten AppX-Dateien erstellt wurden, verwendet das Tool den Windows App Packager (`MakeAppx. Axt`), um aus diesen Dateien ein AppX-Paket für eine einzelne Datei zu erstellen. Schließlich kann das Tool verwendet werden, um ein vertrauenswürdiges Zertifikat auf Ihrem Computer zu erstellen, um das neue AppX-Paket zu signieren. Mit dem signierten AppX-Paket kann das CLI auch das Paket automatisch auf Ihrem Rechner installieren.
 
 ## Schritt 3: Nutzen des AppX Pakets
 
 Um Ihr Paket ausführen zu können, wird Windows 10 mit dem sogenannten "Anniversary Update" benötigt. Details, wie man Windows aktualisieren kann, können [hier](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update) gefunden werden.
 
-Im Gegensatz zu traditionellen UWP-Apps, müssen sich gepackte Apps einem manuellen Prüfprozess unterziehen. Dieser kann [hier](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge) beantragt werden. In the meantime, all users will be able to install your package by double-clicking it, so a submission to the store might not be necessary if you're looking for an easier installation method. In einer verwalteten Umgebung (normalerweise Unternehmen), das `Add-AppxPackage` [Powershell Cmdlet](https://technet.microsoft.com/en-us/library/hh856048.aspx) kann benutzt werden, um es auf automatischem Wege zu installieren.
+Im Gegensatz zu traditionellen UWP-Apps, müssen sich gepackte Apps einem manuellen Prüfprozess unterziehen. Dieser kann [hier](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge) beantragt werden. In der Zwischenzeit können alle Benutzer Ihr Paket durch einen Doppelklick installieren damit eine Einreichung im Shop nicht notwendig ist, wenn Sie nach einer einfacheren Installationsmethode suchen. In einer verwalteten Umgebung (normalerweise Unternehmen), das `Add-AppxPackage` [Powershell Cmdlet](https://technet.microsoft.com/en-us/library/hh856048.aspx) kann benutzt werden, um es auf automatischem Wege zu installieren.
 
 Eine weitere wichtige Beschränkung ist, dass das kompilierte AppX-Paket noch eine win32 Programmdatei beinhaltet. Somit wird es nicht auf der Xbox, HoloLens oder Mobiltelefonen ausführbar sein.
 
 ## Optional: Hinzufügen von UWP-Funktionen mittels eines Hintergrundprozesses
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+Sie können Ihre Electron-App mit einer unsichtbaren UWP-Hintergrund-Aufgabe koppeln, die die Funktionen von Windows 10 voll nutzen wird - wie Push-Benachrichtigungen, Cortana Integration oder Live-Fliesen.
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+Um herauszufinden, wie eine Electron-App, die eine Hintergrundaufgabe verwendet, um Toast Benachrichtigungen und Live-Kacheln zu senden [checken Sie sich das von Microsoft bereitgestellte Beispiel](https://github.com/felixrieseberg/electron-uwp-background) an.
 
-## Optional: Convert using Container Virtualization
+## Optional: Mit Container-Virtualisierung konvertieren
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+Um das AppX-Paket zu generieren, verwendet der `Elektron-Windows-Store` CLI eine Vorlage die für die meisten Electron-Apps funktionieren soll. Wenn Sie jedoch einen benutzerdefinierten -Installer verwenden oder Probleme mit dem generierten Paket haben sollten Sie können versuchen, ein Paket mit einem Windows-Container zu erstellen - in diesem Modus das CLI wird Ihre Anwendung in leerem Windows Container installieren und ausführen, um festzustellen, welche Änderungen Ihre Anwendung genau am Betriebssystem vornimmt.
 
-Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+Bevor Sie das CLI zum ersten Mal ausführen, müssen Sie den "Windows Desktop App Converter" einrichten. Dies wird einige Minuten dauern, aber keine Sorge. Du musst nur einmal machen. Download und Desktop App Converter von [hier](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). Sie erhalten zwei Dateien: `DesktopAppConverter.zip` und `BaseImage-14316.wim`.
 
-1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
-2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
-3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
+1. Entpacken `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
+2. Führen Sie dann die Installation des Desktop-App-Konverters durch und übergeben Sie die -Position des Windows-Basisbildes (heruntergeladen als `BaseImage-14316. im`), von aufrufen `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
+3. Wenn Sie den obigen Befehl ausführen, rufen Sie bitte nach einem Neustart Ihren -Rechner neu und führen Sie den obigen Befehl nach einem erfolgreichen Neustart erneut aus.
 
-Once installation succeeded, you can move on to compiling your Electron app.
+Sobald die Installation erfolgreich war, können Sie zum Kompilieren Ihrer Electron-App übergehen.

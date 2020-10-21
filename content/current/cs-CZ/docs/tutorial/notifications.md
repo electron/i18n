@@ -1,107 +1,107 @@
-# Notifications (Windows, Linux, macOS)
+# Oznámení (Windows, Linux, macOS)
 
 ## Přehled
 
-All three operating systems provide means for applications to send notifications to the user. The technique of showing notifications is different for the Main and Renderer processes.
+Všechny tři operační systémy poskytují prostředky pro zasílání oznámení uživateli. Technika zobrazování oznámení se liší v hlavních procesech a procesech Renderer.
 
-For the Renderer process, Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Pro proces Renderer Electron pohodlně umožňuje vývojářům odesílat oznámení pomocí [HTML5 Notification API](https://notifications.spec.whatwg.org/). pomocí nativního oznámení aktuálně spuštěného operačního systému k jeho zobrazení.
 
-To show notifications in the Main process, you need to use the [Notification](../api/notification.md) module.
+Chcete-li zobrazit oznámení v hlavním procesu, musíte použít modul [Oznámení](../api/notification.md).
 
 ## Ukázka
 
-### Show notifications in the Renderer process
+### Zobrazit oznámení v procesu vykreslování
 
-Assuming you have a working Electron application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
+Předpokládejme, že máte fungující Electron aplikaci z [Rychlého startu](quick-start.md), přidejte následující řádek do indexu `. tml` soubor před uzavřením značky `</body>`:
 
 ```html
 <script src="renderer.js"></script>
 ```
 
-and add the `renderer.js` file:
+a přidejte soubor `render.js`:
 
 ```js
-const myNotification = new Notification('Title', {
+const myNotification = nové oznámení ('Title', {
   body: 'Notification from the Renderer process'
 })
 
 myNotification.onclick = () => {
-  console.log('Notification clicked')
+  console.log('Kliknutí na oznámení')
 }
 ```
 
-After launching the Electron application, you should see the notification:
+Po spuštění Electron aplikace byste měli vidět oznámení:
 
-![Notification in the Renderer process](../images/notification-renderer.png)
+![Oznámení v procesu vykreslování](../images/notification-renderer.png)
 
-If you open the Console and then click the notification, you will see the message that was generated after triggering the `onclick` event:
+Pokud otevřete konzoli a pak klikněte na oznámení, uvidíte zprávu, která byla vygenerována po spuštění události `na kliknutí`:
 
-![Onclick message for the notification](../images/message-notification-renderer.png)
+![Onclick zpráva pro oznámení](../images/message-notification-renderer.png)
 
-### Show notifications in the Main process
+### Zobrazit oznámení v hlavním procesu
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Začíná fungující aplikací z [Rychlý startovací průvodce](quick-start.md), aktualizujte soubor `main.js` o následující řádky:
 
 ```js
 const { Notification } = require('electron')
 
-function showNotification () {
+funkce showNotification () {
   const notification = {
     title: 'Basic Notification',
     body: 'Notification from the Main process'
   }
-  new Notification(notification).show()
+  new Notification(notifikace).show()
 }
 
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-After launching the Electron application, you should see the notification:
+Po spuštění Electron aplikace byste měli vidět oznámení:
 
-![Notification in the Main process](../images/notification-main.png)
+![Oznámení v hlavním procesu](../images/notification-main.png)
 
-## Additional information
+## Další informace
 
-While code and user experience across operating systems are similar, there are subtle differences.
+Přestože jsou kódy a uživatelská zkušenost mezi operačními systémy podobná, existují jemné rozdíly.
 
 ### Windows
 
-* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
-* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. Toto může být přepsáno během vývoje, takže přidejte `node_modules\electron\dist\electron.exe` do tvého Start Menu také trik. Přejděte do souboru v Průzkumníku, klepněte pravým tlačítkem myši a "Připnout pro spuštění menu". Potom budete muset přidat řádek `app.setAppUserModelId(process.execPath)` do vašeho hlavního procesu pro zobrazení oznámení.
+* Na Windows 8. a Windows 8, zástupce vaší aplikace s [Uživatelem aplikace ID modelu](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) musí být nainstalován na úvodní obrazovku. Všimněte si však, že nemusí být připnut na úvodní obrazovku.
+* V systému Windows 7 fungují notifikace prostřednictvím vlastní implementace, která vizuálně připomíná nativní na novějších systémech.
 
-Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`](../api/app.md#appsetappusermodelidid-windows) yourself.
+Electron se pokouší automatizovat práci kolem ID uživatelského modelu aplikace. Když se používá Electron společně s instalací a aktualizací frameworku, [zkratky budou automaticky nastaveny](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Kromě toho Electron zjistí, že byla použita veverka a automaticky zavolá `app.setAppModelId()` se správnou hodnotou. Během vývoje budete mít volat [`app.setAppModelId()`](../api/app.md#appsetappusermodelidid-windows) sami.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+V systému Windows 8 je navíc maximální délka těla oznámení 250 znaků, s týmem Windows, který doporučuje, aby oznámení byla uchovávána až 200 znaků. Toto omezení bylo odstraněno v systému Windows 10 a tým Windows požádal vývojáře, aby byli rozumní. Pokus o zaslání obrovského množství textu API (tisíce znaků) může vést k nestabilitě.
 
-#### Advanced Notifications
+#### Rozšířená oznámení
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+Pozdější verze systému Windows umožňují pokročilé oznámení, s vlastními šablonami, obrázky a další flexibilní prvky. Chcete-li odeslat tato oznámení (buď z hlavního procesu, nebo z procesu renderování), použijte uživatelský modul [elektronická oznámení](https://github.com/felixrieseberg/electron-windows-notifications). který používá doplňky nativního uzlu k odesílání `ToastNotification` a `objektů TileNotification`.
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+Zatímco oznámení včetně tlačítek fungují s `elektronickými okny`, zpracování odpovědí vyžaduje použití [`elektronických oken - interaktivních oznámení`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) která pomáhá s registrací požadovaných komponent COM a voláním do vaší Electron aplikace se zadanými uživatelskými daty.
 
-#### Quiet Hours / Presentation Mode
+#### Režim Tichých hodin / prezentace
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Chcete-li zjistit, zda máte povoleno posílat oznámení, použijte uživatelský modul [elektronický stav oznámení](https://github.com/felixrieseberg/electron-notification-state).
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+To vám umožní určit, zda Windows bude či nebude tiše vyhodit oznámení pryč.
 
 ### macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+Oznámení jsou přímočará na macOS, ale měli byste si být vědomi [Pokyny pro lidská rozhraní společnosti Apple týkající se oznámení](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+Upozorňujeme, že oznámení mají velikost 256 bajtů a pokud překročíte tento limit, budou zkrácena .
 
-#### Advanced Notifications
+#### Rozšířená oznámení
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+Pozdější verze macOS umožňují oznámení se vstupním polem, což uživateli umožňuje rychle odpovědět na oznámení. Chcete-li odesílat oznámení se vstupním polem, použijte uživatelský modul [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
-#### Do not disturb / Session State
+#### Nerušit / Stav relace
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Chcete-li zjistit, zda máte povoleno posílat oznámení, použijte uživatelský modul [elektronický stav oznámení](https://github.com/felixrieseberg/electron-notification-state).
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+To vám umožní zjistit dopředu, zda budou či nebudou oznámení zobrazena.
 
 ### Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Oznámení jsou posílána pomocí `libnotify` , které mohou zobrazovat oznámení na jakémkoliv stolním prostředí, které následuje [Specifikace Specifikace ,](https://developer.gnome.org/notification-spec/), včetně Cinnamonu, osvícenství, Jednoty, GNOME, KDE.

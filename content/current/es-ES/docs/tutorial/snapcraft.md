@@ -10,7 +10,7 @@ Hay tres maneras de crear un archivo `.snap`:
 
 1) Usando [`electron-forge`](https://github.com/electron-userland/electron-forge) o  [`electron-builder`](https://github.com/electron-userland/electron-builder), ambas herramientas que vienen con soporte para `snap` incluido. Esta es la opción más fácil. 2) Usando `electron-installer-snap`, que toma el resultado de `electron-packager`. 3) Usando un paquete `.deb` ya creado.
 
-En algunos casos, deberás tener instalada la herramienta `Snapcraft`. Instructions to install `snapcraft` for your particular distribution are available [here](https://snapcraft.io/docs/installing-snapcraft).
+En algunos casos, deberás tener instalada la herramienta `Snapcraft`. Las instrucciones para instalar `snapcraft` para tu distribución particular están disponibles [aquí](https://snapcraft.io/docs/installing-snapcraft).
 
 ## Usando `electron-installer-snap`
 
@@ -70,7 +70,7 @@ Si aún no tienes listo un paquete `.deb`, usando `electron-installer-snap` podr
 
 ### Paso 2: Creando un snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+Para más información sobre las opciones de configuración disponibles, vea la [documentación sobre la sintaxis de snapcraft](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 name: myApp

@@ -2,35 +2,35 @@
 
 To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar][asar] archive with little changes to your source code.
 
-Most users will get this feature for free, since it's supported out of the box by [`electron-packager`][electron-packager], [`electron-forge`][electron-forge], and [`electron-builder`][electron-builder]. If you are not using any of these tools, read on.
+Most users will get this feature for free, since it's supported out of the box by [`electron-packager`][electron-packager], [`electron-forge`][electron-forge], and [`electron-builder`][electron-builder]. Als je geen van deze tools gebruikt, lees dan op.
 
-## Generating `asar` Archives
+## Genereren van `asar` Archieven
 
-An [asar][asar] archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+An [asar][asar] archive is a simple tar-like format that concatenates files into a single file. Electron kan willekeurige bestanden ervan lezen zonder het hele bestand uit te pakken.
 
-Steps to package your app into an `asar` archive:
+Stappen om je app te verpakken in een `asar` archief:
 
-### 1. Install the asar Utility
+### 1. Installeer de asar Utility
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Pakket met `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## Gebruik `asar` Archieven
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+In Electron zijn er twee sets API's: Node API's provided by Node.js and Web API's provided by Chromium. Beide API's ondersteunen het lezen van bestanden van `asar` archieven.
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+Met speciale patches in Electron, node API's zoals `fs. eadFile` en `vereisen` trad `asar` archieven als virtuele mappen en de bestanden als normale bestanden in het bestandssysteem.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+Stel bijvoorbeeld dat we een `example.asar` archief hebben onder `/path/to`:
 
 ```sh
 $ asar list /path/to/example.asar
@@ -42,27 +42,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+Lees een bestand in het `asar` archief:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+Toon alle bestanden onder de root van het archief:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+Gebruik een module uit het archief:
 
 ```javascript
 require('./path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+Je kunt ook een webpagina weergeven in een `asar` archief met `Browservenster`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -73,9 +73,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+Op een webpagina kunnen bestanden in een archief worden opgevraagd met het `bestand:` protocol. Net als de Node API, worden `asar` archieven behandeld als directories.
 
-For example, to get a file with `$.get`:
+Bijvoorbeeld, om een bestand te krijgen met `$.get`:
 
 ```html
 <script>
@@ -86,16 +86,16 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### Een `asar` archief behandelen als een normaal bestand
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+Voor sommige gevallen, zoals het verifiëren van de `asar` archief, checksum, we moeten de inhoud van een `asar` archief als een bestand lezen. Met dit doel kunt u de ingebouwde `original-fs` module gebruiken, die originele `fs` API's biedt zonder `asar` ondersteuning:
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+Je kunt het proces `ook instellen. oAsar` tot `true` om de ondersteuning voor `alsar` in de `fs` module uit te schakelen:
 
 ```javascript
 const fs = require('fs')
@@ -103,51 +103,51 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Beperkingen van de Node API
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+Ook al hebben we hard geprobeerd om `asar` archieven in Node API zo veel mogelijk te maken, zoals mappen er zijn nog steeds beperkingen vanwege de lage kwaliteit van de Node API.
 
-### Archives Are Read-only
+### Archief is alleen-lezen
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+Het archief kan niet worden gewijzigd zodat alle Node API's die bestanden kunnen wijzigen niet werken met `as` archieven.
 
-### Working Directory Can Not Be Set to Directories in Archive
+### Werkingsmap kan niet worden ingesteld op mappen in het archief
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+Hoewel `as` archieven worden behandeld als directories, zijn er geen echte mappen in het bestandssysteem. dus je kunt nooit de werkmap mappen instellen in `asar` archieven. Het doorgeven ervan als de `cwd` optie van sommige API's veroorzaakt ook fouten.
 
-### Extra Unpacking on Some APIs
+### Extra uitpakken van sommige API's
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+Meeste `fs` API's kunnen een bestand lezen of informatie van een bestand ophalen uit `asar` archieven zonder uitpakking, maar voor sommige API's is dat afhankelijk van het doorgeven van het echte bestandspad aan onderliggende systeemoproepen, Electron zal het benodigde bestand uitpakken in een tijdelijk bestand en het pad van het tijdelijke bestand doorgeven aan de API's om ze te laten werken. Dit voegt een beetje overhead toe voor deze API's.
 
-APIs that requires extra unpacking are:
+API's die extra uitpakken vereist zijn:
 
-* `child_process.execFile`
+* `kind_process.execFile`
 * `child_process.execFileSync`
 * `fs.open`
 * `fs.openSync`
-* `process.dlopen` - Used by `require` on native modules
+* `process.dlopen` - Gebruikt door `vereisen` op native modules
 
-### Fake Stat Information of `fs.stat`
+### Nep Stat Informatie van `fs.stat`
 
-The `Stats` object returned by `fs.stat` and its friends on files in `asar` archives is generated by guessing, because those files do not exist on the filesystem. So you should not trust the `Stats` object except for getting file size and checking file type.
+De `Statistieken` object geretourneerd door `fs. tat` en haar vrienden op bestanden in `asar` archieven worden gegenereerd door te raden omdat deze bestanden niet bestaan in het bestandssysteem . Dus je moet het object `Statistieken` niet vertrouwen, behalve voor het verkrijgen van bestand grootte en het controleren van het bestandstype.
 
-### Executing Binaries Inside `asar` Archive
+### Het uitvoeren van Binaries in `asar` Archief
 
-There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
+Er zijn Node API's die binaries kunnen uitvoeren zoals `child_process.exec`, `child_process.spawn` en `child_process. xecFile`, maar alleen `execFile` is ondersteund voor het uitvoeren van binaries binnen `as` archief.
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+Dit komt omdat `exec` en `spawn` `commando` in plaats van `bestand` als invoer accepteren en `commando`s worden uitgevoerd onder shell. Er is geen betrouwbare manier om te bepalen of een commando een bestand gebruikt in het asar archief, en zelfs als we dat wel doen, we kunnen niet zeker zijn of we het pad zonder bijwerkingen in de command kunnen vervangen.
 
-## Adding Unpacked Files to `asar` Archives
+## Voeg uitgepakte bestanden toe aan `asar` Archieven
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+Zoals hierboven vermeld, sommige Node API's zullen het bestand uitpakken naar het bestandssysteem wanneer wordt aangeroepen. Afgezien van de prestatieproblemen, kunnen diverse antivirusscanners door dit gedrag worden geactiveerd.
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+Als werktuig kun je verschillende bestanden uitpakken via de `--unpack` optie. In het volgende voorbeeld worden gedeelde bibliotheken van native Node.js modules niet verpakt:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+Na het uitvoeren van het commando, zal je merken dat een map met de naam `app.asar.unpacked` samen met het `app.asar` bestand is gemaakt. Het bevat de uitgepakte bestanden en moet samen met het `app.asar` archief worden verzonden.
 
 [asar]: https://github.com/electron/asar
 [electron-packager]: https://github.com/electron/electron-packager

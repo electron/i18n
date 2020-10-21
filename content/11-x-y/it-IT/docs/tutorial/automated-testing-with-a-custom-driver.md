@@ -1,78 +1,78 @@
 # Test Automatico con un Driver Personalizzato
 
-To write automated tests for your Electron app, you will need a way to "drive" your application. [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](http://webdriver.io/). However, it's also possible to write your own custom driver using node's builtin IPC-over-STDIO. The benefit of a custom driver is that it tends to require less overhead than Spectron, and lets you expose custom methods to your test suite.
+Per scrivere test automatici per la tua app Electron, avrai bisogno di un modo per "guidare" la tua applicazione. [Spectron](https://electronjs.org/spectron) è una soluzione comunemente utilizzata che consente di emulare le azioni degli utenti tramite [WebDriver](http://webdriver.io/). Tuttavia, è anche possibile scrivere il proprio driver personalizzato utilizzando il nodo integrato IPC-over-STDIO. Il vantaggio di un driver personalizzato è che tende a richiedere meno sovraccarico rispetto a Spectron, e ti permette di esporre metodi personalizzati alla tua suite di test.
 
-To create a custom driver, we'll use Node.js' [child_process](https://nodejs.org/api/child_process.html) API. The test suite will spawn the Electron process, then establish a simple messaging protocol:
+Per creare un driver personalizzato, utilizzeremo l'API [child_process](https://nodejs.org/api/child_process.html) di Node.js. La suite di test genererà il processo di Electron, quindi stabilirà un semplice protocollo di messaggistica:
 
 ```js
 const childProcess = require('child_process')
 const electronPath = require('electron')
 
 // spawn the process
-const env = { /* ... */ }
+const env = { /* . . */ }
 const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+const appProcess = childProcess. pawn(electronPath, ['./app'], { stdio, env })
 
-// listen for IPC messages from the app
-appProcess.on('message', (msg) => {
+// ascolta i messaggi IPC dall'app
+appProcess. n('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the app
+// invia un messaggio IPC all'app
 appProcess.send({ my: 'message' })
 ```
 
-From within the Electron app, you can listen for messages and send replies using the Node.js [process](https://nodejs.org/api/process.html) API:
+Dall'app Electron, puoi ascoltare i messaggi e inviare le risposte utilizzando l'API Node.js [processa](https://nodejs.org/api/process.html):
 
 ```js
-// listen for IPC messages from the test suite
+// ascolta i messaggi IPC dalla suite di test
 process.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the test suite
+// invia un messaggio IPC alla suite di test
 process.send({ my: 'message' })
 ```
 
-We can now communicate from the test suite to the Electron app using the `appProcess` object.
+Ora possiamo comunicare dalla suite di test all'app Electron utilizzando l'oggetto `appProcess`.
 
-For convenience, you may want to wrap `appProcess` in a driver object that provides more high-level functions. Here is an example of how you can do this:
+Per comodità, potresti voler avvolgere `appProcess` in un driver object che fornisce più funzioni di alto livello. Ecco un esempio di come si può fare questo:
 
 ```js
 class TestDriver {
   constructor ({ path, args, env }) {
-    this.rpcCalls = []
+    this. pcCalls = []
 
-    // start child process
-    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
-    this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
+    // avvia processo figlio
+    env. PP_TEST_DRIVER = 1 // far sapere all'app che dovrebbe ascoltare i messaggi
+    this.process = childProcess. pawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
     // handle rpc responses
-    this.process.on('message', (message) => {
+    this.process. n('message', (message) => {
       // pop the handler
-      const rpcCall = this.rpcCalls[message.msgId]
-      if (!rpcCall) return
-      this.rpcCalls[message.msgId] = null
-      // reject/resolve
-      if (message.reject) rpcCall.reject(message.reject)
-      else rpcCall.resolve(message.resolve)
+      const rpcCall = this. pcCalls[message.msgId]
+      se (!rpcCall) restituisce
+      questo. pcCalls[message.msgId] = null
+      // rigetta/risolve
+      se (messaggio. eject) rpcCall.reject(message.reject)
+      else rpcCall. esolve(message.resolve)
     })
 
-    // wait for ready
-    this.isReady = this.rpc('isReady').catch((err) => {
-      console.error('Application failed to start', err)
+    // aspetta
+    this.isReady = this.rpc('isReady'). atch((err) => {
+      console. rror('Application failed to start', err)
       this.stop()
-      process.exit(1)
+      process. xit(1)
     })
   }
 
-  // simple RPC call
-  // to use: driver.rpc('method', 1, 2, 3).then(...)
+  // semplice chiamata RPC
+  // da usare: driver. pc('metodo', 1, 2, 3).allora(...)
   async rpc (cmd, ...args) {
     // send rpc request
-    const msgId = this.rpcCalls.length
-    this.process.send({ msgId, cmd, args })
-    return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
+    const msgId = this. pcCalls.length
+    this.process. end({ msgId, cmd, args })
+    restituisce la nuova Promise((resolve, reject) => this.rpcCalls. ush({ resolve, reject }))
   }
 
   stop () {
@@ -81,26 +81,26 @@ class TestDriver {
 }
 ```
 
-In the app, you'd need to write a simple handler for the RPC calls:
+Nell'app, dovresti scrivere un semplice gestore per le chiamate RPC:
 
 ```js
 if (process.env.APP_TEST_DRIVER) {
-  process.on('message', onMessage)
+  process. n('message', onMessage)
 }
 
 async function onMessage ({ msgId, cmd, args }) {
   let method = METHODS[cmd]
-  if (!method) method = () => new Error('Invalid method: ' + cmd)
+  if (! ethod) method = () => new Error('Invalid method: ' + cmd)
   try {
-    const resolve = await method(...args)
-    process.send({ msgId, resolve })
+    const resolve = await method(. .args)
+    processo. end({ msgId, resolve })
   } catch (err) {
     const reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
     }
-    process.send({ msgId, reject })
+    processo. end({ msgId, reject })
   }
 }
 
@@ -113,7 +113,7 @@ const METHODS = {
 }
 ```
 
-Then, in your test suite, you can use your test-driver as follows:
+Poi, nella suite di prova, è possibile utilizzare il driver di prova come segue:
 
 ```js
 const test = require('ava')
@@ -121,7 +121,7 @@ const electronPath = require('electron')
 
 const app = new TestDriver({
   path: electronPath,
-  args: ['./app'],
+  args: ['. app'],
   env: {
     NODE_ENV: 'test'
   }
@@ -129,7 +129,7 @@ const app = new TestDriver({
 test.before(async t => {
   await app.isReady
 })
-test.after.always('cleanup', async t => {
+test. fter.always('cleanup', async t => {
   await app.stop()
 })
 ```

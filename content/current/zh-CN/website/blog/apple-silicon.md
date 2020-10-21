@@ -1,49 +1,49 @@
 ---
-title: Apple Silicon Support
-author: MarshallOfSound
+title: 苹果硅支持
+author: Marshall OfSound
 date: '2020-10-15'
 ---
 
-With Apple Silicon hardware being released later this year, what does the path look like for you to get your Electron app running on the new hardware?
+今年晚些时候发行苹果硅硬件， 您想要让您的 Electron 应用在新的硬件上运行哪个路径？
 
 ---
 
-With the release of Electron 11.0.0-beta.1, the Electron team is now shipping builds of Electron that run on the new Apple Silicon hardware that Apple plans on shipping later this year. You can grab the latest beta with `npm install electron@beta` or download it directly from our [releases website](https://electronjs.org/releases/stable).
+通过 Electron 11.0.0-beta 发布。 ，Electron团队现在正在装运Electron构建，这是苹果计划今年晚些时候装运的新苹果硅硬件。 您可以使用 `npm install electron@beta` 获取最新测试版，或直接从我们的 [发布网站](https://electronjs.org/releases/stable) 下载。
 
-## How does it work?
+## 它是如何工作的？
 
-As of Electron 11, we will be shipping separate versions of Electron for Intel Macs and Apple Silicon Macs. Prior to this change, we were already shipping two artifacts, `darwin-x64` and `mas-x64`, with the latter being for Mac App Store compatibility usage. We are now shipping another two artifacts, `darwin-arm64` and `mas-arm64`, which are the Apple Silicon equivalents of the aforementioned artifacts.
+从Electron 11开始，我们将为Intel Mac和Apple Silicon Mac分别配送Electron版本。 在这个更改之前，我们已经运输了两件工艺品， `darwin-x64` and `mas-x64`, 后者为 Mac App Store 兼容性使用。 我们现在正在运输另外两件艺术品， `darwin-arm64` and `mas-arm64`, 它们是上述艺术品的苹果硅。
 
-## What do I need to do?
+## 我需要做什么？
 
-You will need to ship two versions of your app: one for x64 (Intel Mac) and one for arm64 (Apple Silicon). The good news is that [`electron-packager`](https://github.com/electron/electron-packager/), [`electron-rebuild`](https://github.com/electron/electron-rebuild/) and [`electron-forge`](https://github.com/electron-userland/electron-forge/) already support targeting the `arm64` architecture. As long as you're running the latest versions of those packages, your app should work flawlessly once you update the target architecture to `arm64`.
+您将需要发货两个版本的应用：一个版本用于x64(Intel Mac)，另一个版本用于arm64(Apple Silicon)。 好消息是 [`electron-packer`](https://github.com/electron/electron-packager/), [`电子重建`](https://github.com/electron/electron-rebuild/) 和 [`电子机枪`](https://github.com/electron-userland/electron-forge/) 已经支持瞄准 `arm64` 架构。 只要您正在运行这些软件包的最新版本， 一旦你将目标架构更新为 `arm64` ，你的应用就应该正常工作。
 
-In the future, we will release a package that allows you to "merge" your `arm64` and `x64` apps into a single universal binary, but it's worth noting that this binary would be _huge_ and probably isn't ideal for shipping to users.
+将来， 我们将发布一个软件包，允许您“合并”您的 `arm64` 和 `x64` 应用到一个单一的通用二进制二进制程序， 但值得注意的是，这个二进制文件将是 _巨大的_ ，而且可能不适合发送给用户。
 
-## Potential Issues
+## 潜在问题
 
-### Native Modules
+### 原生模块
 
-As you are targeting a new architecture, you'll need to update several dependencies which may cause build issues. The minimum version of certain dependencies are included below for your reference.
+当您正在针对一个新的架构时，您需要更新几个依赖关系，这可能会导致构建问题。 下面包含某些依赖关系的最低版本以供您参考。
 
-| Dependency          | Version Requirement |
-| ------------------- | ------------------- |
-| Xcode               | `>=12.0.0`       |
-| `node-gyp`          | `>=7.1.0`        |
-| `electron-rebuild`  | `>=1.12.0`       |
-| `electron-packager` | `>=15.1.0`       |
+| 依赖关系                | 版本要求          |
+| ------------------- | ------------- |
+| Xcode               | `>=12.0.0` |
+| `节点健身房`             | `>=7.1.0`  |
+| `电子重建`              | `>=1.12.0` |
+| `electron-packager` | `>=15.1.0` |
 
-As a result of these dependency version requirements, you may have to fix/update certain native modules.  One thing of note is that the Xcode upgrade will introduce a new version of the macOS SDK, which may cause build failures for your native modules.
+由于这些依赖版本要求，您可能必须修复/更新某些本机模块。  值得注意的是，Xcode 升级将引入新版本的 macOS SDK。 这可能会导致您本机模块的构建失败。
 
 
-## How do I test it?
+## 如何测试？
 
-Currently, Apple Silicon applications only run on Apple Silicon hardware, which isn't commercially available at the time of writing this blog post. If you have a [Developer Transition Kit](https://developer.apple.com/programs/universal/), you can test your application on that. Otherwise, you'll have to wait for the release of production Apple Silicon hardware to test if your application works.
+目前，Apple Silicon 应用程序只在 Apple Silicon 硬件上运行，在撰写这篇博文时没有商业用途。 如果你有 [开发者过渡套件](https://developer.apple.com/programs/universal/)，你可以测试你的应用程序。 否则，您将不得不等待生产苹果硅硬件的释放，以测试您的应用是否正常。
 
-## What about Rosetta 2?
+## Rosetta 2怎么样？
 
-Rosetta 2 is Apple's latest iteration of their [Rosetta](https://en.wikipedia.org/wiki/Rosetta_(software)) technology, which allows you to run x64 Intel applications on their new arm64 Apple Silicon hardware. Although we believe that x64 Electron apps will run under Rosetta 2, there are some important things to note (and reasons why you should ship a native arm64 binary).
+Rosetta 2 是苹果最近一次对他们的 [Rosetta](https://en.wikipedia.org/wiki/Rosetta_(software)) 技术的迭代。 允许您在新的 arm64 苹果硅硬件上运行 x64 Intel 应用。 尽管我们认为x64 Electron应用将在Rosetta 2下运行， 有一些重要的事情需要注意(以及你为什么要运送一只土生长的装甲64)。
 
-* Your app's performance will be significantly degraded. Electron / V8 uses [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) compilation for JavaScript, and due to how Rosetta works, you will effectively be running JIT twice (once in V8 and once in Rosetta).
-* You lose the benefit of new technology in Apple Silicon, such as the increased memory page size.
+* 您的应用的性能将大大降低。 Electron / V8 为 JavaScript 使用 [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) 编译，因为Rosetta 是如何工作的。 您将有效地运行两次JIT (一次在 V8 中，一次在 Rosetta)。
+* 您失去了苹果Silicon新技术的好处，例如内存页面大小的增加。
 * Did we mention that the performance will be **significantly** degraded?

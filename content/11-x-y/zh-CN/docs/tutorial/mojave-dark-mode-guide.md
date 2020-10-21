@@ -2,24 +2,24 @@
 
 在 macOS 10.14 Mojave中， Apple 为所有 macOS 电脑引入了一个全新的 [系统级黑暗模式](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/)。  If your Electron app has a dark mode, you can make it follow the system-wide dark mode setting using [the `nativeTheme` api](../api/native-theme.md).
 
-在 macOS 10.15 Catalina 中，苹果为所有macOS电脑引入了一个新的“自动”暗色模式选项。 In order for the `nativeTheme.shouldUseDarkColors` and `Tray` APIs to work correctly in this mode on Catalina, you need to either have `NSRequiresAquaSystemAppearance` set to `false` in your `Info.plist` file, or be on Electron `>=7.0.0`. Both [Electron Packager][electron-packager] and [Electron Forge][electron-forge] have a [`darwinDarkModeSupport` option][packager-darwindarkmode-api] to automate the `Info.plist` changes during app build time.
+在 macOS 10.15 Catalina 中，苹果为所有macOS电脑引入了一个新的“自动”暗色模式选项。 为了 `本土主题。 houldUseDarkColors` and `托盘` APIs 需要在这种模式下正常工作于 Catalina, 您需要有 `NSRequiresAquaSystem外观` 设置为 `false` 在您的 `信息中。 邮件列表` 文件或在 Electron `>=7.0.0` Both [Electron Packager][electron-packager] and [Electron Forge][electron-forge] have a [`darwinDarkModeSupport` option][packager-darwindarkmode-api] to automate the `Info.plist` changes during app build time.
 
 ## 自动更新原生界面
 
-"Native Interfaces" include the file picker, window border, dialogs, context menus, and more; basically, anything where the UI comes from macOS and not your app. As of Electron 7.0.0, the default behavior is to opt into this automatic theming from the OS. If you wish to opt-out and are using Electron
-&gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let you opt-out of this theming, due to the use of the macOS 10.14 SDK.
+“本地接口”包括文件选择器、窗口边框、对话框、上下文菜单等等。 基本上， 来自macOS 而不是您的应用程序的 UI 的任何地方。 从 Electron 7.0.0 开始，默认行为 是从OS 选择这个自动主题。 如果您希望退出并正在使用 Electron
+&gt; 8.0。 ，您必须在 `Info.plist` 文件中设置 `NSRequireesAquaSystem外观` 键值为 `true` 请注意，Electron 8.0.0及以上不会因为使用 macOS 10.14 SDK而让您选择退出这个主题。
 
 ## 自动更新你的接口
 
-If your app has its own dark mode, you should toggle it on and off in sync with the system's dark mode setting. You can do this by listening for the theme updated event on Electron's `nativeTheme` module.
+如果您的应用有自己的黑暗模式，您应该在与系统黑暗 模式设置同步时切换。 您可以通过在Electron的 `原生主题` 模块上聆听更新的主题事件来做到这一点。
 
 例如：
 
 ```javascript
 const { nativeTheme } = require('electron')
 
-nativeTheme.on('updated', function theThemeHasChanged () {
-  updateMyAppTheme(nativeTheme.shouldUseDarkColors)
+nativeTheme.on('updated, function theThemeHasChanged () format@@
+  upateMyAppTheme(nativeTheme.shouldUseDarkColors)
 })
 ```
 

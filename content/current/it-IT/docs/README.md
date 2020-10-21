@@ -4,7 +4,7 @@ Assicuratevi di usare la documentazione corrispondente alla versione in uso di E
 
 ## FAQ (Domande frequenti)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Ci sono domande che vengono poste abbastanza spesso. Check this out before creating an issue:
 
 * [Domande frequenti su Electron](faq.md)
 
@@ -17,8 +17,8 @@ There are questions that are asked quite often. Check this out before creating a
   * [Scegliere un Editor](tutorial/development-environment.md#a-good-editor)
 * [Creazione della tua prima applicazione](tutorial/quick-start.md)
   * [Prerequisiti](tutorial/quick-start.md#prerequisites)
-  * [Create a basic application](tutorial/quick-start.md#create-a-basic-application)
-  * [Package and distribute the application](tutorial/quick-start.md#package-and-distribute-the-application)
+  * [Crea un'applicazione di base](tutorial/quick-start.md#create-a-basic-application)
+  * [Pacchetto e distribuzione dell'applicazione](tutorial/quick-start.md#package-and-distribute-the-application)
 * [Boilerplate e CLI](tutorial/boilerplates-and-clis.md)
   * [Boilerplate contro CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forgia](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Accessibilità](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Abilitare Manualmente Le Caratteristiche Di Accessibilità](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Test e Debugging](tutorial/application-debugging.md)
   * [Debuggare il Processo Principale](tutorial/debugging-main-process.md)
   * [Debug del Processo Principale con Visual Studio Code](tutorial/debugging-main-process-vscode.md)

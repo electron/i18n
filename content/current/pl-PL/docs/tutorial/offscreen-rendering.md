@@ -1,22 +1,22 @@
 # Renderowanie Pozaekranowe
 
-Renderowanie poza ekranem pozwala uzyskać zawartość okna przeglądarki w bitmapie, więc może być renderowana w dowolnym miejscu, na przykład na tekstury w scenie 3D. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+Renderowanie poza ekranem pozwala uzyskać zawartość okna przeglądarki w bitmapie, więc może być renderowana w dowolnym miejscu, na przykład na tekstury w scenie 3D. renderowanie offscreerowe w Electron używa podobnego podejścia niż projekt [Chromium Osadzony Framework](https://bitbucket.org/chromiumembedded/cef).
 
-Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, only performance loss.
+Można użyć dwóch trybów renderowania i tylko brudny obszar jest przekazywany w wydarzeniu `'malowanie'` aby być bardziej efektywnym. Renderowanie może być zatrzymane, kontynuowane i można ustawić szybkość klatki. Określona prędkość ramki jest najwyższą wartością graniczną, gdy nic się nie dzieje na stronie internetowej, żadne ramki nie są generowane. maksymalna liczba klatek na sekundę wynosi 60, ponieważ powyżej nie ma korzyści, tylko utrata wydajności.
 
-**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+**Uwaga:** Okno offscreerowe jest zawsze tworzone jako [Okno bez ramki](../api/frameless-window.md).
 
 ## Tryby Renderowania
 
 ### Akceleracja GPU
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode is that WebGL and 3D CSS animations are supported.
+Nakładanie GPU oznacza, że GPU jest używany do kompozycji. że ramka musi być skopiowana z GPU, co wymaga większej wydajności, więc ten tryb jest nieco wolniejszy niż drugi. Zaletą tego trybu jest to, że animacje CSS WebGL i 3D są obsługiwane.
 
-### Software output device
+### Urządzenie wyjściowe oprogramowania
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+Ten tryb wykorzystuje oprogramowanie wyjściowe do renderowania w CPU, więc generowanie klatki jest znacznie szybsze, dlatego ten tryb jest preferowany nad przyspieszeniem GPU .
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+Aby włączyć ten tryb przyspieszenie GPU musi być wyłączone przez wywołanie [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
 ## Zużycie
 
@@ -25,18 +25,18 @@ const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
 
-let win
+let wygraj
 
-app.whenReady().then(() => {
-  win = new BrowserWindow({
+app.whenReady(). hen() => {
+  wygraj = new BrowserWindow({
     webPreferences: {
       offscreen: true
     }
   })
 
-  win.loadURL('http://github.com')
-  win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
+  wygrywa. oadURL('http://github.com')
+  win.webContents.on('paint', (zdarzenie, brud, obrazek) => {
+    // updateBitmap(brudność, obraz). etBitmap())
   })
   win.webContents.setFrameRate(30)
 })

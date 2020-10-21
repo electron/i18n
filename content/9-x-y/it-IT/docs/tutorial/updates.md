@@ -4,7 +4,7 @@ Ci sono molti modi di aggiornare una app di Electron. La più facile ed ufficial
 
 ## Usando `aggiorna.electronjs.org`
 
-Il team di GitHub di Electron mantieneaggiorna.electronjs.org, un servizio web gratuito e libero che le app di Electron possono usare per auto aggiornarsi. The service is designed for Electron apps that meet the following criteria:</p> 
+Il team di GitHub di Electron mantieneaggiorna.electronjs.org, un servizio web gratuito e libero che le app di Electron possono usare per auto aggiornarsi. Il servizio è progettato per le applicazioni Electron che soddisfano i seguenti criteri:</p> 
 
 - App eseguite su macOS o Windows
 - App con repository di GitHub pubblica
@@ -31,7 +31,7 @@ richiedi('aggiorna-electron-app')()
 ```
 
 
-By default, this module will check for updates at app startup, then every ten minutes. Quando trova un aggiornamento, questo sarà automaticamente scaricato in background. When the download completes, a dialog is displayed allowing the user to restart the app.
+Per impostazione predefinita, questo modulo controllerà gli aggiornamenti all'avvio dell'app, poi ogni dieci minuti. Quando trova un aggiornamento, questo sarà automaticamente scaricato in background. Al termine del download, viene visualizzata una finestra di dialogo che consente all'utente di riavviare l'app.
 
 If you need to customize your configuration, you can [pass options to `update-electron-app`][update-electron-app] or [use the update service directly][update.electronjs.org].
 
@@ -45,7 +45,7 @@ Se la tua app è impacchettata con [`electron-costruttore`][electron-builder-lib
 
 ## Implementare un Server Aggiornamento
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Se stai sviluppando un'applicazione privata di Electron o se non stai pubblicando rilasci su GitHub Releases, potrebbe essere necessario eseguire il proprio server di aggiornamento.
 
 In base alle tue necessità, puoi scegliere da una di queste:
 
@@ -84,7 +84,7 @@ autoUpdater.setFeedURL(feed)
 ```
 
 
-As the final step, check for updates. The example below will check every minute:
+Come passo finale, controllare gli aggiornamenti. L'esempio sottostante controllerà ogni minuto:
 
 
 
@@ -122,7 +122,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 ```
 
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Assicurati anche che gli errori siano [gestiti](../api/auto-updater.md#event-error). Ecco un esempio per registrarli a `stderr`:
 
 
 

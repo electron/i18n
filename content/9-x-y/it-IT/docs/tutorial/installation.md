@@ -1,6 +1,6 @@
 # Installazione
 
-To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
+To install prebuilt Electron binaries, use [`npm`][npm]. Il metodo preferito è installare Electron come dipendenza da sviluppo nella tua app :
 
 ```sh
 npm install electron --save-dev
@@ -34,8 +34,8 @@ npm install --platform=win32 electron
 
 Se ti serve usare un HTTP proxy, devi impostare `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
 
-* [Node 10 and above][proxy-env-10]
-* [Before Node 10][proxy-env]
+* [Nodo 10 e superiore][proxy-env-10]
+* [Prima Del Nodo 10][proxy-env]
 
 ## Personalizza Specchi e Cache
 During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. Lo farà contattanto la pagina di rilascio download di GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, dove `$VERSION` è l'esatta versione di Electron).
@@ -56,7 +56,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
 #### Cache
-Alternativamente, puoi annullare la cache locale. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Puoi usare la cartella della cache per fornire build personalizzate di Electron o per evitare di entrare totalmente a contatto con la rete.
+Alternativamente, puoi annullare la cache locale. `@electron/get` inserirà nella cache i binari scaricati in una directory locale per non stressare la rete. Puoi usare la cartella della cache per fornire build personalizzate di Electron o per evitare di entrare totalmente a contatto con la rete.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * macOS: `~/Libreria/Caches/electron/`
@@ -64,9 +64,9 @@ Alternativamente, puoi annullare la cache locale. `@electron/get` will cache dow
 
 In ambienti che usano versioni di Electron precedenti, potresti trovare la cache anche in `~/.electron`.
 
-You can also override the local cache location by providing a `electron_config_cache` environment variable.
+Puoi anche sovrascrivere la posizione della cache locale fornendo una variabile di ambiente `electron_config_cache` .
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+La cache contiene il file zip ufficiale della versione e un checksum, memorizzato come un file di testo. Una cache tipica potrebbe assomigliare a questa:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -91,12 +91,12 @@ The cache contains the version's official zip file as well as a checksum, stored
     └── SHASUMS256.txt
 ```
 
-## Skip binary download
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+## Salta download binario
+Quando si installa il pacchetto NPM `electron` , si scarica automaticamente il binario elettronico.
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+A volte ciò può risultare inutile, ad esempio in un ambiente IC, durante la prova di un altro componente.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+Per evitare che il binario venga scaricato quando si installa tutte le dipendenze npm è possibile impostare la variabile di ambiente `ELECTRON_SKIP_BINARY_DOWNLOAD`. Ad esempio:
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```

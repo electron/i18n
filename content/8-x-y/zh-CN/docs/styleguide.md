@@ -138,17 +138,17 @@
 方法章节必须采用以下形式：
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `objectName.methodName(required[, optional])`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `requird` String - A 参数描述。
+* `optional` 整数(可选) - 另一个参数描述。
 
 ...
 ```
 
 标题可以是 `###` 级别或 `####` 级别，具体取决于它是模块还是类的方法。
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+对于模块， `对象名称` 是模块的名称。 对于类，它必须是类实例的 个名称，不能与模块的 个名称相同。
 
 例如，`session` 模块下的 `Session` 类的方法必须使用 `ses` 作为 `objectName` 。
 
@@ -158,7 +158,7 @@ For modules, the `objectName` is the module's name. For classes, it must be the 
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+以下是关于每一个论据的更详细的资料。 参数类型 是由常见类型表示的：
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

@@ -1,46 +1,46 @@
 ---
-title: 'Electron Internals&#58; Message Loop Integration'
+title: 'Electron interals&#58; Integrace zprávy smyčky'
 author: zcbenz
 date: '2016-07-28'
 ---
 
-This is the first post of a series that explains the internals of Electron. This post introduces how Node's event loop is integrated with Chromium in Electron.
+To je první příspěvek série, která vysvětluje interakce Electronu. Tento příspěvek představuje, jak je Událost Nodeho integrována s Chromiem v Electronu.
 
 ---
 
-There had been many attempts to use Node for GUI programming, like [node-gui](https://github.com/zcbenz/node-gui) for GTK+ bindings, and [node-qt](https://github.com/arturadib/node-qt) for QT bindings. But none of them work in production because GUI toolkits have their own message loops while Node uses libuv for its own event loop, and the main thread can only run one loop at the same time. So the common trick to run GUI message loop in Node is to pump the message loop in a timer with very small interval, which makes GUI interface response slow and occupies lots of CPU resources.
+Došlo k mnoha pokusům o použití uzlu pro programování GUI, jako [node-gui](https://github.com/zcbenz/node-gui) u vazeb GTK+ a [node-qt](https://github.com/arturadib/node-qt) u vazeb QT. Ale žádný z nich nepracuje ve výrobě, protože soubory nástrojů GUI mají své vlastní zprávy cykly, zatímco uzel používá libuv pro vlastní smyčku událostí, a hlavní vlákno může současně spustit pouze jednu smyčku. Běžným trikem spouštět smyčku GUI zpráv v Node je napumpovat smyčku zprávy časovačem s velmi malým intervalem, což zpomaluje odezvu rozhraní GUI a využívá spoustu zdrojů CPU.
 
-During the development of Electron we met the same problem, though in a reversed way: we had to integrate Node's event loop into Chromium's message loop.
+Během vývoje Electronu jsme se setkali se stejným problémem, ačkoliv opačným způsobem: museli jsme integrovat smyčku události Node do zprávy Chromia smyčky.
 
-## The main process and renderer process
+## Hlavní proces a proces zpracování
 
-Before we dive into the details of message loop integration, I'll first explain the multi-process architecture of Chromium.
+Než se ponoříme do podrobností o smyčce zprávy, nejprve vysvětlím multiprocesovou architekturu Chromium.
 
-In Electron there are two types of processes: the main process and the renderer process (this is actually extremely simplified, for a complete view please see [Multi-process Architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture)). The main process is responsible for GUI work like creating windows, while the renderer process only deals with running and rendering web pages.
+V Electronu existují dva typy procesů: hlavní proces a proces zpracování údajů (toto je ve skutečnosti mimořádně zjednodušené, pro kompletní zobrazení navštivte [Multi-process Architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture)). Hlavní proces je zodpovědný za vytváření uživatelského rozhraní, jako je vytváření oken, zatímco proces vykreslování řeší pouze běžící a vykreslující webové stránky.
 
-Electron allows using JavaScript to control both the main process and renderer process, which means we have to integrate Node into both processes.
+Electron umožňuje ovládat jak hlavní proces, tak proces rendereru , což znamená, že musíme do obou procesů integrovat uzel.
 
-## Replacing Chromium's message loop with libuv
+## Nahrazení smyčky Chromia libuv
 
-My first try was reimplementing Chromium's message loop with libuv.
+Můj první pokus se snažil znovu implementovat Chromium zprávu s libuvem.
 
-It was easy for the renderer process, since its message loop only listened to file descriptors and timers, and I only needed to implement the interface with libuv.
+Pro proces rendereru to bylo snadné, protože jeho smyčka zpráv poslouchala pouze deskriptory souborů a časovače, a potřebuji pouze pro implementaci rozhraní s libuv.
 
-However it was significantly more difficult for the main process. Each platform has its own kind of GUI message loops. macOS Chromium uses `NSRunLoop`, whereas Linux uses glib. I tried lots of hacks to extract the underlying file descriptors out of the native GUI message loops, and then fed them to libuv for iteration, but I still met edge cases that did not work.
+Pro hlavní proces to však bylo podstatně obtížnější. Každá platforma má svůj vlastní typ zpráv GUI. macOS Chromium používá `NSRunLoop`, zatímco Linux používá glib. Pokusil jsem se spoustu hacků pro extrahování základních deskriptorů souborů z nativního GUI zpráv, a pak je krmit do libuv pro iteraci, ale stále jsem se setkal s případy hrany, které nefungují.
 
-So finally I added a timer to poll the GUI message loop in a small interval. As a result the process took a constant CPU usage, and certain operations had long delays.
+Nakonec jsem přidal časovač do ankety zprávy GUI v malém intervalu. V důsledku proces trval na konstantním využití procesoru a některé operace měly dlouhá zpoždění.
 
-## Polling Node's event loop in a separate thread
+## Událostová smyčka uzlu v samostatném vlákně
 
-As libuv matured, it was then possible to take another approach.
+Po zralosti libuv pak bylo možné zaujmout jiný přístup.
 
-The concept of backend fd was introduced into libuv, which is a file descriptor (or handle) that libuv polls for its event loop. So by polling the backend fd it is possible to get notified when there is a new event in libuv.
+Koncept backend fd byl vložen do libuv, což je deskriptor souboru (nebo ruka), který libuv ankety pro smyčku událostí. So by polling the backend fd it is possible to get notified when there is a new event in libuv.
 
-So in Electron I created a separate thread to poll the backend fd, and since I was using the system calls for polling instead of libuv APIs, it was thread safe. And whenever there was a new event in libuv's event loop, a message would be posted to Chromium's message loop, and the events of libuv would then be processed in the main thread.
+Takže v Electronu jsem vytvořil samostatné vlákno pro anketu backend fd, a vzhledem k tomu, že jsem použil systémové volání do hlasování namísto libuv API, bylo to vlákno bezpečné. A kdykoli by došlo k nové události ve smyčce událostí libuvu, byla by do smyčky zpráv společnosti Chromium odeslána zpráva , a události libuv by pak byly zpracovány v hlavním vlákně.
 
-In this way I avoided patching Chromium and Node, and the same code was used in both the main and renderer processes.
+Tímto způsobem jsem se vyhnul patchování Chromia a Node, a stejný kód byl použit v hlavních i asanačních procesech.
 
-## The code
+## Kód
 
-You can find the implemention of the message loop integration in the `node_bindings` files under [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). It can be easily reused for projects that want to integrate Node.
+Zavedení smyčky zprávy naleznete v `node_bindings` souborech pod [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). Může být snadno znovu použita pro projekty, které chtějí integrovat Node.
 

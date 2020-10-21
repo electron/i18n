@@ -21,7 +21,7 @@ Vous pouvez configurer différentes combinaisons de touches basées sur le syst�
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Maj+I'
 }
 ```
 

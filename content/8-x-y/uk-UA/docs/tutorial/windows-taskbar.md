@@ -1,20 +1,20 @@
-# Windows Taskbar
+# Панель завдань Windows
 
-Electron has APIs to configure the app's icon in the Windows taskbar. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
+Electron має API для налаштування значка додатка на панелі задач Windows. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
 
-## JumpList
+## Список JumpList
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the task bar. That context menu is called `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Windows дозволяє програмам визначати контекстне меню, яке буде показано, коли користувачі клацніть правою кнопкою миші на панелі завдань. Це контекстне меню називається `JumpList`. Ви вказуєте настроювані дії в `Завданнях` категорії JumpList, як цитовані з MSDN:
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+> Додатки визначають завдання і на основі функцій програми і ключа очікується, що користувач зробить з ними. Завдання повинні бути без контексту, в , що програма не повинна виконуватись для їх роботи. Ці також повинні бути статистично найбільш поширеними діями, які міг би нормальний користувач виконувати у програмі, наприклад створення повідомлення електронної пошти або відкриття календаря в програмі пошти, створити новий документ в текстовому процесорі, запустіть програму в певному режимі або запустіть одну з її підкоманд. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Не використовуйте завдання для рекламних елементів, таких як оновлення або спеціальні пропозиції.
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+> Настійно рекомендується зробити список завдань статичним. Він повинен залишатись і незалежно від стану або статусу програми. Незважаючи на те, що можливо змінювати список динамічно, ви повинні вважати, що це може заплутати користувача, який не очікує від цієї частини списку призначення до зміни.
 
-__Tasks of Internet Explorer:__
+__Завдання Internet Explorer:__
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+На відміну від панелі завдань в macOS, яке є справжнім меню, користувацькі завдання в Windows працюють як ярлики додатків на кшталт того, що користувач натискає на завдання, програму буде виконана з вказаними аргументами.
 
 To set user tasks for your application, you can use [app.setUserTasks][setusertaskstasks] API:
 
@@ -22,39 +22,39 @@ To set user tasks for your application, you can use [app.setUserTasks][setuserta
 const { app } = require('electron')
 app.setUserTasks([
   {
-    program: process.execPath,
-    arguments: '--new-window',
-    iconPath: process.execPath,
+    додаток: процес. xecPath,
+    аргументи: '--new-window',
+    iconPath: процес. xecPath,
     iconIndex: 0,
-    title: 'New Window',
-    description: 'Create a new window'
+    title: 'Новий Window',
+    опис: 'Create new window'
   }
 ])
 ```
 
-To clean your tasks list, call `app.setUserTasks` with an empty array:
+Щоб очистити список завдань, викличте `app.setUserTasks` з пустим масивом:
 
 ```javascript
 const { app } = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+Користувацькі завдання все ще будуть показані навіть після закриття програми, таким чином значок і шлях до завдання повинен існувати, поки ваш додаток не буде видалено.
 
 
 ## Thumbnail Toolbars
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+На Windows ви можете додати мініатюрну панель інструментів за допомогою зазначених кнопок в панелі завдань розташування вікна додатка. Він надає користувачам доступ до певної команди вікна без відновлення чи активації вікна.
 
-From MSDN, it's illustrated:
+З MSDN, це ілюстровано:
 
-> This toolbar is the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Ця панель інструментів є звичним стандартною лінією керування. Він має максимум сім кнопок. ID кожної кнопки, зображення, підказки та стану встановлюються в структурі, яка потім передається на панель завдань. Додаток може показати, увімкнути, вимкнути або приховати кнопки з мініатюр панелі інструментів, як це необхідно поточного стану.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Наприклад, Windows Media Player може запропонувати стандартні транспортні засоби такі як гра, пауза, приглушення та зупинка.
 
-__Thumbnail toolbar of Windows Media Player:__
+__Панель мініатюр програвача Windows:__
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![гравець](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 You can use [BrowserWindow.setThumbarButtons][setthumbarbuttons] to set thumbnail toolbar in your application:
 
@@ -78,7 +78,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Для очищення кнопки мініатюр панелі інструментів, просто зателефонуйте `BrowserWindow.setThumbartons` з пустим масивом:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -88,41 +88,41 @@ win.setThumbarButtons([])
 ```
 
 
-## Icon Overlays in Taskbar
+## Накладання іконок на панелі завдань
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+На Windows кнопка задач може використовувати невелике накладання для відображення програми статусу, цитовану з MSDN:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Накладки іконок служать контекстним повідомленням про статус, і призначені для заперечення необхідності окремого значка статусу сповіщення для зв'язку з цією інформацією користувача. Наприклад, новий статус пошти в Microsoft Outlook, в даний час відображається в області сповіщень Тепер можна вказати через перекриття на кнопці з панелі завдань. Знову ж таки, ви маєте вирішити під час вашого циклу розробки який метод найкраще підходить для вашої програми. Накладення значків призначених для забезпечення важливого, давнього статусу або сповіщень, таких як мережевий статус, статус месенджеру або нова пошта. Користувач не повинен бути представлений постійно змінюючи накладання чи анімацію.
 
-__Overlay on taskbar button:__
+__Накладання на кнопку панелі завдань:__
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Накладання на кнопку панелі завдань](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon][setoverlayicon] API:
 
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Опис для overlay')
 ```
 
 
-## Flash Frame
+## Прошити фрейм
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+На Windows ви можете виділити кнопку панелі завдань, щоб привернути увагу користувача. Це схоже на те, щоб скинути піктограму док-станції на macOS. З орієнтації MSDN на документацію:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> Зазвичай вікно прошито для інформування користувача, якому вікно вимагає уваги, але що на ньому зараз немає фокусу клавіатури.
 
 To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame][flashframe] API:
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+нехай win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Не забудьте викликати `flashFrame` метод `false` , щоб вимкнути Flash. В вищезгаданий приклад його називають коли вікно потрапляє у фокус, але ви можете використати тайм-аут або іншу подію, щоб вимкнути її.
 
 [setthumbarbuttons]: ../api/browser-window.md#winsetthumbarbuttonsbuttons-windows
 [setusertaskstasks]: ../api/app.md#appsetusertaskstasks-windows

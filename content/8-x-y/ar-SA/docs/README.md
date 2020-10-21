@@ -4,7 +4,7 @@
 
 ## الأسئلة الشائعة
 
-There are questions that are asked quite often. Check this out before creating an issue:
+وهناك أسئلة تُطرح في كثير من الأحيان. تحقق من هذا قبل إنشاء مشكلة:
 
 * [إلكترون - الاسئلة الشائعة](faq.md)
 

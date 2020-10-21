@@ -4,7 +4,7 @@ Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Ele
 
 ## Prepara una copia del Plugin Flash
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://version` in the Chrome browser. La sua posizione e versione sono utili per il supporto di Flash Pepper in Electron. È anche possibile copiarlo in un'altra posizione.
+Su macOS e Linux, i dettagli del plugin Pepper Flash possono essere trovati navigando a `chrome://version` nel browser Chrome. La sua posizione e versione sono utili per il supporto di Flash Pepper in Electron. È anche possibile copiarlo in un'altra posizione.
 
 ## Aggiungere uno Switch Electron
 
@@ -16,34 +16,34 @@ Ad esempio:
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// Specifica percorso flash, supponendo che sia posizionato nella stessa directory con main. s.
 let pluginName
 switch (process.platform) {
   case 'win32':
-    pluginName = 'pepflashplayer.dll'
+    pluginName = 'pepflashplayer. ll'
     break
-  case 'darwin':
-    pluginName = 'PepperFlashPlayer.plugin'
-    break
-  case 'linux':
-    pluginName = 'libpepflashplayer.so'
-    break
+  caso 'darwin':
+    pluginName = 'PepperFlashPlayer. lugin'
+    pausa
+  caso 'linux':
+    pluginName = 'libpepflashplayer. o'
+    pausa
 }
-app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
+app. ommandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
+// Opzionale: Specifica la versione flash, per esempio, v17.0.0.169
 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
-app.whenReady().then(() => {
+app.whenReady(). hen(() => {
   const win = new BrowserWindow({
     width: 800,
-    height: 600,
-    webPreferences: {
+    altezza: 600,
+    webPreferenze: {
       plugins: true
     }
   })
-  win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
+  vince. oadURL(`file://${__dirname}/index.html`)
+  // Qualcosa altro
 })
 ```
 

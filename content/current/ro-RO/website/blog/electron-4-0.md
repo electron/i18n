@@ -4,23 +4,23 @@ author: BinaryMuse
 date: '2018-12-20'
 ---
 
-The Electron team is excited to announce that the stable release of Electron 4 is now available! You can install it from [electronjs.org](https://electronjs.org/) or from npm via `npm install electron@latest`. The release is packed with upgrades, fixes, and new features, and we can't wait to see what you build with them. Read more for details about this release, and please share any feedback you have as you explore!
+Echipa Electron este încântată să anunțe că versiunea stabilă a Electron 4 este acum disponibilă! Îl puteți instala din [electronjs.org](https://electronjs.org/) sau din npm prin `npm instalați electron@latest`. Versiunea este împachetată cu upgrade-uri, reparații și funcții noi, și nu putem aștepta să vedem ce construiți cu ele. Citiți mai multe pentru detalii despre această lansare și vă rugăm să împărtășiți feedback-ul pe care îl aveți în timp ce explorați!
 
 ---
 
-## What's New?
+## Ce este nou?
 
-A large part of Electron's functionality is provided by Chromium, Node.js, and V8, the core components that make up Electron. As such, a key goal for the Electron team is to keep up with changes to these projects as much as possible, providing developers who build Electron apps access to new web and JavaScript features. To this end, Electron 4 features major version bumps to each of these components; Electron v4.0.0 includes Chromium `69.0.3497.106`, Node `10.11.0`, and V8 `6.9.427.24`.
+O mare parte din funcţionalitatea Electron este furnizată de Chromium, Node.js, şi V8, componentele centrale care alcătuiesc Electron. Astfel, un obiectiv cheie al echipei Electron este de a ține pasul cu modificările aduse acestor proiecte cât mai mult posibil, oferă dezvoltatorilor care construiesc aplicații Electron acces la noi funcții web și JavaScript. În acest scop, Electron 4 prezintă variante majore de umflături pentru fiecare din aceste componente; Electron v4.0.0 include Chromium `69. .3497.106`, Node `10.11.0`, şi V8 `6.9.427.24`.
 
-In addition, Electron 4 includes changes to Electron-specific APIs. You can find a summary of the major changes in Electron 4 below; for the full list of changes, check out the [Electron v4.0.0 release notes](https://github.com/electron/electron/releases/tag/v4.0.0).
+În plus, Electron 4 include modificări la API-uri specifice Electron. Puteți găsi un rezumat al modificărilor majore din Electron 4 de mai jos; pentru lista completă de modificări, verifică [Electron v4. .0 note de lansare](https://github.com/electron/electron/releases/tag/v4.0.0).
 
-### Disabling the `remote` Module
+### Dezactivarea modulului `la distanță`
 
-You now have the ability to disable the `remote` module for security reasons. The module can be disabled for `BrowserWindow`s and for `webview` tags:
+Acum ai posibilitatea de a dezactiva modulul `la distanță` din motive de securitate. Modulul poate fi dezactivat pentru `BrowserWindow`s și pentru `webview` etichete:
 
 ```javascript
 // BrowserWindow
-new BrowserWindow({
+nou BrowserWindow({
   webPreferences: {
     enableRemoteModule: false
   }
@@ -30,116 +30,116 @@ new BrowserWindow({
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-See the [BrowserWindow](https://electronjs.org/docs/api/browser-window) and [`<webview>` Tag](https://electronjs.org/docs/api/webview-tag) documentation for more information.
+Vezi documentația [BrowserWindow](https://electronjs.org/docs/api/browser-window) și [`<webview>` Eticheta](https://electronjs.org/docs/api/webview-tag) pentru mai multe informații.
 
-### Filtering `remote.require()` / `remote.getGlobal()` Requests
+### Filtrare `remote.require()` / `remote.getGlobal()` Solicitări
 
-This feature is useful if you don't want to completely disable the `remote` module in your renderer process or `webview` but would like additional control over which modules can be required via `remote.require`.
+Această caracteristică este utilă dacă nu doriţi să dezactivaţi complet modulul `remote` din procesul de redare sau `vizualizare web` dar doriţi un control suplimentar asupra modulelor care pot fi necesare prin `telecomandă. ecvideul`.
 
-When a module is required via `remote.require` in a renderer process, a `remote-require` event is raised on the [`app` module](https://electronjs.org/docs/api/app). You can call `event.preventDefault()` on the the event (the first argument) to prevent the module from being loaded. The [`WebContents` instance](https://electronjs.org/docs/api/web-contents) where the require occurred is passed as the second argument, and the name of the module is passed as the third argument. The same event is also emitted on the `WebContents` instance, but in this case the only arguments are the event and the module name. In both cases, you can return a custom value by setting the value of `event.returnValue`.
+Cand un modul este necesar prin `telecomanda. asigură-te` într-un proces de redare, `eveniment cu nevoie de la distanță` este ridicat pe [`aplicația` modulul](https://electronjs.org/docs/api/app). Puteți apela `event.preventDefault()` pe eveniment (primul argument) pentru a preveni încărcarea modulului. [`Instanța` WebContent](https://electronjs.org/docs/api/web-contents) în care a apărut solicitarea este pasată ca al doilea argument, iar numele modulului este trecut ca al treilea argument. Același eveniment este emis și pe exemplul `WebContent` , dar în acest caz singurele argumente sunt evenimentul şi numele modulului. În ambele cazuri, puteți returna o valoare personalizată prin setarea valorii `event.returnValue`.
 
 ```javascript
-// Control `remote.require` from all WebContents:
+// Control `remote.require` din toate WebContents:
 app.on('remote-require', function (event, webContents, requestedModuleName) {
   // ...
 })
 
-// Control `remote.require` from a specific WebContents instance:
+// Control `remote.require` dintr-o instanţă specifică Webcontent.
 browserWin.webContents.on('remote-require', function (event, requestedModuleName) {
   // ...
 })
 ```
 
-In a similar fashion, when `remote.getGlobal(name)` is called, a `remote-get-global` event is raised. This works the same way as the `remote-require` event: call `preventDefault()` to prevent the global from being returned, and set `event.returnValue` to return a custom value.
+Într-un mod similar, când `remote.getGlobal(name)` este numit, se ridică un `eveniment de la distanță-get-global`. Acesta funcționează în același mod ca și evenimentul `de la distanța necesară` : apelează `preventDefault()` pentru a preveni returnarea globală și setează `evenimentul. eturnValue` pentru a returna o valoare personalizată.
 
 ```javascript
-// Control `remote.getGlobal` from all WebContents:
+// Control `remote.getGlobal` din toate WebContents:
 app.on('remote-get-global', function (event, webContents, requrestedGlobalName) {
   // ...
 })
 
-// Control `remote.getGlobal` from a specific WebContents instance:
+// Control `remote.getGlobal` dintr-o instanţă specifică Webcontent,
 browserWin.webContents.on('remote-get-global', function (event, requestedGlobalName) {
   // ...
 })
 ```
 
-For more information, see the following documentation:
+Pentru mai multe informații, a se vedea următoarea documentație:
 
-* [`remote.require`](https://electronjs.org/docs/api/remote#remoterequiremodule)
+* [`telecomandă.require`](https://electronjs.org/docs/api/remote#remoterequiremodule)
 * [`remote.getGlobal`](https://electronjs.org/docs/api/remote#remotegetglobalname)
 * [`app`](https://electronjs.org/docs/api/app)
-* [`WebContents`](https://electronjs.org/docs/api/web-contents)
+* [`WebConținut`](https://electronjs.org/docs/api/web-contents)
 
-### JavaScript Access to the About Panel
+### Acces JavaScript la Panoul Despre
 
-On macOS, you can now call `app.showAboutPanel()` to programmatically show the About panel, just like clicking the menu item created via `{role: 'about'}`. See the [`showAboutPanel` documentation](https://electronjs.org/docs/api/app?query=show#appshowaboutpanel-macos) for more information
+Pe macOS, acum poți apela aplicația `howAboutPanel()` pentru a afișa programatic panoul About ca și cum ai da click pe elementul de meniu creat prin `{role: 'about'}`. Vezi documentația [`showAboutPanel`](https://electronjs.org/docs/api/app?query=show#appshowaboutpanel-macos) pentru mai multe informații
 
-### Controlling `WebContents` Background Throttling
+### Controlarea `WebConținutul` Context de fundal
 
-`WebContents` instances now have a method `setBackgroundThrottling(allowed)` to enable or disable throttling of timers and animations when the page is backgrounded.
+`WebContent` instanțe au acum o metodă `setBackgroundTrottling(permis)` pentru a activa sau dezactiva încetinirea cronometrelor și animațiilor atunci când pagina este în fundal.
 
 ```javascript
 let win = new BrowserWindow(...)
-win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
+win.webContents.setBackgroundTrottling(enableBackgroundTrottling)
 ```
 
 See [the `setBackgroundThrottling` documentation](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) for more information.
 
 ## Ruperea modificărilor
 
-### No More macOS 10.9 Support
+### Suport pentru macOS 10.9
 
-Chromium no longer supports macOS 10.9 (OS X Mavericks), and as a result [Electron 4.0 and beyond does not support it either](https://github.com/electron/electron/pull/15357).
+Chromium nu mai acceptă macOS 10.9 (OS X Mavericks), și, în consecință, [Electron 4.0 și mai mult nu suportă nici](https://github.com/electron/electron/pull/15357).
 
-### Single Instance Locking
+### Blocare singură instanță
 
-Previously, to make your app a Single Instance Application (ensuring that only one instance of your app is running at any given time), you could use the `app.makeSingleInstance()` method. Starting in Electron 4.0, you must use `app.requestSingleInstanceLock()` instead. The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
+Înainte, pentru a face aplicația ta o aplicație unică în instanță (asigurându-te că doar o singură instanță a aplicației tale rulează în orice moment), ai putea folosi aplicația `. metoda akeSingleInstance()`. Începând cu Electron 4.0, trebuie să utilizaţi `app.requestSingleInstanceLock()` în schimb. Valoarea de returnare a acestei metode indică dacă această instanță a aplicației dvs. a obținut cu succes blocarea. În cazul în care nu s-a putut obține blocarea, puteți presupune că o altă instanță a aplicației dumneavoastră rulează deja cu blocarea și ieșiți imediat.
 
-For an example of using `requestSingleInstanceLock()` and information on nuanced behavior on various platforms, [see the documentation for `app.requestSingleInstanceLock()` and related methods](https://electronjs.org/docs/api/app#apprequestsingleinstancelock) and [the `second-instance` event](https://electronjs.org/docs/api/app#event-second-instance).
+Pentru un exemplu de utilizare `requestSingleInstanceLock()` şi informaţii despre comportament nuanced pe diferite platforme, [a se vedea documentația pentru `aplicație. equestSingleInstanceLock()` și metodele aferente](https://electronjs.org/docs/api/app#apprequestsingleinstancelock) și [al doilea eveniment ``](https://electronjs.org/docs/api/app#event-second-instance).
 
 ### `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. [See the native module guide](https://electronjs.org/docs/tutorial/using-native-node-modules#a-note-about-win_delay_load_hook) for more information.
+Când se construiesc module native pentru ferestre, variabila `win_delay_load_hook` în `binding.gyp` a modulului trebuie să fie adevărată (care este implicit). Dacă acest cârlig nu este prezent, atunci modulul nativ nu va mai fi încărcat pe Windows, cu un mesaj de eroare ca `Nu s-a gasit modulul`. [Vezi ghidul modulului nativ](https://electronjs.org/docs/tutorial/using-native-node-modules#a-note-about-win_delay_load_hook) pentru mai multe informaţii.
 
-## Deprecations
+## Dezaprobată
 
-The following breaking changes are planned for Electron 5.0, and thus are deprecated in Electron 4.0.
+Următoarele schimbări de rupere sunt planificate pentru Electron 5.0, fiind astfel descurajate în Electron 4.0.
 
-### Node.js Integration Disabled for `nativeWindowOpen`-ed Windows
+### Integrare Node.js dezactivată pentru `nativeWindowOpen`-ed Windows
 
-Starting in Electron 5.0, child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+Începând cu Electron 5.0, ferestrele copil deschise cu opţiunea `nativeWindowOpen` vor avea întotdeauna integrarea Node.js dezactivată.
 
-### `webPreferences` Default Values
+### `WebPreferences` Valori implicite
 
-When creating a new `BrowserWindow` with the `webPreferences` option set, the following `webPreferences` option defaults are deprecated in favor of new defaults listed below:
+La crearea unui nou `BrowserWindow` cu setul de opțiuni `webPreferences` următoarea opțiune `de tip webPreferences` este învechită în favoarea noilor valori implicite enumerate mai jos:
 
 <div class="table table-ruled table-full-width">
 
-| Property | Deprecated Default | New Default |
-|----------|--------------------|-------------|
-| `contextIsolation` | `false` | `true` |
-| `nodeIntegration` | `true` | `false` |
-| `webviewTag` | value of `nodeIntegration` if set, otherwise `true` | `false` |
+<unk> Proprietate <unk> Implicit Depreced m2 Noul Implicit <unk>
+<unk> -------------------------------------<unk>
+<unk> `contextIsolation` <unk> `false` <unk> `true` <unk>
+<unk> `nodeIntegration` <unk> `true` <unk> `false` <unk>
+<unk> `webviewTag` `, valoarea `nodeIntegration` dacă este setată, altfel `adevărat` <unk> `false` <unk>
 
 </div>
 
-Please note: there is currently [a known bug (#9736)](https://github.com/electron/electron/issues/9736) that prevents the `webview` tag from working if `contextIsolation` is on. Keep an eye on the GitHub issue for up-to-date information!
+Rețineți: în prezent există [o eroare cunoscută (#9736)](https://github.com/electron/electron/issues/9736) care împiedică tag-ul `webview` să funcționeze dacă `contextIsolarea` este activată. Fiți atenți la problema GitHub pentru informații actualizate!
 
-Learn more about context isolation, Node integration, and the `webview` tag in [the Electron security document](https://electronjs.org/docs/tutorial/security).
+Aflați mai multe despre izolarea contextului, integrarea Node și `webview` în [documentul de securitate Electron](https://electronjs.org/docs/tutorial/security).
 
-Electron 4.0 will still use the current defaults, but if you don't pass an explicit value for them, you'll see a deprecation warning. To prepare your app for Electron 5.0, use explicit values for these options. [See the `BrowserWindow` docs](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions) for details on each of these options.
+Electron 4.0 va utiliza în continuare implicitele curente, dar dacă nu pasezi o valoare explicită pentru ele, vei vedea un avertisment de descurajare. Pentru a pregăti aplicația ta pentru Electron 5.0, folosește valori explicite pentru aceste opțiuni. [Vezi `BrowserWindow` documente](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions) pentru detalii despre fiecare dintre aceste opțiuni.
 
-### `webContents.findInPage(text[, options])`
+### `webContents.findInPage(text, [opțiuni])`
 
-The `medialCapitalAsWordStart` and `wordStart` options have been deprecated as they have been removed upstream.
+Opțiunile `medialCapitalAsWordStart` și `wordStart` au fost învechite pentru că au fost eliminate în amonte.
 
 ## Program de FeedBack a Aplicațiilor
 
-The [App Feedback Program](https://electronjs.org/blog/app-feedback-program) we instituted during the development of Electron 3.0 was successful, so we've continued it during the development of 4.0 as well. We'd like to extend a massive thank you to Atlassian, Discord, MS Teams, OpenFin, Slack, Symphony, WhatsApp, and the other program members for their involvement during the 4.0 beta cycle. To learn more about the App Feedback Program and to participate in future betas, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+Programul de feedback al aplicației [](https://electronjs.org/blog/app-feedback-program) a fost creat în timpul dezvoltării Electron 3. a reușit, așa că am continuat-o și în timpul dezvoltării lui 4.0. Am dori să îi mulțumim masiv lui Atlassian, Discord, MS Teams, OpenFin, Slack, Simfonie, WhatsApp și ceilalți membri ai programului pentru implicarea lor în timpul celor 4. ciclu beta. Pentru a afla mai multe despre Programul de Feedback al Aplicațiilor și pentru a participa la viitoarele betase, [vedeți postarea noastră pe blog despre program](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Ce urmează
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. [See our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+Pe termen scurt, vă puteţi aştepta ca echipa să continue să se concentreze pe a ţine pasul cu dezvoltarea componentelor majore care formează Electron, inclusiv crom, nod și V8. Deşi suntem atenţi să nu facem promisiuni cu privire la data eliberării, planul nostru este să lansăm noi versiuni majore ale Electron cu versiuni noi ale acestor componente aproximativ trimestrial. [Vedeți documentul nostru de versionare](https://electronjs.org/docs/tutorial/electron-versioning) pentru mai multe informații detaliate despre versionare în Electron.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+Pentru informații despre schimbările planificate de rupere în versiunile viitoare de Electron, [a se vedea documentul nostru Planificat Breaking Change](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).

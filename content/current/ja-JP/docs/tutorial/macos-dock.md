@@ -2,7 +2,7 @@
 
 ## 概要
 
-Electron にはmacOSドック中のアプリアイコンを設定するための API があります。 A macOS-only API exists to create a custom dock menu, but Electron also uses the app dock icon as the entry point for cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron にはmacOSドック中のアプリアイコンを設定するための API があります。 カスタム Dock メニューを作成するために macOSのみ API が存在します。 Electron はまた、 [最近のドキュメント](./recent-documents.md) や [アプリケーションの進行状況](./progress-bar.md) のようなクロスプラットフォーム機能のエントリポイントとしてアプリドックアイコンを使用します。
 
 カスタムdockは一般的に、ユーザーが全てのアプリウィンドウを表示するのではなく、タスクのショートカットを追加するために使用されます。
 
@@ -10,11 +10,11 @@ __ターミナルアプリのDockメニュー__
 
 ![Dockメニュー](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
-To set your custom dock menu, you need to use the [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API, which is only available on macOS.
+カスタムドックメニューを設定するには、macOS でのみ使用可能な [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API、 を使用する必要があります。
 
 ## サンプル
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+[クイックスタートガイド](quick-start.md)から動作するアプリケーションから始めて、 `main.js` ファイルを 次の行で更新します。
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -38,6 +38,6 @@ app.whenReady().then(() => {
 })
 ```
 
-After launching the Electron application, right click the application icon. You should see the custom menu you just defined:
+Electron アプリケーションを起動した後、アプリケーションアイコンを右クリックします。 先ほど定義したカスタムメニューが表示されます。
 
-![macOS dock menu](../images/macos-dock-menu.png)
+![macOS ドックメニュー](../images/macos-dock-menu.png)

@@ -1,35 +1,35 @@
 # Boilerplates and CLIs
 
-Electron development is unopinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
+تطوير إلكترون غير مشاهدة - لا توجد "طريقة واحدة حقيقية" لتطوير أو بناء أو حزمة أو إصدار تطبيق إلكترون. يمكن العثور على ميزات إضافية ل إلكترون ، سواء للبناء أو وقت التشغيل، على [npm](https://www.npmjs.com/search?q=electron) في الحزم الفردية، السماح للمطورين ببناء كل من التطبيق وبناء خط أنابيب يحتاجونه.
 
-That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+هذا المستوى من وحدة التحكم وإمكانية التمديد يضمن أن جميع المطورين الذين يعملون مع إلكترون، كبيرهم وصغيرهم في حجم الفريق، لا يقيدون أبداً في ما يمكنهم أو لا يستطيعون القيام به في أي وقت خلال حياتهم الإنمائية. ومع ذلك، بالنسبة للعديد من المطورين، فإن إحدى أدوات الغلايات التي يقودها المجتمع أو سطر الأوامر قد تجعل من الأسهل تجميعها، الحزمة، وقم بتحرير تطبيق.
 
 ## Boilerplate مقابل CLI
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+لوحة الغليان هي فقط نقطة انطلاق - قماش ، إذا جاز التحدث - حيث تقوم ببناء التطبيق الخاص بك. عادة ما تأتي في شكل مستودع يمكنك استنساخه وتخصيصه لمحتويات قلبك.
 
-A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+أداة سطر الأوامر من ناحية أخرى تواصل دعمك خلال تطوير وإصداره. إنها أكثر فائدة وداعمة ولكنها تفرض مبادئ توجيهية حول كيفية هيكلة التعليمات البرمجية الخاصة بك وبنائها. *خاصة لـ المبتدئين ، من المرجح أن يكون استخدام أداة سطر الأوامر مفيدا*.
 
 ## electron-forge
 
-A "complete tool for building modern Electron applications". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
+أداة كاملة لبناء تطبيقات إلكترون الحديثة. Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
 
-Forge comes with [a ready-to-use template](https://electronforge.io/templates) using Webpack as a bundler. It includes an example typescript configuration and provides two configuration files to enable easy customization. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+تصنيع يأتي مع [قالب جاهز للاستخدام](https://electronforge.io/templates) باستخدام Webpack كحزمة. يحتوي على مثال لتكوين الطباعة النصية ويوفر ملفين للتكوين لتفعيل التخصيص السهل. وهي تستخدم نفس الوحدات الأساسية التي يستخدمها مجتمع إلكترون الكبير (مثل [`حزمة إلكترون`](https://github.com/electron/electron-packager)) - التغييرات التي قام بها مشرفو إلكترون (مثل سلاك) لصالح مستخدمي فورج، أيضا.
 
-You can find more information and documentation on [electronforge.io](https://electronforge.io/).
+ستجد المزيد من المعلومات والوثائق حول [electronforge.io](https://electronforge.io/).
 
 ## electron-builder
 
-A "complete solution to package and build a ready-for-distribution Electron app" that focuses on an integrated experience. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+حل كامل للحزمة وبناء تطبيق إلكترون جاهز للتوزيع الذي يركز على تجربة متكاملة. [`وحدة الإنشاء الإلكتروني`](https://github.com/electron-userland/electron-builder) تضيف واحداً اعتماداً فردياً يركز على البساطة ويدير جميع المتطلبات الإضافية داخلياً.
 
-`electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+`وحدة الإنشاء الإلكتروني` تستبدل الميزات والوحدات المستخدمة من قبل مشرفي إلكترون (مثل التحديث التلقائي) بميزات ووحدات مخصصة. هي عموما مدمجة أكثر إحكاما، ولكن سيكون لها عدد أقل من الشبه مع تطبيقات إلكترون الشهيرة مثل الذرة، أو ستوديو البصر، أو ساكين.
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+يمكنك العثور على مزيد من المعلومات والوثائق في [المستودع](https://github.com/electron-userland/electron-builder).
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+إذا كنت لا تريد أي أدوات ولكن فقط صليحة صلبة للبناء منها، CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) قد تكون ذات قيمة نظرة. إنها شائعة جداً في المجتمع وتستخدم `وحدة الإنشاء الإلكتروني` داخلياً.
 
 ## أدوات أخرى و Boilerplates
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+تحتوي قائمة ["Aesome Electron"](https://github.com/sindresorhus/awesome-electron#boilerplates) على المزيد من الأدوات ولوحات الغليان للاختيار منها. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.

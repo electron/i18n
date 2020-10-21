@@ -6,7 +6,7 @@ This page defines some terminology that is commonly used in Electron development
 
 ASAR це Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron може працювати з файлами архіву без його розпаковування.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+ASAR був створений для підвищення продуктивності на Windows... TODO
 
 ### CRT
 
@@ -22,11 +22,11 @@ Input Method Editor. A program that allows users to enter characters and symbols
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Мова опису інтерфейсу. Писати сигнатури функцій і типи даних у форматі, який можна використовувати для створення інтерфейсів в Java, C++, JavaScript, тощо.
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC означає взаємообробне спілкування. Electron використовує IPC для надсилання серіалізованих JSON-повідомлень між [головним](#main-process) і [рендер](#renderer-process) процесів.
 
 ### libchromiumcontent
 
@@ -38,15 +38,15 @@ A shared library that includes the [Chromium Content module](https://www.chromiu
 
 The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Основний файл процесу кожної програми вказано в `головній властивості` в `package.json`. Ось як `електрон.` знає, який файл виконувати при запуску.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+В Chromium цей процес називають "процесом браузера". Це перейменовано в Electron, щоб уникнути плутанини з процесами рендерингу.
 
 See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Acronym для Apple Mac App Store. Для отримання докладнішої інформації про відправлення програми до MAS, за посиланням [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
@@ -68,7 +68,7 @@ Nullsoft Scriptable Install System це керований скриптом ін
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (Вивід екранного рендерингу) використовується для завантаження важкої сторінки в у фоновому режимі і відображення його після (зображення буде набагато швидше). Це дозволяє Вам показувати сторінку без відображення на екрані.
 
 ### процес
 
@@ -80,7 +80,7 @@ OSR (Off-screen rendering) can be used for loading heavy page in background and 
 
 ### процес рендерингу
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Процес рендеру - це вікно браузера у вашій програмі. На відміну від основного процесу може бути кілька з них і кожен запускається в окремому процесі. Вони також можуть бути приховані.
 
 У нормальних браузерах, веб-сторінки зазвичай виконуються в тестових середовищах і не мають доступу до нативних ресурсів. Користувачі Electron, однак, мають змогу використовувати Node.js API на веб-сторінках, дозволяючи низькорівневу взаємодію з операційною системою.
 
@@ -98,11 +98,11 @@ Squirrel це фреймворк з відкритим кодом, що дозв
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8, це механізм Google з відкритим початковим кодом. Написано на С++, і використовується в Google Chrome. V8 може запустити автономний режим, або може бути вбудований в будь-який додаток C++.
 
 Electron будує V8 як частину Chromium і потім вказує Node на V8 коли будує його.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Номери версій V8 завжди відповідають темам Google Chrome. Chrome 59 включає V8 5.9, Chrome 58 включає V8 5.8 і т. д.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)

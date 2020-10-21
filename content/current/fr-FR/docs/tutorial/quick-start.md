@@ -1,42 +1,42 @@
-# Quick Start Guide
+# Guide de démarrage rapide
 
-## Quickstart
+## Démarrage rapide
 
-Electron is a framework that enables you to create desktop applications with JavaScript, HTML, and CSS. These applications can then be packaged to run directly on macOS, Windows, or Linux, or distributed via the Mac App Store or the Microsoft Store.
+Electron est un framework qui vous permet de créer des applications de bureau avec JavaScript, HTML et CSS. Ces applications peuvent ensuite être empaquetées pour être exécutées directement sur macOS, Windows ou Linux, ou distribuées via le Mac App Store ou le Microsoft Store.
 
-Typically, you create a desktop application for an operating system (OS) using each operating system's specific native application frameworks. Electron makes it possible to write your application once using technologies that you already know.
+Généralement, vous créez une application de bureau pour un système d'exploitation (OS) en utilisant les frameworks natifs de chaque système d'exploitation. Electron permet d'écrire votre application une fois en utilisant des technologies que vous connaissez déjà.
 
 ### Prerequisites
 
-Before proceeding with Electron you need to install [Node.js](https://nodejs.org/en/download/). We recommend that you install either the latest `LTS` or `Current` version available.
+Avant de continuer avec Electron, vous devez installer [Node.js](https://nodejs.org/en/download/). Nous vous recommandons d'installer soit la dernière version `LTS` ou `actuelle` disponible.
 
-> Please install Node.js using pre-built installers for your platform. You may encounter incompatibility issues with different development tools otherwise.
+> Veuillez installer Node.js en utilisant des installateurs pré-compilés pour votre plate-forme. Dans le cas contraire, vous pourriez rencontrer des problèmes d'incompatibilité avec différents outils de développement.
 
-To check that Node.js was installed correctly, type the following commands in your terminal client:
+Pour vérifier que Node.js a été installé correctement, tapez les commandes suivantes dans votre terminal client:
 
 ```sh
-node -v
+noeud -v
 npm -v
 ```
 
-The commands should print the versions of Node.js and npm accordingly. If both commands succeeded, you are ready to install Electron.
+Les commandes doivent afficher les versions de Node.js et npm en conséquence. Si les deux commandes ont réussi, vous êtes prêt à installer Electron.
 
 ### Créer une application élémentaire
 
-From a development perspective, an Electron application is essentially a Node.js application. This means that the starting point of your Electron application will be a `package.json` file like in any other Node.js application. A minimal Electron application has the following structure:
+Du point de vue du développement, une application Electron est essentiellement une application Node.js. Cela signifie que le point de départ de votre application Electron sera un fichier `package.json` comme dans toute autre application Node.js. Une application Electron minimale a la structure suivante :
 
 ```plain
-my-electron-app/
-├── package.json
-├── main.js
-└── index.html
+mon-electron-app/
+── package.json
+── main.js
+<unk> ─ index.html
 ```
 
-Let's create a basic application based on the structure above.
+Créons une application de base basée sur la structure ci-dessus.
 
 #### Install Electron
 
-Create a folder for your project and install Electron there:
+Créez un dossier pour votre projet et installez Electron là-bas:
 
 ```sh
 mkdir my-electron-app && cd my-electron-app
@@ -44,11 +44,11 @@ npm init -y
 npm i --save-dev electron
 ```
 
-#### Create the main script file
+#### Créer le fichier de script principal
 
-The main script specifies the entry point of your Electron application (in our case, the `main.js` file) that will run the Main process. Typically, the script that runs in the Main process controls the lifecycle of the application, displays the graphical user interface and its elements, performs native operating system interactions, and creates Renderer processes within web pages. An Electron application can have only one Main process.
+Le script principal spécifie le point d'entrée de votre application Electron (dans notre cas, le fichier `main.js` ) qui exécutera le processus principal. Généralement, le script qui s'exécute dans le processus principal contrôle le cycle de vie de l'application, affiche l'interface utilisateur graphique et ses éléments, effectue des interactions natives avec le système d'exploitation, et crée des processus de rendu au sein des pages Web. Une application Electron ne peut avoir qu'un seul processus principal.
 
-The main script may look as follows:
+Le script principal peut ressembler à ceci :
 
 ```js
 const { app, BrowserWindow } = require('electron')
@@ -56,65 +56,65 @@ const { app, BrowserWindow } = require('electron')
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
-    height: 600,
+    hauteur: 600,
     webPreferences: {
       nodeIntegration: true
     }
   })
 
-  win.loadFile('index.html')
+  gagnez. oadFile('index.html')
   win.webContents.openDevTools()
 }
 
-app.whenReady().then(createWindow)
+application. henReady().then(createWindow)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    app. uit()
   }
 })
 
 app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
+  if (BrowserWindow. etAllWindows().length === 0) {
     createWindow()
   }
 })
 ```
 
-##### What is going on above?
+##### Que se passe-t-il ci-dessus?
 
-1. Line 1: First, you import the `app` and `BrowserWindow` modules of the `electron` package to be able to manage your application's lifecycle events, as well as create and control browser windows.
-2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later) and opens Developer Tools (line 13).
-3. Line 16: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
-4. Line 18: You add a new listener that tries to quit the application when it no longer has any open windows. This listener is a no-op on macOS due to the operating system's [window management behavior](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. Line 24: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. For example, after launching the application for the first time, or re-launching the already running application.
+1. Ligne 1 : Tout d'abord, vous importez les modules `app` et `BrowserWindow` du package `electron` pour pouvoir gérer les événements du cycle de vie de votre application ainsi que créer et contrôler les fenêtres du navigateur.
+2. Ligne 3: Après cela, vous définissez une fonction qui crée une [nouvelle fenêtre de navigateur](../api/browser-window.md#new-browserwindowoptions) avec l'intégration de nœud activée, Charge l'index `. tml` dans cette fenêtre (ligne 12, nous discuterons du fichier plus tard) et ouvre Developer Tools (ligne 13).
+3. Ligne 16 : Vous créez une nouvelle fenêtre de navigateur en appelant la fonction `createWindow` une fois que l'application Electron [est initialisée](../api/app.md#appwhenready).
+4. Ligne 18 : Vous ajoutez un nouvel auditeur qui tente de quitter l'application quand il n'a plus de fenêtres ouvertes. Cet écouteur est un non-op sur macOS en raison du comportement [de gestion des fenêtres](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) du système d'exploitation.
+5. Ligne 24 : Vous ajoutez un nouvel auditeur qui crée une nouvelle fenêtre de navigateur uniquement si l'application n'a pas de fenêtres visibles après avoir été activée. Par exemple, après avoir lancé l'application pour la première fois, ou relancé l'application déjà en cours d'exécution.
 
-#### Create a web page
+#### Créer une page web
 
-This is the web page you want to display once the application is initialized. This web page represents the Renderer process. You can create multiple browser windows, where each window uses its own independent Renderer. Each window can optionally be granted with full access to Node.js API through the `nodeIntegration` preference.
+Ceci est la page Web que vous voulez afficher une fois l'application initialisée. Cette page web représente le processus de Rendu. Vous pouvez créer plusieurs fenêtres de navigateur, où chaque fenêtre utilise son propre moteur de rendu indépendant. Chaque fenêtre peut éventuellement être accordée avec un accès complet à l'API Node.js via la préférence `nodeIntegration`.
 
-The `index.html` page looks as follows:
+La page `index.html` ressemble à ceci:
 
 ```html
-<!DOCTYPE html>
+<! OCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Bonjour le monde !</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1>Bonjour le monde !</h1>
+    Nous utilisons le noeud <script>document. rite(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions. hrome)</script>,
+    et Electron <script>document.write(process.versions.electron)</script>.
 </body>
 </html>
 ```
 
-#### Modify your package.json file
+#### Modifier votre fichier package.json
 
-Your Electron application uses the `package.json` file as the main entry point (as any other Node.js application). The main script of your application is `main.js`, so modify the `package.json` file accordingly:
+Votre application Electron utilise le fichier `package.json` comme point d'entrée principal (comme n'importe quelle autre application Node.js). Le script principal de votre application est `main.js`, donc modifiez le fichier `package.json` en conséquence :
 
 ```json
 {
@@ -124,9 +124,9 @@ Your Electron application uses the `package.json` file as the main entry point (
 }
 ```
 
-> NOTE: If the `main` field is omitted, Electron will attempt to load an `index.js` file from the directory containing `package.json`.
+> REMARQUE : Si le champ `principal` est omis, Electron tentera de charger un index `. s` fichier du répertoire contenant `package.json`.
 
-By default, the `npm start` command will run the main script with Node.js. To run the script with Electron, you need to change it as such:
+Par défaut, la commande `npm start` exécutera le script principal avec Node.js. Pour exécuter le script avec Electron, vous devez le modifier comme suit:
 
 ```json
 {
@@ -136,51 +136,51 @@ By default, the `npm start` command will run the main script with Node.js. To ru
     "scripts": {
         "start": "electron ."
     }
-}
+ } }
 ```
 
-#### Run your application
+#### Exécuter votre application
 
 ```sh
-npm start
+npm début
 ```
 
-Your running Electron app should look as follows:
+Votre application Electron en cours d'exécution devrait ressembler à ceci:
 
-![Simplest Electron app](../images/simplest-electron-app.png)
+![Application Electron la plus simple](../images/simplest-electron-app.png)
 
 ### Préparer l'application pour la distribuer
 
-The simplest and the fastest way to distribute your newly created app is using [Electron Forge](https://www.electronforge.io).
+Le moyen le plus simple et le plus rapide de distribuer votre application nouvellement créée est d'utiliser [Electron Forge](https://www.electronforge.io).
 
-1. Import Electron Forge to your app folder:
+1. Importer Electron Forge dans votre dossier d'application:
 
     ```sh
     npx @electron-forge/cli import
 
-    ✔ Checking your system
-    ✔ Initializing Git Repository
-    ✔ Writing modified package.json file
-    ✔ Installing dependencies
-    ✔ Writing modified package.json file
-    ✔ Fixing .gitignore
+    ✔ Vérification de votre système
+    ✔ Initialisation du dépôt Git
+    ✔ Écriture du package modifié. son file
+    ✔ Installation des dépendances
+    ✔ Écriture du paquet modifié. fichier fils
+    ✔ Fixation . itignore
 
-    We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
+    Nous avons ATTEMPTED pour convertir votre application dans un format que electron-forge comprend.
 
-    Thanks for using "electron-forge"!!!
+    Merci d'utiliser "electron-forge"!!!
     ```
 
-1. Create a distributable:
+1. Créer un distribuable:
 
     ```sh
     npm run make
 
-    > my-gsod-electron-app@1.0.0 make /my-electron-app
+    > mon-gsod-electron-app@1.0. make /my-electron-app
     > electron-forge make
 
     ✔ Checking your system
     ✔ Resolving Forge Config
-    We need to package your application before we can make it
+    Nous avons besoin d'empaqueter votre application avant de pouvoir la faire
     ✔ Preparing to Package Application for arch: x64
     ✔ Preparing native dependencies
     ✔ Packaging Application
@@ -188,90 +188,90 @@ The simplest and the fastest way to distribute your newly created app is using [
     ✔ Making for target: zip - On platform: darwin - For arch: x64
     ```
 
-    Electron-forge creates the `out` folder where your package will be located:
+    Electron-forge crée le dossier `out` où se trouve votre paquet:
 
     ```plain
-    // Example for MacOS
+    // Exemple pour MacOS
     out/
-    ├── out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
-    ├── ...
-    └── out/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
+    ── out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
+    ── ...
+    <unk> ─ out/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
     ```
 
-## Learning the basics
+## Apprendre les bases
 
-This section guides you through the basics of how Electron works under the hood. It aims at strengthening knowledge about Electron and the application created earlier in the Quickstart section.
+Cette section vous guide à travers les bases du fonctionnement d'Electron sous le capot. Il vise à renforcer les connaissances sur Electron et l'application créée plus tôt dans la section Démarrage rapide.
 
-### Application architecture
+### Architecture de l'application
 
-Electron consists of three main pillars:
+Electron se compose de trois piliers principaux:
 
-* **Chromium** for displaying web content.
-* **Node.js** for working with the local filesystem and the operating system.
-* **Custom APIs** for working with often-needed OS native functions.
+* **Chromium** pour l'affichage du contenu web.
+* **Node.js** pour travailler avec le système de fichiers local et le système d'exploitation.
+* **APIs personnalisés** pour travailler avec des fonctions natives d'OS souvent nécessaires.
 
-Developing an application with Electron is like building a Node.js app with a web interface or building web pages with seamless Node.js integration.
+Développer une application avec Electron est comme construire une application Node.js avec une interface web ou construire des pages web avec une intégration transparente de Node.js.
 
 #### فرآیندهای اصلی و رندرینگparsian
 
-As it was mentioned before, Electron has two types of processes: Main and Renderer.
+Comme il a été mentionné précédemment, Electron a deux types de processus : Main et Renderer.
 
-* The Main process **creates** web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its Renderer process. When a `BrowserWindow` instance is destroyed, the corresponding Renderer process gets terminated as well.
-* The Main process **manages** all web pages and their corresponding Renderer processes.
-
-----
-
-* The Renderer process **manages** only the corresponding web page. A crash in one Renderer process does not affect other Renderer processes.
-* The Renderer process **communicates** with the Main process via IPC to perform GUI operations in a web page. Calling native GUI-related APIs from the Renderer process directly is restricted due to security concerns and potential resource leakage.
+* Le processus principal **crée** pages web en créant des instances `BrowserWindow`. Chaque instance `BrowserWindow` exécute la page web dans son processus de rendu. Lorsqu'une instance `BrowserWindow` est détruite, le processus de rendu correspondant est également terminé.
+* Le processus principal **gère** toutes les pages web et leurs processus de rendu correspondants.
 
 ----
 
-The communication between processes is possible via Inter-Process Communication (IPC) modules: [`ipcMain`](../api/ipc-main.md) and [`ipcRenderer`](../api/ipc-renderer.md).
+* Le processus de rendu **gère** seulement la page web correspondante. Un plantage dans un processus de rendu n'affecte pas les autres processus de rendu.
+* Le processus de rendu **communique** avec le processus principal via IPC pour effectuer des opérations GUI dans une page Web. L'appel direct d'API natives liées à l'interface graphique à partir du processus Renderer est limité en raison de problèmes de sécurité et de fuites potentielles de ressources.
+
+----
+
+La communication entre processus est possible via les modules Inter-Process Communication (IPC) : [`ipcMain`](../api/ipc-main.md) et [`ipcRenderer`](../api/ipc-renderer.md).
 
 #### APIs
 
 ##### Electron API
 
-Electron APIs are assigned based on the process type, meaning that some modules can be used from either the Main or Renderer process, and some from both. Electron's API documentation indicates which process each module can be used from.
+Les APIs Electron sont assignés en fonction du type de processus, ce qui signifie que certains modules peuvent être utilisés depuis le processus Main ou Renderer, et d'autres depuis les deux. La documentation de l'API d'Electron indique à quel processus chaque module peut être utilisé.
 
-For example, to access the Electron API in both processes, require its included module:
+Par exemple, pour accéder à l'API Electron dans les deux processus, nécessite son module inclus :
 
 ```js
 const electron = require('electron')
 ```
 
-To create a window, call the `BrowserWindow` class, which is only available in the Main process:
+Pour créer une fenêtre, appelez la classe `BrowserWindow` , qui n'est disponible que dans le processus principal :
 
 ```js
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-To call the Main process from the Renderer, use the IPC module:
+Pour appeler le processus principal à partir du moteur de rendu, utilisez le module IPC :
 
 ```js
-// In the Main process
+// Dans le processus principal
 const { ipcMain } = require('electron')
 
 ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do actions on behalf of the Renderer
+  // ... faire des actions au nom du moteur de rendu
 })
 ```
 
 ```js
-// In the Renderer process
+// Dans le processus de rendu
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('perform-action', ...args)
 ```
 
-> NOTE: Because Renderer processes may run untrusted code (especially from third parties), it is important to carefully validate the requests that come to the Main process.
+> REMARQUE : Parce que les processus Renderer peuvent exécuter du code non fiable (en particulier à partir de tiers) il est important de valider soigneusement les requêtes qui arrivent au processus principal.
 
 ##### Node.js API
 
-> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true`.
+> REMARQUE : Pour accéder à l'API Node.js à partir du processus Renderer, vous devez définir la préférence `nodeIntegration` à `true`.
 
-Electron exposes full access to Node.js API and its modules both in the Main and the Renderer processes. For example, you can read all the files from the root directory:
+Electron expose un accès complet à l'API Node.js et à ses modules dans les processus Main et Renderer. Par exemple, vous pouvez lire tous les fichiers du répertoire racine :
 
 ```js
 const fs = require('fs')
@@ -281,13 +281,13 @@ const root = fs.readdirSync('/')
 console.log(root)
 ```
 
-To use a Node.js module, you first need to install it as a dependency:
+Pour utiliser un module Node.js, vous devez d'abord l'installer comme dépendance:
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron application, require the module:
+Ensuite, dans votre application Electron, demandez le module :
 
 ```js
 const S3 = require('aws-sdk/clients/s3')

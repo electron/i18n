@@ -1,71 +1,71 @@
 ---
 title: Documentação do Electron
-author: jlord
+author: lorde
 date: '2015-06-04'
 ---
 
-This week we've given Electron's documentation a home on [electronjs.org](https://electronjs.org). You can visit [/docs/latest](https://electronjs.org/docs/latest) for the latest set of docs. We'll keep versions of older docs, too, so you're able to visit [/docs/vX.XX.X](https://electronjs.org/docs/v0.26.0) for the docs that correlate to the version you're using.
+Esta semana demos à documentação do Electron uma home on [electronjs.org](https://electronjs.org). Você pode visitar [/docs/latest](https://electronjs.org/docs/latest) para a documentação mais recente. Nós também manteremos versões da documentação antiga, por isso você pode visitar [/docs/vX.XX.X](https://electronjs.org/docs/v0.26.0) para a documentação que se correlaciona com a versão que você está usando.
 
 ---
 
-You can visit [/docs](https://electronjs.org/docs) to see what versions are available or [/docs/all](https://electronjs.org/docs/all) to see the latest version of docs all on one page (nice for `cmd` + `f` searches).
+Você pode visitar [/docs](https://electronjs.org/docs) para ver quais versões estão disponíveis ou [/docs/all](https://electronjs.org/docs/all) para ver a última versão da documentação tudo em uma página (legal para pesquisas `cmd` + `f`).
 
-If you'd like to contribute to the docs content, you can do so in the [Electron repository](https://github.com/electron/electron/tree/master/docs), where the docs are fetched from. We fetch them for each minor release and add them to the [Electron site repository](http://github.com/electron/electronjs.org), which is made with [Jekyll](http://jekyllrb.com).
+Se você gostaria de contribuir com o conteúdo da documentação você pode fazer isso no [repositório do Electrô](https://github.com/electron/electron/tree/master/docs), de onde a documentação é obtida. Procuramos eles para cada versão menor e adicionamos eles ao [repositório de site do Electron](http://github.com/electron/electronjs.org), que é feito com [Jekyll](http://jekyllrb.com).
 
-If you're interested in learning more about how we pull the docs from one repository to another continue reading below. Otherwise, enjoy the [docs](https://electronjs.org/latest)!
+Se você estiver interessado em aprender mais sobre como puxamos a documentação de um repositório para outro continue lendo abaixo. Caso contrário, aproveite a [documentação](https://electronjs.org/latest)!
 
-## The Technical Bits
+## Os bits Técnicos
 
-We're preserving the documentation within the Electron core repository as is. This means that [electron/electron](http://github.com/electron/electron) will always have the latest version of the docs. When new versions of Electron are released, we duplicate them over on the Electron website repository, [electron/electronjs.org](http://github.com/electron/electronjs.org).
+Estamos preservando a documentação dentro do repositório do núcleo do Electron. Isso significa que [electron/electron](http://github.com/electron/electron) sempre terá a versão mais recente da documentação. Quando novas versões do Electron são lançadas, duplicamos elas no repositório do site do Electron, [electron/electronjs.org](http://github.com/electron/electronjs.org).
 
 ### script/docs
 
-To fetch the docs we run a [script](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/script/docs) with a command line interface of `script/docs vX.XX.X` with or without the `--latest` option (depending on if the version you're importing is the latest version). Our [script for fetching docs](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js) uses a few interesting Node modules:
+Para buscar a documentação, executamos um [script](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/script/docs) com uma interface de linha de comando do `script/docs vX.XX.` com ou sem a opção `--latest` (dependendo se a versão que você está importando for a última versão). Nosso [script para buscar documentos](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js) usa alguns módulos interessantes de Nó:
 
-- [`nugget`](http://npmjs.com/nugget) for [getting the release tarball](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L40-L43) and saving it to a temporay directory.
-- [`gunzip-maybe`](http://npmsjs.com/gunzip-maybe) to [unzip the tarball](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L95).
+- [`nugget`](http://npmjs.com/nugget) para [obter a tarball de lançamento](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L40-L43) e salvá-la em um diretório temporário.
+- [`gunzip-talvez`](http://npmsjs.com/gunzip-maybe) para [descompactar o tarball](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L95).
 - [`tar-fs`](http://npmjs.com/tar-fs) for [streaming just the `/docs` directory](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L63-L65) from the tarball and [filtering and processing the files](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L68-L78) (with the help of [`through2`](http://npmjs.com/through2)) so that they work nicely with our Jekyll site (more on that below).
 
-[Tests](https://github.com/electron/electronjs.org/tree/gh-pages/spec) help us know that all the bits and pieces landed as expected.
+[Testes](https://github.com/electron/electronjs.org/tree/gh-pages/spec) nos ajudam a saber que todos os bits e partes pouparam conforme o esperado.
 
 ### Jekyll
 
-The Electron website is a Jekyll site and we make use of the [Collections](http://jekyllrb.com/docs/collections/) feature for the docs with a structure like this:
+O site Electron é um site do Jekyll e nós fazemos uso do recurso [Coleções](http://jekyllrb.com/docs/collections/) para a documentação com uma estrutura como esta:
 
 ```bash
 electron.atom.io
-└── _docs
-    ├── latest
-    ├── v0.27.0
-    ├── v0.26.0
-    ├── so on
-    └── so forth
+── _docs
+    ── mais recente
+    ── v0.27.0
+    ── v0.26.0
+    ── assim em
+    ── mais adiante
 ```
 
 #### Material inicial
 
-For Jekyll to render each page it needs at least empty front matter. We're going to make use of front matter on all of our pages so while we're streaming out the `/docs` directory we check to see if a file is the `README.md` file (in which case it receives one front matter configuration) or if it is any other file with a markdown extension (in which case it receives slightly different front matter).
+Para o Jekyll renderizar cada página precisa de pelo menos uma frente de assunto vazia. Nós vamos fazer uso da questão frontal em todas as nossas páginas, então enquanto estamos transmitindo o diretório `/docs` para verificar se um arquivo é o `README. d` arquivo (em que caso recebe uma configuração de primeira importação) ou se é qualquer outro arquivo com uma extensão markdown (nesse caso, ele recebe uma questão de frente ligeiramente diferente).
 
-Each page receives this set of front matter variables:
+Cada página recebe esse conjunto de variáveis de questão frontal:
 
 ```yaml
 ---
-version: v0.27.0
-category: Tutorial
-title: 'Quick Start'
+versão: v0.27.0
+categoria: Tutorial
+título: 'Inicialização rápida'
 source_url: 'https://github.com/electron/electron/blob/master/docs/tutorial/quick-start.md'
 ---
 ```
 
-The `README.md` gets an additional `permalink` so that has a URL has a common root of `index.html` rather than an awkward `/readme/`.
+O `LEIA-ME. d` recebe uma `permalink adicional` então que tem uma URL tem uma raiz comum do índice `. tml` em vez de um estranho `/readme/`.
 
 ```yaml
-permalink: /docs/v0.27.0/index.html
+permalink: /pt_BR/docs/v0.27.0/index.html
 ```
 
-#### Config and Redirects
+#### Configuração e redirecionamentos
 
-In the site's `_config.yml` file a variable `latest_version` is set every time the `--latest` flag is used when fetching docs. We also add a list of all the versions that have been added to the site as well as the permalink we'd like for the entire docs collection.
+No _config do site `ml` arquivo uma variável `latest_version` é definida toda vez que a flag `--latest` é usada para buscar a documentação. Também adicionamos uma lista de todas as versões que foram adicionadas ao site, bem como o permalink que gostaríamos de toda a coleção de documentos.
 
 ```yaml
 latest_version: v0.27.0
@@ -75,7 +75,7 @@ collections:
     docs: {output: true, permalink: '/docs/:path/'}
 ```
 
-The file `latest.md` in our site root is empty except for this front matter which allows users to see the index (aka `README`) of the latest version of docs by visiting this URL, [electron.atom.io/docs/latest](https://electronjs.org/docs/latest), rather than using the latest version number specifically (though you can do that, too).
+O arquivo `último. d` na raiz do nosso site está vazio, exceto este front-matter que permite aos usuários ver o índice (também conhecido como `README`) da versão mais recente da documentação, visitando esta URL, [electron. tom.io/docs/latest](https://electronjs.org/docs/latest), ao invés de usar o número da versão mais recente especificamente (embora você possa fazer isso também).
 
 ```yaml
 ---
@@ -86,7 +86,7 @@ redirect_to: /docs/{{ site.data.releases[0].version }}
 
 #### Layouts
 
-In the `docs.html` layout template we use conditionals to either show or hide information in the header and breadcrumb.
+No template de layout `docs.html` nós usamos condicionais para mostrar ou ocultar informações no cabeçalho e no breadcrumb.
 
 ```html
 {% raw %}
@@ -97,7 +97,7 @@ In the `docs.html` layout template we use conditionals to either show or hide in
 {% endraw %}
 ```
 
-To create a page showing the versions that are available we just loop through the list in our config on a file, `versions.md`, in the site's root. Also we give this page a permalink: `/docs/`
+Para criar uma página mostrando as versões que estão disponíveis, basta percorrer a lista em nossa configuração em um arquivo, `versões. d`, na raiz do site. Também fornecemos um permalink: `/docs/`
 
 ```html
 {% raw %}
@@ -107,5 +107,5 @@ To create a page showing the versions that are available we just loop through th
 {% endraw %}
 ```
 
-Hope you enjoyed these technical bits! If you're interested in more information on using Jekyll for documentation sites, checkout how GitHub's docs team publishes [GitHub's docs on Jekyll](https://github.com/blog/1939-how-github-uses-github-to-document-github).
+Espero que tenha gostado dessas peças técnicas! Se você estiver interessado em mais informações sobre como usar o Jekyll para sites de documentação, faça check-out como o time da documentação do GitHub publica a documentação do [GitHub no Jekyll](https://github.com/blog/1939-how-github-uses-github-to-document-github).
 

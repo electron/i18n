@@ -4,7 +4,7 @@ Wees er zeker van dat je de documenten gebruikt die overeenkomen met jouw Electr
 
 ## Veelgestelde vragen (FAQ)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Er zijn vragen die heel vaak worden gesteld. Bekijk dit voor het maken van een probleem:
 
 * [Electron FAQ](faq.md)
 

@@ -20,17 +20,17 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Jeśli oba polecenia wydrukowały numer wersji, wszystko jest ustawione! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## Konfigurowanie systemu Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron obsługuje Windows 7 i późniejsze wersje - próba rozwoju aplikacji Electron we wcześniejszych wersjach Windows nie zadziała. Microsoft zapewnia darmowe [wirtualne obrazy maszynowe z Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) dla programistów.
 
-Najpierw należy zainstalować najnowszą wersję programu Node.js. Zalecamy zainstalowanie najnowszej wersji `LTS` lub `Aktualnej` wersji. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Po pobraniu, włącz instalator i podążaj za jego wskazówkami.
+Najpierw należy zainstalować najnowszą wersję programu Node.js. Zalecamy zainstalowanie najnowszej wersji `LTS` lub `Aktualnej` wersji. Odwiedź [stronę pobierania Node.js](https://nodejs.org/en/download/) i wybierz `Instalator Windows`. Po pobraniu, włącz instalator i podążaj za jego wskazówkami.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+Na ekranie, który pozwala skonfigurować instalację, upewnij się, że wybierz węzeł `. s runtime`, `npm manager pakietów`i `Dodaj do PATH` opcje.
 
-Po zainstalowaniu, upewnij się, że wszystko działa tak jak trzeba. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Po zainstalowaniu, upewnij się, że wszystko działa tak jak trzeba. Znajdź Windows PowerShell otwierając Menu Start i wpisując `PowerShell`. Otwórz w górę `PowerShell` lub innego klienta wiersza poleceń wybranego przez Ciebie i potwierdź, że zarówno `node` jak i `npm` są dostępne:
 
 ```powershell
 # Ta komenda powinna wypisać wersje Node.js
@@ -40,15 +40,15 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Jeśli oba polecenia wydrukowały numer wersji, wszystko jest ustawione! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## Konfigurowanie systemu Linux
 
 > Ogólnie rzecz biorąc Electron obsługuje Ubuntu 12.04, Fedora 21, Debian 8 i nowsze.
 
-Najpierw należy zainstalować najnowszą wersję programu Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+Najpierw należy zainstalować najnowszą wersję programu Node.js. W zależności od dystrybucji systemu Linux kroki instalacji mogą się różnić. Zakładając, że normalnie instalujesz oprogramowanie za pomocą menedżera pakietów, takiego jak `apt` lub `pacman`, użyj oficjalnego [Nodu. s wskazówki dotyczące instalacji systemu Linux](https://nodejs.org/en/download/package-manager/).
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Używasz Linux, więc prawdopodobnie wiesz, jak obsługiwać klient wiersza poleceń. Otwórz swojego ulubionego klienta i potwierdź, że zarówno `węzeł` i `npm` są dostępne globalnie:
 
 ```sh
 # Ta komenda powinna wypisać wersje Node.js
@@ -58,7 +58,7 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Jeśli oba polecenia wydrukowały numer wersji, wszystko jest ustawione! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## Dobry Edytor
 

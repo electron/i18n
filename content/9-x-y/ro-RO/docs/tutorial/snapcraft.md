@@ -1,90 +1,90 @@
-# Snapcraft Guide (Ubuntu Software Center & More)
+# Ghid de artizanat (Ubuntu Software Centru & Mai mult)
 
-This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
+Acest ghid oferă informații despre modul de ambalare a aplicației dvs. Electron pentru orice mediu Snapcraft, inclusiv Ubuntu Software Center.
 
-## Background and Requirements
+## Context și Cerințe
 
 Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
 
-There are three ways to create a `.snap` file:
+Există trei modalități de a crea un fișier `.snap`:
 
-1) Using [`electron-forge`][electron-forge] or [`electron-builder`][electron-builder], both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+1) Using [`electron-forge`][electron-forge] or [`electron-builder`][electron-builder], both tools that come with `snap` support out of the box. Aceasta este opţiunea cea mai uşoară. 2) Folosind `electron-installer-snap`, care ia ieșirea lui `electron-packer`. 3) Folosirea unui pachet `.deb` deja creat.
 
 In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
 ```sh
-snap install snapcraft --classic
+instalare snapcraft --clasic
 ```
 
 While it _is possible_ to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
 
-## Using `electron-installer-snap`
+## Folosind `electron-installer-snap`
 
-The module works like [`electron-winstaller`][electron-winstaller] and similar modules in that its scope is limited to building snap packages. You can install it with:
+The module works like [`electron-winstaller`][electron-winstaller] and similar modules in that its scope is limited to building snap packages. Poți instala cu:
 
 ```sh
-npm install --save-dev electron-installer-snap
+npm instalare --save-dev electron-installer-snap
 ```
 
-### Step 1: Package Your Electron Application
+### Pasul 1: Împărtășește aplicația ta Electron
 
-Package the application using [electron-packager][electron-packager] (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Package the application using [electron-packager][electron-packager] (or a similar tool). Asigură-te că elimini `node_module` de care nu ai nevoie în aplicația ta finală, din moment ce orice modul de care nu aveţi nevoie va creşte dimensiunea aplicaţiei.
 
-The output should look roughly like this:
+Rezultatul ar trebui să arate cam așa:
 
 ```plaintext
 .
-└── dist
-    └── app-linux-x64
-        ├── LICENSE
-        ├── LICENSES.chromium.html
-        ├── content_shell.pak
-        ├── app
-        ├── icudtl.dat
-        ├── libgcrypt.so.11
-        ├── libnode.so
-        ├── locales
-        ├── resources
-        ├── v8_context_snapshot.bin
-        └── version
+• rezistă la
+    • ─ app-linux-x64
+        <unk> <unk> ─ LICENSE
+        <unk> ─ LICENSES. hromium.html
+        • ─ content_shell. ak
+        <unk> <unk> ─ app
+        <unk> ─ nicudtl. la
+        <unk> <unk> ─ libgcrypt.so.11
+        • ─ libnode. o
+        Τηλ... localnici
+        <unk> ─ resurse
+        <unk> • ─ v8_context_snapshot. în versiunea
+        <unk> ─
 ```
 
-### Step 2: Running `electron-installer-snap`
+### Pasul 2: Rulând `electron-installer-snap`
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+De la un terminal care are `ancorare` în `PATH`, rulează `electron-installer-snap` cu singurul parametru necesar `--src`, care este locația pachetului dvs. Aplicație Electron creată în primul pas.
 
 ```sh
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs][snapcraft-syntax].
+Dacă aveți o conductă de construcție existentă, puteți utiliza programatic `electron-installer-snap` . For more information, see the [Snapcraft API docs][snapcraft-syntax].
 
 ```js
 const snap = require('electron-installer-snap')
 
 snap(options)
-  .then(snapPath => console.log(`Created snap at ${snapPath}!`))
+  .then(snapPath => console.log(``Creat snap at ${snapPath}!`))
 ```
 
-## Using an Existing Debian Package
+## Utilizarea unui pachet Debian existent
 
-Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+Fabrica este capabilă să ia un fișier `.deb` existent și să-l transforme în fișier un `.snap`. Crearea unei ancorări este configurată folosind un `snapcraft. aml` fișier care descrie sursele, dependențele, descrierile și alte blocuri de bază .
 
-### Step 1: Create a Debian Package
+### Pasul 1: Creează un pachet Debian
 
-If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`][electron-forge], [`electron-builder`][electron-builder] or [`electron-installer-debian`][electron-installer-debian].
+Dacă nu aveți deja un pachet `.deb` folosind `electron-installer-snap` ar putea fi o cale mai ușoară pentru a crea pachete de ancorare. However, multiple solutions for creating Debian packages exist, including [`electron-forge`][electron-forge], [`electron-builder`][electron-builder] or [`electron-installer-debian`][electron-installer-debian].
 
-### Step 2: Create a snapcraft.yaml
+### Pasul 2: Creează un snapcraft.yaml
 
 For more information on the available configuration options, see the [documentation on the snapcraft syntax][snapcraft-syntax]. Let's look at an example:
 
 ```yaml
-name: myApp
-version: '2.0.0'
-summary: A little description for the app.
-description: |
- You know what? This app is amazing! It does all the things
- for you. Some say it keeps you young, maybe even happy.
+nume: versiunea myApp
+: '2.0.0'
+rezumat: o scurtă descriere pentru aplicație.
+descriere: <unk>
+ Știți ce? Această aplicație este uimitoare! Face toate lucrurile
+ pentru tine. Unii spun că te ţine tânăr, poate chiar fericit.
 
 grade: stable
 confinement: classic
@@ -117,7 +117,7 @@ apps:
     desktop: usr/share/applications/myApp.desktop
     # Correct the TMPDIR path for Chromium Framework/Electron to ensure
     # libappindicator has readable resources.
-    environment:
+    mediu:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
@@ -129,14 +129,14 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+Alternativ, dacă vă construiți comanda `snap` cu `strict` nfinement, puteți utiliza comanda `desktop-launch`:
 
 ```yaml
-apps:
+aplicații:
   myApp:
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
-    command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
+    # Corectați calea TMPDIR pentru Chromium Framework/Electron pentru a asigura
+    # libappindicator are resurse lizibile.
+    comandă: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```
 

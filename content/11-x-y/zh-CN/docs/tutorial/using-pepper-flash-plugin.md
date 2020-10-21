@@ -4,7 +4,7 @@ Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Ele
 
 ## 保留一份 Flash 插件的副本
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://version` in the Chrome browser. 插件的路径和版本会对 Election 对其的支持有帮助。 你也可以把插件 复制到另一个路径以保留一份副本。
+在 macOS 和 Linux 上，在 Chrome 浏览器中使用 导航到 `chrome://version` 可以找到Pepper Flash 插件的细节。 插件的路径和版本会对 Election 对其的支持有帮助。 你也可以把插件 复制到另一个路径以保留一份副本。
 
 ## 添加插件在 Electron 里的开关
 
@@ -16,34 +16,34 @@ On macOS and Linux, the details of the Pepper Flash plugin can be found by navig
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
-let pluginName
-switch (process.platform) {
+// 指定闪存路径， 假定它与主目录放在同一目录中。 s.
+let pluginname
+switch (croces.platform) }
   case 'win32':
-    pluginName = 'pepflashplayer.dll'
+    pluginName = 'pepflashplayer. ll'
     break
-  case 'darwin':
-    pluginName = 'PepperFlashPlayer.plugin'
+  case 'darwin'：
+    pluginName = 'PepperFlashPlayer. lugin'
     break
   case 'linux':
-    pluginName = 'libpepflashplayer.so'
-    break
+    pluginName = 'libpepflashplayer. o'
+    断开
 }
-app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
+应用。 ommandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
-app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
+// 可选：指定闪存版本，例如v17.0.0.0.169
+app.commandLine.appendSwitch('papi-flash-version', '17.0.169')
 
-app.whenReady().then(() => {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
+app.whenReady(). hen(() => por
+  const win = new BrowserWindow(
+    wide: 800)
+    高度：600，
+    webPreference： {
       plugins: true
     }
   })
-  win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
+  获胜。 oadURL(`file://${__dirname}/index.html`)
+  // 其他什么办法
 })
 ```
 

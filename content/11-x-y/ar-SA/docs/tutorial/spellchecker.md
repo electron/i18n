@@ -1,73 +1,73 @@
 # SpellChecker
 
-Electron has built-in support for Chromium's spellchecker since Electron 8.  On Windows and Linux this is powered by Hunspell dictionaries, and on macOS it makes use of the native spellchecker APIs.
+يدعم إلكترون المدقق الإملائي لكروميوم منذ إلكترون 8.  على Windows و Linux يتم تشغيل هذا بواسطة قواميس Hunspel، وعلى نظام macOS فإنه يستخدم API المدقق الإملائي الأصلي.
 
-## How to enable the spellchecker?
+## كيف يمكن تمكين المدقق الإملائي؟
 
-For Electron 9 and higher the spellchecker is enabled by default.  For Electron 8 you need to enable it in `webPreferences`.
+للإلكترون 9 وما فوقه يتم تمكين المدقق الإملائي بشكل افتراضي.  لإلكترون 8 تحتاج إلى تمكينه في `webPreferences`.
 
 ```js
-const myWindow = new BrowserWindow({
-  webPreferences: {
+تجسيد myWindow = متصفح جديد ({
+  تفضيلات الويب {
     spellcheck: true
   }
 })
 ```
 
-## How to set the languages the spellchecker uses?
+## كيفية تعيين اللغات التي يستخدمها المدقق الإملائي؟
 
-On macOS as we use the native APIs there is no way to set the language that the spellchecker uses. By default on macOS the native spellchecker will automatically detect the language being used for you.
+على macOS ونحن نستخدم واجهات برمجة التطبيقات الأصلية لا توجد طريقة لتعيين اللغة التي يستخدمها المدقق الإملائي. بشكل افتراضي على macOS سيقوم المدقق الإملائي الأصلي تلقائيا باكتشاف اللغة المستخدمة لك.
 
-For Windows and Linux there are a few Electron APIs you should use to set the languages for the spellchecker.
+بالنسبة للويندوز و لينكس هناك عدد قليل من تطبيقات إلكترون يجب عليك استخدامها لتعيين اللغات لمدقق الإملاء.
 
 ```js
-// Sets the spellchecker to check English US and French
-myWindow.session.setSpellCheckerLanguages(['en-US', 'fr'])
+// يعين المدقق الإملائي للتحقق من الإنجليزية الأمريكية والفرنسية
+myWindow.الجلسة. etSpellCheckerLanguages(['en-US', 'fr'])
 
-// An array of all available language codes
-const possibleLanguages = myWindow.session.availableSpellCheckerLanguages
+// مجموعة من جميع رموز اللغة المتاحة
+إمكانية اللغات = myWindow.session.availableSpellCheckerLanguages
 ```
 
-By default the spellchecker will enable the language matching the current OS locale.
+بشكل افتراضي سوف يقوم المدقق الإملائي بتمكين اللغة المطابقة لقلة نظام التشغيل الحالي.
 
-## How do I put the results of the spellchecker in my context menu?
+## كيف أضع نتائج المدقق الإملائي في قائمة سياقي؟
 
-All the required information to generate a context menu is provided in the [`context-menu`](../api/web-contents.md#event-context-menu) event on each `webContents` instance.  A small example of how to make a context menu with this information is provided below.
+يتم توفير جميع المعلومات المطلوبة لإنشاء قائمة السياق في حدث [`السياق`](../api/web-contents.md#event-context-menu) على كل مثيل `webContents`.  مثال صغير لكيفية إنشاء قائمة السياق مع هذه المعلومات هو أدناه.
 
 ```js
-const { Menu, MenuItem } = require('electron')
+إختر { Menu, MenuItem } = مطلوبة ('electron')
 
-myWindow.webContents.on('context-menu', (event, params) => {
-  const menu = new Menu()
+myWindow.webContts. n('سياق-menu', (حدث, params) => {
+  القائمة = القائمة الجديدة()
 
-  // Add each spelling suggestion
-  for (const suggestion of params.dictionarySuggestions) {
-    menu.append(new MenuItem({
-      label: suggestion,
-      click: () => mainWindow.webContents.replaceMisspelling(suggestion)
+  // أضف كل اقتراح تهجئة
+  (اقتراحًا من الشركات. اقتراحات) {
+    قائمة. ppend(قائمة جديدة ({
+      تسمية: اقتراح,
+      انقر :() => mainWindow.webContts. eplaceMisignelling(الاقتراح)
     }))
-  }
 
-  // Allow users to add the misspelled word to the dictionary
-  if (params.misspelledWord) {
-    menu.append(
-      new MenuItem({
-        label: 'Add to dictionary',
-        click: () => mainWindow.webContents.session.addWordToSpellCheckerDictionary(params.misspelledWord)
+
+  // اسمح للمستخدمين بإضافة الكلمة المغلوطة إلى القاموس
+  إذا (params. isspelledWord) {
+    قائمة. ppend(
+      قائمة جديدة ({
+        : 'إضافة إلى القاموس',
+        نقطة: () => mainWindow. محتويات الويب. ession.addWordToSpellCheckerDictionary(params.misspelledWord)
       })
-    )
+
   }
 
   menu.popup()
 })
 ```
 
-## Does the spellchecker use any Google services?
+## هل يستخدم المدقق الإملائي أي خدمات جوجل؟
 
-Although the spellchecker itself does not send any typings, words or user input to Google services the hunspell dictionary files are downloaded from a Google CDN by default.  If you want to avoid this you can provide an alternative URL to download the dictionaries from.
+على الرغم من أن المدقق الإملائي نفسه لا يرسل أي طابعة، الكلمات أو إدخال المستخدم إلى خدمات Google يتم تحميل ملفات القاموس الإملائي من Google CDN بشكل افتراضي.  إذا كنت ترغب في تجنب هذا يمكنك توفير عنوان URL بديل لتنزيل القواميس منه.
 
 ```js
-myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
+myWindow.session.setSpellCheckerDictionDownloadURL('https://example.com/dictionaries/')
 ```
 
-Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.
+تحقق من المستندات لجلسة [`. etSpellCheckerDictionDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) لمزيد من المعلومات عن أين يمكن الحصول على ملفات القاموس من وكيف تحتاج لاستضافتها.

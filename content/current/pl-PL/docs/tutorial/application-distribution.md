@@ -1,17 +1,17 @@
 # Dystrybuowanie Aplikacji
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+Aby rozpowszechniać swoją aplikację za pomocą Electrona, musisz ją zapakować i przemarkować. Najprostszym sposobem na to jest korzystanie z jednego z następujących narzędzi do pakowania przez osoby trzecie:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron/electron-packager)
 
-These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+Narzędzia te będą obejmować wszystkie kroki, które należy podjąć, aby ostatecznie doprowadzić do rozproszonych aplikacji Electrona, na przykład zapakowanie aplikacji, przeredagowanie pliku wykonywalnego, ustawienie prawych ikon i opcjonalnie tworzenie instalatorów.
 
 ## Ręczna dystrybucja
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+Możesz również wybrać ręcznie przygotować swoją aplikację do dystrybucji. Działania niezbędne do tego celu przedstawiono poniżej.
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Aby rozpowszechniać swoją aplikację za pomocą Electrona, musisz pobrać [wstępnie zbudowane pliki binarne Electrona](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Zauważ, że lokalizacja wstępnie wbudowanych binariuszy Electrona jest wskazana `electron/` w przykładach poniżej.
 
 Na macOS:
 
@@ -22,7 +22,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+Na systemach Windows i Linux:
 
 ```plaintext
 electron/resources/app
@@ -31,13 +31,13 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+Następnie wykonaj `Electron.app` (lub `elektron` na Linuksie, `electron. xe` na Windows), i Electron rozpoczną się jako aplikacja. Katalog `electron` będzie wtedy Twoją dystrybucją dla użytkowników końcowych.
 
 ## Pakowanie Aplikacji do Pliku
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+Poza wysyłką aplikacji kopiując wszystkie jej pliki źródłowe, możesz również spakować swoją aplikację do archiwum [asar](https://github.com/electron/asar) aby uniknąć pokazania użytkownikom kodu źródłowego twojej aplikacji.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Aby użyć archiwum `asar` aby zastąpić folder `app` , musisz zmienić nazwę archiwum na aplikację `. sar`i umieść go w katalogu zasobów Electrona, jak poniżej, i Electron spróbuje następnie odczytać archiwum i zacząć od niego.
 
 Na macOS:
 
@@ -46,18 +46,18 @@ electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+Na systemach Windows i Linux:
 
 ```plaintext
 electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Więcej szczegółów można znaleźć w [Pakiet aplikacji](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## Rebranding z pobranymi binarami
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+Po połączeniu aplikacji z Electronem będziesz chciał odświeżyć Electron przed dystrybucją jej do użytkowników.
 
 ### Windows
 
@@ -72,39 +72,39 @@ You can rename `Electron.app` to any name you want, and you also have to rename 
 
 You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
 
-The structure of a renamed app would be like:
+Struktura zmienionej nazwy aplikacji byłaby taka:
 
 ```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+         └── MyApp Helper
 ```
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Możesz zmienić nazwę `electron` na dowolną nazwę, którą chcesz.
 
-## Rebranding by Rebuilding Electron from Source
+## Rekonstruowanie Electron ze źródła
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+Możliwe jest również remarkowanie Electrona poprzez zmianę nazwy produktu i zbudowanie go ze źródła. Aby to zrobić, musisz ustawić argument budowy odpowiadający nazwie produktu (`electron_product_name = "YourProductName"`) w opłatach `. n` plik i przebudowane.
 
-### Creating a Custom Electron Fork
+### Tworzenie niestandardowego forku Electron
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Stworzenie niestandardowego forku Electron prawie na pewno nie jest czymś, co musisz zrobić aby zbudować swoją aplikację, nawet dla aplikacji „Poziom produkcji”. Używanie narzędzia takiego jak `electron-packer` lub `electron-forge` pozwoli ci "Rebrand" Electron bez konieczności wykonywania tych kroków.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Musisz rozwidlić Electron, gdy masz niestandardowy kod C++, który naklejono bezpośrednio do Electrona, które nie mogą być przesłane lub zostały odrzucone z oficjalnej wersji. Jako opiekunowie Electrona, chcielibyśmy aby Twój scenariusz działał, więc spróbuj jak najmocniej, aby wprowadzić zmiany do oficjalnej wersji Electron, będzie o wiele łatwiej dla Ciebie i doceniamy Twoją pomoc.
 
-#### Creating a Custom Release with surf-build
+#### Tworzenie niestandardowego wydania z budową surfu
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Zainstaluj [Surf](https://github.com/surf-build/surf), poprzez npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Utwórz nowe wiadro S3 i utwórz następującą pustą strukturę katalogu:
 
     ```sh
     - electron/
@@ -112,17 +112,17 @@ You need to fork Electron when you have custom C++ code that you have patched di
       - dist/
     ```
 
-3. Set the following Environment Variables:
+3. Ustaw następujące zmienne środowiskowe:
 
   * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
-  * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
-  * `CI` - Set to `true` or else it will fail
-  * `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-  * `TARGET_ARCH` - set to `ia32` or `x64`
+  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - miejsca, w którym wgrasz nagłówki Node.js oraz symbole
+  * `ELECTRON_RELEASE` - Ustaw `true` a część przesyłania zostanie uruchomiona, pozostaw nieustawione i `kompilacja operacyjna` wykona kontrole typu CI, odpowiednie do uruchomienia każdego pull requesta.
+  * `CI` - Ustaw na `true` lub w przeciwnym razie nie uda się
+  * `GITHUB_TOKEN` - ustaw to samo co `ELECTRON_GITHUB_TOKEN`
+  * `SURF_TEMP` - ustaw `C:\Temp` w systemie Windows, aby zapobiec zbyt długim problemom ze ścieżką
+  * `TARGET_ARCH` - ustaw na `ia32` lub `x64`
 
-4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+4. W `skrypt/upload. y`, _musisz_ ustawić `ELECTRON_REPO` na fork (`MYORG/electron`), zwłaszcza, jeśli jesteś współtwórcą Electrona.
 
 5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 

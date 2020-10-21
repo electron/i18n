@@ -1,12 +1,12 @@
 # Reprezentowany plik dla macOS BrowserWindows
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+Na macOS okno może ustawić reprezentowany plik, aby ikona pliku mogła wyświetlać się na pasku tytułowym i kiedy pojawi się polecenie kliknięcie lub przycisk "Control" na tytule, na którym pojawi się wyskakujące okno .
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Możesz również ustawić stan edycji okna, aby ikona pliku mogła wskazywać czy dokument w tym oknie został zmodyfikowany.
 
-__Represented file popup menu:__
+__Reprezentowane menu wyskakujące pliki:__
 
-![Represented File][1]
+![Reprezentowany plik][1]
 
 To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename][setrepresentedfilename] and [BrowserWindow.setDocumentEdited][setdocumentedited] APIs:
 

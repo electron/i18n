@@ -1,69 +1,69 @@
-# Recent Documents (Windows & macOS)
+# المستندات الحديثة (Windows & macOS)
 
 ## النظرة عامة
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+يوفر Windows و macOS الوصول إلى قائمة بالمستندات الحديثة التي فتحها التطبيق عبر قائمة JumpList أو قائمة الإرساء على التوالي.
 
 __JumpList:__
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![قائمة القفز الملفات الأخيرة](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-__Application dock menu:__
+__قائمة الإرساء للتطبيق:__
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![قائمة منصة macOS](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-To add a file to recent documents, you need to use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
+لإضافة ملف إلى المستندات الأخيرة، تحتاج إلى استخدام [app.addRecentdocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
 
 ## مثال
 
-### Add an item to recent documents
+### إضافة عنصر إلى المستندات الحديثة
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
+بدءاً بتطبيق عمل من [دليل البداية السريعة](quick-start.md)، أضف السطور التالية إلى ملف `main.js`:
 
 ```javascript
-const { app } = require('electron')
+const { app } = مطلوب('electron')
 
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-After launching the Electron application, right click the application icon. You should see the item you just added. In this guide, the item is a Markdown file located in the root of the project:
+بعد بدء تطبيق إلكترون، انقر بزر الماوس الأيمن على رمز التطبيق. يجب أن ترى العنصر الذي أضفته للتو. في هذا الدليل، هذا العنصر هو ملف Markdown موجود في جذر المشروع:
 
-![Recent document](../images/recent-documents.png)
+![الوثيقة الأخيرة](../images/recent-documents.png)
 
-### Clear the list of recent documents
+### مسح قائمة المستندات الحديثة
 
-To clear the list of recent documents, you need to use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API in the `main.js` file:
+لمسح قائمة المستندات الأخيرة، تحتاج إلى استخدام [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API في ملف `main.js`:
 
 ```javascript
-const { app } = require('electron')
+const { app } = مطلوب('electron')
 
-app.clearRecentDocuments()
+app.clearentDocuments()
 ```
 
-## Additional information
+## معلومات إضافية
 
-### Windows Notes
+### ملاحظات ويندوز
 
-To use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+لاستخدام هذه الميزة على Windows، يجب تسجيل تطبيقك كـ معالج لنوع الملف من المستند، وإلا فلن يظهر الملف في قائمة القفز حتى بعد إضافته. يمكنك العثور على كل شيء عند تسجيل التطبيق الخاص بك في [تسجيل التطبيق](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+عندما ينقر مستخدم على ملف من قائمة JumpList، سيتم بدء مثيل جديد لتطبيقك مع مسار الملف المضاف كحجة سطر الأوامر.
 
-### macOS Notes
+### ملاحظات macOS
 
-#### Add the Recent Documents list to the application menu
+#### إضافة قائمة المستندات الأخيرة إلى قائمة التطبيقات
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
+يمكنك إضافة عناصر القائمة للوصول إلى الوثائق الأخيرة ومسحها عن طريق إضافة كتلة التعليمات البرمجية التالية إلى قالب القائمة الخاص بك:
 
 ```json
 {
-  "submenu":[
+  "القائمة":[
     {
-      "label":"Open Recent",
-      "role":"recentdocuments",
-      "submenu":[
+      "التسمية":"فتح الحديث"،
+      "الدور":"مؤخراً"،
+      "القائمة الفرعية": [
         {
-          "label":"Clear Recent",
-          "role":"clearrecentdocuments"
+          "التسمية":"مسح الحديثة"،
+          "الدور": "الوثائق الأخيرة"
         }
       ]
     }
@@ -71,6 +71,6 @@ You can add menu items to access and clear recent documents by adding the follow
 }
 ```
 
-![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+![عنصر قائمة المستندات الحديثة macOS](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+عند طلب ملف من قائمة المستندات الأخيرة، سيتم نشر وحدة `فتح الملف` من `التطبيق` من أجله.

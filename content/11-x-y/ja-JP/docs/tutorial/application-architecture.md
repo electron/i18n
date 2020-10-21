@@ -20,7 +20,7 @@ Electron はウェブページを表示するために Chromium を使用して�
 
 > #### 余談: プロセス間通信
 > 
-> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages][share-data].
+> Electron では、メインプロセスとレンダラープロセス間で通信します is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. [Web ページ間でデータを共有する方法 に FAQ エントリもあります][share-data]。
 
 
 ## Electron API を使用する
@@ -43,17 +43,17 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
+プロセス間の通信が可能であるため、レンダラープロセス はメインプロセスを呼び出して、IPCを通じてタスクを実行することができます。
 
 ```javascript
-// In the main process:
+// メインプロセスで:
 const { ipcMain } = require('electron')
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do something on behalf of the renderer ...
+ipcMain. andle('perform-action', (event, ...args) => {
+  // ... レンダラーに代わって何かをする ...
 })
 
-// In the renderer process:
+// レンダラープロセスで:
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('perform-action', ...args)

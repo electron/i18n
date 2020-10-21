@@ -12,7 +12,7 @@ También puede intentar descargar Electron directamente de [electron/electron/re
 
 La versión de Chrome de Electron es usualmente actualizada con una o dos semanas después de que una nueva versión estable de Chrome es publicada. Esta estimación no se garantiza y depende de la carga de trabajo que implica la actualización.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Sólo se utiliza el canal estable de Chrome. Si una solución importante está en el canal beta o dev , haremos back-port a él.
 
 Para mas información, por favor lea la [introducción de seguridad](tutorial/security.md).
 
@@ -140,7 +140,7 @@ Sin embargo si utilizas el módulo incorporado, pero sigue recibiendo este error
 
 ## La fuente se ve borrosa, ¿qué es esto y qué puedo hacer?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Ejemplo:
+Si [anti-aliasing sub-píxeles](http://alienryderflex.com/sub_pixel/) está desactivado, entonces las fuentes en las pantallas LCD pueden parecer borrosas. Ejemplo:
 
 ![subpixel rendering example][]
 
@@ -155,7 +155,7 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Incluso si no ves una diferencia, algunos de tus usuarios pueden. Es mejor establecer siempre los antecedentes de esta manera, a menos que tenga razones para no hacerlo.
 
 Tenga en cuenta que sólo establecer el fondo en el CSS no tiene el efecto deseado.
 

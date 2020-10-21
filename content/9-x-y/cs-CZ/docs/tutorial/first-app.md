@@ -31,7 +31,7 @@ npm skript vytvoří základní `package.json` soubor na základě Vámi zadaný
 }
 ```
 
-__Poznámka__: Pokud položka `main` neexistuje v `package.json`, Electron se pokusí spustit`index.js` (stejně jako v případě Node.js). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Poznámka__: Pokud položka `main` neexistuje v `package.json`, Electron se pokusí spustit`index.js` (stejně jako v případě Node.js). Pokud to byla skutečně jednoduchá aplikace Node, byste přidali `start` skript, který instruuje `uzel` k provedení aktuálního balíčku:
 
 ```json
 {
@@ -44,7 +44,7 @@ __Poznámka__: Pokud položka `main` neexistuje v `package.json`, Electron se po
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+Změna aplikace uzlu v aplikaci Electron je docela jednoduchá - pouze nahradíme `uzel` runtime `elektronem` runtime.
 
 ```json
 {
@@ -59,93 +59,93 @@ Turning this Node application into an Electron application is quite simple - we 
 
 ## Instalování Electronu
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+V tomto okamžiku budete muset nainstalovat samotný `elektroron`. Doporučeným způsobem je nainstalovat ji jako vývojovou závislost ve vaší aplikaci, které vám umožní pracovat na více aplikacích s různými verzemi Electronu. Chcete-li tak učinit, spusťte následující příkaz z adresáře aplikace:
 
 ```sh
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Existují jiné prostředky pro instalaci Electronu. Podívejte se prosím na [instalační příručku](installation.md) pro informace o použití pomocí proxies, mirrors, a vlastních keší.
 
 ## Vývoj pro Electron v kostce
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron aplikace jsou vyvinuty v JavaScriptu pomocí stejných principů a metod nalezených ve vývoji Node.js. Všechny API a funkce nalezené v Electronu jsou přístupné v modulu `elektroron` , který může být vyžadován jako kterýkoliv jiný uzel. s modul:
 
 ```javascript
-const electron = require('electron')
+const elektronron = vyžadováno ('elektron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
+Modul `elektroron` odhaluje funkce v jmenných prostorech. Jako příklad, životní cyklus aplikace je spravován prostřednictvím `elektroniky. pp`, okna mohou být vytvořena pomocí třídy `electron.BrowserWindow`. Jednoduchý soubor `main.js` může počkat , než bude aplikace připravena a otevře okno:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-function createWindow () {
+funkce createWindow () {
   // Create the browser window.
-  let win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
+  let vyhrát = nová BrowserWindow({
+    šířka: 800,
+    výška: 600,
+    webPreference: {
       nodeIntegration: true
     }
   })
 
-  // and load the index.html of the app.
+  // a načíst index.html aplikace.
   win.loadFile('index.html')
 }
 
 app.whenReady().then(createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+`main.js` by měl vytvářet okna a zpracovávat všechny systémové události, s nimiž se může setkat vaše aplikace. Komplexnější verze výše uvedeného příkladu může otevřít nástroje pro vývojáře a ovládat zavřené okno, nebo znovu vytvořit okna na macOS pokud uživatel klikne na ikonu aplikace v doku.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-function createWindow () {
+funkce createWindow () {
   // Create the browser window.
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
+  const win = nový BrowserWindow({
+    šířka: 800,
+    výška: 600,
+    webPreference: {
       nodeIntegration: true
     }
   })
 
-  // and load the index.html of the app.
+  // a načtěte index.html aplikace.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Otevřete DevTools.
   win.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Tato metoda bude volána po dokončení Electronu
+// inicializaci a je připravena k vytvoření oken prohlížeče.
+// Některé API mohou být použity pouze po této události.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
-app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
-    app.quit()
+// Ukončit po zavření všech oken.
+app.on('all-zavřeno okna', () => {
+  // On macOS je běžné, že aplikace a jejich panel menu
+  // zůstanou aktivní, dokud uživatel neukončí výslovně s Cmd + Q
+  , pokud (procvičuje. latform !== 'darwin') {
+    aplikace uit()
   }
 })
 
-app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (BrowserWindow.getAllWindows().length === 0) {
+aplikace n('aktivovat', () => {
+  // Na macOS je běžné znovu vytvořit okno v aplikaci po kliknutí na ikonu
+  // doku a žádná další okna nejsou otevřena.
+  pokud (BrowserWindow.getAllWindows(). Délka === 0) {
     createWindow()
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// V tomto souboru můžete zahrnout zbytek hlavního procesu vaší aplikace
+// code. Můžete je také vložit do samostatných souborů a vyžadovat je zde.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Konečně `index.html` je webová stránka, kterou chcete zobrazit:
 
 ```html
 <!DOCTYPE html>
@@ -176,13 +176,13 @@ Clone and run the code in this tutorial by using the [`electron/electron-quick-s
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
-# Clone the repository
-$ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Klonovat úložiště
+$ klonování https://github. om/electron/electron-quick-start
+# Jděte do repozitáře
 $ cd electron-quick-start
 # Install dependencies
 $ npm install
-# Run the app
+# Spustit aplikaci
 $ npm start
 ```
 

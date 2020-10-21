@@ -6,10 +6,10 @@
 
 ```js
 const childProcess = require('child_process')
-const electronPath = require('electron')
+const electronic Path = require('electron')
 
-// spawn the process
-const env = { /* ... */ }
+// 生成 process
+const env = 欧共体/* ... */ }
 const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
 const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
@@ -117,11 +117,11 @@ const METHODS = {
 
 ```js
 const test = require('ava')
-const electronPath = require('electron')
+const electronic Path = require('electron')
 
-const app = new TestDriver({
-  path: electronPath,
-  args: ['./app'],
+const app = new TestDriver(~)
+  path,
+  args: ['。 app'],
   env: {
     NODE_ENV: 'test'
   }
@@ -129,7 +129,7 @@ const app = new TestDriver({
 test.before(async t => {
   await app.isReady
 })
-test.after.always('cleanup', async t => {
-  await app.stop()
+测试。 fter.always('cleanup', async t => *
+  等待app.stop()
 })
 ```

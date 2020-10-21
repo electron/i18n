@@ -1,18 +1,18 @@
-# Progress Bar in Taskbar (Windows, macOS, Unity)
+# Lišta pokroku na panelu úkolů (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+V systému Windows lze použít tlačítko na hlavní liště k zobrazení ukazatele průběhu. This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Na macOS se ukazatel průběhu zobrazí jako součást ikony doku.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Unity DE má také podobnou funkci, která vám umožňuje určit ukazatel postupu v spouštěči.
 
-__Progress bar in taskbar button:__
+__Ukazatel průběhu na tlačítku hlavního panelu:__
 
-![Taskbar Progress Bar][1]
+![Lišta pokroku v hlavním panelu][1]
 
-All three cases are covered by the same API - the `setProgressBar()` method available on instances of `BrowserWindows`. Call it with a number between `0` and `1` to indicate your progress. If you have a long-running task that's currently at 63% towards completion, you'd call it with `setProgressBar(0.63)`.
+Na všechny tři případy se vztahuje stejné API - `setProgressBar()` metoda dostupná na instancích `BrowserWindows`. Zavolejte jí číslo v rozmezí od `0` do `1` k označení vašeho postupu. Pokud máte dlouhotrvající úkol, který je na 63% k dokončení, zavoláte mu `setProgressBar(0.63)`.
 
-Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
+Obecně řečeno, nastavení parametru na hodnotu pod nulou (jako `-1`) odstraní ukazatel průběhu při jeho nastavení na hodnotu vyšší než jedna (jako `2`) přepne ukazatel průběhu do režimu meziproduktů.
 
 See the [API documentation for more options and modes][setprogressbar].
 

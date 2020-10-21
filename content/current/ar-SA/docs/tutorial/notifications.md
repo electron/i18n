@@ -1,107 +1,107 @@
-# Notifications (Windows, Linux, macOS)
+# إشعارات (Windows, Linux, macOS)
 
 ## النظرة عامة
 
-All three operating systems provide means for applications to send notifications to the user. The technique of showing notifications is different for the Main and Renderer processes.
+جميع أنظمة التشغيل الثلاثة توفر وسائل للتطبيقات لإرسال إشعارات للمستخدم. تقنية عرض الإشعارات مختلفة للعمليتين الرئيسية و Renderer.
 
-For the Renderer process, Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+بالنسبة لعملية العارض ، يسمح إلكترون للمطورين بإرسال إشعارات مع [HTML5 Notification API](https://notifications.spec.whatwg.org/)، باستخدام الإشعارات الأصلية لنظام التشغيل قيد التشغيل حالياً لعرضها.
 
-To show notifications in the Main process, you need to use the [Notification](../api/notification.md) module.
+لإظهار الإشعارات في العملية الرئيسية، تحتاج إلى استخدام وحدة [الإشعارات](../api/notification.md).
 
 ## مثال
 
-### Show notifications in the Renderer process
+### إظهار الإشعارات في عملية العارض
 
-Assuming you have a working Electron application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
+على افتراض أن لديك تطبيق إلكترون عامل من [دليل البدء السريع](quick-start.md)، يضاف السطر التالي إلى فهرس `. ملف tml` قبل الإغلاق `</body>` علامة:
 
 ```html
 <script src="renderer.js"></script>
 ```
 
-and add the `renderer.js` file:
+وإضافة ملف `renderer.js`:
 
 ```js
-const myNotification = new Notification('Title', {
+تفعيل الإشعارات = الإشعارات الجديدة ('Title', {
   body: 'Notification from the Renderer process'
 })
 
 myNotification.onclick = () => {
-  console.log('Notification clicked')
+  console.log('الإشعار بالنقر عليه')
 }
 ```
 
-After launching the Electron application, you should see the notification:
+بعد إطلاق طلب إلكترون، يجب أن ترى الإشعار:
 
-![Notification in the Renderer process](../images/notification-renderer.png)
+![إشعار في عملية العارض](../images/notification-renderer.png)
 
-If you open the Console and then click the notification, you will see the message that was generated after triggering the `onclick` event:
+إذا قمت بفتح وحدة التحكم ثم انقر فوق الإشعار، سترى رسالة التي تم إنشاؤها بعد تشغيل الحدث `على النقر`:
 
-![Onclick message for the notification](../images/message-notification-renderer.png)
+![رسالة أونانقر للإشعار](../images/message-notification-renderer.png)
 
-### Show notifications in the Main process
+### إظهار الإشعارات في العملية الرئيسية
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+بدءاً بتطبيق عمل من [دليل البداية السريعة](quick-start.md)، قم بتحديث ملف `main.js` بالأسطر التالية:
 
 ```js
-const { Notification } = require('electron')
+const { Notification } = مطلوب('electron')
 
-function showNotification () {
-  const notification = {
+الدالة تظهر الإشعار () {
+  الإشعارات الحالية = {
     title: 'Basic Notification',
     body: 'Notification from the Main process'
   }
-  new Notification(notification).show()
+  إشعار جديد (notification).show()
 }
 
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-After launching the Electron application, you should see the notification:
+بعد إطلاق طلب إلكترون، يجب أن ترى الإشعار:
 
-![Notification in the Main process](../images/notification-main.png)
+![الإخطار في العملية الرئيسية](../images/notification-main.png)
 
-## Additional information
+## معلومات إضافية
 
-While code and user experience across operating systems are similar, there are subtle differences.
+في حين أن البرمجة وتجربة المستخدم عبر أنظمة التشغيل متشابهة، هناك اختلافات دقيقة.
 
 ### Windows
 
-* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
-* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* على Windows 10، يجب تثبيت اختصار للتطبيق الخاص بك مع [معرف نموذج المستخدم للتطبيق](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) إلى قائمة بدء التشغيل. هذا يمكن أن يكون قاتلاً أثناء التطوير، لذلك إضافة `node_modules\electron\dist\electron.exe` إلى قائمة البدء تقوم أيضًا بالخدعة . انتقل إلى الملف في المستكشف ، انقر بالزر الأيمن و 'ثبت لبدء القائمة'. ستحتاج بعد ذلك إلى إضافة السطر `app.setAppUserModelId(process.execPath)` إلى العملية الرئيسية الخاصة بك لمشاهدة الإشعارات.
+* على Windows 8. و Windows 8، يجب تثبيت اختصار للتطبيق الخاص بك مع [مستخدم التطبيق معرف النموذج](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) على شاشة البدء. لاحظ مع ذلك ، أنه ليس من الضروري تثبيته على شاشة البداية.
+* على Windows 7، تعمل الإخطارات عبر تنفيذ مخصص يشبه بصرياً البرنامج الأصلي على الأنظمة الأحدث.
 
-Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`](../api/app.md#appsetappusermodelidid-windows) yourself.
+يحاول إلكترون أتمتة العمل حول معرف نموذج المستخدم التطبيق. عندما يستخدم إلكترون جنبا إلى جنب مع إطار التثبيت والتحديث، [سيتم تعيين الاختصارات تلقائيًا بشكل صحيح](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). علاوة على ذلك، سيكتشف Electron أن Squirrel قد استخدم وسيتصل تلقائيا بـ `app.setAppUserModelId()` بالقيمة الصحيحة. أثناء التطوير، قد يكون لديك لاستدعاء [`app.setAppUserModelId()`](../api/app.md#appsetappusermodelidid-windows) بنفسك.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+علاوة على ذلك، في Windows 8، الحد الأقصى لطول هيئة الإخطار هو 250 حرفاً، مع فريق ويندوز يوصي بالاحتفاظ بالإشعارات إلى 200 حرف. مع ذلك، تم إزالة هذا الحد في Windows 10، مع فريق Windows يطلب من المطورين أن يكونوا معقولين. محاولة إرسال كميات ضخمة من النص إلى API (آلاف الأحرف) قد تؤدي إلى عدم الاستقرار.
 
-#### Advanced Notifications
+#### الإشعارات المتقدمة
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+تسمح الإصدارات اللاحقة من Windows بالإشعارات المتقدمة، مع قوالب مخصصة، صور، وعناصر مرنة أخرى. لإرسال هذه الإشعارات (إما من العملية الرئيسية أو من عملية العرض)، استخدم وحدة المستخدم [إلكترون - نوافذ الإخطارات](https://github.com/felixrieseberg/electron-windows-notifications)، الذي يستخدم إضافات العقدة الأصلية لإرسال `إشعار` و `إخطارات` الكائنات.
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+بينما الإشعارات بما في ذلك الأزرار تعمل مع `إلكترون - نوافذ الإخطارات`، معالجة الردود تتطلب استخدام [`الإشعارات الإلكترونية - النوافذ التفاعلية`](https://github.com/felixrieseberg/electron-windows-interactive-notifications)، الذي يساعد في تسجيل مكونات COM المطلوبة واتصال بـ تطبيق Electron الخاص بك مع بيانات المستخدم المدخلة.
 
-#### Quiet Hours / Presentation Mode
+#### ساعات هادئة/وضع العرض التقديمي
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+لكشف ما إذا كان مسموحا لك أو لا يسمح لك بإرسال إشعار، استخدم وحدة المستخدم [الإخطارات - الحالة](https://github.com/felixrieseberg/electron-notification-state).
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+هذا يسمح لك بأن تحدد مسبقاً ما إذا كان ويندوز سيقوم بصمت بإلقاء الإشعار بعيداً.
 
 ### نظام macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+الإشعارات مباشرة على macOS، ولكن يجب أن تكون على علم بـ [المبادئ التوجيهية للواجهة البشرية لـ Apple فيما يتعلق بالإخطارات](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+لاحظ أن الإشعارات تقتصر على 256 بايت في الحجم وسيتم اختزالها إذا تجاوزت هذا الحد.
 
-#### Advanced Notifications
+#### الإشعارات المتقدمة
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+تسمح الإصدارات اللاحقة من macOS بالإشعارات مع حقل الإدخال، مما يسمح للمستخدم بالرد بسرعة على الإشعار. من أجل إرسال إشعارات مع حقل الإدخال، استخدم وحدة المستخدم [مبلِّغ العقدة](https://github.com/CharlieHess/node-mac-notifier).
 
-#### Do not disturb / Session State
+#### عدم الإزعاج / حالة الجلسة
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+لكشف ما إذا كان مسموحا لك أو لا يسمح لك بإرسال إشعار، استخدم وحدة المستخدم [حالة الإخطارات الإلكترونية](https://github.com/felixrieseberg/electron-notification-state).
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+هذا سيتيح لك أن تكتشف مسبقاً ما إذا كان سيتم عرض الإشعار أم لا.
 
 ### Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+يتم إرسال الإشعارات باستخدام `libnoti` التي يمكن أن تظهر الإشعارات على بيئة سطح المكتب التي تتبع [إشعارات سطح المكتب مواصفات](https://developer.gnome.org/notification-spec/)، بما في ذلك القرفة، التنوير، الوحدة، GNOME، KDE.

@@ -1,85 +1,85 @@
 ---
-title: 'Project of the Week: Beaker Browser'
+title: 'Проект Недели: Боксер'
 author:
   - pfrazee
   - zeke
 date: '2017-02-07'
 ---
 
-This week we caught up with [Paul Frazee](http://pfrazee.github.io/), creator of [Beaker Browser](https://beakerbrowser.com/). Beaker is an experimental peer-to-peer web browser that uses the Dat protocol to host sites from users’ devices.
+На этой неделе мы подошли к [Полу Фразе](http://pfrazee.github.io/), создателю из [Боксер-Браузера](https://beakerbrowser.com/). Бейкер — это экспериментальный веб-браузер peer-to-peer, который использует протокол Dat для размещения сайтов с устройств пользователей.
 
 ---<iframe width="100%" height="420" src="https://www.youtube.com/embed/Bem9nRpyPEs" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-## What is Beaker and why did you create it?
+## Что такое ключи и почему вы его создали?
 
-Beaker is a participatory browser. It's a browser for indie hackers.
+Бикер - это браузер. Это браузер для инди-хакеров.
 
-The Web is closed source. If you want to influence how social media works, you have to work at Facebook or Twitter. For search, Google. Control is in the hands of companies, rather than the users themselves.
+Сеть является закрытым источником. Если вы хотите влиять на работу социальных сетей, вы должны работать в Facebook или Twitter. Для поиска, Google. Контроль находится в руках компаний, а не самих пользователей.
 
-With Beaker, we have a new Web protocol: the [Decentralized Archive Transport](https://datprotocol.com). "Dat." It creates sites on demand, for free, and then shares them from the device. No servers required. That's our innovation.
+У нас есть новый веб-протокол: [Децентрализованный архивный транспорт](https://datprotocol.com). "Dat." Он создает сайты по запросу, бесплатно и затем делится ими с устройства. Серверы не требуются. Это наше новшество.
 
-![Beakers Protocols](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
+![Протоколы ключа](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
-When you visit a Dat site in Beaker, you download the files. The site is yours, forever. You can save it, fork it, modify it, and share your new version for free. It's all open-source.
+Когда вы заходите на сайт Dat в стакане, вы загружаете файлы. Сайт ваш, навсегда. Вы можете сохранить его, форкнуть его, изменить его и поделиться своей новой версией бесплатно. Все это с открытым исходным кодом.
 
-So that's what it's about: We're making a browser for open-source Websites. We want it to be a toolkit for social hacking.
+Так что это такое: мы делаем браузер для сайтов с открытым исходным кодом. Мы хотим, чтобы он был инструментарием для взлома социальных сетей.
 
-## Who should be using Beaker?
+## Кто должен использовать клюв?
 
-Hackers. Modders. Creative types. People who like to tinker.
+Хакеры. Модули. Тип креатива. Люди, которые любят отнимать.
 
-## How do I create a new project that uses Dat?
+## Как создать новый проект, использующий Data?
 
-We've got [a command-line tool called bkr](https://github.com/beakerbrowser/bkr) that's kind of like git + npm. Here's creating a site:
+У нас есть [инструмент командной строки под названием bkr](https://github.com/beakerbrowser/bkr) , похожий на git + npm. Здесь создается сайт:
 
 ```bash
 $ cd ~/my-site
 $ bkr init
-$ echo "Hello, world!" > index.html
-$ bkr publish
+$ echo "Привет, мир!" > index.html
+$ bkr опубликовать
 ```
 
-And here's forking a site:
+И вот форсирование сайта:
 
 ```bash
 $ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
 $ cd ~/my-fork
-$ echo "My fork has no regard for the previous index.html!" > index.html
-$ bkr publish
+$ echo "My fork has no regard for the previous index. tml!" > index.html
+$ bkr опубликовать
 ```
 
-Those sites then get hosted out of your browser. It's a little like BitTorrent; you share the sites in a P2P mesh.
+Затем эти сайты размещаются из вашего браузера. Это немного похоже на BitTorrent; вы делитесь сайтами в сетке P2P.
 
-If you want a GUI, we have some basic tools built into the browser, but we're pushing those tools into userland. It's all going to be moddable user apps.
+Если вы хотите использовать графический интерфейс, то у нас есть некоторые базовые инструменты, встроенные в браузер, но мы накладываем эти инструменты на пользовательский интерфейс. Все это будет модными пользовательскими приложениями.
 
-## Why did you choose to build Beaker on Electron?
+## Почему вы решили построить стакан на Electron?
 
-It was obvious for this project. If I forked Chrome myself, I'd be writing C++ right now! Nobody wants to do that. I know the Web stack, and I can work quickly with it. It's a no-brainer.
+Это было очевидно для этого проекта. Если я сам закрепил Chrome, я бы написал C++ прямо сейчас! Никто не хочет это сделать. Я знаю веб-стек, и я могу быстро работать с ним. Это «без мозга».
 
-The truth is, I'm not sure I could do any of this without Electron. It's a great piece of software.
+Правда, я не уверен, что я мог бы сделать это без Electron. Это большая часть программного обеспечения.
 
-## What are some challenges you've faced while building Beaker?
+## Каковы вызовы, с которыми вы столкнулись при строительстве стакана?
 
-Half of it is poking at the tools and figuring out how much I can get away with.
+Половина этого инструмента натыкается на инструменты и выясняет, сколько я могу избавиться.
 
-Making the browser itself was pretty easy. Electron is practically a toolkit for making browsers. ...Except for the browser tabs; that took me forever to get right. I finally broke down and learned how to do SVGs. It's much better looking, but it took 3 or 4 iterations before I got that right.
+Сделайте браузер очень простым. Electron – это практически инструментарий для создания браузеров. ...За исключением вкладок в браузере, на которые я навсегда взял на себя право. Наконец-то я сломал и научился делать SVGs. Это гораздо лучше смотреть, но это потребовало 3 или 4 итерации, прежде чем я получил это право.
 
-## In what areas should Electron be improved?
+## В каких областях Electron следует улучшить?
 
-It'd be really great if I could dock the devtools inside a webview.
+Это было бы очень хорошо, если бы я мог пристыковывать утилиты внутри веб-страницы.
 
-## What's coming next in Beaker?
+## Что же будет в следующий раз в Бракете?
 
-Secure DNS names for Dat sites. A socially configurable URL scheme, called the ["app scheme."](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) More Dat APIs.
+Безопасные DNS имена для сайтов Dat. Социально настраиваемая схема URL называется ["схема приложения"](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) Больше Dat API.
 
-## For folks who may be interested in contributing to the project, in what areas does Beaker need help?
+## Для тех людей, которые могут быть заинтересованы в участии в проекте, в каких областях требуется помощь?
 
-We have lots of open issues. Don't be afraid to ping me. #beakerbrowser on freenode. We keep a [page for contributors](https://beakerbrowser.com/docs/team.html) and we'll add you to it. And if you visit Austin, I'll buy you a beer.
+У нас есть много открытых проблем. Не бойтесь мне звонить. #beakerbrowser на Фринете. Мы храним [страницу для авторов](https://beakerbrowser.com/docs/team.html) и добавим вас в неё. И если вы приезжаете в Остин, я куплю вам пиво.
 
-## Any Electron tips that might be useful to other developers?
+## Любые советы Electron, которые могут быть полезны другим разработчикам?
 
-1. Use the build tooling that's out there. You don't want to wrestle with your own solutions, trust me. Use electron-builder. Use a boilerplate repo.
-2. If you need to open an issue in the Electron repo, go the extra mile to make it easy to reproduce. You'll get a response much more quickly, and the team will appreciate it. Even better, try fixing it yourself. It's actually pretty interesting to see the innards.
-3. Read through all the guides and advanced docs at least once.
-4. Don't build a browser, it's a saturated market.
+1. Используйте инструменты сборки, которые там лежат. Вы не хотите бороться с собственными решениями, доверяйте мне. Использовать электрон-строитель. Использовать латный репо.
+2. Если вам нужно открыть проблему в репозитории Electron, перейдите к дополнительной миле, чтобы упростить воспроизведение. Вы получите ответ гораздо быстрее, и команда оценят его. Даже лучше, попробуйте исправить это самостоятельно. На самом деле очень интересно увидеть внутренние дворы.
+3. Прочитайте все руководства и дополнительные документы по крайней мере один раз.
+4. Не создавать браузер, это насыщенный рынок.
 

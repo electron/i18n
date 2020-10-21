@@ -21,7 +21,7 @@ Vous pouvez configurer différentes combinaisons de touches basées sur le syst�
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Maj+I'
 }
 ```
 
@@ -34,7 +34,7 @@ const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('CommandOrControl+X est presséd')
   })
 })
 ```

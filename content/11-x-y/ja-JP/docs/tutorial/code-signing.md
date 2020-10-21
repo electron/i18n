@@ -75,7 +75,7 @@ Apple のセキュリティメカニズムを保証するため、ここで参�
 
 この実例をすべて見たいのであれば、Electron Fiddle のソースコード、[特に `electron-forge` の設定ファイル](https://github.com/electron/fiddle/blob/master/forge.config.js) を確認してください。
 
-If you plan to access the microphone or camera within your app using Electron's APIs, you'll also need to add the following entitlements:
+Electron の API を使用してアプリ内のマイクやカメラにアクセスする場合は、 以下の資格を追加する必要があります。
 
 ```xml
 <key>com.apple.security.device.audio-input</key>
@@ -84,15 +84,15 @@ If you plan to access the microphone or camera within your app using Electron's 
 <true/>
 ```
 
-If these are not present in your app's entitlements when you invoke, for example:
+起動時にアプリのエンタイトルメントにこれらがない場合は、次のようにします。
 
 ```js
 const { systemPreferences } = require('electron')
 
-const microphone = systemPreferences.askForMediaAccess('microphone')
+const mic = systemPreferences.askForMediaAccess('microphone')
 ```
 
-Your app may crash. See the Resource Access section in [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) for more information and entitlements you may need.
+アプリがクラッシュする可能性があります。 必要な情報や資格情報については、 [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) のリソース アクセス セクションを参照してください。
 
 ## `electron-builder`
 
@@ -160,8 +160,8 @@ Windows ビルドに署名する前に、以下のことをしなければなり
 
 パッケージアプリケーションに署名するためのツールは以下のようにたくさんあります。
 
-- [`electron-winstaller`][] will generate an installer for windows and sign it for you
-- [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.
+- [`electron-winstaller`][] は Windows 用のインストーラを生成し、 あなたに署名します。
+- [`electron-forge`][] は、 Squirrel.Windows または MSI ターゲットを通じて生成されたインストーラに署名できます。
 - [`electron-builder`][] ではその Windows ターゲットのいくつかに署名することができます
 
 ## Windows Store

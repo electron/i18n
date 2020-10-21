@@ -98,7 +98,7 @@ Verwende `AutoUpdater` als Beispiel:
 * Alle Methoden, die einen Rückgabewert haben, müssen ihre Beschreibung mit "Returns `[TYPE]`" beginnen
   * Wenn die Methode ein `Objekt` zurückgibt, kann dessen Struktur angegeben werden mit einem Doppelpunkt gefolgt von einem Zeilenumbruch, dann einer ungeordneten Liste der Eigenschaften im gleichen Stil wie die Funktionsparameter.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* Instanz-Eigenschaften müssen im Kapitel `### Instanz-Eigenschaften` aufgelistet werden.
   * Instance properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
@@ -143,14 +143,14 @@ The methods chapter must be in the following form:
 ### `objectName.methodName(required[, optional]))`
 
 * `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `optional` Ganzzahl (optional) - Eine weitere Parameterbeschreibung.
 
 ...
 ```
 
 The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Bei Modulen ist der `objectName` der Name des Moduls. Für Klassen muss es der Name der Instanz der Klasse sein und darf nicht der gleiche sein wie der Name des Moduls.
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
@@ -160,7 +160,7 @@ The optional arguments are notated by square brackets `[]` surrounding the optio
 erforderlich[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Unter der Methode finden Sie detailliertere Informationen zu jedem der Argumente. Der Typ des Arguments wird von den gebräuchlichen Typen notiert:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

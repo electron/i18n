@@ -40,20 +40,20 @@ Userland はコアの対義語であり、ユーザーはElectronの機能を拡
 
 Reports like [app dependencies](https://electronjs.org/userland/dependencies) and [starred apps](https://electronjs.org/userland/starred_apps) which list packages, apps, and repos have a text input that can be used to filter the results.
 
-As you type into this input, the URL of the page is updated dynamically. This allows you to copy a URL representing a particular slice of userland data, then share it with others.
+この入力に入力すると、ページの URL が動的に更新されます。 この では、特定のスライスを表す URL をコピーして 他のユーザーと共有することができます。
 
 [![babel](https://cloud.githubusercontent.com/assets/2289/21328807/7bfa75e4-c5ea-11e6-8212-0e7988b367fd.png) ](https://electronjs.org/userland/dev_dependencies?q=babel%20preset)
 
 ## より多くの人の参加
 
-This first set of reports is just the beginning. We will continue to collect data about how the community is building Electron, and will be adding new reports to the website.
+レポートのこの最初のセットは始まりに過ぎません。 コミュニティが Electron をどのように構築しているかに関する データを引き続き収集し、 新しいレポートをウェブサイトに追加します。
 
-All of the tools used to collect and display this data are open-source:
+このデータを収集して表示するために使用されるすべてのツールはオープンソースです。
 
 - [electron/electronjs.org](https://github.com/electron/electron.atom) Electron のウェブサイト。
-- [electron/electron-userland-reports](https://github.com/electron/electron-userland-reports): Slices of data about packages, repos, and users in Electron userland.
-- [electron/repos-using-electron](https://github.com/electron/repos-using-electron): All public repositories on GitHub that depend on `electron` or `electron-prebuilt`
-- [electron/electron-npm-packages](https://github.com/zeke/electron-npm-packages): All npm packages that mention `electron` in their `package.json` file.
+- [electron/electron-userland-reports](https://github.com/electron/electron-userland-reports): Electron userlandでのパッケージ、リポジトリ、およびユーザに関するデータのスライス。
+- [electron/repos-using-electron](https://github.com/electron/repos-using-electron): GitHub上の `electron` または `electron-prebuilt` に依存するすべての公開リポジトリ
+- [electron/electron-npm-packages](https://github.com/zeke/electron-npm-packages): `` を `package.json` ファイルに記載するすべての npm パッケージ。
 
 これらのレポートを改善する方法についてのアイデアをお持ちでしたら、[ウェブサイトリポジトリ](https://github.com/electron/electronjs.org/issues/new)または上記のリポジトリのいずれかにIssueを立ててお知らせください。
 

@@ -1,25 +1,29 @@
 ---
-title: Node.js Native Addons and Electron 5.0
+title: Node.js 原生附加组件和 Electron 5.0
 author: BinaryMuse
 date: '2019-02-01'
 ---
 
-If you're having trouble using a native Node.js addon with Electron 5.0, there's a chance it needs to be updated to work with the most recent version of V8.
+如果你在使用 Electron 5 添加本地Node.js 时遇到麻烦。 ，它需要更新以配合最新版本的 V8。
 
 ---
 
-## Goodbye `v8::Handle`, Hello `v8::Local`
+## 再见 `v8:::Handle`, 你好 `v8:::本地`
 
-In 2014, the V8 team deprecated `v8::Handle` in favor of `v8::Local` for local handles. Electron 5.0 includes a version of V8 that has finally removed `v8::Handle` for good, and native Node.js addons that still use it will need to be updated before they can be used with Electron 5.0.
+2014年，V8团队已弃用 `v8:::Handle` 代理 `v8::本地` 代理本地句柄。 Electron 5.0 包含最终删除 `v8:::处理好的` 和本机节点。 s 仍然使用它的插件需要更新后才能使用 Electron 5.0 使用。
 
-The required code change is minimal, but *every* native Node module that still uses `v8::Handle` will fail to build with Electron 5.0 and will need to be modified. The good news is that Node.js v12 will also include this V8 change, so any modules that use `v8::Handle` will need to be updated *anyway* to work with the upcoming version of Node.
+要求的代码更改是最小的 但 *仍然使用 `v8::Handle` 的* 本机节点模块将无法使用 Electron 5 构建。 并且需要修改。 The good news is that Node.js v12 will also include this V8 change, so any modules that use `v8::Handle` will need to be updated *anyway* to work with the upcoming version of Node.
 
-## I maintain a native addon, how can I help?
+## 我保留一个本地插件，我怎么能帮忙？
 
-If you maintain a native addon for Node.js, ensure you replace all occurrences of `v8::Handle` with `v8::Local`. The former was just an alias of the latter, so no other changes need to be made to address this specific issue.
+如果您为 Node.js 保留本机插件，请确保您替换所有 `v8:::处理` `v8:::局部` 前者只是后者的一个别名，因此不需要为解决这一具体问题作出其他改变。
 
-You may also be interested in looking into [N-API](https://nodejs.org/api/n-api.html), which is maintained separately from V8 as a part of Node.js itself, and aims to insulate native addons from changes in the underlying JavaScript engine. You can find more information [in the N-API documentation on the Node.js website](https://nodejs.org/api/n-api.html#n_api_n_api).
+您也可能有兴趣查看 [N-API](https://nodejs.org/api/n-api.html)，它是作为节点一部分而与V8分开保存的。 s 本身，旨在使本地插件免受底层JavaScript引擎变化的影响。 您可以在 Node.js 网站</a> N-API 文档中找到更多信息
 
-## 帮助! I use a native addon in my app and it won't work!
+。</p> 
 
-If you're consuming a native addon for Node.js in your app and the native addon will not build because of this issue, check with the author of the addon to see if they've released a new version that fixes the problem. If not, reaching out to the author (or [opening a Pull Request!](https://help.github.com/articles/about-pull-requests/)) is probably your best bet.
+
+
+## 帮助! 我在我的应用中使用一个本地插件，但它不会起作用！
+
+如果您正在消耗一个本地添加到节点中。 s 在您的应用中，本机插件不会因为这个问题而构建。 检查附加组件的作者以查看他们是否发布了一个新版本来解决问题。 如果不是，请联系作者 (或 [正在打开合并请求！](https://help.github.com/articles/about-pull-requests/)) 可能是你最好的。

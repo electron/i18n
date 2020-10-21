@@ -317,16 +317,16 @@ Retourne :
 
 * `event` Événement
 * `details` Object
-  * `reason` String - The reason the render process is gone.  Valeurs possibles :
-    * `clean-exit` - Process exited with an exit code of zero
+  * `reason` String - La raison pour laquelle le processus de rendu a disparu.  Valeurs possibles :
+    * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
     * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
+    * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
+    * `crashed` - Processus s'est planté
+    * `oom` - Le processus est tombé à cours de mémoire
     * `launch-failed` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
+    * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
 
-Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+Emitted when the renderer process unexpectedly disappears.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
 
 #### Événement : 'unresponsive'
 
@@ -690,7 +690,7 @@ Retourne :
 
 * `event` Événement
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. L' Appel à `event.preventDefault()` lui fera retourner des sources vides.
 
 #### Événement : 'remote-require'
 

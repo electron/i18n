@@ -6,7 +6,7 @@ Being based on Chromium, Electron requires a display driver to function. If Chro
 
 First, install [Xvfb](https://en.wikipedia.org/wiki/Xvfb). It's a virtual framebuffer, implementing the X11 display server protocol - it performs all graphical operations in memory without showing any screen output, which is exactly what we need.
 
-Затем создайте виртуальный экран Xvfb и экспортируйте переменную окружения, называемую DISPLAY, которая указывает на него. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. On Windows or macOS, it will do nothing.
+Затем создайте виртуальный экран Xvfb и экспортируйте переменную окружения, называемую DISPLAY, которая указывает на него. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. Этот шаг может быть автоматизирован с помощью Anai<unk> s Betts' [xvfb-Может быть](https://github.com/anaisbetts/xvfb-maybe): Подготовьте ваши команды с `xvfb-может быть` и маленький инструмент автоматически настроет Xvfb, при необходимости текущей системой. On Windows or macOS, it will do nothing.
 
 ```sh
 ## On Windows or macOS, this invokes electron-mocha
@@ -40,7 +40,7 @@ For Github Actions, a [Xvfb action is available](https://github.com/marketplace/
 
 ### Circle CI
 
-Circle CI is awesome and has Xvfb and `$DISPLAY` [already set up, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+Круг CI потрясающий и имеет Xvfb и `$DISPLAY` [уже настроен, поэтому дальнейшая настройка не требуется](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 

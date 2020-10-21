@@ -68,7 +68,7 @@ Send a message to the main process via `channel` and expect a result asynchronou
 
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
-For example:
+De exemplu:
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {

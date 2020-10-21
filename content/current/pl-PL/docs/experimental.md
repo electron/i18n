@@ -1,17 +1,17 @@
-# Experimental APIs
+# Eksperymentalne API
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+Niektóre API Electrons są oznaczone `_Eksperymentalne_` w dokumentacji. Ten tag wskazuje, że API może nie być uznane za stabilne, a API może być usuwane lub modyfikowane częściej niż inne API z mniejszym ostrzeżeniem.
 
-## Conditions for an API to be tagged as Experimental
+## Warunki tagowania API jako eksperymentalne
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+Każdy może poprosić o tagi API jako eksperymentalne w funkcji PR, spory dotyczące eksperymentalnego charakteru danej funkcji mogą być omawiane w API WG, jeśli nie mogą zostać rozwiązane w PR.
 
-## Process for removing the Experimental tag
+## Proces usuwania tagu eksperymentalnego
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+Gdy API będzie stabilne i co najmniej w dwóch głównych wierszach stabilnego wydania, może zostać nominowany do usunięcia tagu eksperymentalnego.  Ta dyskusja powinna się zdarzyć na spotkaniu API WG.  Sprawy do rozważenia podczas dyskusji / nominacji:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* Powyższy warunek „dwóch głównych linii uwalniania stajni” musi zostać spełniony
+* W tym czasie żadne poważne błędy lub problemy nie powinny być spowodowane przyjęciem tej funkcji
+* Interfejs API jest wystarczająco stabilny i nie został poważnie dotknięty przez ulepszenia Chromium
+* Czy ktoś używa API?
+* Czy API spełnia pierwotne proponowane przypadki użytkowania, czy ma jakieś luki?

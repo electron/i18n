@@ -12,7 +12,7 @@ Puoi anche provare a scaricare Electron direttamente da [electron/electron/relea
 
 La versione di Chrome di Electron è generalmente rilasciata entro una o due settimane dopo che viene rilasciata una nuova versione stabile di Chrome. Questa stima non è garantita e dipende dalla quantità di lavoro necessario per l'aggiornamento.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Viene utilizzato solo il canale stabile di Chrome. Se una correzione importante è nel canale beta o dev , lo faremo indietro.
 
 Per ulteriori informazioni, consulta [ l'introduzione alla sicurezza](tutorial/security.md).
 
@@ -140,7 +140,7 @@ Tuttavia, se si sta utilizzando il modulo integrato ma si riceve ancora questo e
 
 ## Il carattere sembra sfocato, che cos'è e cosa posso fare?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Esempio:
+Se [l'anti-aliasing dei sub-pixel](http://alienryderflex.com/sub_pixel/) è disattivato, allora i font sugli schermi LCD possono sembrare sfocati. Esempio:
 
 ![subpixel rendering example][]
 
@@ -155,7 +155,7 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Anche se non vedi una differenza, alcuni dei tuoi utenti possono. È meglio impostare sempre lo sfondo in questo modo, a meno che non si dispone di motivi per non farlo.
 
 Nota che solo impostare lo sfondo nel CSS non ha l'effetto desiderato.
 

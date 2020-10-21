@@ -1,39 +1,39 @@
 ---
-title: Community Discord Server and Hacktoberfest
+title: Servidor de Discord comunitario y Hacktoberfest
 author:
   - erickzhao
 date: '2020-10-01'
 ---
 
-Join us for community bonding and a month-long celebration of open-source.
+Únete a nosotros para la unión de la comunidad y una celebración de código abierto de un mes.
 
 ---
 
-![Hacktoberfest and Discord banner](https://user-images.githubusercontent.com/16010076/94834005-add7b380-03c4-11eb-8dfc-af5e3972fa53.png)
+![Estandarte de Hacktoberfest y Discord](https://user-images.githubusercontent.com/16010076/94834005-add7b380-03c4-11eb-8dfc-af5e3972fa53.png)
 
 
-# Electron Community Discord Launch
-Electron’s [Outreach Working Group](https://github.com/electron/governance/tree/master/wg-outreach) is excited to announce the launch of our official community Discord server!
+# Ejecutar Discord en la Comunidad Electron
+El [grupo de trabajo de alabanza](https://github.com/electron/governance/tree/master/wg-outreach) de Electron está encantado de anunciar el lanzamiento de nuestro servidor oficial de Discord en la comunidad!
 
-## Why a new Discord server?
-In its early days as the backbone of the [Atom text editor](https://atom.io/), community discussion on the Electron framework occurred in a single channel in Atom’s Slack workspace. As time passed and the two projects were increasingly decoupled, the relevance of the Atom workspace to the Electron project decreased, and maintainer participation in the Slack channel declined in the same manner.
+## ¿Por qué un nuevo servidor de Discord?
+En sus primeros días como columna vertebral del [editor de texto Atom](https://atom.io/), la discusión comunitaria sobre el marco Electron ocurrió en un solo canal en el espacio de trabajo Slack de Atom. A medida que pasó el tiempo y los dos proyectos fueron cada vez más desacoplados, la relevancia del espacio de trabajo Atom para el proyecto Electron disminuyó, y la participación del mantenedor en el canal Slack declinó de la misma manera.
 
-Up until now, we had still been redirecting our broader community to the Atom Slack workspace, even though we’ve had many reports from folks who have had trouble receiving invitations, and few of our core maintainers were frequenting the channel.
+Hasta ahora, todavía habíamos estado redirigiendo a nuestra comunidad más amplia hacia el espacio de trabajo Atom Slack, A pesar de que hemos tenido muchos informes de personas que han tenido problemas para recibir invitaciones, y algunos de nuestros mantenedores principales estaban frecuentando el canal.
 
-We’re setting up this shiny new server to be a central discussion hub for the community where you can get the latest news on all things Electron.
+Estamos configurando este nuevo y brillante servidor para ser un centro de discusión para la comunidad donde puedes obtener las últimas noticias sobre todo Electron.
 
-## Get in here!
-So far, the server’s membership consists of a few maintainers who have been working together to set it up, but we’re so excited to chat with you all! Come ask for help, keep up to date with Electron releases, or just hang out with other developers. We’ve got a handy [invite for you](https://discord.gg/H6uTh7m) that’ll give you access to the server!
+## ¡Acércate aquí!
+Hasta ahora, la membresía del servidor consiste en unos pocos mantenedores que han estado trabajando juntos para establecerlo, ¡pero estamos tan entusiasmados de chatear contigo a todos! Ven a pedir ayuda, mantente al día con los lanzamientos de Electron o simplemente pasa el rato con otros desarrolladores. Tenemos una útil [invitación](https://discord.gg/H6uTh7m) que te dará acceso al servidor!
 
 # Hacktoberfest 2020
-As a large and long-running open-source project, Electron wouldn’t have been nearly as successful without all the contributions from its community, from code submissions to bug reports to documentation changes, and much more. That’s why we believe in the importance of participating in Hacktoberfest to usher in a wider community of developers of all skill levels into the project.
+Como un proyecto de código abierto grande y de larga duración, Electron no habría tenido tanto éxito sin todas las contribuciones de su comunidad. de envíos de código a informes de errores a cambios de documentación, y mucho más. Por eso creemos en la importancia de participar en Hacktoberfest para usurpar una comunidad más amplia de desarrolladores de todos los niveles de habilidades en el proyecto.
 
-## Odds and ends
-This year, we don’t have a wider project to give you all to work on, but we’d like to focus on opportunities to contribute across the Electron JavaScript ecosystem.
+## Probabilidades y fines
+Este año, no tenemos un proyecto más amplio en el que trabajar. pero nos gustaría centrarnos en oportunidades para contribuir a través del ecosistema de JavaScript Electron.
 
-Look out for issues tagged [`hacktoberfest`](https://github.com/search?q=is%3Aissue+is%3Aopen+label%3Ahacktoberfest+org%3Aelectron+org%3Aelectron-userland) across our various repositories, including the main [electron/electron](https://github.com/electron/electron/issues?q=is%3Aopen+is%3Aissue+label%3A%22hacktoberfest%22+) repository, the [electron/electronjs.org](https://github.com/electron/electronjs.org/issues?q=is%3Aopen+is%3Aissue+label%3A%22hacktoberfest%22+) website, [electron/fiddle](https://github.com/electron/fiddle/issues?q=is%3Aopen+is%3Aissue+label%3A%22hacktoberfest%22+), and [electron-userland/electron-forge](https://github.com/electron-userland/electron-forge/issues?q=is%3Aopen+is%3Aissue+label%3A%22hacktoberfest%22+)!
+Busca problemas etiquetados con [`hacktoberfest`](https://github.com/search?q=is%3Aissue+is%3Aopen+label%3Ahacktoberfest+org%3Aelectron+org%3Aelectron-userland) en nuestros diferentes repositorios, incluyendo el repositorio principal [electron/electron](https://github.com/electron/electron/issues?q=is%3Aopen+is%3Aissue+label%3A%22hacktoberfest%22+) , el [electron/electronjs. rg](https://github.com/electron/electronjs.org/issues?q=is%3Aopen+is%3Aissue+label%3A%22hacktoberfest%22+) sitio web, [electron/fiddle](https://github.com/electron/fiddle/issues?q=is%3Aopen+is%3Aissue+label%3A%22hacktoberfest%22+), y [electron-userland/electron-forge](https://github.com/electron-userland/electron-forge/issues?q=is%3Aopen+is%3Aissue+label%3A%22hacktoberfest%22+)!
 
-P.S. If you're feeling particularly adventurous, we also have a backlog of issues marked with [`help wanted`](https://github.com/search?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22+org%3Aelectron+org%3Aelectron-userland) tags if you're looking for more of a challenge.
+P. S. Si te sientes particularmente aventurero, también tenemos una agenda pendiente de problemas marcados con [`ayuda quería`](https://github.com/search?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22+org%3Aelectron+org%3Aelectron-userland) etiquetas si estás buscando más de un desafío.
 
-## Stuck? Come chat with us!
-Moreover, it’s also no coincidence that the grand opening of our Discord server coincides with the largest celebration of open-source software of the year. Check out the #hacktoberfest channel to ask for help on your Hacktoberfest PR. In case you missed it, [here's the invite link again](https://discord.gg/H6uTh7m)!
+## ¿Aplacado? ¡Ven a chatear con nosotros!
+Además, tampoco es coincidencia que la gran apertura de nuestro servidor de Discord coincida con la mayor celebración de software de código abierto del año. Echa un vistazo al canal #hacktoberfest para pedir ayuda en tu PR de Hacktoberfest. En caso de que te lo hayas perdido, [aquí está el enlace de invitación de nuevo](https://discord.gg/H6uTh7m)!

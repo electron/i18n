@@ -4,7 +4,7 @@ Te rog asigură-te că folosești documente care se potrivesc cu versiunea ta de
 
 ## Întrebări frecvente
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Există întrebări care sunt puse destul de des. Verifică asta înainte de a crea o problemă:
 
 * [Întrebări și răspunsuri Electron](faq.md)
 

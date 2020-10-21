@@ -1,61 +1,61 @@
 ---
-title: Electron Userland
+title: Electron uživatelské území
 author: zeke
 date: '2016-12-20'
 ---
 
-We've added a new [userland](https://electronjs.org/userland) section to the Electron website to help users discover the people, packages, and apps that make up our flourishing open-source ecosystem.
+Přidali jsme novou [uživatelskou sekci](https://electronjs.org/userland) k Electronové stránce, která pomůže uživatelům objevit lidi, balíčky a aplikace, které tvoří náš prosperující ekosystém s otevřeným zdrojovým kódem.
 
 ---
 
 [![github-contributors](https://cloud.githubusercontent.com/assets/2289/21205352/a873f86c-c210-11e6-9a92-1ef37dfc986b.png)](https://electronjs.org/userland)
 
-## Origins of Userland
+## Původ
 
-Userland is where people in software communities come together to share tools and ideas. The term originated in the Unix community, where it referred to any program that ran outside of the kernel, but today it means something more. When people in today's Javascript community refer to userland, they're usually talking about the [npm package registry](http://npm.im). This is where the majority of experimentation and innovation happens, while Node and the JavaScript language (like the Unix kernel) retain a relatively small and stable set of core features.
+Uživatelské území je místo, kde se lidé v softwarových komunitách setkávají a sdílejí nástroje a nápady. Termín pochází z komunity Unix, kde odkazoval na jakýkoli program, který běží mimo jádro, ale dnes to znamená něco dalšího. Když lidé v dnešní Javascriptové komunitě odkazují na uživatelskou zemi, obvykle mluví o [npm registru balíčků](http://npm.im). V tomto ohledu dochází k většině pokusů a inovacím, zatímco uzel a jazyk JavaScriptu (jako je jádro Unix) zachovává poměrně malou a stabilní sadu základních funkcí.
 
-## Node and Electron
+## Uzel a Electron
 
-Like Node, Electron has a small set of core APIs. These provide the basic features needed for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used.
+Stejně jako Node, Electron má malou sadu základních API. Ty poskytují základní funkce potřebné pro vývoj víceplatformních desktopových aplikací. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used.
 
-Userland is the counterpart to "core", enabling users to create and share tools that extend Electron's functionality.
+Uživatelské území je protějškem "jádra" umožňující uživatelům vytvářet a sdílet nástroje, které rozšiřují funkčnost Electronu.
 
-## Collecting data
+## Shromažďování údajů
 
-To better understand the trends in our ecosystem, we analyzed metadata from 15,000 public GitHub repositories that depend on `electron` or `electron-prebuilt`
+Abychom lépe pochopili trendy v našem ekosystému, jsme analyzovali metadata z 15, 00 veřejných GitHub repozitářů , které jsou závislé na `elektroronu` nebo `elektronicky předsestavených`
 
-We used the [GitHub API](https://developer.github.com/v3/), the [libraries.io API](https://libraries.io/api), and the npm registry to gather info about dependencies, development dependencies, dependents, package authors, repo contributors, download counts, fork counts, stargazer counts, etc.
+Použili jsme [GitHub API](https://developer.github.com/v3/), knihovny [. o API](https://libraries.io/api), a npm registr shromažďují informace o závislostech, závislosti na vývoji, závislí, autoři balíčků, přispěvatelé repo, počty stahování, počty forků, stargazer atd.
 
-We then used this data to generate the following reports:
+Poté jsme tyto údaje použili pro generování následujících zpráv:
 
-- [App Development Dependencies](https://electronjs.org/userland/dev_dependencies): Packages most often listed as `devDependencies` in Electron apps.
-- [GitHub Contributors](https://electronjs.org/userland/github_contributors): GitHub users who have contributed to numerous Electron-related GitHub repositories.
-- [Package Dependencies](https://electronjs.org/userland/package_dependencies): Electron-related npm packages that are frequently depended on by other npm packages.
-- [Starred Apps](https://electronjs.org/userland/starred_apps): Electron apps (that are not npm packages) with numerous stargazers.
-- [Most Downloaded Packages](https://electronjs.org/userland/most_downloaded_packages): Electron-related npm packages that are downloaded a lot.
-- [App Dependencies](https://electronjs.org/userland/dependencies): Packages most often listed as `dependencies` in Electron apps.
-- [Package Authors](https://electronjs.org/userland/package_authors): The most prolific authors of Electron-related npm packages.
+- [Závislosti rozvoje aplikací](https://electronjs.org/userland/dev_dependencies): Balíčky nejčastěji uvedeny jako `devDependencies` v Electronových aplikacích.
+- [Přispěvatelé GitHub](https://electronjs.org/userland/github_contributors): Uživatelé GitHub, kteří přispěli do mnoha GitHub repositářů.
+- [Závislosti balíčků](https://electronjs.org/userland/package_dependencies): Elektronické npm balíčky, které jsou často závislé na jiných balíčcích npm.
+- [S hvězdičkou](https://electronjs.org/userland/starred_apps): Electron aplikace (které nejsou balíčky npm) s mnoha stargazery.
+- [Nejvíce stažených balíčků](https://electronjs.org/userland/most_downloaded_packages): Balíky související s Electronmem, které jsou hodně staženy.
+- [Závislosti aplikací](https://electronjs.org/userland/dependencies): Balíčky nejčastěji uvedeny jako `závislosti` v aplikacích.
+- [Autoři balíčků](https://electronjs.org/userland/package_authors): Nejrozšířenější autoři elektronických npm balíčků.
 
-## Filtering Results
+## Filtrování výsledků
 
-Reports like [app dependencies](https://electronjs.org/userland/dependencies) and [starred apps](https://electronjs.org/userland/starred_apps) which list packages, apps, and repos have a text input that can be used to filter the results.
+Reporty jako [závislosti aplikací](https://electronjs.org/userland/dependencies) a [s hvězdičkou](https://electronjs.org/userland/starred_apps) , které zobrazují balíčky, aplikace a repozitáře mají textový vstup, který lze použít k filtrování výsledků.
 
-As you type into this input, the URL of the page is updated dynamically. This allows you to copy a URL representing a particular slice of userland data, then share it with others.
+Když napíšete tento vstup, URL stránky je aktualizována dynamicky. Toto umožňuje zkopírovat URL adresu představující konkrétní část uživatelských dat a pak ji sdílet s ostatními.
 
-[![babel](https://cloud.githubusercontent.com/assets/2289/21328807/7bfa75e4-c5ea-11e6-8212-0e7988b367fd.png) ](https://electronjs.org/userland/dev_dependencies?q=babel%20preset)
+[![babička](https://cloud.githubusercontent.com/assets/2289/21328807/7bfa75e4-c5ea-11e6-8212-0e7988b367fd.png) ](https://electronjs.org/userland/dev_dependencies?q=babel%20preset)
 
-## More to come
+## Další příchod
 
-This first set of reports is just the beginning. We will continue to collect data about how the community is building Electron, and will be adding new reports to the website.
+Tento první soubor zpráv je jen začátek. Budeme nadále shromažďovat data o tom, jak komunita buduje Electron, a přidáme nové zprávy na web.
 
-All of the tools used to collect and display this data are open-source:
+Všechny nástroje používané pro sběr a zobrazení těchto dat jsou otevřeným zdrojem:
 
-- [electron/electronjs.org](https://github.com/electron/electron.atom): The Electron website.
-- [electron/electron-userland-reports](https://github.com/electron/electron-userland-reports): Slices of data about packages, repos, and users in Electron userland.
-- [electron/repos-using-electron](https://github.com/electron/repos-using-electron): All public repositories on GitHub that depend on `electron` or `electron-prebuilt`
-- [electron/electron-npm-packages](https://github.com/zeke/electron-npm-packages): All npm packages that mention `electron` in their `package.json` file.
+- [elektronick/elektronjs.org](https://github.com/electron/electron.atom): Webová stránka Electronu.
+- [electron/electron-userland-reports](https://github.com/electron/electron-userland-reports): Slices of data about packages, repo and users in Electron userland.
+- [elektronick/repos-using-elektronron](https://github.com/electron/repos-using-electron): Všechny veřejné repositáře na GitHubu, které závisejí na `elektroronu` nebo `elektronicky předkompilovaném`
+- [electron/electron-npm-packages](https://github.com/zeke/electron-npm-packages): Všechny npm balíčky, které zmiňují `elektroron` ve svém souboru `package.json`.
 
-If you have ideas about how to improve these reports, please let us know [opening an issue on the website repository](https://github.com/electron/electronjs.org/issues/new) or any of the above-mentioned repos.
+Máte-li nápady, jak tyto zprávy zlepšit, dejte nám prosím vědět [o otevření problému v úložišti webových stránek](https://github.com/electron/electronjs.org/issues/new) nebo v některém z výše uvedených repo obchodů.
 
-Thanks to you, the Electron community, for making userland what it is today!
+Díky Vám, Electronové komunitě za to, že jste vytvořili uživatelskou zemi to, co je dnes!
 

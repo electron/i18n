@@ -35,10 +35,10 @@ Windows назначает уровень доверия к подписи се�
 
 Перед подписью, следует:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
+1. Получить сертификат для подписания кода аутентификации Windows (требуется ежегодная плата)
 2. Установить Visual Studio 2015 или 2017
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Вы можете получить сертификат подписи кода у многих реселлеров. Цены варьируются, поэтому может стоить вашего времени для покупок. Популярные реселлеры включают:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)

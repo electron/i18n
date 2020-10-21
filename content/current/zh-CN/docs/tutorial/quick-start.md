@@ -1,42 +1,42 @@
-# Quick Start Guide
+# 快速启动指南
 
 ## 快速入门
 
-Electron is a framework that enables you to create desktop applications with JavaScript, HTML, and CSS. These applications can then be packaged to run directly on macOS, Windows, or Linux, or distributed via the Mac App Store or the Microsoft Store.
+Electron 是一个框架，可以让您使用 JavaScript, HTML 和 CSS 创建桌面应用程序。 然后这些应用程序可以打包在macOS、Windows和Linux上直接运行，或者通过Mac App Store或微软商店分发。
 
-Typically, you create a desktop application for an operating system (OS) using each operating system's specific native application frameworks. Electron makes it possible to write your application once using technologies that you already know.
+通常，您使用每个操作系统特定的本地应用程序框架为操作系统 (OS)创建一个桌面应用程序。 Electron 可以在使用您已经知道的技术后写入您的应用程序。
 
 ### 前提条件
 
-Before proceeding with Electron you need to install [Node.js](https://nodejs.org/en/download/). We recommend that you install either the latest `LTS` or `Current` version available.
+在使用 Electron 之前，您需要安装 [Node.js](https://nodejs.org/en/download/)。 我们建议您安装最新的 `LTS` 或 `Current 版本` 可用。
 
-> Please install Node.js using pre-built installers for your platform. You may encounter incompatibility issues with different development tools otherwise.
+> 请使用预构建的安装器为您的平台安装Node.js。 您可能会遇到与不同的开发工具不兼容的问题。
 
-To check that Node.js was installed correctly, type the following commands in your terminal client:
+要检查Node.js安装是否正确，请在您的终端客户端输入以下命令：
 
 ```sh
-node -v
+节点-v
 npm -v
 ```
 
-The commands should print the versions of Node.js and npm accordingly. If both commands succeeded, you are ready to install Electron.
+命令应相应打印Node.js和 npm 的版本。 如果两个命令都成功，您就可以安装 Electron了。
 
-### Create a basic application
+### 创建基本应用程序
 
-From a development perspective, an Electron application is essentially a Node.js application. This means that the starting point of your Electron application will be a `package.json` file like in any other Node.js application. A minimal Electron application has the following structure:
+从开发的角度来看，Electron应用基本上是一种Node.js应用。 这意味着您的 Electron 应用程序的起点将是一个 `package.json` 文件，就像在其他的Node.js 应用程序中一样。 最小的 Electron 应用程序具有以下结构：
 
 ```plain
 my-electron-app/
-├── package.json
-├── main.js
-└── index.html
+- - package.json
+- --main.js
+---index.html
 ```
 
-Let's create a basic application based on the structure above.
+让我们根据上面的结构创建一个基本的应用程序。
 
 #### Install Electron
 
-Create a folder for your project and install Electron there:
+为您的项目创建一个文件夹并安装Electron：
 
 ```sh
 mkdir my-electron-app && cd my-electron-app
@@ -44,11 +44,11 @@ npm init -y
 npm i --save-dev electron
 ```
 
-#### Create the main script file
+#### 创建主脚本文件
 
-The main script specifies the entry point of your Electron application (in our case, the `main.js` file) that will run the Main process. Typically, the script that runs in the Main process controls the lifecycle of the application, displays the graphical user interface and its elements, performs native operating system interactions, and creates Renderer processes within web pages. An Electron application can have only one Main process.
+主脚本指定了您将运行主进程的 Electron 应用程序的入口点(就我们而言， `main.js` 文件)。 通常，在主进程中运行的脚本控制应用程序的生命周期，并显示图形用户界面及其元素。 执行本机操作系统交互，并在网页中创建渲染程序。 Electron 应用程序只能有一个主流程。
 
-The main script may look as follows:
+主脚本可以如下所示：
 
 ```js
 const { app, BrowserWindow } = require('electron')
@@ -81,22 +81,22 @@ app.on('activate', () => {
 })
 ```
 
-##### What is going on above?
+##### 上面发生了什么情况？
 
-1. Line 1: First, you import the `app` and `BrowserWindow` modules of the `electron` package to be able to manage your application's lifecycle events, as well as create and control browser windows.
+1. 第1行：第一行 您导入了 `个应用程序` 和 `浏览器窗口` 个模块 `electron` 软件包可以管理您应用程序的生命周期事件。 以及创建和控制浏览器窗口。
 2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later) and opens Developer Tools (line 13).
 3. Line 16: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
-4. Line 18: You add a new listener that tries to quit the application when it no longer has any open windows. This listener is a no-op on macOS due to the operating system's [window management behavior](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. Line 24: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. For example, after launching the application for the first time, or re-launching the already running application.
+4. 行18：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 因为操作系统 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是一个禁门。
+5. 第24行：您添加一个新的侦听器，只有当应用程序激活后没有可见窗口时，才能创建新的浏览器窗口。 例如，在首次启动应用程序后，或重新启动已在运行的应用程序。
 
-#### Create a web page
+#### 创建网页
 
-This is the web page you want to display once the application is initialized. This web page represents the Renderer process. You can create multiple browser windows, where each window uses its own independent Renderer. Each window can optionally be granted with full access to Node.js API through the `nodeIntegration` preference.
+这是应用程序初始化后您想要显示的页面。 此网页代表渲染过程。 您可以创建多个浏览器窗口，每个窗口都使用自己的独立渲染器。 每个窗口都可以通过 `节点集成` 首选项完全访问Node.js API。
 
-The `index.html` page looks as follows:
+`index.html` 页面如下所示：
 
 ```html
-<!DOCTYPE html>
+<OCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -104,17 +104,17 @@ The `index.html` page looks as follows:
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1>Hello World！</h1>
+    我们正在使用节点 <script>文档。 Rite(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions. hrome)</script>,
+    and Electron <script>document.write(cess.versions.electron)</script>.
 </body>
 </html>
 ```
 
-#### Modify your package.json file
+#### 修改您的 package.json 文件
 
-Your Electron application uses the `package.json` file as the main entry point (as any other Node.js application). The main script of your application is `main.js`, so modify the `package.json` file accordingly:
+您的 Electron 应用程序使用 `package.json` 文件作为主要的切入点 (像任何其它的 Node.js 应用程序)。 您的应用程序的主脚本是 `main.js`, 所以相应修改 `package.json` 文件：
 
 ```json
 {
@@ -124,154 +124,154 @@ Your Electron application uses the `package.json` file as the main entry point (
 }
 ```
 
-> NOTE: If the `main` field is omitted, Electron will attempt to load an `index.js` file from the directory containing `package.json`.
+> 注意：如果删除 `个主` 字段，Electron 将尝试加载一个 `索引。 s` 文件从目录中包含 `package.json`
 
-By default, the `npm start` command will run the main script with Node.js. To run the script with Electron, you need to change it as such:
+默认情况下， `npm start` 命令将以 Node.js 运行主脚本。 要使用 Electron 运行脚本，您需要将其更改为这样：
 
 ```json
-{
+主席:
     "name": "my-electron-app",
     "version": "0.1.0",
     "main": "main.js",
-    "scripts": {
+    "scripts":
         "start": "electron ."
     }
 }
 ```
 
-#### Run your application
+#### 运行您的应用程序
 
 ```sh
-npm start
+npm 开始
 ```
 
-Your running Electron app should look as follows:
+您正在运行的 Electron 应用程序应该如下所示：
 
-![Simplest Electron app](../images/simplest-electron-app.png)
+![简略的 Electron 应用程序](../images/simplest-electron-app.png)
 
-### Package and distribute the application
+### 打包并分发应用程序
 
-The simplest and the fastest way to distribute your newly created app is using [Electron Forge](https://www.electronforge.io).
+分发您新创建的应用的最简单和最快方式是使用 [Electron Forge](https://www.electronforge.io)
 
-1. Import Electron Forge to your app folder:
-
-    ```sh
-    npx @electron-forge/cli import
-
-    ✔ Checking your system
-    ✔ Initializing Git Repository
-    ✔ Writing modified package.json file
-    ✔ Installing dependencies
-    ✔ Writing modified package.json file
-    ✔ Fixing .gitignore
-
-    We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
-
-    Thanks for using "electron-forge"!!!
-    ```
-
-1. Create a distributable:
+1. 导入 Electron Forge 到您的应用文件夹：
 
     ```sh
-    npm run make
+    npx @electron-forge/cli imate
 
-    > my-gsod-electron-app@1.0.0 make /my-electron-app
-    > electron-forge make
+    :very_check_mark: 检查你的系统
+    :verby_check_mark: 初始化Git 存储库
+    :verby_check_mark: 写入修改过的软件包。 son file
+    :very_check_mark: 安装依赖项
+    :versiy_check_mark: 写入修改过的包 son 文件
+    :very_check_mark: 修复. 从简化
 
-    ✔ Checking your system
-    ✔ Resolving Forge Config
-    We need to package your application before we can make it
-    ✔ Preparing to Package Application for arch: x64
-    ✔ Preparing native dependencies
-    ✔ Packaging Application
-    Making for the following targets: zip
-    ✔ Making for target: zip - On platform: darwin - For arch: x64
+    我们已经注意将您的应用转换成一种能够理解电子编程的格式。
+
+    感谢使用 "electron-forge"!!!
     ```
 
-    Electron-forge creates the `out` folder where your package will be located:
+1. 创建一个分布式：
+
+    ```sh
+    npm 运行会使
+
+    > my-gsod-electron-app@1.0。 制作/my-electron-app
+    > electron-full make
+
+    :very_check_mark: 检查您的系统
+    :very_check_mark: 解析Forge Config
+    我们需要先打包你的应用程序
+    :reasy_check_mark: 正在准备包应用程序获取arch: x64
+    :reasy_check_mark: 正在准备本机依赖关系
+    :reasy_check_mark: Packaging 应用程序
+    为以下目标制作: zip
+    :savy_check_mark: making for tat: zip - On platform: darwin - for arch: x64
+    ```
+
+    Electron-forge 创建 `out` 文件夹，您的软件包将在那里找到：
 
     ```plain
-    // Example for MacOS
+    // MacOS
     out/
-    ├── out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
-    ├── ...
-    └── out/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
+    - --out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.zip
+/
+    约束： - 退出/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
     ```
 
-## Learning the basics
+## 学习基础知识
 
-This section guides you through the basics of how Electron works under the hood. It aims at strengthening knowledge about Electron and the application created earlier in the Quickstart section.
+本节指导您了解Electron如何在立体下工作的基本知识。 其目的是加强关于Electron和早些时候在Quickstart 部分创建的应用程序的知识。
 
-### Application architecture
+### 应用程序结构
 
-Electron consists of three main pillars:
+Electron由三个主要支柱组成：
 
-* **Chromium** for displaying web content.
-* **Node.js** for working with the local filesystem and the operating system.
-* **Custom APIs** for working with often-needed OS native functions.
+* **Chromium** 用于显示网页内容。
+* **Node.js** 用于本地文件系统和操作系统。
+* **自定义 APIs** 用于使用经常需要的 OS 本机函数。
 
-Developing an application with Electron is like building a Node.js app with a web interface or building web pages with seamless Node.js integration.
+与 Electron 开发应用程序就像构建一个带有网页界面的Node.js 应用程序或构建无缝集成的网页。
 
 #### 主进程和渲染器进程
 
-As it was mentioned before, Electron has two types of processes: Main and Renderer.
+如前所述，Electron有两种工艺：主要工艺和Rendererer。
 
-* The Main process **creates** web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its Renderer process. When a `BrowserWindow` instance is destroyed, the corresponding Renderer process gets terminated as well.
-* The Main process **manages** all web pages and their corresponding Renderer processes.
-
-----
-
-* The Renderer process **manages** only the corresponding web page. A crash in one Renderer process does not affect other Renderer processes.
-* The Renderer process **communicates** with the Main process via IPC to perform GUI operations in a web page. Calling native GUI-related APIs from the Renderer process directly is restricted due to security concerns and potential resource leakage.
+* 主进程 **通过创建 `浏览器窗口` 实例来创建** 个网页。 每一个 `浏览窗口` 实例在其渲染过程中运行网页. 当一个 `BrowserWindow` 实例被摧毁时，对应的渲染过程也被终止。
+* 主进程 **管理所有** 个网页及其对应的渲染过程。
 
 ----
 
-The communication between processes is possible via Inter-Process Communication (IPC) modules: [`ipcMain`](../api/ipc-main.md) and [`ipcRenderer`](../api/ipc-renderer.md).
+* 渲染进程 **只能管理** 个相应的网页。 在一个渲染过程中崩溃不会影响其他渲染过程。
+* 渲染进程 **通过IPC 与主进程通信** 在网页上执行GUI操作。 由于安全考虑和可能的资源泄漏，直接从渲染器过程中调用与本地GUI有关的API受到限制。
+
+----
+
+流程之间的通信可以通过进程间通信模块进行： [`ipcMain`](../api/ipc-main.md) 和 [`ipcRenderer`](../api/ipc-renderer.md)
 
 #### APIs
 
 ##### Electron API
 
-Electron APIs are assigned based on the process type, meaning that some modules can be used from either the Main or Renderer process, and some from both. Electron's API documentation indicates which process each module can be used from.
+Electron API是根据流程类型分配的。 这意味着某些模块可以从主程序或渲染程序中使用，有些模块可以从两者中使用。 Electron 的 API 文档指明了每个模块可以使用的过程。
 
-For example, to access the Electron API in both processes, require its included module:
+例如，要在两个进程中访问 Electron API，需要它包含的模块：
 
 ```js
 const electron = require('electron')
 ```
 
-To create a window, call the `BrowserWindow` class, which is only available in the Main process:
+若要创建一个窗口，请调用 `浏览窗口` 类，只能在主进程中使用：
 
 ```js
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-To call the Main process from the Renderer, use the IPC module:
+若要从渲染器调用主流程，请使用 IPC 模块：
 
 ```js
-// In the Main process
+// 在主进程中
 const { ipcMain } = require('electron')
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do actions on behalf of the Renderer
+ipcMain.handle('exper-action', (evidence, ...args) =>
+  // ... 代表渲染器操作
 })
 ```
 
 ```js
-// In the Renderer process
+// 在渲染过程中
 const { ipcRenderer } = require('electron')
 
-ipcRenderer.invoke('perform-action', ...args)
+ipcRender.invotrake('exper-action', ...args)
 ```
 
-> NOTE: Because Renderer processes may run untrusted code (especially from third parties), it is important to carefully validate the requests that come to the Main process.
+> 注意：由于渲染过程可能会运行不受信任的代码(特别是第三方的代码)， 重要的是要认真验证主要进程中提出的请求。
 
 ##### Node.js API
 
-> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true`.
+> 注意：要从渲染过程中访问Node.js API，您需要设置 `节点集成` 首选项为 `true`。
 
-Electron exposes full access to Node.js API and its modules both in the Main and the Renderer processes. For example, you can read all the files from the root directory:
+Electron 在主流程和渲染流程中显示对 Node.js API及其模块的完全访问权限。 例如，您可以从根目录读取所有文件：
 
 ```js
 const fs = require('fs')
@@ -281,13 +281,13 @@ const root = fs.readdirSync('/')
 console.log(root)
 ```
 
-To use a Node.js module, you first need to install it as a dependency:
+要使用Node.js模块，您首先需要安装它作为依赖：
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron application, require the module:
+然后，在您的 Electron 应用程序中，需要模块：
 
 ```js
 const S3 = require('aws-sdk/clients/s3')

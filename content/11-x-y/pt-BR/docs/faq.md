@@ -12,7 +12,7 @@ Se a instalação via `npm` falhar, você também pode tentar baixar o Electron 
 
 A versão do Chrome utilizada no Electron normalmente é disponibilizada dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é garantida, depende da quantidade de trabalho envolvido na atualização.
 
-Somente a versão estável do Chrome é usada. If an important fix is in beta or dev channel, we will back-port it.
+Somente a versão estável do Chrome é usada. Se uma correção importante estiver em um canal beta ou de desenvolvimento , retornaremos a porta.
 
 Para mais informações, consulte a [introdução de segurança](tutorial/security.md).
 
@@ -26,7 +26,7 @@ Novos recursos do Node.js geralmente são trazidos por atualização da V8, desd
 
 Para compartilhar dados entre páginas web (os processos de renderização) a maneira mais simples é usar as APIs do HTML5 que já estão disponíveis nos navegadores. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`][message-port] from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+Como alternativa, você pode usar os primitivos IPC que são fornecidos pelo Electron. Para compartilhar dados entre os processos principal e de renderização, você pode usar os módulos [`ipcMain`](api/ipc-main.md) e [`ipcRenderer`](api/ipc-renderer.md). Para comunicar diretamente entre páginas da web, você pode enviar uma [`MessagePort`][message-port] de uma para a outra possivelmente através do processo principal usando [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). A comunicação subsequente sobre as portas da mensagem é direta e não destaca o processo principal.
 
 ## A minha bandeja de aplicativo desapareceu depois de alguns minutos.
 
@@ -102,13 +102,13 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 ## A fonte parece borrada, o que é isso e o que eu posso fazer?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemplo:
+Se [a anti-aliasing de sub-pixel](http://alienryderflex.com/sub_pixel/) estiver desativada, então as fontes nas telas LCD podem parecer borradas. Exemplo:
 
-![subpixel rendering example][]
+![exemplo de renderização de subpixel][]
 
 A anti-aliasing de sub-pixel precisa de um fundo não transparente na camada que contem os glyphs de texto. (Veja [esta publicação](https://github.com/electron/electron/issues/6344#issuecomment-420371918) para mais informações).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow][browser-window]:
+Para alcançar este objetivo, defina o fundo do construtor para [BrowserWindow][browser-window]:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -117,7 +117,7 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Mesmo se você não ver uma diferença, alguns de seus usuários podem fazê-lo. É melhor definir sempre os antecedentes desta forma, a menos que tenham razões para não o fazer.
 
 Aviso que apenas definir o background no CSS não tem o mesmo efeito desejado.
 
@@ -129,4 +129,4 @@ Aviso que apenas definir o background no CSS não tem o mesmo efeito desejado.
 [indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 [message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
 [browser-window]: api/browser-window.md
-[subpixel rendering example]: images/subpixel-rendering-screenshot.gif
+[exemplo de renderização de subpixel]: images/subpixel-rendering-screenshot.gif

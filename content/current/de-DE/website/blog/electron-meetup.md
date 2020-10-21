@@ -1,25 +1,25 @@
 ---
-title: Electron Meetup at GitHub HQ
-author: jlord
+title: Electron Meetup auf GitHub HQ
+author: jörn
 date: '2015-09-17'
 ---
 
-Join us September 29th at GitHub's HQ for an Electron meetup hosted by Atom team members [@jlord](https://github.com/jlord) and [@kevinsawicki](https://github.com/kevinsawicki). There will be talks, food to snack on, and time to hangout and meet others doing cool things with Electron. We'll also have a bit of time to do lightning talks for those interested. Hope to see you there!
+Treten Sie am 29. September bei GitHubs Hauptquartier für ein Electron-Meetup bei, das von Atom-Teammitgliedern gehostet wird: [@jlord](https://github.com/jlord) und [@kevinsawicki](https://github.com/kevinsawicki). Es wird Gespräche geben, Essen zum Snacken, und Zeit zum Hang und anderen zu begegnen, die mit Electron coole Dinge tun. Wir werden auch ein bisschen Zeit haben, Blitzgespräche für Interessierte zu führen. Ich hoffe, Sie dort zu sehen!
 
 ---
 
-**Talks**
+**Vorträge**
 
-- **Jonathan Ross** and **Francois Laberge** from [Jibo](http://jibo.com) will share how they use Electron to animate a robot.
-- **Jessica Lord** will talk about building a teaching tool, [Git-it](https://github.com/jlord/git-it-electron), on Electron.
-- **Tom Moor** will talk about the pros and cons of building  video and screen sharing on Electron with [speak.io](https://speak.io).
-- **Ben Gotow** will preview N1: [The Nylas Mail Client](https://www.nylas.com/blog/splitting-the-atom) and talk about developing it on Electron.
+- **Jonathan Ross** und **Francois Laberge** von [Jibo](http://jibo.com) teilt mit, wie sie Electron verwenden, um einen Roboter zu animieren.
+- **Jessica Lord** wird über das Erstellen eines Unterrichtswerkzeugs sprechen, [Git-it](https://github.com/jlord/git-it-electron), auf Electron.
+- **Tom Moor** wird mit [speak.io](https://speak.io) über die Vor- und Nachteile beim Erstellen von Video- und Bildschirmteilen auf Electron sprechen.
+- **Ben Gotow** wird N1 vorschauen: [Der Nylas Mail Client](https://www.nylas.com/blog/splitting-the-atom) und über die Entwicklung auf Electron sprechen.
 
 ### Details
 
-- **Location:** GitHub HQ, 275 Brannan Street, San Francisco, CA, 94107
-- **Date:** Tuesday, September 29th, 2015
-- **Time:** 6pm - 9pm
+- **Ort:** GitHub HQ, 275 Brannan Street, San Francisco, CA, 94107
+- **Datum:** Dienstag, 29. September 2015
+- **Zeit:** 18 - 21 Uhr
 - **RSVP:** [ti.to/github-events/electron-meetup](https://ti.to/github-events/electron-meetup)
 
 ![electron-meetup-office-2](https://cloud.githubusercontent.com/assets/1305617/9918496/0bc7093c-5c7c-11e5-83c9-bdbb34a2cd19.png)

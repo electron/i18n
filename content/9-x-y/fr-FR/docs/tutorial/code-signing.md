@@ -8,7 +8,7 @@ Sur Windows le système assigne un niveau de confiance à votre certificat de si
 
 Bien qu'il reste possible de distribuer des applications non signées, cela n'est pas recommandé. Windows et macOS empêcheront par défaut soit le téléchargement soit l'exécution d'applications non signées. Depuis macOS Catalina (version 10.15), les utilisateurs doivent passer manuellement par plusieurs étapes pour ouvrir des applications non signées.
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
+![Avertissement sur macOS Catalina Gatekeeper : L'application ne peut pas être ouverte car le développeur ne peut pas être vérifié](../images/gatekeeper.png)
 
 Comme vous pouvez le voir, les utilisateurs ont deux options : déplacez l'application directement dans la corbeille ou annulez son exécution. Vous ne voulez pas que vos utilisateurs voient cette boîte de dialogue.
 
@@ -27,31 +27,31 @@ Il existe un certain nombre d’outils pour la signature de votre application em
 - [`electron-osx-sign`][] is a standalone tool for signing macOS packages.
 - [`electron-packager`][] bundles `electron-osx-sign`. Si vous utilisez `electron-packager`, passez le drapeau `--osx-sign=true` pour signer votre build.
   - [`electron-forge`][] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
-- [`electron-builder`][] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
+- [`electron-builder`][] has built-in code-signing capabilities. Voir [electron.build/code-signing](https://www.electron.build/code-signing)
 
-## Notarization
+## Notariation
 
-Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
+A partir de macOS Catalina, Apple exige que les applications soient notariées. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
 
-To automate this process, you can use the [`electron-notarize`][] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+To automate this process, you can use the [`electron-notarize`][] module. Vous n'avez pas nécessairement besoin de compléter cette étape pour chaque build que vous réalisez - juste les versions que vous avez l'intention de livrer aux utilisateurs.
 
 ## Mac App Store
 
 See the [Mac App Store Guide][].
 
-# Signing Windows builds
+# Signature des versions Windows
 
-Before signing Windows builds, you must do the following:
+Avant de signer les versions de Windows, vous devez faire ce qui suit :
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio 2015/2017 (to get the signing utility)
+1. Obtenir un certificat de signature de code d'authentification Windows (frais annuels)
+2. Installez Visual Studio 2015/2017 (pour obtenir l'utilitaire de signature)
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Vous pouvez obtenir un certificat de signature de code auprès de nombreux revendeurs. Les prix varient, donc il vaut la peine que vous fassiez des achats. Les revendeurs populaires comprennent :
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Amongst others, please shop around to find one that suits your needs, Google is your friend :)
+* Entre autres, s'il vous plaît magasiner autour de vous pour en trouver un qui correspond à vos besoins, Google est votre ami :)
 
 Il existe un certain nombre d’outils pour la signature de votre application empaquetée :
 

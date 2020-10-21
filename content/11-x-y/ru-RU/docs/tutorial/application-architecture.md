@@ -20,7 +20,7 @@
 
 > #### Примечание: взаимодействие между процессами
 > 
-> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages][share-data].
+> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. Существует также запись FAQ о [том, как обмениваться данными между веб-страницами][share-data].
 
 
 ## Использование API Electron
@@ -46,20 +46,20 @@ const win = new BrowserWindow()
 Поскольку связь между процессами возможна, процесс рендеринга может призвать основной процесс для выполнения задач через IPC.
 
 ```javascript
-// In the main process:
+// В основном процессе:
 const { ipcMain } = require('electron')
 
-ipcMain.handle('perform-action', (event, ...args) => {
+ipcMain. andle('perform-action', (event, ...args) => {
   // ... do something on behalf of the renderer ...
 })
 
-// In the renderer process:
+// Процесс рендерер:
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('perform-action', ...args)
 ```
 
-Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
+Обратите внимание, что код в рендерере может быть не надежным, поэтому важно тщательно проверить в основных запросах процессов, которые исходят от рендеров, особенно если они размещают содержимое сторонних сайтов.
 
 ## Использование API Node.js
 

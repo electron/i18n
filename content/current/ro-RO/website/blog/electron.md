@@ -1,26 +1,26 @@
 ---
-title: Atom Shell is now Electron
+title: Atom Shell este acum Electron
 author: kevinsawicki
 date: '2015-04-23'
 ---
 
-Atom Shell is now called Electron. You can learn more about Electron and what people are building with it at its new home [electronjs.org](https://electronjs.org).
+Atom Shell se numeşte Electron. Poți afla mai multe despre Electron și despre ce construiesc oamenii cu el acasă [electronjs.org](https://electronjs.org).
 
 ---
 
 [![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)](https://electronjs.org)
 
-Electron is the cross-platform application shell we originally built for the [Atom editor](https://atom.io) to handle the Chromium/Node.js event loop integration and native APIs.
+Electron este proiectorul aplicației cross-platform pe care l-am construit inițial pentru [editorul Atom](https://atom.io) pentru a gestiona integrarea în bucla evenimentelor Chromium/Node.js și API-uri native.
 
-When we got started, our goal wasn't just to support the needs of a text editor. We also wanted to create a straightforward framework that would allow people to use web technologies to build cross-platform desktop apps with all of the native trimmings.
+Când am început, scopul nostru nu a fost doar să sprijinim nevoile unui editor de text. De asemenea, am vrut să creăm un cadru simplu care să permită oamenilor să folosească tehnologiile web pentru a construi aplicații desktop pentru platforme cu toate garniturile native.
 
-In two years, Electron has grown immensely. It now includes automatic app updates, Windows installers, crash reporting, notifications, and other useful native app features &mdash; all exposed through JavaScript APIs. And we have more in the works. We plan to extract even more libraries from Atom to make building a native app with web technologies as easy as possible.
+În doi ani, Electron a crescut enorm. Acum include actualizări automate ale aplicaţiilor, Windows installers, raportare erori, notificări şi alte caracteristici utile ale aplicaţiei native &mdash; toate expuse prin API-uri JavaScript. Şi avem mai multe în lucrări. Plănuim să extragem și mai multe biblioteci din Atom pentru a face construcția unei aplicații native cu tehnologii web cât mai ușor posibil.
 
-So far, individual developers, early-stage startups, and large companies have built apps on Electron. They've created a huge range of apps &mdash; including chat apps, database explorers, map designers, collaborative design tools, and mobile prototyping apps.
+Până acum, dezvoltatorii individuali, întreprinderile nou-înființate și marile companii au construit aplicații pe Electron. Au creat o gamă largă de aplicații &mdash; inclusiv aplicații de chat, exploratori de date, designeri de hărți, unelte de design colaborative și aplicații mobile de prototip.
 
-Check out the new [electronjs.org](https://electronjs.org) to see more of the apps people have built on Electron or take a look at the [docs](https://github.com/electron/electron/tree/master/docs#readme) to learn more about what else you can make.
+Uită-te la noile [electronjs. rg](https://electronjs.org) pentru a vedea mai multe aplicații construite pe Electron sau pentru a arunca o privire la [documente](https://github.com/electron/electron/tree/master/docs#readme) pentru a afla mai multe despre ce altceva poți face.
 
-If you've already gotten started, we'd love to chat with you about the apps you're building on Electron. Email [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) to tell us more. You can also follow the new [@ElectronJS](https://twitter.com/electronjs) Twitter account to stay connected with the project.
+Dacă deja ai început, ne-ar plăcea să discutăm cu tine despre aplicațiile pe care le construiești pe Electron. Trimite un email la [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) pentru a ne spune mai multe. De asemenea, puteți urmări noul cont [@ElectronJS](https://twitter.com/electronjs) de Twitter pentru a rămâne conectat la proiect.
 
 :zap: :blue_heart: :electric_plug:
 

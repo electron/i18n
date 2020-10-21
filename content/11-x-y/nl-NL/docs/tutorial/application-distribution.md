@@ -1,25 +1,25 @@
 # Applicatie distributie
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+Om de app te distribueren met Electro, moet je hem verpakken en opnieuw branden. De eenvoudigste manier om dit te doen is een van de volgende hulpmiddelen voor verpakkingen van derden te gebruiken:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron/electron-packager)
+* [Elektron-verpakker](https://github.com/electron/electron-packager)
 
-These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+Deze hulpmiddelen zorgen voor alle stappen die je moet nemen om te eindigen met een distributable Electron applicaties, zoals verpakking van uw applicatie, herbranding van de uitvoerbaarheid, het instellen van de juiste pictogrammen en eventueel installateurs.
 
-## Manual distribution
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+## Handmatige distributie
+Je kunt er ook voor kiezen om je app handmatig klaar te maken voor verspreiding. De stappen die hiervoor nodig zijn, zijn hieronder beschreven.
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Om je app te distribueren met Electro, moet je de [vooraf gebouwde binaries van Electron](https://github.com/electron/electron/releases) downloaden. Vervolgens moet de map met de naam `app` worden geplaatst in de Electron's resources map zoals weergegeven in de volgende voorbeelden. Merk op dat de locatie van de voorgebouwde -binaries met `elektron/` wordt aangegeven in de voorbeelden hieronder.
 
 Op macOS:
 
 ```plaintext
 electron/Electron.app/Contents/Resources/app/
-├── package.json
-├── main.js
-└── index.html
+½ Packpackage.json
+ρρmain.js
+ρρindex.html
 ```
 
 Op Windows en Linux:
@@ -33,97 +33,97 @@ electron/resources/app
 
 Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
 
-## Packaging Your App into a File
+## Verpak je app in een bestand
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+Behalve verzending door uw app alle bronbestanden te kopiëren, je kunt de app ook in een [as](https://github.com/electron/asar) archief verpakken om te voorkomen dat de broncode van je app aan gebruikers onthult.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Om een `asar` archief te gebruiken ter vervanging van de `app` map, u moet het archief hernoemen naar `app. sar`, en zet het onder de resources map van Electron, zoals hieronder, en Electron zal dan proberen het archief te lezen en er vanaf te starten.
 
 Op macOS:
 
 ```plaintext
 electron/Electron.app/Contents/Resources/
-└── app.asar
+½ app.asar
 ```
 
 Op Windows en Linux:
 
 ```plaintext
-electron/resources/
-└── app.asar
+elektron/hulpbronnen/
+½ app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Meer details zijn te vinden in [Applicatie verpakking](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## Herbranding met Gedownloade Binaries
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+Nadat je je app hebt gebundeld met Electroon, wil je Electron opnieuw branden, voordat je het aan gebruikers verspreidt.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/electron/rcedit).
+U kunt `e-mail hernoemen. Bijwerken` aan elke naam die je wilt, en bewerken het pictogram en andere informatie met gereedschappen zoals [rcedit](https://github.com/electron/rcedit).
 
 ### macOS
 
 You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
 
 * `Electron.app/Contents/Info.plist`
-* `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
+* `Elektron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+U kunt ook de helper-app hernoemen om te voorkomen dat u `Electron Helper` in de Activiteitenmonitor toont, maar zorg ervoor dat u de naam van de uitvoerbare app van de helper-app bestand hebt hernoemd.
 
-The structure of a renamed app would be like:
+De structuur van een hernoemde app zou gelijk zijn:
 
 ```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+         └── MyApp Helper
 ```
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Je kunt het programma `elektron` hernoemen naar elke gewenste naam.
 
-## Rebranding by Rebuilding Electron from Source
+## Herbranding door Electron te herbouwen van Bron
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+Het is ook mogelijk om Electron te hertekenen door de productnaam te veranderen en het te bouwen vanaf de bron. Om dit te doen moet u het build argument instellen die overeenkomt met de productnaam (`electron_product_name = "YourProductNaam"`) in de `args. n` bestand en opnieuw opbouwen.
 
-### Creating a Custom Electron Fork
+### Aanmaken van een individuele Electron vork
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Het maken van een aangepaste fork van Electron is bijna zeker niet iets wat je moet doen om je app te bouwen zelfs voor "Production Level"-applicaties. Met behulp van een tool zoals `electron-packager` of `electron-forge` kunt u "Rebrand" Electron zonder deze stappen te hoeven doen.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Je moet Electron forken als je aangepaste C++ code hebt die je direct naar Electron hebt gepatenteerd, dat niet te upstreamen, of dat is afgekeurd in de officiële versie. Als onderhouders van Electro, willen we graag je scenario laten werken dus probeer zo hard als je kunt om de wijzigingen in de officiële versie van Electron te krijgen het zal veel gemakkelijker voor u zijn, en wij waarderen uw hulp.
 
-#### Creating a Custom Release with surf-build
+#### Maak een aangepaste release met surf-build
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Installeer [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Maak een nieuwe S3 bucket en maak de volgende lege map structuur:
 
     ```sh
-    - electron/
-      - symbols/
+    - elektron/
+      - symbolen/
       - dist/
     ```
 
-3. Set the following Environment Variables:
+3. De volgende omgevingsvariabelen instellen:
 
-  * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
-  * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
-  * `CI` - Set to `true` or else it will fail
-  * `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-  * `TARGET_ARCH` - set to `ia32` or `x64`
+  * `ELECTRON_GITHUB_TOKEN` - een token die releases kan maken op GitHub
+  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - de plaats waar je Node.js headers en symbolen uploadt
+  * `ELECTRON_RELEASE` - Zet op `true` en het upload deel wordt uitgevoerd, laat en `surf-build` los van CI-type controles, geschikt om voor elke pull request uit te voeren.
+  * `CI` - Zet op `waar` of anders zal het mislukken
+  * `GITHUB_TOKEN` - zet het op hetzelfde als `ELECTRON_GITHUB_TOKEN`
+  * `SURF_TEMP` - ingesteld op `C:\Temp` op Windows om te voorkomen dat pad te lang is
+  * `TARGET_ARCH` - ingesteld op `ia32` of `x64`
 
 4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 
 5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-6. Wait a very, very long time for the build to complete.
+6. Wacht een zeer, zeer lange tijd om het gebouw te voltooien.

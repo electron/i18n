@@ -1,38 +1,38 @@
 ---
 title: Electron 6.0.0
 author:
-  - sofianguy
+  - sofianguie
   - ckerr
   - codebytere
 date: '2019-07-30'
 ---
 
-The Electron team is excited to announce the release of Electron 6.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Echipa Electron este încântată să anunțe lansarea Electron 6.0.0! Îl puteți instala cu npm prin intermediul `npm instalați electron@latest` sau descărcat-o de pe [eliberează site-ul nostru](https://electronjs.org/releases/stable). Versiunea este împachetată cu upgrade-uri, reparaţii şi noi caracteristici. Abia așteptăm să vedem ce construiești cu ei! Continuă să citești pentru detalii despre această lansare și împărtășește-ți feedback-ul pe care îl ai!
 
 ---
 
-## What's New
+## Ce este nou
 
-Today marks a first for the Electron project: this is the first time we've made a stable Electron release **on the same day** as the corresponding [Chrome stable release](https://www.chromestatus.com/features/schedule)! 🎉
+Astăzi marchează o primă ediție a proiectului Electron: aceasta este prima dată când facem o versiune Electron stabilă **în aceeași zi** ca [Chrome stable release](https://www.chromestatus.com/features/schedule)! 🎉
 
-Much of Electron's functionality is provided by the core components of Chromium, Node.js, and V8. Electron keeps up-to-date with these projects to provide our users with new JavaScript features, performance improvements, and security fixes. Each of these packages has a major version bump in Electron 6:
+O mare parte din funcţionalitatea Electron este asigurată de componentele centrale ale Cromiului, Node.js şi V8. Electron ține la curent cu aceste proiecte pentru a oferi utilizatorilor noștri noi caracteristici JavaScript, îmbunătățiri de performanță și soluții de securitate. Fiecare pachet are o versiune majoră în Electron 6:
 
-- Chromium `76.0.3809.88`
-  - [New in 74](https://developers.google.com/web/updates/2019/04/nic74)
-  - [New in 75](https://developers.google.com/web/updates/2019/06/nic75)
-  - [New in 76](https://developers.google.com/web/updates/2019/07/nic76)
+- Crom `76.0.3809.88`
+  - [Nou în 74](https://developers.google.com/web/updates/2019/04/nic74)
+  - [Nou în 75](https://developers.google.com/web/updates/2019/06/nic75)
+  - [Nou în 76](https://developers.google.com/web/updates/2019/07/nic76)
 - Node.js `12.4.0`
-  - [Node 12.4.0 blog post](https://nodejs.org/en/blog/release/v12.4.0/)
+  - [Postare pe blog Node 12.4.0](https://nodejs.org/en/blog/release/v12.4.0/)
 - V8 `7.6.303.22`
-    - [V8 7.6 blog post](https://v8.dev/blog/v8-release-76)
+    - [Postare pe blog V8 7.6](https://v8.dev/blog/v8-release-76)
 
-This release also includes improvements to Electron's APIs. [The release notes](https://github.com/electron/electron/releases/tag/v6.0.0) have a more complete list, but here are the highlights:
+Această versiune include, de asemenea, îmbunătățiri la API-urile Electron. [Notele de lansare](https://github.com/electron/electron/releases/tag/v6.0.0) au o listă mai completă, dar iată care sunt punctele:
 
 ### Promisification
 
-Electron 6.0 continues the modernization [initiative](https://github.com/electron/electron/blob/master/docs/api/modernization/promisification.md) started in 5.0 to improve [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) support.
+Electron 6.0 continuă modernizarea [iniţiativa](https://github.com/electron/electron/blob/master/docs/api/modernization/promisification.md) începută în 5.0 pentru a îmbunătăţi suportul [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises).
 
-These functions now return Promises and still support older callback-based invocation:
+Aceste funcții returnează acum promisiunile și susțin în continuare invocarea pe bază de callback:
  * `contentTracing.getCategories()` [#16583](https://github.com/electron/electron/pull/16583)
  * `contentTracing.getCategories()` [#16583](https://github.com/electron/electron/pull/16583)
  * `contentTracing.getTraceBufferUsage()` [#16600](https://github.com/electron/electron/pull/16600)
@@ -54,50 +54,50 @@ These functions now return Promises and still support older callback-based invoc
  * `session.resolveProxy()` [#17222](https://github.com/electron/electron/pull/17222)
  * `session.setProxy()`  [#17222](https://github.com/electron/electron/pull/17222)
  * `webContents.hasServiceWorker()` [#16535](https://github.com/electron/electron/pull/16535)
- * `webContents.printToPDF()` [#16795](https://github.com/electron/electron/pull/16795)
+ * `WebContents.printToPDF()` [#16795](https://github.com/electron/electron/pull/16795)
  * `webContents.savePage()` [#16742](https://github.com/electron/electron/pull/16742)
  * `webFrame.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
- * `webFrame.executeJavaScriptInIsolatedWorld()` [#17312](https://github.com/electron/electron/pull/17312)
+ * `webFrame.executeJavaScriptInsolatedWorld()` [#17312](https://github.com/electron/electron/pull/17312)
  * `webviewTag.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
 
-These functions now have two forms, synchronous and Promise-based asynchronous:
+Aceste funcții au acum două forme, asincrone sincron și bazate pe promis:
  * `dialog.showMessageBox()`/`dialog.showMessageBoxSync()` [#17298](https://github.com/electron/electron/pull/17298)
  * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
  * `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
 
-These functions now return Promises:
+Aceste funcții returnează acum promisiunile:
  * `app.dock.show()` [#16904](https://github.com/electron/electron/pull/16904)
 
-### `Electron Helper (Renderer).app`, `Electron Helper (GPU).app` and `Electron Helper (Plugin).app`
+### `Electron Helper (Renderer).app`, `Electron Helper (GPU).app` și `Electron Helper (Plugin).app`
 
-In order to enable the [hardened runtime](https://developer.apple.com/documentation/security/hardened_runtime_entitlements?language=objc), which restricts things like writable-executable memory and loading code signed by a different Team ID, special code signing entitlements needed to be granted to the Helper.
+Pentru a activa [timpul de execuție întărit](https://developer.apple.com/documentation/security/hardened_runtime_entitlements?language=objc), care restricționează lucruri cum ar fi memorie executabilă scriere și cod de încărcare semnate de un alt ID al Echipei , drepturile la semnarea unor coduri speciale care trebuiau acordate ajutorului.
 
-To keep these entitlements scoped to the process types that require them, Chromium [added](https://chromium-review.googlesource.com/c/chromium/src/+/1627456) three new variants of the Helper app: one for renderers (`Electron Helper (Renderer).app`), one for the GPU process (`Electron Helper (GPU).app`) and one for plugins (`Electron Helper (Plugin).app`).
+menţinerea acestor drepturi încadrate la tipurile de procese care le necesită; Chromium [a adăugat](https://chromium-review.googlesource.com/c/chromium/src/+/1627456) trei variante noi ale aplicației Helper: una pentru redatori (`Electron Helper (Renderer). pp`), unul pentru procesul GPU (`Electron Helper (GPU). pp`) și unul pentru plugin-uri (`Electron Helper (Plugin).app`).
 
-Folks using `electron-osx-sign` to codesign their Electron app shouldn't have to make any changes to their build logic. If you're codesigning your app with custom scripts, you should ensure that the three new Helper applications are correctly codesigned.
+Oameni care folosesc `semnul-electron-osx` pentru a coproiecta aplicația lor Electron nu ar trebui să facă nicio schimbare în logica lor de construcție. Dacă vă confecționați aplicația cu scripturi personalizate, ar trebui să vă asigurați că cele trei noi aplicații Helper sunt corect proiectate.
 
-In order to package your application correctly with these new helpers you need to be using `electron-packager@14.0.4` or higher.  If you are using `electron-builder` you should follow [this issue](https://github.com/electron-userland/electron-builder/issues/4104) to track support for these new helpers.
+Pentru a împacheta corect aplicația ta cu aceste noi ajutoare, trebuie să folosești `edon-packager@14.0.4` sau mai mult.  Dacă folosiți `electron-builder` ar trebui să urmați [această problemă](https://github.com/electron-userland/electron-builder/issues/4104) pentru a urmări suportul pentru aceste noi ajutoare.
 
 ## Ruperea modificărilor
 
- * This release begins laying the groundwork for a future requirement that native Node modules loaded in the renderer process be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). The reasons for this change are faster performance, stronger security, and reduced maintenance workload. Read the full details including the proposed timeline in [this issue](https://github.com/electron/electron/issues/18397). This change is expected to be completed in Electron v11.
+ * Această versiune începe să stabilească terenul pentru o cerință viitoare ca modulele native Node încărcate în procesul de redare să fie [N-API](https://nodejs.org/api/n-api.html) sau [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Motivele acestei schimbări sunt performanţe mai rapide, o securitate mai mare şi reducerea volumului de muncă pentru întreţinere. Citește toate detaliile inclusiv cronologia propusă în [această problemă](https://github.com/electron/electron/issues/18397). Se preconizează că această modificare va fi finalizată în Electron v11.
 
- * `net.IncomingMessage` headers have [changed slightly](https://github.com/electron/electron/pull/17517#issue-263752903) to more closely match [Node.js behavior](https://nodejs.org/api/http.html#http_message_headers), particularly with the value of `set-cookie` and how duplicate headers are handled. [#17517](https://github.com/electron/electron/pull/17517).
+ * `Net.IncomingMessage` antetele [s-au schimbat ușor](https://github.com/electron/electron/pull/17517#issue-263752903) pentru a se potrivi mai îndeaproape [Node. s comportament](https://nodejs.org/api/http.html#http_message_headers), în special cu valoarea `set-cookie` și cum sunt tratate antetele duplicat. [#17517](https://github.com/electron/electron/pull/17517).
 
- * `shell.showItemInFolder()` now returns void and is an asynchronous call. [#17121](https://github.com/electron/electron/pull/17121)
+ * `shell.showItemInFolder()` returnează acum anulat și este un apel asincron. [#17121](https://github.com/electron/electron/pull/17121)
 
- * Apps must now explicitly set a log path by calling the new function `app.setAppLogPath()` before using `app.getPath('log')`. [#17841](https://github.com/electron/electron/pull/17841)
+ * Aplicațiile trebuie acum să stabilească în mod explicit o cale de jurnal apelând noua funcție `app.setAppLogPath()` înainte de a utiliza `app.getPath('log')`. [#17841](https://github.com/electron/electron/pull/17841)
 
-## End of Support for 3.x.y
+## Sfârșitul suportului pentru 3.x.y
 
-Per our [support policy](https://electronjs.org/docs/tutorial/support#supported-versions), 3.x.y has reached end of life. Developers and applications are encouraged to upgrade to a newer version of Electron.
+Per politica noastră de suport [](https://electronjs.org/docs/tutorial/support#supported-versions), 3.x.y a ajuns la sfârșitul vieții. Dezvoltatorii și aplicațiile sunt încurajate să actualizeze la o versiune mai nouă a Electron.
 
 ## Program de FeedBack a Aplicațiilor
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+Continuăm să folosim [Programul nostru de Feedback pentru aplicații](https://electronjs.org/blog/app-feedback-program) pentru testare. Proiecte care participă la acest program testează Electron betas pe aplicațiile lor; iar în schimb, noile erori descoperite de ei sunt prioritare pentru eliberarea stabilă. Dacă vrei să participi sau să înveți mai multe, [verifică postarea noastră pe blog despre program](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Ce urmează
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 7.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 7 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+Pe termen scurt, vă puteţi aştepta ca echipa să continue să se concentreze pe a ţine pasul cu dezvoltarea componentelor majore care formează Electron, inclusiv crom, nod și V8. Deşi suntem atenţi să nu facem promisiuni cu privire la data eliberării, planul nostru este să lansăm noi versiuni majore ale Electron cu versiuni noi ale acestor componente aproximativ trimestrial. Programul [7.0.0 provizoriu](https://electronjs.org/docs/tutorial/electron-timelines) enumeră datele cheie din ciclul de viață de dezvoltare Electron 7. De asemenea, [consultaţi documentul nostru de versionare](https://electronjs.org/docs/tutorial/electron-versioning) pentru informaţii mai detaliate despre versionare în Electron.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+Pentru informații despre schimbările planificate de rupere în versiunile viitoare de Electron, [a se vedea documentul nostru Planificat Breaking Change](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).

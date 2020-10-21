@@ -1,8 +1,8 @@
 # Boilerplates und CLIs
 
-Electron development is unopinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
+Die Entwicklung von Elektronen ist nicht beurteilt - es gibt keine "einzige richtige Methode", um eine Electron-Anwendung zu entwickeln, zu bauen, zu paketieren oder freizugeben. Zusätzliche Funktionen für Electron, sowohl für die Build- als auch für die Laufzeit finden Sie in der Regel unter [npm](https://www.npmjs.com/search?q=electron) in einzelnen Paketen, erlaubt Entwicklern, sowohl als auch Pipeline zu bauen, die sie benötigen.
 
-That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+Dieses Niveau der Modularität und Erweiterbarkeit stellt sicher, dass alle Entwickler, die mit Electron arbeiten, sowohl groß als auch klein in Teamgröße sind niemals in dem eingeschränkt, was sie während ihres Entwicklungslebenszyklus tun können oder können. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
 
 ## Boilerplate vs CLI
 
@@ -14,22 +14,22 @@ Kommandozeilenwerkzeuge (CLI) hingegen unterstützen den Entwickler auch weiterh
 
 Ein "vollständiges Werkzeug für die Erstellung moderner Electron-Anwendungen". Electron Forge vereint die vorhandenen (und gut gepflegten) Build-Werkzeuge für die Electron-Entwicklung in ein zusammenhängendes Paket, mit dessen Hilfe jeder direkt in die Electron-Entwicklung einsteigen kann.
 
-Forge wird mit [einer einsatzbereiten Schablone](https://electronforge.io/templates) geliefert und nutzt Webpack als Modul-Packer. Es enthält eine beispielhafte TypeScript-Konfiguration und bietet zwei Konfigurationsdateien, um so eine einfache Anpassung zu ermöglichen. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron/electron-packager)) – changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+Forge wird mit [einer einsatzbereiten Schablone](https://electronforge.io/templates) geliefert und nutzt Webpack als Modul-Packer. Es enthält eine beispielhafte TypeScript-Konfiguration und bietet zwei Konfigurationsdateien, um so eine einfache Anpassung zu ermöglichen. Es verwendet die gleichen Kernmodule, die von der größeren Electron-Community verwendet werden (wie [`Electron-Packager`](https://github.com/electron/electron-packager)) – Änderungen, die von den Electron-Betreuern vorgenommen wurden (wie Slack) profitieren von den Benutzern von Forge, auch.
 
 Weitere Informationen und die Dokumentation ist auf [electronforge.io](https://electronforge.io/) verfügbar.
 
 ## electron-builder
 
-A "complete solution to package and build a ready-for-distribution Electron app" that focuses on an integrated experience. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+Eine "Komplettlösung, um eine "ready-for-distribution Electron App" zu erstellen , die sich auf ein integriertes Erlebnis konzentriert. [`Elektron-Builder`](https://github.com/electron-userland/electron-builder) fügt eine Einzelabhängigkeit hinzu, die sich auf Einfachheit konzentriert und verwaltet alle weiteren Anforderungen intern.
 
-`electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+`Elektron-Builder` ersetzt Funktionen und Module, die von den Electron- Maintainern (wie dem Auto-Updater) verwendet werden, durch benutzerdefinierte. Sie sind im Allgemeinen enger integriert, werden aber weniger gemeinsam mit den beliebten Electron-Apps wie Atom, Visual Studio Code oder Slack haben.
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+Weitere Informationen und Dokumentation finden Sie im [Projektarchiv](https://github.com/electron-userland/electron-builder).
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. Es ist sehr beliebt in der Community und verwendet `Elektron-Builder` intern.
 
 ## Andere Tools und Boilerplates
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+Die ["Awesome Electron" Liste](https://github.com/sindresorhus/awesome-electron#boilerplates) enthält weitere Werkzeuge und Boilerplatten zur Auswahl. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.

@@ -20,7 +20,7 @@ app.whenReady().then(() => {
 
 A comma-separated list of servers for which integrated authentication is enabled.
 
-For example:
+De exemplu:
 
 ```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
@@ -74,7 +74,7 @@ This switch can not be used in `app.commandLine.appendSwitch` since it is parsed
 
 A comma-separated list of `rules` that control how hostnames are mapped.
 
-For example:
+De exemplu:
 
 * `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
 * `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
@@ -125,7 +125,7 @@ Disables Chromium sandbox, which is now enabled by default. Should only be used 
 
 Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
-For example:
+De exemplu:
 
 ```javascript
 const { app } = require('electron')

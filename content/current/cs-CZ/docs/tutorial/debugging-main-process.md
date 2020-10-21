@@ -1,26 +1,26 @@
-# Debugging the Main Process
+# Ladění hlavního procesu
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+DevTools v okně prohlížeče Electron může ladit pouze JavaScript, který je spuštěn v tomto okně (tj. webové stránky). Chcete-li ladit JavaScript, který je spuštěn v hlavním procesu, budete muset použít externí debugger a spustit Electron pomocí přepínače `--inspect` nebo `--inspect-brk`.
 
-## Command Line Switches
+## Přepínače příkazového řádku
 
-Use one of the following command line switches to enable debugging of the main process:
+Použijte jeden z následujících přepínačů příkazové řádky k povolení ladění hlavního procesu:
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Electron poslouchá V8 zprávy protokolu inspektora na určeném `portu`, externí debugger se bude muset připojit k tomuto portu. Výchozí `port` je `5858`.
 
 ```shell
-electron --inspect=5858 your/app
+electron --inspect=5858 tvoje/aplikace
 ```
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+Like `--inspect` , ale pauses exekuce na prvním řádku JavaScript.
 
-## External Debuggers
+## Externí ladiče
 
-You will need to use a debugger that supports the V8 inspector protocol.
+Budete muset použít debugger, který podporuje protokol inspektora V8.
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
-- [Debugging the Main Process in VSCode](debugging-main-process-vscode.md)
+- Připojte Chrome navštěvováním `chrome://inspect` a výběrem zkontrolovat spuštěnou aplikaci Electron přítomnou.
+- [Ladění hlavního procesu ve VSCode](debugging-main-process-vscode.md)

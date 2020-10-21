@@ -4,91 +4,91 @@ Before we can dive into Electron's APIs, we need to discuss the two process type
 
 ## العمليات الرئيسية والرابط
 
-In Electron, the process that runs `package.json`'s `main` script is called __the main process__. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+في إلكترون ، العملية التي تشغل `package.json`هو `الرئيسي` البرنامج النصي __العملية الرئيسية__. البرنامج النصي الذي يعمل في العملية الرئيسية يمكن أن يعرض واجهة المستخدم عن طريق إنشاء صفحات الويب. تطبيق إلكترون لديه دائما عملية رئيسية واحدة، ولكن لا أكثر من ذلك.
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called __the renderer process__.
+بما أن إلكترون يستخدم Chromium لعرض صفحات الويب، يتم أيضا استخدام هندسة المعالجة المتعددة في Chromium. تعمل كل صفحة ويب في إلكترون في العملية الخاصة بها، والتي تسمى __عملية العرض__.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-### Differences Between Main Process and Renderer Process
+### الاختلافات بين العملية الرئيسية وعملية العارض
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+العملية الرئيسية تنشئ صفحات ويب عن طريق إنشاء مثيلات `متصفح النافذة`. كل مثيل `نافذة المتصفح` يدير صفحة الويب في عملية العارض الخاصة به. عندما يتم تدمير مثيل `نافذة المتصفح` ، يتم أيضا إنهاء عملية العارض المناظرة .
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+العملية الرئيسية تدير جميع صفحات الويب وعمليات المعرض المقابلة لها . كل عملية من عمليات العارض معزولة و تهتم فقط بصفحة الويب قيد التشغيل.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+في صفحات الويب، مكالمة واجهة برمجة تطبيقات واجهة المستخدم الأصلية ذات الصلة غير مسموح بها لأن إدارة موارد واجهة المستخدم الأصلية في صفحات الويب خطيرة جدا ومن السهل تسريب الموارد. إذا كنت تريد تنفيذ عمليات واجهة المستخدم في صفحة الويب، يجب على المعرض عملية صفحة الويب التواصل مع العملية الرئيسية لطلب أن العملية الرئيسية تقوم بهذه العمليات.
 
-> #### Aside: Communication Between Processes
+> #### آسيا: الاتصال بين العمليات
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages][share-data].
+> في إلكترون، لدينا عدة طرق للتواصل بين العملية الرئيسية وعمليات العرض، مثل [`ipcRenderer`](../api/ipc-renderer.md) و [`ipcMain`](../api/ipc-main.md) وحدات لإرسال الرسائل، و [عن بعد](../api/remote.md) وحدة للاتصال على نمط RPC There is also an FAQ entry on [how to share data between web pages][share-data].
 
-## Using Electron APIs
+## استخدام تطبيقات إلكترون
 
-Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
+يوفر إلكترون عددا من واجهات برمجة التطبيقات التي تدعم تطوير تطبيق سطح المكتب في كل من العملية الرئيسية وعملية العرض. في كلتا العمليتين ، يمكنك الوصول إلى واجهة برمجة تطبيقات Electron's باشتراط الوحدة المدرجة فيها:
 
 ```javascript
-const electron = require('electron')
+إلكترون = مطلوبة ('electron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for each individual API will state which process it can be used from.
+يتم تعيين كل واجهة برمجة تطبيقات إلكترون نوع العملية. العديد منها يمكن أن تستخدم فقط من العملية الرئيسية، وبعضها فقط من عملية العرض، بعضها من كليهما. الوثائق لكل واجهة برمجة التطبيقات ستحدد العملية التي يمكن استخدامها منها.
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+يتم إنشاء نافذة في إلكترون على سبيل المثال باستخدام صف `متصفح` . وهو متاح فقط في العملية الرئيسية.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// هذا سوف يعمل في العملية الرئيسية، ولكن كن 'غير محدد` في عملية
+// renderer:
 const { BrowserWindow } = require('electron')
 
-const win = new BrowserWindow()
+الفوز = متصفح جديد()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+بما أن الاتصال بين العمليات ممكن ، يمكن لعملية العارض أن تستدعي العملية الرئيسية لأداء المهام. يأتي إلكترون مع وحدة تسمى `البعيد` التي تكشف عن APIs عادة ما تكون متاحة على العملية الرئيسية. من أجل إنشاء `نافذة المتصفح` من عملية العرض، سوف نستخدم عن بعد كرجل وسطي:
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// هذا سوف يعمل في عملية العرض، ولكن كن 'غير محدد` في العملية
+// الرئيسية:
 const { remote } = require('electron')
-const { BrowserWindow } = remote
+const { BrowserWindow } = بعد
 
-const win = new BrowserWindow()
+const win = New BrowserWindow()
 ```
 
 ## باستخدام Node.js APIs
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+إلكترون يكشف إمكانية الوصول الكامل إلى Node.js في كل من العملية الرئيسية و العملية المعرضة. ويترتب على ذلك أثران هامان:
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1) جميع APIs المتاحة في Node.js متاحة في Electron. الاتصال ب التعليمات البرمجية التالية من تطبيق إلكترون:
 
 ```javascript
-const fs = require('fs')
+const fs = مطلوبة ('fs')
 
-const root = fs.readdirSync('/')
+الجذر = fs. eaddirSync('/')
 
-// This will print all files at the root-level of the disk,
-// either '/' or 'C:\'.
+// هذا سيطبع جميع الملفات على مستوى جذور القرص،
+// إما '/' أو 'C:\'.
 console.log(root)منصةشليلة ar 
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation][security].
+كما قد تكون قادراً على التخمين مسبقاً، فإن لهذا تداعيات أمنية مهمة إذا حاولت تحميل محتوى عن بعد. You can find more information and guidance on loading remote content in our [security documentation][security].
 
-2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) يمكنك استخدام وحدات Node.js في تطبيقك. اختر وحدتك المفضلة npm npm يقدم حاليا أكبر مستودع في العالم للتعليمات البرمجية المفتوحة المصدر - القدرة على استخدام التعليمات البرمجية المحفوظة والمختبرة جيدا والتي كانت محجوزة لتطبيقات الخادم هي واحدة من الميزات الرئيسية لإلكترون.
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+على سبيل المثال، لاستخدام AWS SDK الرسمية في التطبيق الخاص بك، سوف تقوم أولاً بتثبيته كاعتماد:
 
 ```sh
-npm install --save aws-sdk
+npm تثبيت --حفظ aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+ثم في تطبيق إلكترون الخاص بك، يتطلب ويستخدم الوحدة كما لو كنت بناء تطبيق Node.js :
 
 ```javascript
-// A ready-to-use S3 Client
-const S3 = require('aws-sdk/clients/s3')
+// عميل S3 جاهز للاستخدام
+const S3 = مطلوبة ('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+وهناك تحذير مهم واحد: العقدة الأصلية. s وحدات (أي الوحدات التي تتطلب تجميع التعليمات البرمجية الأصلية قبل استخدامها) سوف تحتاج إلى تجميعها لاستخدامها مع إلكترون.
 
-The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron][native-node].
+The vast majority of Node.js modules are _not_ native. فقط 400 من وحدات ~650,000 هي وحدات أصلية. However, if you do need native modules, please consult [this guide on how to recompile them for Electron][native-node].
 
 [security]: ./security.md
 [native-node]: ./using-native-node-modules.md

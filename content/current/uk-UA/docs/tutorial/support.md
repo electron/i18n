@@ -1,53 +1,53 @@
-# Electron Support
+# Підтримка Electron
 
-## Finding Support
+## Підтримка
 
-If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
+Якщо у вас виникли проблеми з безпекою, будь ласка, подивіться [документ безпеки](https://github.com/electron/electron/tree/master/SECURITY.md).
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-- `#atom-shell` channel on Freenode
+Якщо ви шукаєте допомогу програмування, для відповідей на питання, або приєднатися до дискусії з іншими розробниками, які використовують Electron, ви можете взаємодіяти з спільнотою в таких умовах:
+- [`електрон`](https://discuss.atom.io/c/electron) категорія на форумах Atom
+- `#atom-shell` канал на Freenode
 - `#electron` канал на [Atom Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-- [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-- [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-- [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-- [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-- [`electron-pl`](https://electronpl.github.io) *(Poland)*
+- [`electron-ru`](https://telegram.me/electron_ru) *(Російська)*
+- [`electron-br`](https://electron-br.slack.com) *(бразильська португальська)*
+- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(корейська)*
+- [`electron-jp`](https://electron-jp.slack.com) *(японська)*
+- [`electron-tr`](https://electron-tr.herokuapp.com) *(Турецька)*
+- [`electron-id`](https://electron-id.slack.com) *(Індонезія)*
+- [`electron-pl`](https://electronpl.github.io) *(Польща)*
 
-If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Якщо ви хочете зробити внесок на Electron, дивись [сторінку з учасником](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
+Якщо ви знайшли помилку у [підтримуваній версії](#supported-versions) Electron, , повідомте про це за допомогою [трекера питань](../development/issues.md).
 
-[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
+[шановний електрон](https://github.com/sindresorhus/awesome-electron) - список підтримуваних спільнотою додатків, інструментів і ресурсів.
 
-## Supported Versions
+## Підтримувані версії
 
-The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.1.x, then the 5.0.x as well as the 4.2.x series are supported.  We only support the latest minor release for each stable release series.  This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
+Підтримуються найновішими *стабільними* основними версіями команди Electron. Наприклад, якщо останній випуск рівний 6.1.x, так само як і 5.0.x, так і як підтримуються серії 4.2.x.  Ми підтримуємо тільки останній незначний випуск для кожної стабільної випускової серії.  Це означає, що у випадку безпечного виправлення 6.1. отримає фікс, але ми не випустимо нову версію 6.0.x.
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+Останній стабільний випуск в односторонньому порядку отримує всі фікси від `майстра`, і версія до цього отримує переважну більшість виправлень як ордер на час і пропускну здатність. Найстаріша підтримувана реліз буде надана тільки безпечні виправлення безпосередньо.
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+Всі підтримувані випуски релізу будуть приймати запити на зовнішній pull в backport виправляти раніше об'єднані з `головним аркером`, хоча це може бути за кожного випадку основу для деяких старих підтримуваних ліній. Всі оспорювані рішення навколо релізу звіт по лінії будуть вирішені [Робочою групою релізів](https://github.com/electron/governance/tree/master/wg-releases) як елементом порядку денного на їх щотижневому засіданні згідно з рейтингом зворотного зв'язку.
 
-When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
+Коли API змінюється або видаляється таким чином, що порушує існуючу функцію, попередній функціонал буде підтримуватися як мінімум дві основні версії перед видаленням. Наприклад, якщо функція приймає три аргументи, і ця кількість скорочена до двох у великій версії 10, версія з трьох аргументів продовжуватиме працювати доти, як мінімум, мажорна версія 12. Минуло мінімальну двоверсію поріг, ми будемо намагатися підтримувати зворотну сумісність поза двома версіями , поки супроводжуючі вважають, що навантаження на обслуговування буде занадто високим, щоб продовжувати це робити.
 
-### Currently supported versions
+### Встановлені версії
 - 10.x.y
 - 9.x.y
-- 8.x.y
+- 8.y
 
-### End-of-life
+### Кінець життя
 
-When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
+Коли гілка випуску досягає кінця циклу підтримки, серія буде застаріла в NPM і остання версія підтримки буде створена . Цей реліз додасть попередження, щоб повідомити про непідтримувану версію Electron вже використовується.
 
-These steps are to help app developers learn when a branch they're using becomes unsupported, but without being excessively intrusive to end users.
+Ці кроки полягають в тому, щоб допомогти розробникам програми, коли гілка використовується не підтримується, але не завдяки надмірній нав'язливості для кінцевих користувачів.
 
-If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+Якщо програма має виняткові обставини і повинна залишатися на непідтримуваних серіях Electron, розробникам можна приглушити попередження про кінець підтримки, пропустивши остаточний випуск з пакету `. син` `devDependencies`. Наприклад, оскільки серія 1-6-х закінчилася кінцевою підтримкою 1.6. 8 релізу, розробники могли б вибирати , щоб залишатись на початковій серії без попереджень із `відданістю` із `"електрона": 1. .0 - 1.6.17`.
 
 ## Підтримувані Платформи
 
-Following platforms are supported by Electron:
+Наступні платформи підтримуються Electron:
 
 ### macOS
 
@@ -55,18 +55,18 @@ Only 64bit binaries are provided for macOS, and the minimum macOS version suppor
 
 ### Windows
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+Windows 7 і пізніше підтримуються, старі операційні системи не підтримуються (і не працюють).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
+Обидві `ia32` (`x86`) та `x64` (`amd64`) виконувані файли надаються для Windows. [Electron 6.0.8 та старше додайте власну підтримку для Windows на Arm (`arm64`) пристроїв](windows-arm.md). Запуск додатків, пов'язаних з попередніми версіями можливий використання двійкового файла ia32.
 
 ### Linux
 
-The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
+Попередньо побудований `ia32` (`i686`та `x64` (`amd64`) двійкові файли Electron побудовані на Ubuntu 12. 4, `armv7l` двійковий файл ARM v7 з жорсткими плаваючими АБРІ та НЕОН для Debian Wheezy.
 
-[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+[До випуску Electron 2.](../breaking-changes.md#duplicate-arm-assets), Electron також продовжить вивільняти `armv7l` бінарним з простою `руки` суфіксом. Обидва двійки ідентичні.
 
 Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 та новіше
 * Fedora 21
 * Debian 8

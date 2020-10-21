@@ -462,16 +462,16 @@ Aparece cuando la ventana cierra una hoja.
 
 Aparece cuando se hace clic al botón de nueva pestaña nativa.
 
-#### Event: 'system-context-menu' _Windows_
+#### Evento: 'system-context-menu' _Windows_
 
 Devuelve:
 
 * `event` Event
-* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+* `point` [Point](structures/point.md) - Las coordenadas de la pantalla del menú contextual que fue activado en
 
-Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+Emitido cuando el menú contextual del sistema es activado en la ventana, esto normalmente solo es activado cuando el usuario hace click derecho en el área que no es del cliente de la ventana.  Esto es la barra de titulo de la ventana o cualquier área que haya declarado como `-webkit-app-region: drag` en una ventana sin marco.
 
-Calling `event.preventDefault()` will prevent the menu from being displayed.
+Llamando a `event.preventDefault()` evitara que el menú sea mostrado.
 
 ### Métodos Estáticos
 
@@ -501,7 +501,7 @@ Devuelve `BrowserWindow | null` - La ventana que posee el `browserView` dado. Si
 
 * `id` Íntegro
 
-Returns `BrowserWindow | null` - The window with the given `id`.
+Devuelve `BrowserWindow | null` -La ventana con la `id` especificada.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 

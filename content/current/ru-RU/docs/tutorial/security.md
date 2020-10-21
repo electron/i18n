@@ -12,24 +12,24 @@
 
 ## Вопросы и обновления безопасности Chromium
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron обновляется с чередованием релизов Chromium. Для получения дополнительной информации, смотрите [пост в блоге Электронной версии](https://electronjs.org/blog/12-week-cadence).
 
 ## Безопасность - это ответственность каждого
 
 Важно помнить, что безопасность вашего Electron приложения является результатом общей безопасности основы платформы (*Chromium*, *Node.js*), самого Electron, всех NPM-зависимостей и вашего кода. Поэтому вы обязаны следовать нескольким важным рекомендациям:
 
-* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application. For more information, see "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
+* **Будьте в курсе последних выпусков Electron.** При выпуске вашего продукта, вы также можете отправить пакет из Electron, разделяемой библиотеки Chromium и Node.js. Уязвимости, влияющие на эти компоненты могут повлиять на безопасность вашего приложения. Обновив Electron до последней версии , вы гарантируете, что критические уязвимости (такие как *nodeIntegration bypasses*) уже пропатчены и не могут быть использованы в вашем приложении. Для получения дополнительной информации, см. в[Используйте текущую версию Electron](#17-use-a-current-version-of-electron)".
 
-* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
+* **Оценить зависимости.** Хотя Музей предоставляет полмиллиона повторно используемых пакетов, он несет ответственность за выбор доверенных сторонних библиотек. Если вы используете устаревшие библиотеки, затронутые известными уязвимостями, или полагаетесь на плохо поддерживаемый код, ваша безопасность приложения может быть поставлена под угрозу.
 
-* **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
+* **Принять безопасные методы программирования** Первая линия защиты вашей заявки — ваш собственный код. Общие веб-уязвимости, такие как Cross-Site Scripting (XSS), имеют повышенное влияние на безопасность приложений Electron, поэтому настоятельно рекомендуется применять передовые методы разработки безопасного программного обеспечения и проводить тестирование безопасности.
 
 
 ## Изоляция ненадежного контента
 
-Проблемы безопасности возникают всякий раз, когда вы получаете код из ненадежного источника (напр., удаленный сервер) и выполняете его локально. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+Проблемы безопасности возникают всякий раз, когда вы получаете код из ненадежного источника (напр., удаленный сервер) и выполняете его локально. В качестве примера можно считать отображение удаленного сайта внутри по умолчанию [`BrowserWindow`](../api/browser-window.md). Если злоумышленник каким-то образом удается изменить указанное содержимое (либо напрямую атакуя исходный код, или сидя между вашим приложением и фактическим пунктом назначения), они смогут выполнить родной код на машине пользователя.
 
-> :warning:  ни при каких обстоятельствах не следует загружать и выполнять удаленный код с Node.js integration enabled. Вместо этого используйте только локальные файлы (упакованные вместе с вашим приложением), для выполнения Node.js кода. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
+> :warning:  ни при каких обстоятельствах не следует загружать и выполнять удаленный код с Node.js integration enabled. Вместо этого используйте только локальные файлы (упакованные вместе с вашим приложением), для выполнения Node.js кода. Для отображения удаленного контента используйте [`<webview>`](../api/webview-tag.md) тег или [`BrowserView`](../api/browser-view.md), убедитесь, что отключить `интеграцию узлов` и включить `контекстную изоляции`.
 
 ## Предупреждение безопасности Electron
 
@@ -39,7 +39,7 @@ Electron keeps up to date with alternating Chromium releases. For more informati
 
 ## Чеклист: рекомендации по безопасности
 
-You should at least follow these steps to improve the security of your application:
+По крайней мере выполните эти шаги для повышения безопасности вашего приложения:
 
 1. [Загружайте только безопасный контент](#1-only-load-secure-content)
 2. [Выключите Node.js интеграцию во всех видах (renderers) показывающих удаленный контент](#2-do-not-enable-nodejs-integration-for-remote-content)
@@ -49,17 +49,17 @@ You should at least follow these steps to improve the security of your applicati
 6. [Определите `Content-Security-Policy`](#6-define-a-content-security-policy) и используйте ограничительные правила (i.e. `script-src 'self'`)
 7. [Не устанавливайте `allowRunningInsecureContent` в `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
 8. [Не включайте экспериментальные функции](#8-do-not-enable-experimental-features)
-9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
-10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
-11. [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
-12. [Disable or limit navigation](#12-disable-or-limit-navigation)
-13. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
-14. [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
-15. [Disable the `remote` module](#15-disable-the-remote-module)
-16. [Filter the `remote` module](#16-filter-the-remote-module)
-17. [Use a current version of Electron](#17-use-a-current-version-of-electron)
+9. [Не используйте `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
+10. [`<webview>`: Не используйте `allowpopups`](#10-do-not-use-allowpopups)
+11. [`<webview>`: Проверьте параметры и параметры](#11-verify-webview-options-before-creation)
+12. [Отключить или ограничить навигацию](#12-disable-or-limit-navigation)
+13. [Отключить или ограничить создание новых окон](#13-disable-or-limit-creation-of-new-windows)
+14. [Не используйте `openExternal` с ненадежным содержимым](#14-do-not-use-openexternal-with-untrusted-content)
+15. [Отключить удаленный модуль ``](#15-disable-the-remote-module)
+16. [Фильтровать удаленный модуль ``](#16-filter-the-remote-module)
+17. [Использовать текущую версию Electron](#17-use-a-current-version-of-electron)
 
-To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
+Для автоматизации определения неправильных конфигураций и небезопасных шаблонов можно использовать [электронное выражение](https://github.com/doyensec/electronegativity). для дополнительной информации о потенциальных недостатках и ошибках реализации при разработке приложений с помощью Electron, пожалуйста, обратитесь к этому [руководству для разработчиков и аудиторов](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
 ## 1) Загружать только безопасный контент
 
@@ -69,7 +69,7 @@ To automate the detection of misconfigurations and insecure patterns, it is poss
 
 `HTTPS` имеет 3 главных преимущества:
 
-1) It authenticates the remote server, ensuring your app connects to the correct host instead of an impersonator. 2) It ensures data integrity, asserting that the data was not modified while in transit between your application and the host. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
+1) Он аутентифицирует удаленный сервер, обеспечивая подключение приложения к правильному хосту вместо имперсатора. 2) Обеспечивает целостность данных, утверждая, что данные не были изменены во время транзита между вашим приложением и узлом. 3) Он шифрует трафик между вашим пользователем и хостом назначения, делает труднее переносить информацию, отправленную между вашим приложением и хозяином.
 
 ### Как?
 
@@ -87,22 +87,22 @@ browserWindow.loadURL('https://example.com')
 ```
 
 
-## 2) Do not enable Node.js Integration for Remote Content
+## 2) Не включать интеграцию Node.js для удаленного контента
 
-_This recommendation is the default behavior in Electron since 5.0.0._
+_Эта рекомендация является поведением по умолчанию в Electron начиная с 5.0.0._
 
-It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+Это первостепенное значение, которое вы не включаете узел. с интеграцией в любом рендерере ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), или [`<webview>`](../api/webview-tag.md)), которая загружает удаленный контент. Цель - ограничить полномочия на удаленное содержимое, таким образом значительно сложнее нанести вред вашим пользователям, если они получат возможность выполнить JavaScript на вашем сайте.
 
-After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://example.com/`, you can give that website exactly the abilities it needs, but no more.
+После этого вы можете предоставить дополнительные права доступа для определенных узлов. Например, , если вы открываете браузер (BrowserWindow), указанный в `https://example. om/`, вы можете дать этому сайту точно необходимые ему возможности, но не больше.
 
 ### Почему?
 
-A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
+Атака перекрёстного сценария (XSS) является более опасной, если нападающий может прыгнуть из процесса рендерера и выполнить код на компьютере пользователя. Атаки между сайтами и скриптами довольно распространены - и хотя бы один вопрос, их сила в обычно ограничивается сообщением с сайтом, на котором они выполняются. Отключение интеграции Node.js помогает предотвратить перерастание XSS в так называемую атаку "Удаленное выполнение кода" (RCE).
 
 ### Как?
 
 ```js
-// Bad
+// Плохое
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: true,
@@ -114,7 +114,7 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// Good
+// Хороший
 const mainWindow = new BrowserWindow({
   webPreferences: {
     preload: path.join(app.getAppPath(), 'preload.js')
@@ -132,7 +132,7 @@ mainWindow.loadURL('https://example.com')
 <webview src="page.html"></webview>
 ```
 
-При отключении интеграции с Node.js, можно по-прежнему использовать API на вашем сайте, которые используют модули или функции Node.js. Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
+При отключении интеграции с Node.js, можно по-прежнему использовать API на вашем сайте, которые используют модули или функции Node.js. Предозагрузка скриптов продолжает иметь доступ к `, требуется` и другой узел. , позволяя разработчикам раскрыть пользовательский API для удаленно загруженного контента.
 
 In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
 
@@ -152,11 +152,11 @@ Context isolation is an Electron feature that allows developers to run code in p
 
 Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
 
-Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+Даже при использовании `nodeIntegration: false` для обеспечения сильной изоляции и предотвращения использования примитивов узлов, `contextIsolation` также должен использоваться.
 
-### Why & How?
+### Почему & Как?
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
+Для получения дополнительной информации о том, какие `контекстные` и как их включить, пожалуйста, смотрите наш специальный [Изоляция контекста](context-isolation.md) документ.
 
 
 ## 4) Handle Session Permission Requests From Remote Content
@@ -174,22 +174,22 @@ By default, Electron will automatically approve all permission requests unless t
 ```js
 const { session } = require('electron')
 
-session
+сеанс
   .fromPartition('some-partition')
-  .setPermissionRequestHandler((webContents, permission, callback) => {
-    const url = webContents.getURL()
+  . etPermissionRequestHandler((webContents, permission, callback) => {
+    const url = webContents. etURL()
 
     if (permission === 'notifications') {
-      // Approves the permissions request
+      // Одобряет запрос разрешений
       callback(true)
     }
 
-    // Verify URL
-    if (!url.startsWith('https://example.com/')) {
-      // Denies the permissions request
+    // Проверьте URL
+    if (! rl. tartsWith('https://example. om/')) {
+      // Отменяет запрос разрешений
       return callback(false)
     }
-  })
+})
 ```
 
 
@@ -310,14 +310,14 @@ Advanced users of Electron can enable experimental Chromium features using the `
 
 ### Почему?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+Экспериментальные функции, как предлагает название, экспериментальные и не были включены для всех пользователей Chromium. Кроме того, их влияние на Electron в целом скорее всего не было протестировано.
 
-Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
+Легитимные варианты использования существуют, но если вы не знаете, что вы делаете, вы должны не включать это свойство.
 
 ### Как?
 
 ```js
-// Bad
+// Плохая
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
@@ -331,19 +331,19 @@ const mainWindow = new BrowserWindow({})
 ```
 
 
-## 9) Do Not Use `enableBlinkFeatures`
+## 9) Не использовать `enableBlinkFeatures`
 
 _Recommendation is Electron's default_
 
-Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink - это имя движка рендеринга за Chromium. Как и в `experimentalFeatures`, свойство `enableBlinkFeatures` позволяет разработчикам включать функции, которые были отключены по умолчанию.
 
 ### Почему?
 
-Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+Как правило, есть веские причины, если функция по умолчанию не включена . Есть законные варианты использования для включения определенных функций. Как разработчик, вы должны точно знать, почему вам нужно включить функцию, что такое последствия и как они влияют на безопасность вашего приложения. При ни при каких обстоятельствах вы не должны включать возможности спекулятивно.
 
 ### Как?
 ```js
-// Bad
+// Плохая
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: 'ExecCommandInJavaScript'
@@ -357,15 +357,15 @@ const mainWindow = new BrowserWindow()
 ```
 
 
-## 10) Do Not Use `allowpopups`
+## 10) Не использовать `разрешать всплывающие окна`
 
 _Recommendation is Electron's default_
 
-If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
+Если вы используете [`<webview>`](../api/webview-tag.md), может потребоваться загрузка страниц и скриптов в вашем `<webview>` теге, чтобы открыть новые окна. Атрибут `allowpopups` позволяет им создавать новые [`BrowserWindows`](../api/browser-window.md) с помощью метода `window.open()`. `<webview>` тэги в противном случае не могут создавать новые окна.
 
 ### Почему?
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](../api/browser-window.md) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+Если вам не нужны всплывающие окна, лучше отключить возможность создания новых [`BrowserWindows`](../api/browser-window.md) по умолчанию. Это следует принципу минимально необходимого доступа: Не позволяйте веб-сайту создавать новые всплывающие окна, если вы знаете, что он нуждается в этой функции.
 
 ### Как?
 
@@ -378,93 +378,93 @@ If you do not need popups, you are better off not allowing the creation of new [
 ```
 
 
-## 11) Verify WebView Options Before Creation
+## 11) Проверьте настройки WebView перед созданием
 
-A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+WebView, созданный в процессе визуализации, который не имеет включенной интеграции Node.js не сможет включить интеграцию самостоятельно. Тем не менее, WebView всегда будет создавать независимый процесс визуализации с собственными `настройками`.
 
-It is a good idea to control the creation of new [`<webview>`](../api/webview-tag.md) tags from the main process and to verify that their webPreferences do not disable security features.
+Управлять созданием новых [`<webview>`](../api/webview-tag.md) тегов из основного процесса и проверять, что их предпочтения не отключают функции безопасности.
 
 ### Почему?
 
-Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+Поскольку `<webview>` живут в DOM, они могут быть созданы скриптом, запущенным на вашем веб-сайте, даже если Node. s интеграция в противном случае отключена.
 
-Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
+Electron позволяет разработчикам отключать различные функции безопасности, которые контролируют процесс визуализации. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
 
 ### Как?
 
-Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+Перед прикреплением тега [`<webview>`](../api/webview-tag.md) , Electron запустит событие `will-attach-webview` на хостинге `webContents`. Используйте событие , чтобы предотвратить создание `веб-просмотров` с возможными небезопасными опциями.
 
 ```js
 app.on('web-contents-created', (event, contents) => {
-  contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
-    delete webPreferences.preload
-    delete webPreferences.preloadURL
+  содержание. n('will-attach-webview', (событие, веб-настройки, params) => {
+    // Выход из предустановленных скриптов, если неиспользованные или проверять их местоположение законно
+    удалять webPreferences. перезагрузить
+    удалять настройки веб страниц. reloadURL
 
-    // Disable Node.js integration
-    webPreferences.nodeIntegration = false
+    // Отключить интеграцию Node.js
+    webPreferences. odeIntegration = false
 
-    // Verify URL being loaded
-    if (!params.src.startsWith('https://example.com/')) {
+    // Проверьте URL загружаемый
+    if (!params. rc.startsWith('https://example.com/')) {
       event.preventDefault()
     }
   })
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+Опять же, этот список лишь сводит к минимуму риск, он не удаляет его. Если ваша цель - отображать сайт, браузер будет более безопасным.
 
-## 12) Disable or limit navigation
+## 12) Выключить или ограничить навигацию
 
-If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
+Если у вашего приложения нет необходимости перемещаться или только для перехода на известные страницы, хорошая идея прямо ограничить навигацию до известного охвата, запрещая любые другие виды навигации.
 
 ### Почему?
 
-Navigation is a common attack vector. If an attacker can convince your app to navigate away from its current page, they can possibly force your app to open web sites on the Internet. Even if your `webContents` are configured to be more secure (like having `nodeIntegration` disabled or `contextIsolation` enabled), getting your app to open a random web site will make the work of exploiting your app a lot easier.
+Навигация - обычный вектор атаки. Если злоумышленник может убедить ваше приложение уйти от его текущей страницы, они могут заставить ваше приложение открыть веб-сайтов в Интернете. Даже если ваш `веб-контент` настроен на более безопасный (например, если `узлы` отключено </code> или `контекстное значение` включено), заставить ваше приложение открыть случайный веб-сайт значительно упростит работу над вашим приложением .
 
-A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
+Обычный шаблон атаки заключается в том, что злоумышленник побуждает пользователей вашего приложения к взаимодействовать с приложением таким образом, чтобы он перешел к одной из страниц нападающего. Обычно это делается с помощью ссылок, плагинов или другого контента, созданного пользователем.
 
 ### Как?
 
-If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents.md#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
+Если ваше приложение не нуждается в навигации, вы можете вызвать `event.preventDefault()` в [`will-navigate`](../api/web-contents.md#event-will-navigate) обработчик. Если вы знаете, какие страницы ваше приложение может перейти, проверьте URL в обработчике событий и пусть навигация возникает, только если она соответствует URL, которые вы ожидаете.
 
-We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
+Мы рекомендуем вам использовать парсер узла для URL-адресов. Простые строковые сравнения могут иногда быть смущены - `startsWith('https://example.com')` тест позволил бы `example.com.attacker.com` сквозь.
 
 ```js
 const URL = require('url').URL
 
 app.on('web-contents-created', (event, contents) => {
-  contents.on('will-navigate', (event, navigationUrl) => {
+  содержимое. n('will-navigate', (event, navigationUrl) => {
     const parsedUrl = new URL(navigationUrl)
 
-    if (parsedUrl.origin !== 'https://example.com') {
+    if (parsedUrl. rigin !== 'https://example.com') {
       event.preventDefault()
     }
   })
 })
 ```
 
-## 13) Disable or limit creation of new windows
+## 13) Отключить или ограничить создание новых окон
 
-If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
+Если у вас есть известный набор окон, то лучше ограничить создание дополнительных окон в вашем приложении.
 
 ### Почему?
 
-Much like navigation, the creation of new `webContents` is a common attack vector. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
+Так же, как навигация, создание нового `веб-контента` является общей атакой вектора. Атакующие пытаются убедить ваше приложение в создании новых окон, фреймов, или других процессов визуализации с большими правами, чем раньше; или с открытыми страницами, которые они не смогли открыть раньше.
 
-If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
+Если вам не нужно создавать окна в дополнение к тем, которые вы знаете, нужно создать, отключение от создания покупает вам немного дополнительной безопасности без каких-либо затрат. Это обычно относится к приложениям, которые открывают один `BrowserWindow` и не требуют открытия произвольного числа дополнительных окон во время выполнения.
 
 ### Как?
 
-[`webContents`](../api/web-contents.md) will emit the [`new-window`](../api/web-contents.md#event-new-window) event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
+[`webContents`](../api/web-contents.md) выдаст [`новое окно`](../api/web-contents.md#event-new-window) событие перед созданием новых окон. Это событие будет передано, среди других параметров, `url` было предложено открыть окно и опции создать его. Мы рекомендуем использовать событие для анализа создания , ограничивая его только тем, что вам нужно.
 
 ```js
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', async (event, navigationUrl) => {
-    // In this example, we'll ask the operating system
-    // to open this event's url in the default browser.
+  contents. n('new-window', async (event, navigationUrl) => {
+    // В этом примере мы просим операционную систему
+    // открыть url этого события в браузере по умолчанию.
     event.preventDefault()
 
     await shell.openExternal(navigationUrl)
@@ -472,50 +472,50 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 14) Do not use `openExternal` with untrusted content
+## 14) Не используйте `openExternal` с ненадежным содержимым
 
-Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell [`openExternal`](../api/shell.md#shellopenexternalurl-options) позволяет открыть данный URI протокола с родными утилитами рабочего стола. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
 ### Почему?
 
-Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+Неправильное использование [`openExternal`](../api/shell.md#shellopenexternalurl-options) может быть использовано для компрометации узла пользователя. Когда openExternal используется с ненадежным содержимым, его можно использовать для выполнения произвольных команд.
 
 ### Как?
 
 ```js
-//  Bad
+// Некорректный
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
 ```js
-//  Good
+// Хороший
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) Disable the `remote` module
+## 15) Выключить удаленный модуль ``
 
-The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. If your desktop application does not run untrusted content, this can be a useful way to have your renderer processes access and work with modules that are only available to the main process, such as GUI-related modules (dialogs, menus, etc.).
+The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. С его помощью рендерер может вызвать методы основного объекта процесса без явной отправки межпроцессорных сообщений. Если ваше приложение рабочего стола не запускает ненадежное содержимое, это может быть полезным способом получить доступ к вашим процессам рендерера и работать с модулями, которые доступны только для главного процесса, такие как связанные с GUI модули (диалоги, меню и т.д.).
 
-However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Therefore, it should be disabled in such circumstances.
+Однако, если ваше приложение может запускать ненадежный контент и даже если вы [песочница](../api/sandbox-option.md) ваш рендерер соответственно обрабатывает модуль `удалённый` позволяет вредоносному коду избежать "песочницы" и получить доступ к системным ресурсам через более высокие привилегии основного процесса. Поэтому он должен быть недоступен в таких обстоятельствах.
 
 ### Почему?
 
-`remote` uses an internal IPC channel to communicate with the main process. "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+`удаленный` использует внутренний IPC канал для связи с основным процессом. Атаки "Прототип загрязнения" могут предоставить вредоносный код внутреннему каналу IPC, , которые могут быть использованы для выхода из песочницы путем имитации `удаленного` сообщений IPC и получения доступа к основным технологическим модулям, работающим с более высокими правами.
 
-Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
+Кроме того, скрипты могут случайно перехватить модули в песочнице рендерера. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
 
-Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+Отключение удаленного модуля `` удаляет эти вектора атаки. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
 
 ### Как?
 
 ```js
-// Bad if the renderer can run untrusted content
+// Плохой, если рендерер может запускать ненадежный контент
 const mainWindow = new BrowserWindow({})
 ```
 
 ```js
-// Good
+// Хороший
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableRemoteModule: false
@@ -523,57 +523,52 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- Плохо, если рендерер может запустить ненадежный контент --><webview src="page.html"></webview><!-- Хорошо --><webview enableremotemodule="false" src="page.html"></webview>
 ```
 
-## 16) Filter the `remote` module
+## 16) Фильтровать `удаленный` модуль
 
-If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
+Если вы не можете отключить `удаленный модуль` , вы должны фильтровать глобальные, узел, и модули Electron (так называемые встроенные модули), доступные через `удаленный` , что ваше приложение не требует. Это можно сделать, заблокировав некоторые модули полностью и заменив другие на прокси-серверы, показывающие только те функции, которые необходимы приложению.
 
 ### Почему?
 
-Due to the system access privileges of the main process, functionality provided by the main process modules may be dangerous in the hands of malicious code running in a compromised renderer process. By limiting the set of accessible modules to the minimum that your app needs and filtering out the others, you reduce the toolset that malicious code can use to attack the system.
+Из-за системных привилегий главного процесса, функциональность , предоставляемая основными модулями процесса, может быть опасной в руках вредоносного кода, выполняемого в рамках взломанного процесса рендерера. Ограничив набор доступных модулей минимум для вашего приложения и фильтровав других, уменьшает набор инструментов, которые вредоносный код может использовать для атаки системы.
 
-Note that the safest option is to [fully disable the remote module](#15-disable-the-remote-module). If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
+Обратите внимание, что самым безопасным вариантом является [полностью отключить удаленный модуль](#15-disable-the-remote-module). Если вы решили фильтровать доступ, а не полностью отключить модуль, вы должны быть предельно внимательными, чтобы не допустить эскалации привилегий через модули, которые вы допускаете прошедший фильтр.
 
 ### Как?
 
 ```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+const readOnlyFsProxy = require(/* ... */) // раскрывает только функционал чтения файлов
 
 const allowedModules = new Set(['crypto'])
 const proxiedModules = new Map(['fs', readOnlyFsProxy])
 const allowedElectronModules = new Set(['shell'])
 const allowedGlobals = new Set()
 
-app.on('remote-require', (event, webContents, moduleName) => {
+приложение. n('remote-require', (event, webContents, moduleName) => {
   if (proxiedModules.has(moduleName)) {
-    event.returnValue = proxiedModules.get(moduleName)
+    event.returnValue = proxiedModules. et(название модуля)
   }
   if (!allowedModules.has(moduleName)) {
     event.preventDefault()
   }
 })
 
-app.on('remote-get-builtin', (event, webContents, moduleName) => {
+приложение. n('remote-get-builtin', (event, webContents, moduleName) => {
   if (!allowedElectronModules.has(moduleName)) {
-    event.preventDefault()
+    событие. reventDefault()
   }
 })
 
 app.on('remote-get-global', (event, webContents, globalName) => {
-  if (!allowedGlobals.has(globalName)) {
+  if (!allowedGlobals. as(globalName)) {
     event.preventDefault()
   }
 })
 
-app.on('remote-get-current-window', (event, webContents) => {
-  event.preventDefault()
+приложение. n('remote-get-current-window', (event, webContents) => {
+  event. reventDefault()
 })
 
 app.on('remote-get-current-web-contents', (event, webContents) => {
@@ -581,12 +576,12 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 })
 ```
 
-## 17) Use a current version of Electron
+## 17) Использовать текущую версию Electron
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+Вы должны стремиться всегда использовать последнюю доступную версию Electron. Всякий раз, когда будет выпущена новая основная версия, вы должны попытаться обновить ваше приложение как можно скорее.
 
 ### Почему?
 
-An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
+Приложение, созданное с более старой версией Electron, Chromium и Node. s — это более легкая цель, чем приложение, использующее более свежие версии этих компонентов. Вообще проблемы безопасности и эксплойты для старых версий Chromium и Node.js более широко доступны.
 
-Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly](https://en.wikipedia.org/wiki/Responsible_disclosure), which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Your application will be more secure if it is running a recent version of Electron (and thus, Chromium and Node.js) for which potential security issues are not as widely known.
+И Chromium, и Node.js являются впечатляющими подвигами инженерии, построенной тысячами талантливых разработчиков. С учетом их популярности, их безопасность тщательно тестируется и анализируется одинаково опытными исследователями в области безопасности. Многие из этих исследователей [ответственно раскрывают уязвимости](https://en.wikipedia.org/wiki/Responsible_disclosure), , что обычно означает, что исследователи дадут Chromium и Node. s некоторое время для исправления проблем до их публикации. Ваше приложение будет более безопасным, если будет запущена последняя версия Electron (и таким образом, Chromium и Node. s) для , какие потенциальные проблемы безопасности не известны.

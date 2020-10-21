@@ -10,9 +10,9 @@ __Индикатор прогресса в меню задач:__
 
 ![Индикатор прогресса в меню задач](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-All three cases are covered by the same API - the `setProgressBar()` method available on instances of `BrowserWindows`. Call it with a number between `0` and `1` to indicate your progress. If you have a long-running task that's currently at 63% towards completion, you'd call it with `setProgressBar(0.63)`.
+Все три случая охватываются тем же API - метод `setProgressBar()` доступный в экземплярах `BrowserWindows`. Вызовите его с номером между `0` и `1` , чтобы показать ваш прогресс. Если у вас давно запущенная задача, в настоящее время в 63% к завершению, вы бы назвали ее с `setProgressBar(0.63)`.
 
-Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
+Вообще говоря, значение параметра ниже нуля (например `-1`) удалит индикатор прогресса, а значение выше одного (например, `2`) переключит индикатор прогресса в промежуточный режим.
 
 Просмотрите [документацию по API для большего количества опций и режимов](../api/browser-window.md#winsetprogressbarprogress-options).
 

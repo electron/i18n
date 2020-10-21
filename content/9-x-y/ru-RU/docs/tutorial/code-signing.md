@@ -2,17 +2,17 @@
 
 Подпись кода - это технология безопасности, которую вы используете для удостоверения того, что приложение было создано вами.
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+В macOS система может обнаружить любые изменения в приложении, является ли изменение введенным случайно или вредоносным кодом.
 
 Windows назначает уровень доверия к подписи сертификата; если у вас его нет — система не будет доверять приложению и будет показывать окна безопасности перед запуском.  Уровень доверия строится со временем, поэтому лучше начинать подписывание кода как можно раньше.
 
-Можно распространять неподписанные приложения, но не рекомендуется. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+Можно распространять неподписанные приложения, но не рекомендуется. По умолчанию Windows и macOS предотвратят загрузку или выполнение неподписанных приложений. Начиная с macOS Catalina (версия 10.15), пользователи должны пройти несколько ручных шагов для открытия неподписанных приложений.
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
+![macOS Catalina Gatekeeper предупреждает: Приложение не может быть открыто, потому что разработчик не может быть проверен](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
+Как видите, пользователи получают два варианта: Переместить приложение прямо в корзину или отменить его выполнение. Вы не хотите, чтобы ваши пользователи видели это диалоговое окно.
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed. В магазинах приложений Mac и Windows не разрешены неподписанные приложения.
+Если вы создаете приложение Electron, которое вы собираетесь поставлять и распространять, то оно должно быть подписано кодом. В магазинах приложений Mac и Windows не разрешены неподписанные приложения.
 
 # Подписывание сборок для macOS
 
@@ -29,11 +29,11 @@ If you are building an Electron app that you intend to package and distribute, i
   - [`electron-forge`][] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
 - [`electron-builder`][] has built-in code-signing capabilities. Смотри страницу [electron.build/code-signing](https://www.electron.build/code-signing)
 
-## Notarization
+## Нотаризация
 
-Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
+Начиная с macOS Catalina, Apple требуется нотариальные приложения. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
 
-To automate this process, you can use the [`electron-notarize`][] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+To automate this process, you can use the [`electron-notarize`][] module. Вам не обязательно нужно завершать этот шаг для каждой сборки – просто сборки, которые вы собираетесь поставлять пользователям.
 
 ## Mac App Store
 
@@ -43,10 +43,10 @@ See the [Mac App Store Guide][].
 
 Перед подписью, следует:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
+1. Получить сертификат для подписания кода аутентификации Windows (требуется ежегодная плата)
 2. Установить Visual Studio 2015 или 2017
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Вы можете получить сертификат подписи кода у многих реселлеров. Цены варьируются, поэтому может стоить вашего времени для покупок. Популярные реселлеры включают:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)

@@ -32,11 +32,11 @@ Kiedy użytkownik kliknie na plik z JumpList, nowa instancja twojej aplikacji wy
 
 ## macOS Notes
 
-### Adding the Recent Documents list to the application menu:
+### Dodawanie listy ostatnich dokumentów do menu aplikacji:
 
-![macOS Recent Documents menu item][6]
+![pozycja menu najnowszych dokumentów macOS][6]
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+Możesz dodać pozycje menu, aby uzyskać dostęp i wyczyścić najnowsze dokumenty dodając następujący kod do szablonu menu.
 
 ```json
 {

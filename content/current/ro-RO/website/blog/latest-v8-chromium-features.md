@@ -1,76 +1,76 @@
 ---
-title: Use V8 and Chromium Features in Electron
-author: jlord
+title: Folosește funcțiile V8 și Chromium în Electron
+author: Jlord
 date: '2016-01-07'
 ---
 
-Building an Electron application means you only need to create one codebase and design for one browser, which is pretty handy. But because Electron stays up to date with [Node.js](http://nodejs.org) and [Chromium](https://www.chromium.org) as they release, you also get to make use of the great features they ship with. In some cases this eliminates dependencies you might have previously needed to include in a web app.
+Construirea unei aplicații Electron înseamnă că trebuie doar să creezi un singur codebază și design pentru un singur browser, ceea ce este destul de util. Dar pentru că Electron rămâne la curent cu [Node. s](http://nodejs.org) și [Chromium](https://www.chromium.org) în timp ce se eliberează, poți folosi și caracteristicile grozave cu care navighează. În unele cazuri, acest lucru elimină dependențele pe care ar fi trebuit să le includeți anterior într-o aplicație web.
 
 ---
 
-There are many features and we'll cover some here as examples, but if you're interested in learning about all features you can keep an eye on the [Google Chromium blog](http://blog.chromium.org) and [Node.js changelogs](https://nodejs.org/en/download/releases). You can see what versions of Node.js, Chromium and V8 Electron is using at [electronjs.org/#electron-versions](https://electronjs.org/#electron-versions).
+Sunt multe caracteristici şi vom prezenta aici câteva exemple, dar dacă ești interesat să afli despre toate caracteristicile, poți să fii atent pe blogul [Google Chromium](http://blog.chromium.org) și [Node. s changelogs](https://nodejs.org/en/download/releases). Poți vedea ce versiuni de Node.js, Chromium și V8 Electron folosesc la [electronjs.org/#electron-versiuni](https://electronjs.org/#electron-versions).
 
-## ES6 Support through V8
+## Sprijin ES6 prin V8
 
-Electron combines Chromium's rendering library with Node.js. The two share the same JavaScript engine, [V8](https://developers.google.com/v8). Many ECMAScript 2015 (ES6) features are already built into V8 which means you can use them in your Electron application without any compilers.
+Electron combină biblioteca Chromium cu Node.js. Cei doi au același motor JavaScript, [V8](https://developers.google.com/v8). Multe caracteristici ECMAScript 2015 (ES6) sunt deja incluse în V8, ceea ce înseamnă că le poți folosi în aplicația ta Electron fără niciun compilator.
 
-Below are a few examples but you can also get classes (in strict mode), block scoping, promises, typed arrays and more. Check out [this list](https://nodejs.org/en/docs/es6/) for more information on ES6 features in V8.
+Mai jos sunt câteva exemple, dar poți obține clase (în mod strict), blocări ale scopului, promisiuni, array-uri tastate și multe altele. Vezi [această listă](https://nodejs.org/en/docs/es6/) pentru mai multe informații despre funcțiile ES6 din V8.
 
-**Arrow Functions**
+**Funcţii săgeată**
 
 ```js
 findTime () => {
-  console.log(new Date())
+  console.log(noua Date())
 }
 ```
-**String Interpolation**
+**Interpolare String**
 
 ```js
 var octocat = "Mona Lisa";
-console.log(`The octocat's name is ${octocat}`);
+console.log(`Numele caracatiţei este ${octocat}`);
 ```
 
 **New Target**
 
 ```js
 Octocat() => {
-  if (!new.target) throw "Not new";
-  console.log("New Octocat");
+  dacă (!new.target) aruncați "Not new";
+  consolă. Câine ("Caracatiță nouă");
 }
 
-// Throws
-Octocat();
-// Logs
-new Octocat();
+// Arjii
+Caracatiță();
+// Loguri
+o nouă Caracatiță();
 ```
 
-**Array Includes**
+**Array include**
 
 ```js
- // Returns true
+ // Returnează adevărat
 [1, 2].includes(2);
 ```
 
-**Rest Parameters**
+**Parametri reci**
 
 ```js
-// Represent indefinite number of arguments as an array
+// Reprezintă un număr nedefinit de argumente ca un array
 (o, c, ...args) => {
   console.log(args.length)
 }
 ```
 
-## Chromium Features
+## Caracteristici Crom
 
-Thanks to all the hard work Google and contributors put into Chromium, when you build Electron apps you can also use cool things like (but not limited to):
+Mulţumită muncii asidue pe care Google şi colaboratorii au depus-o în Chromium, când construiești aplicații Electron poți folosi, de asemenea, lucruri grozave ca (dar fără a te limita la):
 
 - [MouseEvent.getModifierState()](https://googlechrome.github.io/samples/mouseevent-get-modifier-state/index.html)
 - [CSS.escape()](https://googlechrome.github.io/samples/css-escape/index.html)
-- [Fetch API Streaming](https://googlechrome.github.io/samples/fetch-api/fetch-response-stream.html)
+- [Preia streaming API](https://googlechrome.github.io/samples/fetch-api/fetch-response-stream.html)
 
-Follow along with the [Google Chromium blog](http://blog.chromium.org) to learn about features as new versions ship and again, you can check the version of Chromium that Electron uses [here](https://electronjs.org/#electron-versions).
+Urmăriți împreună cu blog-ul [Google Chromium](http://blog.chromium.org) pentru a afla despre caracteristici ca noua navă a versiunilor și din nou poți verifica versiunea de Chromium pe care Electron o folosește [aici](https://electronjs.org/#electron-versions).
 
-## What are you excited about?
+## De ce ești entuziasmat?
 
-Tweet to us [@ElectronJS](https://twitter.com/electronjs) with your favorite features built into V8 or Chromium.
+Trimite-ne un tweet [@ElectronJS](https://twitter.com/electronjs) cu caracteristicile tale favorite integrate în V8 sau Chromium.
 

@@ -1,34 +1,34 @@
 ---
-title: SQLite Vulnerability Fix
+title: SQLite kwetsbaarheid Fix
 author: ckerr
 date: '2018-12-18'
 ---
 
-A remote code execution vulnerability, "[Magellan](https://blade.tencent.com/magellan/index_en.html)," has been discovered affecting software based on SQLite or Chromium, including all versions of Electron.
+Een externe code uitvoering kwetsbaarheid, "[Magellan](https://blade.tencent.com/magellan/index_en.html)," is ontdekt van invloed op software gebaseerd op SQLite of Chromium, inclusief alle versies van Electron.
 
 ---
 
-## Scope
+## Bereik
 
-Electron applications using Web SQL are impacted.
+Elektroon-applicaties met behulp van Web SQL hebben invloed.
 
 
-## Mitigation
+## Mitigatie
 
-Affected apps should stop using Web SQL or upgrade to a patched version of Electron.
+Getroffen apps moeten stoppen met het gebruik van Web SQL of bijwerken naar een gepatenteerde versie van Electron.
 
-We've published new versions of Electron which include fixes for this vulnerability:
+We hebben nieuwe versies van Electron gepubliceerd, die oplossingen voor deze kwetsbaarheid bevatten:
   * [4.0.0-beta.11](https://github.com/electron/electron/releases/tag/v4.0.0-beta.11)
   * [3.1.0-beta.4](https://github.com/electron/electron/releases/tag/v3.1.0-beta.4)
   * [3.0.13](https://github.com/electron/electron/releases/tag/v3.0.13)
   * [2.0.16](https://github.com/electron/electron/releases/tag/v2.0.16)
 
-There are no reports of this in the wild; however, affected applications are urged to mitigate.
+Daar zijn geen berichten van in het wild opgesteld; er wordt echter aangedrongen op verzachting van de betreffende aanvragen.
 
-## Further Information
+## Verdere informatie
 
-This vulnerability was discovered by the Tencent Blade team, who have published [a blog post that discusses the vulnerability](https://blade.tencent.com/magellan/index_en.html).
+Deze kwetsbaarheid is ontdekt door het Tencent Blade team, die [een blogpost heeft gepubliceerd die gaat over de kwetsbaarheid](https://blade.tencent.com/magellan/index_en.html).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Om meer te weten te komen over beste praktijken om je Electron apps veilig te houden, bekijk onze [beveiligingshandleiding](https://electronjs.org/docs/tutorial/security).
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Als u een kwetsbaarheid in Electron wilt melden, e-mail security@electronjs.org.

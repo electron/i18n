@@ -10,7 +10,7 @@ These new features bring those auditing tools to your Electron app. You can choo
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. 例如：
+在 Spectron 测试框架中，您现在可以审核每个窗口， `<webview>` 标签在您的应用程序中。 例如：
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {

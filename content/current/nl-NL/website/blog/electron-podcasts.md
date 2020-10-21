@@ -4,17 +4,17 @@ author: jlord
 date: '2016-07-26'
 ---
 
-Looking for an introduction to Electron? Two new podcasts have just been released that give a great overview of what it is, why it was built, and how it is being used.
+Op zoek naar een introductie in Electron? Er zijn zojuist twee nieuwe podcasts vrijgegeven die een goed overzicht geven van wat het is. waarom het is gebouwd en hoe het wordt gebruikt.
 
 ---
 
-**Out now:**
+**Nu uit:**
 
 <a href="http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord"><img src="https://cloud.githubusercontent.com/assets/2289/23483197/d14f716e-fe86-11e6-95da-dcfe73bb86f7.jpg" width="200"></a>
 
-### [Hanselminutes: Creating cross-platform Electron apps](http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord)
+### [Hanzelminuten: Maken van cross-platform Electron apps](http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord)
 
-> Is Electron "just Chrome in a frame" or is it so much more? Jessica sets Scott on the right path and explains exactly where the Electron platform fits into your development world.
+> Is Electron "just Chrome in a frame" of is het zo veel meer? Jessica zet Scott op het juiste pad en legt precies uit waar het Electron platform past in jouw ontwikkelingswereld.
 
 <br>
 
@@ -22,11 +22,11 @@ Looking for an introduction to Electron? Two new podcasts have just been release
 
 ### [JavaScript Air: Electron Apps](https://javascriptair.com/episodes/2016-07-06)
 
-> Electron is becoming more and more of a relevant and popular way of building multi-platform desktop apps with web technologies. Let's get a dive into this awesome tech and see how we can use it to enhance our own experience and our user's experience on the desktop.
+> Electron wordt steeds meer een relevante en populaire manier om multi-platform desktopapps met webtechnologieën te maken. Laten we een duif krijgen in deze geweldige technologie en kijken hoe we het kunnen gebruiken om onze eigen ervaring en de ervaring van onze gebruikers op het bureaublad te verbeteren.
 
 <br>
 
-If you're looking for an introduction to Electron, give the first a listen. The second goes into more detail about building apps with great tips from Nylas's [Evan Morikawa](https://twitter.com/E0M).
+Als je op zoek bent naar een introductie voor Electro, luister dan de eerste. De tweede gaat in op het bouwen van apps met geweldige tips van Nylas [Evan Morikawa](https://twitter.com/E0M).
 
-We are currently working on two more podcasts that should come out next month, keep an eye on the [@ElectronJS](https://twitter.com/ElectronJS) Twitter account for updates.
+We werken momenteel aan nog twee podcasts die volgende maand moeten verschijnen, houd de [@ElectronJS](https://twitter.com/ElectronJS) Twitter-account in de gaten voor updates.
 

@@ -2,13 +2,13 @@
 
 Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
-## Prepare a Copy of Flash Plugin
+## Kopieren des Flash-Plugins vorbereiten
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://version` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://version` in the Chrome browser. Der Standort und die Version sind nützlich für die Unterstützung von Electron's Pepper Flash. Du kannst es auch an einen anderen -Standort kopieren.
 
-## Add Electron Switch
+## Elektron-Schalter hinzufügen
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+Sie können `--ppapi-flash-path` und `--ppapi-flash-version` direkt zur Electron-Befehlszeile hinzufügen oder die `App verwenden. ommandLine.appendSwitch` Methode bevor die App fertig ist. Schalten Sie außerdem `Plugins` Option von `BrowserWindow` ein.
 
 Ein Beispiel:
 
@@ -16,42 +16,42 @@ Ein Beispiel:
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
-let pluginName
-switch (process.platform) {
+// Flash-Pfad angeben, Angenommen, es befindet sich im selben Verzeichnis mit main. s.
+laßt pluginName
+Schalter (process.platform) {
   case 'win32':
-    pluginName = 'pepflashplayer.dll'
+    pluginName = 'pepflashplayer. ll'
     break
   case 'darwin':
-    pluginName = 'PepperFlashPlayer.plugin'
+    pluginName = 'PepperFlashPlayer. lugin'
     break
   case 'linux':
-    pluginName = 'libpepflashplayer.so'
-    break
+    pluginName = 'libpepflashplayer. o'
+    Pause
 }
-app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
+App. ommandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
-app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
+// Optional: Flash Version angeben, zum Beispiel v17.0.169
+app.commandLine.appendSwitch('ppapi-flash-version', '17.0.169')
 
-app.whenReady().then(() => {
+app.whenReady(). hen(() => {
   const win = new BrowserWindow({
     width: 800,
-    height: 600,
+    Höhe: 600,
     webPreferences: {
       plugins: true
     }
   })
-  win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
+  gewinnen. oadURL(`file://${__dirname}/index.html`)
+  // Etwas anderes
 })
 ```
 
 You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
 
-## Enable Flash Plugin in a `<webview>` Tag
+## Flash-Plugin in einem `<webview>` Tag aktivieren
 
-Add `plugins` attribute to `<webview>` tag.
+`Plugins` Attribut zu `<webview>` Tag hinzufügen.
 
 ```html
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
@@ -59,10 +59,10 @@ Add `plugins` attribute to `<webview>` tag.
 
 ## Problemlösungen
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+Sie können überprüfen, ob Pepper Flash Plugin geladen wurde, indem Sie den `Navigator untersuchen. lugins` in der Konsole von devtools (obwohl Sie nicht wissen können, ob der Pfad des Plugins korrekt ist).
 
 The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
 On Windows the path passed to `--ppapi-flash-path` has to use `\` as path delimiter, using POSIX-style paths will not work.
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+Für einige Operationen, wie zum Beispiel das Streaming von Medien mit RTMP, ist es notwendig, den Players `.swf` Dateien breitere Berechtigungen zu gewähren. Eine Möglichkeit, dies zu erreichen, ist, [nw-flash-trust](https://github.com/szwacz/nw-flash-trust) zu verwenden.

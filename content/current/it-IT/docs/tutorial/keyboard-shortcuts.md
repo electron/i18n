@@ -1,10 +1,10 @@
 # Scorciatoie da tastiera
 
-> Configure local and global keyboard shortcuts
+> Configura i tasti scorciatoia locali e globali
 
-## Local Shortcuts
+## Scorciatoie Locali
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+È possibile utilizzare il modulo [Menu](../api/menu.md) per configurare le scorciatoie da tastiera che saranno attivate solo quando l'app è attivata. Per farlo, specificare una proprietà [`accelerator`] quando si crea un [MenuItem](../api/menu-item.md).
 
 ```js
 const { Menu, MenuItem } = require('electron')
@@ -17,17 +17,17 @@ menu.append(new MenuItem({
 }))
 ```
 
-You can configure different key combinations based on the user's operating system.
+È possibile configurare diverse combinazioni di tasti in base al sistema operativo dell'utente.
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Maiusc+I'
 }
 ```
 
-## Global Shortcuts
+## Scorciatoie Globali
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+È possibile utilizzare il modulo [globalShortcut](../api/global-shortcut.md) per rilevare gli eventi della tastiera anche quando l'applicazione non ha il fuoco della tastiera.
 
 ```js
 const { app, globalShortcut } = require('electron')
@@ -39,19 +39,19 @@ app.whenReady().then(() => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Scorciatoie all'interno di una Finestra di navigazione
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+Se vuoi gestire le scorciatoie da tastiera per una [Finestra di navigazione](../api/browser-window.md), è possibile utilizzare i `keyup` e `keydown` ascoltatori evento sull'oggetto finestra all'interno del processo di renderer.
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Nota il terzo parametro `true` che significa che l'ascoltatore riceverà sempre le pressioni dei tasti prima di altri ascoltatori in modo che non possano avere `stopPropagation()` chiamato su di loro.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+L'evento [`before-input-event`](../api/web-contents.md#event-before-input-event) viene emesso prima di spedire `keydown` e `keyup` eventi nella pagina. Può essere usato per catturare e gestire scorciatoie personalizzate che non sono visibili nel menu.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+Se non vuoi analizzare manualmente le scorciatoie ci sono librerie che fanno il rilevamento avanzato delle chiavi, come [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

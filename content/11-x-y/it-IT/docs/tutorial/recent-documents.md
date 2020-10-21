@@ -1,6 +1,6 @@
 # Documenti recenti (Windows & macOS)
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows e macOS forniscono l'accesso a un elenco di documenti recenti aperti da l'applicazione tramite JumpList o dock menu, rispettivamente.
 
 __JumpList:__
 
@@ -32,11 +32,11 @@ Quando un utente clicca su un file dalla JumpList, una nuova istanza della tua a
 
 ## note di macOS
 
-### Adding the Recent Documents list to the application menu:
+### Aggiungere l'elenco dei documenti recenti al menu dell'applicazione:
 
-![macOS Recent Documents menu item][6]
+![voce del menu macOS Documenti recenti][6]
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+È possibile aggiungere voci di menu per accedere e cancellare documenti recenti aggiungendo la seguente snippet di codice al modello del menù.
 
 ```json
 {

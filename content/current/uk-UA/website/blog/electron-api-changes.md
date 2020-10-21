@@ -1,56 +1,56 @@
 ---
-title: API Changes Coming in Electron 1.0
+title: API змінює стан в Electron 1.0
 author: zcbenz
 date: '2015-11-17'
 ---
 
-Since the beginning of Electron, starting way back when it used to be called Atom-Shell, we have been experimenting with providing a nice cross-platform JavaScript API for Chromium's content module and native GUI components. The APIs started very organically, and over time we have made several changes to improve the initial designs.
+З початку Electron, він повертається назад, коли його називали Atom-Shell, ми експериментували з наданням гарного крос-платформного JavaScript API для модуля вмісту Chromium і місцевих компонентів GUI компонентів. Із часом АВТ почалася дуже органічно, і з часом ми зробили декілька змін, щоб покращити початкові конструкції.
 
 ---
 
-Now with Electron gearing up for a 1.0 release, we'd like to take the opportunity for change by addressing the last niggling API details. The changes described below are included in **0.35.x**, with the old APIs reporting deprecation warnings so you can get up to date for the future 1.0 release. An Electron 1.0 won't be out for a few months so you have some time before these changes become breaking.
+Тепер, коли ми збираємось отримати 1.0 реліз, ми хотіли б отримати можливість для змін, поставивши рішення останньої невикористовуваних деталей API. Позначені нижче зміни включені в **0.35.**, з попередніми попередженнями про застарілі API, так що ви можете отримати дату в майбутньому 1.0 реліз. Electron 1.0 не буде вже кілька місяців, тому у вас є трохи часу, перш ніж ці зміни стануть ламаними.
 
-## Deprecation warnings
+## Попередження про занепад
 
-By default, warnings will show if you are using deprecated APIs. To turn them off you can set `process.noDeprecation` to `true`. To track the sources of deprecated API usages, you can set `process.throwDeprecation` to `true` to throw exceptions instead of printing warnings, or set `process.traceDeprecation` to `true` to print the traces of the deprecations.
+За замовчуванням, попередження відображатимуться, якщо ви використовуєте застарілий API. Щоб вимкнути їх, ви можете встановити `process.noDeprecation` на `true`. Для відстеження джерела застарілого використання API, ви можете встановити `процес. hrowDeprecation` to `true` для показу винятків замість друку попереджень або створення `процесу. raceDeprecation` до `true` для друку слідів застарілості.
 
-## New way of using built-in modules
+## Новий спосіб використання вбудованих модулів
 
-Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules](https://github.com/electron/electron/issues/387):
+Зараз вбудовані модулі згруповані в один модуль, замість відокремлення незалежних модулів, ви можете використовувати їх [без конфліктів з іншими модулями](https://github.com/electron/electron/issues/387):
 
 ```javascript
 var app = require('electron').app
 var BrowserWindow = require('electron').BrowserWindow
 ```
 
-The old way of `require('app')` is still supported for backward compatibility, but you can also turn if off:
+Старий шлях `require('app')` все ще підтримується для забезпечення зворотної сумісності, але ви також можете вимкнути, якщо вимкнено:
 
 ```javascript
 require('electron').hideInternalModules()
-require('app')  // throws error.
+require('app') // помилка кидання.
 ```
 
-## An easier way to use the `remote` module
+## Простіший спосіб використання `віддаленого` модуля
 
-Because of the way using built-in modules has changed, we have made it easier to use main-process-side modules in renderer process. You can now just access `remote`'s attributes to use them:
+Завдяки тому, що за допомогою вбудованих модулів було змінено, ми полегшили використання модулів, що знаходяться в процесі рендерингу. Тепер ви можете просто отримати доступ до `атрибути віддаленого`, щоб використовувати їх:
 
 ```javascript
-// New way.
+// Новий спосіб.
 var app = require('electron').remote.app
 var BrowserWindow = require('electron').remote.BrowserWindow
 ```
 
-Instead of using a long require chain:
+Замість використання довгого ланцюжку:
 
 ```javascript
-// Old way.
+// Старого.
 var app = require('electron').remote.require('app')
 var BrowserWindow = require('electron').remote.require('BrowserWindow')
 ```
 
-## Splitting the `ipc` module
+## Розділення `ipc` модуля
 
-The `ipc` module existed on both the main process and renderer process and the API was different on each side, which is quite confusing for new users. We have renamed the module to `ipcMain` in the main process, and `ipcRenderer` in the renderer process to avoid confusion:
+Модуль `ipc` існує як в основному процесі, так і в процесі рендерингу, і в API було різним з кожної сторони, які доволі заплутані для нових користувачів. Ми перейменували модуль на `ipcMain` в головному процесі, та `ipcRenderer` в процесі рендерингу, щоб уникнути плутанини:
 
 ```javascript
 // In main process.
@@ -62,36 +62,36 @@ var ipcMain = require('electron').ipcMain
 var ipcRenderer = require('electron').ipcRenderer
 ```
 
-And for the `ipcRenderer` module, an extra `event` object has been added when receiving messages, to match how messages are handled in `ipcMain` modules:
+А для модуля `ipcRenderer` , додавався додатковий `об'єкт` події щоб відповідати аналізу способу обробки повідомлень в `модулях ipcMain`:
 
 ```javascript
-ipcRenderer.on('message', function (event) {
+ipcRenderer.on('message', функція (event) {
   console.log(event)
 })
 ```
 
-## Standardizing `BrowserWindow` options
+## Стандартне значення `BrowserWindow` параметрів
 
-The `BrowserWindow` options had different styles based on the options of other APIs, and were a bit hard to use in JavaScript because of the `-` in the names. They are now standardized to the traditional JavaScript names:
+`Опція BrowserWindow` має різні стилі, засновані на опціях інших API, було трохи важко використовувати в JavaScript через `-` в іменах. Зараз вони стандартизовані в традиційні назви JavaScript:
 
 ```javascript
 new BrowserWindow({ minWidth: 800, minHeight: 600 })
 ```
 
-## Following DOM's conventions for API names
+## Відповідно до правил DOM, для імен API
 
-The API names in Electron used to prefer camelCase for all API names, like `Url` to `URL`, but the DOM has its own conventions, and they prefer `URL` to `Url`, while using `Id` instead of `ID`. We have done the following API renames to match the DOM's styles:
+Імена API в Electron, що використовуються для камеліки для всіх назв API, як `Url` to `URL`, але DOM має свої власні конвенції, і вони віддають перевагу `URL` до `URL-адреси`, при використанні ідентифікатора `` замість `ID`. Ми зробили наступні API перейменовані, щоб відповідати стилям DOM:
 
-* `Url` is renamed to `URL`
-* `Csp` is renamed to `CSP`
+* `Url` перейменовано на `URL`
+* `Csp` перейменовано на `CSP`
 
-You will notice lots of deprecations when using Electron v0.35.0 for your app because of these changes. An easy way to fix them is to replace all instances of `Url` with `URL`.
+Ви помітите багато застарілостей при використанні Electron v0.35.0 для Вашого застосунку через ці зміни. Легкий спосіб їх виправити - замінити всі екземпляри `URL` на `URL`.
 
-## Changes to `Tray`'s event names
+## Зміни на `в системному лотку`імена подій
 
-The style of `Tray` event names was a bit different from other modules so a rename has been done to make it match the others.
+Стиль `лотка` імен подій було трохи відрізнятися від інших модулів, тому було зроблено перейменування, щоб зробити його відповідним іншим.
 
-* `clicked` is renamed to `click`
-* `double-clicked` is renamed to `double-click`
-* `right-clicked` is renamed to `right-click`
+* `натиснуто` перейменовано на `натисніть`
+* `подвійний клік` перейменовано на `подвійний клік`
+* `натиснуто правою кнопкою миші` перейменовано на `клацніть правою кнопкою миші`
 

@@ -1,5 +1,5 @@
 ---
-title: WebPreferences Vulnerability Fix
+title: Arreglo de vulnerabilidad WebPreferencias
 author: ckerr
 date: '22-08-2018'
 ---
@@ -8,20 +8,20 @@ Se ha descubierto una vulnerabilidad de ejecución de un código remoto la cual 
 
 ---
 
-## Affected Platforms
+## Plataformas Afectadas
 
 Esto te afecta si:
 
 1. Has incrustado _cualquier_ contenido de usuario remoto, incluso en una sandbox
 2. Aceptas inputs de usuario con cualquier vulnerabilidad XSS
 
-_Details_
+_Detalles_
 
 Esto te afecta si cualquier código de usuario se ejecuta dentro de `iframe` / si puede crear un `iframe`. Dada la posibilidad de una vulnerabilidad XSS, se puede asumir que la mayoría de aplicaciones son vulnerables a este caso.
 
 Esto te afecta si abres cualquiera de tus ventanas con las opciones `nativeWindowOpen: true` o `sandbox: true`.  A pesar de que esta vulnerabilidad también requiere que exista una vulnerabilidad XSS en tu aplicación, deberías aplicar una de las mitigaciones de abajo si utilizas alguna de estas opciones.
 
-## Mitigation
+## Modificación
 
 Hemos publicado nuevas versiones de Electron las cuales incluyen correcciones para esta vulnerabilidad: [`3.0.0-beta.7`](https://github.com/electron/electron/releases/tag/v3.0.0-beta.7), [`2.0.8`](https://github.com/electron/electron/releases/tag/v2.0.8), [`1.8.8`](https://github.com/electron/electron/releases/tag/v1.8.8), and [`1.7.16`](https://github.com/electron/electron/releases/tag/v1.7.16). Le pedimos a todos los desarrolladores de Electron a que actualicen sus aplicaciones a la más reciente versión estable ahora mismo.
 
@@ -54,10 +54,10 @@ enforceInheritance(mainWindow.webContents)
 
 Este código forzará manualmente las ventanas de nivel superior (`webPreferences`) sean aplicadas a todas las ventanas hijas de manera infinitamente profunda.
 
-## Further Information
+## Más información
 
 Esta vulnerabilidad fue encontrada y reportada responsablemente al proyecto Electron por [Matt Austin](https://twitter.com/mattaustin) de [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Para obtener más información sobre las mejores prácticas para mantener sus aplicaciones Electron seguras, consulte nuestro [tutorial de seguridad](https://electronjs.org/docs/tutorial/security).
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Si desea reportar una vulnerabilidad en Electron, envíe un correo electrónico a security@electronjs.org.

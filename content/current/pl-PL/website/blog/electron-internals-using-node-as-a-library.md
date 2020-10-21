@@ -1,58 +1,58 @@
 ---
-title: 'Electron Internals&#58; Using Node as a Library'
+title: 'Electron Internals&#58; Używanie węzła jako biblioteki'
 author: zcbenz
 date: '2016-08-08'
 ---
 
-This is the second post in an ongoing series explaining the internals of Electron. Check out the [first post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) about event loop integration if you haven't already.
+To jest drugi post w bieżącej serii opisującej wewnętrzne Electron. Sprawdź [pierwszy post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) o integracji pętli zdarzeń jeśli jeszcze tego nie zrobiłeś.
 
-Most people use [Node](https://nodejs.org) for server-side applications, but because of Node's rich API set and thriving community, it is also a great fit for an embedded library. This post explains how Node is used as a library in Electron.
+Większość osób używa [węzła](https://nodejs.org) do aplikacji po stronie serwera. ale ze względu na bogaty zestaw API i kwitnącą społeczność Node, jest on również świetnie przydatny do osadzonej biblioteki. Ten post wyjaśnia, w jaki sposób węzeł jest używany jako biblioteka w Electron.
 
 ---
 
-## Build system
+## Zbuduj system
 
-Both Node and Electron use [`GYP`](https://gyp.gsrc.io) as their build systems. If you want to embed Node inside your app, you have to use it as your build system too.
+Zarówno węzeł, jak i Electron używają [`GYP`](https://gyp.gsrc.io) jako swoich systemów budowy. Jeśli chcesz osadzić węzeł wewnątrz aplikacji, musisz użyć go również jako systemu budowy.
 
-New to `GYP`? Read [this guide](https://gyp.gsrc.io/docs/UserDocumentation.md) before you continue further in this post.
+Nowy do `GYP`? Przeczytaj [ten poradnik](https://gyp.gsrc.io/docs/UserDocumentation.md) , zanim przejdziesz dalej do tego wpisu.
 
-## Node's flags
+## Flagi węzła
 
-The [`node.gyp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) file in Node's source code directory describes how Node is built, along with lots of [`GYP`](https://gyp.gsrc.io) variables controlling which parts of Node are enabled and whether to open certain configurations.
+Węzeł [`. yp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) plik w katalogu kodu źródłowego Node opisuje, jak zbudowany jest węzeł wraz z mnóstwem [`GYP`](https://gyp.gsrc.io) zmienne kontrolujące które części węzła są włączone i czy otworzyć niektóre konfiguracje.
 
-To change the build flags, you need to set the variables in the `.gypi` file of your project. The `configure` script in Node can generate some common configurations for you, for example running `./configure --shared` will generate a `config.gypi` with variables instructing Node to be built as a shared library.
+Aby zmienić flagi budowy, musisz ustawić zmienne w pliku `.gypi` twojego projektu. Skrypt `konfiguracja` w węźle może wygenerować dla Ciebie wspólne konfiguracje, na przykład uruchamianie `. konfiguracja --shared` wygeneruje `config.gypi` ze zmiennymi instruującymi węzeł do budowy jako wspólną bibliotekę.
 
-Electron does not use the `configure` script since it has its own build scripts. The configurations for Node are defined in the [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) file in Electron's root source code directory.
+Electron nie używa skryptu `konfiguracja` , ponieważ ma własne skrypty budowy. Konfiguracje dla węzła są zdefiniowane w pliku [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) w katalogu kodów źródłowych Electrona.
 
-## Link Node with Electron
+## Połącz węzeł z Electronem
 
-In Electron, Node is being linked as a shared library by setting the `GYP` variable `node_shared` to `true`, so Node's build type will be changed from `executable` to `shared_library`, and the source code containing the Node's `main` entry point will not be compiled.
+W Electronie, Węzeł jest połączony jako wspólna biblioteka, ustawiając zmienną `GYP` `node_shared` na `true`, więc typ budowy węzła zostanie zmieniony z `pliku wykonywalnego` na `shared_library`, a kod źródłowy zawierający `główny węzeł` punkt wejścia nie zostanie skompilowany.
 
-Since Electron uses the V8 library shipped with Chromium, the V8 library included in Node's source code is not used. This is done by setting both `node_use_v8_platform` and `node_use_bundled_v8` to `false`.
+Ponieważ Electron używa biblioteki V8 dostarczonej z Chromium, biblioteka V8 zawarta w kodzie źródłowym węzła nie jest używana. Dokonuje się tego poprzez ustawienie `node_use_v8_platform` i `node_use_bundled_v8` na `false`.
 
-## Shared library or static library
+## Wspólna biblioteka lub biblioteka statyczna
 
-When linking with Node, there are two options: you can either build Node as a static library and include it in the final executable, or you can build it as a shared library and ship it alongside the final executable.
+Podczas łączenia z Node, istnieją dwie opcje: możesz zbudować Node jako statyczną bibliotekę i umieścić go w ostatecznym pliku wykonywalnym, lub możesz zbudować go jako wspólną bibliotekę i wysłać ją obok ostatecznego pliku wykonywalnego.
 
-In Electron, Node was built as a static library for a long time. This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
+W Electron węzeł był od dawna budowany jako biblioteka statyczna. Dzięki temu kompilacja stała się prosta, włączyła najlepsze optymalizacje kompilatorów i pozwoliła Electron na dystrybucję bez dodatkowego pliku `node.dll`.
 
-However, this changed after Chrome switched to use [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL is a fork of [OpenSSL](https://www.openssl.org) that removes several unused APIs and changes many existing interfaces. Because Node still uses OpenSSL, the compiler would generate numerous linking errors due to conflicting symbols if they were linked together.
+Zmieniło się to jednak po przełączeniu Chrome na [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL to fork [OpenSSL](https://www.openssl.org) , który usuwa kilka nieużywanych interfejsów API i zmienia wiele istniejących interfejsów. Ponieważ węzeł nadal korzysta z OpenSSL, kompilator wygenerowałby wiele błędów łączenia z powodu sprzecznych symboli jeśli są ze sobą połączone.
 
-Electron couldn't use BoringSSL in Node, or use OpenSSL in Chromium, so the only option was to switch to building Node as a shared library, and [hide the BoringSSL and OpenSSL symbols](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) in the components of each.
+Electron nie mógł użyć BoringSSL w Noda lub użyć OpenSSL w Chromium, więc jedyną opcją było przełączenie na budowę węzła jako wspólnej biblioteki, i [ukryj symbole BoringSSL i OpenSSL](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) w elementach każdego z nich.
 
-This change brought Electron some positive side effects. Before this change, you could not rename the executable file of Electron on Windows if you used native modules because the name of the executable was hard coded in the import library. After Node was built as a shared library, this limitation was gone because all native modules were linked to `node.dll`, whose name didn't need to be changed.
+Zmiana ta przyniosła pewne pozytywne działania niepożądane. Przed tym zmień nie można zmienić nazwy pliku wykonywalnego Electron w systemie Windows, jeśli używasz natywnych modułów, ponieważ nazwa pliku wykonywalnego była kodowana w bibliotece importu. After Node was built as a shared library, this limitation was gone because all native modules were linked to `node.dll`, whose name didn't need to be changed.
 
-## Supporting native modules
+## Obsługa modułów natywnych
 
-[Native modules](https://nodejs.org/api/addons.html) in Node work by defining an entry function for Node to load, and then searching the symbols of V8 and libuv from Node. This is a bit troublesome for embedders because by default the symbols of V8 and libuv are hidden when building Node as a library and native modules will fail to load because they cannot find the symbols.
+[natywne moduły](https://nodejs.org/api/addons.html) w węźle poprzez zdefiniowanie funkcji wpisu węzła do załadowania, a następnie wyszukiwanie symboli V8 i libuva z Node. To jest trochę problemów dla osadników, ponieważ domyślnie symbole V8 i libuv są ukryte podczas budowy węzła jako biblioteki i natywnych modułów nie będą wczytywane , ponieważ nie mogą znaleźć symboli.
 
-So in order to make native modules work, the V8 and libuv symbols were exposed in Electron. For V8 this is done by [forcing all symbols in Chromium's configuration file to be exposed](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). For libuv, it is achieved by [setting the `BUILDING_UV_SHARED=1` definition](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
+Więc aby moduły natywne działały, symbole V8 i libuv były eksponowane w Electron. Dla V8 jest to zrobione przez [wymuszanie wszystkich symboli w pliku konfiguracyjnym Chromium'a](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). Dla libuva jest osiągany przez [ustawienie definicji `BUILDING_UV_SHARED=1`](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
 
-## Starting Node in your app
+## Uruchamianie węzła w aplikacji
 
-After all the work of building and linking with Node, the final step is to run Node in your app.
+Po całej pracy budowania i łączenia z węzłem, ostatnim krokiem jest uruchomienie węzła w Twojej aplikacji.
 
-Node doesn't provide many public APIs for embedding itself into other apps. Usually, you can just call [`node::Start` and `node::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) to start a new instance of Node. However, if you are building a complex app based on Node, you have to use APIs like `node::CreateEnvironment` to precisely control every step.
+Węzeł nie zapewnia wielu publicznych API do osadzania się w innych aplikacjach. Zazwyczaj możesz zadzwonić do [`węzła::Start` i `węzła::init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) aby rozpocząć nową instancję węzła. Jeśli jednak budujesz skomplikowaną aplikację opartą na Node, musisz używać API takich jak `węzeł::CreateEnvironment` , aby dokładnie kontrolować każdy krok.
 
-In Electron, Node is started in two modes: the standalone mode that runs in the main process, which is similar to official Node binaries, and the embedded mode which inserts Node APIs into web pages. The details of this will be explained in a future post.
+W Electronie, węzeł jest uruchamiany w dwóch trybach: trybie autonomicznym, który działa w głównym procesie, który jest podobny do oficjalnych binarów węzłów i trybu osadzonego , który wprowadza Node API na strony internetowe. Szczegóły tego zostaną wyjaśnione w przyszłym wpisie.
 

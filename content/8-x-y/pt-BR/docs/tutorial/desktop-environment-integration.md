@@ -1,31 +1,31 @@
 # Integração com Ambiente de Trabalho
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Diferentes sistemas operacionais fornecem diferentes recursos para a integração de aplicativos de área de trabalho em seus ambientes de área de trabalho. Por exemplo, no Windows, aplicações podem colocar atalhos na JumpList da barra de tarefas, e no Mac, aplicativos podem colocar um menu personalizado no menu dock.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Este guia explica como integrar sua aplicação a esses ambientes desktop com Electron APIs.
 
 ## Notificações
 
-See the [Notifications documentation](notifications.md).
+Consulte a [documentação de notificações](notifications.md).
 
 ## Documentos Recentes
 
-See [Recent Documents documentation](recent-documents.md).
+Veja [Documentação de Documentos Recentes](recent-documents.md).
 
-## Progress Bar
+## Barra de progresso
 
-See the [Progress Bar documentation](progress-bar.md).
+Veja a [documentação da Barra de Progresso](progress-bar.md).
 
-## Unity Launcher
+## Iniciador do Unity
 
 See the [Unity Launcher documentation][unity-launcher].
 
-## Represented File for macOS Window
+## Arquivo Representado para a Janela do macOS
 
-See the [Represented File documentation](represented-file.md).
+Veja a [documentação do Arquivo reapresentada](represented-file.md).
 
-## Dragging files out of the window
+## Arrastando arquivos para fora da janela
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+Veja a [documentação de Arrastar & Soltar arquivos nativos](native-file-drag-drop.md).
 
 [unity-launcher]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher

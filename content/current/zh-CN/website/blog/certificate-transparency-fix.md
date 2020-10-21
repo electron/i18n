@@ -1,99 +1,99 @@
 ---
-title: Certificate Transparency Fix
+title: 证书透明度修复
 author: kevinsawicki
 date: '2016-12-09'
 ---
 
-Electron [1.4.12](https://github.com/electron/electron/releases/tag/v1.4.12) contains an important patch that fixes an upstream Chrome issue where some Symantec, GeoTrust, and Thawte SSL/TLS certificates are incorrectly rejected 10 weeks from the build time of [libchromiumcontent](https://github.com/electron/libchromiumcontent), Electron's underlying Chrome library. There are no issues with the certificates used on the affected sites and replacing these certificates will not help.
+Electron [1.4. 2](https://github.com/electron/electron/releases/tag/v1.4.12) 包含一个重要的补丁，修复了一些Smantec、GeoTrust的上游Chrome 问题。 和 Thawte SSL/TLS 证书 被错误地拒绝了从 [libchromiumcontent](https://github.com/electron/libchromiumcontent)生成时间起10周内的 Chrome 库 Electron。 在受影响的网站上使用的 证书没有问题，替换这些证书将无济于事。
 
 ---
 
-In Electron 1.4.0 &mdash; 1.4.11 HTTPS requests to sites using these affected certificates will fail with network errors after a certain date. This affects HTTPS requests made using Chrome's underlying networking APIs such as `window.fetch`, Ajax requests, Electron's `net` API, `BrowserWindow.loadURL`, `webContents.loadURL`, the `src` attribute on a `<webview>` tag, and others.
+在 Electron 1.4.0 &mdash; 1.4.11 对使用这些受影响的 证书的站点的HTTPS 请求将在特定日期之后因网络错误而失败。 这影响使用 Chrome 的基础网络 API 做出的 HTTPS 请求，例如 `窗口。 etch`, Ajax request, Electron's `net` API, `BrowserWindow. oadURL`, `webContents. loadURL`, `src` 属性在一个 `<webview>` 标签等等。
 
-Upgrading your applications to 1.4.12 will prevent these request failures from occurring.
+将您的应用程序升级到1.4.12将防止这些请求失败 发生。
 
-**Note:** This issue was introduced in Chrome 53 so Electron versions earlier than 1.4.0 are not affected.
+**注意：** 此问题是在 Chrome 中引入的，所以早于 1.4.0 版本的 Electron 不会受到影响。
 
-### Impact Dates
+### 影响日期
 
-Below is a table of each Electron 1.4 version and the date when requests to sites using these affected certificates will start to fail.
+下面是每一个 Electron 1.4 版本的表，使用这些受影响证书的 请求的日期将开始失败。
 
 <table class="table table-ruled table-full-width">
     <thead>
         <tr class="text-left">
-            <th>Electron Version</th>
-            <th>Impact Date</th>
+            <th>Electron 版本</th>
+            <th>影响日期</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>1.3.x</td>
-            <td>Unaffected</td>
+            <td>不受影响</td>
         </tr>
         <tr>
             <td>1.4.0</td>
-            <td>Already failing</td>
+            <td>已经失败</td>
         </tr>
         <tr>
             <td>1.4.1</td>
-            <td>Already failing</td>
+            <td>已经失败</td>
         </tr>
         <tr>
             <td>1.4.2</td>
-            <td>Already failing</td>
+            <td>已经失败</td>
         </tr>
         <tr>
             <td>1.4.3</td>
-            <td>December 10th, 2016 9:00 PM PST</td>
+            <td>2016 年 12 月 10 日9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.4</td>
-            <td>December 10th, 2016 9:00 PM PST</td>
+            <td>2016 年 12 月 10 日9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.5</td>
-            <td>December 10th, 2016 9:00 PM PST</td>
+            <td>2016 年 12 月 10 日9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.6</td>
-            <td>January 14th, 2017 9:00 PM PST</td>
+            <td>1月14日，2017年9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.7</td>
-            <td>January 14th, 2017 9:00 PM PST</td>
+            <td>1月14日，2017年9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.8</td>
-            <td>January 14th, 2017 9:00 PM PST</td>
+            <td>1月14日，2017年9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.9</td>
-            <td>January 14th, 2017 9:00 PM PST</td>
+            <td>1月14日，2017年9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.10</td>
-            <td>January 14th, 2017 9:00 PM PST</td>
+            <td>1月14日，2017年9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.11</td>
-            <td>February 11th, 2017 9:00 PM PST</td>
+            <td>2月11日，2017 9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.12</td>
-            <td>Unaffected</td>
+            <td>不受影响</td>
         </tr>
     </tbody>
 </table>
 
-You can verify your app's impact date by setting your computer's clock ahead and then check to see if [https://symbeta.symantec.com/welcome/](https://symbeta.symantec.com/welcome/) successfully loads from it.
+您可以通过设置您的计算机的时钟在 之前验证您的应用程序的影响日期，然后检查是否 [https://symbeta。 ymantec.com/welcome/](https://symbeta.symantec.com/welcome/) 成功地从它中下载。
 
-## More Information
+## 更多信息
 
-You can read more about this topic, the original issue, and the fix at the following places:
+您可以阅读更多关于这个主题、最初问题以及以下 处的修复：
 
-- [What is Certificate Transparency?](https://www.certificate-transparency.org/what-is-ct)
-- [Symtantec knowledge base article](https://knowledge.symantec.com/support/ssl-certificates-support/index?page=content&id=ALERT2160)
+- [证书透明度是什么？](https://www.certificate-transparency.org/what-is-ct)
+- [Symtantec知识基础文章](https://knowledge.symantec.com/support/ssl-certificates-support/index?page=content&id=ALERT2160)
 - [Chrome issue 664177](https://bugs.chromium.org/p/chromium/issues/detail?id=664177)
-- [Chrome fix for issue 664177](https://codereview.chromium.org/2495583002)
-- [libchromiumcontent patch for issue 664177](https://github.com/electron/libchromiumcontent/pull/248)
+- [664177 Chrome 修复问题](https://codereview.chromium.org/2495583002)
+- [签发的 libchromiumcontent 补丁](https://github.com/electron/libchromiumcontent/pull/248)
 

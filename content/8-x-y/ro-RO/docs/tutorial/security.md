@@ -1,113 +1,108 @@
-# Security, Native Capabilities, and Your Responsibility
+# Securitate, capacități native și responsabilitatea ta
 
-As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+Ca dezvoltatori web, ne bucurăm, de obicei, de o plasă puternică de securitate a browserului - riscurile asociate cu codul pe care îl scriem sunt relativ mici. Site-urilor noastre li se acordă puteri limitate într-o cutie de nisip, și avem încredere că utilizatorii noștri se bucură de un navigator construit de o echipă mare de ingineri care este capabilă să răspundă rapid la amenințări de securitate nou descoperite.
 
-When working with Electron, it is important to understand that Electron is not a web browser. It allows you to build feature-rich desktop applications with familiar web technologies, but your code wields much greater power. JavaScript can access the filesystem, user shell, and more. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+Când lucrezi cu Electron, este important să înțelegi că Electron nu este un browser web. Îți permite să construiești aplicații desktop bogate cu tehnologii web familiare, dar codul tău are o putere mult mai mare. JavaScript poate accesa sistemul de fișiere, scoica utilizatorului și multe altele. Acest lucru vă permite să construiți aplicații native de înaltă calitate, dar dimensiunea inerentă a riscurilor de securitate cu competențele suplimentare acordate codului dvs.
 
-With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
+Având în vedere acest lucru, fii conștient de faptul că afișarea de conținut arbitrar din surse nesigure reprezintă un risc major de securitate pe care Electron nu este destinat să îl gestioneze. De fapt, cele mai populare aplicații Electron (Atom, Slack, Visual Studio Code, etc) afișează în principal conținutul local (sau de încredere, securizarea conținutului de la distanță fără integrarea modulului ) – în cazul în care aplicația dvs. execută codul dintr-o sursă online, este responsabilitatea ta de a te asigura că codul nu este răuvoitor.
 
 ## Raportarea problemelor de securitate
 
-For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+Pentru informații despre cum să se dezvăluie în mod corespunzător o vulnerabilitate Electron, a se vedea [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
 ## Probleme de securitate Chromium și actualizări
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron ţine la curent cu versiunile alternative de Chromium. Pentru mai multe informații, a se vedea postarea de pe blogul [Electron Release Cadence](https://electronjs.org/blog/12-week-cadence).
 
-## Security Is Everyone's Responsibility
+## Securitatea este responsabilitatea tuturor
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
+Este important să rețineți că securitatea aplicației tale Electron este rezultatul securității globale a fundației Cadrului (*Chromium*, *Node. s*), Electron în sine, toate dependențele NPM și codul tău. Ca atare, este responsabilitatea dumneavoastră să urmați câteva dintre cele mai bune practici importante:
 
-* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application. For more information, see "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
+* **Păstrează-ți aplicația la zi cu cea mai recentă versiune de framework Electron.** Când lansați produsul, livrați și un pachet compus din Electron, Bibliotecă partajată de Chromium și Node.js. Vulnerabilitățile care afectează aceste componente pot afecta securitatea aplicației dvs. Prin actualizarea Electron la ultima versiune , asigurați-vă că vulnerabilitățile critice (cum ar fi *nodeIntegration bypases*) sunt deja modificate și nu pot fi exploatate în aplicația dvs. Pentru mai multe informații, a se vedea „[Utilizați versiunea curentă a Electron](#17-use-a-current-version-of-electron)”.
 
-* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
+* **Evaluează-ți dependențele.** În timp ce NPM oferă jumătate de milion de pachete reutilizabile, este responsabilitatea ta să alegi bibliotecile 3rd-party de încredere. Dacă folosiți librării învechite afectate de vulnerabilități cunoscute sau dacă vă bazați pe un cod prost întreținut, securitatea aplicației dumneavoastră ar putea fi în pericol.
 
-* **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
+* **Folosirea practicilor de codificare securizată** Prima linie de apărare pentru aplicația ta este propriul tău cod. Vulnerabilități web comune, cum ar fi Scripting Cross-Site (XSS), are un impact mai mare asupra securității aplicațiilor Electron și, prin urmare, este foarte recomandat să se adopte cele mai bune practici de dezvoltare a software-ului și să se efectueze teste de securitate.
 
 
-## Isolation For Untrusted Content
+## Izolare pentru conținut neacreditat
 
-A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`][browser-window]. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+Există o problemă de securitate ori de câte ori primiți cod dintr-o sursă neacreditată (de ex. un server de la distanță) și executați-l local. As an example, consider a remote website being displayed inside a default [`BrowserWindow`][browser-window]. Dacă un atacator reușește cumva să schimbe conținutul menționat (fie atacând sursa direct, sau stând între aplicația dvs. și destinația propriu-zisă), ei vor putea executa codul nativ pe mașina utilizatorului.
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`<webview>`][webview-tag] tag or [`BrowserView`][browser-view], make sure to disable the `nodeIntegration` and enable `contextIsolation`.
+> :warning: În nici un caz nu ar trebui să încarci şi să executi codul de la distanţă cu Integrarea Node.js activată. În schimb, folosiți doar fișiere locale (împachetate împreună cu aplicația dvs.) pentru a executa codul Node.js. To display remote content, use the [`<webview>`][webview-tag] tag or [`BrowserView`][browser-view], make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
 ## Avertismente de securitate Electron
 
-From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
+De la Electron 2.0, dezvoltatorii vor vedea avertismentele și recomandările imprimate pentru consola de dezvoltator. Ele apar doar când numele binarului este Electron, indicând că un dezvoltator se uită la consolă.
 
-You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
+Puteți dezactiva forțat sau forțat aceste avertismente setând `ELECTRON_ENABLE_SECURITY_WARNINGS` sau `ELECTRON_DISABLE_SECURITY_WARNINGS` pe fie `. nv` sau obiectul ``.
 
-## Checklist: Security Recommendations
+## Verificare: Recomandări de securitate
 
-You should at least follow these steps to improve the security of your application:
+Ar trebui cel puțin să urmați acești pași pentru a îmbunătăți securitatea aplicației:
 
-1. [Only load secure content](#1-only-load-secure-content)
-2. [Disable the Node.js integration in all renderers that display remote content](#2-do-not-enable-nodejs-integration-for-remote-content)
-3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
-4. [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#4-handle-session-permission-requests-from-remote-content)
-5. [Do not disable `webSecurity`](#5-do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Do not set `allowRunningInsecureContent` to `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
-8. [Do not enable experimental features](#8-do-not-enable-experimental-features)
-9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
-10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
-11. [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
-12. [Disable or limit navigation](#12-disable-or-limit-navigation)
-13. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
-14. [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
-15. [Disable the `remote` module](#15-disable-the-remote-module)
-16. [Filter the `remote` module](#16-filter-the-remote-module)
-17. [Use a current version of Electron](#17-use-a-current-version-of-electron)
+1. [Încărcați doar conținut securizat](#1-only-load-secure-content)
+2. [Dezactivează integrarea Node.js în toate redările care afișează conținut de la distanță](#2-do-not-enable-nodejs-integration-for-remote-content)
+3. [Activează izolarea contextului în toate redările care afișează conținut de la distanță](#3-enable-context-isolation-for-remote-content)
+4. [Utilizaţi `ses.setPermissionRequestHandler()` în toate sesiunile care încarcă conținut de la distanță](#4-handle-session-permission-requests-from-remote-content)
+5. [Nu dezactiva `webSecurity`](#5-do-not-disable-websecurity)
+6. [Definește `Content-Security-Policy`](#6-define-a-content-security-policy) și folosește reguli restrictive (ex: `script-src 'self'`)
+7. [Nu seta `allowRunningInsecureContent` la `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
+8. [Nu activați funcțiile experimentale](#8-do-not-enable-experimental-features)
+9. [Nu utiliza `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
+10. [`<webview>`: Nu utilizaţi `allowpopups`](#10-do-not-use-allowpopups)
+11. [`<webview>`: Verifică opțiunile și parame-urile](#11-verify-webview-options-before-creation)
+12. [Dezactivează sau limitează navigarea](#12-disable-or-limit-navigation)
+13. [Dezactivează sau limitează crearea de ferestre noi](#13-disable-or-limit-creation-of-new-windows)
+14. [Nu utiliza `openExtern` cu conținut neacreditat](#14-do-not-use-openexternal-with-untrusted-content)
+15. [Dezactivează modulul `la distanță`](#15-disable-the-remote-module)
+16. [Filtrează modulul `la distanță`](#16-filter-the-remote-module)
+17. [Folosește o versiune curentă de Electron](#17-use-a-current-version-of-electron)
 
-To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
+Pentru a automatiza detectarea configurațiilor greșite și a modelelor nesigure, este posibil să utilizezi [electronegativitate](https://github.com/doyensec/electronegativity). Pentru detalii suplimentare despre posibile deficiențe și erori de implementare atunci când dezvoltă aplicații folosind Electron, vă rugăm să consultați acest [ghid pentru dezvoltatori și auditori](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
-## 1) Only Load Secure Content
+## 1) Încărcare doar conținut securizat
 
-Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+Orice resurse care nu sunt incluse în aplicația dvs. ar trebui încărcate folosind un protocol securizat ca `HTTPS`. Cu alte cuvinte, nu utilizați protocoale nesigure ca `HTTP`. În mod similar, recomandăm utilizarea `WSS` peste `WS`, `FTPS` peste `FTP`și așa mai departe.
 
-### Why?
+### De ce?
 
-`HTTPS` has three main benefits:
+`HTTPS` are trei beneficii principale:
 
-1) It authenticates the remote server, ensuring your app connects to the correct host instead of an impersonator. 2) It ensures data integrity, asserting that the data was not modified while in transit between your application and the host. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
+1) Se autentifică serverul de la distanță, asigurându-se că aplicația se conectează la gazda corectă în loc de un impersonator. 2) Asigură integritatea datelor, afirmând că datele nu au fost modificate în timp ce se află în tranzit între aplicația dvs. și gazdă. 3) Criptează traficul între utilizatorul tău și gazda de destinație, face mai dificil să spioneze informațiile trimise între aplicația ta și gazda.
 
-### How?
+### Cum?
 
 ```js
-// Bad
-browserWindow.loadURL('http://example.com')
+//
+eronat browserWindow.loadURL('http://example.com')
 
-// Good
-browserWindow.loadURL('https://example.com')
+// Bune
+Window.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://example.com/react.js"></script>
+```html<!-- Incorect --><script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css"><!-- Bun --><script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
 
-## 2) Do not enable Node.js Integration for Remote Content
+## 2) Nu activa integrarea Node.js pentru conţinutul Remote
 
-_This recommendation is the default behavior in Electron since 5.0.0._
+_Această recomandare este comportamentul implicit în Electron de la 5.0.0._
 
-It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) that loads remote content. Obiectivul este de a limita puterile acordate conținutului de la distanță, astfel făcându-l dramatic de dificil pentru un atacator să facă rău utilizatorilor tăi în cazul în care aceștia vor câștiga abilitatea de a executa JavaScript pe site-ul tău.
 
-After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://example.com/`, you can give that website exactly the abilities it needs, but no more.
+Dupa aceasta, poti acorda permisiuni suplimentare pentru anumite gazde. De exemplu, dacă deschideți o fereastră BrowserFereastră îndreptată la `https://exemplu. om/`, puteți da acelui site abilitățile de care are nevoie, dar nu mai mult.
 
-### Why?
+### De ce?
 
-A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
+Un atac de scriere pe site (XSS) este mai periculos dacă un atacator poate sări din procesul de redare și executa cod pe computerul utilizatorului. Atacurile de scriere pe teren sunt destul de comune - și în timp ce o problemă, puterea lor este de obicei limitată la a trimite mesaje cu site-ul pe care sunt executate. Dezactivarea integrării Node.js ajută la prevenirea escaladării XSS într-un aşa numita "Execuţie Cod la distanţă" (RCE).
 
-### How?
+### Cum?
 
 ```js
-// Bad
+//
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: true,
@@ -129,17 +124,12 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<webview nodeIntegration src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Incorect --><webview nodeIntegration src="page.html"></webview><!-- Bun --><webview src="page.html"></webview>
 ```
 
-When disabling Node.js integration, you can still expose APIs to your website that do consume Node.js modules or features. Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
+Când dezactivați integrarea Node.js, încă puteți expune API-uri la site-ul dumneavoastră care consumă module sau caracteristici Node.js. Preîncărcare script-uri continuă să aibă acces la `necesită` și alt modul. caracteristici s, care permit dezvoltatorilor să expună un API personalizat la conținut încărcat de la distanță.
 
-In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
+În următorul exemplu de script de preîncărcare, site-ul mai târziu încărcat va avea acces la o `metodă window.readConfig()` , dar fără caracteristici Node.js.
 
 ```js
 const { readFileSync } = require('fs')
@@ -151,26 +141,26 @@ window.readConfig = function () {
 ```
 
 
-## 3) Enable Context Isolation for Remote Content
+## 3) Activează izolarea contextului pentru conținutul la distanță
 
-Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
+Izolarea contextului este o caracteristică Electron care permite dezvoltatorilor să execute codul în scripturi preîncărcate și în API-uri Electron într-un context JavaScript dedicat. În practică, asta înseamnă că obiecte globale precum `Array.prototype. ush` or `JSON.parse` nu poate fi modificat de scripturile care rulează în procesul de redare.
 
-Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
+Electron folosește aceeași tehnologie ca [Scripturile de conținut din Chromium](https://developer.chrome.com/extensions/content_scripts#execution-environment) pentru a activa acest comportament.
 
-Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+Chiar și atunci când folosești `nodeIntegrare: fals` pentru a impune o izolare puternică și pentru a preveni utilizarea primitivelor Node, `contexte de izolare` trebuie, de asemenea, utilizate.
 
-### Why?
+### De ce?
 
 Context isolation allows each the scripts on running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
 
-While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
+În timp ce încă este o caracteristică Electron experimentală, izolarea contextului adaugă un nivel suplimentar de securitate. Creează o nouă lume JavaScript pentru Electron API-uri și preîncărcare scripturi, care atenuează așa-numitele atacuri "Poluare prototip".
 
 At the same time, preload scripts still have access to the  `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
 
-### How?
+### Cum?
 
 ```js
-// Main process
+// Procesul principal
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
@@ -180,75 +170,75 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Preload script
+// Preîncărcare script
 
-// Set a variable in the page before it loads
-webFrame.executeJavaScript('window.foo = "foo";')
+// Setați o variabilă în pagină înainte să încarce
+webFrame.executeJavaScript('window. oo = "foo"; )
 
-// The loaded page will not be able to access this, it is only available
-// in this context
-window.bar = 'bar'
+// Pagina încărcată nu va putea accesa această pagină, este disponibilă doar
+// în acest context
+fereastră. ar = "bar"
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Will log out 'undefined' since window.foo is only available in the main
+document. dddEventListener('DOMContentLoaded', () => {
+  // Se va deconecta 'undefined' din fereastră. oo este disponibil numai în consola principală
   // context
-  console.log(window.foo)
+  . og(window.foo)
 
-  // Will log out 'bar' since window.bar is available in this context
+  // Se va deconecta 'bar' deoarece window.bar este disponibil în acest context
   console.log(window.bar)
 })
 ```
 
 
-## 4) Handle Session Permission Requests From Remote Content
+## 4) Gestionați solicitările de permisiuni pentru sesiune de la conținutul la distanță
 
-You may have seen permission requests while using Chrome: They pop up whenever the website attempts to use a feature that the user has to manually approve ( like notifications).
+Este posibil să fi văzut cereri de permisiune în timp ce utilizați Chrome: Acestea apar ori de câte ori site-ul încearcă să folosească o caracteristică pe care utilizatorul trebuie să o aprobe manual ( ca notificări).
 
-The API is based on the [Chromium permissions API](https://developer.chrome.com/extensions/permissions) and implements the same types of permissions.
+API este bazat pe [Permisiunile Chromium API](https://developer.chrome.com/extensions/permissions) și implementează aceleași tipuri de permisiuni.
 
-### Why?
+### De ce?
 
-By default, Electron will automatically approve all permission requests unless the developer has manually configured a custom handler. While a solid default, security-conscious developers might want to assume the very opposite.
+În mod implicit, Electron va aproba automat toate cererile de permisiuni, cu excepția cazului în care dezvoltatorul a configurat manual un handler personalizat. Deși implicit solid, dezvoltatorii conștienți de securitate ar putea dori să presupună exact contrariul.
 
-### How?
+### Cum?
 
 ```js
 const { session } = require('electron')
 
 session
   .fromPartition('some-partition')
-  .setPermissionRequestHandler((webContents, permission, callback) => {
-    const url = webContents.getURL()
+  . etPermissionRequestHandler(webContents. permise, callback) => {
+    const url = webContents. etURL()
 
-    if (permission === 'notifications') {
-      // Approves the permissions request
+    dacă (permisiune == 'notificări') {
+      // Aprobă solicitarea de permisiuni
       callback(true)
     }
 
-    // Verify URL
-    if (!url.startsWith('https://example.com/')) {
-      // Denies the permissions request
-      return callback(false)
+    // Verifică URL-ul
+    dacă (! rl tartsWith('https://exemplu. om/')) {
+      // refuză solicitarea de permisiuni
+      callback(false)
     }
-  })
+})
 ```
 
 
-## 5) Do Not Disable WebSecurity
+## 5) Nu dezactiva WebSecurity
 
-_Recommendation is Electron's default_
+_Recomandarea este cea implicită a Electron_
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) disables crucial security features.
 
-Do not disable `webSecurity` in production applications.
+Nu dezactiva `webSecurity` în aplicațiile de producție.
 
-### Why?
+### De ce?
 
-Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
+Dezactivarea `webSecurity` va dezactiva politica de aceeași origine și va seta `allowRunningInsecureContent` proprietatea la `true`. Cu alte cuvinte, permite executarea unui cod nesigur din diferite domenii.
 
-### How?
+### Cum?
 ```js
-// Bad
+//
 const mainWindow = new BrowserWindow({
   webPreferences: {
     webSecurity: false
@@ -257,49 +247,44 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow()
+// Bun
+const mainFdow = Nou BrowserWindow()
 ```
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Incorect --><webview disablewebsecurity src="page.html"></webview><!-- Bun --><webview src="page.html"></webview>
 ```
 
 
-## 6) Define a Content Security Policy
+## 6) Definiți o politică de securitate a conținutului
 
-A Content Security Policy (CSP) is an additional layer of protection against cross-site-scripting attacks and data injection attacks. We recommend that they be enabled by any website you load inside Electron.
+O Politică de Securitate a Conținutului (CSP) este un nivel suplimentar de protecție împotriva atacurilor de scriere încrucișată și a atacurilor de injectare a datelor. Vă recomandăm să fie activate de orice site web pe care îl încărcați în Electron.
 
-### Why?
+### De ce?
 
-CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://example.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your application's security.
+CSP permite serverului să folosească conținut pentru a restricționa și controla resursele Electron se poate încărca pentru acea pagină web. `https://example.com` ar trebui să aibă permisiunea de a încărca scripturi din originile definite de tine în timp ce scripturi de la `https://evil. ttacker.com` nu ar trebui să poată rula. Definirea unui CSP este un mod ușor de a îmbunătăți securitatea aplicației.
 
-The following CSP will allow Electron to execute scripts from the current website and from `apis.example.com`.
+Următorul CSP va permite Electron să execute scripturi de pe site-ul curent și de pe `apis.example.com`.
 
 ```plaintext
-// Bad
-Content-Security-Policy: '*'
+//
+Politică de securitate-conţinut: '*'
 
 // Good
 Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
-### CSP HTTP Header
+### Antet HTTP CSP
 
-Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+Electron respectă [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) care poate fi setat folosind handlerul Electron [`webRequest.onHeadersPrimit`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) :
 
 ```javascript
 const { session } = require('electron')
 
-session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+session.defaultSession.webRequest. nHeadersReceived((detalii, callback) => {
   callback({
     responseHeaders: {
-      ...details.responseHeaders,
-      'Content-Security-Policy': ['default-src \'none\'']
+      . .details.responseHeaders,
+      'Content-Securitate': ['default-src \'none\'']
     }
   })
 })
@@ -307,7 +292,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 ### CSP Meta Tag
 
-CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
+Mecanismul de livrare preferat al CSP este un antet HTTP, totuși nu este posibil să se folosească această metodă la încărcarea unei resurse folosind protocolul `fișier://`. Acesta poate fi util în unele cazuri, cum ar fi utilizarea protocolului `file://` , pentru a seta o politică pe o pagină direct în markup folosind o etichetă `<meta>`:
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
@@ -316,22 +301,22 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 
-## 7) Do Not Set `allowRunningInsecureContent` to `true`
+## 7) Nu seta `allowRunningInsecureContent` la `true`
 
-_Recommendation is Electron's default_
+_Recomandarea este cea implicită a Electron_
 
-By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
+În mod implicit, Electron nu va permite site-urilor încărcate peste `HTTPS` să încarce și să execute scripturi, CSS, sau plugin-uri din surse nesigure (`HTTP`). Setarea proprietății `allowRunningInsecureContent` pentru a `adevărat` dezactivează acea protecție.
 
-Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
+Încărcarea HTML inițial al unui website prin `HTTPS` și încercarea de a încărca resursele ulterioare prin `HTTP` este cunoscută și ca "conținut mixt".
 
-### Why?
+### De ce?
 
-Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
+Încărcarea conținutului peste `HTTPS` asigură autenticitatea și integritatea resurselor încărcate în timp ce criptează traficul în sine. Vezi secțiunea pe [care afișează doar conținut securizat](#1-only-load-secure-content) pentru mai multe detalii.
 
-### How?
+### Cum?
 
 ```js
-// Bad
+//
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -340,27 +325,27 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow({})
+// Bun
+const mainFdow = noua BrowserWindow({})
 ```
 
 
-## 8) Do Not Enable Experimental Features
+## 8) Nu activați funcțiile experimentale
 
-_Recommendation is Electron's default_
+_Recomandarea este cea implicită a Electron_
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` property.
+Utilizatorii avansați de Electron pot activa funcțiile experimentale de Chromium folosind proprietatea `experimentalFeatures`.
 
-### Why?
+### De ce?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+Caracteristicile experimentale sunt, aşa cum sugerează numele, experimentale şi nu au fost activate pentru toţi utilizatorii de Chromium. În plus, impactul lor asupra Electron în ansamblu nu a fost probabil testat.
 
-Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
+Există cazuri de utilizare legitimată, dar dacă nu știți ce faceți, ar trebui să nu activați această proprietate.
 
-### How?
+### Cum?
 
 ```js
-// Bad
+//
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
@@ -369,24 +354,24 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow({})
+// Bun
+const mainFdow = noua BrowserWindow({})
 ```
 
 
-## 9) Do Not Use `enableBlinkFeatures`
+## 9) Nu utiliza `activeBlinkFeatures`
 
-_Recommendation is Electron's default_
+_Recomandarea este cea implicită a Electron_
 
-Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
+Clipirea este numele motorului de redare din spatele Chromium. Ca și în cazul `experimentalCaracteristici`, proprietatea `activeBlinkFeatures` permite dezvoltatorilor să activeze caracteristici care au fost dezactivate în mod implicit.
 
-### Why?
+### De ce?
 
-Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+În general, există motive foarte bune dacă o caracteristică nu a fost activată în mod implicit. Există cazuri de utilizare legitimă pentru a permite anumite caracteristici. Ca dezvoltator, ar trebui să știi exact de ce trebuie să activezi o caracteristică, care sunt ramificațiile și care este impactul asupra securității aplicației tale. În nicio circumstanță nu ar trebui să activați caracteristicile speculative.
 
-### How?
+### Cum?
 ```js
-// Bad
+//
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: 'ExecCommandInJavaScript'
@@ -395,170 +380,165 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow()
+// Bun
+const mainFdow = Nou BrowserWindow()
 ```
 
 
-## 10) Do Not Use `allowpopups`
+## 10) Nu utiliza `allowpopups`
 
-_Recommendation is Electron's default_
+_Recomandarea este cea implicită a Electron_
 
-If you are using [`<webview>`][webview-tag], you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
+If you are using [`<webview>`][webview-tag], you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. `<webview>` de etichete nu au permisiunea de a crea ferestre noi .
 
-### Why?
+### De ce?
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. Acest lucru respectă principiul de acces minim necesar: Nu lăsa un site web să creeze popups noi decât dacă ştii că are nevoie de această caracteristică.
 
-### How?
+### Cum?
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Incorect --><webview allowpopups src="page.html"></webview><!-- Bun --><webview src="page.html"></webview>
 ```
 
 
-## 11) Verify WebView Options Before Creation
+## 11) Verifică opțiunile WebView înainte de creare
 
-A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+Un WebView creat într-un proces de redare care nu are integrare Node.js activată nu va putea activa integrarea propriu-zisă. Cu toate acestea, o vedere WebView va crea întotdeauna un proces independent de redare cu propriile sale `webPreferences`.
 
 It is a good idea to control the creation of new [`<webview>`][webview-tag] tags from the main process and to verify that their webPreferences do not disable security features.
 
-### Why?
+### De ce?
 
-Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+De la `<webview>` în DOM, pot fi create de un script care rulează pe site-ul chiar dacă Node. s integrarea este dezactivată în caz contrar.
 
-Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`][webview-tag] tags.
+Electron permite dezvoltatorilor să dezactiveze diverse caracteristici de securitate care controlează un proces de redare. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`][webview-tag] tags.
 
-### How?
+### Cum?
 
-Before a [`<webview>`][webview-tag] tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+Before a [`<webview>`][webview-tag] tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Utilizați evenimentul pentru a preveni crearea `webViews` cu posibile opțiuni nesigure.
 
 ```js
-app.on('web-contents-created', (event, contents) => {
-  contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
-    delete webPreferences.preload
-    delete webPreferences.preloadURL
+app.on('web-contents-created', (eveniment, conținuturi) => {
+  conținut. n ('will-attach-webview', (eveniment, webPreferences, params) => {
+    // Strip script-uri de preîncărcare dacă neutilizate sau verificarea locației lor este legitimă
+    șterge webPreferences. reîncărcare
+    ștergere webPreferences. reîncărcare URL
 
-    // Disable Node.js integration
-    webPreferences.nodeIntegration = false
+    // Dezactivează integrarea Node.js
+    webPreferences. odeIntegration = false
 
-    // Verify URL being loaded
-    if (!params.src.startsWith('https://example.com/')) {
+    // Verificați URL-ul fiind încărcat
+    dacă (!params. rc.startsWith('https://example.com/')) {
       event.preventDefault()
     }
   })
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+Din nou, această listă minimizează riscul, nu o elimină. Dacă obiectivul este de a afișa un website, un browser va fi o opțiune mai sigură.
 
-## 12) Disable or limit navigation
+## 12) Dezactivare sau limitare navigare
 
-If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
+Dacă aplicația ta nu are nevoie să navigheze sau trebuie doar să navigheze la pagini cunoscute, este o idee bună să limitezi navigarea în mod direct la acel scop cunoscut, dezactivând orice alt tip de navigaţie.
 
-### Why?
+### De ce?
 
-Navigation is a common attack vector. If an attacker can convince your app to navigate away from its current page, they can possibly force your app to open web sites on the Internet. Even if your `webContents` are configured to be more secure (like having `nodeIntegration` disabled or `contextIsolation` enabled), getting your app to open a random web site will make the work of exploiting your app a lot easier.
+Navigarea este un vector comun de atac. Dacă un atacator poate convinge aplicația să navigheze departe de pagina curentă, poate forța aplicația dvs. să deschidă site-uri web pe internet. Even if your `webContents` are configured to be more secure (like having `nodeIntegration` disabled or `contextIsolation` enabled), getting your app to open a random web site will make the work of exploiting your app a lot easier.
 
-A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
+Un model de atac comun este că atacatorul convinge utilizatorii aplicației tale să interacționeze cu aplicația astfel încât să navigheze la una dintre paginile ale atacatorului. Acest lucru se face de obicei prin link-uri, plugin-uri sau alte conținuturi generate de utilizatori.
 
-### How?
+### Cum?
 
-If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`][will-navigate] handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
+If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`][will-navigate] handler. Dacă știi la ce pagini este posibil ca aplicația ta să navigheze, bifați URL-ul în managerul de evenimente și lăsați navigarea să apară dacă se potrivește cu URL-urile pe care le așteptați.
 
-We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
+Îți recomandăm să folosești analizorul Nodului pentru URL-uri. Comparațiile cu șirurile simple pot uneori să fie păcăliți - un test `startsWith('https://example.com')` ar permite `https://example.com.attacker.com` prin intermediul .
 
 ```js
 const URL = require('url').URL
 
-app.on('web-contents-created', (event, contents) => {
-  contents.on('will-navigate', (event, navigationUrl) => {
-    const parsedUrl = new URL(navigationUrl)
+app.on('web-contents-created', (eveniment, conținuturi) => {
+  conținut. n('will-navigate', (event, navigationUrl) => {
+    const parsedUrl = URL nou (navigationUrl)
 
-    if (parsedUrl.origin !== 'https://example.com') {
+    dacă (parsedUrl. rigin !== 'https://example.com') {
       event.preventDefault()
     }
   })
 })
 ```
 
-## 13) Disable or limit creation of new windows
+## 13) Dezactivați sau limitați crearea de ferestre noi
 
-If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
+Dacă ai un set cunoscut de ferestre, este o idee bună să limitezi crearea ferestre suplimentare în aplicația ta.
 
-### Why?
+### De ce?
 
-Much like navigation, the creation of new `webContents` is a common attack vector. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
+Ca și navigarea, crearea unui nou `conținut web` este un vector comun de atac . Atacatorii încearcă să convingă aplicația să creeze noi ferestre, cadre, sau alte procese de redare cu mai multe privilegii decât înainte; sau cu paginile deschise pe care nu le-au putut deschide înainte.
 
-If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
+Dacă nu ai nevoie să creezi ferestre în plus față de cele pe care știi că vei avea nevoie să le creezi, dezactivând creația te cumpără puțin în plus securitate gratuit. Acesta este de obicei cazul aplicațiilor care deschid unul `BrowserWindow` și nu trebuie să deschidă un număr arbitrar de ferestre adiționale la timpul de execuție.
 
-### How?
+### Cum?
 
-[`webContents`][web-contents] will emit the [`new-window`][new-window] event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
+[`webContents`][web-contents] will emit the [`new-window`][new-window] event before creating new windows. Acest eveniment va fi trecut, printre alţi parametri; `url` fereastra a fost solicitată să o deschidă și opțiunile folosite pentru a crea ea. Îți recomandăm să folosești evenimentul pentru a verifica crearea ferestrelor, limitându-l doar la ce ai nevoie.
 
 ```js
 const { shell } = require('electron')
 
-app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', async (event, navigationUrl) => {
-    // In this example, we'll ask the operating system
-    // to open this event's url in the default browser.
+app.on('web-contents-created', (event, conținuturi) => {
+  conținut. n('new-window', async (event, navigationUrl) => {
+    // În acest exemplu, Vom solicita sistemului de operare
+    // să deschidă URL-ul acestui eveniment în browser-ul implicit.
     event.preventDefault()
 
-    await shell.openExternal(navigationUrl)
+    așteaptă shell.openExternal(navigationUrl)
   })
 })
 ```
 
-## 14) Do not use `openExternal` with untrusted content
+## 14) Nu utilizați `deschideți extern` cu conținut lipsit de încredere
 
-Shell's [`openExternal`][open-external] allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell's [`openExternal`][open-external] allows opening a given protocol URI with the desktop's native utilities. În macOS, de exemplu, această funcţie este similară cu `deschideți` comanda terminal utility și va deschide aplicația specifică bazată pe URI și tip fișier.
 
-### Why?
+### De ce?
 
-Improper use of [`openExternal`][open-external] can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+Improper use of [`openExternal`][open-external] can be leveraged to compromise the user's host. Când openExtern este folosit cu conținut neîncrezător, poate fi leveraged pentru a executa comenzi arbitrare.
 
-### How?
+### Cum?
 
 ```js
-//  Bad
+// Proasta
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
 ```js
-//  Good
+// Bune
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) Disable the `remote` module
+## 15) Dezactivează modulul `la distanță`
 
-The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. If your desktop application does not run untrusted content, this can be a useful way to have your renderer processes access and work with modules that are only available to the main process, such as GUI-related modules (dialogs, menus, etc.).
+Modulul `la distanță` oferă o modalitate pentru ca dispozitivul de redare să acceseze API-uri în mod normal doar în procesul principal. Folosind-o pe un renderer poate invoca metode ale unui obiect principal de proces fără a trimite în mod explicit mesaje interprocesare. Dacă aplicația desktop nu rulează conținutul neacreditat, acesta poate fi un mod util de a avea acces la procesele dvs. de redare și de a lucra cu module care sunt disponibile numai pentru procesul principal, cum ar fi module legate de GUI-uri (dialoguri, meniuri etc.).
 
-However, if your app can run untrusted content and even if you [sandbox][sandbox] your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Therefore, it should be disabled in such circumstances.
+However, if your app can run untrusted content and even if you [sandbox][sandbox] your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Prin urmare, ar trebui să fie dezactivat în astfel de circumstanțe.
 
-### Why?
+### De ce?
 
-`remote` uses an internal IPC channel to communicate with the main process. "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+`remote` utilizează un canal IPC intern pentru a comunica cu procesul principal. Atacurile "poluare prototipuri" pot oferi acces de cod rău intenționat la canalul intern IPC, care poate fi folosit apoi pentru a scăpa de sandbox prin imitarea `mesajelor de la distanță` IPC și obținerea accesului la modulele de proces principal rulând cu privilegii mai mari.
 
-Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
+În plus, este posibil ca scripturile preîncărcate să scurgă din greșeală module către un dispozitiv sandboxed renderer. Scurgând `la distanță` cod răuvoitor cu o multitudine de module de proces principal cu care să efectuați un atac.
 
-Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+Dezactivarea modulului `remote` elimină aceşti vectori de atac. Facilitarea izolării contextului previne de asemenea atacurile "poluare prototipuri" de la la succes.
 
-### How?
+### Cum?
 
 ```js
-// Bad if the renderer can run untrusted content
-const mainWindow = new BrowserWindow({})
+// Greșit dacă dispozitivul de redare poate rula conținut neîncrezător
+const Fereastră continentală = nou BrowserWindow({})
 ```
 
 ```js
-// Good
+// Bune
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableRemoteModule: false
@@ -566,25 +546,20 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- Greșit dacă dispozitivul de redare poate rula conținut neîncrezător --><webview src="page.html"></webview><!-- Bună --><webview enableremotemodule="false" src="page.html"></webview>
 ```
 
-## 16) Filter the `remote` module
+## 16) Filtrează modulul `la distanță`
 
-If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
+Dacă nu poți dezactiva modulul `la distanță` , ar trebui să filtrezi globalele, Node, și module Electron (așa-zis încorporate) accesibile prin `distanță` pe care aplicația ta nu le necesită. Acest lucru poate fi realizat prin blocarea anumitor module în întregime și prin înlocuirea altora cu proxy-uri care expun doar funcționalitatea de care are nevoie aplicația ta.
 
-### Why?
+### De ce?
 
-Due to the system access privileges of the main process, functionality provided by the main process modules may be dangerous in the hands of malicious code running in a compromised renderer process. By limiting the set of accessible modules to the minimum that your app needs and filtering out the others, you reduce the toolset that malicious code can use to attack the system.
+Datorită privilegiilor de acces la sistem ale procesului principal, funcționalitatea furnizată de modulele de proces principale poate fi periculoasă în mâinile unui cod periculos care rulează într-un proces de redare compromis. Limitând setul de module accesibile la minimul de care are nevoie aplicația ta și filtrarea celorlalte, reduceți setul de instrumente pe care codul răuvoitor le poate utiliza pentru a ataca sistemul.
 
-Note that the safest option is to [fully disable the remote module](#15-disable-the-remote-module). If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
+Țineți cont că cea mai sigură opțiune este [dezactivarea completă a modulului la distanță](#15-disable-the-remote-module). Dacă alegeți mai degrabă să filtreze accesul decât să dezactivați complet modulul, Trebuie să fiți foarte atent pentru a vă asigura că nicio escaladare a privilegiului nu este posibilă prin modulele pe care le permiteți în trecut filtrul.
 
-### How?
+### Cum?
 
 ```js
 const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
@@ -628,15 +603,15 @@ app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) =
 })
 ```
 
-## 17) Use a current version of Electron
+## 17) Utilizați o versiune curentă a Electron
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+Ar trebui să depuneți eforturi pentru a utiliza cea mai recentă versiune disponibilă de Electron. Ori de câte ori o nouă versiune majoră este lansată, ar trebui să încercați să actualizați aplicația cât mai repede posibil.
 
-### Why?
+### De ce?
 
-An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
+O aplicație construită cu o versiune mai veche de Electron, Chromium și Node. s este o țintă mai ușoară decât o aplicație care folosește versiuni mai recente ale acestor componente. În general, problemele de securitate şi exploziile pentru versiunile mai vechi de Chromium şi Node.js sunt disponibile pe scară mai largă.
 
-Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Your application will be more secure if it is running a recent version of Electron (and thus, Chromium and Node.js) for which potential security issues are not as widely known.
+Atât cromul cât şi Node.js sunt lucruri impresionante de inginerie construită de mii de dezvoltatori talentaţi. Dată fiind popularitatea lor, securitatea lor este testată și analizată cu atenție de cercetători cu competențe egale în domeniul securității. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Aplicația dvs. va fi mai sigură dacă rulează o versiune recentă de Electron (și astfel, Chromium și Node. s) pentru ale căror potențiale probleme de securitate nu sunt atât de bine cunoscute.
 
 
 [browser-window]: ../api/browser-window.md

@@ -4,92 +4,92 @@ author: codebytere
 date: '2018-09-18'
 ---
 
-The Electron team is excited to announce that the first stable release of Electron 3 is now available from [electronjs.org](https://electronjs.org/) and via `npm install electron@latest`! It's jam-packed with upgrades, fixes, and new features, and we can't wait to see what you build with them. Below are details about this release, and we welcome your feedback as you explore.
+Zespół Electron jest podekscytowany, aby ogłosić, że pierwsze stabilne wydanie Electron 3 jest teraz dostępne od [elektronów. rg](https://electronjs.org/) i przez `npm zainstaluj electron@latest`! Jest zagłuszany z ulepszeniami, poprawkami i nowymi funkcjami i nie możemy czekać na to, co z nimi budujesz. Poniżej znajdują się szczegółowe informacje o tym wydaniu i witamy Twoją opinię podczas eksploracji.
 
 ---
 
-## Release Process
+## Proces Wydania
 
-As we undertook development of `v3.0.0`, we sought to more empirically define criteria for a stable release by formalizing the feedback progress for progressive beta releases. `v3.0.0` would not have been possible without our [App Feedback Program](https://github.com/electron/electron/blob/3-0-x/docs/tutorial/app-feedback-program.md) partners, who provided early testing and feedback during the beta cycle. Thanks to Atlassian, Atom, Microsoft Teams, Oculus, OpenFin, Slack, Symphony, VS Code, and other program members for their work. If you'd like to participate in future betas, please mail us at [info@electronjs.org](mailto:info@electronjs.org).
+W miarę jak podjęliśmy się rozwoju `v3.0.`, staraliśmy się bardziej empirycznie zdefiniować kryteria stabilnego wydania poprzez sformalizowanie postępu opinii o postępowych wersjach beta. `v3.0.` nie byłoby możliwe bez naszych [App Feedback Program](https://github.com/electron/electron/blob/3-0-x/docs/tutorial/app-feedback-program.md) partnerów, którzy dostarczyli wczesnych testów i informacji zwrotnych podczas cyklu beta. Dzięki Atlassian, Atom, Microsoft Teams, Oculus, OpenFin, Slack, Symphony, VS Code i innym członkom programu za ich pracę. Jeśli chcesz wziąć udział w przyszłych betach, napisz do nas pod adresem [info@electronjs.org](mailto:info@electronjs.org).
 
-## Changes / New Features
+## Zmiany / Nowe funkcje
 
-Major bumps to several important parts of Electron's toolchain, including Chrome `v66.0.3359.181`, Node `v10.2.0`, and V8 `v6.6.346.23.`
+Główne uderzenia w kilka ważnych części łańcucha narzędzi Electrona, w tym Chrome `v66.0.3359.181`, Węzeł `v10.2.0`i V8 `v6.6.346.23.`
 
 * [[#12656](https://github.com/electron/electron/pull/12656)] feat: `app.isPackaged`
 * [[#12652](https://github.com/electron/electron/pull/12652)] feat: `app.whenReady()`
 * [[#13183](https://github.com/electron/electron/pull/13183)] feat: `process.getHeapStatistics()`
-* [[#12485](https://github.com/electron/electron/pull/12485)] feat: `win.moveTop()` to move window z-order to top
-* [[#13110](https://github.com/electron/electron/pull/13110)] feat: TextField and Button APIs
-* [[#13068](https://github.com/electron/electron/pull/13068)] feat: netLog API for dynamic logging control
-* [[#13539](https://github.com/electron/electron/pull/13539)] feat: enable `webview` in sandbox renderer
-* [[#14118](https://github.com/electron/electron/pull/14118)] feat: `fs.readSync` now works with massive files
-* [[#14031](https://github.com/electron/electron/pull/14031)] feat: node `fs` wrappers to make `fs.realpathSync.native` and `fs.realpath.native` available
+* [[#12485](https://github.com/electron/electron/pull/12485)] feat: `win.moveTop()` aby przenieść okno z-order do góry
+* [[#13110](https://github.com/electron/electron/pull/13110)] feat: TextField and Button API
+* [[#13068](https://github.com/electron/electron/pull/13068)] feat: netLog API dla dynamicznej kontroli logowania
+* [[#13539](https://github.com/electron/electron/pull/13539)] feat: włącz `widok sieciowy` w renderer sandbox
+* [[#14118](https://github.com/electron/electron/pull/14118)] feat: `fs.readSync` teraz działa z ogromnymi plikami
+* [[#14031](https://github.com/electron/electron/pull/14031)] feat: węzeł `fs` otoczki do stworzenia `fs.realpathSync.native` i `fs.realpath.native` dostępne
 
-## Breaking API changes
+## Przerwanie zmian API
 
-* [[#12362](https://github.com/electron/electron/pull/12362)] feat: updates to menu item order control
-* [[#13050](https://github.com/electron/electron/pull/13050)] refactor: removed documented deprecated APIs
-  * See [docs](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#breaking-api-changes-30) for more details
-* [[#12477](https://github.com/electron/electron/pull/12477)] refactor: removed `did-get-response-details` and `did-get-redirect-request` events
-* [[#12655](https://github.com/electron/electron/pull/12655)] feat: default to disabling navigating on drag/drop
-* [[#12993](https://github.com/electron/electron/pull/12993)] feat: Node `v4.x` or greater is required use the `electron` npm module
-* [[#12008](https://github.com/electron/electron/pull/12008) [#12140](https://github.com/electron/electron/pull/12140) [#12503](https://github.com/electron/electron/pull/12503) [#12514](https://github.com/electron/electron/pull/12514) [#12584](https://github.com/electron/electron/pull/12584) [#12596](https://github.com/electron/electron/pull/12596) [#12637](https://github.com/electron/electron/pull/12637) [#12660](https://github.com/electron/electron/pull/12660) [#12696](https://github.com/electron/electron/pull/12696) [#12716](https://github.com/electron/electron/pull/12716) [#12750](https://github.com/electron/electron/pull/12750) [#12787](https://github.com/electron/electron/pull/12787) [#12858](https://github.com/electron/electron/pull/12858)] refactor: `NativeWindow`
-* [[#11968](https://github.com/electron/electron/pull/11968)] refactor: `menu.popup()`
-* [[#8953](https://github.com/electron/electron/pull/8953)] feat: no longer use JSON to send the result of `ipcRenderer.sendSync`
-* [[#13039](https://github.com/electron/electron/pull/13039)] feat: default to ignore command line arguments following a URL
-* [[#12004](https://github.com/electron/electron/pull/12004)] refactor: rename `api::Window` to `api::BrowserWindow`
-* [[#12679](https://github.com/electron/electron/pull/12679)] feat: visual zoom now turned off by default
-* [[#12408](https://github.com/electron/electron/pull/12408)] refactor: rename app-command `media-play_pause` to `media-play-pause`
+* [[#12362](https://github.com/electron/electron/pull/12362)] feat: aktualizacje kontroli pozycji menu
+* [[#13050](https://github.com/electron/electron/pull/13050)] refaktor: usunięto udokumentowane przestarzałe API
+  * Zobacz [dokumentację](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#breaking-api-changes-30) po więcej szczegółów
+* [[#12477](https://github.com/electron/electron/pull/12477)] refaktor: usunięto `did-get-response-details` i `did-get-redirect-request` zdarzenia
+* [[#12655](https://github.com/electron/electron/pull/12655)] feat: domyślnie wyłącza nawigację po przeciąganiu/upuszczeniu
+* [[#12993](https://github.com/electron/electron/pull/12993)] feat: węzeł `v4.x` lub większy jest wymagany użyj modułu `elektron` npm
+* [[#12008](https://github.com/electron/electron/pull/12008) [#12140](https://github.com/electron/electron/pull/12140) [#12503](https://github.com/electron/electron/pull/12503) [#12514](https://github.com/electron/electron/pull/12514) [#12584](https://github.com/electron/electron/pull/12584) [#12596](https://github.com/electron/electron/pull/12596) [#12637](https://github.com/electron/electron/pull/12637) [#12660](https://github.com/electron/electron/pull/12660) [#12696](https://github.com/electron/electron/pull/12696) [#12716](https://github.com/electron/electron/pull/12716) [#12750](https://github.com/electron/electron/pull/12750) [#12787](https://github.com/electron/electron/pull/12787) [#12858](https://github.com/electron/electron/pull/12858)]refakttor: `NativeWindow`
+* [[#11968](https://github.com/electron/electron/pull/11968)] refaktor: `menu.popup()`
+* [[#8953](https://github.com/electron/electron/pull/8953)] feat: nie używaj JSON aby wysłać wynik `ipcRenderer.sendSync`
+* [[#13039](https://github.com/electron/electron/pull/13039)] feat: domyślnie ignoruj argumenty wiersza poleceń po URL
+* [[#12004](https://github.com/electron/electron/pull/12004)] refaktor: zmień nazwę `api::Okno` na `api::BrowserWindow`
+* [[#12679](https://github.com/electron/electron/pull/12679)] feat: Powiększenie wizualne wyłączone domyślnie
+* [[#12408](https://github.com/electron/electron/pull/12408)] refaktor: zmień nazwę aplikacji komendy `media-play_pause` na `media-play-pauza`
 
 ### macOS
 
-* [[#12093](https://github.com/electron/electron/pull/12093)] feat: workspace notifications support
-* [[#12496](https://github.com/electron/electron/pull/12496)] feat: `tray.setIgnoreDoubleClickEvents(ignore)` to ignore tray double click events.
-* [[#12281](https://github.com/electron/electron/pull/12281)] feat: mouse forward functionality on macOS
-* [[#12714](https://github.com/electron/electron/pull/12714)] feat: screen lock / unlock events
+* [[#12093](https://github.com/electron/electron/pull/12093)] feat: wsparcie powiadomień obszaru roboczego
+* [[#12496](https://github.com/electron/electron/pull/12496)] feat: `tray.setIgnoreDoubleClickEvents(ignorowanie)` aby zignorować zdarzenia podwójnego kliknięcia w tackę.
+* [[#12281](https://github.com/electron/electron/pull/12281)] feat: funkcja myszy do przodu na macOS
+* [[#12714](https://github.com/electron/electron/pull/12714)] feat: blokada ekranu / odblokuj wydarzenia
 
 ### Windows
 
-* [[#12879](https://github.com/electron/electron/pull/12879)] feat: added DIP to/from screen coordinate conversions
+* [[#12879](https://github.com/electron/electron/pull/12879)] feat: dodaj DIP do/z konwersji współrzędnych ekranu
 
-**Nota Bene:** Switching to an older version of Electron after running this version will require you to clear out your user data directory to avoid older versions crashing. You can get the user data directory by running `console.log(app.getPath("userData"))` or see [docs](https://electronjs.org/docs/api/app#appgetpathname) for more details.
+**Nota Bene:** Przełączanie się do starszej wersji Electron po uruchomieniu tej wersji będzie wymagało usunięcia katalogu danych użytkownika, aby uniknąć awarii starszej wersji. Możesz uzyskać katalog danych użytkownika uruchamiając `console.log(app.getPath("userData"))` lub zobacz [docs](https://electronjs.org/docs/api/app#appgetpathname) , aby uzyskać więcej informacji.
 
-## Bug Fixes
+## Poprawki błędów
 
-* [[#13397](https://github.com/electron/electron/pull/13397)] fix: issue with `fs.statSyncNoException` throwing exceptions
-* [[#13476](https://github.com/electron/electron/pull/13476), [#13452](https://github.com/electron/electron/pull/13452)] fix: crash when loading site with jquery
-* [[#14092](https://github.com/electron/electron/pull/14092)] fix: crash in `net::ClientSocketHandle` destructor
-* [[#14453](https://github.com/electron/electron/pull/14453)] fix: notify focus change right away rather not on next tick
+* [[#13397](https://github.com/electron/electron/pull/13397)] naprawa: problem z `fs.statSyncNoException` rzucając wyjątki
+* [[#13476](https://github.com/electron/electron/pull/13476), [#13452](https://github.com/electron/electron/pull/13452)] naprawił: awaria podczas ładowania strony z jquery
+* [[#14092](https://github.com/electron/electron/pull/14092)] naprawa: awaria w `net::ClientSocketHandle` destruktor
+* [[#14453](https://github.com/electron/electron/pull/14453)] naprawa: poinformuj o zmianie ostrości od razu, a nie o następnym ticku
 
 ### MacOS
 
-* [[#13220](https://github.com/electron/electron/pull/13220)] fix: issue allowing bundles to be selected in `<input file="type">` open file dialog
-* [[#12404](https://github.com/electron/electron/pull/12404)] fix: issue blocking main process when using async dialog
-* [[#12043](https://github.com/electron/electron/pull/12043)] fix: context menu click callback
-* [[#12527](https://github.com/electron/electron/pull/12527)] fix: event leak on reuse of touchbar item
-* [[#12352](https://github.com/electron/electron/pull/12352)] fix: tray title crash
-* [[#12327](https://github.com/electron/electron/pull/12327)] fix: non-draggable regions
-* [[#12809](https://github.com/electron/electron/pull/12809)] fix: to prevent menu update while it's open
-* [[#13162](https://github.com/electron/electron/pull/13162)] fix: tray icon bounds not allowing negative values
-* [[#13085](https://github.com/electron/electron/pull/13085)] fix: tray title not inverting when highlighted
-* [[#12196](https://github.com/electron/electron/pull/12196)] fix: Mac build when `enable_run_as_node==false`
-* [[#12157](https://github.com/electron/electron/pull/12157)] fix: additional issues on frameless windows with vibrancy
-* [[#13326](https://github.com/electron/electron/pull/13326)] fix: to set mac protocol to none after calling `app.removeAsDefaultProtocolClient`
-* [[#13530](https://github.com/electron/electron/pull/13530)] fix: incorrect usage of private APIs in MAS build
-* [[#13517](https://github.com/electron/electron/pull/13517)] fix: `tray.setContextMenu` crash
-* [[#14205](https://github.com/electron/electron/pull/14205)] fix: pressing escape on a dialog now closes it even if `defaultId` is set
+* [[#13220](https://github.com/electron/electron/pull/13220)] poprawka: problem pozwalający na wybranie pakietów w `<input file="type">` otwórz okno dialogowe plików
+* [[#12404](https://github.com/electron/electron/pull/12404)] naprawa: problem blokady głównego procesu podczas korzystania z okna dialogowego async
+* [[#12043](https://github.com/electron/electron/pull/12043)] poprawka: menu kontekstowe kliknij przycisk wywołania zwrotnego
+* [[#12527](https://github.com/electron/electron/pull/12527)] poprawka : zdarzenie wycieka przy ponownym użyciu elementu paska dotykowego
+* [[#12352](https://github.com/electron/electron/pull/12352)] naprawa: haczyk
+* [[#12327](https://github.com/electron/electron/pull/12327)] poprawka : regiony nieprzeciągalne
+* [[#12809](https://github.com/electron/electron/pull/12809)] poprawka: aby zapobiec aktualizacji menu, gdy jest ona otwarta
+* [[#13162](https://github.com/electron/electron/pull/13162)] fix: limit ikon tacki nie pozwala na wartości ujemne
+* [[#13085](https://github.com/electron/electron/pull/13085)] poprawka: skrót tytułu nie odwraca po podświetleniu
+* [[#12196](https://github.com/electron/electron/pull/12196)] wersja Mac: kompilacja kiedy `enable_run_as_node==false`
+* [[#12157](https://github.com/electron/electron/pull/12157)] naprawi: dodatkowe problemy w oknach bez ramek z wilbrancy
+* [[#13326](https://github.com/electron/electron/pull/13326)] naprawa: aby ustawić protokół mac na brak po wywołaniu `app.removeAsfaultProtocolClient`
+* [[#13530](https://github.com/electron/electron/pull/13530)] poprawka: nieprawidłowe użycie prywatnych API w budowie MAS
+* [[#13517](https://github.com/electron/electron/pull/13517)] naprawa: `tray.setContextMenu` awaria
+* [[#14205](https://github.com/electron/electron/pull/14205)] poprawka: naciśnięcie ewakuacji na oknie dialogowym zamyka ją, nawet jeśli ustawiono `domyślny Id`
 
 ### Linux
 
-* [[#12507](https://github.com/electron/electron/pull/12507)] fix: `BrowserWindow.focus()` for offscreen windows
+* [[#12507](https://github.com/electron/electron/pull/12507)] poprawka: `BrowserWindow.focus()` dla okien offscreerowych
 
-## Other Notes
+## Inne uwagi
 
-* PDF Viewer is currently not working but is being worked on and will be functional once again soon
-* `TextField` and `Button` APIs are experimental and are therefore off by default
-  * They can be enabled with the `enable_view_api` build flag
+* Przeglądarka PDF obecnie nie działa, ale pracuje nad nim i wkrótce będzie funkcjonować ponownie
+* `Textfield` i `Przycisk` API są eksperymentalne i dlatego są wyłączone domyślnie
+  * Mogą być włączone z flagą kompilacji `enable_view_api`
 
-# What's Next
+# Co dalej
 
-The Electron team continues to work on defining our processes for more rapid and smooth upgrades as we seek to ultimately maintain parity with the development cadences of Chromium, Node, and V8.
+Zespół Electron w dalszym ciągu pracuje nad określeniem naszych procesów na rzecz szybszych i bardziej płynnych ulepszeń, ponieważ w ostatecznym rozrachunku staramy się utrzymać parytet z kadencjami rozwoju chromu, Węgiel i V8.

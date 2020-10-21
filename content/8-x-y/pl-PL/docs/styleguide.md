@@ -21,19 +21,19 @@ Używając `Quick Start` jako przykładu:
 
 ...
 
-## Renderer process
+## Proces renderowania
 
 ...
 
-## Run your app
+## Uruchom aplikację
 
 ...
 
-### Run as a distribution
+### Uruchom jako rozkład
 
 ...
 
-### Manually downloaded Electron binary
+### Ręcznie pobrany plik binarny Electron
 
 ...
 ```
@@ -95,10 +95,10 @@ Używając `autoUpdater` jako przykładu:
 * Constructors must be listed with `###`-level titles.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)muszą być wymienione pod rodzdziałem `### Statyczne Metody`.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)muszą być wymienione pod rodzdziałem `### Statyczne Metody`.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
+* Wszystkie metody, które mają wartość zwrotną, muszą rozpocząć swój opis od "Zwraca `[TYPE]` - Opis zwrotu"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* Właściwości instancji muszą być wymienione w rozdziale `### Właściwości instancji`.
   * Właściwości instancji muszą zaczynać się z "A [Property Type] ..."
 
 Używając klas `Session` i `Cookies` jako przykładu:
@@ -140,17 +140,17 @@ Używając klas `Session` i `Cookies` jako przykładu:
 Rozdział "Metody" musi zachować podaną niżej formę:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `objectName.methodName(required[, optional])`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - Opis parametru.
+* `optional` Integer (opcjonalnie) - Inny opis parametru.
 
 ...
 ```
 
 Tytuł może być `###` lub `####`-poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Dla modułów, `objectName` jest nazwą modułu. Dla klas musi to być nazwa instancji klasy i nie może być taka sama jak nazwa modułu .
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
@@ -160,7 +160,7 @@ Opcjonalne argumenty są notowane w nawiasach `[]` otoczonych opcjonalnymi argum
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Poniżej przedstawiono bardziej szczegółowe informacje na temat każdego z argumentów. Typ argumentu jest opisywany przez dowolne typowe typy:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

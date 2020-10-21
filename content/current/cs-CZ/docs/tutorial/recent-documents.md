@@ -1,24 +1,24 @@
-# Recent Documents (Windows & macOS)
+# Nedávné dokumenty (Windows & macOS)
 
 ## Přehled
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows a macOS poskytují přístup k seznamu nedávných dokumentů, které otevřela aplikace přes JumpList nebo dok menu.
 
 __JumpList:__
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![Nedávné soubory JumpList](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-__Application dock menu:__
+__Nabídka aplikačního doku:__
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![macOS dok Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-To add a file to recent documents, you need to use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
+Chcete-li přidat soubor do nedávných dokumentů, musíte použít [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
 
 ## Ukázka
 
-### Add an item to recent documents
+### Přidat položku k nedávným dokumentům
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
+Začíná funkční aplikací z [Rychlý startovací průvodce](quick-start.md), přidejte následující řádky do souboru `main.js`:
 
 ```javascript
 const { app } = require('electron')
@@ -26,43 +26,43 @@ const { app } = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-After launching the Electron application, right click the application icon. You should see the item you just added. In this guide, the item is a Markdown file located in the root of the project:
+Po spuštění Electron aplikace klikněte pravým tlačítkem myši na ikonu aplikace. Měl bys vidět předmět, který jsi právě přidal. V této příručce je položka Markdown soubor umístěný v kořenovém adresáři projektu:
 
-![Recent document](../images/recent-documents.png)
+![Nedávný dokument](../images/recent-documents.png)
 
-### Clear the list of recent documents
+### Vymazat seznam nedávných dokumentů
 
-To clear the list of recent documents, you need to use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API in the `main.js` file:
+Chcete-li vymazat seznam nedávných dokumentů, musíte v souboru `main.js` použít [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows):
 
 ```javascript
 const { app } = require('electron')
 
-app.clearRecentDocuments()
+app.clearRecentDocuments() )
 ```
 
-## Additional information
+## Další informace
 
-### Windows Notes
+### Poznámky k Windows
 
-To use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+Chcete-li použít tuto funkci v systému Windows, musí být vaše aplikace zaregistrována jako zpracovatel typu souboru dokumentu, jinak se soubor nezobrazí v JumpList ani po jeho přidání. Všechno můžete najít při registraci vaší aplikace v [Registraci aplikací](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Když uživatel klikne na soubor z JumpList, nová instance vaší aplikace bude spuštěna cestou souboru přidaného jako argument příkazové řádky.
 
-### macOS Notes
+### Poznámky macOS
 
-#### Add the Recent Documents list to the application menu
+#### Přidat seznam nedávných dokumentů do menu aplikace
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
+Položky nabídky můžete přidat pro přístup a vymazání nedávných dokumentů přidáním snippetu kódu do vaší šablony nabídky:
 
 ```json
 {
   "submenu":[
     {
       "label":"Open Recent",
-      "role":"recentdocuments",
+      "role":"Nedávné dokumenty",
       "submenu":[
         {
-          "label":"Clear Recent",
+          "label":"Vyčistit poslední zobrazení",
           "role":"clearrecentdocuments"
         }
       ]
@@ -71,6 +71,6 @@ You can add menu items to access and clear recent documents by adding the follow
 }
 ```
 
-![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+![položka nabídky nedávných dokumentů macOS](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Když je požadován soubor z nabídky nedávných dokumentů, pro tento modul bude vypnut `otevřený soubor` událost z `aplikace`.

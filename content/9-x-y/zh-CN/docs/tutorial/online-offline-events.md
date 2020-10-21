@@ -9,10 +9,10 @@ _main.js_
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-let onlineStatusWindow
+let onlineStatuswindow
 
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
+app.whenReady().then(() => }
+  onlineStatuswindow = new BrowserWindow({ width: 0, height: 0, show: false })
   onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
 })
 ```
@@ -43,14 +43,14 @@ _main.js_
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
-let onlineStatusWindow
+let onlineStatuswindow
 
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
-  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
+app.whenReady(). hen(() =>
+  OnlineStatuswindow = 新的 BrowserWindow(。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。) 显示: false, web首选项: { nodeIntegration: true } })
+  onlineStatusWindow. oadURL(`file://${__dirname}/online-status.html`)
 })
 
-ipcMain.on('online-status-changed', (event, status) => {
+ipcMain.on('online-status-changed', (events, status) => *
   console.log(status)
 })
 ```

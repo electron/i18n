@@ -1,6 +1,6 @@
-# Installation
+# Montáž
 
-To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
+To install prebuilt Electron binaries, use [`npm`][npm]. Preferovanou metodou je nainstalovat Electron jako vývojovou závislost ve vaší aplikaci:
 
 ```sh
 npm install electron --save-dev
@@ -8,23 +8,23 @@ npm install electron --save-dev
 
 See the [Electron versioning doc][versioning] for info on how to manage Electron versions in your apps.
 
-## Global Installation
+## Globální instalace
 
-You can also install the `electron` command globally in your `$PATH`:
+Můžete také globálně nainstalovat příkaz `electron` ve vašem `$PATH`:
 
 ```sh
 npm install electron -g
 ```
 
-## Customization
+## Přizpůsobení
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Pokud chcete změnit architekturu, která je stažena (např. `ia32` na zařízení `x64` , můžete použít příznak `--arch` s npm install nebo nastavit proměnnou prostředí `npm_config_arch`:
 
 ```shell
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Kromě změny architektury můžete také specifikovat platformu (např. `win32`, `linux`, etc.) using the `--platforma` flag:
 
 ```shell
 npm install --platform=win32 electron
@@ -32,18 +32,18 @@ npm install --platform=win32 electron
 
 ## Proxies
 
-If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
+Pokud potřebujete použít HTTP proxy, musíte nastavit proměnnou `ELECTRON_GET_USE_PROXY` na libovolnou hodnotu, plus další proměnné prostředí v závislosti na verzi uzlu vašeho hostitele:
 
-* [Node 10 and above][proxy-env-10]
-* [Before Node 10][proxy-env]
+* [Uzel 10 a vyšší][proxy-env-10]
+* [Před uzlem 10][proxy-env]
 
-## Custom Mirrors and Caches
-During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+## Vlastní zrcátka a keše
+During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. Učiní tak tím, že kontaktuje stránku ke stažení na GitHubu (`https://github. om/electron/electron/releases/tag/v$VERSION`, kde `$VERSION` je přesná verze Electronu).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Pokud nejste schopni získat přístup k GitHub nebo musíte poskytnout vlastní sestavení, můžete tak učinit buď poskytnutím zrcadla nebo existující adresáře keší.
 
-#### Mirror
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `@electron/get` is composed as follows:
+#### Zrcadlení
+Můžete použít proměnné prostředí k přepsání základní URL, cestu k hledání binárních souborů Electronu a binárního jména. The url used by `@electron/get` is composed as follows:
 
 ```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -55,18 +55,18 @@ For instance, to use the China mirror:
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
-#### Cache
-Alternatively, you can override the local cache. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+#### Mezipaměť
+Případně můžete přepsat místní mezipaměť. `@electron/get` uloží do mezipaměti stažené binární soubory v lokálním adresáři, abyste nenechali zdůraznit vaši síť. Můžete použít tuto složku keše, abyste poskytli vlastní sestavení Electronu nebo aby vůbec nenavázali kontakt se sítí.
 
-* Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
+* Linux: `$XDG_CACHE_HOME` nebo `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* Windows: `$LOCALAPPDATA/electron/Cache` nebo `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+V prostředí, které používá starší verze Electronu, můžete najít keš také v `~/.electron`.
 
 You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+Mezipaměť obsahuje oficiální zip soubor verze stejně jako kontrolní soustavu uložený jako textový soubor. Typická keš může vypadat takto:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -91,21 +91,21 @@ The cache contains the version's official zip file as well as a checksum, stored
     └── SHASUMS256.txt
 ```
 
-## Skip binary download
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+## Přeskočit binární stahování
+Při instalaci balíčku `elektronů` NPM automaticky stáhne binární soubor elektronů.
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+To může být někdy zbytečné, např. v prostředí CI při zkoušení jiné složky.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+Aby se zabránilo stažení binárního souboru, když nainstalujete všechny závislosti npm, můžete nastavit proměnnou prostředí `ELECTRON_SKIP_BINARY_DOWNLOAD`. Např.:
 ```sh
-ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm instalace
 ```
 
 ## Odstranění problémů
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Při spuštění `npm instaluje elektroron`, někteří uživatelé občas zaznamenají chyby instalace.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or wait a bit and try installing again.
+Téměř ve všech případech jsou tyto chyby výsledkem síťových problémů a ne skutečných problémů s balíčkem `elektronron` npm. Chyby jako `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`a `ETIMEDOUT` jsou náznakem takových problémů sítě . Nejlepším rozlišením je vyzkoušet přepínání sítí, nebo počkejte trochu a zkuste nainstalovat znovu.
 
 You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
 
@@ -117,13 +117,13 @@ If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be 
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+Na pomalejších sítích může být vhodné použít vlajku `--verbose` pro zobrazení postupu stahování:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+Pokud potřebujete vynutit opětovné stažení majetku a souboru SHASUM nastavte proměnnou prostředí `force_no_cache` na `true`.
 
 [npm]: https://docs.npmjs.com
 [versioning]: ./electron-versioning.md

@@ -1,31 +1,31 @@
 # Інтеграція з Середовищами Робочого Столу
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Різні операційні системи забезпечують різні можливості для інтеграції робочого столу у своє робоче середовище. Наприклад, на Windows, програми можуть розмістити ярлики в JumpList панелі завдань, і на додатку Mac, програми можуть містити інше меню в меню док-станції.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Це керівництво пояснює, як інтегрувати ваш додаток у це десктопне середовище з API Electron.
 
 ## Сповіщення
 
-See the [Notifications documentation](notifications.md).
+Дивіться [документацію про сповіщення](notifications.md).
 
 ## Останні Документи
 
-See [Recent Documents documentation](recent-documents.md).
+Дивись [останню документацію документів](recent-documents.md).
 
-## Progress Bar
+## Індикатор Прогресу
 
-See the [Progress Bar documentation](progress-bar.md).
+Дивіться [документацію до рядка прогресу](progress-bar.md).
 
-## Unity Launcher
+## Лаунчер Unity
 
 See the [Unity Launcher documentation][unity-launcher].
 
-## Represented File for macOS Window
+## Представлений файл для вікна macOS
 
-See the [Represented File documentation](represented-file.md).
+Дивіться [представлена файлова документація](represented-file.md).
 
-## Dragging files out of the window
+## Перетягуючі файли з вікна
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+Дивіться [Нативний файл перетягнути & документацію](native-file-drag-drop.md).
 
 [unity-launcher]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher

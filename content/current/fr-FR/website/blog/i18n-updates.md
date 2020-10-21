@@ -1,57 +1,57 @@
 ---
-title: "Internationalization Updates"
+title: "Mises à jour de l'internationalisation"
 author: vanessayuenn
 date: '2018-06-20'
 ---
 
-Ever since the [launch](https://electronjs.org/blog/new-website) of the new internationalized Electron website, we have been working hard to make the Electron development experience even more accessible to developers outside of the English speaking world.
+Depuis le [lancement](https://electronjs.org/blog/new-website) du nouveau site web Electron internationalisé nous avons travaillé dur pour rendre l'expérience de développement d'Electron encore plus accessible aux développeurs en dehors du monde anglophone.
 
-So here we are with some exciting i18n updates!
+Voici donc quelques mises à jour passionnantes pour i18n!
 
 ---
 
-## 🌐 Language Toggle
+## 🌐 Interrupteur de langue
 
-Did you know that many people who read translated documentation often cross reference that with the original English documentation? They do this to familiarize themselves with English docs, and to avoid outdated or inaccurate translations, which is one caveat of internationalized documentations.
-
-<figure>
-  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/35578586-cae629e2-05e4-11e8-9431-0278f8c2b39f.gif" alt="Language toggle on Electron documentation">
-</figure>
-
-To make cross-referencing to English docs easier, we recently shipped a feature that allows you to seamlessly toggle a section of the Electron documentation between English and whatever language you're viewing the website in. The language toggle will show up as long as you have a non-English locale selected on the website.
-
-## ⚡️ Quick Access to Translation Page
+Saviez-vous que beaucoup de personnes qui lisent la documentation traduite croisent souvent cette référence avec la documentation originale anglaise? Ils le font pour se familiariser avec la documentation anglaise, et pour éviter des traductions obsolètes ou inexactes, ce qui est une mise en garde des documentations internationalisées.
 
 <figure>
-  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/36511386-c32e31fc-1766-11e8-8484-7466be6a5eb0.png" alt="New Electron documentation footer in Japanese">
-  <figcaption>Electron documentation footer in Japanese</figcaption>
+  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/35578586-cae629e2-05e4-11e8-9431-0278f8c2b39f.gif" alt="Bascule de langue sur la documentation d'Electron">
 </figure>
 
-Notice a typo or an incorrect translation while you're reading the documentation? You no longer have to log in to Crowdin, pick your locale, find the file you'd like the fix, etc etc. Instead, you can just scroll down to the bottom of the said doc, and click "Translate this doc" (or the equivalent in your language). Voila! You are brought straight to the Crowdin translation page. Now apply your translation magic!
+Pour faciliter le renvoi vers la documentation anglaise, nous avons récemment fourni une fonctionnalité qui vous permet d'activer/désactiver de façon transparente une section de la documentation d'Electron entre l'anglais et la langue dans laquelle vous consultez le site. Le changement de langue s'affichera tant que vous aurez sélectionné une locale non anglaise sur le site web.
 
-## 📈 Some Statistics
+## ⚡ Accès rapide à la page de traduction
 
-Ever since we have publicized the Electron documentation i18n effort, we have seen _huge_ growth in translation contributions from Electron community members from all around the world. To date, we have **1,719,029 strings translated, from 1,066 community translators, and in 25 languages**.
+<figure>
+  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/36511386-c32e31fc-1766-11e8-8484-7466be6a5eb0.png" alt="Nouveau pied de page de la documentation d'Electron en japonais">
+  <figcaption>Pied de page de la documentation d'Electron en japonais</figcaption>
+</figure>
+
+Vous remarquez une faute de frappe ou une traduction incorrecte lors de la lecture de la documentation? Vous n'avez plus à vous connecter à Crowdin, choisir votre locale, trouver le fichier que vous aimeriez réparer, etc etc. Au lieu de cela, vous pouvez simplement faire défiler vers le bas de ce doc, et cliquer sur "Traduire ce doc" (ou l'équivalent dans votre langue). Voila! Vous êtes amené directement à la page de traduction de Crowdin. Appliquez maintenant votre magie de traduction !
+
+## 📈 Quelques statistiques
+
+Depuis que nous avons publié la documentation d'Electron, l'effort d'i18n, nous avons assisté à une croissance de _énorme_ dans les contributions de traduction des membres de la communauté Electron du monde entier. À ce jour, nous avons **1 719 029 chaînes traduites, de 1 066 traducteurs de la communauté, et en 25 langues**.
 
 <figure>
   <a href="https://crowdin.com/project/electron/">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/41649826-ca26037c-747c-11e8-9594-5ce12d2978e2.png" alt="Translation Forecast provided by Crowdin">
-    <figcaption>Translation Forecast provided by Crowdin</figcaption>
+    <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/41649826-ca26037c-747c-11e8-9594-5ce12d2978e2.png" alt="Prévisions de traduction fournies par Crowdin">
+    <figcaption>Prévisions de traduction fournies par Crowdin</figcaption>
   </a>
 </figure>
 
-Here is a fun graph showing the approximate amount of time needed to translate the project into each language if the existing tempo (based on the project activity during the last 14 days at the time of writing) is preserved.
+Voici un graphique amusant montrant le temps approximatif nécessaire pour traduire le projet dans chaque langue si le tempo existant (basé sur l'activité du projet au cours des 14 derniers jours au moment de l'écriture) est préservé.
 
-## 📃 Translator Survey
+## 📃 Enquête sur les traducteurs
 
-We would like to give a huge ❤️ thank you ❤️ to everyone who has contributed their time to help improving Electron! In order to properly acknowledge the hard work of our translator community, we have created a survey to collect some information (namely the mapping between their Crowdin and Github usernames) about our translators.
+Nous aimerions donner un énorme ❤️ merci ❤️ à tous ceux qui ont contribué à améliorer Electron! Afin de bien reconnaître le travail acharné de notre communauté de traducteurs, nous avons créé une enquête pour recueillir des informations (notamment la correspondance entre leurs noms d'utilisateur Crowdin et Github) à propos de nos traducteurs.
 
-If you are one of our incredible translators, please take a few minutes to fill this out: https://goo.gl/forms/b46sjdcHmlpV0GKT2.
+Si vous êtes l'un de nos incroyables traducteurs, veuillez prendre quelques minutes pour remplir ce formulaire : https://goo.gl/forms/b46sjdcHmlpV0GKT2.
 
-## 🙌 Node's Internationalization Effort
+## 🙌 Effort d'internationalisation du nœud
 
-Because of the success of Electron's i18n initiative, Node.js decided to model [their revamped i18n effort](https://github.com/nodejs/i18n) after the pattern we use as well! 🎉 The [Node.js i18n initiative](https://github.com/nodejs/i18n) has now been launched and gained great momentum, but you can stil read about the early proposal and reasoning behind it [here](https://medium.com/the-node-js-collection/internationalizing-node-js-fe7761798b0a).
+En raison du succès de l'initiative i18n d'Electron, Node.js a décidé de modéliser [leur effort i18n revampé](https://github.com/nodejs/i18n) après le modèle que nous utilisons aussi ! 🎉 Le nœud [. s initiative i18n](https://github.com/nodejs/i18n) a maintenant été lancée et a gagné un grand élan, mais vous pouvez lire à propos de la proposition précoce et du raisonnement derrière elle [ici](https://medium.com/the-node-js-collection/internationalizing-node-js-fe7761798b0a).
 
-## 🔦 Contributing Guide
+## 🔦 Guide de contribution
 
-If you're interested in joining our effort to make Electron more international friendly, we have a handy-dandy [contributing guide](https://github.com/electron/i18n/blob/master/contributing.md) to help you get started. Happy internationalizing! 📚
+Si vous êtes intéressé à vous joindre à nos efforts pour rendre Electron plus aimable à l'international, nous avons un guide de contribution [ pratique](https://github.com/electron/i18n/blob/master/contributing.md) pour vous aider à commencer. Bonne internationalisation! 📚</p>

@@ -8,14 +8,14 @@ To implement this feature in your app, you need to call the [`webContents.startD
 
 ## サンプル
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `index.html` file:
+[クイックスタートガイド](quick-start.md)の作業アプリケーションから始めて、次の行を `index.html` ファイルに追加します:
 
 ```html
-<a href="#" id="drag">Drag me</a>
-<script src="renderer.js"></script>
+<a href="#" id="drag"></a>
+<script src="renderer.js"></script> をドラッグ
 ```
 
-and add the following lines to the `renderer.js` file:
+そして、 `renderer.js` ファイルに次の行を追加します。
 
 ```js
 const { ipcRenderer } = require('electron')
@@ -26,7 +26,7 @@ document.getElementById('drag').ondragstart = (event) => {
 }
 ```
 
-The code above instructs the Renderer process to handle the `ondragstart` event and forward the information to the Main process.
+上記のコードはレンダラープロセスに `ondragstart` イベント を処理し、情報をメインプロセスに転送するように指示します。
 
 In the Main process(`main.js` file), expand the received event with a path to the file that is being dragged and an icon:
 
@@ -41,6 +41,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-After launching the Electron application, try dragging and dropping the item from the BroswerWindow onto your desktop. In this guide, the item is a Markdown file located in the root of the project:
+Electron アプリケーションを起動したら、BroswerWindow の アイテムをデスクトップにドラッグ&ドロップしてみてください。 このガイドでは、 項目はプロジェクトのルートにある Markdown ファイルです:
 
-![Drag and drop](../images/drag-and-drop.gif)
+![ドラッグ＆ドロップ](../images/drag-and-drop.gif)

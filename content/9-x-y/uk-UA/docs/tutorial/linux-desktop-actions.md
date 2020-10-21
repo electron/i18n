@@ -1,33 +1,33 @@
-# Custom Linux Desktop Launcher Actions
+# Користувацькі Linux дії лаунчера робочого столу
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
+На багатьох середовищах Linux ви можете додати власні записи до лаунчера , змінивши файл `.desktop`. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
 
-__Launcher shortcuts of Audacious:__
+__Ярлики лаунку Audacious:__
 
-![audacious][3]
+![зухвалість][3]
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity виконає `Exec поле` після натиснення користувачем. Формат наступним чином:
 
 ```plaintext
-Actions=PlayPause;Next;Previous
+Actions=PlayPause;Next;Попередня
 
-[Desktop Action PlayPause]
-Name=Play-Pause
+[Дія PlayPause]
+Ім'я=Play-Pause
 Exec=audacious -t
-OnlyShowIn=Unity;
+Тільки на:
 
-[Desktop Action Next]
+[Наступна дія робочого столу]
 Name=Next
 Exec=audacious -f
-OnlyShowIn=Unity;
+OnlyShowIn;
 
-[Desktop Action Previous]
-Name=Previous
-Exec=audacious -r
-OnlyShowIn=Unity;
+[Попередня дія робочого столу]
+Назва=Попередньо
+Виконавчий -r
+Тільки ShowIn;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+Unity Кращий спосіб сказати вашому застосунку що робити це використовувати параметри. Це у вашій програмі можна знайти у глобальній змінній `process.argv`.
 
 [3]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png
 

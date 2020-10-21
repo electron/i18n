@@ -4,7 +4,7 @@ Certifique-se de usar a documentação correspondente a versão do Electron que 
 
 ## Perguntas Frequentes
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar uma issue:
 
 * [Perguntas Frequentes no Electron](faq.md)
 
@@ -17,8 +17,8 @@ There are questions that are asked quite often. Check this out before creating a
   * [Escolhendo um Editor](tutorial/development-environment.md#a-good-editor)
 * [Criando seu Primeiro Aplicativo](tutorial/quick-start.md)
   * [Pré-requisitos](tutorial/quick-start.md#prerequisites)
-  * [Create a basic application](tutorial/quick-start.md#create-a-basic-application)
-  * [Package and distribute the application](tutorial/quick-start.md#package-and-distribute-the-application)
+  * [Criar uma aplicação básica](tutorial/quick-start.md#create-a-basic-application)
+  * [Empacotar e distribuir o aplicativo](tutorial/quick-start.md#package-and-distribute-the-application)
 * [Boilerplates e CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Acessibilidade](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Habilitar manualmente Recursos de Acessibilidade](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Teste e Depuração](tutorial/application-debugging.md)
   * [O Processo Principal de Depuração](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
@@ -136,7 +136,7 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
-* [webFrameMain](api/web-frame-main.md)
+* [Principal(webFrame)](api/web-frame-main.md)
 
 ### Módulos para o Processo de Renderização (Página Web):
 

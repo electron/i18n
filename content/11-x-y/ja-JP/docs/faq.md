@@ -26,7 +26,7 @@ Chrome の安定版のみを使用します。 重要な修正が beta や dev �
 
 ウェブページ (レンダラープロセス) 間でデータを共有する最も単純な方法は、ブラウザで既に提供されている HTML5 API を使用することです。 [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], [IndexedDB][indexed-db] といった良い選択肢があります。
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`][message-port] from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+あるいは、Electron が提供する IPC プリミティブを使用することもできます。 メインプロセスとレンダラープロセス間でデータを 共有する [`ipcMain`](api/ipc-main.md) と [`ipcRenderer`](api/ipc-renderer.md) モジュールを使用できます。 To communicate directly between web pages, you can send a [`MessagePort`][message-port] from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). メッセージ・ポート経由のその後の通信は直接的であり、メイン・プロセスを 迂回しません。
 
 ## 数分経つとアプリの tray が消失します。
 
@@ -104,11 +104,11 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 [サブピクセルアンチエイリアス](http://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。 サンプル:
 
-![subpixel rendering example][]
+![サブピクセル レンダリングの例][]
 
 サブピクセルアンチエイリアスは不透明なレイヤーの背景が必要で、そのレイヤーはフォントグリフを含みます。 (詳しくは [この issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) を参照してください)。
 
-To achieve this goal, set the background in the constructor for [BrowserWindow][browser-window]:
+この目的を達成するには、 [BrowserWindow][browser-window] のコンストラクタで背景を設定してください。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -129,4 +129,4 @@ CSS で背景を設定するだけでは期待する効果はないことに注�
 [indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 [message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
 [browser-window]: api/browser-window.md
-[subpixel rendering example]: images/subpixel-rendering-screenshot.gif
+[サブピクセル レンダリングの例]: images/subpixel-rendering-screenshot.gif

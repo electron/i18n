@@ -23,20 +23,20 @@ GPU加速渲染意味着使用GPU用于合成。 因为帧必须从需要更多�
 ``` javascript
 const { app, BrowserWindow } = require('electron')
 
-app.disableHardwareAcceleration()
+app.disableHardwareAction()
 
 let win
 
-app.whenReady().then(() => {
-  win = new BrowserWindow({
+app.whenReady(). hen() => Windows
+  win = new BrowserWindow(
     webPreferences: {
       offscreen: true
     }
   })
 
-  win.loadURL('http://github.com')
-  win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
+  win. oadURL('http://github.com')
+  win.webContents.on('paint', (fevent, dirty, image) => *
+    // updateBitmap(dirty, image. etBitmap())
   })
   win.webContents.setFrameRate(30)
 })

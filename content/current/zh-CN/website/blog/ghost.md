@@ -1,68 +1,84 @@
 ---
-title: 'Project of the Week: Ghost'
+title: '每周项目：幽灵项目'
 author:
-  - felixrieseberg
+  - 菲克斯里塞堡
   - zeke
 date: '2017-02-14'
 ---
 
-This week we chatted with [Felix Rieseberg](https://felixrieseberg.com/), desktop engineer at [Slack](https://slack.com/) and maintainer of [Ghost Desktop](https://ghost.org/downloads/), an Electron client for the [Ghost](https://ghost.org/) publishing platform.
+本周我们与 [Felix Rieseberg](https://felixrieseberg.com/)聊天， 桌面工程师： [Slack](https://slack.com/) 和 [虚拟桌面](https://ghost.org/downloads/)维护者 一个 [Ghost](https://ghost.org/) 发布平台的 Electron 客户端。
 
 ---
 
 <div class="pt-5">
-  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Ghost Desktop Screenshot"> 
+  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="幽灵桌面截图"> 
 </div>
 
-## What is Ghost?
+## 什么是 Ghos？
 
-Ghost is a fully open source, hackable platform for building and running a modern online publication. We power blogs, magazines and journalists from Zappos to Sky News.
+Ghost 是一个完全开放的来源，可黑客搭建和运行现代在线出版物的平台。 我们为来自Zappos的博客、杂志和记者提供动力到Sky News。
 
-## What makes it different from other publishing platforms?
+## 什么使它不同于其他发布平台？
 
-Ghost was founded in April 2013, after a very successful Kickstarter campaign to create a new platform focused solely on professional publishing. Our mission is to create the best open source tools for independent journalists and writers across the world, and have a real impact on the future of online media. It offers a simpler, more focussed experience: Our editor is designed solely around providing the best possible writing experience.
+Ghost 成立于2013年4月，这是在一次非常成功的Kickstarter运动，创建一个完全以专业出版为重点的新平台。 我们的任务是为世界各地的独立记者和作家创造最好的开放源码工具。 并对网上媒体的未来产生实际影响。 它提供了一个更简单、重点更突出的经验：我们的编辑完全是围绕着提供最好的写作经验设计的。
 
-Compared to the all-time classic WordPress, it offers a simpler, more streamlined experience - it is easier to setup and maintain, comes with all important features out-of-the-box, and is dramatically faster. Compared to other online platforms, Ghost gives writers full ownership and control over their content, allows full customization, and enables authors to build a business around their publication.
+与历史上经典的 WordPress相比，它提供了一个更简单、更简化的体验——它更容易设置和维护， 带有所有重要功能的外置功能，速度快得多。 与其他在线平台相比，Ghost 给予作者完全所有权和对其内容的控制权。 允许完全定制，并使作者能够围绕其发布建立一个企业。
 
-## Is Ghost a for-profit company?
+## Ghost 是一家营利公司吗？
 
-This one is important to us: Ghost is an independent non-profit organisation. We build publishing tools for modern journalism & blogging because we believe freedom of speech is important. Our software is released under a [free open source license](https://github.com/TryGhost/Ghost), our business model is [completely transparent](https://blog.ghost.org/year-3/), and our legal structure means that 100% of the money we make is reinvested into making Ghost better.
+这一点对我们很重要：Ghost 是一个独立的非营利组织。 我们为现代新闻媒体创建出版工具 & 博客，因为我们认为言论自由很重要。 我们的软件是在 [免费开放源代码许可证](https://github.com/TryGhost/Ghost)下发布的，我们的业务模式是 [完全透明的](https://blog.ghost.org/year-3/)我们的法律结构意味着我们所花的钱100%被重新投资于使幽灵变得更好。
 
-## What is Ghost Desktop?
+## 什么是主机桌面？
 
-Ghost Desktop allows writers to manage multiple blogs at once - and to focus on their writing. Simple things like common writing shortcuts can't be realized in a browser, but are available in our desktop app. It allows other applications to communicate directly [with the blog via deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
+虚拟桌面允许作者一次管理多个博客-并集中精力写入。 像常见的写作快捷方式这样的简单东西无法在浏览器中实现，但我们的桌面应用程序中可以使用。 它允许其他应用程序通过 deeplinks</a> 与博客直接联系
 
-## What is Ghost for Journalism?
+。</p> 
 
-This year we're very excited to be dedicating our entire 10 person full-time Ghost team to helping grow three independent publications, along with $45,000 in resources toward their efforts. We're calling it [Ghost for Journalism](https://ghost.org/journalism/).
 
-We've been building Ghost as the web's next great platform for independent publishers for about three and half years now, and we've now reached a really interesting inflection point. We started this journey to create a simple, well designed blogging platform which could be used by just about anyone. That was always going to be step one.
 
-Long term, we want Ghost to be an incredible platform for the world's best journalism, and that means we need to build features to attract exactly those people. This year we're making a very conscious decision to focus on just that.
+## 什么是新闻的幽灵？
 
-## Why did you choose to build Ghost Desktop on Electron?
+今年，我们感到非常高兴的是，我们的所有10人专职幽灵小组将帮助成长三种独立的出版物。 还有45 000美元的资源用于他们的努力。 我们正在调用它 [Journalism](https://ghost.org/journalism/)。
 
-Ghost uses JavaScript and Node.js on both the backend and frontend, so being able to utilize the same technology and skillset enables our team to move faster, build more, and ultimately deliver a better experience. In addition, being able to share more than 95% of code between the macOS, Windows, and Linux version of the app allows us to focus on building a great core user experience, without having to maintain one code base for each platform.
+我们已经建造Ghost 作为网站下一个独立出版商的伟大平台了大约三年半了。 我们现在已经到了一个真正有趣的通货膨胀点。 我们开始了创建一个简单、设计良好的博客平台的旅程，任何人都可以使用。 这总是一步步的。
 
-## What are some challenges you've faced while building Ghost Desktop?
+从长远来看，我们希望幽灵成为世界上最好的新闻工作的一个令人难以置信的平台。 这意味着我们需要建立一些特色来吸引这些人。 今年，我们正在作出非常有意识的决定，集中注意这个问题。
 
-Spellchecking is likely still one of the most difficult services offered - we could easily utilize one of the many online services, but correctly spellchecking text in multiple languages while guarding the privacy and autonomy of our users is not an easy task.
 
-## In what areas should Electron be improved?
 
-We would love to see Electron bring the operating system's native spellchecking capabilities to their apps. We're dreaming about a world in which an `<input>` field receives the same services as a `NSTextView`, but we are also intimately aware how difficult that is.
+## 您为什么选择在 Electron 上构建Ghost 桌面？
 
-## What are your favorite things about Electron?
+Ghost 使用 JavaScript 和节点。 s 在后端和前端，所以能够使用相同的技术和技能集，使我们的团队能够更快地移动， • 建立更多的机构，并最终提供更好的经验。 此外，能够在 macOS, Windows之间分享超过95%的代码， 及 Linux 版本的应用程序使我们能够专注于建立一个优秀的核心用户体验， 无需为每个平台维持一个代码库。
 
-JavaScript is famous for being a vast ecosystem, involving countless tools and frameworks - but the convenience it affords us is hard to overstate. Building an app with Electron is only _slightly_ harder than building a web app, which is an amazing  feat.
 
-## Is Ghost done? If not, what's coming next?
 
-Ghost Desktop is also an ongoing project - we're pretty far from being done. We have been talking for a while about bringing a full offline mode to our users, and we're getting fairly close. Other notable work areas are the extension and integration with other text editing apps (like Word or Atom), ultimately allowing people to write posts using their favorite tools. In general, once we've shipped the offline mode feature, we're looking for deeper integration with the operating system. If that sounds interesting to you, [join us](https://github.com/tryghost/ghost-desktop)!
+## 构建主机桌面时面临什么挑战？
 
-## What are some of your favorite Electron apps?
+拼写检查可能仍然是提供的最困难的服务之一，我们可以很容易地利用许多在线服务之一。 但在保护我们用户的隐私和自主权的同时正确地用多种语言拼写文本并非易事。
 
-I'm a big fan of [Kap](https://getkap.co/), [Felony](https://github.com/henryboldi/felony), and [Visual Studio Code](https://code.visualstudio.com).
+
+
+## 应在哪些领域改进Electron？
+
+我们很乐意看到Electron将操作系统本机拼写检查能力带到他们的应用中。 我们正在梦想一个世界，在这个世界里， `<input>` 字段获得与 `NSTextView`相同的服务， 但我们也清楚地意识到这是多么困难。
+
+
+
+## 您最喜欢的 Electron？
+
+JavaScript 因为是一个庞大的生态系统而著称，它涉及无数的工具和框架，但它给我们带来的便利是很难过分的。 Building an app with Electron is only _slightly_ harder than building a web app, which is an amazing  feat.
+
+
+
+## 幽灵完成了吗？ 如果没有，接下来是什么？
+
+幽灵桌面也是一个正在进行的项目 - 我们远远没有完成。 我们一直在谈论为我们的用户带来一个完整的离线模式，我们已经相当接近。 其他值得注意的工作领域包括扩展和与其他文本编辑应用程序的整合(例如单词或Atom)， 最终允许人们使用他们最喜欢的工具撰写文章。 一般来说，一旦我们发运了离线模式功能，我们正在寻找与操作系统更深入的整合。 如果你有兴趣听到， [加入我们](https://github.com/tryghost/ghost-desktop)！
+
+
+
+## 您最喜欢的 Electron 应用程序是什么？
+
+我是 [Kap](https://getkap.co/), [Felony](https://github.com/henryboldi/felony)和 [Visual Studio 代码](https://code.visualstudio.com) 的大粉丝。
 
 👻
 

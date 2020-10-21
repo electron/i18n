@@ -2,23 +2,23 @@
 
 ## Обзор
 
-All three operating systems provide means for applications to send notifications to the user. The technique of showing notifications is different for the Main and Renderer processes.
+Все три операционные системы предоставляют приложениям средства для отправки уведомлений пользователю. Метод отображения уведомлений отличается от метода для процессов Main и Renderer.
 
-For the Renderer process, Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Для процесса Renderer Electron удобно позволяет разработчикам отправлять уведомлений с помощью [API уведомлений HTML5](https://notifications.spec.whatwg.org/), , используя встроенный API уведомлений операционной системы для отображения.
 
-To show notifications in the Main process, you need to use the [Notification](../api/notification.md) module.
+Для отображения уведомлений в главном процессе, необходимо использовать модуль [Уведомления](../api/notification.md).
 
 ## Пример
 
-### Show notifications in the Renderer process
+### Показывать уведомления в процессе рендерера
 
-Assuming you have a working Electron application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
+Предположим, что у вас есть работающее приложение Electron из [Быстрое начальное руководство](quick-start.md), добавьте следующую строку к индексу `. tml` файл перед закрытием `</body>` тег:
 
 ```html
 <script src="renderer.js"></script>
 ```
 
-and add the `renderer.js` file:
+и добавьте файл `renderer.js`:
 
 ```js
 const myNotification = new Notification('Title', {
@@ -27,20 +27,20 @@ const myNotification = new Notification('Title', {
 
 myNotification.onclick = () => {
   console.log('Notification clicked')
-}
+
 ```
 
-After launching the Electron application, you should see the notification:
+После запуска приложения Electron вы должны увидеть уведомление:
 
-![Notification in the Renderer process](../images/notification-renderer.png)
+![Уведомление в процессе рендерера](../images/notification-renderer.png)
 
-If you open the Console and then click the notification, you will see the message that was generated after triggering the `onclick` event:
+Если вы откроете консоль и нажмите на уведомление, вы увидите сообщение , которое было сгенерировано после запуска `onclick` события:
 
-![Onclick message for the notification](../images/message-notification-renderer.png)
+![Onclick сообщение для уведомления](../images/message-notification-renderer.png)
 
-### Show notifications in the Main process
+### Показывать уведомления в главном процессе
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Начиная с рабочего приложения из [Quick Start Guide](quick-start.md), обновите файл `main.js` следующими строками:
 
 ```js
 const { Notification } = require('electron')
@@ -56,17 +56,17 @@ function showNotification () {
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-After launching the Electron application, you should see the notification:
+После запуска приложения Electron вы должны увидеть уведомление:
 
-![Notification in the Main process](../images/notification-main.png)
+![Уведомление в главном процессе](../images/notification-main.png)
 
-## Additional information
+## Дополнительная информация
 
 Хотя код и Ux схожий между операционными системами, все же есть небольшие различия.
 
 ### Windows
 
-* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
+* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. Это может быть перекрыто во время разработки, поэтому добавление `node_modules\electron\dist\electron.exe` в меню запуска тоже делает трюк. Перейдите в файл Проводника, щелкните правой кнопкой мыши и выберите пункт «Запустить меню». После этого вам нужно добавить строку `app.setAppUserModelId(process.execPath)` в ваш основной процесс, чтобы увидеть уведомления.
 * On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
 * On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
 
@@ -82,9 +82,9 @@ While notifications including buttons work with `electron-windows-notifications`
 
 #### Quiet Hours / Presentation Mode
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Чтобы определить, разрешено ли вам отправлять уведомление, используйте пользовательский модуль [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+Это позволит вам заранее определить, будет ли Windows выбрасывать уведомления без звука.
 
 ### macOS
 

@@ -1,84 +1,84 @@
-# Windows Taskbar
+# Windows taakbalk
 
-Electron has APIs to configure the app's icon in the Windows taskbar. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron heeft API's om het app pictogram in de Windows taakbalk te configureren. Ondersteunde zijn de [creatie van een `JumpList`](#jumplist), [aangepaste miniaturen en werkbalken](#thumbnail-toolbars), [iconen overlappen](#icon-overlays-in-taskbar), en het zogenaamde ["Flash Frame" effect](#flash-frame), maar Electron gebruikt ook het dock pictogram van de app om cross-platform functies te implementeren van [recente documenten](./recent-documents.md) en [applicatievoortgang](./progress-bar.md).
 
-## JumpList
+## JumpLijst
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the task bar. That context menu is called `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Windows stelt apps in staat een aangepast contextmenu te definiëren dat wordt weergegeven wanneer gebruikers met de rechtermuisknop op het app-pictogram in de taakbalk klikken. Dat contextmenu wordt `JumpList` genoemd. Je specificeert aangepaste acties in de `Taken` categorie van JumpList, zoals geciteerd van MSDN:
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+> Toepassingen definiëren taken gebaseerd op zowel de functies van het programma als de sleutel dingen die een gebruiker moet doen met hen. Taken moeten contextvrij zijn, in dat de applicatie niet hoeft te worden uitgevoerd om ze te laten werken. Ze moeten ook de statistisch meest voorkomende acties zijn die een normale gebruiker zou uitvoeren in een applicatie, zoals het opstellen van een e-mail bericht of het openen van de kalender in een e-mail programma, een nieuw document maken in een woord processor, start een applicatie in een bepaalde modus, of start een van zijn subopdrachten. Een app zou het menu niet moeten plakken met geavanceerde functies die standaard gebruikers niet nodig hebben of eenmalige acties zoals registratie. Gebruik geen taken voor promotie-items zoals upgrades of speciale aanbiedingen.
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+> Het is sterk aan te bevelen dat de takenlijst statisch is. Het moet gelijk blijven aan ongeacht de status of status van de aanvraag. Hoewel het mogelijk is om de lijst dynamisch te variëren, je zou moeten overwegen dat dit de gebruiker kan verwarren die niet verwacht dat deel van de doellijst verandert.
 
-__Tasks of Internet Explorer:__
+__Taken van Internet Explorer:__
 
-![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
+![IJs](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+In tegenstelling tot het dock menu in macOS is dit een echt menu, taken in Windows werken zoals applicatie snelkoppelingen die de gebruiker op een taak klikt een programma zal worden uitgevoerd met de opgegeven argumenten.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+Om gebruikerstaken voor uw applicatie in te stellen, kunt u [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API gebruiken:
 
 ```javascript
 const { app } = require('electron')
 app.setUserTasks([
   {
-    program: process.execPath,
-    arguments: '--new-window',
-    iconPath: process.execPath,
+    programma: process. xecPath,
+    argumenten: '--new-window',
+    iconPath: proces. xecPath,
     iconIndex: 0,
-    title: 'New Window',
-    description: 'Create a new window'
+    titel: 'Nieuw venster',
+    beschrijving: 'Maak een nieuw venster'
   }
 ])
 ```
 
-To clean your tasks list, call `app.setUserTasks` with an empty array:
+Om uw takenlijst op te schonen, bel `app.setUserTasks` met een lege array:
 
 ```javascript
 const { app } = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+De taken van de gebruiker zullen nog steeds getoond worden, zelfs nadat uw applicatie is gesloten, dus het pictogram en het programmapad dat is opgegeven voor een taak moeten bestaan totdat uw applicatie gedeïnstalleerd is.
 
 
 ## Thumbnail Toolbars
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+In Windows kunt u een miniatuur werkbalk met opgegeven knoppen in een taakbalk lay-out van een programmavenster toevoegen. Het biedt gebruikers een manier om toegang te krijgen tot een venster zonder het venster te herstellen of te activeren.
 
-From MSDN, it's illustrated:
+Van MSDN, wordt geïllustreerd:
 
-> This toolbar is the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Deze toolbar is de bekende standaard standaard werkbalk. Het heeft een maximaal zeven knoppen. ID, afbeelding, tooltip en staat van elke knop worden gedefinieerd in een structuur, die vervolgens wordt doorgegeven aan de taakbalk. De applicatie kan knoppen tonen, uitschakelen of verbergen van de thumbnail werkbalk zoals vereist door de huidige status.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Windows Media Player kan bijvoorbeeld standaard media transport bediening aanbieden zoals afspelen, pauzeren, dempen en stoppen.
 
-__Thumbnail toolbar of Windows Media Player:__
+__Thumbnail werkbalk van Windows Media Player:__
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![speler](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+U kunt [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) gebruiken om thumbnail werkbalk in uw applicatie in te stellen:
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const path = require('path')
+const pad = require('pad')
 
 const win = new BrowserWindow()
 
-win.setThumbarButtons([
+win. etThumbarKnoppen ([
   {
     tooltip: 'button1',
-    icon: path.join(__dirname, 'button1.png'),
-    click () { console.log('button1 clicked') }
+    pictogram: pad. oin(__dirname, 'button1.png'),
+    klik () { console. og('button1 aangeklikt') }
   }, {
     tooltip: 'button2',
-    icon: path.join(__dirname, 'button2.png'),
-    flags: ['enabled', 'dismissonclick'],
-    click () { console.log('button2 clicked.') }
+    pictogram: path.join(__dirname, 'button2. ng'),
+    markeringen: ['ingeschakeld', 'dismissonclick'],
+    klik () { console. og('button2 aangeklikt.') }
   }
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Om miniatuur werkbalkknoppen schoon te maken, roep gewoon `BrowserWindow.setThumbarknoppen` op met een lege array:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -88,32 +88,32 @@ win.setThumbarButtons([])
 ```
 
 
-## Icon Overlays in Taskbar
+## Pictogram Overlays in de taakbalk
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+In Windows kan een taakbalkknop een kleine overlay gebruiken om de applicatie status weer te geven, zoals geciteerd uit MSDN:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Pictogram overlays dienen als een contextuele melding van status, en zijn bedoeld om de noodzaak te ontzeggen van een apart statuspictogram voor meldingengebied om die informatie aan de gebruiker te communiceren. Bijvoorbeeld, de nieuwe mailstatus in Microsoft Outlook, momenteel weergegeven in het notificatiegebied, kan nu worden aangegeven via een overlay op de taakbalk. Nogmaals, je moet tijdens de ontwikkelcyclus beslissen welke methode het beste is voor je toepassing. Overlay pictogrammen zijn bedoeld om belangrijke, oude status of meldingen zoals netwerkstatus, berichtgever status of nieuwe mail te leveren. De gebruiker moet niet worden gepresenteerd met voortdurend veranderende overlays of animaties.
 
-__Overlay on taskbar button:__
+__Overlay op taakbalk knop:__
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Overlay op taakbalk knop](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
+Om het overlay pictogram voor een venster in te stellen, kunt u de [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API gebruiken:
 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Beschrijving voor overlay')
 ```
 
 
 ## Flash Frame
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+Op Windows kunt u de taakbalkknop markeren om de aandacht van de gebruiker te krijgen. Dit is vergelijkbaar met het uitklappen van het dock-pictogram op macOS. Van de MSDN-referentie documentatie:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> Meestal wordt een venster geflasht om de gebruiker te informeren dat het venster aandacht vereist, maar dat het momenteel niet het toetsenbord focus heeft.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+Om de BrowserWindow taskbar knop te flashen, kun je de [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API gebruiken:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -122,4 +122,4 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Vergeet niet om de `flashFrame` methode met `false` aan te roepen om het flash uit te schakelen. In het bovenstaande voorbeeld, wordt het aangeroepen wanneer het venster in focus komt, maar je kan een time-out of een andere event gebruiken om het uit te schakelen.

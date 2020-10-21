@@ -1,49 +1,49 @@
 ---
-title: Apple Silicon Support
-author: MarshallOfSound
+title: دعم آبل السليكون
+author: صوت MarshallOfSound
 date: '2020-10-15'
 ---
 
-With Apple Silicon hardware being released later this year, what does the path look like for you to get your Electron app running on the new hardware?
+مع إطلاق معدات أبل السليكون في وقت لاحق من هذا العام، ما هو المسار بالنسبة لك لجعل تطبيق إلكترون الخاص بك يعمل على الجهاز الجديد؟
 
 ---
 
-With the release of Electron 11.0.0-beta.1, the Electron team is now shipping builds of Electron that run on the new Apple Silicon hardware that Apple plans on shipping later this year. You can grab the latest beta with `npm install electron@beta` or download it directly from our [releases website](https://electronjs.org/releases/stable).
+بإطلاق إلكترون 11.0.0-بيتا. فريق إلكترون يقوم الآن بشحن بنايات من إلكترون التي تعمل على معدات آبل السليكون الجديدة التي تخطط آبل للشحن في وقت لاحق من هذا العام. يمكنك التقاط أحدث بيتا بواسطة `npm تثبيت electron@beta` أو تنزيلها مباشرة من [إصدار موقعنا](https://electronjs.org/releases/stable).
 
-## How does it work?
+## كيف يعمل ذلك؟
 
-As of Electron 11, we will be shipping separate versions of Electron for Intel Macs and Apple Silicon Macs. Prior to this change, we were already shipping two artifacts, `darwin-x64` and `mas-x64`, with the latter being for Mac App Store compatibility usage. We are now shipping another two artifacts, `darwin-arm64` and `mas-arm64`, which are the Apple Silicon equivalents of the aforementioned artifacts.
+ابتداء من إلكترون 11، سنقوم بشحن إصدارات منفصلة من إلكترون لـ Intel Macs و Apple Silicon Macs. قبل هذا التغيير، كنا نقوم بالفعل بشحن فنانين، `darwin-x64` و `mas-x64`، مع وجود هذا الأخير لاستخدام توافق متجر تطبيقات ماك. نحن الآن نقوم بشحن فنانين آخرين، `داروين درع 64` و `إس - درع 64`، وهما معادلتي آبل السيليكون للفنون السالفة الذكر.
 
-## What do I need to do?
+## ماذا أحتاج أن أفعل؟
 
-You will need to ship two versions of your app: one for x64 (Intel Mac) and one for arm64 (Apple Silicon). The good news is that [`electron-packager`](https://github.com/electron/electron-packager/), [`electron-rebuild`](https://github.com/electron/electron-rebuild/) and [`electron-forge`](https://github.com/electron-userland/electron-forge/) already support targeting the `arm64` architecture. As long as you're running the latest versions of those packages, your app should work flawlessly once you update the target architecture to `arm64`.
+سوف تحتاج إلى شحن نسختين من التطبيق الخاص بك: واحد لـ x64 (Intel Mac) وواحد للذراع 64 (Apple Silicon). الخبر السار هو أن [`حزمة إلكترون-غلاف`](https://github.com/electron/electron-packager/)، [`إعادة بناء إلكترون-`](https://github.com/electron/electron-rebuild/) و [`تصنيع إلكترون-فورج`](https://github.com/electron-userland/electron-forge/) يدعم بالفعل استهداف الدروع ``4</code> المعمارية. طالما أنك تقوم بتشغيل أحدث إصدارات تلك الحزم، يجب أن يعمل تطبيقك بدون خلل بمجرد تحديث الهندسة المستهدفة إلى `arm64`.
 
-In the future, we will release a package that allows you to "merge" your `arm64` and `x64` apps into a single universal binary, but it's worth noting that this binary would be _huge_ and probably isn't ideal for shipping to users.
+وفي المستقبل، سوف نصدر حزمة تسمح لك "بدمج" `arm64` و `x64` تطبيقات في ثنائيات عالمية واحدة، ولكن تجدر الإشارة إلى أن هذه الثنائية ستكون _ضخمة_ وربما ليست مثالية للشحن إلى المستخدمين.
 
-## Potential Issues
+## القضايا المحتملة
 
-### Native Modules
+### الوحدات النمطية الأصلية
 
-As you are targeting a new architecture, you'll need to update several dependencies which may cause build issues. The minimum version of certain dependencies are included below for your reference.
+بينما تستهدف هندسة معمارية جديدة، ستحتاج إلى تحديث العديد من التبعيات التي قد تسبب مشاكل في البناء. الإصدار الأدنى لبعض الإعتمادات مدرج أدناه للرجوع إليه.
 
-| Dependency          | Version Requirement |
-| ------------------- | ------------------- |
-| Xcode               | `>=12.0.0`       |
-| `node-gyp`          | `>=7.1.0`        |
-| `electron-rebuild`  | `>=1.12.0`       |
-| `electron-packager` | `>=15.1.0`       |
+| التبعية              | متطلبات الإصدار |
+| -------------------- | --------------- |
+| Xcode                | `>=12.0.0`   |
+| `عقدة`               | `>=7.1.0`    |
+| `إعادة بناء إلكترون` | `>=1.12.0`   |
+| `electron-packager`  | `>=15.1.0`   |
 
-As a result of these dependency version requirements, you may have to fix/update certain native modules.  One thing of note is that the Xcode upgrade will introduce a new version of the macOS SDK, which may cause build failures for your native modules.
+نتيجة لمتطلبات إصدار الإعالة هذه، قد تضطر إلى إصلاح/تحديث وحدات أصلية معينة.  شيء واحد من الملحوظة هو أن ترقية Xcode سوف تقدم نسخة جديدة من الـ MacOS SDK، الذي قد يسبب فشلات بناء الوحدات المحلية الخاصة بك.
 
 
-## How do I test it?
+## كيف يمكنني اختبارها؟
 
-Currently, Apple Silicon applications only run on Apple Silicon hardware, which isn't commercially available at the time of writing this blog post. If you have a [Developer Transition Kit](https://developer.apple.com/programs/universal/), you can test your application on that. Otherwise, you'll have to wait for the release of production Apple Silicon hardware to test if your application works.
+حالياً، تطبيقات أبل سيكون تعمل فقط على آبل سيلكون، وهي ليست متاحة تجارياً وقت كتابة هذه المدونة المنشورة. إذا كان لديك [مجموعة الانتقال للمطورين](https://developer.apple.com/programs/universal/)، يمكنك اختبار التطبيق الخاص بك على ذلك. وبخلاف ذلك، سيتعين عليك الانتظار حتى يتم إصدار معدات آبل السيليكون للإنتاج لاختبار ما إذا كان تطبيقك يعمل.
 
-## What about Rosetta 2?
+## ماذا عن روزيتا 2؟
 
-Rosetta 2 is Apple's latest iteration of their [Rosetta](https://en.wikipedia.org/wiki/Rosetta_(software)) technology, which allows you to run x64 Intel applications on their new arm64 Apple Silicon hardware. Although we believe that x64 Electron apps will run under Rosetta 2, there are some important things to note (and reasons why you should ship a native arm64 binary).
+روزيتا 2 هي أحدث تكرار من آبل لتقنية [روزيتا](https://en.wikipedia.org/wiki/Rosetta_(software)) الخاصة بها، والذي يسمح لك بتشغيل تطبيقات x64 Intel على معدات الذراع 64 آبل السليكون الجديدة. على الرغم من أننا نعتقد أن تطبيقات x64 إلكترون سيتم تشغيلها تحت روزيتا 2، هناك بعض الأشياء المهمة التي يمكن ملاحظتها (والأسباب التي تجعل من الضروري شحن الدرع الوطني 64 مكرراً).
 
-* Your app's performance will be significantly degraded. Electron / V8 uses [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) compilation for JavaScript, and due to how Rosetta works, you will effectively be running JIT twice (once in V8 and once in Rosetta).
-* You lose the benefit of new technology in Apple Silicon, such as the increased memory page size.
-* Did we mention that the performance will be **significantly** degraded?
+* سيتم تدهور أداء التطبيق الخاص بك بشكل كبير. يستخدم إلكترون / V8 تجميع [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) لجافا سكريبت، ونظرا لكيفية عمل روزيتا، سوف تقوم بتشغيل JIT مرتين (مرة في V8 ومرة في Rosetta).
+* أنت تفقد فائدة التكنولوجيا الجديدة في آبل سيلكون، مثل زيادة حجم صفحة الذاكرة.
+* هل ذكرنا أن الأداء سيكون **بشكل كبير** متدهور؟

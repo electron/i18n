@@ -1,26 +1,26 @@
 ---
-title: Electron joins the OpenJS Foundation
+title: Electron 加入 OpenJS 基金会
 author:
-  - felixrieseberg
+  - 菲克斯里塞堡
 date: '2019-12-11'
 ---
 
-At [Node+JS Interactive](https://events19.linuxfoundation.org/events/nodejs-interactive-2019/) in Montreal, the [OpenJS Foundation](https://openjsf.org/) announced that it accepted Electron into the Foundation's incubation program. The Foundation is committed to supporting the healthy growth of the JavaScript ecosystem and web technologies by providing a neutral organization to host and sustain projects, as well as collaboratively fund activities for the benefit of the community at large.
+在蒙特利尔的 [Node+JS Interactive](https://events19.linuxfoundation.org/events/nodejs-interactive-2019/) 会上， [OpenJS 基金会](https://openjsf.org/) 宣布，它接受Electron进入基金会的孵化方案。 基金会致力于支持JavaScript生态系统和网络技术的健康发展，提供一个中立的组织来主办和维持各种项目。 并协同为有利于整个社区的活动提供资金。
 
-The OpenJS Foundation is host to a number of open source JavaScript projects including jQuery, Node.js, and webpack. It's supported by 30 corporate and end-user members, including GoDaddy, Google, IBM, Intel, Joyent, and Microsoft. Electron is an open–source framework for building cross-platform desktop applications with web technologies.
+OpenJS 基金会是一些开源的 JavaScript 项目的主机，包括jQuery、Node.js和webpack。 它得到30个公司成员和最终用户成员的支持，包括GoDaddy、Google、IBM、Intel、Joyent和Microsoft。 Electron 是一个使用 Web 技术构建跨平台桌面应用程序的 open-source 框架。
 
-This is an exciting move for Electron, and we see it as a next step in our evolution as an open-source project.
+这是Electron令人兴奋的举动，我们认为这是我们作为一个开放源码项目发展过程中的下一个步骤。
 
 ---
 
-## What this means for developers
+## 这对开发者意味着什么
 
-Electron joining the OpenJS Foundation does not change how Electron is made, released, or used — and does not directly affect developers building applications with Electron. Even though Electron was originally created at GitHub in 2013, it is currently maintained by a number of organizations and individuals. In 2019, Electron codified its governance structure and invested heavily into formalizing how decisions affecting the entire project are made. We believe that having multiple organizations and developers investing in and collaborating on Electron makes the project stronger.
+Electron 加入 OpenJS 基金会不会改变Electron 的制作、发布方式， 或已使用 — 并且不直接影响通过 Electron 构建应用程序的开发者。 尽管Electron最初于2013年在GitHub 创建，但目前仍由一些组织和个人维护。 2019年，Electron编纂了其治理结构，并大量投资于正式确定影响整个项目的决策方式。 我们认为，让多个组织和开发商投资Electron并在Electron上进行合作，可以使项目更加有力。
 
-Lifting Electron up from being owned by a single corporate entity and moving it into a neutral foundation focused on supporting the web and JavaScript ecosystem is a natural next step as we mature as an open-source project.
+把Electron从单一公司实体拥有的东西上撤，并将其转移到一个以支持网络和JavaScript生态系统为重点的中立基金会，是随着我们作为一个开放源码项目成熟而自然采取的下一个步骤。
 
-## Learning more
+## 学习更多
 
-You can read up on the foundation, its mission, and its members on the [OpenJSF website](https://www.notion.so/Electron-joins-the-OpenJS-Foundation-d898f12480874e56abe78f29b041fb91#0801fd7e9fa340afbcdce0510ba05f8a). For more information and quotes about the acceptance of Electron into the OpenJSF incubation program, check out the official press release. To learn more about the humans behind Electron and how they work together, take a look at our [Governance page](https://electronjs.org/governance).
+您可以在 [OpenJSF 网站](https://www.notion.so/Electron-joins-the-OpenJS-Foundation-d898f12480874e56abe78f29b041fb91#0801fd7e9fa340afbcdce0510ba05f8a) 上读取基金会、 其任务和成员。 欲了解更多信息并引述接受Electron进入OpenJSF孵化方案的情况，请查阅官方新闻稿。 要了解更多Electron背后的人以及他们如何合作，请看一看我们的 [施政页面](https://electronjs.org/governance)。
 
-To get started with Electron itself, take a peek at [our documentation](https://electronjs.org/docs).
+若要开始使用 Electron 本身，请在 [我们的文档](https://electronjs.org/docs) 中使用一条peek。

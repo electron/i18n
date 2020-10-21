@@ -7,114 +7,114 @@ author:
 date: '2019-04-23'
 ---
 
-The Electron team is excited to announce the release of Electron 5.0.0! You can install it with npm via `npm install electron@latest` or download the tarballs from [our releases page](https://github.com/electron/electron/releases/tag/v5.0.0). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Команда Electron з радістю повідомляє про реліз Electron 5.0.0! Ви можете встановити його за допомогою npm за допомогою `npm встановити electron@latest` або завантажити tarballs з [наших релізів сторінку](https://github.com/electron/electron/releases/tag/v5.0.0). Реліз упакований разом з оновленнями, виправленнями та новими функціями. Ми не можемо дочекатися, щоб побачити, що ви з ними будуєте! Продовжити читання і поділитися інформацією про цей реліз, і будь ласка поділіться з усіма відгуками!
 
 ---
 
-## What's New?
+## Що нового?
 
-Much of Electron's functionality is provided by the core components of Chromium, Node.js, and V8. Electron keeps up-to-date with these projects to provide our users with new JavaScript features, performance improvements, and security fixes. Each of these packages has a major version bump in Electron 5:
+Значна частина функціональності Electron надається основними компонентами Chromium, Node.js та V8. Electron оновлює ці проекти, щоб забезпечити наших користувачів новими функціями JavaScript, покращення продуктивності та виправлення безпеки. Кожен з цих пакетів має велику версію бампа Electron 5:
 
 - Chromium `73.0.3683.119`
-  - [New in 70](https://developers.google.com/web/updates/2018/10/nic70)
-  - [New in 71](https://developers.google.com/web/updates/2018/12/nic71)
-  - [New in 72](https://developers.google.com/web/updates/2019/01/nic72)
-  - [New in 73](https://developers.google.com/web/updates/2019/03/nic73)
+  - [Нова в 70](https://developers.google.com/web/updates/2018/10/nic70)
+  - [Новий у 71](https://developers.google.com/web/updates/2018/12/nic71)
+  - [Нова в 72 році](https://developers.google.com/web/updates/2019/01/nic72)
+  - [Новий у 73](https://developers.google.com/web/updates/2019/03/nic73)
 - Node.js `12.0.0`
-  - [Node 12 Blog Post](https://nodejs.org/en/blog/release/v12.0.0/)
+  - [Блог вузла 12](https://nodejs.org/en/blog/release/v12.0.0/)
 - V8 `7.3.492.27`.
-  - [New JS Features](https://twitter.com/mathias/status/1120700101637353473)
+  - [Нові JS функції](https://twitter.com/mathias/status/1120700101637353473)
 
-Electron 5 also includes improvements to Electron-specific APIs. A summary of the major changes is below; for the full list of changes, check out the [Electron v5.0.0 release notes](https://github.com/electron/electron/releases/tag/v5.0.0).
+Electron 5 також містить покращення API, специфічного для Electron. Підсумок основних змін нижче; для повного списку змін перегляньте опис релізу [Electron v5.0.0 для випуску](https://github.com/electron/electron/releases/tag/v5.0.0).
 
 ### Promisification
 
-Electron 5 continues [Promisification initiative](https://github.com/electron/electron/blob/5-0-x/docs/api/promisification.md) initiative to convert Electron's callback-based API to use Promises. These APIs were converted for Electron 5:
+Electron 5 продовжує [ініціативу обіцянки](https://github.com/electron/electron/blob/5-0-x/docs/api/promisification.md) перетворити API на callbackbased Electron's для використання Promises. Цей API був перетворений для Electron 5:
 * `app.getFileIcon`
-* `contentTracing.getCategories`
-* `contentTracing.startRecording`
-* `contentTracing.stopRecording`
+* `tracing.getCategories`
+* `запис contentTracing.startRecording`
+* `запис contentTracing.stopRecording`
 * `debugger.sendCommand`
-* Cookies API
-* `shell.openExternal`
-* `webContents.loadFile`
+* API кук
+* `оболонка openзовнішня`
+* `файл webContents.loadFile`
 * `webContents.loadURL`
 * `webContents.zoomLevel`
 * `webContents.zoomFactor`
 * `win.capturePage`
 
-### System colors access for macOS
+### Доступ до системних кольорів для macOS
 
-These functions were changed or added to `systemPreferences` to access macOS systems' colors:
-* `systemPreferences.getAccentColor`
-* `systemPreferences.getColor`
-* `systemPreferences.getSystemColor`
+Ці функції були змінені або додані до `systemPreferences` для доступу до кольорів macOS систем:
+* `колір системних налаштувань.getAccentColor`
+* `налаштування системи.getColor`
+* `налаштування системи.getSystemКолір`
 
-### Process memory information
+### Процес інформації про пам'ять
 
-The function `process.getProcessMemoryInfo` has been added to get memory usage statistics about the current process.
+Функція `process.getProcessMemoryInfo` була додана для отримання статистики використання пам'яті про поточний процес.
 
-### Additional filtering for remote APIs
+### Додаткова фільтрація для віддаленого API
 
-To improve security in the `remote` API, new remote events have been added so that `remote.getBuiltin`, `remote.getCurrentWindow`, `remote.getCurrentWebContents` and `<webview>.getWebContents` can be [filtered](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#13-disable-or-limit-creation-of-new-windows).
+Для покращення безпеки в `віддаленому інтерфейсі` , нові події віддаленого доступу були додані, `пульт. etBuiltin`, , `remote. etCurrentWindow`, `remote.getCurrentWebContents` і `<webview>.getWebents` може бути [відфільтрований](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#13-disable-or-limit-creation-of-new-windows).
 
-### Multiple BrowserViews on BrowserWindow
+### Декілька переглядів у веб-вікні браузера
 
-BrowserWindow now supports managing multiple BrowserViews within the same BrowserWindow.
+Тепер BrowserWindow підтримує управління кількома браузерами в межах одного веб-переглядача.
 
 ## Важливі Зміни
 
-### Defaults for packaged apps
+### За замовчуванням для запакованих додатків
 
-Packaged apps will now behave the same as the default app: a default application menu will be created unless the app has one and the `window-all-closed` event will be automatically handled unless the app handles the event.
+Упаковані додатки будуть тепер поводитись так само, як програма за замовчуванням: меню програми за замовчуванням буде створена, якщо програма не має одну і `закрита всі разом` подія буде автоматично оброблена, якщо програма не обробить цю подію.
 
-### Mixed sandbox
+### Пісочниці зі змішаними мітками
 
-Mixed sandbox mode is now enabled by default. Renderers launched with `sandbox: true` will now be actually sandboxed, where previously they would only be sandboxed if mixed-sandbox mode was also enabled.
+Режим мішаного пісочниці тепер увімкнено за замовчуванням. Візуалізатори запущені за допомогою `пісочниця: true` тепер буде фактично пісочницею, де раніше вони будуть виконуватися лише в пісочниці, якщо увімкнено режим змішаного пісочниці.
 
-### Security improvements
-The default values of `nodeIntegration` and `webviewTag` are now `false` to improve security.
+### Поліпшення безпеки
+За замовчуванням значення `nodeIntegration` and `webviewTag` тепер `false` для покращення безпеки.
 
-### Spellchecker now asynchronous
+### Перевірка правопису зараз асинхронна
 
-The SpellCheck API has been changed to provide [asynchronous results](https://github.com/electron/electron/blob/5-0-x/docs/api/web-frame.md#webframesetspellcheckproviderlanguage-provider).
+API SpellCheck змінено на надання [асинхронних результатів](https://github.com/electron/electron/blob/5-0-x/docs/api/web-frame.md#webframesetspellcheckproviderlanguage-provider).
 
-## Deprecations
+## Застарілі
 
-The following APIs are newly deprecated in Electron 5.0.0 and planned for removal in 6.0.0:
+Наступні API є щойно застарілими в Electron 5.0.0 та заплановані для видалення в 6.0.0:
 
-### Mksnapshot binaries for arm and arm64
-Native binaries of mksnapshot for arm and arm64 are deprecated and will be removed in 6.0.0. Snapshots can be created for arm and arm64 using the x64 binaries.
+### Бінарні знімки для зброї та броні 64
+Нативні бінарні файли mksnapshot для зброї і arm64 є застарілими і будуть видалені в 6. .0. Знімки можуть бути створені для озброєння і броні за допомогою виконуваних файлів x64.
 
-### ServiceWorker APIs on WebContents
-Deprecated ServiceWorker APIs on WebContents in preparation for their removal.
+### API ServiceWorker на WebContents
+Застарілі API ServiceWorker в WebContents при підготовці до їх віддаленого доступу.
 * `webContents.hasServiceWorker`
 * `webContents.unregisterServiceWorker`
 
-### Automatic modules with sandboxed webContents
+### Автоматичні модулі з пісочницею
 In order to improve security, the following modules are being deprecated for use directly via `require` and will instead need to be included via `remote.require` in a sandboxed webcontents:
-* `electron.screen`
-* `child_process`
+* `електронний екран`
+* `процес дочірніх_типу`
 * `fs`
-* `os`
-* `path`
+* `с`
+* `шлях`
 
 ## webFrame Isolated World APIs
-`webFrame.setIsolatedWorldContentSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` have been deprecated in favor of `webFrame.setIsolatedWorldInfo`.
+`webFrame.setIsolatedWorldContentSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` були застарілі на користь `webFrame.setIsolatedWorldInfo`.
 
-### Mixed sandbox
-`enableMixedSandbox` and the `--enable-mixed-sandbox` command-line switch still exist for compatibility, but are deprecated and have no effect.
+### Пісочниці зі змішаними мітками
+`enableMixedSandbox` та `--enable-mixed-sandbox` все ще існує для сумісності, але вони застарілі і не мають ефекту.
 
-## End of support for 2.0.x
+## Кінець підтримки 2.0.x
 
-Per our [supported versions policy](https://electronjs.org/docs/tutorial/support#supported-versions), 2.0.x has reached end of life.
+За наші [підтримувані версії](https://electronjs.org/docs/tutorial/support#supported-versions), 2.0.x досягнули кінця життя.
 
 ## Програма зворотнього зв’язку
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+Ми продовжуємо використовувати нашу [Програма зворотного зв’язку](https://electronjs.org/blog/app-feedback-program) для тестування. Проекти, які беруть участь у цій програмі перевіряють бета-версію Electron у своїх додатках; і взамін, нові помилки, які вони виявили, пріоритетні для стабільної релізи. Якщо ви хочете взяти участь або дізнатися більше, [дізнайтеся про наш блог повідомлення про програму](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Що далі
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 6.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule) maps out key dates in the Electron 6 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+У короткостроковій перспективі, ви можете очікувати, що команда продовжить зосереджуватися на тому, щоб не змінювати роботу основних компонентів з метою створення Electron, включаючи Chromium, Node, та V8. Хоча ми обережні, не виконуючи обіцянок щодо дати випуску, наш план - це випуску нових основних версій Electron з новими версіями цих компонентів приблизно щоквартально. [орієнтовний графік 6.0.0](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule) відображає ключові дати в життєвому циклі Electron 6. Також, [подивитися наш Візуальний документ](https://electronjs.org/docs/tutorial/electron-versioning) для більш докладної інформації про керування версіями в Electron.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+Для отримання інформації про заплановані зміни у майбутніх версіях Electron, [дивіться наші заплановані порушенні зміни](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).

@@ -11,9 +11,9 @@ const electronPath = require('electron')
 // spawn the process
 const env = { /* ... */ }
 const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+const appProcess = childProcess.spawn(electronPath, ['. app'], { stdio, env })
 
-// listen for IPC messages from the app
+// escuchar mensajes IPC desde la aplicación
 appProcess.on('message', (msg) => {
   // ...
 })
@@ -41,38 +41,38 @@ Por conveniencia, es posible que desee encapsular `appProcess` en un objeto cont
 ```js
 class TestDriver {
   constructor ({ path, args, env }) {
-    this.rpcCalls = []
+    esto. pcCalls = []
 
-    // start child process
-    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
-    this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
+    // iniciar proceso secundario
+    env. PP_TEST_DRIVER = 1 // dejar que la aplicación sepa que debería escuchar los mensajes
+    esto. rocess = childProcess. pawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
-    // handle rpc responses
-    this.process.on('message', (message) => {
+    // manejar respuestas rpc
+    esto. rocesa. n('mensaje', (message) => {
       // pop the handler
-      const rpcCall = this.rpcCalls[message.msgId]
-      if (!rpcCall) return
-      this.rpcCalls[message.msgId] = null
-      // reject/resolve
-      if (message.reject) rpcCall.reject(message.reject)
-      else rpcCall.resolve(message.resolve)
+      const rpcCall = this. pcCalls[message.msgId]
+      si (!rpcCall) devuelve
+      esto. pcCalls[message.msgId] = null
+      // rechazar/resolver
+      if (mensaje. eject) rpcCall.reject(message.reject)
+      else rpcCall.resolve(mensaje. esolve)
     })
 
-    // wait for ready
-    this.isReady = this.rpc('isReady').catch((err) => {
-      console.error('Application failed to start', err)
-      this.stop()
-      process.exit(1)
+    // esperar por lista
+    this.isReady = this.rpc('isReady'). atch((err) => {
+      console.error('La aplicación falló al iniciar', err)
+      esto. top()
+      proceso. xit(1)
     })
   }
 
-  // simple RPC call
-  // to use: driver.rpc('method', 1, 2, 3).then(...)
-  async rpc (cmd, ...args) {
-    // send rpc request
-    const msgId = this.rpcCalls.length
-    this.process.send({ msgId, cmd, args })
-    return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
+  // simple llamada RPC
+  // para usar: driver. pc('método', 1, 2, 3).then(. .)
+  async rpc (cmd, ... rgs) {
+    // enviar solicitud rpc
+    const msgId = this. pcCalls.length
+    this.process. end({ msgId, cmd, args })
+    return new Promise((resolve, reject) => this.rpcCalls. ush({ resolve, reject }))
   }
 
   stop () {
@@ -121,7 +121,7 @@ const electronPath = require('electron')
 
 const app = new TestDriver({
   path: electronPath,
-  args: ['./app'],
+  args: ['. app'],
   env: {
     NODE_ENV: 'test'
   }
@@ -129,7 +129,7 @@ const app = new TestDriver({
 test.before(async t => {
   await app.isReady
 })
-test.after.always('cleanup', async t => {
+test. fter.always('cleanup', async t => {
   await app.stop()
 })
 ```

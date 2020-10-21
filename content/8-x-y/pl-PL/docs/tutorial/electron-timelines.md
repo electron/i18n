@@ -1,9 +1,9 @@
-# Electron Release Timelines
+# Oś czasu wydania Electrona
 
-* The `-beta.1` and `stable` dates are our solid release dates.
-* We strive for weekly beta releases, however we often release more betas than scheduled.
-* All dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
-* Take a look at the [5.0.0 Timeline blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
+* Daty `-beta.1` i `stabilne` to nasze daty wydania.
+* Staramy się o cotygodniowe wersje beta, jednak często publikujemy więcej betów niż zaplanowano.
+* Wszystkie daty są naszymi celami, ale mogą istnieć powody dostosowania stabilnego terminu, takie jak błędy bezpieczeństwa.
+* Zapoznaj się z wpisem [5.0.0 osi czasu](https://electronjs.org/blog/electron-5-0-timeline) , aby uzyskać informacje o publikowaniu naszych dat wydania.
 
 | Wersja | -beta.1    | Stabilna   | Chrome | Node |
 | ------ | ---------- | ---------- | ------ | ---- |

@@ -7,32 +7,32 @@ author:
 date: '2019-07-30'
 ---
 
-The Electron team is excited to announce the release of Electron 6.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Tým Electronu je nadšený oznámením vydání Electronu 6.0.0! Můžete ji nainstalovat pomocí npm přes `npm instalovat electron@latest` nebo stáhnout z našich [webových stránek](https://electronjs.org/releases/stable). Vydání je plněno aktualizacemi, opravami a novými funkcemi. Nemůžeme čekat, co s nimi buduješ! Pokračujte ve čtení podrobností o tomto vydání a prosím sdílejte zpětnou vazbu, kterou máte!
 
 ---
 
-## What's New
+## Co je nového
 
-Today marks a first for the Electron project: this is the first time we've made a stable Electron release **on the same day** as the corresponding [Chrome stable release](https://www.chromestatus.com/features/schedule)! 🎉
+Dnes označujeme jako první pro projekt Electron: je to poprvé, co jsme učinili stabilní vydání Electronu **téhož dne** jako odpovídající [stabilní vydání Chrome](https://www.chromestatus.com/features/schedule)! 🎉
 
-Much of Electron's functionality is provided by the core components of Chromium, Node.js, and V8. Electron keeps up-to-date with these projects to provide our users with new JavaScript features, performance improvements, and security fixes. Each of these packages has a major version bump in Electron 6:
+Velkou část funkce Electronu poskytuje jádro Chromium, Node.js a V8. Electron průběžně aktualizuje tyto projekty, aby poskytoval našim uživatelům nové funkce JavaScriptu, vylepšení výkonu a bezpečnostní opravy. Každý z těchto balíčků má hlavní verzi pumpy v Electron 6:
 
-- Chromium `76.0.3809.88`
-  - [New in 74](https://developers.google.com/web/updates/2019/04/nic74)
-  - [New in 75](https://developers.google.com/web/updates/2019/06/nic75)
-  - [New in 76](https://developers.google.com/web/updates/2019/07/nic76)
+- Chrom `76.0.3809.88`
+  - [Nový v 74](https://developers.google.com/web/updates/2019/04/nic74)
+  - [Nový v 75](https://developers.google.com/web/updates/2019/06/nic75)
+  - [Nový v 76](https://developers.google.com/web/updates/2019/07/nic76)
 - Node.js `12.4.0`
-  - [Node 12.4.0 blog post](https://nodejs.org/en/blog/release/v12.4.0/)
+  - [Uzel 12.4.0 blogový příspěvek](https://nodejs.org/en/blog/release/v12.4.0/)
 - V8 `7.6.303.22`
-    - [V8 7.6 blog post](https://v8.dev/blog/v8-release-76)
+    - [V8 7.6 blogový příspěvek](https://v8.dev/blog/v8-release-76)
 
-This release also includes improvements to Electron's APIs. [The release notes](https://github.com/electron/electron/releases/tag/v6.0.0) have a more complete list, but here are the highlights:
+Tato verze také obsahuje vylepšení API Electronu. [Poznámky k vydání](https://github.com/electron/electron/releases/tag/v6.0.0) mají dokonalejší seznam, ale zde jsou zvýraznění:
 
 ### Promisification
 
 Electron 6.0 continues the modernization [initiative](https://github.com/electron/electron/blob/master/docs/api/modernization/promisification.md) started in 5.0 to improve [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) support.
 
-These functions now return Promises and still support older callback-based invocation:
+Tyto funkce nyní vracejí sliby a stále podporují starší volání zpět:
  * `contentTracing.getCategories()` [#16583](https://github.com/electron/electron/pull/16583)
  * `contentTracing.getCategories()` [#16583](https://github.com/electron/electron/pull/16583)
  * `contentTracing.getTraceBufferUsage()` [#16600](https://github.com/electron/electron/pull/16600)
@@ -60,44 +60,44 @@ These functions now return Promises and still support older callback-based invoc
  * `webFrame.executeJavaScriptInIsolatedWorld()` [#17312](https://github.com/electron/electron/pull/17312)
  * `webviewTag.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
 
-These functions now have two forms, synchronous and Promise-based asynchronous:
+Tyto funkce mají nyní dvě formy, synchronně propojené a protichůdné asynchrony:
  * `dialog.showMessageBox()`/`dialog.showMessageBoxSync()` [#17298](https://github.com/electron/electron/pull/17298)
  * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
  * `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
 
-These functions now return Promises:
+Tyto funkce nyní vracejí sliby:
  * `app.dock.show()` [#16904](https://github.com/electron/electron/pull/16904)
 
-### `Electron Helper (Renderer).app`, `Electron Helper (GPU).app` and `Electron Helper (Plugin).app`
+### `Electron Helper (Renderer).app`, `Electron Helper (GPU).app` a `Electron Helper (Plugin).app`
 
-In order to enable the [hardened runtime](https://developer.apple.com/documentation/security/hardened_runtime_entitlements?language=objc), which restricts things like writable-executable memory and loading code signed by a different Team ID, special code signing entitlements needed to be granted to the Helper.
+Aby bylo možné povolit [zpevněnou běh](https://developer.apple.com/documentation/security/hardened_runtime_entitlements?language=objc), která omezuje věci jako zapisovatelná spustitelná paměť a načítací kód podepsaný jiným týmem ID nároky na podpis zvláštního kódu, které musí být poskytnuty Helperu.
 
-To keep these entitlements scoped to the process types that require them, Chromium [added](https://chromium-review.googlesource.com/c/chromium/src/+/1627456) three new variants of the Helper app: one for renderers (`Electron Helper (Renderer).app`), one for the GPU process (`Electron Helper (GPU).app`) and one for plugins (`Electron Helper (Plugin).app`).
+zachovat rozsah těchto nároků podle typů postupů, které je vyžadují, Chromium [přidal](https://chromium-review.googlesource.com/c/chromium/src/+/1627456) tři nové varianty aplikace Helper: jedna pro renderery (`Electron Helper (Rendererer). pp`), jeden pro GPU proces (`Electron Helper (GPU). pp`) a jeden pro pluginy (`Electron Helper (Plugin).app`).
 
-Folks using `electron-osx-sign` to codesign their Electron app shouldn't have to make any changes to their build logic. If you're codesigning your app with custom scripts, you should ensure that the three new Helper applications are correctly codesigned.
+Složky s `elektronickým osx-znakem` pro kódování jejich Electron aplikace by neměly dělat žádné změny v jejich sestavovací logice. Pokud svou aplikaci kódujete pomocí vlastních skriptů, měli byste zajistit, aby tři nové Helper aplikace byly správně kódovány.
 
-In order to package your application correctly with these new helpers you need to be using `electron-packager@14.0.4` or higher.  If you are using `electron-builder` you should follow [this issue](https://github.com/electron-userland/electron-builder/issues/4104) to track support for these new helpers.
+Pro správné naplnění vaší aplikace s těmito novými pomocníky musíte používat `electron-packager@14.0.4` nebo vyšší.  Pokud používáte `electron-builder` , měli byste sledovat [tento problém](https://github.com/electron-userland/electron-builder/issues/4104) , abyste mohli sledovat podporu těchto nových pomocníků.
 
 ## Breaking Changes
 
- * This release begins laying the groundwork for a future requirement that native Node modules loaded in the renderer process be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). The reasons for this change are faster performance, stronger security, and reduced maintenance workload. Read the full details including the proposed timeline in [this issue](https://github.com/electron/electron/issues/18397). This change is expected to be completed in Electron v11.
+ * Tato verze začíná vytvářet základy pro budoucí požadavek, aby nativní moduly uzlu načtené v procesu renderer byly buď [N-API](https://nodejs.org/api/n-api.html) nebo [kontextové Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Důvody této změny jsou rychlejší výkonnost, větší bezpečnost a snížení údržbového zatížení. Přečtěte si všechny detaily včetně navrhované časové osy v [tomto úkolu](https://github.com/electron/electron/issues/18397). Očekává se, že tato změna bude dokončena v Electronu v11.
 
- * `net.IncomingMessage` headers have [changed slightly](https://github.com/electron/electron/pull/17517#issue-263752903) to more closely match [Node.js behavior](https://nodejs.org/api/http.html#http_message_headers), particularly with the value of `set-cookie` and how duplicate headers are handled. [#17517](https://github.com/electron/electron/pull/17517).
+ * `net.IncomingMessage` hlavičky [se mírně změnily](https://github.com/electron/electron/pull/17517#issue-263752903) tak, aby více odpovídaly [Node. s chování](https://nodejs.org/api/http.html#http_message_headers), zejména s hodnotou `set-cookie` a jak se s duplikovanými hlavičkami zachází. [#17517](https://github.com/electron/electron/pull/17517).
 
- * `shell.showItemInFolder()` now returns void and is an asynchronous call. [#17121](https://github.com/electron/electron/pull/17121)
+ * `shell.showItemInFolder()` nyní vrací neplatné a je asynchronní hovor. [#17121](https://github.com/electron/electron/pull/17121)
 
- * Apps must now explicitly set a log path by calling the new function `app.setAppLogPath()` before using `app.getPath('log')`. [#17841](https://github.com/electron/electron/pull/17841)
+ * Aplikace musí nyní výslovně nastavit cestu k logu vyvoláním nové funkce `app.setAppLogPath()` před použitím `app.getPath('log')`. [#17841](https://github.com/electron/electron/pull/17841)
 
-## End of Support for 3.x.y
+## Konec podpory pro 3.x.y
 
-Per our [support policy](https://electronjs.org/docs/tutorial/support#supported-versions), 3.x.y has reached end of life. Developers and applications are encouraged to upgrade to a newer version of Electron.
+Na naši [politiku podpory](https://electronjs.org/docs/tutorial/support#supported-versions), 3.x.y dosáhl konce života. Vývojáři a aplikace jsou vybízeny k aktualizaci na novější verzi Electronu.
 
 ## App Feedback Program
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+Pokračujeme v používání našeho [programu zpětné vazby aplikací](https://electronjs.org/blog/app-feedback-program) pro testování. Projekty, které se účastní tohoto programu testování Electron betas na svých aplikacích; a na oplátku nové chyby mají prioritu pro stabilní vydání. Pokud byste se chtěli zúčastnit nebo se dozvědět více, [podívejte se na náš blog příspěvek o programu](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Co je další
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 7.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 7 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+Z krátkodobého hlediska můžete očekávat, že se tým bude nadále zaměřovat na udržení pokroku při vývoji hlavních komponentů, které tvoří Electron, včetně chromu, niklu a V8. I když jsme opatrní, abychom neslíbili data zveřejnění, Naším plánem je vydání nových hlavních verzí Electronu s novými verzemi těchto komponentů přibližně čtvrtletně. [předběžný plán 7.0.0](https://electronjs.org/docs/tutorial/electron-timelines) mapuje klíčová data ve vývojovém životním cyklu Electronu 7. Také [viz náš dokument s verzemi](https://electronjs.org/docs/tutorial/electron-versioning) pro podrobnější informace o verzích v Electronu.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+Informace o plánovaných zlomových změnách v nadcházejících verzích Electronu [naleznete v naší Plánované zlomení změn doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).

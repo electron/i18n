@@ -11,9 +11,9 @@ __قائمة الملف الممثّل:__
 يمكن استخدام الواجهات البرمجية [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) و [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) لإضافة الملف الممثَّل إلى النافذة:
 
 ```javascript
-const { BrowserWindow } = require('electron')
+{ BrowserWindow } = مطلوبة ('electron')
 
-const win = new BrowserWindow()
+الفوز = متصفح ويندوز جديد ()
 win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```

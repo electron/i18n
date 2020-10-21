@@ -1,26 +1,26 @@
 ---
-title: What's new in Electron 0.37
+title: Ce este nou în Electron 0,37
 author: zeke
 date: '2016-03-25'
 ---
 
-Electron `0.37` was recently [released](https://github.com/electron/electron/releases) and included a major upgrade from Chrome 47 to Chrome 49 and also several new core APIs. This latest release brings in all the new features shipped in [Chrome 48](http://blog.chromium.org/2015/12/chrome-48-beta-present-to-cast-devices_91.html) and [Chrome 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html). This includes CSS custom properties, increased [ES6](http://www.ecma-international.org/ecma-262/6.0/) support, `KeyboardEvent` improvements, `Promise` improvements, and many other new features now available in your Electron app.
+Electron `0.37` was recently [released](https://github.com/electron/electron/releases) and included a major upgrade from Chrome 47 to Chrome 49 and also several new core APIs. Această ultimă versiune aduce toate caracteristicile noi expediate în [Chrome 48](http://blog.chromium.org/2015/12/chrome-48-beta-present-to-cast-devices_91.html) și [Chrome 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html). Aceasta include proprietăți personalizate CSS, suport [ES6](http://www.ecma-international.org/ecma-262/6.0/) , `îmbunătățiri pentru tastatură` , `Propune îmbunătățiri` și multe alte funcții noi disponibile acum în aplicația ta Electron.
 
 ---
 
-## What's New
+## Ce este nou
 
 ### CSS Custom Properties
 
-If you've used preprocessed languages like Sass and Less, you're probably familiar with *variables*, which allow you to define reusable values for things like color schemes and layouts. Variables help keep your stylesheets DRY and more maintainable.
+Dacă ai folosit limbi preprocesate ca Sass și Less, probabil ești familiarizat cu *variabilele*, care vă permit să definiţi valori reutilizabile pentru lucruri cum ar fi schemele de culori şi machete. Variabilele vă ajută să țineți formatele DRY și mai întreținute.
 
-CSS custom properties are similar to preprocessed variables in that they are reusable, but they also have a unique quality that makes them even more powerful and flexible: **they can be manipulated with JavaScript**. This subtle but powerful feature allows for dynamic changes to visual interfaces while still benefitting from [CSS's hardware acceleration](https://developer.mozilla.org/en-US/Apps/Fundamentals/Performance/Performance_fundamentals#Use_CSS_animations_and_transitions), and reduced code duplication between your frontend code and stylesheets.
+Proprietățile personalizate CSS sunt similare cu variabilele preprocesate prin faptul că sunt reutilizabile, dar au și o calitate unică, care îi face și mai puternici și flexibili: **ei pot fi manipulați cu JavaScript**. Această caracteristică subtilă, dar puternică, permite modificări dinamice ale interfețelor vizuale în timp ce beneficiază în continuare de [accelerarea hardware a CSS](https://developer.mozilla.org/en-US/Apps/Fundamentals/Performance/Performance_fundamentals#Use_CSS_animations_and_transitions), si a redus duplicarea codului intre codul din frontend si stilurile de programare.
 
-For more info on CSS custom properties, see the [MDN article](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) and the [Google Chrome demo](https://googlechrome.github.io/samples/css-custom-properties/).
+Pentru mai multe informații despre proprietățile personalizate CSS, consultați [articolul MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) și [Demo Google Chrome](https://googlechrome.github.io/samples/css-custom-properties/).
 
-#### CSS Variables In Action
+#### Variabile CSS în acțiune
 
-Let's walk through a simple variable example that can be tweaked live in your app.
+Hai să trecem printr-un exemplu variabil simplu care poate fi modificat live în aplicația ta.
 
 ```css
 :root {
@@ -32,58 +32,58 @@ body {
 }
 ```
 
-The variable value can be retrieved and changed directly in JavaScript:
+Valoarea variabilei poate fi preluată și modificată direct în JavaScript:
 
 ```js
-// Get the variable value ' #A5ECFA'
-let color = window.getComputedStyle(document.body).getPropertyValue('--awesome-color')
+// Obține valoarea variabilă ' #A5ECFA'
+let culoare = window.getComputedStyle(document.body).getPropertyValue('--awesome-color')
 
-// Set the variable value to 'orange'
+/ Setează valoarea variabilă la 'portocaliu'
 document.body.style.setProperty('--awesome-color', 'orange')
 ```
 
-The variable values can be also edited from the **Styles** section of the development tools for quick feedback and tweaks:
+Valorile variabile pot fi de asemenea editate din secțiunea **Stiluri** a uneltelor de dezvoltare pentru feedback rapid și modificări:
 
-![CSS properties in Styles tab](https://cloud.githubusercontent.com/assets/671378/13991612/1d10eb9c-f0d6-11e5-877b-c4dbc59f1209.gif){: .screenshot }
+![Proprietăți CSS în fila Styles](https://cloud.githubusercontent.com/assets/671378/13991612/1d10eb9c-f0d6-11e5-877b-c4dbc59f1209.gif){: .screenshot }
 
-### `KeyboardEvent.code` Property
+### `Tastatură.code` Proprietate
 
-Chrome 48 added the new `code` property available on `KeyboardEvent` events that will be the physical key pressed independent of the operating system keyboard layout.
+Chrome 48 a adăugat noua proprietate `cod` disponibilă pe `evenimente tastatură` care vor fi apăsate independent de configurația tastaturii sistemului de operare.
 
-This should make implementing custom keyboard shortcuts in your Electron app more accurate and consistent across machines and configurations.
+Acest lucru ar trebui să facă implementarea scurtăturilor personalizate pentru tastatură în aplicația Electron mai precisă și mai consecventă între mașini și configurații.
 
 ```js
 window.addEventListener('keydown', function(event) {
-  console.log(`${event.code} was pressed.`)
+  console.log(`${event.code} a fost apăsat.`)
 })
 ```
 
-Check out [this example](https://googlechrome.github.io/samples/keyboardevent-code-attribute/) to see it in action.
+Vezi [acest exemplu](https://googlechrome.github.io/samples/keyboardevent-code-attribute/) pentru a-l vedea în acțiune.
 
-### Promise Rejection Events
+### Evenimente de Respingere Promise
 
-Chrome 49 added two new `window` events that allow you to be notified when an rejected [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) goes unhandled.
+Chrome 49 a adăugat două evenimente noi `fereastră` care vă permit să fiți notificat atunci când o [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) nu este tratată.
 
 ```js
 window.addEventListener('unhandledrejection', function (event) {
-  console.log('A rejected promise was unhandled', event.promise, event.reason)
+  console.log('A rejected promise a fost neprocesată', event.promise, event.reason)
 })
 
-window.addEventListener('rejectionhandled', function (event) {
-  console.log('A rejected promise was handled', event.promise, event.reason)
+window. ddEventListener('rejectionhandled', function (event) {
+  console.log('O promisiune respinsă a fost gestionată', event.promise, event.reason)
 })
 ```
 
-Check out [this example](https://googlechrome.github.io/samples/promise-rejection-events/index.html) to see it in action.
+Vezi [acest exemplu](https://googlechrome.github.io/samples/promise-rejection-events/index.html) pentru a-l vedea în acțiune.
 
-### ES2015 Updates in V8
+### Actualizări ES2015 în V8
 
-The version of V8 now in Electron incorporates [91% of ES2015](https://kangax.github.io/compat-table/es6/#chrome49). Here are a few interesting additions you can use out of the box—without flags or pre-compilers:
+Versiunea V8 acum în Electron încorporează [91% din ES2015](https://kangax.github.io/compat-table/es6/#chrome49). Aici sunt câteva adăugiri interesante pe care le poți folosi din cutie - fără steaguri sau pre-compilare:
 
-#### Default parameters
+#### Parametrii impliciti
 
 ```js
-function multiply(x, y = 1) {
+multiply(x, y = 1) {
   return x * y
 }
 
@@ -92,31 +92,31 @@ multiply(5) // 5
 
 #### Destructuring assignment
 
-Chrome 49 added [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make assigning variables and function parameters much easier.
+Chrome 49 a adăugat [destructurare atribuire](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) pentru a face atribuirea variabilelor și a parametrilor funcției mult mai ușor.
 
-This makes Electron requires cleaner and more compact to assign now:
+Acest lucru face ca Electron să necesite mai curat și mai compact pentru a atribui acum:
 
-##### Browser Process Requires
+##### Procesul de navigare necesită
 
 ```js
 const {app, BrowserWindow, Menu} = require('electron')
 ```
 
-##### Renderer Process Requires
+##### Procesul de redare necesită
 
 ```js
 const {dialog, Tray} = require('electron').remote
 ```
 
-##### Other Examples
+##### Alte exemple
 
 ```js
-// Destructuring an array and skipping the second element
-const [first, , last] = findAll()
+// Destructurând un array și sărind al doilea element
+const [primul, , , last] = findAll()
 
-// Destructuring function parameters
+// Parametrii funcției Destructuring
 function whois({displayName: displayName, fullName: {firstName: name}}){
-  console.log(`${displayName} is ${name}`)
+  consolă. og(`${displayName} is ${name}`)
 }
 
 let user = {
@@ -128,51 +128,51 @@ let user = {
 }
 whois(user) // "jdoe is John"
 
-// Destructuring an object
+// Destructurarea unui obiect
 let {name, avatar} = getUser()
 ```
 
-## New Electron APIs
+## API Electron Nou
 
-A few of the new Electron APIs are below, you can see each new API in the release notes for [Electron releases](https://github.com/electron/electron/releases).
+Câteva dintre noile API-uri Electron sunt mai jos, puteți vedea fiecare API nou în notele de lansare pentru [Electron releases](https://github.com/electron/electron/releases).
 
-#### `show` and `hide` events on `BrowserWindow`
+#### `arată` și `ascunde` evenimente pe `Fereastra Browser`
 
-These events are emitted when the window is either shown or hidden.
+Aceste evenimente sunt emise atunci când fereastra este fie afișată, fie ascunsă.
 
 ```js
 const {BrowserWindow} = require('electron')
 
 let window = new BrowserWindow({width: 500, height: 500})
-window.on('show', function () { console.log('Window was shown') })
-window.on('hide', function () { console.log('Window was hidden') })
+. n('show', function () { console.log('Fereastra a fost afişată') })
+window.on('hide', function () { console.log('Fereastra a fost ascunsă') })
 ```
 
-#### `platform-theme-changed` on `app` for `OS X`
+#### `Temă-temă schimbat` pe `aplicație` pentru `OS X`
 
-This event is emitted when the system’s [Dark Mode](https://discussions.apple.com/thread/6661740) theme is toggled.
+Acest eveniment este emis atunci când tema [Modul Întunecat](https://discussions.apple.com/thread/6661740) a sistemului este comutată.
 
 ```js
 const {app} = require('electron')
 
 app.on('platform-theme-changed', function () {
-  console.log(`Platform theme changed. In dark mode? ${app.isDarkMode()}`)
+  console.log(`platforma a fost modificată. În modul întunecat? ${app.isDarkMode()}`)
 })
 ```
 
-#### `app.isDarkMode()` for `OS X`
+#### `app.isDarkMode()` pentru `OS X`
 
-This method returns `true` if the system is in Dark Mode, and `false` otherwise.
+Această metodă returnează `true` în cazul în care sistemul este în modul întunecat, și `false` altfel.
 
-#### `scroll-touch-begin` and `scroll-touch-end` events to BrowserWindow for `OS X`
+#### `scroll-touch-begin` și `evenimente scroll-touch-end` în BrowserWindow pentru `OS X`
 
-These events are emitted when the scroll wheel event phase has begun or has ended.
+Aceste evenimente sunt emise în momentul în care a început sau s-a încheiat etapa de derulare a roții.
 
 ```js
 const {BrowserWindow} = require('electron')
 
 let window = new BrowserWindow({width: 500, height: 500})
-window.on('scroll-touch-begin', function () { console.log('Scroll touch started') })
+window.on('scroll-touch-start', function () { consolă. og('Scroll touch started') })
 window.on('scroll-touch-end', function () { console.log('Scroll touch ended') })
 ```
 

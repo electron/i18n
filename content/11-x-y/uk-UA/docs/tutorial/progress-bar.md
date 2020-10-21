@@ -1,18 +1,18 @@
-# Progress Bar in Taskbar (Windows, macOS, Unity)
+# Смуга прогресу в панелі завдань (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+На Windows кнопка задач може бути використана для відображення смуги прогресу. Це дозволяє встановити дані про прогрес користувачу без необхідності переключитися на саме вікно.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+На macOS рядок прогресу буде відображатися як частина піктограми в панелі задач.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+The Unity DE також має аналогічну функцію, яка дозволяє вам вказати прогрес в панелі запуску.
 
-__Progress bar in taskbar button:__
+__Прогрес бар в панелі завдань:__
 
-![Taskbar Progress Bar][1]
+![Прогрес панелі завдань][1]
 
-All three cases are covered by the same API - the `setProgressBar()` method available on instances of `BrowserWindows`. Call it with a number between `0` and `1` to indicate your progress. If you have a long-running task that's currently at 63% towards completion, you'd call it with `setProgressBar(0.63)`.
+Усі три випадки покриті тим самим API - `setProgressBar()` доступний за екземплярами `BrowserWindows`. Назвіть це числом від `0` і `1` , щоб вказати свій прогрес. Якщо у вас є довгострокове завдання, це наразі на 63% до завершення, ви б назвали його `setProgressBar(0.63)`.
 
-Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
+В загальному, встановлення параметра на значення нижче нуля (наприклад `-1`) видалить рядок прогресу під час встановлення його значення вище одного (наприклад `2`) змінить рядок прогресу на проміжний режим.
 
 See the [API documentation for more options and modes][setprogressbar].
 
